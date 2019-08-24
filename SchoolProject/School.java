@@ -32,8 +32,9 @@ public class School
 			{
 				System.out.println(+(i+1)+"th classroom details");
 				classroom[i].printDetails();
+				System.out.println("class wise rank list");
 				classroom[i].rankList();
-				System.out.println(+(i+1)+"__________________________________");
+				System.out.println("__________________________________");
 			}		
 	}
 	public void rankList()
@@ -58,14 +59,14 @@ public class School
 			for(int i=0; i<n; i++)
 			{
 				rank[u]=classroom[j].student[i];
-				System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[u].studentName + rank[u].tmark);
+				// System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[u].studentName + rank[u].tmark);
 				u++;
 			}
 		}
-		for(int i=0; i<l;i++)
-		{
-			System.out.println(rank[i].studentName);
-		}	
+		// for(int i=0; i<l;i++)
+		// {
+		// 	System.out.println(rank[i].studentName);
+		// }	
 		for(int i=0; i<l; i++)
 		{
 			
