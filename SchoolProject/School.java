@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class School
 {
  String name;
@@ -9,10 +10,18 @@ public class School
  	name=sName;
  	place=sPlace;
  }
+  public void scan()
+  {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter standard:");
+    int std=sc.nextInt();
+    classes=new Classroom(std);
+    classes.scan();
+  }
+
 
  void getSchoolDetails()
  {
-	classes=new Classroom(8);
 	System.out.println(name);
 	System.out.println("Situated in "+place);
 	System.out.println("---------------------");

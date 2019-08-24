@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Classroom
 {
 	int std;
@@ -9,17 +10,25 @@ public class Classroom
 		std=standard;
 	}
 
-    public void getClassroomDetails()
-	{
+	 public void scan()
+  	{
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter Tr name:");
+    String tName=sc.nextLine();
+    teacher=new Teacher(tName);
+    System.out.println("Enter Rollno:");
+    int rollno=sc.nextInt();
+    System.out.println("Enter Name:");
+    String sName=sc.next();
+    student=new Student(rollno,sName);
+    student.scan();
+  	}
 
-		teacher=new Teacher("Aswathy","Maths");
-	    student=new Student(1,"Ahalya");
+    public void getClassroomDetails()
+	{ 
 		System.out.println("\nStandard "+std);
-		System.out.println("Teacher Details");
-   		System.out.println("----------------");
+		
 		teacher.getTeacherDetails();
-	   	System.out.println("Student Details");
-		System.out.println("----------------");
 	    student.getStudentDetails();
 	}
 }

@@ -1,18 +1,16 @@
+import java.util.Scanner;
 public class Teacher
 {
-  String name;
-  String subject;
+  String tName;
 
-public Teacher( String tName,String tSubject)
+public Teacher( String trName)
 {
-  name=tName;
-  subject=tSubject;
+  tName=trName;
 }
 
   void getTeacherDetails()
   {
-  	System.out.println("Teacher: "+name);
-  	System.out.println("Subject: "+subject);
+  	System.out.println("Teacher: "+tName);
     System.out.println("\n");
   }
 
