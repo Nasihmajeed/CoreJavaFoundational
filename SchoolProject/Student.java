@@ -3,38 +3,21 @@ public class Student
 {
 	int rollno;
 	String name;
-    Subject[] subject;
-    int total;
+    Subject subject;
 
-	void setStudentDetails()
+	public Student(int stRollno,String stName)
 	{
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter roll no:	");
-	rollno=sc.nextInt();
-	System.out.println("Enter name: ");
-	name=sc.next();
-	System.out.println("Details of Subject");
-	System.out.println("Enter no.of subjects");
-	int n=sc.nextInt();
-	subject=new Subject[n];
-	for(int i=0;i<n;i++)
-		{
-			subject[i]=new Subject();
-			subject[i].setSubDetails();
-	    }
-    }
-
+		rollno=stRollno;
+		name=stName;
+	}
 	void getStudentDetails()
 	{   
-		total=0;
+		subject=new Subject(40,"Chemistry");
 		System.out.println("Rollno:	"+rollno);
 		System.out.println("Name:	"+name);
-		for(int i=0;i<subject.length;i++)
-		   {
-		   		subject[i].getSubDetails();	
-		   		total=total+subject[i].mark;
-		   }
-		   System.out.println("Total :" +total);
-		   System.out.println("\n");
+		subject.getSubDetails();	
+		System.out.println("\n");
 	}
 }
+
+

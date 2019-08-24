@@ -1,19 +1,13 @@
-import java.util.Scanner;
 public class Teacher
 {
-	
   String name;
   String subject;
 
-  void setTeacherDetails()
-  {
-  Scanner sc=new Scanner(System.in);
-  System.out.println("\n");
-  System.out.println("Enter teacher name");
-	name=sc.nextLine();
-	System.out.println("Enter subject ");
-	subject=sc.nextLine();
-  }
+public Teacher( String tName,String tSubject)
+{
+  name=tName;
+  subject=tSubject;
+}
 
   void getTeacherDetails()
   {
@@ -23,3 +17,16 @@ public class Teacher
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
