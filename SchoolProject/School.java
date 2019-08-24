@@ -22,6 +22,7 @@ public class School
 		
 		for(i=0;i<n;i++)
 		{
+			System.out.println("enter "+(i+1)+" st classroom details");
 			classes[i]=new Classroom();
 			classes[i].scan();
 		}
@@ -55,13 +56,11 @@ public class School
 			count+=o[z];
 		}
 		Student temp=new Student();
-		for(z=0;z<n;z++)
-		{
-			for(i=0;i<o[z];i++)
+		for(i=0;i<count;i++)
 			{
-				for(j=0;j<o[z]-1;j++)
+				for(j=0;j<o[i];j++)
 				{
-					for(k=0;k<o[z]-1;k++)
+					for(k=0;k<o[j];k++)
 					{
 						if(classes[i].student[j].total>classes[j].student[k].total)
 						{
@@ -72,7 +71,6 @@ public class School
 					}
 				}
 			}
-		}
 		int l=0;
 		System.out.println("Schoolwise rank");
 		for(i=0;i<n;i++)
@@ -86,6 +84,5 @@ public class School
 		}	
 				
 	}
-
 
 }

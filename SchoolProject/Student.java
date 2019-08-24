@@ -7,17 +7,15 @@ public class Student
 	int total=0;
 	Subject[] subject;
 
-	public void scan()
+	public void scan(int p)
 	{
-		int i,p;
+		int i;
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter student name");
 		stName=sc.nextLine();
 		System.out.println("enter student rollno");
 		rNo=sc.nextInt();
-		System.out.println("how many subjects");
-		p=sc.nextInt();
-
+		
 		subject=new Subject[p];
 
 		for(i=0;i<p;i++)

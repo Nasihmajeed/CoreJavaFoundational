@@ -10,20 +10,24 @@ public class Classroom
 	
 	public void scan()
 	{
-		int i,o;
+		int i,o,p;
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the standard");
 		std=sc.nextInt();
-		System.out.println("enter no. of students");
-		o=sc.nextInt();
-
 		teacher=new Teacher();
 		teacher.scan();
+		System.out.println("enter no. of students");
+		o=sc.nextInt();
+		System.out.println("how many subjects");
+		p=sc.nextInt();
+
+		
 		student=new Student[o];
 		for(i=0;i<o;i++)
 		{
+			System.out.println("enter "+(i+1)+" st student details");
 			student[i]=new Student();
-			student[i].scan();
+			student[i].scan(p);
 		}
 		
 	}
