@@ -32,6 +32,8 @@ public class School
 			{
 				System.out.println(+(i+1)+"th classroom details");
 				classroom[i].printDetails();
+				classroom[i].rankList();
+				System.out.println(+(i+1)+"__________________________________");
 			}		
 	}
 	public void rankList()
@@ -42,34 +44,28 @@ public class School
 		int l=0,u=0;
 
 		for(int j=0;j<m;j++)
+		{
+			int n=classroom[j].student.length;
+			for(int i=0; i<n; i++)
 			{
-				int n=classroom[j].student.length;
-				for(int i=0; i<n; i++)
-				{
-					l++;
-				}
+				l++;
 			}
+		}
 		Student[] rank=new Student[l];		
-		
-			for(int j=0;j<m;j++)
+		for(int j=0;j<m;j++)
+		{
+			int n=classroom[j].student.length;
+			for(int i=0; i<n; i++)
 			{
-				int n=classroom[j].student.length;
-				for(int i=0; i<n; i++)
-				{
-					
-					rank[u]=classroom[j].student[i];
-					
-					System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[u].studentName + rank[u].tmark);
-					u++;
-				}
+				rank[u]=classroom[j].student[i];
+				System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[u].studentName + rank[u].tmark);
+				u++;
 			}
-		
-		
+		}
 		for(int i=0; i<l;i++)
 		{
 			System.out.println(rank[i].studentName);
 		}	
-
 		for(int i=0; i<l; i++)
 		{
 			
@@ -92,69 +88,56 @@ public class School
 
 		}
 	}
-}
 
 
-// another method
-public void rankList1()
+
+	// another method
+	public void rankList1()
 	{
 		int m=classroom.length;
 		Student[] rank=new Student[50];
 		Student temp;
 		int l=0;
-		
-			for(int j=0;j<m;j++)
+		for(int j=0;j<m;j++)
+		{
+			int n=classroom[j].student.length;
+			for(int i=0; i<n; i++)
 			{
-				int n=classroom[j].student.length;
-				for(int i=0; i<n; i++)
-				{
-					
-					rank[l]=classroom[j].student[i];
-					
-					// System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[l].studentName +  [l].tmark);
-					l++;
-				}
+				rank[l]=classroom[j].student[i];
+				// System.out.println("shgfsgdfjahfgjhagfjhgs ="+rank[l].studentName +  [l].tmark);
+				l++;
 			}
-
+		}
 		System.out.println(l);
 		for(int g=0; g<m; g++)
 		{
-			
-		for(int h=0; h<m; h++)
-			{int s=classroom[g].student.length;
-				int a=classroom[h].student.length;
-		for(int i=0; i<s; i++)
-		{
-			for(int j=0; j<a; j++)
+			for(int h=0; h<m; h++)
 			{
-				if(classroom[g].student[i].tmark>classroom[h].student[j].tmark)
+				int s=classroom[g].student.length;
+				int a=classroom[h].student.length;
+				for(int i=0; i<s; i++)
 				{
-					temp=classroom[g].student[i];
-					classroom[g].student[i]=classroom[h].student[j];
-					classroom[h].student[j]=temp;
-
+					for(int j=0; j<a; j++)
+					{
+						if(classroom[g].student[i].tmark>classroom[h].student[j].tmark)
+						{
+							temp=classroom[g].student[i];
+							classroom[g].student[i]=classroom[h].student[j];
+							classroom[h].student[j]=temp;
+						}
+					}
 				}
 			}
-		}}}
+		}
 		System.out.println("school ranklist =");
 		for(int u=0; u<m; u++)
+		{
+			int n=classroom[u].student.length;
+			for(int i=0; i<n; i++)
 			{
-				int n=classroom[u].student.length;
-				for(int i=0; i<n; i++)
-				{
-					System.out.print(classroom[u].student[i].studentName+" : ");
-					System.out.println(classroom[u].student[i].tmark);
-
+				System.out.print(classroom[u].student[i].studentName+" : ");
+				System.out.println(classroom[u].student[i].tmark);
+			}
 		}
-}
-
-
-
-
-		
-		
-
-		 
-
 	}
 }

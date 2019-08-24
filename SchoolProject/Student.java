@@ -30,8 +30,7 @@ public class Student
 		{
 	
 			subjects[i].printDetails();
-			 
-			
+			 		
 		
 			
 		}
