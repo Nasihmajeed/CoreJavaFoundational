@@ -9,7 +9,15 @@ public class School
 	{
 		schoolName=sName;
 		place=sPlace;
+	}
+
+	public void scan()
+	{
+		Scanner read=new Scanner(System.in);
+		System.out.println("enter standard  ");
+		int cStd=read.nextInt();
 		classes=new Classroom(8);
+		classes.scan();
 	}
 	
 	public void print()
