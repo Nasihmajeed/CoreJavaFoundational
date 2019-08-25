@@ -3,17 +3,15 @@ import java.util.Scanner;
 public class Teacher
 {
 	String trName;
-
-	public void scan()
+	public Teacher(String teacherName)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("enter teachers name"); 
-		trName=sc.nextLine();
-	} 
-	
+		trName=teacherName;
+	}
+
 	public void print()
 	{
 		System.out.println(" name of the teacher is "+trName);
 	}	
+	
 	
 }
