@@ -2,30 +2,32 @@ import java.util.Scanner;
 public class Classroom
 {
 	
-	String number;
+	String div;
 	Teacher teacher;
 	Student[] student;
 	
 	
-    void getDetails()
+    public Classroom(String sdiv, int scount)
 	{
-		int n;
-		Scanner word=new Scanner(System.in);
+		int n=scount;
+		div=sdiv;
+		Scanner scan=new Scanner(System.in);
 		
-		System.out.println("enter the class nmber");
-		number=word.nextLine();
-		teacher =new Teacher();
-		teacher.getDetails();
-	
-		System.out.println("entrer the students count");
-		n=word.nextInt();
+		System.out.println("enter the teacher name: ");
+		String tname=scan.nextLine();
+		teacher =new Teacher(tname);
+		
 		student=new Student[n];
 		
 		for(int i=0; i<n; i++)
 		{
-			System.out.println("enter student "+(i+1)+" details");
-			student[i]=new Student();	
-			student[i].setDetails();
+			System.out.println("enter student "+(i+1)+" details\n");
+			System.out.println("enter student name");
+			String name=scan.next();
+			System.out.println("enter count of subjects: ");
+			int count=scan.nextInt();
+			student[i]=new Student(name,count); 
+		
 		}
 		
 	
@@ -35,7 +37,7 @@ public class Classroom
 
 		
 
-		System.out.println("class room number= "+number);
+		System.out.println("class room div= "+div);
 		teacher.printDetails();
 		int n=student.length;
 		
@@ -54,13 +56,13 @@ public class Classroom
 		Student temp;
 		for(int i=0; i<n; i++)
 		{
-			rank[i]=new Student();
+			
 			rank[i]=student[i];
 		}
 
 		for(int i=0; i<n; i++)
 		{
-			temp=new Student();
+			
 			for(int j=0; j<n; j++)
 			{
 				if(rank[i].tmark>rank[j].tmark)

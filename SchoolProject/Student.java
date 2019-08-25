@@ -4,38 +4,40 @@ public class Student
 	String studentName;
 	Subject[] subjects;	
 	int tmark;
-	public void setDetails()
-	{
-		
-		Scanner word=new Scanner(System.in);
-		System.out.println("enter student name");
-		studentName=word.nextLine();
-		System.out.println("enter the number of subjects");		
-		int n=word.nextInt();
-		subjects=new Subject[n];
-		for(int i=0;i<n;i++)
+	public Student(String sname,int slimit)
+	{	
+		studentName=sname;
+		int limit= slimit;
+		subjects=new Subject[limit];
+
+		Scanner scan=new Scanner(System.in);
+		for(int i=0;i<limit;i++)
 		{
-			tmark=0;
-			subjects[i]=new Subject();
-	    	subjects[i].setDetails();
-	    	tmark+=subjects[i].mark;
-	    }
+			System.out.println("enter the subject"+(i+1)+" name: ");
+			String name=scan.next();
+			System.out.println("enter the mark: ");
+			int mark=scan.nextInt();
+			tmark+=mark;
+			
+			subjects[i]=new Subject(name,mark); 
+			
+			
+		}
+
+		
+
+		
+		
 	}
 	public void printDetails()
 	{
-		
-		System.out.println(" student name is "+studentName);
-		int l=subjects.length;
-		for(int i=0;i<l;i++)
+		int n=subjects.length;
+		for(int i=0; i<n; i++)
 		{
-	
-			subjects[i].printDetails();
-			 		
-		
-			
+			System.out.println(subjects[i].subName+"\n"+subjects[i].mark);
 		}
 		
-		System.out.println("total mark:"+tmark);
+		
 		
 				
 	}

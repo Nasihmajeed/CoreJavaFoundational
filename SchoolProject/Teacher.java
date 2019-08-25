@@ -3,14 +3,10 @@ public class Teacher
 {
 	
 	String name;
-	String sub;
-	void getDetails()
+
+	public Teacher(String sname)
 	{
-		Scanner word=new Scanner(System.in);
-		System.out.println("enter teacher name");
-		name=word.nextLine();
-		// System.out.println("enter the subject");
-		// sub=word.nextLine();
+		name=sname;
 	}
 	void printDetails()
 	{
