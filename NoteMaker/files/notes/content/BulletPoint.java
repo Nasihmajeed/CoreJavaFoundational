@@ -1,4 +1,4 @@
-package noteMaker.notes.content;
+package files.notes.content;
 import files.notes.content.Content;
 public class BulletPoint
 {
@@ -9,8 +9,10 @@ public class BulletPoint
 		content=new Content();
 		content.setLine(line);
 	}
+
 	public void printBulletPoint()
 	{
-		System.out.println(content.getLine());
+		System.out.println("* "+content.getLine());
 	}
+
 }

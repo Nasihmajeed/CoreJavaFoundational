@@ -1,4 +1,4 @@
-package noteMaker.notes.content;
+package files.notes.content;
 public class Content
 {
 	String line;

@@ -1,4 +1,4 @@
-package noteMaker.notes;
+package files.notes;
 import java.util.Scanner;
 import files.notes.BulletClass;
 import files.notes.content.Content;
@@ -7,7 +7,6 @@ public abstract class Notes
 	private int id;
 	private String title;
 	private Content content;
-	public Content bulletContent;
 	public Scanner scan=new Scanner(System.in);
 	public void setId(int id)
 	{
@@ -17,6 +16,7 @@ public abstract class Notes
 	{
 		return id;
 	}
+	
 	public void setTitle(String title)
 	{
 		this.title=title;
@@ -25,6 +25,7 @@ public abstract class Notes
 	{
 		return title;
 	}
+
 	public void setContent(Content content)
 	{
 		this.content=content;
@@ -33,15 +34,23 @@ public abstract class Notes
 	{
 		return content;
 	}
+
 	public void createNote()
 	{
-		BulletClass bulletClass=new BulletClass();
-		bulletContent=new Content();
+		Notes bulletClass=new BulletClass();
 	}
-	public abstract void createBulletNote();
-	public abstract void createDescNote();
+
+	public void createBulletNote()
+	{
+		
+	}
+	public void createDescNote()
+	{
+
+	}
 	public abstract void create();
 	public abstract void view();
 	public abstract void edit();
 	public abstract void delete();
+	
 }
