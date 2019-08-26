@@ -1,16 +1,11 @@
-import java.util.Scanner;
 public class Subject
 {
 	String subjectName;
 	int mark;
-	public void scan()
+	public Subject(String subName,int subMark)
 	{
-		Scanner s=new Scanner(System.in);
-		System.out.println("enter subject name");
-		subjectName=s.next();
-		System.out.println("enter mark obtained");
-		mark=s.nextInt();
-		
+		subjectName=subName;
+		mark=subMark;
 	}
 	public void print()
 	{
