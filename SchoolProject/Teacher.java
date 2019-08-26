@@ -2,14 +2,11 @@ import java.util.Scanner;
 public class Teacher
 {
 	String teacherName;
-
-	public void setDetails()
+	public Teacher(String tName)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("enter teachers name"); 
-		teacherName=sc.nextLine();
+		teacherName=tName;
 	}
-	public void printDetails()
+	public void printteacherDetails()
 	{
 		System.out.println(" name of the teacher is "+teacherName);
 	}

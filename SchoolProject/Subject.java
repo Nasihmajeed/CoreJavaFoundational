@@ -3,19 +3,16 @@ public class Subject
 {
 	String subjectName;
 	int mark;
-	public void setDetails()
+	public Subject(String subName,int subMark)
 	{
-		Scanner sc=new Scanner(System.in);		
-		System.out.println("enter the subject name:");
-		subjectName=sc.nextLine();
-		System.out.println("enter the mark:");
-		mark=sc.nextInt();
-		
+		subjectName=subName;
+		mark=subMark;			
 	}
-	public void printDetails()
+	public void printsubDetails()
 	{
 		System.out.println(" subject name is "+subjectName);
 		System.out.println(" mark is "+mark);
 		
 	}
 }
+	
