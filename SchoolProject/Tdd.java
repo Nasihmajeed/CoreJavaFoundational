@@ -11,7 +11,7 @@ public class Tdd
      		String place=sc.nextLine();
      		School school=new School(name,place);
      		school.scan();
-
      		school.getSchoolDetails();
+     		school.rankList();
         }
     }
