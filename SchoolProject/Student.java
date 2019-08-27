@@ -14,6 +14,9 @@ public class Student
 	{
 		rollNo=rNo;
 		name=sname;
+	}
+	void setStudentDetails()
+	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Details of Subject");
 		System.out.println("Enter no.of subjects");
@@ -28,7 +31,7 @@ public class Student
 				subject[i]=new Subject(marks,sName);
 				
 			}
-			System.out.println("\n");
+			
 	}
 	void getStudentDetails()
 	{   

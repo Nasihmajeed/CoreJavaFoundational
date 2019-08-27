@@ -8,7 +8,9 @@ public class Classroom
 	public Classroom(int standard)
 	{
 		std=standard;
-		
+	}
+	void setClassroomDetails()
+	{
 		System.out.println("\n");
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\nEnter teacher details");
@@ -27,6 +29,7 @@ public class Classroom
 			 System.out.println("Enter name: ");
 			 String sname=sc.next();
 	 	     student[i]=new Student(rollNo,sname);
+	 	     student[i].setStudentDetails();
 	 	     
 	       }
 	}

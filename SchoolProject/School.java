@@ -11,6 +11,9 @@ public class School
 			{
 				name=schoolName;
 				place=location;
+			}
+			void setSchoolDetails()
+			{
 				Scanner sc=new Scanner(System.in);
 				System.out.println("enter no of classes");
 				int n=sc.nextInt();
@@ -21,6 +24,7 @@ public class School
 						System.out.println("\nEnter standard:");
 						int std=sc.nextInt();
 						classes[i]=new Classroom(std);
+						classes[i].setClassroomDetails();
 					}
 			}
 		void getSchoolDetails()
