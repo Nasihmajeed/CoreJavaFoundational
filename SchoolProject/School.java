@@ -5,22 +5,26 @@ public class School
 	String name;
  
  	Classroom classroom[];
- 	public  School(String sname, int sno)
+ 	public  School(String sname)
 	{
 		name=sname;
-		int no=sno;
+	}
+	public void getDetails()
+	{
 		Scanner scan=new Scanner(System.in);
+		System.out.println("enter no of classrooms: ");
+		int no=scan.nextInt();
 		classroom=new Classroom[no];
 		for(int i=0; i<no; i++)
 		{
 			System.out.println("enter "+(i+1)+"th classroom details");
 			System.out.println("enter the class division : ");
 			String div=scan.next();
-			System.out.println("enter the total students in class"+div  + ": ");
-			int count=scan.nextInt();
-
-			classroom[i]=new Classroom(div,count);
+			
+			classroom[i]=new Classroom(div);
+			classroom[i].getDetails();
 		}
+
 	}
 	public void printDetails()
 	{

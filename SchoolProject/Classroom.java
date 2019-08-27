@@ -7,11 +7,17 @@ public class Classroom
 	Student[] student;
 	
 	
-    public Classroom(String sdiv, int scount)
+    public Classroom(String sdiv)
 	{
-		int n=scount;
+		
 		div=sdiv;
+	}
+	public void getDetails()
+	{
+		
 		Scanner scan=new Scanner(System.in);
+		System.out.println("enter the total students in class: ");
+		int n=scan.nextInt();
 		
 		System.out.println("enter the teacher name: ");
 		String tname=scan.nextLine();
@@ -24,9 +30,8 @@ public class Classroom
 			System.out.println("enter student "+(i+1)+" details\n");
 			System.out.println("enter student name");
 			String name=scan.next();
-			System.out.println("enter count of subjects: ");
-			int count=scan.nextInt();
-			student[i]=new Student(name,count); 
+			student[i]=new Student(name); 
+			student[i].getDetails();
 		
 		}
 		

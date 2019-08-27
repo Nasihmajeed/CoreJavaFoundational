@@ -5,11 +5,10 @@ public class TDD
 	{
 		Scanner scan=new Scanner(System.in);
 		System.out.println("enter the school name");
-		String name=scan.nextLine();
-		System.out.println("enter no of classrooms in "+name);
-		int no=scan.nextInt();
+		String name=scan.nextLine();		
 		
-		School school=new School(name,no);
+		School school=new School(name);
+		school.getDetails();
 		school.printDetails();
 		school.rankList();
 	

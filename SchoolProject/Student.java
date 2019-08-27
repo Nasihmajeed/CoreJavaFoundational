@@ -4,13 +4,20 @@ public class Student
 	String studentName;
 	Subject[] subjects;	
 	int tmark;
-	public Student(String sname,int slimit)
+	public Student(String sname)
 	{	
 		studentName=sname;
-		int limit= slimit;
+	}
+	public void getDetails()
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("enter count of subjects: ");
+		int limit=scan.nextInt();
+			
+		
 		subjects=new Subject[limit];
 
-		Scanner scan=new Scanner(System.in);
+		
 		for(int i=0;i<limit;i++)
 		{
 			System.out.println("enter the subject"+(i+1)+" name: ");
