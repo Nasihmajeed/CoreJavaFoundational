@@ -4,7 +4,7 @@ public class Student
  public String name;
  public int id;
  Subject[] subject ;
- int total;
+  public int total;
  public void scan()
  {
 	 subject = new Subject [3];
@@ -16,20 +16,24 @@ public class Student
    
    for(int i=0; i<3; i++)       
    {
-	   subject[i] = new Subject();
+	   subject[i] = new Subject();                                                
 	   subject[i].scan();
    }  
 }
 public void total()                  
-{     
-                                         // for display total mark
+{   
+    
+     
+	 int j,temp; 
+     
     total=0;
 	for(int i=0; i<3; i++)
 	{
 		total=total+subject[i].score;
 	}
-
-		System.out.println(" \n total score achieved : " +total); 
+	
+    // System.out.println(" \n total score achieved : " +total); 
+	 
 }
  public void print()
  {

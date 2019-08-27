@@ -5,9 +5,10 @@
 	 {
 		School school= new School();
 		school.scan();
-		//school.total();
+		
 		school.print();
-        		
+		school.rank();
+        //classRoom.rank();		
 	  }
  }
 	 

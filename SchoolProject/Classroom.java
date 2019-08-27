@@ -31,6 +31,7 @@ public class Classroom
    
    
  }
+ 
  public void print()
  {   
 	 System.out.println(" \n STD  "+std+" & DIV:"+div);
@@ -42,4 +43,26 @@ public class Classroom
 	 }
 	 
  }
+ public void rank()
+ {
+	 int i,j ;
+	 Student temp= new Student();
+	 for(i=0;i<students.length;i++)
+	 {
+		 for(j=0;j<students.length;j++)
+		 {
+			 if(students[i].total>students[j].total)
+			 {
+				temp=students[i];
+				students[i]=students[j];
+				students[j]=temp;
+			 }
+		 }
+	 }
+	 System.out.println("RANK LIST--CLASS");
+	 for(i=0;i<students.length;i++)
+	 {
+		 System.out.println((i+1)+" name--"+students[i].name+" score--"+students[i].total);
+	 }
+ } 
 }
