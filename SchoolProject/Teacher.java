@@ -6,7 +6,7 @@ public class Teacher
 	{
 		teacherName=tName;
 	}
-	public void printteacherDetails()
+	public void printDetails()
 	{
 		System.out.println(" name of the teacher is "+teacherName);
 	}

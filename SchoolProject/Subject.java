@@ -8,7 +8,7 @@ public class Subject
 		subjectName=subName;
 		mark=subMark;			
 	}
-	public void printsubDetails()
+	public void printDetails()
 	{
 		System.out.println(" subject name is "+subjectName);
 		System.out.println(" mark is "+mark);

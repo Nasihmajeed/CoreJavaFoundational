@@ -3,28 +3,41 @@ public class Classroom
 {
 	String standard;
 	Teacher teacher;
-	Student students;
+	Student[] students;
 	public Classroom(String std)
 	{
 		standard=std;
 	}
 	public void setDetails()
     {
-	Scanner sc=new Scanner(System.in);
+	Scanner sc=new Scanner(System.in);	
+	System.out.println("enter the number of students"); 
+	int studentNo=sc.nextInt();
 	System.out.println("enter teachers name"); 
-	String teacherName=sc.nextLine();
-	teacher=new Teacher(teacherName);	
-
-	System.out.println("enter students name and id "); 
-	String studentName=sc.nextLine();	
-	int studentId=sc.nextInt();
-	students=new Student(studentName,studentId);
-	students.setDetails();	
+	String teacherName=sc.next();
+	teacher=new Teacher(teacherName);
+	students=new Student[studentNo];
+	for(int i=0;i<studentNo;i++)
+		{
+			System.out.println("enter students id "); 
+			int studentId=sc.nextInt();
+			System.out.println("enter students name "); 
+			String studentName=sc.next();
+			students[i]=new Student(studentName,studentId);
+			students[i].setDetails();
+		}
+		
+		
 	} 	
+		
 	public void printDetails()
 	{		
 		System.out.println("standard is : "+standard);
-		students.printstudentDetails();
-		teacher.printteacherDetails();
+		teacher.printDetails();
+		int studentNo=students.length;
+		for(int i=0;i<studentNo;i++)
+		{
+			students[i].printDetails();
+		}
 	}
 }	
