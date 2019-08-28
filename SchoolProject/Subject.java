@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Subject
 {
 	String subName;
-	int sum,mark;
+	int mark;
 	public Subject(String subname,int mrk )
 	{
 		subName=subname;
