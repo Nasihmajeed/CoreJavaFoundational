@@ -15,9 +15,7 @@ public class DescNoteClass extends Notes
 
 	public void view()
 	{
-	
 		description.printDescription();
-
 	}
 	public void create()
 	{
@@ -30,7 +28,6 @@ public class DescNoteClass extends Notes
 	{
 		System.out.println("enter line number to be edited:");
 		int id=scan.nextInt();
-		
 	}
 
 	public void delete()
@@ -40,7 +37,5 @@ public class DescNoteClass extends Notes
 		
 		System.out.println("line "+id+ " deleted\n");
 		view();
-
 	}
-
 }

@@ -6,10 +6,7 @@ import java.io.Console;
 public class BulletClass extends Notes
 {
 	BulletPoint[] bulletPoint=new BulletPoint[7];
-
 	public static Scanner scan=new Scanner(System.in);
-	
-
 	public void createBulletNote()
 	{
 		bulletPoint[1]=new BulletPoint();
@@ -31,17 +28,13 @@ public class BulletClass extends Notes
 	}
 	public void create()
 	{
-		
 		System.out.println("enter max number of bulletpoints:");
 		int max=scan.nextInt();
-		//scan.next();
 		for(int i=1;i<=max;i++)
 		{
 			bulletPoint[i+2]=new BulletPoint();
-			
 			System.out.println("enter line\n");
 			String line=scan.next();
-			//String line=console.readLine();
 			bulletPoint[i+2].createBullet(line);
 		}
 	}
@@ -52,7 +45,6 @@ public class BulletClass extends Notes
 		int id=scan.nextInt();
 		bulletPoint[id]=null;
 		bulletPoint[id]=new BulletPoint();
-		//scan.next();
 		System.out.println("enter edited text:\n");
 		String edited=scan.next();
 		bulletPoint[id].createBullet(edited);
@@ -66,10 +58,5 @@ public class BulletClass extends Notes
 		bulletPoint[id]=null;
 		System.out.println("bulletpoint "+id+ " deleted\n");
 		view();
-
 	}
-		
-		//view();
-		//bulletPoint[3].printBulletPoint();
-
 }
