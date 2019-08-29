@@ -7,4 +7,8 @@ public class Animal
 	{		
 		System.out.println("animals eat");
 	}
-} 
+	public void run()
+	{
+		System.out.println("Animals run");
+	}
+}

@@ -18,5 +18,8 @@ public class Forest
 		animal.eat();
 		tiger.eat();
 		lion.eat();
+		animal.run();
+		tiger.run();
+		lion.run();
 	}
 }
