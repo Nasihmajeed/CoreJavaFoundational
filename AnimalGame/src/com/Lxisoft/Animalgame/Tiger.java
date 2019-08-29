@@ -1,7 +1,10 @@
 package com.Lxisoft.Animalgame;
 import com.Lxisoft.Animalgame.Tiger;
-public class Tiger{
-	public void eat(){
-		System.out.println("Tiger eat");
+public class Tiger extends Animal{
+		public void eat(){
+			System.out.println("Tiger Eates");
+	}
+ 		public void fight(){
+			System.out.println("Tiger Fight");
 	}
 }
