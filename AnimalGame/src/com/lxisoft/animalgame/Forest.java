@@ -13,31 +13,24 @@ public class Forest
 		animal=new Animal();
 		animal.eat();
 		animal.run();
+		animal.animalDetails();
+		System.out.println("--------");
 		
-		tiger=new Tiger();
-		tiger.animalName="sambu tiger";
-		tiger.aggressive="highest";
-		System.out.println("animal: "+tiger.animalName);
-		System.out.println("aggressive: "+tiger.aggressive);
-		tiger.eat();
-		tiger.run();
+		Animal aTiger=new Tiger();
+		aTiger.animalDetails();
+		aTiger.eat();
+		aTiger.run();
 
 		System.out.println("\n");
-		lion=new Lion();
-		lion.animalName="mad lion";
-		lion.aggressive="very high";
-		System.out.println("animal: "+lion.animalName);
-		System.out.println("aggressive: "+lion.aggressive);
-		lion.eat();
-		lion.run();
+		Animal aLion=new Lion();
+		aLion.animalDetails();
+		aLion.eat();
+		aLion.run();
 
 		System.out.println("\n");
-		bear=new Bear();
-		bear.animalName="ballu bear";
-		bear.aggressive="high";
-		System.out.println("animal: "+bear.animalName);
-		System.out.println("aggressive: "+bear.aggressive);
-		bear.eat();
-		bear.run();
+		Animal aBear=new Bear();
+		aBear.animalDetails();
+		aBear.eat();
+		aBear.run();
 	}
 }

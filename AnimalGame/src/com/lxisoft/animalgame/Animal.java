@@ -3,6 +3,10 @@ public class Animal
 {
 	public String animalName;
 	public String aggressive;
+	public void animalDetails()
+	{
+		System.out.println("animal details");
+	}
 	public void eat()
 	{
 		System.out.println("animal eat meat normally");
