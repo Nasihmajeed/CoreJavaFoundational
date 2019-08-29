@@ -3,7 +3,7 @@ public class Lion extends Animal
 {
 	public void eat()
 	{
-		System.out.println("Lion eat");
+		System.out.println("Lions are carnivores they eat meat only");
 	}
 	public void run()
 	{
