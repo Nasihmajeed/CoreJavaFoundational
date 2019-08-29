@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 
-public class Lion extends Animal
+public class Rabbit extends Animal
 {
 	
 
@@ -12,10 +12,10 @@ public class Lion extends Animal
 
 	public void eat()
 	{
-		System.out.println("lion eat flesh");
+		System.out.println("rabbit eat carrot");
 	}
 	public void run()
 	{
-		System.out.println("lion runs fast");
+		System.out.println("rabbit runs fast");
 	}
 }

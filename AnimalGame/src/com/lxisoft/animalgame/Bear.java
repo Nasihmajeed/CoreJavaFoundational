@@ -5,8 +5,6 @@ public class Bear extends Animal
 
 	public void details()
 	{
-		animalName="bear";
-		strength=3;
 		System.out.println(" Animal--"+animalName);
 		System.out.println(" strength--"+strength);
 	}
