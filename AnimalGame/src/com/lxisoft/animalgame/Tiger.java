@@ -2,9 +2,13 @@ package com.lxisoft.animalgame;
 public class Tiger extends Animal
 {
 
-	public void print1()
+	public void eat()
 	{
-		System.out.println("animal eats");
+		System.out.println("tiger eats");
+	}
+	public void run()
+	{
+		System.out.println("tiger runs");
 	}
 
 }
