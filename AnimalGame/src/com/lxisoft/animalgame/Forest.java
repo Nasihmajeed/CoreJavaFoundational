@@ -1,18 +1,32 @@
 package com.lxisoft.animalgame;
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Lion;
-import com.lxisoft.animalgame.Tiger;
-import com.lxisoft.animalgame.Bear;
+import com.lxisoft.animalgame.*;
+
 public class Forest
 {
-	String name;
+	String fName="jungle";
 	Animal animal;
 	public void print()
 	{
-		System.out.println("jungle");
+		System.out.println("Welcome to the "+fName);
 		animal=new Animal();
 		animal.eat();
 		animal.run();
+
+		Animal aTiger=new Tiger();
+		aTiger.details();
+		aTiger.eat();
+		aTiger.run();
+
+		Animal aLion=new Lion();
+		aLion.details();
+		aLion.eat();
+		aLion.run();
+
+		Animal aBear=new Bear();
+		aBear.details();
+		aBear.eat();
+		aBear.run();
+
 	}
 	
 }
