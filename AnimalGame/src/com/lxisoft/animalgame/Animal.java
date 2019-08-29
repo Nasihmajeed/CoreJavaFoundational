@@ -8,6 +8,10 @@ public void eat()
 {
 	System.out.println("Animal eating...");
 }
+public void run()
+{
+	System.out.println("Animal  running...");
+}
 
 
 }

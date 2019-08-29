@@ -8,5 +8,10 @@ public void eat()
 	System.out.println("Tiger eating...");
 }
 
+public void run()
+{
+	System.out.println("tiger running fast...");
+}
+
 
 }

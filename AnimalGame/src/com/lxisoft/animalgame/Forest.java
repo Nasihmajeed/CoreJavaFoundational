@@ -17,10 +17,17 @@ Animal lion;
 	tiger=new Animal();
 	lion=new Animal();
 	Tiger t=new Tiger();
+	Lion l= new Lion();
 	animal.eat();
 	tiger.eat();
 	lion.eat();
 	t.eat();
+	l.eat();
+	animal.run();
+	tiger.run();
+	lion.run();
+	t.run();
+	l.run();
 
 
 	}

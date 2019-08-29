@@ -7,6 +7,9 @@ public void eat()
 {
 	System.out.println("Lion eating...");
 }
-
+public void run()
+{
+	System.out.println("Lion  running...");
+}
 
 }
