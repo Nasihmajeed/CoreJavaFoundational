@@ -9,4 +9,9 @@ public class Tiger extends Animal
 	{
 		System.out.println("Tiger run");
 	}
+
+	public void fight()
+	{
+		System.out.println("animals attack each other");
+	}
 }

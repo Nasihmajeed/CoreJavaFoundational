@@ -12,5 +12,9 @@ public class Animal
 	{
 		System.out.println("Animals run");
 	}
+	public void fight()
+	{
+		System.out.println("animals attack each");
+	}
 	
 }
