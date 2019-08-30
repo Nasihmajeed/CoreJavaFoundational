@@ -3,37 +3,41 @@ import com.lxisoft.animalgame.Animal;
 public class Forest 
 {
 	Animal animal;
-	Animal tiger;
-	Animal lion;
-	Animal rabbit;
-	Tiger t;
-    Lion l;
-    Rabbit r;
+	Tiger tiger;
+    Lion lion;
+    Rabbit rabbit;
 	public void print()
 	{
-	    System.out.println("PINE FOREST");
-	    System.out.println("----------------");
+		System.out.println("\n");
+	    System.out.println("    PINE FOREST  ");
+	    System.out.println("  ****************");
+
+     	Animal[] animalArr=new Animal[3];
      	animal=new Animal();
-     	lion=new Animal();
-     	rabbit=new Animal();
-     	tiger=new Tiger();
-     	t=new Tiger();
-     	l=new Lion();
-     	r=new Rabbit();
-     	animal.eat();
-		tiger.eat();
-		lion.eat();
-		rabbit.eat();
-		t.eat();
-		l.eat();
-		r.eat();
-		animal.run();
-		tiger.run();
-		lion.run();
-		rabbit.run();
-		t.run();
-		l.run();
-		r.run();	
+     	animal.details();
+
+     	Animal aTiger=new Tiger();
+     	aTiger.animalName="TIGER";
+     	aTiger.strength=10;
+     	aTiger.details();
+     	animalArr[0]=aTiger;
+     	
+        
+     	Animal aLion=new Lion();
+     	aLion.animalName="LION";
+     	aLion.strength=8;
+     	aLion.details();
+     	animalArr[1]=aLion;
+     	
+
+     	Animal aRabbit=new Rabbit();
+     	aRabbit.animalName="RABBIT";
+     	aRabbit.strength=6;
+     	aRabbit.details();
+     	animalArr[2]=aRabbit;
+     	
+		animal.fight(animalArr);
+		
 	}
 
 }

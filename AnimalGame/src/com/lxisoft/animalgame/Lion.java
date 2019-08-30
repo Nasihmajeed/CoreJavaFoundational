@@ -1,13 +1,11 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.Animal;
 public class Lion extends Animal
 {
-	public void eat()
+    public void details()
 	{
-		System.out.println("Lion eat");
+     System.out.println("Name= "+animalName);
+     System.out.println("Power= "+strength);
 	}
-
-	public void run()
-	{
-		System.out.println("Lion run fast");
-	}
+	
 }
