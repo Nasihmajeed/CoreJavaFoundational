@@ -15,4 +15,14 @@ public class Animal
 	{
 		System.out.println("this is a herbivorous");
 	}
+	public void str()
+	{
+		System.out.println("");
+	}
+	public void fight()
+	{
+		System.out.println("");
+	}
+	
+
 }
