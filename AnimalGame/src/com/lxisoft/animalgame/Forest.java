@@ -14,29 +14,29 @@ public class Forest
 
      	Animal[] animalArr=new Animal[3];
      	animal=new Animal();
-     	animal.details();
+     	animal.fight();
 
      	Animal aTiger=new Tiger();
      	aTiger.animalName="TIGER";
      	aTiger.strength=10;
-     	aTiger.details();
+     	aTiger.fight();
      	animalArr[0]=aTiger;
      	
         
      	Animal aLion=new Lion();
      	aLion.animalName="LION";
      	aLion.strength=8;
-     	aLion.details();
+     	aLion.fight();
      	animalArr[1]=aLion;
      	
 
      	Animal aRabbit=new Rabbit();
      	aRabbit.animalName="RABBIT";
      	aRabbit.strength=6;
-     	aRabbit.details();
+     	aRabbit.fight();
      	animalArr[2]=aRabbit;
      	
-		animal.fight(animalArr);
+		animal.meetFight(animalArr);
 		
 	}
 
