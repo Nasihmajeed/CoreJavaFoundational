@@ -2,7 +2,7 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Lion extends Animal
 {	
-	public void animalDetails()
+	public void fight()
 	{
 		System.out.println("\n");
 		System.out.println("animal: "+animalName);

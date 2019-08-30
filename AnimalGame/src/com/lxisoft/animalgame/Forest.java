@@ -11,13 +11,12 @@ public class Forest
 		animals=new Animal();
 		animals.eat();
 		animals.run();
-		animals.animalDetails();
 
 		Animal aTiger=new Tiger();
 		aTiger.animalName="sambu tiger";
 		aTiger.aggressive="highest";
 		aTiger.strength=7;
-		aTiger.animalDetails();
+		aTiger.fight();
         aTiger.eat();
         aTiger.run();
         animalArr[0]=aTiger;
@@ -26,7 +25,7 @@ public class Forest
 		aLion.animalName="mad lion";
 		aLion.aggressive="very high";
 		aLion.strength=9;
-		aLion.animalDetails();
+		aLion.fight();
 		aLion.eat();
 		aLion.run();
 		animalArr[1]=aLion;
@@ -35,7 +34,7 @@ public class Forest
 		aBear.animalName="ballu bear";
 		aBear.aggressive="high";
 		aBear.strength=5;
-		aBear.animalDetails();
+		aBear.fight();
 		aBear.eat();
 		aBear.run();
 		animalArr[2]=aBear;
@@ -44,12 +43,13 @@ public class Forest
 		aRabbit.animalName="micky rabbit";
 		aRabbit.aggressive="lowest";
 		aRabbit.strength=4;
-		aRabbit.animalDetails();
+		aRabbit.fight();
 		aRabbit.eat();
 		aRabbit.run();
 		animalArr[3]=aRabbit;
 		
-		animals.fight(animalArr);
+		animals.fight();
+		animals.meetFight(animalArr);
 
 	}
 }
