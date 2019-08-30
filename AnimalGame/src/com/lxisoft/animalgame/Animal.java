@@ -4,12 +4,13 @@ import com.lxisoft.animalgame.Lion;
 import com.lxisoft.animalgame.Rabbit;
 public class Animal
 {
-	String animalName;
-	int strength;
+	public String animalName;
+	public int strength;
+	Animal[] animalArr;
     
 	public void fight()
 	{
-     System.out.println("-Animal Details-");
+     System.out.println("--Fight Details--");
 	}
 	public void meetFight(Animal animalArr[])
 	{

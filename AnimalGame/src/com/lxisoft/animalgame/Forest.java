@@ -3,9 +3,9 @@ import com.lxisoft.animalgame.Animal;
 public class Forest 
 {
 	Animal animal;
-	Tiger tiger;
-    Lion lion;
-    Rabbit rabbit;
+	Tiger tiger=new Tiger("Tiger",8);
+    Lion lion=new Lion("Lion",6);
+    Rabbit rabbit=new Rabbit("Rabbit",4);
 	public void print()
 	{
 		System.out.println("\n");
@@ -15,26 +15,15 @@ public class Forest
      	Animal[] animalArr=new Animal[3];
      	animal=new Animal();
      	animal.fight();
-
-     	Animal aTiger=new Tiger();
-     	aTiger.animalName="TIGER";
-     	aTiger.strength=10;
-     	aTiger.fight();
-     	animalArr[0]=aTiger;
-     	
         
-     	Animal aLion=new Lion();
-     	aLion.animalName="LION";
-     	aLion.strength=8;
-     	aLion.fight();
-     	animalArr[1]=aLion;
-     	
+        tiger.fight();
+     	animalArr[0]=tiger;
 
-     	Animal aRabbit=new Rabbit();
-     	aRabbit.animalName="RABBIT";
-     	aRabbit.strength=6;
-     	aRabbit.fight();
-     	animalArr[2]=aRabbit;
+     	lion.fight();
+     	animalArr[1]=lion;
+
+        rabbit.fight();
+     	animalArr[2]=rabbit;
      	
 		animal.meetFight(animalArr);
 		
