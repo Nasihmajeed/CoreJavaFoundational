@@ -5,6 +5,6 @@ public class Tdd
 	public static void main(String[] args)
 	{
      	Forest f=new Forest();
-    	f.print();
+    	f.fight();
 	}
 }
