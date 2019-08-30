@@ -1,5 +1,5 @@
 package com.lxisoft.intern.files;
-public class Deer extends Animal implements Herbivores
+public class Deer extends Animalherbivores
 
 {   
 	public Deer(String name,int pow)
@@ -8,13 +8,5 @@ public class Deer extends Animal implements Herbivores
 		this.power=pow;
 	}
 
-   public void eat()
-{
-  System.out.println("eats vegetables");
-}
- 
-  public void fight()
-{
-  System.out.println("power = 5");
-}
+  
 }

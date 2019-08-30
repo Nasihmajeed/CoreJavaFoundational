@@ -1,5 +1,5 @@
 package com.lxisoft.intern.files;
-public class Lion extends Animal implements Carnivores
+public class Lion extends Animalcarnivores
 {   
 	public Lion(String name,int pow)
 	{
@@ -7,12 +7,5 @@ public class Lion extends Animal implements Carnivores
 		this.power=pow;
 	}
 
-public void eat()
-{
- System.out.println("eats flesh");
-}
-public void fight()
-{
-System.out.println("power = 9");
-}
+
 }

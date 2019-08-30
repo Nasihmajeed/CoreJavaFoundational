@@ -1,5 +1,5 @@
 package com.lxisoft.intern.files;
-public class Rabbit extends Animal implements Herbivores
+public class Rabbit extends Animalherbivores
 {   
       public Rabbit(String name,int pow)
 	{
@@ -7,14 +7,5 @@ public class Rabbit extends Animal implements Herbivores
 		this.power=pow;
 	}
 
-      public void eat()
-        {
-	  System.out.println("eats vegetables");
-        }
-  
-      public void fight()
-	{
-          System.out.println("power = 2");
-	}
 
 }

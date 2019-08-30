@@ -1,5 +1,5 @@
 package com.lxisoft.intern.files;
-public class Animal
+public abstract class Animal
 {
         public String name;
 	public int power;
@@ -20,5 +20,5 @@ public int getPower()
 {
    return this.power;
 }
-
+public abstract String fight(Animal a);
 }

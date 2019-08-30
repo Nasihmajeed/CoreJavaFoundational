@@ -36,7 +36,7 @@ public class Forest
              System.out.println(" Power           :"+animalslist.get(i).power);
             }
          } 
-    public void fight()
+    public void selectanimal()
           {   
               int a = animalslist.size();
               Random rand = new Random();
@@ -45,14 +45,15 @@ public class Forest
 		      int random1 = rand.nextInt(animalslist.size());
                       do{ random2 = rand.nextInt(animalslist.size());}while(random1 == random2);
  			 System.out.println(animalslist.get(random1).name+" fight with " +animalslist.get(random2).name); 
-		           if(random1 != random2)
-                             {
-					if(animalslist.get(random1).power >= animalslist.get(random2).power)
-					    {System.out.println(animalslist.get(random1).name+" wins ");
-				             animalslist.remove(random2); }
-					else{System.out.println(animalslist.get(random2).name+" wins ");
-					     animalslist.remove(random1);}
-                             }else  System.out.println("no fight between same animal");
+                       String died= animalslist.get(random1).fight(animalslist.get(random2));
+		          if(!(died.equals(null))){
+
+ 				for(int w=0;w<a-1;w++){
+ 				    if((animalslist.get(w).name).equals(died)){
+                                      animalslist.remove(w);
+                                     }
+                                       }
+ 			  }
                        } for (int j=0;j<animalslist.size();j++)              
                              {System.out.println("finally alive "+animalslist.get(j).name);}
          }

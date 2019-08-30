@@ -3,6 +3,6 @@ public interface Carnivores
 {
 
 public void eat();
-public void fight();
+public String fight(Animal a);
 
 } 
