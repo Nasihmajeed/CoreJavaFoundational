@@ -1,13 +1,16 @@
-package com lxisoft animalgame;
-import com lxisoft animalgame;
+package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.Lion;
+import com.lxisoft.animalgame.Tiger;
 import java.util.Scanner;
 public class Animal 
 {
-	int 
+	int speed;
+    int hungry;
+	
 	public void eat()
 	{
-		System.out.println("animal ate Rabit");
+		
+		System.out.println(" Animal ate Rabit");
 	}	
+	
 } 
-
- //public void 

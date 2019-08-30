@@ -1,7 +1,15 @@
-package com lxisoft animalgame;
-import com lxisoft animalgame;
-public class Tiger
+package com.lxisoft.animalgame;
+//import com.lxisoft.animalgame.Tiger;
+//import com.lxisoft.animalgame.Animal;
+public class Tiger extends Animal
 {
-  Strength strength;
-  Hungry hungry;
+	int strengthlevel=30 ;
+    int Aggressivelevel=30 ;
+	
+	public void eat()
+	{
+		System.out.println("Tiger ate Rabit");
+	}
+ 
+  
 }  
