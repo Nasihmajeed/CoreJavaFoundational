@@ -21,19 +21,27 @@ public class Animal
 	}
 
 	public void fight(Animal aArray[])
-	{
-		int j=0,k=0;
-		System.out.println("fight starts ");
-		for(int i=0;i<4;i++)
-		{
-			if(aArray[i].strength>j)
+	{		
+		System.out.println("---------------Six Random fight----------------------");
+		for(int i=0;i<6;i++)
+		{	
+			int x = (int) (Math.random() *4);
+			int y = (int) (Math.random() *4);
+			
+			System.out.println(aArray[x].animalName+"  V/S "+aArray[y].animalName);
+			if(aArray[x].strength>aArray[y].strength)
 			{
-				j=aArray[i].strength;
-				k=i;
+				System.out.println(aArray[x].animalName+" wins ");
 			}
-		}
-		System.out.println(k);
-		System.out.println(aArray[k].animalName+" wins ");
+			else
+			{
+				System.out.println(aArray[y].animalName+" wins ");
+			}
+			System.out.println("\n");
+		}		
+		
+		
 	}
 
 }
+
