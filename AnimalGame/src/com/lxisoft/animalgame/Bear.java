@@ -4,10 +4,10 @@ public class Bear extends Animal
 {
 	public void animalDetails()
 	{
-		animalName="ballu bear";
-		aggressive="high";
+		System.out.println("\n");
 		System.out.println("animal: "+animalName);
 		System.out.println("aggressive: "+aggressive);
+		System.out.println("power: "+strength);
 	}
 	public void eat()
 	{
