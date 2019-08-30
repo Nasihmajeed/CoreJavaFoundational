@@ -3,7 +3,7 @@ import com.lxisoft.animalgame.*;
 
 public class Animal
 {
-	String animalName;
+	String name;
 	int strength;
 	
 	public void eat()
@@ -15,33 +15,33 @@ public class Animal
 		System.out.println("animals runs in the wild ");
 	}
 
-	public void details()
+	public void animalsRoam()
 	{
-		System.out.println("animals details");
+		System.out.println(" Animal roams in jungle");
+		System.out.println("Animal has strength");
 	}
 
-	public void fight(Animal aArray[])
-	{		
-		System.out.println("---------------Six Random fight----------------------");
-		for(int i=0;i<6;i++)
-		{	
-			int x = (int) (Math.random() *4);
-			int y = (int) (Math.random() *4);
+	// public void fight(Animal aArray[])
+	// {		
+	// 	System.out.println("---------------Six Random fight----------------------");
+	// 	for(int i=0;i<6;i++)
+	// 	{	
+	
 			
-			System.out.println(aArray[x].animalName+"  V/S "+aArray[y].animalName);
-			if(aArray[x].strength>aArray[y].strength)
-			{
-				System.out.println(aArray[x].animalName+" wins ");
-			}
-			else
-			{
-				System.out.println(aArray[y].animalName+" wins ");
-			}
-			System.out.println("\n");
-		}		
+	// 		System.out.println(aArray[x].animalName+"  V/S "+aArray[y].animalName);
+	// 		if(aArray[x].strength>aArray[y].strength)
+	// 		{
+	// 			System.out.println(aArray[x].animalName+" wins ");
+	// 		}
+	// 		else
+	// 		{
+	// 			System.out.println(aArray[y].animalName+" wins ");
+	// 		}
+	// 		System.out.println("\n");
+	// 	}		
 		
 		
-	}
+	// }
 
 }
 

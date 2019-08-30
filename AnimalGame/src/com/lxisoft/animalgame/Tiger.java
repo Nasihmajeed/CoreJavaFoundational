@@ -3,18 +3,18 @@ public class Tiger extends Animal
 {
 	
 
-	public void details()
+	public void animalsRoam()
 	{
-		System.out.println(" Animal--"+animalName);
+		System.out.println(" Animal--"+name);
 		System.out.println(" strength--"+strength);
 	}
 
-	public void eat()
-	{
-		System.out.println("tiger eat flesh");
-	}
-	public void run()
-	{
-		System.out.println("tiger runs very fast");
-	}
+	// public void eat()
+	// {
+	// 	System.out.println("tiger eat flesh");
+	// }
+	// public void run()
+	// {
+	// 	System.out.println("tiger runs very fast");
+	// }
 }
