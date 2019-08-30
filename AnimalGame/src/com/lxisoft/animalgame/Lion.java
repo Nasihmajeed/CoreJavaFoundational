@@ -1,17 +1,14 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.Animal;
 public class Lion extends Animal
 {
-	public void eat()
+	String animalName="sambu lion";
+	int strength=8;
+	public void details()
 	{
-		System.out.println("Lions are carnivores they eat meat only");
-	}
-	public void run()
-	{
-		System.out.println("Lion run fast");
-	}
+		
+		System.out.println("name="+animalName);
+		System.out.println("strength="+strength);
 
-	public void fight()
-	{
-		System.out.println("lion fights");
 	}
 }

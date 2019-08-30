@@ -4,17 +4,18 @@ import com.lxisoft.animalgame.Tiger;
 import com.lxisoft.animalgame.Rabbit;
 public class Animal
 {
-	public void eat()
-	{		
-		System.out.println("Animals hunt for food ");
-	}
-	public void run()
+	public String animalName;
+	public int strength;
+	public void details()
 	{
-		System.out.println("Animals run");
+		System.out.println("Animal Details");		
 	}
 	public void fight()
 	{
-		System.out.println("animals attack each");
+		System.out.println("Animals meet each other");
+				
+
 	}
+	
 	
 }
