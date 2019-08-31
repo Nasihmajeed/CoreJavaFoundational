@@ -56,30 +56,58 @@ public class Forest
      
 	public void meetFight(Animal animalArr[])
 	{
+		Scanner sc=new Scanner (System.in);
 		System.out.println("-Animal Details-");
 		System.out.println("Animal Meet & Fight Starts");
 		System.out.println("-----------------------------");
-		    for(int i=0;i<3;i++)
+		System.out.println("No.of Fight");
+		int l=sc.nextInt();
+		    for(int i=0;i<l;i++)
 		    {
 
 				int m=(int)(Math.random()*3);
 				int n=(int)(Math.random()*3);
-				System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
+				if(m!=n)
+				{
 				if(animalArr[m].isDead==false&animalArr[n].isDead==false)
 				{
+					System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
+					
 					if(animalArr[m].strength>animalArr[n].strength)
 					{
 						System.out.println(animalArr[m].animalName+"  WIN");
-						System.out.println(animalArr[m].animalName+" Dead");
-						animalArr[m].isDead=true;
+						animalArr[m].strength=(animalArr[m].strength-1);
+						System.out.println("winner Strength=" +animalArr[m].strength);
+						animalArr[n].strength=(animalArr[n].strength-2);
+						System.out.println(" Looser Strength=" +animalArr[n].strength);
+						if(animalArr[m].strength<=0)
+						{
+							animalArr[m].isDead=true;
+						}
+						if(animalArr[n].strength<=0)
+						{
+							animalArr[n].isDead=true;
+						}	
 					}
 					else
 					{
 						System.out.println(animalArr[n].animalName+"  WIN");
-						System.out.println(animalArr[n].animalName+" Dead");
-						animalArr[n].isDead=true;
+						animalArr[n].strength=(animalArr[n].strength-1);
+						System.out.println("winner Strength="+animalArr[n].strength);
+						animalArr[m].strength=(animalArr[m].strength-2);
+						System.out.println(" Looser Strength="+animalArr[m].strength);
+						if(animalArr[n].strength<=0)
+						{
+							animalArr[n].isDead=true;
+						}
+						if(animalArr[m].strength<=0)
+						{
+							animalArr[m].isDead=true;
+						}
 					}
 			   }
+			}
+
 	        }
 
 	}
