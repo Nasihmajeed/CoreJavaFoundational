@@ -30,14 +30,8 @@ public class Animal
 			System.out.println(animalArr[x].animalName+"  v  "+animalArr[y].animalName);
 			if(animalArr[x].strength<animalArr[y].strength)
 			{
-				if(animalArr[x]==animalArr[y])
-				{
-					System.out.println("no fight");
-				}
-				else
-				{
-					System.out.println("winner="+animalArr[y].animalName);
-				}
+				
+				System.out.println("winner="+animalArr[y].animalName);
 			}
 			else
 			{
