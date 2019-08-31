@@ -2,15 +2,15 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Tiger extends Animal
 {
-	public void fight()
+	public Tiger(String animalName,String aggressive,int strength)
 	{
-		System.out.println("\n");
-		System.out.println("animal: "+animalName);
-		System.out.println("aggressive: "+aggressive);
-		System.out.println("power: "+strength);
+		this.animalName=animalName;
+		this.aggressive=aggressive;
+		this.strength=strength;
 	}
 	public void eat()
 	{
+		System.out.println("\n");
 		System.out.println("tiger eat rabbit");
 	}
 	public void run()

@@ -7,15 +7,12 @@ public class Animal
 
 	public void eat()
 	{
+		System.out.println("\n");
 		System.out.println("animal eat meat normally");
 	}
 	public void run()
 	{
 		System.out.println("animal run in jungle");
-	}
-	public void fight()
-	{
-		System.out.println("fight details");
 	}
 	public void meetFight(Animal animalArr[])
 	{

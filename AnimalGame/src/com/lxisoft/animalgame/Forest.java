@@ -4,6 +4,10 @@ public class Forest
 {
 	String name;
 	Animal animals;
+	Tiger tiger=new Tiger("sambu tiger","highest",7);
+	Lion lion=new Lion("mad lion","very high",9);
+	Bear bear=new Bear("ballu bear","high",5);
+	Rabbit rabbit=new Rabbit("micky rabbit","lowest",4);
 	public void print()
 	{
 		System.out.println("jungle");
@@ -12,43 +16,22 @@ public class Forest
 		animals.eat();
 		animals.run();
 
-		Animal aTiger=new Tiger();
-		aTiger.animalName="sambu tiger";
-		aTiger.aggressive="highest";
-		aTiger.strength=7;
-		aTiger.fight();
-        aTiger.eat();
-        aTiger.run();
-        animalArr[0]=aTiger;
+        tiger.eat();
+        tiger.run();
+        animalArr[0]=tiger;
         		
-		Animal aLion=new Lion();
-		aLion.animalName="mad lion";
-		aLion.aggressive="very high";
-		aLion.strength=9;
-		aLion.fight();
-		aLion.eat();
-		aLion.run();
-		animalArr[1]=aLion;
+		lion.eat();
+		lion.run();
+		animalArr[1]=lion;
 
-		Animal aBear=new Bear();
-		aBear.animalName="ballu bear";
-		aBear.aggressive="high";
-		aBear.strength=5;
-		aBear.fight();
-		aBear.eat();
-		aBear.run();
-		animalArr[2]=aBear;
+		bear.eat();
+		bear.run();
+		animalArr[2]=bear;
 
-		Animal aRabbit=new Rabbit();
-		aRabbit.animalName="micky rabbit";
-		aRabbit.aggressive="lowest";
-		aRabbit.strength=4;
-		aRabbit.fight();
-		aRabbit.eat();
-		aRabbit.run();
-		animalArr[3]=aRabbit;
+		rabbit.eat();
+		rabbit.run();
+		animalArr[3]=rabbit;
 		
-		animals.fight();
 		animals.meetFight(animalArr);
 
 	}
