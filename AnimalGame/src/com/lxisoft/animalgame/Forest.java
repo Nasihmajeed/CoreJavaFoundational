@@ -3,9 +3,9 @@ import com.lxisoft.animalgame.Animal;
 public class Forest
 {
 	Animal animal;
-	Tiger tiger=new Tiger("ttiger",9);
-	Lion lion=new Lion("llion",8);
-	Rabbit rabbit=new Rabbit("mittu rabbit",4);
+	Tiger tiger=new Tiger("ttiger",9,"high");
+	Lion lion=new Lion("llion",8,"medium");
+	Rabbit rabbit=new Rabbit("mittu rabbit",4,"low");
 
 	public void print()
 	{
@@ -19,9 +19,31 @@ public class Forest
 
 		animalArray[2]=rabbit;	
 
-		animal.fight(animalArray);
+		fight(animalArray);
+		//animal.features();
 
 	}
+	public void fight(Animal animalArray[])
+	{
+		int x,y;
+		System.out.println("-------fight begins---------");	
+		for(int i=0;i<6;i++)
+		{
+			 x=(int) (Math.random()*3);
+			 y=(int) (Math.random()*3);
+			System.out.println(animalArray[x].animalName+" Vs "+animalArray[y].animalName);
+			if(animalArray[x].strength<animalArray[y].strength)
+			{
+				System.out.println("winner====="+animalArray[y].animalName);
+			}
+			else
+			{
+				System.out.println("Dead========"+animalArray[x].animalName);
+			}	
+		}
+
+	}
+	
 }
 
 
