@@ -84,7 +84,34 @@ public class Forest
 		}
 	}
 
-	// public void eat()
+	public void fight()
+	{
+		System.out.println("------------------FIGHT BEGINS------------------");
+		int x,y,z,i,total,win;
+		Animal temp=new Animal();
+		total=animal.length;
+		System.out.println("total no of animals in the forest is"+total);
+		z=(int) (Math.random() * (total+total));
+		System.out.println("total no of fights taken place->"+z);
+		System.out.println("\n");
+
+		for(i=0;i<z;i++)
+		{
+			x=(int) (Math.random() * total);
+			y=(int) (Math.random() * total);
+			
+			System.out.println("					 Fight"+(i+1)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+			temp=animal[x].fight(animal[y]);
+			System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")");
+			System.out.println("\n");
+		}
+	}
+	
+
+}
+
+
+		// public void eat()
 	// {
 	// 	animal.eat();
 	// }
@@ -95,49 +122,10 @@ public class Forest
 
 	// }
 
-}
 
 
 		
-		
-		// System.out.println("\n");
-
 	
 
 
-		// Animal aTiger=new Tiger();
 		
-		// aTiger.details();
-		// aTiger.eat();
-		// aTiger.run();
-		// System.out.println("\n");
-		// aArray[0]=aTiger;
-
-		// Animal aLion=new Lion();
-		// aLion.animalName="lion";
-		// aLion.strength=5;
-		// aLion.details();
-		// aLion.eat();
-		// aLion.run();
-		// System.out.println("\n");
-		// aArray[1]=aLion;
-
-		// Animal aBear=new Bear();
-		// aBear.animalName="bear";
-		// aBear.strength=3;
-		// aBear.details();
-		// aBear.eat();
-		// aBear.run();
-		// System.out.println("\n");
-		// aArray[2]=aBear;
-
-		// Animal aRabbit=new Rabbit();
-		// aRabbit.animalName="rabbit";
-		// aRabbit.strength=2;
-		// aRabbit.details();
-		// aRabbit.eat();
-		// aRabbit.run();
-		// aArray[3]=aRabbit;
-
-
-		// animal.fight(aArray);

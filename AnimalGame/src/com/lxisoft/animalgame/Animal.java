@@ -21,27 +21,12 @@ public class Animal
 		System.out.println("Animal has strength");
 	}
 
-	// public void fight(Animal aArray[])
-	// {		
-	// 	System.out.println("---------------Six Random fight----------------------");
-	// 	for(int i=0;i<6;i++)
-	// 	{	
-	
-			
-	// 		System.out.println(aArray[x].animalName+"  V/S "+aArray[y].animalName);
-	// 		if(aArray[x].strength>aArray[y].strength)
-	// 		{
-	// 			System.out.println(aArray[x].animalName+" wins ");
-	// 		}
-	// 		else
-	// 		{
-	// 			System.out.println(aArray[y].animalName+" wins ");
-	// 		}
-	// 		System.out.println("\n");
-	// 	}		
+	public Animal fight(Animal a)
+	{		
 		
-		
-	// }
+		System.out.println("Animal fight in the forest");
+		return a;
+	}
 
 }
 

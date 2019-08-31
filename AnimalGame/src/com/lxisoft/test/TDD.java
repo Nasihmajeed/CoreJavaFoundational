@@ -9,5 +9,6 @@ public class TDD
 		forest.theForest();
 		forest.meetAnimals();
 		forest.animalsRoam();
+		forest.fight();
 	}
 }   
