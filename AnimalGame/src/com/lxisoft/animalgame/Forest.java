@@ -59,21 +59,29 @@ public class Forest
 		System.out.println("-Animal Details-");
 		System.out.println("Animal Meet & Fight Starts");
 		System.out.println("-----------------------------");
-		    for(int i=0;i<5;i++)
+		    for(int i=0;i<3;i++)
 		    {
+
 				int m=(int)(Math.random()*3);
 				int n=(int)(Math.random()*3);
 				System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
-				
-				if(animalArr[m].strength>animalArr[n].strength)
+				if(animalArr[m].isDead==false&animalArr[n].isDead==false)
 				{
-					System.out.println(animalArr[m].animalName+"  WIN");
-				}
-				else
-				{
-					System.out.println(animalArr[n].animalName+"  WIN");
-				}
+					if(animalArr[m].strength>animalArr[n].strength)
+					{
+						System.out.println(animalArr[m].animalName+"  WIN");
+						System.out.println(animalArr[m].animalName+" Dead");
+						animalArr[m].isDead=true;
+					}
+					else
+					{
+						System.out.println(animalArr[n].animalName+"  WIN");
+						System.out.println(animalArr[n].animalName+" Dead");
+						animalArr[n].isDead=true;
+					}
+			   }
 	        }
+
 	}
 
 

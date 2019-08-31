@@ -5,5 +5,6 @@ import com.lxisoft.animalgame.Rabbit;
 public class Animal
 {
 	String animalName;
-	int strength;  
+	int strength;
+	boolean isDead=false;  
 }
