@@ -6,15 +6,18 @@ public class Animal
 {
 	public String animalName;
 	public int strength;
-	public void details()
+	Animal[] animalArray;	
+	
+	public void meet()
 	{
-		System.out.println("Animal Details");		
+		System.out.println("Animals meet each other");	
+		
 	}
-
+	
 	public void fight(Animal animalArray[])
 	{
 		int x,y;
-		System.out.println("Animals meet each other");				
+		System.out.println("-----------fight begins---------------");	
 		for(int i=0;i<6;i++)
 		{
 			 x=(int) (Math.random()*3);

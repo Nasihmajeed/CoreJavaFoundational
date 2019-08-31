@@ -2,30 +2,30 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Forest
 {
-	Animal animal;	
+	Animal animal;
+	Tiger tiger=new Tiger("ttiger",9);
+	Lion lion=new Lion("llion",8);
+	Rabbit rabbit=new Rabbit("mittu rabbit",4);
+
 	public void print()
 	{
 		System.out.println("\n\n\t\t  ------SHANTHI VANAM --------");
-		Animal[] animalArray=new Animal[3];
 		animal=new Animal();
-		animal.details();
-
-		Tiger tiger=new Tiger();
-		tiger.details();
+		animal.meet();
+		Animal[] animalArray=new Animal[3];
 		animalArray[0]=tiger;
-
-		Lion lion=new Lion();
-		lion.details();
+	
 		animalArray[1]=lion;
 
-		Rabbit rabbit=new Rabbit();
-		rabbit.details();
-		animalArray[2]=rabbit;
+		animalArray[2]=rabbit;	
 
 		animal.fight(animalArray);
 
 	}
 }
+
+
+
 
 	
 			

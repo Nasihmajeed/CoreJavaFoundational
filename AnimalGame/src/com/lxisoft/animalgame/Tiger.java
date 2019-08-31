@@ -2,12 +2,9 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Tiger extends Animal
 {
-	String animalName="balu tiger";
-	int strength=9;
-	public void details()
+	public Tiger(String animalName,int strength)
 	{
-		System.out.println("name="+animalName);
-		System.out.println("strength="+strength);
-
+		this.animalName=animalName;
+		this.strength=strength;
 	}
 }
