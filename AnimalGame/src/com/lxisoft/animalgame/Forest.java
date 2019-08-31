@@ -64,22 +64,20 @@ public class Forest
 		int l=sc.nextInt();
 		    for(int i=0;i<l;i++)
 		    {
-
 				int m=(int)(Math.random()*3);
 				int n=(int)(Math.random()*3);
 				if(m!=n)
 				{
 				if(animalArr[m].isDead==false&animalArr[n].isDead==false)
 				{
-					System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
-					
+					System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);					
 					if(animalArr[m].strength>animalArr[n].strength)
 					{
 						System.out.println(animalArr[m].animalName+"  WIN");
 						animalArr[m].strength=(animalArr[m].strength-1);
 						System.out.println("winner Strength=" +animalArr[m].strength);
 						animalArr[n].strength=(animalArr[n].strength-2);
-						System.out.println(" Looser Strength=" +animalArr[n].strength);
+						System.out.println("Looser Strength=" +animalArr[n].strength);
 						if(animalArr[m].strength<=0)
 						{
 							animalArr[m].isDead=true;
@@ -95,7 +93,7 @@ public class Forest
 						animalArr[n].strength=(animalArr[n].strength-1);
 						System.out.println("winner Strength="+animalArr[n].strength);
 						animalArr[m].strength=(animalArr[m].strength-2);
-						System.out.println(" Looser Strength="+animalArr[m].strength);
+						System.out.println("Looser Strength="+animalArr[m].strength);
 						if(animalArr[n].strength<=0)
 						{
 							animalArr[n].isDead=true;
@@ -105,12 +103,8 @@ public class Forest
 							animalArr[m].isDead=true;
 						}
 					}
-			   }
-			}
-
-	        }
-
+			    }
+		    }
+	    }
 	}
-
-
 }
