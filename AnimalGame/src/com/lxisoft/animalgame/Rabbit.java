@@ -2,7 +2,7 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Rabbit extends Animal
 {
-	String animalName="vicky rabbit";
+	String animalName="mittu rabbit";
 	int strength=4;
 	public void details()
 	{
