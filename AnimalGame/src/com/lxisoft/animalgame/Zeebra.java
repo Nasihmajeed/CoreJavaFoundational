@@ -1,31 +1,25 @@
 package com.lxisoft.animalgame;
-
-
-import com.lxisoft.animalgame.Tiger;
-
-public class Animal
+public class Zeebra extends Animal
 {
-	int strength;
-	String name;
+	
 	public void printDetails()
 	{
+	
+		System.out.println(name+strength);
 	}
+
 	public void printName()
 	{
+		System.out.println(name);
 	}
-	
-
-
 	public void eat()
 	{
-		System.out.println("animal eat");
-
+		System.out.println("Zeebra eats");
 	}
 	public void run()
 	{
-		System.out.println("animal runs");
+		System.out.println("Zeebra runs");
 	}
-	
 	public void fight (Animal name)
 	{
 	}
