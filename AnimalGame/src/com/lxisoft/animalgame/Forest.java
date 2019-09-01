@@ -101,7 +101,7 @@ public class Forest
 		// a[x].printDetails();
 		if( a[x].strength>a[y].strength)
 		{
-			System.out.println( a[x].name+"wins");
+			System.out.println( a[x].name+" wins");
 			win=a[x];
 			diff = a[y].strength/2;
 			a[x].strength=a[x].strength-diff;
@@ -110,7 +110,7 @@ public class Forest
 		}
 		else
 		{
-			System.out.println( a[y].name+"  wins");	
+			System.out.println( a[y].name+" wins");	
 			win=a[y];
 			diff = a[x].strength/2;
 			a[y].strength=a[y].strength-diff;
@@ -126,22 +126,23 @@ public class Forest
 	{
 		// winner.printDetails();
 		String opponent=null;
+		String opponent1=null;
 		Scanner scan=new Scanner(System.in);
 		int count=0;
 	
 		int c=0;
 		Animal [] remaining=new Animal[5];
-		for(int i=0; i<5; i++)
-		{
-			int p=an[i].strength;
-			if(p!=0)
-			{
-				count++;
+		// for(int i=0; i<5; i++)
+		// {
+		// 	int p=an[i].strength;
+		// 	if(p!=0)
+		// 	{
+		// 		count++;
 
 
-			}
+		// 	}
 
-		}
+		// }
 		for(int i=0; i<5; i++)
 		{
 			int p=an[i].strength;
@@ -183,7 +184,7 @@ public class Forest
 
 			if(loop==0)
 			{	
-				System.out.println("enter name of animal to fight with   "+ winner.name +" :");
+				System.out.println("enter name of animal to fight :");
 				
 				opponent=scan.next();
 				// System.out.println(opponent);
@@ -196,7 +197,26 @@ public class Forest
 					{
 						loop=1;
 						// System.out.println("opponent");
-						if(opponent.equals(winner.name))
+						
+					}
+					
+
+				}
+		
+				System.out.println("enter name of animal to fight with "+opponent+" : ");
+				
+				opponent1=scan.next();
+				// System.out.println(opponent);
+
+				for(int i=0; i<c;i++)
+				{
+					// System.out.println(opponent);
+					// System.out.println(remaining[i].name);
+					if(opponent1.equals(remaining[i].name))
+					{
+						loop=1;
+						// System.out.println("opponent");
+						if(opponent.equals(opponent1))
 						{
 							loop=0;
 							// System.out.println("equa");
@@ -207,7 +227,7 @@ public class Forest
 				}
 			}
 		}while(loop==0);
-		int winnerno=0;
+		int opponent1no=0;
 		int opponentno=0;
 		// System.out.println(end+"  end");
 
@@ -215,18 +235,18 @@ public class Forest
 		{
 			for(int i=0;i<5;i++)
 			{
-				if(winner.name==an[i].name)
+				if(opponent1.equals(an[i].name))
 				{
-					winnerno=i;
+					opponent1no=i;
 				}
-				if(opponent.equals( an[i].name))
+				else if(opponent.equals( an[i].name))
 				{
 					opponentno=i;
 				}
 			}
 			// System.out.println(winnerno+" "+opponentno);
 
-			fight(winnerno,opponentno,an);
+			fight(opponent1no,opponentno,an);
 		}
 		else
 		{
@@ -236,4 +256,4 @@ public class Forest
 
 
 
-}
+} 
