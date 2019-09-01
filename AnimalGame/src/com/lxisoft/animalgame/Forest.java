@@ -1,6 +1,6 @@
-
 package com.lxisoft.animalgame;
-import java.util.Scanner;
+// import java.util.Scanner;
+import java.lang.Math;
 
 import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Tiger;
@@ -19,7 +19,7 @@ public class Forest
 	
 	public void print()
 	{
-		Scanner scan=new Scanner(System.in);
+		// Scanner scan=new Scanner(System.in);
 
 		Animal tiger=new Tiger();
 		Animal rabbit=new Rabbit();
@@ -75,15 +75,15 @@ public class Forest
 		}
 		do
 		{
-			System.out.print("enter the no of animal to select");
-			x=scan.nextInt();
+			// System.out.print("enter the no of animal to select");
+			x=(int)(4* Math.random());
 		}while(x>4);
 
 		do
 		{
-			System.out.print("select another animal to fight ");
-			animal[x].printName();
-			y=scan.nextInt();
+			// System.out.print("select another animal to fight ");
+			// animal[x].printName();
+			y=(int)(4* Math.random());
 			if(y==x){
 				
 				y=12;} 
@@ -99,6 +99,7 @@ public class Forest
 		int b=0;
 		int diff =0;
 		// a[x].printDetails();
+		System.out.println(a[x].name+" fighting with "+a[y].name);
 		if( a[x].strength>a[y].strength)
 		{
 			System.out.println( a[x].name+" wins");
@@ -127,7 +128,7 @@ public class Forest
 		// winner.printDetails();
 		String opponent=null;
 		String opponent1=null;
-		Scanner scan=new Scanner(System.in);
+		// Scanner scan=new Scanner(System.in);
 		int count=0;
 	
 		int c=0;
@@ -157,12 +158,15 @@ public class Forest
 		
 		}
 		int loop=0;
+		int loop1=0;
 		int end=0;
+		int index =0;
+		int index1= 0;
 		
 		do
 		{
 			
-			for(int i=0; i<5; i++)
+			for(int i=0; i<4; i++)
 			{
 				int p=an[i].strength;
 				if (p!=0)
@@ -184,9 +188,9 @@ public class Forest
 
 			if(loop==0)
 			{	
-				System.out.println("enter name of animal to fight :");
-				
-				opponent=scan.next();
+				// System.out.println("enter name of animal to fight :");
+				index=(int)(4* Math.random());
+				opponent=an[index].name;
 				// System.out.println(opponent);
 
 				for(int i=0; i<c;i++)
@@ -195,7 +199,7 @@ public class Forest
 					// System.out.println(remaining[i].name);
 					if(opponent.equals(remaining[i].name))
 					{
-						loop=1;
+						loop1=1;
 						// System.out.println("opponent");
 						
 					}
@@ -203,9 +207,9 @@ public class Forest
 
 				}
 		
-				System.out.println("enter name of animal to fight with "+opponent+" : ");
-				
-				opponent1=scan.next();
+				// System.out.println("enter name of animal to fight with "+opponent+" : ");
+				index1=(int)(4* Math.random());
+				opponent1=an[index1].name;
 				// System.out.println(opponent);
 
 				for(int i=0; i<c;i++)
@@ -221,6 +225,7 @@ public class Forest
 							loop=0;
 							// System.out.println("equa");
 						}
+						if(loop1==0)loop=0;
 					}
 					
 
