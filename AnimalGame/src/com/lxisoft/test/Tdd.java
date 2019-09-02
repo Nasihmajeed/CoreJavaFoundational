@@ -5,7 +5,10 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		Forest f=new Forest();
-		f.print();
+		Forest forest=new Forest();
+		forest.print();
+
+
+
 	}
 }
