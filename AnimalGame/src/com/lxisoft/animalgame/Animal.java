@@ -3,5 +3,6 @@ public class Animal
 {
 	public String animalName;
 	public int strength;
+	public boolean isDead=false;
 	
 }
