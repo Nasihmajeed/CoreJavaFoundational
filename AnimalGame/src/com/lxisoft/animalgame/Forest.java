@@ -76,14 +76,14 @@ public class Forest
 		do
 		{
 			// System.out.print("enter the no of animal to select");
-			x=(int)(4* Math.random());
+			x=(int)(5* Math.random());
 		}while(x>4);
 
 		do
 		{
 			// System.out.print("select another animal to fight ");
 			// animal[x].printName();
-			y=(int)(4* Math.random());
+			y=(int)(5* Math.random());
 			if(y==x){
 				
 				y=12;} 
@@ -166,7 +166,7 @@ public class Forest
 		do
 		{
 			
-			for(int i=0; i<4; i++)
+			for(int i=0; i<5; i++)
 			{
 				int p=an[i].strength;
 				if (p!=0)
@@ -189,7 +189,7 @@ public class Forest
 			if(loop==0)
 			{	
 				// System.out.println("enter name of animal to fight :");
-				index=(int)(4* Math.random());
+				index=(int)(5* Math.random());
 				opponent=an[index].name;
 				// System.out.println(opponent);
 
@@ -208,7 +208,7 @@ public class Forest
 				}
 		
 				// System.out.println("enter name of animal to fight with "+opponent+" : ");
-				index1=(int)(4* Math.random());
+				index1=(int)(5* Math.random());
 				opponent1=an[index1].name;
 				// System.out.println(opponent);
 
