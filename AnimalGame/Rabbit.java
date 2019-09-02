@@ -1,18 +1,21 @@
+import java.util.Scanner;
 public class Rabbit extends Animal
 {
-	int strength=35;
- 		public void eat()
+	String name;
+	int strength;
+	Scanner an=new Scanner(System.in);
+ 	public void name()
 	{
 		
-	System.out.println("Rabbit");
+		System.out.println("Rabbit");
 	}
 	public void run()
 	{
-	System.out.println("this is a herbivorous");
+		System.out.println("this is a herbivorous");
 	}
 	public void str()
 	{
-	System.out.println("Strength : "+strength);
+		System.out.print("Rabbit strength :");
 	}
 	
 }

@@ -1,5 +1,10 @@
 public class Animal
 {
+	
+	String name;
+	int str,num;
+	int number1,number2;
+ 	
 	public void eat()
 	{
 		System.out.println("eats meat");
@@ -19,10 +24,8 @@ public class Animal
 	{
 		System.out.println("");
 	}
-	public void fight()
+	public void animalDetails()
 	{
 		System.out.println("");
 	}
-	
-
 }

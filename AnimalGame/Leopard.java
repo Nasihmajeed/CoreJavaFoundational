@@ -1,7 +1,10 @@
+import java.util.Scanner;
 public class Leopard extends Animal
 {
-	int strength=50;
- 		public void eat()
+	String name;
+	int strength;
+	Scanner an=new Scanner(System.in);
+ 		public void name()
 	{
 		
 	System.out.println("Leopard");
@@ -10,9 +13,6 @@ public class Leopard extends Animal
 	{
 	System.out.println("this is a predator");
 	}
-	public void str()
-	{
-	System.out.println("Strength : "+strength);
-	}
+	
 	
 }
