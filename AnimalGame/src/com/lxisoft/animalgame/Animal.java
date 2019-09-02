@@ -7,5 +7,5 @@ public class Animal
 {
 	public String animalName;
 	public int strength;
-
+	boolean isDead=false;
 }

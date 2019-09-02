@@ -41,8 +41,7 @@ public class Forest
 	  		lion.animalName=sc.next();
 		  	System.out.println("strength of lion");
 		  	lion.strength=sc.nextInt();
-		  	animalArray[i]=lion;
-		
+		  	animalArray[i]=lion;		
 		}	
 		
 	 	for(int i=l+t;i<l+r+t;i++)
@@ -56,40 +55,34 @@ public class Forest
 		
 		}	
 			meet(animalArray);
-	// 
-	// 	fight();
-
-	// 	 animalArray[0]=aTiger;
-
-	// 	 animalArray[1]=aLion;       
-  
- //         animalArray[2]=aRabbit;	
-
-	// 	;
-	}
-	
-	//public void fight()
-	//{	 	
-		
-	//	System.out.println("Animals meet each other");
-	//}
-		
+	}	
 	public void meet(Animal animalArray[])
 	{
-		int x,y;
 		System.out.println("-------fight begins---------");	
+		int x,y,temp;
 		for(int i=0;i<6;i++)
 		{
-			 x=(int) (Math.random()*3);
-			 y=(int) (Math.random()*3);
+			x=(int) (Math.random()*3);
+			y=(int) (Math.random()*3);
+			//x instanceof Tiger;
+			//while(animalArray[x].strength==animalArray[y].strength)
 			System.out.println(animalArray[x].animalName+" Vs "+animalArray[y].animalName);
+			if(animalArray[x].isDead==false&animalArray[y].isDead==false)
+			{
+
+			}
 			if(animalArray[x].strength<animalArray[y].strength)
 			{
 				System.out.println("winner====="+animalArray[y].animalName);
+				System.out.println(animalArray[x].animalName+" dead");
+				animalArray[x].isDead=true;
 			}
 			else
 			{
 				System.out.println("Dead========"+animalArray[x].animalName);
+				System.out.println(animalArray[y].animalName+" dead");				
+				animalArray[y].isDead=true;
+
 			}	
 		}
 
