@@ -2,19 +2,9 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Lion extends Animal
 {	
-	public Lion(String animalName,String aggressive,int strength)
-	{
-		this.animalName=animalName;
-		this.aggressive=aggressive;
-		this.strength=strength;
-	}
-	public void eat()
-	{
-		System.out.println("\n");
-		System.out.println("Lion eat meat");
-	}
-	public void run()
-	{
-		System.out.println("Lion run fastly");
+	public void fight()
+	{	
+		System.out.println("name of lion="+animalName);
+		System.out.println("strength="+strength);
 	}
 }
