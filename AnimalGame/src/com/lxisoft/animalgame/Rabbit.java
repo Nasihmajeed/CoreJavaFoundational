@@ -5,7 +5,7 @@ public class Rabbit extends Animal
 	public void printDetails()
 	{
 
-		System.out.println(name+strength);
+		System.out.println(name+" "+strength);
 	}
 	public void printName()
 	{

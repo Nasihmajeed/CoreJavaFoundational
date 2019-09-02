@@ -4,10 +4,8 @@ public class Wolf extends Animal
 	int strength;
 	String name;
 	public void printDetails()
-	{
-		name="Wolf";
-		strength=60;
-		System.out.println(name+strength);
+	{	
+		System.out.println(name+" "+strength);
 	}
 	public void printName()
 	{

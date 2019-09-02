@@ -38,11 +38,11 @@ public class Forest
 		animal [2]=new Lion();
 		animal [3]=new Peacook();
 		animal [4]=new Zeebra();
-		// animal [5]=new Frog();
-		// animal [6]=new Cheetah();
-		// animal [7]=new Deer();
-		// animal [8]=new Elephant();
-		// animal [9]=new Wolf();
+		animal [5]=new Frog();
+		animal [6]=new Cheetah();
+		animal [7]=new Deer();
+		animal [8]=new Elephant();
+		animal [9]=new Wolf();
 
 
 		
@@ -51,12 +51,13 @@ public class Forest
 		animal [2]=lion;
 		animal [3]=peacook;
 		animal [4]=zeebra;
-		// animal [5]=frog;
-		// animal [6]=cheetah;
-		// animal [7]=deer;
-		// animal [8]=elephant;
-		// animal [9]=wolf;
-		animal[0].name="Tiger";
+		animal [5]=frog;
+		animal [6]=cheetah;
+		animal [7]=deer;
+		animal [8]=elephant;
+		animal [9]=wolf;
+
+		animal[0].name="tiger";
 		animal[0].strength=90;
 		animal[1].name="rabbit";
 		animal[1].strength=30;
@@ -66,9 +67,20 @@ public class Forest
 		animal[3].strength=40;
 		animal[4].name="zeebra";
 		animal[4].strength=45;
+		animal[5].name="frog";
+		animal[5].strength=10;
+		animal[6].name="cheetah";
+		animal[6].strength=80;
+		animal[7].name="deer";
+		animal[7].strength=50;
+		animal[8].name="elephant";
+		animal[8].strength=70;
+		animal[9].name="wolf";
+		animal[9].strength=60;
+
 
 		int x,y;
-		for(int i=0; i<5; i++)
+		for(int i=0; i<10; i++)
 		{
 			System.out.print(i+" ");
 			animal[i].printDetails();
@@ -76,19 +88,19 @@ public class Forest
 		do
 		{
 			// System.out.print("enter the no of animal to select");
-			x=(int)(5* Math.random());
-		}while(x>4);
+			x=(int)(10* Math.random());
+		}while(x>9);
 
 		do
 		{
 			// System.out.print("select another animal to fight ");
 			// animal[x].printName();
-			y=(int)(5* Math.random());
+			y=(int)(10* Math.random());
 			if(y==x){
 				
 				y=12;} 
 			
-		}while(y>4);
+		}while(y>9);
 		fight(x,y,animal);
 
 			
@@ -132,7 +144,7 @@ public class Forest
 		int count=0;
 	
 		int c=0;
-		Animal [] remaining=new Animal[5];
+		Animal [] remaining=new Animal[10];
 		// for(int i=0; i<5; i++)
 		// {
 		// 	int p=an[i].strength;
@@ -144,7 +156,7 @@ public class Forest
 		// 	}
 
 		// }
-		for(int i=0; i<5; i++)
+		for(int i=0; i<10; i++)
 		{
 			int p=an[i].strength;
 			if(p!=0)
@@ -166,7 +178,7 @@ public class Forest
 		do
 		{
 			
-			for(int i=0; i<5; i++)
+			for(int i=0; i<10; i++)
 			{
 				int p=an[i].strength;
 				if (p!=0)
@@ -189,7 +201,7 @@ public class Forest
 			if(loop==0)
 			{	
 				// System.out.println("enter name of animal to fight :");
-				index=(int)(5* Math.random());
+				index=(int)(10* Math.random());
 				opponent=an[index].name;
 				// System.out.println(opponent);
 
@@ -208,7 +220,7 @@ public class Forest
 				}
 		
 				// System.out.println("enter name of animal to fight with "+opponent+" : ");
-				index1=(int)(5* Math.random());
+				index1=(int)(10* Math.random());
 				opponent1=an[index1].name;
 				// System.out.println(opponent);
 
@@ -238,7 +250,7 @@ public class Forest
 
 		if(end!=1)
 		{
-			for(int i=0;i<5;i++)
+			for(int i=0;i<10;i++)
 			{
 				if(opponent1.equals(an[i].name))
 				{

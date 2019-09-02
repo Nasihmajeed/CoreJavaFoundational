@@ -5,9 +5,8 @@ public class Cheetah extends Animal
 	String name;
 	public void printDetails()
 	{
-		name="cheetah";
-		strength=80;
-		System.out.println(name+strength);
+	
+		System.out.println(name+" "+strength);
 	}
 	public void printName()
 	{

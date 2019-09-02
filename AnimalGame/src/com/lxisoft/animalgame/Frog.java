@@ -5,9 +5,7 @@ public class Frog extends Animal
 	String name;
 	public void printDetails()
 	{
-		name="frog";
-		strength=10;
-		System.out.println(name+strength);
+		System.out.println(name+" "+strength);
 	}
 	public void printName()
 	{

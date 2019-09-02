@@ -4,7 +4,7 @@ public class Tiger extends Animal
 	public void printDetails()
 	{
 		
-		System.out.println(name+strength);
+		System.out.println(name+" "+strength);
 	}
 
 	public void printName()

@@ -5,9 +5,8 @@ public class Deer extends Animal
 	String name;
 	public void printDetails()
 	{
-		name="deer";
-		strength=50;
-		System.out.println(name+strength);
+	
+		System.out.println(name+" "+strength);
 	}
 	public void printName()
 	{
