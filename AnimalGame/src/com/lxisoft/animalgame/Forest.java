@@ -69,42 +69,75 @@ public class Forest
 		
 		int a,n=1;
 		a=animalArr.length;
-		System.out.println("animals meet and fight begins");
-		System.out.println("------------------------------");
+		System.out.println("\n\t\tanimals meet and fight begins");
+		System.out.println("\t\t------------------------------");
 		int z=(int) (Math.random()*8);
-		System.out.println("number of fight=="+z);
+		System.out.println("\n\t\tnumber of fight=="+z);
 
 		for(int i=0;i<z;i++)
 		{
-			System.out.println("Fight no---"+n);
+			
 			int x=(int) (Math.random()*4);
 			int y=(int) (Math.random()*4);
+		
 			if((animalArr[x].isDead==false)&(animalArr[y].isDead==false))
 			{
-				System.out.println("\n");
-				System.out.println(animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-				if(animalArr[x].strength<animalArr[y].strength)
+				if(x!=y)
 				{
-					System.out.println("winner="+animalArr[y].animalName);
-					System.out.println(animalArr[x].animalName+"  --dead");
-					animalArr[x].isDead=true;
-					
+					System.out.println("\n\t\tFight no---"+n);
+					System.out.println("\t\t"+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+					if(animalArr[x].strength<animalArr[y].strength)
+					{
+						
+					 	animalArr[y].strength=(animalArr[y].strength-1);
+						System.out.println("\t\twinner="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
+						animalArr[x].strength=(animalArr[x].strength-2);
+						System.out.println("\t\t"+animalArr[x].animalName+"--looser strength=="+animalArr[x].strength);
+						if(animalArr[x].strength<=0)
+						{
+							animalArr[x].isDead=true;
+							System.out.println("\n"+animalArr[x].animalName+"dead");
+						}
+						if(animalArr[y].strength<=0)
+						{
+							animalArr[y].isDead=true;
+							System.out.println("\n"+animalArr[y].animalName+"dead");
+						}
+					}
 
+					else
+					{
+						animalArr[x].strength=(animalArr[x].strength-1);
+						System.out.println("\t\twinner="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
+						animalArr[y].strength=(animalArr[y].strength-2);
+						System.out.println("\t\t"+animalArr[y].animalName+"--looser strength=="+animalArr[y].strength);
+						if(animalArr[y].strength==0)
+						{
+							animalArr[y].isDead=true;
+							System.out.println("\n"+animalArr[y].animalName+"****dead");
+						}
+						if(animalArr[x].strength==0)
+						{
+							animalArr[x].isDead=true;
+							System.out.println("\n"+animalArr[x].animalName+"****dead");
+						}
+					}
+					n++;
 				}
-				else
-				{
-					System.out.println("winner= "+animalArr[x].animalName);
-					System.out.println(animalArr[y].animalName+"   --dead");
-					animalArr[y].isDead=true;
-				}
-				
 			}
-			n++;
 
+			
+
+		}
+		System.out.println("\n\t\tanimal list after fight");
+		System.out.println("\t\t----------------------------");
+		for(int i=0;i<a;i++)
+		{
+			if(animalArr[i].isDead==false)
+			{
+				System.out.println("\n\t\t"+animalArr[i].animalName+" with strength ---"+animalArr[i].strength);
+			}
 		}
 
 	}
-
-
-	
 }
