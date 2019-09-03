@@ -5,6 +5,7 @@ public class Animal
 {
 	String name;
 	int strength;
+	boolean isDead;
 	
 	public void eat()
 	{
