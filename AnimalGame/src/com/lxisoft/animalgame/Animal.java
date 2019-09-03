@@ -4,13 +4,23 @@ import com.lxisoft.animalgame.Tiger;
 import java.util.Scanner;
 public class Animal 
 {
-	int speed;
-    int hungry;
+	String name;
+	int strengthlevel;
 	
+	public void Display()
+	{
+		System.out.println("Lion strengthlevel = 70 \n Tiger strengthlevel= 80 \n Wildbull strengthlevel=40 \n wolf strengthlevel= 35 \n Rabit strengthlevel =10");
+	}
+	
+	
+/*	public void Dofight()
+	{
+		forest.fight();
+	}	*/
 	public void eat()
 	{
-		
-		System.out.println(" Animal ate Rabit");
+      		
+	 
 	}	
 	
 } 

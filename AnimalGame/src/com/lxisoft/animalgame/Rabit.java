@@ -4,11 +4,14 @@ package com.lxisoft.animalgame;
 
 public class Rabit extends Animal
 {
-	int strengthlevel=10 ;
+	
     int Aggressivelevel=5;
+	public Rabit(String name,int strengthlevel)
+	{
+		this.name=name;
+		this.strengthlevel=strengthlevel;
+		
+	}
   
-  public void eat()
-  {
-	  
-  }
+ 
 }

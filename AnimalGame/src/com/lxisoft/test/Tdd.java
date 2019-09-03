@@ -1,14 +1,17 @@
 package com.lxisoft.test;
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Forest;
+import com.lxisoft.animalgame.*;
+
 public class Tdd
 { 
  public static void main (String args[])
  {
+   System.out.println("		............SADANAM JUNGLE............ \n	");
+   
    Forest forest = new Forest();
-	forest.fight();
-	//Animal animal1 = new Tiger();
-	//lion.eat();
+   
+   forest.fight();
+   
+    
  }
 	
 }

@@ -8,7 +8,7 @@
 		
 		school.print();
 		school.rank();
-        //classRoom.rank();		
+        	
 	  }
  }
 	 
