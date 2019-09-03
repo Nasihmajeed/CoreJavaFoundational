@@ -1,8 +1,8 @@
 package com.lxisoft.intern.files;
 public abstract class Animal
 {
-        public String name;
-	public int power;
+       private String name;
+	   private int power;
 
   public void setName(String n)
 {

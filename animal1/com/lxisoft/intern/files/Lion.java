@@ -1,10 +1,10 @@
 package com.lxisoft.intern.files;
-public class Lion extends Animalcarnivores
+public class Lion extends AnimalCarnivore
 {   
 	public Lion(String name,int pow)
 	{
-		this.name=name;
-		this.power=pow;
+		setName(name);
+		setPower(pow);
 	}
 
 
