@@ -67,7 +67,7 @@ public class Forest
 	{
 		System.out.println("jungle");
 		
-		int a,n=1;
+		int a,n=1,b=0;
 		a=animalArr.length;
 		System.out.println("\n\t\tanimals meet and fight begins");
 		System.out.println("\t\t------------------------------");
@@ -131,13 +131,24 @@ public class Forest
 		}
 		System.out.println("\n\t\tanimal list after fight");
 		System.out.println("\t\t----------------------------");
+		
 		for(int i=0;i<a;i++)
 		{
+			
 			if(animalArr[i].isDead==false)
 			{
 				System.out.println("\n\t\t"+animalArr[i].animalName+" with strength ---"+animalArr[i].strength);
+				b=b<(animalArr[i].strength)?(animalArr[i].strength):b;
+				
 			}
 		}
-
+		System.out.println("highest strength-----"+b);
+		for(int i=0;i<a;i++)
+		{
+			if(animalArr[i].strength==b)
+			{
+				System.out.println("WINNER-----------"+animalArr[i].animalName);
+			}
+		}
 	}
 }
