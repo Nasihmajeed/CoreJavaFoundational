@@ -3,8 +3,5 @@ import com.lxisoft.animalgame.Animal;
 public class Rabbit extends Animal
 {
 
-	public void fight()
-	{
-    		
-	}	
+	
 }
