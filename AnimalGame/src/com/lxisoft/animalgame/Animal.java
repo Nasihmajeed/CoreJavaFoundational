@@ -7,45 +7,31 @@ public class Animal
 {
 	int strength;
 	public String name;
-	public void fight()
+	boolean isDead;
+	public Animal fight(Animal animal)
 	{
-		System.out.println("animal fighting..");
+		Animal win;
+		System.out.println(this.name +" fight with " +animal.name);
+		if(this.strength>animal.strength)
+		{
+			win=this;
+			animal.isDead=true;
+			System.out.println(this.name + "  wins " + animal.name +"  died ");
+		}
+		else
+		{
+			win=animal;
+			this.isDead=true;
+			System.out.println(animal.name + "  wins " + this.name + "  died ");
+		}
+		return win;
+
 	}
 	public void display()
 	{
 			
 	}
-	/*public void fight(int x,int y,Animal[] a_array)
-		{
-
-				Animal r=new Animal();
-			    System.out.println("fightting each other");
-			 
-				if(a_array[x].strength>a_array[y].strength)
-					{
-						System.out.println(a_array[x].name + " wins and " + a_array[y].name + " died");
-						System.out.println("");
-						a_array[x].strength-=a_array[y].strength/2;
-						a_array[y].strength=0;
-						r=a_array[x];
-
-					}
-					else
-					{
-						System.out.println(a_array[y].name + " wins and " + a_array[x].name + " died");
-						System.out.println("");
-						a_array[y].strength-=a_array[x].strength/2;
-						a_array[x].strength=0;
-						r=a_array[y];
-					}
-					s_meet(r,a_array);
-					
-						
-					}*/
 	
-			
-			
-			
 		
 
 }

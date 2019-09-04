@@ -9,7 +9,7 @@ public class Forest
 		Animal tiger;
 		Animal lion;
 		Animal rabbit;
-	//	Animal elephant;
+		Animal elephant;
 
 		public void print()
 		{
@@ -17,156 +17,122 @@ public class Forest
 			System.out.println("Animals");
 
 	//-----------		Array creation	---------//			
-			animals=new Animal[3];
+			animals=new Animal[4];
 
 			tiger=new Tiger();
 			lion=new Lion();
 			rabbit=new Rabbit();
-		//	elephant=new Elephant();
+			elephant=new Elephant();
 
 			tiger.name="Tiger";
 			tiger.strength=40;
-			tiger.display();
+			tiger.isDead=false;
+			//tiger.display();
 			animals[0]=tiger;
 
 			rabbit.name="Rabbit";
 			rabbit.strength=10;
-			rabbit.display();
+			rabbit.isDead=false;
+			//rabbit.display();
 			animals[1]=rabbit;
 
 			lion.name="Lion";
 			lion.strength=30;
-			lion.display();
+			lion.isDead=false;
+			//lion.display();
 			animals[2]=lion;
 
-			// elephant.name="Elephant";
-			// elephant.strength=20;
-			// elephant.display();
-			// animals[3]=elephant;
+			elephant.name="Elephant";
+			elephant.strength=20;
+			elephant.isDead=false;
+			//elephant.display();
+			animals[3]=elephant;
 
-
-			meet(animals);	// calling meet method using array passing....
-	
+           meet(animals);
+          
+         }  
+		public int randomGeneration(int limit)
+		{
+				int random=(int)(Math.random()*limit);
+				return random;
 		}
-		public void meet(Animal animal_array[]) 
-		{  
-			int index2;
-			System.out.println("\n");
-		//-----------random number generating----------------//	
-			int index1=(int)(Math.random()*3);
+		public Animal[] isDead(int winner,int looser,Animal[] animal_array)
+		{
+			int remain=animal_array[winner].strength-animal_array[looser].strength/2;
+			animal_array[winner].strength=remain;
+			animal_array[looser].strength=0;
+			System.out.println("winner " +animal_array[winner].name + animal_array[winner].strength);
+			System.out.println("looser "+ animal_array[looser].name + animal_array[looser].strength);
+			return animal_array;
+
+		}
+	    public void isWinner(Animal[] animals,Animal lastAnimal)
+	    {
+       		int count=0;
+        	for(int i=0;i<animals.length;i++)
+			{
+				if(animals[i].isDead==false)
+				{	
+					
+					count++;
+				}
+			}
+			if(count==1)
+        	{
+        		 
+        		System.out.println("winner is  "+lastAnimal.name);
+        	}
+        	else
+        	{
+        		
+        		meet(animals);
+        	}
+
+	    }
+	
+		public void meet(Animal[] animal_array ) 
+		{	
+			int count=0,random1,random2;
+			Animal win;
+			for(int i=0;i<animal_array.length;i++)
+			{
+				if(animal_array[i].isDead==false)
+				{	
+					System.out.print(i + " ");
+					animal_array[i].display();
+					count++;
+				}
+			}
 			do
 			{
-			index2=(int)(Math.random()*3);
-			}while(index1==index2);
-			System.out.println(animal_array[index1].name+ " and "+ animal_array[index2].name + " are meeting ");
-			fight(index1,index2,animal_array);	//---calling fight method---//
+			random1=randomGeneration(animals.length);
+
+			}
+			while(animal_array[random1].isDead);
+
+			do
+			{
 			
+			random2=randomGeneration(animals.length);
+
+			}
+			while(animal_array[random2].isDead || random1==random2);
+
+			System.out.println(random1 +"  "+ random2);
+		    win=animals[random1].fight(animals[random2]);
+		    win.display();
+
+		    if(animals[random1].name==win.name)
+		    {
+		    	animals=isDead(random1,random2,animals);
+		    }
+		    else
+		    {
+		    	animals=isDead(random2,random1,animals);
+		    }
+		    
+		    isWinner(animals,win);
 		}
-		public void s_meet(Animal winner,Animal[] animals_array,int count)
-		{
-			int index3=0,loop=0;
-			Animal[] remain=new Animal[count];
-
-			for(int i=0;i<count;i++)
-			{
-				if(animals_array[i].strength>0)
-					{
-						
-						remain[i]=animals_array[i];
-						System.out.println("\n" +remain[i].name + "\t" +remain[i].strength);
-						
-					
-
-
-					
-					}
-				
-			}
-			System.out.println("length of remain " +remain.length);
-			if(remain.length==2)
-			{
-				s_fight(index3,winner,remain,count);
-			}
-			else
-			{
-				do
-				{
-				index3=(int)(Math.random()*count);
-				
-				for(int i=0;i<remain.length;i++)
-					{	
-						System.out.println("loop front loop"+loop);
-						System.out.println("animals_array index==="+animals_array[index3].name);
-						System.out.println("remain animal==="+remain[i].name);
-					if(animals_array[index3].name.equals(remain[i].name))
-							{
-								System.out.println("winner animal==="+winner.name);
-								if(winner.name==remain[index3].name)
-								loop++;
-
-						System.out.println("loop last loop"+loop);
-							}
-						
-					}
-				}while(loop==1);
-			}
-				System.out.println(winner.name+ " and "+ animals_array[index3].name + " are meeting ");
-				s_fight(index3,winner,remain,count);
-			
-		}
-		 	
-		public void fight(int x,int y,Animal[] a_array)
-		{
-
-				Animal r;int count=a_array.length;
-			    System.out.println("fightting each other");
-			 	int last=a_array.length;
-				if(a_array[x].strength>a_array[y].strength)
-					{
-						System.out.println(a_array[x].name + " wins and " + a_array[y].name + " died");
-						System.out.println("");
-						a_array[x].strength-=a_array[y].strength;
-						a_array[y].strength=0;
-						count--;
-						r=a_array[x];
-
-					}
-					else
-					{
-						System.out.println(a_array[y].name + " wins and " + a_array[x].name + " died");
-						System.out.println("");
-						a_array[y].strength-=a_array[x].strength;
-						a_array[x].strength=0;
-						count--;
-						r=a_array[y];
-					}
-					s_meet(r,a_array,count);
-					
-						
-					}
-				
-			
-			
-		
-	public void s_fight(int r,Animal alive,Animal[] animal_array,int c)
-	{		
-			System.out.println("fightting each other");
-			if(animal_array[r].strength>alive.strength)
-				{
-				System.out.println(animal_array[r].name  + " wins and " + alive.name + " died");
-				}
-				else
-				{
-				System.out.println(alive.name + " wins and " + animal_array[r].name  + " died");	
-				}
-		
-			// {
-		 // 		System.out.println("winner-----" +remain.name);
-			// }	
-	}
 
 
 }
-
-
-
