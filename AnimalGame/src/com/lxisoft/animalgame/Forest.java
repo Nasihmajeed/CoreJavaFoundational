@@ -76,7 +76,7 @@ public class Forest
 		Scanner sc=new Scanner (System.in);
 		System.out.println("--ANIMAL DETAILS--");
 		System.out.println("\n");
-		System.out.println("Animal Meet & Fight Starts");
+		System.out.println("\tAnimal Meet & Fight Starts");
 		System.out.println("-----------------------------");
 		do
 		{
@@ -89,7 +89,7 @@ public class Forest
 				{
 					if(animalArr[m].isDead==false&animalArr[n].isDead==false)
 					{
-						System.out.println(animalArr[m].animalName+"  VS  "+animalArr[n].animalName);					
+						System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);					
 						if(animalArr[m].strength>animalArr[n].strength)
 						{
 							animalArr[m].strength=(animalArr[m].strength-1);
@@ -100,13 +100,13 @@ public class Forest
 							{
 								animalArr[m].isDead=true;
 								count--;
-								System.out.println("Dead-----"+animalArr[m].animalName);
+								System.out.println(animalArr[m].animalName+"  DEAD");
 							}
 							if(animalArr[n].strength<=0)
 							{
 								animalArr[n].isDead=true;
 								count--;
-								System.out.println("Dead-----"+animalArr[n].animalName);
+								System.out.println(animalArr[n].animalName+"  DEAD");
 							}	
 							System.out.println(animalArr[m].animalName+"  WIN");
 							remaining(animalArr);
@@ -121,13 +121,13 @@ public class Forest
 							{
 								animalArr[n].isDead=true;
 								count--;
-								System.out.println("Dead-----"+animalArr[n].animalName);
+								System.out.println(animalArr[n].animalName+"  DEAD");
 							}
 							if(animalArr[m].strength<=0)
 							{
 								animalArr[m].isDead=true;
 								count--;
-								System.out.println("dead-----"+animalArr[m].animalName);
+								System.out.println(animalArr[m].animalName+"  DEAD");
 							}
 							System.out.println(animalArr[n].animalName+"  WIN");
 							remaining(animalArr);
@@ -144,7 +144,7 @@ public class Forest
       	{
       		if(animalArr[i].isDead==false)
       		{
-      			System.out.println("\n"+animalArr[i].animalName+"  Remainig");
+      			System.out.println("\n Remainig="+animalArr[i].animalName);
       		}
    		} 
 	}

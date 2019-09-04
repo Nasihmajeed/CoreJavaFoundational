@@ -9,10 +9,5 @@ public class Animal
 	int strength;
 	boolean isDead;
 
-	public void fight()
-	{
-
-
-		
-	}  
+	
 }
