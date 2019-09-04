@@ -3,9 +3,10 @@ public class Tdd
 	 public static void main(String[] args) 
 	{
 		Forest forest=new Forest();
-		forest.getLionDetails();
-		forest.getFoxDetails();
-		forest.meet();
-		forest.fight();
+		forest.forestDetails();
+		forest.animalDetails();
+  		forest.meet();
+  		forest.fight();
+		}
 	}
-}
+		

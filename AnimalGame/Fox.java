@@ -1,14 +1,11 @@
 public class Fox extends Animal
 {
-	public void eat()
+	public void printDetails()
 	{
-			System.out.println("eating meet");
-
+		System.out.println("The animal is:"+name);
+		System.out.println("The animal strength is:"+strength);
 	}
-	public void run()
-	{
-			System.out.println("run fast");
 
-	}
-	
 }
+	
+
