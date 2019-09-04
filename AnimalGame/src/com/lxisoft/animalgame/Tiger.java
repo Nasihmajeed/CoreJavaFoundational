@@ -21,8 +21,6 @@ public class Tiger extends Animal
 	{
 		System.out.println("tiger runs");
 	}
-	public void fight (Animal name)
-	{
-	}
+	
 
 }

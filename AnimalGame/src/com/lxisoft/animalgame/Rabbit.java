@@ -22,8 +22,6 @@ public class Rabbit extends Animal
 		System.out.println("rabbit runs");
 	}
 
-	public void fight (Animal name)
-	{
-	}
+
 
 }

@@ -20,8 +20,6 @@ public class Zeebra extends Animal
 	{
 		System.out.println("Zeebra runs");
 	}
-	public void fight (Animal name)
-	{
-	}
+	
 
 }

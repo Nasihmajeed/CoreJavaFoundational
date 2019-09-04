@@ -1,8 +1,7 @@
 package com.lxisoft.animalgame;
 public class Frog extends Animal
 {
-	int strength;
-	String name;
+
 	public void printDetails()
 	{
 		System.out.println(name+" "+strength);
@@ -20,7 +19,5 @@ public class Frog extends Animal
 	{
 		System.out.println("Frog runs");
 	}
-	public void fight (Animal name)
-	{
-	}
+	
 }

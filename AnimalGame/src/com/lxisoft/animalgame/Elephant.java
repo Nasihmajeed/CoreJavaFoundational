@@ -1,8 +1,7 @@
 package com.lxisoft.animalgame;
 public class Elephant extends Animal
 {
-	int strength;
-	String name;
+
 	public void printDetails()
 	{
 		System.out.println(name+" "+strength);
@@ -20,7 +19,4 @@ public class Elephant extends Animal
 	{
 		System.out.println("Elephant runs");
 	}
-	public void fight (Animal name)
-	{
-
-}}
+}

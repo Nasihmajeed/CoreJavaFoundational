@@ -20,8 +20,6 @@ public class Lion extends Animal
 	{
 		System.out.println("lion runs");
 	}
-	public void fight (Animal name)
-	{
-	}
+	
 
 }

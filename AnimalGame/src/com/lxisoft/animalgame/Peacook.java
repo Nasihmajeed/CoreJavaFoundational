@@ -20,8 +20,6 @@ public class Peacook extends Animal
 	{
 		System.out.println("Peacook runs");
 	}
-	public void fight (Animal name)
-	{
-	}
+	
 
 }
