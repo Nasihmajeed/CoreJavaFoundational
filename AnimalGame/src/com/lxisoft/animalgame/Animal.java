@@ -3,7 +3,7 @@ public class Animal
 {
 	public String animalName;
 	public int strength;
-	public boolean isDead;
+	public boolean isDead=false;
 	public Animal fight(Animal animals)
 	{
 		System.out.println("\n fight details");
