@@ -16,13 +16,13 @@ public class Animal
 		{
 			win=this;
 			animal.isDead=true;
-			System.out.println(this.name + "  wins " + animal.name +"  died ");
+			System.out.println(this.name + "  wins " + animal.name +"  died  \n");
 		}
 		else
 		{
 			win=animal;
 			this.isDead=true;
-			System.out.println(animal.name + "  wins " + this.name + "  died ");
+			System.out.println(animal.name + "  wins " + this.name + "  died \n");
 		}
 		return win;
 

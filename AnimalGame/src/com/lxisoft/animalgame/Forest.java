@@ -6,63 +6,99 @@ public class Forest
 		
 		
 		Animal[] animals;
-		Animal tiger;
-		Animal lion;
-		Animal rabbit;
+		Animal buffallo;
+		Animal crocodile;
+		Animal deer;
 		Animal elephant;
-
+		Animal fox;
+		Animal lion;
+		Animal pig;
+		Animal rabbit;
+		Animal tiger;
+		Animal zeebra;
+		
 		public void print()
 		{
 			System.out.println("---Amazon Forest---");
 			System.out.println("Animals");
 
 	//-----------		Array creation	---------//			
-			animals=new Animal[4];
+			animals=new Animal[10];
 
 			tiger=new Tiger();
 			lion=new Lion();
 			rabbit=new Rabbit();
 			elephant=new Elephant();
+			buffallo=new Buffallo();
+			crocodile=new Crocodile();
+			deer=new Deer();
+			fox=new Fox();
+			pig=new Pig();
+			zeebra=new Zeebra();
 
 			tiger.name="Tiger";
 			tiger.strength=40;
 			tiger.isDead=false;
-			//tiger.display();
 			animals[0]=tiger;
 
 			rabbit.name="Rabbit";
 			rabbit.strength=10;
 			rabbit.isDead=false;
-			//rabbit.display();
 			animals[1]=rabbit;
 
 			lion.name="Lion";
 			lion.strength=30;
 			lion.isDead=false;
-			//lion.display();
 			animals[2]=lion;
 
 			elephant.name="Elephant";
-			elephant.strength=20;
+			elephant.strength=45;
 			elephant.isDead=false;
-			//elephant.display();
 			animals[3]=elephant;
 
+			buffallo.name="Buffallo";
+			buffallo.strength=35;
+			buffallo.isDead=false;
+			animals[4]=buffallo;
+
+			crocodile.name="Crocodile";
+			crocodile.strength=15;
+			crocodile.isDead=false;
+			animals[5]=crocodile;
+
+			deer.name="Deer";
+			deer.strength=20;
+			deer.isDead=false;
+			animals[6]=deer;
+
+			fox.name="Fox";
+			fox.strength=32;
+			fox.isDead=false;
+			animals[7]=fox;
+
+			pig.name="Pig";
+			pig.strength=17;
+			pig.isDead=false;
+			animals[8]=pig;
+
+			zeebra.name="Zeebra";
+			zeebra.strength=25;
+			zeebra.isDead=false;
+			animals[9]=zeebra;
            meet(animals);
           
-         }  
+        }  
 		public int randomGeneration(int limit)
 		{
 				int random=(int)(Math.random()*limit);
 				return random;
+
 		}
 		public Animal[] isDead(int winner,int looser,Animal[] animal_array)
 		{
 			int remain=animal_array[winner].strength-animal_array[looser].strength/2;
 			animal_array[winner].strength=remain;
 			animal_array[looser].strength=0;
-			System.out.println("winner " +animal_array[winner].name + animal_array[winner].strength);
-			System.out.println("looser "+ animal_array[looser].name + animal_array[looser].strength);
 			return animal_array;
 
 		}
@@ -80,7 +116,7 @@ public class Forest
 			if(count==1)
         	{
         		 
-        		System.out.println("winner is  "+lastAnimal.name);
+        		System.out.println("\n winner is  "+lastAnimal.name);
         	}
         	else
         	{
@@ -118,7 +154,6 @@ public class Forest
 			}
 			while(animal_array[random2].isDead || random1==random2);
 
-			System.out.println(random1 +"  "+ random2);
 		    win=animals[random1].fight(animals[random2]);
 		    win.display();
 

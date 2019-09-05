@@ -6,7 +6,7 @@ public class Lion extends Animal
 
 		public void display()
 		{
-		System.out.println(name + "  Strength= " +strength);
+		System.out.println(name + "  Strength= " +strength+"\n");
 		}
 			
 

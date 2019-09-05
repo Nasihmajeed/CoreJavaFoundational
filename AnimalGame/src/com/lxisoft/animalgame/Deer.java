@@ -1,13 +1,13 @@
 package com.lxisoft.animalgame;
 
-public class Tiger extends Animal
-	{
-	
-			public void display()
+public class Deer extends Animal
+{
+
+		public void display()
 		{
 			System.out.println(name + "  Strength= " +strength+"\n");
-		
+
 		}
 		
 
-	}
+}
