@@ -13,6 +13,10 @@ public class Tiger extends Animal
 		System.out.println("Tiger ate Rabit");
 		
 	}
+	public void fight( )
+	{
+		
+	}
  
   
 }  

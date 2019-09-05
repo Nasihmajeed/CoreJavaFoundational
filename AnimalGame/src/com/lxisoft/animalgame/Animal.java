@@ -7,15 +7,16 @@ public class Animal
 	String name;
 	int strengthlevel;
 	
-	public void Display()
+	public void display()
 	{
-		System.out.println("Lion strengthlevel = 70 \n Tiger strengthlevel= 80 \n Wildbull strengthlevel=40 \n wolf strengthlevel= 35 \n Rabit strengthlevel =10");
+		System.out.println(" name= "+this.name+ "strengthlevel= "+this.strengthlevel +"\n");
 	}
 	
 	
 /*	public void Dofight()
 	{
 		forest.fight();
+		
 	}	*/
 	public void eat()
 	{
@@ -24,3 +25,4 @@ public class Animal
 	}	
 	
 } 
+             
