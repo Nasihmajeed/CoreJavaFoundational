@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 
-public class Tiger extends Animal
+public class Tiger extends Animal implements Carnivorous
 {
 	public void eat()
 	{
@@ -11,7 +11,7 @@ public class Tiger extends Animal
 	{
 		System.out.println("tiger runs very fast");
 	}
-	
+
 
 	public void animalsRoam()
 	{

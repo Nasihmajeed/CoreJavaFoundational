@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 
-public class Lion extends Animal
+public class Lion extends Animal implements Carnivorous
 {
 	public void eat()
 	{

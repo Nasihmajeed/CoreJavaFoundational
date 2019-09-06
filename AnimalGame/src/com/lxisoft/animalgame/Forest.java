@@ -131,7 +131,7 @@ public class Forest
 			}
 			if(c<=1)
 			{
-				System.out.println("\t\t\t  ********* THE WINNER IS "+animal[win].name+" *********");
+				System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
 				break;
 
 			}
