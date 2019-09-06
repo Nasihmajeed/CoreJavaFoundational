@@ -1,4 +1,4 @@
-package com.lxisoft.animalgame;
+ package com.lxisoft.animalgame;
 // import java.util.Scanner;
 import java.lang.Math;
 
@@ -102,11 +102,15 @@ public class Forest
 		int count=0;
 		for(int i=0; i<array.length; i++)
 		{
-			if(array[i].isDead==false)
-			{
+			if(array[i] instanceof Carnivore)
 			
-				count++;
+			{
+				if(array[i].isDead==false)
+				{
+			
+					count++;
 				
+				}
 			}
 		}
 		if (count==1)
@@ -137,25 +141,39 @@ public class Forest
 				
 			}
 		}
+
+		boolean ca=true;
 		do
 		{
+			 ca=true; 
 			random1=random(animal.length);
-			
-		}while(animal[random1].isDead);
+
+			if(animal[random1] instanceof Carnivore)
+			{
+				ca=false;
+
+				// System.out.println(" Random ANimal 1: "+animal[random1].name+" Random number");
+				
+			} 
+		}while(animal[random1].isDead ||  ca);
+// System.out.println("  Selected Random ANimal 1: "+animal[random1].name+" Random number");
+				
 
 		do
 		{
+			
 			random2=random(animal.length);
-		
-		}while(animal[random2].isDead || random1==random2);
 
 		
-		win=animal[random1].fight(animal[random2]);
+		}while(animal[random2].isDead || random1==random2 );
+		// System.out.println("First Animal : "+animal[random1].name+"\n Second Animal"+animal[random2].name);
+		
+		win=((Carnivore) (animal[random1])).fight(animal[random2]);
 		// win.printDetails();
 
 		if(animal[random1].name==win.name)
 		{
-			animal=isdead(random1,random2, animal);
+			animal=isdead(random1,random2, animal); 
 
 		}
 		else

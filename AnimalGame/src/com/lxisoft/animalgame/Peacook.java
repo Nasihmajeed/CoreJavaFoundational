@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Peacook extends Animal
+public class Peacook extends Animal implements Herbivores
 {
 	
 	public void printDetails()
