@@ -3,6 +3,14 @@ import com.lxisoft.animalgame.*;
 
 public class Tiger extends Animal
 {
+	public void eat()
+	{
+		System.out.println("tiger eat flesh");
+	}
+	public void run()
+	{
+		System.out.println("tiger runs very fast");
+	}
 	
 
 	public void animalsRoam()
@@ -13,29 +21,21 @@ public class Tiger extends Animal
 	
 
 	
-	public Animal fight(Animal a)
+	public Animal fight(Animal enemy)
 	{
-		Animal s;
-		if(this.strength>a.strength)
+		if(this.strength>enemy.strength)
 		{
-			s=this;
+			return this;
 		}
 		else
 		{
-			s=a;
+			return enemy;
 		}
-		return s;
 	}
 
 
 
 
-	// public void eat()
-	// {
-	// 	System.out.println("tiger eat flesh");
-	// }
-	// public void run()
-	// {
-	// 	System.out.println("tiger runs very fast");
-	// }
+
+	
 }

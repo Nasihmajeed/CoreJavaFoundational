@@ -3,6 +3,15 @@ import com.lxisoft.animalgame.*;
 
 public class Bear extends Animal
 {
+	public void eat()
+	{
+		System.out.println("bear eat honey");
+	}
+	public void run()
+	{
+		System.out.println("bear runs slow");
+	}
+
 	public void animalsRoam()
 	{
 		System.out.println(" Animal--"+name);
@@ -11,29 +20,19 @@ public class Bear extends Animal
 
 	
 	
-	public Animal fight(Animal a)
+	public Animal fight(Animal enemy)
 	{
-		Animal s;
-		if(this.strength>a.strength)
+		if(this.strength>enemy.strength)
 		{
-			s=this;
+			return this;
 		}
 		else
 		{
-			s=a;
+			return enemy;
 		}
-		return s;
 	}
 
 
 	
 }
 
-// public void eat()
-	// {
-	// 	System.out.println("bear eat honey");
-	// }
-	// public void run()
-	// {
-	// 	System.out.println("bear runs slow");
-	// }

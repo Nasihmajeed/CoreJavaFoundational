@@ -9,6 +9,10 @@ public class TDD
 		forest.theForest();
 		forest.meetAnimals();
 		forest.animalsRoam();
+		forest.run();
+		System.out.println("\n");
+		forest.eat();
+		System.out.println("\n");
 		forest.fight();
 	}
 }   

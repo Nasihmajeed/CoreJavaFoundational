@@ -1,32 +1,21 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 
-public class Animal
+public abstract class Animal
 {
 	String name;
 	int strength;
 	boolean isDead;
 	
-	public void eat()
-	{
-		System.out.println("animals eats grass and flesh");
-	}
-	public void run()
-	{
-		System.out.println("animals runs in the wild ");
-	}
+	public abstract void eat();
+	public abstract void run();
+	public abstract void animalsRoam();
 
-	public void animalsRoam()
-	{
-		System.out.println(" Animal roams in jungle");
-		System.out.println("Animal has strength");
-	}
-
-	public Animal fight(Animal a)
+	public Animal fight(Animal enemy)
 	{		
 		
 		System.out.println("Animal fight in the forest");
-		return a;
+		return enemy;
 	}
 
 }

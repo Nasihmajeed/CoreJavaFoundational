@@ -88,14 +88,32 @@ public class Forest
 		}
 	}
 
+	public void eat()
+	{
+		int total=animal.length;
+		for(int i=0;i<total;i++)
+		{
+			animal[i].eat();
+		}
+	}
+
+	public void run()
+	{
+		int total=animal.length;
+		for(int i=0;i<total;i++)
+		{
+			animal[i].run();
+		}
+	}
+
 
 	public void fight()
 	{
-		int x,y,i,j,total,win,c,f=0;
-		Animal temp=new Animal();
+		int x,y,i,j,total,win=0,c,f=0;
+		Animal temp;
 		total=animal.length;
 		System.out.println("total no of animals in the forest is"+total);
-		System.out.println("\n------------------FIGHT BEGINS------------------");
+		System.out.println("\n\t\t------------------FIGHT BEGINS------------------");
 		System.out.println("\n");
 	
 		for(i=0;true;i++)
@@ -107,12 +125,15 @@ public class Forest
 			{
 				if(animal[j].isDead==false)
 				{
+					win=j;
 					c++;
 				}
 			}
 			if(c<=1)
 			{
+				System.out.println("\t\t\t  ********* THE WINNER IS "+animal[win].name+" *********");
 				break;
+
 			}
 
 			if(x!=y)
@@ -157,23 +178,3 @@ public class Forest
 
 
 }
-
-
-		// public void eat()
-	// {
-	// 	animal.eat();
-	// }
-
-	// public void run()
-	// {
-	// 	animal.run();
-
-	// }
-
-
-
-		
-	
-
-
-		

@@ -3,6 +3,14 @@ import com.lxisoft.animalgame.*;
 
 public class Rabbit extends Animal
 {
+	public void eat()
+	{
+		System.out.println("rabbit eat carrot");
+	}
+	public void run()
+	{
+		System.out.println("rabbit runs fast");
+	}
 	
 
 	public void animalsRoam()
@@ -12,27 +20,18 @@ public class Rabbit extends Animal
 	}
 
 	
-	public Animal fight(Animal a)
+	public Animal fight(Animal enemy)
 	{
-		Animal s;
-		if(this.strength>a.strength)
+		if(this.strength>enemy.strength)
 		{
-			s=this;
+			return this;
 		}
 		else
 		{
-			s=a;
+			return enemy;
 		}
-		return s;
 	}
 
 
-	// public void eat()
-	// {
-	// 	System.out.println("rabbit eat carrot");
-	// }
-	// public void run()
-	// {
-	// 	System.out.println("rabbit runs fast");
-	// }
+	
 }
