@@ -8,6 +8,4 @@ public class Deer extends Animal
 			System.out.println(name + "  Strength= " +strength+"\n");
 
 		}
-		
-
 }

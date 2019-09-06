@@ -139,12 +139,21 @@ public class Forest
 					count++;
 				}
 			}
+			boolean ca=true;
 			do
 			{
+				 ca=true; 
 			random1=randomGeneration(animals.length);
+			if(animals[random1] instanceof Carnivore)
+			{
+				ca=false;
+
+				// System.out.println(" Random ANimal 1: "+animal[random1].name+" Random number");
+				
+			} 
 
 			}
-			while(animal_array[random1].isDead);
+			while(animal_array[random1].isDead || ca);
 
 			do
 			{
@@ -154,8 +163,8 @@ public class Forest
 			}
 			while(animal_array[random2].isDead || random1==random2);
 
-		    win=animals[random1].fight(animals[random2]);
-		    win.display();
+		    win=((Carnivore) (animals[random1])).fight(animals[random2]);
+		   // win.display();
 
 		    if(animals[random1].name==win.name)
 		    {
