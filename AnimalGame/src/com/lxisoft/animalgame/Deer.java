@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 
-public class Deer extends Animal
+public class Deer extends Animal implements Herbivores
 {
 
 		public void display()
@@ -8,4 +8,5 @@ public class Deer extends Animal
 			System.out.println(name + "  Strength= " +strength+"\n");
 
 		}
+		
 }
