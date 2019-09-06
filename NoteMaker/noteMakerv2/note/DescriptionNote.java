@@ -7,8 +7,8 @@ public class DescriptionNote extends Note
 		super(title,noteContent);
 
 	}
-	public void read()
+/*	public void read()
 	{
 		
-	}
+	}*/
 }

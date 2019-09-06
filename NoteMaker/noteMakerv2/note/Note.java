@@ -21,8 +21,9 @@ public abstract class Note
 	{
 		return noteContent;
 	}
-	public abstract void read();
-	public abstract void update();
+	//public abstract void read();
+	//public abstract void update();
+	//public abstract void delete();
 	public Note(String title,NoteContent noteContent)
 	{
 		super();

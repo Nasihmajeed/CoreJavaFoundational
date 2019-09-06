@@ -7,10 +7,24 @@ public class BulletNote extends Note
 		super(title,noteContent);
 
 	}
-	public void read()
+	/*public void read()
 	{
 		System.out.println(getTitle()+getNoteContent().getLine());
-	}
+	}*/
+	/*public void update()
+	{
+		//System.out.println(getTitle()+getNoteContent().getLine());
+		System.out.println("enter element id to be edited");
+		//setTitle()=null;
+		NoteContent bulletContent=new BulletContent();
+		line[1]=new String();
 
+
+	}
+	public void delete()
+	{
+
+	}
+*/
 
 }	
