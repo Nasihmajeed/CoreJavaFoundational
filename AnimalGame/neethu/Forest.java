@@ -1,4 +1,4 @@
-
+import java.util.Random;
 import java.util.Scanner;
 public class Forest
 {
@@ -7,8 +7,9 @@ public class Forest
 	int number1,number2,number3;
 	
 	Animal[] animals=new Animal[3];
-	Animal[] choices=new Animal[3];
+	//Animal[] choices=new Animal[3];
 	Scanner sc=new Scanner(System.in);
+    Random r=new Random();
     Animal lion;
     Animal fox;
     Animal tiger;
@@ -54,44 +55,35 @@ public class Forest
 		 		System.out.println("animal name is :" +animals[2].name);
          		System.out.println("strenth is     :" +animals[2].strength);
 	     		System.out.println("\n");
+                meet(animals);
 	 }
-	     public void meet()
+     public int GenerateRandom()
+     {
+            int random=(int)(Math.random()*3);
+                return random;
+
+     }
+	     public void meet(Animal[] animals)
 	     {
 	     
-	
+	           
 	     		
 	     		System.out.println("Enter your first choice here :" );
 	     		number1=sc.nextInt();
+                System.out.println("your enemy is" );
+                int randomNumber=GenerateRandom();
+                fight(animals,number1,randomNumber);
+                
+        //         for(int i=0;i<3;i++)
+        //         {
+        //             if(number1==animals[i].number)
+                
+	     		// animals[number1].animalDetails();
+	     		// choices[0]=animals[number1];
 
-	     		animals[number1].animalDetails();
-	     		choices[0]=animals[number1];
+	     }		
 	     		
-	     		System.out.println("Enter your second choice here :" );
-	     		number2=sc.nextInt();	
-	     		
-		        animals[number2].animalDetails();
-				choices[1]=animals[number2];
-
-	     		for(int i=0;i<3;i++)
-	     		{
-
-	     	     if(choices[0]==animals[i])
-	     	     {
-      				System.out.println("animal name is :" +animals[i].name);
-     				System.out.println("strength is    :" +animals[i].strength);
-                 }
-                 else if(choices[1]==animals[i])
-	     	     {
-      				System.out.println("animal name is :" +animals[i].name);
-     				System.out.println("strength is    :" +animals[i].strength);
-                 
-                 
-                    System.out.println("\n");
-	     	
-			}
-		}
-	}
-		public void fight()
+		public void fight(Animal[] animals, int num,int rands)
 		{
 			String winner;
 			int energy;
@@ -99,36 +91,38 @@ public class Forest
             	System.out.println("----------GAME STARTED-----------");
             	System.out.println("\n");
             	System.out.println("Animals started fighting.");
-
-                 if(choices[0].strength>choices[1].strength)
+                for(int i=0;i<animals.length;i++)
+                {
+                 if(animals[num].strength>animals[rands].strength)
                  {
-                 	               	choices[0].strength=choices[0].strength/2;
-                 	               	System.out.println("winner of the fight is:"+choices[0].name); 
-                 	               	System.out.println("now the strength is:"+choices[0].strength/2);
+                 	               	animals[num].strength=animals[rands].strength/2;
+                 	               	System.out.println("winner of the fight is:"+animals[num].name); 
+                 	               	System.out.println("now the strength is:"+animals[num].strength);
 
-                 	               	winner=choices[0].name;
-                 	               	energy=choices[0].strength;
+                 	               	winner=animals[num].name;
+                 	               	energy=animals[rands].strength;
 
   
 		}
          else
          {
-         	System.out.println("winner of the fight is:"+choices[1].name);   
+         	System.out.println("winner of the fight is:"+animals[rands].name);   
 
-         	choices[1].strength=choices[1].strength/2;
-         	System.out.println("now the strength is:"+choices[1].strength/2);
-         	winner=choices[1].name;
-         	energy=choices[1].strength;
+         	animals[rands].strength=animals[rands].strength/2;
+         	System.out.println("now the strength is:"+animals[rands].strength);
+         	winner=animals[rands].name;
+         	energy=animals[rands].strength;
       	
          }
          System.out.println("\n");
 
            	System.out.println("choose another fighter:");
-           	number3=sc.nextInt();
+           	number3=GenerateRandom();
            	 animals[number3].animalDetails();
-			choices[2]=animals[number3];
-
-           	for(int i=0;i<3;i++)
+			//choices[2]=animals[number3];
+}
+}
+           	/*for(int i=0;i<3;i++)
 	     		{
 
 	     	     if(choices[2]==animals[i])
@@ -161,13 +155,14 @@ public class Forest
                     		System.out.println("winner is:" +choices[2].name);
                     		System.out.println("now the energy level is:" +choices[2].strength/2);
                     		choices[2].strength=choices[2].strength/2;
-                    }
+                    }*/
 	     	
 			}
-}
+
+
 
                  	
-         
+        
      
  
  

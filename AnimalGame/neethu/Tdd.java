@@ -5,8 +5,8 @@ public class Tdd
 		Forest forest=new Forest();
 		forest.forestDetails();
 		forest.animalDetails();
-		forest.meet();
-  		forest.fight();
+		//forest.meet(animals);
+  		//forest.fight();
 		}
 	}
 		
