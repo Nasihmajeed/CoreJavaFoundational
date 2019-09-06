@@ -9,6 +9,7 @@ public class Forest
 	Rabbit rabbit;
 	public void print()
 	{		
+
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\n\n\t\t  ------SHANTHI VANAM --------");
 		System.out.println("enter the number of tiger");			
@@ -19,8 +20,7 @@ public class Forest
 	 	int r=sc.nextInt();
 	 	int total=(t+l+r);
 	 	Animal[] animalArray=new Animal[total];
-	 	animal=new Animal();		
-
+	 	animal=new Animal();
 	 	for(int i=0;i<t;i++)
 	 	{
 	 		Tiger tiger=new Tiger();
@@ -28,6 +28,7 @@ public class Forest
 	  		tiger.animalName=sc.next();
 	  		System.out.println("strength of tiger");
 	  		tiger.strength=sc.nextInt();
+	  		tiger.isDead=false;
 	  		animalArray[i]=tiger;
 		}	
 		
@@ -38,6 +39,7 @@ public class Forest
 	  		lion.animalName=sc.next();
 		  	System.out.println("strength of lion");
 		  	lion.strength=sc.nextInt();
+		  	lion.isDead=false;
 		  	animalArray[i]=lion;		
 		}	
 		
@@ -48,9 +50,11 @@ public class Forest
 	  		rabbit.animalName=sc.next();
 			System.out.println("strength of rabbit");
 			rabbit.strength=sc.nextInt();
+			rabbit.isDead=false;
 			animalArray[i]=rabbit;		
 		}	
 			meet(animalArray);
+				
 	}	
 	public void meet(Animal animalArray[])
 	{
@@ -58,58 +62,72 @@ public class Forest
 		System.out.println("\n");
 		System.out.println("-------fight begins---------");
 		System.out.println("\n");	
-		System.out.println("number of fights");
-		int f=sc.nextInt();
-		System.out.println("\n");	
 		int x,y;
-		for(int i=0;i<f;i++)
+		int count=animalArray.length;
+		
+
+		for(int i=0;true;i++)
 		{
+
 			x=(int) (Math.random()*3);
 			y=(int) (Math.random()*3);
-			if(x!=y)
+			if(count==1)
+			{
+	        	break;
+	        }
+	        if(x!=y)
 			{
 		    if(animalArray[x].isDead==false & animalArray[y].isDead==false)
 			{   
-			    System.out.println(animalArray[x].animalName+" Vs "+animalArray[y].animalName);             
-				if(animalArray[x].strength>animalArray[y].strength)
+			    System.out.println(animalArray[x].animalName +" Vs "+animalArray[y].animalName); 
+			    Animal temp=new Animal();	
+			    temp=animalArray[x].fight(animalArray[y]);	            
+				if(temp==animalArray[x])
 				{
-					System.out.println("winner====="+animalArray[x].animalName);
+					System.out.println("\n winner==" + animalArray[x].animalName);
 					animalArray[x].strength=(animalArray[x].strength-1);
-					System.out.println("win strength=" +animalArray[x].strength);
-                    animalArray[y].strength=(animalArray[y].strength-2);
-                    System.out.println("failed="+animalArray[y].strength);						
+					System.out.println("looser==" + animalArray[y].animalName);
+					animalArray[y].strength=(animalArray[y].strength-2);
+					
 					if(animalArray[x].strength<=0)
-					{
-						animalArray[x].isDead=true;
-					}
-					if(animalArray[y].strength<=0)
-					{
-						animalArray[y].isDead=true;
-					}
-				}
+				 	{
+				 		animalArray[x].isDead=true;
+				 		System.out.println("\n\t\t\tDead==" + animalArray[x].animalName);
+				 		
+				 	}
+				 	if(animalArray[y].strength<=0)
+				 	{
+				 		animalArray[y].isDead=true;
+				 		System.out.println("\n\t\t\tDead==" + animalArray[y].animalName);
+				 	
+				 	}
+				} 	
 				else
 				{
-					System.out.println("Winner====="+animalArray[y].animalName);
-					animalArray[y].strength=(animalArray[y].strength-1);
-					System.out.println("win strength=" +animalArray[y].strength);				
+				 	System.out.println("\n winner==" + animalArray[y].animalName);
+				 	animalArray[y].strength=(animalArray[y].strength-1);
+					System.out.println("looser==" + animalArray[x].animalName);
 					animalArray[y].strength=(animalArray[x].strength-2);
-					if(animalArray[y].strength<=0)
-					{
-						animalArray[y].isDead=true;
-					}
-					if(animalArray[x].strength<=0)
-					{
-						animalArray[x].isDead=true;
-					}
+					 	if(animalArray[y].strength<=0)
+				 	{
+				 		animalArray[y].isDead=true;
+				 		System.out.println("\n\t\t\tDead==" + animalArray[x].animalName);
 
-				}
+				 	}
+				 	if(animalArray[x].strength<=0)
+				 	{
+				 		animalArray[x].isDead=true;
+				 		System.out.println("\n\t\t\tDead===" + animalArray[y].animalName);
+
+				 	}
 				
-			}	
+				}									
+			}}	        	
 		}
 	}
-	}	
-	
 }
+	
+
 
 
 

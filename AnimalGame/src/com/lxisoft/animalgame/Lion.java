@@ -2,10 +2,16 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
 public class Lion extends Animal
 {
-	public Lion()
+	public Animal fight(Animal animal)
 	{
-		
-		
-		System.out.println("----------");	
+		if(this.strength>animal.strength)
+		{
+			return this;
+		}
+		else
+		{
+			return animal;
+		}
+	
 	}
 }

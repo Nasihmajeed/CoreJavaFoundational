@@ -7,5 +7,11 @@ public class Animal
 {
 	public String animalName;
 	public int strength;
-	boolean isDead=false;
+	boolean isDead;
+	public Animal fight(Animal animal)
+	{
+		System.out.println("......");
+		return animal;
+	}
 }
+	
