@@ -3,7 +3,7 @@ import com.lxisoft.animalgame.Animal;
 import  java.lang.Math;
 public class Forest
 {
-		
+		String name="Galloway";
 		
 		Animal[] animals;
 		Animal buffallo;
@@ -17,10 +17,16 @@ public class Forest
 		Animal tiger;
 		Animal zeebra;
 		
+		public void printForest()
+		{
+			System.out.println("\n");
+			System.out.println("\t    Welcome to  "+name +"   Forest");
+		}
+
 		public void print()
 		{
-			System.out.println("---Amazon Forest---");
-			System.out.println("Animals");
+			
+			System.out.println("\t  Animals   ");
 
 	//-----------		Array creation	---------//			
 			animals=new Animal[10];
@@ -85,7 +91,7 @@ public class Forest
 			zeebra.strength=25;
 			zeebra.isDead=false;
 			animals[9]=zeebra;
-           meet(animals);
+           animalMeet(animals);
           
         }  
 		public int randomGeneration(int limit)
@@ -111,22 +117,22 @@ public class Forest
 				{	
 					
 					count++;
+
 				}
 			}
 			if(count==1)
         	{
         		 
-        		System.out.println("\n winner is  "+lastAnimal.name);
+        		System.out.println("\n ******  The  winner is  "+lastAnimal.name +"  ******");
         	}
         	else
         	{
-        		
-        		meet(animals);
+           		animalMeet(animals);
         	}
 
 	    }
 	
-		public void meet(Animal[] animal_array ) 
+		public void animalMeet(Animal[] animal_array ) 
 		{	
 			int count=0,random1,random2;
 			Animal win;
@@ -139,32 +145,29 @@ public class Forest
 					count++;
 				}
 			}
-			boolean ca=true;
+
+			boolean check=true;
 			do
 			{
-				 ca=true; 
-			random1=randomGeneration(animals.length);
-			if(animals[random1] instanceof Carnivore)
-			{
-				ca=false;
+				check=true; 
+				random1=randomGeneration(animals.length);
+				if(animals[random1] instanceof Carnivore)
+					{
+						check=false;
+						
+					} 
 
-				// System.out.println(" Random ANimal 1: "+animal[random1].name+" Random number");
-				
-			} 
-
-			}
-			while(animal_array[random1].isDead || ca);
+			}while(animal_array[random1].isDead || check);
 
 			do
 			{
 			
-			random2=randomGeneration(animals.length);
+			  random2=randomGeneration(animals.length);
+			  
 
-			}
-			while(animal_array[random2].isDead || random1==random2);
+			}while(animal_array[random2].isDead || random1==random2);
 
 		    win=((Carnivore) (animals[random1])).fight(animals[random2]);
-		   // win.display();
 
 		    if(animals[random1].name==win.name)
 		    {

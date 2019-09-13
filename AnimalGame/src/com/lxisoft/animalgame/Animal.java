@@ -8,8 +8,7 @@ public abstract class Animal
 	int strength;
 	public String name;
 	boolean isDead;
-	 //public abstract Animal fight(Animal animal);
-	
+	//public abstract Animal fight(Animal animal);
 	public void display()
 	{
 			
