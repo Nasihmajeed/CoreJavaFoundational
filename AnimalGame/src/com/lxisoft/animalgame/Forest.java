@@ -120,49 +120,57 @@ public class Forest
 		{
 			x=(int) (Math.random() * total);
 			y=(int) (Math.random() * total);
-			c=0;
-			for(j=0;j<total;j++)
-			{
-				if(animal[j].isDead==false)
+				c=0;
+				for(j=0;j<total;j++)
 				{
-					win=j;
-					c++;
+					if(animal[j] instanceof Carnivorous)
+					{
+						if(animal[j].isDead==false)
+						{
+							win=j;
+							c++;
+						}
+					}
 				}
-			}
-			if(c<=1)
-			{
-				System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
-				break;
-
-			}
-
-			if(x!=y)
-			{
-				if(animal[x].isDead==false && animal[y].isDead==false)
+				if(c<=1)
 				{
-					f++;
-					System.out.println("					 Fight"+(f)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-					temp=animal[x].fight(animal[y]);
-					System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")");
-					if(temp==animal[x])
+					System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
+					break;
+				}
+
+			if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous)
+			{
+
+				
+
+				if(x!=y)
+				{
+					if(animal[x].isDead==false && animal[y].isDead==false)
 					{
-						animal[x].strength--;
-						animal[y].strength-=2;
-						if (animal[y].strength<1)
+						f++;
+						System.out.println("					 Fight"+(f)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+						temp=animal[x].fight(animal[y]);
+						System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")");
+						if(temp==animal[x])
 						{
-							animal[y].isDead=true;
+							animal[x].strength--;
+							animal[y].strength-=2;
+							if (animal[y].strength<1)
+							{
+								animal[y].isDead=true;
+							}
 						}
-					}
-					else
-					{
-						animal[y].strength--;
-						animal[x].strength-=2;
-						if (animal[x].strength<1)
+						else
 						{
-							animal[x].isDead=true;
+							animal[y].strength--;
+							animal[x].strength-=2;
+							if (animal[x].strength<1)
+							{
+								animal[x].isDead=true;
+							}
 						}
+						System.out.println("\n");
 					}
-					System.out.println("\n");
 				}
 			}
 				

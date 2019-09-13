@@ -20,17 +20,7 @@ public class Rabbit extends Animal
 	}
 
 	
-	public Animal fight(Animal enemy)
-	{
-		if(this.strength>enemy.strength)
-		{
-			return this;
-		}
-		else
-		{
-			return enemy;
-		}
-	}
+	
 
 
 
