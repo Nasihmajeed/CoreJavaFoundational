@@ -109,6 +109,7 @@ public class Forest
 				{
 			
 					count++;
+					lastone=array[i];
 				
 				}
 			}
