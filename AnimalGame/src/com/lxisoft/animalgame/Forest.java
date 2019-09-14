@@ -113,14 +113,17 @@ public class Forest
        		int count=0;
         	for(int i=0;i<animals.length;i++)
 			{
-				if(animals[i].isDead==false)
-				{	
-					
-					count++;
+				if(animals[i] instanceof Carnivore)
+				{
+					if(animals[i].isDead==false)
+					{	
+						
+						count++;
 
-				}
+					}
+				}	
 			}
-			if(count==1)
+			if(count==0)
         	{
         		 
         		System.out.println("\n ******  The  winner is  "+lastAnimal.name +"  ******");
@@ -138,12 +141,14 @@ public class Forest
 			Animal win;
 			for(int i=0;i<animal_array.length;i++)
 			{
-				if(animal_array[i].isDead==false)
-				{	
-					System.out.print(i + " ");
-					animal_array[i].display();
-					count++;
-				}
+				
+					if(animal_array[i].isDead==false)
+					{	
+						System.out.print(i + " ");
+						animal_array[i].display();
+						count++;
+					}
+				
 			}
 
 			boolean check=true;
