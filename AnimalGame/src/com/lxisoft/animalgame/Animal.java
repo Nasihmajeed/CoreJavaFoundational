@@ -9,11 +9,11 @@ public abstract class Animal
 	int strength;
 	boolean isDead;
 
-	public Animal fight(Animal animal)
+	/*public Animal fight(Animal animal)
 	{
         System.out.println("Fight start");
         return animal;
-  	}
+  	}*/
   	public abstract void  run();
   	public abstract void  eat();
   	

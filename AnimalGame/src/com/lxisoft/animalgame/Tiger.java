@@ -1,6 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
-public class Tiger extends Animal
+import com.lxisoft.animalgame.Carnivore;
+public class Tiger extends Animal implements Carnivore
 {
 	public Animal fight(Animal animal)
 	{
