@@ -1,7 +1,6 @@
 package com.lxisoft.animalgame;
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Forest;
-public class Bear extends Animal
+import com.lxisoft.animalgame.*;
+public class Bear extends Animal implements Herbivores
 {
 	public void run()
 	{

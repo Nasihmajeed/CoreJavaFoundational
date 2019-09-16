@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import java.util.Scanner;
-import com.lxisoft.animalgame.Animal;
+import com.lxisoft.animalgame.*;
 public class Forest 
 {
 	String name;
@@ -107,7 +107,6 @@ public class Forest
 		System.out.println("\t\tjungle");
 		int a,n=1,b=0,m=1,count,j,i,win=0;
 		a=animalArr.length;
-
 		
 		System.out.println("\n\t\tanimals meet and fight begins");
 		System.out.println("\t\t------------------------------");
@@ -117,14 +116,15 @@ public class Forest
 			int x=(int) (Math.random()*a);
 			int y=(int) (Math.random()*a);
 			count=0;
+
 			for( j=0;j<a;j++)
 			{
-				if(animalArr[j].isDead==false)
+				if((animalArr[j] instanceof Carnivores)&(animalArr[j].isDead==false))
 				{
 					win=j;
 					count++;
 				}
-			}
+		 	}
 			if(count<=1)
 			{
 				System.out.println("WINNER=="+animalArr[win].animalName);
@@ -135,41 +135,43 @@ public class Forest
 			{
 				if(x!=y)
 				{
-					
-					System.out.println("\n\t\tFight no---"+n);
-					System.out.println("\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-					temp=animalArr[x].fight(animalArr[y]);
-					
-					if(temp==animalArr[x])
+					if((animalArr[x] instanceof Carnivores)&(animalArr[y] instanceof Carnivores))
 					{
-						animalArr[x].strength=(animalArr[x].strength-1);
-						System.out.println("\t\twinner="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
-						animalArr[y].strength=(animalArr[y].strength-2);
-						System.out.println("\t\tlooser="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
-						if(animalArr[y].strength<=0)
+						System.out.println("\n\t\tFight no---"+n);
+						System.out.println("\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+						temp=((Carnivores)(animalArr[x])).fight(animalArr[y]);
+						if(temp==animalArr[x])
 						{
-							animalArr[y].isDead=true;
-							System.out.println("\n"+animalArr[y].animalName+"--------dead");
+							animalArr[x].strength=(animalArr[x].strength-1);
+							System.out.println("\t\twinner="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
+							animalArr[y].strength=(animalArr[y].strength-2);
+							System.out.println("\t\tlooser="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
+							if(animalArr[y].strength<=0)
+							{
+								animalArr[y].isDead=true;
+								System.out.println("\n"+animalArr[y].animalName+"--------dead");
+							}
 						}
-					}
-					if(temp==animalArr[y])
-					{
-						animalArr[y].strength=(animalArr[y].strength-1);
-						System.out.println("\t\twinner="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
-						animalArr[x].strength=(animalArr[x].strength-2);
-						System.out.println("\t\tlooser="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
-						if(animalArr[x].strength<=0)
+						if(temp==animalArr[y])
 						{
-							animalArr[x].isDead=true;
-							System.out.println("\n"+animalArr[x].animalName+"-------------dead");
+							animalArr[y].strength=(animalArr[y].strength-1);
+							System.out.println("\t\twinner="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
+							animalArr[x].strength=(animalArr[x].strength-2);
+							System.out.println("\t\tlooser="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
+							if(animalArr[x].strength<=0)
+							{
+								animalArr[x].isDead=true;
+								System.out.println("\n"+animalArr[x].animalName+"-------------dead");
+							}
 						}
+						n++;
 					}
-					n++;
 				}
+						
 
 			}
-
+			
 		}
-		
+	
 	}
 }

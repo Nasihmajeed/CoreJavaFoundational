@@ -6,6 +6,6 @@ public class TDD
 	{
 		Forest forest=new Forest();
 		forest.meetAnimal();
-		// forest.meetFight();
+		
 	}
 }   

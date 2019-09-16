@@ -7,10 +7,4 @@ public abstract class Animal
 	public abstract void run();
 	public abstract void eat();
 
-	public Animal fight(Animal animals)
-	{
-		System.out.println("\n fight details");
-		return animals;
-	}
-
 }
