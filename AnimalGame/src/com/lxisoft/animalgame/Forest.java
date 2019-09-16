@@ -109,13 +109,11 @@ public class Forest
 
 	public void fight()
 	{
-		int x,y,i,j,total,win=0,c,f=0;
+		int x,y,i,j,total,win=0,c,f=1;
 		Animal temp;
 		total=animal.length;
 		System.out.println("total no of animals in the forest is"+total);
-		System.out.println("\n\t\t------------------FIGHT BEGINS------------------");
-		System.out.println("\n");
-	
+		System.out.println("\n\t\t  ------------------FIGHT BEGINS------------------\n");
 		for(i=0;true;i++)
 		{
 			x=(int) (Math.random() * total);
@@ -123,13 +121,10 @@ public class Forest
 				c=0;
 				for(j=0;j<total;j++)
 				{
-					if(animal[j] instanceof Carnivorous)
+					if((animal[j] instanceof Carnivorous) && (animal[j].isDead==false))
 					{
-						if(animal[j].isDead==false)
-						{
-							win=j;
-							c++;
-						}
+						win=j;
+						c++;
 					}
 				}
 				if(c<=1)
@@ -137,19 +132,12 @@ public class Forest
 					System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
 					break;
 				}
-
-			if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous)
+			if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous && (x!=y))
 			{
-
-				
-
-				if(x!=y)
+				if(animal[x].isDead==false && animal[y].isDead==false)
 				{
-					if(animal[x].isDead==false && animal[y].isDead==false)
-					{
-						f++;
-						System.out.println("					 Fight"+(f)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-						temp=animal[x].fight(animal[y]);
+						System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+						temp=((Carnivorous) animal[x]).fight(animal[y]);
 						System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")");
 						if(temp==animal[x])
 						{
@@ -169,20 +157,9 @@ public class Forest
 								animal[x].isDead=true;
 							}
 						}
-						System.out.println("\n");
-					}
+					System.out.println("\n");
 				}
 			}
-				
 		}
-
-		
-		for  (i=0;i<total;i++)
-		{
-			System.out.println(animal[i].name+ "  dead?  "+animal[i].isDead);
-		}
-
 	}
-
-
 }

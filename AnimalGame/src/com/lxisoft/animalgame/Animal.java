@@ -11,12 +11,5 @@ public abstract class Animal
 	public abstract void run();
 	public abstract void animalsRoam();
 
-	public Animal fight(Animal enemy)
-	{		
-		
-		System.out.println("Animal fight in the forest");
-		return enemy;
-	}
-
 }
 
