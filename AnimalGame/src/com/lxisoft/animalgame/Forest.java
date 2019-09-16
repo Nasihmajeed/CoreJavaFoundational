@@ -20,7 +20,9 @@ public class Forest
 	 	int r=sc.nextInt();
 	 	int total=(t+l+r);
 	 	Animal[] animalArray=new Animal[total];
-	 	animal=new Animal();
+
+	 	//animal=new Animal();
+
 	 	for(int i=0;i<t;i++)
 	 	{
 	 		Tiger tiger=new Tiger();
@@ -53,9 +55,11 @@ public class Forest
 			rabbit.isDead=false;
 			animalArray[i]=rabbit;		
 		}	
-			meet(animalArray);
-				
+			meet(animalArray);							
 	}	
+	public void run()
+	{
+	}
 	public void meet(Animal animalArray[])
 	{
 		Scanner sc=new Scanner(System.in);
@@ -83,12 +87,18 @@ public class Forest
 	        	
 	        	break;
 	        }
+	        if(animalArray[x] instanceof Carnivorous & animalArray[y] instanceof Carnivorous)
+			{
 	        if(x!=y)
 			{
+			   
 			    if(animalArray[x].isDead==false & animalArray[y].isDead==false)
 				{   
-				    System.out.println(animalArray[x].animalName +" Vs "+animalArray[y].animalName); 
-				    Animal temp=new Animal();	
+				   Animal temp;
+				   System.out.println(animalArray[x].animalName +" Vs "+animalArray[y].animalName);
+
+				  //  Animal temp=new Animal();	
+				   
 				    temp=animalArray[x].fight(animalArray[y]);	            
 					if(temp==animalArray[x])
 					{
@@ -134,11 +144,13 @@ public class Forest
 				System.out.println("\n");
 			}	        	
 		}
-			for(j=0;j<count;j++)
-			{
-				System.out.println(animalArray[j].animalName+" id dead= "+animalArray[j].isDead);
-			}	
 	}
+		for(j=0;j<count;j++)
+		{
+			System.out.println(animalArray[j].animalName+" id dead= "+animalArray[j].isDead);
+		}	
+	}
+	
 }
 	
 

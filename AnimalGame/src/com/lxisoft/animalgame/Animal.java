@@ -3,15 +3,16 @@ import java.util.Scanner;
 import com.lxisoft.animalgame.Lion;
 import com.lxisoft.animalgame.Tiger;
 import com.lxisoft.animalgame.Rabbit;
-public class Animal
+public abstract class Animal
 {
 	public String animalName;
 	public int strength;
 	boolean isDead;
-	public Animal fight(Animal animal)
+	public abstract Animal fight(Animal animal);
+	public void eat()
 	{
-		System.out.println("......");
-		return animal;
+		System.out.println("Carnivores eat meat");		
+		System.out.println("Herbivores eat grass and vegitables");
 	}
 }
 	

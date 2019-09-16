@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Animal;
-public class Tiger extends Animal
+public class Tiger extends Animal implements Carnivorous
 {	
 	public Animal fight(Animal animal)
 	{		
@@ -12,6 +12,9 @@ public class Tiger extends Animal
 		{
 			return animal;
 		}
-	
+	}
+	public void eat()
+	{
+		System.out.println("Tiger eat meat");
 	}
 }
