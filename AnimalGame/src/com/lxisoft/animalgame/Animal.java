@@ -8,7 +8,6 @@ public abstract class Animal
 	public String animalName;
 	public int strength;
 	boolean isDead;
-	public abstract Animal fight(Animal animal);
 	public void eat()
 	{
 		System.out.println("Carnivores eat meat");		
