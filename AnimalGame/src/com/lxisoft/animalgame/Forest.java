@@ -7,6 +7,7 @@ public class Forest
 	Tiger tiger;
 	Lion lion;
 	Rabbit rabbit;
+	Deer deer;
 	public void print()
 	{	
 		Scanner sc=new Scanner(System.in);
@@ -17,7 +18,9 @@ public class Forest
 	 	int l=sc.nextInt();	 
 	 	System.out.println("enter the number of rabbit");			
 	 	int r=sc.nextInt();
-	 	int total=(t+l+r);
+	 	System.out.println("enter the number of Deer");			
+	 	int d=sc.nextInt();
+	 	int total=(t+l+r+d);
 	 	Animal[] animalArray=new Animal[total];
 	 	for(int i=0;i<t;i++)
 	 	{
@@ -48,6 +51,16 @@ public class Forest
 			rabbit.strength=sc.nextInt();
 			rabbit.isDead=false;
 			animalArray[i]=rabbit;		
+		}
+		for(int i=t+l+d;i<t+l+r+d;i++)
+	 	{
+	 		Deer deer=new Deer();
+			System.out.println("name of the deer");			
+	  		deer.animalName=sc.next();
+			System.out.println("strength of deer");
+			deer.strength=sc.nextInt();
+			deer.isDead=false;
+			animalArray[i]=deer;		
 		}	
 		meet(animalArray);				
 	}	
@@ -115,7 +128,7 @@ public class Forest
 					 	animalArray[y].strength=(animalArray[y].strength-1);
 						System.out.println("looser==" + animalArray[x].animalName);
 						animalArray[x].strength=(animalArray[x].strength-2);
-						 	if(animalArray[y].strength<=0)
+						if(animalArray[y].strength<=0)
 					 	{
 					 		animalArray[y].isDead=true;
 					 		System.out.println("\t\t\tDead==" + animalArray[y].animalName);
@@ -136,7 +149,6 @@ public class Forest
 		System.out.println(animalArray[j].animalName+" is dead= "+animalArray[j].isDead);
 	}	
     }	
-
 }
 
 
