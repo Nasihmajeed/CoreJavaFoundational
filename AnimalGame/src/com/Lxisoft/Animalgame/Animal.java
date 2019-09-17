@@ -1,7 +1,14 @@
 package com.Lxisoft.Animalgame;
- public class Animal{
-	 public void eat(){
-		 System.out.println("Eates");
-	}
-	
+import java.util.*;
+import java.lang.*;
+
+
+ public class Animal{ 
+
+	public int strg;
+	public String name;
+	boolean isalive=true;
 }
+ 
+
+
