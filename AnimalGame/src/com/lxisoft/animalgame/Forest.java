@@ -15,7 +15,7 @@ public class Forest
 
 	public void meetAnimals()
 	{
-		 int x,y,z,i;
+		int x,y,z;
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the total no. of tiger in the forest");
 		 int t=sc.nextInt();
@@ -27,7 +27,17 @@ public class Forest
 		 int r=sc.nextInt();
 		 int total=t+l+b+r;
 		animal=new Animal[total];
+		x=tigerAnimal(animal,t);
+		y=lionAnimal(animal,l,x);
+		z=bearAnimal(animal,b,y);
+		rabbitAnimal(animal,r,z);
 
+	}
+
+	public int tigerAnimal(Animal[] animal,int t)
+	{
+		 int i,x;
+		 Scanner sc=new Scanner(System.in);
 		for( i=0;i<t;i++)
 		{
 			System.out.println("enter the name  tiger"+(i+1));
@@ -38,7 +48,13 @@ public class Forest
 			animal[i].isDead=false;
 			
 		}x=i;
+		return x;
+	}
 
+	public int lionAnimal(Animal[] animal,int l,int x)
+	{
+		int i,y;
+		Scanner sc=new Scanner(System.in);
 		for(i=0;i<l;i++)
 		{
 			System.out.println("enter the name  of lion"+(i+1));
@@ -50,7 +66,13 @@ public class Forest
 			x++;
 			
 		}y=x;
-		
+		return y;
+	}
+		 
+	public int bearAnimal(Animal[] animal,int b,int y)	
+	{
+		int i,z;
+		Scanner sc=new Scanner(System.in);
 		for(i=0;i<b;i++)
 		{
 			System.out.println("enter the name  of bear"+(i+1));
@@ -62,7 +84,12 @@ public class Forest
 			y++;
 			
 		}z=y;
-		
+		return z;
+	}
+	public void rabbitAnimal(Animal[] animal,int r,int z)
+	{
+		int i,y;
+		Scanner sc=new Scanner(System.in);
 		for(i=0;i<r;i++)
 		{
 			System.out.println("enter the name  of rabbit"+(i+1));
@@ -107,59 +134,60 @@ public class Forest
 	}
 
 
-	public void fight()
+	public void readyToFight()
 	{
 		int x,y,i,j,total,win=0,c,f=1;
-		Animal temp;
-		total=animal.length;
-		System.out.println("total no of animals in the forest is"+total);
 		System.out.println("\n\t\t  ------------------FIGHT BEGINS------------------\n");
 		for(i=0;true;i++)
 		{
-			x=(int) (Math.random() * total);
-			y=(int) (Math.random() * total);
-				c=0;
-				for(j=0;j<total;j++)
-				{
-					if((animal[j] instanceof Carnivorous) && (animal[j].isDead==false))
-					{
-						win=j;
-						c++;
-					}
-				}
-				if(c<=1)
-				{
-					System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
-					break;
-				}
-			if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous && (x!=y))
+			x=(int) (Math.random() * animal.length);
+			y=(int) (Math.random() * animal.length);
+			c=0;
+			for(j=0;j<animal.length;j++)
 			{
-				if(animal[x].isDead==false && animal[y].isDead==false)
+				if((animal[j] instanceof Carnivorous) && (animal[j].isDead==false))
 				{
-						System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-						temp=((Carnivorous) animal[x]).fight(animal[y]);
-						System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")");
-						if(temp==animal[x])
-						{
-							animal[x].strength--;
-							animal[y].strength-=2;
-							if (animal[y].strength<1)
-							{
-								animal[y].isDead=true;
-							}
-						}
-						else
-						{
-							animal[y].strength--;
-							animal[x].strength-=2;
-							if (animal[x].strength<1)
-							{
-								animal[x].isDead=true;
-							}
-						}
-					System.out.println("\n");
+					win=j;
+					c++;
 				}
 			}
+			if(c<=1)
+			{
+				System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
+				for  (i=0;i<animal.length;i++)
+					System.out.println(animal[i].name+ "  dead?  "+animal[i].isDead);
+				break;
+			}
+			f=fightStarts(x,y,f);
 		}
+	}
+
+
+	public int fightStarts(int x,int y,int f)
+	{
+		Animal temp;
+		if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous && (x!=y))
+		{
+			if(animal[x].isDead==false && animal[y].isDead==false)
+			{
+				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+				temp=((Carnivorous) animal[x]).fight(animal[y]);
+				System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
+				if(temp==animal[x])
+				{
+					animal[x].strength--;
+					animal[y].strength-=2;
+					if (animal[y].strength<1)
+						animal[y].isDead=true;
+				}
+				else
+				{
+					animal[y].strength--;
+					animal[x].strength-=2;
+					if (animal[x].strength<1)
+						animal[x].isDead=true;
+				}
+			}
+		}				return f;
 	}
 }

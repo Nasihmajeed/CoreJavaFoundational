@@ -13,6 +13,6 @@ public class TDD
 		System.out.println("\n");
 		forest.eat();
 		System.out.println("\n");
-		forest.fight();
+		forest.readyToFight();
 	}
 }   
