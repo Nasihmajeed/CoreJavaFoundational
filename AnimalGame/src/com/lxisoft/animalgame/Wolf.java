@@ -4,11 +4,11 @@ public class Wolf extends Animal
 	
 	
     int Aggressivelevel=60;
-	public Wolf(String name,int strengthlevel)
+	public Wolf(String name,int strengthlevel,boolean isAlive)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;
-		
+		this.isAlive=true;
 	}
 	public void eat()
 	{

@@ -2,11 +2,11 @@ package com.lxisoft.animalgame;
 public class Tiger extends Animal
 {
     int Aggressivelevel=50;
-	public Tiger(String name,int strengthlevel)
+	public Tiger(String name,int strengthlevel,boolean isAlive)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;
-		
+		this.isAlive=true;
 	}
 	public void eat()
 	{

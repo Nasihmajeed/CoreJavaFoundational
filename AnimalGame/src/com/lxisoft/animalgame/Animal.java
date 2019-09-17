@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Animal 
 {
 	String name;
+	boolean isAlive;
 	int strengthlevel;
 	
 	public void display()
@@ -13,11 +14,11 @@ public class Animal
 	}
 	
 	
-/*	public void Dofight()
+	/* public void Dofight()
 	{
-		forest.fight();
+	   forest.fight();
 		
-	}	*/
+	}	 */
 	public void eat()
 	{
       		
