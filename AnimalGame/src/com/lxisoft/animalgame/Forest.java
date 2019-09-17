@@ -38,24 +38,24 @@ public class Forest
     }
 	// meet the animals which are ready to fight
 	public void meet(Animal[] animal)
-    {    int i=0;
-	    while(i<10)
+    {    int i=0,x,y;
+	     
+	    while(i<4)
 		{   
 	        i++;
-		   int x=random();
-		   int y=random();
-		  if(x!=y)
-		    {
+			do{
+		    x=random();
+		    y=random();
+			}while(x==y || animal[x].isAlive==false || animal[y].isAlive==false);
+		 
 			   fight(animal[x],animal[y]);
-		    }		
+		    		
 		}
 				
 	}	
 	 // this method helds the fighting of animals
 	public void fight(Animal animal1,Animal animal2)
-	{
-	   int i,j;
-	   
+	{  
 			if(animal1.isAlive!=false && animal2.isAlive!=false)
 			{ 
 		        System.out.println(animal1.name+ "and"+ animal2.name +"ready to fight...");
@@ -64,7 +64,7 @@ public class Forest
 				{	
 				  System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );
 				  System.out.println( animal2.name +" is now dead \n" );
-				  animal1.strengthlevel=animal2.strengthlevel-5;
+				  animal1.strengthlevel=animal2.strengthlevel-2;
 				  animal2.isAlive=false;
 				  
 				 }
@@ -72,16 +72,19 @@ public class Forest
 					  {
 							System.out.println( animal2.name+"  Defeated "+animal1.name +"\n");
 							System.out.println( animal1.name +" is now dead \n" );
-							animal2.strengthlevel=animal2.strengthlevel-5;
+							animal2.strengthlevel=animal2.strengthlevel-2;
 							animal1.isAlive=false;
 				
 			   
-				 }
+				       }
 			}
-			winner(animal1,animal2);
-			
+			 else
+			 {
+			    	 
+			 }
+		
     }
-	public void winner (Animal animal1,Animal animal2)
+	public void winner (Animal animal1)
 	{
 		if(animal1.isAlive==true)
 		{
@@ -89,7 +92,7 @@ public class Forest
 		}
 		else
 		{
-			System.out.println(animal2.name+"is the king of the Jungle");	
+				
 		}	
 	}
 }
