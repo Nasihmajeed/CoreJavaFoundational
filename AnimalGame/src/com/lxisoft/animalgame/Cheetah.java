@@ -13,7 +13,7 @@ public class Cheetah extends Animal implements Carnivore
 	}
 
 	public void eat()
-	{
+	{ 
 		System.out.println("Cheetah eats");
 	}
 	public void run()

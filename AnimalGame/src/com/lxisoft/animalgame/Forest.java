@@ -90,7 +90,7 @@ public class Forest
 		int random=(int)(max* Math.random());
 		return random;
 	}
-	public Animal[] isdead(int winner,int looser, Animal[] animal )
+ 	public Animal[] isdead(int winner,int looser, Animal[] animal )
 	{
 		int diff=animal[looser].strength/2;
 		animal[winner].strength-=diff;
@@ -132,8 +132,11 @@ public class Forest
 		int count=0;
 		int random1=0;
 		int random2=0;
-		Animal win;
+		Animal win=null;
 		for(int i=0; i<animal.length; i++)
+
+
+			
 		{
 			if(animal[i].isDead==false)
 			{
@@ -167,22 +170,31 @@ public class Forest
 
 		
 		}while(animal[random2].isDead || random1==random2 );
-		// System.out.println("First Animal : "+animal[random1].name+"\n Second Animal"+animal[random2].name);
+		System.out.println(animal[random1].name+" meets "+animal[random2].name);
 		
-		win=((Carnivore) (animal[random1])).fight(animal[random2]);
-		// win.printDetails();
-
-		if(animal[random1].name==win.name)
+		int luckfactor=0;
+		luckfactor=(int)(5* Math.random());
+		if(luckfactor==0)
 		{
-			animal=isdead(random1,random2, animal); 
-
+			System.out.println("lucky b day animal escapped");
 		}
 		else
 		{
-			animal=isdead(random2,random1,animal);
+			win=((Carnivore) (animal[random1])).fight(animal[random2]);
+			// win.printDetails();
+
+			if(animal[random1].name==win.name)
+			{
+				animal=isdead(random1,random2, animal); 
+
+			}
+			else
+			{
+				animal=isdead(random2,random1,animal);
+			}
+			
 		}
 		winning(win, animal);
-
-
+ 
 	}
 }
