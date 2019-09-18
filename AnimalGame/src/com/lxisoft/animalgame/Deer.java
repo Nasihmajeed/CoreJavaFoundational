@@ -3,18 +3,6 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Herbivore;
 public class Deer extends Animal implements Herbivore
 {	
-	// public Animal fight(Animal animal)
-	// {
- //  		if(this.strength>animal.strength)
-	// 	{
-	// 		return this;					
-	// 	}
-	// 	else
- //    	{  
- //    		return animal;
- //    	}
-	// }
-
 	public void run()
   	{
   		System.out.println("Deer run fastly");
@@ -24,4 +12,18 @@ public class Deer extends Animal implements Herbivore
   	{
   		System.out.println("Deer eat leaves\n");
   	}
+
+
+  	public Animal escape(Animal animal)
+    {
+    	int y=(int)(Math.random()*10);
+    	if(animal.strength>=4)
+    	{
+     		return animal;    
+  		}
+  		else
+  		{
+  			return this;
+  		}
+	}
 }

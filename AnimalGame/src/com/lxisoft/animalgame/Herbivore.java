@@ -6,4 +6,6 @@ import com.lxisoft.animalgame.Rabbit;
 import com.lxisoft.animalgame.Deer;
 public interface Herbivore
 {
+	public abstract Animal escape(Animal animal);                    
+	
 }

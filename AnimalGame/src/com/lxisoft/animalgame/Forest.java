@@ -25,7 +25,16 @@ public class Forest
 		int d=sc.nextInt();
 		int tot=(t+l+r+d);
 		Animal[] animalArr=new Animal[tot];
-     	
+		tigerDetails(animalArr,t);
+		lionDetails(animalArr,t,l);
+		rabbitDetails(animalArr,t,l,r);
+		deerDetails(animalArr,t,l,r,d);
+	}
+    
+
+   	public void tigerDetails(Animal animalArr[],int t)
+    {
+    	Scanner sc=new Scanner (System.in);
 	    for(int i=0;i<t;i++)
 		{
 			tiger =new Tiger();
@@ -38,6 +47,12 @@ public class Forest
 		}
 		tiger.run();
 		tiger.eat();
+    }
+
+
+    public void lionDetails(Animal animalArr[],int t,int l)
+    {
+        Scanner sc=new Scanner (System.in);
 		for(int i=t;i<t+l;i++)
 		{
 			lion=new Lion();
@@ -50,6 +65,12 @@ public class Forest
 		}
 		lion.run();
 		lion.eat();
+	}
+
+
+	public void rabbitDetails(Animal animalArr[],int t,int l,int r)
+	{
+	    Scanner sc=new Scanner (System.in);
 		for(int i=t+l;i<(t+l+r);i++)
 		{
 			rabbit=new Rabbit();
@@ -62,7 +83,14 @@ public class Forest
 		}
 		rabbit.run();
 		rabbit.eat();
-	    for(int i=(t+l+r);i<(t+l+r+d);i++)
+	}
+
+
+	public void deerDetails(Animal animalArr[],int t,int l,int r,int d)
+	{
+		Scanner sc=new Scanner (System.in);
+		int tot=t+l+r+d;
+	    for(int i=(t+l+r);i<tot;i++)
 		{
 			deer=new Deer();
 			System.out.println("Enter Deer name:");
@@ -73,33 +101,33 @@ public class Forest
 		}
 		deer.run();
         deer.eat();
-		meetFight(animalArr,tot);		
-	}
+		meetFight(tot,animalArr);		
+		}
 	
      
-	public void meetFight(Animal animalArr[],int tot)
-	{
-		int count=0;
-		Scanner sc=new Scanner (System.in);
-		System.out.println("--ANIMAL DETAILS--");
-		System.out.println("\n");
-		System.out.println("Animal Meet & Fight Starts");
-		System.out.println("-----------------------------");
-		Animal temp=null;
-		do
+		public void meetFight(int tot,Animal animalArr[])
 		{
-			for(int i=0;i<animalArr.length;i++)
+			int count=0;
+			Scanner sc=new Scanner (System.in);
+			System.out.println("--ANIMAL DETAILS--");
+			System.out.println("\n");
+			System.out.println("Animal Meet & Fight Starts");
+			System.out.println("-----------------------------");
+			Animal temp=null;
+			do
 		    {
-		    	int m,n;
-		    	boolean c;
-		    	do
+				for(int i=0;i<animalArr.length;i++)
 		    	{
-		    		c=true;
-					m=(int)(Math.random()*tot);
-					if(animalArr[m] instanceof Carnivore)
-					{
-						c=false;
-					}
+		    		int m,n;
+		    		boolean c;
+		    		do
+		    		{
+		    			c=true;
+						m=(int)(Math.random()*tot);
+						if(animalArr[m] instanceof Carnivore)
+						{
+							c=false;
+						}
 				}
 				while(c);
 				n=(int)(Math.random()*tot);
@@ -159,6 +187,7 @@ public class Forest
 	    	System.out.println("winner is " +temp.animalName);
 	    } 
 	}
+
 	public int remaining(Animal[] animalArr)
 	{
 		int count=0;

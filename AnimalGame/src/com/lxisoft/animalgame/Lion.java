@@ -24,4 +24,6 @@ public class Lion extends Animal implements Carnivore
   	{
   		System.out.println("Lion eat meat\n");
   	}
+
+    
 }
