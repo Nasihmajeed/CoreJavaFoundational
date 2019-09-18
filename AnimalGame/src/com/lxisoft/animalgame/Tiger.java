@@ -17,4 +17,8 @@ public class Tiger extends Animal implements Carnivorous
 	{
 		System.out.println("Tiger eat meat");
 	}
+	/*public void escape(Animal animal)
+	{
+		
+	}*/
 }
