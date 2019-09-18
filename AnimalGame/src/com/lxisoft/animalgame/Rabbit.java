@@ -21,4 +21,16 @@ public class Rabbit extends Animal implements Herbivores
 			return animals;
 		}
 	}
+	public Animal escape(Animal animal)
+	{
+		int h=(int) (Math.random()*10);
+		if(h>4)
+		{
+			return this;
+		}
+		else
+		{
+			return animal;
+		}
+	}
 }
