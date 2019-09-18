@@ -173,7 +173,7 @@ public class Forest
 		System.out.println(animal[random1].name+" meets "+animal[random2].name);
 		
 		int luckfactor=0;
-		luckfactor=(int)(5* Math.random());
+		luckfactor=random(10);
 		if(luckfactor==0)
 		{
 			System.out.println("lucky b day animal escapped");
