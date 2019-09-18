@@ -5,7 +5,7 @@ public class Deer extends Animal implements Herbivores
 
 		public void display()
 		{
-			System.out.println(name + "  Strength= " +strength+"\n");
+			System.out.println("\t" + name + "\t\t Strength= " +strength+"\n");
 
 		}
 		

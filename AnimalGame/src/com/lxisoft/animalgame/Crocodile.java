@@ -5,8 +5,7 @@ public class Crocodile extends Animal implements Carnivore
 
 		public void display()
 		{
-			System.out.println(name + "  Strength= " +strength+"\n");
-
+			System.out.println("\t" + name + "\t Strength= " +strength+"\n");
 		}
 		public Animal fight(Animal enemy)
 		{

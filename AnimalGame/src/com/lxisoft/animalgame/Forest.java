@@ -26,7 +26,7 @@ public class Forest
 		public void print()
 		{
 			
-			System.out.println("\t  Animals   ");
+			System.out.println("\t\t  Animals  \n\n ");
 
 	//-----------		Array creation	---------//			
 			animals=new Animal[10];
@@ -138,7 +138,7 @@ public class Forest
 		public void animalMeet(Animal[] animal_array ) 
 		{	
 			int count=0,random1,random2;
-			Animal win;
+			Animal win=null;
 			for(int i=0;i<animal_array.length;i++)
 			{
 				
@@ -171,18 +171,26 @@ public class Forest
 			  
 
 			}while(animal_array[random2].isDead || random1==random2);
+			System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
+			int luckfactor=0;
+			luckfactor=randomGeneration(10);
+			if(luckfactor==5)
+			{
+				System.out.println("lucky animal escapped...");
+			}
+			else
+			{
+			    win=((Carnivore) (animals[random1])).fight(animals[random2]);
 
-		    win=((Carnivore) (animals[random1])).fight(animals[random2]);
-
-		    if(animals[random1].name==win.name)
-		    {
-		    	animals=isDead(random1,random2,animals);
+			    if(animals[random1].name==win.name)
+			    {
+			    	animals=isDead(random1,random2,animals);
+			    }
+			    else
+			    {
+			    	animals=isDead(random2,random1,animals);
+			    }
 		    }
-		    else
-		    {
-		    	animals=isDead(random2,random1,animals);
-		    }
-		    
 		    isWinner(animals,win);
 		}
 

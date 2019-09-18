@@ -5,8 +5,7 @@ public class Elephant extends Animal implements Herbivores
 
 		public void display()
 		{
-			System.out.println(name + "  Strength= " +strength+"\n");
-
+			System.out.println("\t" + name + "\t Strength= " +strength+"\n");
 		}
 		
 }
