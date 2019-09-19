@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Rabbit extends Animal implements Herbivores
+public class Rabbit extends Hanimal
 {
 	 
 	public void printDetails()

@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Tiger extends Animal implements Carnivore
+public class Tiger extends Canimal
 {
 	public void printDetails()
 	{
@@ -21,25 +21,7 @@ public class Tiger extends Animal implements Carnivore
 	{
 		System.out.println("tiger runs");
 	}
-	public Animal fight (Animal enemy)
-	{
-		System.out.println("the " +this.name+ " fighting "+ enemy.name );
-		Animal win;
-		if(this.strength>enemy.strength)
-		{
-			win=this;
-			System.out.println(this.name +" wins");
-			enemy.isDead=true;
-		}
-		else
-		{
-			win=enemy;
-			System.out.println(enemy.name +" wins");
-			this.isDead=true;
-		}
-		return win;
-
-	}
+	
 
 	
 

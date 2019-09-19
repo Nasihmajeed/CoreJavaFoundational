@@ -2,17 +2,7 @@
 // import java.util.Scanner;
 import java.lang.Math;
 
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Tiger;
-import com.lxisoft.animalgame.Rabbit;
-import com.lxisoft.animalgame.Lion;
-import com.lxisoft.animalgame.Peacook;
-import com.lxisoft.animalgame.Zeebra;
-import com.lxisoft.animalgame.Frog;
-import com.lxisoft.animalgame.Cheetah;
-import com.lxisoft.animalgame.Deer;
-import com.lxisoft.animalgame.Elephant;
-import com.lxisoft.animalgame.Wolf;
+import com.lxisoft.animalgame.*;
 
 public class Forest
 {
@@ -21,16 +11,6 @@ public class Forest
 	{
 		// Scanner scan=new Scanner(System.in);
 
-		Animal tiger=new Tiger();
-		Animal rabbit=new Rabbit();
-		Animal lion=new Lion();
-		Animal peacook=new Peacook();
-		Animal zeebra=new Zeebra();
-		Animal frog=new Frog();
-		Animal cheetah=new Cheetah();
-		Animal deer=new Deer();
-		Animal elephant=new Elephant();
-		Animal wolf=new Wolf();
 		
 		Animal[] animal=new Animal[10];
 		animal [0]=new Tiger();
@@ -38,7 +18,7 @@ public class Forest
 		animal [2]=new Lion();
 		animal [3]=new Peacook();
 		animal [4]=new Zeebra();
-		animal [5]=new Frog();
+		animal [5]=new Fox();
 		animal [6]=new Cheetah();
 		animal [7]=new Deer();
 		animal [8]=new Elephant();
@@ -54,16 +34,19 @@ public class Forest
 		animal[1].name="rabbit";
 		animal[1].strength=30;
 		animal[1].isDead=false;
+		((Hanimal)(animal[1])).luckFactor=2;
 		animal[2].name="lion";
 		animal[2].strength=100;
 		animal[2].isDead=false;
 		animal[3].name="peacook";
 		animal[3].strength=40;
 		animal[3].isDead=false;
+		((Hanimal)(animal[3])).luckFactor=3;
 		animal[4].name="zeebra";
 		animal[4].strength=45;
 		animal[4].isDead=false;
-		animal[5].name="frog";
+		((Hanimal)(animal[4])).luckFactor=4;
+		animal[5].name="fox";
 		animal[5].strength=10;
 		animal[5].isDead=false;
 		animal[6].name="cheetah";
@@ -72,9 +55,11 @@ public class Forest
 		animal[7].name="deer";
 		animal[7].strength=50;
 		animal[7].isDead=false;
+		((Hanimal)(animal[7])).luckFactor=4;
 		animal[8].name="elephant";
 		animal[8].strength=70;
 		animal[8].isDead=false;
+		((Hanimal)(animal[8])).luckFactor=5;
 		animal[9].name="wolf";
 		animal[9].strength=60;
 		animal[9].isDead=false;
@@ -174,26 +159,47 @@ public class Forest
 		
 		int luckfactor=0;
 		luckfactor=random(10);
-		if(luckfactor==0)
+		if(animal[random2] instanceof Herbivores)
 		{
-			System.out.println("lucky b day animal escapped");
-		}
-		else
-		{
-			win=((Carnivore) (animal[random1])).fight(animal[random2]);
-			// win.printDetails();
-
-			if(animal[random1].name==win.name)
+			if(luckfactor<=(((Hanimal)(animal[random2])).luckFactor))
 			{
-				animal=isdead(random1,random2, animal); 
-
+				System.out.println("lucky b day animal escapped");
 			}
 			else
 			{
-				animal=isdead(random2,random1,animal);
+				win=((Carnivore) (animal[random1])).fight(animal[random2]);
+				// win.printDetails();
+
+				if(animal[random1].name==win.name)
+				{
+					animal=isdead(random1,random2, animal); 
+
+				}
+				else
+				{
+					animal=isdead(random2,random1,animal);
+				}
+				
 			}
-			
+
 		}
+		else
+			{
+				win=((Carnivore) (animal[random1])).fight(animal[random2]);
+				// win.printDetails();
+
+				if(animal[random1].name==win.name)
+				{
+					animal=isdead(random1,random2, animal); 
+
+				}
+				else
+				{
+					animal=isdead(random2,random1,animal);
+				}
+				
+			}
+		
 		winning(win, animal);
  
 	}

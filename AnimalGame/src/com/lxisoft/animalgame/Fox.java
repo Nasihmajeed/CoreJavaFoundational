@@ -1,10 +1,9 @@
 package com.lxisoft.animalgame;
-public class Peacook extends Hanimal
+public class Fox extends Canimal
 {
-	
+
 	public void printDetails()
 	{
-		
 		System.out.println(name+" "+strength);
 	}
 	public void printName()
@@ -14,12 +13,13 @@ public class Peacook extends Hanimal
 
 	public void eat()
 	{
-		System.out.println("Peacook eats");
+		System.out.println("Fox eats");
 	}
 	public void run()
 	{
-		System.out.println("Peacook runs");
+		System.out.println("Fox runs");
 	}
 	
 
+	
 }

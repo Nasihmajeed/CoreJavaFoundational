@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Elephant extends Animal implements Herbivores
+public class Elephant extends Hanimal
 {
 
 	public void printDetails()
