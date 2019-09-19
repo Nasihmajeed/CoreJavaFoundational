@@ -32,26 +32,29 @@ public class Forest
 	}
 	public void fight(Animal animalArr[])
 	{
-		int a,count,j,i;
+		int a,count,win=0,w=0,i,n=1,r=1;
 		a=animalArr.length;
 		int x=(int) (Math.random()*a);
 		int y=(int) (Math.random()*a);
 		System.out.println("\t\tjungle\n\t\t-------\n\t\tanimals meet and fight begins\n\t\t------------------------------");
 		for(i=0;true;i++)
 		{
-			int q=winner(animalArr);
-			if(q==1)
+			count=0;
+			for(int j=0;j<a;j++)
 			{
+				if((animalArr[j] instanceof Carnivores)&(animalArr[j].isDead==false))
+				{
+					win=j;
+					count++;
+				}
+			}
+			if(count<=1)
+			{
+				System.out.println("WINNER=="+animalArr[win].animalName);
 				break;
 			}
-			if((animalArr[x].isDead==false)&(animalArr[y].isDead==false))
-			{
-				if(x!=y)
-				{
-					setWinner(animalArr,animal);
-					winnerCarnivores(animalArr,temp);
-				}		
-			}	
+			n=winnerCarnivores(animalArr,temp,n);
+			r=setWinner(animalArr,animal,r);	
 		}
 	}
 	public void setTigerDetails(int number[],Animal animalArr[])
@@ -84,7 +87,7 @@ public class Forest
 		Animal aLion=new Lion();
 		aLion.run();
 		aLion.eat();
-		for(int j=0;j<number[1];j++)
+		for(int j=number[0];j<(number[0]+number[1]);j++)
 		{
 			aLion=new Lion();
 			System.out.println("enter name of lion-"+l);
@@ -105,7 +108,7 @@ public class Forest
 		Animal aBear=new Bear();
 		aBear.run();
 		aBear.eat();
-		for(int k=0;k<number[2];k++)
+		for(int k=(number[0]+number[1]);k<(number[0]+number[1]+number[2]);k++)
 		{
 		    aBear=new Bear();	
 			System.out.println("enter name of bear-"+b);
@@ -126,7 +129,7 @@ public class Forest
 		Animal aRabbit=new Rabbit();
 		aRabbit.run();
 		aRabbit.eat();
-		for(int g=0;g<number[3];g++)
+		for(int g=(number[0]+number[1]+number[2]);g<(number[0]+number[1]+number[2]+number[3]);g++)
 		{
 			aRabbit=new Rabbit();
 			System.out.println("enter name of rabbit-"+r);
@@ -138,28 +141,7 @@ public class Forest
 			r++;
 		}
 	}
-	public int winner(Animal animalArr[])
-	{
-		int count=0,win=0,w=0;
-		int a=animalArr.length;
-        System.out.println("a="+a);
-		for(int j=0;j<a;j++)
-		{
-			System.out.println("j="+j);
-			if((animalArr[j].isDead)==false)
-			{
-				win=j;
-				count++;
-			}
-		}
-		if(count<=1)
-		{
-			System.out.println("WINNER=="+animalArr[0].animalName);
-			w=1;	
-		}
-		return w;
-	}
-	public void setWinner(Animal animalArr[],Animal animal)
+	public int setWinner(Animal animalArr[],Animal animal,int r)
 	{
 		int a=animalArr.length;
 		int x=(int) (Math.random()*a);
@@ -171,56 +153,54 @@ public class Forest
 		}
 		if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Carnivores))
 		{
+			System.out.println("\nAttack no---"+(r++));
 			System.out.println("\n "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
 			animal=((Herbivores)(animalArr[x])).escape(animalArr[y]);
 			if(animal==animalArr[y])
 			{
-				System.out.println("\n "+animalArr[x].animalName+" eat "+animalArr[y].animalName);
+				System.out.println("\n "+animalArr[y].animalName+" eat "+animalArr[x].animalName);
 			}
 			if(animal==animalArr[x])
 			{
 				System.out.println(" "+animalArr[x].animalName+"------ESCAPED---------");
 			}
 		}
-			
+		return r;
 	}
-	public void winnerCarnivores(Animal animalArr[],Animal temp)
+	public int winnerCarnivores(Animal animalArr[],Animal temp,int n)
 	{
-		int a=animalArr.length,n=1;
+		int a=animalArr.length;
 		int x=(int) (Math.random()*a);
 		int y=(int) (Math.random()*a);
-		System.out.println("\n\t\tFight no---"+n);
-		System.out.println("\n\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-		if((animalArr[x] instanceof Carnivores)&(animalArr[y] instanceof Carnivores))
+		if((animalArr[x].isDead==false)&(animalArr[y].isDead==false))
 		{
-			temp=((Carnivores)(animalArr[x])).fight(animalArr[y]);
-			if(temp==animalArr[x])
+			if(x!=y)
 			{
-				animalArr[x].strength=(animalArr[x].strength-1);
-				animalArr[y].strength=(animalArr[y].strength-2);
-				System.out.println("\t\twinner="+animalArr[x].animalName+" strength=="+animalArr[x].strength+"\n\t\tlooser="+animalArr[y].animalName+" strength=="+animalArr[y].strength);
-				if(animalArr[y].strength<=0)
+				if((animalArr[x] instanceof Carnivores)&(animalArr[y] instanceof Carnivores))
 				{
-					animalArr[y].isDead=true;
-					System.out.println("\n"+animalArr[y].animalName+"------------dead");
+					System.out.println("\n\t\tFight no---"+(n++)+"\n\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+					temp=((Carnivores)(animalArr[x])).fight(animalArr[y]);
+					if(temp==animalArr[x])
+					{
+						System.out.println("\t\twinner="+animalArr[x].animalName+" strength=="+(animalArr[x].strength-=1)+"\n\t\tlooser="+animalArr[y].animalName+" strength=="+(animalArr[y].strength-=2));
+						if(animalArr[y].strength<=0)
+						{
+							animalArr[y].isDead=true;
+							System.out.println("\n"+animalArr[y].animalName+"------------dead");
+						}
+					}
+					if(temp==animalArr[y])
+					{
+						System.out.println("\t\twinner="+animalArr[y].animalName+" strength=="+(animalArr[y].strength-=1)+"\n\t\tlooser="+animalArr[x].animalName+" strength=="+(animalArr[x].strength-=2));
+						if(animalArr[x].strength<=0)
+						{
+							animalArr[x].isDead=true;
+							System.out.println("\n"+animalArr[x].animalName+"-------------dead");
+						}
+					}
 				}
 			}
-			if(temp==animalArr[y])
-			{
-				animalArr[x].strength=(animalArr[x].strength-2);
-				animalArr[y].strength=(animalArr[y].strength-1);
-				System.out.println("\t\twinner="+animalArr[y].animalName+" strength=="+animalArr[y].strength+"\n\t\tlooser="+animalArr[x].animalName+" strength=="+animalArr[x].strength);
-				if(animalArr[x].strength<=0)
-				{
-					animalArr[x].isDead=true;
-					System.out.println("\n"+animalArr[x].animalName+"-------------dead");
-				}
-			}
-			n++;
 		}
+		return n;
 	}
-	public void setLooser(Animal animalArr[])
-	{
-		
-	}	
 }
