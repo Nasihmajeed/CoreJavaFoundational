@@ -37,27 +37,36 @@ public class Forest
 
     }
 	// meet the animals which are ready to fight
-	public void meet(Animal[] animal)
-    {    int i=0,x,y;
+	public void meet(Animal[] a)
+    {   
+     	int i=0,x,y;
 	     
-	    while(i<4)
+	    while(i<animal.length)
 		{   
 	        i++;
-			do{
-		    x=random();
-		    y=random();
-			}while(x==y || animal[x].isAlive==false || animal[y].isAlive==false);
+			do
+			{
+				
+		      x=random();
+		      y=random();
+			
+			}
+			  
+			  while(x==y || a[x].isAlive==false || a[y].isAlive==false);
 		 
-			   fight(animal[x],animal[y]);
-		    		
+			   int returnValue=fight(a[x],a[y]);
+			   
+			   if(returnValue==1)
+			   {
+				   break;
+			   }
+
 		}
 				
 	}	
 	 // this method helds the fighting of animals
-	public void fight(Animal animal1,Animal animal2)
+	public int fight(Animal animal1,Animal animal2)
 	{  
-			if(animal1.isAlive!=false && animal2.isAlive!=false)
-			{ 
 		        System.out.println(animal1.name+ "and"+ animal2.name +"ready to fight...");
 		        System.out.println("Fight Begins..........!!");
 				if(animal1.strengthlevel>animal2.strengthlevel)
@@ -69,30 +78,38 @@ public class Forest
 				  
 				 }
 				 else
-					  {
+					   {
 							System.out.println( animal2.name+"  Defeated "+animal1.name +"\n");
 							System.out.println( animal1.name +" is now dead \n" );
 							animal2.strengthlevel=animal2.strengthlevel-2;
 							animal1.isAlive=false;
-				
-			   
 				       }
-			}
-			 else
-			 {
-			    	 
-			 }
+					   
+					   
 		
+		int returnValue=winner(animal);
+		return returnValue;
     }
-	public void winner (Animal animal1)
+	public int winner (Animal[] a)
 	{
-		if(animal1.isAlive==true)
+		int x=0,i,win=0;
+		for(i=0;i<animal.length-1;i++)
 		{
-		  System.out.println(animal1.name+"is the king of the Jungle");	
-		}
-		else
-		{
+			if(a[i].isAlive==true)
+			{
+				x++;
+				win=i;
+				//System.out.println("x="+x);
 				
-		}	
+			}
+		}
+			if(x==1)
+			{
+				System.out.println("\n"+"....."+a[win].name+"is the king of the Jungle"+"..... ");	
+             return 1;  			
+			}
+		return 0;
+		
 	}
-}
+
+}	
