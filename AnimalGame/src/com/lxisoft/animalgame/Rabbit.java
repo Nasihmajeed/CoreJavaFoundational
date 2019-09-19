@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 
-public class Rabbit extends Animal
+public class Rabbit extends Animal implements Herbivorous
 {
 	public void eat()
 	{
@@ -20,7 +20,11 @@ public class Rabbit extends Animal
 	}
 
 	
-	
+	public void escape(Animal enemy)
+	{
+		System.out.println("\t\t\t\t\t"+enemy.name+" ATTACKS "+this.name); 
+		System.out.println("\t\t\t\t"+this.name+" ESCAPES TO THE JUNGLE \n");
+	}
 
 
 

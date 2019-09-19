@@ -31,7 +31,6 @@ public class Forest
 		y=lionAnimal(animal,l,x);
 		z=bearAnimal(animal,b,y);
 		rabbitAnimal(animal,r,z);
-
 	}
 
 	public int tigerAnimal(Animal[] animal,int t)
@@ -46,7 +45,6 @@ public class Forest
 			System.out.println("enter the  strength of tiger"+(i+1));
 			animal[i].strength=sc.nextInt();
 			animal[i].isDead=false;
-			
 		}x=i;
 		return x;
 	}
@@ -166,28 +164,38 @@ public class Forest
 	public int fightStarts(int x,int y,int f)
 	{
 		Animal temp;
-		if(animal[x] instanceof Carnivorous && animal[y] instanceof Carnivorous && (x!=y))
+		if(animal[x] instanceof Carnivorous && (x!=y))
 		{
 			if(animal[x].isDead==false && animal[y].isDead==false)
 			{
-				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-				temp=((Carnivorous) animal[x]).fight(animal[y]);
-				System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
-				if(temp==animal[x])
+				if(animal[y] instanceof Herbivorous)
 				{
-					animal[x].strength--;
-					animal[y].strength-=2;
-					if (animal[y].strength<1)
-						animal[y].isDead=true;
-				}
+					System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+					((Herbivorous) animal[y]).escape(animal[x]);
+				}	
 				else
 				{
-					animal[y].strength--;
-					animal[x].strength-=2;
-					if (animal[x].strength<1)
-						animal[x].isDead=true;
+					System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+					temp=((Carnivorous) animal[x]).fight(animal[y]);
+					System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
+					if(temp==animal[x])
+					{
+						animal[x].strength--;
+						animal[y].strength-=2;
+						if (animal[y].strength<1)
+							animal[y].isDead=true;
+					}
+					else
+					{
+						animal[y].strength--;
+						animal[x].strength-=2;
+						if (animal[x].strength<1)
+							animal[x].isDead=true;
+					}
 				}
 			}
 		}				return f;
 	}
 }
+
+
