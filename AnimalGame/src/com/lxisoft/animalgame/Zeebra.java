@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 
-public class Zeebra extends Animal implements Herbivores
+public class Zeebra extends Animalherbivores
 {
 
 		public void display()

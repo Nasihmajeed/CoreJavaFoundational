@@ -17,15 +17,10 @@ public class Forest
 		Animal tiger;
 		Animal zeebra;
 		
-		public void printForest()
+		public void print()
 		{
 			System.out.println("\n");
 			System.out.println("\t    Welcome to  "+name +"   Forest");
-		}
-
-		public void print()
-		{
-			
 			System.out.println("\t\t  Animals  \n\n ");
 
 	//-----------		Array creation	---------//			
@@ -43,61 +38,67 @@ public class Forest
 			zeebra=new Zeebra();
 
 			tiger.name="Tiger";
-			tiger.strength=40;
+			tiger.strength=80;
 			tiger.isDead=false;
 			animals[0]=tiger;
 
 			rabbit.name="Rabbit";
 			rabbit.strength=10;
 			rabbit.isDead=false;
+		    ((Animalherbivores)(rabbit)).luckyfact=3;
 			animals[1]=rabbit;
 
 			lion.name="Lion";
-			lion.strength=30;
+			lion.strength=70;
 			lion.isDead=false;
 			animals[2]=lion;
 
 			elephant.name="Elephant";
-			elephant.strength=45;
+			elephant.strength=60;
 			elephant.isDead=false;
+			((Animalherbivores)(elephant)).luckyfact=7;
 			animals[3]=elephant;
 
 			buffallo.name="Buffallo";
-			buffallo.strength=35;
+			buffallo.strength=40;
 			buffallo.isDead=false;
 			animals[4]=buffallo;
 
 			crocodile.name="Crocodile";
-			crocodile.strength=15;
+			crocodile.strength=45;
 			crocodile.isDead=false;
 			animals[5]=crocodile;
 
 			deer.name="Deer";
-			deer.strength=20;
+			deer.strength=30;
 			deer.isDead=false;
+			((Animalherbivores)(deer)).luckyfact=4;
 			animals[6]=deer;
 
 			fox.name="Fox";
-			fox.strength=32;
+			fox.strength=55;
 			fox.isDead=false;
 			animals[7]=fox;
 
 			pig.name="Pig";
-			pig.strength=17;
+			pig.strength=10;
 			pig.isDead=false;
+			((Animalherbivores)(pig)).luckyfact=8;
 			animals[8]=pig;
 
 			zeebra.name="Zeebra";
-			zeebra.strength=25;
+			zeebra.strength=45;
 			zeebra.isDead=false;
+			((Animalherbivores)(zeebra)).luckyfact=1;
 			animals[9]=zeebra;
+
            animalMeet(animals);
           
         }  
 		public int randomGeneration(int limit)
 		{
-				int random=(int)(Math.random()*limit);
-				return random;
+			int random=(int)(Math.random()*limit);
+			return random;
 
 		}
 		public Animal[] isDead(int winner,int looser,Animal[] animal_array)
@@ -110,7 +111,7 @@ public class Forest
 		}
 	    public void isWinner(Animal[] animals,Animal lastAnimal)
 	    {
-       		int count=0;
+       		int count=0,alive=0;
         	for(int i=0;i<animals.length;i++)
 			{
 				if(animals[i] instanceof Carnivore)
@@ -118,15 +119,16 @@ public class Forest
 					if(animals[i].isDead==false)
 					{	
 						
+						alive=i;
 						count++;
 
 					}
 				}	
 			}
-			if(count==0)
+			if(count==1)
         	{
         		 
-        		System.out.println("\n ******  The  winner is  "+lastAnimal.name +"  ******");
+        		System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
         	}
         	else
         	{
@@ -174,12 +176,11 @@ public class Forest
 			System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
 			int luckfactor=0;
 			luckfactor=randomGeneration(10);
-			if(luckfactor==5)
-			{
-				System.out.println("lucky animal escapped...");
-			}
-			else
-			{
+			// if(luckfactor<=)
+			// {
+
+			// }
+			
 			    win=((Carnivore) (animals[random1])).fight(animals[random2]);
 
 			    if(animals[random1].name==win.name)
@@ -190,7 +191,7 @@ public class Forest
 			    {
 			    	animals=isDead(random2,random1,animals);
 			    }
-		    }
+		 
 		    isWinner(animals,win);
 		}
 
