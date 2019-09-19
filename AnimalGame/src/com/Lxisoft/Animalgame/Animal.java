@@ -8,6 +8,7 @@ import java.lang.*;
 	public int strg;
 	public String name;
 	boolean isalive=true;
+
 }
  
 
