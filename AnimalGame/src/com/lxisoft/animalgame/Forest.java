@@ -111,8 +111,8 @@ public class Forest
 		}
 	    public void isWinner(Animal[] animals,Animal lastAnimal)
 	    {
-       		int count=0,alive=0;
-        	for(int i=0;i<animals.length;i++)
+       		int count=0,alive=0,i;
+        	for(i=0;i<animals.length;i++)
 			{
 				if(animals[i] instanceof Carnivore)
 				{
@@ -125,10 +125,10 @@ public class Forest
 					}
 				}	
 			}
+
 			if(count==1)
         	{
-        		 
-        		System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
+          		System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
         	}
         	else
         	{
@@ -176,23 +176,43 @@ public class Forest
 			System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
 			int luckfactor=0;
 			luckfactor=randomGeneration(10);
-			// if(luckfactor<=)
-			// {
+			if(animal_array[random2] instanceof Herbivores)
+			{
+				if(luckfactor<=((Animalherbivores)(animal_array[random2])).luckyfact)
+				{
+					System.out.println("Lucky Animal " +((Animalherbivores)(animal_array[random2])).name+ " escapped..");
+				}
+				else
+				{
+				    win=((Carnivore) (animals[random1])).fight(animals[random2]);
 
-			// }
-			
-			    win=((Carnivore) (animals[random1])).fight(animals[random2]);
+				    if(animals[random1].name==win.name)
+				    {
+				    	animals=isDead(random1,random2,animals);
+				    }
+				    else
+				    {
+				    	animals=isDead(random2,random1,animals);
+				    }
+				    
+				}
+				
+			 }
+			 else
+			 {
+			 	 win=((Carnivore) (animals[random1])).fight(animals[random2]);
 
-			    if(animals[random1].name==win.name)
-			    {
-			    	animals=isDead(random1,random2,animals);
-			    }
-			    else
-			    {
-			    	animals=isDead(random2,random1,animals);
-			    }
-		 
-		    isWinner(animals,win);
+				    if(animals[random1].name==win.name)
+				    {
+				    	animals=isDead(random1,random2,animals);
+				    }
+				    else
+				    {
+				    	animals=isDead(random2,random1,animals);
+				    }
+				    
+			 } 
+			 isWinner(animals,win); 
 		}
 
 
