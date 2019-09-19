@@ -13,9 +13,6 @@ public abstract class Animal
 		System.out.println("Carnivores eat meat");		
 		System.out.println("Herbivores eat grass and vegitables");
 	}
-	public void escape(Animal animal)
-	{
-		
-	}
+	
 }
 	

@@ -18,8 +18,5 @@ public class Lion extends Animal implements Carnivorous
 	{
 		System.out.println("Lion eat meat");
 	}
-	/*public void escape(Animal animal)
-	{
-		
-	}*/
+	
 }

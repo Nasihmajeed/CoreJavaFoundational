@@ -18,4 +18,16 @@ public class Rabbit extends Animal implements Herbivorous
 	{
 		System.out.println("Rabbit eat carrott");
 	}
+	
+	public Animal escape(Animal animal)
+    {
+    	if(animal.strength>=2)
+    	{
+     		return animal;    
+  		}
+  		else
+  		{
+  			return this;
+  		}
+  	}
 }

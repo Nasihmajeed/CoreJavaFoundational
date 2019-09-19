@@ -18,4 +18,16 @@ public class Deer extends Animal implements Herbivorous
 	{
 		System.out.println("Deer eat grass");
 	}
+	public Animal escape(Animal animal)
+    {
+    	if(animal.strength>=2)
+    	{
+     		return animal;    
+  		}
+  		else
+  		{
+  			return this;
+  		}
+	}
+	
 }
