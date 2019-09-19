@@ -23,10 +23,15 @@ public class Rabbit extends Animal implements Herbivorous
 	public void escape(Animal enemy)
 	{
 		System.out.println("\t\t\t\t\t"+enemy.name+" ATTACKS "+this.name); 
-		System.out.println("\t\t\t\t"+this.name+" ESCAPES TO THE JUNGLE \n");
+		if (enemy.luck>this.luck)
+		{
+			System.out.println("\t\t\t\t"+enemy.name+" FIGHTS AND KILLS "+this.name+"\n");
+			this.isDead=true;
+		}
+		else
+			System.out.println("\t\t\t\t"+this.name+" ESCAPES TO THE JUNGLE \n");
 	}
 
-
+}
 
 	
-}

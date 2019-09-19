@@ -6,6 +6,7 @@ public abstract class Animal
 	String name;
 	int strength;
 	boolean isDead;
+	int luck;
 	
 	public abstract void eat();
 	public abstract void run();

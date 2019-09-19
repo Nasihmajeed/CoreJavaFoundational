@@ -9,7 +9,7 @@ public class Tiger extends Animal implements Carnivorous
 	}
 	public void run()
 	{
-		System.out.println("tiger runs very fast");
+		System.out.println("tiger runs extremely fast");
 	}
 
 

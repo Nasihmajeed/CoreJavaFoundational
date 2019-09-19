@@ -31,6 +31,8 @@ public class Forest
 		y=lionAnimal(animal,l,x);
 		z=bearAnimal(animal,b,y);
 		rabbitAnimal(animal,r,z);
+		animalLuck();
+
 	}
 
 	public int tigerAnimal(Animal[] animal,int t)
@@ -153,7 +155,10 @@ public class Forest
 			{
 				System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
 				for  (i=0;i<animal.length;i++)
-					System.out.println(animal[i].name+ "  dead?  "+animal[i].isDead);
+				{
+					System.out.println(animal[i].name+ "  luck?  "+animal[i].luck);
+					System.out.println(animal[i].name+ "  dead?  "+animal[i].isDead+"\n");
+				}
 				break;
 			}
 			f=fightStarts(x,y,f);
@@ -196,6 +201,17 @@ public class Forest
 			}
 		}				return f;
 	}
+
+	public void animalLuck()
+	{
+		int i;
+		for(i=0;i<animal.length;i++)
+		{
+			animal[i].luck=(int) (Math.random() * 100);
+		}
+	}
+
+
 }
 
 
