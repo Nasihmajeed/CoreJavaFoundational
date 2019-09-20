@@ -174,45 +174,29 @@ public class Forest
 
 			}while(animal_array[random2].isDead || random1==random2);
 			System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
-			int luckfactor=0;
-			luckfactor=randomGeneration(10);
+			boolean escape=false;
+			// int luckfactor=0;
+			// luckfactor=randomGeneration(10);
 			if(animal_array[random2] instanceof Herbivores)
 			{
-				if(luckfactor<=((Animalherbivores)(animal_array[random2])).luckyfact)
-				{
-					System.out.println("Lucky Animal " +((Animalherbivores)(animal_array[random2])).name+ " escapped..");
-				}
-				else
-				{
-				    win=((Carnivore) (animals[random1])).fight(animals[random2]);
+					escape=((Animalherbivores)(animal_array[random2])).luck();
+					//System.out.println("Lucky Animal " +((Animalherbivores)(animal_array[random2])).name+ " escapped..");
+			}
+			if(escape==false)
+			{
+			    win=((Carnivore) (animals[random1])).fight(animals[random2]);
 
-				    if(animals[random1].name==win.name)
-				    {
-				    	animals=isDead(random1,random2,animals);
-				    }
-				    else
-				    {
-				    	animals=isDead(random2,random1,animals);
-				    }
-				    
-				}
-				
-			 }
-			 else
-			 {
-			 	 win=((Carnivore) (animals[random1])).fight(animals[random2]);
-
-				    if(animals[random1].name==win.name)
-				    {
-				    	animals=isDead(random1,random2,animals);
-				    }
-				    else
-				    {
-				    	animals=isDead(random2,random1,animals);
-				    }
-				    
-			 } 
-			 isWinner(animals,win); 
+			    if(animals[random1].name==win.name)
+			    {
+			    	animals=isDead(random1,random2,animals);
+			    }
+			    else
+			    {
+			    	animals=isDead(random2,random1,animals);
+			    }
+			    
+			}
+			isWinner(animals,win); 
 		}
 
 
