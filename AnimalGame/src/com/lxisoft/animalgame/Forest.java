@@ -110,8 +110,7 @@ public class Forest
 
 
 	}
-
-
+	
 	public void meet(Animal[] animal)
 	{
 		int count=0;
@@ -156,34 +155,14 @@ public class Forest
 		
 		}while(animal[random2].isDead || random1==random2 );
 		System.out.println(animal[random1].name+" meets "+animal[random2].name);
+		boolean escape=false;
 		
-		int luckfactor=0;
-		luckfactor=random(10);
 		if(animal[random2] instanceof Herbivores)
 		{
-			if(luckfactor<=(((Hanimal)(animal[random2])).luckFactor))
-			{
-				System.out.println("lucky b day animal escapped");
-			}
-			else
-			{
-				win=((Carnivore) (animal[random1])).fight(animal[random2]);
-				// win.printDetails();
-
-				if(animal[random1].name==win.name)
-				{
-					animal=isdead(random1,random2, animal); 
-
-				}
-				else
-				{
-					animal=isdead(random2,random1,animal);
-				}
-				
-			}
+			escape=((Hanimal)(animal[random2])).luck();
 
 		}
-		else
+		if(escape==false)
 			{
 				win=((Carnivore) (animal[random1])).fight(animal[random2]);
 				// win.printDetails();
@@ -200,7 +179,8 @@ public class Forest
 				
 			}
 		
+		
 		winning(win, animal);
- 
+   
 	}
 }
