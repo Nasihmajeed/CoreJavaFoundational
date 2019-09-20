@@ -16,5 +16,18 @@ public class Lion extends Animal
 	 System.out.println("Lion ate Rabbit");
   }
    
+   public Animal animalFight(Animal enemy)
+	{  
+		if(this.strengthlevel>enemy.strengthlevel)
+		{	
+		  return this;
+		}
+		else
+		{
+			return enemy;
+		}
+
+	}
+ 
 
 }

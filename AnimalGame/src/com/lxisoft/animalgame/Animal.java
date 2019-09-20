@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.Forest;
 import com.lxisoft.animalgame.Lion;
 import com.lxisoft.animalgame.Tiger;
 import java.util.Scanner;
@@ -14,16 +15,11 @@ public class Animal
 	}
 	
 	
-	/* public void Dofight()
-	{
-	   forest.fight();
-		
-	}	 */
-	public void eat()
-	{
-      		
-	 
-	}	
 	
+	// this method helds the fighting of animals
+	public Animal animalFight(Animal enemy)
+	{  
+		return enemy;
+	}
 } 
              

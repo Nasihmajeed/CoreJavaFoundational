@@ -54,22 +54,28 @@ public class Forest
 			  
 			  while(x==y || a[x].isAlive==false || a[y].isAlive==false);
 		 
-			   int returnValue=fight(a[x],a[y]);
-			   
+			fight(a[x],a[y]);
+			  /*  int returnValue=fight(a[x],a[y]);
 			   if(returnValue==1)
 			   {
 				   break;
-			   }
+			   } */
 
 		}
 				
 	}	
 	 // this method helds the fighting of animals
-	public int fight(Animal animal1,Animal animal2)
-	{  
+	
+
+   
+	
+	public void fight(Animal animal1,Animal animal2)
+	{
+		Animal temp;
 		        System.out.println(animal1.name+ "and"+ animal2.name +"ready to fight...");
 		        System.out.println("Fight Begins..........!!");
-				if(animal1.strengthlevel>animal2.strengthlevel)
+				temp=animal1.animalFight(animal2);
+				 if(temp==animal1)
 				{	
 				  System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );
 				  System.out.println( animal2.name +" is now dead \n" );
@@ -86,11 +92,14 @@ public class Forest
 				       }
 					   
 					   
-		
-		int returnValue=winner(animal);
-		return returnValue;
-    }
-	public int winner (Animal[] a)
+		winner(animal);
+		//int returnValue=winner(animal);
+	    //return returnValue;
+
+	}
+	
+	
+	public void winner (Animal[] a)
 	{
 		int x=0,i,win=0;
 		for(i=0;i<animal.length-1;i++)
@@ -99,17 +108,16 @@ public class Forest
 			{
 				x++;
 				win=i;
-				//System.out.println("x="+x);
 				
 			}
 		}
 			if(x==1)
 			{
 				System.out.println("\n"+"....."+a[win].name+"is the king of the Jungle"+"..... ");	
-             return 1;  			
+            //return 1;  			
 			}
-		return 0;
+		//return 0;
 		
 	}
 
-}	
+}

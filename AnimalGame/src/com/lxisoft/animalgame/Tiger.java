@@ -13,9 +13,18 @@ public class Tiger extends Animal
 		System.out.println("Tiger ate Rabit");
 		
 	}
-	public void fight( )
-	{
-		
+	
+	public Animal animalFight(Animal enemy)
+	{  
+		if(this.strengthlevel>enemy.strengthlevel)
+		{	
+		  return this;
+		}
+		else
+		{
+			return enemy;
+		}
+
 	}
  
   
