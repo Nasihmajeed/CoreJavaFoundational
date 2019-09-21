@@ -23,8 +23,7 @@ public class Bear extends Animal implements Herbivores
 	}
 	public Animal escape(Animal animal)
 	{
-		int h=(int) (Math.random()*10);
-		if(h>4)
+		if(this.luck>animal.luck)
 		{
 			return this;
 		}

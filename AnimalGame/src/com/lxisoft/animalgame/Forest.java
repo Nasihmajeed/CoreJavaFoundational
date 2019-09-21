@@ -28,6 +28,7 @@ public class Forest
 		setLionDetails(number,animalArr);
 		setBearDetails(number,animalArr);
 		setRabbitDetails(number,animalArr);
+		animalLuck();
 		fight(animalArr);
 	}
 	public void fight(Animal animalArr[])
@@ -54,7 +55,7 @@ public class Forest
 				break;
 			}
 			n=winnerCarnivores(animalArr,temp,n);
-			r=setWinner(animalArr,animal,r);	
+			r=setWinner(animalArr,animal,r);	    
 		}
 	}
 	public void setTigerDetails(int number[],Animal animalArr[])
@@ -146,23 +147,27 @@ public class Forest
 		int a=animalArr.length;
 		int x=(int) (Math.random()*a);
 		int y=(int) (Math.random()*a);
-		if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Herbivores))
+		if((animalArr[x].isDead==false)&(animalArr[y].isDead==false)&(x!=y))
 		{
-			System.out.println("\n\t\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-			System.out.println("\t\t\t NO FIGHT ");
-		}
-		if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Carnivores))
-		{
-			System.out.println("\nAttack no---"+(r++));
-			System.out.println("\n "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-			animal=((Herbivores)(animalArr[x])).escape(animalArr[y]);
-			if(animal==animalArr[y])
+			if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Herbivores))
 			{
-				System.out.println("\n "+animalArr[y].animalName+" eat "+animalArr[x].animalName);
+				System.out.println("\n\t\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+				System.out.println("\t\t\t NO FIGHT ");
 			}
-			if(animal==animalArr[x])
+			if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Carnivores))
 			{
-				System.out.println(" "+animalArr[x].animalName+"------ESCAPED---------");
+				System.out.println("\nAttack no---"+(r++));
+				System.out.println("\n "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+				animal=((Herbivores)(animalArr[x])).escape(animalArr[y]);
+				if(animal==animalArr[y])
+				{
+					System.out.println("\n "+animalArr[y].animalName+" eat "+animalArr[x].animalName);
+					animalArr[x].isDead=true;
+				}
+				if(animal==animalArr[x])
+				{
+					System.out.println(" "+animalArr[x].animalName+"------ESCAPED TO JUNGLE---------");
+				}
 			}
 		}
 		return r;
@@ -202,5 +207,12 @@ public class Forest
 			}
 		}
 		return n;
+	}
+	public void animalLuck()
+	{
+		for(int i=0;i<animalArr.length;i++)
+		{
+			animalArr[i].luck=(int) (Math.random()*100);
+		}
 	}
 }
