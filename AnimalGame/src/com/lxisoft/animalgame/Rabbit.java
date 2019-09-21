@@ -1,6 +1,5 @@
 package com.lxisoft.animalgame;
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Herbivore;
+import com.lxisoft.animalgame.*;
 public class Rabbit extends Animal implements Herbivore
 {
 	public void run()
@@ -17,13 +16,13 @@ public class Rabbit extends Animal implements Herbivore
 	public Animal escape(Animal animal)
     {
     	int x=(int)(Math.random()*10);
-    	if(animal.strength>=4)
-    	{
-     		return animal;    
-  		}
+    	if(x>=4)
+   		{
+     	return this; 
+     	}   
   		else
   		{
-  			return this;
+  			return animal;
   		}
 	}
 

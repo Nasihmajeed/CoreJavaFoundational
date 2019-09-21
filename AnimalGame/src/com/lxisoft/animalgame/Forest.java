@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import java.util.Scanner;
-import com.lxisoft.animalgame.Animal;
+import com.lxisoft.animalgame.*;
 public class Forest 
 {
 	Animal animal;
@@ -8,7 +8,6 @@ public class Forest
     Animal lion;
     Animal rabbit;
     Animal deer;
-	
 	public void fight()
 	{
 		Scanner sc=new Scanner (System.in);
@@ -30,8 +29,6 @@ public class Forest
 		rabbitDetails(animalArr,t,l,r);
 		deerDetails(animalArr,t,l,r,d);
 	}
-    
-
    	public void tigerDetails(Animal animalArr[],int t)
     {
     	Scanner sc=new Scanner (System.in);
@@ -48,8 +45,6 @@ public class Forest
 		tiger.run();
 		tiger.eat();
     }
-
-
     public void lionDetails(Animal animalArr[],int t,int l)
     {
         Scanner sc=new Scanner (System.in);
@@ -66,8 +61,6 @@ public class Forest
 		lion.run();
 		lion.eat();
 	}
-
-
 	public void rabbitDetails(Animal animalArr[],int t,int l,int r)
 	{
 	    Scanner sc=new Scanner (System.in);
@@ -84,8 +77,6 @@ public class Forest
 		rabbit.run();
 		rabbit.eat();
 	}
-
-
 	public void deerDetails(Animal animalArr[],int t,int l,int r,int d)
 	{
 		Scanner sc=new Scanner (System.in);
@@ -101,104 +92,95 @@ public class Forest
 		}
 		deer.run();
         deer.eat();
-		meetFight(tot,animalArr);		
-		}
-	
-     
-		public void meetFight(int tot,Animal animalArr[])
+		meetFight(tot,animalArr);
+    }
+	public void meetFight(int tot,Animal animalArr[])
+	{
+		int count,c,w=0;
+		Scanner sc=new Scanner (System.in);
+		System.out.println("--ANIMAL DETAILS--");
+		System.out.println("\nAnimal Meet & Fight Starts\n-----------------------------");
+		Animal temp=null;
+		for(int i=0;true;i++)
 		{
-			int count=0;
-			Scanner sc=new Scanner (System.in);
-			System.out.println("--ANIMAL DETAILS--");
-			System.out.println("\n");
-			System.out.println("Animal Meet & Fight Starts");
-			System.out.println("-----------------------------");
-			Animal temp=null;
-			do
-		    {
-				for(int i=0;i<animalArr.length;i++)
-		    	{
-		    		int m,n;
-		    		boolean c;
-		    		do
-		    		{
-		    			c=true;
-						m=(int)(Math.random()*tot);
-						if(animalArr[m] instanceof Carnivore)
-						{
-							c=false;
-						}
-				}
-				while(c);
-				n=(int)(Math.random()*tot);
-				if(m!=n)
+			c=0;
+			for(int j=0;j<animalArr.length;j++)
+			{
+				if((animalArr[j].isDead==false)&(animalArr[j] instanceof Carnivore))
 				{
-					if(animalArr[m].isDead==false&animalArr[n].isDead==false)
-					{
-						System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
-						temp=((Carnivore)(animalArr[m])).fight(animalArr[n]);					
-						if(temp==animalArr[m])
-						 {
-						 	animalArr[m].strength=(animalArr[m].strength-1);
-						 	System.out.println("winner Strength=" +animalArr[m].strength);
-						 	animalArr[n].strength=0;
-						 	System.out.println("Looser Strength=" +animalArr[n].strength);
-							if(animalArr[m].strength<=0)
-							{
-								animalArr[m].isDead=true;
-								System.out.println(animalArr[m].animalName+"  DEAD");
-							}
-							if(animalArr[n].strength<=0)
-							{
-								animalArr[n].isDead=true;
-								System.out.println(animalArr[n].animalName+"  DEAD");
-							}	
-							System.out.println(animalArr[m].animalName+"  WIN");
-							count=remaining(animalArr);
-							System.out.println("count" +count);
-					    }
-						else
-						{
-							 animalArr[n].strength=(animalArr[n].strength-1);
-							 System.out.println("winner Strength="+animalArr[n].strength);
-							 animalArr[m].strength=0;
-							 System.out.println("Looser Strength="+animalArr[m].strength);
-							if(animalArr[n].strength<=0)
-							{
-								animalArr[n].isDead=true;
-								System.out.println(animalArr[n].animalName+"  DEAD");
-							}
-							if(animalArr[m].strength<=0)
-							{
-								animalArr[m].isDead=true;
-								System.out.println(animalArr[m].animalName+"  DEAD");
-							}
-							System.out.println(animalArr[n].animalName+"  WIN");
-							count=remaining(animalArr);
-							System.out.println("count" +count);
-						}
-			    	}
-			    }
-		    }
-		} 
-	    while(count>1);
-	    if(count==1 )
-	    {
-	    	System.out.println("winner is " +temp.animalName);
-	    } 
+					c++;
+					w=j;
+				}
+			}
+			if(c<=1)
+			{
+				System.out.println(animalArr[w].animalName+"   WINNER  ");
+				break;
+			}
+			escapeHerbivore(animalArr);
+			carnivoreWinner(animalArr);
+		}
 	}
 
-	public int remaining(Animal[] animalArr)
+		
+	public void escapeHerbivore(Animal animalArr[])
 	{
-		int count=0;
-		for(int i=0;i<animalArr.length;i++)
-      	{
-      		if(animalArr[i].isDead==false)
-      		{
-      			System.out.println("\n Remainig="+animalArr[i].animalName);
-      			count++;
-      		}
-   		} 	
-   		return count;
-	}
+		int m=(int)(Math.random()*animalArr.length);
+		int n=(int)(Math.random()*animalArr.length);
+		if((animalArr[m].isDead==false)&(animalArr[n].isDead==false)&(m!=n))
+		{
+			if((animalArr[m] instanceof Herbivore)&(animalArr[n] instanceof Carnivore))
+			{
+				System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
+				Animal tempp=((Herbivore)(animalArr[m])).escape(animalArr[n]);
+		        if(tempp==animalArr[m])
+				{
+					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
+					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
+					System.out.println(animalArr[m].animalName+"--------Escape------");
+				}
+				if(tempp==animalArr[n])
+				{
+					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
+					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
+					System.out.println(animalArr[n].animalName+"  kill "+animalArr[m].animalName);
+				}
+			}
+		}
+    }
+    public void carnivoreWinner(Animal animalArr[])
+    {
+    	int m=(int)(Math.random()*animalArr.length);
+		int n=(int)(Math.random()*animalArr.length);
+		if((animalArr[m].isDead==false)&(animalArr[n].isDead==false)&(m!=n))
+		{
+			if((animalArr[m] instanceof Carnivore)&(animalArr[n] instanceof Carnivore))
+			{
+				System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);	
+				Animal temp=((Carnivore)(animalArr[m])).fight(animalArr[n]);
+				if(temp==animalArr[m])
+				{
+					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
+					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
+					if(animalArr[n].strength<=0)
+					{
+						animalArr[n].isDead=true;
+						System.out.println(animalArr[n].animalName+"  DEAD  ");
+					}	
+				}
+				else
+				{
+					System.out.println(animalArr[n].animalName+"  WIN  winner Strength="+(animalArr[n].strength-=1));
+					animalArr[m].strength=0;
+					System.out.println("Looser Strength="+animalArr[m].strength);
+					if(animalArr[m].strength<=0)
+					{
+						animalArr[m].isDead=true;
+						System.out.println(animalArr[m].animalName+"  DEAD  ");
+					}
+				}
+			}
+		}
+	}			
 }
+
