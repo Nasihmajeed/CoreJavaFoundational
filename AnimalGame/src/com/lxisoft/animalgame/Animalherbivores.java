@@ -7,12 +7,10 @@ public class Animalherbivores extends Animal implements Herbivores
 	public boolean luck()
 	{
 		boolean escape=false;
-		
 		int luckyfactor=(int)(10* Math.random());
-
 		if(luckyfactor<=((Animalherbivores)(this)).luckyfact)
 		{
-			System.out.println("lucky animal  " +((Animalherbivores)(this)).name+"  escapped");
+			System.out.println("lucky animal  " +((Animalherbivores)(this)).name+"  escapped \n");
 			escape=true;
 		}
 		else
@@ -20,6 +18,15 @@ public class Animalherbivores extends Animal implements Herbivores
 			escape=false;
 		}
 		return escape;
-	}	
+	}
+	public int[] graze()
+		{
+			int[] position=new int[2];
+			for(int i=0;i<position.length;i++)
+			{
+				position[i]=(int)(Math.random() *50);
+			}
+			return position;
+		}	
 
 }

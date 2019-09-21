@@ -2,7 +2,7 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 public class Animalcarnivores extends Animal implements Carnivore
 {
-	
+
 
 
 	public Animal fight(Animal enemy)
@@ -22,6 +22,15 @@ public class Animalcarnivores extends Animal implements Carnivore
 				System.out.println(enemy.name + "  wins " + this.name + "  died \n");
 			}
 			return win;
-
 		}
+		public int[] roam()
+		{
+			int[] position=new int[2];
+			for(int i=0;i<position.length;i++)
+			{
+				position[i]=(int)(Math.random() *50);
+			}
+			return position;
+		}
+
 }
