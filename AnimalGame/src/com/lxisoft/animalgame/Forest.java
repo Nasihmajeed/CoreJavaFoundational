@@ -131,19 +131,19 @@ public class Forest
 		{
 			if((animalArr[m] instanceof Herbivore)&(animalArr[n] instanceof Carnivore))
 			{
-				System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);
+				System.out.println("\n"+animalArr[n].animalName+"  VS  "+animalArr[m].animalName);
 				Animal tempp=((Herbivore)(animalArr[m])).escape(animalArr[n]);
 		        if(tempp==animalArr[m])
 				{
-					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
-					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
+					System.out.println("WINNER   "+animalArr[n].animalName);
 					System.out.println(animalArr[m].animalName+"--------Escape------");
 				}
 				if(tempp==animalArr[n])
 				{
-					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
-					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
+					System.out.println("WINNER   "+animalArr[n].animalName);
 					System.out.println(animalArr[n].animalName+"  kill "+animalArr[m].animalName);
+					animalArr[m].isDead=true;
+					
 				}
 			}
 		}
@@ -160,7 +160,7 @@ public class Forest
 				Animal temp=((Carnivore)(animalArr[m])).fight(animalArr[n]);
 				if(temp==animalArr[m])
 				{
-					System.out.println("WINNER   "+animalArr[m].animalName+" winner Strength=" +(animalArr[m].strength-=1));
+					System.out.println("WINNER   "+animalArr[m].animalName+" \nwinner Strength=" +(animalArr[m].strength-=1));
 					System.out.println("Looser Strength=" +(animalArr[n].strength=0));
 					if(animalArr[n].strength<=0)
 					{

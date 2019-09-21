@@ -27,4 +27,10 @@ public class Deer extends Animal implements Herbivore
   			return animal;
   		}
 	}
+
+
+	public void graze()
+	{
+		
+	}
 }

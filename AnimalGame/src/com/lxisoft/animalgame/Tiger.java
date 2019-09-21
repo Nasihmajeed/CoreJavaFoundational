@@ -23,4 +23,10 @@ public class Tiger extends Animal implements Carnivore
   	{
   		System.out.println("Tiger eat meat\n");
   	}
+
+
+    public void roam()
+    {
+      
+    }
 }

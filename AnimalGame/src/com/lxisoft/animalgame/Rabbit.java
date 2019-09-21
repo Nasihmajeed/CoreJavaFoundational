@@ -26,4 +26,8 @@ public class Rabbit extends Animal implements Herbivore
   		}
 	}
 
+    public void graze()
+    {
+
+    }
 }

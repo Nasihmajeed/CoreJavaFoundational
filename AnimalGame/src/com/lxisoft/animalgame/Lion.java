@@ -2,7 +2,7 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 public class Lion extends Animal implements Carnivore
 {
-	public Animal fight(Animal animal)
+  public Animal fight(Animal animal)
 	{
 		if(this.strength>animal.strength)
 		{
@@ -15,14 +15,17 @@ public class Lion extends Animal implements Carnivore
 	}
 
 	public void run()
-  	{
-  		System.out.println("Lion run fast");
-  	}
+  {
+  	System.out.println("Lion run fast");
+  }
 
-  	public void eat()
-  	{
-  		System.out.println("Lion eat meat\n");
-  	}
+  public void eat()
+  {
+  	System.out.println("Lion eat meat\n");
+  }
 
-    
+  public void roam()
+  {
+
+  } 
 }
