@@ -6,5 +6,6 @@ import com.lxisoft.animalgame.Lion;
 public interface Carnivores
 {
 	public Animal fight(Animal animals);
+	public void roam();
 	
 }

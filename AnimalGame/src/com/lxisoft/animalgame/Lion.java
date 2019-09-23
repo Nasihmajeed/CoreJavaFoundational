@@ -10,15 +10,27 @@ public class Lion extends Animal implements Carnivores
 	{
 		System.out.println("\n lion eat flush");
 	}
-	public Animal fight(Animal animals)
+	public Animal fight(Animal animal)
 	{
-		if(this.strength>animals.strength)
+		if(this.strength>animal.strength)
 		{
 			return this;
 		}
 		else
 		{
-			return animals;
+			return animal;
 		}
+	}
+	public void roam()
+	{
+		int x2,y2;
+		int[] position;
+		x2=(int) (Math.random()*10);
+		y2=(int) (Math.random()*10);
+		System.out.println("x2 coordinate--"+x2);
+		System.out.println("y2 coordinate--"+y2);
+		position=new int[2];
+		position[0]=x2;
+		position[1]=y2;
 	}
 }

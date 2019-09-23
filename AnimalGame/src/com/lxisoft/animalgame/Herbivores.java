@@ -5,5 +5,6 @@ import com.lxisoft.animalgame.Bear;
 import com.lxisoft.animalgame.Rabbit;
 public interface Herbivores
 {
-	public Animal escape(Animal animals);
+	public Animal escape(Animal animal);
+	public void graze();
 }
