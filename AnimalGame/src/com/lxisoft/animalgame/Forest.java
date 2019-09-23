@@ -31,8 +31,8 @@ public class Forest
 		animal[0].name="tiger";
 		animal[0].strength=90;
 		animal[0].isDead=false;
-		animal[0].range=30;
-		animal[0].sight=20;
+		animal[0].range=35;
+		animal[0].sight=15;
 		animal[0].locationX=random(50);
 		animal[0].locationY=random(50);
 		
@@ -40,7 +40,7 @@ public class Forest
 		animal[1].strength=30;
 		animal[1].isDead=false;
 		((Hanimal)(animal[1])).luckFactor=2;
-		animal[1].range=20;
+		animal[1].range=15;
 		animal[1].sight=5;
 		animal[1].locationX=random(50);
 		animal[1].locationY=random(50);
@@ -48,8 +48,8 @@ public class Forest
 		animal[2].name="lion";
 		animal[2].strength=100;
 		animal[2].isDead=false;
-		animal[2].range=30;
-		animal[2].sight=20;
+		animal[2].range=35;
+		animal[2].sight=15;
 		animal[2].locationX=random(50);
 		animal[2].locationY=random(50);
 		
@@ -74,8 +74,8 @@ public class Forest
 		animal[5].name="fox";
 		animal[5].strength=10;
 		animal[5].isDead=false;
-		animal[5].range=20;
-		animal[5].sight=20;
+		animal[5].range=25;
+		animal[5].sight=10;
 		animal[5].locationX=random(50);
 		animal[5].locationY=random(50);
 		
@@ -83,7 +83,7 @@ public class Forest
 		animal[6].strength=80;
 		animal[6].isDead=false;
 		animal[6].range=25;
-		animal[6].sight=20;
+		animal[6].sight=10;
 		animal[6].locationX=random(50);
 		animal[6].locationY=random(50);
 		
@@ -108,8 +108,8 @@ public class Forest
 		animal[9].name="wolf";
 		animal[9].strength=60;
 		animal[9].isDead=false;
-		animal[9].range=20;
-		animal[9].sight=20;
+		animal[9].range=28;
+		animal[9].sight=15;
 		animal[9].locationX=random(50);
 		animal[9].locationY=random(50);
 
@@ -165,7 +165,7 @@ public class Forest
 		int distance=(int)Math.sqrt((x-one[0])*(x-one[0])+(y-one[1])*(y-one[1]));
 		if(distance>range)yes=true;
 		else yes=false;
-		System.out.println("range Distance= "+distance);
+		// System.out.println("range Distance= "+distance);
 		return yes;
 	}
 	public boolean withinSight(int[] x, int[] y,int sight)
@@ -178,15 +178,10 @@ public class Forest
 		return yes;
 
 	}
-	
-	public void meet(Animal[] animal)
+	public Animal[] newLocation(Animal[] animal)
 	{
-		int count=0,locationX=0,locationY=0;
-		int random1=0;
-		int random2=0;
-		Animal win=null;
 		boolean returns=false;
-		
+		// setting new loction ech animals
 		for(int i=0; i<animal.length; i++)
 		{
 			if(animal[i].isDead==false)
@@ -197,7 +192,7 @@ public class Forest
 					do
 					{
 						animal[i].newLocation=((Hanimal)(animal[i])).graze();
-						animal[i].printName();
+						// animal[i].printName();
 						returns=withinRange(animal[i].locationX,animal[i].locationY,animal[i].newLocation,animal[i].range);
 					}while(returns);
 
@@ -207,52 +202,95 @@ public class Forest
 					do
 					{
 						animal[i].newLocation=((Canimal)(animal[i])).roam();
-						animal[i].printName();
+						// animal[i].printName();
 						returns=withinRange(animal[i].locationX,animal[i].locationY,animal[i].newLocation,animal[i].range);
 					}while(returns);
 					
 				}
+				
+			}
+		}
+		return animal;
+	}
+	
+	public void meet(Animal[] animal)
+	{
+		int count=0,locationX=0,locationY=0;
+		int random1=0;
+		int random2=0;
+		Animal win=null;
+		animal=newLocation(animal);
+		// printing alive animals
+		for(int i=0; i<animal.length; i++)
+		{
+			if(animal[i].isDead==false)
+			{
 				System.out.print(i+"  ");
 				animal[i].printDetails();
 				System.out.println(" new location: "+animal[i].newLocation[0]+", "+animal[i].newLocation[1]);
 				
 			}
 		}
-
-		boolean ca=true;
-		boolean forsight;
+		// second animal for fight
+		int nearby=0;
+		int[] near= new int[animal.length];
+		boolean forsight,enemy;
+		enemy=true;
+		int counter=20;
 		do
 		{
-			forsight=true;
-			do
-			{
-				 ca=true; 
-				random1=random(animal.length);
-
-				if(animal[random1] instanceof Carnivore)
-				{
-					ca=false;
-
-					// System.out.println(" Random ANimal 1: "+animal[random1].name+" Random number");
-					
-				} 
-			}while(animal[random1].isDead ||  ca);
-			// System.out.println("  Selected Random ANimal 1: "+animal[random1].name+" Random number");
-					
-
-			do
-			{
-				
-				random2=random(animal.length);
-
- 
 			
-			}while(animal[random2].isDead || random1==random2 );
-			animal[random1].printName();
-			animal[random2].printName();
-			forsight=withinSight(animal[random1].newLocation,animal[random2].newLocation,animal[random1].sight);
-		}while(forsight);
+				do
+				{
+					
+					random2=random(animal.length);
 
+	 
+				
+				}while(animal[random2].isDead);
+				System.out.print("animal2: ");
+				animal[random2].printName();
+			// first animal for fight
+			for(int i=0; i<animal.length;i++)
+			{
+				forsight=true;
+				if(i==random2); 
+				else
+				{
+					if(animal[i] instanceof Carnivore)
+					{
+						forsight=withinSight(animal[i].newLocation,animal[random2].newLocation,animal[i].sight);
+						if(forsight==false)
+						{
+							near[nearby]=i;
+							nearby++;
+							enemy=false;
+							System.out.println(" in sight:");
+
+						}
+					}
+				}
+						
+
+				
+				// animal[i].printName();
+				// animal[random2].printName();
+				
+			}
+			counter--;
+			if(counter==0)
+			{
+				animal=newLocation(animal);
+				counter=20;
+			}
+		}while(enemy);
+		for(int i=0; i<nearby; i++)
+		{
+			System.out.print(" in sight animal: ");
+			animal[near[i]].printName();
+		}
+			System.out.print("in sight count = "+nearby);
+		random1=near[0];
 
 		System.out.println(animal[random1].name+" meets "+animal[random2].name);
 		boolean escape=false;
