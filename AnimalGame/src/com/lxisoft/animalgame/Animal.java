@@ -8,14 +8,13 @@ public abstract class Animal
 	int strength;
 	String name;
 	boolean isDead;
-	int locationX,locationY;
 	int range,sight; 
-	int[] newLocation;
+	int[] newLocation=new int[2];
 
 
 	public void printDetails()
 	{
-		System.out.print(name+" "+strength+ " range= "+ range+" default location: "+locationX+" "+locationY);
+		System.out.print(name+" "+strength+ " range= "+ range+"  location: "+newLocation[0]+" "+newLocation[1]);
 	}
 	public void printName()
 	{
