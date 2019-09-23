@@ -185,14 +185,12 @@ public class Forest
 
 	public int fightStarts(int x,int y,int f)
 	{
-		Animal temp;
 		int dist;
 		if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)
 		{
 			dist=(int) (Math.sqrt((animal[x].xaxis-animal[y].xaxis)*(animal[x].xaxis-animal[y].xaxis)+(animal[x].yaxis-animal[y].yaxis)*(animal[x].yaxis-animal[y].yaxis)));
 			if(animal[y] instanceof Herbivorous)
 			{
-				
 				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
 				if(dist<animal[x].range)
 				{
@@ -204,31 +202,38 @@ public class Forest
 			else
 			{
 				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-				if(dist<animal[x].range)
-				{
-					temp=((Carnivorous) animal[x]).fight(animal[y]);
-					System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
-					if(temp==animal[x])
-					{
-						animal[x].strength--;
-						animal[y].strength-=2;
-						if (animal[y].strength<1)
-							animal[y].isDead=true;
-					}
-					else
-					{
-						animal[y].strength--;
-						animal[x].strength-=2;
-						if (animal[x].strength<1)
-							animal[x].isDead=true;
-					}
-				}
-				else
-					System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n");
+				carnivorousFight(x,y,dist);
 			}
 		}
 	animalStatus();
 	return f;
+	}
+
+
+	public void carnivorousFight(int x,int y,int dist)
+	{
+		Animal temp;
+		if(dist<animal[x].range)
+		{
+			temp=((Carnivorous) animal[x]).fight(animal[y]);
+			System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
+			if(temp==animal[x])
+			{
+				animal[x].strength--;
+				animal[y].strength-=2;
+				if (animal[y].strength<1)
+					animal[y].isDead=true;
+			}
+			else
+			{
+				animal[y].strength--;
+				animal[x].strength-=2;
+				if (animal[x].strength<1)
+					animal[x].isDead=true;
+			}
+		}
+		else
+			System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n"); 
 	}
 
 	
