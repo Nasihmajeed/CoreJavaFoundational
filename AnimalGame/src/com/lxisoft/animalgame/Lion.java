@@ -24,8 +24,12 @@ public class Lion extends Animal implements Carnivore
   	System.out.println("Lion eat meat\n");
   }
 
-  public void roam()
+  public int[] roam()
   {
-
+    int[] arr=new int[2];
+    arr[0]=(int)(Math.random()*10);
+    arr[1]=(int)(Math.random()*10);
+   
+    return arr;  
   } 
 }

@@ -39,6 +39,10 @@ public class Forest
 			tiger.animalName=sc.next();
 			System.out.println("Enter Tiger strength:");
 			tiger.strength=sc.nextInt();
+			System.out.println("Enter Tiger locationX:");
+			tiger.locationX=sc.nextInt();
+			System.out.println("Enter Tiger locationY:");
+			tiger.locationY=sc.nextInt();
 			tiger.isDead=false;
 			animalArr[i]=tiger;
 		}
@@ -55,6 +59,10 @@ public class Forest
 			lion.animalName=sc.next();
 			System.out.println("Enter Lion strength:");
 			lion.strength=sc.nextInt();
+			System.out.println("Enter Lion locationX:");
+			lion.locationX=sc.nextInt();
+			System.out.println("Enter Lion locationY:");
+			lion.locationY=sc.nextInt();
 			lion.isDead=false;
 			animalArr[i]=lion;
 		}
@@ -71,6 +79,10 @@ public class Forest
 			rabbit.animalName=sc.next();
 			System.out.println("Enter Rabbit strength:");
 			rabbit.strength=sc.nextInt();
+			System.out.println("Enter Rabbit locationX:");
+			rabbit.locationX=sc.nextInt();
+			System.out.println("Enter Rabbit locationY:");
+			rabbit.locationY=sc.nextInt();
 			rabbit.isDead=false;
 			animalArr[i]=rabbit;
 		}
@@ -88,6 +100,11 @@ public class Forest
 			deer.animalName=sc.next();
 			System.out.println("Enter Deer strength:");
 			deer.strength=sc.nextInt();
+			System.out.println("Enter Deer locationX:");
+			deer.locationX=sc.nextInt();
+			System.out.println("Enter Deer locationY:");
+			deer.locationY=sc.nextInt();
+			deer.isDead=false;
 			animalArr[i]=deer;
 		}
 		deer.run();
@@ -101,6 +118,7 @@ public class Forest
 		System.out.println("--ANIMAL DETAILS--");
 		System.out.println("\nAnimal Meet & Fight Starts\n-----------------------------");
 		Animal temp=null;
+       // temp=animalArr[m].roam(animalArr);
 		for(int i=0;true;i++)
 		{
 			c=0;
@@ -145,6 +163,7 @@ public class Forest
 					animalArr[m].isDead=true;
 					
 				}
+				
 			}
 		}
     }
@@ -181,6 +200,14 @@ public class Forest
 				}
 			}
 		}
+	}
+	public void location()
+	{
+		int x1=0,x2=0,y1=0,y2=0;
+		int distance=(int)(Math.sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1))));
+		System.out.println("Distance= "+distance);
+
+
 	}			
 }
 

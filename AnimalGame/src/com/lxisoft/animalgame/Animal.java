@@ -5,8 +5,8 @@ public abstract class Animal
 	public String animalName;
 	public int strength;
 	public boolean isDead;
-  public int range;
-  public int locationX,locationY;
+    public int range;
+    public int locationX,locationY;
 
   public abstract void  run();
   public abstract void  eat();

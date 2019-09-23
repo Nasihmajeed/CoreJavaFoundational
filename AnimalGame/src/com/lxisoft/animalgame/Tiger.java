@@ -25,8 +25,12 @@ public class Tiger extends Animal implements Carnivore
   	}
 
 
-    public void roam()
+    public int[] roam()
     {
+      int[] arr=new int[2];
+      arr[0]=(int)(Math.random()*10);
+      arr[1]=(int)(Math.random()*10);
       
+     return arr;
     }
 }
