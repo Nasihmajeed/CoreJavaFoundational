@@ -150,6 +150,33 @@ public class Forest
 			return animal_array;
 
 		}
+		public boolean withInRange(int range,int x1,int y1,int[] location)
+	 	{
+	 		int distance;
+	 		boolean isRange=true;
+ 		  	distance=(int)(Math.sqrt((location[0]-x1)*(location[0]-x1)+(location[1]-y1)*(location[1]-y1)));
+ 		  	if(distance<=range)
+ 		  	{
+ 		  		isRange=false;
+ 		  	}
+
+    		return isRange;
+	 	}
+	 	public boolean withInSight(int[] x1,int[] y1,int sight)
+	 	{
+
+
+	 		int distance=0,count=0;
+	 		boolean isSight=true;
+	 		distance=(int)(Math.sqrt((y1[0]-x1[0])*(y1[0]-x1[0]) + (y1[1]-x1[1])*(y1[1]-x1[1])));
+ 		  	if(distance<=sight)
+ 		  	{
+ 		  		isSight=false;
+ 		  		
+ 		  	}
+
+    		return isSight;
+	 	}
 	    public void isWinner(Animal[] animals,Animal lastAnimal)
 	    {
        		int count=0,alive=0,i;
@@ -187,20 +214,20 @@ public class Forest
 	 			{	
 	 				if(animals[i] instanceof Herbivores)
 	 				{
-	 					//do
-	 					//{
+	 					do
+	 					{
 	 						animals[i].location=((Animalherbivores)(animals[i])).graze();
-	 						//isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
-			 			//}while (isRange);
+	 						isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
+			 			}while (isRange);
 
 	 				}
 	 				else
 	 				{
-			 			//do
-			 			//{
+			 			do
+			 			{
 			 				animals[i].location=((Animalcarnivores)(animals[i])).roam();  
-			 				//isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
-			 			//}while (isRange);
+			 				isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
+			 			}while (isRange);
 
 	 				}
 	 			}
