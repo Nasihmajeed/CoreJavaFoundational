@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame;
+import java.lang.Math;
 import com.lxisoft.animalgame.*;
 import java.util.Scanner;
 
@@ -47,8 +48,6 @@ public class Forest
 			System.out.println("enter the  strength of tiger"+(i+1));
 			animal[i].strength=sc.nextInt();
 			animal[i].isDead=false;
-			animal[i].xCordinate=(int) (Math.random() *  100+1);
-			animal[i].yCordinate=(int) (Math.random() *  100+1);
 			animal[i].range=(int) (Math.random() * 40+1);
 		}x=i;
 		return x;
@@ -66,8 +65,6 @@ public class Forest
 			System.out.println("enter the  strength of lion"+(i+1));
 			animal[x].strength=sc.nextInt();
 			animal[x].isDead=false;
-			animal[x].xCordinate=(int) (Math.random() *  100+1);
-			animal[x].yCordinate=(int) (Math.random() *  100+1);
 			animal[x].range=(int) (Math.random() * 50+1);
 			x++;
 			
@@ -87,8 +84,6 @@ public class Forest
 			System.out.println("enter the  strength of bear"+(i+1));
 			animal[y].strength=sc.nextInt();
 			animal[y].isDead=false;
-			animal[y].xCordinate=(int) (Math.random() * 100+1);
-			animal[y].yCordinate=(int) (Math.random() * 100+1);
 			animal[y].range=(int) (Math.random() * 30+1);
 			y++;
 			
@@ -107,10 +102,18 @@ public class Forest
 			System.out.println("enter the  strength of rabbit"+(i+1));
 			animal[z].strength=sc.nextInt();
 			animal[z].isDead=false;
-			animal[z].xCordinate=(int) (Math.random() * 100+1);
-			animal[z].yCordinate=(int) (Math.random() * 100+1);
 			animal[z].range=(int) (Math.random() * 10+1);
 			z++;
+		}
+		animalStatus();
+	}
+
+	public void animalStatus()
+	{
+		for(int i=0;i<animal.length;i++)
+		{
+			animal[i].xaxis=(int) (Math.random() * 100+1);
+			animal[i].yaxis=(int) (Math.random() * 100+1);
 		}
 	}
 
@@ -123,7 +126,7 @@ public class Forest
 		{
 			System.out.println("animal name- "+animal[i].name);
 			System.out.println("animal strength- "+animal[i].strength);
-			System.out.println("Coordinates- "+animal[i].xCordinate+" X "+animal[i].yCordinate);
+			System.out.println("Coordinates- "+animal[i].xaxis+" X "+animal[i].yaxis);
 			System.out.println("area/range- "+animal[i].range);
 			System.out.println("\n");
 		}
@@ -183,18 +186,26 @@ public class Forest
 	public int fightStarts(int x,int y,int f)
 	{
 		Animal temp;
-		if(animal[x] instanceof Carnivorous && (x!=y))
+		int dist;
+		if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)
 		{
-			if(animal[x].isDead==false && animal[y].isDead==false)
+			dist=(int) (Math.sqrt((animal[x].xaxis-animal[y].xaxis)*(animal[x].xaxis-animal[y].xaxis)+(animal[x].yaxis-animal[y].yaxis)*(animal[x].yaxis-animal[y].yaxis)));
+			if(animal[y] instanceof Herbivorous)
 			{
-				if(animal[y] instanceof Herbivorous)
+				
+				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+				if(dist<animal[x].range)
 				{
-					System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
 					((Herbivorous) animal[y]).escape(animal[x]);
-				}	
+				}
 				else
+					System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n");
+			}	
+			else
+			{
+				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+				if(dist<animal[x].range)
 				{
-					System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
 					temp=((Carnivorous) animal[x]).fight(animal[y]);
 					System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
 					if(temp==animal[x])
@@ -212,16 +223,22 @@ public class Forest
 							animal[x].isDead=true;
 					}
 				}
+				else
+					System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n");
 			}
-		}				return f;
+		}
+	animalStatus();
+	return f;
 	}
+
+	
 
 	public void animalLuck()
 	{
 		int i;
 		for(i=0;i<animal.length;i++)
 		{
-			animal[i].luck=(int) (Math.random() * 100);
+			animal[i].luck=(int) (Math.random() * 100+1);
 		}
 	}
 
