@@ -10,10 +10,11 @@ public abstract class Animal
 	int xCordinate,yCordinate;
 	int range;
 	int forsight;
+	int[] location=new int[2];
 
  	public void getDetails()
 	{
-		System.out.print("\t" + name + "\t\tStrength= " + strength +"\tDefault location: "+xCordinate+"  "+yCordinate+" ");	
+		System.out.print("\t" + name + "  Strength= " + strength +"\tDefault location: "+xCordinate+"  "+yCordinate+" ");	
 	}
 
 }

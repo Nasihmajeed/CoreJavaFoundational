@@ -29,8 +29,9 @@ public class Animalcarnivores extends Animal implements Carnivore
 			for(int i=0;i<position.length;i++)
 			{
 				position[i]=(int)(Math.random() *50);
+				location[i]=position[i];
 			}
-			return position;
+			return location;
 		}
 
 }
