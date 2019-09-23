@@ -47,6 +47,9 @@ public class Forest
 			System.out.println("enter the  strength of tiger"+(i+1));
 			animal[i].strength=sc.nextInt();
 			animal[i].isDead=false;
+			animal[i].xCordinate=(int) (Math.random() *  100+1);
+			animal[i].yCordinate=(int) (Math.random() *  100+1);
+			animal[i].range=(int) (Math.random() * 40+1);
 		}x=i;
 		return x;
 	}
@@ -63,6 +66,9 @@ public class Forest
 			System.out.println("enter the  strength of lion"+(i+1));
 			animal[x].strength=sc.nextInt();
 			animal[x].isDead=false;
+			animal[x].xCordinate=(int) (Math.random() *  100+1);
+			animal[x].yCordinate=(int) (Math.random() *  100+1);
+			animal[x].range=(int) (Math.random() * 50+1);
 			x++;
 			
 		}y=x;
@@ -81,6 +87,9 @@ public class Forest
 			System.out.println("enter the  strength of bear"+(i+1));
 			animal[y].strength=sc.nextInt();
 			animal[y].isDead=false;
+			animal[y].xCordinate=(int) (Math.random() * 100+1);
+			animal[y].yCordinate=(int) (Math.random() * 100+1);
+			animal[y].range=(int) (Math.random() * 30+1);
 			y++;
 			
 		}z=y;
@@ -98,6 +107,9 @@ public class Forest
 			System.out.println("enter the  strength of rabbit"+(i+1));
 			animal[z].strength=sc.nextInt();
 			animal[z].isDead=false;
+			animal[z].xCordinate=(int) (Math.random() * 100+1);
+			animal[z].yCordinate=(int) (Math.random() * 100+1);
+			animal[z].range=(int) (Math.random() * 10+1);
 			z++;
 		}
 	}
@@ -109,8 +121,10 @@ public class Forest
 
 		for(int i=0;i<total;i++)
 		{
-			System.out.println("animal name -"+animal[i].name);
-			System.out.println("animal strength -"+animal[i].strength);
+			System.out.println("animal name- "+animal[i].name);
+			System.out.println("animal strength- "+animal[i].strength);
+			System.out.println("Coordinates- "+animal[i].xCordinate+" X "+animal[i].yCordinate);
+			System.out.println("area/range- "+animal[i].range);
 			System.out.println("\n");
 		}
 	}

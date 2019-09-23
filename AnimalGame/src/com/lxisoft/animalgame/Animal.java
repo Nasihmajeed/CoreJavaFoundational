@@ -7,6 +7,9 @@ public abstract class Animal
 	int strength;
 	boolean isDead;
 	int luck;
+	int xCordinate;
+	int yCordinate;
+	int range;
 	
 	public abstract void eat();
 	public abstract void run();
