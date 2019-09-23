@@ -3,7 +3,7 @@ import com.lxisoft.animalgame.Forest;
 import com.lxisoft.animalgame.Lion;
 import com.lxisoft.animalgame.Tiger;
 import java.util.Scanner;
-public class Animal 
+abstract public class Animal 
 {
 	String name;
 	boolean isAlive;
@@ -17,9 +17,12 @@ public class Animal
 	
 	
 	// this method helds the fighting of animals
-	public Animal animalFight(Animal enemy)
+	/* public Animal animalFight(Animal enemy)
 	{  
 		return enemy;
-	}
+	} */
+	
+	public abstract Animal animalFight(Animal a);
+	
 } 
              

@@ -13,9 +13,11 @@ public class Rabit extends Animal
 		this.isAlive=true;
 	}
   
-  public Animal animalFight(Animal enemy)
-	{  
-		if(this.strengthlevel>enemy.strengthlevel)
+  
+
+	 public Animal animalFight(Animal enemy)
+	 {
+	  if(this.strengthlevel>enemy.strengthlevel)
 		{	
 		  return this;
 		}
@@ -23,8 +25,7 @@ public class Rabit extends Animal
 		{
 			return enemy;
 		}
-
-	}
+	  }
  
  
 }

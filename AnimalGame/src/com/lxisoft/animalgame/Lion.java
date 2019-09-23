@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Lion extends Animal
+ public class Lion extends Animal
 {   
    
 
@@ -17,8 +17,8 @@ public class Lion extends Animal
   }
    
    public Animal animalFight(Animal enemy)
-	{  
-		if(this.strengthlevel>enemy.strengthlevel)
+	 {
+	  if(this.strengthlevel>enemy.strengthlevel)
 		{	
 		  return this;
 		}
@@ -26,8 +26,9 @@ public class Lion extends Animal
 		{
 			return enemy;
 		}
+	  }
 
-	}
+	
  
 
 }

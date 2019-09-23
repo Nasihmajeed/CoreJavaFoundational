@@ -18,7 +18,7 @@ public class Forest
 	    animal[0] = new Lion(" Sambu the Lion king ",80,true);
 		animal[1] = new Tiger( " Sherkhan the Tiger ",70,true);
 		animal[2]  = new Rabit( " Mottu the Rabit ",10,true );
-		animal[3]  = new Wildbull( " Sahal the Wildbull ",90,true);		
+		animal[3]  = new Wildbull( " Sahal the Wildbull ",90,true);
 	    animal[4]  = new  Wolf(" Akela the wolf ",40,true);
 	   
 		for(s=0;s<animal.length;s++)
@@ -39,11 +39,12 @@ public class Forest
 	// meet the animals which are ready to fight
 	public void meet(Animal[] a)
     {   
-     	int i=0,x,y;
+     	int i=0,x,y,c=0;
 	     
 	    while(i<animal.length)
 		{   
 	        i++;
+			c=c++;
 			do
 			{
 				
@@ -53,14 +54,23 @@ public class Forest
 			}
 			  
 			  while(x==y || a[x].isAlive==false || a[y].isAlive==false);
-		 
-			fight(a[x],a[y]);
-			  /*  int returnValue=fight(a[x],a[y]);
-			   if(returnValue==1)
+		      {
+			    fight(a[x],a[y]);
+				if(i==animal.length-1)
+				{
+				   break;	
+				}
+				
+			  }
+			   //int returnValue=fight(a[x],a[y]);
+			  
+			   /* if(returnValue==1)
 			   {
 				   break;
-			   } */
-
+			   }  */
+           
+				
+			
 		}
 				
 	}	
@@ -71,7 +81,7 @@ public class Forest
 	
 	public void fight(Animal animal1,Animal animal2)
 	{
-		Animal temp;
+		        Animal temp;
 		        System.out.println(animal1.name+ "and"+ animal2.name +"ready to fight...");
 		        System.out.println("Fight Begins..........!!");
 				temp=animal1.animalFight(animal2);
@@ -100,7 +110,7 @@ public class Forest
 	
 	
 	public void winner (Animal[] a)
-	{
+	{	
 		int x=0,i,win=0;
 		for(i=0;i<animal.length-1;i++)
 		{

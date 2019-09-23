@@ -15,9 +15,10 @@ public class Wolf extends Animal
 		System.out.println("wolf ate Rabit");
 	}
  
- public Animal animalFight(Animal enemy)
-	{  
-		if(this.strengthlevel>enemy.strengthlevel)
+ 
+	 public Animal animalFight(Animal enemy)
+	 {
+	  if(this.strengthlevel>enemy.strengthlevel)
 		{	
 		  return this;
 		}
@@ -25,8 +26,7 @@ public class Wolf extends Animal
 		{
 			return enemy;
 		}
-
-	}
+	  }
  
   
 }  

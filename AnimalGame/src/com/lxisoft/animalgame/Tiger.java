@@ -1,5 +1,5 @@
 package com.lxisoft.animalgame;
-public class Tiger extends Animal
+ public class Tiger extends Animal
 {
     int Aggressivelevel=50;
 	public Tiger(String name,int strengthlevel,boolean isAlive)
@@ -13,10 +13,9 @@ public class Tiger extends Animal
 		System.out.println("Tiger ate Rabit");
 		
 	}
-	
-	public Animal animalFight(Animal enemy)
-	{  
-		if(this.strengthlevel>enemy.strengthlevel)
+      public Animal animalFight(Animal enemy)
+	 {
+	  if(this.strengthlevel>enemy.strengthlevel)
 		{	
 		  return this;
 		}
@@ -24,8 +23,9 @@ public class Tiger extends Animal
 		{
 			return enemy;
 		}
+	  }
 
-	}
+	
  
   
 }  
