@@ -20,7 +20,17 @@ public abstract class Hanimal extends Animal implements Herbivores
 		else
 			escape=false;
 		return escape;
-	}		
+	}	
+
+	public int[] graze()
+	{
+		int[] one=new int[2];
+		for(int i=0; i<2; i++)
+		{
+			one[i]=(int)(50* Math.random());
+		}
+		return one;
+	} 	
 
 			
 	

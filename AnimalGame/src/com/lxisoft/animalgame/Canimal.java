@@ -21,5 +21,14 @@ public abstract class Canimal extends Animal implements Carnivore
 		}
 		return win;
 	}
+	public int[] roam()
+	{
+		int[] one= new int[2];
+		for(int i=0; i<one.length; i++)
+		{
+			one[i]=(int)(50* Math.random());
+		}
+		return one;
+	} 
 
 } 
