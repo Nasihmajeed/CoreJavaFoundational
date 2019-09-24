@@ -3,5 +3,6 @@ import com.lxisoft.animalgame.*;
 public interface Carnivore
 {
 	public Animal fight(Animal animal);
+	public Animal fight(Animal animal,Animal animal1);
 	
 }

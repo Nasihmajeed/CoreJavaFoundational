@@ -150,6 +150,17 @@ public class Forest
 			return animal_array;
 
 		}
+		public Animal[] isWeak(Animal[] animals,int[] nearAnimal,int count)
+		{
+			for(int i=0;i<count;i++)
+			{
+				if(animals[i]!=animals[nearAnimal[i]])
+				{
+					animals[nearAnimal[i]].strength=animals[nearAnimal[i]].strength/2;
+				}
+			}
+			return animals;
+		}
 		public boolean withInRange(int range,int x1,int y1,int[] location)
 	 	{
 	 		boolean isRange=true;
@@ -265,8 +276,7 @@ public class Forest
 				{
 					inSight=true;
 					
-					if(i==random2);
-					else
+					if(i!=random2)
 					{
 						if(animal_array[i].isDead==false)
 						{
@@ -299,30 +309,70 @@ public class Forest
 					System.out.println(animal_array[i].name  + " "+animal_array[random2].name);
 			}
 			System.out.println("is in count" +near);
-			
-			// System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
-		// 	boolean escape=false;
-			
-		// 	if(animal_array[random2] instanceof Herbivores)
-		// 	{
-		// 			escape=((Animalherbivores)(animal_array[random2])).luck();
-					  
-		// 	}
-
-		// 	if(escape==false)
-		// 	{
-		// 	    win=((Carnivore) (animals[random1])).fight(animals[random2]);
-
-		// 	    if(animals[random1].name==win.name)
-		// 	    {
-		// 	    	animals=isDead(random1,random2,animals);
-		// 	    }
-		// 	    else
-		// 	    {
-		// 	    	animals=isDead(random2,random1,animals);
-		// 	    }
-			    
-		// 	}
+			random1=nearbyAnimals[0];
+			boolean escape=false;
+			if(near==1)
+			{
+			 System.out.println(animal_array[nearbyAnimals[0]].name + " meets " +animal_array[random2].name);
+				 if(animal_array[random2] instanceof Herbivores)
+			 	{
+			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+			 			System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
+						escape=((Animalherbivores)(animal_array[random2])).luck();
+						  
+				}
+			}
+			if(near==2)
+			{
+			 System.out.println(animal_array[nearbyAnimals[0]].name+"  "+animal_array[nearbyAnimals[1]].name + " meets " +animal_array[random2].name);
+				 if(animal_array[random2] instanceof Herbivores)
+			 	{		
+			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+			 			System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
+						escape=((Animalherbivores)(animal_array[random2])).luck();
+						  
+				}
+			}
+			if(near==3)
+			{
+			 System.out.println(animal_array[nearbyAnimals[0]].name+"  "+animal_array[nearbyAnimals[1]].name +"  "+animal_array[nearbyAnimals[2]].name + " meets " +animal_array[random2].name);
+				 if(animal_array[random2] instanceof Herbivores)
+			 	{		
+			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+			 			System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
+						escape=((Animalherbivores)(animal_array[random2])).luck();
+						  
+				}
+			}
+		
+			if(escape==false)
+			{
+				if(near==1)
+				{
+				    win=((Carnivore) (animal_array[nearbyAnimals[0]])).fight(animal_array[random2]);
+				    for(int i=0;i<near;i++)
+				    {
+					    if(animal_array[nearbyAnimals[0]].name==win.name)
+					    {
+					    	animal_array=isDead(i,random2,animals);
+					    }
+				    }
+				}  
+				else if(near==2)
+				{
+					win=((Carnivore) (animal_array[nearbyAnimals[0]])).fight(animal_array[random2],animal_array[nearbyAnimals[1]]);
+					for(int i=0;i<near;i++)
+					{
+					    if(animal_array[i].name==win.name)
+					    {
+					    	//animals=isDead(i,random2,animals);
+					    	animal_array=isWeak(animal_array,nearbyAnimals,near);
+					    }
+				   
+				    }   
+		 	    
+		 	    }
+		    }
 		// 	isWinner(animals,win); 
 		// }
 
