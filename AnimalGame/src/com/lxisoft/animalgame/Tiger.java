@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.*;
  public class Tiger extends Animal
 {
     int Aggressivelevel=50;

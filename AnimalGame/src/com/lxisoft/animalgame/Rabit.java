@@ -1,4 +1,5 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.*;
 //import com.lxisoft.animalgame.Rabit;
 //import com.lxisoft.animalgame.Animal;
 
