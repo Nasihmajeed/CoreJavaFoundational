@@ -152,31 +152,29 @@ public class Forest
 		}
 		public boolean withInRange(int range,int x1,int y1,int[] location)
 	 	{
-	 		int distance;
 	 		boolean isRange=true;
- 		  	distance=(int)(Math.sqrt((location[0]-x1)*(location[0]-x1)+(location[1]-y1)*(location[1]-y1)));
- 		  	if(distance<=range)
+ 		  	int distance=(int)(Math.sqrt((location[0]-x1)*(location[0]-x1)+(location[1]-y1)*(location[1]-y1)));
+ 		  	if(distance>=range)
  		  	{
- 		  		isRange=false;
+ 		  		isRange=true;
  		  	}
-
+ 		  	else isRange=false;
     		return isRange;
 	 	}
+
 	 	public boolean withInSight(int[] x1,int[] y1,int sight)
 	 	{
-
-
 	 		int distance=0,count=0;
 	 		boolean isSight=true;
 	 		distance=(int)(Math.sqrt((y1[0]-x1[0])*(y1[0]-x1[0]) + (y1[1]-x1[1])*(y1[1]-x1[1])));
- 		  	if(distance<=sight)
+ 		  	if(distance>=sight)
  		  	{
- 		  		isSight=false;
- 		  		
- 		  	}
-
-    		return isSight;
+ 		  		isSight=true;
+  		  	}
+ 		  	else isSight=false;
+	   		return isSight;
 	 	}
+
 	    public void isWinner(Animal[] animals,Animal lastAnimal)
 	    {
        		int count=0,alive=0,i;
@@ -186,14 +184,11 @@ public class Forest
 				{
 					if(animals[i].isDead==false)
 					{	
-						
 						alive=i;
 						count++;
-
 					}
 				}	
 			}
-
 			if(count==1)
         	{
           		System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
@@ -227,7 +222,7 @@ public class Forest
 			 			{
 			 				animals[i].location=((Animalcarnivores)(animals[i])).roam();  
 			 				isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
-			 			}while (isRange);
+			 			}while(isRange);
 
 	 				}
 	 			}
@@ -239,91 +234,71 @@ public class Forest
 		{	
 			int count=0,random1=0,random2=0;
 			Animal win=null;
-			int near=0;
-			boolean isRange=false;
-			boolean isSight=false;
 			animal_array=location(animal_array);
+			// printing Alive Animals
 			for(int i=0;i<animal_array.length;i++)
 			{
+	  			if(animal_array[i].isDead==false)
+	  			{
 	  			System.out.print(i + " ");
 				animal_array[i].getDetails();
 	 			System.out.println("current: \t"+animal_array[i].location[0] +"\t"+animal_array[i].location[1]);
+				}
 			}
 
-
+			//Selecting second animals
+			int near=0,loop=10;
+			int[] nearbyAnimals=new int[animal_array.length];
+			boolean inSight,nextAnimal=true;
 			do
 			{
-			random2=randomGeneration(animal_array.length);
-			System.out.println("random2==="+animal_array[random2].name);
-			}while(animal_array[random1].isDead);
-            
-			for(int i=0;i<animal_array.length;i++)
-			{
-				boolean inSight=true;
 				
-				int[] nearbyAnimals=new int[animal_array.length];
-				if(i==random2);
-				else
+				do
 				{
-					if(animal_array[i].isDead==false)
+					random2=randomGeneration(animal_array.length);
+					System.out.println("random2==="+animal_array[random2].name);
+				}while(animal_array[random1].isDead);
+
+				//first Animal 
+
+				for(int i=0;i<animal_array.length;i++)
+				{
+					inSight=true;
+					
+					if(i==random2);
+					else
 					{
-						if(animal_array[i] instanceof Carnivore)
+						if(animal_array[i].isDead==false)
 						{
-							//inSight=withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
-						
-							if(inSight=false)
+							if(animal_array[i] instanceof Carnivore)
 							{
-								nearbyAnimals[near]=i;
-								near++;
-
-
+								inSight=withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
+								if(inSight==false)
+								{
+									nearbyAnimals[near]=i;
+									near++;
+									nextAnimal=false;
+								}
 							}
 						}
 					}
+					
 				}
-			}
+				loop--;
+				System.out.println("loop==="+loop);
+				if(loop==0)
+				{
+				animal_array=location(animal_array);
+				}
+				
+			}while(nextAnimal);
+			
 			for(int i=0;i<near;i++)
 			{
-					System.out.println("nearby\n..........");
-							System.out.println(animal_array[i].name);
+				System.out.println("animals is in sight nearby\n..........");
+					System.out.println(animal_array[i].name  + " "+animal_array[random2].name);
 			}
-		
-			// for(int i=0;i<animals.length;i++)
-			// {
-			// 	Animal[] nearbyAnimals=new Animal[animal_array.length];
-            // 		 		if(animal_array[i]==animal_array[random2])
-			//    	{
-			//   			System.out.println("");
-			// 	}
-			//    	else
-			//  	{
-		 // 			if(animal_array[i] instanceof Carnivore)
-			//  		{
-			//  			do
-			//  			{
-			//  				location=((Animalcarnivores)(animal_array[i])).roam();  
-			//  				isRange=withInRange(animal_array[i].range,animal_array[i].xCordinate,animal_array[i].yCordinate,location[0],location[1]);
-			//  			}while (isRange);
-			//  			isSight=withInSight(animal_array[i].forsight,animal_array[i].xCordinate,animal_array[i].yCordinate,location[0],location[1]);
-			//  			System.out.println("issight" +withInSight(animal_array[i].forsight,animal_array[i].xCordinate,animal_array[i].yCordinate,location[0],location[1]));
-			// 	    }	
-			//     }	
-			//  }   
-			// 		if(isSight==false)
-			// 		{
-						
-			// 			nearbyAnimals[i]=animal_array[i];
-			// 			count++;
-					
-			//   			System.out.print(i + " ");
-			// 			//animal_array[i].getDetails();
-			// 			nearbyAnimals[i].getDetails();
-			//  			System.out.println("current: \t"+location[0] +"\t"+location[1]);
-			//  			//count++;
-			//  		}
-			//     }//while(animal_array[i].isDead || animal_array[i]==random2);
-		
-		 //    }
+			System.out.println("is in count" +near);
 			
 			// System.out.println(animal_array[random1].name + " meets " +animal_array[random2].name);
 		// 	boolean escape=false;
