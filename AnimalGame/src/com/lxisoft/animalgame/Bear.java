@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 
-public class Bear extends Animal implements Carnivorous 
+public class Bear extends CarnivorousAnimal
 {
 	public void eat()
 	{
@@ -18,18 +18,7 @@ public class Bear extends Animal implements Carnivorous
 		System.out.println(" strength--"+strength);
 	}
 	
-	public Animal fight(Animal enemy)
-	{
-		if(this.strength>enemy.strength)
-		{
-			return this;
-		}
-		else
-		{
-			return enemy;
-		}
-	}
-
+	
 	
 
 

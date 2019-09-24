@@ -182,61 +182,58 @@ public class Forest
 		}
 	}
 
-
 	public int fightStarts(int x,int y,int f)
 	{
-		int dist;
+		int[] arr=new int[animal.length];
+		int i,dist,count=0;
 		if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)
 		{
 			dist=(int) (Math.sqrt((animal[x].xaxis-animal[y].xaxis)*(animal[x].xaxis-animal[y].xaxis)+(animal[x].yaxis-animal[y].yaxis)*(animal[x].yaxis-animal[y].yaxis)));
-			if(animal[y] instanceof Herbivorous)
+			for(i=0;i<animal.length;i++)
 			{
-				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-				if(dist<animal[x].range)
+				if(animal[i] instanceof Carnivorous && (animal[i]!=animal[y]))
 				{
-					((Herbivorous) animal[y]).escape(animal[x]);
+					if(dist<animal[i].range)
+					{
+						arr[count]=i;
+						count++;
+					}
+				}
+			}
+			if(count!=0)
+			{
+				System.out.println("	 \t\t  ___________Fight"+(f++)+"___________");				      				//"+animal[x].name+" v/s "+animal[y].name);
+				System.out.println("\t\t\t\tanimals nearby  "+animal[y].name+"  are ");
+				nearAnimals(arr,count);
+				if(animal[y] instanceof Herbivorous)
+				{
+					if(count==1)
+						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]]);
+					else if(count==2)
+						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]]);
+					else if(count==3)
+						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]],animal[arr[2]]);
 				}
 				else
-					System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n");
-			}	
-			else
-			{
-				System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
-				carnivorousFight(x,y,dist);
+				{
+					if(count==1)
+						((CarnivorousAnimal)animal[y]).fight(animal[arr[0]]);
+					else if(count==2)
+						((CarnivorousAnimal)animal[y]).fight(animal[arr[0]],animal[arr[1]]);
+				}
 			}
 		}
-	animalStatus();
-	return f;
+		animalStatus();
+		return f;
 	}
 
-
-	public void carnivorousFight(int x,int y,int dist)
+	public void nearAnimals(int[] arr,int count)
 	{
-		Animal temp;
-		if(dist<animal[x].range)
+		for(int i=0;i<count;i++)
 		{
-			temp=((Carnivorous) animal[x]).fight(animal[y]);
-			System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
-			if(temp==animal[x])
-			{
-				animal[x].strength--;
-				animal[y].strength-=2;
-				if (animal[y].strength<1)
-					animal[y].isDead=true;
-			}
-			else
-			{
-				animal[y].strength--;
-				animal[x].strength-=2;
-				if (animal[x].strength<1)
-					animal[x].isDead=true;
-			}
+			System.out.println("\t\t\t\t\t"+animal[arr[i]].name);
 		}
-		else
-			System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n"); 
 	}
-
-	
 
 	public void animalLuck()
 	{
@@ -249,5 +246,56 @@ public class Forest
 
 
 }
+
+
+	// public int fightStarts(int x,int y,int f)
+	// {
+	// 	int dist;
+	// 	if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)
+	// 	{
+	// 		dist=(int) (Math.sqrt((animal[x].xaxis-animal[y].xaxis)*(animal[x].xaxis-animal[y].xaxis)+(animal[x].yaxis-animal[y].yaxis)*(animal[x].yaxis-animal[y].yaxis)));
+			
+	// 		{
+				
+	// 			if(dist<animal[x].range)
+	// 			{
+	// 				((Herbivorous) animal[y]).escape(animal[x]);
+	// 			}
+	// 			else
+	// 				System.out.println("\t\t\t NO FIGHT- animal not in range : Carnivore "+animal[x].name+" range-"+animal[x].range+" y=="+animal[y].name+" dis-"+dist+" axis\n");
+	// 		}	
+	// 		else
+	// 		{
+	// 			System.out.println("					 Fight"+(f++)+"				\n         				"+animal[x].name+" v/s "+animal[y].name);
+	// 			carnivorousFight(x,y,dist);
+	// 		}
+	// 	}
+	
+	// return f;
+	// }
+
+
+	// public void carnivorousFight(Animal temp)
+	// {
+	// 		System.out.println("				"+temp.name+" WINS  (strength="+temp.strength+")\n");
+	// 		if(temp==animal[x])
+	// 		{
+	// 			animal[x].strength--;
+	// 			animal[y].strength-=2;
+	// 			if (animal[y].strength<1)
+	// 				animal[y].isDead=true;
+	// 		}
+	// 		else
+	// 		{
+	// 			animal[y].strength--;
+	// 			animal[x].strength-=2;
+	// 			if (animal[x].strength<1)
+	// 				animal[x].isDead=true;
+	// 		}
+	// }
+
+	
+
+	
 
 
