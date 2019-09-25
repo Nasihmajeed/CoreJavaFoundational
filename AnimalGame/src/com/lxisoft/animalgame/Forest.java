@@ -262,7 +262,7 @@ public class Forest
 				 if(animal_array[random2] instanceof Herbivores)
 			 	{
 			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
-			 			System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
+			 		//	System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
 						escape=((Animalherbivores)(animal_array[random2])).luck();
 						  
 				}
@@ -273,7 +273,7 @@ public class Forest
 				 if(animal_array[random2] instanceof Herbivores)
 			 	{		
 			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
-			 			System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
+			 			//System.out.println("luckyfact  "+((Animalherbivores)(animal_array[random2])).luckyfact);
 						escape=((Animalherbivores)(animal_array[random2])).luck();
 						  
 				}
@@ -299,13 +299,14 @@ public class Forest
  				do
 				{
 					random2=randomGeneration(animal_array.length);
-					System.out.println("random2==="+animal_array[random2].name);
-				}while(animal_array[random1].isDead);
+					//System.out.println("random2==="+animal_array[random2].name);
+				}while(animal_array[random2].isDead);
 
 				//first Animal 
 
 				for(int i=0;i<animal_array.length;i++)
 				{
+					//System.out.println("selecting random 1");
 					inSight=true;
 					if(i!=random2)
 					{
@@ -314,7 +315,7 @@ public class Forest
 							if(animal_array[i] instanceof Carnivore)
 							{
 								inSight=withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
-								System.out.println("isSight== "+withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight));
+								//System.out.println("isSight== "+withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight));
 								if(inSight==false)
 								{
 									nearbyAnimals[near]=i;
@@ -326,22 +327,23 @@ public class Forest
 					}
 				}
 				loop--;
-				System.out.println("loop==="+loop);
+				//System.out.println("loop==="+loop);
 				if(loop==0)
 				{
 				animal_array=location(animal_array);
+				loop=10;
 				}
 			}while(nextAnimal);
-			for(int i=0;i<near;i++)
-			{
-				System.out.println("animals is in sight nearby\n..........");
-					System.out.println(animal_array[i].name);
-					System.out.println(animal_array[random2].name);
-			}
-			System.out.println("isin count" +near);
+			// for(int i=0;i<near;i++)
+			// {
+			// 	System.out.println("animals is in sight nearby\n..........");
+			// 		System.out.println(animal_array[i].name);
+			// 		System.out.println(animal_array[random2].name);
+			// }
+			//System.out.println("isin count" +near);
 			random1=nearbyAnimals[0];
 			boolean escape=isEscape(animal_array,nearbyAnimals,random2,near);
-			System.out.println("isEscape==="+isEscape(animal_array,nearbyAnimals,random2,near));
+			//System.out.println("isEscape==="+isEscape(animal_array,nearbyAnimals,random2,near));
 			if(escape==false)
 			{
 				if(near==1)
@@ -376,7 +378,7 @@ public class Forest
 		 	    }
 		 	    
 		    }
-	 	//isWinner(animal_array,win); 
+	 	isWinner(animal_array,win); 
 	 }
 
 }

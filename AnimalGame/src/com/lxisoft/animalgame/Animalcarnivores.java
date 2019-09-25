@@ -24,7 +24,7 @@ public class Animalcarnivores extends Animal implements Carnivore
 	public Animal fight(Animal enemy1,Animal enemy2)
 	{
 		
-		System.out.println(" The "+this.name +"and " +enemy1.name +" fights with " +enemy2.name);
+		System.out.println(" The "+this.name +"  and " +enemy1.name +" fights with " +enemy2.name);
 		enemy1.strength=(int)enemy1.strength/2;
 		if(this.strength>enemy2.strength)
 			{
@@ -72,7 +72,8 @@ public class Animalcarnivores extends Animal implements Carnivore
 					else
 					{
 					
-					win=enemy;}
+					win=enemy;
+					}
 				}
 				return win;		
 		}
