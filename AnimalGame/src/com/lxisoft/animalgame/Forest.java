@@ -40,6 +40,7 @@ public class Forest
 			tiger.name="Tiger";
 			tiger.strength=80;
 			tiger.isDead=false;
+			tiger.hunger=Hunger.HUNGRIEST;
 			animals[0]=tiger;
 			animals[0].xCordinate=randomGeneration(50);
 			animals[0].yCordinate=randomGeneration(50);
@@ -49,6 +50,7 @@ public class Forest
 			rabbit.name="Rabbit";
 			rabbit.strength=10;
 			rabbit.isDead=false;
+			rabbit.hunger=Hunger.HUNGRIEST;
 		    ((Animalherbivores)(rabbit)).luckyfact=3;
 			animals[1]=rabbit;
 			animals[1].xCordinate=randomGeneration(50);
@@ -59,6 +61,7 @@ public class Forest
 			lion.name="Lion";
 			lion.strength=70;
 			lion.isDead=false;
+			lion.hunger=Hunger.HUNGRIEST;
 			animals[2]=lion;
 			animals[2].xCordinate=randomGeneration(50);
 			animals[2].yCordinate=randomGeneration(50);
@@ -68,6 +71,7 @@ public class Forest
 			elephant.name="Elephant";
 			elephant.strength=60;
 			elephant.isDead=false;
+			elephant.hunger=Hunger.HUNGRIEST;
 			((Animalherbivores)(elephant)).luckyfact=7;
 			animals[3]=elephant;
 			animals[3].xCordinate=randomGeneration(50);
@@ -78,6 +82,7 @@ public class Forest
 			buffallo.name="Buffallo";
 			buffallo.strength=40;
 			buffallo.isDead=false;
+			buffallo.hunger=Hunger.HUNGRIEST;
 			animals[4]=buffallo;
 			animals[4].xCordinate=randomGeneration(50);
 			animals[4].yCordinate=randomGeneration(50);
@@ -87,6 +92,7 @@ public class Forest
 			crocodile.name="Crocodile";
 			crocodile.strength=45;
 			crocodile.isDead=false;
+			crocodile.hunger=Hunger.HUNGRIEST;
 			animals[5]=crocodile;
 			animals[5].xCordinate=randomGeneration(50);
 			animals[5].yCordinate=randomGeneration(50);
@@ -96,6 +102,7 @@ public class Forest
 			deer.name="Deer";
 			deer.strength=30;
 			deer.isDead=false;
+			deer.hunger=Hunger.HUNGRIEST;
 			((Animalherbivores)(deer)).luckyfact=4;
 			animals[6]=deer;
 			animals[6].xCordinate=randomGeneration(50);
@@ -106,6 +113,7 @@ public class Forest
 			fox.name="Fox";
 			fox.strength=55;
 			fox.isDead=false;
+			fox.hunger=Hunger.HUNGRIEST;
 			animals[7]=fox;
 			animals[7].xCordinate=randomGeneration(50);
 			animals[7].yCordinate=randomGeneration(50);
@@ -116,6 +124,7 @@ public class Forest
 			pig.name="Pig";
 			pig.strength=10;
 			pig.isDead=false;
+			pig.hunger=Hunger.HUNGRIEST;
 			((Animalherbivores)(pig)).luckyfact=8;
 			animals[8]=pig;
 			animals[8].xCordinate=randomGeneration(50);
@@ -126,6 +135,7 @@ public class Forest
 			zeebra.name="Zeebra";
 			zeebra.strength=45;
 			zeebra.isDead=false;
+			zeebra.hunger=Hunger.HUNGRIEST;
 			((Animalherbivores)(zeebra)).luckyfact=1;
 			animals[9]=zeebra;
 			animals[9].xCordinate=randomGeneration(50);
@@ -210,7 +220,28 @@ public class Forest
         	}
 
 	    }
-	 	
+	 	public Hunger isHunger(Animal animal)
+	 	{
+	 		//for(int i=0;i<animal.length;i++)
+	 		//{	
+	 			Hunger temp=animal.hunger;
+	 			switch(temp)
+	 			{
+	 				case HUNGRIEST:	System.out.println(animal.name+ "  is very hunger");
+	 							   	temp=Hunger.HUNGER;
+	 				               	break;
+	 				case HUNGER:	System.out.println(animal.name+ "is hunger..");
+	 								temp=Hunger.OVERFED;
+	 								break;
+	 				case OVERFED:	System.out.println(animal.name+ "is Not hunger..");
+	 								//temp=Hunger.OVERFED;
+	 								break;
+	 				default:System.out.println("animal are in rest");
+	 			}
+	 		
+	 		return temp;
+	 	}
+
 	 	public Animal[] location(Animal[] animals)
 	 	{
 	 		boolean isRange=false;
@@ -249,7 +280,8 @@ public class Forest
 	  			{
 	  			System.out.print(i + " ");
 				animals[i].getDetails();
-	 			System.out.println("current: \t"+animals[i].location[0] +"\t"+animals[i].location[1]);
+	 			System.out.println("current: \t"+animals[i].location[0] +"\t"+animals[i].location[1]+"\t");
+	 			//System.out.print(animals[i].hunger);
 				}
 			}
 	 	}
@@ -300,27 +332,31 @@ public class Forest
 				{
 					random2=randomGeneration(animal_array.length);
 					//System.out.println("random2==="+animal_array[random2].name);
-				}while(animal_array[random2].isDead);
+				}while(animal_array[random2].isDead || animal_array[random2].hunger==Hunger.OVERFED);
 
 				//first Animal 
 
 				for(int i=0;i<animal_array.length;i++)
 				{
 					//System.out.println("selecting random 1");
+
 					inSight=true;
 					if(i!=random2)
 					{
 						if(animal_array[i].isDead==false)
 						{
-							if(animal_array[i] instanceof Carnivore)
+							if(animal_array[random2].hunger!=Hunger.OVERFED)
 							{
-								inSight=withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
-								//System.out.println("isSight== "+withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight));
-								if(inSight==false)
+								if(animal_array[i] instanceof Carnivore)
 								{
-									nearbyAnimals[near]=i;
-									near++;
-									nextAnimal=false;
+									inSight=withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
+									//System.out.println("isSight== "+withInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight));
+									if(inSight==false)
+									{
+										nearbyAnimals[near]=i;
+										near++;
+										nextAnimal=false;
+									}
 								}
 							}
 						}
