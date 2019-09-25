@@ -2,12 +2,10 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 public class Animalcarnivores extends Animal implements Carnivore
 {
-
-
-
+	Animal win;
 	public Animal fight(Animal enemy)
 		{
-			Animal win;
+			
 			System.out.println(this.name +" fight with " +enemy.name);
 			if(this.strength>enemy.strength)
 			{ 
@@ -25,7 +23,7 @@ public class Animalcarnivores extends Animal implements Carnivore
 		}
 	public Animal fight(Animal enemy1,Animal enemy2)
 	{
-		Animal win;
+		
 		System.out.println(" The "+this.name +"and " +enemy1.name +" fights with " +enemy2.name);
 		enemy1.strength=(int)enemy1.strength/2;
 		if(this.strength>enemy2.strength)
@@ -58,11 +56,30 @@ public class Animalcarnivores extends Animal implements Carnivore
 					System.out.println(enemy1.name + "  wins \n");
 				}
 			}	
-
-
-		return win;
+		   return win;
 	}
-		public int[] roam()
+	public Animal fight(Animal enemy,Animal[]animals,int[]nearbyAnimals,int count)
+		{       
+			Animal temp;
+			for(int i=0;i<count;i++)
+				{
+					if(animals[nearbyAnimals[i]].strength>enemy.strength)
+						{
+						temp=animals[nearbyAnimals[i]];
+						win=temp;
+						System.out.println(temp.name +"wins\n");
+						}
+					else
+					{
+					
+					win=enemy;}
+				}
+				return win;		
+		}
+
+
+
+	public int[] roam()
 		{
 			int[] position=new int[2];
 			for(int i=0;i<position.length;i++)
