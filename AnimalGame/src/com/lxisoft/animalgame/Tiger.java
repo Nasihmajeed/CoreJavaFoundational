@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
- public class Tiger extends Animal
+ public class Tiger extends Animal implements Carnivores
 {
     int Aggressivelevel=50;
 	public Tiger(String name,int strengthlevel,boolean isAlive)

@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
-public class Wolf extends Animal
+public class Wolf extends Animal implements Carnivores
 {
 	
 	

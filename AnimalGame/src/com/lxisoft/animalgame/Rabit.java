@@ -3,7 +3,7 @@ import com.lxisoft.animalgame.*;
 //import com.lxisoft.animalgame.Rabit;
 //import com.lxisoft.animalgame.Animal;
 
-public class Rabit extends Animal
+public class Rabit extends Animal implements Herbivores
 {
 	
     int Aggressivelevel=5;
