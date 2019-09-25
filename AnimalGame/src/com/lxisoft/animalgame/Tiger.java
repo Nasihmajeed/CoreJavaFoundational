@@ -13,9 +13,9 @@ public class Tiger extends Animal implements Carnivorous
 			return animal;
 		}
 	}
-	public void eat()
+	public void roam()
 	{
-		System.out.println("Tiger eat meat");
+		System.out.println("Tigers roam for prey");
 	}
 
 		

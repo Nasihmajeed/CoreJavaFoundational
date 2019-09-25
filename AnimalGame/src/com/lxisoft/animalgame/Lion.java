@@ -14,9 +14,9 @@ public class Lion extends Animal implements Carnivorous
 		}
 	
 	}
-	public void eat()
+	public void roam()
 	{
-		System.out.println("Lion eat meat");
+		System.out.println("Lions roam for prey");
 	}
 	
 }

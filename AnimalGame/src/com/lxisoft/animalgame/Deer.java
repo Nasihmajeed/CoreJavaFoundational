@@ -14,10 +14,6 @@ public class Deer extends Animal implements Herbivorous
 		}
 	
 	}
-	public void eat()
-	{
-		System.out.println("Deer eat grass");
-	}
 	public Animal escape(Animal animal)
     {
    		int luck;
@@ -30,6 +26,10 @@ public class Deer extends Animal implements Herbivorous
   		{
   			return animal;
   		}
+  	}
+  	public void graze()
+  	{
+  		System.out.println("Deer graze for grass");
   	}
 	
 }

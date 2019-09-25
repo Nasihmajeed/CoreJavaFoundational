@@ -14,11 +14,6 @@ public class Rabbit extends Animal implements Herbivorous
 	 	}
 		
 	 }
-	public void eat()
-	{
-		System.out.println("Rabbit eat carrott");
-	}
-	
 	public Animal escape(Animal animal)
     {
     	int luck;
@@ -31,5 +26,9 @@ public class Rabbit extends Animal implements Herbivorous
   		{
   			return animal;
   		}
+  	}
+  	public void graze()
+  	{
+  		System.out.println("Rabbits graze");
   	}
 }

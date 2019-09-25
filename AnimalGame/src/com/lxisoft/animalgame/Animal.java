@@ -7,12 +7,11 @@ public abstract class Animal
 {
 	public String animalName;
 	public int strength;
-	boolean isDead;
-	public void eat()
-	{
-		System.out.println("Carnivores eat meat");		
-		System.out.println("Herbivores eat grass and vegitables");
-	}
-	
+	public int xAxis;
+	public int yAxis;
+	public int luck;
+	public int sight;
+	public int range;
+	public boolean isDead=false;	
+		
 }
-	
