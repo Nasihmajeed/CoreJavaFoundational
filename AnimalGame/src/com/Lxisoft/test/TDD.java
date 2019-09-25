@@ -1,12 +1,13 @@
 package com.Lxisoft.test;
-import com.Lxisoft.Animalgame.Forrest;
-//import com.Lxisoft.Animalgame.Animal;
-import com.Lxisoft.Animalgame.Lion;
+import com.Lxisoft.Animalgame.Forrest; 
+import com.Lxisoft.Animalgame.*;
 public class TDD{
 	 public static void main(String[] args) {
 	 	 Forrest f=new Forrest();
 	 	f.meet();
-	 	f.fight(f.animals()); 	 
+	 	f.selectAnimals(f.getAnimals());
+	 	//f.animalFight();
+	 	  	 
 	}
 
  } 
