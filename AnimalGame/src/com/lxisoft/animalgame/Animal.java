@@ -1,13 +1,14 @@
 package com.lxisoft.animalgame;
 
 
-import com.lxisoft.animalgame.Tiger;
+import com.lxisoft.animalgame.*;
 
 public abstract class Animal
 {
 	int strength;
 	String name;
 	boolean isDead;
+	Hunger hungerlevel;
 	int range,sight; 
 	int[] newLocation=new int[2];
 

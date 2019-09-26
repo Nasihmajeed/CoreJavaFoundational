@@ -32,6 +32,7 @@ public class Forest
 		animal[0].isDead=false;
 		animal[0].range=35;
 		animal[0].sight=15;
+		animal[0].hungerlevel=Hunger.STARVING;
 		animal[0].newLocation[0]=random(50);
 		animal[0].newLocation[1]=random(50);
 		
@@ -41,6 +42,7 @@ public class Forest
 		((Hanimal)(animal[1])).luckFactor=2;
 		animal[1].range=15;
 		animal[1].sight=5;
+		animal[1].hungerlevel=Hunger.STARVING;
 		animal[1].newLocation[0]=random(50);
 		animal[1].newLocation[1]=random(50);
 		
@@ -49,6 +51,7 @@ public class Forest
 		animal[2].isDead=false;
 		animal[2].range=35;
 		animal[2].sight=15;
+		animal[2].hungerlevel=Hunger.STARVING;
 		animal[2].newLocation[0]=random(50);
 		animal[2].newLocation[1]=random(50);
 		
@@ -58,6 +61,7 @@ public class Forest
 		((Hanimal)(animal[3])).luckFactor=3;
 		animal[3].range=25;
 		animal[3].sight=5;
+		animal[3].hungerlevel=Hunger.STARVING;
 		animal[3].newLocation[0]=random(50);
 		animal[3].newLocation[1]=random(50);
 		
@@ -67,6 +71,7 @@ public class Forest
 		((Hanimal)(animal[4])).luckFactor=4;
 		animal[4].range=25;
 		animal[4].sight=5;
+		animal[4].hungerlevel=Hunger.STARVING;
 		animal[4].newLocation[0]=random(50);
 		animal[4].newLocation[1]=random(50);
 		
@@ -75,6 +80,7 @@ public class Forest
 		animal[5].isDead=false;
 		animal[5].range=25;
 		animal[5].sight=10;
+		animal[5].hungerlevel=Hunger.STARVING;
 		animal[5].newLocation[0]=random(50);
 		animal[5].newLocation[1]=random(50);
 		
@@ -83,6 +89,7 @@ public class Forest
 		animal[6].isDead=false;
 		animal[6].range=25;
 		animal[6].sight=10;
+		animal[6].hungerlevel=Hunger.STARVING;
 		animal[6].newLocation[0]=random(50);
 		animal[6].newLocation[1]=random(50);
 		
@@ -92,6 +99,7 @@ public class Forest
 		((Hanimal)(animal[7])).luckFactor=4;
 		animal[7].range=20;
 		animal[7].sight=5;
+		animal[7].hungerlevel=Hunger.STARVING;
 		animal[7].newLocation[0]=random(50);
 		animal[7].newLocation[1]=random(50);
 		
@@ -101,6 +109,7 @@ public class Forest
 		((Hanimal)(animal[8])).luckFactor=5;
 		animal[8].range=20;
 		animal[8].sight=10;
+		animal[8].hungerlevel=Hunger.STARVING;
 		animal[8].newLocation[0]=random(50);
 		animal[8].newLocation[1]=random(50);
 		
@@ -109,6 +118,7 @@ public class Forest
 		animal[9].isDead=false;
 		animal[9].range=28;
 		animal[9].sight=15;
+		animal[9].hungerlevel=Hunger.STARVING;
 		animal[9].newLocation[0]=random(50);
 		animal[9].newLocation[1]=random(50);
 
@@ -138,16 +148,19 @@ public class Forest
 			if(array[i] instanceof Carnivore)
 			
 			{
-				if(array[i].isDead==false)
+				if(array[i].hungerlevel!= Hunger.OVERFEEDING)
 				{
-			
-					count++;
-					lastone=array[i];
+					if(array[i].isDead==false)
+					{
 				
+						count++;
+						lastone=array[i];
+					
+					}
 				}
 			}
 		}
-		if (count==1)
+		if (count<=1)
 		{
 			System.out.println(lastone.name +" is the Winner...");
 		}
@@ -237,6 +250,19 @@ public class Forest
 		}
 		return animal;
 	}
+	public Animal isfooding(Animal animal)
+	{
+		Hunger temp=animal.hungerlevel;
+		switch(temp)
+		{
+			case STARVING:animal.hungerlevel=Hunger.HUNGER;
+			break;
+			case HUNGER:animal.hungerlevel=Hunger.OVERFEEDING;
+			break;
+			
+		}
+		return animal;
+	}
 	public void meet(Animal[] animal)
 	{
 		int count=0,locationX=0,locationY=0;
@@ -251,7 +277,7 @@ public class Forest
 			{
 				System.out.print(i+"  ");
 				animal[i].printDetails();
-				System.out.println(" new location: "+animal[i].newLocation[0]+", "+animal[i].newLocation[1]);
+				System.out.println(" new location: "+animal[i].newLocation[0]+", "+animal[i].newLocation[1] + "hunger level : "+animal[i].hungerlevel);
 				
 			}
 		}
@@ -271,7 +297,7 @@ public class Forest
 
 	 
 				
-				}while(animal[random2].isDead);
+				}while(animal[random2].isDead || animal[random2].hungerlevel==Hunger.OVERFEEDING);
 				// System.out.print("animal 2: ");
 				// animal[random2].printName();
 			// first animal for fight
@@ -283,17 +309,19 @@ public class Forest
 				{
 					if(animal[i].isDead==false)
 					{
-
-						if(animal[i] instanceof Carnivore)
+						if(animal[i].hungerlevel!=Hunger.OVERFEEDING)
 						{
-							forsight=withinSight(animal[i].newLocation,animal[random2].newLocation,animal[i].sight);
-							if(forsight==false)
+							if(animal[i] instanceof Carnivore)
 							{
-								near[nearby]=i;
-								nearby++;
-								enemy=false;
-								// System.out.println(" in sight:");
+								forsight=withinSight(animal[i].newLocation,animal[random2].newLocation,animal[i].sight);
+								if(forsight==false)
+								{
+									near[nearby]=i;
+									nearby++;
+									enemy=false;
+									// System.out.println(" in sight:");
 
+								}
 							}
 						}
 					}
@@ -364,7 +392,7 @@ public class Forest
 					win=((Carnivore) (animal[near[0]])).fight(animal[random2],animal,near,nearby);
 				}
 
-
+				win=isfooding(win);
 				// win.printDetails();
 
 				if(nearby==1)
