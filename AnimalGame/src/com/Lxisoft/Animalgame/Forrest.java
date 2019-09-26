@@ -30,7 +30,8 @@ public void selectAnimals(Animal[] anim){
 		x=random(3);
 		y=random(3);
 		if(x!=y){	
-			if(anim[x].isalive==true&anim[y].isalive==true){
+			if(anim[x].isalive==true&&anim[y].isalive==true){
+				System.out.println("\n\n...\tFight on...\n"+" "+anim[x].name+" vs "+" "+anim[y].name);
 				 animalFight(anim[x],anim[y]);
 			    }
 			else{
@@ -41,32 +42,49 @@ public void selectAnimals(Animal[] anim){
         }
        }
 public void animalFight(Animal anim1,Animal anim2){
-	Animal attack;
-	//System.out.println(" "+anim1.name" vs "+anim2.name);
-	attack=anim1.fight(anim2);
-	if(attack==anim1){
-		System.out.println(" "+anim1.name);
-		anim2.strg=(anim2.strg)/2;
-		anim1.strg=(anim1.strg)-((anim2.strg)/2);
-		if(anim2.strg<=0){
-			anim2.isalive=false;
-		    }
+	 	Animal attack;
+		attack=anim1.fight(anim2);
+		if(attack==anim1){
+			System.out.println(" "+anim1.name+" beat "+anim2.name);
+			anim2.strg=(anim2.strg)/2;
+			anim1.strg=(anim1.strg)-((anim2.strg)/2);
+			if(anim2.strg<=0){
+				anim2.isalive=false;
+		   	 }
+			else{
+				anim2.isalive=true;
+			}
+	 	 }
 		else{
-			anim2.isalive=true;
-		}
-	  }
-	else{
-		anim1.strg=(anim1.strg)/2;
-		anim2.strg=(anim2.strg)-((anim1.strg)/2);
-		if(anim1.strg<=0){
-			anim1.isalive=false;
+			System.out.println(" "+anim2.name+" beat "+anim1.name);
+			anim1.strg=(anim1.strg)/2;
+			anim2.strg=(anim2.strg)-((anim1.strg)/2);
+			if(anim1.strg<=0){
+				anim1.isalive=false;
+		   	 }
+			else{
+				anim1.isalive=true;
+			}
+	 	 }
+	 	 winnerAnimal(getAnimals());
+
+	 }	
+public void winnerAnimal(Animal[] anim){
+	int count=0,k=0;
+	for(int i=0;i<anim.length;i++){
+		if(anim[i].isalive==true){
+			count++;
+			k=i;			
 		    }
-		else{
-			anim1.isalive=true;
+		  }
+
+		if(count==1){
+			System.out.println("\n\n\tThe KING is "+anim[k].name);
+
 		}
-	  }
-
-	}	
-
+	}
 }
+	
+ 
+ 
      

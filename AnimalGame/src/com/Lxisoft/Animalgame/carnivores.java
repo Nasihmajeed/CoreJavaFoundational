@@ -1,5 +1,6 @@
-/*package com.Lxisoft.Animalgame;
+package com.Lxisoft.Animalgame;
 import java.util.*;
 import com.Lxisoft.Animalgame.*;
-public class Carnivores{	
-}*/
+public interface Carnivores{
+//public abstract fight(Animal anim);
+}

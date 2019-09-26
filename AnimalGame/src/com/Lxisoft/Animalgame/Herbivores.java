@@ -1,4 +1,5 @@
-/* package com.Lxisoft.Animalgame;	
+package com.Lxisoft.Animalgame;	
  import com.Lxisoft.Animalgame.Animal;
- public class Herbivores{
-   }*/
+ public interface Herbivores{
+ //public abstract escape(Animal anim);
+   }

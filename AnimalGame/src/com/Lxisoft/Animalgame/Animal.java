@@ -10,8 +10,7 @@ import java.lang.*;
 	public String name;
 	boolean isalive=true;
 	 
-
-	public abstract Animal fight(Animal anim);
+public abstract Animal fight(Animal anim);
 	     
 		 
     }

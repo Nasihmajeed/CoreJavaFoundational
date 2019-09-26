@@ -1,6 +1,6 @@
 package com.Lxisoft.Animalgame;
 import java.util.*;
-public class Lion extends Animal{
+public class Lion extends Animal implements Carnivores{
 public Lion(int strg,String name){
 	this.strg=strg;
 	this.name=name;
@@ -10,11 +10,9 @@ public void print(){
 	} 
 public Animal fight(Animal anim){
 	if(anim.strg<this.strg){
-		//System.out.println(this.name" beat "+anim.name);
 		return this;
 	}
-	else{
-		//System.out.println(anim.name" beat "+this.name);
+	else{ 
 		return anim;
 	}
 }
