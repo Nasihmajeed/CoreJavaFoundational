@@ -196,24 +196,30 @@ public class Forest
 	   		return isSight;
 	 	}
 
-	    public void isWinner(Animal[] animals,Animal lastAnimal)
+	    public void isWinner(Animal[] animals,Animal lastAnimal,Hunger hungerLevel)
 	    {
-       		int count=0,alive=0,i;
-        	for(i=0;i<animals.length;i++)
+       		int count=0,alive=0;
+        	for(int i=0;i<animals.length;i++)
 			{
 				if(animals[i] instanceof Carnivore)
 				{
-					if(animals[i].isDead==false)
-					{	
-						alive=i;
-						count++;
-					}
+					// if(hungerLevel==Hunger.OVERFED)
+					// {
+						if(animals[i].isDead==false)
+						{	
+							alive=i;
+							count++;
+						}
+					//}
 				}	
 			}
 			if(count==1)
         	{
+        		// for(int i=0;i<animals.length;i++)
+        		// {
           		System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
-        	}
+         //  		}
+        	 }
         	else
         	{
            		animalMeet(animals);
@@ -236,7 +242,7 @@ public class Forest
 	 				case OVERFED:	System.out.println(animal.name+ "is Not hunger..");
 	 								//temp=Hunger.OVERFED;
 	 								break;
-	 				default:System.out.println("animal are in rest");
+	 				// default:System.out.println("animal are in rest");
 	 			}
 	 		
 	 		return temp;
@@ -253,6 +259,7 @@ public class Forest
 	 				{
 	 					do
 	 					{
+	 			
 	 						animals[i].location=((Animalherbivores)(animals[i])).graze();
 	 						isRange=withInRange(animals[i].range,animals[i].xCordinate,animals[i].yCordinate,animals[i].location);
 			 			}while (isRange);
@@ -280,8 +287,8 @@ public class Forest
 	  			{
 	  			System.out.print(i + " ");
 				animals[i].getDetails();
-	 			System.out.println("current: \t"+animals[i].location[0] +"\t"+animals[i].location[1]+"\t");
-	 			//System.out.print(animals[i].hunger);
+	 			System.out.print("current: \t"+animals[i].location[0] +"\t"+animals[i].location[1]+"\t");
+	 			System.out.println(animals[i].hunger);
 				}
 			}
 	 	}
@@ -323,7 +330,7 @@ public class Forest
 			Animal win=null;
 			aliveAnimals(animal_array);
 			//Selecting second animals
-			int near=0,loop=10;
+			int near=0,loop=20;
 			int[] nearbyAnimals=new int[animal_array.length];
 			boolean inSight,nextAnimal=true;
 			do
@@ -331,7 +338,7 @@ public class Forest
  				do
 				{
 					random2=randomGeneration(animal_array.length);
-					//System.out.println("random2==="+animal_array[random2].name);
+					//System.out.println("random2" + animal_array[random2].name);
 				}while(animal_array[random2].isDead || animal_array[random2].hunger==Hunger.OVERFED);
 
 				//first Animal 
@@ -344,8 +351,8 @@ public class Forest
 					if(i!=random2)
 					{
 						if(animal_array[i].isDead==false)
-						{
-							if(animal_array[random2].hunger!=Hunger.OVERFED)
+						{	//System.out.println(animal_array[i].name+"  is hunger? "+animal_array[random2].hunger);
+							if(animal_array[i].hunger!=Hunger.OVERFED)
 							{
 								if(animal_array[i] instanceof Carnivore)
 								{
@@ -363,28 +370,34 @@ public class Forest
 					}
 				}
 				loop--;
-				//System.out.println("loop==="+loop);
+				// System.out.println("loop==="+loop);
 				if(loop==0)
 				{
 				animal_array=location(animal_array);
-				loop=10;
+				loop=20;
 				}
 			}while(nextAnimal);
+			// System.out.println("animals is in sight nearby\n..........");
 			// for(int i=0;i<near;i++)
 			// {
-			// 	System.out.println("animals is in sight nearby\n..........");
-			// 		System.out.println(animal_array[i].name);
-			// 		System.out.println(animal_array[random2].name);
+				
+			// 		System.out.println(animal_array[nearbyAnimals[i]].name);
+			// 		//System.out.println(animal_array[random2].name);
 			// }
 			//System.out.println("isin count" +near);
 			random1=nearbyAnimals[0];
 			boolean escape=isEscape(animal_array,nearbyAnimals,random2,near);
 			//System.out.println("isEscape==="+isEscape(animal_array,nearbyAnimals,random2,near));
+			Hunger hungerLevel=animal_array[nearbyAnimals[0]].hunger;
 			if(escape==false)
-			{
+			{	
+				
 				if(near==1)
 				{
+					//animal_array[nearbyAnimals[0]].hunger=isHunger(animal_array[nearbyAnimals[0]]);
+					
 				    win=((Carnivore)(animal_array[nearbyAnimals[0]])).fight(animal_array[random2]);
+	                System.out.println("hungerlevel of "+animal_array[nearbyAnimals[0]].name+"  is  " +hungerLevel);
 				    for(int i=0;i<near;i++)
 				    {
 					    if(animal_array[nearbyAnimals[0]].name==win.name)
@@ -414,7 +427,7 @@ public class Forest
 		 	    }
 		 	    
 		    }
-	 	isWinner(animal_array,win); 
+	 	isWinner(animal_array,win,hungerLevel); 
 	 }
 
 }
