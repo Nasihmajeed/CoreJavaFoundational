@@ -16,13 +16,9 @@ public abstract class Animal
 	
 	
 	
-	// this method helds the fighting of animals
-	/* public Animal animalFight(Animal enemy)
-	{  
-		return enemy;
-	} */
 	
-	public abstract Animal animalFight(Animal enemy);
+	
+	
 	
 } 
              

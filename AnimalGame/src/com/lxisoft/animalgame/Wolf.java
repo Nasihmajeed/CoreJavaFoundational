@@ -17,7 +17,7 @@ public class Wolf extends Animal implements Carnivores
 	}
  
  
-	 public Animal animalFight(Animal enemy)
+	 public Animal attack(Animal enemy)
 	 {
 	  if(this.strengthlevel>enemy.strengthlevel)
 		{	

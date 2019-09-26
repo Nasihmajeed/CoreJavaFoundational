@@ -14,7 +14,7 @@ import com.lxisoft.animalgame.*;
 		System.out.println("Tiger ate Rabit");
 		
 	}
-      public Animal animalFight(Animal enemy)
+      public Animal attack(Animal enemy)
 	 {
 	  if(this.strengthlevel>enemy.strengthlevel)
 		{	

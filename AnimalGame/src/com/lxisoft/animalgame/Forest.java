@@ -53,15 +53,15 @@ public class Forest
 			
 			}
 			  
-			  while(x==y || a[x].isAlive==false || a[y].isAlive==false);
-		      {
+			  while(a[x] instanceof Herbivores ||x==y || a[x].isAlive==false || a[y].isAlive==false);
+		      
 			    fight(a[x],a[y]);
 				if(i==animal.length-1)
 				{
 				   break;	
 				}
 				
-			  }
+			  
 			   //int returnValue=fight(a[x],a[y]);
 			  
 			   /* if(returnValue==1)
@@ -84,7 +84,7 @@ public class Forest
 		        Animal temp;
 		        System.out.println(animal1.name+ "and"+ animal2.name +"ready to fight...");
 		        System.out.println("Fight Begins..........!!");
-				temp=animal1.animalFight(animal2);
+				temp=((Carnivores)animal1).attack(animal2);
 				 if(temp==animal1)
 				{	
 				  System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );

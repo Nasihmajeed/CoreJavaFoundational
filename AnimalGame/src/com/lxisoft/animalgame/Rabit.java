@@ -16,7 +16,7 @@ public class Rabit extends Animal implements Herbivores
   
   
 
-	 public Animal animalFight(Animal enemy)
+	 public Animal escape(Animal enemy)
 	 {
 	  if(this.strengthlevel>enemy.strengthlevel)
 		{	

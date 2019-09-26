@@ -11,14 +11,10 @@ public class Wildbull extends Animal implements Herbivores
 		this.strengthlevel=strengthlevel;
 		this.isAlive=true;
 	}
-	/* public void eat()
-	{
-		System.out.println("wildbull killed Wolf");
-	}
-    */
 	
 	
-	 public Animal animalFight(Animal enemy)
+	
+	 public Animal escape(Animal enemy)
 	 {
 	  if(this.strengthlevel>enemy.strengthlevel)
 		{	

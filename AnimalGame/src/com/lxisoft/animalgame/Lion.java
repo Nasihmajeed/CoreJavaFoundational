@@ -17,7 +17,7 @@ import com.lxisoft.animalgame.*;
 	 System.out.println("Lion ate Rabbit");
   }
    
-   public Animal animalFight(Animal enemy)
+   public Animal attack(Animal enemy)
 	 {
 	  if(this.strengthlevel>enemy.strengthlevel)
 		{	
