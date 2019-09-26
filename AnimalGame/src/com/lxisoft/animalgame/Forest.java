@@ -33,12 +33,12 @@ public class Forest
 	{
 		int a,count,win=0,w=0,i,n=1,r=1;
 		a=animalArr.length;
-		int x=(int) (Math.random()*a);
-		int y=(int) (Math.random()*a);
 		System.out.println("\t\tjungle\n\t\t-------\n\t\tanimals meet and fight begins\n\t\t------------------------------");
 		for(i=0;true;i++)
 		{
 			count=0;
+			int x=(int) (Math.random()*a);
+			int y=(int) (Math.random()*a);
 			for(int j=0;j<a;j++)
 			{
 				if((animalArr[j] instanceof Carnivores)&(animalArr[j].isDead==false))
@@ -52,8 +52,8 @@ public class Forest
 				System.out.println("WINNER=="+animalArr[win].animalName);
 				break;
 			}
-			n=winnerCarnivores(animalArr,n);
-			r=setWinner(animalArr,r);	    
+			n=winnerCarnivores(animalArr,n,x,y);
+			r=setWinner(animalArr,r,x,y);	    
 		}
 	}
 	public void setTigerDetails(int number[],Animal animalArr[])
@@ -74,6 +74,7 @@ public class Forest
 			aTiger.strength=s.nextInt();
 			aTiger.xAxis=(int) (Math.random()*10);
 			aTiger.yAxis=(int) (Math.random()*10);
+			aTiger.range=6;
 			aTiger.isDead=false;
 			animalArr[i]=aTiger;
 			t++;
@@ -97,6 +98,7 @@ public class Forest
 			aLion.strength=s.nextInt();
 			aLion.xAxis=(int) (Math.random()*10);
 			aLion.yAxis=(int) (Math.random()*10);
+			aLion.range=5;
 			aLion.isDead=false;
 			animalArr[j]=aLion;
 			l++;
@@ -120,6 +122,7 @@ public class Forest
 			aBear.strength=s.nextInt();
 			aBear.xAxis=(int) (Math.random()*10);
 			aBear.yAxis=(int) (Math.random()*10);
+			aBear.range=4;
 			aBear.isDead=false;
 			animalArr[k]=aBear;
 			b++;
@@ -143,16 +146,17 @@ public class Forest
 			aRabbit.strength=s.nextInt();
 			aRabbit.xAxis=(int) (Math.random()*10);
 			aRabbit.yAxis=(int) (Math.random()*10);
+			aRabbit.range=3;
 			aRabbit.isDead=false;
 			animalArr[g]=aRabbit;
 			r++;
 		}
 	}
-	public int setWinner(Animal animalArr[],int r)
+	public int setWinner(Animal animalArr[],int r,int x,int y)
 	{
 		int a=animalArr.length;
-		int x=(int) (Math.random()*a);
-		int y=(int) (Math.random()*a);
+		// int x=(int) (Math.random()*a);
+		// int y=(int) (Math.random()*a);
 		Animal animal=null;
 		if((animalArr[x].isDead==false)&(animalArr[y].isDead==false)&(x!=y))
 		{
@@ -163,39 +167,47 @@ public class Forest
 			}
 			if((animalArr[x] instanceof Herbivores)&(animalArr[y] instanceof Carnivores))
 			{
-				System.out.println("\nAttack no---"+(r++));
-				System.out.println("\n "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-				animal=((Herbivores)(animalArr[x])).escape(animalArr[y]);
-				if(animal==animalArr[y])
+				int[] positionX=((Herbivores)(animalArr[x])).graze();
+				int[] positionY=((Carnivores)(animalArr[y])).roam();
+				animalSight();
+				int z=animalLocation(x,y,animalArr,positionX,positionY);
+				if((z<=(animalArr[y].range))|(z<=(animalArr[y].sight)))
 				{
-					System.out.println("\n "+animalArr[y].animalName+" eat "+animalArr[x].animalName);
-					animalArr[x].isDead=true;
-				}
-				if(animal==animalArr[x])
-				{
-					System.out.println(" "+animalArr[x].animalName+"------ESCAPED TO JUNGLE---------");
+					System.out.println("\nAttack no---"+(r++));
+					System.out.println("\n "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
+
+					animal=((Herbivores)(animalArr[x])).escape(animalArr[y]);
+					if(animal==animalArr[y])
+					{
+						System.out.println("\n "+animalArr[y].animalName+" eat "+animalArr[x].animalName);
+						animalArr[x].isDead=true;
+					}
+					if(animal==animalArr[x])
+					{
+						System.out.println(" "+animalArr[x].animalName+"------ESCAPED TO JUNGLE---------");
+					}
 				}
 			}
 		}
+
 		return r;
 	}
-	public int winnerCarnivores(Animal animalArr[],int n)
+	public int winnerCarnivores(Animal animalArr[],int n,int x,int y)
 	{
-		int a=animalArr.length,range=0;
-		int x=(int) (Math.random()*a);
-		int y=(int) (Math.random()*a);
+		int a=animalArr.length,range=0,location=0;
 		Animal temp=null;
 		if((animalArr[x].isDead==false)&(animalArr[y].isDead==false)&(x!=y))
 		{
 			if((animalArr[x] instanceof Carnivores)&(animalArr[y] instanceof Carnivores))
 			{
-				
-				range=animalLocation(x,y,animalArr);
-				int z=(int) (Math.random()*10);
-				if(range<=z)
+				int[] positionX=((Carnivores)(animalArr[x])).roam();
+				int[] positionY=((Carnivores)(animalArr[y])).roam();
+				int z=animalLocation(x,y,animalArr,positionX,positionY);
+				// int z=(int) (Math.random()*10);
+				if(z<=((animalArr[x].range)))
 				{
 					System.out.println("\n\t\tFight no---"+(n++)+"\n\t\t    "+animalArr[x].animalName+"  v  "+animalArr[y].animalName);
-					System.out.println("distance between "+ animalArr[x].animalName +" and "+animalArr[y].animalName+" is ="+range);
+					System.out.println("distance between "+ animalArr[x].animalName +" and "+animalArr[y].animalName+" is ="+z);
 					temp=((Carnivores)(animalArr[x])).fight(animalArr[y]);
 					if(temp==animalArr[x])
 					{
@@ -227,18 +239,19 @@ public class Forest
 			animalArr[i].luck=(int) (Math.random()*100);
 		}
 	}
-	public int animalLocation(int x,int y,Animal animalArr[])
+	public int animalLocation(int x,int y,Animal animalArr[],int positionX[],int positionY[])
 	{
 		
-		int location=(int) (Math.sqrt((animalArr[y].xAxis-animalArr[x].xAxis)*(animalArr[y].xAxis-animalArr[x].xAxis)+(animalArr[y].yAxis-animalArr[x].yAxis)*(animalArr[y].yAxis-animalArr[x].yAxis)));
+		// int location=(int) (Math.sqrt((animalArr[y].xAxis-animalArr[x].xAxis)*(animalArr[y].xAxis-animalArr[x].xAxis)+(animalArr[y].yAxis-animalArr[x].yAxis)*(animalArr[y].yAxis-animalArr[x].yAxis)));
+		int location=(int) (Math.sqrt((positionY[0]-positionX[0])*(positionY[0]-positionX[0])+(positionY[1]-positionX[1])*(positionY[1]-positionX[1])));
 		return location;
 	}
-	// public void location(int position[])
-	// {
-	// 	x1=xCoordinate;
-	// 	y1=yCoordinate;
+	public void animalSight()
+	{
+		for(int i=0;i<animalArr.length;i++)
+		{
+			animalArr[i].sight=(int) (Math.random()*10);
+		}
+	}
 
-	// 	int location=(int)(Math.sqrt)((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
-	// 	System.out.println("location--"+location);
-	// }
 }

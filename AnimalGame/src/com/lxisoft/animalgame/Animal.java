@@ -8,6 +8,8 @@ public abstract class Animal
 	public int luck;
 	public int xAxis;
 	public int yAxis;
+	public int sight;
+	
 	public abstract void run();
 	public abstract void eat();
 	

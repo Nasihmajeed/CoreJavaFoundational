@@ -21,16 +21,18 @@ public class Lion extends Animal implements Carnivores
 			return animal;
 		}
 	}
-	public void roam()
+	public int[] roam()
 	{
 		int x2,y2;
 		int[] position;
 		x2=(int) (Math.random()*10);
 		y2=(int) (Math.random()*10);
-		System.out.println("x2 coordinate--"+x2);
-		System.out.println("y2 coordinate--"+y2);
+		// System.out.println("x2 of lion--"+x2);
+		// System.out.println("y2 of lion--"+y2);
 		position=new int[2];
 		position[0]=x2;
 		position[1]=y2;
+
+		return position;
 	}
 }
