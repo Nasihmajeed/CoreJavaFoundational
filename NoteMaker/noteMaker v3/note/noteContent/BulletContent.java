@@ -2,7 +2,7 @@ package noteMaker.note.noteContent;
 import java.util.ArrayList;
 public class BulletContent extends NoteContent
 {
-	 private ArrayList<String> bulletPoints;  
+	/* private ArrayList<String> bulletPoints;  
   
     public void setBulletPoints(ArrayList<String> bulletPoints)
     {  
@@ -12,27 +12,30 @@ public class BulletContent extends NoteContent
     public ArrayList<String> getBulletPoints() 
     {  
         return this.bulletPoints;  
+    }  */
+     private String[] bulletPoints;  
+  
+    public void setBulletPoints(String[] bulletPoints)
+    {  
+        this.bulletPoints = bulletPoints;  
     }  
   
+    public String[] getBulletPoints() 
+    {  
+        return this.bulletPoints;  
+    }  
+
+
+    public String[] addBulletPoint(String[] bulletPoints, String bulletPointToAdd) 
+    {
+	    String[] newBulletPoints = new String[bulletPoints.length + 1];
+	   // System.arraycopy(bulletPoints, 0, newBulletPoints, 0, bulletPoints.length);
+	    newBulletPoints[newBulletPoints.length - 1] = bulletPointToAdd;
+
+	    return newBulletPoints;
+	}
+  
  }   
-       /* CollectionGetterSetter app = new CollectionGetterSetter();  
-        List<String> titles1 = new ArrayList();  
-        titles1.add("Name");  
-        titles1.add("Address");  
-        titles1.add("Email");  
-        titles1.add("Job");  
-  
-        app.setListTitles(titles1);  
-  
-        System.out.println("Titles 1: " + titles1);  
-  
-        titles1.set(2, "Habilitation");  
-  
-        List<String> titles2 = app.getListTitles();  
-        System.out.println("Titles 2: " + titles2);  
-  
-        titles2.set(0, "Full name");  
-  
-        List<String> titles3 = app.getListTitles();  
-        System.out.println("Titles 3: " + titles3);  */
-  
+       
+
+       

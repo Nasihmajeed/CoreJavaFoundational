@@ -38,7 +38,9 @@ public class DescriptionNote extends Note
 	}
 
 	public void update()
-	{		
+	{
+		
+		
 		((DescContent)getNoteContent()).setLine(null);
 		System.out.println(getTitle()+((DescContent)getNoteContent()).getLine());
 

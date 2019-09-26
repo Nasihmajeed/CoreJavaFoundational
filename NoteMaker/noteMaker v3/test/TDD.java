@@ -1,11 +1,15 @@
 package noteMaker.test;
 import java.util.*;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileReader;
+import java.io.BufferedReader;
+
 import noteMaker.note.Note;
 import noteMaker.note.noteContent.NoteContent;
 import noteMaker.note.noteContent.BulletContent;
@@ -22,8 +26,11 @@ public class TDD
 		NoteContent descContent[]=new DescContent[5];
 		Note bulletNote[]=new BulletNote[5];
 		Note descriptionNote[]=new DescriptionNote[5];
-		
-			 File bulletFile=new File("BulletNote.txt");
+		/*System.out.println("enter choice 1.Bullet 2.Desc");
+		int note=scan.nextInt();
+		if(note==1)
+		{*/
+				 File bulletFile=new File("BulletNote.txt");
 				try{
 						if(bulletFile.createNewFile())
 						{
@@ -50,10 +57,12 @@ public class TDD
 
  			bulletContent[1]=new BulletContent();
  			((BulletContent)bulletContent[1]).setBulletPoints(bulletPoints1);
+ 			//System.out.println(((BulletContent)bulletContent[1]).getBulletPoints()); 
     		 bulletNote[1]=new BulletNote(1,"forest",bulletContent[1]);
 
     		 bulletContent[2]=new BulletContent();
  			((BulletContent)bulletContent[2]).setBulletPoints(bulletPoints2);
+ 			//System.out.println(((BulletContent)bulletContent[2]).getBulletPoints()); 
     		 bulletNote[2]=new BulletNote(2,"headings",bulletContent[2]);
     		
   
@@ -62,20 +71,111 @@ public class TDD
 			  System.out.println("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
 			
 
+			//static void writeToFile()
+			//{
 				try{
-					FileWriter writerObj=new FileWriter(bulletFile);
-					writerObj.write("\nBullet Notes");
-					writerObj.write("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
-					writerObj.close();
+					PrintWriter writerObj1=new PrintWriter(bulletFile);
+					writerObj1.println("\nBullet Notes");
+					writerObj1.println("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
+					writerObj1.println("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
+					writerObj1.close();
 					System.out.println("Success");
 				}
 				catch(IOException e)
 					{
 						System.out.println("error");
 					}
-				   
-		
+			//}		
+	//ArrayList<String> bulletPoints4= new ArrayList<String>();
+	String[] bulletPoints= new String[10];
+	ArrayList<Note> bulletNotes=new ArrayList<Note>();
+    try{
+    FileReader fileReader = new FileReader("BulletNote.txt");
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String line;
+    String[] strings;
+     int bid=1,bpid=1;
+     String[] x=new String[10];
+    while ((line = bufferedReader.readLine()) != null) {
+        strings = line.split(",");
+       // int id = strings[0];
+        int id =  Integer.parseInt(strings[0]);
+         String title = strings[1];
+         NoteContent[] bulletContent = new BulletContent[10];
+       
+         bulletContent[bid]=new BulletContent();
+        //  bulletPoints[bpid]=new String();
+         String content[];
+         int pt=1;
+         //=strings[2];
+          for(int i=2;i<strings.length;i++)
+         {
+         	bulletPoints[pt]=strings[i];
+         	pt++;
+         	//content=((BulletContent)bulletContent[bid]).addBulletPoint(bulletPoints,strings[i]);
+			//bulletPoints[i]=content;
+			//System.out.println(" \t"+((BulletContent)bulletContent[bid])+" ");
+         }
+
+      for(int k=1;k<bulletPoints.length;k++)
+        {	
+        	
+        	if(bulletPoints[k]!=null)
+        	{
+       	  System.out.print(bulletPoints[k]+"\n");
+       	}
+
+       	}
+        bulletPoints4.add(content);
+       System.out.println(bulletPoints[bpid]);
+        bulletContent.setBulletPoints(bulletPoints4);
+        System.out.println(bulletPoints);
+         ((BulletContent)bulletContent[bid]).setBulletPoints(bulletPoints);
+         
+        
+        
+        for(int j=1;j<x.length;j++)
+         	{	
+         		x[j]=new String();
+         		System.out.println(x[j]);
+         	}
+        System.out.println(((BulletContent)bulletContent[i]).getBulletPoints());
+        noteContent=strings[2];
+         Note newNote = new BulletNote(id,title,bulletContent[bid]);
+         bulletNotes.add(newNote);
+     //    System.out.println(newNote.getId()+","+newNote.getTitle()+","+((BulletContent)(newNote.getNoteContent())).getBulletPoints());
+         
+         bpid++;
+         bid++;
+    }
+    fileReader.close();
+     
+    }catch ( IOException e ) {
+        e.printStackTrace();
+    }
+
+    PrintWriter printer=null;
+    String printerContent;
+      try {
+          printer = new PrintWriter("BulletNote.txt");
+            for (Note o : bulletNotes) {
+            printerContent=o.getId()+","+o.getTitle()+","+o.getNoteContent();
+            //printer.println(o.getId()+","+o.getTitle()+","+o.getNoteContent());
+            printer.println(printerContent);
+
+            }
+            printer.close();
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } 
+
+
+
+
+
+		/*}
+		if(note==2)
+		{*/
 			 File descFile=new File("Description.txt");
 				try{
 						if(descFile.createNewFile())
@@ -107,18 +207,22 @@ public class TDD
 			System.out.println(descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
 			
 			try{
-					FileWriter writerObj=new FileWriter(descFile);
-					writerObj.write("\nDescription Notes");
-					writerObj.write("\n"+descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
-					writerObj.close();
+					PrintWriter writerObj2=new PrintWriter(descFile);
+					writerObj2.println("\nDescription Notes");
+					writerObj2.println("\n"+descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
+					writerObj2.println("\n"+descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
+					writerObj2.close();
 					System.out.println("Success");
 				}
+
+			
 				catch(IOException e)
 					{
 						System.out.println("error");
 					}
 
+
+		//}
 		while(true)
 		{
 			System.out.println("\nenter choice 1.create  2.read 3.delete  4.update 5.exit");
@@ -152,12 +256,12 @@ public class TDD
 		    		 System.out.println(bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
 				
 		    		 try{
-					FileWriter writerObj=new FileWriter(bulletFile);
-					writerObj.write("\nBullet Notes");
-					writerObj.write("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
-					writerObj.close();
+					PrintWriter writerObj3=new PrintWriter(bulletFile);
+					writerObj3.println("\nBullet Notes");
+					writerObj3.println("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
+					writerObj3.println("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
+					writerObj3.println("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
+					writerObj3.close();
 					System.out.println("Success");
 				}
 				catch(IOException e)
@@ -178,18 +282,18 @@ public class TDD
 				((DescContent)descContent[3]).setLine(descCont);
 				descriptionNote[3]=new DescriptionNote(3,descTitle,descContent[3]);
 				
-				System.out.println(descriptionNote[1].getId()+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
-				System.out.println(descriptionNote[2].getId()+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
-				System.out.println(descriptionNote[3].getId()+descriptionNote[3].getTitle()+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
+				System.out.println(descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+"\t"+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
+				System.out.println(descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+"\t"+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
+				System.out.println(descriptionNote[3].getId()+"\t"+descriptionNote[3].getTitle()+"\t"+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
 				
 
 				 try{
-					FileWriter writerObj=new FileWriter(descFile);
-					writerObj.write("\nDescription Notes");
-					writerObj.write("\n"+descriptionNote[1].getId()+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[2].getId()+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[3].getId()+descriptionNote[3].getTitle()+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
-					writerObj.close();
+					PrintWriter writerObj4=new PrintWriter(descFile);
+					writerObj4.println("\nDescription Notes");
+					writerObj4.println("\n"+descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+"\t"+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
+					writerObj4.println("\n"+descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+"\t"+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
+					writerObj4.println("\n"+descriptionNote[3].getId()+"\t"+descriptionNote[3].getTitle()+"\t"+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
+					writerObj4.close();
 					System.out.println("Success");
 				}
 				catch(IOException e)
@@ -242,17 +346,22 @@ public class TDD
 					}
 					
 					try{
-					FileWriter writerObj=new FileWriter("BulletNote.txt");
-					writerObj.write("\nBullet Notes");
-					writerObj.write("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+"\t"+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
-					writerObj.close();
+					PrintWriter writerObj5=new PrintWriter("BulletNote.txt");
+					writerObj5.println("\nBullet Notes");
+					writerObj5.println("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
+					writerObj5.println("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+"\t"+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
+					writerObj5.println("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
+					//writerObj.write(getId()+getTitle()+((BulletContent)getNoteContent()).getBulletPoints());
+					writerObj5.close();
+					//System.out.println("Success");
 				}
 				catch(Exception e)
 					{
 						e.printStackTrace();
+						//System.out.println(e);
 					}
+				
+
 
 				}
 				if(note==2)
@@ -277,12 +386,12 @@ public class TDD
 					}
 
 					 try{
-					FileWriter writerObj=new FileWriter(descFile);
-					writerObj.write("\nDescription notes");
-					writerObj.write("\n"+descriptionNote[1].getId()+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[2].getId()+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[3].getId()+descriptionNote[3].getTitle()+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
-					writerObj.close();
+					PrintWriter writerObj6=new PrintWriter(descFile);
+					writerObj6.println("\nDescription notes");
+					writerObj6.println("\n"+descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+"\t"+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
+					writerObj6.println("\n"+descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+"\t"+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
+					writerObj6.println("\n"+descriptionNote[3].getId()+"\t"+descriptionNote[3].getTitle()+"\t"+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
+					writerObj6.close();
 					System.out.println("Success");
 				}
 				catch(IOException e)
@@ -315,15 +424,19 @@ public class TDD
 					}
 
 					try{
-					FileWriter writerObj=new FileWriter("BulletNote.txt");
-					writerObj.write("\nBullet Notes");
-					writerObj.write("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+"\t"+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
-					writerObj.close();
+					PrintWriter writerObj7=new PrintWriter("BulletNote.txt");
+					writerObj7.println("Bullet Notes");
+					writerObj7.println(bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
+					//writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+"\t"+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
+					//writerObj.write("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
+					//writerObj.write(getId()+getTitle()+((BulletContent)getNoteContent()).getBulletPoints());
+					writerObj7.close();
+					//System.out.println("Success");
 				}
 				catch(Exception e)
 					{
 						e.printStackTrace();
+						//System.out.println(e);
 					}
 				
 				}
@@ -345,11 +458,12 @@ public class TDD
 					}
 
 					 try{
-					FileWriter writerObj=new FileWriter(descFile);
-					writerObj.write("\nDescription notes");
-					writerObj.write("\n"+descriptionNote[1].getId()+descriptionNote[1].getTitle()+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
-					writerObj.write("\n"+descriptionNote[2].getId()+descriptionNote[2].getTitle()+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
-					writerObj.close();
+					PrintWriter writerObj8=new PrintWriter(descFile);
+					writerObj8.println("\nDescription notes");
+					writerObj8.println("\n"+descriptionNote[1].getId()+"\t"+descriptionNote[1].getTitle()+"\t"+((DescContent)(descriptionNote[1].getNoteContent())).getLine());
+					writerObj8.println("\n"+descriptionNote[2].getId()+"\t"+descriptionNote[2].getTitle()+"\t"+((DescContent)(descriptionNote[2].getNoteContent())).getLine());
+					//writerObj.write("\n"+descriptionNote[3].getId()+descriptionNote[3].getTitle()+((DescContent)(descriptionNote[3].getNoteContent())).getLine());
+					writerObj8.close();
 					System.out.println("Success");
 				}
 				catch(IOException e)

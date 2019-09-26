@@ -26,6 +26,7 @@ public class BulletNote extends Note
 			String line = reader.readLine();
 			while (line != null) {
 				System.out.println(line);
+				// read next line
 				line = reader.readLine();
 			}
 			reader.close();
@@ -36,22 +37,11 @@ public class BulletNote extends Note
 
 	public void delete()
 	{
+
 		((BulletContent)getNoteContent()).setBulletPoints(null);
 		System.out.println(getId()+getTitle()+((BulletContent)getNoteContent()).getBulletPoints());
 	
-			try{
-					FileWriter writerObj=new FileWriter("BulletNote.txt");
-					writerObj.write("\nBullet Notes");
-					writerObj.write("\n"+bulletNote[1].getId()+"\t"+bulletNote[1].getTitle()+"\t"+((BulletContent)(bulletNote[1].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[2].getId()+"\t"+bulletNote[2].getTitle()+"\t"+((BulletContent)(bulletNote[2].getNoteContent())).getBulletPoints());
-					writerObj.write("\n"+bulletNote[3].getId()+"\t"+bulletNote[3].getTitle()+"\t"+((BulletContent)(bulletNote[3].getNoteContent())).getBulletPoints());
-					writerObj.write(getId()+getTitle()+((BulletContent)getNoteContent()).getBulletPoints());
-					writerObj.close();
-				}
-				catch(Exception e)
-					{
-						System.out.println("error");
-					}
+			
 	}
 	
 	public void update()
