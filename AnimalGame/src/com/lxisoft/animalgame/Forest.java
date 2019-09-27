@@ -6,13 +6,14 @@ import com.lxisoft.animalgame.*;
 
 public class Forest
 {
+	Animal[] animal=new Animal[10];
 	
-	public void print()
+	public void aninalInitialisation()
 	{
 		// Scanner scan=new Scanner(System.in);
 
 		
-		Animal[] animal=new Animal[10];
+		
 		animal [0]=new Tiger();
 		animal [1]=new Rabbit();
 		animal [2]=new Lion();
@@ -22,112 +23,134 @@ public class Forest
 		animal [6]=new Cheetah();
 		animal [7]=new Deer();
 		animal [8]=new Elephant();
-		animal [9]=new Wolf();
-
-		
-		
+		animal [9]=new Wolf();		
 
 		animal[0].name="tiger";
-		animal[0].strength=90;
 		animal[0].isDead=false;
-		animal[0].range=35;
-		animal[0].sight=15;
 		animal[0].hungerlevel=Hunger.STARVING;
 		animal[0].newLocation[0]=random(50);
 		animal[0].newLocation[1]=random(50);
 		
-		animal[1].name="rabbit";
-		animal[1].strength=30;
+		animal[1].name="rabbit";		
 		animal[1].isDead=false;
 		((Hanimal)(animal[1])).luckFactor=2;
-		animal[1].range=15;
-		animal[1].sight=5;
 		animal[1].hungerlevel=Hunger.STARVING;
 		animal[1].newLocation[0]=random(50);
 		animal[1].newLocation[1]=random(50);
 		
 		animal[2].name="lion";
-		animal[2].strength=100;
 		animal[2].isDead=false;
-		animal[2].range=35;
-		animal[2].sight=15;
 		animal[2].hungerlevel=Hunger.STARVING;
 		animal[2].newLocation[0]=random(50);
 		animal[2].newLocation[1]=random(50);
 		
 		animal[3].name="peacook";
-		animal[3].strength=40;
 		animal[3].isDead=false;
 		((Hanimal)(animal[3])).luckFactor=3;
-		animal[3].range=25;
-		animal[3].sight=5;
 		animal[3].hungerlevel=Hunger.STARVING;
 		animal[3].newLocation[0]=random(50);
 		animal[3].newLocation[1]=random(50);
 		
-		animal[4].name="zeebra";
-		animal[4].strength=45;
+		animal[4].name="zeebra";		
 		animal[4].isDead=false;
 		((Hanimal)(animal[4])).luckFactor=4;
-		animal[4].range=25;
-		animal[4].sight=5;
 		animal[4].hungerlevel=Hunger.STARVING;
 		animal[4].newLocation[0]=random(50);
 		animal[4].newLocation[1]=random(50);
 		
 		animal[5].name="fox";
-		animal[5].strength=10;
 		animal[5].isDead=false;
-		animal[5].range=25;
-		animal[5].sight=10;
 		animal[5].hungerlevel=Hunger.STARVING;
 		animal[5].newLocation[0]=random(50);
 		animal[5].newLocation[1]=random(50);
 		
 		animal[6].name="cheetah";
-		animal[6].strength=80;
 		animal[6].isDead=false;
-		animal[6].range=25;
-		animal[6].sight=10;
 		animal[6].hungerlevel=Hunger.STARVING;
 		animal[6].newLocation[0]=random(50);
 		animal[6].newLocation[1]=random(50);
 		
 		animal[7].name="deer";
-		animal[7].strength=50;
 		animal[7].isDead=false;
 		((Hanimal)(animal[7])).luckFactor=4;
-		animal[7].range=20;
-		animal[7].sight=5;
 		animal[7].hungerlevel=Hunger.STARVING;
 		animal[7].newLocation[0]=random(50);
 		animal[7].newLocation[1]=random(50);
 		
 		animal[8].name="elephant";
-		animal[8].strength=70;
 		animal[8].isDead=false;
 		((Hanimal)(animal[8])).luckFactor=5;
-		animal[8].range=20;
-		animal[8].sight=10;
 		animal[8].hungerlevel=Hunger.STARVING;
 		animal[8].newLocation[0]=random(50);
 		animal[8].newLocation[1]=random(50);
 		
 		animal[9].name="wolf";
-		animal[9].strength=60;
 		animal[9].isDead=false;
-		animal[9].range=28;
-		animal[9].sight=15;
 		animal[9].hungerlevel=Hunger.STARVING;
 		animal[9].newLocation[0]=random(50);
 		animal[9].newLocation[1]=random(50);
 
-
-		
-		meet(animal);
-
-
 	}
+
+	public void easyMode()
+	{
+		animal[0].strength=90;	animal[0].range=35;	animal[0].sight=25;
+		animal[1].strength=30;	animal[1].range=15;	animal[1].sight=10;
+		animal[2].strength=100; animal[2].range=35; animal[2].sight=25;
+		animal[3].strength=40;  animal[3].range=25;	animal[3].sight=10;
+		animal[4].strength=45;  animal[4].range=25;	animal[4].sight=10;
+		animal[5].strength=10; 	animal[5].range=25;	animal[5].sight=25;
+		animal[6].strength=80;	animal[6].range=25;	animal[6].sight=25;
+		animal[7].strength=50;	animal[7].range=20;	animal[7].sight=10;
+		animal[8].strength=70;	animal[8].range=20;	animal[8].sight=20;
+		animal[9].strength=60; 	animal[9].range=28;	animal[9].sight=20;
+		meet();
+	}
+	public void mediumMode()
+	{	
+		animal[0].strength=80;	animal[0].range=35;	animal[0].sight=20;
+		animal[1].strength=25;	animal[1].range=15;	animal[1].sight=8;
+		animal[2].strength=90; animal[2].range=35; animal[2].sight=20;
+		animal[3].strength=30;  animal[3].range=25;	animal[3].sight=8;
+		animal[4].strength=40;  animal[4].range=25;	animal[4].sight=8;
+		animal[5].strength=10; 	animal[5].range=25;	animal[5].sight=10;
+		animal[6].strength=70;	animal[6].range=25;	animal[6].sight=10;
+		animal[7].strength=40;	animal[7].range=20;	animal[7].sight=8;
+		animal[8].strength=60;	animal[8].range=20;	animal[8].sight=15;
+		animal[9].strength=50; 	animal[9].range=28;	animal[9].sight=15;
+		meet();
+	}	
+	public void hardMode()
+	{
+		animal[0].strength=70;	animal[0].range=35;	animal[0].sight=15;
+		animal[1].strength=20;	animal[1].range=15;	animal[1].sight=5;
+		animal[2].strength=80; animal[2].range=35; animal[2].sight=15;
+		animal[3].strength=25;  animal[3].range=25;	animal[3].sight=5;
+		animal[4].strength=35;  animal[4].range=25;	animal[4].sight=5;
+		animal[5].strength=10; 	animal[5].range=25;	animal[5].sight=10;
+		animal[6].strength=60;	animal[6].range=25;	animal[6].sight=10;
+		animal[7].strength=30;	animal[7].range=20;	animal[7].sight=5;
+		animal[8].strength=50;	animal[8].range=20;	animal[8].sight=10;
+		animal[9].strength=40; 	animal[9].range=28;	animal[9].sight=10;
+		meet();
+	} 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	public int random(int max)
 	{
 		int random=(int)(max* Math.random());
@@ -166,7 +189,7 @@ public class Forest
 		}
 		else
 		{
-			meet(array);
+			meet();
 		}
 
 
@@ -233,8 +256,7 @@ public class Forest
 			if(animal[i]!=animal[near[j]])
 			{
 				animal[near[j]].strength=animal[near[j]].strength-15;
-
-			}
+  			}
 		}
 		return animal;
 	}
@@ -263,7 +285,7 @@ public class Forest
 		}
 		return animal;
 	}
-	public void meet(Animal[] animal)
+	public void meet()
 	{
 		int count=0,locationX=0,locationY=0;
 		int random1=0;
@@ -429,10 +451,10 @@ public class Forest
 					}
 				}
 				
-			}
-		
+			}		
 		
 		winning(win, animal);
    
 	}
 }
+ 

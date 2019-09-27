@@ -1,14 +1,17 @@
 package com.lxisoft.test;
-import com.lxisoft.animalgame.Forest;
+import com.lxisoft.animalgame.Game;
 public class TDD
 {
 	
 	public static void main(String[] args)
 	{
 		
-		Forest f=new Forest();
-		f.print();
+		Game newgame= new Game();
+		newgame.gameOn();
 		
-		}
+	}
+	static{
+		System.out.println("welcome to OZ Forest \n "+" Enter at your own risk \n");
+	}
 
 }
