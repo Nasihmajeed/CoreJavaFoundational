@@ -58,18 +58,19 @@ public class Animalcarnivores extends Animal implements Carnivore
 	}
 	public Animal fight(Animal enemy,Animal[]animals,int[]nearbyAnimals,int count)
 	{       
-		Animal temp;
 		for(int i=0;i<count;i++)
 		{
 			if(animals[nearbyAnimals[i]].strength>enemy.strength)
 			{
-				temp=animals[nearbyAnimals[i]];
-				win=temp;
-				System.out.println(temp.name +"wins\n");
+				win=animals[nearbyAnimals[i]];
+				enemy.isDead=true;
+				System.out.println(win.name +"wins\n");
 			}
 			else
 			{
+				animals[nearbyAnimals[i]].isDead=true;
 				win=enemy;
+
 			}
 		}
 		return win;		

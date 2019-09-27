@@ -204,24 +204,23 @@ public class Forest
 			{	
 				if(near==1)
 				{
-				    win=((Carnivore)(animal_array[nearbyAnimals[0]])).fight(animal_array[random2]);
+				    win=((Carnivore)(animal_array[random1])).fight(animal_array[random2]);
 				    for(int i=0;i<near;i++)
 				    {
-					    if(animal_array[nearbyAnimals[0]].name==win.name) animal_array=isDead(i,random2,animals);
+					    if(animal_array[random1].name==win.name) animal_array=isDead(i,random2,animals);
 					}
 				}  
 				if(near==2)
 				{
-					win=((Carnivore)(animal_array[nearbyAnimals[0]])).fight(animal_array[random2],animal_array[nearbyAnimals[1]]);
+					win=((Carnivore)(animal_array[random1])).fight(animal_array[random2],animal_array[nearbyAnimals[1]]);
 					for(int i=0;i<near;i++)
 					{
 					    if(animal_array[i].name==win.name) animal_array=isWeak(i,animal_array,nearbyAnimals,near);
 			        }   
-		 	    
 		 	    }
 		 	    if(near>=3)
 		 	    {
-		 	    	win=((Carnivore)(animal_array[nearbyAnimals[0]])).fight(animal_array[random2],animal_array,nearbyAnimals,near);
+		 	    	win=((Carnivore)(animal_array[random1])).fight(animal_array[random2],animal_array,nearbyAnimals,near);
 		 	    	for(int i=0;i<near;i++)
 		 	    	{
 		 	    		if(animal_array[i].name==win.name) animal_array=isWeak(i,animal_array,nearbyAnimals,near);
@@ -296,6 +295,7 @@ public class Forest
 	 	public Animal[] setLocation(Animal[] animals)
 	 	{
 	 		boolean isRange=false;
+	 		int[] newLocation=new int[2];
 	 		for(int i=0;i<animals.length;i++)													// creatting new location of animal in range..//
 	 		{
 	 			if(animals[i].isDead==false)
@@ -304,8 +304,8 @@ public class Forest
 	 				{
 	 					do
 	 					{
-	 						animals[i].location=((Animalherbivores)(animals[i])).graze();
-	 						isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],animals[i].location);
+	 						newLocation=((Animalherbivores)(animals[i])).graze();
+	 						isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],newLocation);
 			 			}while (isRange);
 
 	 				}
@@ -314,10 +314,10 @@ public class Forest
 			 			do
 			 			{
 			 				animals[i].location=((Animalcarnivores)(animals[i])).roam();  
-			 				isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],animals[i].location);
+			 				isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],newLocation);
 			 			}while(isRange);
 
-	 				}
+	 				}animals[i].location=newLocation;
 	 			}
 	 		}
 	 		return animals;	
@@ -330,7 +330,7 @@ public class Forest
 	  			if(animals[i].isDead==false)
 	  			{
 		  			System.out.print(i + " ");
-					animals[i].getDetails();
+					animals[i].getAnimalDetails();
 		 			System.out.print("current: \t"+animals[i].location[0] +"\t"+animals[i].location[1]+"\t");
 		 			System.out.println(animals[i].hunger);
 				}

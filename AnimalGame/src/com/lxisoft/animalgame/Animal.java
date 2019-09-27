@@ -10,7 +10,7 @@ public abstract class Animal
 	Hunger hunger;
 	int[] location=new int[2];
 
- 	public void getDetails()
+ 	public void getAnimalDetails()
 	{
 		System.out.print("\t" + name + "  Strength= " + strength +"\tDefault location: "+location[0]+"  "+location[1]+" ");	
 	}
