@@ -1,14 +1,19 @@
 package com.lxisoft.test;
-import com.lxisoft.animalgame.Forest;
-import com.lxisoft.animalgame.Animal;
+import com.lxisoft.animalgame.*;
 public class Tdd
 {
 	public static void main(String[] args)
 	{
-		Forest forest=new Forest();
-		forest.print();
-
-
+		Game gameLevel=new Game();
+		gameLevel.setGameLevel();
 
 	}
+	static
+	{
+
+			String name="Galloway";	
+			System.out.println("\n");
+			System.out.println("\t    Welcome to  "+name +"   Forest");
+	}
+
 }
