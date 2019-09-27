@@ -9,6 +9,7 @@ public abstract class Animal
 	boolean isAlive;
 	int strengthlevel;
 	
+	
 	public void display()
 	{
 		System.out.println(" name= "+this.name+ "strengthlevel= "+this.strengthlevel +"\n");

@@ -12,6 +12,12 @@ public class Wildbull extends Animal implements Herbivores
 		this.isAlive=true;
 	}
 	
+	public int luckfactor()
+	{
+		int luckfactor= (int)(Math.random()*10);
+		
+		return luckfactor;
+	}
 	
 	
 	 public Animal escape(Animal enemy)

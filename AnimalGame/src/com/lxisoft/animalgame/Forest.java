@@ -38,12 +38,31 @@ public class Forest
     }
 	// meet the animals which are ready to fight
 	public void meet(Animal[] a)
-    {   
-     	int i=0,x,y,c=0;
+    {  
+	   int w=0,win=0;
+	do{
+		
+		for(int i=0;i<animal.length;i++)
+		{
+			if(a[i].isAlive==true)
+			{
+				w++;
+				w=i;
+				
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		if(w!=1)
+		{	int x,y,c=0;
 	     
-	    while(i<animal.length)
-		{   
-	        i++;
+	       
+	    
 			c=c++;
 			do
 			{
@@ -56,24 +75,17 @@ public class Forest
 			  while(a[x] instanceof Herbivores ||x==y || a[x].isAlive==false || a[y].isAlive==false);
 		      
 			    fight(a[x],a[y]);
-				if(i==animal.length-1)
-				{
-				   break;	
-				}
 				
-			  
-			   //int returnValue=fight(a[x],a[y]);
-			  
-			   /* if(returnValue==1)
-			   {
-				   break;
-			   }  */
-           
 				
 			
 		}
-				
-	}	
+		else
+		   {
+			   System.out.println("\n"+"....."+w.name+"is the king of the Jungle"+"..... ");
+		   }   
+		   
+	}while(w!=1);
+   }	
 	 // this method helds the fighting of animals
 	
 
@@ -102,32 +114,14 @@ public class Forest
 				       }
 					   
 					   
-		winner(animal);
-		//int returnValue=winner(animal);
-	    //return returnValue;
-
-	}
-	
-	
-	public void winner (Animal[] a)
-	{	
-		int x=0,i,win=0;
-		for(i=0;i<animal.length-1;i++)
-		{
-			if(a[i].isAlive==true)
-			{
-				x++;
-				win=i;
-				
-			}
-		}
-			if(x==1)
-			{
-				System.out.println("\n"+"....."+a[win].name+"is the king of the Jungle"+"..... ");	
-            //return 1;  			
-			}
-		//return 0;
+		meet(animal);
 		
+
+	}
+	
 	}
 
-}
+		
+		
+	
+ 
