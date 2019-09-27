@@ -48,6 +48,7 @@ public class Forest
 			System.out.println("enter the  strength of tiger"+(i+1));
 			animal[i].strength=sc.nextInt();
 			animal[i].isDead=false;
+			animal[i].speed=100;
 			animal[i].range=(int) (Math.random() * 40+1);
 		}x=i;
 		return x;
@@ -65,6 +66,7 @@ public class Forest
 			System.out.println("enter the  strength of lion"+(i+1));
 			animal[x].strength=sc.nextInt();
 			animal[x].isDead=false;
+			animal[x].speed=80;
 			animal[x].range=(int) (Math.random() * 50+1);
 			x++;
 			
@@ -84,6 +86,7 @@ public class Forest
 			System.out.println("enter the  strength of bear"+(i+1));
 			animal[y].strength=sc.nextInt();
 			animal[y].isDead=false;
+			animal[y].speed=30;
 			animal[y].range=(int) (Math.random() * 30+1);
 			y++;
 			
@@ -102,6 +105,7 @@ public class Forest
 			System.out.println("enter the  strength of rabbit"+(i+1));
 			animal[z].strength=sc.nextInt();
 			animal[z].isDead=false;
+			animal[z].speed=60;
 			animal[z].range=(int) (Math.random() * 10+1);
 			z++;
 		}
@@ -175,7 +179,7 @@ public class Forest
 				System.out.println("\n\t\t\t ********* THE WINNER IS "+animal[win].name+" *********\n");
 				for  (i=0;i<animal.length;i++)
 				{
-					System.out.println(animal[i].name+ "-->  luck-"+animal[i].luck+ "  //  dead-"+animal[i].isDead+"  //  hunger-"+animal[i].hunger);
+					System.out.println(animal[i].name+ "-->  luck-"+animal[i].luck+ "  //  dead-"+animal[i].isDead+"  //  hunger-"+animal[i].hunger+" // speed-"+animal[i].speed);
 				}
 				break;
 			}
