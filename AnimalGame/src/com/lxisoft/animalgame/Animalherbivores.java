@@ -10,6 +10,8 @@ public class Animalherbivores extends Animal implements Herbivores
 		int luckyfactor=(int)(10* Math.random());
 		if(luckyfactor<=((Animalherbivores)(this)).luckyfact)
 		{
+			System.out.println("luckyfact  " +this.luckyfact);
+			System.out.println("luckfactor  "+ luckyfactor);
 			System.out.println("lucky animal  " +((Animalherbivores)(this)).name+"  escapped \n");
 			escape=true;
 		}

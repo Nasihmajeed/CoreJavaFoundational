@@ -4,7 +4,7 @@ import  java.lang.Math;
 
 public abstract class Animal
 {
-	int strength,range,forsight;
+	int strength,range,forsight,speed;
 	public String name;
 	boolean isDead;
 	Hunger hunger;

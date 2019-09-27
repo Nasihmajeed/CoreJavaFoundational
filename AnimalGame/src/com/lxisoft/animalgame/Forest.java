@@ -45,6 +45,7 @@ public class Forest
 			animals[0].location[0]=randomGeneration(50);
 			animals[0].location[1]=randomGeneration(50);
 			animals[0].range=50;
+			animals[0].speed=100;
 			animals[0].forsight=10;
 
 			rabbit.name="Rabbit";
@@ -56,6 +57,7 @@ public class Forest
 			animals[1].location[0]=randomGeneration(50);
 			animals[1].location[1]=randomGeneration(50);
 			animals[1].range=20;
+			animals[1].speed=45;
 			animals[1].forsight=5;
 
 			lion.name="Lion";
@@ -66,6 +68,7 @@ public class Forest
 			animals[2].location[0]=randomGeneration(50);
 			animals[2].location[1]=randomGeneration(50);
 			animals[2].range=60;
+			animals[2].speed=80;
 			animals[2].forsight=10;
 
 			elephant.name="Elephant";
@@ -77,6 +80,7 @@ public class Forest
 			animals[3].location[0]=randomGeneration(50);
 			animals[3].location[1]=randomGeneration(50);
 			animals[3].range=40;
+			animals[3].speed=40;
 			animals[3].forsight=9;
 
 			buffallo.name="Buffallo";
@@ -87,6 +91,7 @@ public class Forest
 			animals[4].location[0]=randomGeneration(50);
 			animals[4].location[1]=randomGeneration(50);
 			animals[4].range=30;
+			animals[4].speed=45;
 			animals[4].forsight=6;
 
 			crocodile.name="Crocodile";
@@ -97,6 +102,7 @@ public class Forest
 			animals[5].location[0]=randomGeneration(50);
 			animals[5].location[1]=randomGeneration(50);
 			animals[5].range=30;
+			animals[5].speed=25;
 			animals[5].forsight=4;
 
 			deer.name="Deer";
@@ -108,6 +114,7 @@ public class Forest
 			animals[6].location[0]=randomGeneration(50);
 			animals[6].location[1]=randomGeneration(50);
 			animals[6].range=50;
+			animals[6].speed=90;
 			animals[6].forsight=5;
 
 			fox.name="Fox";
@@ -118,6 +125,7 @@ public class Forest
 			animals[7].location[0]=randomGeneration(50);
 			animals[7].location[1]=randomGeneration(50);
 			animals[7].range=50;
+			animals[7].speed=90;
 			animals[7].forsight=8;
 
 
@@ -130,6 +138,7 @@ public class Forest
 			animals[8].location[0]=randomGeneration(50);
 			animals[8].location[1]=randomGeneration(50);
 			animals[8].range=50;
+			animals[8].speed=50;
 			animals[8].forsight=3;
 
 			zeebra.name="Zeebra";
@@ -141,6 +150,7 @@ public class Forest
 			animals[9].location[0]=randomGeneration(50);
 			animals[9].location[1]=randomGeneration(50);
 			animals[9].range=50;
+			animals[9].speed=60;
 			animals[9].forsight=5;
 
            animalMeet(animals);
@@ -200,6 +210,8 @@ public class Forest
 			}while(nextAnimal);
 			random1=nearbyAnimals[0];
 			boolean escape=isEscape(animal_array,nearbyAnimals,random2,near);
+		
+		
 			if(escape==false)
 			{	
 				if(near==1)
@@ -340,23 +352,32 @@ public class Forest
 	 	{
 	 		boolean escape=false;
 			if(count==1)
-			{																														//..checking animal is escape or not during fight..//
-			 System.out.println(animal_array[nearbyAnimals[0]].name + " meets " +animal_array[random2].name);
-				 if(animal_array[random2] instanceof Herbivores)
-			 	{
-		 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
-					escape=((Animalherbivores)(animal_array[random2])).luck();
-						  
-				}
+			{																												//..checking animal is escape or not during fight..//
+				System.out.println(animal_array[nearbyAnimals[0]].name + " meets " +animal_array[random2].name);
+				if(animal_array[nearbyAnimals[0]].speed > animal_array[random2].speed)
+					{
+						 if(animal_array[random2] instanceof Herbivores)
+					 	{
+					 		//System.out.println("\n speed of rand1  "+animal_array[nearbyAnimals[0]].speed+"\n speed of rand2  " +animal_array[random2].speed);
+				 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+							//System.out.println(((Animalherbivores)(animal_array[random2])).luckyfact);
+							escape=((Animalherbivores)(animal_array[random2])).luck();
+								  
+						}
+					}	
 			}
 			if(count==2)
 			{
 			 System.out.println(animal_array[nearbyAnimals[0]].name+"  "+animal_array[nearbyAnimals[1]].name + " meets " +animal_array[random2].name);
-				 if(animal_array[random2] instanceof Herbivores)
-			 	{		
-			 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
-						escape=((Animalherbivores)(animal_array[random2])).luck();
-						  
+			 if(animal_array[nearbyAnimals[0]].speed > animal_array[random2].speed)
+				{
+					if(animal_array[random2] instanceof Herbivores)
+				 	{		
+				 			//System.out.println("\n speed of rand1  "+animal_array[nearbyAnimals[0]].speed+"\n speed of rand2  " +animal_array[random2].speed);
+				 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+							//System.out.println(((Animalherbivores)(animal_array[random2])).luckyfact);
+							escape=((Animalherbivores)(animal_array[random2])).luck(); 
+					}
 				}
 			}
 			if(count>=3)
