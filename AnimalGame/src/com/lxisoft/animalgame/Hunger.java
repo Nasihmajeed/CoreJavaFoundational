@@ -7,5 +7,4 @@ public enum Hunger
 	OVERFED
 }
 
-//Hunger hunger=Hunger.HUNGRIEST;	
-//System.out.println("hungerlevel" +hunger);
+

@@ -20,13 +20,13 @@ public class Animalherbivores extends Animal implements Herbivores
 		return escape;
 	}
 	public int[] graze()
+	{
+		int[] position=new int[2];
+		for(int i=0;i<position.length;i++)
 		{
-			int[] position=new int[2];
-			for(int i=0;i<position.length;i++)
-			{
-				position[i]=(int)(Math.random() *50);
-			}
-			return position;
-		}	
+			position[i]=(int)(Math.random() *50);
+		}
+		return position;
+	}	
 
 }
