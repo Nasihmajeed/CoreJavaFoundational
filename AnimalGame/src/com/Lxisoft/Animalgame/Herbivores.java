@@ -1,5 +1,7 @@
 package com.Lxisoft.Animalgame;	
- import com.Lxisoft.Animalgame.Animal;
+import java.lang.*;
+ import com.Lxisoft.Animalgame.*;
  public interface Herbivores{
- //public abstract escape(Animal anim);
+ public abstract void escape();
+ int luck=(int)(Math.random()*10);
    }

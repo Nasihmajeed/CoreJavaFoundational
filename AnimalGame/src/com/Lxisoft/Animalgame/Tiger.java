@@ -1,5 +1,5 @@
  package com.Lxisoft.Animalgame;
-import com.Lxisoft.Animalgame.Tiger;
+import com.Lxisoft.Animalgame.*;
 public class Tiger extends Animal implements Carnivores{
 public Tiger(int strg,String name){
 	 this.strg=strg;

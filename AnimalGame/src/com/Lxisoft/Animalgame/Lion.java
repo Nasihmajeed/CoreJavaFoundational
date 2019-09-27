@@ -1,5 +1,6 @@
 package com.Lxisoft.Animalgame;
 import java.util.*;
+import com.Lxisoft.Animalgame.*;
 public class Lion extends Animal implements Carnivores{
 public Lion(int strg,String name){
 	this.strg=strg;
