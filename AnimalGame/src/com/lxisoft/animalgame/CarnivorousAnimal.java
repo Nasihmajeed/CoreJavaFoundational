@@ -18,7 +18,7 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 	}
 
 
-	public void fight(Animal enemy)
+	public Animal fight(Animal enemy)
 	{
 		System.out.println("				"+this.name+" VS "+enemy.name);
 		if(this.strength>enemy.strength)
@@ -28,6 +28,7 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 			System.out.println("				"+this.name+" WINS  (strength="+this.strength+")\n");
 			if (enemy.strength<1)
 				enemy.isDead=true;
+			return this;
 		}
 		else
 		{
@@ -36,10 +37,11 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 			System.out.println("				"+enemy.name+" WINS  (strength="+enemy.strength+")\n");
 			if (this.strength<1)
 				this.isDead=true;
+			return enemy;
 		}
 	}
 
-	public void fight(Animal enemy1,Animal enemy2)
+	public Animal fight(Animal enemy1,Animal enemy2)
 	{
 		System.out.println("				FIGHT between "+this.name+" VS "+enemy1.name+" VS "+enemy2.name);
 		if((this.strength>enemy1.strength) && (this.strength>enemy2.strength))
@@ -49,6 +51,7 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 			enemy2.isDead=true;
 			System.out.println("				"+this.name+" WINS  (strength="+this.strength+")");
 			System.out.println("				"+enemy1.name+" and "+enemy2.name+" IS DEAD \n");	
+			return this;
 		}
 		else if((enemy1.strength>this.strength) && (enemy1.strength>enemy2.strength))
 		{
@@ -57,6 +60,7 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 			enemy2.isDead=true;
 			System.out.println("				"+enemy1.name+" WINS  (strength="+enemy1.strength+")");
 			System.out.println("				"+this.name+" and "+enemy2.name+" IS DEAD \n");	
+			return enemy1;
 		}
 		else
 		{
@@ -65,6 +69,7 @@ public class CarnivorousAnimal extends Animal implements Carnivorous
 			this.isDead=true;
 			System.out.println("				"+enemy2.name+" WINS  (strength="+enemy2.strength+")");
 			System.out.println("				"+enemy1.name+" and "+this.name+" IS DEAD \n");	
+			return enemy2;
 		}
 	}
 
