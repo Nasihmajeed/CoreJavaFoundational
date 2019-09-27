@@ -36,6 +36,7 @@ public class Forest
     	Scanner sc=new Scanner (System.in);
 	    for(int i=0;i<t;i++)
 		{
+			int[] location=new int[2];
 
 			tiger =new Tiger();
 			System.out.println("Enter Tiger name:");
@@ -53,10 +54,10 @@ public class Forest
 		}
 		tiger.run();
 		tiger.eat();
-		position=((Carnivore)(tiger)).roam();
-		System.out.println("1st position= "+position[0]);
-		System.out.println("2nd position= "+position[1]);
-		int result=distance(tiger.locationX,tiger.locationY,position);
+		// position=((Carnivore)(tiger)).roam();
+		// System.out.println("1st position= "+position[0]);
+		// System.out.println("2nd position= "+position[1]+"\n");
+		//int result=distance(tiger.locationX,tiger.locationY,position);
     }
     public void lionDetails(Animal animalArr[],int t,int l)
     {
@@ -79,10 +80,10 @@ public class Forest
 		}
 		lion.run();
 		lion.eat();
-		position=((Carnivore)(lion)).roam();
-		System.out.println("1st position= "+position[0]);
-		System.out.println("2nd position= "+position[1]);
-		int result=distance(lion.locationX,lion.locationY,position);
+		// position=((Carnivore)(lion)).roam();
+		// System.out.println("1st position= "+position[0]);
+		// System.out.println("2nd position= "+position[1]+"\n");
+		// int result=distance(lion.locationX,lion.locationY,position);
 	}
 	public void rabbitDetails(Animal animalArr[],int t,int l,int r)
 	{
@@ -105,10 +106,10 @@ public class Forest
 		}
 		rabbit.run();
 		rabbit.eat();
-		position=((Herbivore)(rabbit)).graze();
-		System.out.println("1st position= "+position[0]);
-		System.out.println("2nd position= "+position[1]);
-		int result=distance(rabbit.locationX,rabbit.locationY,position);
+		// position=((Herbivore)(rabbit)).graze();
+		// System.out.println("1st position= "+position[0]);
+		// System.out.println("2nd position= "+position[1]+"\n");
+		//int result=distance(rabbit.locationX,rabbit.locationY,position);
 	}
 	public void deerDetails(Animal animalArr[],int t,int l,int r,int d)
 	{
@@ -132,14 +133,16 @@ public class Forest
 		}
 		deer.run();
         deer.eat();
-        position=((Herbivore)(deer)).graze();
-		System.out.println("1st position= "+position[0]);
-		System.out.println("2nd position= "+position[1]);
-		int result=distance(deer.locationX,deer.locationY,position);
-		meetFight(tot,animalArr);
+        meetFight(tot,animalArr);
+  //       position=((Herbivore)(deer)).graze();
+		// System.out.println("1st position= "+position[0]);
+		// System.out.println("2nd position= "+position[1]+"\n");
+		// int result=distance(deer.locationX,deer.locationY,position);
+		
     }
 	public void meetFight(int tot,Animal animalArr[])
 	{
+		animalArr=location(animalArr);
 		int count,c,w=0;
 		Scanner sc=new Scanner (System.in);
 		System.out.println("\n---ANIMAL DETAILS---");
@@ -192,6 +195,7 @@ public class Forest
     }
     public void carnivoreWinner(Animal animalArr[])
     {
+    	//int[] newlocation=location(animalArr);
     	int m=(int)(Math.random()*animalArr.length);
 		int n=(int)(Math.random()*animalArr.length);
 		//boolean isRange;
@@ -199,7 +203,7 @@ public class Forest
 		{
 			if((animalArr[m] instanceof Carnivore)&(animalArr[n] instanceof Carnivore))
 			{
-				//isRange=isRange(distance,range);
+				//isRange=isRange(result,range);
 				System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[n].animalName);	
 				Animal temp=((Carnivore)(animalArr[m])).fight(animalArr[n]);
 				if(temp==animalArr[m])
@@ -226,27 +230,49 @@ public class Forest
 			}
 		}
 	}
-	public int distance(int x1,int y1,int[] location )
-	{
-		
-		int distance=(int)(Math.sqrt(((location[0]-x1)*(location[0]-x1))+((location[1]-y1)*(location[1]-y1))));
+	
+
+    public boolean isRange(int locationX,int locationY,int range,int[] position)
+    {
+    	boolean temp=true;
+    	int distance=(int)(Math.sqrt(((position[0]-locationX)*(position[0]-locationX))+((position[1]-locationY)*(position[1]-locationY))));
 		System.out.println("Distance= "+distance);
-		return distance;
-	}	
+     	 if(range<distance)
+     	 {
+           	temp=false;
+     	 }
+         
+     	 return temp;
+ 	}
 
-//     public boolean isRange(int distance,int range)
-//     {
-//     	boolean temp;
-//     	if(range<=distance)
-//     	{
-//          	temp=true;
-//     	}
-//     	else
-//     	{
-//     		temp=false;
-//     	}
-//     return temp;
-// }
-
+ 	public Animal[] location(Animal[] animalArr)
+ 	{
+ 		boolean returns=false;
+    	int[] position=new int[2];
+   		for(int i=0;i<animalArr.length;i++)
+   		{
+   			System.out.println(animalArr[i].animalName+" name");
+    		if(animalArr[i] instanceof Herbivore)
+    		{
+    			do
+    			{
+    				position=((Herbivore)(animalArr[i])).graze();
+    				returns=isRange(animalArr[i].locationX,animalArr[i].locationY,animalArr[i].range,position);
+    			}while(returns==true);
+    			System.out.println(position[0]+"  position "+position[1]);
+    	    }
+    	    else
+    		{
+    			do
+    			{
+    			position=((Carnivore)(animalArr[i])).roam();
+    			returns=isRange(animalArr[i].locationX,animalArr[i].locationY,animalArr[i].range,position);
+    		    }while(returns==true);
+    		    System.out.println(position[0]+"  position "+position[1]);
+    		}
+         	animalArr[i].locationX=position[0];
+         	animalArr[i].locationY=position[1];
+ 	    }
+ 	    return animalArr; 
+    }
 }
-

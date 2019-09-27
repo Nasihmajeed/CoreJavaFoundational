@@ -9,9 +9,9 @@ public class Lion extends Animal implements Carnivore
 			return this;					
 		}
 		else
-    	{  
-    		return animal;
-    	}
+    {  
+    	return animal;
+    }
 	}
 
 	public void run()
