@@ -110,7 +110,7 @@ public class Forest
 	{	
 		animal[0].strength=80;	animal[0].range=35;	animal[0].sight=20;
 		animal[1].strength=25;	animal[1].range=15;	animal[1].sight=8;
-		animal[2].strength=90; animal[2].range=35; animal[2].sight=20;
+		animal[2].strength=90; 	animal[2].range=35; animal[2].sight=20;
 		animal[3].strength=30;  animal[3].range=25;	animal[3].sight=8;
 		animal[4].strength=40;  animal[4].range=25;	animal[4].sight=8;
 		animal[5].strength=10; 	animal[5].range=25;	animal[5].sight=10;
@@ -124,33 +124,17 @@ public class Forest
 	{
 		animal[0].strength=70;	animal[0].range=35;	animal[0].sight=15;
 		animal[1].strength=20;	animal[1].range=15;	animal[1].sight=5;
-		animal[2].strength=80; animal[2].range=35; animal[2].sight=15;
+		animal[2].strength=80; 	animal[2].range=35; animal[2].sight=15;
 		animal[3].strength=25;  animal[3].range=25;	animal[3].sight=5;
 		animal[4].strength=35;  animal[4].range=25;	animal[4].sight=5;
 		animal[5].strength=10; 	animal[5].range=25;	animal[5].sight=10;
 		animal[6].strength=60;	animal[6].range=25;	animal[6].sight=10;
-		animal[7].strength=30;	animal[7].range=20;	animal[7].sight=5;
+		animal[7].strength=30;	animal[7].range=20;	animal[7].sight=5; 
 		animal[8].strength=50;	animal[8].range=20;	animal[8].sight=10;
 		animal[9].strength=40; 	animal[9].range=28;	animal[9].sight=10;
 		meet();
 	} 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 	public int random(int max)
 	{
 		int random=(int)(max* Math.random());
