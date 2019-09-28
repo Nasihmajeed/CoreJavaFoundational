@@ -1,7 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.Forest;
-import com.lxisoft.animalgame.Lion;
-import com.lxisoft.animalgame.Tiger;
+//import com.lxisoft.animalgame.Lion;
+//import com.lxisoft.animalgame.Tiger;
 import java.util.Scanner;
 public abstract class Animal 
 {

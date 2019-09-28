@@ -10,7 +10,7 @@ public class Tdd
    Forest forest = new Forest();
    
    Animal[] animal=forest.insertion();
-   forest.meet(animal);
+   forest.meet();
    
     
  }
