@@ -1,11 +1,8 @@
 package com.lxisoft.animalgame;
-import com.lxisoft.animalgame.Animal;
-import com.lxisoft.animalgame.Forest;
-import com.lxisoft.animalgame.Tiger;
-import com.lxisoft.animalgame.Lion;
+import com.lxisoft.animalgame.*;
 public interface Carnivores
 {
-	public Animal fight(Animal animals);
+	public Animal fight(Animal defender1);
 	public int[] roam();
 	
 }
