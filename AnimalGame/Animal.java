@@ -4,7 +4,11 @@ public class Animal
 	String name;
 	int str,num;
 	int number1,number2;
+<<<<<<< HEAD
  	Boolean alive;
+=======
+ 	
+>>>>>>> fd2f2d4fbe784c1129a961cdc8f3d813472dda6f
 	public void eat()
 	{
 		System.out.println("eats meat");
