@@ -4,154 +4,100 @@ import  java.lang.Math;
 public class Forest
 {
 		
-		Animal[] animals=new Animal[10];
-		Animal buffallo;
-		Animal crocodile;
-		Animal deer;
-		Animal elephant;
-		Animal fox;
-		Animal lion;
-		Animal pig;
-		Animal rabbit;
-		Animal tiger;
-		Animal zeebra;
-		
+		Animal[] animals=new Animal[10];	
 		public void setAnimalDetails()
 		{
 			
 			//System.out.println("\t\t  Animals  \n\n ");
 
 	//-----------		Array creation	---------//			
-			
+			animals[0]=new Tiger();
+			animals[1]=new Rabbit();
+			animals[2]=new Lion();
+			animals[3]=new Elephant();
+			animals[4]=new Buffallo();
+			animals[5]=new Crocodile();
+			animals[6]=new Deer();
+			animals[7]=new Fox();
+			animals[8]=new Pig();
+			animals[9]=new Zeebra();
 
-			tiger=new Tiger();
-			lion=new Lion();
-			rabbit=new Rabbit();
-			elephant=new Elephant();
-			buffallo=new Buffallo();
-			crocodile=new Crocodile();
-			deer=new Deer();
-			fox=new Fox();
-			pig=new Pig();
-			zeebra=new Zeebra();
-
-			tiger.name="Tiger";
-			//tiger.strength=80;
-			tiger.isDead=false;
-			tiger.hunger=Hunger.HUNGRIEST;
-			animals[0]=tiger;
+			animals[0].name="Tiger";
+			animals[0].isDead=false;
+			animals[0].hunger=Hunger.HUNGRIEST;
 			animals[0].location[0]=randomGeneration(50);
 			animals[0].location[1]=randomGeneration(50);
-			//animals[0].range=50;
 			animals[0].speed=100;
-			//animals[0].forsight=10;
 
-			rabbit.name="Rabbit";
-			//rabbit.strength=10;
-			rabbit.isDead=false;
-			rabbit.hunger=Hunger.HUNGRIEST;
-		    ((Animalherbivores)(rabbit)).luckyfact=3;
-			animals[1]=rabbit;
+			animals[1].name="Rabbit";
+			animals[1].isDead=false;
+			animals[1].hunger=Hunger.HUNGRIEST;
+		    ((Animalherbivores)(animals[1])).luckyfact=3;
 			animals[1].location[0]=randomGeneration(50);
 			animals[1].location[1]=randomGeneration(50);
-			//animals[1].range=20;
 			animals[1].speed=45;
-			//animals[1].forsight=5;
 
-			lion.name="Lion";
-			//lion.strength=70;
-			lion.isDead=false;
-			lion.hunger=Hunger.HUNGRIEST;
-			animals[2]=lion;
+			animals[2].name="Lion";
+			animals[2].isDead=false;
+			animals[2].hunger=Hunger.HUNGRIEST;
 			animals[2].location[0]=randomGeneration(50);
 			animals[2].location[1]=randomGeneration(50);
-			//animals[2].range=60;
 			animals[2].speed=80;
-			//animals[2].forsight=10;
 
-			elephant.name="Elephant";
-			//elephant.strength=60;
-			elephant.isDead=false;
-			elephant.hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(elephant)).luckyfact=7;
-			animals[3]=elephant;
+			animals[3].name="Elephant";
+			animals[3].isDead=false;
+			animals[3].hunger=Hunger.HUNGRIEST;
+			((Animalherbivores)(animals[3])).luckyfact=7;
 			animals[3].location[0]=randomGeneration(50);
 			animals[3].location[1]=randomGeneration(50);
-			//animals[3].range=40;
 			animals[3].speed=40;
-			//animals[3].forsight=9;
 
-			buffallo.name="Buffallo";
-			//buffallo.strength=40;
-			buffallo.isDead=false;
-			buffallo.hunger=Hunger.HUNGRIEST;
-			animals[4]=buffallo;
+			animals[4].name="Buffallo";
+			animals[4].isDead=false;
+			animals[4].hunger=Hunger.HUNGRIEST;
 			animals[4].location[0]=randomGeneration(50);
 			animals[4].location[1]=randomGeneration(50);
-			//animals[4].range=30;
 			animals[4].speed=45;
-			//animals[4].forsight=6;
 
-			crocodile.name="Crocodile";
-			//crocodile.strength=45;
-			crocodile.isDead=false;
-			crocodile.hunger=Hunger.HUNGRIEST;
-			animals[5]=crocodile;
+			animals[5].name="Crocodile";
+			animals[5].isDead=false;
+			animals[5].hunger=Hunger.HUNGRIEST;
 			animals[5].location[0]=randomGeneration(50);
 			animals[5].location[1]=randomGeneration(50);
-			//animals[5].range=30;
 			animals[5].speed=25;
-			//animals[5].forsight=4;
 
-			deer.name="Deer";
-			//deer.strength=30;
-			deer.isDead=false;
-			deer.hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(deer)).luckyfact=4;
-			animals[6]=deer;
+			animals[6].name="Deer";
+			animals[6].isDead=false;
+			animals[6].hunger=Hunger.HUNGRIEST;
+			((Animalherbivores)(animals[6])).luckyfact=4;
 			animals[6].location[0]=randomGeneration(50);
 			animals[6].location[1]=randomGeneration(50);
-			//animals[6].range=50;
 			animals[6].speed=90;
-			//animals[6].forsight=5;
 
-			fox.name="Fox";
-			//fox.strength=55;
-			fox.isDead=false;
-			fox.hunger=Hunger.HUNGRIEST;
-			animals[7]=fox;
+			animals[7].name="Fox";
+			animals[7].isDead=false;
+			animals[7].hunger=Hunger.HUNGRIEST;
 			animals[7].location[0]=randomGeneration(50);
 			animals[7].location[1]=randomGeneration(50);
-			//animals[7].range=50;
 			animals[7].speed=90;
-			//animals[7].forsight=8;
 
 
-			pig.name="Pig";
-			//pig.strength=10;
-			pig.isDead=false;
-			pig.hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(pig)).luckyfact=8;
-			animals[8]=pig;
+			animals[8].name="Pig";
+			animals[8].isDead=false;
+			animals[8].hunger=Hunger.HUNGRIEST;
+			((Animalherbivores)(animals[8])).luckyfact=8;
 			animals[8].location[0]=randomGeneration(50);
 			animals[8].location[1]=randomGeneration(50);
-			//animals[8].range=50;
 			animals[8].speed=50;
-			//animals[8].forsight=3;
 
-			zeebra.name="Zeebra";
-			//zeebra.strength=45;
-			zeebra.isDead=false;
-			zeebra.hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(zeebra)).luckyfact=1;
-			animals[9]=zeebra;
+			animals[9].name="Zeebra";
+			animals[9].isDead=false;
+			animals[9].hunger=Hunger.HUNGRIEST;
+			((Animalherbivores)(animals[9])).luckyfact=1;
 			animals[9].location[0]=randomGeneration(50);
 			animals[9].location[1]=randomGeneration(50);
-			//animals[9].range=50;
 			animals[9].speed=60;
-			//animals[9].forsight=5;
 
-          // animalMeet(animals);
           
         }  
         public void levelEasy()
@@ -167,7 +113,7 @@ public class Forest
         	animals[8].strength=25;		animals[8].forsight=15; 		animals[8].range=50;
         	animals[9].strength=50;		animals[9].forsight=5; 			animals[9].range=50;
 
-        	animalMeet(animals);
+        	animalMeet();
 
 
 
@@ -185,7 +131,7 @@ public class Forest
         	animals[8].strength=15;		animals[8].forsight=10; 		animals[8].range=50;
         	animals[9].strength=40;		animals[9].forsight=5; 			animals[9].range=50;
 
-        	animalMeet(animals);
+        	animalMeet();
         }
         public void levelHard()
         {
@@ -200,42 +146,42 @@ public class Forest
         	animals[8].strength=15;		animals[8].forsight=7; 			animals[8].range=50;
         	animals[9].strength=30;		animals[9].forsight=3; 			animals[9].range=50;
 
-        	animalMeet(animals);
+        	animalMeet();
         }
 		public int randomGeneration(int limit)
 		{
 			int random=(int)(Math.random()*limit);											//.....generating random number....//
 			return random;
 		}
-		public void animalMeet(Animal[] animal_array ) 
+		public void animalMeet() 
 		{	
 			int count=0,random1=0,random2=0;
 			Animal win=null;
-			getAliveAnimals(animal_array);
+			getAliveAnimals(animals);
 			//..Selecting second animals..//
 			int near=0,loop=20;
-			int[] nearbyAnimals=new int[animal_array.length];
+			int[] nearbyAnimals=new int[animals.length];
 			boolean inSight,nextAnimal=true;																		//..Animal are meet and select for fight..//
 			do
 			{
  				do
 				{
-					random2=randomGeneration(animal_array.length);
-				}while(animal_array[random2].isDead || animal_array[random2].hunger==Hunger.OVERFED);
+					random2=randomGeneration(animals.length);
+				}while(animals[random2].isDead || animals[random2].hunger==Hunger.OVERFED);
 
 				//..first Animal..//
-				for(int i=0;i<animal_array.length;i++)
+				for(int i=0;i<animals.length;i++)
 				{
 					inSight=true;
 					if(i!=random2)
 					{
-						if(animal_array[i].isDead==false)
+						if(animals[i].isDead==false)
 						{	
-							if(animal_array[i].hunger!=Hunger.OVERFED)
+							if(animals[i].hunger!=Hunger.OVERFED)
 							{
-								if(animal_array[i] instanceof Carnivore)
+								if(animals[i] instanceof Carnivore)
 								{
-									inSight=isWithInSight(animal_array[i].location,animal_array[random2].location,animal_array[i].forsight);
+									inSight=isWithInSight(animals[i].location,animals[random2].location,animals[i].forsight);
 									if(inSight==false)
 									{
 										nearbyAnimals[near]=i;
@@ -250,43 +196,43 @@ public class Forest
 				loop--;
 				if(loop==0)
 				{
-				animal_array=setLocation(animal_array);
+				animals=setLocation(animals);
 				loop=20;
 				}
 			}while(nextAnimal);
 			random1=nearbyAnimals[0];
-			boolean escape=isEscape(animal_array,nearbyAnimals,random2,near);
+			boolean escape=isEscape(animals,nearbyAnimals,random2,near);
 		
 		
 			if(escape==false)
 			{	
 				if(near==1)
 				{
-				    win=((Carnivore)(animal_array[random1])).fight(animal_array[random2]);
+				    win=((Carnivore)(animals[random1])).fight(animals[random2]);
 				    for(int i=0;i<near;i++)
 				    {
-					    if(animal_array[random1].name==win.name) animal_array=isDead(i,random2,animals);
+					    if(animals[random1].name==win.name) animals=isDead(i,random2,animals);
 					}
 				}  
 				if(near==2)
 				{
-					win=((Carnivore)(animal_array[random1])).fight(animal_array[random2],animal_array[nearbyAnimals[1]]);
+					win=((Carnivore)(animals[random1])).fight(animals[random2],animals[nearbyAnimals[1]]);
 					for(int i=0;i<near;i++)
 					{
-					    if(animal_array[i].name==win.name) animal_array=isWeak(i,animal_array,nearbyAnimals,near);
+					    if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
 			        }   
 		 	    }
 		 	    if(near>=3)
 		 	    {
-		 	    	win=((Carnivore)(animal_array[random1])).fight(animal_array[random2],animal_array,nearbyAnimals,near);
+		 	    	win=((Carnivore)(animals[random1])).fight(animals[random2],animals,nearbyAnimals,near);
 		 	    	for(int i=0;i<near;i++)
 		 	    	{
-		 	    		if(animal_array[i].name==win.name) animal_array=isWeak(i,animal_array,nearbyAnimals,near);
+		 	    		if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
 		 	    	}	
 		 	    }
 		 	   	win =isHunger(win); 
 		    }
-	 		isWinner(animal_array,win); 
+	 		isWinner(animals,win); 
 	    }
 		public Animal[] isDead(int winner,int looser,Animal[] animal_array)
 		{
@@ -339,7 +285,7 @@ public class Forest
 				}	
 			}
 			if(count<=1)System.out.println("\n ******  The  winner is  "+animals[alive].name +"  ******");
-        	else animalMeet(animals);
+        	else animalMeet();
   	    }
 	 	public Animal isHunger(Animal animal)
 	 	{		//Hunger temp=animal.hunger;
