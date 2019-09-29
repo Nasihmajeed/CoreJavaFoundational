@@ -7,6 +7,7 @@ public abstract class Animal
 	public boolean isDead;
     public int range;
     public int locationX,locationY;
+    public int sight;
 
   public abstract void  run();
   public abstract void  eat();

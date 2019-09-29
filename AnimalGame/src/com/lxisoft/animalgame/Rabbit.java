@@ -29,8 +29,8 @@ public class Rabbit extends Animal implements Herbivore
     public int[] graze()
     {
       int[] arr=new int[2];
-      arr[0]=(int)(Math.random()*10);
-      arr[1]=(int)(Math.random()*10);
+      arr[0]=(int)(Math.random()*100);
+      arr[1]=(int)(Math.random()*100);
       return arr;
     }
 }
