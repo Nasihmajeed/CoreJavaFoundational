@@ -166,19 +166,19 @@ public class Forest
 		{
 			int[] nearbyAnimal=new int[animalArr.length];
 			nearbyAnimal=isSight(m,n,animalArr);
-			for(int i=0;i<nearbyAnimal.length;i++)
-			{
-				if(animalArr[nearbyAnimal[i]].isDead==false)
-				System.out.println("near animals  "+animalArr[nearbyAnimal[i]].animalName);
-			}				
+			//for(int i=0;i<nearbyAnimal.length;i++)
+			//{
+				//if(animalArr[nearbyAnimal[i]].isDead==false)
+				System.out.println("near animals  "+animalArr[nearbyAnimal[0]].animalName);
+			//}				
 			if((animalArr[m]instanceof Herbivore)&(animalArr[nearbyAnimal[0]] instanceof Carnivore))
 			{
-				System.out.println("\n"+animalArr[n].animalName+"  VS  "+animalArr[nearbyAnimal[0]].animalName);
+				System.out.println("\n"+animalArr[m].animalName+"  VS  "+animalArr[nearbyAnimal[0]].animalName);
 				Animal tempp=((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]]);
 		        if(tempp==animalArr[m])
 				{
 					//System.out.println("WINNER   "+animalArr[n].animalName);
-					System.out.println(animalArr[m].animalName+"--------Escape------");
+					System.out.println(animalArr[m].animalName+"------Escape------");
 				}
 				if(tempp==animalArr[nearbyAnimal[0]])
 				{
@@ -272,24 +272,34 @@ public class Forest
     	int[] near=null;
     	int distance=(int)(Math.sqrt(((animals[x].locationX-animals[y].locationX)*(animals[x].locationX-animals[y].locationX))+((animals[y].locationX-animals[y].locationY)*(animals[y].locationX-animals[y].locationY))));
 		System.out.println("Distance= "+distance);
-    	if(animals[x].sight<distance)
+		for(int i=0;i<animals.length;i++)
      	{
-        	temp=false;
-     	}
-     	if(animals[y].sight<distance)
-     	{
-     		temp=false;
-     	}
-     	int count=0;
-     	for(int i=0;i<animals.length;i++)
-     	{
-     		if(temp==false)
-     		{	
-				near= new int[animals.length];
-				near[count]=i;
-				count++;
-			}
+	    	if(animals[x] instanceof Carnivore)
+	    	{
+	    		if(animals[x].sight<distance)
+	     		{
+	        		temp=false;
+	     		}
+	        }
+	     	else
+	     	{
+	     		if(animals[y].sight<distance)
+	     		{
+	     			temp=false;
+	     		}
+	     	}
+	     	int count=0;
+	     	near= new int[animals.length];
+	     		if(temp==false)
+	     		{	
+			
+					near[count]=i;
+					count++;
+				}
+
+				//System.out.println("animal no" +i + "animal name" +animals[i].animalName);
 		}
-        return near;
+      return near;  
     }
+
 }
