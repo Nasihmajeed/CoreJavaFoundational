@@ -56,7 +56,6 @@ public class Forest
 		}
 		tiger.run();
 		tiger.eat();
-		
     }
     public void lionDetails(Animal animalArr[],int t,int l)
     {
@@ -81,7 +80,6 @@ public class Forest
 		}
 		lion.run();
 		lion.eat();
-		
 	}
 	public void rabbitDetails(Animal animalArr[],int t,int l,int r)
 	{
@@ -106,7 +104,6 @@ public class Forest
 		}
 		rabbit.run();
 		rabbit.eat();
-		
 	}
 	public void deerDetails(Animal animalArr[],int t,int l,int r,int d)
 	{
@@ -134,8 +131,6 @@ public class Forest
         deer.eat();
         meetFight(tot,animalArr);
     }
-
-
 	public void meetFight(int tot,Animal animalArr[])
 	{
 		animalArr=location(animalArr);
@@ -163,8 +158,6 @@ public class Forest
 			carnivoreWinner(animalArr);
 		}
 	}
-
-		
 	public void escapeHerbivore(Animal animalArr[])
 	{
 		int m=(int)(Math.random()*animalArr.length);
@@ -173,21 +166,24 @@ public class Forest
 		{
 			int[] nearbyAnimal=new int[animalArr.length];
 			nearbyAnimal=isSight(m,n,animalArr);
-			System.out.println("near   "+animalArr[nearbyAnimal[0]].animalName);
-			//System.out.println("near   "+animalArr[nearbyAnimal[0]].animalName);				
-			if((animalArr[m] instanceof Herbivore)&(animalArr[n] instanceof Carnivore))
+			for(int i=0;i<nearbyAnimal.length;i++)
 			{
-				System.out.println("\n"+animalArr[n].animalName+"  VS  "+animalArr[m].animalName);
-				Animal tempp=((Herbivore)(animalArr[m])).escape(animalArr[n]);
+				if(animalArr[nearbyAnimal[i]].isDead==false)
+				System.out.println("near animals  "+animalArr[nearbyAnimal[i]].animalName);
+			}				
+			if((animalArr[m]instanceof Herbivore)&(animalArr[nearbyAnimal[0]] instanceof Carnivore))
+			{
+				System.out.println("\n"+animalArr[n].animalName+"  VS  "+animalArr[nearbyAnimal[0]].animalName);
+				Animal tempp=((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]]);
 		        if(tempp==animalArr[m])
 				{
 					//System.out.println("WINNER   "+animalArr[n].animalName);
 					System.out.println(animalArr[m].animalName+"--------Escape------");
 				}
-				if(tempp==animalArr[n])
+				if(tempp==animalArr[nearbyAnimal[0]])
 				{
-					System.out.println("WINNER   "+animalArr[n].animalName);
-					System.out.println(animalArr[n].animalName+"  kill "+animalArr[m].animalName);
+					System.out.println("WINNER   "+animalArr[nearbyAnimal[0]].animalName);
+					System.out.println(animalArr[nearbyAnimal[0]].animalName+"  kill "+animalArr[m].animalName);
 					animalArr[m].isDead=true;
 				}
 			}
@@ -227,8 +223,6 @@ public class Forest
 			}
 		}
 	}
-	
-
     public boolean isRange(int locationX,int locationY,int range,int[] position)
     {
     	boolean temp=true;
@@ -238,10 +232,8 @@ public class Forest
      	 {
            	temp=false;
      	 }
-         
      	 return temp;
  	}
-
  	public Animal[] location(Animal[] animalArr)
  	{
  		boolean returns=false;
@@ -263,8 +255,8 @@ public class Forest
     		{
     			do
     			{
-    			position=((Carnivore)(animalArr[i])).roam();
-    			returns=isRange(animalArr[i].locationX,animalArr[i].locationY,animalArr[i].range,position);
+    				position=((Carnivore)(animalArr[i])).roam();
+    				returns=isRange(animalArr[i].locationX,animalArr[i].locationY,animalArr[i].range,position);
     		    }while(returns==true);
     		    System.out.println("Position1= "+position[0]+"\nPosition2= "+position[1]);
     		}
@@ -291,14 +283,13 @@ public class Forest
      	int count=0;
      	for(int i=0;i<animals.length;i++)
      	{
-     	if(temp==false)
-     	{
-        	
-			near= new int[animals.length];
-			near[count]=i;
-			count++;
+     		if(temp==false)
+     		{	
+				near= new int[animals.length];
+				near[count]=i;
+				count++;
+			}
 		}
-	}
         return near;
     }
 }
