@@ -27,55 +27,7 @@ public class TDD
 		new DescNote(2,"art",new DescContent("paintings,sculptures"))	
 		));
 
-		while(true)
-		{
-			System.out.println("\nMENU\n1.show  2.Edit  3.Delete  4.exit");
-			int choice=scan.nextInt();
-			switch(choice)
-			{
-				case 1:
-				System.out.println("1.Bullet Note or 2.Description Note");
-				int note=scan.nextInt();
-				if(note==1)
-				{
-					print();
-				}
-				if(note==2)
-				{
-					printDesc();
-				}
-				break;
-
-				case 2:
-				System.out.println("1.Bullet Note or 2.Description Note");
-				int upNote=scan.nextInt();
-				if(upNote==1)
-				{
-					update();
-				}
-				if(upNote==2)
-				{
-					updateDesc();
-				}
-				break;
-
-				case 3:
-				System.out.println("1.Bullet Note or 2.Description Note");
-				int del=scan.nextInt();
-				if(del==1)
-				{
-					delete();
-				}
-				if(del==2)
-				{
-					deleteDesc();
-				}
-				break;
-
-				case 4:
-				return;
-			}
-		}
+		printMenu();
 		
 	}
 
@@ -110,7 +62,6 @@ public class TDD
 		if(upChoice==1)
 		{
 			editTitle(bulletNote1);
-			print();
 		}
 		if(upChoice==2)
 		{
@@ -125,6 +76,7 @@ public class TDD
 		System.out.println("new title: ");
 		String newTitle=console.readLine();
 		bulletNote.setTitle(newTitle);
+		print();
 	}
 	static void editBulletPoint(BulletNote bulletNote,int bulletId)
 	{
@@ -147,7 +99,6 @@ public class TDD
 		System.out.println("enter id to delete: ");
 		int id=scan.nextInt();
 		descNotes.get(id-1);
-		//System.out.println(descNotes.get(id-1).getTitle());
 		descNotes.remove(descNotes.get(id-1));
 		printDesc();
 	}
@@ -172,7 +123,6 @@ public class TDD
 
 	static void editDescTitle(DescNote descNote)
 	{
-
 		System.out.println("new title: ");
 		String newDescTitle=console.readLine();
 		descNote.setTitle(newDescTitle);
@@ -185,6 +135,110 @@ public class TDD
 		String newDescContent=console.readLine();
 		((DescContent)(descNote.getNoteContent())).setLine(newDescContent);
 		printDesc();
+	}
+
+	static void createBullet()
+	{
+		System.out.println("Enter id: ");
+		int newId=scan.nextInt();
+		System.out.println("Enter title: ");
+		String newBulletTitle=console.readLine();
+		System.out.println("Enter bullet point 1: ");
+		String newBulletPoint1=console.readLine();
+		System.out.println("Enter bullet point 2: ");
+		String newBulletPoint2=console.readLine();
+		bulletNotes.add(new BulletNote(newId,newBulletTitle,new BulletContent(Arrays.asList(newBulletPoint1,newBulletPoint2))));
+		print();
+	}
+	static void createDesc()
+	{
+		System.out.println("Enter id: ");
+		int newDescId=scan.nextInt();
+		System.out.println("Enter title: ");
+		String newDescTitle=console.readLine();
+		System.out.println("Enter content : ");
+		String newDescLine=console.readLine();
+		descNotes.add(new DescNote(newDescId,newDescTitle,new DescContent(newDescLine)));
+		printDesc();
+	}
+
+	static void printMenu()
+	{
+		while(true)
+		{
+			System.out.println("\nMENU\n1.show  2.Edit  3.Delete  4.create 5.exit");
+			int choice=scan.nextInt();
+			System.out.println("1.Bullet Note or 2.Description Note");
+			int note=scan.nextInt();
+			switch(choice)
+			{
+				case 1:
+				show(note);
+				break;
+
+				case 2:
+				update(note);
+				
+				break;
+
+				case 3:
+				delete(note);
+				break;
+
+				case 4:
+				create(note);
+				break;
+
+				case 5:
+				return;
+			}
+		}
+	}
+
+	static void show(int note)
+	{
+		if(note==1)
+		{
+			print();
+		}
+		if(note==2)
+		{
+			printDesc();
+		}
+	}
+	static void update(int note)
+	{
+		if(note==1)
+		{
+			update();
+		}
+		if(note==2)
+		{
+			updateDesc();
+		}
+	}
+
+	static void delete(int note)
+	{
+		if(note==1)
+		{
+			delete();
+		}
+		if(note==2)
+		{
+			deleteDesc();
+		}
+	}
+	static void create(int note)
+	{
+		if(note==1)
+		{
+			createBullet();
+		}
+		if(note==2)
+		{
+			createDesc();
+		}	
 	}
 
 }
