@@ -5,7 +5,7 @@ public class Wildbull extends Animal implements Herbivores
 	
 	
     int Aggressivelevel=30;
-	public Wildbull(String name,int strengthlevel,boolean isAlive)
+	public Wildbull(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

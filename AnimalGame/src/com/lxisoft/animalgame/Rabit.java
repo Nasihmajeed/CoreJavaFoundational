@@ -7,7 +7,7 @@ public class Rabit extends Animal implements Herbivores
 {
 	
     int Aggressivelevel=5;
-	public Rabit(String name,int strengthlevel,boolean isAlive)
+	public Rabit(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

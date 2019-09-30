@@ -5,7 +5,7 @@ public class Wolf extends Animal implements Carnivores
 	
 	
     int Aggressivelevel=60;
-	public Wolf(String name,int strengthlevel,boolean isAlive)
+	public Wolf(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

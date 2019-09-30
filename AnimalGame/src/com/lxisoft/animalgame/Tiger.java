@@ -3,7 +3,7 @@ import com.lxisoft.animalgame.*;
  public class Tiger extends Animal implements Carnivores
 {
     int Aggressivelevel=50;
-	public Tiger(String name,int strengthlevel,boolean isAlive)
+	public Tiger(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

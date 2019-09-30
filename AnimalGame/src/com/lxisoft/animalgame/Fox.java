@@ -5,7 +5,7 @@ public class Fox extends Animal implements Carnivores
 	
 	
     int Aggressivelevel=60;
-	public Fox(String name,int strengthlevel,boolean isAlive)
+	public Fox(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

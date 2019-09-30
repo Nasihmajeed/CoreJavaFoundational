@@ -5,7 +5,7 @@ public class Leopard extends Animal implements Carnivores
 	
 	
     int Aggressivelevel=70;
-	public Leopard(String name,int strengthlevel,boolean isAlive)
+	public Leopard(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

@@ -5,7 +5,7 @@ import com.lxisoft.animalgame.*;
    
 
     int Aggressivelevel=50; 
-    public Lion(String name,int strengthlevel,boolean isAlive)
+    public Lion(String name,int strengthlevel,boolean isAlive ,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;

@@ -5,7 +5,7 @@ public class Hyena extends Animal implements Carnivores
 	
 	
     int Aggressivelevel=50;
-	public Hyena(String name,int strengthlevel,boolean isAlive)
+	public Hyena(String name,int strengthlevel,boolean isAlive,int x,int y)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;
