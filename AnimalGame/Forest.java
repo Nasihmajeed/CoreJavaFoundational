@@ -1,12 +1,10 @@
 import java.lang.Math;
-import java.util.Scanner;
 public class Forest
 {
 	Animal[]animals=new Animal[5];
-	Scanner an=new Scanner(System.in);
 public void animalDetails()	
 	{
-		System.out.println("                    CHOOSE TWO NUMBERS TO FIGHT ");
+		System.out.println("\t\tCHOOSE TWO NUMBERS TO FIGHT ");
 
 
 		Animal blackpanther=new Blackpanther();
@@ -78,11 +76,13 @@ public void animalDetails()
 		lion.run();
 		System.out.println("strength : "+animals[4].str);
 		System.out.println("\n");
+		Animal win=null;
 		for (int i=0;i<5;i++) 
 		{
 		Animal[] rand=new Animal[2];
 		rand=get(animals);
-		Animal win=fight(rand);
+		win=fight(rand);
+		count(win);
 		}
 	}
 
@@ -94,23 +94,21 @@ public int random()
 	}
 public Animal[] get(Animal[] animals)
 	{
-		int r0=random();
-		int r1=random();
-		Animal[]cage=new Animal[2];
-	if (r0!=r1&&animals[r0].alive==true||animals[r1].alive==true);
-		{
-		
-		do{		
-			r0=random();
-			r1=random();				
-		}while(r0==r1||animals[r0].alive==false||animals[r1].alive==false);
+		int r0=0;
+		int r1=0;
+		Animal[]cage=null;
+	do{
+		r0=random();
+		r1=random();
+		}while(r0==r1&&animals[r0].alive==false||animals[r1].alive==false);
+		cage=new Animal[2];
 				System.out.println("  name: "+animals[r0].name+"   strength  "+animals[r0].str);
 				System.out.println("\n");		
 				System.out.println("  name: "+animals[r1].name+"   strength  "+animals[r1].str);
 
 				cage[0]=animals[r0];
 				cage[1]=animals[r1];
-		}return cage;
+		return cage;
 	}
 
 public Animal fight(Animal[] cage)
@@ -138,6 +136,25 @@ public Animal fight(Animal[] cage)
 					s=cage[1].str;
 					win=cage[1];	
 				}
+
 			return win;
 	}
+public void count(Animal win)
+	{
+		int count=0,i,c=0;
+		for (i=0;i<animals.length;i++) 
+		{
+			if (animals[i].alive==true) 
+			{
+				count++;
+				win=animals[i];
+			}
+		}
+		System.out.println("count is "+count);
+		if(count==1)
+		{
+			System.out.println("the king is"+win.name);
+		}
+		
+	} 
 }
