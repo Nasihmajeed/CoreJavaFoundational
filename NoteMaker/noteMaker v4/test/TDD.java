@@ -4,8 +4,15 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Console;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.lang.Exception;
 import noteMaker2.note.BulletNote;
 import noteMaker2.note.DescNote;
+import noteMaker2.note.Note;
 import noteMaker2.noteContent.BulletContent;
 import noteMaker2.noteContent.DescContent;
 import noteMaker2.noteContent.NoteContent;
@@ -14,7 +21,10 @@ public class TDD
 	public static  List<BulletNote> bulletNotes;
 	public static List<DescNote> descNotes;
 	static Scanner scan=new Scanner(System.in);
-	static Console console = System.console();   
+	static Console console = System.console(); 
+	public static File bulletFile;
+	public static File descFile;
+	public static List<Note> notes;
 	public static void main(String args[])
 	{
 		bulletNotes=new ArrayList(Arrays.asList(
@@ -26,7 +36,8 @@ public class TDD
 		new DescNote(1,"Literature",new DescContent("novels,stories and epics")),
 		new DescNote(2,"art",new DescContent("paintings,sculptures"))	
 		));
-
+		createBulletFile();
+		createDescFile();
 		printMenu();
 		
 	}
@@ -35,6 +46,7 @@ public class TDD
 	{
 		for(BulletNote bulletNote:bulletNotes)
 		{
+			printBulletToFile(bulletFile,bulletNotes);
 			System.out.println("id="+bulletNote.getId()+"\ntitle="+bulletNote.getTitle()+"\n");
 			for(String bulletPoint: ( ( (BulletContent) (bulletNote.getNoteContent()) ).getBulletPoints() )  )
 			{
@@ -90,6 +102,7 @@ public class TDD
 		for(DescNote descriptionNote:descNotes)
 		{
 			System.out.println("\nid="+descriptionNote.getId()+"\ntitle="+descriptionNote.getTitle()+"\n------- \n"+( ( (DescContent) (descriptionNote.getNoteContent()) ).getLine() ));
+			printDescToFile(descFile,descNotes);
 			
 		}
 	}
@@ -137,28 +150,48 @@ public class TDD
 		printDesc();
 	}
 
-	static void createBullet()
+	static void createBullet(List<BulletNote> bulletNotes)
 	{
-		System.out.println("Enter id: ");
-		int newId=scan.nextInt();
+		List<String> bulletpoints=new ArrayList<String>();
+		int newId=bulletNotes.size()+1;
 		System.out.println("Enter title: ");
 		String newBulletTitle=console.readLine();
-		System.out.println("Enter bullet point 1: ");
-		String newBulletPoint1=console.readLine();
-		System.out.println("Enter bullet point 2: ");
-		String newBulletPoint2=console.readLine();
-		bulletNotes.add(new BulletNote(newId,newBulletTitle,new BulletContent(Arrays.asList(newBulletPoint1,newBulletPoint2))));
+		bulletPointNumber(newId,newBulletTitle,bulletpoints);
 		print();
+			
 	}
-	static void createDesc()
+	static void bulletPointNumber(int newId,String newBulletTitle,List<String> bulletpoints)
 	{
-		System.out.println("Enter id: ");
-		int newDescId=scan.nextInt();
+		while(true)
+		{
+			System.out.println("have bullet points? y or n ");
+			char choice=scan.next().charAt(0);
+			if(choice=='y')
+			{ 
+				System.out.println("Enter bullet point: ");
+				String newBulletPoint=console.readLine();
+				bulletpoints.add(newBulletPoint);
+			}
+			if(choice=='n')
+			{
+				break;
+			}
+			if(choice!='y'&&choice!='n')
+			{
+				System.out.println("invalid");
+			}
+		}
+		bulletNotes.add(new BulletNote(newId,newBulletTitle,new BulletContent(bulletpoints)));
+	}
+
+	static void createDesc(List<DescNote> descNotes)
+	{
+		int newId=descNotes.size()+1;
 		System.out.println("Enter title: ");
 		String newDescTitle=console.readLine();
 		System.out.println("Enter content : ");
 		String newDescLine=console.readLine();
-		descNotes.add(new DescNote(newDescId,newDescTitle,new DescContent(newDescLine)));
+		descNotes.add(new DescNote(newId,newDescTitle,new DescContent(newDescLine)));
 		printDesc();
 	}
 
@@ -168,6 +201,10 @@ public class TDD
 		{
 			System.out.println("\nMENU\n1.show  2.Edit  3.Delete  4.create 5.exit");
 			int choice=scan.nextInt();
+			if(choice==5)
+			{
+				return;
+			}
 			System.out.println("1.Bullet Note or 2.Description Note");
 			int note=scan.nextInt();
 			switch(choice)
@@ -178,7 +215,6 @@ public class TDD
 
 				case 2:
 				update(note);
-				
 				break;
 
 				case 3:
@@ -189,8 +225,6 @@ public class TDD
 				create(note);
 				break;
 
-				case 5:
-				return;
 			}
 		}
 	}
@@ -233,12 +267,116 @@ public class TDD
 	{
 		if(note==1)
 		{
-			createBullet();
+			createBullet(bulletNotes);
 		}
 		if(note==2)
 		{
-			createDesc();
+			createDesc(descNotes);
 		}	
 	}
 
+	static void createBulletFile()
+	{
+		bulletFile=new File("BulletNote.txt");
+		try
+		{
+			if(bulletFile.createNewFile())
+			{
+				System.out.println("Bullet File created "+bulletFile.getName());
+			}
+			else
+			{
+				System.out.println("bullet File already exists");
+			}
+		}
+		catch(IOException e)
+		{
+			System.out.println("bullet error");
+		}
+	}
+
+static void createDescFile()
+	{
+		descFile=new File("Description.txt");
+		try
+		{
+			if(descFile.createNewFile())
+			{
+				System.out.println("description File created "+descFile.getName());
+			}
+			else
+			{
+				System.out.println("desc File already exists");
+			}
+		}
+		catch(IOException e)
+		{
+			System.out.println("desc error");
+		}
+	}
+
+
+	static void readFile(File fileObj)
+	{
+		BufferedReader reader;
+		try 
+		{
+			reader = new BufferedReader(new FileReader(fileObj));
+			String line = reader.readLine();
+			while (line != null) 
+			{
+				System.out.println(line);
+				line = reader.readLine();
+			}
+			reader.close();
+		} 
+		catch (IOException e) 
+		{
+				e.printStackTrace();
+		}
+	}
+
+	static void printBulletToFile(File fileObj,List<BulletNote> bulletNotes)
+	{
+		try
+		{
+			PrintWriter writerObj=new PrintWriter(fileObj);
+			for(int i=0;i<bulletNotes.size();i++)
+			{
+				writerObj.println("id= "+bulletNotes.get(i).getId()+"\tTitle= "+bulletNotes.get(i).getTitle()+"\n");
+				for(String bulletPoint: ( ( (BulletContent) (bulletNotes.get(i).getNoteContent()) ).getBulletPoints() )  )
+				{
+					writerObj.println("**  " +bulletPoint);
+				}
+				writerObj.println();
+			}
+			writerObj.close();
+		}	
+		catch(IOException e)
+		{
+			System.out.println("error");
+		}
+	}
+	static void printDescToFile(File fileObj,List<DescNote> descNotes)
+	{
+		try
+		{
+			PrintWriter writerObj=new PrintWriter(fileObj);
+			for(int i=0;i<descNotes.size();i++)
+			{
+				writerObj.println("\nid="+descNotes.get(i).getId()+"\t"+"\ntitle="+descNotes.get(i).getTitle());
+					writerObj.println("\n ------- \n ");
+					writerObj.println(( ( (DescContent) (descNotes.get(i).getNoteContent()) ).getLine() ));
+				writerObj.println();
+				
+			}
+			writerObj.close();
+
+		}	
+		catch(IOException e)
+		{
+			System.out.println("error");
+		}
+		
+	}
 }
