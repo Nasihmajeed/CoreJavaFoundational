@@ -55,7 +55,7 @@ public class Forest
 				System.out.println("WINNER=="+animalArr[win].animalName);
 				for(int k=0;k<a;k++)
 				{
-					System.out.println(animalArr[k].animalName+ "-->  luck-"+animalArr[k].luck+ "  || dead-"+animalArr[k].isDead+"  ||  hunger-"+animalArr[k].hunger);
+					System.out.println(animalArr[k].animalName+ "-->  luck-"+animalArr[k].luck+ " -- dead-"+animalArr[k].isDead+"  --  hunger-"+animalArr[k].hunger);
 				}
 				break;
 			}
@@ -182,7 +182,7 @@ public class Forest
 			System.out.println("-------near by animals-----"+e);
 			if(e==1)
 			{
-				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]]);
+				escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]]);
 				if(escape==0)
 					animalArr[arr[0]]=animalAttackHunger(animalArr[arr[0]]);
 				else
@@ -190,7 +190,7 @@ public class Forest
 			}
 			else if(e==2)
 			{
-				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
+				escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
 				for(int i=0;i<2;i++)
 				{
 					if(escape==0)
@@ -201,7 +201,7 @@ public class Forest
 			}
 			else if(e>=3)
 			{
-				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr,arr);
+				escape=((Herbivores)animalArr[y]).attack(animalArr,e);
 				for(int i=0;i<e;i++)
 				{
 					if(escape==0)
@@ -218,13 +218,13 @@ public class Forest
 		Animal temp=null;
 		if((animalArr[y]) instanceof Carnivores)
 		{
-			int[] positionX=((CarnivoresAnimal)(animalArr[x])).roam();
-			int[] positionY=((CarnivoresAnimal)(animalArr[y])).roam();
+			int[] positionX=((Carnivores)(animalArr[x])).roam();
+			int[] positionY=((Carnivores)(animalArr[y])).roam();
 			int z=animalLocation(positionX,positionY);
 			if(z<=(animalArr[x].range))
 			{
 				System.out.println("\n\t\tFight no---"+(n++));
-				temp=((CarnivoresAnimal)(animalArr[x])).fight(animalArr[y]);
+				temp=((Carnivores)(animalArr[x])).fight(animalArr[y]);
 				animalArr[y]=animalFightHunger(animalArr[y]);
 			}
 		}
@@ -253,7 +253,7 @@ public class Forest
 		{
 			if(animalArr[j] instanceof Carnivores)
 			{
-				int[] axisC=((CarnivoresAnimal)(animalArr[j])).roam();
+				int[] axisC=((Carnivores)(animalArr[j])).roam();
 				distance=animalLocation(axisC,axisH);
 			}
 			if(distance<animalArr[y].sight)
@@ -273,13 +273,13 @@ public class Forest
 
 	public Animal animalAttackHunger(Animal animals)
 	{
-		System.out.println("annn hunger="+animals.hunger);
+		System.out.println(animals.animalName+" --hunger="+animals.hunger);
 		switch(animals.hunger)
 		{
 			case HIGH: 
 				{animals.hunger=Hunger.MEDIUM; break;}
-			case MEDIUM:{
-						animals.hunger=Hunger.LOW; break;}
+			case MEDIUM:
+				{animals.hunger=Hunger.LOW; break;}
 			default:
 				System.out.println("low hungry level");
 		}
@@ -288,13 +288,13 @@ public class Forest
 
 	public Animal animalFightHunger(Animal animals)
 	{
-		System.out.println("an hunger="+animals.hunger);
+		System.out.println(animals.animalName+"--hunger="+animals.hunger);
 		switch(animals.hunger)
 		{
-			case LOW: {
-						animals.hunger=Hunger.MEDIUM; break;}
-			case MEDIUM: {
-						animals.hunger=Hunger.HIGH; break;}
+			case LOW:
+				{animals.hunger=Hunger.MEDIUM; break;}
+			case MEDIUM:
+				{animals.hunger=Hunger.HIGH; break;}
 
 		}
 		return animals;
