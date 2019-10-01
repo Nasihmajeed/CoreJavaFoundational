@@ -41,7 +41,7 @@ public class Forest
 			int y=(int) (Math.random()*a);
 			for(int j=0;j<a;j++)
 			{
-				if((animalArr[j] instanceof Carnivores)|(animalArr[x] instanceof Carnivores))
+				if((animalArr[j] instanceof Carnivores))
 				{
 					if((animalArr[j].isDead==false))
 					{
@@ -53,12 +53,18 @@ public class Forest
 			if(count<=1)
 			{
 				System.out.println("WINNER=="+animalArr[win].animalName);
+				for(int k=0;k<a;k++)
+				{
+					System.out.println(animalArr[k].animalName+ "-->  luck-"+animalArr[k].luck+ "  || dead-"+animalArr[k].isDead+"  ||  hunger-"+animalArr[k].hunger);
+				}
 				break;
 			}
 			if((animalArr[x] instanceof Carnivores)&(animalArr[x].isDead==false)&(animalArr[y].isDead==false)&(x!=y))
 			{
-				n=winnerCarnivores(n,x,y);
-				setWinner(r,x,y);	  
+				if(animalArr[y] instanceof Carnivores)
+					n=winnerCarnivores(n,x,y);
+				else
+					setWinner(r,x,y);	  
 			}  
 		}
 	}
@@ -80,9 +86,10 @@ public class Forest
 			aTiger.strength=s.nextInt();
 			aTiger.xAxis=(int) (Math.random()*10);
 			aTiger.yAxis=(int) (Math.random()*10);
-			aTiger.sight=15;
+			aTiger.sight=4;
 			aTiger.range=6;
 			aTiger.isDead=false;
+			aTiger.hunger=Hunger.LOW;
 			animalArr[i]=aTiger;
 			t++;
 		}
@@ -105,9 +112,10 @@ public class Forest
 			aLion.strength=s.nextInt();
 			aLion.xAxis=(int) (Math.random()*10);
 			aLion.yAxis=(int) (Math.random()*10);
-			aLion.sight=12;
+			aLion.sight=3;
 			aLion.range=5;
 			aLion.isDead=false;
+			aLion.hunger=Hunger.LOW;
 			animalArr[j]=aLion;
 			l++;
 		}
@@ -130,9 +138,10 @@ public class Forest
 			aBear.strength=s.nextInt();
 			aBear.xAxis=(int) (Math.random()*10);
 			aBear.yAxis=(int) (Math.random()*10);
-			aBear.sight=8;
+			aBear.sight=2;
 			aBear.range=4;
 			aBear.isDead=false;
+			aBear.hunger=Hunger.LOW;
 			animalArr[k]=aBear;
 			b++;
 		}
@@ -155,34 +164,52 @@ public class Forest
 			aRabbit.strength=s.nextInt();
 			aRabbit.xAxis=(int) (Math.random()*10);
 			aRabbit.yAxis=(int) (Math.random()*10);
-			aRabbit.sight=6;
+			aRabbit.sight=5;
 			aRabbit.range=3;
 			aRabbit.isDead=false;
+			aRabbit.hunger=Hunger.LOW;
 			animalArr[g]=aRabbit;
 			r++;
 		}
 	}
 	public void setWinner(int r,int x,int y)
 	{
-		int a=animalArr.length;
-		Animal herb=null;
+		int a=animalArr.length,escape;
 		if((animalArr[y]) instanceof Herbivores)
 		{
 			int[] arr=animalInSight(y);
 			int e=arr.length;
+			System.out.println("-------near by animals-----"+e);
 			if(e==1)
 			{
-				((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]]);
+				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]]);
+				if(escape==0)
+					animalArr[arr[0]]=animalAttackHunger(animalArr[arr[0]]);
+				else
+					animalArr[arr[0]]=animalFightHunger(animalArr[arr[0]]);
 			}
 			else if(e==2)
 			{
-				((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
+				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
+				for(int i=0;i<2;i++)
+				{
+					if(escape==0)
+						animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
+					else
+						animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
+				}
 			}
 			else if(e>=3)
 			{
-				((HerbivoresAnimal)animalArr[y]).attack(animalArr,arr);
-			}
-			
+				escape=((HerbivoresAnimal)animalArr[y]).attack(animalArr,arr);
+				for(int i=0;i<e;i++)
+				{
+					if(escape==0)
+						animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
+					else
+						animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
+				}
+			}		
 		}
 	}
 	public int winnerCarnivores(int n,int x,int y)
@@ -198,6 +225,7 @@ public class Forest
 			{
 				System.out.println("\n\t\tFight no---"+(n++));
 				temp=((CarnivoresAnimal)(animalArr[x])).fight(animalArr[y]);
+				animalArr[y]=animalFightHunger(animalArr[y]);
 			}
 		}
 		return n;
@@ -219,6 +247,7 @@ public class Forest
 	{
 		int distance=0,count=0;
 		int[] arr=new int[animalArr.length];
+
 		int[] axisH=((Herbivores)(animalArr[y])).graze();
 		for(int j=0;j<animalArr.length;j++)
 		{
@@ -229,11 +258,47 @@ public class Forest
 			}
 			if(distance<animalArr[y].sight)
 			{
+
 			 	arr[count]=j;	
 			 	count++;			
 			}
 		}
-		return arr;
+		int[] array=new int[count];
+		for(int i=0;i<count;i++)
+		{
+			array[i]=arr[i];
+		}
+		return array;
+	}
+
+	public Animal animalAttackHunger(Animal animals)
+	{
+		System.out.println("annn hunger="+animals.hunger);
+		switch(animals.hunger)
+		{
+			case HIGH: 
+				{animals.hunger=Hunger.MEDIUM; break;}
+			case MEDIUM:{
+						animals.hunger=Hunger.LOW; break;}
+			default:
+				System.out.println("low hungry level");
+		}
+		return animals;
+	}
+
+	public Animal animalFightHunger(Animal animals)
+	{
+		System.out.println("an hunger="+animals.hunger);
+		switch(animals.hunger)
+		{
+			case LOW: {
+						animals.hunger=Hunger.MEDIUM; break;}
+			case MEDIUM: {
+						animals.hunger=Hunger.HIGH; break;}
+
+		}
+		return animals;
 	}
 
 }
+
