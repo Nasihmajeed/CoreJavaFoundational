@@ -213,19 +213,21 @@ public class Forest
 				nearAnimals(arr,count);
 				if(animal[y] instanceof Herbivorous)
 				{
+					System.out.println("	 \t\t \t\t*ATTACK*");
 					if(count==1)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]]);
 					else if(count==2)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]],animal[arr[1]]);
 					else if(count==3)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]],animal[arr[2]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]],animal[arr[1]],animal[arr[2]]);
 				}
 				else
 				{
+					System.out.println("	 \t\t \t\t*FIGHT*");
 					if(count==1)
-					temp=((CarnivorousAnimal)animal[y]).fight(animal[arr[0]]);
+					temp=((Carnivorous)animal[y]).fight(animal[arr[0]]);
 					else if(count==2)
-					temp=((CarnivorousAnimal)animal[y]).fight(animal[arr[0]],animal[arr[1]]);
+					temp=((Carnivorous)animal[y]).fight(animal[arr[0]],animal[arr[1]]);
 					for(i=0;i<animal.length;i++)
 					{
 						if(animal[i]==temp)
