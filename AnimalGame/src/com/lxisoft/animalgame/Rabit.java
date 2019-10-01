@@ -7,11 +7,14 @@ public class Rabit extends Animal implements Herbivores
 {
 	
     int Aggressivelevel=5;
-	public Rabit(String name,int strengthlevel,boolean isAlive,int x,int y)
+	public Rabit(String name,int strengthlevel,int x,int y,int range)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;
 		this.isAlive=true;
+		this.x=x;
+		this.y=y;
+		this.range=range;
 	}
   
   public int luckfactor()

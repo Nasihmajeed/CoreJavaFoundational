@@ -16,19 +16,20 @@ public class Forest
 		int s;
 		animal = new Animal[8];
 			
-	    animal[0] = new Lion("  Lion ",80,true,(int)(Math.random()*10),(int)(Math.random()*10));
-		animal[1] = new Tiger( "Tiger ",70,true,(int)(Math.random()*10),(int)(Math.random()*10));
-		animal[2]  = new Rabit( " Rabit ",10,true,(int)(Math.random()*10),(int)(Math.random()*10));
-		animal[3]  = new Wildbull( " Wildbull ",90,true,(int)(Math.random()*10),(int)(Math.random()*10));
-	    animal[4]  = new  Wolf("  wolf ",40,true,(int)(Math.random()*10),(int)(Math.random()*10));
-	    animal[5]  = new Leopard(" Leopard " ,60,true,(int)(Math.random()*10),(int)(Math.random()*10));
-		animal[6]  = new Fox(" Fox " ,30,true,(int)(Math.random()*10),(int)(Math.random()*10));
-		animal[7]  = new Hyena(" Hyena " ,35,true,(int)(Math.random()*10),(int)(Math.random()*10));
+	    animal[0] = new Lion("  Lion ",80,(int)(Math.random()*40),(int)(Math.random()*40),50);
+		animal[1] = new Tiger( "Tiger ",70,(int)(Math.random()*30),(int)(Math.random()*30),40);
+		animal[2]  = new Rabit( " Rabit ",10,(int)(Math.random()*10),(int)(Math.random()*10),10);
+		animal[3]  = new Wildbull( " Wildbull ",90,(int)(Math.random()*15),(int)(Math.random()*15),20);
+	    animal[4]  = new  Wolf("  wolf ",40,(int)(Math.random()*20),(int)(Math.random()*20),30);
+	    animal[5]  = new Leopard(" Leopard " ,60,(int)(Math.random()*30),(int)(Math.random()*30),35);
+		animal[6]  = new Fox(" Fox " ,30,(int)(Math.random()*20),(int)(Math.random()*20),20);
+		animal[7]  = new Hyena(" Hyena " ,35,(int)(Math.random()*30),(int)(Math.random()*30),20);
 		for(s=0;s<animal.length;s++)
 		{
 			System.out.print(s+1);
 			animal[s].display();
-		}	
+		}
+      		
 		return animal;
 	}	
 	// here creating the random numbers 
@@ -88,6 +89,9 @@ public class Forest
 		        System.out.println(animal1.name+ "and "+ animal2.name +"ready to fight...");
 		        System.out.println("Fight Begins..........!!");
 				temp=((Carnivores)animal1).attack(animal2);
+				if( distance(animal1,animal2)<=animal1.range)
+				{
+					
 				 if(temp==animal1)
 				{	
 				  System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );
@@ -103,14 +107,14 @@ public class Forest
 							animal2.strengthlevel=animal2.strengthlevel-20;
 							animal1.isAlive=false;
 				       }
-					   
+				}	   
 					   
 		winner();
 
 	}
-    public int distance(int x,int y)
+    public int distance(Animal animal1,Animal animal2)
 	{
-		distance= (x1-x2)^2+(y1-y2)^2;
+		int distance= (animal1.x-animal2.x)^2+(animal1.y-animal2.y)^2;
 		
 		return distance;
 	}
