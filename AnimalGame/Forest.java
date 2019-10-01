@@ -77,13 +77,9 @@ public void animalDetails()
 		System.out.println("strength : "+animals[4].str);
 		System.out.println("\n");
 		Animal win=null;
-		for (int i=0;i<5;i++) 
-		{
-		Animal[] rand=new Animal[2];
-		rand=get(animals);
-		win=fight(rand);
-		count(win);
-		}
+		
+		fight();
+		
 	}
 
 
@@ -92,52 +88,56 @@ public int random()
 		int r=(int)(Math.random()*5);
 		return r;					
 	}
-public Animal[] get(Animal[] animals)
+// public Animal[] get(Animal[] animals)
+// 	{
+// 		
+// 		Animal[]cage=null;
+// 	do{
+// 		r0=random();
+// 		r1=random();
+// 		}while(r0==r1||animals[r0].alive==false||animals[r1].alive==false);
+// 		cage=new Animal[2];
+// 				System.out.println("  name: "+animals[r0].name+"   strength  "+animals[r0].str);
+// 				System.out.println("\n");		
+// 				System.out.println("  name: "+animals[r1].name+"   strength  "+animals[r1].str);
+
+// 				cage[0]=animals[r0];
+// 				cage[1]=animals[r1];
+// 		return cage;
+// 	}
+
+public void fight()
 	{
 		int r0=0;
 		int r1=0;
-		Animal[]cage=null;
-	do{
-		r0=random();
-		r1=random();
-		}while(r0==r1&&animals[r0].alive==false||animals[r1].alive==false);
-		cage=new Animal[2];
-				System.out.println("  name: "+animals[r0].name+"   strength  "+animals[r0].str);
-				System.out.println("\n");		
-				System.out.println("  name: "+animals[r1].name+"   strength  "+animals[r1].str);
-
-				cage[0]=animals[r0];
-				cage[1]=animals[r1];
-		return cage;
-	}
-
-public Animal fight(Animal[] cage)
-	{
 		int s;
 		Animal win=null;
+		do{
+ 		r0=random();
+ 		r1=random();
+		}while(r0==r1||animals[r0].alive==false||animals[r1].alive==false);
 
-			if (cage[0].str>cage[1].str) 
+			if (animals[r0].str>animals[r1].str) 
 				{
-					System.out.println(cage[0].name+ "  Defeat the  " +cage[1].name);				
-					System.out.println("The Wiiner is :    "+cage[0].name+"    strength is reduce to  "+cage[0].str/2+ "    GOING TO SLEEP");									
-					cage[1].str=0;
-					cage[1].alive=false;
-					cage[0].str=cage[0].str/2;
-					s=cage[0].str;
-					win=cage[0];
+					System.out.println(animals[r0].name+ "  Defeat the  " +animals[r1].name);				
+					System.out.println("The Wiiner is :    "+animals[r0].name+"    strength is reduce to  "+animals[r0].str/2+ "    GOING TO SLEEP");									
+					animals[r1].str=0;
+					animals[r1].alive=false;
+					animals[r0].str=animals[r0].str/2;
+					s=animals[r0].str;
+					win=animals[r0];
 				}
 			else
 				{
-					System.out.println(cage[1].name+ "  Defeat the  " +cage[0].name);				
-					System.out.println("The Wiiner is :    "+cage[1].name+"    strength is reduce to  "+cage[1].str/2+ "    GOING TO SLEEP");					
-					cage[0].str=0;
-					cage[0].alive=false;
-					cage[1].str=cage[1].str/2;
-					s=cage[1].str;
-					win=cage[1];	
+					System.out.println(animals[r1].name+ "  Defeat the  " +animals[r0].name);				
+					System.out.println("The Wiiner is :    "+animals[r1].name+"    strength is reduce to  "+animals[r1].str/2+ "    GOING TO SLEEP");					
+					animals[r0].str=0;
+					animals[r0].alive=false;
+					animals[r1].str=animals[r1].str/2;
+					s=animals[r1].str;
+					win=animals[r1];	
 				}
-
-			return win;
+				count(win);
 	}
 public void count(Animal win)
 	{
@@ -155,6 +155,9 @@ public void count(Animal win)
 		{
 			System.out.println("the king is"+win.name);
 		}
-		
-	} 
+		else
+		{
+			fight();
+		}
+	}
 }
