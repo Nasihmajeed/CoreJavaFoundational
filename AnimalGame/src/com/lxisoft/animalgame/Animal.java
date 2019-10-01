@@ -10,8 +10,11 @@ public abstract class Animal
 	public int xAxis;
 	public int yAxis;
 	public int luck;
-	public int sight;
 	public int range;
+	public Hunger hunger;
 	public boolean isDead=false;	
 		
 }
+
+   
+   

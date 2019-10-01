@@ -4,4 +4,4 @@ public interface Carnivorous
 {
 	public abstract Animal fight(Animal animal);	
 	public void roam();		
-}	
+}
