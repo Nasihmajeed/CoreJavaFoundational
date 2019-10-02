@@ -78,7 +78,7 @@ public void animalDetails()
 		System.out.println("\n");
 		Animal win=null;
 		
-		fight();
+		fight(choosing());
 		
 	}
 
@@ -116,7 +116,9 @@ public void fight()
  		r0=random();
  		r1=random();
 		}while(r0==r1||animals[r0].alive==false||animals[r1].alive==false);
-
+	}
+public void choosing()
+{
 			if (animals[r0].str>animals[r1].str) 
 				{
 					System.out.println(animals[r0].name+ "  Defeat the  " +animals[r1].name);				
