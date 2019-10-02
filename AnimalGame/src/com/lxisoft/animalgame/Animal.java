@@ -10,7 +10,7 @@ public abstract class Animal
 	
 	public void display()
 	{
-		System.out.println(" name= "+this.name+ "strengthlevel= "+this.strengthlevel +"\n" +"  Range of "+ this.name+"=="+this.range);
+		System.out.println(" name="+this.name+ "strengthlevel= "+this.strengthlevel +"\n" +"  Range of "+ this.name+"=="+this.range);
 	}	
     
 	
