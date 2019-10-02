@@ -11,11 +11,11 @@ enum Level
 }
 public class Game
 {
-	public void gameOn()
+	public void setGameLevel()
 	{
 		Scanner sc=new Scanner(System.in);
 		Forest forest=new Forest();
-		forest.aninalInitialisation();
+		forest.setAnimals();
 		int value=0;
 		Level temp=null;
 		do
@@ -33,9 +33,9 @@ public class Game
 
 		switch(temp)
 		{
-			case EASY : forest.easyMode();break;
-			case MEDIUM : forest.mediumMode();break;
-			case HARD : forest.hardMode();break;
+			case EASY : forest.setEasyMode();break;
+			case MEDIUM : forest.setMediumMode();break;
+			case HARD : forest.setHardMode();break;
 		}
 
 

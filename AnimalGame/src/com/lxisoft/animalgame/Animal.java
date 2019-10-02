@@ -9,6 +9,7 @@ public abstract class Animal
 	String name;
 	boolean isDead;
 	Hunger hungerlevel;
+	int luckFactor;
 	int range,sight; 
 	int[] newLocation=new int[2];
 

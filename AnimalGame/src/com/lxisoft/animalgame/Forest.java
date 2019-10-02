@@ -8,7 +8,7 @@ public class Forest
 {
 	Animal[] animal=new Animal[10];
 	
-	public void aninalInitialisation()
+	public void setAnimals()
 	{
 		// Scanner scan=new Scanner(System.in);
 
@@ -28,71 +28,71 @@ public class Forest
 		animal[0].name="tiger";
 		animal[0].isDead=false;
 		animal[0].hungerlevel=Hunger.STARVING;
-		animal[0].newLocation[0]=random(50);
-		animal[0].newLocation[1]=random(50);
+		animal[0].newLocation[0]=getRandom(50);
+		animal[0].newLocation[1]=getRandom(50);
 		
 		animal[1].name="rabbit";		
 		animal[1].isDead=false;
-		((Hanimal)(animal[1])).luckFactor=2;
+		(animal[1]).luckFactor=2;
 		animal[1].hungerlevel=Hunger.STARVING;
-		animal[1].newLocation[0]=random(50);
-		animal[1].newLocation[1]=random(50);
+		animal[1].newLocation[0]=getRandom(50);
+		animal[1].newLocation[1]=getRandom(50);
 		
 		animal[2].name="lion";
 		animal[2].isDead=false;
 		animal[2].hungerlevel=Hunger.STARVING;
-		animal[2].newLocation[0]=random(50);
-		animal[2].newLocation[1]=random(50);
+		animal[2].newLocation[0]=getRandom(50);
+		animal[2].newLocation[1]=getRandom(50);
 		
 		animal[3].name="peacook";
 		animal[3].isDead=false;
-		((Hanimal)(animal[3])).luckFactor=3;
+		(animal[3]).luckFactor=3;
 		animal[3].hungerlevel=Hunger.STARVING;
-		animal[3].newLocation[0]=random(50);
-		animal[3].newLocation[1]=random(50);
+		animal[3].newLocation[0]=getRandom(50);
+		animal[3].newLocation[1]=getRandom(50);
 		
 		animal[4].name="zeebra";		
 		animal[4].isDead=false;
-		((Hanimal)(animal[4])).luckFactor=4;
+		(animal[4]).luckFactor=4;
 		animal[4].hungerlevel=Hunger.STARVING;
-		animal[4].newLocation[0]=random(50);
-		animal[4].newLocation[1]=random(50);
+		animal[4].newLocation[0]=getRandom(50);
+		animal[4].newLocation[1]=getRandom(50);
 		
 		animal[5].name="fox";
 		animal[5].isDead=false;
 		animal[5].hungerlevel=Hunger.STARVING;
-		animal[5].newLocation[0]=random(50);
-		animal[5].newLocation[1]=random(50);
+		animal[5].newLocation[0]=getRandom(50);
+		animal[5].newLocation[1]=getRandom(50);
 		
 		animal[6].name="cheetah";
 		animal[6].isDead=false;
 		animal[6].hungerlevel=Hunger.STARVING;
-		animal[6].newLocation[0]=random(50);
-		animal[6].newLocation[1]=random(50);
+		animal[6].newLocation[0]=getRandom(50);
+		animal[6].newLocation[1]=getRandom(50);
 		
 		animal[7].name="deer";
 		animal[7].isDead=false;
-		((Hanimal)(animal[7])).luckFactor=4;
+		(animal[7]).luckFactor=4;
 		animal[7].hungerlevel=Hunger.STARVING;
-		animal[7].newLocation[0]=random(50);
-		animal[7].newLocation[1]=random(50);
+		animal[7].newLocation[0]=getRandom(50);
+		animal[7].newLocation[1]=getRandom(50);
 		
 		animal[8].name="elephant";
 		animal[8].isDead=false;
-		((Hanimal)(animal[8])).luckFactor=5;
+		(animal[8]).luckFactor=5;
 		animal[8].hungerlevel=Hunger.STARVING;
-		animal[8].newLocation[0]=random(50);
-		animal[8].newLocation[1]=random(50);
+		animal[8].newLocation[0]=getRandom(50);
+		animal[8].newLocation[1]=getRandom(50);
 		
 		animal[9].name="wolf";
 		animal[9].isDead=false;
 		animal[9].hungerlevel=Hunger.STARVING;
-		animal[9].newLocation[0]=random(50);
-		animal[9].newLocation[1]=random(50);
+		animal[9].newLocation[0]=getRandom(50);
+		animal[9].newLocation[1]=getRandom(50);
 
 	}
 
-	public void easyMode()
+	public void setEasyMode()
 	{
 		animal[0].strength=90;	animal[0].range=35;	animal[0].sight=25;
 		animal[1].strength=30;	animal[1].range=15;	animal[1].sight=10;
@@ -104,9 +104,9 @@ public class Forest
 		animal[7].strength=50;	animal[7].range=20;	animal[7].sight=10;
 		animal[8].strength=70;	animal[8].range=20;	animal[8].sight=20;
 		animal[9].strength=60; 	animal[9].range=28;	animal[9].sight=20;
-		meet();
+		setAnimalMeeting();
 	}
-	public void mediumMode()
+	public void setMediumMode()
 	{	
 		animal[0].strength=80;	animal[0].range=35;	animal[0].sight=20;
 		animal[1].strength=25;	animal[1].range=15;	animal[1].sight=8;
@@ -118,9 +118,9 @@ public class Forest
 		animal[7].strength=40;	animal[7].range=20;	animal[7].sight=8;
 		animal[8].strength=60;	animal[8].range=20;	animal[8].sight=15;
 		animal[9].strength=50; 	animal[9].range=28;	animal[9].sight=15;
-		meet();
+		setAnimalMeeting();
 	}	
-	public void hardMode()
+	public void setHardMode()
 	{
 		animal[0].strength=70;	animal[0].range=35;	animal[0].sight=15;
 		animal[1].strength=20;	animal[1].range=15;	animal[1].sight=5;
@@ -132,22 +132,22 @@ public class Forest
 		animal[7].strength=30;	animal[7].range=20;	animal[7].sight=5; 
 		animal[8].strength=50;	animal[8].range=20;	animal[8].sight=10;
 		animal[9].strength=40; 	animal[9].range=28;	animal[9].sight=10;
-		meet();
+		setAnimalMeeting();
 	} 		
 				
-	public int random(int max)
+	public int getRandom(int max)
 	{
 		int random=(int)(max* Math.random());
 		return random;
 	}
- 	public Animal[] isdead(int winner,int looser, Animal[] animal )
+ 	public Animal[] setDead(int winner,int looser, Animal[] animal )
 	{
 		int diff=animal[looser].strength/2;
 		animal[winner].strength-=diff;
 		animal[looser].strength=0;
 		return animal;
 	}
-	public void winning(Animal lastone, Animal[] array)
+	public void setWinner(Animal lastone, Animal[] array)
 	{
 		int count=0;
 		for(int i=0; i<array.length; i++)
@@ -173,12 +173,12 @@ public class Forest
 		}
 		else
 		{
-			meet();
+			setAnimalMeeting();
 		}
 
 
 	}
-	public boolean withinRange(int x, int y,int[] one,int range)
+	public boolean isInRange(int x, int y,int[] one,int range)
 	{
 		boolean yes=true;
 		int distance=(int)Math.sqrt((x-one[0])*(x-one[0])+(y-one[1])*(y-one[1]));
@@ -187,7 +187,7 @@ public class Forest
 		// System.out.println("range Distance= "+distance);
 		return yes;
 	}
-	public boolean withinSight(int[] x, int[] y,int sight)
+	public boolean isInSight(int[] x, int[] y,int sight)
 	{
 		boolean yes=true;
 		int distance=(int)Math.sqrt((x[0]-y[0])*(x[0]-y[0])+(x[1]-y[1])*(x[1]-y[1]));
@@ -197,7 +197,7 @@ public class Forest
 		return yes;
 
 	}
-	public Animal[] newLocation(Animal[] animal)
+	public Animal[] setNewLocation(Animal[] animal)
 	{
 		boolean returns=false;
 		int[] newPosition=new int[2];
@@ -211,9 +211,9 @@ public class Forest
 				{
 					do
 					{
-						newPosition=((Hanimal)(animal[i])).graze();
+						newPosition=((Herbivores)(animal[i])).getGraze();
 						// animal[i].printName();
-						returns=withinRange(animal[i].newLocation[0],animal[i].newLocation[1],newPosition,animal[i].range);
+						returns=isInRange(animal[i].newLocation[0],animal[i].newLocation[1],newPosition,animal[i].range);
 					}while(returns);
 
 				}
@@ -221,9 +221,9 @@ public class Forest
 				{
 					do
 					{
-						newPosition=((Canimal)(animal[i])).roam();
+						newPosition=((Carnivore)(animal[i])).getRoam();
 						// animal[i].printName();
-						returns=withinRange(animal[i].newLocation[0],animal[i].newLocation[1],newPosition,animal[i].range);
+						returns=isInRange(animal[i].newLocation[0],animal[i].newLocation[1],newPosition,animal[i].range);
 					}while(returns);
 					
 				}
@@ -233,7 +233,7 @@ public class Forest
 		}
 		return animal;
 	}
-	public Animal[] isweaken(int i,Animal[] animal,int[] near)
+	public Animal[] setWeaken(int i,Animal[] animal,int[] near)
 	{
 		for(int j=0;j<2;j++)
 		{
@@ -244,7 +244,7 @@ public class Forest
 		}
 		return animal;
 	}
-	public Animal[] isweaken(int i,Animal[] animal,int[] near,int nearby)
+	public Animal[] setWeaken(int i,Animal[] animal,int[] near,int nearby)
 	{
 		for(int j=0;j<nearby;j++)
 		{
@@ -256,7 +256,7 @@ public class Forest
 		}
 		return animal;
 	}
-	public Animal isfooding(Animal animal)
+	public Animal setFooding(Animal animal)
 	{
 		Hunger temp=animal.hungerlevel;
 		switch(temp)
@@ -269,13 +269,13 @@ public class Forest
 		}
 		return animal;
 	}
-	public void meet()
+	public void setAnimalMeeting()
 	{
 		int count=0,locationX=0,locationY=0;
 		int random1=0;
 		int random2=0;
 		Animal win=null;
-		animal=newLocation(animal);
+		animal=setNewLocation(animal);
 		// printing alive animals
 		for(int i=0; i<animal.length; i++)
 		{
@@ -299,7 +299,7 @@ public class Forest
 				do
 				{
 					
-					random2=random(animal.length);
+					random2=getRandom(animal.length);
 
 	 
 				
@@ -319,7 +319,7 @@ public class Forest
 						{
 							if(animal[i] instanceof Carnivore)
 							{
-								forsight=withinSight(animal[i].newLocation,animal[random2].newLocation,animal[i].sight);
+								forsight=isInSight(animal[i].newLocation,animal[random2].newLocation,animal[i].sight);
 								if(forsight==false)
 								{
 									near[nearby]=i;
@@ -342,7 +342,7 @@ public class Forest
 			counter--;
 			if(counter==0)
 			{
-				animal=newLocation(animal);
+				animal=setNewLocation(animal);
 				counter=20;
 			}
 		}while(enemy);
@@ -361,7 +361,7 @@ public class Forest
 					
 			if(animal[random2] instanceof Herbivores)
 			{
-				escape=((Hanimal)(animal[random2])).luck();
+				escape=((Herbivores)(animal[random2])).isLucky();
 
 			}
 		}
@@ -371,8 +371,8 @@ public class Forest
 					
 			if(animal[random2] instanceof Herbivores)
 			{
-				((Hanimal)(animal[random2])).luckFactor=(int)(((Hanimal)(animal[random2])).luckFactor)/2;
-				escape=((Hanimal)(animal[random2])).luck();
+				((animal[random2])).luckFactor=(int)(((animal[random2])).luckFactor)/2;
+				escape=((Herbivores)(animal[random2])).isLucky();
 
 			}
 		}
@@ -385,20 +385,20 @@ public class Forest
 			{
 				if(nearby==1)
 				{
-					win=((Carnivore) (animal[near[0]])).fight(animal[random2]);
+					win=((Carnivore) (animal[near[0]])).getFight(animal[random2]);
 				}
 				
 				if(nearby==2)
 				{
-					win=((Carnivore) (animal[near[0]])).fight(animal[random2],animal[near[1]]);
+					win=((Carnivore) (animal[near[0]])).getFight(animal[random2],animal[near[1]]);
 				}
 				
 				if(nearby>=3)
 				{
-					win=((Carnivore) (animal[near[0]])).fight(animal[random2],animal,near,nearby);
+					win=((Carnivore) (animal[near[0]])).getFight(animal[random2],animal,near,nearby);
 				}
 
-				win=isfooding(win);
+				win=setFooding(win);
 				// win.printDetails();
 
 				if(nearby==1)
@@ -406,7 +406,7 @@ public class Forest
 					{
 						if(animal[i].name==win.name)
 						{
-							animal=isdead(i,random2, animal); 
+							animal=setDead(i,random2, animal); 
 
 						}
 						
@@ -417,7 +417,7 @@ public class Forest
 					{
 						if(animal[i].name==win.name)
 						{
-							animal=isweaken(i,animal,near); 
+							animal=setWeaken(i,animal,near); 
 
 						}
 						
@@ -428,7 +428,7 @@ public class Forest
 					{
 						if(animal[i].name==win.name)
 						{
-							animal=isweaken(i,animal,near,nearby); 
+							animal=setWeaken(i,animal,near,nearby); 
 
 						}
 						
@@ -437,7 +437,7 @@ public class Forest
 				
 			}		
 		
-		winning(win, animal);
+		setWinner(win, animal);
    
 	}
 }

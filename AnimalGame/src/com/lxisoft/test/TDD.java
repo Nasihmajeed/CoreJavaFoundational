@@ -7,11 +7,11 @@ public class TDD
 	{
 		
 		Game newgame= new Game();
-		newgame.gameOn();
+		newgame.setGameLevel();
 		
 	}
 	static{
-		System.out.println("welcome to OZ Forest \n "+" Enter at your own risk \n");
+		System.out.println("**************welcome to OZ Forest ***************\n "+"____ Enter at your own risk____ \n");
 	}
 
 }
