@@ -34,20 +34,23 @@ public class Deer extends Animal implements Herbivorous
       System.out.println("animals escape"+this.animalName);
     }
   }
-    
+        
 
-    public void escape(Animal animal1,Animal animal2,Animal animal3)
+    public void escape(Animal[] animalArray,int[] arr)
     {
-      System.out.println(animal1.animalName+"and"+animal2.animalName+"and"+"fight and kills"+this.animalName);
+      for(int j=0;j<arr.length;j++)
+      {
       if(luck/3<50)
       {
-          System.out.println("fight and kills"+this.animalName);
+          System.out.println(animalArray[arr[j]]+"fight and kills"+this.animalName);
           this.isDead=true;          
+        
       }
     else
     {
       System.out.println("animals escape"+this.animalName);
     }
+  }
   }
             
        public void graze()

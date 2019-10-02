@@ -132,25 +132,19 @@ public class Forest
 		return p;
 	}
 	public void setWinner(int x,int y,int[] arr)
-	{			
-
-		int count=arr.length;
+	{					
+		int[] count=animalRange(x,y);
+		System.out.println("count of near animal=="+count.length);
 		if((animalArray[x].isDead==false)&&(animalArray[y].isDead==false)&(x!=y))
 		{
 			if((animalArray[x] instanceof Herbivorous)&(animalArray[y] instanceof Herbivorous))
-			{
-				System.out.println("\t\t\t"+animalArray[x].animalName +" Vs "+animalArray[y].animalName+"\n\t\t\t NO FIGHT");
-			}
-			if((animalArray[x] instanceof Herbivorous)&(animalArray[y] instanceof Carnivorous))
-			{
-				System.out.println(animalArray[x].animalName +" Vs "+animalArray[y].animalName);
-			}				
-			if(count==1)
+			{					
+			if(count.length==1)
 			{
 				((Herbivorous)animalArray[x]).escape(animalArray[arr[0]]);
 				animalArray[arr[0]]=hungerLevel(animalArray[arr[0]]);
 			}
-			else if(count==2)
+			else if(count.length==2)
 			{
 				((Herbivorous)animalArray[x]).escape(animalArray[arr[0]],animalArray[arr[1]]);		
 				for(int i=0;i<2;i++)
@@ -158,18 +152,16 @@ public class Forest
 					animalArray[arr[i]]=hungerLevel(animalArray[arr[i]]);
 				}
 			}	
-			else if(count==3)
+			else if(count.length>=3)
 			{
-				((Herbivorous)animalArray[x]).escape(animalArray[arr[0]],animalArray[arr[1]],animalArray[arr[2]]);				 
-				 for(int i=0;i<3;i++)
+				((Herbivorous)animalArray[x]).escape(animalArray,arr);				 
+				 for(int i=0;i>count.length;i++)
 				{		
 					animalArray[arr[i]]=hungerLevel(animalArray[arr[i]]);
 				}
 			}
-			else
-			{
-				System.out.println("low hunger level");
-			}	
+		}
+				
 		}
 	}
 	public void winnerCarnivorous(int x,int y,int[] arr)
@@ -228,7 +220,6 @@ public class Forest
 		int count=0;		
 		int[] arr=new int[animalArray.length];
 		int distance=animalLocation(x,y);
-		System.out.println("\tnearest animals==========="+animalArray[y].animalName);		
 		for(int i=0;i<animalArray.length;i++)
 		{
 			if(animalArray[i] instanceof Carnivorous)
@@ -239,6 +230,11 @@ public class Forest
 					count++;
 				}   
 			}
+		}
+		int[] array=new int[count];
+		for(int j=0;j<count;j++)
+		{
+			array[j]=arr[j];
 		}
 		return arr;
 	}
@@ -259,22 +255,7 @@ public class Forest
    		System.out.println("low hunger level"); 
    		}      
         return animal;
-   }
-    public Animal animalHungerFight(Animal animal)
-    {
-    		switch(animal.hunger)
-     	{
-         case LOW:
-         animal.hunger=Hunger.MEDIUM;
-         System.out.println("medium hunger level"+animal.hunger);
-         break;
-         case MEDIUM:
-         animal.hunger=Hunger.LOW;
-         System.out.println("lowest hunger level"+animal.hunger);
-         break;                
-    		}
-    		return animal;
-    }  
+   }  
 }
 
 
