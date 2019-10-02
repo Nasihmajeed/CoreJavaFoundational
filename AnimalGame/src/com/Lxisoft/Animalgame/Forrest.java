@@ -1,10 +1,10 @@
 package com.Lxisoft.Animalgame;	
 import com.Lxisoft.Animalgame.*;
 public class Forrest{ 				 	
-public Lion lion=new Lion(random(50)+10,"Tutu the lion",random(20)+5,random(20)+5);
-public Tiger tiger=new Tiger(random(45)+5,"Ekru the tiger",random(20)+4,random(20)+4);
-public Deer deer=new Deer(random(26)+5,"Kutu the deer",random(15)+2,random(15)+2);
-public Rabbit rabbit=new Rabbit(random(18)+5,"mottu the rabbit",random(12)+2,random(12)+2);
+public Lion lion=new Lion(50,"Tutu the lion",random(20)+5,random(20)+5);
+public Tiger tiger=new Tiger(45,"Ekru the tiger",random(20)+4,random(20)+4);
+public Deer deer=new Deer(26,"Kutu the deer",random(15)+2,random(15)+2);
+public Rabbit rabbit=new Rabbit(18,"mottu the rabbit",random(12)+2,random(12)+2);
 public void meet(){
 	System.out.println("\n\n\t\t---DARK FORREST---\n\n"+"\n\tAnimals in the jungle");
 	 lion.print();
@@ -31,59 +31,61 @@ public Animal[] getAnimals(){
 	}
 public void selectAnimals(Animal[] anim){
 	System.out.println("---Animal Fights---\n"); 
-	int x,y;
+	int x,y,c=0;
 	boolean isalive=true;		 
-	//for(int i=0;i<10;i++){
-	do{
-		x=random(anim.length);
+	do{	x=random(anim.length);
 		y=random(anim.length);
-		if(x!=y&&anim[x] instanceof Herbivores){
-		 System.out.println("\n\n...\tFight on...\n"+" "+anim[x].name+" vs "+" "+anim[y].name);
-		 animalDis(anim[x],anim[y]);
-		 }	
-			}while(anim[x].isalive==false&&anim[y].isalive==false);
-			
-		}
+		animalDis(anim[x],anim[y]);
+	}while(anim[x].isalive==false&&anim[y].isalive==false);
+	
+}		 
 public void animalDis(Animal anim1,Animal anim2){
-	int dis=(int)(Math.sqrt((anim1.x)-(anim2.x))-((anim1.y)-(anim2.y)))+2;
-	System.out.println("Distance b/w "+anim1.name+" - "+anim2.name+" = "+dis);
+	if(anim1!=anim2&&anim1 instanceof Carnivores){
+		System.out.println("\n\n...//Fight on//...\n"+" "+anim1.name+" vs "+" "+anim2.name);
+	 	int dis=(int)(Math.sqrt((anim1.x)-(anim2.x))-((anim1.y)-(anim2.y)))+2;
+		System.out.println("Distance b/w "+anim1.name+" - "+anim2.name+" = "+dis);
 	if(dis<=2){
 		animalFight(anim1,anim2);
 	}
 	else{
-		System.out.println("CID escape");
+		System.out.println("+++++ escape");
 	}
   }
+  else{
+  	getAnimals();
+  }
+ }
  
 public void animalFight(Animal anim1,Animal anim2){
 	 	Animal attack;
 		attack=((Carnivores)anim1).fight(anim2);
 			if(attack==anim1){
-				System.out.println("\n "+anim1.name+" beat "+anim2.name);
-				anim2.strg=(anim2.strg)/2;
+				System.out.println("\n++++++ "+anim1.name+" beat "+anim2.name);
+				anim2.strg=(anim2.strg)/3;
 				anim1.strg=(anim1.strg)-((anim2.strg)/3);
-				if(anim2.strg<=0)
-				{
+				if(anim2.strg<=0){
 					anim2.isalive=false;
-					System.out.println(anim2.name+" is dead"); 
+					System.out.println(anim2.name+" ++++++++++ is dead"); 
 		   	 	}
-				else
-				{
+				else{
 					anim2.isalive=true;
 				}
 	 		 }
-			else{
-				System.out.println("\n "+anim2.name+" beat "+anim1.name);
-				anim1.strg=(anim1.strg)/2;
-				anim2.strg=(anim2.strg)-((anim1.strg)/3);
-			if(anim1.strg<=0){
+			 
+				else if(anim2 instanceof Herbivores){
+					System.out.println("\n+++++ "+anim2.name+" escape from "+anim1.name);
+					anim1.strg=(anim1.strg)/3;
+					anim2.strg=(anim2.strg)-((anim1.strg)/3);
+			    if(anim1.strg<=0){
 				anim1.isalive=false;
-				System.out.println(anim1.name+" is dead"); 
+				System.out.println(anim1.name+"+++++++++++ is dead"); 
 		   	 }
+		   	}
+		   
 			else{
 				anim1.isalive=true;
 			}
-	 	 }
+	 	 
 	 	 winnerAnimal(getAnimals());
         }	
 public void winnerAnimal(Animal[] anim){
@@ -95,13 +97,11 @@ public void winnerAnimal(Animal[] anim){
 			k=i;			
 		    }
 		  }
-
 		if(count==1&&anim[k] instanceof Carnivores){
 			System.out.println("\n\n\tThe KING is "+anim[k].name);
-
 		}
 		else{
-		//	System.out.println(""+c);
+			System.out.println(""+c);
 		}
 	}
   }
