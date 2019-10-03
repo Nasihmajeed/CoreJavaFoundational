@@ -22,7 +22,7 @@ public int r(int a){
 public void escape(){
 	int luck=r(10);
 	if(luck<=5){
-		System.out.println(this.name+" is dead");
+		System.out.println(this.strg/2);
 	}
 	else{
 		System.out.println(this.name+" is runaway");
