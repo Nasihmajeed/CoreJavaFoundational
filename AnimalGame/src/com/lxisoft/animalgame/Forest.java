@@ -48,13 +48,11 @@ public class Forest
 		w=0;
 		for(int i=0;i<animal.length;i++)
 		{
-			
 			if(animal[i].isAlive==true && animal[i] instanceof Carnivores)
 			{
 				    w++;
 			
 			}
-			
 		}
 		
 		if(w!=1)
@@ -80,22 +78,24 @@ public class Forest
    }	
 	 // this method helds the fighting of animals
 	
-	public Animal fight(Animal animal1,Animal animal2)
+	public void fight(Animal animal1,Animal animal2)
 	{
 		        Animal temp;
-		        System.out.println(animal1.name+ "and "+ animal2.name +"ready to fight...");
-		        System.out.println("******Fight Begins******");
+		        System.out.println("\n\t\t"+animal1.name+ "and "+ animal2.name +"ready to fight...");
+		        System.out.println("\t\t"+"******Fight Begins******");
 				if(animal1 instanceof Carnivores && animal2 instanceof Carnivores)
 				{
 					temp=((Carnivores)animal1).attack(animal2);
-				
+				    printfight(temp,animal1,animal2);
 				   
 				}
                 else if(animal1 instanceof Carnivores && animal2 instanceof Herbivores)
 				{
-					 temp=((Herbivores)animal2).escape(animal1);
-					 
-					
+					 temp=((Herbivores)animal2).escape(animal1,((Herbivores)animal2).luckfactor());
+					 if(temp!=null)
+					 {
+					  printfight(temp,animal1,animal2);
+					 }
 				    
 				}	
 				else
@@ -104,26 +104,28 @@ public class Forest
 				}
 				
 				
-		    printfight(temp,animal1,animal2);
-             return temp;
+		   
+             //return temp;
 	}
 	public void printfight(Animal temp,Animal animal1,Animal animal2)
-	{
+	{   
+	    
+		
 		 if( distance(animal1,animal2)<=animal1.range)
 				   {
 					
 				     if(temp==animal1)
 				    {	
-				      System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );
-				      System.out.println( animal2.name +" is now dead \n" );
+				      System.out.println( "\t\t"+ animal1.name+"  Defeated " +animal2.name +"\n" );
+				      System.out.println( "\t\t"+animal2.name +" is now dead \n" );
 				      animal1.strengthlevel=animal1.strengthlevel-20;
 				      animal2.isAlive=false;
 				  
 				    }
 				 else
 					   {
-							System.out.println( animal2.name+"  Defeated "+animal1.name +"\n");
-							System.out.println( animal1.name +" is now dead \n" );
+							System.out.println( "\t\t"+animal2.name+"  Defeated "+animal1.name +"\n");
+							System.out.println( "\t\t"+animal1.name +" is now dead \n" );
 							animal2.strengthlevel=animal2.strengthlevel-20;
 							animal1.isAlive=false;
 				       }

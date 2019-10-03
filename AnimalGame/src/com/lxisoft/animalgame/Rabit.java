@@ -26,7 +26,6 @@ public class Rabit extends Animal implements Herbivores
 
 	 public Animal escape(Animal enemy, int luckfactor)
 	 {
-		 System.out.println("333333333333333333333333333333333333333333");
 		 
 	  if(luckfactor<=25)
 	    {		
@@ -39,11 +38,12 @@ public class Rabit extends Animal implements Herbivores
 			return enemy;
 		  }
 	    }
-		else
+		else 
 		{
-		    System.out.println(this.name+"escaped from"+enemy.name);
-			
+		    System.out.println("\t\t"+this.name+"\t\t"+"escaped from"+enemy.name);
+			return null;
 		}
+			
 	 }
   
 }

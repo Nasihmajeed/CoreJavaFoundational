@@ -23,10 +23,9 @@ public class Wildbull extends Animal implements Herbivores
 	}
 	
 	
-	 public Animal escape(Animal enemy , int luckfactor)
+	 public Animal escape(Animal enemy ,int luckfactor)
 	 {
-		  System.out.println("tttttttttttttttttttttttttttttttttttt");
-	    if(luckfactor()<=25)
+	    if(luckfactor<=25)
 	    {		
 	      if(this.strengthlevel>enemy.strengthlevel)
 		  {	
@@ -39,10 +38,11 @@ public class Wildbull extends Animal implements Herbivores
 	    }
 		else
 		{
-		    System.out.println(this.name+"escaped from"+enemy.name);
-			
+		    System.out.println("\t\t"+this.name+"\t\t"+"escaped from"+enemy.name);
+			return null;
 		}
+		
 	 }
-  
+        
   
 }  
