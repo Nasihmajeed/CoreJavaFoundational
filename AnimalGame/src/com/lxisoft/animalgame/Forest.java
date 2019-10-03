@@ -151,7 +151,7 @@ public class Forest
 		{
 			int[] nearbyAnimal=new int[animalArr.length];
 			nearbyAnimal=isSight(m,n,animalArr);
-			System.out.println(" lennghth of count=="+nearbyAnimal.length);	
+			System.out.println(" Length of Count = "+nearbyAnimal.length);	
 			if(nearbyAnimal.length==1)
 			{
 				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]]);	
@@ -164,9 +164,9 @@ public class Forest
 			{
 				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]],animalArr[nearbyAnimal[1]],animalArr[nearbyAnimal[2]]);	
 			}
-			if(nearbyAnimal.length==4)
+			if(nearbyAnimal.length>=4)
 			{
-				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]],animalArr[nearbyAnimal[1]],animalArr[nearbyAnimal[2]],animalArr[nearbyAnimal[3]]);	
+				((Herbivore)(animalArr[m])).escape(animalArr,nearbyAnimal);	
 			}
 		}
     }

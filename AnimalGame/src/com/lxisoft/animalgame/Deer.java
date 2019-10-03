@@ -58,18 +58,21 @@ public class Deer extends Animal implements Herbivore
     }
   }
 
-  public void escape(Animal animal1,Animal animal2,Animal animal3,Animal animal4)
+  public void escape(Animal[] animalArr,int[] nearbyAnimal)
   {
-    System.out.println("\n"+animal1.animalName+" , "+animal2.animalName+" , "+animal3.animalName+" And "+animal4.animalName+" vs "+this.animalName);
-    int x=(int)(Math.random()*10);
-    if(x>=4)
+    for(int i=0;i<nearbyAnimal.length;i++)
     {
-      System.out.println(this.animalName+"------Escape------");
-    }   
-    else
-    {
-      System.out.println("\n"+animal1.animalName+" , "+animal2.animalName+" , "+animal3.animalName+" And "+animal4.animalName+" Kill"+this.animalName);
-      this.isDead=true;
+        System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" vs "+this.animalName);
+        int x=(int)(Math.random()*10);
+        if(x>=4)
+        {
+          System.out.println(this.animalName+"------Escape------");
+        }   
+        else
+        {
+          System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" Kill"+this.animalName);
+          this.isDead=true;
+        }
     }
   }
 
