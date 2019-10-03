@@ -80,40 +80,36 @@ public class Forest
    }	
 	 // this method helds the fighting of animals
 	
-	public void fight(Animal animal1,Animal animal2)
+	public Animal fight(Animal animal1,Animal animal2)
 	{
 		        Animal temp;
 		        System.out.println(animal1.name+ "and "+ animal2.name +"ready to fight...");
 		        System.out.println("******Fight Begins******");
-				if(animal2 instanceof Herbivores)
+				if(animal1 instanceof Carnivores && animal2 instanceof Carnivores)
 				{
 					temp=((Carnivores)animal1).attack(animal2);
 				
-				  if( distance(animal1,animal2)<=animal1.range)
-				   {
-					
-				     if(temp==animal1)
-				    {	
-				      System.out.println(  animal1.name+"  Defeated " +animal2.name +"\n" );
-				      System.out.println( animal2.name +" is now dead \n" );
-				      animal1.strengthlevel=animal1.strengthlevel-20;
-				      animal2.isAlive=false;
-				  
-				    }
-				 else
-					   {
-							System.out.println( animal2.name+"  Defeated "+animal1.name +"\n");
-							System.out.println( animal1.name +" is now dead \n" );
-							animal2.strengthlevel=animal2.strengthlevel-20;
-							animal1.isAlive=false;
-				       }
+				   
 				}
-				}
-                else
+                else if(animal1 instanceof Carnivores && animal2 instanceof Herbivores)
 				{
-					  temp=((Herbivores)animal2).attack(animal1);
-					  
-				     if( distance(animal1,animal2)<=animal1.range)
+					 temp=((Herbivores)animal2).escape(animal1);
+					 
+					
+				    
+				}	
+				else
+				{
+					System.out.println("****** OOOPS!!******");
+				}
+				
+				
+		    printfight(temp,animal1,animal2);
+             return temp;
+	}
+	public void printfight(Animal temp,Animal animal1,Animal animal2)
+	{
+		 if( distance(animal1,animal2)<=animal1.range)
 				   {
 					
 				     if(temp==animal1)
@@ -131,10 +127,10 @@ public class Forest
 							animal2.strengthlevel=animal2.strengthlevel-20;
 							animal1.isAlive=false;
 				       }
-				}					
-				}	   
-		     winner();
-
+				    }
+					
+		 winner();
+		
 	}
     public int distance(Animal animal1,Animal animal2)
 	{

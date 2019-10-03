@@ -19,14 +19,16 @@ public class Rabit extends Animal implements Herbivores
   
   public int luckfactor()
 	{
-		int luckfactor= (int)(Math.random()*10);
+		int luckfactor= (int)(Math.random()*50);
 		
 		return luckfactor;
 	}
 
-	 public Animal escape(Animal enemy,int luckfactor)
+	 public Animal escape(Animal enemy, int luckfactor)
 	 {
-	  if(luckfactor<=5)
+		 System.out.println("333333333333333333333333333333333333333333");
+		 
+	  if(luckfactor<=25)
 	    {		
 	      if(this.strengthlevel>enemy.strengthlevel)
 		  {	
