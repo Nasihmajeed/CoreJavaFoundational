@@ -22,7 +22,9 @@ public class Game
 			System.out.println("enter your choice");
 			System.out.println(" 0  - EASY  \n "+ "1 - MEDIUM  \n "+ "2 - HARD");
 			choice =sc.nextInt();
-		}while((0>choice && choice<3));
+
+		}while((0>choice && choice>3));
+		System.out.println(choice);
 		switch(choice)
 		{
 			case 0 : level=GameLevel.EASY;break;

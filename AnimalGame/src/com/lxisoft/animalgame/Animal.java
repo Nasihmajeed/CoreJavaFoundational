@@ -4,6 +4,7 @@ import  java.lang.Math;
 
 public abstract class Animal
 {
+	public int luckyfact;
 	int strength,range,forsight,speed;
 	public String name;
 	boolean isDead;

@@ -32,7 +32,7 @@ public class Forest
 			animals[1].name="Rabbit";
 			animals[1].isDead=false;
 			animals[1].hunger=Hunger.HUNGRIEST;
-		    ((Animalherbivores)(animals[1])).luckyfact=3;
+		    (animals[1]).luckyfact=3;
 			animals[1].location[0]=randomGeneration(50);
 			animals[1].location[1]=randomGeneration(50);
 			animals[1].speed=45;
@@ -47,7 +47,7 @@ public class Forest
 			animals[3].name="Elephant";
 			animals[3].isDead=false;
 			animals[3].hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(animals[3])).luckyfact=7;
+			(animals[3]).luckyfact=7;
 			animals[3].location[0]=randomGeneration(50);
 			animals[3].location[1]=randomGeneration(50);
 			animals[3].speed=40;
@@ -69,7 +69,7 @@ public class Forest
 			animals[6].name="Deer";
 			animals[6].isDead=false;
 			animals[6].hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(animals[6])).luckyfact=4;
+			(animals[6]).luckyfact=4;
 			animals[6].location[0]=randomGeneration(50);
 			animals[6].location[1]=randomGeneration(50);
 			animals[6].speed=90;
@@ -85,7 +85,7 @@ public class Forest
 			animals[8].name="Pig";
 			animals[8].isDead=false;
 			animals[8].hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(animals[8])).luckyfact=8;
+			(animals[8]).luckyfact=8;
 			animals[8].location[0]=randomGeneration(50);
 			animals[8].location[1]=randomGeneration(50);
 			animals[8].speed=50;
@@ -93,7 +93,7 @@ public class Forest
 			animals[9].name="Zeebra";
 			animals[9].isDead=false;
 			animals[9].hunger=Hunger.HUNGRIEST;
-			((Animalherbivores)(animals[9])).luckyfact=1;
+			(animals[9]).luckyfact=1;
 			animals[9].location[0]=randomGeneration(50);
 			animals[9].location[1]=randomGeneration(50);
 			animals[9].speed=60;
@@ -144,7 +144,7 @@ public class Forest
         	animals[6].strength=10;		animals[6].forsight=5; 			animals[6].range=50;
         	animals[7].strength=35;		animals[7].forsight=5; 			animals[7].range=50;
         	animals[8].strength=15;		animals[8].forsight=7; 			animals[8].range=50;
-        	animals[9].strength=30;		animals[9].forsight=3; 			animals[9].range=50;
+        	animals[9].strength=30;	animals[9].forsight=3; 			animals[9].range=50;
 
         	animalMeet();
         }
@@ -308,7 +308,7 @@ public class Forest
 	 				{
 	 					do
 	 					{
-	 						newLocation=((Animalherbivores)(animals[i])).graze();
+	 						newLocation=((Herbivores)(animals[i])).graze();
 	 						isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],newLocation);
 			 			}while (isRange);
 
@@ -317,7 +317,7 @@ public class Forest
 	 				{
 			 			do
 			 			{
-			 				animals[i].location=((Animalcarnivores)(animals[i])).roam();  
+			 				animals[i].location=((Carnivore)(animals[i])).roam();  
 			 				isRange=isWithInRange(animals[i].range,animals[i].location[0],animals[i].location[1],newLocation);
 			 			}while(isRange);
 
@@ -352,9 +352,9 @@ public class Forest
 						 if(animal_array[random2] instanceof Herbivores)
 					 	{
 					 		//System.out.println("\n speed of rand1  "+animal_array[nearbyAnimals[0]].speed+"\n speed of rand2  " +animal_array[random2].speed);
-				 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+				 			(animal_array[random2]).luckyfact=(int)(animal_array[random2]).luckyfact/2;
 							//System.out.println(((Animalherbivores)(animal_array[random2])).luckyfact);
-							escape=((Animalherbivores)(animal_array[random2])).luck();
+							escape=((Herbivores)(animal_array[random2])).luck();
 								  
 						}
 					}	
@@ -367,9 +367,9 @@ public class Forest
 					if(animal_array[random2] instanceof Herbivores)
 				 	{		
 				 			//System.out.println("\n speed of rand1  "+animal_array[nearbyAnimals[0]].speed+"\n speed of rand2  " +animal_array[random2].speed);
-				 			((Animalherbivores)(animal_array[random2])).luckyfact=(int)((Animalherbivores)(animal_array[random2])).luckyfact/2;
+				 			(animal_array[random2]).luckyfact=(int)((animal_array[random2])).luckyfact/2;
 							//System.out.println(((Animalherbivores)(animal_array[random2])).luckyfact);
-							escape=((Animalherbivores)(animal_array[random2])).luck(); 
+							escape=((Herbivores)(animal_array[random2])).luck(); 
 					}
 				}
 			}
