@@ -62,17 +62,17 @@ public class Deer extends Animal implements Herbivore
   {
     for(int i=0;i<nearbyAnimal.length;i++)
     {
-        System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" vs "+this.animalName);
-        int x=(int)(Math.random()*10);
-        if(x>=4)
-        {
-          System.out.println(this.animalName+"------Escape------");
-        }   
-        else
-        {
-          System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" Kill"+this.animalName);
-          this.isDead=true;
-        }
+      System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" vs "+this.animalName);
+      int x=(int)(Math.random()*10);
+      if(x>=4)
+      {
+        System.out.println(this.animalName+"------Escape------");
+      }   
+      else
+      {
+        System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" Kill "+this.animalName);
+        this.isDead=true;
+      }
     }
   }
 
@@ -81,7 +81,6 @@ public class Deer extends Animal implements Herbivore
 	   int[] arr=new int[2];
      arr[0]=(int)(Math.random()*50);
      arr[1]=(int)(Math.random()*50);
-
      return arr;
    }
 }

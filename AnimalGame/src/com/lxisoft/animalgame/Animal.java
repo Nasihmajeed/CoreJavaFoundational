@@ -8,8 +8,9 @@ public abstract class Animal
     public int range;
     public int locationX,locationY;
     public int sight;
+    public Hunger hunger;
 
-  public abstract void  run();
-  public abstract void  eat();
+  	public abstract void  run();
+  	public abstract void  eat();
   	
 }

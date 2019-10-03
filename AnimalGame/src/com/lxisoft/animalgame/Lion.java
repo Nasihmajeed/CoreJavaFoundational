@@ -12,8 +12,7 @@ public class Lion extends Animal implements Carnivore
       {
         animal.isDead=true;
         System.out.println(animal.animalName+"  DEAD  ");
-      } 
-                
+      }           
     }
     else
     {
@@ -42,7 +41,6 @@ public class Lion extends Animal implements Carnivore
     int[] arr=new int[2];
     arr[0]=(int)(Math.random()*50);
     arr[1]=(int)(Math.random()*50);
-   
     return arr;  
   } 
 }

@@ -12,8 +12,7 @@ public class Tiger extends Animal implements Carnivore
       {
         animal.isDead=true;
         System.out.println(animal.animalName+"  DEAD  ");
-      } 
-      					
+      }  					
 		}
 		else
     {
@@ -37,13 +36,11 @@ public class Tiger extends Animal implements Carnivore
   	System.out.println("Tiger eat meat\n");
   }
 
-
   public int[] roam()
   {
     int[] arr=new int[2];
     arr[0]=(int)(Math.random()*50);
-    arr[1]=(int)(Math.random()*50);
-      
+    arr[1]=(int)(Math.random()*50); 
     return arr;
   }
 }

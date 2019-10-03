@@ -45,6 +45,7 @@ public class Forest
 			tiger.locationY=(int)(Math.random()*10);
 			tiger.range=20;
 			tiger.sight=18;
+			tiger.hunger=Hunger.LOWHUNGER;
 			tiger.isDead=false;
 			animalArr[i]=tiger;
 		}
@@ -65,6 +66,7 @@ public class Forest
 			lion.locationY=(int)(Math.random()*10);
 			lion.range=17;
 			lion.sight=15;
+			lion.hunger=Hunger.LOWHUNGER;
 			lion.isDead=false;
 			animalArr[i]=lion;
 		}
@@ -85,6 +87,7 @@ public class Forest
 			rabbit.locationY=(int)(Math.random()*10);
 			rabbit.range=13;
 			rabbit.sight=19;
+			rabbit.hunger=Hunger.LOWHUNGER;
 			rabbit.isDead=false;
 			animalArr[i]=rabbit;
 		}
@@ -106,6 +109,7 @@ public class Forest
 			deer.locationY=(int)(Math.random()*10);
 			deer.range=10;
 			deer.sight=17;
+			deer.hunger=Hunger.LOWHUNGER;
 			deer.isDead=false;
 			animalArr[i]=deer;
 		}
@@ -155,18 +159,31 @@ public class Forest
 			if(nearbyAnimal.length==1)
 			{
 				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]]);	
+				animalArr[nearbyAnimal[0]]=attack(animalArr[nearbyAnimal[0]]);
 			}
 			if(nearbyAnimal.length==2)
 			{
 				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]],animalArr[nearbyAnimal[1]]);	
+				for(int i=0;i<2;i++)
+				{
+					animalArr[nearbyAnimal[i]]=attack(animalArr[nearbyAnimal[i]]);	
+				}
 			}
 			if(nearbyAnimal.length==3)
 			{
 				((Herbivore)(animalArr[m])).escape(animalArr[nearbyAnimal[0]],animalArr[nearbyAnimal[1]],animalArr[nearbyAnimal[2]]);	
+				for(int i=0;i<3;i++)
+				{
+					animalArr[nearbyAnimal[i]]=attack(animalArr[nearbyAnimal[i]]);	
+				}
 			}
 			if(nearbyAnimal.length>=4)
 			{
-				((Herbivore)(animalArr[m])).escape(animalArr,nearbyAnimal);	
+				((Herbivore)(animalArr[m])).escape(animalArr,nearbyAnimal);
+				for(int i=0;i<nearbyAnimal.length;i++)
+				{
+					animalArr[nearbyAnimal[i]]=attack(animalArr[nearbyAnimal[i]]);	
+				}	
 			}
 		}
     }
@@ -246,5 +263,23 @@ public class Forest
 		}
         return nearAnimal;  
     }
-   
+
+    public Animal attack(Animal animal)
+    {
+    	switch(animal.hunger)
+    	{
+			case HIGHHUNGER:
+			{
+				animal.hunger=Hunger.MEDIUMHUNGER;
+				break;
+			}
+			case MEDIUMHUNGER:
+			{
+				animal.hunger=Hunger.LOWHUNGER;
+				break;
+			}
+			default:System.out.println("Invalid data");
+    	}
+    	return animal;
+    }
 }

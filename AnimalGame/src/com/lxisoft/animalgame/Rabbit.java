@@ -12,7 +12,6 @@ public class Rabbit extends Animal implements Herbivore
   	System.out.println("Rabbit eat grass\n");
   }
 
-
 	public void escape(Animal animal)
   {
     System.out.println("\n"+this.animalName+"  VS  "+animal.animalName);
@@ -45,7 +44,7 @@ public class Rabbit extends Animal implements Herbivore
   }
 
   public void escape(Animal animal1,Animal animal2,Animal animal3)
-    {
+  {
       System.out.println("\n"+animal1.animalName+" , "+animal2.animalName+" And "+animal3.animalName+" vs "+this.animalName);
       int x=(int)(Math.random()*10);
       if(x>=4)
@@ -63,17 +62,17 @@ public class Rabbit extends Animal implements Herbivore
   {
     for(int i=0;i<nearbyAnimal.length;i++)
     {
-        System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" vs "+this.animalName);
-        int x=(int)(Math.random()*10);
-        if(x>=4)
-        {
-          System.out.println(this.animalName+"------Escape------");
-        }   
-        else
-        {
-          System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" Kill"+this.animalName);
-          this.isDead=true;
-        }
+      System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" vs "+this.animalName);
+      int x=(int)(Math.random()*10);
+      if(x>=4)
+      {
+        System.out.println(this.animalName+"------Escape------");
+      }   
+      else
+      {
+        System.out.println("\n"+animalArr[nearbyAnimal[i]].animalName+" Kill "+this.animalName);
+        this.isDead=true;
+      }
     }
   }
 
