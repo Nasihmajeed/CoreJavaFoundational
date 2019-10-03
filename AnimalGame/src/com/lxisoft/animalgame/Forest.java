@@ -282,7 +282,7 @@ public class Forest
 			if(animal[i].isDead==false)
 			{
 				System.out.print(i+"  ");
-				animal[i].printDetails();
+				animal[i].setDetails();
 				System.out.println(" new location: "+animal[i].newLocation[0]+", "+animal[i].newLocation[1] + "hunger level : "+animal[i].hungerlevel);
 				
 			}

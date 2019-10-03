@@ -14,26 +14,26 @@ public abstract class Animal
 	int[] newLocation=new int[2];
 
 
-	public void printDetails()
+	public void setDetails()
 	{
 		System.out.print(name+" "+strength+ " range= "+ range+"  location: "+newLocation[0]+" "+newLocation[1]);
 	}
-	public void printName()
-	{
-		System.out.println(name);
-	}
+	// // public void setName()
+	// // {
+	// // 	System.out.println(name);
+	// // }
 
 	
 
 
-	public void eat()
-	{
-		System.out.println("animal eat");
+	// public void eat()
+	// {
+	// 	System.out.println("animal eat");
 
-	}
-	public void run()
-	{
-		System.out.println("animal runs");
-	}
+	// }
+	// public void run()
+	// {
+	// 	System.out.println("animal runs");
+	// }
 	
 } 
