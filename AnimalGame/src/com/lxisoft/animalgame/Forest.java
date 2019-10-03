@@ -43,8 +43,12 @@ public class Forest
 			tiger.strength=sc.nextInt();
 			tiger.locationX=(int)(Math.random()*10);
 			tiger.locationY=(int)(Math.random()*10);
+			System.out.println("Position1:"+tiger.locationX);
+			System.out.println("Position2:"+tiger.locationY);
 			tiger.range=20;
+			System.out.println("Range: "+tiger.range);
 			tiger.sight=18;
+			System.out.println("Sight: "+tiger.sight);
 			tiger.hunger=Hunger.LOWHUNGER;
 			tiger.isDead=false;
 			animalArr[i]=tiger;
@@ -64,8 +68,12 @@ public class Forest
 			lion.strength=sc.nextInt();
 			lion.locationX=(int)(Math.random()*10);
 			lion.locationY=(int)(Math.random()*10);
+			System.out.println("Position1:"+lion.locationX);
+			System.out.println("Position2:"+lion.locationY);
 			lion.range=17;
+			System.out.println("Range: "+lion.range);
 			lion.sight=15;
+			System.out.println("Sight: "+lion.sight);
 			lion.hunger=Hunger.LOWHUNGER;
 			lion.isDead=false;
 			animalArr[i]=lion;
@@ -85,8 +93,12 @@ public class Forest
 			rabbit.strength=sc.nextInt();
 			rabbit.locationX=(int)(Math.random()*10);
 			rabbit.locationY=(int)(Math.random()*10);
+			System.out.println("Position1:"+rabbit.locationX);
+			System.out.println("Position2:"+rabbit.locationY);
 			rabbit.range=13;
+			System.out.println("Range: "+rabbit.range);
 			rabbit.sight=19;
+			System.out.println("Sight: "+rabbit.sight);
 			rabbit.hunger=Hunger.LOWHUNGER;
 			rabbit.isDead=false;
 			animalArr[i]=rabbit;
@@ -107,8 +119,12 @@ public class Forest
 			deer.strength=sc.nextInt();
 			deer.locationX=(int)(Math.random()*10);
 			deer.locationY=(int)(Math.random()*10);
+			System.out.println("Position1:"+deer.locationX);
+			System.out.println("Position2:"+deer.locationY);
 			deer.range=10;
+			System.out.println("Range: "+deer.range);
 			deer.sight=17;
+			System.out.println("Sight: "+deer.sight);
 			deer.hunger=Hunger.LOWHUNGER;
 			deer.isDead=false;
 			animalArr[i]=deer;
@@ -224,7 +240,7 @@ public class Forest
     				position=((Herbivore)(animalArr[i])).graze();
     				returns=isRange(animalArr[i].locationX,animalArr[i].locationY,animalArr[i].range,position);
     			}while(returns==true);
-    			System.out.println("Position1= "+position[0]+"\nPosition2= "+position[1]);
+    			System.out.println("New Position1= "+position[0]+"\nNew Position2= "+position[1]);
     	    }
     	    else
     		{
