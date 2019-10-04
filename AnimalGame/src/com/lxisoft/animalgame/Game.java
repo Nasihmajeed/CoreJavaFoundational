@@ -1,6 +1,7 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 public class Game
 {
 	enum GameLevel
@@ -12,29 +13,54 @@ public class Game
 	
 	public void setGameLevel()
 	{
-		 Forest forest=new Forest();
-		 forest.setAnimalDetails();
-		 Scanner sc=new Scanner(System.in);
-		 int choice;
-		 GameLevel level=null;
+		Forest forest=new Forest();
+		forest.setAnimalDetails();
+		Scanner sc=new Scanner(System.in);
+		int choice=0;
+		GameLevel level=null;
+		boolean exception=true;
 		do
 		{
-			System.out.println("enter your choice");
-			System.out.println(" 0  - EASY  \n "+ "1 - MEDIUM  \n "+ "2 - HARD");
-			choice =sc.nextInt();
+			try
+			{
+				//choice=0;
+					
+					System.out.println("enter your choice");
+					System.out.println(" 0  - EASY  \n "+ "1 - MEDIUM  \n "+ "2 - HARD");
+					choice =sc.nextInt();
+				
 
-		}while((0>choice && choice>3));
-		System.out.println(choice);
-		switch(choice)
-		{
-			case 0 : level=GameLevel.EASY;break;
-			case 1 : level=GameLevel.MEDIUM;break;
-			case 2 : level=GameLevel.HARD;break;
-		}
-		if(level==GameLevel.EASY) forest.levelEasy();
-		else if(level==GameLevel.MEDIUM) forest.levelMedium();
-		else forest.levelHard();
+				switch(choice)
+				{
+					case 0 : level=GameLevel.EASY;exception=false;break;
+					case 1 : level=GameLevel.MEDIUM;exception=false;break;
+					case 2 : level=GameLevel.HARD;exception=false;break;
+				}
+				switch(level)
+				{
+					case EASY   :forest.levelEasy(); break;
+					case MEDIUM :forest.levelMedium() ;break;
+					case HARD: forest.levelHard();break;
+				}
+				// if(level==GameLevel.EASY) forest.levelEasy();
+				// else if(level==GameLevel.MEDIUM) forest.levelMedium();
+				// else forest.levelHard();
 
+			}
+			catch(NullPointerException e)
+			{
+				exception=true;
+				System.out.println("exception occured " +e);
+				//e.printStackTrace();
+			}
+			catch(InputMismatchException ex)
+			{
+				exception=true;
+				System.out.println("Exception occured " +ex+sc.nextLine());
+				// sc = new Scanner(System.in);
+			}
+		}while(exception);
+			
 	}
 
 } 
