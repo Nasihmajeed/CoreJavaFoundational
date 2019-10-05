@@ -320,6 +320,7 @@ public class Forest
 			case HARD:
 				{animals.speed=(int) (Math.random()*60); break;}
 		}
+		System.out.println("animal speed-"+animals.speed);
 		return animals.speed;
 	}
 	

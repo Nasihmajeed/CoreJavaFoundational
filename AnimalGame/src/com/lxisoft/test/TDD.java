@@ -7,14 +7,21 @@ public class TDD
 	{
 		Scanner s=new Scanner(System.in);
 		Forest forest=new Forest();
-		System.out.println(" enter animal game lavel (1-easy,2-medium,3hard)");
-		int level=s.nextInt();
-		forest=animalGameLevel(forest,ag);
+		int level=0;
+		try
+		{
+			System.out.println(" enter animal game lavel (1-easy,2-medium,3hard)");
+			level=s.nextInt();
+		}
+		catch(Exception e)
+		{
+			System.out.println("InputMismatchException");
+		}
+		forest=animalGameLevel(forest,level);
 		forest.meetAnimal();
 	}
-	public static Forest animalGameLevel(Forest forest,int ag)
+	public static Forest animalGameLevel(Forest forest,int level)
 	{
-		
 		switch(level)
 		{
 			case 1:
