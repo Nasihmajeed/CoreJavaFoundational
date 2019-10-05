@@ -153,86 +153,93 @@ public class Forest
 			int random=(int)(Math.random()*limit);											//.....generating random number....//
 			return random;
 		}
-		public void animalMeet() 
+		public void animalMeet() throws ArrayIndexOutOfBoundsException
 		{	
-			int count=0,random1=0,random2=0;
-			Animal win=null;
-			getAliveAnimals(animals);
-			//..Selecting second animals..//
-			int near=0,loop=20;
-			int[] nearbyAnimals=new int[animals.length];
-			boolean inSight,nextAnimal=true;																		//..Animal are meet and select for fight..//
-			do
+			try
 			{
- 				do
+				int count=0,random1=0,random2=0;
+				Animal win=null;
+				getAliveAnimals(animals);
+				//..Selecting second animals..//
+				int near=0,loop=20;
+				int[] nearbyAnimals=new int[animals.length];
+				boolean inSight,nextAnimal=true;																		//..Animal are meet and select for fight..//
+				do
 				{
-					random2=randomGeneration(animals.length);
-				}while(animals[random2].isDead || animals[random2].hunger==Hunger.OVERFED);
-
-				//..first Animal..//
-				for(int i=0;i<animals.length;i++)
-				{
-					inSight=true;
-					if(i!=random2)
+	 				do
 					{
-						if(animals[i].isDead==false)
-						{	
-							if(animals[i].hunger!=Hunger.OVERFED)
-							{
-								if(animals[i] instanceof Carnivore)
+						random2=randomGeneration(animals.length);
+					}while(animals[random2].isDead || animals[random2].hunger==Hunger.OVERFED);
+
+					//..first Animal..//
+					for(int i=0;i<animals.length;i++)
+					{
+						inSight=true;
+						if(i!=random2)
+						{
+							if(animals[i].isDead==false)
+							{	
+								if(animals[i].hunger!=Hunger.OVERFED)
 								{
-									inSight=isWithInSight(animals[i].location,animals[random2].location,animals[i].forsight);
-									if(inSight==false)
+									if(animals[i] instanceof Carnivore)
 									{
-										nearbyAnimals[near]=i;
-										near++;
-										nextAnimal=false;
+										inSight=isWithInSight(animals[i].location,animals[random2].location,animals[i].forsight);
+										if(inSight==false)
+										{
+											nearbyAnimals[near]=i;
+											near++;
+											nextAnimal=false;
+										}
 									}
 								}
 							}
 						}
 					}
-				}
-				loop--;
-				if(loop==0)
-				{
-				animals=setLocation(animals);
-				loop=20;
-				}
-			}while(nextAnimal);
-			random1=nearbyAnimals[0];
-			boolean escape=isEscape(animals,nearbyAnimals,random2,near);
-		
-		
-			if(escape==false)
-			{	
-				if(near==1)
-				{
-				    win=((Carnivore)(animals[random1])).fight(animals[random2]);
-				    for(int i=0;i<near;i++)
-				    {
-					    if(animals[random1].name==win.name) animals=isDead(i,random2,animals);
-					}
-				}  
-				if(near==2)
-				{
-					win=((Carnivore)(animals[random1])).fight(animals[random2],animals[nearbyAnimals[1]]);
-					for(int i=0;i<near;i++)
+					loop--;
+					if(loop==0)
 					{
-					    if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
-			        }   
-		 	    }
-		 	    if(near>=3)
-		 	    {
-		 	    	win=((Carnivore)(animals[random1])).fight(animals[random2],animals,nearbyAnimals,near);
-		 	    	for(int i=0;i<near;i++)
-		 	    	{
-		 	    		if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
-		 	    	}	
-		 	    }
-		 	   	win =isHunger(win); 
-		    }
-	 		isWinner(animals,win); 
+					animals=setLocation(animals);
+					loop=20;
+					}
+				}while(nextAnimal);
+				random1=nearbyAnimals[0];
+				boolean escape=isEscape(animals,nearbyAnimals,random2,near);
+			
+			
+				if(escape==false)
+				{	
+					if(near==1)
+					{
+					    win=((Carnivore)(animals[random1])).fight(animals[random2]);
+					    for(int i=0;i<near;i++)
+					    {
+						    if(animals[random1].name==win.name) animals=isDead(i,random2,animals);
+						}
+					}  
+					if(near==2)
+					{
+						win=((Carnivore)(animals[random1])).fight(animals[random2],animals[nearbyAnimals[1]]);
+						for (int i=0;i<near;i++)
+						{
+						    if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
+				        }   
+			 	    }
+			 	    if(near>=3)
+			 	    {
+			 	    	win=((Carnivore)(animals[random1])).fight(animals[random2],animals,nearbyAnimals,near);
+			 	    	for(int i=0;i<near;i++)
+			 	    	{
+			 	    		if(animals[i].name==win.name) animals=isWeak(i,animals,nearbyAnimals,near);
+			 	    	}	
+			 	    }
+			 	   	win =isHunger(win); 
+			    }
+		 		isWinner(animals,win); 
+		 	}
+		 	catch(ArrayIndexOutOfBoundsException a)
+		 	{
+		 		System.out.println("exception occured " +a);
+		 	}
 	    }
 		public Animal[] isDead(int winner,int looser,Animal[] animal_array)
 		{

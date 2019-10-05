@@ -11,7 +11,7 @@ public class Game
 		HARD;
 	}
 	
-	public void setGameLevel()
+	public void setGameLevel()throws NullPointerException,InputMismatchException 
 	{
 		Forest forest=new Forest();
 		forest.setAnimalDetails();
@@ -23,8 +23,7 @@ public class Game
 		{
 			try
 			{
-				//choice=0;
-					
+								
 					System.out.println("enter your choice");
 					System.out.println(" 0  - EASY  \n "+ "1 - MEDIUM  \n "+ "2 - HARD");
 					choice =sc.nextInt();
@@ -47,18 +46,13 @@ public class Game
 				// else forest.levelHard();
 
 			}
-			catch(NullPointerException e)
+			catch(NullPointerException | InputMismatchException e)
 			{
 				exception=true;
-				System.out.println("exception occured " +e);
-				//e.printStackTrace();
+				System.out.println("exception occured " +e +sc.nextLine());
+				
 			}
-			catch(InputMismatchException ex)
-			{
-				exception=true;
-				System.out.println("Exception occured " +ex+sc.nextLine());
-				// sc = new Scanner(System.in);
-			}
+			
 		}while(exception);
 			
 	}
