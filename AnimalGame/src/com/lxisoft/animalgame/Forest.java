@@ -4,7 +4,7 @@ import java.lang.Math;
 
 import com.lxisoft.animalgame.*;
 
-public class Forest
+public final class Forest
 {
 	Animal[] animal=new Animal[10];
 	
@@ -169,7 +169,7 @@ public class Forest
 		}
 		if (count<=1)
 		{
-			System.out.println(lastone.name +" is the Winner...");
+			System.out.println("---------------"+lastone.name +" is the Winner...------------------");
 		}
 		else
 		{
@@ -277,6 +277,8 @@ public class Forest
 		Animal win=null;
 		animal=setNewLocation(animal);
 		// printing alive animals
+		System.out.println("Alive animals");
+		System.out.println("--------------");
 		for(int i=0; i<animal.length; i++)
 		{
 			if(animal[i].isDead==false)
