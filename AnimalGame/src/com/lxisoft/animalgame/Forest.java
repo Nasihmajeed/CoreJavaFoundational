@@ -14,16 +14,17 @@ public class Forest
 	{
 		
 		int s;
-		animal = new Animal[8];
+		animal = new Animal[9];
 			
 	    animal[0] = new Lion("  Lion ",80,random(40)+5,random(40)+5,50);
-		animal[1] = new Tiger( "Tiger ",70,random(30),random(30),40);
+		animal[1] = new Tiger( " Tiger ",70,random(30)+5,random(30)+5,40);
 		animal[2]  = new Rabit( " Rabit ",10,random(10),random(10),10);
 		animal[3]  = new Wildbull( " Wildbull ",90,random(15),random(15),20);
-	    animal[4]  = new  Wolf("  wolf ",40,random(20),random(20),30);
-	    animal[5]  = new Leopard(" Leopard " ,60,random(30),random(30),35);
+	    animal[4]  = new  Wolf("  wolf ",40,random(20)+10,random(20)+10,30);
+	    animal[5]  = new Leopard(" Leopard " ,60,random(30)+10,random(30)+10,35);
 		animal[6]  = new Fox(" Fox " ,30,random(20),random(20),20);
 		animal[7]  = new Hyena(" Hyena " ,35,random(30),random(30),20);
+		animal[8]  = new Deer(" Deer ",28,random(30),random(30),25);
 		for(s=0;s<animal.length;s++)
 		{
 			System.out.print(s+1);
@@ -41,6 +42,7 @@ public class Forest
 
     }
 	// meet the animals which are ready to fight
+	
 	public void meet()
     {  
 	   int w=0;
@@ -51,7 +53,7 @@ public class Forest
 			if(animal[i].isAlive==true && animal[i] instanceof Carnivores)
 			{
 				    w++;
-			
+					
 			}
 		}
 		
@@ -86,7 +88,7 @@ public class Forest
 				if(animal1 instanceof Carnivores && animal2 instanceof Carnivores)
 				{
 					temp=((Carnivores)animal1).attack(animal2);
-				    printfight(temp,animal1,animal2);
+				    setfight(temp,animal1,animal2);
 				   
 				}
                 else if(animal1 instanceof Carnivores && animal2 instanceof Herbivores)
@@ -94,7 +96,7 @@ public class Forest
 					 temp=((Herbivores)animal2).escape(animal1,((Herbivores)animal2).luckfactor());
 					 if(temp!=null)
 					 {
-					  printfight(temp,animal1,animal2);
+					  setfight(temp,animal1,animal2);
 					 }
 				    
 				}	
@@ -105,11 +107,12 @@ public class Forest
 				
 				
 		   
-             //return temp;
+             
 	}
-	public void printfight(Animal temp,Animal animal1,Animal animal2)
+	 // for settiing details after fight
+	 
+	public void setfight(Animal temp,Animal animal1,Animal animal2)
 	{   
-	    
 		
 		 if( distance(animal1,animal2)<=animal1.range)
 				   {
@@ -128,22 +131,65 @@ public class Forest
 							System.out.println( "\t\t"+animal1.name +" is now dead \n" );
 							animal2.strengthlevel=animal2.strengthlevel-20;
 							animal1.isAlive=false;
+							
 				       }
 				    }
 					
 		 winner();
 		
 	}
+	 // method for calculate distance
+	 
     public int distance(Animal animal1,Animal animal2)
 	{
 		int distance= (animal1.x-animal2.x)^2+(animal1.y-animal2.y)^2;
 		
 		return distance;
 	}
-	public void location()
-	{
+	
+	// method for change location
+	
+	public void location(Animal animal1, Animal animal2)
+	{    
+	     int i ;
+		 
+	/* 	if(animal1 instanceof Herbivores)
+		{
+			 for(i=0;i<=animal.length;i++)
+	        {
+		      animal[i].x= ((Herbivores).animal1).graze(animal1,animal2);
+              animal[i].y= ((Herbivores).animal1).graze(animal1,animal2);			  
+	        }
+		}
+		else if(animal2 instanceof Carnivores)
+		{
+			 for(i=0;i<=animal.length;i++)
+	        {
+		      animal[i].x= ((Carnivores).animal2).roam(animal1,animal2);
+              animal[i].y= ((Carnivores).animal2).roam(animal1,animal2);			  
+	        }
+		}
+		else if(animal2 instanceof Herbivores )
+		{
+			 for(i=0;i<=animal.length;i++)
+	        {
+		      animal[i].x= ((Herbivores).animal2).graze(animal1,animal2);
+              animal[i].y= ((Herbivores).animal2).graze(animal1,animal2);			  
+	        }
+		}
+		else
+		{
+			 for(i=0;i<=animal.length;i++)
+	        {
+		      animal[i].x= ((Carnivores).animal2).roam(animal1,animal2);
+              animal[i].y= ((Carnivores).animal2).roam(animal1,animal2);			  
+	        }
+		 */}
+	  
 		
-	}
+		 
+	
+	// method for winner
 	
 	public void winner ()
 	{	

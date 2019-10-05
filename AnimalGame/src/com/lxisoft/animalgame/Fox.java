@@ -31,6 +31,12 @@ public class Fox extends Animal implements Carnivores
 			return enemy;
 		}
 	  }
- 
+    public int[] roam()
+	 {
+		 int[] x=new int[2];
+		x[0]=(int)(Math.random()*40);
+		x[1]=(int)(Math.random()*40);
+		return x;
+	 }
   
 }  

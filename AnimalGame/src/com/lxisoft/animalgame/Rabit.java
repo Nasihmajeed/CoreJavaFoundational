@@ -40,10 +40,17 @@ public class Rabit extends Animal implements Herbivores
 	    }
 		else 
 		{
-		    System.out.println("\t\t"+this.name+"\t\t"+"escaped from"+enemy.name);
+		    System.out.println("\t\t"+this.name+"escaped from "+enemy.name);
 			return null;
 		}
 			
+	 }
+	 public int[] graze()
+	 {
+		 int[] x=new int[2];
+		x[0]=(int)(Math.random()*40);
+		x[1]=(int)(Math.random()*40);
+		return x;
 	 }
   
 }

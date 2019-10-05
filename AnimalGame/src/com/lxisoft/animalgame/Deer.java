@@ -1,11 +1,13 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
-public class Wildbull extends Animal implements Herbivores
+//import com.lxisoft.animalgame.Rabit;
+//import com.lxisoft.animalgame.Animal;
+
+public class Deer extends Animal implements Herbivores
 {
 	
-	
-    int Aggressivelevel=30;
-	public Wildbull(String name,int strengthlevel,int x,int y,int range)
+    int Aggressivelevel=5;
+	public Deer(String name,int strengthlevel,int x,int y,int range)
 	{
 		this.name=name;
 		this.strengthlevel=strengthlevel;
@@ -14,18 +16,18 @@ public class Wildbull extends Animal implements Herbivores
 		this.y=y;
 		this.range=range;
 	}
-	
-	public int luckfactor()
+  
+  public int luckfactor()
 	{
 		int luckfactor= (int)(Math.random()*50);
 		
 		return luckfactor;
 	}
-	
-	
-	 public Animal escape(Animal enemy ,int luckfactor)
+
+	 public Animal escape(Animal enemy, int luckfactor)
 	 {
-	    if(luckfactor<=25)
+		 
+	  if(luckfactor<=25)
 	    {		
 	      if(this.strengthlevel>enemy.strengthlevel)
 		  {	
@@ -36,14 +38,13 @@ public class Wildbull extends Animal implements Herbivores
 			return enemy;
 		  }
 	    }
-		else
+		else 
 		{
 		    System.out.println("\t\t"+this.name+"escaped from "+enemy.name);
 			return null;
 		}
-		
+			
 	 }
-	 
 	  public int[] graze()
 	 {
 		 int[] x=new int[2];
@@ -51,6 +52,5 @@ public class Wildbull extends Animal implements Herbivores
 		x[1]=(int)(Math.random()*40);
 		return x;
 	 }
-        
   
-}  
+}

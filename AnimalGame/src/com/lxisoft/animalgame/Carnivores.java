@@ -6,6 +6,7 @@ public interface Carnivores
 
   
    public abstract Animal attack(Animal animal);
+   public abstract int[] roam();
    
 	
 }
