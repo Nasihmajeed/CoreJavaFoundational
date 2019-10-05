@@ -6,6 +6,7 @@ public class Forest
 	String name;
 	Animal animals;
 	Animal[] animalArr;
+	public Gamelevel gamelevel;
 
 	public void meetAnimal()
 	{
@@ -90,7 +91,9 @@ public class Forest
 			aTiger.range=6;
 			aTiger.isDead=false;
 			aTiger.hunger=Hunger.LOW;
+			
 			animalArr[i]=aTiger;
+			aTiger.speed=animalSpeed(animalArr[i]);
 			t++;
 		}
 	}
@@ -116,7 +119,9 @@ public class Forest
 			aLion.range=5;
 			aLion.isDead=false;
 			aLion.hunger=Hunger.LOW;
+			
 			animalArr[j]=aLion;
+			aLion.speed=animalSpeed(animalArr[j]);
 			l++;
 		}
 	}
@@ -142,7 +147,9 @@ public class Forest
 			aBear.range=4;
 			aBear.isDead=false;
 			aBear.hunger=Hunger.LOW;
+			
 			animalArr[k]=aBear;
+			aBear.speed=animalSpeed(animalArr[k]);
 			b++;
 		}
 	}
@@ -168,7 +175,9 @@ public class Forest
 			aRabbit.range=3;
 			aRabbit.isDead=false;
 			aRabbit.hunger=Hunger.LOW;
+			
 			animalArr[g]=aRabbit;
+			aRabbit.speed=animalSpeed(animalArr[g]);
 			r++;
 		}
 	}
@@ -299,6 +308,21 @@ public class Forest
 		}
 		return animals;
 	}
+	public int animalSpeed(Animal animals)
+	{
+		
+		switch(this.gamelevel)
+		{
+			case EASY:
+				{animals.speed=(int) (Math.random()*20); break;}
+			case MEDIUM:
+				{animals.speed=(int) (Math.random()*40); break;}
+			case HARD:
+				{animals.speed=(int) (Math.random()*60); break;}
+		}
+		return animals.speed;
+	}
+	
 
 }
 
