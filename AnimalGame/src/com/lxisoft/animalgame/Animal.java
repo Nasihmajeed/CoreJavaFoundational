@@ -9,6 +9,7 @@ public abstract class Animal
     public int locationX,locationY;
     public int sight;
     public Hunger hunger;
+    public GameLevel speed;
 
   	public abstract void  run();
   	public abstract void  eat();

@@ -10,6 +10,8 @@ public class Forest
     Animal deer;
     int[] position;
     int range;
+    public GameLevel gamelevel;
+
 	public void fight()
 	{
 		Scanner sc=new Scanner (System.in);
@@ -281,7 +283,7 @@ public class Forest
     }
 
     public Animal attack(Animal animal)
-    {
+	{
     	switch(animal.hunger)
     	{
 			case HIGHHUNGER:
@@ -294,8 +296,10 @@ public class Forest
 				animal.hunger=Hunger.LOWHUNGER;
 				break;
 			}
-			default:System.out.println("Invalid data");
+			default:System.out.println("Hungry level low");
     	}
     	return animal;
     }
+
+	    
 }
