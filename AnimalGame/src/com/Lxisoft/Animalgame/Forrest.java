@@ -18,6 +18,7 @@ public void meet(){
 	 deer.eat();
 	 rabbit.eat();
 	 System.out.println("\n\n---Animal meet---\n\n");
+	 System.out.println("---Animal Fights---\n"); 
 	 }
 
 
@@ -38,35 +39,54 @@ public Animal[] getAnimals(){
 
 
 public void selectAnimals(Animal[] anim){
-	System.out.println("---Animal Fights---\n"); 
-	int x,y,c=0;	 
-	do{	x=random(anim.length);
-		y=random(anim.length);
-		animalDis(anim[x],anim[y]);
-	}while(anim[x].isalive==true||anim[y].isalive==true);
-
-}
+	int x,y,c=0;
+	do{
+	   for(int i=0;i<anim.length;i++){
+	   		if(anim[i].isalive==true&&anim[i] instanceof Carnivores){
+	              c++;}	
+	             if(c!=1){ 
+					do{	x=random(anim.length);
+						y=random(anim.length);
+			}while(x==y&&anim[x] instanceof Herbivores);
+            animalDis(anim[x],anim[y]);
+            }
+           }
+       }while(c!=1);
+      }
 
 
 public void animalDis(Animal anim1,Animal anim2){
 	if(anim1 instanceof Carnivores&&anim1!=anim2&&anim1.isalive==true&&anim2.isalive==true){
 		System.out.println("\n\n...//Fight on//...\n"+" "+anim1.name+" vs "+" "+anim2.name);
-	 	int dis=(int)(Math.sqrt((anim1.x)-(anim2.x))-((anim1.y)-(anim2.y)));
+	 	int dis=(int)(Math.sqrt(random(anim1.x)-random(anim2.x))-(random(anim1.y)-random(anim2.y)));
+	 	System.out.println("\tx1="+anim1.x+"\ty1="+anim1.y);
+		System.out.println("\tx2="+anim2.x+"\ty2="+anim2.y);
 	 	System.out.println("----------------------------------"+dis);
-			if(dis<=2){
+	 	anim1.x=random(anim1.x);
+		anim2.x=random(anim2.x);
+		System.out.println("\n\t----New Location-----\n\tx1="+anim1.x+"\ty1="+anim1.y);
+		System.out.println("\tx2="+anim2.x+"\ty2="+anim2.y);
+	 	 animalDo(anim1,anim2,dis);
+	 	 selectAnimals(getAnimals());
+	 	}
+	 else{
+	 	getAnimals();
+	 }
+   }  
+public void animalDo(Animal anim1,Animal anim2,int d){
+	if(d<=2){
 				System.out.println(anim1.name+" see the "+anim2.name);
 				animalFight(anim1,anim2);}
 			else{
-				 System.out.println(anim1.name+" far from "+anim2.name);
-				 getAnimals();
+				if(anim2 instanceof Herbivores){
+				((Herbivores)anim2).escape();}
+				 else{
+                     System.out.println(anim1.name+" far from "+anim2.name); 
+                 	 }
       		}
-      	}
-   		else{
-   			getAnimals();
-   			}
-     }     
+      	
 
- 
+       } 
 
 public void animalFight(Animal anim1,Animal anim2){
 	 	Animal attack;
@@ -110,7 +130,7 @@ public void winnerAnimal(Animal[] anim){
 		    }
 		  }
 			if(count==1&&anim[k] instanceof Carnivores){
-				System.out.println("\n\n\tThe KING is "+anim[k].name);
+				System.out.println("\n\n\t+++++++++++The KING is "+anim[k].name+" ++++++++++");
 			}
 			else{
 				System.out.println(""+c);

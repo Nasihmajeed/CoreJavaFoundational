@@ -28,10 +28,6 @@ public void escape(){
 		System.out.println(this.name+" is runaway");
 	}		 
  }
-/*public void animalRange(){
-	//int[][] range=new int[r(10)][r(10)];
-	int x=r(10);
-	int y=r(10);
-    }*/
+ 
 }
  
