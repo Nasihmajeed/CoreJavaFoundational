@@ -76,55 +76,45 @@ public void animalDetails()
 		lion.run();
 		System.out.println("strength : "+animals[4].str);
 		System.out.println("\n");
-		Animal win=null;
+		Animal[] win=null;
 		for (int i=0;i<animals.length;i++)
 		{
-			fighter(get());
+			fight(win);
 		}
-			
-		
-		
 	}
 public int random()
 	{
 		int r=(int)(Math.random()*5);
 		return r;					
 	}
-public void fighter()
+public void fight(Animal[] win)
 	{
+		Animal[] winner=new Animal[2];
 		int r0=0;
 		int r1=0;
 		int s;
- 		r0=random();
- 		r1=random();
- 	}
+ 		do{		
+		r0=random();
+		r1=random();				
+		}while(r0==r1/*||animals[r0].alive==false||animals[r1].alive==false*/);
 
-public void get(Animal win)
-		{
-			Animal[] adi=new Animal[5];
-			Animal b=new Blackpanther();
-			Animal c=new Crocodail();
-			Animal l=new Leopard();
-			Animal li=new Lion();
-			Animal r=new Rabbit();
-			adi[0]=b;
-			adi[1]=c;
-			adi[2]=l;
-			adi[3]=li;
-			adi[4]=r;
-			for (int i=0;i<adi.length;i++)
+			for (int i=0;i<animals.length;i++)
 			{
-				/*Animal.adi[i].fight(int r0,int r1,Animal[] animals);*/
-				System.out.println(adi[i].fight);
+				winner=animals[i].fight(r1,animals);
+
+				if(winner[0]==animals[i])
+					{
+						System.out.println(animals[i].name+ "  Defeat the  " +animals[i].name);				
+						System.out.println("The Wiiner is :    "+animals[i].name+"    strength is reduce to  "+animals[i].str/5 + "    GOING TO SLEEP");									
+						winner[1].str=winner[1].str/4;
+					}
+				else
+					{
+						System.out.println(winner[1].name+ "  Defeat the  " +winner[1].name);				
+						System.out.println("The Wiiner is :    "+winner[1].name+"    strength is reduce to  "+winner[1].str/5 + "    GOING TO SLEEP");									
+						winner[0].str=winner[0].str/4;
+					}
+
 			}
 		}
-	
-public void attack(Animal[] adi Animal[] win)
-		{
-			if(win==)
-				System.out.println(win[0].name+ "  Defeat the  " +win[1].name);				
-				System.out.println("The Wiiner is :    "+win.name+"    strength is reduce to  "+win.str/2+ "    GOING TO SLEEP");									
-				animals[r1].str=0;
-				animals[r1].alive=false;
-		}
-	}
+}
