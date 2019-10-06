@@ -89,6 +89,7 @@ public class Forest
 				{
 					temp=((Carnivores)animal1).attack(animal2);
 				    setfight(temp,animal1,animal2);
+					location();
 				   
 				}
                 else if(animal1 instanceof Carnivores && animal2 instanceof Herbivores)
@@ -97,6 +98,7 @@ public class Forest
 					 if(temp!=null)
 					 {
 					  setfight(temp,animal1,animal2);
+					  location();
 					 }
 				    
 				}	
@@ -149,44 +151,30 @@ public class Forest
 	
 	// method for change location
 	
-	public void location(Animal animal1, Animal animal2)
+	public void location()
 	{    
-	     int i ;
-		 
-	/* 	if(animal1 instanceof Herbivores)
-		{
-			 for(i=0;i<=animal.length;i++)
-	        {
-		      animal[i].x= ((Herbivores).animal1).graze(animal1,animal2);
-              animal[i].y= ((Herbivores).animal1).graze(animal1,animal2);			  
-	        }
-		}
-		else if(animal2 instanceof Carnivores)
-		{
-			 for(i=0;i<=animal.length;i++)
-	        {
-		      animal[i].x= ((Carnivores).animal2).roam(animal1,animal2);
-              animal[i].y= ((Carnivores).animal2).roam(animal1,animal2);			  
-	        }
-		}
-		else if(animal2 instanceof Herbivores )
-		{
-			 for(i=0;i<=animal.length;i++)
-	        {
-		      animal[i].x= ((Herbivores).animal2).graze(animal1,animal2);
-              animal[i].y= ((Herbivores).animal2).graze(animal1,animal2);			  
-	        }
-		}
-		else
-		{
-			 for(i=0;i<=animal.length;i++)
-	        {
-		      animal[i].x= ((Carnivores).animal2).roam(animal1,animal2);
-              animal[i].y= ((Carnivores).animal2).roam(animal1,animal2);			  
-	        }
-		 */}
+	  int i ;
+	  int[] position=new int[2];
 	  
-		
+	  for(i=0;i<animal.length;i++)
+	  {
+		  if(animal[i] instanceof Herbivores && animal[i].isAlive==true)
+		  {
+			
+			position=(((Herbivores)animal[i]).graze());
+			animal[i].x=position[0];
+            animal[i].y=position[1];	  
+		  }
+		  else if(animal[i] instanceof Carnivores && animal[i].isAlive==true)
+		  {
+            position=(((Carnivores)animal[i]).roam());
+            animal[i].x=position[0];
+            animal[i].y=position[1];				
+		  }
+		 
+	   }
+	  
+	}	
 		 
 	
 	// method for winner

@@ -46,7 +46,7 @@ public class Wildbull extends Animal implements Herbivores
 	 
 	  public int[] graze()
 	 {
-		 int[] x=new int[2];
+		int[] x=new int[2];
 		x[0]=(int)(Math.random()*40);
 		x[1]=(int)(Math.random()*40);
 		return x;
