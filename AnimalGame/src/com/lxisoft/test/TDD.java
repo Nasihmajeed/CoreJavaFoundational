@@ -6,54 +6,45 @@ public class TDD
 	public static void main(String[] arg)
 	{
 		Forest forest=new Forest();
-		int level=0;					
+		int level=0;
+		boolean ex=true;
+		do{					
         try
-			{	
-				Scanner sc=new Scanner(System.in);						
-				System.out.println("enter the level");
-				System.out.println(" 1= LOW  2= MEDIUM  3= HIGH");
-				level=sc.nextInt();
-				switch(level)
-				{
-					case 1:
-		 			forest.gamelevel=Gamelevel.EASY;
-		 			System.out.println("first level"+forest.gamelevel);
-		 			break;
-		 			case 2:
-		  			forest.gamelevel=Gamelevel.MEDIUM; 
-		  			System.out.println("second level"+forest.gamelevel);
-		  			break;
-		  			case 3:
-		  			forest.gamelevel=Gamelevel.HARD;
-		  			System.out.println("third level-"+forest.gamelevel);
-		  			break;
-		  		}
-			}				
-		catch(ArithmeticException e)
+		{	
+			Scanner sc=new Scanner(System.in);						
+			System.out.println("enter the level");
+			System.out.println(" 1= LOW  2= MEDIUM  3= HIGH");
+			level=sc.nextInt();
+			if(level>3)throw new NullPointerException("null point exception");
+			switch(level)
+			{
+				case 1:
+	 			forest.gamelevel=Gamelevel.EASY;
+	 			System.out.println("first level"+forest.gamelevel);ex=false;
+	 			break;
+	 			case 2:
+	  			forest.gamelevel=Gamelevel.MEDIUM; 
+	  			System.out.println("second level"+forest.gamelevel);ex=false;
+	  			break;
+	  			case 3:
+	  			forest.gamelevel=Gamelevel.HARD;
+	  			System.out.println("third level-"+forest.gamelevel);ex=false;
+	  			break;
+	  		}
+		}				
+		catch(NullPointerException e)
 		{
-			System.out.println("exception occured ArithmeticException"+e );				
+			System.out.println("exception "+e );				
 		}
-				forest.animalMeet();
-	}
+	}while(ex);
+		//finally
+		//{
+		 //	System.out.println("finally block executed");
+		 //}  
+  		//System.out.println("rest of the code...");
+  		forest.animalMeet();  
+  	}  	
+	
 }	
 				
- // public void gameLevel(Animal animal)
-	//  {
-	//  	switch(level)
-	//  	{
- // 		case LOW:
- // 		animal.level=(int) (Math.random()*20);
- // 		break;
- // 		case MEDIUM:
- //  		animal.level=(int) (Math.random()*40); 
- //  		break;
- //  		case HIGH:
- //  		animals.level=(int) (Math.random()*60);
- //  		break;
- //  		}
- //  		System.out.println("animal speed-"+animal.level);
- //  		return animal.level;
- //  	}
-
-
 
