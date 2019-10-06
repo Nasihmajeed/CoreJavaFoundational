@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.io.Console;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +39,11 @@ public class TDD
 		));
 		createBulletFile();
 		createDescFile();
-		printMenu();
+
+		//printMenu();
+		printBulletToFile(bulletFile,bulletNotes);
+		readerObj();
+		print();
 		
 	}
 
@@ -211,6 +216,7 @@ public class TDD
 			{
 				case 1:
 				show(note);
+
 				break;
 
 				case 2:
@@ -234,6 +240,7 @@ public class TDD
 		if(note==1)
 		{
 			print();
+			//readFile(bulletFile);
 		}
 		if(note==2)
 		{
@@ -245,10 +252,12 @@ public class TDD
 		if(note==1)
 		{
 			update();
+			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			updateDesc();
+			printDescToFile(descFile,descNotes);
 		}
 	}
 
@@ -257,10 +266,12 @@ public class TDD
 		if(note==1)
 		{
 			delete();
+			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			deleteDesc();
+			printDescToFile(descFile,descNotes);
 		}
 	}
 	static void create(int note)
@@ -268,10 +279,12 @@ public class TDD
 		if(note==1)
 		{
 			createBullet(bulletNotes);
+			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			createDesc(descNotes);
+			printDescToFile(descFile,descNotes);
 		}	
 	}
 
@@ -341,12 +354,12 @@ static void createDescFile()
 		try
 		{
 			PrintWriter writerObj=new PrintWriter(fileObj);
-			for(int i=0;i<bulletNotes.size();i++)
+			for(BulletNote bulletNote : bulletNotes)
 			{
-				writerObj.println("id= "+bulletNotes.get(i).getId()+"\tTitle= "+bulletNotes.get(i).getTitle()+"\n");
-				for(String bulletPoint: ( ( (BulletContent) (bulletNotes.get(i).getNoteContent()) ).getBulletPoints() )  )
+				writerObj.print(bulletNote.getId()+","+bulletNote.getTitle());
+				for(String bulletPoint: ( ( (BulletContent) (bulletNote.getNoteContent()) ).getBulletPoints() )   )
 				{
-					writerObj.println("**  " +bulletPoint);
+					writerObj.println("," +bulletPoint);
 				}
 				writerObj.println();
 			}
@@ -379,4 +392,55 @@ static void createDescFile()
 		}
 		
 	}
+
+
+	static void readerObj()
+	{
+    String line;
+		//ArrayList<Product> products=new ArrayList<Product>();
+    try{
+    FileReader fileReader = new FileReader("Datas.txt");
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String[] strings;
+    while ((line = bufferedReader.readLine()) != null) 
+    {
+        strings = line.split(",");
+        int id = Integer.parseInt(strings[0]);
+         String title = strings[1];
+         List<String> content=new ArrayList<String>(); 
+
+         for(int i=2;i<strings.length;i++)
+         {
+         	content.add(strings[i]);
+         }
+         BulletContent newBulletContent=new BulletContent(content);
+         BulletNote newNote = new BulletNote(id,title,newBulletContent);
+         bulletNotes.add(newNote);
+        // System.out.println(newNote.getId()+"\t"+newNote.getTitle()+"\t"+((BulletContent)(newNote.getNoteContent())).getBulletPoints());
+
+    }
+    fileReader.close();
+    PrintWriter printer = null;
+          printer = new PrintWriter(new FileWriter("Datas.txt",false));
+            printer.flush();
+          
+            for (BulletNote o : bulletNotes) 
+            {
+           printer.print(o.getId()+","+o.getTitle());
+
+			for(String bulletpoint:( ( (BulletContent) (o.getNoteContent()) ).getBulletPoints() ) )
+			{
+				 printer.print(","+bulletpoint);
+			}
+			printer.println();
+            }
+            printer.close();
+		}
+		catch ( Exception e ) 
+		{
+		    e.printStackTrace();
+		}
+	}
+
+
 }
