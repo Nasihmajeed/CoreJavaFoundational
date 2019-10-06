@@ -12,7 +12,7 @@ public class Tdd
 	static
 	{
 
-			String name="Galloway";	
+			String name="Goa";	
 			System.out.println("\n");
 			System.out.println("\t    Welcome to  "+name +"   Forest");
 	}
