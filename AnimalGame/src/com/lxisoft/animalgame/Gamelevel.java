@@ -1,6 +1,6 @@
 package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
-public enum Hunger
+public enum Gamelevel
 {
-	LOWEST,MEDIUM,HIGHEST,LOW;	
+	EASY,MEDIUM,HARD;	
 }

@@ -3,7 +3,8 @@ import java.util.Scanner;
 import com.lxisoft.animalgame.Animal;
 public class Forest
 {
-	Animal[] animalArray;		
+	Animal[] animalArray;
+	public Gamelevel gamelevel ;		
 	public void animalMeet()
 	{	
 		Scanner sc=new Scanner(System.in);
@@ -100,7 +101,7 @@ public class Forest
 		randomLocation();	
 		animalLuck();
 		meetFight();
-							
+								
 	}	
 	public void randomLocation()
 	{	
@@ -242,25 +243,22 @@ public class Forest
  	{     
  		System.out.println("hunger level");   
    		switch(animal.hunger)
-    	{
-        case LOWEST:
-        animal.hunger=Hunger.LOW;
-        System.out.println("hunger level"+animal.hunger);
-        break;
-        case MEDIUM:
-        animal.hunger=Hunger.MEDIUM;
-        System.out.println("hunger level"+animal.hunger);
-        break;     
-   		default:   		
-   		System.out.println("low hunger level"); 
-   		}      
-        return animal;
-   }  
-}
-
-
-	 	 	  
-
+    	{        
+	        case LOWEST:
+	        animal.hunger=Hunger.LOW;
+	        System.out.println("hunger level"+animal.hunger);
+	        break;
+	        case MEDIUM:
+	        animal.hunger=Hunger.MEDIUM;
+	        System.out.println("hunger level"+animal.hunger);
+	        break;     
+	   		default:   		
+	   		System.out.println("low hunger level"); 
+   		}  
+   		return animal;
+    }  
+}  
+ 
 
 
 
