@@ -79,10 +79,7 @@ public void animalDetails()
 	
 		for (int i=0;i<animals.length;i++)
 		{
-			if(animals[i].alive==true)
-			{
-				fight();
-			}
+			fight();
 			
 		}
 	}
@@ -96,13 +93,14 @@ public void fight()
 	
 		int r0=0;
 		int r1=0;
-		int s;
- 		do{		
-		r0=random();
-		r1=random();	
-		}while(r0==r1&&animals[r0].alive==false||animals[r1].alive==false);
-		System.out.println(r0  +" "  +r1);			
-
+			if(r0!=r1&&animals[r0].alive==true||animals[r1].alive==true)
+			{
+		 		do{		
+				r0=random();
+				r1=random();	
+				}while(r0==r1);/*(animals[r0].alive==false||animals[r1].alive==false);*/
+				System.out.println(r0  +" "  +r1);			
+			}
 		Animal[] winner=new Animal[2];
 			for (int i=0;i<animals.length;i++)
 			{
