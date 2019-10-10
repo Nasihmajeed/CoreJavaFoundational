@@ -39,19 +39,14 @@ public class TDD
 		));
 		createBulletFile();
 		createDescFile();
-
-		//printMenu();
-		printBulletToFile(bulletFile,bulletNotes);
-		readerObj();
-		print();
-		
+		printMenu();
+				
 	}
 
 	static void print()
 	{
 		for(BulletNote bulletNote:bulletNotes)
 		{
-			printBulletToFile(bulletFile,bulletNotes);
 			System.out.println("id="+bulletNote.getId()+"\ntitle="+bulletNote.getTitle()+"\n");
 			for(String bulletPoint: ( ( (BulletContent) (bulletNote.getNoteContent()) ).getBulletPoints() )  )
 			{
@@ -107,7 +102,6 @@ public class TDD
 		for(DescNote descriptionNote:descNotes)
 		{
 			System.out.println("\nid="+descriptionNote.getId()+"\ntitle="+descriptionNote.getTitle()+"\n------- \n"+( ( (DescContent) (descriptionNote.getNoteContent()) ).getLine() ));
-			printDescToFile(descFile,descNotes);
 			
 		}
 	}
@@ -208,6 +202,8 @@ public class TDD
 			int choice=scan.nextInt();
 			if(choice==5)
 			{
+				printBulletToFile();
+				printDescToFile();
 				return;
 			}
 			System.out.println("1.Bullet Note or 2.Description Note");
@@ -240,7 +236,6 @@ public class TDD
 		if(note==1)
 		{
 			print();
-			//readFile(bulletFile);
 		}
 		if(note==2)
 		{
@@ -252,12 +247,10 @@ public class TDD
 		if(note==1)
 		{
 			update();
-			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			updateDesc();
-			printDescToFile(descFile,descNotes);
 		}
 	}
 
@@ -266,12 +259,10 @@ public class TDD
 		if(note==1)
 		{
 			delete();
-			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			deleteDesc();
-			printDescToFile(descFile,descNotes);
 		}
 	}
 	static void create(int note)
@@ -279,12 +270,10 @@ public class TDD
 		if(note==1)
 		{
 			createBullet(bulletNotes);
-			printBulletToFile(bulletFile,bulletNotes);
 		}
 		if(note==2)
 		{
 			createDesc(descNotes);
-			printDescToFile(descFile,descNotes);
 		}	
 	}
 
@@ -349,57 +338,51 @@ static void createDescFile()
 		}
 	}
 
-	static void printBulletToFile(File fileObj,List<BulletNote> bulletNotes)
+	static void printDescToFile()
 	{
-		try
-		{
-			PrintWriter writerObj=new PrintWriter(fileObj);
-			for(BulletNote bulletNote : bulletNotes)
-			{
-				writerObj.print(bulletNote.getId()+","+bulletNote.getTitle());
-				for(String bulletPoint: ( ( (BulletContent) (bulletNote.getNoteContent()) ).getBulletPoints() )   )
-				{
-					writerObj.println("," +bulletPoint);
-				}
-				writerObj.println();
-			}
-			writerObj.close();
-		}	
-		catch(IOException e)
-		{
-			System.out.println("error");
-		}
-	}
-	static void printDescToFile(File fileObj,List<DescNote> descNotes)
-	{
-		try
-		{
-			PrintWriter writerObj=new PrintWriter(fileObj);
-			for(int i=0;i<descNotes.size();i++)
-			{
-				writerObj.println("\nid="+descNotes.get(i).getId()+"\t"+"\ntitle="+descNotes.get(i).getTitle());
-					writerObj.println("\n ------- \n ");
-					writerObj.println(( ( (DescContent) (descNotes.get(i).getNoteContent()) ).getLine() ));
-				writerObj.println();
-				
-			}
-			writerObj.close();
+		 String line;
+		//ArrayList<Product> products=new ArrayList<Product>();
+    try{
+    FileReader fileReader = new FileReader("Description.txt");
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String[] strings;
+    while ((line = bufferedReader.readLine()) != null) 
+    {
+        strings = line.split(",");
+        int id = Integer.parseInt(strings[0]);
+         String title = strings[1];
+         String content=strings[2];
+       
+         DescContent newDescContent=new DescContent(content);
+         DescNote newNote = new DescNote(id,title,newDescContent);
+         descNotes.add(newNote);
 
-		}	
-		catch(IOException e)
+    }
+    fileReader.close();
+    PrintWriter printer = null;
+          printer = new PrintWriter(new FileWriter("Description.txt",false));
+            printer.flush();
+          
+            for (DescNote o : descNotes) 
+            {
+           printer.print(o.getId()+","+o.getTitle()+","+( ( (DescContent) (o.getNoteContent()) ).getLine() ));
+			printer.println();
+            }
+            printer.close();
+		}
+		catch ( Exception e ) 
 		{
-			System.out.println("error");
+		    e.printStackTrace();
 		}
 		
 	}
 
 
-	static void readerObj()
+	static void printBulletToFile()
 	{
     String line;
-		//ArrayList<Product> products=new ArrayList<Product>();
     try{
-    FileReader fileReader = new FileReader("Datas.txt");
+    FileReader fileReader = new FileReader("BulletNote.txt");
     BufferedReader bufferedReader = new BufferedReader(fileReader);
     String[] strings;
     while ((line = bufferedReader.readLine()) != null) 
@@ -416,12 +399,11 @@ static void createDescFile()
          BulletContent newBulletContent=new BulletContent(content);
          BulletNote newNote = new BulletNote(id,title,newBulletContent);
          bulletNotes.add(newNote);
-        // System.out.println(newNote.getId()+"\t"+newNote.getTitle()+"\t"+((BulletContent)(newNote.getNoteContent())).getBulletPoints());
 
     }
     fileReader.close();
     PrintWriter printer = null;
-          printer = new PrintWriter(new FileWriter("Datas.txt",false));
+          printer = new PrintWriter(new FileWriter("BulletNote.txt",false));
             printer.flush();
           
             for (BulletNote o : bulletNotes) 
