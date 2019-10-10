@@ -7,7 +7,7 @@ public class Forest
 	Animal animals;
 	Animal[] animalArr;
 	public Gamelevel gamelevel;
-	public void meetAnimal() throws MismatchException
+	public void meetAnimal()
 	{
 		Scanner s=new Scanner(System.in);
 		int a=0;
@@ -19,10 +19,6 @@ public class Forest
 		{
 			System.out.println("enter number of "+nameAnimal[i]);
 			number[i]=s.nextInt();
-			if(number[i]=="")
-			{
-				throw new MismatchException("");
-			}
 			a=a+number[i];
 		}
 	
@@ -186,45 +182,57 @@ public class Forest
 	}
 	public void setWinner(int r,int x,int y)
 	{
-		int a=animalArr.length,escape;
+		int a=animalArr.length;
 		if((animalArr[y]) instanceof Herbivores)
 		{
-			int[] arr=animalInSight(y);
-			int e=arr.length;
-			System.out.println("-------near by animals-----"+e);
-			if(e==1)
+			try
 			{
-				escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]]);
-				if(escape==0)
-					animalArr[arr[0]]=animalAttackHunger(animalArr[arr[0]]);
-				else
-					animalArr[arr[0]]=animalFightHunger(animalArr[arr[0]]);
+				int[] arr=animalInSight(y);
+				int e=arr.length;
+				System.out.println("-------near by animals-----"+e);
+				animalAttack(arr,y,e);
 			}
-			else if(e==2)
+			catch(AnimalNotMeet anm)
 			{
-				escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
-				for(int i=0;i<2;i++)
-				{
-					if(escape==0)
-						animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
-					else
-						animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
-				}
-			}
-			else if(e>=3)
-			{
-				escape=((Herbivores)animalArr[y]).attack(animalArr,e);
-				for(int i=0;i<e;i++)
-				{
-					if(escape==0)
-						animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
-					else
-						animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
-				}
+				System.out.println(animalArr[y].animalName+" has no near by animals");
 			}		
 		}
 	}
-	public int winnerCarnivores(int n,int x,int y)
+	public void animalAttack(int[] arr,int y,int e)
+	{
+		int escape;
+		if(e==1)
+		{
+			escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]]);
+			if(escape==0)
+				animalArr[arr[0]]=animalAttackHunger(animalArr[arr[0]]);
+			else
+				animalArr[arr[0]]=animalFightHunger(animalArr[arr[0]]);
+		}
+		else if(e==2)
+		{
+			escape=((Herbivores)animalArr[y]).attack(animalArr[arr[0]],animalArr[arr[1]]);
+			for(int i=0;i<2;i++)
+			{
+				if(escape==0)
+					animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
+				else
+					animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
+			}
+		}
+		else if(e>=3)
+		{
+			escape=((Herbivores)animalArr[y]).attack(animalArr,e);
+			for(int i=0;i<e;i++)
+			{
+				if(escape==0)
+					animalArr[arr[i]]=animalAttackHunger(animalArr[arr[i]]);
+				else
+					animalArr[arr[i]]=animalFightHunger(animalArr[arr[i]]);
+			}
+		}
+	}
+	public int winnerCarnivores(int n,int x,int y) 
 	{
 		int a=animalArr.length,range=0,location=0;
 		Animal temp=null;
@@ -262,7 +270,7 @@ public class Forest
 		int location=(int) (Math.sqrt((positionY[0]-positionX[0])*(positionY[0]-positionX[0])+(positionY[1]-positionX[1])*(positionY[1]-positionX[1])));
 		return location;
 	}
-	public int[] animalInSight(int y)
+	public int[] animalInSight(int y)throws AnimalNotMeet
 	{
 		int distance=0,count=0;
 		int[] arr=new int[animalArr.length];
@@ -270,6 +278,7 @@ public class Forest
 		int[] axisH=((Herbivores)(animalArr[y])).graze();
 		for(int j=0;j<animalArr.length;j++)
 		{
+
 			if(animalArr[j] instanceof Carnivores)
 			{
 				int[] axisC=((Carnivores)(animalArr[j])).roam();
@@ -277,9 +286,12 @@ public class Forest
 			}
 			if(distance<animalArr[y].sight)
 			{
-
 			 	arr[count]=j;	
 			 	count++;			
+			}
+			else
+			{
+				throw new AnimalNotMeet();
 			}
 		}
 		int[] array=new int[count];
