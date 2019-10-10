@@ -76,10 +76,14 @@ public void animalDetails()
 		lion.run();
 		System.out.println("strength : "+animals[4].str);
 		System.out.println("\n");
-		Animal[] win=null;
+	
 		for (int i=0;i<animals.length;i++)
 		{
-			fight(win);
+			if(animals[i].alive==true)
+			{
+				fight();
+			}
+			
 		}
 	}
 public int random()
@@ -87,34 +91,51 @@ public int random()
 		int r=(int)(Math.random()*5);
 		return r;					
 	}
-public void fight(Animal[] win)
+public void fight()
 	{
-		Animal[] winner=new Animal[2];
+	
 		int r0=0;
 		int r1=0;
 		int s;
  		do{		
 		r0=random();
-		r1=random();				
-		}while(r0==r1/*||animals[r0].alive==false||animals[r1].alive==false*/);
+		r1=random();	
+		}while(r0==r1&&animals[r0].alive==false||animals[r1].alive==false);
+		System.out.println(r0  +" "  +r1);			
 
+		Animal[] winner=new Animal[2];
 			for (int i=0;i<animals.length;i++)
 			{
-				winner=animals[i].fight(r1,animals);
-
-				if(winner[0]==animals[i])
+				winner=animals[r0].fight(r1,animals);
+				if(winner[0]==animals[r0])
 					{
-						System.out.println(animals[i].name+ "  Defeat the  " +animals[i].name);				
-						System.out.println("The Wiiner is :    "+animals[i].name+"    strength is reduce to  "+animals[i].str/5 + "    GOING TO SLEEP");									
-						winner[1].str=winner[1].str/4;
+						System.out.println("\n");								
+						System.out.println(animals[r0].name+ "  Defeat the  " +animals[r1].name);				
+						System.out.println("The Wiiner is :    "+animals[r0].name+"    strength is reduce to  "+animals[r0].str/5 + "    GOING TO SLEEP");	
+						System.out.println("\n");								
+						System.out.println("The lose is :    "+animals[r1].name+"    strength is reduce to  "+animals[r1].str/3 );									
+						animals[r0].str=animals[r0].str/5;
+						animals[r1].str=animals[r1].str/3;
+						if(animals[r1].str==0)
+						{
+							animals[r1].alive=false;
+							System.out.println(animals[r1].name+animals[r1].alive);
+						}
 					}
 				else
 					{
-						System.out.println(winner[1].name+ "  Defeat the  " +winner[1].name);				
-						System.out.println("The Wiiner is :    "+winner[1].name+"    strength is reduce to  "+winner[1].str/5 + "    GOING TO SLEEP");									
-						winner[0].str=winner[0].str/4;
+						System.out.println(animals[r1].name+ "  Defeat the  " +animals[r0].name);				
+						System.out.println("The Wiiner is :    "+animals[r1].name+"    strength is reduce to  "+animals[r1].str/5 + "    GOING TO SLEEP");								
+						System.out.println("\n");
+						System.out.println("The lose is :    "+animals[r0].name+"    strength is reduce to  "+animals[r0].str/3 );									
+						animals[r1].str=animals[r1].str/5;
+						animals[r0].str=animals[r0].str/3;
+						if(animals[r0].str==0)
+						{
+							animals[r0].alive=false;
+							System.out.println(animals[r0].name+animals[r0].alive);
+						}
 					}
-
 			}
 		}
 }
