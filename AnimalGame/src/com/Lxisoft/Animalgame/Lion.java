@@ -2,12 +2,13 @@ package com.Lxisoft.Animalgame;
 import java.util.*;
 import com.Lxisoft.Animalgame.*;
 public class Lion extends Animal implements Carnivores{
-public Lion(int strg,String name,int x,int y){
+public Lion(int strg,String name){
 	this.strg=strg;
 	this.name=name;
-	this.x=x;
-	this.y=y;
 	}
+Position p=new Position();
+int x=p.x;
+int y=p.y;
 public void print(){
 	System.out.println("\n"+this.name);
 	} 
@@ -25,12 +26,6 @@ public Animal fight(Animal anim){
 	else{ 
 		return anim;
 	}
-}
-/*public void animalRange(){
-	int[][] range=new int[r(10)][r(10)];
-	System.out.println(range);
-int x=r(10);
-int y=r(10);
+   }
 
-    }*/
 }

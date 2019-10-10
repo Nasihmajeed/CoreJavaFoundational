@@ -2,12 +2,13 @@ package com.Lxisoft.Animalgame;
 import com.Lxisoft.Animalgame.*;
 import java.lang.*;
 public class Rabbit extends Animal implements Herbivores{
-public Rabbit(int strg,String name,int x,int y){
+public Rabbit(int strg,String name){
 	this.strg=strg;
 	this.name=name;
-	this.x=x;
-	this.y=y;
 	}
+Position p=new Position();
+int x=p.x;
+int y=p.y;
 public void print(){
 	System.out.println("\n"+name);
 	    }
@@ -28,6 +29,6 @@ public void escape(){
 		System.out.println(this.name+" is runaway");
 	}		 
  }
- 
+
 }
  

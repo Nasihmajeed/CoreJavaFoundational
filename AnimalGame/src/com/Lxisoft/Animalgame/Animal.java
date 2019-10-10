@@ -9,9 +9,8 @@ public abstract class Animal{
 	public int x;
 	public int y;
 	boolean isalive=true;
-	 
+public abstract void print();	 
 public abstract void eat();
-//public abstract void animalRange();
 public abstract int r(int a);
 	 }
 
