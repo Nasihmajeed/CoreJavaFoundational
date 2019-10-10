@@ -55,8 +55,6 @@ public class Bear extends Animal implements Herbivores
 	public int attack(Animal[] enemy,int e)
 	{
 		int x=5;
-		// int a=arr.length;
-		// enemy=new Animal[a];
 		for(int i=0;i<e;i++)
 		{
 			System.out.println("\n "+enemy[i].animalName+"  attacks  "+this.animalName);

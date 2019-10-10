@@ -3,20 +3,30 @@ import java.util.Scanner;
 import com.lxisoft.animalgame.*;
 public class TDD
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws NullPointerException
 	{
 		Scanner s=new Scanner(System.in);
 		Forest forest=new Forest();
 		int level=0;
-		try
+		boolean ex;
+		do
 		{
-			System.out.println(" enter animal game lavel (1-easy,2-medium,3hard)");
-			level=s.nextInt();
-		}
-		catch(Exception e)
-		{
-			System.out.println("InputMismatchException");
-		}
+			ex=false;
+			try
+			{
+				System.out.println(" enter animal game lavel (1-easy,2-medium,3-hard)");
+				level=s.nextInt();
+				if(level>3)
+				{
+					throw new NullPointerException("");
+				}
+			}
+			catch(NullPointerException e)
+			{
+				ex=true;
+				System.out.println("Exception");
+			}
+		}while(ex);
 		forest=animalGameLevel(forest,level);
 		forest.meetAnimal();
 	}

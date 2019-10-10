@@ -7,27 +7,30 @@ public class Forest
 	Animal animals;
 	Animal[] animalArr;
 	public Gamelevel gamelevel;
-
-	public void meetAnimal()
+	public void meetAnimal() throws MismatchException
 	{
 		Scanner s=new Scanner(System.in);
 		int a=0;
 		System.out.println("\nanimal details\n-----------------");
 		String nameAnimal[]={"tiger","lion","bear","rabbit"};
 		int[] number;
-		number=new int[4];
+		number=new int[4];		
 		for(int i=0;i<4;i++)
 		{
 			System.out.println("enter number of "+nameAnimal[i]);
 			number[i]=s.nextInt();
+			if(number[i]=="")
+			{
+				throw new MismatchException("");
+			}
 			a=a+number[i];
 		}
+	
 		animalArr=new Animal[a];
 		setTigerDetails(number);
 		setLionDetails(number);
 		setBearDetails(number);
 		setRabbitDetails(number);
-		animalLuck();
 		fight();
 	}
 	public void fight()
@@ -69,7 +72,7 @@ public class Forest
 			}  
 		}
 	}
-	public void setTigerDetails(int number[])
+	public void setTigerDetails(int number[]) 
 	{
 		Scanner s=new Scanner(System.in);
 		int t=1;
@@ -93,7 +96,7 @@ public class Forest
 			aTiger.hunger=Hunger.LOW;
 			
 			animalArr[i]=aTiger;
-			aTiger.speed=animalSpeed(animalArr[i]);
+			aTiger.luck=animalLuck(animalArr[i]);
 			t++;
 		}
 	}
@@ -121,7 +124,7 @@ public class Forest
 			aLion.hunger=Hunger.LOW;
 			
 			animalArr[j]=aLion;
-			aLion.speed=animalSpeed(animalArr[j]);
+			aLion.luck=animalLuck(animalArr[j]);
 			l++;
 		}
 	}
@@ -149,7 +152,7 @@ public class Forest
 			aBear.hunger=Hunger.LOW;
 			
 			animalArr[k]=aBear;
-			aBear.speed=animalSpeed(animalArr[k]);
+			aBear.luck=animalLuck(animalArr[k]);
 			b++;
 		}
 	}
@@ -177,7 +180,7 @@ public class Forest
 			aRabbit.hunger=Hunger.LOW;
 			
 			animalArr[g]=aRabbit;
-			aRabbit.speed=animalSpeed(animalArr[g]);
+			aRabbit.luck=animalLuck(animalArr[g]);
 			r++;
 		}
 	}
@@ -239,12 +242,19 @@ public class Forest
 		}
 		return n;
 	}
-	public void animalLuck()
+	public int animalLuck(Animal animals)
 	{
-		for(int i=0;i<animalArr.length;i++)
+		switch(this.gamelevel)
 		{
-			animalArr[i].luck=(int) (Math.random()*100);
+			case EASY:
+				{animals.luck=(int) (Math.random()*60); break;}
+			case MEDIUM:
+				{animals.luck=(int) (Math.random()*40); break;}
+			case HARD:
+				{animals.luck=(int) (Math.random()*20); break;}
 		}
+		System.out.println(animals.animalName+" luck-"+animals.luck);
+		return animals.luck;
 	}
 	public int animalLocation(int positionX[],int positionY[])
 	{
@@ -308,22 +318,5 @@ public class Forest
 		}
 		return animals;
 	}
-	public int animalSpeed(Animal animals)
-	{
-		
-		switch(this.gamelevel)
-		{
-			case EASY:
-				{animals.speed=(int) (Math.random()*20); break;}
-			case MEDIUM:
-				{animals.speed=(int) (Math.random()*40); break;}
-			case HARD:
-				{animals.speed=(int) (Math.random()*60); break;}
-		}
-		System.out.println("animal speed-"+animals.speed);
-		return animals.speed;
-	}
-	
-
 }
 
