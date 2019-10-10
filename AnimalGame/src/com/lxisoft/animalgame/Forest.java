@@ -52,8 +52,8 @@ public class Forest
 		{
 			if(animal[i].isAlive==true && animal[i] instanceof Carnivores)
 			{
-				    w++;
-					
+				 w++;
+				//System.out.println("location of "+animal[i].name+"  "+animal[i].x+ " "+animal[i].y);	
 			}
 		}
 		
