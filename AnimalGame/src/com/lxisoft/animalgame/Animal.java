@@ -6,8 +6,7 @@ public abstract class Animal
 	public int range;
 	public boolean isDead;
 	public int luck;
-	public int xAxis;
-	public int yAxis;
+	public Position pos;
 	public int sight;
 	public Hunger hunger;
 	public int speed;
