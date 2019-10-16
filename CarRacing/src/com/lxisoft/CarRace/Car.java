@@ -2,7 +2,7 @@ package com.lxisoft.CarRace;
 import java.util.Scanner;
 import com.lxisoft.CarRace.*;
 
-public class Car
+public abstract class Car
 {
 	String name;
 	float basic_speed;
