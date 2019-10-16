@@ -1,0 +1,38 @@
+import java.util.*;
+public class Student
+{
+	public String name;
+	public int rollno;
+	public int total;
+	Subject[] sub;
+	public void scan()
+	{
+		int total=0;
+		sub=new Subject[3];
+		Scanner s=new Scanner(System.in);
+		for(int i=0;i<3;i++)
+		{
+			sub[i]=new Subject();
+			sub[i].scan();
+		}
+	}
+
+	public void print()
+	{	 
+		for(int i=0;i<3;i++)
+		{	
+			sub[i].print();
+		}	
+	}
+	public int gettoTal()
+	{
+		total=0;
+		for(int i=0;i<3;i++)
+		{
+			total=sub[i].mark+total;
+		}
+		this.total= total;
+		return total;
+    }
+}
+		
