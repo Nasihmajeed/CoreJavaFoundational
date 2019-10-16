@@ -170,12 +170,12 @@ public class Race
 				
 
 				
-				}
+				
 			
 			System.out.println("Rank Details");
-			System.out.println("rank: " +(k+1) + "  Name "+rank[k].participantName);
+			System.out.println("rank: " +(i+1) + "  Name "+rank[i].participantName);
 		
-		  //}
+		  }
 
 
 	}
@@ -186,10 +186,10 @@ public class Race
 			Cars[] rank=new Cars[cardetails.length];
 			// for(int k=0;k<cardetails.length;k++)
 			// {
-				cardetails[i].result=distance;
-					rank=cardetails;
+				
 				for(int i=0;i<rank.length;i++)
-				{	
+				{	cardetails[i].result=distance;
+					rank=cardetails;
 					
 					for(int j=0;j<rank.length;j++)
 					{
@@ -206,8 +206,8 @@ public class Race
 				
 				//}
 			
-			System.out.println("Rank Details");
-			System.out.println("rank: " +(k+1) + "  Name "+rank[k].participantName);
+			
+			System.out.println("rank: " +(i+1) + "  Name "+rank[i].participantName);
 		
 		  }
 
