@@ -79,6 +79,8 @@ public class Racetrack
 		 }
 	 }
    }
+   // method for calculate time achieved
+  
    //method for print Ranklist
    
    public void ranklist()
