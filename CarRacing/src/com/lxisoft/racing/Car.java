@@ -52,7 +52,6 @@ public abstract class Car
 			luxFactor=1.1;
 		}
 		speed=speed*tyreFactor*fuelFactor*ccFactor*luxFactor;
-		// System.out.println(pv);
 	}
 	
 
