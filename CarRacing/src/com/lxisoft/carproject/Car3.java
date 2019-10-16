@@ -20,8 +20,18 @@ public class Car3 extends Cars implements Luxuary
 		return time;
 
 	}
-	public void startRace(Cars[] car,double time)
+	public double startRace(Cars[] car,double time)
 	{
-		System.out.println(" time: Luxuary car started");
+		double distance=0;
+		double fuelWeightage= getFuelWeightage(car);
+		double tyreWeightage=getTyreWeightage(car);
+		car=getSpeed(car);
+		System.out.println("speed"+this.speed);
+		this.velocity=this.speed*(tyreWeightage/4)*fuelWeightage;
+		System.out.println("velocity of car "+velocity);
+		distance=time/velocity;
+		System.out.println("time taken "+velocity);
+		return distance;
+	
 	}
 }
