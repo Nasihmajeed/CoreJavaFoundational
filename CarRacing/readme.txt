@@ -3,6 +3,6 @@ The speed of each cars will be different according to their tyres, engin type, p
 
 Requirements
 
-Usage of arrays, interface, enums and packages is necessary
+Usage of arrays, interface and packages is necessary
 
 Final output will be the rank list with time taken to cover the particular distance.
