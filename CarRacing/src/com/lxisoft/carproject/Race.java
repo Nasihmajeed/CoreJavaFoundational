@@ -12,16 +12,16 @@ public class Race
 	public void setCarDetails()
 	{
 		car=new Cars[10];
-		car[0]=new Car1();
-		car[1]=new Car2();
-		car[2]=new Car3();
-		car[3]=new Car4();
-		car[4]=new Car5();
-		car[5]=new Car6();
-		car[6]=new Car7();
-		car[7]=new Car8();
-		car[8]=new Car9();
-		car[9]=new Car10();
+		car[0]=new Luxuarycar();
+		car[1]=new Regular();
+		car[2]=new Luxuarycar();
+		car[3]=new Regular();
+		car[4]=new Luxuarycar();
+		car[5]=new Regular();
+		car[6]=new Luxuarycar();
+		car[7]=new Regular();
+		car[8]=new Luxuarycar();
+		car[9]=new Regular();
 
 		car[0].participantName="car1";
 		car[0].carType="Luxury";
@@ -109,7 +109,7 @@ public class Race
 						   	{
 						   		 time=((Luxuary)(car[i])).startRace(car,distance);
 						   		 
-						   		 dResult(car,time);
+						   		// dResult(car,time);
 						   		
 						   		
 						   	}
@@ -117,11 +117,12 @@ public class Race
 						   	{
 						   	     time=((Normal)(car[i])).startRace(car,distance);
 						   	    
-						   	     	dResult(car,time);
+						   	     
 						   	     	
 						   	    
 						   	}
 					   }
+					   	dResult(car,time);
 					   break;
 				case 2:System.out.println("Enter the time");
 						time=sc.nextInt();
@@ -130,14 +131,15 @@ public class Race
 						   	if (car[i] instanceof Luxuary)
 						   	{
 						   		distance=((Luxuary)(car[i])).startRace(car,time);
-						   		tResult(car,distance);
+						   		//tResult(car,distance);
 						   	}
 						   	else
 						   	{
 						   		distance=((Normal)(car[i])).startRace(car,time);
-						   		tResult(car,distance);
+						   		
 						   	}
 					   }
+					   tResult(car,distance);
 					  break;
 
 						
@@ -152,7 +154,7 @@ public class Race
 			Cars[] rank=new Cars[cardetails.length];
 			// for(int k=0;k<cardetails.length;k++)
 			// {
-				
+				System.out.println("Rank Details");
 				for(int i=0;i<rank.length;i++)
 				{	
 					cardetails[i].result=time;
@@ -167,15 +169,11 @@ public class Race
 						}
 					
 					}	
-				
-
-				
-				
-			
-			System.out.println("Rank Details");
-			System.out.println("rank: " +(i+1) + "  Name "+rank[i].participantName);
-		
-		  }
+				}
+		System.out.println("Ranklist");
+		System.out.println("-----------");	
+		for(int i=0; i<rank.length; i++)
+			System.out.println("rank: " +(i+1) + "  Name: "+rank[i].participantName +"");			 
 
 
 	}
@@ -184,11 +182,11 @@ public class Race
 			
 			Cars temp=null;
 			Cars[] rank=new Cars[cardetails.length];
-			// for(int k=0;k<cardetails.length;k++)
-			// {
-				
+			
+				System.out.println("Rank Details");
 				for(int i=0;i<rank.length;i++)
-				{	cardetails[i].result=distance;
+				{	
+					cardetails[i].result=distance;
 					rank=cardetails;
 					
 					for(int j=0;j<rank.length;j++)
@@ -204,13 +202,15 @@ public class Race
 				
 
 				
-				//}
+				}
 			
-			
-			System.out.println("rank: " +(i+1) + "  Name "+rank[i].participantName);
+		System.out.println("Ranklist");
+		System.out.println("-----------");	
+		for(int i=0; i<rank.length; i++)
+			System.out.println("rank: " +(i+1) + "  Name : "+rank[i].participantName+" ");
 		
 		  }
 
 
-	}
+	
 }
