@@ -3,4 +3,5 @@ import com.lxisoft.racing.*;
 
 public interface Luxury 
 {
+	
 }

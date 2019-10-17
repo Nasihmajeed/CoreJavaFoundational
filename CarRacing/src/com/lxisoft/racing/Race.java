@@ -14,11 +14,11 @@ public final class Race
 		int tyreType=0;
 		
 
-		car[0]=new RegularCar();
-		car[1]=new RegularCar();
-		car[2]=new RegularCar();
-		car[3]=new RegularCar();
-		car[4]=new RegularCar();
+		car[0]=new Car();
+		car[1]=new Car();
+		car[2]=new Car();
+		car[3]=new Car();
+		car[4]=new Car();
 		car[5]=new LuxuryCar();
 		car[6]=new LuxuryCar();
 		car[7]=new LuxuryCar();

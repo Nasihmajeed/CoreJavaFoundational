@@ -6,9 +6,8 @@ public abstract class Car
 	public int number;
 	public String driver;
 	public double speed;
-	public int engine;
-	public String fuel;
-	public String tyre;
+	public Engine engine;
+	public Tyre tyre;
 
 	public void setDetails()
 	{
