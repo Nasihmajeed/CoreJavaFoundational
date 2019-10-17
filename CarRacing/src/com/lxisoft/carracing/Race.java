@@ -5,7 +5,7 @@ import com.lxisoft.carracing.*;
 public class Race
 {
 	String raceLocation;
-	Car[] car;
+	Car[] car= new Car[10];
 	Scanner sc=new Scanner(System.in);
 
 	public void raceingSpot()																
@@ -16,7 +16,6 @@ public class Race
 
 	public void nonLuxuriousCars()															
 	{
-		car=new Car[10];
 		System.out.println("--------Enter the details of five non luxurious cars---------");
 		for(int i=0;i<2;i++)
 		{
@@ -24,11 +23,10 @@ public class Race
 			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
 			car[i].carName=sc.next();
 			car[i].cc=sc.nextInt();
-			System.out.println("Enter the fuel type p for petrol and d for diesel");
-			car[i].fuel=sc.next().charAt(0);
+			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
+			car[i].fuel=sc.nextInt();
 			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
 			car[i].tyre=sc.nextInt();
-
 		}
 		luxuriousCars();
 	}
@@ -42,27 +40,28 @@ public class Race
 			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
 			car[i].carName=sc.next();
 			car[i].cc=sc.nextInt();
-			System.out.println("Enter the fuel type p for petrol and d for diesel");
-			car[i].fuel=sc.next().charAt(0);
+			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
+			car[i].fuel=sc.nextInt();
 			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
 			car[i].tyre=sc.nextInt();
 		}
+		System.out.println("\t--------Total cars of "+raceLocation+" are -----------");
 	}
 
 	public void totalCars()
 	{
-		System.out.println("\t--------Total cars of "+raceLocation+" are ---------");
 		for(int i=0;i<4;i++)
 		{
-			System.out.println((i+1)+"th car's- name--"+car[i].carName+"\tcc--"+car[i].cc+"\tfuel type--"+car[i].fuel+"\ttyre brand--"+car[i].tyre+"\tbasicSpeed--"+car[i].basicSpeed);
+			System.out.println((i+1)+"th car's- name-"+car[i].carName+"\t||cc-"+car[i].cc+"\t||fuel type-"+car[i].fuel+"\t||tyre brand-"+car[i].tyre+"\t||basicSpeed-"+car[i].basicSpeed);
 		}
 	}
 
 	public void raceStart()
 	{
-		int mode,dValue=0,count=0;
+		int mode,dValue=0,tCount=0,dCount=0;
 		float tValue=0;
-		float[] retValue=new float[10];
+		double[] retDist=new double[4];
+		double[] retTime=new double[4];
 		char c;
 		for(int j=0;true;j++)
 		{
@@ -70,29 +69,27 @@ public class Race
 			mode=sc.nextInt();
 			if(mode==0)
 			{
-				System.out.println("enter the time in hh.mm format");
+				System.out.println("enter the time in sec.msec format");
 				tValue=sc.nextFloat();
 				for(int i=0;i<4;i++)
 				{
-					retValue[count]=car[i].start(tValue);
-					System.out.println("vdist "+retValue[count]);
-					count++;
-
+					retDist[dCount]=car[i].start(tValue);
+					System.out.println("vdist "+retDist[dCount]);
+					dCount++;
 				} 
-				rankingTime(retValue);
+				rankingTime(retDist);
 			}
 			else if(mode==1)
 			{
 				System.out.println("enter the distance in kms ");
 				dValue=sc.nextInt();
-				for(int i=0;i<4;i++)
+				for(int k=0;k<4;k++)
 				{
-					retValue[count]=car[i].start(dValue);
-					count++;
-					System.out.println("vdist "+retValue[count]);
-
+					retTime[tCount]=car[k].start(dValue);
+					System.out.println("v time "+retTime[tCount]);
+					tCount++;
 				} 
-				rankingDist(retValue);
+				rankingDist(retTime);
 			}
 			else
 			{																									
@@ -108,38 +105,44 @@ public class Race
 		}
 	}
 
-	public void rankingDist(float[] retValue)
+	public void rankingDist(double[] retDist)
 	{
-	Car temp=new Car();
-	temp=null;
-	for(int i=0;i<retValue.length;i++)
-	{
-		if(retValue[i]<retValue[i+1])
+		int j,i;
+		Car temp=new Car();
+		for(i=0;i<4;i++)
 		{
-			temp=car[i];
-			car[i]=car[i+1];
-			car[i+1]=temp;
+			for(j=0;j<4;j++)
+			{
+				if(retDist[i]<retDist[j])
+				{	
+					temp=car[i];
+					car[i]=car[j];
+					car[j]=temp;
+				}
+			}
 		}
-	}
-	System.out.println("===============the rank list========================");
-	totalCars();
+		System.out.println("\t\t\t===============the rank list========================");
+		totalCars();
 	}
 
-	public void rankingTime(float[] retValue)
+	public void rankingTime(double[] retTime)
 	{
-	Car temp=new Car();
-	temp=null;
-	for(int i=0;i<retValue.length;i++)
-	{
-		if(retValue[i]>retValue[i+1])
+		int j,i;
+		Car temp=new Car();
+		for(i=0;i<4;i++)
 		{
-			temp=car[i];
-			car[i]=car[i+1];
-			car[i+1]=temp;
+			for(j=0;j<4;j++)
+			{
+				if(retTime[i]>retTime[j])
+				{	
+					temp=car[i];
+					car[i]=car[j];
+					car[j]=temp;
+				}
+			}
 		}
-	}
-	System.out.println("===============the rank list========================");
-	totalCars();
+		System.out.println("\t\t\t===============the rank list========================");
+		totalCars();
 	}
 
 }
