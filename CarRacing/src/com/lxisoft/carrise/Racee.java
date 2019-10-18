@@ -1,97 +1,121 @@
 package com.lxisoft.carrise;
-import com.lxisoft.carrise.*;
 import java.util.Scanner;
+import com.lxisoft.carrise.*;
 public class Racee
 {
-	public void race()
+	Car car;
+	Car[] rCar;
+	int distance;
+	int rTime;
+	public void startRace()
 	{
-		Scanner sc=new Scanner (System.in);
-		System.out.println("\n");
-	    System.out.println("    Race starts  ");
-	    System.out.println("  ****************");
-	    System.out.println("Enter no.of Normal cars:");
-		int n=sc.nextInt();
-		System.out.println("Enter no.of Luxury cars:");
-	    int l=sc.nextInt();
-		carNormal(n,l);
-		//carLuxury(n,l);
+		System.out.println("   CAR RACE START  ");
+		System.out.println("*********************");
+		CarDetails();
 	}
-
-	public void carNormal(int n,int l)
-    {
-    	Scanner sc=new Scanner (System.in);
-	    for(int i=0;i<n;i++)
+	public void CarDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+		rCar=new Car[10];
+		System.out.println(" Luxury Car Details");
+		System.out.println("--------------------");
+		for(int i=0;i<5;i++)
 		{
-			Car cN=new Car();
-			System.out.println("Normal car details\n");
-			System.out.println("Enter car name:");
-			cN.carName=sc.next();
-			System.out.println("Enter Type of tyre");
-			cN.tyreType=sc.next();
-			System.out.println("Type of fuel: ");
-			cN.fuel=sc.next();
-			System.out.println("Enter power: ");
-	        cN.power=sc.nextInt();
-	        cN.basicSpeed=60;
-	        System.out.println("Basic speed: "+cN.basicSpeed);
-	        System.out.println("\n");
-	        Car[] raceArr=new Car[10];
-			raceArr[i]=cN;
-	
-		    for(int j=n;j<n+l;j++)
-			{
-				Car cL=new Car();
-				System.out.println("Luxury car details\n");
-				System.out.println("Enter car name:");
-				cL.carName=sc.next();
-				System.out.println("Enter Type of tyre");
-				cL.tyreType=sc.next();
-				System.out.println("Type of fuel: ");
-				cL.fuel=sc.next();
-				System.out.println("Enter power: ");
-		        cL.power=sc.nextInt();
-		        cL.basicSpeed=60;
-		        System.out.println("Basic speed: "+cL.basicSpeed);
-		        System.out.println("\n");
-		       	raceArr[j]=cL;
-			}
-			rank(raceArr);
+			Car car=new LuxuryCar();
+			System.out.println("Enter Car Name");
+			car.carName=sc.next();
+			System.out.println("Enter engine cc:");
+			car.engineCC=sc.nextInt();
+			System.out.println("Enter fuel type: ");
+			car.fuelType=sc.next();
+			System.out.println("Basic speed: "+car.basicSpeed);
+			//System.out.println("Tyre brand:(1-JK,2-CEAT,3-MRF,4-APOLLO)");
+
+			((LuxuryCar)car).lCarDetails(car);
+			rCar[i]=car;
+			car.practicalVelocity=raceSpeed(rCar,i);
 		}
+		System.out.println("\n");
+		System.out.println(" Normal Car Details");
+		System.out.println("---------------------");
+		for(int i=5;i<10;i++)
+		{
+			Car car=new Car();
+			System.out.println("Enter Car Name:");
+			car.carName=sc.next();
+			System.out.println("Enter engine cc:");
+			car.engineCC=sc.nextInt();
+			System.out.println("Enter fuel type: ");
+			car.fuelType=sc.next();
+			System.out.println("Basic speed: "+car.basicSpeed);
+			nCarDetails(car);
+			rCar[i]=car;
+			car.practicalVelocity=raceSpeed(rCar,i);
+		}
+		start();
 	}
-
-// public class carRace(Car[] raceArr)
-// {
-// 	int x=((int)(Math.random)*raceArr.length)
-// 	int y=((int)(Math.random)*raceArr.length)
-// 	System.out.println(raceArr[x]+"VS"+raceArr[x])
-// }
-
-	public void rank(Car[] raceArr)
+	public void nCarDetails(Car car)
 	{
-		int n=raceArr.length;
-		Car temp;
-        Car[] rank=new Car[n];;
-		for(int i=0;i<n;i++)
+		car.power=10;
+		System.out.println("car power: "+car.power);
+	}
+	
+	public int raceSpeed(Car[] rCar,int i)
+	{
+		int practicalVelocity=(rCar[i].basicSpeed)*(rCar[i].engineCC)*(rCar[i].power);
+		// System.out.println("Speedd="+rCar[i].basicSpeed);
+		// System.out.println("engineeCC="+rCar[i].engineCC);
+		// System.out.println("powerr="+rCar[i].power);
+		System.out.println("practicalVelocity: "+practicalVelocity);
+		System.out.println("\n");
+		return practicalVelocity;
+	}
+	public void start()
+	{
+		this.distance=1000;
+		int[] time=new int[10];
+		for(int i=0;i<10;i++)
 		{
-		   	rank[i]=raceArr[i];
-	    }
-		for(int i=0;i<n;i++)
-		{
-			for(int j=0;j<n;j++)
+			if(rCar[i] instanceof LuxuryCar)
 			{
-				if(rank[i].power>rank[j].power)
+				time[i]=((LuxuryCar)rCar[i]).start(rCar[i],distance);
+				((LuxuryCar)rCar[i]).start(rCar[i]);
+			}
+			if(rCar[i] instanceof Car)
+			{
+				time[i]=start(rCar[i],distance);
+			}
+		}
+		rank(time);
+	}
+	public int start(Car car,int distance)
+	{
+		int time=(distance)/(car.practicalVelocity);
+		System.out.println("\ncar name:"+car.carName+" time:"+time);
+		return time;
+	}
+	public void rank(int[] time)
+	{
+		System.out.println("\nRankList");
+		System.out.println("--------------");
+		int temp=0;
+		for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<10;j++)
+			{
+				if(time[j]>time[i])
 				{
-					temp=rank[i];
-					rank[i]=rank[j];
-					rank[j]=temp;
+					temp=time[i];
+					time[i]=time[j];
+					time[j]=temp;
 				}
 			}
 		}
-		System.out.println("Rank");
-		System.out.println("**********");		
-		for(int i=0; i<n; i++)
+		int r=1;
+		for(int i=0;i<10;i++)
 		{
-			System.out.println("Rank: " +(i+1)+"\t"+ " Name: "+rank[i].carName+"\t"+" Power:"+rank[i].power);
+			System.out.println("\nRank:"+(r++)+"  car name:"+rCar[i].carName+" time:"+time[i]);
 		}
 	}
 }
+
