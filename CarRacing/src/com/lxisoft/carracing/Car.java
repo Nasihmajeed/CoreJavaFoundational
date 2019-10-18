@@ -37,7 +37,7 @@ public class Car
 		}
 		
 		{
-			if(this.engine.cc>1500)
+			if(this.engine.cc>1250)
 				c=1.5;
 			else
 				c=1.1;

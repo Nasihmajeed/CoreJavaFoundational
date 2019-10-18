@@ -1,4 +1,5 @@
 package com.lxisoft.carracing;
+import java.lang.Math;
 import java.util.Scanner;
 import com.lxisoft.carracing.*;
 
@@ -21,13 +22,9 @@ public class Race
 		for(int i=0;i<2;i++)
 		{
 			car[i]=new Car();
-			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
+			System.out.println("Enter the "+(i+1)+ "th car's name");
 			car[i].carName=sc.next();
-			car[i].engine.cc=sc.nextInt();
-			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
-			car[i].engine.fuel=sc.nextInt();
-			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
-			car[i].tyre.brand=sc.nextInt();
+			carStatus(i);
 		}
 		luxuriousCars();
 	}
@@ -38,13 +35,9 @@ public class Race
 		for(int i=2;i<4;i++)
 		{
 			car[i]=new LuxuryCar();
-			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
+			System.out.println("Enter the "+(i+1)+ "th car's name");
 			car[i].carName=sc.next();
-			car[i].engine.cc=sc.nextInt();
-			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
-			car[i].engine.fuel=sc.nextInt();
-			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
-			car[i].tyre.brand=sc.nextInt();
+			carStatus(i);
 		}
 	}
 
@@ -163,6 +156,28 @@ public class Race
 			else if(m==1)
 				System.out.print("\tMAX distance-"+retValue[i]+"M\n");
 		}
+	}
+
+	public void carStatus(int i)
+	{
+		int r=random(4);
+		car[i].tyre.brand=r;
+		r=random(2);
+		car[i].engine.fuel=r;
+		r=random(4);
+		switch(r)
+		{
+			case 0:car[i].engine.cc=1000;break;
+			case 1:car[i].engine.cc=1300;break;
+			case 2:car[i].engine.cc=1500;break;
+			case 3:car[i].engine.cc=1750;break;
+		}
+		
+	}
+
+	public int random(int x)
+	{
+		return ((int) (Math.random() * x));
 	}
 
 }
