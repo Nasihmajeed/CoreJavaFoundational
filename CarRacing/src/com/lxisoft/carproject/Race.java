@@ -24,6 +24,17 @@ public class Race
 		car[7]=new Car();
 		car[8]=new Luxuarycar();
 		car[9]=new Car();
+
+		car[0].participantName="car1";
+		car[1].participantName="car2";
+		car[2].participantName="car3";
+		car[3].participantName="car4";
+		car[4].participantName="car5";
+		car[5].participantName="car6";
+		car[6].participantName="car7";
+		car[7].participantName="car8";
+		car[8].participantName="car9";
+		car[9].participantName="car10";
 		for(int i=0;i<car.length;i++)
 		{
 			car[i].speed=60;
@@ -31,8 +42,7 @@ public class Race
 			{
 				car[i].tyres[j]=new Tyre();
 			}
-			System.out.println("enter participantName ");
-			car[i].participantName=sc.next();
+			
 			int fuelType=getRandom(2);
 			switch(fuelType)
 			{
@@ -60,7 +70,7 @@ public class Race
 				case 1:car[i].engine.engineCC=1500;break;
 				case 2:car[i].engine.engineCC=1800;break;
 			}
-			car[i].participantDetails();
+		
 
 
 		}
