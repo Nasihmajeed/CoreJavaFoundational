@@ -6,7 +6,7 @@ public class Tdd
 	{
 		Race s=new Race();
 		s.setCarDetails();
-		s.show();
+		s.startRace();
 	}
 	static
 	{
