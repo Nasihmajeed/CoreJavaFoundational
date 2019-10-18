@@ -5,18 +5,16 @@ public class Car
 {
 	String carName;
 	int basicSpeed=60;
-	int tyre;
-	int cc;
-	int fuel;
+	Engine engine=new Engine();
+	Tyre tyre=new Tyre();
 
 	public double start(int distance)																					
 	{
 		double vTime=0,vSpeed=0;
 		double speedFactor=vehicle();
 		vSpeed=speedFactor*this.basicSpeed;
-		//System.out.println("vTime speed"+vSpeed);
 		vTime=distance/vSpeed;
-		//System.out.println("vTime"+vTime);
+		System.out.print(" carname-"+this.carName+"  pv is-"+vSpeed+" time-"+vTime+"S\n");
 		return vTime;
 	}
 
@@ -24,11 +22,9 @@ public class Car
 	{
 		double vDistance=0,vSpeed=0;
 		double speedFactor=vehicle();					
-		//System.out.println("sfactr "+speedFactor);
 		vSpeed=speedFactor*this.basicSpeed;
-		//System.out.println("vSpeed "+vSpeed);
 		vDistance=vSpeed*time;
-		//System.out.println("vdist "+vDistance);
+		System.out.print(" carname-"+this.carName+"  pv is-"+vSpeed+" dis-"+vDistance+"M\n");
 		return vDistance;
 	}
 
@@ -41,25 +37,25 @@ public class Car
 		}
 		
 		{
-			if(this.cc>1500)
+			if(this.engine.cc>1500)
 				c=1.5;
 			else
 				c=1.1;
 		}
 		{
-			if(this.fuel==0)
+			if(this.engine.fuel==0)
 				f=1.1;
-			else if(this.fuel==1)
+			else if(this.engine.fuel==1)
 				f=1.3;
 		}
 		{
-			if(this.tyre==0)
+			if(this.tyre.brand==0)
 				t=1.1;
-			else if(this.tyre==1)
+			else if(this.tyre.brand==1)
 				t=1.2;
-			else if(this.tyre==2)
+			else if(this.tyre.brand==2)
 				t=1.3;
-			else if(this.tyre==3)
+			else if(this.tyre.brand==3)
 				t=1.4;
 		}
 		return (l*t*c*f);	

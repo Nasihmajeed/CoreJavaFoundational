@@ -6,6 +6,7 @@ public class Race
 {
 	String raceLocation;
 	Car[] car= new Car[10];
+	static int raceNo=1;
 	Scanner sc=new Scanner(System.in);
 
 	public void raceingSpot()																
@@ -22,11 +23,11 @@ public class Race
 			car[i]=new Car();
 			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
 			car[i].carName=sc.next();
-			car[i].cc=sc.nextInt();
+			car[i].engine.cc=sc.nextInt();
 			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
-			car[i].fuel=sc.nextInt();
+			car[i].engine.fuel=sc.nextInt();
 			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
-			car[i].tyre=sc.nextInt();
+			car[i].tyre.brand=sc.nextInt();
 		}
 		luxuriousCars();
 	}
@@ -39,32 +40,34 @@ public class Race
 			car[i]=new LuxuryCar();
 			System.out.println("Enter the "+(i+1)+ "th car's- name and cc");
 			car[i].carName=sc.next();
-			car[i].cc=sc.nextInt();
+			car[i].engine.cc=sc.nextInt();
 			System.out.println("Enter the fuel type 0 for petrol and 1 for diesel");
-			car[i].fuel=sc.nextInt();
+			car[i].engine.fuel=sc.nextInt();
 			System.out.println("Enter the tyre 0-mrf  1-appolo  2-nippon  3-ceat");
-			car[i].tyre=sc.nextInt();
+			car[i].tyre.brand=sc.nextInt();
 		}
-		System.out.println("\t--------Total cars of "+raceLocation+" are -----------");
 	}
 
 	public void totalCars()
 	{
+		System.out.println("\t\t\t--------Total cars of "+raceLocation+" are -----------");
 		for(int i=0;i<4;i++)
 		{
-			System.out.println((i+1)+"th car's- name-"+car[i].carName+"\t||cc-"+car[i].cc+"\t||fuel type-"+car[i].fuel+"\t||tyre brand-"+car[i].tyre+"\t||basicSpeed-"+car[i].basicSpeed);
+			System.out.println((i+1)+"th car's- name-"+car[i].carName+"\t||cc-"+car[i].engine.cc+"\t||fuel type-"+car[i].engine.fuel+"\t||tyre brand-"+car[i].tyre.brand+"\t||basicSpeed-"+car[i].basicSpeed);
 		}
 	}
 
 	public void raceStart()
 	{
-		int mode,dValue=0,tCount=0,dCount=0;
+		int mode,dValue=0,count;
 		float tValue=0;
-		double[] retDist=new double[4];
-		double[] retTime=new double[4];
+		double[] retValue=new double[4];
 		char c;
+		System.out.println("\n\t\t  ---RACE STARTS---");
 		for(int j=0;true;j++)
-		{
+		{	
+			count=0;
+			System.out.println("\n\t\t\tRACE-"+(raceNo++));
 			System.out.println("enter the game mode 0-timemode  1-distancemode");	
 			mode=sc.nextInt();
 			if(mode==0)
@@ -73,23 +76,21 @@ public class Race
 				tValue=sc.nextFloat();
 				for(int i=0;i<4;i++)
 				{
-					retDist[dCount]=car[i].start(tValue);
-					System.out.println("vdist "+retDist[dCount]);
-					dCount++;
+					retValue[count]=car[i].start(tValue);
+					count++;
 				} 
-				rankingTime(retDist);
+				rankingTime(retValue);
 			}
 			else if(mode==1)
 			{
-				System.out.println("enter the distance in kms ");
+				System.out.println("enter the distance in metres");
 				dValue=sc.nextInt();
 				for(int k=0;k<4;k++)
 				{
-					retTime[tCount]=car[k].start(dValue);
-					System.out.println("v time "+retTime[tCount]);
-					tCount++;
+					retValue[count]=car[k].start(dValue);
+					count++;
 				} 
-				rankingDist(retTime);
+				rankingDist(retValue);
 			}
 			else
 			{																									
@@ -105,44 +106,63 @@ public class Race
 		}
 	}
 
-	public void rankingDist(double[] retDist)
+	public void rankingDist(double[] retValue)
 	{
 		int j,i;
 		Car temp=new Car();
+		double tempRet;
 		for(i=0;i<4;i++)
 		{
 			for(j=0;j<4;j++)
 			{
-				if(retDist[i]<retDist[j])
+				if(retValue[i]<retValue[j])
 				{	
+					tempRet=retValue[i];
+					retValue[i]=retValue[j];
+					retValue[j]=tempRet;
 					temp=car[i];
 					car[i]=car[j];
 					car[j]=temp;
 				}
 			}
 		}
-		System.out.println("\t\t\t===============the rank list========================");
-		totalCars();
+		rankList(retValue,0);
 	}
 
-	public void rankingTime(double[] retTime)
+	public void rankingTime(double[] retValue)
 	{
 		int j,i;
 		Car temp=new Car();
+		double tempRet;
 		for(i=0;i<4;i++)
 		{
 			for(j=0;j<4;j++)
 			{
-				if(retTime[i]>retTime[j])
+				if(retValue[i]>retValue[j])
 				{	
+					tempRet=retValue[i];
+					retValue[i]=retValue[j];
+					retValue[j]=tempRet;
 					temp=car[i];
 					car[i]=car[j];
 					car[j]=temp;
 				}
 			}
 		}
-		System.out.println("\t\t\t===============the rank list========================");
-		totalCars();
+		rankList(retValue,1);
+	}
+
+	public void rankList(double[] retValue,int m)
+	{
+		System.out.println("\n===============the rank list========================");
+		for(int i=0;i<4;i++)
+		{
+			System.out.print("Rannk-"+(i+1)+" carname-"+car[i].carName);//+"\t||cc-"+car[i].engine.cc+"\t||fuel type-"+car[i].engine.fuel+"\t||tyre brand-"+car[i].tyre.brand+"\t||basicSpeed-"+car[i].basicSpeed);
+			if(m==0)
+				System.out.print("\tMIN time-"+retValue[i]+"S\n");
+			else if(m==1)
+				System.out.print("\tMAX distance-"+retValue[i]+"M\n");
+		}
 	}
 
 }
