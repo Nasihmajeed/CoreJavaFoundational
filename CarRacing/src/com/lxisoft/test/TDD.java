@@ -6,7 +6,8 @@ public class TDD
 	{
 		Race race=new Race();
 		race.setRace();
-		race.setStartRace();	
+		race.startRace();
+		race.setWinner();	
 	}
 	static
 	{

@@ -12,7 +12,7 @@ public final class Race
 		int engineType=0;
 		int fuelType=0;
 		int tyreType=0;
-		
+				
 
 		car[0]=new Car();
 		car[1]=new Car();
@@ -35,26 +35,30 @@ public final class Race
 			engineType=getRandom(4);
 			switch(engineType)
 			{
-				case 0: car[i].engine=1000;break;
-				case 1: car[i].engine=1200;break;
-				case 2: car[i].engine=1300;break;
-				case 3: car[i].engine=1500;break;
+				case 0: car[i].engine.cc=1000;break;
+				case 1: car[i].engine.cc=1200;break;
+				case 2: car[i].engine.cc=1300;break;
+				case 3: car[i].engine.cc=1500;break;
 			}
 			fuelType=getRandom(2);
 			switch(fuelType)
 			{
-				case 0: car[i].fuel="petrol";break;
-				case 1: car[i].fuel="disel";break;
+				case 0: car[i].engine.fuel="petrol";break;
+				case 1: car[i].engine.fuel="disel";break;
 			}
-			tyreType=getRandom(3);
-			switch(tyreType)
+			for(int j=0; j<4; j++)
 			{
-				case 0: car[i].tyre="mrf";break;
-				case 1: car[i].tyre="tvs";break;
-				case 2: car[i].tyre="neon";break;
+				car[i].tyre[j]=new Tyre();
+				tyreType=getRandom(3);
+				switch(tyreType)
+				{
+					case 0: car[i].tyre[j].manufacture="mrf";break;
+					case 1: car[i].tyre[j].manufacture="tvs";break;
+					case 2: car[i].tyre[j].manufacture="neon";break;
+				}
 			}
+
 			car[i].speed=60;
-			car[i].setPV();
 			car[i].setDetails();
 		}
 			
@@ -70,7 +74,31 @@ public final class Race
 		int random =(int)(limit* Math.random());
 		return random;
 	}
-	public void setStartRace()
+	public void startRace()
+	{
+		Scanner sc=new Scanner(System.in);
+		int error=0;
+		System.out.println("enter the race type \n 0 for Distance \n 1 for Time");
+		do
+		{	try
+			{
+				int type=sc.nextInt();
+				error=0;
+				switch(type)
+				{
+					case 0: setDistanceGame();break;
+					case 1: setTimeGame();break;
+					default : throw new NullPointerException();
+				}
+			}
+			catch(NullPointerException e)
+			{
+				System.out.println(" enter the correct value");
+				error=1;
+			}
+		}while(error==1);
+	}
+	public void setDistanceGame()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the race distance= ");
@@ -79,15 +107,41 @@ public final class Race
 		Car temp=null;
 		for(int i=0; i<10; i++)
 		{
-			speed[i]=car[i].getSpeed(distance);
+			car[i].setStart();
+			speed[i]=(float)car[i].getResult(distance);
 			
 		}
 		System.out.println("\n \n");
 		for (int i=0; i<10; i++)
 		{
-			System.out.println("the "+ (i+1) +" car finished "+ distance +" mtr  within "+ speed[i]+ "seconds");
+			System.out.println("the "+ car[i].driver +" finished "+ distance +" mtr  within "+ speed[i]+ "seconds");
 		}
+	}
+	public void setTimeGame()
+	{
+		Scanner sc=new Scanner(System.in); 
+		System.out.println("enter the race Time=  minutes: ");
+		int timeMinute=sc.nextInt();
+		System.out.println("Seconds: ");
+		int timeSecond=sc.nextInt();
+		double[] distance=new double[10];
+		for(int i=0; i<10; i++)
+		{
+			car[i].setStart();
+			distance[i]=(int)car[i].getResult(timeSecond, timeMinute);
+		}
+		System.out.println("\n \n");
+		for (int i=0; i<10; i++)
+		{
+			System.out.println("the "+ car[i].driver  +"  covered "+ distance[i]+ " meters from " + timeMinute+ " minutes  & "+timeSecond+ " seconds " );
+		}	
 
+
+	}
+
+	public void setWinner()
+	{
+		Car temp=null;
 		for (int i=0; i<10; i++)
 		{
 			for(int j=0; j<10; j++)
@@ -111,8 +165,22 @@ public final class Race
 		}System.out.println("\n \n");
 		System.out.println(" the winner is "+ (car[0].driver) );
 		System.out.println("----------------------------------------");
+		anotherGame();
+	}
+	public void anotherGame()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Do u want another Race Y / N");
+		String type=sc.next();
+		switch(type)
+		{
+			case "y": startRace(); break;
+			default: System.out.print("SEE U LATER.."); break;
+		}
+
 
 
 	}
+
 	
 }
