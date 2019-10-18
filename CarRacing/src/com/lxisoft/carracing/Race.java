@@ -61,9 +61,9 @@ public class Race
 	{
 		int mode,dValue=0,count;
 		float tValue=0;
-		double[] retValue=new double[4];
+		float[] retValue=new float[4];
 		char c;
-		System.out.println("\n\t\t  ---RACE STARTS---");
+		System.out.println("\n\t\t  <---RACE STARTS--->");
 		for(int j=0;true;j++)
 		{	
 			count=0;
@@ -76,7 +76,7 @@ public class Race
 				tValue=sc.nextFloat();
 				for(int i=0;i<4;i++)
 				{
-					retValue[count]=car[i].start(tValue);
+					retValue[count]=(float)car[i].start(tValue);
 					count++;
 				} 
 				rankingTime(retValue);
@@ -87,7 +87,7 @@ public class Race
 				dValue=sc.nextInt();
 				for(int k=0;k<4;k++)
 				{
-					retValue[count]=car[k].start(dValue);
+					retValue[count]=(float)car[k].start(dValue);
 					count++;
 				} 
 				rankingDist(retValue);
@@ -106,11 +106,11 @@ public class Race
 		}
 	}
 
-	public void rankingDist(double[] retValue)
+	public void rankingDist(float[] retValue)
 	{
 		int j,i;
 		Car temp=new Car();
-		double tempRet;
+		float tempRet;
 		for(i=0;i<4;i++)
 		{
 			for(j=0;j<4;j++)
@@ -129,11 +129,11 @@ public class Race
 		rankList(retValue,0);
 	}
 
-	public void rankingTime(double[] retValue)
+	public void rankingTime(float[] retValue)
 	{
 		int j,i;
 		Car temp=new Car();
-		double tempRet;
+		float tempRet;
 		for(i=0;i<4;i++)
 		{
 			for(j=0;j<4;j++)
@@ -152,12 +152,12 @@ public class Race
 		rankList(retValue,1);
 	}
 
-	public void rankList(double[] retValue,int m)
+	public void rankList(float[] retValue,int m)
 	{
 		System.out.println("\n===============the rank list========================");
 		for(int i=0;i<4;i++)
 		{
-			System.out.print("Rannk-"+(i+1)+" carname-"+car[i].carName);//+"\t||cc-"+car[i].engine.cc+"\t||fuel type-"+car[i].engine.fuel+"\t||tyre brand-"+car[i].tyre.brand+"\t||basicSpeed-"+car[i].basicSpeed);
+			System.out.print("Rannk-"+(i+1)+"      carname-"+car[i].carName);//+"\t||cc-"+car[i].engine.cc+"\t||fuel type-"+car[i].engine.fuel+"\t||tyre brand-"+car[i].tyre.brand+"\t||basicSpeed-"+car[i].basicSpeed);
 			if(m==0)
 				System.out.print("\tMIN time-"+retValue[i]+"S\n");
 			else if(m==1)
