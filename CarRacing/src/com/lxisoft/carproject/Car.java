@@ -4,13 +4,12 @@ public class Car
 {
 	public String name;
 	public int normalSpeed=60;
-	public int practicalSpeed;
+	public float practicalSpeed;
 	public Engine engine;
 	public Tyre[] tyres;
 
 	public void tyreDetails()
 	{
-		
 		for(int i=0;i<4;i++)
 		{
 			Tyre tyre=new Tyre();
@@ -30,9 +29,7 @@ public class Car
 	    		case 2: tyre.setEfficiency(5); break;
 	    		case 3: tyre.setEfficiency(4); break;
 	    	}
-
 	    	tyres[i]=tyre;
-
 		}
 	}
 	public void engineDetails(int e)
@@ -40,8 +37,8 @@ public class Car
 		engine=new Engine();
 		switch(e)
 		{
-			case 1: engine.setEngineCC(12); break;
-			case 2: engine.setEngineCC(13); break;
+			case 1: engine.setEngineCC(1.2F); break;
+			case 2: engine.setEngineCC(1.3F); break;
 		}
 		switch(e)
 		{
@@ -55,7 +52,7 @@ public class Car
 			case 1: engine.setPower(4); break;
 		}
 	}
-	public int raceSpeed()
+	public float raceSpeed()
 	{
 		
 		int total=0;
@@ -66,8 +63,7 @@ public class Car
 		}
 		int totalEfficiency=(total)/4;
 		int enginePower=engine.getPower();
-		int engineCc=engine.getEngineCC();
-		System.out.println("e-"+totalEfficiency+"ep-"+enginePower+"ec-"+engineCc);
+		float engineCc=engine.getEngineCC();
 		this.practicalSpeed=(this.normalSpeed)*(totalEfficiency)*(enginePower)*(engineCc);
 		System.out.println("\tpracticalSpeed--"+practicalSpeed);
 		return practicalSpeed;

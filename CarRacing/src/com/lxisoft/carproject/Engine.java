@@ -2,15 +2,15 @@ package com.lxisoft.carproject;
 import com.lxisoft.carproject.*;
 public class Engine
 {
-	private int engineCC;
+	private float engineCC;
 	private String fuelType;
 	private int power;
 
-	public void setEngineCC(int engineCC)
+	public void setEngineCC(float engineCC)
 	{
 		this.engineCC=engineCC;	
 	}
-	public int getEngineCC()
+	public float getEngineCC()
 	{
 		return engineCC;
 	}
