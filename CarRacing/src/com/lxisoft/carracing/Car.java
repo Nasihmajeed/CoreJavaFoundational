@@ -1,5 +1,6 @@
 package com.lxisoft.carracing;
-import com.lxisoft.carracing.*;
+import com.lxisoft.carracing.*; 
+import java.text.DecimalFormat;
 
 public class Car
 {
@@ -10,21 +11,27 @@ public class Car
 
 	public double start(int distance)																					
 	{
+		DecimalFormat numberFormat = new DecimalFormat("##.####");
 		double vTime=0,vSpeed=0;
 		double speedFactor=vehicle();
 		vSpeed=speedFactor*this.basicSpeed;
+		vSpeed=Double.parseDouble(numberFormat.format(vSpeed));
 		vTime=distance/vSpeed;
-		System.out.print(" carname-"+this.carName+"  pv is-"+vSpeed+" time-"+vTime+"S\n");
+		vTime=Double.parseDouble(numberFormat.format(vTime));
+		System.out.print(" carname-"+this.carName+"      pv-"+vSpeed+"    time-"+vTime+"S\n");
 		return vTime;
 	}
 
 	public double start(float time)																					
 	{
+		DecimalFormat numberFormat = new DecimalFormat("##.####");
 		double vDistance=0,vSpeed=0;
 		double speedFactor=vehicle();					
 		vSpeed=speedFactor*this.basicSpeed;
+		vSpeed=Double.parseDouble(numberFormat.format(vSpeed));
 		vDistance=vSpeed*time;
-		System.out.print(" carname-"+this.carName+"  pv is-"+vSpeed+" dis-"+vDistance+"M\n");
+		vDistance=Double.parseDouble(numberFormat.format(vDistance));
+		System.out.print(" carname-"+this.carName+"      pv-"+vSpeed+"    dis-"+vDistance+"M\n");
 		return vDistance;
 	}
 

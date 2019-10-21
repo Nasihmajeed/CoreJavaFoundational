@@ -1,5 +1,6 @@
 package com.lxisoft.carracing;
 import java.lang.Math;
+import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 import com.lxisoft.carracing.*;
 
@@ -7,7 +8,7 @@ public class Race
 {
 	String raceLocation;
 	Car[] car= new Car[10];
-	static int raceNo=1;
+	static int raceNo=0;
 	Scanner sc=new Scanner(System.in);
 
 	public void raceingSpot()																
@@ -56,11 +57,24 @@ public class Race
 		float tValue=0;
 		float[] retValue=new float[4];
 		char c;
-		System.out.println("\n\t\t  <---RACE STARTS--->");
+		System.out.print("\n\t\t RACE STARTS");
+		for(int z=0;z<6;z++)
+		{
+			System.out.print("!");
+			try
+			{
+				TimeUnit.MILLISECONDS.sleep(100);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Exception occured:"+e);
+			}
+		}
+		System.out.println("\n");
 		for(int j=0;true;j++)
 		{	
 			count=0;
-			System.out.println("\n\t\t\tRACE-"+(raceNo++));
+			System.out.println("\t\t  <---RACE-"+(++raceNo)+"--->");
 			System.out.println("enter the game mode 0-timemode  1-distancemode");	
 			mode=sc.nextInt();
 			if(mode==0)
@@ -147,14 +161,14 @@ public class Race
 
 	public void rankList(float[] retValue,int m)
 	{
-		System.out.println("\n===============the rank list========================");
+		System.out.println("\n=============== Rank list-"+raceNo+" =======================");
 		for(int i=0;i<4;i++)
 		{
-			System.out.print("Rannk-"+(i+1)+"      carname-"+car[i].carName);//+"\t||cc-"+car[i].engine.cc+"\t||fuel type-"+car[i].engine.fuel+"\t||tyre brand-"+car[i].tyre.brand+"\t||basicSpeed-"+car[i].basicSpeed);
+			System.out.print("Rannk-"+(i+1)+"      carname-"+car[i].carName);
 			if(m==0)
-				System.out.print("\tMIN time-"+retValue[i]+"S\n");
+				System.out.print("\t    MIN time-"+retValue[i]+"S\n");
 			else if(m==1)
-				System.out.print("\tMAX distance-"+retValue[i]+"M\n");
+				System.out.print("\t    MAX distance-"+retValue[i]+"M\n");
 		}
 	}
 
@@ -181,3 +195,5 @@ public class Race
 	}
 
 }
+
+// TimeUnit.SECONDS.sleep(10);

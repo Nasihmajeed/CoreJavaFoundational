@@ -6,9 +6,16 @@ public class Tdd
 	public static void main(String[] args)
 	{
 		Race race=new Race();
-		race.raceingSpot();
-		race.nonLuxuriousCars();
-		race.totalCars();
-		race.raceStart();
+		try
+		{
+			race.raceingSpot();
+			race.nonLuxuriousCars();
+			race.totalCars();
+			race.raceStart();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception occured:"+e);
+		}
 	}
 }   
