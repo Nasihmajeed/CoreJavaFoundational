@@ -2,6 +2,7 @@ package com.lxisoft.racing;
 import com.lxisoft.racing.*;
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.concurrent.TimeUnit;
 
 public final class Race
 {
@@ -45,7 +46,7 @@ public final class Race
 			{
 				case 0: car[i].engine.fuel="petrol";break;
 				case 1: car[i].engine.fuel="disel";break;
-			}
+			}  
 			for(int j=0; j<4; j++)
 			{
 				car[i].tyre[j]=new Tyre();
@@ -103,7 +104,7 @@ public final class Race
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the race distance= ");
 		int distance=sc.nextInt();
-		double[] speed= new double [10];
+		float[] speed= new float [10];
 		Car temp=null;
 		for(int i=0; i<10; i++)
 		{
@@ -116,6 +117,7 @@ public final class Race
 		{
 			System.out.println("the "+ car[i].driver +" finished "+ distance +" mtr  within "+ speed[i]+ "seconds");
 		}
+		setWinner();
 	}
 	public void setTimeGame()
 	{
@@ -134,9 +136,8 @@ public final class Race
 		for (int i=0; i<10; i++)
 		{
 			System.out.println("the "+ car[i].driver  +"  covered "+ distance[i]+ " meters from " + timeMinute+ " minutes  & "+timeSecond+ " seconds " );
-		}	
-
-
+		}
+		setWinner();
 	}
 
 	public void setWinner()
@@ -156,15 +157,21 @@ public final class Race
 		}
 		System.out.println("\n \n");
 		System.out.println(" Rankwise list: ");
-		for(int i=0; i<10; i++)
+		try
 		{
-			System.out.print(i+1 +" rank ");
-			car[i].setDriverName();
-
-
-		}System.out.println("\n \n");
-		System.out.println(" the winner is "+ (car[0].driver) );
-		System.out.println("----------------------------------------");
+			for(int i=0; i<10; i++)
+			{
+				System.out.print(i+1 +" rank ");
+				car[i].setDriverName();
+				TimeUnit.SECONDS.sleep(2);
+			}
+		}catch(Exception e)
+		{
+			System.out.println("Error occured");
+		}
+			System.out.println("\n \n");
+			System.out.println(" the winner is "+ (car[0].driver) );
+			System.out.println("----------------------------------------");
 		anotherGame();
 	}
 	public void anotherGame()

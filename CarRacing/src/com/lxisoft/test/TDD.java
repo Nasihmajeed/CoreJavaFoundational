@@ -7,7 +7,6 @@ public class TDD
 		Race race=new Race();
 		race.setRace();
 		race.startRace();
-		race.setWinner();	
 	}
 	static
 	{
