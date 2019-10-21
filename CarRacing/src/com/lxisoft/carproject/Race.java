@@ -3,97 +3,80 @@ import java.util.Scanner;
 import com.lxisoft.carproject.*;
 public class Race
 {
-	Car car;
-	Car[] raceCar;
-	int distance;
+	Car[] cars;
+	int distances;
 	int raceTime;
-	public void readyToRace()
-	{
-		System.out.println("-----car racing------");
-		setCarDetails();
-	}
-	public void setCarDetails()
+
+	public void createCars()
 	{
 		Scanner s=new Scanner(System.in);
+		System.out.println("-----CAR RACING------");
 		System.out.println("\ncar details\n---------");
-		raceCar=new Car[10];
-		int a=1,b=6;
+		cars=new Car[10];
+		int a=1,b=6,e,f;
 		for(int i=0;i<5;i++)
 		{
 			Car car=new LuxuaryCar();
-			car.tyre1=new Tyre();
+			car.engine=new Engine();
+			car.tyres=new Tyre[4];
 			System.out.println("\nenter the name of car-"+a);
 			car.name=s.next();
-			System.out.println("enter engine cc of car");
-			car.engineCC=s.nextInt();
-			System.out.println("enter fuel type of car---(1 for diesel & 2 for petrol)");
-			car.fuelType=s.nextInt();
-			if(car.fuelType==1)
-			{
-				car.fuelWeightage=2;
-			}
-			else
-				car.fuelWeightage=1;
 			System.out.println("\tnormal speed of car--"+car.normalSpeed);
-			System.out.println("\ttyre brand--"+car.tyre1.brand);
-			((LuxuaryCar)car).luxuaryCarDetails(car);
-			raceCar[i]=car;
-			car.practicalSpeed=raceSpeed(raceCar,i);
+			car.tyreDetails();
+			System.out.println("\nenter engine type of car-"+a);
+			System.out.println("\n(1-(1.2cc&petrol) 2-(1.3cc&diesel))");
+			e=s.nextInt();
+			car.engineDetails(e);
+			car.practicalSpeed=car.raceSpeed();
+			cars[i]=car;
+			
 			a++;
 		}
 		for(int i=5;i<10;i++)
 		{
-			Car car=new NormalCar();
-			car.tyre1=new Tyre();
+			Car car=new Car();
+			car.engine=new Engine();
+			car.tyres=new Tyre[4];
 			System.out.println("\nenter the name of car-"+b);
 			car.name=s.next();
-			System.out.println("enter engine cc of car");
-			car.engineCC=s.nextInt();
-			System.out.println("enter fuel type of car---(1 for diesel & 2 for petrol)");
-			car.fuelType=s.nextInt();
-			if(car.fuelType==1)
-			{
-				car.fuelWeightage=2;
-			}
-			else
-				car.fuelWeightage=1;
 			System.out.println("\tnormal speed of car--"+car.normalSpeed);
-			System.out.println("\ttyre brand--"+car.tyre1.brand);
-			((NormalCar)car).normalCarDetails(car);
-			raceCar[i]=car;
-			car.practicalSpeed=raceSpeed(raceCar,i);
+			car.tyreDetails();
+			System.out.println("\nenter engine type of car-"+b);
+			System.out.println("\n(1-(1.2cc&petrol) 2-(1.3cc&diesel))");
+			e=s.nextInt();
+			car.engineDetails(e);
+			car.practicalSpeed=car.raceSpeed();
+			cars[i]=car;
+			
 			b++;
 		}
 		startRace();
 	}
-	public int raceSpeed(Car[] raceCar,int i)
-	{
-		int practicalSpeed=(raceCar[i].normalSpeed)*(raceCar[i].engineCC)*(raceCar[i].power)*(raceCar[i].fuelWeightage);
-		System.out.println("\tpracticalSpeed--"+practicalSpeed);
-		return practicalSpeed;
-	}
 	public void startRace()
 	{
-		this.distance=100000;
-		int[] time=new int[10];
+		this.distances=100000;
+		float[] time=new float[10];
+		float[] distance=new float[10];
 		for(int i=0;i<10;i++)
 		{
-			if(raceCar[i] instanceof LuxuaryCar)
+			if(cars[i] instanceof LuxuaryCar)
 			{
-				time[i]=((LuxuaryCar)raceCar[i]).startRace(raceCar[i],distance);
-				((LuxuaryCar)raceCar[i]).startRace(raceCar[i]);
+				time[i]=((LuxuaryCar)cars[i]).startRace(cars[i],distances);
+				distance[i]=((LuxuaryCar)cars[i]).startRace(cars[i]);
 			}
-			if(raceCar[i] instanceof NormalCar)
+			else
 			{
-				time[i]=((NormalCar)raceCar[i]).startRace(raceCar[i],distance);
+				time[i]=((Car)cars[i]).startRace(cars[i],distances);
+				distance[i]=((Car)cars[i]).startRace(cars[i]);
 			}
 		}
-		rankList(time);
+		rankListTime(time);
+		rankListDistance(distance);
 	}
-	public void rankList(int[] time)
+	public void rankListTime(float[] time)
 	{
-		System.out.println("\n ------rank list-------");
-		int temp=0;
+		System.out.println("\n ------rank list time-------");
+		float temp;
 		for(int k=0;k<10;k++)
 		{
 			for(int i=0;i<10;i++)
@@ -109,8 +92,36 @@ public class Race
 		int r=1;
 		for(int k=0;k<10;k++)
 		{
-			System.out.println("\nRank->"+(r++)+"  car name-"+raceCar[k].name+" time--"+time[k]);
+			System.out.println("\nRank->"+(r++)+"\t  car name-"+cars[k].name+"\ttime--"+time[k]);
+			System.out.print("");
 
 		}
 	}
+	public void rankListDistance(float[] distance)
+	{
+		System.out.println("\n ------rank list distance-------");
+		float temp;
+		for(int k=0;k<10;k++)
+		{
+			for(int i=0;i<10;i++)
+			{
+				if(distance[k]>distance[i])
+				{
+					temp=distance[k];
+					distance[k]=distance[i];
+					distance[i]=temp;
+				}
+			}
+		}
+		int r=1;
+		for(int k=0;k<10;k++)
+		{
+			System.out.println("\nRank->"+(r++)+"\t  car name-"+cars[k].name+"\tdistance--"+distance[k]);
+			System.out.print("");
+
+		}
+
+	}
+
+
 }
