@@ -62,9 +62,7 @@ public class Car
 		double engineWeightage=getEngineCC();
 		if(this instanceof Luxuary) fact=((Luxuary)(this)).luxuaryWeightage;
 		speed=this.speed*(tyreWeightage)*fuelWeightage*engineWeightage*fact;
-		//System.out.println("speed  "+speed);
 		time=(distance/speed)*60;
-		//System.out.println("result "+time);
 		return time;
 
 	}
@@ -76,9 +74,7 @@ public class Car
 		double engineWeightage=getEngineCC();
 		if(this instanceof Luxuary) fact=((Luxuary)(this)).luxuaryWeightage;
 		speed=this.speed*(tyreWeightage)*fuelWeightage*engineWeightage*fact;
-		//System.out.println("speed "+speed);
 		distance=time*speed;
-		//System.out.println("result "+distance);
 		return distance;
 	
 	}

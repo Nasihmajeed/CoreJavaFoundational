@@ -10,7 +10,7 @@ public class Race
 
 
 
-	public void setCarDetails()
+	public void startCar()
 	{
 		Scanner sc=new Scanner(System.in);
 		car=new Car[10];
@@ -42,24 +42,20 @@ public class Race
 			{
 				car[i].tyres[j]=new Tyre();
 			}
-			
 			int fuelType=getRandom(2);
 			switch(fuelType)
 			{
-			
 				case 0: car[i].engine.fuelType="petrol";break;
 				case 1: car[i].engine.fuelType="disel";break;
 			}
 			int tyreBrand=getRandom(2);
 			switch(tyreBrand)
 			{
-				case 0: 
-						for(int j=0;j<car[i].tyres.length;j++)
+				case 0: for(int j=0;j<car[i].tyres.length;j++)
 						car[i].tyres[j].tyreBrand="MRF";
 						break;
 
-				case 1: 
-						for(int j=0;j<car[i].tyres.length;j++)
+				case 1: for(int j=0;j<car[i].tyres.length;j++)
 						car[i].tyres[j].tyreBrand="CEAT";
 						break;
 			}
@@ -72,52 +68,61 @@ public class Race
 			}
 		
 
-
 		}
 		
 
 	}
 	public void startRace()
 	{
-		Scanner sc=new Scanner(System.in);
-		for(int i=0;i<car.length;i++)
+		char s;
+		do
 		{
+			Scanner sc=new Scanner(System.in);
+			for(int i=0;i<car.length;i++)
+			{
+				
+				System.out.print((i+1)+" ");
+				car[i].participantDetails();
 			
-			System.out.print((i+1)+" ");
-			car[i].participantDetails();
-		
-		}
-			System.out.println("Enter your choice");
-			System.out.println(" 1.Race by distance");
-			System.out.println(" 2.Race by Time");
-			int choice=sc.nextInt();
-			switch(choice)
-			{	
-				case 1:System.out.println("Enter the Distance in meters");
-					   distance=sc.nextDouble();
-					   double []result=new double[car.length];
-					   for(int i=0;i<car.length;i++)
-					   {
-					  	
-						 result[i]=(int)car[i].getResult(distance);
-						   	    					   	    
-					   }
-					   	distance_Result(result);
-					   break;
-				case 2:System.out.println("Enter the time in minute");
-						time=sc.nextLong();
-						double []result_M=new double[car.length];
-						 for(int i=0;i<car.length;i++)
-  					    {
-
-						   	result_M[i]=(int)(car[i]).getResult(time);
-						   		
-				    	}
-					   time_Result(result_M);
-					  break;
-
-						
 			}
+				System.out.println("Enter your choice");
+				System.out.println(" 1.Race by distance");
+				System.out.println(" 2.Race by Time");
+				int choice=sc.nextInt();
+				switch(choice)
+				{	
+					case 1:System.out.println("Enter the Distance in meters");
+						   distance=sc.nextDouble();
+						   double []result=new double[car.length];
+						   for(int i=0;i<car.length;i++)
+						   {
+						  	
+							 result[i]=(int)car[i].getResult(distance);
+							   	    					   	    
+						   }
+						   	distance_Result(result);
+						   break;
+					case 2:System.out.println("Enter the time in minute");
+							time=sc.nextLong();
+							double []result_M=new double[car.length];
+							 for(int i=0;i<car.length;i++)
+	  					    {
+
+							   	result_M[i]=(int)(car[i]).getResult(time);
+							   		
+					    	}
+						   time_Result(result_M);
+						  break;
+
+							
+				}
+				System.out.println("Do you wish to continue? Y/N");
+				s=sc.next().charAt(0);
+				if(s=='n'||s=='N')
+				{
+					System.out.println("end....!");
+				}
+			}while(s=='Y'||s=='y');
 
 	}
 
