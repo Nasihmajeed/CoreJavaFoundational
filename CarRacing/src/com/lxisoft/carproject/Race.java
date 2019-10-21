@@ -1,17 +1,18 @@
 package com.lxisoft.carproject;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import com.lxisoft.carproject.*;
 public class Race
 {
 	Car[] cars;
-	int distances;
-	int raceTime;
-
+	int raceDistance;
+	float raceTime;
+	Scanner s=new Scanner(System.in);
 	public void createCars()
 	{
-		Scanner s=new Scanner(System.in);
-		System.out.println("-----CAR RACING------");
-		System.out.println("\nenter details of luxuary car\n------------------");
+		
+		System.out.println("------CAR RACING-------");
+		System.out.println("\nenter details of luxuary car\n--------------------");
 		cars=new Car[10];
 		int a=1,b=6,e,f;
 		for(int i=0;i<5;i++)
@@ -22,7 +23,6 @@ public class Race
 			car.tyres=new Tyre[4];
 			System.out.println("\nenter the name of car-"+a);
 			car.name=s.next();
-			// System.out.println("\tnormal speed of car--"+car.normalSpeed);
 			car.tyreDetails();
 			System.out.println("\nenter engine type of car-"+a);
 			System.out.println("(1-(1.2cc&petrol) 2-(1.3cc&diesel))");
@@ -30,13 +30,11 @@ public class Race
 			car.engineDetails(e);
 			car.practicalSpeed=car.raceSpeed();
 			cars[i]=car;
-			
 			a++;
 		}
 		System.out.println("\nenter details of normal car\n------------------");
 		for(int i=5;i<10;i++)
 		{
-			
 			Car car=new Car();
 			car.engine=new Engine();
 			car.tyres=new Tyre[4];
@@ -49,7 +47,6 @@ public class Race
 			car.engineDetails(e);
 			car.practicalSpeed=car.raceSpeed();
 			cars[i]=car;
-			
 			b++;
 		}
 		carDetails();
@@ -57,7 +54,7 @@ public class Race
 	}
 	public void carDetails()
 	{
-		System.out.println("\n\t\t------RACE-------\n");
+		System.out.println("\n\t\t------RACE CAR DETAILS-------\n");
 		for(int i=0;i<10;i++)
 		{
 			System.out.println("car-"+cars[i].name+"\t\tnormal speed-"+cars[i].normalSpeed+"\t\tpractical speed-"+cars[i].practicalSpeed);
@@ -67,27 +64,49 @@ public class Race
 				System.out.println("\t tyre-"+(j+1)+"-"+cars[i].tyres[j].getBrand()+"\t\tefficiency-"+cars[i].tyres[j].getEfficiency());
 			}
 		}
+		System.out.print("\n\t\tRace Strats");
+		for(int i=0;i<8;i++)
+		{
+			System.out.print("!!");
+			try
+			{
+				TimeUnit.MILLISECONDS.sleep(100);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Exception "+e);
+			}
+		}
 	}
 	public void startRace()
 	{
-		this.distances=100000;
-		float[] time=new float[10];
-		float[] distance=new float[10];
-		for(int i=0;i<10;i++)
+		int raceChoice;
+		int raceNumber=1;
+		do
 		{
-			if(cars[i] instanceof LuxuaryCar)
+			System.out.println("\n\n\t\t<------RACE--"+(raceNumber++)+"------>");
+			this.raceDistance=100000;
+			float[] time=new float[10];
+			float[] distance=new float[10];
+			System.out.println("enter your choice (1-race by distance or 2-race by time)");
+			int choice=s.nextInt();
+			for(int i=0;i<10;i++)
 			{
-				time[i]=((LuxuaryCar)cars[i]).startRace(cars[i],distances);
-				distance[i]=((LuxuaryCar)cars[i]).startRace(cars[i]);
+				switch(choice)
+				{
+					case 1: distance[i]=((Car)cars[i]).startRace(cars[i]); break;
+					case 2: time[i]=((Car)cars[i]).startRace(cars[i],raceDistance); break;
+					default: System.out.println(" not a valid choice "); break;
+				}
 			}
-			else
+			switch(choice)
 			{
-				time[i]=((Car)cars[i]).startRace(cars[i],distances);
-				distance[i]=((Car)cars[i]).startRace(cars[i]);
+				case 1: rankListDistance(distance); break;
+				case 2: rankListTime(time); break;
 			}
-		}
-		rankListTime(time);
-		rankListDistance(distance);
+			System.out.println("do you want another car race?(1-yes or 2-no)");
+			raceChoice=s.nextInt();
+		}while(raceChoice==1);
 	}
 	public void rankListTime(float[] time)
 	{
@@ -113,8 +132,6 @@ public class Race
 		for(int k=0;k<10;k++)
 		{
 			System.out.println("\nRank->"+(r++)+" \t  car name-"+cars[k].name+"\ttime--"+time[k]);
-			System.out.print("");
-
 		}
 	}
 	public void rankListDistance(float[] distance)
@@ -141,11 +158,6 @@ public class Race
 		for(int k=0;k<10;k++)
 		{
 			System.out.println("\nRank->"+(r++)+" \t  car name-"+cars[k].name+"\tdistance--"+distance[k]);
-			System.out.print("");
-
 		}
-
 	}
-
-
 }

@@ -54,7 +54,6 @@ public class Car
 	}
 	public float raceSpeed()
 	{
-		
 		int total=0;
 		for(int j=0;j<4;j++)
 		{	
