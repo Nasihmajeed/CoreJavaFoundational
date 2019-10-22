@@ -3,6 +3,7 @@ import com.lxisoft.racing.*;
 import java.util.Scanner;
 import java.lang.Math;
 import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
 
 public final class Race
 {
@@ -101,15 +102,16 @@ public final class Race
 	}
 	public void setDistanceGame()
 	{
+		DecimalFormat numberFormat=new DecimalFormat("##.####");
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the race distance= ");
 		int distance=sc.nextInt();
-		float[] speed= new float [10];
+		Double[] speed= new Double [10];
 		Car temp=null;
 		for(int i=0; i<10; i++)
 		{
 			car[i].setStart();
-			speed[i]=(float)car[i].getResult(distance);
+			speed[i]=Double.parseDouble(numberFormat.format(car[i].getResult(distance)));
 			
 		}
 		System.out.println("\n \n");
