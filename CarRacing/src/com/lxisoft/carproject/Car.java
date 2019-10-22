@@ -64,6 +64,12 @@ public class Car
 		int enginePower=engine.getPower();
 		float engineCc=engine.getEngineCC();
 		this.practicalSpeed=(this.normalSpeed)*(totalEfficiency)*(enginePower)*(engineCc);
+		if(this instanceof LuxuaryCar)
+		{
+			LuxuaryCar lc=new LuxuaryCar();
+			System.out.println(" turbo=="+lc.turboPower);
+			this.practicalSpeed=(this.practicalSpeed*lc.turboPower);
+		}
 		System.out.println("\tpracticalSpeed--"+practicalSpeed);
 		return practicalSpeed;
 	}
