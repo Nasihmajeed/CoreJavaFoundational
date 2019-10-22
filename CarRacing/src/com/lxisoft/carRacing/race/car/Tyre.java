@@ -1,7 +1,9 @@
 package com.lxisoft.carRacing.race.car;
 public class Tyre 
 {
-	String Company;
+	private String company;
+	private int weightage;
+
 	public void setCompany(String company)
 	{
 		this.company=company;
@@ -9,5 +11,13 @@ public class Tyre
 	public String getCompany()
 	{
 		return company;
+	}
+	public void setWeightage(int weightage)
+	{
+		this.weightage=weightage;
+	}
+	public int getWeightage()
+	{
+		return weightage;
 	}
 }

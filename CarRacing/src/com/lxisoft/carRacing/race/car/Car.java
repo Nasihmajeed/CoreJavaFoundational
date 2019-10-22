@@ -1,38 +1,42 @@
 package com.lxisoft.carRacing.race.car;
-public abstract class Car 
+public class Car 
 {
-	private String name;
-	private String engine;
-	private int cc;
+	public String name;
+	public String engine;
+	public int cc;
 	private double time;
 
-	public abstract void print();
-	public void setName(String name)
-	{
-		this.name=name;
-	}
-	public String getName()
-	{
-		return name;
-	}
-	
-	public void setEngine(String engine)
-	{
-		this.engine=engine;
-	}
-	public String getEngine()
-	{
-		return engine;
-	}
+	public Tyre[] tyres=new Tyre[4];
 
-	public void setCc(int cc)
+	public Car(String name,String engine,int cc)
 	{
+		super();
+		this.name=name;
+		this.engine=engine;
 		this.cc=cc;
 	}
-	public int getCc()
+
+	public void setCarTyres(String[] tyreNames)
 	{
-		return cc;
+
+		for(int i=0;i<4;i++)
+		{
+			tyres[i]=new Tyre();
+			tyres[i].setCompany(tyreNames[i]);
+			//System.out.print(tyres[i].getCompany());
+		}
 	}
+
+	/*public String[] getCarTyres()
+	{
+		for(int i=0;i<4;i++)
+		{
+			//tyres[i]=new Tyre();
+			//tyres[i].setCompany(tyreNames[i]);
+			System.out.print(tyres[i].getCompany());
+		}
+		return tyres;
+	}*/
 
 	public void setTime(double time)
 	{
@@ -42,4 +46,5 @@ public abstract class Car
 	{
 		return time;
 	}
+	
 }
