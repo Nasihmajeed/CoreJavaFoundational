@@ -1,4 +1,5 @@
 package com.lxisoft.carproject;
+import java.io.*;
 import com.lxisoft.carproject.*; 
 import java.util.*;
 import java.lang.Math;
@@ -75,16 +76,21 @@ public class Race
 	public void startRace()
 	{
 		char s;
-		do
-		{
-			Scanner sc=new Scanner(System.in);
-			for(int i=0;i<car.length;i++)
+		boolean ex=true;
+		do{
+
+		try{
+
+			do
 			{
+				Scanner sc=new Scanner(System.in);
+				for(int i=0;i<car.length;i++)
+				{
+					
+					System.out.print((i+1)+" ");
+					car[i].participantDetails();
 				
-				System.out.print((i+1)+" ");
-				car[i].participantDetails();
-			
-			}
+				}
 				System.out.println("Enter your choice");
 				System.out.println(" 1.Race by distance");
 				System.out.println(" 2.Race by Time");
@@ -101,6 +107,7 @@ public class Race
 							   	    					   	    
 						   }
 						   	distance_Result(result);
+						   	ex=false;
 						   break;
 					case 2:System.out.println("Enter the time in minute");
 							time=sc.nextLong();
@@ -112,6 +119,7 @@ public class Race
 							   		
 					    	}
 						   time_Result(result_M);
+						   ex=false;
 						  break;
 
 							
@@ -122,7 +130,17 @@ public class Race
 				{
 					System.out.println("end....!");
 				}
+				if((s!='n'||s!='N')&&(s!='Y'||s!='y'))
+					throw new InputMismatchException ("");
 			}while(s=='Y'||s=='y');
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Exception occured  "+e);
+			ex=true;
+			
+		}
+	}while(ex);
 
 	}
 
@@ -168,11 +186,9 @@ public class Race
 			double temp2=0;
 			Car[] rank=new Car[car.length];
 			
-				
 				for(int i=0;i<rank.length;i++)
 				{	
 					rank=car;
-					
 					for(int j=0;j<rank.length;j++)
 					{
 						if(rank[i].speed>rank[j].speed)
