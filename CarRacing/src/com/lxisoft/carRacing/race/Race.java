@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.lxisoft.carRacing.race.car.Car;
 import com.lxisoft.carRacing.race.car.luxury.LuxuryCar;
 import com.lxisoft.carRacing.race.car.Tyre;
+import com.lxisoft.carRacing.race.car.Engine;
 public class Race 
 {
 	public Car[] cars=new Car[10];
@@ -15,16 +16,16 @@ public class Race
 	public String[][] tyreNames=new String[10][4];
 	public void startRace()
 	{
-		cars[0]=new Car("suzuki","petrol",1500);
-		cars[1]=new Car("creta","diesel",1000);
-		cars[2]=new Car("maruti","petrol",1000);
-		cars[3]=new Car("zen","petrol",1500);
-		cars[4]=new Car("swift","petrol",1000);
-		cars[5]=new LuxuryCar("benz","petrol",1500);
-		cars[6]=new LuxuryCar("bmw","diesel",1000);
-		cars[7]=new LuxuryCar("ferrari","petrol",1500);
-		cars[8]=new LuxuryCar("lamborghini","diesel",1500);
-		cars[9]=new LuxuryCar("porche","petrol",1000);
+		cars[0]=new Car("suzuki",new Engine("petrol",1500));
+		cars[1]=new Car("creta",new Engine("diesel",1000));
+		cars[2]=new Car("maruti",new Engine("petrol",1000));
+		cars[3]=new Car("zen",new Engine("petrol",1500));
+		cars[4]=new Car("swift",new Engine("petrol",1000));
+		cars[5]=new LuxuryCar("benz",new Engine("petrol",1500));
+		cars[6]=new LuxuryCar("bmw",new Engine("diesel",1000));
+		cars[7]=new LuxuryCar("ferrari",new Engine("petrol",1500));
+		cars[8]=new LuxuryCar("lamborghini",new Engine("diesel",1500));
+		cars[9]=new LuxuryCar("porche",new Engine("petrol",1000));
 		
 
 		printCompetitors();
@@ -52,7 +53,7 @@ public class Race
 		{
 			if(car!=null)
 			{
-				System.out.println(car.name+"\t"+car.engine+"\t"+car.cc);
+				System.out.println(car.name+"\t"+car.engine.getType()+"\t"+car.engine.getCc());
 			}
 		}
 	}
@@ -66,7 +67,7 @@ public class Race
 		{
 			if(car!=null)
 			{
-				if(car.engine=="petrol")
+				if(car.engine.getType()=="petrol")
 				{
 					if(car.cc==1000)
 					{
@@ -75,6 +76,17 @@ public class Race
 					if(car.cc==1500)
 					{
 						speed=100.0*1.3;
+					}
+				}
+				if(car.engine.getType()=="diesel")
+				{
+					if(car.cc==1000)
+					{
+						speed=100.0*1.2;
+					}
+					if(car.cc==1500)
+					{
+						speed=100.0*1.4;
 					}
 				}
 			time=distance/speed;
@@ -127,6 +139,7 @@ public class Race
 
 	public void setTyreWeightage()
 	{
+		System.out.println("\nTYRE INDIVIDUAL WEIGHTAGE\n------\n");
 		for(Car car:cars)
 		{
 			for(int i=0;i<4;i++)
@@ -144,7 +157,7 @@ public class Race
 					car.tyres[i].setWeightage(1);
 				}
 				
-				//System.out.println(car.tyres[i].getCompany()+"\t"+car.tyres[i].getWeightage());
+				System.out.println(car.tyres[i].getCompany()+"\t"+car.tyres[i].getWeightage());
 			}
 
 		}
@@ -152,14 +165,13 @@ public class Race
 
 	public void sumWeightage()
 	{
-		System.out.println("\nCOMPANY AND WEIGHTAGE\n----------\n");
+		int sumWeightage=0;
+		int tyreWeight=0;
+		System.out.println("\nWEIGHTAGE\n----------\n");
 		for(Car car:cars)
 		{
-			for(int i=0;i<4;i++)
-			{
-				//car.tyres[i].getWeightage();
-				System.out.println("company="+car.tyres[i].getCompany()+"\t"+"weightage="+car.tyres[i].getWeightage());
-			}
+			sumWeightage=(car.tyres[0].getWeightage()+car.tyres[1].getWeightage()+car.tyres[2].getWeightage()+car.tyres[3].getWeightage())/4;
+			System.out.println(car.name+"="+sumWeightage);
 		}
 	}
 
