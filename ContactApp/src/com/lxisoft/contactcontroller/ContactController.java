@@ -21,4 +21,11 @@ public class ContactController
 		}
 		return contactList;
 	}
+	public void addContact(String name,long number)
+	{
+		Contact cont=new Contact();
+		cont.setContactName(name);
+		cont.setContactNumber(number);
+		contactList.add(cont);
+	}
 }
