@@ -2,8 +2,8 @@ package com.lxisoft.animalgame;
 import com.lxisoft.animalgame.*;
 public class Position
 {
-	int positionX;
-	int positionY;
+	private int positionX;
+	private int positionY;
 	public void setPositionX(int a)
 	{
 		positionX=a;
