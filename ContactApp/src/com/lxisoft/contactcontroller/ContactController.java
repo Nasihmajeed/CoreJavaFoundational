@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 public class ContactController
 {
-	List <Contact> contactList=new ArrayList<Contact>();
+	private List <Contact> contactList=new ArrayList<Contact>();
+	public void setContactList(List <Contact> contactList)
+	{
+		this.contactList=contactList;
+	}
+	public List <Contact> getContactList()
+	{
+		return contactList;
+	}
 	public List<Contact> getContacts()
 	{
-		
 		String[] name={"mehar","ninu","megha","amirtha","meharu"};
 		long[] number={90456372,95396006,90481532,96569884,98466423};
 		for(int j=0;j<5;j++)
@@ -42,10 +49,24 @@ public class ContactController
 		{
 			if(name.equals(contactList.get(i).getContactName()))
 			{
-				long number=contactList.get(i).getContactNumber();
-				number=num;
-				// contactList.add();
+				contactList.remove(i);
+				Contact cont=new Contact();
+				cont.setContactName(name);
+				cont.setContactNumber(num);
+				contactList.add(cont);
 			}	
 		}
+	}
+	public int searchContact(String name)
+	{
+		int value=0;
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(name.equals(contactList.get(i).getContactName()))
+			{
+				value=i;
+			}
+		}
+		return value;
 	}
 }
