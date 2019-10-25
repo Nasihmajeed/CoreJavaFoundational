@@ -1,38 +1,48 @@
 package com.lxisoft.Controllers;
 
 import com.lxisoft.Models.*;
+import java.util.*;
 
 public class ContactControl
 {
-	private Contact model;
+	ArrayList<Contact> contacts =new ArrayList<Contact>();	
 	
-	public ContactControl(Contact contact)
-	{
-		
-		this.model=contact;
 
-	}
-
-	public void setContactName(String name)
+	public void setContactName(Contact model, String name)
 	{
 		model.setName(name);
 	}
-	public String getContactName()
+	public String getContactName(Contact model)
 	{
 		return model.getName();
 	}
-	public void setContactNo(long no)
+	public void setContactNo(Contact model,long no)
 	{
 		model.setNo(no);
 	}
-	public long getContactNo()
+	public long getContactNo(Contact model)
 	{
 		return model.getNo();
 	}
 
-	public void updateContact(String name, long no)
+	public void updateContact(Contact model,String name, long no)
 	{
-		setContactName(name);
-		setContactNo(no);
+		setContactName(model,name);
+		setContactNo(model,no);
+	}
+	public void setNewContact(String name, Long no)
+	{
+		Contact contact=new Contact();
+		contact.setName(name);
+		contact.setNo(no);
+		contacts.add(contact);
+	}
+	public void getContactDetail()
+	{
+
+	}
+	public int getContactsLength()
+	{
+		return contacts.size();
 	}
 }
