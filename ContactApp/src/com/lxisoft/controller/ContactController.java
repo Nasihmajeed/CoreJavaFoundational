@@ -4,22 +4,38 @@ import java.util.*;
 public class ContactController
 {
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	Contact contact=new Contact();
 	public void addContact(String name,long number)
 	{
-		Contact contact=new Contact();
+		
 		contact.setName(name);
 		contact.setNo(number);
 		contacts.add(contact);
 		
 	}
-	public void searchContact(){}
-	public void updateContact(){}
-	public void deleteContact(){}
-	
-	public void getContact()
+	public void searchContact(String name)
 	{
-		Contact contact=new Contact();
-		System.out.println("Name: "+contact.getName()+"\n"+"phno: "+contact.getNo());
+		boolean search=contacts.contains(name);
+		System.out.println(search);
+		if(search)
+		{
+			System.out.println(" Contact found..!");
+			getContact();
+		}
+		else
+			System.out.println(" There is no such contacts..!");
+	}
+	public void updateContact(){}
+	public void deleteContact(String name)
+	{
+	
+	}
+	
+	public void getLength()
+	{
+	
+		
+
 	}
 
 
