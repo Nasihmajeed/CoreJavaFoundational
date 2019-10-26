@@ -12,7 +12,7 @@ public class TDD
 	{
 		controller=new Controller();
 		controller.setContact();
-		System.out.println("contact set");
+		System.out.println("********contact set*********");
 		printMenu();
 	}
 
@@ -20,7 +20,7 @@ public class TDD
 	{
 		while(true)
 		{
-			System.out.println("Choose your options\n1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit");
+			System.out.println("Choose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit");
 			int menu=scan.nextInt();
 			switch(menu)
 			{
@@ -52,7 +52,7 @@ public class TDD
 	{
 		for(Contact contact:controller.contacts)
 		{
-			System.out.println("id="+contact.getId()+"\t"+"name="+contact.getName()+"\t"+"number="+contact.getNumber());
+			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number="+contact.getNumber());
 		}
 		System.out.println();
 	}
