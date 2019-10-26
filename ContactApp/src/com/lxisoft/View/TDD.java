@@ -20,15 +20,13 @@ public class TDD
 		{
 			repeat=0;
 			loop=0;
-			System.out.println("enter 1 add  2 search 3 modify  4 view all 5 delete ");
+			System.out.println("enter 1 add  2 search 3 view all ");
 			int select=sc.nextInt();
 			switch(select)
 			{
 				case 1: setNewContact(control);break;
 				case 2: searchContact(control);break;
-				case 3: modifyContact(control);break;
-				case 4: getAllContacts(control);break;
-				case 5: deleteContact(control);break;
+				case 3: getAllContacts(control);break;
 				default:System.out.println("enter the correct option");
 						repeat=1;
 			}
@@ -48,11 +46,27 @@ public class TDD
 	}
 	public static void getAllContacts(ContactControl control)
 	{
+		Scanner sc=new Scanner(System.in);
 		int length=control.getContactsLength();
 		for(int i=0;i<length;i++)
 		{
-			control.getContactDetail(i);
+			System.out.print(i +" ");
+			control.getContactName(i);
 		}
+		System.out.println("select a contact by no :");
+		int select=sc.nextInt();
+		control.getContactDetail(select);
+		System.out.println(" 1 edit 2 delete");
+		int choice=sc.nextInt();
+		switch(choice)
+		{
+			case 1 : modifyContact(control,select);break;
+			case 2 : deleteContact(control,select);break; 
+		}
+
+
+
+
 	}
 	public static void searchContact(ContactControl control)
 	{
@@ -65,53 +79,20 @@ public class TDD
 			int value=control.getContactDetail(i,search);
 		}
 	}
-	public static void modifyContact(ContactControl control)
+	public static void modifyContact(ContactControl control, int search)
 	{
-		getAllContacts(control);
 		Scanner sc=new Scanner(System.in);
-		int length=control.getContactsLength();
-		System.out.println("enter name to modify");
-		String search=sc.next();
-		int value=0,location=0;
-		for(int i=0;i<length;i++)
-		{
-			value=control.getContactDetail(i,search);
-			if(value==1)
-			{
-				location=i;
-			}
-		}
-		if(value!=0)
-		{
-			System.out.println("Enter new contact name: ");
-			String name=sc.next();
-			System.out.println("Enter new phone nmbr: ");
-			long no=sc.nextLong();
-			control.updateContact(location,name,no);
-		}
+		System.out.println("Enter new contact name: ");
+		String name=sc.next();
+		System.out.println("Enter new phone nmbr: ");
+		long no=sc.nextLong();
+		control.updateContact(search,name,no);
 		System.out.println("contact modified Succesfully....!");
 
 	}
-	public static void deleteContact(ContactControl control)
+	public static void deleteContact(ContactControl control,int location)
 	{
-		getAllContacts(control);
-		Scanner sc=new Scanner(System.in);
-		int length=control.getContactsLength();
-		System.out.println("enter name to delete");
-		String search=sc.next();
-		int value=0,location=0;
-		for(int i=0;i<length;i++)
-		{
-			value=control.getContactDetail(i,search);
-			if(value==1)
-			{
-				location=i;
-			}
-		}
-		if(value!=0)
-		{
-			control.deleteContact(location);
-		}
+		control.deleteContact(location);
 		System.out.println("contact deleted Succesfully....!");
 
 

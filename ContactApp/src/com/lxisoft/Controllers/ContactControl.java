@@ -1,12 +1,13 @@
 package com.lxisoft.Controllers;
 
 import com.lxisoft.Models.*;
+import java.io.*;
 import java.util.*;
 
 public class ContactControl
 {
 	ArrayList<Contact> contacts =new ArrayList<Contact>();	
-	
+
 	public void updateContact(int i,String name, long no)
 	{
 		contacts.get(i).setName(name);
@@ -15,6 +16,11 @@ public class ContactControl
 	}
 	public void setNewContact(String name, Long no)
 	{
+		File file=new File("file.txt");
+		System.out.println(file.exists());
+		newFile=file.createNewFile();
+		System.out.println(newFile);
+		System.out.println(file.exists());
 		Contact contact=new Contact();
 		contact.setName(name);
 		contact.setNo(no);
@@ -25,6 +31,10 @@ public class ContactControl
 		System.out.print("Name : "+contacts.get(i).getName());
 		System.out.println(" \t No : "+contacts.get(i).getNo());
 
+	}
+	public void getContactName(int i)
+	{
+		System.out.println("Name : "+contacts.get(i).getName()+"\t");
 	}
 	public int getContactDetail(int i,String search)
 	{
