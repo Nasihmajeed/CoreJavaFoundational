@@ -7,28 +7,11 @@ public class ContactControl
 {
 	ArrayList<Contact> contacts =new ArrayList<Contact>();	
 	
-
-	public void setContactName(Contact model, String name)
+	public void updateContact(int i,String name, long no)
 	{
-		model.setName(name);
-	}
-	public String getContactName(Contact model)
-	{
-		return model.getName();
-	}
-	public void setContactNo(Contact model,long no)
-	{
-		model.setNo(no);
-	}
-	public long getContactNo(Contact model)
-	{
-		return model.getNo();
-	}
-
-	public void updateContact(Contact model,String name, long no)
-	{
-		setContactName(model,name);
-		setContactNo(model,no);
+		contacts.get(i).setName(name);
+		contacts.get(i).setNo(no);
+		System.out.println("Done..");
 	}
 	public void setNewContact(String name, Long no)
 	{
@@ -37,12 +20,29 @@ public class ContactControl
 		contact.setNo(no);
 		contacts.add(contact);
 	}
-	public void getContactDetail()
+	public void getContactDetail(int i)
 	{
+		System.out.print("Name : "+contacts.get(i).getName());
+		System.out.println(" \t No : "+contacts.get(i).getNo());
 
+	}
+	public int getContactDetail(int i,String search)
+	{
+		int value=0;
+		if(search.equals(contacts.get(i).getName()))
+		{
+			System.out.print("Contact found ! \n Name : "+contacts.get(i).getName());
+			System.out.println(" \t No : "+contacts.get(i).getNo());
+			value=1;
+		}
+		return value;
 	}
 	public int getContactsLength()
 	{
 		return contacts.size();
+	}
+	public void deleteContact(int i)
+	{
+		contacts.remove(i);
 	}
 }
