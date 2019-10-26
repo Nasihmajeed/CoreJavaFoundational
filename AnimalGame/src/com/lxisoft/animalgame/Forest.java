@@ -340,28 +340,27 @@ public class Forest
 		}
 		return animals;
 	}
-	// public void grid()
-	// {
-	// 	int[][] grid=new int[10][10];
-	// 	for(int row=0;row<10;row++)
-	// 	{
-	// 		for(int col=0;col<10;col++)
-	// 		{
-	// 			for(int i=0;i<animalArr.length;i++)
-	// 			{
-	// 				int v=animalArr[i].pos.getPositionX();
-	// 				int u=animalArr[i].pos.getPositionY();
-	// 				if((v==row)&(u==col))
-	// 				{
-	// 					System.out.println(animalArr[i].animalName);
-	// 				}
-	// 				else
-	// 				{
-	// 					System.out.println("              ");
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
+	public void grid()
+	{
+		int[][] grid=new int[10][10];
+		for(int row=0;row<10;row++)
+		{
+			for(int col=0;col<10;col++)
+			{
+				for(int i=0;i<animalArr.length;i++)
+				{
+					int v=animalArr[i].pos.getPositionX();
+					int u=animalArr[i].pos.getPositionY();
+					if((v==row)&(u==col))
+					{
+						grid[u][v] = animalArr[i].animalName;
+						//System.out.println(animalArr[i].animalName);
+					}
+				}
+			}
+		}	
+	}
+	public void 
+
 }
 

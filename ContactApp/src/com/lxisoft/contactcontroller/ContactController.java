@@ -33,40 +33,42 @@ public class ContactController
 		cont.setContactNumber(number);
 		contactList.add(cont);
 	}
-	public void deleteContact(String name)
+	public Contact searchContact(int n)
 	{
+		Contact contact=new Contact();
+		int index=0;
 		for(int i=0;i<contactList.size();i++)
 		{
-			if(name.equals(contactList.get(i).getContactName()))
+			index=contactList.indexOf(contactList.get(i));
+			if((n-1)==(index))
 			{
-				contactList.remove(i);
-			}	
-		}
-	}
-	public void updateContact(String name,long num)
-	{
-		for(int i=0;i<contactList.size();i++)
-		{
-			if(name.equals(contactList.get(i).getContactName()))
-			{
-				contactList.remove(i);
-				Contact cont=new Contact();
-				cont.setContactName(name);
-				cont.setContactNumber(num);
-				contactList.add(cont);
-			}	
-		}
-	}
-	public int searchContact(String name)
-	{
-		int value=0;
-		for(int i=0;i<contactList.size();i++)
-		{
-			if(name.equals(contactList.get(i).getContactName()))
-			{
-				value=i;
+				contact=contactList.get((index));
 			}
 		}
-		return value;
+		return contact;
 	}
+	public void deleteContact(int n)
+	{
+		for(int i=0;i<contactList.size();i++)
+		{
+			int index=contactList.indexOf(contactList.get(i));
+			if(n==(index+1))
+			{
+				contactList.remove(i);
+			}	
+		}
+	}
+	public void updateContact(long num,Contact contact)
+	{
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(contact.getContactName().equals(contactList.get(i).getContactName()))
+			{
+				contactList.remove(i);
+				contact.setContactNumber(num);
+				contactList.add(contact);
+			}	
+		}
+	}
+	
 }
