@@ -48,6 +48,7 @@ public class Forest
 			System.out.println("enter the  strength of tiger"+(i+1));
 			animal[i].strength=sc.nextInt();
 			animal[i].isDead=false;
+			animal[i].speed=100;
 			animal[i].range=(int) (Math.random() * 40+1);
 		}x=i;
 		return x;
@@ -65,6 +66,7 @@ public class Forest
 			System.out.println("enter the  strength of lion"+(i+1));
 			animal[x].strength=sc.nextInt();
 			animal[x].isDead=false;
+			animal[x].speed=80;
 			animal[x].range=(int) (Math.random() * 50+1);
 			x++;
 			
@@ -84,6 +86,7 @@ public class Forest
 			System.out.println("enter the  strength of bear"+(i+1));
 			animal[y].strength=sc.nextInt();
 			animal[y].isDead=false;
+			animal[y].speed=30;
 			animal[y].range=(int) (Math.random() * 30+1);
 			y++;
 			
@@ -102,6 +105,7 @@ public class Forest
 			System.out.println("enter the  strength of rabbit"+(i+1));
 			animal[z].strength=sc.nextInt();
 			animal[z].isDead=false;
+			animal[z].speed=60;
 			animal[z].range=(int) (Math.random() * 10+1);
 			z++;
 		}
@@ -128,6 +132,8 @@ public class Forest
 			System.out.println("animal strength- "+animal[i].strength);
 			System.out.println("Coordinates- "+animal[i].xaxis+" X "+animal[i].yaxis);
 			System.out.println("area/range- "+animal[i].range);
+			 animal[i].hunger=Hunger.HUNGRIEST;
+			System.out.println("animal hunger level is "+animal[i].hunger);
 			System.out.println("\n");
 		}
 	}
@@ -170,11 +176,10 @@ public class Forest
 			}
 			if(c<=1)
 			{
-				System.out.println("\t\t\t ********* THE WINNER IS "+animal[win].name+" *********");
+				System.out.println("\n\t\t\t ********* THE WINNER IS "+animal[win].name+" *********\n");
 				for  (i=0;i<animal.length;i++)
 				{
-					System.out.println(animal[i].name+ "  luck?  "+animal[i].luck);
-					System.out.println(animal[i].name+ "  dead?  "+animal[i].isDead+"\n");
+					System.out.println(animal[i].name+ "-->  luck-"+animal[i].luck+ "  //  dead-"+animal[i].isDead+"  //  hunger-"+animal[i].hunger+" // speed-"+animal[i].speed);
 				}
 				break;
 			}
@@ -185,8 +190,9 @@ public class Forest
 	public int fightStarts(int x,int y,int f)
 	{
 		int[] arr=new int[animal.length];
-		int i,dist,count=0;
-		if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)
+		Animal temp=animal[x];
+		int i,dist,count=0; 
+		if(animal[x] instanceof Carnivorous && (x!=y) && animal[x].isDead==false && animal[y].isDead==false)// && (animal[x].hunger!=Hunger.OVERFED))
 		{
 			dist=(int) (Math.sqrt((animal[x].xaxis-animal[y].xaxis)*(animal[x].xaxis-animal[y].xaxis)+(animal[x].yaxis-animal[y].yaxis)*(animal[x].yaxis-animal[y].yaxis)));
 			for(i=0;i<animal.length;i++)
@@ -202,25 +208,37 @@ public class Forest
 			}
 			if(count!=0)
 			{
-				System.out.println("	 \t\t  ___________Fight"+(f++)+"___________");				      				//"+animal[x].name+" v/s "+animal[y].name);
+				System.out.println("	 \t\t    ___________Fight"+(f++)+"___________");				      				//"+animal[x].name+" v/s "+animal[y].name);
 				System.out.println("\t\t\t\tanimals nearby  "+animal[y].name+"  are ");
 				nearAnimals(arr,count);
 				if(animal[y] instanceof Herbivorous)
 				{
+					System.out.println("	 \t\t \t\t*ATTACK*");
 					if(count==1)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]]);
 					else if(count==2)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]],animal[arr[1]]);
 					else if(count==3)
-						((HerbivorousAnimal)animal[y]).escape(animal[arr[0]],animal[arr[1]],animal[arr[2]]);
+						((Herbivorous)animal[y]).escape(animal[arr[0]],animal[arr[1]],animal[arr[2]]);
 				}
 				else
 				{
+					System.out.println("	 \t\t \t\t*FIGHT*");
 					if(count==1)
-						((CarnivorousAnimal)animal[y]).fight(animal[arr[0]]);
+					temp=((Carnivorous)animal[y]).fight(animal[arr[0]]);
 					else if(count==2)
-						((CarnivorousAnimal)animal[y]).fight(animal[arr[0]],animal[arr[1]]);
+					temp=((Carnivorous)animal[y]).fight(animal[arr[0]],animal[arr[1]]);
+					for(i=0;i<animal.length;i++)
+					{
+						if(animal[i]==temp)
+						{
+							animal[i]=animalHunger(animal[i]);
+						}
+					}
+		
 				}
+				System.out.println(animal[x].name+ "-->  luck-"+animal[x].luck+ "  //  dead-"+animal[x].isDead+"  //  hunger-"+animal[x].hunger);
+				System.out.println(animal[y].name+ "-->  luck-"+animal[y].luck+ "  //  dead-"+animal[y].isDead+"  //  hunger-"+animal[y].hunger+"\n");
 			}
 		}
 		animalStatus();
@@ -242,6 +260,17 @@ public class Forest
 		{
 			animal[i].luck=(int) (Math.random() * 100+1);
 		}
+	}
+
+	public Animal animalHunger(Animal a)
+	{
+		switch (a.hunger)
+		{
+			case HUNGRIEST : a.hunger=Hunger.HUNGRY;break;
+			case HUNGRY: a.hunger=Hunger.HADFOOD;break;
+			case HADFOOD: a.hunger=Hunger.OVERFED;break;
+		}
+		return a;
 	}
 
 

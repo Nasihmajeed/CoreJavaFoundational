@@ -3,7 +3,8 @@ import com.lxisoft.animalgame.*;
 
 public interface  Carnivorous
 {
-	public abstract void fight(Animal enemy);
+	public abstract Animal fight(Animal enemy);
+	public Animal fight(Animal enemy1,Animal enemy2);
 
 
 }

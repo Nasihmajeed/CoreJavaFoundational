@@ -10,6 +10,8 @@ public abstract class Animal
 	int xaxis;
 	int yaxis;
 	int range;
+	Hunger hunger;
+	int speed;
 	
 	public abstract void eat();
 	public abstract void run();
