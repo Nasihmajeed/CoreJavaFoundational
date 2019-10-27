@@ -35,10 +35,23 @@ public class ContactControl
     	return contactList;
     }
 
-  //   public void deleteDetails(String num)
-  //   {
-  //   	Contact c=new Contact();
-  //       contact.setName(name);
-		// contact.setContactNo(contactNo);
-  //   }
+    public void deleteDetails(String name)
+    {
+    	for(int i=0;i<contactList.size();i++)
+    	{
+    		if(name.equals(contactList.get(i).getName()))
+    		{
+         		contactList.remove(i);
+         	}
+    	}
+    }
+
+    public void updateDetails(String name,String contactNo)
+    {
+    	Contact c=new Contact();
+  //   	for(int i=0;i<contactList.size();i++)
+  //   	{
+    		
+		// }
+    }
 }

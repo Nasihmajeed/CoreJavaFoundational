@@ -16,6 +16,8 @@ public class Tdd
 		switch(x)
 		{
 			case 0:addContact(control,contactList);break;
+			case 1:deleteContact(control);break;
+			case 2:updateContact(control);break;
 		}
 		for(int i=0;i<contactList.size();i++)
 		{
@@ -36,16 +38,18 @@ public class Tdd
 	public static void deleteContact(ContactControl control)
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter name:");
+		System.out.println("\nEnter name:");
 		String name=sc.next();
+		control.deleteDetails(name);
 	}
 
-	// public static void updateContact(ContactControl control)
-	// {
-	// 	Scanner sc=new Scanner(System.in);
-	// 	System.out.println("Enter name:");
-	// 	String name=sc.next();
-	// 	System.out.println("Enter new contact number:");
-	// 	String contactNo=sc.next();	
-	// }
+	public static void updateContact(ContactControl control)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter name:");
+		String name=sc.next();
+		System.out.println("Enter new contact number:");
+		String contactNo=sc.next();
+		control.updateDetails(name,contactNo);	
+	}
 }
