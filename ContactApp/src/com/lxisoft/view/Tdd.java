@@ -11,7 +11,7 @@ public class Tdd
 	
 	public static void main(String[] args)
 	{
-		System.out.print("\n\n");
+		System.out.print(" \n\n");
 		Tdd t=new Tdd();
 		t.inputContact();
 		t.displayContact();
