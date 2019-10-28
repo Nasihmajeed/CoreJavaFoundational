@@ -79,8 +79,10 @@ public class ContactController
 		{
 			array.remove(i-1);
 		}
+		
 		t.displayContact();
 	}
+
 }
 
 
