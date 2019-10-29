@@ -13,8 +13,7 @@ public class TDD
 		List <Contact> contactsList=new ArrayList<Contact>();
 		int a=0;
 		System.out.println("\t <-----CONTACT APP MENU----->\n");
-		contactsList=control.getContacts();
-		getContact(control);
+		
 		do
 		{
 			System.out.println("<---Enter your choice--->");
@@ -26,6 +25,8 @@ public class TDD
 				case 2: searchContact(control,contactsList); break;
 			}
 		}while(a!=3);
+		contactsList=control.readContacts();
+		getContact(control);
 		displayContacts(contactsList);
 	} 
 	public static void displayContacts(List <Contact> contactsList)
@@ -63,7 +64,6 @@ public class TDD
 				case 2: deleteContact(control,n); break;
 			}
 		}while(a!=3);
-
 	}
 	public static void addContact(ContactController control)
 	{
@@ -74,7 +74,7 @@ public class TDD
 			System.out.println("Enter contact name");
 			String name=s.next();
 			System.out.println("Enter contact number");
-			long num=s.nextInt();
+			String num=s.next();
 			control.addContact(name,num);
 		}
 	}
@@ -95,7 +95,7 @@ public class TDD
 	public static void updateContact(ContactController control,Contact contact)
 	{
 		System.out.println("Enter new contact number");
-		long num=s.nextInt();
+		String num=s.next();
 		control.updateContact(num,contact);
 	}
 	

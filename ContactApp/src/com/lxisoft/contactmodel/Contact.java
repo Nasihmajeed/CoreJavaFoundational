@@ -3,7 +3,7 @@ import com.lxisoft.contactcontroller.*;
 public class Contact
 {
 	private String contactName;
-	private long contactNumber;
+	private String contactNumber;
 	public void setContactName(String contactName)
 	{
 		this.contactName=contactName;
@@ -12,11 +12,11 @@ public class Contact
 	{
 		return contactName;
 	}
-	public void setContactNumber(long contactNumber)
+	public void setContactNumber(String contactNumber)
 	{
 		this.contactNumber=contactNumber;
 	}
-	public long getContactNumber()
+	public String getContactNumber()
 	{
 		return contactNumber;
 	}
