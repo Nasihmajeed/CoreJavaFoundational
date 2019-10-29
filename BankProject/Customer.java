@@ -1,35 +1,22 @@
 import java.util.Scanner;
 public class Customer
 {
-	int n;
-	Account[] ac;
+	String name;
+	Account account=new Account();
 	void details()
 	{   
 		Scanner scr=new Scanner(System.in);
-		System.out.println("enter the no of Customer :");
-		n=scr.nextInt();
-	
-		
-		Account account=new Account();
-		ac=new Account[n];
-		for (int i=0;i<n;i++) 
-		{
-			ac[i]=new Account();
-			ac[i].details();
-
-
-		}
+		System.out.print("enter Customer name : ");
+		name=scr.next();
+		account.details();
 		System.out.println("\n");
 	}
-		void printdetail()
-		{
-			for (int i=0;i<n;i++) 
-			{
-				ac[i].printdetail();
-
-			}
+	void printdetail()
+	{
+		System.out.println("Customer :"+name);	
+		account.printdetail();
 		
-		}
+	}
 
 
 }
