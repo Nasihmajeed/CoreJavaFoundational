@@ -9,9 +9,9 @@ import com.lxisoft.Controllers.*;
 
 public class TDD
 {
+	static	ContactControl control=new ContactControl();
 	public static void main(String[] args) 
 	{
-		ContactControl control=new ContactControl();
 		Scanner sc=new Scanner(System.in);
 		
 		int loop=0;
@@ -56,16 +56,20 @@ public class TDD
 		System.out.println("select a contact by no :");
 		int select=sc.nextInt();
 		control.getContactDetail(select);
-		System.out.println(" 1 edit 2 delete 3 back to main");
-		int choice=sc.nextInt();
-		String[] array=new String[5];
-		switch(choice)
+		int repeat=0;
+		do
 		{
-			case 1 : modifyContact(control,select);break;
-			case 2 : deleteContact(control,select);break; 
-			case 3 : main(array);break; 
-		}
-
+			System.out.println(" 1 edit 2 delete 3 back to main");
+			int choice=sc.nextInt();
+			String[] array=new String[5];
+			switch(choice)
+			{
+				case 1 : modifyContact(control,select);break;
+				case 2 : deleteContact(control,select);break; 
+				case 3 : main(array);break; 
+				default : repeat=1;
+			}
+		}while(repeat==1);
 
 
 
