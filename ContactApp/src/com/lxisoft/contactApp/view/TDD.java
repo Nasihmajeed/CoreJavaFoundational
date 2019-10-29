@@ -11,8 +11,10 @@ public class TDD
 	public static void main(String args[])
 	{
 		controller=new Controller();
-		controller.setContact();
+		controller.setInitialContacts();
 		System.out.println("********contact set*********");
+		controller.createPhoneData();
+		//controller.writeToFile();
 		printMenu();
 	}
 
@@ -50,11 +52,12 @@ public class TDD
 
 	public static void show()
 	{
-		for(Contact contact:controller.contacts)
+		for(Contact contact:controller.getContacts())
 		{
 			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number="+contact.getNumber());
 		}
 		System.out.println();
+		controller.writeToFile();
 	}
 
 	public static void create()
