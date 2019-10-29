@@ -49,9 +49,27 @@ public class ContactControl
     public void updateDetails(String name,String contactNo)
     {
     	Contact c=new Contact();
-  //   	for(int i=0;i<contactList.size();i++)
-  //   	{
-    		
-		// }
+  		for(int i=0;i<contactList.size();i++)
+    	{
+    		if(name.equals(contactList.get(i).getName()))
+    		{
+         		contactList.remove(i);
+         	}
+    	}
+    	c.setName(name);
+    	c.setContactNo(contactNo);
+    	contactList.add(c);
+    }
+
+    public void searchDetails(String name)
+    {
+    	Contact c=new Contact();
+    	for(int i=0;i<contactList.size();i++)
+    	{
+    		// if(name.equals(contactList.get(i).getName()))
+    		// {
+    		// 	contactList.contains(name);
+    		// }
+    	}
     }
 }
