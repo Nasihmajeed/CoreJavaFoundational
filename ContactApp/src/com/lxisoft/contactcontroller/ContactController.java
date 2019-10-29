@@ -1,13 +1,13 @@
 package com.lxisoft.contactcontroller;
 import com.lxisoft.contactmodel.*;
+import com.lxisoft.repository.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 public class ContactController
 {
 	private List <Contact> contactList=new ArrayList<Contact>();
-	File contactFile=new File("G:/git/CoreJavaFoundational/ContactApp/src/com/lxisoft/contactcontroller/contact.txt");
-	
+	Repository repo=new Repository();
 	public void setContactList(List <Contact> contactList)
 	{
 		this.contactList=contactList;
@@ -20,31 +20,14 @@ public class ContactController
 	{
 		String[] name={"mehar","ninu","megha","amirtha","meharu"};
 		String[] number={"90456372","95396006","90481532","96569884","98466423"};
-		try
+		for(int j=0;j<5;j++)
 		{
-			contactFile.createNewFile();
-			FileWriter fw=new FileWriter(contactFile);
-			System.out.println(contactFile.exists());
-			for(int j=0;j<5;j++)
-			{
-				Contact contact=new Contact();
-				contact.setContactName(name[j]);
-				contact.setContactNumber(number[j]);
-				contactList.add(contact);
-			}
-			for(int k=0;k<contactList.size();k++)
-			{
-				fw.write(contactList.get(k).getContactName());
-				fw.write(contactList.get(k).getContactNumber());
-				fw.write("\n");
-			}
-			fw.flush();
-			fw.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println(" error"+e);
-		}		
+			Contact contact=new Contact();
+			contact.setContactName(name[j]);
+			contact.setContactNumber(number[j]);
+			contactList.add(contact);
+		}	
+		repo.createFile(contactList);
 		return contactList;
 	}
 	public void addContact(String name,String number)
@@ -91,5 +74,6 @@ public class ContactController
 			}	
 		}
 	}
+
 	
 }
