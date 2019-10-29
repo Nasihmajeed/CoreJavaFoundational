@@ -17,11 +17,11 @@ public class Account
 	void printdetail()
 	{
 
-		System.out.println("Ac number :" +number);
+		System.out.println("    Ac number :" +number);
 
-		System.out.println("Ac type :" +type);
+		System.out.println("    Ac type :" +type);
 
-		System.out.println("Ac balence :" +balence);
+		System.out.println("    Ac balence :" +balence);
 		
 	}
 }

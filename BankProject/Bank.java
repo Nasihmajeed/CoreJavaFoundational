@@ -5,6 +5,8 @@ public class Bank
 	Customer[] c;
 	void details() 
 	{
+
+
 		Scanner scr=new Scanner(System.in);
 		System.out.println("enter the no of Customer :");
 		n=scr.nextInt();
@@ -19,6 +21,10 @@ public class Bank
 	
 	void printdetail()
 	{
+		System.out.println("    ---BANK OF LXI---");
+				System.out.println("\n");
+		System.out.println("    Bank   details");
+				System.out.println("\n");
 		for (int i=0;i<n;i++) 
 		{
 		c[i].printdetail();

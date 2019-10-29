@@ -10,10 +10,13 @@ public class Customer
 		name=scr.next();
 		account.details();
 		System.out.println("\n");
+		
 	}
+
 	void printdetail()
 	{
-		System.out.println("Customer :"+name);	
+
+		System.out.println("    Customer :"+name);	
 		account.printdetail();
 		
 	}
