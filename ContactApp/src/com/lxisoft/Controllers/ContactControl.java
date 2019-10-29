@@ -6,7 +6,11 @@ import java.util.*;
 
 public class ContactControl
 {
-	ArrayList<Contact> contacts =new ArrayList<Contact>();	
+	private ArrayList<Contact> contacts =new ArrayList<Contact>();	
+
+	
+
+
 
 	public void updateContact(int i,String name, long no)
 	{
@@ -16,11 +20,6 @@ public class ContactControl
 	}
 	public void setNewContact(String name, Long no)
 	{
-		File file=new File("file.txt");
-		System.out.println(file.exists());
-		newFile=file.createNewFile();
-		System.out.println(newFile);
-		System.out.println(file.exists());
 		Contact contact=new Contact();
 		contact.setName(name);
 		contact.setNo(no);

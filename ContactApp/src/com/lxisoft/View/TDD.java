@@ -56,12 +56,14 @@ public class TDD
 		System.out.println("select a contact by no :");
 		int select=sc.nextInt();
 		control.getContactDetail(select);
-		System.out.println(" 1 edit 2 delete");
+		System.out.println(" 1 edit 2 delete 3 back to main");
 		int choice=sc.nextInt();
+		String[] array=new String[5];
 		switch(choice)
 		{
 			case 1 : modifyContact(control,select);break;
 			case 2 : deleteContact(control,select);break; 
+			case 3 : main(array);break; 
 		}
 
 
@@ -74,10 +76,13 @@ public class TDD
 		int length=control.getContactsLength();
 		System.out.println("enter name to search");
 		String search=sc.next();
+		boolean found=false;
 		for(int i=0;i<length;i++)
 		{
 			int value=control.getContactDetail(i,search);
+			if (value==1) found=true;
 		}
+		if(found==false)System.out.println("Contact not found..! ");
 	}
 	public static void modifyContact(ContactControl control, int search)
 	{
