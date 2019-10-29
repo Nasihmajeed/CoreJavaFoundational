@@ -2,8 +2,12 @@ package com.lxisoft.CarRace;
 import java.util.Scanner;
 import com.lxisoft.CarRace.*;
 
-public interface Normalcar
+public class Normalcar extends Car
 {
-	public abstract Car lowpower();
+	public Normalcar(String name, Engine engine)
+	{
+		this.name=name;
+		this.engine=engine;
+	}	
 	
 }

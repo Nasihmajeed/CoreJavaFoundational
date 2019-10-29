@@ -4,94 +4,68 @@ import com.lxisoft.CarRace.*;
 
 public class Racetrack
 {
-	Car[] cars;
-	// method for insertion of cars
+	Car[] cars =new Car[10];
+	float distance=100000;
+
    public Car[] register()
    {
-	   int s;
-	   cars= new Car[10];
-	   
-	   cars[0]= new Ferrari("Ferrari",60,"ceat",0,"diesel");
-	   cars[1]= new Mustang("Mustang",60,"mrf",0,"Petrol");
-	   cars[2]= new BMW("BMW",60,"rubb",0,"petrol");
-	   cars[3]= new Mercedez("Mercedez",60,"abhi",0,"diesel");
-	   cars[4]= new Lamborgini("lamborgini",60,"ceat",0,"petrol");
-	   cars[5]= new Kwid("Kwid",60,"mrf",0,"diesel");
-	   cars[6]= new Wagnr("Wagnr",60,"rubb",0,"petrol");
-       cars[7]= new Rix("rix",60,"ceat",0,"diesel");
-       cars[8]= new Maruti("Maruti",60,"abhi",0,"diesel");
-       cars[9]= new Jeep("Jeep",60,"mrf",0,"petrol");	   
-	   
-	    for(s=0;s<cars.length;s++)
-		{
-			System.out.print(s+1+"-----");
-			cars[s].display();
-		} 
-	   return cars;
-	   
-   }
-     // method for reset the specifications of cars
-   public void reset()
-   {
-	  for(int i=0;i<cars.length;i++)
-	  {
-		  if(cars[i] instanceof Sportcar)
-		  {
-			  cars[i].power=2;
-		  }
-		  if(cars[i] instanceof Normalcar)
-		  {
-			  cars[i].power=3;
-		  }
-	  }
-	    resettyre() ;  
-   }
+	 cars[0] = new Normalcar("kwid", new Engine("petrol",1.500));
+	 cars[1] = new Normalcar("zen    ", new Engine("diesel",1.4000));
+	 cars[2] = new Normalcar("swift", new Engine("diesel",1.4000));
+	 cars[3] = new Sportcar("benz", new Engine("petrol",1.500));
+	 cars[4] = new Sportcar("mustang", new Engine("diesel",1.2000));
+	 cars[5] = new Sportcar("lamborgini", new Engine("petrol",1.500));
+	 cars[6] = new Normalcar("wagnr", new Engine("petrol",1.500));
+	 cars[7] = new Normalcar("bresta", new Engine("petrol",1.200));
+	 cars[8] = new Sportcar("mercedez", new Engine("diesel",1.000));
+	 cars[9] = new Sportcar("martin", new Engine("diesel",1.400));
      
-   // method for calculate practical velocity
-   
-   public void resettyre()
-   {
-	 
-	 for(int i=0;i<cars.length;i++)
-	 {
-		 if(cars[i].tyre == "ceat" || cars[i].tyre == "mrf")
-		 {
-		   cars[i].basic_speed=60*cars[i].power*2;
-		 }
-		 if(cars[i].tyre == "rubb" || cars[i].tyre == "abhi")
-		 {
-		   cars[i].basic_speed=60*cars[i].power*3;
-		 }
-	 }
-     	resetfuel(); 
+	 return cars;
    }
-   public void resetfuel()
+   //method to print Cars for Racing
+
+   public void onmark()
    {
-	    for(int i=0;i<cars.length;i++)
-	 {
-		 if(cars[i].fuel == "petrol")
-		 {
-		   cars[i].basic_speed=cars[i].basic_speed*2;
-		 }
-		 if(cars[i].fuel == "diesel")
-		 {
-		   cars[i].basic_speed=cars[i].basic_speed*3;
-		 }
-	 }
+   	for(int i=0;i<cars.length;i++)
+   	{
+   		cars[i].display();
+   	}
+   	 settyre();
    }
-   // method for calculate time achieved
-  
-   //method for print Ranklist
-   
-   public void ranklist()
+   // method for setting the tyre specifications
+    
+   public void settyre()
    {
-	   int i,j ;
-	 Car temp= new Car();
+   	System.out.println(" \t---- Setting the tyres for cars------");
+
+     for(int i=0;i<cars.length;i++)
+     {
+     		cars[i].retyre();
+     } 
+      startrace();
+   }
+
+   // method for conducting the race
+   public void startrace()
+   { 
+   	for(int i=0;i<cars.length;i++)
+   		{
+   			cars[i].racespeed();
+   			cars[i].racedistance();
+        }
+   }
+   //method for printing the ranklist
+
+   public void rankspeed()
+   {
+   	   System.out.println(" \t \t*********************");
+   	   int i,j ;
+	   Car temp;
 	 for(i=0;i<cars.length;i++)
 	 {
 		 for(j=0;j<cars.length;j++)
 		 {
-			 if(cars[i].basic_speed>cars[j].basic_speed)
+			 if(cars[i].practspeed>cars[j].practspeed)
 			 {
 				temp=cars[i];
 				cars[i]=cars[j];
@@ -102,11 +76,36 @@ public class Racetrack
 	 System.out.println(" \t \t ----the Winner is---"+cars[0].name+"\n");
 	 
 	 System.out.println(" \t \t ----RANK LIST---"+"\n");
+	 for(i=0;i<10;i++)
+	 {
+		 System.out.println((i+1)+" name--"+cars[i].name+"   speed--"+cars[i].practspeed);
+	 }
+   }
+
+   public void rankdistance()
+   {
+   	  System.out.println(" \t \t*********************");
+   	   int i,j ;
+	   Car temp;
 	 for(i=0;i<cars.length;i++)
 	 {
-		 System.out.println((i+1)+" name--"+cars[i].name+"   speed--"+cars[i].basic_speed);
+		 for(j=0;j<cars.length;j++)
+		 {
+			 if(cars[i].distance>cars[j].distance)
+			 {
+				temp=cars[i];
+				cars[i]=cars[j];
+				cars[j]=temp;
+			 }
+		 }
 	 }
+	 System.out.println(" \t \t ----the Winner is---"+cars[0].name+"\n");
 	 
+	 System.out.println(" \t \t ----RANK LIST---"+"\n");
+	 for(i=0;i<10;i++)
+	 {
+		 System.out.println((i+1)+" name--"+cars[i].name+"   distance--"+cars[i].distance);
+	 }
    }
-   
+
 }
