@@ -15,15 +15,14 @@ public class Tdd
 		{  
 		
 			System.out.println(" select your option	");
-			System.out.println(" 1:Add  \n 2:Search  \n 3:update  \n 4:Delete \n 5:View");
+			System.out.println(" 1:Add  \n 2:Search  \n 3:update  \n 4:View");
 			int option=sc.nextInt();
 			switch(option)
 			{
 				case 1:		createNewContact(control);break;
 				case 2:		searchContact(control);break;
 				case 3:		updateContact(control);break;
-				case 4:		deleteContact(control);break;
-				case 5:		readContacts(control);break;
+				case 4:		readContact(control);break;
 				default:	System.out.println("Enter the correct option!");
 							default_option=1;
 							break;
@@ -32,12 +31,36 @@ public class Tdd
 			continueOpt=sc.next().charAt(0);
 		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
 	}
-	public static void readContacts(ContactController control)
+	public static void readContact(ContactController control)
 	{
 		int length=control.getLength();
-		System.out.println("Name \t ContactNo");
+		System.out.println("contact List \n.................");
+		System.out.println("  Name \t ContactNo");
 		for(int i=0;i<length;i++)
+		{
+			System.out.print((i)+" ");
 			control.getContactDetails(i);
+		}
+	}
+	public static void updateContact(ContactController control)
+	{
+		Scanner sc=new Scanner(System.in);
+		int length=control.getLength();
+		System.out.println("contact List \n.................");
+		System.out.println("  Name \t ContactNo");
+		for(int i=0;i<length;i++)
+		{
+			System.out.print((i)+" ");
+			control.getContactDetails(i);
+		}
+		System.out.println("Select an option to continue \n 1:Edit \n2:Delete");
+		int select=sc.nextInt();
+		switch(select)
+		{
+			case 1: editContact(control);break;
+			case 2: deleteContact(control);break;
+		}
+
 	}
 	public static void createNewContact(ContactController control)
 	{
@@ -57,44 +80,26 @@ public class Tdd
 		for(int i=0;i<length;i++)
 		control.searchContact(i,name);
 	}
-	public static void updateContact(ContactController control)
+	public static void editContact(ContactController control)
 	{
 		Scanner sc=new Scanner(System.in);
-		int length=control.getLength();
-		System.out.println("contact List \n.................");
-		System.out.println("  Name \t ContactNo");
-		for(int i=0;i<length;i++)
+		System.out.println("enter the location to edit");
+		int position=sc.nextInt();
+		control.getContactDetails(position);
+		System.out.println("1:Edit Name \n2:Edit ContactNo ");
+		int select=sc.nextInt();
+		String name;long num;
+		switch(select)
 		{
-			System.out.print((i)+" ");
-			control.getContactDetails(i);
-		}
-			System.out.println("enter the location to edit");
-			int position=sc.nextInt();
-			control.getContactDetails(position);
-			System.out.println("1:Edit Name \n2:Edit ContactNo ");
-			int select=sc.nextInt();
-			String name;long num;
-			switch(select)
-			{
-				case 1:	System.out.println("Enter the new name");name=sc.next();
-						num=control.getNo(position);control.updateContact(position,name,num);System.out.println("updated!");break;
-				case 2: System.out.println("Enter the new number");num=sc.nextLong();
-						name=control.getName(position);control.updateContact(position,name,num);System.out.println("updated!");break;			
-			}	
-		
-		
+			case 1:	System.out.println("Enter the new name");name=sc.next();
+					num=control.getNo(position);control.updateContact(position,name,num);System.out.println("updated!");break;
+			case 2: System.out.println("Enter the new number");num=sc.nextLong();
+					name=control.getName(position);control.updateContact(position,name,num);System.out.println("updated!");break;			
+		}		
 	}
 	public static void deleteContact(ContactController control)
 	{
 		Scanner sc=new Scanner(System.in);
-		int length=control.getLength();
-		System.out.println("contact List \n.................");
-		System.out.println("  Name \t ContactNo");
-		for(int i=0;i<length;i++)
-		{
-			System.out.print((i)+" ");
-			control.getContactDetails(i);
-		}
 		System.out.println("enter the contact to delete");
 		int number=sc.nextInt() ;
 		control.deleteContact(number);

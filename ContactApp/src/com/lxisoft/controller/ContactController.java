@@ -1,16 +1,33 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.Contact;
+import java.io.*;
 import java.util.*;
 public class ContactController
 {
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	File file;
+	FileWriter fw;
+	FileReader fr;
 	Contact contact;
 	public void addContact(String name,long number)
 	{
-		contact=new Contact();
-		contact.setName(name);
-		contact.setNo(number);
-		contacts.add(contact);	
+		try
+		{
+			file=new File("C:\\Users\\PUSHKALA\\Desktop\\MVC\\src\\com\\lxisoft\\MyContactList.csv");
+			fw= new FileWriter(file);
+			fr=new FileReader(file);
+			fw.write("ashiq"+876543);
+			//String.split(fw);
+			fw.close();
+			contact=new Contact();
+			contact.setName(name);
+			contact.setNo(number);
+			contacts.add(contact);	
+		}
+		catch(IOException e)
+		{
+			System.out.println("Exception "+e);
+		}
 	}
 	public void searchContact(int i,String name)
 	{
