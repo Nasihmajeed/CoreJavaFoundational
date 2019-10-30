@@ -3,6 +3,6 @@ import com.lxisoft.contactmodel.*;
 import java.util.List;
 public interface FileDataSource
 {
-	String fileName="G:/git/CoreJavaFoundational/ContactApp/src/com/lxisoft/contactcontroller/contact.csv";
+	String fileName="G:/git/CoreJavaFoundational/ContactApp/src/com/lxisoft/repository/contact.csv";
 	public void createFile(List <Contact> contactList);
 }

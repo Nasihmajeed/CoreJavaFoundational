@@ -21,7 +21,8 @@ public class Repository implements FileDataSource
 			for(int k=0;k<contactList.size();k++)
 			{
 				int index=contactList.indexOf(contactList.get(k));
-				String id=String.valueOf(index);
+				int in=(index+1);
+				String id=String.valueOf(in);
 				fw.write(id);
 				fw.write(",");
 				fw.write(contactList.get(k).getContactName());
@@ -38,16 +39,24 @@ public class Repository implements FileDataSource
 		}	
 		readFile(contactList);
 	}
-	// public void readFile(List <Contact> contactList)
-	// {
-	// 	try
-	// 	{
-	// 		FileReader fr=new FileReader(contactFile);
-	// 		fr.read();
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(" error"+e);
-	// 	}
-	// }
+	public void readFile(List <Contact> contactList)
+	{
+		int size=0;
+		char[] contacts=new char[100];
+		try
+		{
+			FileReader fr=new FileReader(contactFile);
+			fr.read(contacts);
+			System.out.println(size+" ");
+			for(char c:contacts)
+			{
+				System.out.println(c);
+			}
+			fr.close();
+		}
+		catch(IOException e)
+		{
+			System.out.println(" error"+e);
+		}
+	}
 }

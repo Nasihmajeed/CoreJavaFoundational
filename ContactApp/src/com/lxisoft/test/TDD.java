@@ -13,7 +13,7 @@ public class TDD
 		List <Contact> contactsList=new ArrayList<Contact>();
 		int a=0;
 		System.out.println("\t <-----CONTACT APP MENU----->\n");
-		
+		contactsList=control.readContacts();
 		do
 		{
 			System.out.println("<---Enter your choice--->");
@@ -25,7 +25,6 @@ public class TDD
 				case 2: searchContact(control,contactsList); break;
 			}
 		}while(a!=3);
-		contactsList=control.readContacts();
 		getContact(control);
 		displayContacts(contactsList);
 	} 
