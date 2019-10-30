@@ -1,15 +1,13 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.Contact;
+import com.lxisoft.repository.Repository;
 import java.io.*;
 import java.util.*;
 public class ContactController
 {
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
-	File file;
-	FileWriter fw;
-	FileReader fr;
 	Contact contact;
-
+	Repository file=new Repository();
 	public void addContact(String name,long number)
 	{
 		//try
@@ -24,6 +22,7 @@ public class ContactController
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
+			file.createNewFile(contacts);
 		//}
 		// catch(IOException e)
 		// {
