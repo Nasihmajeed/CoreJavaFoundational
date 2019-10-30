@@ -19,7 +19,7 @@ public class Tdd
 		t.displayContact();
 		t.contactOptions();
 		Repository repository=new Repository();
-		repository.sample();
+		repository.setContact();
 	}
 
 	public void displayContact()
@@ -54,7 +54,7 @@ public class Tdd
 	{
 		while(true)
 		{
-			System.out.println("do you wish to continue y/n");
+			System.out.println("\ndo you wish to continue y/n");
 			char ch=sc.next().charAt(0);
 			if(ch!='y')
 				break;

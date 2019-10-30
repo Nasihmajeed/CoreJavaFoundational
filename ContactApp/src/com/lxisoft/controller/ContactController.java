@@ -1,6 +1,5 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.*;
-import java.util.Scanner;
 import java.util.ArrayList;
 import com.lxisoft.view.Tdd;
 
@@ -57,19 +56,23 @@ public class ContactController
 
 	public int contactSearch()
 	{
-		int i=0;
+		int i=0;int flag=0;
 		String element=t.scanElement(0);
 		for(Contact contact: array)
 		{
 			i++;
 			if((contact.getName()).equals(element))
 			{
+				flag=1;
 				t.elementFound(contact,i);
 				return i;
 			}
 		}
-		if(i==0)
+		if(flag==0)
+		{
 			t.noContact();
+			t.contactOptions();
+		}
 		return i;
 	}
 
