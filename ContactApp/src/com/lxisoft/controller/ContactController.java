@@ -4,44 +4,43 @@ import java.io.*;
 import java.util.*;
 public class ContactController
 {
-	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	File file;
 	FileWriter fw;
 	FileReader fr;
 	Contact contact;
+
 	public void addContact(String name,long number)
 	{
-		try
-		{
-			file=new File("C:\\Users\\PUSHKALA\\Desktop\\MVC\\src\\com\\lxisoft\\MyContactList.csv");
-			fw= new FileWriter(file);
-			fr=new FileReader(file);
-			fw.write("ashiq"+876543);
-			//String.split(fw);
-			fw.close();
+		//try
+		//{
+			// file=new File("C:\\Users\\PUSHKALA\\Desktop\\MVC\\src\\com\\lxisoft\\MyContactList.csv");
+			// fw= new FileWriter(file);
+			// fr=new FileReader(file);
+			// fw.write("ashiq"+876543);
+			// //String.split(fw);
+			// fw.close();
 			contact=new Contact();
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-		}
-		catch(IOException e)
-		{
-			System.out.println("Exception "+e);
-		}
+		//}
+		// catch(IOException e)
+		// {
+		// 	System.out.println("Exception "+e);
+		// }
 	}
-	public void searchContact(int i,String name)
+	public int searchContact(int i,String name)
 	{
-		
-		boolean search=contacts.contains(name);
-		//if(search)
+		//boolean search=contacts.contains(name);
+			int value=0;
 			if(name.equals(contacts.get(i).getName()))
 			{
+				value=1;
 				System.out.println(" Contact found..!");
 				getContactDetails(i);
 			}
-		
-		// else
-		// 	System.out.println(" There is no such contacts..!");
+			return value;
 	}
 	public void updateContact(int i,String name,long number)
 	{	
@@ -71,7 +70,4 @@ public class ContactController
 	{
 		return contacts.get(i).getNo();
 	}
-
-	
-
 }
