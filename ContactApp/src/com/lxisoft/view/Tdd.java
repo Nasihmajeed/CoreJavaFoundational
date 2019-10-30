@@ -4,10 +4,11 @@ import com.lxisoft.model.*;
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 import java.util.ArrayList;
+import com.lxisoft.contactrepository.*;
 
 public class Tdd
 {
-	Scanner sc=new Scanner(System.in);
+	static Scanner sc=new Scanner(System.in);
 	static ContactController controller=new ContactController();
 	
 	public static void main(String[] args)
@@ -17,6 +18,8 @@ public class Tdd
 		controller.setContact();
 		t.displayContact();
 		t.contactOptions();
+		Repository repository=new Repository();
+		repository.sample();
 	}
 
 	public void displayContact()
@@ -56,7 +59,7 @@ public class Tdd
 			if(ch!='y')
 				break;
 			processing();
-			System.out.println("\n press for features-->  0-Addition  1-searching  2-deletion  3-display");
+			System.out.println("\n press for features-->  0-Addition  1-searching  2-deletion  3-update  4-display");
 			int option=sc.nextInt();
 			controller.features(option);
 			System.out.println("\n");
@@ -81,9 +84,12 @@ public class Tdd
 		}
 	}
 
-	public String scanElement()
+	public String scanElement(int s)
 	{
-		System.out.println("enter the name to search/delete");
+		if(s==0)
+			System.out.println("enter the name to search/delete/update");
+		else if(s==1)
+			System.out.println("enter the update value");
 		String element=sc.next();
 		return element;
 	}
@@ -92,6 +98,18 @@ public class Tdd
 	{
 		System.out.print("Contact present at S.No:-"+(i)+"\t\tName- " +contact.getName());
 		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
+	}
+
+	public void noContact()
+	{
+		System.out.println("Contact not present");
+	}
+
+	public int updateScan()
+	{
+		System.out.println("for updating name-0  number-1");
+		int u=sc.nextInt();
+		return u;
 	}
 
 }

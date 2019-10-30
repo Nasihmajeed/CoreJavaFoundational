@@ -36,7 +36,8 @@ public class ContactController
 			case 0:contactAdd();break;
 			case 1:contactSearch();break;
 			case 2:contactDelete();break;
-			case 3:t.displayContact();break;
+			case 3:contactUpdate();break;
+			case 4:t.displayContact();break;
 		}
 	}
 
@@ -57,7 +58,7 @@ public class ContactController
 	public int contactSearch()
 	{
 		int i=0;
-		String element=t.scanElement();
+		String element=t.scanElement(0);
 		for(Contact contact: array)
 		{
 			i++;
@@ -68,7 +69,7 @@ public class ContactController
 			}
 		}
 		if(i==0)
-			System.out.println("Contact not present");
+			t.noContact();
 		return i;
 	}
 
@@ -80,6 +81,28 @@ public class ContactController
 			array.remove(i-1);
 		}
 		
+		t.displayContact();
+	}
+
+	public void contactUpdate()
+	{
+		int i=contactSearch();
+		int u=t.updateScan();
+		Contact contact=new Contact();  
+		String update=t.scanElement(1);
+		if(u==0)
+		{
+			contact=array.get((i-1));
+			contact.setName(update);
+			//contact.setNumber(number);
+			array.set((i-1),contact);
+		}
+		else if(u==1)
+		{
+			contact=array.get((i-1));
+			contact.setNumber(update);
+			array.set((i-1),contact);
+		}
 		t.displayContact();
 	}
 
