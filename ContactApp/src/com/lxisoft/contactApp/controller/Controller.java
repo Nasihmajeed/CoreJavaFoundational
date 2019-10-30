@@ -1,12 +1,8 @@
 package com.lxisoft.contactApp.controller;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import com.lxisoft.contactApp.model.Contact;
+import com.lxisoft.contactApp.repository.Repository;
 public class Controller 
 {
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
@@ -50,45 +46,13 @@ public class Controller
 		contacts.remove(delId-1);
 	}
 
-	public void createPhoneData()
+	public void fileFunctions()
 	{
-		File contactDetails=new File("ContactDetails.txt");
-		try
-		{
-			if(contactDetails.createNewFile())
-			{
-				System.out.println("Contact details file created "+contactDetails.getName());
-			}
-			else
-			{
-				System.out.println("Contact File already exists");
-			}
-		}
-		catch(IOException e)
-		{
-			System.out.println("contact details error");
-		}
+		Repository repo=new Repository();
+		//repo.createPhoneData();
+		repo.writeToFile();
+		System.out.println("file phone book created");
 	}
-
-	public void writeToFile()
-	{
-		try
-		{
-		  PrintWriter printer = null;
-          printer = new PrintWriter(new FileWriter("ContactDetails.txt",false));
-            printer.flush();
-          
-            for (Contact contact : contacts) 
-            {
-          		printer.print(contact.getId()+","+contact.getName()+","+contact.getNumber() );
-				printer.println();
-            }
-            printer.close();
-        }
-		catch ( Exception e ) 
-		{
-		    e.printStackTrace();
-		}
-		
-	}
+	
+	
 }
