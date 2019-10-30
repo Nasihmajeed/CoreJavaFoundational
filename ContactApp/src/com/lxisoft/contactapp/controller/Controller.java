@@ -1,15 +1,38 @@
 package com.lxisoft.contactapp.controller;
 import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.view.*;
 import java.util.*;
 public class Controller{
 	//Contact c=new Contact;
+	//Tdd tdd=new Tdd();
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
 public Contact save(Contact cc)
 {
 contacts.add(cc);
 return cc;
 }
-/*public Contact[] read(){
-	return c;
-  }*/
+public ArrayList<Contact> read(){
+	return contacts;
+  }
+
+public Contact search(String n){
+	Contact c=null;
+	int count=0;
+for(int i=0;i<contacts.size();i++){
+	if(n.equals(contacts.get(i).getName())){
+		count++;
+		c=contacts.get(i);
+      }
+    /* else
+     {
+     	 count++;
+     }*/
+   }
+   if(count==1){
+   		return c;
+   }
+   else{
+   	return null;
+   }
+ }
 }
