@@ -46,13 +46,13 @@ public class Controller
 		contacts.remove(delId-1);
 	}
 
-	/*public void fileFunctions()
+	public void fileFunctions()
 	{
 		Repository repo=new Repository();
 		//repo.createPhoneData();
 		repo.writeToFile();
 		System.out.println("file phone book created");
 	}
-	*/
+	
 	
 }
