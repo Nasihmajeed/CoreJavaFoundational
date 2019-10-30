@@ -27,7 +27,6 @@ public class ContactController
 			contact.setContactNumber(number[j]);
 			contactList.add(contact);
 		}	
-		repo.createFile(contactList);
 		return contactList;
 	}
 	public void addContact(String name,String number)
@@ -74,6 +73,9 @@ public class ContactController
 			}	
 		}
 	}
-
+	public void file()
+	{
+		repo.createFile(contactList);
+	}
 	
 }

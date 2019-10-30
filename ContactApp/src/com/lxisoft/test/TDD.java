@@ -64,6 +64,7 @@ public class TDD
 				case 2: deleteContact(control,n); break;
 			}
 		}while(a!=3);
+		control.file();
 	}
 	public static void addContact(ContactController control)
 	{
