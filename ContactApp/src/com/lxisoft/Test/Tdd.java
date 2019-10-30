@@ -10,15 +10,16 @@ public class Tdd
   static ArrayList <Contact> contactslist = new  ArrayList <Contact>();  
   static BufferedReader input = new BufferedReader(new InputStreamReader (System.in));
   static Scanner in = new Scanner(System.in);
+  static Controller control = new Controller();
   public static void main(String[] arg)
   {
     int a;
-    Controller control = new Controller();
+   
     do
     {
   	  System.out.println("\t\t\t***************MENU****************");
   	  System.out.println("\t\t\t1. ADD"+"\t\t\t2. DELETE\n");
-  	  System.out.println("\t\t\t3. DISPLAY"+"\t\t");
+  	  System.out.println("\t\t\t3. DISPLAY"+"\t\t4. EDIT");
   	  a = in.nextInt();
   	  switch(a)
   	  {
@@ -31,6 +32,9 @@ public class Tdd
           case 3 : //DISPLAY
                  displayAll(contactslist);
                  break;  
+          case 4 : // EDIT
+                editContact();  
+                break;     
       }
     }while(a!=3);
          //contactslist = control.addContact();
@@ -83,4 +87,22 @@ public class Tdd
            }catch(IOException e){}
     } 
 
+    public static void editContact()
+    { String b=null;
+      String a=null;
+      String c=null;
+      try{System.out.println("Enter the name for edit:");
+          a = input.readLine();
+          System.out.println("Enter the new name     :");
+          b = input.readLine();
+          System.out.println("Enter the new number   :");
+          c = input.readLine(); }catch(IOException e){}   
+          for(int i=0;i<contactslist.size();i++)
+          { System.out.println((contactslist.get(i).getName())+"*****"+a);
+            if(a.equals(contactslist.get(i).getName()))
+             {contactslist.remove(i);
+              contactslist=control.addContact(b,c);
+             }
+          }
+    }
 }
