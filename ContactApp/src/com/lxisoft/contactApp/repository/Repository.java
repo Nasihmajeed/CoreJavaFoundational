@@ -5,17 +5,19 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import com.lxisoft.contactApp.controller.Controller;
+import com.lxisoft.contactApp.model.Contact;
 public class Repository
 {
-	public File contactDetails;
+	public static File phoneBook;
 	public void createPhoneData()
 	{
 		try
 		{
-			contactDetails=new File("D:\\contactApp\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactApp\\repository\\PhoneBook.txt");
-			if(contactDetails.createNewFile())
+			phoneBook=new File("D:\\contactApp\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactApp\\repository\\PhoneBook.txt");
+			if(phoneBook.createNewFile())
 			{
-				System.out.println("Contact details file created "+contactDetails.getName());
+				System.out.println("Contact details file created "+phoneBook.getName());
 			}
 			else
 			{
@@ -31,13 +33,15 @@ public class Repository
 
 	public void writeToFile()
 	{
+		Controller controller=new Controller();
+
 		try
 		{
 		  PrintWriter printer = null;
-          printer = new PrintWriter(new FileWriter(contactDetails,false));
+          printer = new PrintWriter(new FileWriter(phoneBook,false));
             printer.flush();
           
-            for (Contact contact : contacts) 
+            for (Contact contact : controller.getContacts()) 
             {
            printer.print(contact.getId()+","+contact.getName()+","+contact.getNumber() );
 			printer.println();
