@@ -11,15 +11,19 @@ public static void main(String[] args) {
 	Tdd t=new Tdd();
 	do{
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
-	System.out.println(" 1- create new contact\n2-DISPLAY\n3-search ");
+	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete ");
 	 int x=t.s.nextInt();
 	 switch(x){
 	 	case 1:t.setContact();
 	 			break;
 	 	case 2:t.display(t.control.read());
-	 	break;
+	 			break;
 	 	case 3:t.searchContact();
-	 	break;
+	 			break;
+	 	case 4:t.updateContact();
+	 			break;
+	 	case 5:t.deleteContact();
+	 			break;
 	 }
 	}while(true); 
   }
@@ -29,7 +33,7 @@ int n=s.nextInt();
 	for(int i=0;i<n;i++){
 		Contact cc=new Contact();
 		System.out.println("Enter the name : ");
-		cc.setName(s.next());
+		cc.setName(ss.next());
 		System.out.println("Enter the number : ");
 		cc.setNumber(s.nextLong());
 		control.save(cc);
@@ -43,7 +47,8 @@ public void display(ArrayList<Contact> contacts){
 }
 public void searchContact(){
 System.out.println("Enter name to search : ");
-Contact c=control.search(s.next());
+String n=ss.next();
+Contact c=control.search(n);
 if(c==null){
 	System.out.println("cannot find");
      }
@@ -51,17 +56,22 @@ else{
 	System.out.println("User ");
 	  System.out.println(c.getName());
 	  System.out.println(c.getNumber());
-}
-
-/*for(int i=0;i<contacts.size();i++){
-	if(n.equals(contacts.get(i).getName())){
-		System.out.println(" is in the contact list");
-		System.out.print("contact number = "+contacts.get(i).getNumber());
-	}
-	/*else{
-		System.out.println("cannot find");
-	}
-	} */
-   }
+    }
   }
-
+public void updateContact(){
+System.out.println("Enter contact name : ");
+String n=ss.next();
+control.update(n);
+Contact c=new Contact();
+System.out.println("Enter new name : ");
+c.setName(ss.next());
+System.out.println("Enter new number : ");
+c.setNumber(s.nextLong());	
+control.save(c);
+   }
+public void deleteContact(){
+System.out.println("Enter contact name to delete : ");
+String n=ss.next();
+control.delete(n);
+  }
+ }

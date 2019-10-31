@@ -3,8 +3,6 @@ import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.view.*;
 import java.util.*;
 public class Controller{
-	//Contact c=new Contact;
-	//Tdd tdd=new Tdd();
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
 public Contact save(Contact cc)
 {
@@ -23,10 +21,6 @@ for(int i=0;i<contacts.size();i++){
 		count++;
 		c=contacts.get(i);
       }
-    /* else
-     {
-     	 count++;
-     }*/
    }
    if(count==1){
    		return c;
@@ -35,4 +29,21 @@ for(int i=0;i<contacts.size();i++){
    	return null;
    }
  }
+public void update(String cn){
+for(int i=0;i<contacts.size();i++){
+	if(cn.equals(contacts.get(i).getName())){
+		contacts.remove(i);
+          }
+       }
+} 
+public void delete(String cn){
+for(int i=0;i<contacts.size();i++){
+	if(cn.equals(contacts.get(i).getName())){
+		contacts.remove(i);
+          }
+       }
+} 
+
+
+
 }
