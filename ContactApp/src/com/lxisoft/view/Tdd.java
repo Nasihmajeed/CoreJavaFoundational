@@ -47,7 +47,7 @@ public class Tdd
 		String[] array=new String[5];
 		switch(option)
 		{
-			case 1:search(control);break;
+			case 1:searchContact(control);break;
 			case 2:val=1;break;
 		}
 		if(val==1)
@@ -74,7 +74,7 @@ public class Tdd
 		System.out.println("contact Name:	");
 		String name=sc.next();
 		System.out.println("number ");
-		long number=sc.nextLong();
+		String number=sc.next();
 		control.addContact(name,number);
 	}
 	public static void search(ContactController control)
@@ -116,12 +116,12 @@ public class Tdd
 		Scanner sc=new Scanner(System.in);
 		System.out.println("1:Edit Name \n2:Edit ContactNo \n3:Main menu ");
 		int select=sc.nextInt();
-		String name;long num;
+		String name;String num;
 		switch(select)
 		{
 			case 1:	System.out.println("Enter the new name");name=sc.next();
 					num=control.getNo(i);control.updateContact(i,name,num);System.out.println("updated!");break;
-			case 2: System.out.println("Enter the new number");num=sc.nextLong();
+			case 2: System.out.println("Enter the new number");num=sc.next();
 					name=control.getName(i);control.updateContact(i,name,num);System.out.println("updated!");break;	
 			case 3:	String[] array=new String[5];main(array);break;	
 		}		

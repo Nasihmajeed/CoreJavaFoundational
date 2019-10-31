@@ -2,13 +2,13 @@ package com.lxisoft.model;
 public class Contact
 {
 	private String contactName;
-	private long phno;
+	private String phno;
 	
 	public void setName(String name)
 	{
 		contactName=name;
 	}
-	public void setNo(long ph)
+	public void setNo(String ph)
 	{
 		phno=ph;
 	}
@@ -16,7 +16,7 @@ public class Contact
 	{
 		return contactName;
 	}
-	public long getNo()
+	public String getNo()
 	{
 		return phno;
 	}

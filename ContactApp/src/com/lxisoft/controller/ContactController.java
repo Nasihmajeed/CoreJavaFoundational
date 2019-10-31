@@ -8,30 +8,16 @@ public class ContactController
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	Contact contact;
 	Repository file=new Repository();
-	public void addContact(String name,long number)
+	public void addContact(String name,String number)
 	{
-		//try
-		//{
-			// file=new File("C:\\Users\\PUSHKALA\\Desktop\\MVC\\src\\com\\lxisoft\\MyContactList.csv");
-			// fw= new FileWriter(file);
-			// fr=new FileReader(file);
-			// fw.write("ashiq"+876543);
-			// //String.split(fw);
-			// fw.close();
 			contact=new Contact();
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-			file.createNewFile(contacts);
-		//}
-		// catch(IOException e)
-		// {
-		// 	System.out.println("Exception "+e);
-		// }
+			file.saveFile(contacts);
 	}
 	public int searchContact(int i,String name)
 	{
-		//boolean search=contacts.contains(name);
 			int value=0;
 			if(name.equals(contacts.get(i).getName()))
 			{
@@ -41,7 +27,7 @@ public class ContactController
 			}
 			return value;
 	}
-	public void updateContact(int i,String name,long number)
+	public void updateContact(int i,String name,String number)
 	{	
 		contact=new Contact();
 		contact.setName(name);
@@ -65,7 +51,7 @@ public class ContactController
 	{
 		return contacts.get(i).getName();
 	}
-	public long getNo(int i)
+	public String getNo(int i)
 	{
 		return contacts.get(i).getNo();
 	}
