@@ -73,9 +73,9 @@ public class ContactController
 			}	
 		}
 	}
-	public void file()
+	public void file(List <Contact> contactsList)
 	{
-		repo.createFile(contactList);
+		repo.createFile(contactsList);
 	}
 	
 }
