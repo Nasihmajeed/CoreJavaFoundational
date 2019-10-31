@@ -13,7 +13,8 @@ public class TDD
 		controller=new Controller();
 		controller.setInitialContacts();
 		System.out.println("********contact set*********");
-		controller.fileFunctions();
+		controller.fileCreation();
+		//controller.fileFunctions();
 		//controller.createPhoneData();
 		//controller.writeToFile();
 		printMenu();
@@ -45,6 +46,7 @@ public class TDD
 				break;
 
 				case 5:
+				controller.store();
 				return;
 
 			}

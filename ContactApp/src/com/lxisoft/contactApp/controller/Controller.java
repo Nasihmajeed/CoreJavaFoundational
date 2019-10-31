@@ -5,6 +5,7 @@ import com.lxisoft.contactApp.model.Contact;
 import com.lxisoft.contactApp.repository.Repository;
 public class Controller 
 {
+	static Repository repo=new Repository();
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	public void setInitialContacts()
 	{
@@ -48,11 +49,19 @@ public class Controller
 
 	public void fileFunctions()
 	{
-		Repository repo=new Repository();
-		//repo.createPhoneData();
-		repo.writeToFile();
+		repo.writeToFile(contacts);
 		System.out.println("file phone book created");
 	}
 	
+	public void fileCreation()
+	{
+		repo.createPhoneData();
+
+	}
+
+	public void store()
+	{
+		repo.storeData();
+	}
 	
 }
