@@ -5,15 +5,19 @@ import java.util.*;
 import java.io.*;
 public class Repository implements FileStorage
 {  
-	File contactFile=new File(fileName) ;
-	public void createNewFile(ArrayList<Contact> contacts)
+	static File contactFile=new File(fileName) ;
+	
+	//public void createNewFile(ArrayList<Contact> contacts)
+	static
 	{
 		try
 		{
-			FileWriter newFile=new FileWriter(contactFile);
-			newFile.write(" ID , NAME , NUMBER \n");
-			newFile.flush();
-			saveFile(contacts);
+			FileWriter newFile=new FileWriter(contactFile,true);
+			BufferedWriter br = new BufferedWriter(newFile);
+			br.write(" ID , NAME , NUMBER \n");
+			br.flush();
+			br.close();
+			//saveFile(contacts);
 		}
 		catch(IOException e)
 		{
@@ -28,10 +32,10 @@ public class Repository implements FileStorage
 			BufferedWriter br = new BufferedWriter(fw);
 			for(int i=0;i<contacts.size();i++)
 			{  
-				Contact x=contacts.get(i);
-				int index=((contacts.indexOf(x))+1);
-				String id=String.valueOf(index);
-				br.write(id +","+contacts.get(i).getName()+","+contacts.get(i).getNo()+"\n");
+				//Contact x=contacts.get(i);
+				//int index=((contacts.indexOf(x))+1);
+				//String id=String.valueOf(index);
+				br.write(i+" ,"+contacts.get(i).getName()+","+contacts.get(i).getNo()+"\n");
 			}
 			br.flush();
 			br.close();
