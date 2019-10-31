@@ -1,31 +1,28 @@
-package com.lxisoft.contactrepository;
+package com.lxisoft.repository;
 import java.io.*;
 import com.lxisoft.model.*;
-import com.lxisoft.view.Tdd;
-import com.lxisoft.contactrepository.FileStorage;
+import java.util.ArrayList;
+import com.lxisoft.repository.FileStorage;
+import com.lxisoft.view.ContactView;
 
-public class Repository implements FileStorage
+public class ContactRepository implements FileStorage
 {
 	File file;
-	Tdd t;
 	FileWriter fw;
 	Contact contact;
+	ContactView contactview=new ContactView();
 
-    public void setContact()
+    public void setContact(ArrayList<Contact> array)
 	{
 		try
 		{
 			file=new File(directory);
-			t=new Tdd();
-			fw=new FileWriter(file);
-			int n=t.inputContact();
+			fw=new FileWriter(file,true);
 			fw.write("Sl.No,Name,Number\n");
-			for (int i=0;i<n;i++)
+			int i=0;
+			for(Contact contact: array)
 			{
-				String[] temp=t.scan(i);
-				contact=new Contact();
-				contact.setName(temp[0]);
-				contact.setNumber(temp[1]);
+				i++;
 				fw.write((i+1)+","+contact.getName()+","+contact.getNumber()+"\n");
 			}
 			fw.close();
@@ -36,6 +33,13 @@ public class Repository implements FileStorage
 		}
 		
 	}
+		// ArrayList<Contact> array=controller.getContact();
+		
+		// {
+		// 	System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
+		// 	System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
+		// }
+
 
  //    public void contactAdd()
  //    {
