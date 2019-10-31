@@ -1,12 +1,14 @@
 package com.lxisoft.Controllers;
 
 import com.lxisoft.Models.*;
+import com.lxisoft.Repository.*;
 import java.io.*;
 import java.util.*;
 
 public class ContactControl
 {
-	private ArrayList<Contact> contacts =new ArrayList<Contact>();	
+	private ArrayList<Contact> contacts =new ArrayList<Contact>();
+	Repository repo=new Repository();	
 
 	
 
@@ -24,6 +26,9 @@ public class ContactControl
 		contact.setName(name);
 		contact.setNo(no);
 		contacts.add(contact);
+		repo.updateFile(contacts);
+		repo.restoreContacts();
+
 	}
 	public void getContactDetail(int i)
 	{
