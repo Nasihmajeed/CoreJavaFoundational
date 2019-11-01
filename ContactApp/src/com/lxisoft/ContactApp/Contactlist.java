@@ -8,10 +8,10 @@ public class Contactlist
 	int l=4;
   public void start()
   {
-  	    contact[0]= new Contact("Balu",99587489);
-        contact[1]= new Contact("Abhijith",9989689);
-        contact[2]= new Contact("sanoop",95933333);
-        contact[3]= new Contact("anjaly",933333333);
+  	    contact[0]= 
+        contact[1]= 
+        contact[2]= 
+        contact[3]= 
 
 	do{
     System.out.println("-----ENTER CHOICE------- \n 1 = Add new contact \n 2 = Search \n 3 = display ");
@@ -54,6 +54,74 @@ public class Contactlist
  }
  public void search()
  {
+ 	do{
+ 	Scanner read = new Scanner(System.in);
+ 	System.out.println(" 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU");
+    int x= read.nextInt();
+    switch(x)
+    {
+    	case 1 : edit(); break;
+    	case 2 : delete(); break;
+    	case 3 : start(); break;
+    }
+	} while(true);
+
+ }
+ public void edit()
+ {
+ 	Scanner read = new Scanner(System.in);
+ 	System.out.println("Enter the name");
+ 	String name = read.nextLine();
+ 	int f=0;
+ 	for(int i=0;i<l;i++)
+ 	{   
+ 		if(name.equals(contact[i].name))
+ 		{
+ 			
+ 			System.out.println("Enter the new name");
+ 			//Scanner read = new Scanner(System.in);
+ 			String newname = read.nextLine();
+ 			contact[i].name=newname;
+ 			System.out.println("Enter the new number");
+ 			//Scanner read = new Scanner(System.in);
+ 			long newnumber = read.nextLong();
+ 			contact[i].number=newnumber;
+ 			System.out.println("updated as new contact");
+ 		}
+ 		else
+ 		{
+ 		  f=1;	
+ 		}
+
+ 	}
+ 	if(f==1)
+ 	{
+ 		System.out.println("NOT FOUND");
+ 	}
+
+ 	
+ }
+ public void delete()
+ {
+ 	Scanner read = new Scanner(System.in);
+ 	System.out.println("Enter the name");
+ 	String name = read.nextLine();
+ 	for(int i=0;i<l;i++)
+ 	{   
+ 		//System.out.println(contact[1].name+"deleted from your contact list");
+ 		if(name.equals(contact[i].name))
+ 		{
+ 			System.out.println(contact[i].name+"deleted from your contact list");
+ 			contact[i]=null;
+ 			
+ 		}
+ 		else 
+ 		{
+ 		 
+ 		}
+
+ 	}
+
 
  }
 }
