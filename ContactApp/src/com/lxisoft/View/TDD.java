@@ -16,17 +16,19 @@ public class TDD
 		
 		int loop=0;
 		int repeat=0; 
+		control.initialization();
 		do
 		{
 			repeat=0;
 			loop=0;
-			System.out.println("enter 1 add  2 search 3 view all ");
+			System.out.println("enter 1 add  2 search 3 view all  4 clear all");
 			int select=sc.nextInt();
 			switch(select)
 			{
 				case 1: setNewContact(control);break;
 				case 2: searchContact(control);break;
 				case 3: getAllContacts(control);break;
+				case 4: clearAllContacts(control);break;
 				default:System.out.println("enter the correct option");
 						repeat=1;
 			}
@@ -40,7 +42,7 @@ public class TDD
 		System.out.println("Enter the contact name: ");
 		String name=sc.next();
 		System.out.println("Enter the phone nmbr: ");
-		long no=sc.nextLong();
+		String no=sc.next();
 		control.setNewContact(name,no);
 						
 	}
@@ -94,7 +96,7 @@ public class TDD
 		System.out.println("Enter new contact name: ");
 		String name=sc.next();
 		System.out.println("Enter new phone nmbr: ");
-		long no=sc.nextLong();
+		String no=sc.next();
 		control.updateContact(search,name,no);
 		System.out.println("contact modified Succesfully....!");
 
@@ -104,6 +106,11 @@ public class TDD
 		control.deleteContact(location);
 		System.out.println("contact deleted Succesfully....!");
 
+
+	}
+	public static void clearAllContacts(ContactControl control)
+	{
+		control.clearAllContacts();
 
 	}
 	

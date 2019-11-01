@@ -10,25 +10,36 @@ public class ContactControl
 	private ArrayList<Contact> contacts =new ArrayList<Contact>();
 	Repository repo=new Repository();	
 
+	public  void initialization()
+	{
+		Contact contact=new Contact();
+		contacts=repo.initialization(contacts,contact);
+	}
+
 	
 
 
 
-	public void updateContact(int i,String name, long no)
+	public void updateContact(int i,String name, String no)
 	{
 		contacts.get(i).setName(name);
 		contacts.get(i).setNo(no);
 		System.out.println("Done..");
 	}
-	public void setNewContact(String name, Long no)
+	public void setNewContact(String name, String no)
 	{
 		Contact contact=new Contact();
 		contact.setName(name);
 		contact.setNo(no);
 		contacts.add(contact);
-		repo.updateFile(contacts);
+		repo.updateFile(contact);
 		repo.restoreContacts();
 
+	}
+	public void clearAllContacts()
+	{
+		contacts.clear();
+		repo.clearAll();
 	}
 	public void getContactDetail(int i)
 	{

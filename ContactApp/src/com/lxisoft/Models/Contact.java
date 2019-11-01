@@ -3,12 +3,12 @@ package com.lxisoft.Models;
 public class Contact
 {
 	private String name;
-	private long phno;
+	private String phno;
 	public void setName(String name)
 	{
 		this.name=name;
 	}
-	public void setNo(long phno)
+	public void setNo(String phno)
 	{
 		this.phno=phno;
 	}
@@ -16,7 +16,7 @@ public class Contact
 	{
 		return name;
 	}
-	public long getNo()
+	public String getNo()
 	{
 		return phno;
 	}
