@@ -1,32 +1,30 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.*;
+import java.util.Scanner;
 import java.util.ArrayList;
-import com.lxisoft.view.ContactView;
-import com.lxisoft.repository.*;
+import com.lxisoft.view.Tdd;
+import com.lxisoft.contactrepository.*;
 
 public class ContactController
 {
 	ArrayList<Contact> array=new ArrayList<Contact>();
-	ContactView contactview;
-	ContactRepository repository;
+	Tdd t;
 
 	public void setContact()
 	{
-		repository=new ContactRepository();
-		contactview=new ContactView();
-		int n=contactview.inputContact();
+		t=new Tdd();
+		int n=t.inputContact();
 		for (int i=0;i<n;i++)
 		{
-			String[] temp=contactview.scan(i);
+			String[] temp=t.scan(i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
-			System.out.print("cjkdscds "+temp[0]+temp[1]);
 			array.add(i,contact);
 		}
-		contactview.displayContact();
-		// repository.setContact(array);
-		// contactview.displayContact();
+		Repository repository=new Repository();
+		repository.setFile(array);
+		repository.fileRead();
 	}
 	
 	public ArrayList<Contact> getContact()
@@ -42,77 +40,96 @@ public class ContactController
 			case 1:contactSearch();break;
 			case 2:contactDelete();break;
 			case 3:contactUpdate();break;
-			case 4:contactview.displayContact();break;
+			case 4:t.displayContact();break;
 		}
 	}
 
 	public void contactAdd()
 	{
-		int n=contactview.inputContact();
+		int n=t.inputContact();
 		for (int i=0;i<n;i++)
 		{
-			String[] temp=contactview.scan(i);
+			String[] temp=t.scan(i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
 			array.add(array.size(),contact);
 		}
-		contactview.displayContact();
+		t.displayContact();
 	}
 
-	public int contactSearch()
+	public int[] contactSearch()
 	{
 		int i=0;int flag=0;
-		String element=contactview.scanElement(0);
+		int[] cs=new int[2];
+		String element=t.scanElement(0);
 		for(Contact contact: array)
 		{
 			i++;
 			if((contact.getName()).equals(element))
 			{
 				flag=1;
-				contactview.elementFound(contact,i);
-				return i;
+				t.elementFound(contact,i);
+				cs[0]=i;
 			}
 		}
-		if(flag==0)
-		{
-			contactview.noContact();
-			contactview.contactOptions();
-		}
-		return i;
+		cs[1]=flag;
+		return cs;
 	}
 
 	public void contactDelete()
 	{
-		int i=contactSearch();
+		int[] cs=contactSearch();
+		int i=cs[0];
 		if(i!=0)
 		{
 			array.remove(i-1);
 		}
 		
-		contactview.displayContact();
+		t.displayContact();
 	}
 
 	public void contactUpdate()
 	{
-		int i=contactSearch();
-		int u=contactview.updateScan();
-		Contact contact=new Contact();  
-		String update=contactview.scanElement(1);
-		if(u==0)
+		int[] cs=contactSearch();
+		int i=cs[0];
+		if(cs[1]!=0)
 		{
-			contact=array.get((i-1));
-			contact.setName(update);
-			//contact.setNumber(number);
-			array.set((i-1),contact);
+			int u=t.updateScan();
+			Contact contact=new Contact();  
+			String update=t.scanElement(1);
+			if(u==0)
+			{
+				contact=array.get((i-1));
+				contact.setName(update);
+				//contact.setNumber(number);
+				array.set((i-1),contact);
+			}
+			else if(u==1)
+			{
+				contact=array.get((i-1));
+				contact.setNumber(update);
+				array.set((i-1),contact);
+			}
+			t.displayContact();
 		}
-		else if(u==1)
+		else
 		{
-			contact=array.get((i-1));
-			contact.setNumber(update);
-			array.set((i-1),contact);
+			t.noContact();
 		}
-		contactview.displayContact();
 	}
 
 }
+
+
+// public void print()
+// 	{
+		
+// 		ArrayList<Contact> array;
+// 		array=controller.setContact();
+// 		for(Contact contact: array)
+// 		{
+// 			System.out.println("namell = " + contact.getName());
+// 			System.out.println("Numberll = " + contact.getNumber());
+// 		}
+// 	}
