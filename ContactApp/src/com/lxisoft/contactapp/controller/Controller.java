@@ -1,9 +1,11 @@
 package com.lxisoft.contactapp.controller;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.view.*;
+import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
+ Repository repo=new  Repository();
 public Contact save(Contact cc)
 {
 contacts.add(cc);
@@ -11,6 +13,7 @@ return cc;
 }
 public ArrayList<Contact> read(){
 	return contacts;
+	repo.setFile(contacts);
   }
 
 public Contact search(String n){

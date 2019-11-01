@@ -28,7 +28,7 @@ public static void main(String[] args) {
 	}while(true); 
   }
 public void setContact(){
-System.out.println("Enter number of contacts : ");
+System.out.println("\n\nEnter number of contacts : ");
 int n=s.nextInt();
 	for(int i=0;i<n;i++){
 		Contact cc=new Contact();
@@ -37,6 +37,7 @@ int n=s.nextInt();
 		System.out.println("Enter the number : ");
 		cc.setNumber(s.nextLong());
 		control.save(cc);
+		System.out.println("(contact saved sucssesfully )");
     }
 }
 public void display(ArrayList<Contact> contacts){
@@ -46,20 +47,20 @@ public void display(ArrayList<Contact> contacts){
 	}
 }
 public void searchContact(){
-System.out.println("Enter name to search : ");
+System.out.println("\n\nEnter name to search : ");
 String n=ss.next();
 Contact c=control.search(n);
 if(c==null){
 	System.out.println("cannot find");
      }
 else{
-	System.out.println("User ");
+	System.out.println("\n User ");
 	  System.out.println(c.getName());
 	  System.out.println(c.getNumber());
     }
   }
 public void updateContact(){
-System.out.println("Enter contact name : ");
+System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
 control.update(n);
 Contact c=new Contact();
@@ -68,10 +69,12 @@ c.setName(ss.next());
 System.out.println("Enter new number : ");
 c.setNumber(s.nextLong());	
 control.save(c);
+System.out.println("(contact updated sucssesfully )");
    }
 public void deleteContact(){
-System.out.println("Enter contact name to delete : ");
+System.out.println("\n\nEnter contact name to delete : ");
 String n=ss.next();
 control.delete(n);
+System.out.println("---------"+n+" deleted from the contact");
   }
  }
