@@ -14,7 +14,7 @@ public class ContactController
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-			file.saveFile(contacts);
+			file.saveContacts(contact);
 	}
 	public int searchContact(int i,String name)
 	{
