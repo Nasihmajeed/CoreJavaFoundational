@@ -9,6 +9,7 @@ public class Tdd
  {
 	System.out.println(" \t \t ----CONTACT LIST------- \n");
 	Contactlist contactlist = new Contactlist();
+	//contactlist.defualt();
 	contactlist.start();
    	
  }

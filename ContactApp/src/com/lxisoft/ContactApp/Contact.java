@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Contact
 {
 	String name;
-    long number;
-   
-    public Contact(String name,long number)
+    String number;
+
+    public Contact(String name,String number)
     {
     	this.name=name;
     	this.number=number;
