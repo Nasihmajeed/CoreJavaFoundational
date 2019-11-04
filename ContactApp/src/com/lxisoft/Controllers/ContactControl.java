@@ -14,8 +14,22 @@ public class ContactControl
 	{
 		Contact contact=new Contact();
 		contacts=repo.initialization(contacts,contact);
-	}
 
+		for(int i=0;i<contacts.size();i++)
+			{
+				System.out.print(i +" ");
+				contact= getContactDetail(i);
+				System.out.println("Name : "+contact.getName());
+			}
+	}
+	public void resetRepo()
+	{
+		repo.clearAll();
+		for(int i=0;i<contacts.size();i++)
+		{
+			repo.updateFile(contacts.get(i));
+		}
+	}
 	
 
 
@@ -24,7 +38,6 @@ public class ContactControl
 	{
 		contacts.get(i).setName(name);
 		contacts.get(i).setNo(no);
-		System.out.println("Done..");
 	}
 	public void setNewContact(String name, String no)
 	{
@@ -33,34 +46,29 @@ public class ContactControl
 		contact.setNo(no);
 		contacts.add(contact);
 		repo.updateFile(contact);
-		repo.restoreContacts();
-
+	}
+	public void viewAllContacts()
+	{
+		repo.viewAllContacts();
 	}
 	public void clearAllContacts()
 	{
 		contacts.clear();
 		repo.clearAll();
 	}
-	public void getContactDetail(int i)
+	public Contact getContactDetail(int i)
 	{
-		System.out.print("Name : "+contacts.get(i).getName());
-		System.out.println(" \t No : "+contacts.get(i).getNo());
-
+		return contacts.get(i);
 	}
-	public void getContactName(int i)
+	
+	public Contact getContactDetail(int i,String search)
 	{
-		System.out.println("Name : "+contacts.get(i).getName()+"\t");
-	}
-	public int getContactDetail(int i,String search)
-	{
-		int value=0;
+		Contact contact=null;
 		if(search.equals(contacts.get(i).getName()))
 		{
-			System.out.print("Contact found ! \n Name : "+contacts.get(i).getName());
-			System.out.println(" \t No : "+contacts.get(i).getNo());
-			value=1;
+			contact=contacts.get(i);
 		}
-		return value;
+		return contact;
 	}
 	public int getContactsLength()
 	{

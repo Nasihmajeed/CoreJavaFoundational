@@ -32,15 +32,18 @@ public class Repository implements FileRepository
 			String str=br.readLine();
 			while((str=br.readLine())!=null)
 			{
-				String[] strln=str.split(",",3);
+				String[] strln=str.split(",",2);
+				contact=new Contact();
 				contact.setName(strln[0]);
 				contact.setNo (strln[1]) ;
 				contacts.add(contact);
+
 			}
 		}catch(Exception e)
 		{
 			System.out.println("error");
 		}
+		
 		return contacts;
 	} 
 
@@ -79,7 +82,7 @@ public class Repository implements FileRepository
 			System.out.println("error occure : "+e);
 		}
 	}
-	public void restoreContacts()
+	public void viewAllContacts()
 	{
 		try
 		{

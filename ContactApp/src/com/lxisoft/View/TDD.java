@@ -10,25 +10,32 @@ import com.lxisoft.Controllers.*;
 public class TDD
 {
 	static	ContactControl control=new ContactControl();
+
+	
+	static
+	{
+		control.initialization();	
+	}
+
 	public static void main(String[] args) 
 	{
 		Scanner sc=new Scanner(System.in);
 		
 		int loop=0;
 		int repeat=0; 
-		control.initialization();
 		do
 		{
 			repeat=0;
 			loop=0;
-			System.out.println("enter 1 add  2 search 3 view all  4 clear all");
+			System.out.println("enter 1 add  2 search 3 view all Arraylist 4 view all File Contacts  5 clear all");
 			int select=sc.nextInt();
 			switch(select)
 			{
 				case 1: setNewContact(control);break;
 				case 2: searchContact(control);break;
 				case 3: getAllContacts(control);break;
-				case 4: clearAllContacts(control);break;
+				case 4: viewAllContacts();break;
+				case 5: clearAllContacts(control);break;
 				default:System.out.println("enter the correct option");
 						repeat=1;
 			}
@@ -50,30 +57,43 @@ public class TDD
 	{
 		Scanner sc=new Scanner(System.in);
 		int length=control.getContactsLength();
-		for(int i=0;i<length;i++)
+		if(length==0)
 		{
-			System.out.print(i +" ");
-			control.getContactName(i);
+			System.out.println("No contacts has been added...!");
 		}
-		System.out.println("select a contact by no :");
-		int select=sc.nextInt();
-		control.getContactDetail(select);
-		int repeat=0;
-		do
-		{
-			System.out.println(" 1 edit 2 delete 3 back to main");
-			int choice=sc.nextInt();
-			String[] array=new String[5];
-			switch(choice)
+		else
+		{	
+			for(int i=0;i<length;i++)
 			{
-				case 1 : modifyContact(control,select);break;
-				case 2 : deleteContact(control,select);break; 
-				case 3 : main(array);break; 
-				default : repeat=1;
+				System.out.print(i +" ");
+				Contact contact= control.getContactDetail(i);
+				System.out.println("Name : "+contact.getName());
 			}
-		}while(repeat==1);
-
-
+			int loop=0;
+			int select=0;
+			do
+			{
+				System.out.println("select a contact by no :");
+				select=sc.nextInt();
+			}while(select+1>length);
+			Contact contact= control.getContactDetail(select);
+			System.out.print("Name : "+contact.getName());
+			System.out.println(" \t No : "+contact.getNo());
+			int repeat=0;
+			do
+			{
+				System.out.println(" 1 edit 2 delete 3 back to main");
+				int choice=sc.nextInt();
+				String[] array=new String[5];
+				switch(choice)
+				{
+					case 1 : modifyContact(control,select);break;
+					case 2 : deleteContact(control,select);break; 
+					case 3 : main(array);break; 
+					default : repeat=1;
+				}
+			}while(repeat==1);
+		}
 
 	}
 	public static void searchContact(ContactControl control)
@@ -82,13 +102,19 @@ public class TDD
 		int length=control.getContactsLength();
 		System.out.println("enter name to search");
 		String search=sc.next();
-		boolean found=false;
+		Contact contact=null;
 		for(int i=0;i<length;i++)
 		{
-			int value=control.getContactDetail(i,search);
-			if (value==1) found=true;
+			contact=control.getContactDetail(i,search);
 		}
-		if(found==false)System.out.println("Contact not found..! ");
+		if(contact!=null)
+		{
+			System.out.print("Contact found ! \n Name : "+contact.getName());
+			System.out.println(" \t No : "+contact.getNo());
+		}
+
+		else	System.out.println("Contact not found..! ");
+
 	}
 	public static void modifyContact(ContactControl control, int search)
 	{
@@ -99,19 +125,24 @@ public class TDD
 		String no=sc.next();
 		control.updateContact(search,name,no);
 		System.out.println("contact modified Succesfully....!");
+		control.resetRepo();
 
 	}
 	public static void deleteContact(ContactControl control,int location)
 	{
 		control.deleteContact(location);
 		System.out.println("contact deleted Succesfully....!");
-
+		control.resetRepo();
 
 	}
 	public static void clearAllContacts(ContactControl control)
 	{
 		control.clearAllContacts();
 
+	}
+	public static void viewAllContacts()
+	{
+		control.viewAllContacts();
 	}
 	
 
