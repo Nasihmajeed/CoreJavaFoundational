@@ -7,14 +7,19 @@ public class ContactController
 {
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	Contact contact;
-	Repository file=new Repository();
+	Repository filerepo=new Repository();
+	public void getFileData()
+	{
+		contact=new Contact();
+		contacts=filerepo.getFileDetails(contact,contacts);
+	}
 	public void addContact(String name,String number)
 	{
 			contact=new Contact();
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-			file.saveContacts(contact);
+			filerepo.saveContacts(contact);
 	}
 	public int searchContact(int i,String name)
 	{
@@ -54,5 +59,10 @@ public class ContactController
 	public String getNo(int i)
 	{
 		return contacts.get(i).getNo();
+	}
+	public void deleteAllContacts()
+	{
+		filerepo.deleteAllContacts();
+		contacts.clear();
 	}
 }

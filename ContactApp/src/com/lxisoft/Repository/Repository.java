@@ -5,18 +5,52 @@ import java.util.*;
 import java.io.*;
 public class Repository implements FileStorage
 {  
-	File contactFile=new File(fileName) ;
+	static File contactFile=new File(fileName) ;
+	public ArrayList<Contact> getFileDetails(Contact contact,ArrayList<Contact> contacts)
+	{
+
+		try
+		{
+			FileWriter fw= new FileWriter(contactFile,true);
+			BufferedReader read=new BufferedReader(new FileReader(contactFile));
+			String str=read.readLine();
+			while((read.readLine())!=null) 
+			{
+				contact=new Contact();
+				String[] st=str.split(",",3);
+				contact.setName(st[1]);
+				contact.setNo (st[2]);
+				contacts.add(contact);
+			}	
+		}
+		catch(IOException e)
+		{
+			System.out.println("File exception "+e);
+		}
+		return contacts;
+	}
+	public void deleteAllContacts()
+	{
+		try
+		{
+			FileWriter fr= new FileWriter(contactFile);
+		}	
+		catch(IOException e)
+		{
+			System.out.println("Exception!!! "+e);
+		}
+	}
 	public void saveContacts(Contact contacts)
 	{
 		try
 		{
 			int index=0;
-			//System.out.println(contactFile.exists());
+			System.out.println(contactFile.exists());
 			if(contactFile.exists())
 			{
 				//BufferedReader br=new BufferedReader(new FileReader(contactFile));
 				//String index=String.(br.readLine(index));
-				saveFile(contacts,index);
+				index=saveFile(contacts,index);
 			}
 			else
 			{
@@ -60,14 +94,14 @@ public class Repository implements FileStorage
 		try
 		{
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			//String str=read.readLine();
-			while((read.readLine())!=null) 
+			String str;//=read.readLine();
+			while((str=read.readLine())!=null) 
 			{
 				// String [] strln=str.split(",",3);
 				// System.out.println(strln[0]);
 				// System.out.println(strln[1]);
 				// System.out.println(strln[2]);
-				System.out.println(read.readLine());
+				System.out.println(str);
 			}
 		}
 		catch(IOException e)

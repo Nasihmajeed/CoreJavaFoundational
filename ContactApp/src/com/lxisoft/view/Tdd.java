@@ -10,10 +10,11 @@ public class Tdd
 		Scanner sc=new Scanner(System.in);
 		int default_option=0;
 		char continueOpt='\0';
+		control.getFileData();
 		do
 		{  
 			System.out.println(" <---Contact App Menu--->");
-			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:Exit");
+			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n 5:Exit ");
 			System.out.println(" select your option	");
 			int option=sc.nextInt();
 			switch(option)
@@ -21,7 +22,8 @@ public class Tdd
 				case 1:		createNewContact(control);break;
 				case 2:		searchContact(control);break;
 				case 3:		readContact(control);break;
-				case 4:		continueOpt='n';break;
+				case 4:		deleteAllContacts(control);break;
+				case 5:		continueOpt='n';break;
 				default:	System.out.println("Enter the correct option!");
 							default_option=1;break;
 			}
@@ -77,19 +79,21 @@ public class Tdd
 		String number=sc.next();
 		control.addContact(name,number);
 	}
-	public static void search(ContactController control)
-	{
-		Scanner sc=new Scanner(System.in);
-		int length=control.getLength();
-		System.out.println(" Enter the name to search:");
-		String name=sc.next();
-		int value=0,i;
-		for(i=0;i<length;i++)
-		{
-			value=control.searchContact(i,name);
-			updateContact(control,i);
-		}
-	}
+	// public static void search(ContactController control)
+	// {
+	// 	Scanner sc=new Scanner(System.in);
+	// 	int length=control.getLength();
+	// 	System.out.println(" Enter the name to search:");
+	// 	String name=sc.next();
+	// 	int value=0,i;
+	// 	for(i=0;i<length;i++)
+	// 	{
+	// 		value=control.searchContact(i,name);
+	// 		if value==1
+	// 			System.out.println(" Contact found..!");
+	// 			updateContact(control,i);
+	// 	}
+	// }
 	public static void searchContact(ContactController control)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -129,5 +133,10 @@ public class Tdd
 	public static void deleteContact(ContactController control,int i)
 	{
 		control.deleteContact(i);
+		System.out.println("contact Deleted!");
+	}
+	public static void deleteAllContacts(ContactController control)
+	{
+		control.deleteAllContacts();
 	}
 }
