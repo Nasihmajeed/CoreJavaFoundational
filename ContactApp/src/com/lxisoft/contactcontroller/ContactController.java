@@ -75,7 +75,7 @@ public class ContactController
 	}
 	public void file(List <Contact> contactsList)
 	{
-		repo.createFile(contactsList);
+		repo.writeFile(contactsList);
 	}
 	
 }
