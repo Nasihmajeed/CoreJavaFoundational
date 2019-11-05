@@ -2,19 +2,19 @@ package com.lxisoft.controller;
 import com.lxisoft.model.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-import com.lxisoft.view.Tdd;
 import com.lxisoft.contactrepository.*;
+import com.lxisoft.view.View;
 
 public class ContactController
 {
-	Tdd t=new Tdd();
+	View view=new View();
 	Repository repository=new Repository();
 	ArrayList<Contact> array=new ArrayList<Contact>();
 
 	public ArrayList<Contact> checkFile()
 	{
 		array=repository.check(array);
-		t.displayContact(array);
+		view.displayContact(array);
 		return array;
 	}
 	
@@ -26,17 +26,17 @@ public class ContactController
 			case 1:contactSearch(array);repository.syncFile(array);break;
 			case 2:array=contactDelete(array);repository.syncFile(array);break;
 			case 3:array=contactUpdate(array);repository.syncFile(array);break;
-			case 4:t.displayContact(array);break;
+			case 4:view.displayContact(array);break;
 			case 5:repository.fileRead(array);break;
 		}
 	}
 
 	public ArrayList<Contact> setContact(ArrayList<Contact> array)
 	{
-		int n=t.inputContact();
+		int n=view.inputContact();
 		for (int i=0;i<n;i++)
 		{
-			String[] temp=t.scan(i);
+			String[] temp=view.scan(i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
@@ -47,16 +47,16 @@ public class ContactController
 
 	public ArrayList<Contact> contactAdd(ArrayList<Contact> array)
 	{
-		int n=t.inputContact();
+		int n=view.inputContact();
 		for (int i=0;i<n;i++)
 		{
-			String[] temp=t.scan(i);
+			String[] temp=view.scan(i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
 			array.add(array.size(),contact);
 		}
-		t.displayContact(array);
+		view.displayContact(array);
 		return array;
 	}
 
@@ -64,13 +64,13 @@ public class ContactController
 	{
 		int i=0;int flag=0;
 		int[] ret=new int[2];
-		String element=t.scanElement(0);
+		String element=view.scanElement(0);
 		for(Contact contact: array)
 		{
 			if((contact.getName()).equals(element))
 			{
 				flag=1;
-				t.elementFound(contact,i);
+				view.elementFound(contact,i);
 				i++;
 			}
 		}
@@ -86,7 +86,7 @@ public class ContactController
 		int flag=ret[1];
 		if(flag==0)
 		{
-			t.noContact();
+			view.noContact();
 		}
 		else if(flag==1)
 		{
@@ -95,7 +95,7 @@ public class ContactController
 				array.remove(i-1);
 			}
 		}
-		t.displayContact(array);
+		view.displayContact(array);
 		return array;
 	}
 
@@ -106,12 +106,12 @@ public class ContactController
 		int flag=ret[1];
 		if(flag==0)
 		{
-			t.noContact();
+			view.noContact();
 		}
 		else if(flag==1)
 		{
-			int u=t.updateScan(); 
-			String update=t.scanElement(1);
+			int u=view.updateScan(); 
+			String update=view.scanElement(1);
 			if(u==0)
 			{
 				Contact contact=new Contact(); 
@@ -127,7 +127,7 @@ public class ContactController
 				array.set((i-1),contact);
 			}
 		}
-		t.displayContact(array);
+		view.displayContact(array);
 		return array;
 	}
 

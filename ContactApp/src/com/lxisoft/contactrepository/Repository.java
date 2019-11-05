@@ -68,7 +68,7 @@ public class Repository implements FileStorage
 			BufferedReader  br=new BufferedReader(fr);
 			String details;
 			System.out.println("THE FILE IS ");
-			System.out.println(" SL.NO , NAME , NUMBER");
+			System.out.println("SL.NO, NAME, NUMBER");
 			while((details=br.readLine())!=null)
 			{
 				if(j!=0)
