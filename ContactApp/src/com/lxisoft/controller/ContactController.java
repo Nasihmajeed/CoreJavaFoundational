@@ -67,11 +67,11 @@ public class ContactController
 		String element=t.scanElement(0);
 		for(Contact contact: array)
 		{
-			i++;
 			if((contact.getName()).equals(element))
 			{
 				flag=1;
 				t.elementFound(contact,i);
+				i++;
 			}
 		}
 		ret[0]=i;
@@ -117,7 +117,6 @@ public class ContactController
 				Contact contact=new Contact(); 
 				contact=array.get((i-1));
 				contact.setName(update);
-				//contact.setNumber(number);
 				array.set((i-1),contact);
 			}
 			else if(u==1)
