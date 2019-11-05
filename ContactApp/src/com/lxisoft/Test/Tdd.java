@@ -14,7 +14,6 @@ public class Tdd
   public static void main(String[] arg)
   {
     int a;
-   
     do
     {
   	  System.out.println("\t\t\t***************MENU****************");
@@ -66,7 +65,7 @@ public class Tdd
             System.out.println("Name   "+(i+1)+":"+contactslist.get(i).getName());
             System.out.println("Number "+(i+1)+":"+contactslist.get(i).getNumber());
            // System.out.println("Name   "+(i+1)+":"+contactslist.get(i).getId());
-           
+             
           }
     }
   
@@ -103,6 +102,6 @@ public class Tdd
              {contactslist.remove(i);
               contactslist=control.addContact(b,c);
              }
-          }
+          }  control.file(contactslist);
     }
 }
