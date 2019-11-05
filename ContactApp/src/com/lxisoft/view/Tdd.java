@@ -9,22 +9,20 @@ import com.lxisoft.contactrepository.*;
 public class Tdd
 {
 	static Scanner sc=new Scanner(System.in);
-	static ContactController controller=new ContactController();
 	
 	public static void main(String[] args)
 	{
+		ContactController controller=new ContactController();
 		System.out.print(" \n\n");
 		Tdd t=new Tdd();
-		controller.setContact();
-		t.displayContact();
-		t.contactOptions();
+		ArrayList<Contact> array=controller.checkFile();
+		t.contactOptions(array);
 	}
 
-	public void displayContact()
+	public void displayContact(ArrayList<Contact> array)
 	{
 		int i=1;
 		System.out.print("\n THE CONTACT LIST IS \n");
-		ArrayList<Contact> array=controller.getContact();
 		for(Contact contact: array)
 		{
 			System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
@@ -48,8 +46,9 @@ public class Tdd
 		return temp;
 	}
 
-	public void contactOptions()
+	public void contactOptions(ArrayList<Contact> array)
 	{
+		ContactController controller=new ContactController();
 		while(true)
 		{
 			System.out.println("\ndo you wish to continue y/n");
@@ -57,9 +56,9 @@ public class Tdd
 			if(ch!='y')
 				break;
 			processing();
-			System.out.println("\n press for features-->  0-Addition  1-searching  2-deletion  3-update  4-display");
+			System.out.println("\n press for features-->  0-Addition  1-searching  2-deletion  3-update  4-display  5-displayFile");
 			int option=sc.nextInt();
-			controller.features(option);
+			controller.features(array,option);
 			System.out.println("\n");
 		}
 		System.out.println("\t\t\t\t THANK YOU");	
@@ -111,66 +110,3 @@ public class Tdd
 	}
 
 }
-
-
-
-
-// public static void totalPerson()
-// 	{
-// 		Scanner sc=new Scanner(System.in);
-// 		Person person=new Person();
-// 		System.out.println("enter total no of persons ");
-// 		person.setTotal((sc.nextInt()));
-// 		System.out.println("++++ total no of persons "+person.getTotal());
-// 	}
-// public void scan()
-// 	{
-// 		System.out.println("enter the name");
-// 		String name=sc.next();
-// 		array.set(0).setName(name);
-// 		System.out.println("enter the name");
-// 		String number=sc.next();
-// 		array.set(0).setNumber(number);
-// 	}
-
-// 	public void print()
-// 	{
-// 		System.out.println("name "+array.get(0).getName());
-// 		System.out.println("name "+array.get(0).getNumber());
-// 	}
-// public ArrayList<Integer> contactSearch()
-// 	{
-// 		int i=0,count=0;
-// 		ArrayList<Integer> values=new ArrayList<Integer>();
-// 		String element=t.scanElement();
-// 		for(Contact contact: array)
-// 		{
-// 			if((contact.getName()).equals(element))
-// 			{
-// 				values.add(count,i);
-// 				t.elementFound(contact,i);
-// 				System.out.println("fdsjfdshfdj11"+values.get(count));
-// 				++count;
-// 			}
-// 			++i;
-// 		}
-// 		for (int k=0;k<values.size();k++)
-// 		{
-// 			System.out.println("fdsjfdshfdj22"+values.get(k));
-// 		}
-// 		if(count==0)
-// 			System.out.println("Contact not present");
-// 		return values;
-// 	}
-
-// 	public void contactDelete()
-// 	{
-// 		ArrayList<Integer> values=contactSearch();
-// 		for (int k=0;k<values.size();k++)
-// 		{
-// 			System.out.println("fdsjfdshfdj333"+values.get(k));
-// 			int v=values.get(k+1);
-// 			array.remove(v);
-// 		}
-// 		t.displayContact();
-// 	}

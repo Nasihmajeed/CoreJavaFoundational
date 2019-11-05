@@ -2,22 +2,24 @@ package com.lxisoft.contactrepository;
 import java.io.*;
 import com.lxisoft.model.*;
 import java.util.ArrayList;
+import com.lxisoft.view.Tdd;
 import com.lxisoft.contactrepository.FileStorage;
 
 public class Repository implements FileStorage
 {
+	Tdd t=new Tdd();
 	File file=new File(directory);
 	static int i=0;
-	//ContactView contactview=new ContactView();
+	//Contact contact=new Contact();
 
-    public void setFile(ArrayList<Contact> array)
+	public ArrayList<Contact> check(ArrayList<Contact> array)
 	{
 		try
 		{
-			System.out.println(file.exists());
 			if(file.exists())
 			{
-				i=saveFile(array);
+				array=initialFileRead();
+				System.out.println(" data already in contact file");
 			}
 			else
 			{
@@ -26,17 +28,16 @@ public class Repository implements FileStorage
 				br.write(" SL.NO , NAME , NUMBER\n");
 				br.flush();
 				br.close();
-				i=saveFile(array);
 			}
 		}
 		catch(IOException e)
 		{
 			System.out.println("Exception: "+e);
 		}
-		
-	}	
+		return array;
+	}
 
-	public int saveFile(ArrayList<Contact> array)
+	public ArrayList<Contact> addToFile(ArrayList<Contact> array)
 	{
 		try
 		{
@@ -54,61 +55,81 @@ public class Repository implements FileStorage
 		{
 			System.out.println("Exception: "+e);
 		}
-		return i;
+		return array;
 	}
 
-	public void fileRead()
+	public ArrayList<Contact> initialFileRead()
+	{
+		ArrayList<Contact> array=new ArrayList<Contact>();
+		try
+		{
+			int j=0;
+			FileReader fr=new FileReader(file);
+			BufferedReader  br=new BufferedReader(fr);
+			String details;
+			System.out.println("THE FILE IS ");
+			System.out.println(" SL.NO , NAME , NUMBER");
+			while((details=br.readLine())!=null)
+			{
+				if(j!=0)
+				{
+					System.out.println(details);
+					String[] data=details.split(",");
+					Contact contact=new Contact();
+					contact.setName(data[1]);
+					contact.setNumber(data[2]);
+					array.add(array.size(),contact);
+				}
+				j++;
+			}
+			br.close();
+		}
+		catch(IOException e)
+		{
+			System.out.println("Exception: "+e);
+		}
+		return array;
+	}	
+
+	public void fileRead(ArrayList<Contact> array)
 	{
 		try
 		{
-			FileReader fr=new FileReader(file);
-			BufferedReader  br=new BufferedReader(fr);
-			while((br.readLine())!=null)
+			System.out.println("THE FILE IS ");
+			FileReader fr1=new FileReader(file);
+			BufferedReader  br1=new BufferedReader(fr1);
+			String details;
+			while((details=br1.readLine())!=null)
 			{
-				System.out.println(br.readLine());
+				System.out.println(details);
 			}
+			br1.close();
 		}
 		catch(IOException e)
 		{
 			System.out.println("Exception: "+e);
 		}
 	}	
+
+	public void syncFile(ArrayList<Contact> array)
+	{
+		try
+		{
+			int j=0;
+			FileWriter fwr1=new FileWriter(file);
+			BufferedWriter bw1=new BufferedWriter(fwr1);
+			bw1.write(" SL.NO , NAME , NUMBER\n");
+			for(Contact contact: array)
+			{
+				j++;
+				bw1.write((j)+","+contact.getName()+","+contact.getNumber()+"\n");
+			}
+			bw1.flush();
+			bw1.close();
+		}
+		catch(IOException e)
+		{
+			System.out.println("Exception: "+e);
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-// ArrayList<Contact> array=controller.getContact();
-		
-		// {
-		// 	System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
-		// 	System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-		// }
-
-
- //    public void contactAdd()
- //    {
-
- //    }
-	// public int contactSearch()
-	// public void contactDelete()
-	// public void contactUpdate()
-
-// System.out.println("File name :"+f.getName()); 
-//         System.out.println("Path: "+f.getPath()); 
-//         System.out.println("Absolute path:" +f.getAbsolutePath()); 
-//         System.out.println("Parent:"+f.getParent()); 
-//         System.out.println("Exists :"+f.exists()); 
-//         if(f.exists()) 
-//         { 
-//             System.out.println("Is writeable:"+f.canWrite()); 
-//             System.out.println("Is readable"+f.canRead()); 
-//             System.out.println("Is a directory:"+f.isDirectory()); 
-//             System.out.println("File Size in bytes "+f.length()); 
-//         } 
