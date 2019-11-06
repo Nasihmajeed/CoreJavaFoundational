@@ -7,7 +7,7 @@ public class Tdd
 	static ContactController control=new ContactController();
 	static
 	{
-		int x=0;
+		//int x=0;
 		control.getFileInfo();
 	}
 	public static void main(String []args)
@@ -17,7 +17,7 @@ public class Tdd
 		char continueOpt='\0';
 		do
 		{  
-			System.out.println(" <---Contact App Menu--->");
+			System.out.println(" \n<---Contact App Menu--->");
 			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n 5:Exit ");
 			System.out.println(" select your option	");
 			int option=sc.nextInt();
@@ -65,7 +65,7 @@ public class Tdd
 	public static void updateContact(ContactController control,int i)
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Select an option to continue \n 1:Edit \n2:Delete \n3:Main menu");
+		System.out.println("Select an option to continue \n1:Edit \n2:Delete \n3:Main menu");
 		int select=sc.nextInt();
 		switch(select)
 		{
@@ -104,13 +104,17 @@ public class Tdd
 		int length=control.getLength();
 		System.out.println(" Enter the name to search:");
 		String name=sc.next();
-		int value=0;
+		int value=0,val=0;
 		for(int i=0;i<length;i++)
 		{
 			value=control.searchContact(i,name);
-			updateContact(control,i);
+			if(value==1)
+			{
+				updateContact(control,i);
+				val=1;
+			}
 		}
-	     if(value==0)
+	     if(val==0)
 				contactNotFound();
 		
 	}

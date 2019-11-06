@@ -12,10 +12,19 @@ public class ContactController
 	{
 		contact=new Contact();
 		contacts=filerepo.getFileDetails(contact,contacts);
-		for(int i=0;i<contacts.size();i++)
+		if(contacts.size()==0)
 		{
-			System.out.print((i+1)+" ");
-			getContactDetails(i);
+			System.out.println("Your Contact List empty ");
+		}
+		else
+		{
+			System.out.println(" \n<----Contact List---->");
+			System.out.println("ID\tNAME\tCONTACT_NO\n");
+			for(int i=0;i<contacts.size();i++)
+			{
+				System.out.print((i+1)+"\t");
+				getContactDetails(i);
+			}
 		}
 	}
 	public void addContact(String name,String number)
@@ -24,7 +33,7 @@ public class ContactController
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-			filerepo.addContactDetails(contact);
+			filerepo.setContacts(contact);
 	}
 	public int searchContact(int i,String name)
 	{
@@ -43,12 +52,17 @@ public class ContactController
 		contact.setName(name);
 		contact.setNo(number);
 		contacts.set(i,contact);
-		//filerepo.updateFileData(contact,i);
+		filerepo.deleteAllContacts();
+		for(int j=0;j<contacts.size();j++)
+		{
+			filerepo.setContacts(contacts.get(j));
+		}
 	}
 	public void deleteContact(int i)
 	{
 		contacts.remove(i);
-		System.out.println("contact Deleted!");
+		filerepo.deleteAllContacts();
+		filerepo.setContacts(contacts.get(i));
 	}
 	public int getLength()
 	{

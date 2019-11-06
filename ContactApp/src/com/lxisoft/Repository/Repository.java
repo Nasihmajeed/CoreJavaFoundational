@@ -1,4 +1,6 @@
 package com.lxisoft.repository;
+
+
 import com.lxisoft.controller.ContactController;
 import com.lxisoft.model.Contact;
 import java.util.*;
@@ -6,7 +8,7 @@ import java.io.*;
 public class Repository implements FileStorage
 {  
 	static File contactFile=new File(fileName) ;
-	static int id=1; 
+	static int id=0;
 	public ArrayList<Contact> getFileDetails(Contact contact,ArrayList<Contact> contacts)
 	{
 		try
@@ -15,6 +17,7 @@ public class Repository implements FileStorage
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
+				id++;
 				String[] st=str.split(",",3);
 				contact=new Contact();
 				contact.setName(st[1]);
@@ -24,7 +27,7 @@ public class Repository implements FileStorage
 		}
 		catch(IOException e)
 		{
-			System.out.println("File exception "+e);
+			System.out.println(" ");
 		}
 		return contacts;
 	}
@@ -33,26 +36,25 @@ public class Repository implements FileStorage
 	// 	try
 	// 	{
 	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
+	// 		FileWriter fw= new FileWriter(contactFile,true);
+	// 		BufferedWriter br = new BufferedWriter(fw);
 	// 		String str=read.readLine();
 	// 		while((str=read.readLine())!=null) 
 	// 		{
-	// 			//String[] st=str.split(",",3);
-	// 			//contact=new Contact();
-	// 			// contact.setName(st[1]);
-	// 			// contact.setNo(st[2]);
-	// 			// contacts.set(i,contact);
-	// 			FileWriter fw= new FileWriter(contactFile,true);
-	// 			BufferedWriter br = new BufferedWriter(fw);
-	// 			//BufferedReader read=new BufferedReader(new FileReader(contactFile));
-	// 			br.write(index+","+contacts.getName()+","+contacts.getNo()+"\n");
-	// 			br.flush();
-	// 			br.close();
-	// 		}	
+	// 			String[] st=str.split(",",3);
+	// 			String index=String.valueOf(i);
+	// 			if(st[0].equals(index));
+	// 			{
+	// 				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+	// 			}
+	// 		}
+			//br.flush();
+	// 		br.close();	
 	// 	}
 	// 	catch(IOException e)
 	// 	{
 	// 		System.out.println("File exception "+e);
-	// 	}return contacts;
+	// 	}
 	// }
 
 	public void deleteAllContacts()
@@ -60,24 +62,23 @@ public class Repository implements FileStorage
 		try
 		{
 			FileWriter fr= new FileWriter(contactFile);
+			id=0;
 		}	
 		catch(IOException e)
 		{
 			System.out.println("Exception!!! "+e);
 		}
 	}
-	public void addContactDetails(Contact contacts)
+	public void setContacts(Contact contacts)
 	{
 		try
 		{
-			System.out.println(contactFile.exists());
 			if(contactFile.exists())
 			{
 				FileWriter fw= new FileWriter(contactFile,true);
 				BufferedWriter br = new BufferedWriter(fw);
-				//BufferedReader read=new BufferedReader(new FileReader(contactFile));
-				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
 				id++;
+				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
 				br.flush();
 				br.close();
 			}
@@ -86,8 +87,8 @@ public class Repository implements FileStorage
 				FileWriter newFile=new FileWriter(contactFile);
 				BufferedWriter br = new BufferedWriter(newFile);
 				br.write("ID , NAME , NUMBER \n");
-				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
 				id++;
+				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
 				br.flush();
 				br.close();
 			}
@@ -96,23 +97,23 @@ public class Repository implements FileStorage
 		{
 			System.out.println("File exception "+e);
 		}
-		readFileData();
+		//readFileData();
 	}
-	public void readFileData()
-	{
-		try
-		{
-			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			String str="";
-			while((str=read.readLine())!=null) 
-			{
-				System.out.println(str);
-			}
-		}
-		catch(IOException e)
-		{
-			System.out.println("File exception "+e);
-		}
-	}
+	// public void readFileData()
+	// {
+	// 	try
+	// 	{
+	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
+	// 		String str="";
+	// 		while((str=read.readLine())!=null) 
+	// 		{
+	// 			System.out.println(str);
+	// 		}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("File exception "+e);
+	// 	}
+	// }
 
 }
