@@ -16,25 +16,30 @@ public class ContactController
 	{
 		return contactList;
 	}
-	public List<Contact> readContacts()
+	
+
+	public List<Contact> getFileInfo()
 	{
-		String[] name={"mehar","ninu","megha","amirtha","meharu"};
-		String[] number={"90456372","95396006","90481532","96569884","98466423"};
-		for(int j=0;j<5;j++)
+		contactList=repo.getFileDetails(contactList);
+		if(contactList.size()==0)
 		{
-			Contact contact=new Contact();
-			contact.setContactName(name[j]);
-			contact.setContactNumber(number[j]);
-			contactList.add(contact);
+			System.out.println(" ");
+		}
+		else
+		{
+			System.out.println(" ");
 		}	
 		return contactList;
 	}
+
+
 	public void addContact(String name,String number)
 	{
 		Contact cont=new Contact();
 		cont.setContactName(name);
 		cont.setContactNumber(number);
 		contactList.add(cont);
+		repo.writeFile(cont);
 	}
 	public Contact searchContact(int n)
 	{
@@ -72,10 +77,6 @@ public class ContactController
 				contactList.set(i,c);
 			}	
 		}
-	}
-	public void file(List <Contact> contactsList)
-	{
-		repo.writeFile(contactsList);
 	}
 	
 }
