@@ -14,7 +14,9 @@ public class TDD
 	
 	static
 	{
-		control.initialization();	
+		boolean backup=control.initialization();
+		if(backup)System.out.println("Contacts restored !!!");
+		else System.out.println("No backup details found");	
 	}
 
 	public static void main(String[] args) 
@@ -138,11 +140,12 @@ public class TDD
 	public static void clearAllContacts(ContactControl control)
 	{
 		control.clearAllContacts();
-
+		System.out.println("All contacts has been deleted...$$$");
 	}
 	public static void viewAllContacts()
 	{
-		control.viewAllContacts();
+		boolean add=control.viewAllContacts();
+		if(add)System.out.println("No contacts has been added...!");
 	}
 	
 

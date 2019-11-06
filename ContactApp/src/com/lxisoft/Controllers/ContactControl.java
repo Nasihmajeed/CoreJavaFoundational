@@ -10,17 +10,13 @@ public class ContactControl
 	private ArrayList<Contact> contacts =new ArrayList<Contact>();
 	Repository repo=new Repository();	
 
-	public  void initialization()
+	public  boolean initialization()
 	{
+		boolean backup=false;
 		Contact contact=new Contact();
 		contacts=repo.initialization(contacts,contact);
-
-		for(int i=0;i<contacts.size();i++)
-			{
-				System.out.print(i +" ");
-				contact= getContactDetail(i);
-				System.out.println("Name : "+contact.getName());
-			}
+		if (contacts.size()!=0)backup=true;
+		return backup;
 	}
 	public void resetRepo()
 	{
@@ -30,9 +26,6 @@ public class ContactControl
 			repo.updateFile(contacts.get(i));
 		}
 	}
-	
-
-
 
 	public void updateContact(int i,String name, String no)
 	{
@@ -47,9 +40,10 @@ public class ContactControl
 		contacts.add(contact);
 		repo.updateFile(contact);
 	}
-	public void viewAllContacts()
+	public boolean viewAllContacts()
 	{
-		repo.viewAllContacts();
+		boolean add=repo.viewAllContacts();
+		return add;
 	}
 	public void clearAllContacts()
 	{
