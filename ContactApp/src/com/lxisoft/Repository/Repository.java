@@ -67,7 +67,6 @@ public class Repository implements FileRepository
 			count++;
 			fw.write(count +","+contact.getName()+","+contact.getNo()+"\n");
 			fw.flush();
-
 			
 		}catch(Exception e)
 		{
