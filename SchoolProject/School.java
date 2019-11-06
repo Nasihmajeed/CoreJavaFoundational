@@ -6,6 +6,7 @@ String name,classRoom;
 int code,noOfStudents;
 Student[] students = new Student[5];
 Teacher teacher = new Teacher();
+Student student;
 void details()
  { 
 	System.out.println("Enter School Name");
@@ -18,12 +19,7 @@ void details()
 	System.out.println("How Many Students");
     noOfStudents = scanner.nextInt();
 	setDetails();
-	System.out.println("School Name     : "+name);
-	System.out.println("School Code     : "+code);
-	System.out.println("ClassRoom       : "+classRoom);
-	getTeacher();
-	System.out.println("No Off Students : "+noOfStudents);
-	getDetails();
+	yesNo();
  }
  void setDetails()
  {
@@ -43,11 +39,12 @@ void details()
 	   students[i].chemistry=scanner.nextInt();
 	   System.out.println("Enter Maths Mark");
 	   students[i].maths=scanner.nextInt();
+	   students[i].setTotal(students[i].physics,students[i].chemistry,students[i].maths);
       }
  }
  void getDetails()
  {
-	 Student student = new Student();
+   student = new Student();
    for(int i=0;i<noOfStudents;i++)
     {
 	   System.out.println("Name        : "+students[i].name);
@@ -55,16 +52,90 @@ void details()
 	   System.out.println("Physics     : "+students[i].physics);
 	   System.out.println("Chemistry   : "+students[i].chemistry);
 	   System.out.println("Maths       : "+students[i].maths);
-	   student.totalMark(students[i].physics,students[i].chemistry,students[i].maths);
+	   students[i].getTotal();
     }
   }
-void setTeacher()
+ void setTeacher()
     {
 	  System.out.println("Enter Teacher Name : ");
 	  teacher.name = scanner.next();
     }	
-void getTeacher()
+ void getTeacher()
     {
 	  System.out.println("Teacher Name   : "+teacher.name);
     }
+ void yesNo()
+	{
+		student = new Student();
+		String yes = "yes",no = "no";
+		System.out.println("Do you want to Display the school details ? yes or no");
+	    String yesNo = scanner.next();
+	    if (yesNo.equals(yes))
+		{
+			System.out.println("School Name : "+name);
+			System.out.println("School Code : "+code);
+			System.out.println("Class Room  : "+classRoom);
+			getTeacher();
+			System.out.println("Number of Students : "+noOfStudents);
+			getDetails();
+		}
+		else if (yesNo.equals(no))
+		{
+			String pass = "pass",fail = "fail";
+			System.out.println("pass Students or fail Students ?");
+			String failPass = scanner.next();
+			if(failPass.equals(pass))
+			{
+				for(int i=0;i<noOfStudents;i++)
+				{
+					if(students[i].percentage>40)
+					{
+						System.out.println("Student Name : "+students[i].name);
+						System.out.println("Register No  : "+students[i].regNo);
+						System.out.println("Percentage   : "+students[i].percentage+" %");
+					}
+				}
+				System.out.println("Do you want to display Fail Students ?");
+				yesNo = scanner.next();
+				if(yesNo.equals(yes))
+				{
+					for(int i=0;i<noOfStudents;i++)
+					{
+						if(students[i].percentage<40)
+						{
+					    System.out.println("Student Name : "+students[i].name);
+						System.out.println("Register No  : "+students[i].regNo);
+						System.out.println("Percentage   : "+students[i].percentage+" %");
+					    }
+					}
+				}
+			}
+			else if(failPass.equals(fail))
+			{
+				for(int i=0;i<noOfStudents;i++)
+				{
+					if(students[i].percentage<40)
+					{
+			            System.out.println("Student Name : "+students[i].name);
+						System.out.println("Register No  : "+students[i].regNo);
+						System.out.println("Percentage   : "+students[i].percentage+" %");
+					}						
+				}
+				System.out.println("Do you want to display Pass Students ?");
+				yesNo = scanner.next();
+				if(yesNo.equals(yes))
+				{
+					for(int i=0;i<noOfStudents;i++)
+					{
+						if(students[i].percentage>40)
+						{
+					    System.out.println("Student Name : "+students[i].name);
+						System.out.println("Register No  : "+students[i].regNo);
+						System.out.println("Percentage   : "+students[i].percentage+" %");
+					    }
+					}
+				}
+			}
+		}
+	}
 }
