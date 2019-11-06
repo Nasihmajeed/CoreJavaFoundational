@@ -54,7 +54,7 @@ public class Tdd
                 System.out.println(contactslist.size());
               }catch(IOException e){}
               
-        }  
+        }  control.file(contactslist);
 
     }
 
@@ -84,6 +84,7 @@ public class Tdd
             if(c.equals(contactslist.get(i).getName())) 
             contactslist.remove(i);
            }catch(IOException e){}
+           control.file(contactslist);
     } 
 
     public static void editContact()
