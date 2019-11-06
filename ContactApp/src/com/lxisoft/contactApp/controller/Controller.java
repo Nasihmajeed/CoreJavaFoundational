@@ -1,17 +1,15 @@
 package com.lxisoft.contactApp.controller;
 import java.util.ArrayList;
-
 import com.lxisoft.contactApp.model.Contact;
 import com.lxisoft.contactApp.repository.Repository;
 public class Controller 
 {
-	static Repository repo=new Repository();
+	public Repository repo=new Repository();
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	public void setInitialContacts()
 	{
-		contacts.add(new Contact(1,"athulya",9633400720l));
-		contacts.add(new Contact(2,"josemon",9633400720l));
-		contacts.add(new Contact(3,"ruhail",9633400720l));
+		//contacts.add(new Contact(1,"athulya",9633400720l));
+	
 	}
 
 	public void setContacts(ArrayList<Contact> contacts)
@@ -25,9 +23,17 @@ public class Controller
 
 	public void newContact(String name,long number)
 	{
+		int id=0;
 		Contact lastContact=null;
-		lastContact=contacts.get(contacts.size()-1);
-		int id=lastContact.getId()+1;
+		if(contacts.size()<=0)
+		{
+			id=1;
+		}
+		if(contacts.size()>=1)
+		{
+			lastContact=contacts.get(contacts.size()-1);
+			id=lastContact.getId()+1;
+		}
 		contacts.add(new Contact(id,name,number));
 
 	}

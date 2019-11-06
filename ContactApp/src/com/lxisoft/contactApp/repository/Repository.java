@@ -12,6 +12,7 @@ public class Repository
 {
 	public static File phoneBook;
 	public static BufferedReader reader = null;
+	public ArrayList<Contact> contactData;
 	public void createPhoneData()
 	{
 		try
@@ -59,7 +60,8 @@ public class Repository
 
 	public void storeData()
 	{
-		try
+	  contactData=new ArrayList<Contact>();
+		/*try
 		{	
 	        reader = new BufferedReader(new FileReader(phoneBook));	
 	        PrintWriter printer = null;
@@ -81,50 +83,45 @@ public class Repository
            	ioe.printStackTrace();
 			System.out.println("Error in closing the BufferedReader");
 	   }
-	   finally
-	   {
-	   		phoneBook.close();
-	   }
+	  */
+    PrintWriter printer = null;
+    try
+    {
+	    FileReader fileReader = new FileReader(phoneBook);
+	    BufferedReader bufferedReader = new BufferedReader(fileReader);
+	    String line;
+	    String[] strings;
+	    while ((line = bufferedReader.readLine()) != null) 
+	    {
+	        strings = line.split(",");
+	        int id = Integer.parseInt(strings[0]);
+		    String name = strings[1];
+		    long number=Long.parseLong(strings[2]); 
+		    Contact newContact = new Contact(id,name,number);
+		    controller.getContacts().add(newContact);
+		    System.out.println("contact:=="+newContact.getId()+","+newContact.getName()+","+newContact.getNumber());
 
+	    }
+	    fileReader.close();
 
-	   ArrayList<Product> products=new ArrayList<Product>();
-    try{
-    FileReader fileReader = new FileReader("exampleObj.txt");
-    BufferedReader bufferedReader = new BufferedReader(fileReader);
-    String line;
-    String[] strings;
-    while ((line = bufferedReader.readLine()) != null) {
-        strings = line.split(",");
-        String id = strings[0];
-         String name = strings[1];
-         String content=" "; 
-         for(int i=2;i<strings.length;i++)
-         {
-            content=content+","+ strings[i];
-         }
-         Product newProduct = new Product(id,name,content);
-         products.add(newProduct);
-         System.out.println(newProduct.getId()+","+newProduct.getName()+","+newProduct.getDepartment());
-
-    }
-    fileReader.close();
-    }
+	    printer = new PrintWriter(phoneBook);
+	    for (Contact contact : controller.getContacts()) 
+	    {
+	  		printer.println(contact.getId()+","+contact.getName()+","+contact.getNumber());
+	    }
+   		printer.close();
+	}
     catch ( IOException e ) 
     {
         e.printStackTrace();
     }
 
-    PrintWriter printer = null;
-      try {
-          printer = new PrintWriter("Description.txt");
-            for (Product o : products) {
-            printer.println(o.getName()+","+o.getId()+","+o.getDepartment());
-            }
-            printer.close();
+    /*  try {
+         
         } catch ( IOException e ) 
         {
             e.printStackTrace();
-        } 
+        } */
 
 	}
 

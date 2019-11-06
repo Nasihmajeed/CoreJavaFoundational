@@ -11,7 +11,7 @@ public class TDD
 	public static void main(String args[])
 	{
 		controller=new Controller();
-		controller.setInitialContacts();
+		//controller.setInitialContacts();
 		System.out.println("********contact set*********");
 		controller.fileCreation();
 		//controller.fileFunctions();
