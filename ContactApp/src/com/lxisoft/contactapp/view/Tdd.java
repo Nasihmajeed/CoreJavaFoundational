@@ -1,6 +1,7 @@
 package com.lxisoft.contactapp.view;
 import com.lxisoft.contactapp.controller.*;
 import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Tdd{
 Scanner s=new Scanner(System.in);
@@ -39,13 +40,17 @@ int n=s.nextInt();
 		control.save(cc);
 		System.out.println("(contact saved sucssesfully )");
     } 
+    Repository repo=new  Repository();
+    repo.setFile(control.getArray());
 }
+
 public void display(ArrayList<Contact> contacts){
 	for(int i=0;i<contacts.size();i++){
 		System.out.println(contacts.get(i).getName());
 		System.out.println(contacts.get(i).getNumber());
 	}
 }
+
 public void searchContact(){
 System.out.println("\n\nEnter name to search : ");
 String n=ss.next();
@@ -59,6 +64,9 @@ else{
 	  System.out.println(c.getNumber());
     }
   }
+
+
+
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
@@ -71,6 +79,7 @@ c.setNumber(s.next());
 control.save(c);
 System.out.println("(contact updated sucssesfully )");
    }
+
 public void deleteContact(){
 System.out.println("\n\nEnter contact name to delete : ");
 String n=ss.next();

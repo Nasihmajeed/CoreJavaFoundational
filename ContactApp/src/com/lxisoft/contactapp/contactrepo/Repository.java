@@ -5,21 +5,21 @@ import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.view.*;
 import com.lxisoft.contactapp.controller.*;
 public class Repository implements Filestorage{
-
 File file=new File(directory);
 Controller controlller=new Controller();
-Contact contact=new Contact();
-public ArrayList<Contact> con=new ArrayList<Contact>();
+public ArrayList<Contact> contacts=new ArrayList<Contact>();
 
-public void setFile(ArrayList<Contact> con){
+public void setFile( ArrayList<Contact>  contacts){
   	try{
-	//f.createNewFile();
 	FileWriter write=new FileWriter(file);
 	BufferedWriter fwrite=new BufferedWriter(write);
-	for(int i=0;i<con.size();i++){
-	fwrite.write(con.get(i).getName(),con.get(i).getNumber(),"\n");  
+	Contact con=new Contact();
+	for(Contact contact:contacts){
+	fwrite.write(contact.getName()+","+contact.getNumber()+"\n");  
+        }
+	fwrite.flush();
 	fwrite.close();
-      }
+      
     }
     catch(IOException e){
     	System.out.println("Exception "+e);
