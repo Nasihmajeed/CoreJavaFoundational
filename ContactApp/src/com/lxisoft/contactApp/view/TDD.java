@@ -61,6 +61,7 @@ public class TDD
 			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number="+contact.getNumber());
 		}
 		System.out.println();
+		//controller.store();
 		//controller.writeToFile();
 	}
 

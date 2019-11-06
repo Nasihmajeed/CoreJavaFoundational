@@ -55,7 +55,7 @@ public class Controller
 
 	public void fileFunctions()
 	{
-		repo.writeToFile(contacts);
+		//repo.writeToFile(contacts);
 		System.out.println("file phone book created");
 	}
 	
@@ -67,7 +67,8 @@ public class Controller
 
 	public void store()
 	{
-		repo.storeData();
+		repo.storeData(contacts);
+		repo.writeToFile(contacts);
 	}
 	
 }

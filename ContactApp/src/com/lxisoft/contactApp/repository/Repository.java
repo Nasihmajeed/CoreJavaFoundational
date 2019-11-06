@@ -36,7 +36,6 @@ public class Repository
 
 	public void writeToFile(ArrayList<Contact> contacts)
 	{
-		Controller controller=new Controller();
 
 		try
 		{
@@ -58,32 +57,9 @@ public class Repository
 		
 	}
 
-	public void storeData()
+	public void storeData(ArrayList<Contact> contacts)
 	{
 	  contactData=new ArrayList<Contact>();
-		/*try
-		{	
-	        reader = new BufferedReader(new FileReader(phoneBook));	
-	        PrintWriter printer = null;
-        	printer = new PrintWriter(new FileWriter(phoneBook,false));
-		   	System.out.println("Reading the file using readLine() method:");
-		  	String contentLine = reader.readLine();
-		  	while (contentLine != null)
-		    {
-		      	System.out.println(contentLine);
-		      	printer.println(contentLine);
-		      	contentLine = reader.readLine();
-		   	}
-		   	printer.flush();
-		   	printer.close();
-
-		}
-	   catch (IOException ioe) 
-       {
-           	ioe.printStackTrace();
-			System.out.println("Error in closing the BufferedReader");
-	   }
-	  */
     PrintWriter printer = null;
     try
     {
@@ -98,31 +74,25 @@ public class Repository
 		    String name = strings[1];
 		    long number=Long.parseLong(strings[2]); 
 		    Contact newContact = new Contact(id,name,number);
-		    controller.getContacts().add(newContact);
+		    contacts.add(newContact);
 		    System.out.println("contact:=="+newContact.getId()+","+newContact.getName()+","+newContact.getNumber());
 
 	    }
 	    fileReader.close();
-
-	    printer = new PrintWriter(phoneBook);
-	    for (Contact contact : controller.getContacts()) 
+	    //writeToFile();
+	  /*  printer = new PrintWriter(phoneBook);
+	    for (Contact contact : contacts) 
 	    {
 	  		printer.println(contact.getId()+","+contact.getName()+","+contact.getNumber());
 	    }
-   		printer.close();
+   		printer.close();*/
 	}
     catch ( IOException e ) 
     {
         e.printStackTrace();
     }
 
-    /*  try {
-         
-        } catch ( IOException e ) 
-        {
-            e.printStackTrace();
-        } */
-
+  
 	}
 
 
