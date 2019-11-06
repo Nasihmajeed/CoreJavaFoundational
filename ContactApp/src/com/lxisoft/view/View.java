@@ -47,7 +47,7 @@ public class View
 			if(ch!='y')
 				break;
 			processing();
-			System.out.println("\n press for features-->  0-Addition  1-searching  2-deletion  3-update  4-display  5-displayFile");
+			System.out.println("\n press for features-->  1-Addition  2-searching  3-deletion  4-update  5-display  6-displayFile  7-duplicates  8-merge");
 			int option=sc.nextInt();
 			controller.features(array,option);
 			System.out.println("\n");

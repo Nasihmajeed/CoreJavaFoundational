@@ -22,12 +22,13 @@ public class ContactController
 	{
 		switch(option)
 		{
-			case 0:array=contactAdd(array);repository.syncFile(array);break;
-			case 1:contactSearch(array);repository.syncFile(array);break;
-			case 2:array=contactDelete(array);repository.syncFile(array);break;
-			case 3:array=contactUpdate(array);repository.syncFile(array);break;
-			case 4:view.displayContact(array);break;
-			case 5:repository.fileRead(array);break;
+			case 1:array=contactAdd(array);repository.syncFile(array);break;
+			case 2:contactSearch(array);repository.syncFile(array);break;
+			case 3:array=contactDelete(array);repository.syncFile(array);break;
+			case 4:array=contactUpdate(array);repository.syncFile(array);break;
+			case 5:view.displayContact(array);break;
+			case 6:repository.fileRead(array);break;
+			case 7:merge(array);break;
 		}
 	}
 
@@ -128,6 +129,26 @@ public class ContactController
 			}
 		}
 		view.displayContact(array);
+		return array;
+	}
+
+	public ArrayList<Contact> merge(ArrayList<Contact> array)
+	{
+		int i,j;
+		for(i=0;i<array.size();i++)
+		{
+				
+			for(j=0;j<array.size();j++)
+			{
+				if((i!=j) && (array.get(i).getNumber()).equals(array.get(j).getNumber()))
+				{
+						System.out.println(" i1 "+i); 
+						System.out.println(" j2 "+j);   
+					System.out.println(" duplictes "+(array.get(i).getNumber()));
+					break;
+				}
+			}
+		}
 		return array;
 	}
 
