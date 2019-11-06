@@ -1,13 +1,13 @@
 import java.util.Scanner;
 public class School
 {
-static Scanner scanner = new Scanner(System.in);
-String name,classRoom;
-int code,noOfStudents;
-Student[] students = new Student[5];
-Teacher teacher = new Teacher();
-Student student;
-void details()
+ static Scanner scanner = new Scanner(System.in);
+ String name,classRoom;
+ int code,noOfStudents;
+ Student[] students = new Student[5];
+ Teacher teacher = new Teacher();
+ Student student;
+ void details()
  { 
 	System.out.println("Enter School Name");
 	name = scanner.next();
@@ -88,7 +88,6 @@ void details()
 			{
 				for(int i=0;i<noOfStudents;i++)
 				{
-<<<<<<< HEAD
 					if(students[i].percentage>40)
 					{
 						System.out.println("Student Name : "+students[i].name);
@@ -108,13 +107,6 @@ void details()
 						System.out.println("Register No  : "+students[i].regNo);
 						System.out.println("Percentage   : "+students[i].percentage+" %");
 					    }
-=======
-					if(students[i].percentage>35)
-					{
-						System.out.println(students[i].name);
-						System.out.println(students[i].regNo);
-						System.out.println(students[i].percentage);
->>>>>>> 3d7e8a2086e6ad7d6500c332dfd66e6757ef3b8f
 					}
 				}
 			}
@@ -122,7 +114,6 @@ void details()
 			{
 				for(int i=0;i<noOfStudents;i++)
 				{
-<<<<<<< HEAD
 					if(students[i].percentage<40)
 					{
 			            System.out.println("Student Name : "+students[i].name);
@@ -143,11 +134,7 @@ void details()
 						System.out.println("Percentage   : "+students[i].percentage+" %");
 					    }
 					}
-=======
-			            System.out.println(students[i].name);
-						System.out.println(students[i].regNo);
-						System.out.println(students[i].percentage);	
->>>>>>> 3d7e8a2086e6ad7d6500c332dfd66e6757ef3b8f
+			            	
 				}
 			}
 		}
