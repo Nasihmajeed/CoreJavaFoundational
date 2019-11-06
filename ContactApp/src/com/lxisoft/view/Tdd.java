@@ -5,12 +5,16 @@ import java.util.*;
 public class Tdd
 {
 	static ContactController control=new ContactController();
+	static
+	{
+		int x=0;
+		control.getFileInfo();
+	}
 	public static void main(String []args)
 	{
 		Scanner sc=new Scanner(System.in);
 		int default_option=0;
 		char continueOpt='\0';
-		control.getFileData();
 		do
 		{  
 			System.out.println(" <---Contact App Menu--->");
@@ -21,7 +25,7 @@ public class Tdd
 			{
 				case 1:		createNewContact(control);break;
 				case 2:		searchContact(control);break;
-				case 3:		readContact(control);break;
+				case 3:		viewContact(control);break;
 				case 4:		deleteAllContacts(control);break;
 				case 5:		continueOpt='n';break;
 				default:	System.out.println("Enter the correct option!");
@@ -31,7 +35,7 @@ public class Tdd
 			continueOpt=sc.next().charAt(0);
 		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
 	}
-	public static void readContact(ContactController control)
+	public static void viewContact(ContactController control)
 	{	
 		int i;
 		Scanner sc=new Scanner(System.in);
@@ -95,7 +99,7 @@ public class Tdd
 	// 	}
 	// }
 	public static void searchContact(ContactController control)
-	{
+	{ 
 		Scanner sc=new Scanner(System.in);
 		int length=control.getLength();
 		System.out.println(" Enter the name to search:");

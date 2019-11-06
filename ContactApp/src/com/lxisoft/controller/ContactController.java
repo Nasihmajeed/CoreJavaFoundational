@@ -8,10 +8,15 @@ public class ContactController
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 	Contact contact;
 	Repository filerepo=new Repository();
-	public void getFileData()
+	public void getFileInfo()
 	{
 		contact=new Contact();
 		contacts=filerepo.getFileDetails(contact,contacts);
+		for(int i=0;i<contacts.size();i++)
+		{
+			System.out.print((i+1)+" ");
+			getContactDetails(i);
+		}
 	}
 	public void addContact(String name,String number)
 	{
@@ -19,7 +24,7 @@ public class ContactController
 			contact.setName(name);
 			contact.setNo(number);
 			contacts.add(contact);	
-			filerepo.saveContacts(contact);
+			filerepo.addContactDetails(contact);
 	}
 	public int searchContact(int i,String name)
 	{
@@ -38,6 +43,7 @@ public class ContactController
 		contact.setName(name);
 		contact.setNo(number);
 		contacts.set(i,contact);
+		//filerepo.updateFileData(contact,i);
 	}
 	public void deleteContact(int i)
 	{
