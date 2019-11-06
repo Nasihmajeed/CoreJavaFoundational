@@ -1,5 +1,6 @@
 package com.lxisoft.contactapp.contactrepo;
 import java.util.*;
+import java.io.*;
 public interface Filestorage{
 
 	//public ArrayList<Contact> con=new ArrayList<Contact>();

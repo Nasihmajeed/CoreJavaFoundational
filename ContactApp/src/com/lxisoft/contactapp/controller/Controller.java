@@ -13,7 +13,6 @@ return cc;
 }
 public ArrayList<Contact> read(){
 	return contacts;
-	repo.setFile(contacts);
   }
 
 public Contact search(String n){

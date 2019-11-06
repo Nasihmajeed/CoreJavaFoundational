@@ -1,7 +1,7 @@
 package com.lxisoft.contactapp.model;
 public class Contact{
 	private  String name;
-	 private long  number;
+	 private String  number;
 /*public Contact(String name,long  number){
 	name=this.name;
 	number=this.number;
@@ -12,10 +12,10 @@ public void setName(String name){
 public String getName(){
 	return name;
 }
-public void setNumber(long  number){
+public void setNumber(String  number){
 	this.number=number;
 }
-public long getNumber(){
+public String getNumber(){
 	return number;
 }
 }

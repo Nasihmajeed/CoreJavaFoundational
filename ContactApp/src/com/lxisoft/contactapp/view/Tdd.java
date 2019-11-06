@@ -35,10 +35,10 @@ int n=s.nextInt();
 		System.out.println("Enter the name : ");
 		cc.setName(ss.next());
 		System.out.println("Enter the number : ");
-		cc.setNumber(s.nextLong());
+		cc.setNumber(s.next());
 		control.save(cc);
 		System.out.println("(contact saved sucssesfully )");
-    }
+    } 
 }
 public void display(ArrayList<Contact> contacts){
 	for(int i=0;i<contacts.size();i++){
@@ -67,7 +67,7 @@ Contact c=new Contact();
 System.out.println("Enter new name : ");
 c.setName(ss.next());
 System.out.println("Enter new number : ");
-c.setNumber(s.nextLong());	
+c.setNumber(s.next());	
 control.save(c);
 System.out.println("(contact updated sucssesfully )");
    }
