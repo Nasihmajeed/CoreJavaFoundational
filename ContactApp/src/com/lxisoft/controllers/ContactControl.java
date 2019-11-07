@@ -2,17 +2,21 @@ package com.lxisoft.controllers;
 import java.util.*;
 import com.lxisoft.models.*;
 import com.lxisoft.view.*;
+import com.lxisoft.repository.*;
 public class ContactControl
 {
 	private List<Contact>contactList=new ArrayList<Contact>();
+    Repository repository=new Repository();
 	public void setContactList(List<Contact>contactList)
 	{
 		this.contactList=contactList;
 	}
+
 	public int getContactList()
 	{
 		return contactList.size();
 	}
+
 	public List<Contact> getContactDetails()
 	{
 		String[] name={"meghu","meharu","ammu"};
@@ -26,17 +30,22 @@ public class ContactControl
 		}
 		return contactList;
     }
+
     public Contact viewDetails(int i)
     {
         return contactList.get(i);
     }
+
     public void addDetails(String name,String contactNo)
     {
     	Contact c=new Contact();
     	c.setName(name);
     	c.setContactNo(contactNo);
     	contactList.add(c);
+        repository.createFile(c);
+
     }
+
     public void selectDetails(int no)
     {
         for(int i=0;i<contactList.size();i++)
@@ -44,7 +53,6 @@ public class ContactControl
             contactList.get(i);
         }
     }
-    
 
     public void deleteDetails(String name)
     {
@@ -56,6 +64,7 @@ public class ContactControl
          	}
     	}
     }
+
     public void updateDetails(String name,String contactNo)
     {
     	Contact c=new Contact();

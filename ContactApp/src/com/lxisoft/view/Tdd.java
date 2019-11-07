@@ -100,6 +100,5 @@ public class Tdd
 		contact=control.searchDetails(name);
 		System.out.println("\n Name="+contact.getName());
 		System.out.println(" Number="+contact.getContactNo());		
-
 	}
 } 
