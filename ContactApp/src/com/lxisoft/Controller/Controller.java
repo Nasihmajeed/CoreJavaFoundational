@@ -14,10 +14,16 @@ public class Controller
    contact.setName(name);
    contact.setNumber(number);
    contactslist.add(contact);
+
    return contactslist;
   }
+
   public void file(ArrayList <Contact> contactslist)
   {
     r.file(contactslist);
+  }
+  public void display()
+  {
+    r.readFile();
   }
  }
