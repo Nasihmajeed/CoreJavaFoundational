@@ -17,9 +17,13 @@ public class ContactController
 	{
 		return contactList;
 	}
-	public List<Contact> getFileInfo()
+	public void getFileInfo()
 	{
-		contactList=repo.firstRead(contactList);
+	    repo.readFile();
+	}
+	public List <Contact> displayContact(List <Contact> contactList)
+	{
+		contactList=repo.readFile(contactList);
 		return contactList;
 	}
 	public void addContact(String name,String number)
@@ -28,7 +32,7 @@ public class ContactController
 		cont.setContactName(name);
 		cont.setContactNumber(number);
 		contactList.add(cont);
-		v++;
+		v=repo.checkFile(v);
 		repo.setFile(v);
 		repo.writeFile(cont);
 	}
@@ -48,6 +52,7 @@ public class ContactController
 	}
 	public void deleteContact(int n)
 	{
+		contactList=repo.readFile(contactList);
 		for(int i=0;i<contactList.size();i++)
 		{
 			int index=contactList.indexOf(contactList.get(i));
@@ -64,6 +69,7 @@ public class ContactController
 	}
 	public void updateContact(String num,Contact contact)
 	{
+		contactList=repo.readFile(contactList);
 		for(int i=0;i<contactList.size();i++)
 		{
 			if(contact.getContactName().equals(contactList.get(i).getContactName()))

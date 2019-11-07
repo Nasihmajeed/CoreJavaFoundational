@@ -13,7 +13,7 @@ public class View
 		List <Contact> contactsList=new ArrayList<Contact>();
 		int a=0;
 		System.out.println("\t <-----CONTACT APP MENU----->\n");
-		contactsList=control.getFileInfo();
+		
 		do
 		{
 			System.out.println("<---Enter your choice--->");
@@ -28,9 +28,11 @@ public class View
 		}while(a!=4);
 		getContact(control);
 		displayContacts(contactsList,control);
+		control.getFileInfo();
 	}
 	public void displayContacts(List <Contact> contactsList,ContactController control)
 	{
+		contactsList=control.displayContact(contactsList);
 		System.out.println("\ndisplay all contact-->(1-yes)(2-no)");
 		int d=s.nextInt();
 		if((d==1))
@@ -83,7 +85,7 @@ public class View
 	{
 		System.out.println("Enter number of contact to add->");
 		int n=s.nextInt();
-		
+
 		for(int j=0;j<n;j++)
 		{
 			System.out.println("Enter contact name");
