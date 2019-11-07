@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import com.lxisoft.view.Tdd;
 import com.lxisoft.contactrepository.FileStorage;
 
-public class Repository implements FileStorage
+public class FileRepository implements FileStorage
 {
 	Tdd t=new Tdd();
 	File file=new File(directory);
 	static int i=0;
 	//Contact contact=new Contact();
 
-	public ArrayList<Contact> check(ArrayList<Contact> array)
+	public ArrayList<Contact> check()
 	{
+		ArrayList<Contact> array=new ArrayList<Contact>();
 		try
 		{
 			if(file.exists())
 			{
+				System.out.println(" data already in contact file  ");
+				System.out.println("THE FILE IS\nSL.NO, NAME, NUMBER");
 				array=initialFileRead();
-				System.out.println(" data already in contact file");
 			}
 			else
 			{
@@ -37,27 +39,6 @@ public class Repository implements FileStorage
 		return array;
 	}
 
-	public ArrayList<Contact> addToFile(ArrayList<Contact> array)
-	{
-		try
-		{
-			FileWriter fwr=new FileWriter(file,true);
-			BufferedWriter bw=new BufferedWriter(fwr);
-			for(Contact contact: array)
-			{
-				i++;
-				bw.write((i)+","+contact.getName()+","+contact.getNumber()+"\n");
-			}
-			bw.flush();
-			bw.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println("Exception: "+e);
-		}
-		return array;
-	}
-
 	public ArrayList<Contact> initialFileRead()
 	{
 		ArrayList<Contact> array=new ArrayList<Contact>();
@@ -67,8 +48,6 @@ public class Repository implements FileStorage
 			FileReader fr=new FileReader(file);
 			BufferedReader  br=new BufferedReader(fr);
 			String details;
-			System.out.println("THE FILE IS ");
-			System.out.println("SL.NO, NAME, NUMBER");
 			while((details=br.readLine())!=null)
 			{
 				if(j!=0)
@@ -91,7 +70,7 @@ public class Repository implements FileStorage
 		return array;
 	}	
 
-	public void fileRead(ArrayList<Contact> array)
+	public void fileRead()
 	{
 		try
 		{
@@ -111,21 +90,28 @@ public class Repository implements FileStorage
 		}
 	}	
 
-	public void syncFile(ArrayList<Contact> array)
+	public void syncFile(Contact contact,int j)
 	{
 		try
 		{
-			int j=0;
-			FileWriter fwr1=new FileWriter(file);
-			BufferedWriter bw1=new BufferedWriter(fwr1);
-			bw1.write(" SL.NO , NAME , NUMBER\n");
-			for(Contact contact: array)
+			if(j==0)
 			{
-				j++;
-				bw1.write((j)+","+contact.getName()+","+contact.getNumber()+"\n");
+				FileWriter fwr1=new FileWriter(file);
+				BufferedWriter bw1=new BufferedWriter(fwr1);
+				bw1.write(" SL.NO , NAME , NUMBER\n");
+				bw1.write((j+1)+","+contact.getName()+","+contact.getNumber()+"\n");
+				bw1.flush();
+				bw1.close();
 			}
-			bw1.flush();
-			bw1.close();
+			else
+			{
+				FileWriter fwr1=new FileWriter(file,true);
+				BufferedWriter bw1=new BufferedWriter(fwr1);
+				bw1.write((j+1)+","+contact.getName()+","+contact.getNumber()+"\n");
+				bw1.flush();
+				bw1.close();
+			}
+			
 		}
 		catch(IOException e)
 		{

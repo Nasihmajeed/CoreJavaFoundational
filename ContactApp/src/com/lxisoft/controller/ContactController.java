@@ -8,12 +8,12 @@ import com.lxisoft.view.View;
 public class ContactController
 {
 	View view=new View();
-	Repository repository=new Repository();
+	FileRepository repository=new FileRepository();
 	ArrayList<Contact> array=new ArrayList<Contact>();
 
 	public ArrayList<Contact> checkFile()
 	{
-		array=repository.check(array);
+		array=repository.check();
 		view.displayContact(array);
 		return array;
 	}
@@ -22,13 +22,24 @@ public class ContactController
 	{
 		switch(option)
 		{
-			case 1:array=contactAdd(array);repository.syncFile(array);break;
-			case 2:contactSearch(array);repository.syncFile(array);break;
-			case 3:array=contactDelete(array);repository.syncFile(array);break;
-			case 4:array=contactUpdate(array);repository.syncFile(array);break;
+			case 1:array=contactAdd(array);sync(array);break;
+			case 2:contactSearch(array);sync(array);break;
+			case 3:array=contactDelete(array);sync(array);break;
+			case 4:array=contactUpdate(array);sync(array);break;
 			case 5:view.displayContact(array);break;
-			case 6:repository.fileRead(array);break;
+			case 6:repository.fileRead();break;
 			case 7:merge(array);break;
+		}
+	}
+
+	public void sync(ArrayList<Contact> array)
+	{
+		int j=0;
+		for(Contact contact: array)
+		{
+			//System.out.print(j+"sync Name- " +contact.getName());
+			repository.syncFile(contact,j);
+			j++;
 		}
 	}
 
@@ -63,7 +74,7 @@ public class ContactController
 
 	public int[] contactSearch(ArrayList<Contact> array)
 	{
-		int i=0;int flag=0;
+		int i=0,flag=0,j=1;
 		int[] ret=new int[2];
 		String element=view.scanElement(0);
 		for(Contact contact: array)
@@ -71,9 +82,10 @@ public class ContactController
 			if((contact.getName()).equals(element))
 			{
 				flag=1;
-				view.elementFound(contact,i);
+				view.elementFound(contact,j);
 				i++;
 			}
+			j++;
 		}
 		ret[0]=i;
 		ret[1]=flag;
@@ -132,7 +144,7 @@ public class ContactController
 		return array;
 	}
 
-	public ArrayList<Contact> merge(ArrayList<Contact> array)
+	public void merge(ArrayList<Contact> array)
 	{
 		int i,j;
 		for(i=0;i<array.size();i++)
@@ -149,7 +161,6 @@ public class ContactController
 				}
 			}
 		}
-		return array;
 	}
 
 }
