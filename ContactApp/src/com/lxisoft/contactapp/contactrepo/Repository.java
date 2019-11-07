@@ -21,11 +21,11 @@ public void setFile(Contact contact){
     }
   }
 
-public void getList(){
+public ArrayList<Contact>  getList(){
+	 ArrayList<Contact> contacts=new ArrayList<Contact>();
 	try{
 		FileReader read=new FileReader(file);
 		BufferedReader bread=new BufferedReader(read);
-		public ArrayList<Contact> contacts=new ArrayList<Contact>();
 		String data;
 		while((data=bread.readLine())!=null){	
 			String[] dataArray=data.split(",");
@@ -33,7 +33,7 @@ public void getList(){
 				contact.setName(dataArray[0]);
 			 	contact.setNumber(dataArray[1]);
 				contacts.add(contact);
-				System.out.println(a);
+				System.out.println(dataArray[0]);
 		}
 	}
 	catch(IOException e){
@@ -41,4 +41,24 @@ public void getList(){
     }
     return contacts;
   }
+
+public Contact searchList(ArrayList<Contact> contacts){
+	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	try{
+		Contact c=null;
+	    int count=0;
+		for(int i=0;i<contacts.size();i++){
+			if(n.equals(contacts.get(i).getName())){
+				count++;
+				c=contacts.get(i);
+      		}
+  		 }
+   		if(count==1){
+   			return c;
+  		 }
+  		 else{
+   		return null;
+  			 }
+		}
+	}
 }

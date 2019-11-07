@@ -37,6 +37,7 @@ for(int i=0;i<contacts.size();i++){
    	return null;
    }
  }
+ 
 public void update(String cn){
 for(int i=0;i<contacts.size();i++){
 	if(cn.equals(contacts.get(i).getName())){
