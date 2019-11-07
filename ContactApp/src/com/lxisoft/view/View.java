@@ -17,14 +17,15 @@ public class View
 		do
 		{
 			System.out.println("<---Enter your choice--->");
-			System.out.println("\n 1-Add\t\t 2-Search\t 3-Exit");
+			System.out.println("\n 1-Add\t\t 2-Search\t 3-DeleteAll \t4-Exit");
 			a=s.nextInt();
 			switch(a)
 			{
 				case 1: addContact(control); break;
 				case 2: searchContact(control,contactsList); break;
+				case 3: deleteAllContact(control); break;
 			}
-		}while(a!=3);
+		}while(a!=4);
 		getContact(control);
 		displayContacts(contactsList,control);
 	}
@@ -32,18 +33,24 @@ public class View
 	{
 		System.out.println("\ndisplay all contact-->(1-yes)(2-no)");
 		int d=s.nextInt();
-		if(d==1)
+		if((d==1))
 		{
-			System.out.println("\t <-------CONTACT LIST------>\n");
-			System.out.println("\t ID \t NAME \t\t NUMBER \n\t-----\t------\t\t--------");
-			int i = 1;
-			for(Contact c: contactsList)
+			if((contactsList.size())!=0)
 			{
-				System.out.println("\t "+i+"\t"+c.getContactName()+"\t\t"+ c.getContactNumber());
-				i++;
+				System.out.println("\t <-------CONTACT LIST------>\n");
+				System.out.println("\t ID \t NAME \t\t NUMBER \n\t-----\t------\t\t--------");
+				int i = 1;
+				for(Contact c: contactsList)
+				{
+					System.out.println("\t "+i+"\t"+c.getContactName()+"\t\t"+ c.getContactNumber());
+					i++;
+				}
+			}
+			else
+			{
+				System.out.println(" contact list is empty!!!!!");
 			}
 		}
-		
 	}
 	public void getContact(ContactController control)
 	{
@@ -76,6 +83,7 @@ public class View
 	{
 		System.out.println("Enter number of contact to add->");
 		int n=s.nextInt();
+		
 		for(int j=0;j<n;j++)
 		{
 			System.out.println("Enter contact name");
@@ -111,5 +119,9 @@ public class View
 		System.out.println("Enter new contact number");
 		String num=s.next();
 		control.updateContact(num,contact);
+	}
+	public void deleteAllContact(ContactController control)
+	{
+		control.deleteAllContact();
 	}
 }

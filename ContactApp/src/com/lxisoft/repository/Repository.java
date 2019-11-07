@@ -7,13 +7,78 @@ public class Repository implements FileDataSource
 {
 	static int in=0;
 	static File contactFile=new File(fileName);
-	public List <Contact> getFileDetails(List <Contact> contactList)
+	public void setFile(int v)
+	{
+		if(v==1)
+		{
+			try
+			{
+				PrintWriter pw=new PrintWriter(contactFile);
+				pw.write("ID"+","+"NAME"+","+"Number\n");
+				pw.flush();
+				pw.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println(" file is not present"+e);
+			}
+		}
+	}
+
+	// public List <Contact> getFileDetails(List <Contact> contactList)
+	// {
+	// 	try
+	// 	{
+	// 		String contacts;
+	// 		System.out.println("lengt "+contactFile.length());
+	// 		FileReader fr=new FileReader(contactFile);
+	// 		BufferedReader br=new BufferedReader(fr);
+	// 		if((contacts=br.readLine())==null)
+	// 		{
+	// 			// FileWriter fw=new FileWriter(contactFile);
+	// 			// BufferedWriter bw=new BufferedWriter(fw);
+	// 			PrintWriter pw=new PrintWriter(contactFile);
+	// 			pw.write("ID"+","+"NAME"+","+"Number\n");
+	// 			pw.flush();
+	// 			pw.close();
+	// 			contactList=firstRead(contactList);
+	// 		}
+	// 		else
+	// 		{
+	// 			contactList=firstRead(contactList);
+	// 		}	
+	// 	}
+	// 	catch(Exception e)
+	// 	{
+	// 		System.out.println(" file is not present"+e);
+	// 	}
+	// 	return contactList;
+	// }
+	public void writeFile(Contact contact)
 	{
 		String contacts;
 		try
 		{
+			FileWriter fw=new FileWriter(contactFile,true);
+			BufferedWriter bw=new BufferedWriter(fw);
+			in++;
+			String id=String.valueOf(in);
+			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
+			bw.flush();
+		}
+		catch(IOException e)
+		{
+			System.out.println(" error"+e);
+		}	
+	}
+	public List <Contact> firstRead(List <Contact> contactList)
+	{
+		try
+		{
+			String contacts;
 			FileReader fr=new FileReader(contactFile);
 			BufferedReader br=new BufferedReader(fr);
+			contacts=br.readLine();
 			while((contacts=br.readLine())!=null)
 			{
 				Contact c=new Contact();
@@ -24,46 +89,23 @@ public class Repository implements FileDataSource
 				contactList.add(c);
 			}
 		}
-		catch(Exception e)
+		catch(IOException e)
 		{
-			System.out.println(" file is not present"+e);
+			System.out.println(" error"+e);
 		}
-		return contactList;
+		return contactList; 
 	}
-	public void writeFile(Contact contact)
+	public void resetFile()
 	{
-		String contacts;
 		try
 		{
-			System.out.println(contactFile.exists());
-			if(contactFile.exists())
-			{
-				FileWriter fw=new FileWriter(contactFile,true);
-				BufferedWriter bw=new BufferedWriter(fw);
-				// for(int k=0;k<contactsList.size();k++)
-				// {
-				// int index=contactsList.indexOf(contactsList.get(k));
-				// int in=(index+1);
-				
-					String id=String.valueOf((in+1));
-					bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
-				// }
-				bw.flush();
-				bw.close();
-			}
-			else
-			{
-				FileWriter fw=new FileWriter(contactFile);
-				BufferedWriter bw=new BufferedWriter(fw);
-				bw.write("ID"+","+"NAME"+","+"Number\n");
-				String id=String.valueOf((in+1));
-				bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
-			}
+			FileWriter fw=new FileWriter(contactFile);
 		}
 		catch(IOException e)
 		{
 			System.out.println(" error"+e);
-		}	
+		}
+		in=0;
 	}
 	// public void readFile()
 	// {
