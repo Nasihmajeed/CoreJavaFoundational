@@ -9,14 +9,14 @@ public class ContactControl
 	{
 		this.contactList=contactList;
 	}
-	public List<Contact> getContactList()
+	public int getContactList()
 	{
-		return contactList;
+		return contactList.size();
 	}
 	public List<Contact> getContactDetails()
 	{
 		String[] name={"meghu","meharu","ammu"};
-		String[] contactNo={"12345","23456","56789"};
+		String[] contactNo={"9961048108","9744310194","7356801940"};
 		for(int i=0;i<3;i++)
 		{
 			Contact contact=new Contact();
@@ -26,14 +26,25 @@ public class ContactControl
 		}
 		return contactList;
     }
-    public List<Contact> addDetails(String name,String contactNo)
+    public Contact viewDetails(int i)
+    {
+        return contactList.get(i);
+    }
+    public void addDetails(String name,String contactNo)
     {
     	Contact c=new Contact();
     	c.setName(name);
     	c.setContactNo(contactNo);
     	contactList.add(c);
-    	return contactList;
     }
+    public void selectDetails(int no)
+    {
+        for(int i=0;i<contactList.size();i++)
+        {
+            contactList.get(i);
+        }
+    }
+    
 
     public void deleteDetails(String name)
     {
@@ -45,7 +56,6 @@ public class ContactControl
          	}
     	}
     }
-
     public void updateDetails(String name,String contactNo)
     {
     	Contact c=new Contact();
@@ -61,15 +71,16 @@ public class ContactControl
     	contactList.add(c);
     }
 
-    public void searchDetails(String name)
+    public Contact searchDetails(String name)
     {
-    	Contact c=new Contact();
-    	for(int i=0;i<contactList.size();i++)
-    	{
-    		// if(name.equals(contactList.get(i).getName()))
-    		// {
-    		// 	contactList.contains(name);
-    		// }
-    	}
+        Contact c=new Contact();
+        for(int i=0;i<contactList.size();i++)
+        {
+            if(name.equals(contactList.get(i).getName()))
+            {
+                c=contactList.get(i);
+            }
+        }
+        return c;
     }
-}
+} 

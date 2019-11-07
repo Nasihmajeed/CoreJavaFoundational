@@ -6,38 +6,69 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
+		int c=0;
 		Scanner sc=new Scanner(System.in);
 		ContactControl control=new ContactControl();
-		List<Contact>contactList=new ArrayList<Contact>();
-		System.out.println("CONTACT APP\n***************");
-		contactList=control.getContactDetails();
-		System.out.println("\nDo you want to perform any operations?");
-		System.out.println("\n0-Add\n1-Remove\n2-Edit\n3-Search\n4-Exit");
-		int x=sc.nextInt();
-		switch(x)
+		System.out.println("        CONTACT APP\n        ***************");
+		control.getContactDetails();
+		viewContact(control);
+		do
 		{
-			case 0:addContact(control,contactList);break;
-			case 1:deleteContact(control);break;
-			case 2:updateContact(control);break;
-			case 3:searchContact(control);break;
-			case 4:break;
-			default:System.out.println("Invalid Selection");
-		}
+			c=0;
+			System.out.println("\nDo you want to perform any operations?\n0-Add\n1-Select\n2-Search");
+			int x=sc.nextInt();
+			switch(x)
+			{
+				case 0:addContact(control);break;
+				case 1:selectContact(control);break;
+				case 3:searchContact(control);break;
+				default:System.out.println("Invalid Selection");
+			}
+			System.out.println("Continue...?\n0-No   1-Yes");
+			c=sc.nextInt();
+	    }while(c==1);
+	}
+    public static void viewContact(ContactControl control)
+    {
 		System.out.println("Contact List\n----------------");
-		for(int i=0;i<contactList.size();i++)
+		for(int i=0;i<control.getContactList();i++)
 		{
-			System.out.println("\nName= "+contactList.get(i).getName());
-			System.out.println("Number= "+contactList.get(i).getContactNo()+"\n");
+			System.out.println(i+" Name= "+control.viewDetails(i).getName());
+			System.out.println("Number= "+control.viewDetails(i).getContactNo()+"\n");
 		}
 	}
-	public static void addContact(ContactControl control,List<Contact>contactList)
+	public static void viewName(ContactControl control)
+    {
+		for(int i=0;i<control.getContactList();i++)
+		{
+			System.out.println(i+" Name= "+control.viewDetails(i).getName());
+		}
+	}
+	public static void addContact(ContactControl control)
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\nEnter Contact name:");
 		String name=sc.next();
 		System.out.println("\nEnter contact number:");
 		String contactNo=sc.next();
-		contactList=control.addDetails(name,contactNo);
+		control.addDetails(name,contactNo);
+		viewContact(control);
+	}
+	public static void selectContact(ContactControl control)
+	{
+		Scanner sc=new Scanner(System.in);
+		viewName(control);
+		System.out.println("Select a contact by number");
+		int no=sc.nextInt();
+		control.selectDetails(no);
+		System.out.println("0-delete     1-Edit");
+		int y=sc.nextInt();
+		switch(y)
+		{
+			case 0:deleteContact(control);break;
+			case 1:updateContact(control);break;
+			default:System.out.println("Invalid selection");
+		}
 	}
 
 	public static void deleteContact(ContactControl control)
@@ -46,6 +77,7 @@ public class Tdd
 		System.out.println("\nEnter Contact name:");
 		String name=sc.next();
 		control.deleteDetails(name);
+		viewContact(control);
 	}
 
 	public static void updateContact(ContactControl control)
@@ -55,15 +87,19 @@ public class Tdd
 		String name=sc.next();
 		System.out.println("\nEnter new contact number:");
 		String contactNo=sc.next();
-		control.updateDetails(name,contactNo);	
+		control.updateDetails(name,contactNo);
+		viewContact(control);	
 	}
 
 	public static void searchContact(ContactControl control)
 	{
 		Contact contact;
 		Scanner sc=new Scanner(System.in);
-		System.out.println("\nEnter Contact Name");
+		System.out.println("\nEnter Name to search");
 		String name=sc.next();
-		control.searchDetails(name);
+		contact=control.searchDetails(name);
+		System.out.println("\n Name="+contact.getName());
+		System.out.println(" Number="+contact.getContactNo());		
+
 	}
-}
+} 
