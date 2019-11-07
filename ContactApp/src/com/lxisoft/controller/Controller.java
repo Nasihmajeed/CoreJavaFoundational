@@ -5,16 +5,25 @@ import java.util.*;
 
 public class Controller
 {
-	Contact contact = new Contact();
-	ArrayList<Contact> array = new ArrayList<Contact>();
+	Contact contact ;
+	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void addContact(String name,String number)
 	{
+		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
         array.add(contact);    
 	}
-	public void search()
+	public int getArraySize()
 	{
-
+		return array.size();
+	}
+	public String getName()
+	{
+		return contact.getName();
+	}
+	public String getNumber()
+	{
+		return contact.getNumber();
 	}
 }
