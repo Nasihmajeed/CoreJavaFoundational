@@ -7,12 +7,13 @@ public class Tdd{
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
 Controller control=new Controller();
+Repository repo=new Repository();
 static ArrayList<Contact> contacts=new ArrayList<Contact>();
 public static void main(String[] args) {
 	Tdd t=new Tdd();
 	do{
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
-	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete ");
+	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete \n6-print");
 	 int x=t.s.nextInt();
 	 switch(x){
 	 	case 1:t.setContact();
@@ -24,6 +25,8 @@ public static void main(String[] args) {
 	 	case 4:t.updateContact();
 	 			break;
 	 	case 5:t.deleteContact();
+	 			break;
+	 	case 6:t.repo.getList();
 	 			break;
 	 }
 	}while(true); 
@@ -40,8 +43,7 @@ int n=s.nextInt();
 		control.save(cc);
 		System.out.println("(contact saved sucssesfully )");
     } 
-    Repository repo=new  Repository();
-    repo.setFile(control.getArray());
+   
 }
 
 public void display(ArrayList<Contact> contacts){

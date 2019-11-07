@@ -5,19 +5,19 @@ import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
- //Repository repo=new  Repository();
+Repository repo;
 public void save(Contact cc)
 {
 contacts.add(cc);
+ repo=new  Repository();
+ repo.setFile(cc);
 
 }
 
-public ArrayList<Contact>  getArray(){
-	return contacts;
-}
 
 public ArrayList<Contact> read(){
 	return contacts;
+
   }
 
 
