@@ -1,13 +1,12 @@
-package com.lxisoft.repository;
+package com.lxisoft.contactapp.repository;
 
-
-import com.lxisoft.controller.ContactController;
-import com.lxisoft.model.Contact;
+import com.lxisoft.contactapp.controller.ContactController;
+import com.lxisoft.contactapp.model.Contact;
 import java.util.*;
 import java.io.*;
 public class Repository implements FileStorage
 {  
-	static File contactFile=new File(fileName) ;
+	File contactFile=new File(fileName);
 	static int id=0;
 	public ArrayList<Contact> getFileDetails(Contact contact,ArrayList<Contact> contacts)
 	{
@@ -27,7 +26,7 @@ public class Repository implements FileStorage
 		}
 		catch(IOException e)
 		{
-			System.out.println(" ");
+			System.out.println("");
 		}
 		return contacts;
 	}
@@ -56,7 +55,6 @@ public class Repository implements FileStorage
 	// 		System.out.println("File exception "+e);
 	// 	}
 	// }
-
 	public void deleteAllContacts()
 	{
 		try
@@ -76,7 +74,7 @@ public class Repository implements FileStorage
 			FileWriter fw= new FileWriter(contactFile,true);
 			BufferedWriter br = new BufferedWriter(fw);	
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			String str="";
+			String str=" ";
 			if((str=read.readLine())!=null)
 			{
 				id++;

@@ -1,6 +1,7 @@
-package com.lxisoft.controller;
-import com.lxisoft.model.Contact;
-import com.lxisoft.repository.Repository;
+package com.lxisoft.contactapp.controller;
+
+import com.lxisoft.contactapp.model.Contact;
+import com.lxisoft.contactapp.repository.*;
 import java.io.*;
 import java.util.*;
 public class ContactController
