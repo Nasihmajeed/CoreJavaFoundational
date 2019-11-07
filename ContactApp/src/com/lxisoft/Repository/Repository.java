@@ -73,10 +73,12 @@ public class Repository implements FileStorage
 	{
 		try
 		{
-			if(contactFile.exists())
+			FileWriter fw= new FileWriter(contactFile,true);
+			BufferedWriter br = new BufferedWriter(fw);	
+			BufferedReader read=new BufferedReader(new FileReader(contactFile));
+			String str="";
+			if((str=read.readLine())!=null)
 			{
-				FileWriter fw= new FileWriter(contactFile,true);
-				BufferedWriter br = new BufferedWriter(fw);
 				id++;
 				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
 				br.flush();
@@ -84,8 +86,6 @@ public class Repository implements FileStorage
 			}
 			else
 			{
-				FileWriter newFile=new FileWriter(contactFile);
-				BufferedWriter br = new BufferedWriter(newFile);
 				br.write("ID , NAME , NUMBER \n");
 				id++;
 				br.write(id+","+contacts.getName()+","+contacts.getNo()+"\n");
@@ -97,23 +97,5 @@ public class Repository implements FileStorage
 		{
 			System.out.println("File exception "+e);
 		}
-		//readFileData();
 	}
-	// public void readFileData()
-	// {
-	// 	try
-	// 	{
-	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
-	// 		String str="";
-	// 		while((str=read.readLine())!=null) 
-	// 		{
-	// 			System.out.println(str);
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("File exception "+e);
-	// 	}
-	// }
-
 }

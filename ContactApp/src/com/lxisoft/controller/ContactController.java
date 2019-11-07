@@ -62,7 +62,10 @@ public class ContactController
 	{
 		contacts.remove(i);
 		filerepo.deleteAllContacts();
-		filerepo.setContacts(contacts.get(i));
+		for(int j=0;j<contacts.size();j++)
+		{
+			filerepo.setContacts(contacts.get(j));
+		}
 	}
 	public int getLength()
 	{

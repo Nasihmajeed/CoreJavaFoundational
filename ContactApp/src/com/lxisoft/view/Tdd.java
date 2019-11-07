@@ -53,7 +53,7 @@ public class Tdd
 		String[] array=new String[5];
 		switch(option)
 		{
-			case 1:searchContact(control);break;
+			case 1:searchContact(control);val=1;break;
 			case 2:val=1;break;
 		}
 		if(val==1)
@@ -83,21 +83,6 @@ public class Tdd
 		String number=sc.next();
 		control.addContact(name,number);
 	}
-	// public static void search(ContactController control)
-	// {
-	// 	Scanner sc=new Scanner(System.in);
-	// 	int length=control.getLength();
-	// 	System.out.println(" Enter the name to search:");
-	// 	String name=sc.next();
-	// 	int value=0,i;
-	// 	for(i=0;i<length;i++)
-	// 	{
-	// 		value=control.searchContact(i,name);
-	// 		if value==1
-	// 			System.out.println(" Contact found..!");
-	// 			updateContact(control,i);
-	// 	}
-	// }
 	public static void searchContact(ContactController control)
 	{ 
 		Scanner sc=new Scanner(System.in);
@@ -106,17 +91,17 @@ public class Tdd
 		String name=sc.next();
 		int value=0,val=0;
 		for(int i=0;i<length;i++)
-		{
+		{	
 			value=control.searchContact(i,name);
 			if(value==1)
 			{
 				updateContact(control,i);
 				val=1;
+				break;
 			}
 		}
 	     if(val==0)
 				contactNotFound();
-		
 	}
 	public static void contactNotFound()
 	{
