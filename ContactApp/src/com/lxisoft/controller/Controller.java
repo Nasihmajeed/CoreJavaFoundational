@@ -26,4 +26,13 @@ public class Controller
 	{
 		return contact.getNumber();
 	}
+	public String search()
+	{
+		return contact.getName();
+	}
+	public void editContact(String name,String number)
+	{
+		
+	}
+
 }
