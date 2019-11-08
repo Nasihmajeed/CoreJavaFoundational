@@ -42,13 +42,13 @@ public ArrayList<Contact>  getList(){
     return contacts;
   }
 
-public Contact searchList(ArrayList<Contact> contacts){
+public Contact searchList(String name){
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	try{
 		Contact c=null;
 	    int count=0;
 		for(int i=0;i<contacts.size();i++){
-			if(n.equals(contacts.get(i).getName())){
+			if(name.equals(contacts.get(i).getName())){
 				count++;
 				c=contacts.get(i);
       		}
@@ -60,5 +60,9 @@ public Contact searchList(ArrayList<Contact> contacts){
    		return null;
   			 }
 		}
-	}
+	catch(IOException e){
+    	System.out.println("Exception "+e);
+    }
+
+  }
 }

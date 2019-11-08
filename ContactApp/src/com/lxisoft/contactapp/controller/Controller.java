@@ -16,13 +16,15 @@ contacts.add(cc);
 
 
 public ArrayList<Contact> read(){
-	return contacts;
+	return repo.getList();
 
   }
 
 
 public Contact search(String n){
-	Contact c=null;
+	Contact contact=repo.searchList(n);
+	return contact;
+/*	Contact c=null;
 	int count=0;
 for(int i=0;i<contacts.size();i++){
 	if(n.equals(contacts.get(i).getName())){
@@ -35,7 +37,7 @@ for(int i=0;i<contacts.size();i++){
    }
    else{
    	return null;
-   }
+   }*/
  }
  
 public void update(String cn){

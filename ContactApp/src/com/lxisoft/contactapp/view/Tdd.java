@@ -13,7 +13,7 @@ public static void main(String[] args) {
 	Tdd t=new Tdd();
 	do{
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
-	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete \n6-print");
+	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete \n6-Displayfile\n");
 	 int x=t.s.nextInt();
 	 switch(x){
 	 	case 1:t.setContact();
@@ -28,6 +28,7 @@ public static void main(String[] args) {
 	 			break;
 	 	case 6:t.repo.getList();
 	 			break;
+	 	//case 7:t.repo.
 	 }
 	}while(true); 
   }
@@ -67,7 +68,21 @@ else{
     }
   }
 
+public void fileSearch(){
+System.out.println("\n\nEnter name to search : ");
+String n=ss.next();
+Contact c=repo.searchList(n);
+if(c==null){
+	System.out.println("cannot find");
+     }
+else{
+	System.out.println("\n User ");
+	  System.out.println(c.getName());
+	  System.out.println(c.getNumber());
+    }
 
+
+}
 
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
