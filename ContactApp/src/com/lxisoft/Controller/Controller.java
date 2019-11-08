@@ -9,7 +9,7 @@ public class Controller
   Repository r = new Repository();
 
   public ArrayList<Contact> addContact(String name,String number)
-  {// r.file(ArrayList <Contact> contactslist);
+  {
    Contact contact = new Contact(); 
    contact.setName(name);
    contact.setNumber(number);
@@ -22,8 +22,9 @@ public class Controller
   {
     r.file(contactslist);
   }
-  public void display()
+  public ArrayList<Contact> display()
   {
-    r.readFile();
+    contactslist=r.readFile();
+    return contactslist;
   }
  }

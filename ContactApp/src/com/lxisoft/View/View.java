@@ -16,7 +16,7 @@ public class View
     {
       System.out.println("\t\t\t***************MENU****************");
       System.out.println("\t\t\t1. ADD"+"\t\t\t2. DELETE\n");
-      System.out.println("\t\t\t3. DISPLAY"+"\t\t4. EDIT");
+      System.out.println("\t\t\t3. DISPLAY"+"\t\t4. EDIT\n\n\t\t\t5. EXIT\nEnter your Choice:");
       a = in.nextInt();
       switch(a)
       {
@@ -27,11 +27,13 @@ public class View
                  deleteContact();
                  break;
           case 3 : //DISPLAY
-                 displayAll(contactslist);
+                 displayAll();
                  break;  
           case 4 : // EDIT
                 editContact();  
-                break;     
+                break;    
+          case 5 : //EXIT
+                break;       
       }
     }while(a!=3);
          //contactslist = control.addContact();
@@ -56,10 +58,14 @@ public class View
 
     }
 
-        public static void displayAll(ArrayList <Contact> contactslist)
-    {
-      control.display();
-    }
+   public static void displayAll()
+     {    contactslist = control.display();
+          for(int i=0;i<contactslist.size();i++)
+          {
+            System.out.println("Name   "+(i+1)+":"+contactslist.get(i).getName());
+            System.out.println("Number "+(i+1)+":"+contactslist.get(i).getNumber());
+          }
+     }
   
 
     public static void deleteContact()

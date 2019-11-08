@@ -23,13 +23,10 @@ public class Repository
   }
   public ArrayList <Contact> readFile()
   {  String contacts;
-  	System.out.println("************");
   	   try
-  	   {// System.out.println("readdd"); 
+  	   {
   	    File file = new File("Contact1.csv");
-  	   // if(!file.exists()){
-  	   	   FileReader fr = new FileReader(file);
-
+  	      FileReader fr = new FileReader(file);
            BufferedReader br = new BufferedReader(fr);
            while((contacts=br.readLine())!= null)
            {
@@ -40,7 +37,6 @@ public class Repository
            	c.setName(name);
            	c.setNumber(number);
            	filelist.add(c);
-           //	System.out.println(contacts);
            }filelist.remove(0);
       for(int i=0;i<filelist.size();i++)
           {
@@ -49,7 +45,7 @@ public class Repository
         }}catch(IOException e)
         {
         	System.out.println("ERROR");
-        }   //System.out.println()//return filelist;
+        }   return filelist;
   }
   	   
 }
