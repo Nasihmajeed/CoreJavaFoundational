@@ -1,9 +1,0 @@
-1,princettan,5555
-3,athulya,0
-1,karthi,555555
-3,athulya,8888
-4,adarshhh,7777777
-1,karthi,555555
-2,amrithaa,55555555
-3,athulya,8888
-4,adarshhh,7777777

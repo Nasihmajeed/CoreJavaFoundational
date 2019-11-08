@@ -12,8 +12,8 @@ public class Repository
 {
 	public static File phoneBook;
 	public static BufferedReader reader = null;
-	public ArrayList<Contact> contactData;
-	public void createPhoneData()
+	//public ArrayList<Contact> contactData=new ArrayList<Contact>();
+	public void createPhoneData(ArrayList<Contact> contacts)
 	{
 		try
 		{
@@ -25,6 +25,7 @@ public class Repository
 			else
 			{
 				System.out.println("Contact File already exists");
+				storeData(contacts);
 			}
 		}
 		catch(IOException e)
@@ -59,7 +60,7 @@ public class Repository
 
 	public void storeData(ArrayList<Contact> contacts)
 	{
-	  contactData=new ArrayList<Contact>();
+	 // contactData=new ArrayList<Contact>();
     PrintWriter printer = null;
     try
     {
@@ -78,6 +79,7 @@ public class Repository
 		    System.out.println("contact:=="+newContact.getId()+","+newContact.getName()+","+newContact.getNumber());
 
 	    }
+	//    fileReader.flush();
 	    fileReader.close();
 	    //writeToFile();
 	  /*  printer = new PrintWriter(phoneBook);

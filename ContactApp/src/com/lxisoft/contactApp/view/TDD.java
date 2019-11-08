@@ -14,6 +14,7 @@ public class TDD
 		//controller.setInitialContacts();
 		System.out.println("********contact set*********");
 		controller.fileCreation();
+		controller.storeInitial();
 		//controller.fileFunctions();
 		//controller.createPhoneData();
 		//controller.writeToFile();
@@ -30,7 +31,7 @@ public class TDD
 			{
 				case 1:
 				create();
-				controller.fileFunctions();
+				//controller.fileFunctions();
 				break;
 			
 				case 2:
