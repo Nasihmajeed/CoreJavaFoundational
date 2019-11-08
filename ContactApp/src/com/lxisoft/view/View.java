@@ -28,7 +28,19 @@ public class View
 		}while(a!=4);
 		getContact(control);
 		displayContacts(contactsList,control);
-		control.getFileInfo();
+		displayFileDetails(contactsList,control);
+	}
+	public void displayFileDetails(List <Contact> contactsList,ContactController control)
+	{
+		contactsList=control.getFileInfo();
+		System.out.println("<-------File list------->");
+		int i = 1;
+		for(Contact c: contactsList)
+		{
+			System.out.println("\t "+i+"\t"+c.getContactName()+"\t\t"+ c.getContactNumber());
+			i++;
+		}
+
 	}
 	public void displayContacts(List <Contact> contactsList,ContactController control)
 	{

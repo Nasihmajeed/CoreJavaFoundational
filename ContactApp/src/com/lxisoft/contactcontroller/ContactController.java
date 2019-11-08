@@ -17,13 +17,14 @@ public class ContactController
 	{
 		return contactList;
 	}
-	public void getFileInfo()
+	public List <Contact> getFileInfo()
 	{
-	    repo.readFile();
+	    contactList=repo.readFile();
+	    return contactList;
 	}
 	public List <Contact> displayContact(List <Contact> contactList)
 	{
-		contactList=repo.readFile(contactList);
+		contactList=repo.readFile();
 		return contactList;
 	}
 	public void addContact(String name,String number)
@@ -31,7 +32,12 @@ public class ContactController
 		Contact cont=new Contact();
 		cont.setContactName(name);
 		cont.setContactNumber(number);
-		contactList.add(cont);
+		// contactList.add(cont);
+		// for(int i=0;i<contactList.size();i++)
+		// {
+		// 	int id=contactList.indexOf(contactList.get(i));
+		// 	id=id+1;
+		// }
 		v=repo.checkFile(v);
 		repo.setFile(v);
 		repo.writeFile(cont);
@@ -39,6 +45,7 @@ public class ContactController
 	public Contact searchContact(int n)
 	{
 		Contact contact=new Contact();
+		contactList=repo.readFile();
 		int index=0;
 		for(int i=0;i<contactList.size();i++)
 		{
@@ -52,7 +59,8 @@ public class ContactController
 	}
 	public void deleteContact(int n)
 	{
-		contactList=repo.readFile(contactList);
+		contactList=repo.readFile();
+		System.out.println(" ab  "+contactList.size());
 		for(int i=0;i<contactList.size();i++)
 		{
 			int index=contactList.indexOf(contactList.get(i));
@@ -62,14 +70,16 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
+		System.out.println(" a l "+contactList.size());
 		for(int j=0;j<contactList.size();j++)
 		{
-			repo.writeFile(contactList.get(j));
+			repo.rewriteFile(contactList.get(j));
 		}
 	}
 	public void updateContact(String num,Contact contact)
 	{
-		contactList=repo.readFile(contactList);
+		contactList=repo.readFile();
+		System.out.println(" read file=  "+contactList.size());
 		for(int i=0;i<contactList.size();i++)
 		{
 			if(contact.getContactName().equals(contactList.get(i).getContactName()))
@@ -80,9 +90,10 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
+		System.out.println(" list size "+contactList.size());
 		for(int j=0;j<contactList.size();j++)
 		{
-			repo.writeFile(contactList.get(j));
+			repo.rewriteFile(contactList.get(j));
 		}
 	}
 	public void deleteAllContact()

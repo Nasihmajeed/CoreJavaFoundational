@@ -9,6 +9,8 @@ public class Repository implements FileDataSource
 	File contactFile=new File(fileName);
 	FileWriter fw=null;
 	BufferedWriter bw=null;
+	FileWriter f=null;
+	BufferedWriter b=null;
 	public int checkFile(int v)
 	{
 		String s=null;
@@ -21,6 +23,13 @@ public class Repository implements FileDataSource
 			if((s=br.readLine())==null)
 			{
 				v=1;
+			}
+			else
+			{
+				while((s=br.readLine())!=null)
+				{
+					in++;
+				}
 			}
 		}
 		catch(Exception e)
@@ -38,8 +47,8 @@ public class Repository implements FileDataSource
 			bw=new BufferedWriter(fw);
 			if(v==1)
 			{
-			bw.write("ID"+","+"NAME"+","+"Number\n");
-			bw.flush();
+				bw.write("ID"+","+"NAME"+","+"Number\n");
+				bw.flush();
 			}
 		}
 		catch(Exception e)
@@ -58,6 +67,7 @@ public class Repository implements FileDataSource
 			bw=new BufferedWriter(fw);
 			in++;
 			String id=String.valueOf(in);
+            
 			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
 			bw.flush();
 		}
@@ -66,8 +76,9 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}	
 	}
-	public List <Contact> readFile(List <Contact> contactList)
+	public List <Contact> readFile()
 	{
+		List <Contact> contactList=new ArrayList<Contact>();
 		try
 		{
 			//File contactFile=new File(fileName);
@@ -96,8 +107,7 @@ public class Repository implements FileDataSource
 	{
 		try
 		{
-			//File contactFile=new File(fileName);
-			FileWriter f=new FileWriter(contactFile);
+			f=new FileWriter(contactFile);
 		}
 		catch(IOException e)
 		{
@@ -105,23 +115,40 @@ public class Repository implements FileDataSource
 		}
 		in=0;
 	}
-	public void readFile()
+	// public void readFile()
+	// {
+	// 	String contacts;
+	// 	try
+	// 	{
+	// 		//File contactFile=new File(fileName);
+	// 		FileReader fr=new FileReader(contactFile);
+	// 		BufferedReader br=new BufferedReader(fr);
+	// 		while((contacts=br.readLine())!=null)
+	// 		{
+	// 			System.out.println(contacts);
+	// 		}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println(" error"+e);
+	// 	}
+		
+	// }
+	public void rewriteFile(Contact contact)
 	{
-		String contacts;
 		try
 		{
-			//File contactFile=new File(fileName);
-			FileReader fr=new FileReader(contactFile);
-			BufferedReader br=new BufferedReader(fr);
-			while((contacts=br.readLine())!=null)
-			{
-				System.out.println(contacts);
-			}
+			f=new FileWriter(contactFile,true);
+			b=new BufferedWriter(f);
+			in++;
+			String id=String.valueOf(in);
+            
+			b.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
+			b.flush();
 		}
 		catch(IOException e)
 		{
 			System.out.println(" error"+e);
-		}
-		
+		}	
 	}
 }
