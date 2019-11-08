@@ -61,7 +61,7 @@ public class Controller
 	
 	public void fileCreation()
 	{
-		repo.createPhoneData();
+		repo.createPhoneData(contacts);
 
 	}
 

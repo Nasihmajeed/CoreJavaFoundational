@@ -3,12 +3,12 @@ import com.lxisoft.contactApp.controller.Controller;
 import java.util.Scanner;
 import java.io.Console;
 import com.lxisoft.contactApp.model.Contact;
-public class TDD 
+public class View 
 {
-	static Scanner scan=new Scanner(System.in);
-	static Console console = System.console();
-	public static Controller controller;
-	public static void main(String args[])
+ 	Scanner scan=new Scanner(System.in);
+	Console console = System.console();
+	public Controller controller;
+	public void start()
 	{
 		controller=new Controller();
 		//controller.setInitialContacts();
@@ -21,7 +21,7 @@ public class TDD
 		printMenu();
 	}
 
-	public static void printMenu()
+	public void printMenu()
 	{
 		while(true)
 		{
@@ -55,7 +55,7 @@ public class TDD
 
 	}
 
-	public static void show()
+	public void show()
 	{
 		for(Contact contact:controller.getContacts())
 		{
@@ -66,7 +66,7 @@ public class TDD
 		//controller.writeToFile();
 	}
 
-	public static void create()
+	public void create()
 	{
 		
 		System.out.println("Enter contact name:");
@@ -77,7 +77,7 @@ public class TDD
 		show();
 	}
 
-	public static void update()
+	public void update()
 	{
 		System.out.println("Enter id to update");
 		int upId=scan.nextInt();
@@ -98,7 +98,7 @@ public class TDD
 		show();
 	}
 
-	public static void delete()
+	public void delete()
 	{
 		System.out.println("Enter id to delete:");
 		int delId=scan.nextInt();
