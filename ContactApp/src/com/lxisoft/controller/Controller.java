@@ -32,7 +32,17 @@ public class Controller
 	}
 	public void editContact(String name,String number)
 	{
-		
+		 System.out.println("ENTER THE NEW NAME");
+		 Scanner read= new Scanner(System.in);
+		 String name= read.nextLine();
+		 System.out.println("ENTER THE NEW NUMBER");
+		 String number = read.nextLine();
+		 con.editContact(name,number);
 	}
-
+ System.out.println("ENTER THE NEW NAME");
+		 Scanner read= new Scanner(System.in);
+		 String name= read.nextLine();
+		 System.out.println("ENTER THE NEW NUMBER");
+		 String number = read.nextLine();
+		 con.editContact(name,number);
 }
