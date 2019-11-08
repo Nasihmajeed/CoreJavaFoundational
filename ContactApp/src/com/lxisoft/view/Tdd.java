@@ -35,6 +35,7 @@ public class Tdd
 		{
 			System.out.println(i+" Name= "+control.viewDetails(i).getName());
 			System.out.println("Number= "+control.viewDetails(i).getContactNo()+"\n");
+			
 		}
 	}
 	public static void viewName(ContactControl control)

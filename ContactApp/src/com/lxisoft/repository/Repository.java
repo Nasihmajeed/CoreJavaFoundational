@@ -9,19 +9,54 @@ import java.io.*;
 public class Repository implements FileRepository
 {
 	File file=new File(fileName);
-	
+	static int id=1;
 	public void createFile(Contact c)
 	{
-	try
-	{
-		FileWriter fw=new FileWriter(file);
-		fw.write("Id,"+c.getName()+","+c.getContactNo());
-
-		fw.flush();
+		try
+		{
+			FileWriter fw=new FileWriter(file,true);
+			fw.write(id+","+c.getName()+","+c.getContactNo()+"\n");
+			id++;
+			fw.flush();
+		}
+		catch(IOException e)
+		{
+			System.out.println("an error occured");
+		}	
+		readFile();
 	}
-	catch(IOException e)
+
+	public void readFile()
 	{
-		System.out.println("an error occured");
-	}	
-	}	
+		try
+		{
+			FileReader fr=new FileReader(file);
+			BufferedReader br=new BufferedReader(fr);
+			String read;
+			while((read=br.readLine())!=null)
+			System.out.println(read+"\n");
+		}
+		catch(IOException e)
+		{
+			System.out.println("an error occured");
+		}	
+	}
+
+	// public void arrayWrite()
+	// {
+	// 	try
+	// 	{
+	// 		FileWriter fw=new FileWriter(file);
+	// 		BufferedReader br=new BufferedReader(fr);
+	// 		String read;
+	// 		while((read=br.readLine())!=null)
+	// 		System.out.println(read+"\n");
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("an error occured");
+	// 	}	
+	// 	readFile();
+	// }
+
 }
