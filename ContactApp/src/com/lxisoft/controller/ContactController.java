@@ -22,14 +22,35 @@ public class ContactController
 	{
 		switch(option)
 		{
-			case 1:array=contactAdd(array);sync(array);break;
-			case 2:contactSearch(array);sync(array);break;
+			case 1:saveContact();break;
+			case 2:;break;
 			case 3:array=contactDelete(array);sync(array);break;
 			case 4:array=contactUpdate(array);sync(array);break;
 			case 5:view.displayContact(array);break;
 			case 6:repository.fileRead();break;
 			case 7:merge(array);break;
 		}
+	}
+
+	public void saveContact()
+	{
+		String[] temp=view.scan(i);
+		Contact contact=new Contact();
+		contact.setName(temp[0]);
+		contact.setNumber(temp[1]);
+		repository.save(contact);
+	}
+
+	public void allContacts()
+	{
+		array=repository.findAll();
+		view.displayAll(array);
+	}
+
+	public void contactByName()
+	{
+		String name=view.scanElement(0);
+		findByName(name)
 	}
 
 	public void sync(ArrayList<Contact> array)
@@ -41,20 +62,6 @@ public class ContactController
 			repository.syncFile(contact,j);
 			j++;
 		}
-	}
-
-	public ArrayList<Contact> setContact(ArrayList<Contact> array)
-	{
-		int n=view.inputContact();
-		for (int i=0;i<n;i++)
-		{
-			String[] temp=view.scan(i);
-			Contact contact=new Contact();
-			contact.setName(temp[0]);
-			contact.setNumber(temp[1]);
-			array.add(array.size(),contact);
-		}
-		return array;
 	}
 
 	public ArrayList<Contact> contactAdd(ArrayList<Contact> array)

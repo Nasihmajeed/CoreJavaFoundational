@@ -10,7 +10,7 @@ public class View
 {
 	static Scanner sc=new Scanner(System.in);
 
-	public void displayContact(ArrayList<Contact> array)
+	public void displayAll(ArrayList<Contact> array)
 	{
 		int i=1;
 		System.out.print("\n THE CONTACT LIST IS \n");
@@ -28,9 +28,9 @@ public class View
 		return n;		
 	}
 
-	public String[] scan(int i)
+	public String[] scan()
 	{
-		System.out.print("enter the name and number of "+(i+1)+"st contact");
+		System.out.print("enter the name and number of new contact");
 		String[] temp=new String[2];
 		temp[0]=sc.next();
 		temp[1]=sc.next();

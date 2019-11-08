@@ -12,34 +12,37 @@ public class FileRepository implements FileStorage
 	static int i=0;
 	//Contact contact=new Contact();
 
-	public ArrayList<Contact> check()
+	public void save(Contact contact)
 	{
-		ArrayList<Contact> array=new ArrayList<Contact>();
 		try
 		{
 			if(file.exists())
 			{
-				System.out.println(" data already in contact file  ");
-				System.out.println("THE FILE IS\nSL.NO, NAME, NUMBER");
-				array=initialFileRead();
+				System.out.println(" FILE ALREADY EXISTS  ");
+				FileWriter fw1=new FileWriter(file,true);
+				BufferedWriter bw1=new BufferedWriter(fw1);
+				bw1.write(contact.getName()+","+contact.getNumber()+"\n");
+				bw1.flush();
+				bw1.close();
 			}
 			else
 			{
 				FileWriter fw=new FileWriter(file);
-				BufferedWriter br=new BufferedWriter(fw);
-				br.write(" SL.NO , NAME , NUMBER\n");
-				br.flush();
-				br.close();
+				BufferedWriter bw=new BufferedWriter(fw);
+				System.out.println("NEW FILE CREATED");
+				bw.write(" SL.NO , NAME , NUMBER\n"+contact.getName()+","+contact.getNumber()+"\n");
+				bw.flush();
+				bw.close();
 			}
 		}
 		catch(IOException e)
 		{
 			System.out.println("Exception: "+e);
 		}
-		return array;
 	}
 
-	public ArrayList<Contact> initialFileRead()
+
+	public ArrayList<Contact> findAll()
 	{
 		ArrayList<Contact> array=new ArrayList<Contact>();
 		try
@@ -52,7 +55,6 @@ public class FileRepository implements FileStorage
 			{
 				if(j!=0)
 				{
-					System.out.println(details);
 					String[] data=details.split(",");
 					Contact contact=new Contact();
 					contact.setName(data[1]);
