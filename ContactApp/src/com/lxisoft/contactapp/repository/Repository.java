@@ -30,31 +30,30 @@ public class Repository implements FileStorage
 		}
 		return contacts;
 	}
-	// public void updateFileData(Contact contact,int i)
-	// {
-	// 	try
-	// 	{
-	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
-	// 		FileWriter fw= new FileWriter(contactFile,true);
-	// 		BufferedWriter br = new BufferedWriter(fw);
-	// 		String str=read.readLine();
-	// 		while((str=read.readLine())!=null) 
-	// 		{
-	// 			String[] st=str.split(",",3);
-	// 			String index=String.valueOf(i);
-	// 			if(st[0].equals(index));
-	// 			{
-	// 				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
-	// 			}
-	// 		}
-			//br.flush();
-	// 		br.close();	
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("File exception "+e);
-	// 	}
-	// }
+	public void update(String name)
+	{
+		try
+		{
+			BufferedReader read=new BufferedReader(new FileReader(contactFile));
+			BufferedWriter br = new BufferedWriter(new FileWriter(contactFile,true));
+			String str=read.readLine();
+			while((str=read.readLine())!=null)
+			{
+				String[] strln=str.split(",",3);
+				System.out.println(strln[1]+  " "+name);
+				if(strln[1].equals(name))
+					br.write(1+", Name, 9999");
+					br.flush();
+
+			}
+			br.close();
+		}catch(Exception e)
+		{
+			System.out.println("error");
+		}
+
+			
+	}
 	public void deleteAllContacts()
 	{
 		try
