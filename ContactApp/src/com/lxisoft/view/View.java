@@ -37,6 +37,11 @@ public class View
 		return temp;
 	}
 
+	public void displayContact(Contact contact)
+	{
+		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber);
+	}
+
 	public void contactOptions(ArrayList<Contact> array)
 	{
 		ContactController controller=new ContactController();

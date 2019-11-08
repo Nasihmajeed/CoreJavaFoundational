@@ -72,6 +72,18 @@ public class FileRepository implements FileStorage
 		return array;
 	}	
 
+	public void findByName(String name)
+	{
+		ArrayList<Contact> array=findAll();
+		for(int i=0;i<array.size();i++)
+		{
+			if(array.get(i).name==name)
+			{
+				view.displayContact(array.get(i));
+			}
+		}
+	}
+
 	public void fileRead()
 	{
 		try
