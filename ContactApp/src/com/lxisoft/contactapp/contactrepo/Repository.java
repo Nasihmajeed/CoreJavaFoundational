@@ -44,25 +44,25 @@ public ArrayList<Contact>  getList(){
 
 public Contact searchList(String name){
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	 int count=0;
+	 Contact c=null;
 	try{
-		Contact c=null;
-	    int count=0;
 		for(int i=0;i<contacts.size();i++){
 			if(name.equals(contacts.get(i).getName())){
 				count++;
 				c=contacts.get(i);
       		}
   		 }
-   		if(count==1){
-   			return c;
-  		 }
-  		 else{
-   		return null;
-  			 }
 		}
-	catch(IOException e){
+	catch(NullPointerException e){
     	System.out.println("Exception "+e);
     }
+    if(count==1){
+   		return c;
+  		 }
+    else{
+   		return null;
+  		 }
 
   }
 }
