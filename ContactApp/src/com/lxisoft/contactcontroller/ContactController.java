@@ -70,6 +70,7 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
+		repo.setFile(v);
 		System.out.println(" a l "+contactList.size());
 		for(int j=0;j<contactList.size();j++)
 		{
@@ -91,6 +92,8 @@ public class ContactController
 		}
 		repo.resetFile();
 		System.out.println(" list size "+contactList.size());
+		int v=1;
+		repo.setFile(v);
 		for(int j=0;j<contactList.size();j++)
 		{
 			repo.rewriteFile(contactList.get(j));

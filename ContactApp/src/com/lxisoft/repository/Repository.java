@@ -67,7 +67,6 @@ public class Repository implements FileDataSource
 			bw=new BufferedWriter(fw);
 			in++;
 			String id=String.valueOf(in);
-            
 			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
 			bw.flush();
 		}
