@@ -30,19 +30,17 @@ public class Controller
 	{
 		return contact.getName();
 	}
-	public void editContact(String name,String number)
-	{
-		 System.out.println("ENTER THE NEW NAME");
-		 Scanner read= new Scanner(System.in);
-		 String name= read.nextLine();
-		 System.out.println("ENTER THE NEW NUMBER");
-		 String number = read.nextLine();
-		 con.editContact(name,number);
+	public void editContact(int i,String name,String number)
+	{	
+		 contact = new Contact();
+		 contact.setName(name);
+         contact.setNumber(number);
+         array.remove(i);
+		 array.add(i,contact);
 	}
- System.out.println("ENTER THE NEW NAME");
-		 Scanner read= new Scanner(System.in);
-		 String name= read.nextLine();
-		 System.out.println("ENTER THE NEW NUMBER");
-		 String number = read.nextLine();
-		 con.editContact(name,number);
+	public void deleteContact(int i)
+	{
+		array.remove(i);
+	}
+ 
 }

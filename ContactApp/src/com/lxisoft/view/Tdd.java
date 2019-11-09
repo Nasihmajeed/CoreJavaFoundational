@@ -44,27 +44,28 @@ public class Tdd
 		{
 			if(name.equals(con.array.get(i).getName()))
 			 {
-			 	edit(i);
 			 	System.out.println(" NUMBER : "+con.array.get(i).getNumber());
 			 	f=1;
+			 	do{
+					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
+					Scanner read= new Scanner(System.in);
+					int n = read.nextInt();
+					switch(n)
+						{
+							case 1 :edit(i); break;
+							case 2 : delete(i);break;
+							case 3 :main(args) ; break;
+							default: System.out.println("INVALID CHOICE");
+						}
+					} while(true);
+					  
 			 }	 
 		}
 		if(f!=1)
 		{
 			System.out.println("NOT FOUND");
 		}
-		do{
-		System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
-		Scanner read= new Scanner(System.in);
-		int n = read.nextInt();
-		switch(n)
-		{
-			case 1 :edit(n); break;
-			case 2 : delete();break;
-			case 3 :main(args) ; break;
-			default: System.out.println("INVALID CHOICE");
-		}
-		} while(true);
+		
 	}
 	public static void display()
 	{
@@ -75,17 +76,25 @@ public class Tdd
 	}
 	public static void edit(int i)
 	{
-		
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
 		 String name= read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
-		 con.editContact(name,number);
+		 con.editContact(i,name,number);
 	}
-	public static void delete()
+	public static void delete(int i)
 	{
-
+		System.out.println("are you sure ? \n 1= yes \t\t 2 = nop");
+		 Scanner read= new Scanner(System.in);
+		 int choice= read.nextInt();
+		 switch(choice)
+		 {
+		 	case 1 : con.deleteContact(i);
+		 	          System.out.println("contact deleted ");
+		 	          break;
+		 	case 2 : search(); break;
+		 }
 	}
 		
 }
