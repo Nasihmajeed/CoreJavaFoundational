@@ -5,11 +5,10 @@ import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-Repository repo;
+Repository repo=new  Repository();
 public void save(Contact cc)
 {
 contacts.add(cc);
- repo=new  Repository();
  repo.setFile(cc);
 
 }
@@ -22,7 +21,8 @@ public ArrayList<Contact> read(){
 
 
 public Contact search(String n){
-	Contact contact=repo.searchList(n);
+	String name=n;
+	Contact contact=repo.searchList(name);
 	return contact;
 /*	Contact c=null;
 	int count=0;

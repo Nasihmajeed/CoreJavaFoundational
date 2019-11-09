@@ -36,7 +36,7 @@ public void setContact(){
 System.out.println("\n\nEnter number of contacts : ");
 int n=s.nextInt();
 	for(int i=0;i<n;i++){
-		Contact cc=new Contact();
+		Contact cc=new Contact();		
 		System.out.println("Enter the name : ");
 		cc.setName(ss.next());
 		System.out.println("Enter the number : ");
@@ -48,6 +48,7 @@ int n=s.nextInt();
 }
 
 public void display(ArrayList<Contact> contacts){
+	System.out.println("size : ");
 	for(int i=0;i<contacts.size();i++){
 		System.out.println(contacts.get(i).getName());
 		System.out.println(contacts.get(i).getNumber());
@@ -62,13 +63,13 @@ if(c==null){
 	System.out.println("cannot find");
      }
 else{
-	System.out.println("\n User ");
+	System.out.println("\n------ User-----\n ");
 	  System.out.println(c.getName());
 	  System.out.println(c.getNumber());
     }
   }
 
-public void fileSearch(){
+/*public void fileSearch(){
 System.out.println("\n\nEnter name to search : ");
 String n=ss.next();
 Contact c=repo.searchList(n);
@@ -83,19 +84,35 @@ else{
 
 
 }
-
+*/
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
-control.update(n);
+Contact c=control.search(n);
+if(c==null){
+	System.out.println("cannot edit");
+     }
+else{
+	//Contact c=new Contact();
+	System.out.println("Enter new name : ");
+	c.setName(ss.next());
+	System.out.println("Enter new number : ");
+	c.setNumber(s.next());	
+	control.save(c);
+	System.out.println("(contact updated sucssesfully )");
+    }
+  }
+
+
+/*control.update(n);	
 Contact c=new Contact();
 System.out.println("Enter new name : ");
 c.setName(ss.next());
 System.out.println("Enter new number : ");
 c.setNumber(s.next());	
 control.save(c);
-System.out.println("(contact updated sucssesfully )");
-   }
+System.out.println("(contact updated sucssesfully )");*/
+   
 
 public void deleteContact(){
 System.out.println("\n\nEnter contact name to delete : ");
