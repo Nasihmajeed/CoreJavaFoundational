@@ -76,7 +76,7 @@ public class Repository
 		    long number=Long.parseLong(strings[2]); 
 		    Contact newContact = new Contact(id,name,number);
 		    contacts.add(newContact);
-		    System.out.println("contact:=="+newContact.getId()+","+newContact.getName()+","+newContact.getNumber());
+		    System.out.println("contact:  "+newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
 
 	    }
 	//    fileReader.flush();

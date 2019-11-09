@@ -12,9 +12,9 @@ public class View
 	{
 		controller=new Controller();
 		//controller.setInitialContacts();
-		System.out.println("********contact set*********");
+		System.out.println("********contact set*********\n");
 		controller.fileCreation();
-		controller.storeInitial();
+		//controller.storeInitial();
 		//controller.fileFunctions();
 		//controller.createPhoneData();
 		//controller.writeToFile();
@@ -25,7 +25,7 @@ public class View
 	{
 		while(true)
 		{
-			System.out.println("Choose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit");
+			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit");
 			int menu=scan.nextInt();
 			switch(menu)
 			{
@@ -59,7 +59,7 @@ public class View
 	{
 		for(Contact contact:controller.getContacts())
 		{
-			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number="+contact.getNumber());
+			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number= "+contact.getNumber());
 		}
 		System.out.println();
 		//controller.store();

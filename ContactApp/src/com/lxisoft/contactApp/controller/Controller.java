@@ -52,12 +52,6 @@ public class Controller
 	{
 		contacts.remove(delId-1);
 	}
-
-	public void fileFunctions()
-	{
-		//repo.writeToFile(contacts);
-		System.out.println("file phone book created");
-	}
 	
 	public void fileCreation()
 	{
