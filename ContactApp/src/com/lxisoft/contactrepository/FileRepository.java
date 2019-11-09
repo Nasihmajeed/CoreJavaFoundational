@@ -84,6 +84,18 @@ public class FileRepository implements FileStorage
 		}
 	}
 
+	public ArrayList<Contact> delete(String name)
+	{
+		ArrayList<Contact> array=findAll();
+		for(int i=0;i<array.size();i++)
+		{
+			if(array.get(i).name==name)
+			{
+				array.remove(i);
+			}
+		}
+	} 
+
 	public void fileRead()
 	{
 		try

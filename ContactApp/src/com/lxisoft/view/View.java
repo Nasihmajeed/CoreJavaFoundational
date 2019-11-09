@@ -21,13 +21,6 @@ public class View
 		}
 	}
 
-	public int inputContact()
-	{
-		System.out.print("enter the max range of contacts");
-		int n=sc.nextInt();
-		return n;		
-	}
-
 	public String[] scan()
 	{
 		System.out.print("enter the name and number of new contact");
@@ -42,7 +35,7 @@ public class View
 		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber);
 	}
 
-	public void contactOptions(ArrayList<Contact> array)
+	public void contactOptions()
 	{
 		ContactController controller=new ContactController();
 		while(true)
@@ -52,9 +45,9 @@ public class View
 			if(ch!='y')
 				break;
 			processing();
-			System.out.println("\n press for features-->  1-Addition  2-searching  3-deletion  4-update  5-display  6-displayFile  7-duplicates");
+			System.out.println("\n press for features-->  1-save  2-search  3-deletion  4-editContact  5-displayall  ");
 			int option=sc.nextInt();
-			controller.features(array,option);
+			controller.features(option);
 			System.out.println("\n");
 		}
 		System.out.println("\t\t\t\t THANK YOU");	
@@ -87,17 +80,6 @@ public class View
 		return element;
 	}
 
-	public void elementFound(Contact contact,int i)
-	{
-		System.out.print("Contact present at S.No:-"+(i)+"\t\tName- " +contact.getName());
-		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-	}
-
-	public void noContact()
-	{
-		System.out.println("Contact not present");
-	}
-
 	public int updateScan()
 	{
 		System.out.println("for updating name-0  number-1");
@@ -105,4 +87,37 @@ public class View
 		return u;
 	}
 
+	public void noContact()
+	{
+		System.out.println("Contact not present");
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// public void elementFound(Contact contact,int i)
+	// {
+	// 	System.out.print("Contact present at S.No:-"+(i)+"\t\tName- " +contact.getName());
+	// 	System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
+	// }
+
+	
+
+	// public int inputContact()
+	// {
+	// 	System.out.print("enter the max range of contacts");
+	// 	int n=sc.nextInt();
+	// 	return n;		
+	// }
