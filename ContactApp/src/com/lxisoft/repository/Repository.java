@@ -62,7 +62,6 @@ public class Repository implements FileDataSource
 		
 		try
 		{
-			//File contactFile=new File(fileName);
 			fw=new FileWriter(contactFile,true);
 			bw=new BufferedWriter(fw);
 			in++;
@@ -80,7 +79,6 @@ public class Repository implements FileDataSource
 		List <Contact> contactList=new ArrayList<Contact>();
 		try
 		{
-			//File contactFile=new File(fileName);
 			String contacts;
 			FileReader fr=new FileReader(contactFile);
 			BufferedReader br=new BufferedReader(fr);
@@ -114,25 +112,6 @@ public class Repository implements FileDataSource
 		}
 		in=0;
 	}
-	// public void readFile()
-	// {
-	// 	String contacts;
-	// 	try
-	// 	{
-	// 		//File contactFile=new File(fileName);
-	// 		FileReader fr=new FileReader(contactFile);
-	// 		BufferedReader br=new BufferedReader(fr);
-	// 		while((contacts=br.readLine())!=null)
-	// 		{
-	// 			System.out.println(contacts);
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(" error"+e);
-	// 	}
-		
-	// }
 	public void rewriteFile(Contact contact)
 	{
 		try

@@ -27,19 +27,16 @@ public class ContactController
 		contactList=repo.readFile();
 		return contactList;
 	}
+	public void setFile()
+	{
+		v=repo.checkFile(v);
+		repo.setFile(v);
+	}
 	public void addContact(String name,String number)
 	{
 		Contact cont=new Contact();
 		cont.setContactName(name);
 		cont.setContactNumber(number);
-		// contactList.add(cont);
-		// for(int i=0;i<contactList.size();i++)
-		// {
-		// 	int id=contactList.indexOf(contactList.get(i));
-		// 	id=id+1;
-		// }
-		v=repo.checkFile(v);
-		repo.setFile(v);
 		repo.writeFile(cont);
 	}
 	public Contact searchContact(int n)
@@ -70,6 +67,7 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
+		int v=1;
 		repo.setFile(v);
 		System.out.println(" a l "+contactList.size());
 		for(int j=0;j<contactList.size();j++)

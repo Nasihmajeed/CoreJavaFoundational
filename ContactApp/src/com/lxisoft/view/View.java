@@ -95,6 +95,7 @@ public class View
 	}
 	public void addContact(ContactController control)
 	{
+		control.setFile();
 		System.out.println("Enter number of contact to add->");
 		int n=s.nextInt();
 
