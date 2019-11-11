@@ -9,6 +9,8 @@ public class Tdd
 	public static Controller con = new Controller();
 	public static void main(String[] args)
 	{
+		try
+		{
 		System.out.println("  \n \t \t -----CONTACT LIST------");
 		do{
 		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY ");
@@ -22,7 +24,14 @@ public class Tdd
 			default: System.out.println("INVALID CHOICE");
 		}
 		}while(true);
-	}
+
+        }
+        catch (InputMismatchException exception) 
+        {
+        	System.out.println(" PLEASE ENTER THE NUMERIC SUGGESTIONS GIVEN ABOVE");
+        }
+
+			}
 	public static void addContact()
 	{
 		

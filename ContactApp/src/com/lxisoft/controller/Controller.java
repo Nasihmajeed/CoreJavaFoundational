@@ -1,14 +1,17 @@
 package com.lxisoft.controller;
 import com.lxisoft.view.*;
 import com.lxisoft.model.*;
+import com.lxisoft.repository.*;
 import java.util.*;
 
 public class Controller
 {
 	Contact contact ;
+	Repository rep = new Repository();
 	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void addContact(String name,String number)
-	{
+	{ 
+		rep.fileRead();
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
