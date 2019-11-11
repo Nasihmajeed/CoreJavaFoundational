@@ -21,19 +21,10 @@ public class ContactControl
 	{
         contactList=repository.arrayWrite(contactList);
     }
-    // public List<Contact> viewFile()
-    // {
-    //     contactList=repository.arrayWrite(contactList);
-    //     return contactList;
-    // }
+
     public Contact viewDetails(int i)
     {
-        
-        // Contact c=new Contact();
-        // c.setName(contactList.get(i).getName());
-        // c.setContactNo(contactList.get(i).getContactNo());
         return contactList.get(i);
-        // return c;
     }
 
     public void addDetails(String name,String contactNo)
@@ -55,7 +46,6 @@ public class ContactControl
 
     public void deleteDetails(int no)
     {
-    	// contactList=repository.arrayWrite(contactList);
         for(int i=0;i<contactList.size();i++)
     	{
     		int index=contactList.indexOf(contactList.get(i));
@@ -64,16 +54,15 @@ public class ContactControl
          		contactList.remove(i);
          	}
     	}
-        // repository.resetFile();
-        // for(int i=0;i<contactList.size();i++)
-        // {
-        //     repository.createFile(contactList.get(i));
-        // }
+        repository.resetFile();
+        for(int i=0;i<contactList.size();i++)
+        {
+            repository.createFile(contactList.get(i));
+        }
     }
 
     public void updateDetails(String contactNo,int no)
     {
-    	// contactList=repository.arrayWrite(contactList);
         Contact c=new Contact();
   		for(int i=0;i<contactList.size();i++)
     	{
@@ -85,11 +74,11 @@ public class ContactControl
                 contactList.set(i,c);     
          	}
     	}
-        // repository.resetFile();
-        // for(int i=0;i<contactList.size();i++)
-        // {
-        //     repository.createFile(contactList.get(i));
-        // }
+        repository.resetFile();
+        for(int i=0;i<contactList.size();i++)
+        {
+            repository.createFile(contactList.get(i));
+        }
     }
 
     public Contact searchDetails(String name)
