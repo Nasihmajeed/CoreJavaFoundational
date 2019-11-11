@@ -26,9 +26,6 @@ public static void main(String[] args) {
 	 			break;
 	 	case 5:t.deleteContact();
 	 			break;
-	 	//case 6:t.repo.getList();
-	 		//	break;
-	 	//case 7:t.repo.
 	 }
 	}while(true); 
   }
@@ -64,27 +61,12 @@ if(c==null){
      }
 else{
 	System.out.println("\n------ User-----\n ");
-	  System.out.println(c.getName());
-	  System.out.println(c.getNumber());
+	  System.out.println(c.getName()+"-------"+c.getNumber());
+	  //System.out.println(c.getNumber());
     }
   }
 
-/*public void fileSearch(){
-System.out.println("\n\nEnter name to search : ");
-String n=ss.next();
-Contact c=repo.searchList(n);
-if(c==null){
-	System.out.println("cannot find");
-     }
-else{
-	System.out.println("\n User ");
-	  System.out.println(c.getName());
-	  System.out.println(c.getNumber());
-    }
 
-
-}
-*/
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
@@ -94,6 +76,7 @@ if(c==null){
      }
 else{
 	//Contact c=new Contact();
+	control.update(n);
 	System.out.println("Enter new name : ");
 	c.setName(ss.next());
 	System.out.println("Enter new number : ");
@@ -104,14 +87,6 @@ else{
   }
 
 
-/*control.update(n);	
-Contact c=new Contact();
-System.out.println("Enter new name : ");
-c.setName(ss.next());
-System.out.println("Enter new number : ");
-c.setNumber(s.next());	
-control.save(c);
-System.out.println("(contact updated sucssesfully )");*/
    
 
 public void deleteContact(){
