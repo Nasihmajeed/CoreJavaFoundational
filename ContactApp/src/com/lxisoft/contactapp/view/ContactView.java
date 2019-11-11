@@ -18,7 +18,7 @@ public class ContactView
 		do
 		{  
 			System.out.println(" \n<---Contact App Menu--->");
-			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n 5:Exit ");
+			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n");
 			System.out.println(" select your option	");
 			int option=sc.nextInt();
 			switch(option)
@@ -27,7 +27,6 @@ public class ContactView
 				case 2:		searchContact(control);break;
 				case 3:		viewContact(control);break;
 				case 4:		deleteAllContacts(control);break;
-				case 5:		continueOpt='n';break;
 				default:	System.out.println("Enter the correct option!");
 							default_option=1;break;
 			}

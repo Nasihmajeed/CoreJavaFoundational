@@ -30,30 +30,30 @@ public class Repository implements FileStorage
 		}
 		return contacts;
 	}
-	public void update(String name)
-	{
-		try
-		{
-			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			BufferedWriter br = new BufferedWriter(new FileWriter(contactFile,true));
-			String str=read.readLine();
-			while((str=read.readLine())!=null)
-			{
-				String[] strln=str.split(",",3);
-				System.out.println(strln[1]+  " "+name);
-				if(strln[1].equals(name))
-					br.write(1+", Name, 9999");
-					br.flush();
+	// public void update(String name)
+	// {
+	// 	try
+	// 	{
+	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
+	// 		BufferedWriter br = new BufferedWriter(new FileWriter(contactFile,true));
+	// 		String str=read.readLine();
+	// 		while((str=read.readLine())!=null)
+	// 		{
+	// 			String[] strln=str.split(",",3);
+	// 			System.out.println(strln[1]+  " "+name);
+	// 			if(strln[1].equals(name))
+	// 				br.write(1+", Name, 9999");
+	// 				br.flush();
 
-			}
-			br.close();
-		}catch(Exception e)
-		{
-			System.out.println("error");
-		}
+	// 		}
+	// 		br.close();
+	// 	}catch(Exception e)
+	// 	{
+	// 		System.out.println("error");
+	// 	}
 
 			
-	}
+	// }
 	public void deleteAllContacts()
 	{
 		try

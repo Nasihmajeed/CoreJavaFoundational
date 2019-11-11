@@ -1,4 +1,5 @@
 package com.lxisoft.contactapp.repository;
+import com.lxisoft.contactapp.*;
 
 public interface FileStorage
 {

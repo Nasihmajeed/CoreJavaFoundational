@@ -54,12 +54,12 @@ public class ContactController
 		contact.setName(name);
 		contact.setNo(number);
 		contacts.set(i,contact);
-		filerepo.update(name);
-		//filerepo.deleteAllContacts();
-		// for(int j=0;j<contacts.size();j++)
-		// {
-		// 	filerepo.setContacts(contacts.get(j));
-		// }
+		//filerepo.update(name);
+		filerepo.deleteAllContacts();
+		for(int j=0;j<contacts.size();j++)
+		{
+			filerepo.setContacts(contacts.get(j));
+		}
 	}
 	public void deleteContact(int i)
 	{
