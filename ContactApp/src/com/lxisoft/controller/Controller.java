@@ -11,7 +11,7 @@ public class Controller
 	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void addContact(String name,String number)
 	{ 
-		rep.fileRead();
+		rep.fileWrite();
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);

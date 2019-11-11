@@ -9,8 +9,13 @@ public class Repository implements Filerepository
 	public void fileWrite()
 	{ try
 		{
-		FileReader fileread = new FileReader();
+		FileReader f = new FileReader(file);
 	  	fw = new FileWriter(file); 
+	  	fw.write("abhijith");
+	  	fw.flush();
+	  	String a= f.readLine();
+	  	System.out.println(a);
+
 		}
 		catch (IOException e)
 		{
