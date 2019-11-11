@@ -9,7 +9,6 @@ public class FileRepository implements FileStorage
 {
 	File file=new File(directory);
 	View view=new View();
-	//Contact contact=new Contact();
 
 	public void save(Contact contact)
 	{

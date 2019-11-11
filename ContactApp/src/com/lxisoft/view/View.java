@@ -96,30 +96,3 @@ public class View
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// public void elementFound(Contact contact,int i)
-	// {
-	// 	System.out.print("Contact present at S.No:-"+(i)+"\t\tName- " +contact.getName());
-	// 	System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-	// }
-
-	
-
-	// public int inputContact()
-	// {
-	// 	System.out.print("enter the max range of contacts");
-	// 	int n=sc.nextInt();
-	// 	return n;		
-	// }

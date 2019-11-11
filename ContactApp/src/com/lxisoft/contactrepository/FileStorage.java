@@ -11,14 +11,3 @@ public interface FileStorage
 	public ArrayList<Contact> delete(String name);
 	public void syncFile(Contact contact,int j);
 }
-
-/*save(con)
-ret findall
-finbyname(str name)
-delet(String name)
-*/
-// public void save(Contact contact);
-// public ArrayList<Contact> findAll();
-// public void findByName(String name);
-// public void delete(String name);
-
