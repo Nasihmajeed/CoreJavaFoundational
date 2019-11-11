@@ -21,12 +21,13 @@ public class Tdd
 			{
 				case 0:addContact(control);break;
 				case 1:selectContact(control);break;
-				case 3:searchContact(control);break;
+				case 2:searchContact(control);break;
 				default:System.out.println("Invalid Selection");
 			}
 			System.out.println("Continue...?\n0-No   1-Yes");
 			c=sc.nextInt();
 	    }while(c==1);
+	    viewContact(control);
 	}
     public static void viewContact(ContactControl control)
     {
@@ -66,29 +67,24 @@ public class Tdd
 		int y=sc.nextInt();
 		switch(y)
 		{
-			case 0:deleteContact(control);break;
-			case 1:updateContact(control);break;
+			case 0:deleteContact(control,no);break;
+			case 1:updateContact(control,no);break;
 			default:System.out.println("Invalid selection");
 		}
 	}
 
-	public static void deleteContact(ContactControl control)
+	public static void deleteContact(ContactControl control,int no)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("\nEnter Contact name:");
-		String name=sc.next();
-		control.deleteDetails(name);
+		control.deleteDetails(no);
 		viewContact(control);
 	}
 
-	public static void updateContact(ContactControl control)
+	public static void updateContact(ContactControl control,int no)
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("\nEnter Contact name:");
-		String name=sc.next();
 		System.out.println("\nEnter new contact number:");
 		String contactNo=sc.next();
-		control.updateDetails(name,contactNo);
+		control.updateDetails(contactNo,no);
 		viewContact(control);	
 	}
 

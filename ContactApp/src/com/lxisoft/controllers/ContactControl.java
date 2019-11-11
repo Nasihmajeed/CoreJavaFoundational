@@ -17,23 +17,23 @@ public class ContactControl
 		return contactList.size();
 	}
 
-	public List<Contact> getContactDetails()
+	public void getContactDetails()
 	{
-		String[] name={"meghu","meharu","ammu"};
-		String[] contactNo={"9961048108","9744310194","7356801940"};
-		for(int i=0;i<3;i++)
-		{
-			Contact contact=new Contact();
-			contact.setName(name[i]);
-			contact.setContactNo(contactNo[i]);
-			contactList.add(contact);
-		}
-		return contactList;
+        contactList=repository.arrayWrite(contactList);
     }
-
+    // public List<Contact> viewFile()
+    // {
+    //     contactList=repository.arrayWrite(contactList);
+    //     return contactList;
+    // }
     public Contact viewDetails(int i)
     {
+        
+        // Contact c=new Contact();
+        // c.setName(contactList.get(i).getName());
+        // c.setContactNo(contactList.get(i).getContactNo());
         return contactList.get(i);
+        // return c;
     }
 
     public void addDetails(String name,String contactNo)
@@ -43,7 +43,6 @@ public class ContactControl
     	c.setContactNo(contactNo);
     	contactList.add(c);
         repository.createFile(c);
-
     }
 
     public void selectDetails(int no)
@@ -54,30 +53,43 @@ public class ContactControl
         }
     }
 
-    public void deleteDetails(String name)
+    public void deleteDetails(int no)
     {
-    	for(int i=0;i<contactList.size();i++)
+    	// contactList=repository.arrayWrite(contactList);
+        for(int i=0;i<contactList.size();i++)
     	{
-    		if(name.equals(contactList.get(i).getName()))
+    		int index=contactList.indexOf(contactList.get(i));
+            if(no==index)
     		{
          		contactList.remove(i);
          	}
     	}
+        // repository.resetFile();
+        // for(int i=0;i<contactList.size();i++)
+        // {
+        //     repository.createFile(contactList.get(i));
+        // }
     }
 
-    public void updateDetails(String name,String contactNo)
+    public void updateDetails(String contactNo,int no)
     {
-    	Contact c=new Contact();
+    	// contactList=repository.arrayWrite(contactList);
+        Contact c=new Contact();
   		for(int i=0;i<contactList.size();i++)
     	{
-    		if(name.equals(contactList.get(i).getName()))
+    		int index=contactList.indexOf(contactList.get(i));
+            if(no==index)
     		{
-         		contactList.remove(i);
+         		c=contactList.get(i);
+                c.setContactNo(contactNo);
+                contactList.set(i,c);     
          	}
     	}
-    	c.setName(name);
-    	c.setContactNo(contactNo);
-    	contactList.add(c);
+        // repository.resetFile();
+        // for(int i=0;i<contactList.size();i++)
+        // {
+        //     repository.createFile(contactList.get(i));
+        // }
     }
 
     public Contact searchDetails(String name)
