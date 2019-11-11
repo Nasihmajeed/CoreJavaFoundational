@@ -23,13 +23,11 @@ public void setFile(Contact contact){
   }
 
 public ArrayList<Contact>  getList(){
-	// ArrayList<Contact> contacts=new ArrayList<Contact>();
-		//System.out.println("Reding File 1234554 ");
+	 contacts=new ArrayList<Contact>();
 	try{
-		//System.out.println("Reding File ");
 		FileReader read=new FileReader(file);
 		BufferedReader bread=new BufferedReader(read);
-		System.out.println("reading file End");
+		//System.out.println("reading file End");
 		String data;
 		while((data=bread.readLine())!=null){	
 			String[] dataArray=data.split(",");
@@ -37,7 +35,6 @@ public ArrayList<Contact>  getList(){
 				contact.setName(dataArray[0]);
 			 	contact.setNumber(dataArray[1]);
 				contacts.add(contact);
-				//System.out.println(dataArray[0]);
 		}
 	}
 	catch(IOException e){
@@ -48,20 +45,14 @@ public ArrayList<Contact>  getList(){
   }
 
 public Contact searchList(String name){
-	//ArrayList<Contact> contacts=new ArrayList<Contact>();
-	 int count=0;
-	 Contact c=null;
-	try{
+		 int count=0;
+		 Contact c=null;
 		for(int i=0;i<contacts.size();i++){
 			if(name.equals(contacts.get(i).getName())){
 				count++;
 				c=contacts.get(i);
       		}
   		 }
-		}
-	catch(NullPointerException e){
-    	System.out.println("Exception "+e);
-    }
     if(count==1){
    		return c;
   		 }
@@ -70,4 +61,19 @@ public Contact searchList(String name){
   		 }
 
   }
+
+
+ public void deleteList(String cn){
+for(int i=0;i<contacts.size();i++){
+	if(cn.equals(contacts.get(i).getName())){
+		contacts.remove(i);
+		//return contacts;
+          }
+         //this.setFile(contacts.get(i));
+       }
+    } 
+
+
+
+
 }
