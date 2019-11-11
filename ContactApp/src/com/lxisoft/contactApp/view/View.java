@@ -11,10 +11,8 @@ public class View
 	public void start()
 	{
 		controller=new Controller();
-		//controller.setInitialContacts();
 		System.out.println("********CONTACT BOOK*********\n");
 		controller.fileCreation();
-		//controller.storeInitial();
 		//controller.fileFunctions();
 		//controller.createPhoneData();
 		//controller.writeToFile();
@@ -31,7 +29,6 @@ public class View
 			{
 				case 1:
 				create();
-				//controller.fileFunctions();
 				break;
 			
 				case 2:
@@ -51,7 +48,7 @@ public class View
 				return;
 
 				case 6:
-				//search();
+				search();
 				break;
 
 			}
@@ -67,8 +64,6 @@ public class View
 			System.out.println(contact.getId()+"\t"+contact.getName()+"\t\t\t"+contact.getNumber());
 		}
 		System.out.println();
-		//controller.store();
-		//controller.writeToFile();
 	}
 
 	public void create()
@@ -112,7 +107,7 @@ public class View
 
 	}
 
-	/*public void search()
+	public void search()
 	{
 		Contact searchedContact=null;
 		System.out.println("Enter name to search");
@@ -128,6 +123,6 @@ public class View
 
 		}
 
-	}*/
+	}
 
 }

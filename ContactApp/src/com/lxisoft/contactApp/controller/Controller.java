@@ -6,11 +6,6 @@ public class Controller
 {
 	public Repository repo=new Repository();
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
-	public void setInitialContacts()
-	{
-		//contacts.add(new Contact(1,"athulya",9633400720l));
-	
-	}
 
 	public void setContacts(ArrayList<Contact> contacts)
 	{
@@ -53,7 +48,7 @@ public class Controller
 		contacts.remove(delId-1);
 	}
 	
-	/*public Contact searchContact(String name)
+	public Contact searchContact(String name)
 	{
 		Contact contact=null;
 		for(int i=0;i<contacts.size();i++)
@@ -65,7 +60,7 @@ public class Controller
 
 		}
 		return contact;
-	}*/
+	}
 
 
 	public void fileCreation()

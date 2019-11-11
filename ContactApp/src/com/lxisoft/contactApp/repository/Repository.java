@@ -12,7 +12,6 @@ public class Repository
 {
 	public static File phoneBook;
 	public static BufferedReader reader = null;
-	//public ArrayList<Contact> contactData=new ArrayList<Contact>();
 	public void createPhoneData(ArrayList<Contact> contacts)
 	{
 		try
@@ -60,7 +59,6 @@ public class Repository
 
 	public void storeData(ArrayList<Contact> contacts)
 	{
-	 // contactData=new ArrayList<Contact>();
     PrintWriter printer = null;
     try
     {
@@ -81,15 +79,8 @@ public class Repository
 		    System.out.println(newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
 
 	    }
-	//    fileReader.flush();
 	    fileReader.close();
-	    //writeToFile();
-	  /*  printer = new PrintWriter(phoneBook);
-	    for (Contact contact : contacts) 
-	    {
-	  		printer.println(contact.getId()+","+contact.getName()+","+contact.getNumber());
-	    }
-   		printer.close();*/
+	
 	}
     catch ( IOException e ) 
     {
