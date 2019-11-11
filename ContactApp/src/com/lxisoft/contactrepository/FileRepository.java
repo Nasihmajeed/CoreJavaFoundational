@@ -2,14 +2,13 @@ package com.lxisoft.contactrepository;
 import java.io.*;
 import com.lxisoft.model.*;
 import java.util.ArrayList;
-import com.lxisoft.view.Tdd;
+import com.lxisoft.view.*;
 import com.lxisoft.contactrepository.FileStorage;
 
 public class FileRepository implements FileStorage
 {
-	Tdd t=new Tdd();
 	File file=new File(directory);
-	static int i=0;
+	View view=new View();
 	//Contact contact=new Contact();
 
 	public void save(Contact contact)
@@ -18,7 +17,6 @@ public class FileRepository implements FileStorage
 		{
 			if(file.exists())
 			{
-				System.out.println(" FILE ALREADY EXISTS  ");
 				FileWriter fw1=new FileWriter(file,true);
 				BufferedWriter bw1=new BufferedWriter(fw1);
 				bw1.write(contact.getName()+","+contact.getNumber()+"\n");
@@ -30,7 +28,7 @@ public class FileRepository implements FileStorage
 				FileWriter fw=new FileWriter(file);
 				BufferedWriter bw=new BufferedWriter(fw);
 				System.out.println("NEW FILE CREATED");
-				bw.write(" SL.NO , NAME , NUMBER\n"+contact.getName()+","+contact.getNumber()+"\n");
+				bw.write(contact.getName()+","+contact.getNumber()+"\n");
 				bw.flush();
 				bw.close();
 			}
@@ -44,24 +42,19 @@ public class FileRepository implements FileStorage
 
 	public ArrayList<Contact> findAll()
 	{
-		ArrayList<Contact> array=new ArrayList<Contact>();
+		ArrayList<Contact> contactList=new ArrayList<Contact>();
 		try
 		{
-			int j=0;
 			FileReader fr=new FileReader(file);
 			BufferedReader  br=new BufferedReader(fr);
 			String details;
 			while((details=br.readLine())!=null)
 			{
-				if(j!=0)
-				{
-					String[] data=details.split(",");
-					Contact contact=new Contact();
-					contact.setName(data[1]);
-					contact.setNumber(data[2]);
-					array.add(array.size(),contact);
-				}
-				j++;
+				String[] data=details.split(",");
+				Contact contact=new Contact();
+				contact.setName(data[0]);
+				contact.setNumber(data[1]);
+				contactList.add(contactList.size(),contact);
 			}
 			br.close();
 		}
@@ -69,52 +62,42 @@ public class FileRepository implements FileStorage
 		{
 			System.out.println("Exception: "+e);
 		}
-		return array;
+		return contactList;
 	}	
 
 	public void findByName(String name)
 	{
-		ArrayList<Contact> array=findAll();
-		for(int i=0;i<array.size();i++)
+		int no=0;
+		ArrayList<Contact> contactList=findAll();
+		for(int i=0;i<contactList.size();i++)
 		{
-			if(array.get(i).name==name)
+			if(contactList.get(i).getName().equals(name))
 			{
-				view.displayContact(array.get(i));
+				no=1;
+				view.displayContact(contactList.get(i));
+				System.out.print("\n");
 			}
 		}
+		if(no==0)
+			view.noContact();
 	}
 
 	public ArrayList<Contact> delete(String name)
 	{
-		ArrayList<Contact> array=findAll();
-		for(int i=0;i<array.size();i++)
+		int no=0;
+		ArrayList<Contact> contactList=findAll();
+		for(int i=0;i<contactList.size();i++)
 		{
-			if(array.get(i).name==name)
+			if(contactList.get(i).getName().equals(name))
 			{
-				array.remove(i);
+				no=1;
+				contactList.remove(i);
 			}
 		}
+		if(no==0)
+			view.noContact();
+		return contactList;
 	} 
-
-	public void fileRead()
-	{
-		try
-		{
-			System.out.println("THE FILE IS ");
-			FileReader fr1=new FileReader(file);
-			BufferedReader  br1=new BufferedReader(fr1);
-			String details;
-			while((details=br1.readLine())!=null)
-			{
-				System.out.println(details);
-			}
-			br1.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println("Exception: "+e);
-		}
-	}	
 
 	public void syncFile(Contact contact,int j)
 	{
@@ -122,22 +105,13 @@ public class FileRepository implements FileStorage
 		{
 			if(j==0)
 			{
-				FileWriter fwr1=new FileWriter(file);
-				BufferedWriter bw1=new BufferedWriter(fwr1);
-				bw1.write(" SL.NO , NAME , NUMBER\n");
-				bw1.write((j+1)+","+contact.getName()+","+contact.getNumber()+"\n");
-				bw1.flush();
-				bw1.close();
+				file.delete();
 			}
-			else
-			{
-				FileWriter fwr1=new FileWriter(file,true);
-				BufferedWriter bw1=new BufferedWriter(fwr1);
-				bw1.write((j+1)+","+contact.getName()+","+contact.getNumber()+"\n");
-				bw1.flush();
-				bw1.close();
-			}
-			
+			FileWriter fwr1=new FileWriter(file,true);
+			BufferedWriter bw1=new BufferedWriter(fwr1);
+			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
+			bw1.flush();
+			bw1.close();		
 		}
 		catch(IOException e)
 		{

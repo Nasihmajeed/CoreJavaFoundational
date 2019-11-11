@@ -9,15 +9,8 @@ public class ContactController
 {
 	View view=new View();
 	FileRepository repository=new FileRepository();
-	ArrayList<Contact> array=new ArrayList<Contact>();
+	ArrayList<Contact> contactList=new ArrayList<Contact>();
 
-	public ArrayList<Contact> checkFile()
-	{
-		array=repository.check();
-		view.displayContact(array);
-		return array;
-	}
-	
 	public void features(int option)
 	{
 		switch(option)
@@ -32,7 +25,7 @@ public class ContactController
 
 	public void saveContact()
 	{
-		String[] temp=view.scan(i);
+		String[] temp=view.scan();
 		Contact contact=new Contact();
 		contact.setName(temp[0]);
 		contact.setNumber(temp[1]);
@@ -41,27 +34,27 @@ public class ContactController
 
 	public void allContacts()
 	{
-		array=repository.findAll();
-		view.displayAll(array);
+		contactList=repository.findAll();
+		view.displayAll(contactList);
 	}
 
 	public void contactByName()
 	{
 		String name=view.scanElement(0);
-		findByName(name);
+		repository.findByName(name);
 	}
 
 	public void deleteContact()
 	{
 		String name=view.scanElement(0);
-		array=repository.delete(name);
-		sync(array);
+		contactList=repository.delete(name);
+		sync(contactList);
 	}
 
-	public void sync(ArrayList<Contact> array)
+	public void sync(ArrayList<Contact> contactList)
 	{
 		int j=0;
-		for(Contact contact: array)
+		for(Contact contact: contactList)
 		{
 			//System.out.print(j+"sync Name- " +contact.getName());
 			repository.syncFile(contact,j);
@@ -71,7 +64,33 @@ public class ContactController
 
 	public void editContact()
 	{
-		
+		ArrayList<Contact> contactList=repository.findAll();
+		String name=view.scanElement(0);
+		int no=0,i=0;
+		int u=view.whatToUpdate(); 
+		String newData=view.scanElement(1);
+		for(Contact contact:contactList)														//int i=0;i<contactList.size();i++
+		{
+			if(contact.getName().equals(name))
+			{
+				no=1;
+				if(u==0)
+				{
+					contact.setName(newData);
+					contactList.set(i,contact);
+				}
+				else if(u==1)
+				{
+					contact.setNumber(newData);
+					contactList.set(i,contact);
+				}
+			}
+			++i;
+			System.out.println(contact.getName());
+		}
+		sync(contactList);
+		if(no==0)
+			view.noContact();
 	}
 }
 
@@ -88,6 +107,36 @@ public class ContactController
 
 
 
+
+	// 	int[] ret=contactSearch(contactList);
+	// 	int i=ret[0];
+	// 	int flag=ret[1];
+	// 	if(flag==0)
+	// 	{
+	// 		view.noContact();
+	// 	}
+	// 	else if(flag==1)
+	// 	{
+	// 		int u=view.updateScan(); 
+	// 		String update=view.scanElement(1);
+	// 		if(u==0)
+	// 		{
+	// 			Contact contact=new Contact(); 
+	// 			contact=array.get((i-1));
+	// 			contact.setName(update);
+	// 			array.set((i-1),contact);
+	// 		}
+	// 		else if(u==1)
+	// 		{
+	// 			Contact contact=new Contact(); 
+	// 			contact=array.get((i-1));
+	// 			contact.setNumber(update);
+	// 			array.set((i-1),contact);
+	// 		}
+	// 	}
+	// 	sync(array);
+	// 	return array;
+	// }
 
 
 

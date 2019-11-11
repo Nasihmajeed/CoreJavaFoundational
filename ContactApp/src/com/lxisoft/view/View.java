@@ -10,11 +10,11 @@ public class View
 {
 	static Scanner sc=new Scanner(System.in);
 
-	public void displayAll(ArrayList<Contact> array)
+	public void displayAll(ArrayList<Contact> contactList)
 	{
 		int i=1;
 		System.out.print("\n THE CONTACT LIST IS \n");
-		for(Contact contact: array)
+		for(Contact contact: contactList)
 		{
 			System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
 			System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
@@ -32,7 +32,7 @@ public class View
 
 	public void displayContact(Contact contact)
 	{
-		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber);
+		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber());
 	}
 
 	public void contactOptions()
@@ -40,22 +40,23 @@ public class View
 		ContactController controller=new ContactController();
 		while(true)
 		{
-			System.out.println("\ndo you wish to continue y/n");
-			char ch=sc.next().charAt(0);
-			if(ch!='y')
-				break;
-			processing();
-			System.out.println("\n press for features-->  1-save  2-search  3-deletion  4-editContact  5-displayall  ");
+			System.out.println("\n press for features-->  1-save  2-search  3-deletion  4-editContact  5-displayall  6-exit");
 			int option=sc.nextInt();
-			controller.features(option);
-			System.out.println("\n");
+			processing();
+			if(option==6)
+				break;
+			else
+			{
+				controller.features(option);
+				System.out.println("\n");
+			}
 		}
 		System.out.println("\t\t\t\t THANK YOU");	
 	}
 
 	public void processing()
 	{
-		System.out.print("\t\t Processing");
+		System.out.print("\t\t\t Processing");
 		for(int z=0;z<6;z++)
 		{
 			System.out.print("!");
@@ -68,6 +69,7 @@ public class View
 				System.out.println("Exception occured:"+e);
 			}
 		}
+		System.out.print("\n");
 	}
 
 	public String scanElement(int s)
@@ -80,7 +82,7 @@ public class View
 		return element;
 	}
 
-	public int updateScan()
+	public int whatToUpdate()
 	{
 		System.out.println("for updating name-0  number-1");
 		int u=sc.nextInt();
