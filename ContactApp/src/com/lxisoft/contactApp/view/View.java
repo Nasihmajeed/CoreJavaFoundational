@@ -12,7 +12,7 @@ public class View
 	{
 		controller=new Controller();
 		//controller.setInitialContacts();
-		System.out.println("********contact set*********\n");
+		System.out.println("********CONTACT BOOK*********\n");
 		controller.fileCreation();
 		//controller.storeInitial();
 		//controller.fileFunctions();
@@ -25,7 +25,7 @@ public class View
 	{
 		while(true)
 		{
-			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit");
+			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit\t6.Search");
 			int menu=scan.nextInt();
 			switch(menu)
 			{
@@ -50,6 +50,10 @@ public class View
 				controller.store();
 				return;
 
+				case 6:
+				//search();
+				break;
+
 			}
 		}
 
@@ -57,9 +61,10 @@ public class View
 
 	public void show()
 	{
+		System.out.println("ID\tNAME\t\t\tNUMBER\n");
 		for(Contact contact:controller.getContacts())
 		{
-			System.out.println("id= "+contact.getId()+"\t"+"name= "+contact.getName()+"\t"+"number= "+contact.getNumber());
+			System.out.println(contact.getId()+"\t"+contact.getName()+"\t\t\t"+contact.getNumber());
 		}
 		System.out.println();
 		//controller.store();
@@ -106,5 +111,23 @@ public class View
 		show();
 
 	}
+
+	/*public void search()
+	{
+		Contact searchedContact=null;
+		System.out.println("Enter name to search");
+		String sName=console.readLine();
+		searchedContact=controller.searchContact(sName);
+		if(searchedContact!=null)
+		{
+			System.out.println("searched contact found\n"+searchedContact.getId()+"\t"+searchedContact.getName()+"\t"+searchedContact.getNumber());
+		}
+		if(searchedContact==null)
+		{
+			System.out.println("Searched contact not found");
+
+		}
+
+	}*/
 
 }

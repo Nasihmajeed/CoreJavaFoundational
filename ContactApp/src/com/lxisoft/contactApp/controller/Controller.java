@@ -53,6 +53,21 @@ public class Controller
 		contacts.remove(delId-1);
 	}
 	
+	/*public Contact searchContact(String name)
+	{
+		Contact contact=null;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contacts.get(i).getName().equals(name))
+			{
+				contact=contacts.get(i);
+			}
+
+		}
+		return contact;
+	}*/
+
+
 	public void fileCreation()
 	{
 		repo.createPhoneData(contacts);

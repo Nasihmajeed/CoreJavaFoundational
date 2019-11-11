@@ -68,6 +68,8 @@ public class Repository
 	    BufferedReader bufferedReader = new BufferedReader(fileReader);
 	    String line;
 	    String[] strings;
+		System.out.println("CONTACT BOOK\n");
+		System.out.println("ID\tNAME\tNUMBER");
 	    while ((line = bufferedReader.readLine()) != null) 
 	    {
 	        strings = line.split(",");
@@ -76,7 +78,7 @@ public class Repository
 		    long number=Long.parseLong(strings[2]); 
 		    Contact newContact = new Contact(id,name,number);
 		    contacts.add(newContact);
-		    System.out.println("contact:  "+newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
+		    System.out.println(newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
 
 	    }
 	//    fileReader.flush();
