@@ -3,7 +3,8 @@ import com.lxisoft.model.*;
 import com.lxisoft.domain.*;
 import java.util.ArrayList;
 
-public class ViewSingle
+public class Reference
 {
-	Reference reference=new Reference();
+	String name;
+	int id;
 }
