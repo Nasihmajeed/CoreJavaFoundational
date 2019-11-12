@@ -3,13 +3,11 @@ import com.lxisoft.controller.*;
 import com.lxisoft.model.*;
 import java.util.*;
 
-
-public class Tdd
+public class View
 {
 	public static Controller con = new Controller();
-	public static void main(String[] args)
+	public void begin()
 	{
-		
 		System.out.println("  \n \t \t -----CONTACT LIST------");
 		do
 		{
@@ -35,7 +33,7 @@ public class Tdd
 
         }while(true);
 	}
-	public static void addContact()
+	public void addContact()
 	{
 		
 		System.out.println("ENTER NAME");
@@ -45,9 +43,8 @@ public class Tdd
 		String number=read.nextLine();
 		con.addContact(name,number);
 	}
-	public static void search()
+	public void search()
 	{
-		String[] args=null;
 		int f=0;
 		System.out.println("ENTER NAME");
 		Scanner set = new Scanner(System.in);
@@ -66,7 +63,7 @@ public class Tdd
 						{
 							case 1 :edit(i); break;
 							case 2 : delete(i);break;
-							case 3 :main(args) ; break;
+							case 3 :begin(); break;
 							default: System.out.println("INVALID CHOICE");
 						}
 					} while(true);
@@ -79,14 +76,14 @@ public class Tdd
 		}
 		
 	}
-	public static void display()
+	public  void display()
 	{
 		 for(int i=0;i<(con.getArraySize());i++)
 		{ 	
 		 System.out.println("\t"+con.array.get(i).getName()+"  "+con.array.get(i).getNumber());
 		}
 	}
-	public static void edit(int i)
+	public void edit(int i)
 	{
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
@@ -95,7 +92,7 @@ public class Tdd
 		 String number = read.nextLine();
 		 con.editContact(i,name,number);
 	}
-	public static void delete(int i)
+	public void delete(int i)
 	{
 		System.out.println("are you sure ? \n 1= yes \t\t 2 = nop");
 		 Scanner read= new Scanner(System.in);
@@ -108,5 +105,4 @@ public class Tdd
 		 	case 2 : search(); break;
 		 }
 	}
-		
 }

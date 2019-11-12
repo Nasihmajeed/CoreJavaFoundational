@@ -2,6 +2,7 @@ package com.lxisoft.model;
 import com.lxisoft.view.*;
 import com.lxisoft.controller.*;
 import java.util.Scanner;
+import com.lxisoft.test.*;
 
 public class Contact
 {
