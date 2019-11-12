@@ -36,7 +36,6 @@ public class Tdd
 		{
 			System.out.println(i+" Name= "+control.viewDetails(i).getName());
 			System.out.println("Number= "+control.viewDetails(i).getContactNo()+"\n");
-			
 		}
 	}
 	public static void viewName(ContactControl control)
@@ -72,13 +71,11 @@ public class Tdd
 			default:System.out.println("Invalid selection");
 		}
 	}
-
 	public static void deleteContact(ContactControl control,int no)
 	{
 		control.deleteDetails(no);
 		viewContact(control);
 	}
-
 	public static void updateContact(ContactControl control,int no)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -87,7 +84,6 @@ public class Tdd
 		control.updateDetails(contactNo,no);
 		viewContact(control);	
 	}
-
 	public static void searchContact(ContactControl control)
 	{
 		Contact contact;

@@ -34,6 +34,7 @@ public class ContactControl
     	c.setContactNo(contactNo);
     	contactList.add(c);
         repository.createFile(c);
+        repository.readFile();
     }
 
     public void selectDetails(int no)

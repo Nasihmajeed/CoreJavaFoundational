@@ -24,7 +24,7 @@ public class Repository implements FileRepository
 		{
 			System.out.println("an error occured");
 		}	
-		readFile();
+	
 	}
 
 	public void readFile()
@@ -72,6 +72,7 @@ public class Repository implements FileRepository
 	{
 		try
 		{
+			id=0;
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String read;
@@ -89,6 +90,7 @@ public class Repository implements FileRepository
 		try
 		{
 			FileWriter f=new FileWriter(file);
+			id=0;
 		}
 		catch(IOException e)
 		{
