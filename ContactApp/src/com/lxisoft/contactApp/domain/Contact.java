@@ -1,4 +1,4 @@
-package com.lxisoft.contactApp.model;
+package com.lxisoft.contactApp.domain;
 public class Contact 
 {
 	private String name;
