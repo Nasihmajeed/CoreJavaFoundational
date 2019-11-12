@@ -12,6 +12,7 @@ public class Repository
 {
 	public static File phoneBook;
 	public static BufferedReader reader = null;
+	//createFile method
 	public void createPhoneData(ArrayList<Contact> contacts)
 	{
 		try
@@ -33,7 +34,7 @@ public class Repository
 		}
 	}
 
-
+	//show mehod
 	public void writeToFile(ArrayList<Contact> contacts)
 	{
 
@@ -57,38 +58,46 @@ public class Repository
 		
 	}
 
+	//read file method
 	public void storeData(ArrayList<Contact> contacts)
 	{
-    PrintWriter printer = null;
-    try
-    {
-	    FileReader fileReader = new FileReader(phoneBook);
-	    BufferedReader bufferedReader = new BufferedReader(fileReader);
-	    String line;
-	    String[] strings;
-		System.out.println("CONTACT BOOK\n");
-		System.out.println("ID\tNAME\tNUMBER");
-	    while ((line = bufferedReader.readLine()) != null) 
+	    PrintWriter printer = null;
+	    try
 	    {
-	        strings = line.split(",");
-	        int id = Integer.parseInt(strings[0]);
-		    String name = strings[1];
-		    long number=Long.parseLong(strings[2]); 
-		    Contact newContact = new Contact(id,name,number);
-		    contacts.add(newContact);
-		    System.out.println(newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
+		    FileReader fileReader = new FileReader(phoneBook);
+		    BufferedReader bufferedReader = new BufferedReader(fileReader);
+		    String line;
+		    String[] strings;
+			System.out.println("CONTACT BOOK\n");
+			System.out.println("ID\tNAME\tNUMBER");
+		    while ((line = bufferedReader.readLine()) != null) 
+		    {
+		        strings = line.split(",");
+		        int id = Integer.parseInt(strings[0]);
+			    String name = strings[1];
+			    long number=Long.parseLong(strings[2]); 
+			    Contact newContact = new Contact(id,name,number);
+			    contacts.add(newContact);
+			    System.out.println(newContact.getId()+",\t"+newContact.getName()+",\t"+newContact.getNumber());
 
+		    }
+		    fileReader.close();
+		
+		}
+	    catch ( IOException e ) 
+	    {
+	        e.printStackTrace();
 	    }
-	    fileReader.close();
-	
-	}
-    catch ( IOException e ) 
-    {
-        e.printStackTrace();
-    }
-
-  
 	}
 
+	public void updateFile()
+	{
+
+	}
+
+	public void deleteFile()
+	{
+
+	}
 
 }

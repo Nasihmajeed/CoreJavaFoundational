@@ -23,7 +23,7 @@ public class View
 	{
 		while(true)
 		{
-			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Exit\t6.Search");
+			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Search\t6.Exit");
 			int menu=scan.nextInt();
 			switch(menu)
 			{
@@ -44,12 +44,12 @@ public class View
 				break;
 
 				case 5:
-				controller.store();
-				return;
-
-				case 6:
 				search();
 				break;
+
+				case 6:
+				controller.store();
+				return;
 
 			}
 		}

@@ -74,11 +74,5 @@ public class Controller
 		repo.writeToFile(contacts);
 		repo.storeData(contacts);
 	}
-
-	public void storeInitial()
-	{
-		repo.storeData(contacts);
-
-	}
 	
 }
