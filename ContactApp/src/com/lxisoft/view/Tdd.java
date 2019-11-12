@@ -9,29 +9,32 @@ public class Tdd
 	public static Controller con = new Controller();
 	public static void main(String[] args)
 	{
-		try
-		{
+		
 		System.out.println("  \n \t \t -----CONTACT LIST------");
-		do{
+		do
+		{
+			try
+		{
 		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY ");
 		Scanner read= new Scanner(System.in);
 		int n = read.nextInt();
-		switch(n)
-		{
-			case 1 : addContact(); break;
-			case 2 : search();break;
-			case 3 : display(); break;
-			default: System.out.println("INVALID CHOICE");
+		
+			switch(n)
+			{
+				case 1 : addContact(); break;
+				case 2 : search();break;
+				case 3 : display(); break;
+				default: System.out.println("INVALID CHOICE");
+			}
+		
 		}
-		}while(true);
-
-        }
-        catch (InputMismatchException exception) 
+		catch (InputMismatchException exception) 
         {
         	System.out.println(" PLEASE ENTER THE NUMERIC SUGGESTIONS GIVEN ABOVE");
         }
 
-			}
+        }while(true);
+	}
 	public static void addContact()
 	{
 		
