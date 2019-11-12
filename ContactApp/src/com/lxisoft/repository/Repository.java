@@ -24,9 +24,7 @@ public class Repository implements FileRepository
 		{
 			System.out.println("an error occured");
 		}	
-	
 	}
-
 	public void readFile()
 	{
 		try
@@ -42,7 +40,6 @@ public class Repository implements FileRepository
 			System.out.println("an error ");
 		}	
 	}
-
 	public List<Contact> arrayWrite(List<Contact>contactList)
 	{
 		try
@@ -67,7 +64,6 @@ public class Repository implements FileRepository
 		}	
 		return contactList;
 	}
-
 	public void count()
 	{
 		try
@@ -84,7 +80,6 @@ public class Repository implements FileRepository
 			System.out.println("an error ");
 		}	
 	}
-
 	public void resetFile()
 	{
 		try

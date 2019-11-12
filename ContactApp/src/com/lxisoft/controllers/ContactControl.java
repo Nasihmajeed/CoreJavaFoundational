@@ -21,12 +21,10 @@ public class ContactControl
 	{
         contactList=repository.arrayWrite(contactList);
     }
-
     public Contact viewDetails(int i)
     {
         return contactList.get(i);
     }
-
     public void addDetails(String name,String contactNo)
     {
     	Contact c=new Contact();
@@ -36,7 +34,6 @@ public class ContactControl
         repository.createFile(c);
         repository.readFile();
     }
-
     public void selectDetails(int no)
     {
         for(int i=0;i<contactList.size();i++)
@@ -44,7 +41,6 @@ public class ContactControl
             contactList.get(i);
         }
     }
-
     public void deleteDetails(int no)
     {
         for(int i=0;i<contactList.size();i++)
@@ -61,7 +57,6 @@ public class ContactControl
             repository.createFile(contactList.get(i));
         }
     }
-
     public void updateDetails(String contactNo,int no)
     {
         Contact c=new Contact();
@@ -81,7 +76,6 @@ public class ContactControl
             repository.createFile(contactList.get(i));
         }
     }
-
     public Contact searchDetails(String name)
     {
         Contact c=new Contact();
