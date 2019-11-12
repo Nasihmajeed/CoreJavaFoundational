@@ -70,19 +70,19 @@ else{
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
+repo.deleteList(n);
 Contact c=control.search(n);
-if(c==null){
-	System.out.println("cannot edit");
-     }
-else{
-	//Contact c=new Contact();
-	control.update(n);
-	System.out.println("Enter new name : ");
-	c.setName(ss.next());
-	System.out.println("Enter new number : ");
-	c.setNumber(s.next());	
-	control.save(c);
-	System.out.println("(contact updated sucssesfully )");
+	if(c==null){
+		System.out.println("cannot edit");
+    	 }
+	else{
+		
+		System.out.println("Enter new name : ");
+		c.setName(ss.next());
+		System.out.println("Enter new number : ");
+		c.setNumber(s.next());	
+		control.save(c);
+		System.out.println("(contact updated sucssesfully )");
     }
   }
 
@@ -92,7 +92,7 @@ else{
 public void deleteContact(){
 System.out.println("\n\nEnter contact name to delete : ");
 String n=ss.next();
-control.delete(n);
+repo.deleteList(n);
 //control.setContact(n);
 System.out.println("---------"+n+" deleted from the contact");
   }

@@ -27,7 +27,6 @@ public ArrayList<Contact>  getList(){
 	try{
 		FileReader read=new FileReader(file);
 		BufferedReader bread=new BufferedReader(read);
-		//System.out.println("reading file End");
 		String data;
 		while((data=bread.readLine())!=null){	
 			String[] dataArray=data.split(",");
@@ -60,20 +59,30 @@ public Contact searchList(String name){
    		return null;
   		 }
 
-  }
+  } //7306546322
 
-
- public void deleteList(String cn){
+public void deleteList(String cn){
+	contacts=this.getList();
 for(int i=0;i<contacts.size();i++){
 	if(cn.equals(contacts.get(i).getName())){
 		contacts.remove(i);
-		//return contacts;
+		
           }
-         //this.setFile(contacts.get(i));
-       }
+       } 
+      this.clearList();
+      for(int i=0;i<contacts.size();i++){
+      	this.setFile(contacts.get(i));
+      } 
     } 
 
-
+public void clearList(){
+	try{
+		FileWriter f=new FileWriter(file);
+	}
+		catch(IOException e){
+    	System.out.println("Exception "+e);
+    }
+  }
 
 
 }

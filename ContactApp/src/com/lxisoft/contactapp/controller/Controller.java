@@ -10,7 +10,6 @@ public void save(Contact cc)
 {
 contacts.add(cc);
  repo.setFile(cc);
- //repo.setFile(this.setContact());
 
 }
 
@@ -37,10 +36,11 @@ for(int i=0;i<contacts.size();i++){
 
 
 public void  delete(String cn){
- for(int i=0;i<contacts.size();i++){
-	if(cn.equals(contacts.get(i).getName())){
-		contacts.remove(i);
-          }
+    repo.deleteList(cn);  
+    repo.clearList();
+    for(int i=0;i<contacts.size();i++){
+      	repo.setFile(contacts.get(i));
+           } 
        }      
 }
 /*public Contact setContact(String cn){
@@ -53,4 +53,3 @@ public void  delete(String cn){
 	}
 }*/
 
-}
