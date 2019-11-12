@@ -40,7 +40,7 @@ public class Repository implements FileStorage
 			{
 				id++;
 				String[] st=str.split(",",3);
-				ContactModel contact=new ContactModel();
+				Contact contact=new Contact();
 				contact.setName(st[1]);
 				contact.setNo(st[2]);
 				contacts.add(contact);

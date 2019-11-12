@@ -23,10 +23,10 @@ public class ContactController
 	}
 	public void getContactById(int id)
 	{
-		ArrayList<Contact> contacts=new ArrayList<Contact>();
-		contacts=filerepo.getContactById(contacts);
+		ArrayList<Contact> contact1=new ArrayList<Contact>();
+		contact1=filerepo.getContactById(contact1);
 		Contact con=new Contact();
-		view.getContactById(id,contacts,con);
+		view.getContactById(id,contact1,con);
 	}
 	// public void addContact(String name,String number)
 	// {

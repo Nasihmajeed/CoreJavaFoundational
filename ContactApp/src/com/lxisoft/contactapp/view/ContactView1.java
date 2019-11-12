@@ -23,12 +23,12 @@ public class ContactView1
 		
 		}
 	}
-	public void getContactById(int id,ArrayList<ContactModel> contacts,Contact contact)
+	public void getContactById(int id,ArrayList<Contact> contacts,Contact contact)
 	{
 		int value=0,val=0;
 		for(int i=0;i<contacts.size();i++)
 		{
-			if(id==contacts.get(i))
+			if(id==contacts.indexOf(contacts.get(i)))
 				{
 					value=1;val=1;
 					System.out.println(" Contact found..!");
