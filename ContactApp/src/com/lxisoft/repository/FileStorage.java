@@ -1,4 +1,4 @@
-package com.lxisoft.contactrepository;
+package com.lxisoft.repository;
 import java.util.ArrayList;
 import com.lxisoft.model.*;
 

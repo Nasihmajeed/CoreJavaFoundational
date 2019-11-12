@@ -4,13 +4,70 @@ import com.lxisoft.model.*;
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 import java.util.ArrayList;
-import com.lxisoft.contactrepository.*;
+import com.lxisoft.repository.*;
 
 public class View
 {
 	static Scanner sc=new Scanner(System.in);
 
-	public void displayAll(ArrayList<Contact> contactList)
+	public void findAllContacts(ArrayList<Contact> contactList)
+	{
+		System.out.print("\n THE CONTACT LIST IS \n");
+		for(Contact contact: contactList)
+		{
+			System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
+			System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
+		}
+		byId();
+	}
+	
+	public void byId()
+	{
+		System.out.println("enter the id to check ");
+		int id=sc.nextInt();
+		controller.contactById(id);
+	}
+
+}
+
+
+
+
+
+
+
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void displayAll(ArrayList<Contact> contactList)
 	{
 		int i=1;
 		System.out.print("\n THE CONTACT LIST IS \n");
@@ -93,6 +150,3 @@ public class View
 	{
 		System.out.println("Contact not present");
 	}
-
-}
-

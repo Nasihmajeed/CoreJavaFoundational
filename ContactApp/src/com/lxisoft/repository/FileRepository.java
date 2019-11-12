@@ -1,9 +1,10 @@
-package com.lxisoft.contactrepository;
+package com.lxisoft.repository;
 import java.io.*;
 import com.lxisoft.model.*;
+import com.lxisoft.domain.*;
 import java.util.ArrayList;
 import com.lxisoft.view.*;
-import com.lxisoft.contactrepository.FileStorage;
+import com.lxisoft.repository.FileStorage;
 
 public class FileRepository implements FileStorage
 {

@@ -2,8 +2,9 @@ package com.lxisoft.controller;
 import com.lxisoft.model.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-import com.lxisoft.contactrepository.*;
+import com.lxisoft.repository.*;
 import com.lxisoft.view.View;
+import com.lxisoft.model.*;
 
 public class ContactController
 {
@@ -11,7 +12,64 @@ public class ContactController
 	FileRepository repository=new FileRepository();
 	ArrayList<Contact> contactList=new ArrayList<Contact>();
 
-	public void features(int option)
+	public void allContacts()
+	{
+		ViewAllModel viewAllModel=new ViewAllModel();
+		viewAllModel=repository.findAll();
+		view.findAllContacts(viewAllModel);
+	}
+
+	public void contactById()
+	{
+		ViewSingle viewSingle=new ViewSingle();
+
+		viewSingle=
+	}
+
+
+
+	public void saveContact()
+
+
+
+	public void editContact()
+
+
+
+	public void deleteContact()
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void features(int option)
 	{
 		switch(option)
 		{
@@ -92,4 +150,3 @@ public class ContactController
 		if(no==0)
 			view.noContact();
 	}
-}
