@@ -30,6 +30,30 @@ public class Repository implements FileStorage
 		return contacts;
 
 	}
+	public ArrayList<Contact> getContactById(ArrayList<Contact> contacts)
+	{
+		try
+		{
+			BufferedReader read=new BufferedReader(new FileReader(contactFile));
+			String str=read.readLine();
+			while((str=read.readLine())!=null) 
+			{
+				id++;
+				String[] st=str.split(",",3);
+				ContactModel contact=new ContactModel();
+				contact.setName(st[1]);
+				contact.setNo(st[2]);
+				contacts.add(contact);
+			}	
+		}
+		catch(IOException e)
+		{
+			System.out.println("");
+		}
+		return contacts;
+
+	}
+
 	// public ArrayList<Contact> getFileDetails(Contact contact,ArrayList<Contact> contacts)
 	// {
 	// 	try

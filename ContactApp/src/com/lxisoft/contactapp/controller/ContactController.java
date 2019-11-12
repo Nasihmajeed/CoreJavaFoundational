@@ -7,14 +7,26 @@ import java.io.*;
 import java.util.*;
 public class ContactController
 {
-	private ArrayList<ContactModel> contacts=new ArrayList<ContactModel>();
+	
 	Repository filerepo=new Repository();
+	ContactView1 view=new ContactView1();
 	public void displayAllcontacts()
 	{
+		ArrayList<ContactModel> contacts=new ArrayList<ContactModel>();
 		contacts=filerepo.showAllContacts(contacts);
 		ContactModel contact=new ContactModel();
-		ContactView1 view=new ContactView1();
 		view.showAllContacts(contacts,contact);
+		System.out.println("select a contact by Id");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		getContactById(id);
+	}
+	public void getContactById(int id)
+	{
+		ArrayList<Contact> contacts=new ArrayList<Contact>();
+		contacts=filerepo.getContactById(contacts);
+		Contact con=new Contact();
+		view.getContactById(id,contacts,con);
 	}
 	// public void addContact(String name,String number)
 	// {

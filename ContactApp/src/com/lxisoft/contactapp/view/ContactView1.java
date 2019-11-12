@@ -23,5 +23,22 @@ public class ContactView1
 		
 		}
 	}
+	public void getContactById(int id,ArrayList<ContactModel> contacts,Contact contact)
+	{
+		int value=0,val=0;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(id==contacts.get(i))
+				{
+					value=1;val=1;
+					System.out.println(" Contact found..!");
+					System.out.println(contacts.get(i).getName());
+					System.out.println(contacts.get(i).getNo());	
+				}
+		}
+		if(val==0)
+			System.out.println("contact not found");
+	
+	}
 
 }
