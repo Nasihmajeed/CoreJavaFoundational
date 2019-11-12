@@ -10,7 +10,6 @@ public class View
 	public void viewContact()
 	{
 		ContactController control=new ContactController();
-		List <Contact> contactsList=new ArrayList<Contact>();
 		int a=0;
 		System.out.println("\t <-----CONTACT APP MENU----->\n");
 		
@@ -22,41 +21,27 @@ public class View
 			switch(a)
 			{
 				case 1: addContact(control); break;
-				case 2: searchContact(control,contactsList); break;
+				case 2: searchContact(control); break;
 				case 3: deleteAllContact(control); break;
 			}
 		}while(a!=4);
 		getContact(control);
-		displayContacts(contactsList,control);
-		displayFileDetails(contactsList,control);
+		displayContacts(control);
 	}
-	public void displayFileDetails(List <Contact> contactsList,ContactController control)
+	public void displayContacts(ContactController control)
 	{
-		contactsList=control.getFileInfo();
-		System.out.println("<-------File list------->");
-		int i = 1;
-		for(Contact c: contactsList)
-		{
-			System.out.println("\t "+i+"\t"+c.getContactName()+"\t\t"+ c.getContactNumber());
-			i++;
-		}
-
-	}
-	public void displayContacts(List <Contact> contactsList,ContactController control)
-	{
-		contactsList=control.displayContact(contactsList);
 		System.out.println("\ndisplay all contact-->(1-yes)(2-no)");
 		int d=s.nextInt();
 		if((d==1))
 		{
-			if((contactsList.size())!=0)
+			if((control.getListSize())!=0)
 			{
 				System.out.println("\t <-------CONTACT LIST------>\n");
 				System.out.println("\t ID \t NAME \t\t NUMBER \n\t-----\t------\t\t--------");
 				int i = 1;
-				for(Contact c: contactsList)
+				for(int j=0;j<control.getListSize();j++)
 				{
-					System.out.println("\t "+i+"\t"+c.getContactName()+"\t\t"+ c.getContactNumber());
+					System.out.println("\t "+i+"\t"+control.getFileInfo(j).getContactName()+"\t\t"+ control.getFileInfo(j).getContactNumber());
 					i++;
 				}
 			}
@@ -68,22 +53,20 @@ public class View
 	}
 	public void getContact(ContactController control)
 	{
-		Contact contact=new Contact();
 		System.out.println("Enter contact id to check");
 		int n=s.nextInt();
-		contact=control.searchContact(n);
 		int a=0;
-		if((contact.getContactName()!=null)&(contact.getContactNumber()!=null))
+		if((control.searchContact(n).getContactName()!=null)&(control.searchContact(n).getContactNumber()!=null))
 		{
-			System.out.println("contact name--->"+contact.getContactName());
-			System.out.println("contact no  --->"+contact.getContactNumber());
+			System.out.println("contact name--->"+control.searchContact(n).getContactName());
+			System.out.println("contact no  --->"+control.searchContact(n).getContactNumber());
 			do
 			{
 				System.out.println("\n\n 1-Update\t 2-Delete \t 3-Exit");
 				a=s.nextInt();
 				switch(a)
 				{
-					case 1: updateContact(control,contact); break;
+					case 1: updateContact(control,n); break;
 					case 2: deleteContact(control,n); break;
 				}
 			}while(a!=3);
@@ -108,20 +91,18 @@ public class View
 			control.addContact(name,num);
 		}
 	}
-	public void searchContact(ContactController control,List <Contact> contactsList)
+	public void searchContact(ContactController control)
 	{
-		Contact contact=new Contact();
 		System.out.println("Enter contact id--");
 		int n=s.nextInt();
-		contact=control.searchContact(n);
-		if((contact.getContactName()==null)&(contact.getContactNumber()==null))
+		if((control.searchContact(n).getContactName()==null)&(control.searchContact(n).getContactNumber()==null))
 		{
 			System.out.println(" contact is not present");
 		}
 		else
 		{
-			System.out.println("contact name--->"+contact.getContactName());
-			System.out.println("contact no  --->"+contact.getContactNumber());
+			System.out.println("contact name--->"+control.searchContact(n).getContactName());
+			System.out.println("contact no  --->"+control.searchContact(n).getContactNumber());
 		}
 	}
 	public void deleteContact(ContactController control,int n)
@@ -129,11 +110,11 @@ public class View
 		System.out.println(" deleted successfully");
 		control.deleteContact(n);
 	}
-	public void updateContact(ContactController control,Contact contact)
+	public void updateContact(ContactController control,int n)
 	{
 		System.out.println("Enter new contact number");
 		String num=s.next();
-		control.updateContact(num,contact);
+		control.updateContact(num,n);
 	}
 	public void deleteAllContact(ContactController control)
 	{

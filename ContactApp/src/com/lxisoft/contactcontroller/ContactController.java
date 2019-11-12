@@ -17,15 +17,15 @@ public class ContactController
 	{
 		return contactList;
 	}
-	public List <Contact> getFileInfo()
+	public int getListSize()
+	{
+		return contactList.size();
+	}
+
+	public Contact getFileInfo(int j)
 	{
 	    contactList=repo.readFile();
-	    return contactList;
-	}
-	public List <Contact> displayContact(List <Contact> contactList)
-	{
-		contactList=repo.readFile();
-		return contactList;
+		return contactList.get(j);
 	}
 	public void setFile()
 	{
@@ -75,13 +75,13 @@ public class ContactController
 			repo.rewriteFile(contactList.get(j));
 		}
 	}
-	public void updateContact(String num,Contact contact)
+	public void updateContact(String num,int n)
 	{
 		contactList=repo.readFile();
 		System.out.println(" read file=  "+contactList.size());
 		for(int i=0;i<contactList.size();i++)
 		{
-			if(contact.getContactName().equals(contactList.get(i).getContactName()))
+			if(contactList.get(n).getContactName().equals(contactList.get(i).getContactName()))
 			{
 				Contact c=contactList.get(i);
 				c.setContactNumber(num);

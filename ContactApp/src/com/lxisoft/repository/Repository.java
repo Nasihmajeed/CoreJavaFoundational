@@ -86,7 +86,6 @@ public class Repository implements FileDataSource
 			while((contacts=br.readLine())!=null)
 			{
 				Contact c=new Contact();
-				System.out.println("c  "+contacts);
 				String[] cont=contacts.split(",",3);
 				c.setContactName(cont[1]);	
 				c.setContactNumber(cont[2]);
