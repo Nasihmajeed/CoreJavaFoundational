@@ -1,7 +1,8 @@
-package com.lxisoft.Models;
+package com.lxisoft.Domain;
 
 public class Contact
 {
+	private int id;
 	private String name;
 	private String phno;
 	public void setName(String name)
@@ -12,6 +13,10 @@ public class Contact
 	{
 		this.phno=phno;
 	}
+	public void setId(int id)
+	{
+		this.id=id;
+	}
 	public String getName()
 	{
 		return name;
@@ -19,5 +24,9 @@ public class Contact
 	public String getNo()
 	{
 		return phno;
+	}
+	public int getId()
+	{
+		return id;
 	}
 }
