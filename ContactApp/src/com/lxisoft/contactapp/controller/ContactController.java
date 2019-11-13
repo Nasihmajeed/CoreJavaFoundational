@@ -1,33 +1,33 @@
 package com.lxisoft.contactapp.controller;
 
 import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.Domain.*;
 import com.lxisoft.contactapp.repository.*;
 import com.lxisoft.contactapp.view.*;
 import java.io.*;
 import java.util.*;
 public class ContactController
 {
-	
+	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	Repository filerepo=new Repository();
 	ContactView1 view=new ContactView1();
-	public void displayAllcontacts()
+	public void getAllcontacts()
 	{
-		ArrayList<ContactModel> contacts=new ArrayList<ContactModel>();
-		contacts=filerepo.showAllContacts(contacts);
+		
+		contacts=filerepo.getAllContacts(contacts);
+		// ArrayList<Contactmodel> contactmodel=new ArrayList<Contactmodel>();
+		ArrayList<ContactsListView> contactlist=new ArrayList<ContactsListView>();
+		contactlist.setAllcontacts(contacts);
 		ContactModel contact=new ContactModel();
-		view.showAllContacts(contacts,contact);
-		System.out.println("select a contact by Id");
-		Scanner sc=new Scanner(System.in);
-		int id=sc.nextInt();
-		getContactById(id);
+		view.showAllContacts(contactlist);
 	}
-	public void getContactById(int id)
-	{
-		ArrayList<Contact> contact1=new ArrayList<Contact>();
-		contact1=filerepo.getContactById(contact1);
-		Contact con=new Contact();
-		view.getContactById(id,contact1,con);
-	}
+	// public void getContactById(int id)
+	// {
+	// 	ArrayList<Contact> contact1=new ArrayList<Contact>();
+	// 	contact1=filerepo.getContactById(contact1);
+	// 	Contact con=new Contact();
+	// 	view.getContactById(id,contact1,con);
+	// }
 	// public void addContact(String name,String number)
 	// {
 	// 		contact=new Contact();

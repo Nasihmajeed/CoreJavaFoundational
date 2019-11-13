@@ -2,13 +2,14 @@ package com.lxisoft.contactapp.repository;
 
 import com.lxisoft.contactapp.controller.ContactController;
 import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
 import java.io.*;
 public class Repository implements FileStorage
 {  
 	File contactFile=new File(fileName);
 	static int id=0;
-	public ArrayList<ContactModel> showAllContacts(ArrayList<ContactModel> contacts)
+	public ArrayList<Contact> getAllContacts(ArrayList<Contact> contacts)
 	{
 		try
 		{
@@ -19,7 +20,9 @@ public class Repository implements FileStorage
 				id++;
 				String[] st=str.split(",",3);
 				ContactModel contact=new ContactModel();
+				contact.setId(st[0]);
 				contact.setName(st[1]);
+				contact.setNo(st[2]);
 				contacts.add(contact);
 			}	
 		}

@@ -5,7 +5,8 @@ import com.lxisoft.contactapp.model.*;
 import java.util.*;
 public class ContactView1
 {
-	public void showAllContacts(ArrayList<ContactModel> contacts,ContactModel contact)
+	//ArrayList<Contact> contacts=new ArrayList<Contact>();
+	public void showAllContacts(ContactListView contact)
 	{
 		if(contacts.size()==0)
 		{
@@ -22,8 +23,12 @@ public class ContactView1
 			}
 		
 		}
+		System.out.println("select a contact by Id");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		getContactById(id);
 	}
-	public void getContactById(int id,ArrayList<Contact> contacts,Contact contact)
+	public void getContactById(int id)
 	{
 		int value=0,val=0;
 		for(int i=0;i<contacts.size();i++)
