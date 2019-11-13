@@ -10,6 +10,8 @@ public class TDD
 	{
 		View view =new View();
 		view.start();
+		Controller controller=new Controller();
+		controller.create();
 	}
 
 }
