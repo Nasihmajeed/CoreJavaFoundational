@@ -6,6 +6,7 @@ public class Metro
       /*Station station = new Station();
       station.getDipartureStation();
       station.trainList();*/
+      
 	}
 
 }
