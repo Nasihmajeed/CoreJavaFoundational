@@ -1,17 +1,19 @@
 package com.lxisoft.contactapp.model;
 public class Contact{
-	private  String name;
-	 private String  number;
-public void setName(String name){
-	this.name=name;
-}
-public String getName(){
-	return name;
-}
-public void setNumber(String  number){
-	this.number=number;
-}
-public String getNumber(){
-	return number;
+Domain dom;
+
+public void setContact(){
+System.out.println("\n\nEnter number of contacts : ");
+int n=s.nextInt();
+	for(int i=0;i<n;i++){
+		dom==new Domain();		
+		System.out.println("Enter the name : ");
+		dom.setName(ss.next());
+		System.out.println("Enter the number : ");
+		dom.setNumber(s.next());
+		control.save(cc);
+		System.out.println("(contact saved sucssesfully )");
+    } 
+   
 }
 }
