@@ -7,9 +7,11 @@ public class ContactControl
 {
     Repository repository=new Repository();
     ContactView view=new ContactView();
+    ContactModel model=new ContactModel();
 	public void getContactDetails()
 	{
-        repository.arrayWrite();
+        
+       // repository.arrayWrite();
     }
     public Contact viewDetails(int i)
     {
