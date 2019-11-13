@@ -11,6 +11,6 @@ public class Tdd
 	public static void main(String[] args)
 	{
 		ContactController controller=new ContactController();
-		controller.findAll();
+		controller.allContacts();
 	}
 }

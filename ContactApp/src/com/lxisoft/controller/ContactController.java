@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import com.lxisoft.repository.*;
 import com.lxisoft.view.View;
-import com.lxisoft.model.*;
+import com.lxisoft.domain.*;
 
 public class ContactController
 {
@@ -12,10 +12,19 @@ public class ContactController
 	FileRepository repository=new FileRepository();
 	ArrayList<Contact> contactList=new ArrayList<Contact>();
 
+	// public void saveContact()
+	// {
+	// 	String[] temp=view.scan();
+	// 	Contact contact=new Contact();
+	// 	contact.setName(temp[0]);
+	// 	contact.setNumber(temp[1]);
+	// 	repository.save(contact);
+	// }
+
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
-		viewAllModel=repository.findAll();
+		viewAllModel.contactList=repository.findAll();
 		view.findAllContacts(viewAllModel);
 	}
 
@@ -81,14 +90,7 @@ public class ContactController
 // 		}
 // 	}
 
-// 	public void saveContact()
-// 	{
-// 		String[] temp=view.scan();
-// 		Contact contact=new Contact();
-// 		contact.setName(temp[0]);
-// 		contact.setNumber(temp[1]);
-// 		repository.save(contact);
-// 	}
+	
 
 // 	public void allContacts()
 // 	{
