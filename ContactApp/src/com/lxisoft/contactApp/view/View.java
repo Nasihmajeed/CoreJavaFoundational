@@ -1,4 +1,5 @@
 package com.lxisoft.contactApp.view;
+import com.lxisoft.contactApp.model.ViewContactModel;
 import com.lxisoft.contactApp.controller.Controller;
 import java.util.Scanner;
 import java.io.Console;
@@ -8,6 +9,7 @@ public class View
  	Scanner scan=new Scanner(System.in);
 	Console console = System.console();
 	public Controller controller;
+	public ViewContactModel viewContacts=new ViewContactModel();
 	public void start()
 	{
 		controller=new Controller();
