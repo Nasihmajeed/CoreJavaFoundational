@@ -20,12 +20,12 @@ public class View
 		//byId();
 	}
 	
-	// public void byId()
-	// {
-	// 	System.out.println("enter the id to check ");
-	// 	int id=sc.nextInt();
-	// 	controller.contactById(id);
-	// }
+	public void byId()
+	{
+		System.out.println("enter the id to check ");
+		int id=sc.nextInt();
+		controller.contactById(id);
+	}
 
 }
 
