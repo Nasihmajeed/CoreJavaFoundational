@@ -5,8 +5,11 @@ public class Student
 	Scanner scan=new Scanner(System.in);
 	String name;
 	int rollno;
-	Mark m1=new Mark();
-	Mark m2=new Mark();
+	Subject[] sub=new Subject[3];
+
+
+	//Subject m1=new Subject();
+	//Subject m2=new Subject();
 	public void setDetails()
 	{
 		
@@ -16,11 +19,17 @@ public class Student
 
 		System.out.println("Enter the rollno : ");
 		rollno=scan.nextInt();
-		System.out.println("Enter the mark1 out of(100) : ");
-		m1.m=scan.nextInt();
-		System.out.println("Enter the mark2  out of (100): ");
-		m2.m=scan.nextInt();
 		
+
+		for(int i=0;i<3;i++)
+		{
+			sub[i]=new Subject();
+			
+		System.out.println("Enter the name of subject:");
+		sub[i].name=scan.next();
+		System.out.println("Enter the mark out of (100): ");
+		sub[i].mark=scan.nextInt();
+		}
 
 	
 
@@ -28,25 +37,40 @@ public class Student
 	}
 	public void getDetails()
 	{
-		System.out.println("The name is "+name);
+
+		 System.out.println("The name is "+name);
 		System.out.println("The rollno is "+rollno);
-		System.out.println("The mark1 is "+m1.m);
-		System.out.println("The mark2 is "+m2.m);
+		for(int i=0;i<3;i++)
+		{
+		System.out.println(" Subject is :"+sub[i].name);
+		 System.out.println("The mark is "+sub[i].mark);
+		}
 		System.out.println("Average is "+this.average());
 		System.out.println("Percentage is "+this.percentage());
+
 		
 
 	}
 
 public float average()
 {
-	float avg=(float)(m1.m+m2.m)/2;
-		return avg;
+	float avg=0;
+	for(int i=0;i<3;i++)
+	{
+	 avg=(float)(sub[i].mark)/3;
+		
 }
+	 return avg;
 
+}
 public float percentage()
+
 {
-	float percentage=(float)(m1.m+m2.m)/100*100;
+	float percentage=0;
+	for(int i=0;i<3;i++)
+	{
+	 percentage=(float)(sub[i].mark)/100*100;
+}
 	return percentage;
 }
 }
