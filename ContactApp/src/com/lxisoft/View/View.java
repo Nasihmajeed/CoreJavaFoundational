@@ -8,9 +8,10 @@ import java.util.*;
 public class View
 {
 	public ContactControl control =new ContactControl();
-	public void start() 
+	public void printAll() 
 	{
 		Scanner sc=new Scanner(System.in);
+		viewAllContacts();
 		
 		int loop=0;
 		int repeat=0; 
@@ -18,7 +19,7 @@ public class View
 		{
 			repeat=0;
 			loop=0;
-			System.out.println("enter 1 add  2 search 3 view all Contacts  4 clear all");
+			System.out.println(" enter : 0 select  1 add  2 search 3 delete  4 delete all");
 			int select=sc.nextInt();
 			switch(select)
 			{
@@ -44,7 +45,17 @@ public class View
 	}
 	public void viewAllContacts()
 	{
-		control.viewAllContacts();
+		ArrayList<ViewListModel>listView=control.viewAllContacts();
+		if(listView.size()==0)
+			System.out.println("no contacts to show");
+		else
+		{
+			for(int i=0;i<listView.size();i++)
+			{
+				System.out.print("ID: "+listView.get(i).getId());
+				System.out.println("\t  Name: "+listView.get(i).getName());
+			}
+		}
 	}
 	
 }

@@ -9,7 +9,10 @@ public class TDD
 {
 	public static void main(String[] args)
 	{
-		View view=new View();
-		view.start();
+		ContactControl control=new ContactControl();
+		System.out.println("*******CONTACT APP*******\n");
+		control.start();
+
+		
 	}
 }

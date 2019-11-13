@@ -10,14 +10,18 @@ import java.util.*;
 public class Repository implements FileRepository
 {
 	File file=new File(fileName);
+	ArrayList<Contact> contacts =new ArrayList<Contact>();
+	static int i;
 	
 	public void writeNewContact(Contact contact)
 	{
 		try
 		{
+			i=getId();
 			FileWriter bf=new FileWriter(file,true);
-			bf.write(","+contact.getName()+","+contact.getNo()+"\n");
+			bf.write(i+","+contact.getName()+","+contact.getNo()+"\n");
 			bf.flush();
+			i++;
 		}
 		catch(Exception e)
 		{
@@ -42,6 +46,48 @@ public class Repository implements FileRepository
 	}
 	public ArrayList<Contact> getAllContacts()
 	{
-		
+		try
+		{
+			BufferedReader bf=new BufferedReader(new FileReader(file));
+			String str=null;
+			while((str=bf.readLine())!=null)
+			{
+				Contact contact=new Contact();
+				String[] strln=str.split(",",3);
+				
+				contact.setId((Integer.parseInt(strln[0])));
+				contact.setName(strln[1]);
+				contact.setNo(strln[2]);
+				contacts.add(contact);
+				// System.out.println("test Repository"+strln[1]);
+					
+				
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("error");
+		}
+		return contacts;
+	}
+
+	public int getId()
+	{
+		try
+		{
+			i=0;
+			BufferedReader bf=new BufferedReader(new FileReader(file));
+			String str=null;
+			while((str=bf.readLine())!=null)
+			{
+				i++	;				
+				
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("error");
+		}
+		return i;
 	}
 }

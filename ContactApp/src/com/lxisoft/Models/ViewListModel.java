@@ -12,11 +12,11 @@ public class ViewListModel
 	{
 		return id;
 	}
-	public void setName(int id)
+	public void setName(String name)
 	{
 		this.name=name;
 	}
-	public String setName(int id)
+	public String getName()
 	{
 		return name;
 	}
