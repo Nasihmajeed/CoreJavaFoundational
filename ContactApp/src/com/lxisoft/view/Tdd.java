@@ -7,7 +7,7 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		ContactView view=new ContactView();
-		view.disply();
+		ContactControl control=new ContactControl();
+		control.getContactDetails();
     }
 }

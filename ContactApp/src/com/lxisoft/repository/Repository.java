@@ -11,6 +11,22 @@ public class Repository implements FileRepository
 	File file=new File(fileName);
 	FileWriter fw=null;
 	static int id=0;
+	private List<Contact>contactList=new ArrayList<Contact>();
+	public void setContactList(List<Contact>contactList)
+	{
+		this.contactList=contactList;
+	}
+	public List<Contact> getContactList()
+	{
+		return contactList;
+	}
+
+	public int getContactListSize()
+	{
+		return contactList.size();
+	}
+
+
 	public void createFile(Contact c)
 	{
 		try
@@ -40,7 +56,7 @@ public class Repository implements FileRepository
 			System.out.println("an error ");
 		}	
 	}
-	public List<Contact> arrayWrite(List<Contact>contactList)
+	public List<Contact> arrayWrite()
 	{
 		try
 		{
@@ -48,6 +64,7 @@ public class Repository implements FileRepository
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String read;
+			System.out.println("\nCONTACT LIST\n************");
 			while((read=br.readLine())!=null)
 			{
 				System.out.println(read+"\n");
