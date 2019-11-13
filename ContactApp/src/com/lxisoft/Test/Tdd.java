@@ -7,5 +7,7 @@ public class Tdd
   {
     View view = new View();
     view.display();
+    //Controller controller = new Controller();
+    //controller.getAllContacts();
   }
 }
