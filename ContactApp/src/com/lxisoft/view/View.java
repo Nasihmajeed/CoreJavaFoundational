@@ -10,27 +10,22 @@ import com.lxisoft.repository.*;
 public class View
 {
 	static Scanner sc=new Scanner(System.in);
-	ContactController controller=new ContactController();
+	
 
-	public void findAllContacts(ViewAllModel viewAllModel)
+	public void findAllContacts(String name)
 	{
 		// Contact contactList=new Contact();	
-		int i=0;
-		System.out.print("\n THE CONTACT LIST IS \n");
-		for(Contact contactList: viewAllModel.contactList)
-		{
-			System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
-			System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-		}
-		byId();
+		
+		System.out.println("\t\tName- " +name);
+		//byId();
 	}
 	
-	public void byId()
-	{
-		System.out.println("enter the id to check ");
-		int id=sc.nextInt();
-		//controller.contactById(id);
-	}
+	// public void byId()
+	// {
+	// 	System.out.println("enter the id to check ");
+	// 	int id=sc.nextInt();
+	// 	controller.contactById(id);
+	// }
 
 }
 

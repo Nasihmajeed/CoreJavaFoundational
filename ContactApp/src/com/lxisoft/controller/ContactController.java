@@ -24,8 +24,13 @@ public class ContactController
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
-		viewAllModel.contactList=repository.findAll();
-		view.findAllContacts(viewAllModel);
+		contactList=repository.findAll();
+		System.out.println(" THE CONTACT LIST IS ");
+		for(Contact contact: contactList)
+		{
+			String name=contact.getName();
+			view.findAllContacts(name);
+		}
 	}
 
 	// public void contactById(int id)

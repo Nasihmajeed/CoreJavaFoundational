@@ -5,5 +5,15 @@ import java.util.ArrayList;
 
 public class ViewAllModelMinimal
 {
+	private String name;
 
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
 }

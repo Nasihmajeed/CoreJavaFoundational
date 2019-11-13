@@ -5,7 +5,15 @@ import java.util.ArrayList;
 
 public class ViewAllModel
 {
-	ArrayList<Contact> contactList=new ArrayList<Contact>();
+	private String name;
 
-	public void 
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
 }
