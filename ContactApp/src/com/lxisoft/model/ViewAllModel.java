@@ -5,15 +5,17 @@ import java.util.ArrayList;
 
 public class ViewAllModel
 {
-	private String name;
+	ViewAllModelMinimal viewAllModelMinimal=new ViewAllModelMinimal();
 
-	public void setName(String name)
+	public void setAll(ViewAllModelMinimal viewAllModelMinimal)
 	{
-		this.name=name;
+		this.viewAllModelMinimal=viewAllModelMinimal;
 	}
 
-	public String getName()
+	public ViewAllModelMinimal getName()
 	{
-		return name;
+		return viewAllModelMinimal;
 	}
+
+
 }

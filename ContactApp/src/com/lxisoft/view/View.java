@@ -17,7 +17,7 @@ public class View
 		// Contact contactList=new Contact();	
 		
 		System.out.println("\t\tName- " +name);
-		//byId();
+		byId();
 	}
 	
 	public void byId()

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class ViewAllModelMinimal
 {
 	private String name;
+	private int id;
 
 	public void setName(String name)
 	{
@@ -15,5 +16,15 @@ public class ViewAllModelMinimal
 	public String getName()
 	{
 		return name;
+	}
+
+	public void setId(int id)
+	{
+		this.id=id;
+	}
+
+	public String getid()
+	{
+		return id;
 	}
 }
