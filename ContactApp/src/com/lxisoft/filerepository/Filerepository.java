@@ -6,6 +6,6 @@ import com.lxisoft.test.*;
 
 public interface Filerepository
 {
-	String filename = "C:\\Users\\Admin\\Desktop\\gitland org\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\repository\\File.csv";
+	String filename = "C:\\Users\\Admin\\Desktop\\gitland org\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\repository\\sample.csv";
 
 }

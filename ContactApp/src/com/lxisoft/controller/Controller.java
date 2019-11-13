@@ -12,11 +12,10 @@ public class Controller
 	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void addContact(String name,String number)
 	{ 
-		rep.fileWrite();
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
-        array.add(contact);    
+        rep.fileWrite(contact);
 	}
 	public int getArraySize()
 	{
