@@ -12,23 +12,33 @@ public class Repository implements Filerepository
 	//BufferedWriter bw;
 	public void fileWrite(Contact contact)
 	{ 		
+		File file = new File(filename);
 		try
 		{
-		File file = new File(filename);
-		FileWriter fw = new FileWriter(file);
-		FileReader fr = new FileReader(file);
 		
-		BufferedReader br = new BufferedReader(fr);
+		FileWriter fw = new FileWriter(file);
 		BufferedWriter bw= new BufferedWriter(fw);
 
-	  	bw.write(contact.getName()+","+contact.getNumber()+"\n");
+	  	bw.write(contact.getName()+", "+contact.getNumber()+"\n");
 	  	bw.flush();
-	  	String a ;
-	  	while( (a= br.readLine())!=null)
-	  	System.out.println(a);
+	  		}
+		catch (IOException e)
+		{
+			System.out.println(e);
+		}
+	}
+	public void fileRead()
+	{
+		try
+		{
+		  	FileReader fr = new FileReader(file);
+		  	BufferedReader br = new BufferedReader(fr);
+		  	String a ;
+	  		while( (a= br.readLine())!=null)
+	  		System.out.println(a);
 
 		}
-		catch (IOException e)
+		catch(IOException e)
 		{
 			System.out.println(e);
 		}

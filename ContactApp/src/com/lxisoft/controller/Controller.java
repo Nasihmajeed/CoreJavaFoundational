@@ -43,7 +43,11 @@ public class Controller
 	}
 	public void deleteContact(int i)
 	{
-		array.remove(i);
+		array.remove(i);	
+	}
+	public void display()
+	{
+		rep.fileRead();
 	}
  
 }

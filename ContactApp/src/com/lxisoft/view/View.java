@@ -81,7 +81,9 @@ public class View
 		 for(int i=0;i<(con.getArraySize());i++)
 		{ 	
 		 System.out.println("\t"+con.array.get(i).getName()+"  "+con.array.get(i).getNumber());
+		 con.display();
 		}
+
 	}
 	public void edit(int i)
 	{
