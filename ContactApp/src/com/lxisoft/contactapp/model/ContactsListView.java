@@ -8,15 +8,20 @@ import java.io.*;
 import java.util.*;
 public class ContactsListView
 {
+	private ArrayList<ContactModel> contact=new ArrayList<ContactModel>();
 	public void setAllContacts(ArrayList<Contact> contacts)
 	{
-		ContactModel contact;
+		ContactModel contactmodel;
 		for(int i=0;i<contacts.size();i++)
 		{
-			contact=new ContactModel();
-			contacts.get(i).getId();
-			contacts.get(i).getName();
-			contact.add(contacts);
+			contactmodel=new ContactModel();
+			contactmodel.setId(contacts.get(i).getId());
+			contactmodel.setName(contacts.get(i).getName());
+			contact.add(contactmodel);
 		}
+	}
+	public ArrayList<ContactModel> getAllContacts()
+	{
+		return contact;
 	}
 }

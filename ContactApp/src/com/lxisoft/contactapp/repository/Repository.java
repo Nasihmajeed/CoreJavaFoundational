@@ -13,13 +13,15 @@ public class Repository implements FileStorage
 	{
 		try
 		{
+
+			Contact contact;
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
 				id++;
 				String[] st=str.split(",",3);
-				ContactModel contact=new ContactModel();
+				contact=new Contact();
 				contact.setId(st[0]);
 				contact.setName(st[1]);
 				contact.setNo(st[2]);
