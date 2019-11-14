@@ -8,4 +8,5 @@ import com.lxisoft.controllers.*;
 public class ViewModel
 {
 	public ArrayList<ContactModel>contacts=new ArrayList<ContactModel>();
+	Contact c=new Contact();
 }

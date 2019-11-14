@@ -11,7 +11,7 @@ public class ContactView
 		Scanner sc=new Scanner(System.in);
 		ContactControl control=new ContactControl();
 		System.out.println("        CONTACT APP\n        ***************");
-		control.getContactDetails();
+	    // control.getContactDetails();
 		viewContact(control);
 		// do
 		// {
@@ -28,7 +28,7 @@ public class ContactView
 		// 	System.out.println("Continue...?\n0-No   1-Yes");
 		// 	c=sc.nextInt();
 	 //    }while(c==1);
-	    // viewContact(control);
+	     // viewContact(control);
 	}
     public void viewContact(ContactControl control)
     {

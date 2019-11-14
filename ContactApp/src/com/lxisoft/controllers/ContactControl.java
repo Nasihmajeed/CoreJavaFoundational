@@ -1,7 +1,8 @@
 package com.lxisoft.controllers;
 import java.util.*;
-import com.lxisoft.models.*;
 import com.lxisoft.view.*;
+import com.lxisoft.models.*;
+import com.lxisoft.domain.*;
 import com.lxisoft.repository.*;
 public class ContactControl
 {
@@ -10,8 +11,8 @@ public class ContactControl
     ContactModel model=new ContactModel();
 	public void getContactDetails()
 	{
-        
-       // repository.arrayWrite();
+        view.disply();
+        repository.arrayWrite();
     }
     public Contact viewDetails(int i)
     {

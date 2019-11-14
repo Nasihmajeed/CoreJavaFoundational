@@ -1,5 +1,8 @@
-package com.lxisoft.models;
+package com.lxisoft.domain;
 import com.lxisoft.controllers.*;
+import com.lxisoft.models.*;
+import com.lxisoft.view.*;
+import java.util.*;
 public class Contact
 {
 	private int id;

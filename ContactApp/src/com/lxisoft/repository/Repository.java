@@ -2,6 +2,7 @@ package com.lxisoft.repository;
 import com.lxisoft.controllers.*;
 import com.lxisoft.repository.*;
 import com.lxisoft.models.*;
+import com.lxisoft.domain.*;
 import com.lxisoft.view.*;
 import java.util.*;
 import java.io.*;
@@ -63,8 +64,7 @@ public class Repository implements FileRepository
 			fw=new FileWriter(file,true);
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
-			String read;
-			System.out.println("\nCONTACT LIST\n************");
+			String read;       
 			while((read=br.readLine())!=null)
 			{
 				System.out.println(read+"\n");
