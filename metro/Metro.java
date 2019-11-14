@@ -42,7 +42,8 @@ public class Metro
 	}
 	int arrivalStation(int slNo)
 	{
-	 int a=10;   
+	 int a=10;
+	    
       switch(slNo)
       {
       	case 1:
