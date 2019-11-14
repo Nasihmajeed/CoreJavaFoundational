@@ -25,7 +25,7 @@ public class Repository implements Filerepository
 		{
 			System.out.println(e);
 		}
-		
+
 	}
 	public void fileRead()
 	{
@@ -42,5 +42,13 @@ public class Repository implements Filerepository
 		{
 			System.out.println(e);
 		}
+	}
+	public void fileDelete()
+	{
+			FileReader fr = new FileReader(file);
+		  	BufferedReader br = new BufferedReader(fr);
+		  	String a ;
+	  		while( (a= br.readLine())!=null)
+	  		System.out.println(a +"\n");
 	}
 }
