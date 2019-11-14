@@ -1,10 +1,11 @@
 package com.lxisoft.Repository;
-import com.lxisoft.Model.Contact;
+import com.lxisoft.Domain.Contact;
 import java.io.*;
 import java.util.ArrayList;
 
 public class Repository
 {  ArrayList <Contact> filelist = new  ArrayList <Contact>();
+  
   public void file(ArrayList <Contact> contactslist)
   {
    try{ 

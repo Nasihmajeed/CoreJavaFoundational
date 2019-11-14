@@ -1,5 +1,5 @@
 package com.lxisoft.Controller;
-import com.lxisoft.Model.Contact;
+import com.lxisoft.Domain.Contact;
 import java.util.ArrayList;
 import com.lxisoft.Repository.Repository;
 
