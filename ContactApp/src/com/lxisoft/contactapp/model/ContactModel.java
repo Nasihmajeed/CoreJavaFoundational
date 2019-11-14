@@ -1,5 +1,5 @@
 package com.lxisoft.contactapp.model;
-public class Contact{
+public class ContactModel{
 	private  String name;
 	 private String  number;
 public void setName(String name){
