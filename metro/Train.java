@@ -2,11 +2,12 @@ public class Train
 {
 	String name;
 	int trainNumber;
-
-	/*void passengerList()
+	Passenger[] passenger = new Passenger[5];
+	void passengerList()
 	{
-		Passenger passenger = new Passenger();
-		passenger.name = "Adarsh";
-		passenger.age = 26 ;
-	}*/
+		for(int i=0;i<5;i++)
+		{
+			passenger[i]= new Passenger();
+		}
+	}
 }

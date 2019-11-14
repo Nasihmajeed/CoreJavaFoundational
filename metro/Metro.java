@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class Metro
 {
 	Scanner scanner = new Scanner(System.in);
-	Station[] station = new Station[5]; 
-	int slNo;
+	Station[] station = new Station[5];
+	int slNo,a,numberOfPassengers;
 	void ticketBooking()
 	{
       dipartureStation();
@@ -13,25 +13,63 @@ public class Metro
       slNo = scanner.nextInt();
       arrivalStation(slNo);
       System.out.println("Select a Train");
+      getTrain();
+      System.out.println("How many passenger ?");
+      numberOfPassengers = scanner.nextInt();
 	}
 
 	void dipartureStation()
 	{
 		Station departureStation = new Station();
 		departureStation.name = "PALAKKAD";
-	    System.out.println(departureStation.name);
+	    System.out.println("Departure Station : "+departureStation.name);
 	}
 	void setStation()
 	{
+
 		for(int i=0;i<5;i++)
 		{
 		 station[i]= new Station();	
 		}
+		station[0].setTrainLists();
 		station[0].name = "1.Trissur";
+		station[0].train[0].name = "TrissurTrain1";
+		station[0].train[1].name = "TrissurTrain2";
+		station[0].train[2].name = "TrissurTrain3";
+		station[0].train[3].name = "TrissurTrain4";
+		station[0].train[4].name = "TrissurTrain5";
+		
+		station[1].setTrainLists();
 		station[1].name = "2.Ernamkulam";
+		station[1].train[0].name = "ErnamkulamTrain1";
+		station[1].train[1].name = "ErnamkulamTrain2";
+		station[1].train[2].name = "ErnamkulamTrain3";
+		station[1].train[3].name = "ErnamkulamTrain4";
+		station[1].train[4].name = "ErnamkulamTrain5";
+		
+		station[2].setTrainLists();
 		station[2].name = "3.Kollam";
+		station[2].train[0].name = "KollamTrain1";
+		station[2].train[1].name = "KollamTrain2";
+		station[2].train[2].name = "KollamTrain3";
+		station[2].train[3].name = "KollamTrain4";
+		station[2].train[4].name = "KollamTrain5";
+		
+		station[3].setTrainLists();
 		station[3].name = "4.Trivandrum";
+		station[3].train[0].name = "TrivandrumTrain1";
+		station[3].train[1].name = "TrivandrumTrain2";
+		station[3].train[2].name = "TrivandrumTrain3";
+		station[3].train[3].name = "TrivandrumTrain4";
+		station[3].train[4].name = "TrivandrumTrain5";
+		
+		station[4].setTrainLists();
 		station[4].name = "5.Vayanad";
+		station[4].train[0].name = "VayanadTrain1";
+		station[4].train[1].name = "VayanadTrain2";
+		station[4].train[2].name = "VayanadTrain3";
+		station[4].train[3].name = "VayanadTrain4";
+		station[4].train[4].name = "VayanadTrain5";
 	}
 	void getStation()
 	{
@@ -40,10 +78,9 @@ public class Metro
 		System.out.println(station[i].name);
 	    }
 	}
-	int arrivalStation(int slNo)
+	void arrivalStation(int slNo)
 	{
-	 int a=10;
-	    
+
       switch(slNo)
       {
       	case 1:
@@ -67,17 +104,12 @@ public class Metro
       	a=4;
       	break;
       }
-      return a;
 	}
-	/*void sample()
+	void getTrain()
 	{
-		int k = arrivalStation(slNo);
-		System.out.println("Return = "+k);
-		Station station = new Station();
-		setStation();
-		station.setTrainList();
-		int k = arrivalStation(int slNo);
-		if(station.train[5][5].equals(k))
-			
-	}*/
+		for(int i=0;i<5;i++)
+		{
+			System.out.println(station[a].train[i].name);
+		}
+	}
 }
