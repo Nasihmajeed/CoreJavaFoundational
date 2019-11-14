@@ -6,21 +6,24 @@ import java.util.*;
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
 Repository repo=new  Repository();
-public void save(Contact cc)
+View v=new View();
+public void save()
 {
-contacts.add(cc);
- repo.setFile(cc);
-
+	Contact contact=v.setContact();
+   // contacts.add(contact);
+    repo.setFile(contact);
+ 
 }
 
 
-public ArrayList<Contact> read(){
-	return repo.getList();
+public void read(){
+	v.display(repo.getList());
 
   }
+}
 
 
-public Contact search(String n){
+/*public Contact search(String n){
 	String name=n;
 	Contact contact=repo.searchList(name);
 	return contact;

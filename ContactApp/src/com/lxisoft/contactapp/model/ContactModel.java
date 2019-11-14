@@ -1,5 +1,5 @@
 package com.lxisoft.contactapp.model;
-public class Domain{
+public class Contact{
 	private  String name;
 	 private String  number;
 public void setName(String name){

@@ -12,7 +12,7 @@ public void setFile(Contact contact){
   	try{
 	FileWriter write=new FileWriter(file,true);
 	BufferedWriter fwrite=new BufferedWriter(write);
-	fwrite.write("i"+","+contact.getName()+","+contact.getNumber()+"\n");  
+	fwrite.write(contact.getName()+","+contact.getNumber()+"\n");  
 	fwrite.flush();
 	fwrite.close();
       
