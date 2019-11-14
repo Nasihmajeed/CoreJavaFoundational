@@ -4,7 +4,8 @@ public class Classroom
 	Scanner scan=new Scanner(System.in);
 	String name;
 	int num;
-	Student[] stud= new Student[2];
+	Student[] stud= new Student[10];
+
      
     	
 	
@@ -24,23 +25,33 @@ public class Classroom
 			stud[i]=new Student();
 			stud[i].setDetails();
 			}	
+	
 }
-/*public void sort()
+public void sort()
 {	
-	float temp=0;
-	for(int i=0;i<num;i++)
+	
+
+	for(int i=0;i<stud.length;i++)
 	{
-		for(int j=0;j<i;j++)
+		for(int j=i+1;j<i;j++)
 		{
-			if(stud[i].total()<stud[j].total())
+			if(stud[i].total()>stud[j].total())
 			{
 
-				temp=stud[i].total();
-				stud[i].total()=stud[j].total();
-				temp=stud[j].total();
+				Student temp=stud[i];
+				stud[i]=stud[j];
+				temp=stud[j];
+				
+		
 			}
+
 		}
-	}*/
+		
+		System.out.println(stud[i].name);
+
+	}
+
+}
 	public void getDetails()
 	{
 		System.out.println("The batch is "+name);
@@ -49,8 +60,7 @@ public class Classroom
 		{
 		stud[i].getDetails();
 		}
-		
-		
-		
-	}
+
 		}
+
+}

@@ -5,7 +5,7 @@ public class Student
 	Scanner scan=new Scanner(System.in);
 	String name;
 	int rollno;
-	
+
 	Subject[] sub=new Subject[3];
 
 
@@ -56,6 +56,7 @@ public class Student
 	}
 public float total()
 {
+	
 	float total=0;
 	for(int i=0;i<3;i++)
 	{

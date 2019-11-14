@@ -19,6 +19,7 @@ public class School
 		System.out.println("School name is "+name);
 		System.out.println("School code is "+code);
 		c1.getDetails();
+		c1.sort();
 	}
 
 }
