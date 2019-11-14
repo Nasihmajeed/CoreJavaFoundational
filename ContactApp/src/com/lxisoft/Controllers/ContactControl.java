@@ -31,9 +31,34 @@ public class ContactControl
 		ViewList view=new ViewList();
 		ArrayList<Contact> contacts=new ArrayList<Contact>();
 		contacts=repo.getAllContacts();
-		// System.out.println("test controller1");
-		view.setAllContacts(contacts);
-		ArrayList<ViewListModel> listView=view.getAllContacts();
+		ArrayList<ViewListModel> listView=null;
+		if(contacts!=null)
+		{
+			view.setAllContacts(contacts);
+			listView=view.getAllContacts();
+		}
 		return listView;
+	}
+	public Contact searchContact(String name)
+	{
+		ArrayList<Contact> contacts= new ArrayList<Contact>(); 
+		contacts=repo.getAllContacts();
+		Contact contact=new Contact();
+		for(int i=0;i<contacts.size();i++)
+		{
+			String s=contacts.get(i).getName();
+			if(s.equals(name)) 
+			{
+				contact=contacts.get(i);								
+			}
+		}
+		
+		return contact;
+	}
+	public int getIndex(Contact contact)
+	{
+		ArrayList<Contact> contacts=new ArrayList<Contact>();
+		contacts=repo.getAllContacts();
+		return contacts.indexOf(contact);
 	}
 }

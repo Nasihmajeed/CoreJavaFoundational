@@ -25,7 +25,7 @@ public class Repository implements FileRepository
 		}
 		catch(Exception e)
 		{
-			System.out.println("error");
+			System.out.println("error1");
 		}
 	}
 	public void viewAllContacts()
@@ -48,11 +48,14 @@ public class Repository implements FileRepository
 	{
 		try
 		{
+			FileWriter d=new FileWriter(file,true);
 			BufferedReader bf=new BufferedReader(new FileReader(file));
 			String str=null;
+			Contact contact=null;
+			contacts.clear();
 			while((str=bf.readLine())!=null)
 			{
-				Contact contact=new Contact();
+				contact=new Contact();
 				String[] strln=str.split(",",3);
 				
 				contact.setId((Integer.parseInt(strln[0])));
@@ -66,7 +69,7 @@ public class Repository implements FileRepository
 		}
 		catch(Exception e)
 		{
-			System.out.println("error");
+			System.out.println("error2");
 		}
 		return contacts;
 	}
@@ -86,7 +89,7 @@ public class Repository implements FileRepository
 		}
 		catch(Exception e)
 		{
-			System.out.println("error");
+			System.out.println("error3");
 		}
 		return i;
 	}

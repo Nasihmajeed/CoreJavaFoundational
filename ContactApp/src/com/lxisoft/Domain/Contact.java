@@ -29,4 +29,12 @@ public class Contact
 	{
 		return id;
 	}
+	public boolean equals(Contact c)
+	{
+			if(this.name=c.name)
+				return true;
+
+			else return false;
+
+	}
 }
