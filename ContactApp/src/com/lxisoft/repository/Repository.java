@@ -59,7 +59,6 @@ public class Repository implements FileDataSource
 	}
 	public void writeFile(Contact contact)
 	{
-		
 		try
 		{
 			fw=new FileWriter(contactFile,true);
@@ -76,6 +75,7 @@ public class Repository implements FileDataSource
 	}
 	public List <Contact> readFile()
 	{
+	
 		List <Contact> contactList=new ArrayList<Contact>();
 		try
 		{
@@ -85,8 +85,9 @@ public class Repository implements FileDataSource
 			contacts=br.readLine();
 			while((contacts=br.readLine())!=null)
 			{
-				Contact c=new Contact();
 				String[] cont=contacts.split(",",3);
+				String id=cont[0];
+				Contact c=new Contact();
 				c.setContactName(cont[1]);	
 				c.setContactNumber(cont[2]);
 				in++;			

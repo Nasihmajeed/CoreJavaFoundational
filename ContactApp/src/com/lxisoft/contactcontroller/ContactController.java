@@ -21,7 +21,6 @@ public class ContactController
 	{
 		return contactList.size();
 	}
-
 	public Contact getFileInfo(int j)
 	{
 	    contactList=repo.readFile();
