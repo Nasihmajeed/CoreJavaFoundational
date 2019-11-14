@@ -1,147 +1,51 @@
 package com.lxisoft.contactapp.view;
 
 import com.lxisoft.contactapp.controller.ContactController;
-import com.lxisoft.contactapp.model.Contact;
+import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
 public class ContactView
 {
-	static ContactController control=new ContactController();
-	public void getFileInfo()
+	ContactController control;
+	public void showAllContacts(ArrayList<ContactModel> contact)
 	{
-		control.getFileInfo();
-	}
-	public void displayContactInfo()
-	{
-		Scanner sc=new Scanner(System.in);
-		int default_option=0;
-		char continueOpt='\0';
-		do
-		{  
-			System.out.println(" \n<---Contact App Menu--->");
-			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n");
-			System.out.println(" select your option	");
-			int option=sc.nextInt();
-			switch(option)
-			{
-				case 1:		createNewContact(control);break;
-				case 2:		searchContact(control);break;
-				case 3:		viewContact(control);break;
-				case 4:		deleteAllContacts(control);break;
-				default:	System.out.println("Enter the correct option!");
-							default_option=1;break;
-			}
-			System.out.println("Do you want to continue ? Y/N");
-			continueOpt=sc.next().charAt(0);
-		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
-	}
-	public void viewContact(ContactController control)
-	{	
-		int i;
-		Scanner sc=new Scanner(System.in);
-		int length=control.getLength();
-		if(length==0)
+		if(contact.size()==0)
 		{
-			System.out.println("contact List is empty");
+			System.out.println("Your Contact List empty ");
 		}
 		else
 		{
-			System.out.println("contact List \n.................");
-			System.out.println("  Name \t ContactNo");
-			for( i=0;i<length;i++)
+			System.out.println(" \n<----Contact List---->");
+			System.out.println("ID\tNAME\n");
+			for(int i=0;i<contact.size();i++)
 			{
-				System.out.print((i)+" ");
-				control.getContactDetails(i);
+				System.out.print(contact.get(i).getId()+"\t");
+				System.out.println(contact.get(i).getName());
 			}
-			System.out.println("Select an option to continue \n 1:search \n2:Back to menu");
-			int option=sc.nextInt();
-			int val=0;
-			//String[] array=new String[5];
-			switch(option)
-			{
-				case 1:searchContact(control);val=1;break;
-				case 2:val=1;break;
-			}
-			if(val==1)
-				System.out.println("Do you want to exit ? 1-yes 0-No  ");
-				int opt=sc.nextInt();
-				displayContactInfo();
+		
 		}
+		System.out.println("select a contact by Id");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		control=new ContactController();
+		control.getContactById(id);
 	}
-	public void updateContact(ContactController control,int i)
+	public void getContactById(ArrayList<Contact> contact,int id)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Select an option to continue \n1:Edit \n2:Delete \n3:Main menu");
-		int select=sc.nextInt();
-		switch(select)
+		int value=0,val=0;
+		for(int i=0;i<contact.size();i++)
 		{
-			case 1: editContact(control,i);break;
-			case 2: deleteContact(control,i);break;
-			case 3: displayContactInfo();break; 
-		}
-	}
-	public void createNewContact(ContactController control)
-	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("contact Name:	");
-		String name=sc.next();
-		System.out.println("number ");
-		String number=sc.next();
-		control.addContact(name,number);
-	}
-	public void searchContact(ContactController control)
-	{ 
-		Scanner sc=new Scanner(System.in);
-		int length=control.getLength();
-		if(length==0)
-		{
-			System.out.println("contact list is empty");
-		}
-		else
-		{
-			System.out.println(" Enter the name to search:");
-			String name=sc.next();
-			int value=0,val=0;
-			for(int i=0;i<length;i++)
-			{	
-				value=control.searchContact(i,name);
-				if(value==1)
+			if(id==contact.indexOf(contact.get(i)))
 				{
-					updateContact(control,i);
-					val=1;
-					break;
+					value=1;val=1;
+					System.out.println(" Contact found..!");
+					System.out.println(contact.get(i).getName());
+					System.out.println(contact.get(i).getNo());	
 				}
-			}
-		     if(val==0)
-					contactNotFound();
 		}
+		if(val==0)
+			System.out.println("contact not found");
+	
 	}
-	public void contactNotFound()
-	{
-		System.out.println(" There is no such contacts..! ");
-		displayContactInfo();	
-	}
-	public void editContact(ContactController control,int i)
-	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("1:Edit Name \n2:Edit ContactNo \n3:Main menu ");
-		int select=sc.nextInt();
-		String name;String num;
-		switch(select)
-		{
-			case 1:	System.out.println("Enter the new name");name=sc.next();
-					num=control.getNo(i);control.updateContact(i,name,num);System.out.println("updated!");break;
-			case 2: System.out.println("Enter the new number");num=sc.next();
-					name=control.getName(i);control.updateContact(i,name,num);System.out.println("updated!");break;	
-			case 3:	displayContactInfo();break;	
-		}		
-	}
-	public void deleteContact(ContactController control,int i)
-	{
-		control.deleteContact(i);
-		System.out.println("contact Deleted!");
-	}
-	public void deleteAllContacts(ContactController control)
-	{
-		control.deleteAllContacts();
-	}
+
 }

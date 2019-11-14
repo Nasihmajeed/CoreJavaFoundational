@@ -9,7 +9,8 @@ public class Repository implements FileStorage
 {  
 	File contactFile=new File(fileName);
 	static int id=0;
-	public ArrayList<Contact> getAllContacts(ArrayList<Contact> contacts)
+	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	public ArrayList<Contact> getAllContacts()
 	{
 		try
 		{

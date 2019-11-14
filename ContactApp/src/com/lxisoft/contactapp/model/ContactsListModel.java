@@ -2,11 +2,9 @@ package com.lxisoft.contactapp.model;
 
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.Domain.*;
-import com.lxisoft.contactapp.repository.*;
-import com.lxisoft.contactapp.view.*;
 import java.io.*;
 import java.util.*;
-public class ContactsListView
+public class ContactsListModel
 {
 	private ArrayList<ContactModel> contact=new ArrayList<ContactModel>();
 	public void setAllContacts(ArrayList<Contact> contacts)

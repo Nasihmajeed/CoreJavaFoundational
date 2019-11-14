@@ -8,25 +8,23 @@ import java.io.*;
 import java.util.*;
 public class ContactController
 {
-	public ArrayList<Contact> contacts=new ArrayList<Contact>();
+	
 	public Repository filerepo=new Repository();
-	public ContactView1 view=new ContactView1();
+	public ContactView view=new ContactView();
 	public void getAllcontacts()
 	{
-		
-		contacts=filerepo.getAllContacts(contacts);
-		ContactsListView contact=new ContactsListView();
+		ArrayList<Contact> contacts;
+		contacts=filerepo.getAllContacts();
+		ContactsListModel contact=new ContactsListModel();
 		contact.setAllContacts(contacts);
 		ArrayList<ContactModel> contactlist1=contact.getAllContacts();
 		view.showAllContacts(contactlist1);
 	}
-	// public void getContactById(int id)
-	// {
-	// 	ArrayList<Contact> contact1=new ArrayList<Contact>();
-	// 	contact1=filerepo.getContactById(contact1);
-	// 	Contact con=new Contact();
-	// 	view.getContactById(id,contact1,con);
-	// }
+	public void getContactById(int id)
+	{
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		view.getContactById(contacts,id);
+	}
 	// public void addContact(String name,String number)
 	// {
 	// 		contact=new Contact();
