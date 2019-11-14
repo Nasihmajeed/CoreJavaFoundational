@@ -24,28 +24,56 @@ public class ContactView
 			}
 		
 		}
+		displayContactInfo();
+	}
+	public void displayContactInfo()
+	{
+		Scanner sc=new Scanner(System.in);
+		int default_option=0;
+		char continueOpt='\0';
+		do
+		{  
+			System.out.println(" \n<---Contact App Menu--->");
+			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n");
+			System.out.println(" select your option	");
+			int option=sc.nextInt();
+			switch(option)
+			{
+				case 1:		addNewContact();break;
+				case 2:		searchContact();break;
+				// case 3:		viewContact(control);break;
+				// case 4:		deleteAllContacts(control);break;
+				default:	System.out.println("Enter the correct option!");
+							default_option=1;break;
+			}
+			System.out.println("Do you want to continue ? Y/N");
+			continueOpt=sc.next().charAt(0);
+		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
+	}
+	public void addNewContact()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("contact Id:	");
+		String id=sc.next();
+		System.out.println("contact Name:	");
+		String name=sc.next();
+		System.out.println("number ");
+		String number=sc.next();
+		control=new ContactController();
+		control.addContactDetails(id,name,number);
+	}
+	public void searchContact()
+	{
 		System.out.println("select a contact by Id");
 		Scanner sc=new Scanner(System.in);
-		int id=sc.nextInt();
+		String id=sc.next();
 		control=new ContactController();
 		control.getContactById(id);
 	}
-	public void getContactById(ArrayList<Contact> contact,int id)
+	public void getContactById(Contact contact)
 	{
-		int value=0,val=0;
-		for(int i=0;i<contact.size();i++)
-		{
-			if(id==contact.indexOf(contact.get(i)))
-				{
-					value=1;val=1;
-					System.out.println(" Contact found..!");
-					System.out.println(contact.get(i).getName());
-					System.out.println(contact.get(i).getNo());	
-				}
-		}
-		if(val==0)
-			System.out.println("contact not found");
-	
+		System.out.println(contact.getName());
+		System.out.println(contact.getNo());		
 	}
 
 }

@@ -9,13 +9,12 @@ public class Repository implements FileStorage
 {  
 	File contactFile=new File(fileName);
 	static int id=0;
+	Contact contact;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	public ArrayList<Contact> getAllContacts()
 	{
 		try
 		{
-
-			Contact contact;
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
@@ -36,28 +35,43 @@ public class Repository implements FileStorage
 		return contacts;
 
 	}
-	public ArrayList<Contact> getContactById(ArrayList<Contact> contacts)
+	public void addContactDetails(String id,String name,String number)
+	{
+		contact=new Contact();
+		contact.setId(id);
+		contact.setName(name);
+		contact.setNo(number);
+		contacts.add(contact);	
+		setContacts();
+	}
+	public void setContacts()
 	{
 		try
 		{
+			FileWriter fw= new FileWriter(contactFile,true);
+			BufferedWriter br = new BufferedWriter(fw);	
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			String str=read.readLine();
-			while((str=read.readLine())!=null) 
+			String str=" ";
+			if((str=read.readLine())!=null)
 			{
+				//id++;
+				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+				br.flush();
+				br.close();
+			}
+			else
+			{
+				br.write("ID , NAME , NUMBER \n");
 				id++;
-				String[] st=str.split(",",3);
-				Contact contact=new Contact();
-				contact.setName(st[1]);
-				contact.setNo(st[2]);
-				contacts.add(contact);
-			}	
+				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+				br.flush();
+				br.close();
+			}
 		}
 		catch(IOException e)
 		{
-			System.out.println("");
+			System.out.println("File exception "+e);
 		}
-		return contacts;
-
 	}
 
 	// public ArrayList<Contact> getFileDetails(Contact contact,ArrayList<Contact> contacts)
