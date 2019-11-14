@@ -7,16 +7,15 @@ import com.lxisoft.model.*;
 
 public class Repository implements Filerepository
 {
-	
-	//FileWriter fw ;
-	//BufferedWriter bw;
+	File file = new File(filename);
+
 	public void fileWrite(Contact contact)
 	{ 		
-		File file = new File(filename);
+	
 		try
 		{
 		
-		FileWriter fw = new FileWriter(file);
+		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
 
 	  	bw.write(contact.getName()+", "+contact.getNumber()+"\n");
@@ -26,6 +25,7 @@ public class Repository implements Filerepository
 		{
 			System.out.println(e);
 		}
+		
 	}
 	public void fileRead()
 	{
@@ -35,7 +35,7 @@ public class Repository implements Filerepository
 		  	BufferedReader br = new BufferedReader(fr);
 		  	String a ;
 	  		while( (a= br.readLine())!=null)
-	  		System.out.println(a);
+	  		System.out.println(a +"\n");
 
 		}
 		catch(IOException e)

@@ -78,11 +78,11 @@ public class View
 	}
 	public  void display()
 	{
-		 for(int i=0;i<(con.getArraySize());i++)
-		{ 	
-		 System.out.println("\t"+con.array.get(i).getName()+"  "+con.array.get(i).getNumber());
+		//  for(int i=0;i<(con.getArraySize());i++)
+		// { 	
+		//  System.out.println("\t"+con.array.get(i).getName()+"  "+con.array.get(i).getNumber());
 		 con.display();
-		}
+		// }
 
 	}
 	public void edit(int i)
@@ -96,15 +96,15 @@ public class View
 	}
 	public void delete(int i)
 	{
-		System.out.println("are you sure ? \n 1= yes \t\t 2 = nop");
+		System.out.println("are you sure ? \n press y   OR \t\t  n");
 		 Scanner read= new Scanner(System.in);
-		 int choice= read.nextInt();
+		 String choice= read.nextLine();
 		 switch(choice)
 		 {
-		 	case 1 : con.deleteContact(i);
+		 	case "y": con.deleteContact(i);
 		 	          System.out.println("contact deleted ");
 		 	          break;
-		 	case 2 : search(); break;
+		 	case "n" : search(); break;
 		 }
 	}
 }
