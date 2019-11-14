@@ -5,6 +5,7 @@ public class Student
 	Scanner scan=new Scanner(System.in);
 	String name;
 	int rollno;
+	
 	Subject[] sub=new Subject[3];
 
 
@@ -37,29 +38,43 @@ public class Student
 	}
 	public void getDetails()
 	{
-
+		
 		 System.out.println("The name is "+name);
 		System.out.println("The rollno is "+rollno);
 		for(int i=0;i<3;i++)
 		{
 		System.out.println(" Subject is :"+sub[i].name);
 		 System.out.println("The mark is "+sub[i].mark);
+		  
 		}
+		System.out.println("Total is "+this.total());
 		System.out.println("Average is "+this.average());
 		System.out.println("Percentage is "+this.percentage());
 
 		
 
 	}
-
-public float average()
+public float total()
 {
-	float avg=0;
+	float total=0;
 	for(int i=0;i<3;i++)
 	{
-	 avg=(float)(sub[i].mark)/3;
-		
+	total=total+sub[i].mark;
+	 }
+	 
+	return total;
 }
+
+ public float average()
+{
+	float avg=0,total=0;
+	for(int i=0;i<3;i++)
+	{
+	total=total+sub[i].mark;
+	 
+
+}
+avg=(float)(total)/3;
 	 return avg;
 
 }
