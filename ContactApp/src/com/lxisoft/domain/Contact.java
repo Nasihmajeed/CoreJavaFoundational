@@ -1,10 +1,18 @@
-package com.lxisoft.contactmodel;
+package com.lxisoft.domain;
 import com.lxisoft.contactcontroller.*;
 public class Contact
 {
+	private String contactId;
 	private String contactName;
 	private String contactNumber;
-	
+	public void setContactId(String contactId)
+	{
+		this.contactId=contactId;
+	}
+	public String getContactId()
+	{
+		return contactId;
+	}
 	public void setContactName(String contactName)
 	{
 		this.contactName=contactName;

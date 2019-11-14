@@ -1,11 +1,11 @@
 package com.lxisoft.test;
-import com.lxisoft.view.*;
+import com.lxisoft.contactcontroller.*;
 public class TDD
 {
 	public static void main(String[] args)
 	{
-		View v=new View();
-		v.viewContact();
+		ContactController control=new ContactController();
+		control.getFileInfo();
 	} 
 	
 }

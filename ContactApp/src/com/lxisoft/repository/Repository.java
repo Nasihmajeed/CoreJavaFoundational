@@ -2,7 +2,7 @@ package com.lxisoft.repository;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.lxisoft.contactmodel.*;
+import com.lxisoft.domain.*;
 public class Repository implements FileDataSource
 {
 	static int in=0;
@@ -86,8 +86,8 @@ public class Repository implements FileDataSource
 			while((contacts=br.readLine())!=null)
 			{
 				String[] cont=contacts.split(",",3);
-				String id=cont[0];
 				Contact c=new Contact();
+				c.setContactId(cont[0]);
 				c.setContactName(cont[1]);	
 				c.setContactNumber(cont[2]);
 				in++;			

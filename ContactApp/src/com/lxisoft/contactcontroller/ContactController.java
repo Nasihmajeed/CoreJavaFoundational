@@ -1,5 +1,5 @@
 package com.lxisoft.contactcontroller;
-import com.lxisoft.contactmodel.*;
+import com.lxisoft.domain.*;
 import com.lxisoft.repository.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -21,10 +21,10 @@ public class ContactController
 	{
 		return contactList.size();
 	}
-	public Contact getFileInfo(int j)
+	public void getFileInfo()
 	{
 	    contactList=repo.readFile();
-		return contactList.get(j);
+		// return contactList.get(j);
 	}
 	public void setFile()
 	{
@@ -80,7 +80,7 @@ public class ContactController
 		System.out.println(" read file=  "+contactList.size());
 		for(int i=0;i<contactList.size();i++)
 		{
-			if(contactList.get(n).getContactName().equals(contactList.get(i).getContactName()))
+			if(contactList.get(n).equals(contactList.get(i)))
 			{
 				Contact c=contactList.get(i);
 				c.setContactNumber(num);

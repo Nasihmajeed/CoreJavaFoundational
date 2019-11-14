@@ -1,5 +1,5 @@
 package com.lxisoft.repository;
-import com.lxisoft.contactmodel.*;
+import com.lxisoft.domain.*;
 import java.util.List;
 public interface FileDataSource
 {

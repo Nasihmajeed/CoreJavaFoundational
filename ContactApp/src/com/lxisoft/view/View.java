@@ -1,33 +1,33 @@
 package com.lxisoft.view;
 import com.lxisoft.contactcontroller.*;
-import com.lxisoft.contactmodel.*;
+import com.lxisoft.domain.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class View
 {
 	static Scanner s=new Scanner(System.in);
-	public void viewContact()
-	{
-		ContactController control=new ContactController();
-		int a=0;
-		System.out.println("\t <-----CONTACT APP MENU----->\n");
+	// public void viewContact()
+	// {
+	// 	ContactController control=new ContactController();
+	// 	int a=0;
+	// 	System.out.println("\t <-----CONTACT APP MENU----->\n");
 		
-		do
-		{
-			System.out.println("<---Enter your choice--->");
-			System.out.println("\n 1-Add\t\t 2-Search\t 3-DeleteAll \t4-Exit");
-			a=s.nextInt();
-			switch(a)
-			{
-				case 1: addContact(control); break;
-				case 2: searchContact(control); break;
-				case 3: deleteAllContact(control); break;
-			}
-		}while(a!=4);
-		getContact(control);
-		displayContacts(control);
-	}
+	// 	do
+	// 	{
+	// 		System.out.println("<---Enter your choice--->");
+	// 		System.out.println("\n 1-Add\t\t 2-Search\t 3-DeleteAll \t4-Exit");
+	// 		a=s.nextInt();
+	// 		switch(a)
+	// 		{
+	// 			case 1: addContact(control); break;
+	// 			case 2: searchContact(control); break;
+	// 			case 3: deleteAllContact(control); break;
+	// 		}
+	// 	}while(a!=4);
+	// 	getContact(control);
+	// 	displayContacts(control);
+	// }
 	public void displayContacts(ContactController control)
 	{
 		System.out.println("\ndisplay all contact-->(1-yes)(2-no)");
