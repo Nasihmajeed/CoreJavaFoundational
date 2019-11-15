@@ -3,7 +3,7 @@ import com.lxisoft.contactcontroller.*;
 public class ContactModel
 {
 	private String id;
-	private String Name;
+	private String name;
 	public void setId(String id)
 	{
 		this.id=id;

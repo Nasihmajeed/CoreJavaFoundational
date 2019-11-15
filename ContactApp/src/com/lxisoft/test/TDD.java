@@ -5,7 +5,7 @@ public class TDD
 	public static void main(String[] args)
 	{
 		ContactController control=new ContactController();
-		control.getFileInfo();
+		control.getAllContacts();
 	} 
 	
 }
