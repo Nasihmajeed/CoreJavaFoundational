@@ -29,12 +29,11 @@ public class Contact
 	{
 		return id;
 	}
-	public boolean equals(Contact c)
+	public boolean equals(Object o)
 	{
-			if(this.name=c.name)
-				return true;
-
-			else return false;
-
+		Contact c=(Contact)o;
+		if(this.name.equals(c.getName()))
+			return true;
+		else return false;
 	}
 }

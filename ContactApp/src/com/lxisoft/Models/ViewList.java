@@ -15,6 +15,7 @@ public class ViewList
 	
 	public void setAllContacts(ArrayList<Contact> contacts)
 	{
+		viewList.clear();
 		for(int i=0;i<contacts.size();i++)
 		{
 			ViewListModel list=new ViewListModel();

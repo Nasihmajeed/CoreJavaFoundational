@@ -22,7 +22,7 @@ public class ContactControl
 		Contact contact=new Contact();
 		contact.setName(name);
 		contact.setNo(number);
-		repo.writeNewContact(contact);
+		repo.writeNewContact(contact,true);
 
 	}
 	public ArrayList<ViewListModel> viewAllContacts()
@@ -55,10 +55,52 @@ public class ContactControl
 		
 		return contact;
 	}
+	public Contact searchContact(int id)
+	{
+		ArrayList<Contact> contacts= new ArrayList<Contact>(); 
+		contacts=repo.getAllContacts();
+		Contact contact=new Contact();
+		for(int i=0;i<contacts.size();i++)
+		{
+			int s=contacts.get(i).getId();
+			if(s==id) 
+			{
+				contact=contacts.get(i);								
+			}
+		}
+		
+		return contact;
+	}
 	public int getIndex(Contact contact)
 	{
 		ArrayList<Contact> contacts=new ArrayList<Contact>();
 		contacts=repo.getAllContacts();
-		return contacts.indexOf(contact);
+		int index =50;
+		for(int i=0; i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+				{
+					System.out.println(index+""+i);
+					index=i;
+				}
+		}
+
+		return index;
+	}
+	public void editContact(String name, String number, int i)
+	{
+		Contact contact=new Contact();
+		contact.setId(i);
+		contact.setName(name);
+		contact.setNo(number);
+		repo.editFile(contact,i);
+	}
+	public void deleteContact(int i)
+	{
+		repo.deleteContact(i);
+	}
+	public void clearAllContacts()
+	{
+		repo.clearFile();
 	}
 }

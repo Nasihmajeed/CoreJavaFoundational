@@ -11,17 +11,23 @@ public class Repository implements FileRepository
 {
 	File file=new File(fileName);
 	ArrayList<Contact> contacts =new ArrayList<Contact>();
-	static int i;
+	static int id;
 	
-	public void writeNewContact(Contact contact)
+	public void writeNewContact(Contact contact,boolean write)
 	{
 		try
 		{
-			i=getId();
 			FileWriter bf=new FileWriter(file,true);
-			bf.write(i+","+contact.getName()+","+contact.getNo()+"\n");
+			if(write)
+			{
+				id=getId();
+				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+			}
+			else
+			{
+				bf.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+			}
 			bf.flush();
-			i++;
 		}
 		catch(Exception e)
 		{
@@ -78,19 +84,52 @@ public class Repository implements FileRepository
 	{
 		try
 		{
-			i=0;
 			BufferedReader bf=new BufferedReader(new FileReader(file));
 			String str=null;
 			while((str=bf.readLine())!=null)
 			{
-				i++	;				
+				String[] strln=str.split(",",2);
+				id=Integer.parseInt(strln[0]);				
 				
 			}
 		}
 		catch(Exception e)
 		{
-			System.out.println("error3");
+			System.out.println("error");
 		}
-		return i;
+		return ++id;
 	}
+	public void editFile(Contact contact, int i)
+	{
+		contacts=getAllContacts();
+		contacts.set(i,contact);
+		clearFile();
+		resetFile();
+		
+	}
+	public void resetFile()
+	{ for(int i=0;i<contacts.size();i++)
+		{
+			writeNewContact(contacts.get(i),false);
+		}
+	}
+	public void deleteContact(int i)
+	{
+		contacts=getAllContacts();
+		contacts.remove(i);
+		clearFile();
+		resetFile();
+	}
+	public void clearFile()
+	{
+		try
+		{
+			id=0;
+			FileWriter fi=new FileWriter(file);
+		}catch(Exception e)
+		{
+			System.out.println("error");
+		}
+	}
+
 }
