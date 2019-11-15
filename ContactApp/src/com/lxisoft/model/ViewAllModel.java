@@ -5,17 +5,31 @@ import java.util.ArrayList;
 
 public class ViewAllModel
 {
-	ViewAllModelMinimal viewAllModelMinimal=new ViewAllModelMinimal();
+	
+	ArrayList<Contact> contactList=new ArrayList<Contact>();
 
-	public void setAll(ViewAllModelMinimal viewAllModelMinimal)
+	public void setList(ArrayList<Contact> contactList)
 	{
-		this.viewAllModelMinimal=viewAllModelMinimal;
+		this.contactList=contactList;
 	}
 
-	public ViewAllModelMinimal getName()
+	public ArrayList<Contact> getList()
 	{
-		return viewAllModelMinimal;
+		return contactList;
 	}
-
-
 }
+
+
+
+
+// ViewAllModelMinimal viewAllModelMinimal=new ViewAllModelMinimal();
+
+	// public void setAll(ViewAllModelMinimal viewAllModelMinimal)
+	// {
+	// 	this.viewAllModelMinimal=viewAllModelMinimal;
+	// }
+
+	// public ViewAllModelMinimal getName()
+	// {
+	// 	return viewAllModelMinimal;
+	// }

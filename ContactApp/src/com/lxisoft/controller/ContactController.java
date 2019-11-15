@@ -10,7 +10,7 @@ public class ContactController
 {
 	View view=new View();
 	FileRepository repository=new FileRepository();
-	ArrayList<Contact> contactList=new ArrayList<Contact>();
+	//ArrayList<Contact> contactList=new ArrayList<Contact>();
 
 	// public void saveContact()
 	// {
@@ -24,12 +24,22 @@ public class ContactController
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
-		contactList=repository.findAll();
-		System.out.println(" THE CONTACT LIST IS ");
-		for(Contact contact: contactList)
+		viewAllModel.setList(repository.findAll());
+		view.findAllContacts(viewAllModel);
+	}
+
+	public void contactByName(String name)
+	{
+		ViewSingle viewSingle=new ViewSingle();
+		viewSingle.setList(repository.findAll());
+		int i=0;
+		for(Contact contact: viewSingle.getList())
 		{
-			String name=contact.getName();
-			view.findAllContacts(name);
+			i++;
+			if(contact.getName().equals(name))
+			{
+				view.printByName(contact,i);
+			}
 		}
 	}
 

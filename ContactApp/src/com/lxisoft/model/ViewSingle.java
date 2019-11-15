@@ -5,5 +5,15 @@ import java.util.ArrayList;
 
 public class ViewSingle
 {
-	Reference reference=new Reference();
+	ArrayList<Contact> contactList=new ArrayList<Contact>();
+
+	public void setList(ArrayList<Contact> contactList)
+	{
+		this.contactList=contactList;
+	}
+
+	public ArrayList<Contact> getList()
+	{
+		return contactList;
+	}
 }
