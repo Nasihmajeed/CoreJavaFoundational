@@ -49,19 +49,18 @@ public class Repository implements Filerepository
 	  		while( (a= br.readLine())!=null)
 	  			{
 	  				String[] str = a.split(",",2);
-	  			// Contact c = new Contact();
-	  			// c.setName() = str[0];
-	  			// c.setNumber() = str[1];
-	  			// contact.
+	  				Contact c = new Contact();
+	  				c.setName() = str[0];
+	  				c.setNumber() = str[1];
+	  				contact.array.add(c);
 	  		for(String b: str)
 	  		{
 	  			System.out.println(b);
 	  		}
 	  	}
 	}
-	public void fileDelete()
+	public int getArraySize()
 	{
-			
-	  		
+		return array.size();
 	}
 }

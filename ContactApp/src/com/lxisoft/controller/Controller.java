@@ -18,7 +18,7 @@ public class Controller
 	}
 	public int getArraySize()
 	{
-		return array.size();
+		rep.getArraySize();
 	}
 	public String getName()
 	{

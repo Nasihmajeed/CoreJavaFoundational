@@ -52,9 +52,9 @@ public class View
 		//con.arraySearch(name);
 		for(int i=0;i<con.getArraySize();i++)
 		{
-			if(name.equals(con.array.get(i).getName()))
+			if(name.equals(rep.array.get(i).getName()))
 			 {
-			 	System.out.println(" NUMBER : "+con.array.get(i).getNumber());
+			 	System.out.println(" NUMBER : "+rep.array.get(i).getNumber());
 			 	f=1;
 			 	do{
 					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
