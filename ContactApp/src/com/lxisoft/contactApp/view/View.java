@@ -101,6 +101,33 @@ public class View
 	{
 		System.out.println("Enter id to update");
 		int upId=scan.nextInt();
+		updateChoice();
+		
+	}
+
+	public void updateByName()
+	{
+		//search();
+		Contact searchedContact=null;
+		System.out.println("Enter name to search");
+		String sName=console.readLine();
+		searchedContact=controller.searchContact(sName);
+		if(searchedContact!=null)
+		{
+			System.out.println("searched contact found\n"+searchedContact.getId()+"\t"+searchedContact.getName()+"\t"+searchedContact.getNumber());
+		}
+		if(searchedContact==null)
+		{
+			System.out.println("Searched contact not found");
+
+		}
+		updateChoice();
+
+		
+	}
+
+	public void updateChoice()
+	{
 		System.out.println("edit 1.name or 2.number");
 		int upChoice=scan.nextInt();
 		if(upChoice==1)
@@ -118,10 +145,6 @@ public class View
 		show();		
 	}
 
-	public void updateChoice()
-	{
-		
-	}
 	public void delete()
 	{
 		System.out.println("Enter id to delete:");
