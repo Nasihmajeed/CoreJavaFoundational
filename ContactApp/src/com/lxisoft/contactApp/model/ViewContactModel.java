@@ -1,16 +1,17 @@
 package com.lxisoft.contactApp.model;
 import java.util.ArrayList;
+import com.lxisoft.contactApp.domain.Contact;
 public class ViewContactModel 
 {
-	private ArrayList<Contcat> contactList=new ArrayList<Contact>();
+	private ArrayList<Contact> contactList=new ArrayList<Contact>();
 
 	public void setContactList(ArrayList<Contact> contacts)
 	{
-		this.contacts=contacts;
+		this.contactList=contactList;
 	}
 	public ArrayList<Contact> getContactList()
 	{
-		return contacts;
+		return contactList;
 	}
 	
 

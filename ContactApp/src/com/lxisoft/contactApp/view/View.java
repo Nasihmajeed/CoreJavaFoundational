@@ -3,7 +3,7 @@ import com.lxisoft.contactApp.model.ViewContactModel;
 import com.lxisoft.contactApp.controller.Controller;
 import java.util.Scanner;
 import java.io.Console;
-import com.lxisoft.contactApp.model.Contact;
+import com.lxisoft.contactApp.domain.Contact;
 public class View 
 {
  	Scanner scan=new Scanner(System.in);
@@ -81,6 +81,24 @@ public class View
 
 	public void update()
 	{
+		System.out.println("update by 1.contact id 2.contact name");
+		int update=scan.nextInt();
+		switch(update)
+		{
+			case 1:
+			updateById();
+			break;
+			
+			case 2:
+			updateByName();
+			break;
+
+		}
+		
+	}
+
+	public void updateById()
+	{
 		System.out.println("Enter id to update");
 		int upId=scan.nextInt();
 		System.out.println("edit 1.name or 2.number");
@@ -97,9 +115,13 @@ public class View
 			long upNumber=scan.nextLong();
 			controller.updateContact(upId,upNumber);
 		}
-		show();
+		show();		
 	}
 
+	public void updateChoice()
+	{
+		
+	}
 	public void delete()
 	{
 		System.out.println("Enter id to delete:");
@@ -111,6 +133,8 @@ public class View
 
 	public void search()
 	{
+
+
 		Contact searchedContact=null;
 		System.out.println("Enter name to search");
 		String sName=console.readLine();

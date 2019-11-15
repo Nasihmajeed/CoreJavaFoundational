@@ -1,6 +1,6 @@
 package com.lxisoft.contactApp.controller;
 import java.util.ArrayList;
-import com.lxisoft.contactApp.model.Contact;
+import com.lxisoft.contactApp.domain.Contact;
 import com.lxisoft.contactApp.repository.Repository;
 public class Controller 
 {

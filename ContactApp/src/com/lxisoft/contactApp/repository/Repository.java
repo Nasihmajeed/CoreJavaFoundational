@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import com.lxisoft.contactApp.controller.Controller;
-import com.lxisoft.contactApp.model.Contact;
+import com.lxisoft.contactApp.domain.Contact;
 public class Repository
 {
 	public static File phoneBook;
