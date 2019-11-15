@@ -5,14 +5,15 @@ import com.lxisoft.view.*;
 import java.util.*;
 public class ContactView
 {
-	public  void disply()
+	public  int disply()
 	{
-		int c=0;
+		// int c=0;
 		Scanner sc=new Scanner(System.in);
 		ContactControl control=new ContactControl();
 		System.out.println("        CONTACT APP\n        ***************");
-	    // control.getContactDetails();
-		viewContact(control);
+		// viewName(control);
+		System.out.println("Enter your choice\n 1-getContacts");
+		int choice=sc.nextInt();
 		// do
 		// {
 		// 	c=0;
@@ -20,7 +21,7 @@ public class ContactView
 		// 	int x=sc.nextInt();
 		// 	switch(x)
 		// 	{
-		// 		case 0:addContact(control);break;
+		// 		case 0:addContact(control);break;a
 		// 		case 1:selectContact(control);break;
 		// 		case 2:searchContact(control);break;
 		// 		default:System.out.println("Invalid Selection");
@@ -28,24 +29,26 @@ public class ContactView
 		// 	System.out.println("Continue...?\n0-No   1-Yes");
 		// 	c=sc.nextInt();
 	 //    }while(c==1);
-	     // viewContact(control);
+	      // getContact(control);
+	      return choice;
 	}
-    public void viewContact(ContactControl control)
+    public void getContact(ArrayList<ContactModel>contacts)
     {
-		System.out.println("Contact List\n----------------");
-		for(int i=0;i<control.getArraySize();i++)
-		{
-			System.out.println(i+" Name= "+control.viewDetails(i).getName());
-			System.out.println("Number= "+control.viewDetails(i).getContactNo()+"\n");
-		}
+	 	System.out.println("Contact List\n----------------");
+	// 	for(int i=0;i<contacts;i++)
+	// 	{
+	// 		System.out.println(" Name= "+control.viewDetails(i).getName());
+	// 		System.out.println("Number= "+control.viewDetails(i).getContactNo()+"\n");
+		// }
 	}
-// 	public static void viewName(ContactControl control)
-//     {
-// 		for(int i=0;i<control.getContactList();i++)
-// 		{
-// 			System.out.println(i+" Name= "+control.viewDetails(i).getName());
-// 		}
-// 	}
+	// public static void viewName(ContactControl control)
+ //    {
+	// 	for(int i=0;i<control.getArraySize();i++)
+	// 	{
+	// 		System.out.println("id="+control.viewDetails(i).getId());
+	// 		System.out.println(" Name= "+control.viewDetails(i).getName());
+	// 	}
+	// }
 // 	public void addContact(ContactControl control)
 // 	{
 // 		Scanner sc=new Scanner(System.in);

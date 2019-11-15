@@ -7,12 +7,21 @@ import com.lxisoft.repository.*;
 public class ContactControl
 {
     Repository repository=new Repository();
-    ContactView view=new ContactView();
     ContactModel model=new ContactModel();
+    
 	public void getContactDetails()
 	{
-        view.disply();
-        repository.arrayWrite();
+        
+        ContactView view=new ContactView();
+        ArrayList<ContactModel>contacts=new ArrayList<ContactModel>();
+        int choice=view.disply();
+        List<Contact>contactList=repository.readFile();
+        for(int i=0;i<contactList.size();i++)
+        {
+            model.setId(contactList.get(i).getId());
+            model.setName(contactList.get(i).getName());
+            contacts.add(model);
+       }
     }
     public Contact viewDetails(int i)
     {

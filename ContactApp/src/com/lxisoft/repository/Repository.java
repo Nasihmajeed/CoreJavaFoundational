@@ -28,7 +28,7 @@ public class Repository implements FileRepository
 	}
 
 
-	public void createFile(Contact c)
+	public List<Contact> createFile(Contact c)
 	{
 		try
 		{
@@ -40,9 +40,10 @@ public class Repository implements FileRepository
 		catch(IOException e)
 		{
 			System.out.println("an error occured");
-		}	
+		}
+		return contactList;	
 	}
-	public void readFile()
+	public List<Contact> readFile()
 	{
 		try
 		{
@@ -55,7 +56,8 @@ public class Repository implements FileRepository
 		catch(IOException e)
 		{
 			System.out.println("an error ");
-		}	
+		}
+		return contactList; 	
 	}
 	public List<Contact> arrayWrite()
 	{

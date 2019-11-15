@@ -2,14 +2,14 @@ package com.lxisoft.models;
 import com.lxisoft.controllers.*;
 public class ContactModel
 {
-	private int id;
+	private String id;
 	private String name;
 
-	public void setId(int id)
+	public void setId(String id)
 	{
 		this.id=id;
 	}
-	public int getId()
+	public String getId()
 	{
 		return id;
 	}

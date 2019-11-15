@@ -5,15 +5,15 @@ import com.lxisoft.view.*;
 import java.util.*;
 public class Contact
 {
-	private int id;
+	private String id;
 	private String name;
 	private String contactNo;
 
-	public void setId(int id)
+	public void setId(String id)
 	{
 		this.id=id;
 	}
-	public int getId()
+	public String getId()
 	{
 		return id;
 	}
