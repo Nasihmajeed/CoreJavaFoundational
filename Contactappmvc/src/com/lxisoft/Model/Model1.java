@@ -1,7 +1,8 @@
 package com.lxisoft.Model;
 
 public class View
-{
+{   
+	private String id;
 	private String name;
 
 	public void setName(String n)
@@ -10,6 +11,14 @@ public class View
 	}
 	public String getName()
 	{
-      return this.name
+      return this.name;
+	}
+	public void setId(String id)
+	{
+		this.id=id;
+	}
+	public String id()
+	{
+		return this.id;
 	}
 }

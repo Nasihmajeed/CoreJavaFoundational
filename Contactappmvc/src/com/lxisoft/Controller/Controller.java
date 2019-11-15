@@ -12,6 +12,7 @@ public ArrayList <Contact> start()
 {
 	contactslist = r.getAllContacts();
 	view.display();
+	
 
 	//return contactslist;
 }
