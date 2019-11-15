@@ -69,6 +69,32 @@ public class ContactView
 		String id=sc.next();
 		control=new ContactController();
 		control.getContactById(id);
+		System.out.println("\n1:Edit \n2:Delete");
+		int select=sc.nextInt();
+		switch(select)
+		{
+			case 1: editContact(id);break;
+			case 2: deleteContact(id);break;
+		}
+	}
+	public void editContact(String id)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1:Edit Name \n2:Edit ContactNo");
+		int select=sc.nextInt();
+		String name;String num;
+		switch(select)
+		{
+			case 1:	System.out.println("Enter the new name");name=sc.next();
+					num=control.getNo(id);control.updateContact(id,name,num);System.out.println("updated!");break;
+			case 2: System.out.println("Enter the new number");num=sc.next();
+					name=control.getName(id);control.updateContact(id,name,num);System.out.println("updated!");break;
+		}		
+	}
+	public void deleteContact(String id)
+	{
+		control.deleteContact(id);
+		System.out.println("contact Deleted!");
 	}
 	public void getContactById(Contact contact)
 	{

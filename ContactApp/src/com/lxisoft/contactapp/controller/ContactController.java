@@ -31,8 +31,31 @@ public class ContactController
 			}
 		}
 	}
+	public void updateContact(String id,String name,String number)
+	{
+		filerepo.updateContact(id,name,number);
+	}
 	public void addContactDetails(String id,String name,String number)
 	{
 		filerepo.addContactDetails(id,name,number);
 	}
+	public void deleteContact(String id)
+	{
+		filerepo.deleteContact(id);
+	}
+	public String getName(String id)
+	{
+		String name=filerepo.getName(id);
+		return name;
+	}
+	public String getNo(String id)
+	{
+		String num=filerepo.getNo(id);
+		return num;
+	}
+	// public String getId(String id)
+	// {
+	// 	id=filerepo.getId(id);
+	// 	return id;
+	// }
 }
