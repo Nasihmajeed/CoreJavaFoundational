@@ -6,7 +6,8 @@ public class Station
 	 {
 	 	for(int i=0;i<5;i++)
 	 	{	
-	 		train[i]= new Train();	
+	 		train[i]= new Train();
+	 		train[i].passengerList();	
 	 	}
 	 }	
 }	

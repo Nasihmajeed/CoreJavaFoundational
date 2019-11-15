@@ -1,7 +1,7 @@
 public class Train
 {
 	String name;
-	int trainNumber;
+	int trainNumber,numberOfPassenger;
 	Passenger[] passenger = new Passenger[5];
 	void passengerList()
 	{

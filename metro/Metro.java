@@ -3,28 +3,38 @@ public class Metro
 {
 	Scanner scanner = new Scanner(System.in);
 	Station[] station = new Station[5];
-	int slNo,a,numberOfPassengers;
+	int slNo,a,numberOfPassenger;
 	void ticketBooking()
 	{
-      dipartureStation();
+      setDipartureStation();
       System.out.println("Select a Station");
-      setStation();
+      setDetails();
       getStation();
       slNo = scanner.nextInt();
       arrivalStation(slNo);
       System.out.println("Select a Train");
       getTrain();
       System.out.println("How many passenger ?");
-      numberOfPassengers = scanner.nextInt();
+      numberOfPassenger= scanner.nextInt();
+      numberOfPassengers(numberOfPassenger);
+      setPassengers();
+      getDipartureStation();
+      getPassengers();
 	}
 
-	void dipartureStation()
+	String setDipartureStation()
 	{
+		String name;
 		Station departureStation = new Station();
-		departureStation.name = "PALAKKAD";
-	    System.out.println("Departure Station : "+departureStation.name);
+		name = departureStation.name = "PALAKKAD";
+		return name;
 	}
-	void setStation()
+	void getDipartureStation()
+	{
+		setDipartureStation();
+		System.out.println("Departure Station : "+setDipartureStation());
+	}
+	void setDetails()
 	{
 
 		for(int i=0;i<5;i++)
@@ -32,6 +42,7 @@ public class Metro
 		 station[i]= new Station();	
 		}
 		station[0].setTrainLists();
+
 		station[0].name = "1.Trissur";
 		station[0].train[0].name = "TrissurTrain1";
 		station[0].train[1].name = "TrissurTrain2";
@@ -110,6 +121,32 @@ public class Metro
 		for(int i=0;i<5;i++)
 		{
 			System.out.println(station[a].train[i].name);
+		}
+	}
+	void numberOfPassengers(int passengers)
+	{
+		for(int i=0;i<passengers;i++)
+		{
+			station[i].train[i].numberOfPassenger = numberOfPassenger;
+		}
+	}
+	void setPassengers()
+	{
+		System.out.println("Enter 5 Passenger Details");
+		for(int i=0;i<numberOfPassenger;i++)
+		{
+			System.out.print("Passenger Name : ");
+			station[i].train[i].passenger[i].name = scanner.next();
+			System.out.print("Passenger Age : ");
+			station[i].train[i].passenger[i].age = scanner.nextInt();
+		}
+	}
+	void getPassengers()
+	{
+		for(int i=0;i<numberOfPassenger;i++)
+		{
+			System.out.println("Passenger Name : "+station[i].train[i].passenger[i].name);
+			System.out.println("Passenger Age  : "+station[i].train[i].passenger[i].age);
 		}
 	}
 }
