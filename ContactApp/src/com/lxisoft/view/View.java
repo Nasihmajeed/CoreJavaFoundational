@@ -49,6 +49,7 @@ public class View
 		System.out.println("ENTER NAME");
 		Scanner set = new Scanner(System.in);
 		String name= set.nextLine();
+		//con.arraySearch(name);
 		for(int i=0;i<con.getArraySize();i++)
 		{
 			if(name.equals(con.array.get(i).getName()))

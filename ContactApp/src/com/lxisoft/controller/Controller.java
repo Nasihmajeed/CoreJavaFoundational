@@ -9,7 +9,6 @@ public class Controller
 {
 	Contact contact ;
 	Repository rep = new Repository();
-	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void addContact(String name,String number)
 	{ 
 		contact = new Contact();
@@ -48,6 +47,17 @@ public class Controller
 	public void display()
 	{
 		rep.fileRead();
+	}
+	public void arraylistSearch(String name)
+	{
+		// for(int i=0;i<array.size();i++)
+		// {
+		// 	if(name.equals(array.get(i).getName()))
+		// 	 {
+		// 	 	view.search()
+
+		// 	 }
+	 //    }	
 	}
  
 }

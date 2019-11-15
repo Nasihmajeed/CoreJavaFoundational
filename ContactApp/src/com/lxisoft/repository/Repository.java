@@ -8,10 +8,9 @@ import com.lxisoft.model.*;
 public class Repository implements Filerepository
 {
 	File file = new File(filename);
-
+	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void fileWrite(Contact contact)
 	{ 		
-	
 		try
 		{
 		
@@ -25,7 +24,6 @@ public class Repository implements Filerepository
 		{
 			System.out.println(e);
 		}
-
 	}
 	public void fileRead()
 	{
@@ -43,12 +41,27 @@ public class Repository implements Filerepository
 			System.out.println(e);
 		}
 	}
-	public void fileDelete()
+	public void search()
 	{
-			FileReader fr = new FileReader(file);
+		    FileReader fr = new FileReader(file);
 		  	BufferedReader br = new BufferedReader(fr);
 		  	String a ;
 	  		while( (a= br.readLine())!=null)
-	  		System.out.println(a +"\n");
+	  			{
+	  				String[] str = a.split(",",2);
+	  			// Contact c = new Contact();
+	  			// c.setName() = str[0];
+	  			// c.setNumber() = str[1];
+	  			// contact.
+	  		for(String b: str)
+	  		{
+	  			System.out.println(b);
+	  		}
+	  	}
+	}
+	public void fileDelete()
+	{
+			
+	  		
 	}
 }
