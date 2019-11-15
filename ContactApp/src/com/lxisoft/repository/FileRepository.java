@@ -11,33 +11,21 @@ public class FileRepository implements FileStorage
 	File file=new File(directory);
 	View view=new View();
 
-	// public void save(Contact contact)
-	// {
-	// 	try
-	// 	{
-	// 		if(file.exists())
-	// 		{
-	// 			FileWriter fw1=new FileWriter(file,true);
-	// 			BufferedWriter bw1=new BufferedWriter(fw1);
-	// 			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw1.flush();
-	// 			bw1.close();
-	// 		}
-	// 		else
-	// 		{
-	// 			FileWriter fw=new FileWriter(file);
-	// 			BufferedWriter bw=new BufferedWriter(fw);
-	// 			System.out.println("NEW FILE CREATED");
-	// 			bw.write(contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw.flush();
-	// 			bw.close();
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("Exception: "+e);
-	// 	}
-	// }
+	public void save(Contact contact)
+	{
+		try
+		{
+			FileWriter fw1=new FileWriter(file,true);
+			BufferedWriter bw1=new BufferedWriter(fw1);
+			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
+			bw1.flush();
+			bw1.close();
+		}
+		catch(IOException e)
+		{
+			System.out.println("Exception: "+e);
+		}
+	}
 
 
 	public ArrayList<Contact> findAll()
@@ -119,3 +107,57 @@ public class FileRepository implements FileStorage
 	// 	}
 	// }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// public void save(Contact contact)
+	// {
+	// 	try
+	// 	{
+	// 		if(file.exists())
+	// 		{
+	// 			FileWriter fw1=new FileWriter(file,true);
+	// 			BufferedWriter bw1=new BufferedWriter(fw1);
+	// 			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
+	// 			bw1.flush();
+	// 			bw1.close();
+	// 		}
+	// 		else
+	// 		{
+	// 			FileWriter fw=new FileWriter(file);
+	// 			BufferedWriter bw=new BufferedWriter(fw);
+	// 			System.out.println("NEW FILE CREATED");
+	// 			bw.write(contact.getName()+","+contact.getNumber()+"\n");
+	// 			bw.flush();
+	// 			bw.close();
+	// 		}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("Exception: "+e);
+	// 	}
+	// }

@@ -10,10 +10,10 @@ import com.lxisoft.repository.*;
 public class View
 {
 	static Scanner sc=new Scanner(System.in);
-	ContactController controller;
-
+	
 	public void findAllContacts(ViewAllModel viewAllModel)
 	{
+		controller=new ContactController();
 		int i=0;
 		System.out.print("\n THE CONTACT LIST IS \nID\t\t  NAME\n");
 		for(Contact contact: viewAllModel.getList())
@@ -25,7 +25,6 @@ public class View
 
 	public void byName()
 	{
-		controller=new ContactController();
 		System.out.println("enter the name  to check ");
 		String name=sc.next();
 		controller.contactByName(name);
@@ -33,9 +32,42 @@ public class View
 	
 	public void printByName(Contact contact,int i)
 	{
-		System.out.print("Id:-"+(++i)+"\t\tName- " +contact.getName());
+		System.out.print("Id:-"+(i)+"\t\tName- " +contact.getName());
 		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
+		contactOptions();
 	}
+
+	public void contactOptions()
+	{
+		//controller=new ContactController();
+		while(true)
+		{
+			System.out.println("\n press for features-->  1-save  2-search  3-delete  4-editContact  5-homepage  6-exit");
+			int option=sc.nextInt();
+			//processing();
+			if(option==6)
+				break;
+			else
+			{
+				System.out.println("kbdjsbs "+ option );
+				controller.features(option);
+				System.out.println("\n");
+			}
+		}
+		System.out.println("\t\t\t\t THANK YOU");	
+	}
+
+	public String[] scan()
+	{
+		System.out.print("enter the name and number of new contact");
+		String[] temp=new String[3];
+		temp[0]=sc.next();
+		temp[1]=sc.next();
+		System.out.print(" press y for save n for cancel");
+		temp[2]=sc.next();
+		return temp;
+	}
+
 	// public void byId()
 	// {
 	// 	System.out.println("enter the id to check ");
@@ -44,27 +76,6 @@ public class View
 	// }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -92,39 +103,14 @@ public class View
 // 		}
 // 	}
 
-// 	public String[] scan()
-// 	{
-// 		System.out.print("enter the name and number of new contact");
-// 		String[] temp=new String[2];
-// 		temp[0]=sc.next();
-// 		temp[1]=sc.next();
-// 		return temp;
-// 	}
+
 
 // 	public void displayContact(Contact contact)
 // 	{
 // 		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber());
 // 	}
 
-// 	public void contactOptions()
-// 	{
-// 		ContactController controller=new ContactController();
-// 		while(true)
-// 		{
-// 			System.out.println("\n press for features-->  1-save  2-search  3-deletion  4-editContact  5-displayall  6-exit");
-// 			int option=sc.nextInt();
-// 			processing();
-// 			if(option==6)
-// 				break;
-// 			else
-// 			{
-// 				controller.features(option);
-// 				System.out.println("\n");
-// 			}
-// 		}
-// 		System.out.println("\t\t\t\t THANK YOU");	
-// 	}
-
+	
 // 	public void processing()
 // 	{
 // 		System.out.print("\t\t\t Processing");
