@@ -8,11 +8,11 @@ public class Repository implements Filestorage{
 File file=new File(directory);
 //Controller controlller=new Controller();
 ArrayList<Contact> contacts=new ArrayList<Contact>();
-public void setFile(Contact contact){
+public void setFile(ContactModel contact){
   	try{
 	FileWriter write=new FileWriter(file,true);
 	BufferedWriter fwrite=new BufferedWriter(write);
-	fwrite.write(contact.getName()+","+contact.getNumber()+"\n");  
+	fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
 	fwrite.flush();
 	fwrite.close();
       
@@ -31,8 +31,9 @@ public ArrayList<Contact>  getList(){
 		while((data=bread.readLine())!=null){	
 			String[] dataArray=data.split(",");
 				Contact contact=new Contact();	
-				contact.setName(dataArray[0]);
-			 	contact.setNumber(dataArray[1]);
+				contact.setId(dataArray[0]);
+				contact.setName(dataArray[1]);
+			 	contact.setNumber(dataArray[2]);
 				contacts.add(contact);
 		}
 	}

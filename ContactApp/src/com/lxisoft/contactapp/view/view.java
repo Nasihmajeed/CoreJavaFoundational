@@ -19,6 +19,7 @@ int n=s.nextInt();
 		cc.setName(ss.next());
 		System.out.println("Enter the number : ");
 		cc.setNumber(s.next());
+		cc.setId(i);
 		return cc;
 		//control.save(cc);
 		//System.out.println("(contact saved sucssesfully )");
@@ -34,20 +35,23 @@ public void display(ArrayList<Contact> contacts){
 		//System.out.println(contacts.get(i).getNumber());
 	}
 }
-/*
-public void searchContact(){
+
+public Contact searchContact(){
 System.out.println("\n\nEnter name to search : ");
 String n=ss.next();
-Contact c=control.search(n);
+Contact c=repo.searchList(n);
 if(c==null){
 	System.out.println("cannot find");
+	return null;
      }
 else{
 	System.out.println("\n------ User-----\n ");
 	  System.out.println(c.getName()+"-------"+c.getNumber());
 	  //System.out.println(c.getNumber());
+	  return c;
     }
   }
+ /*
 
 
 public void updateContact(){

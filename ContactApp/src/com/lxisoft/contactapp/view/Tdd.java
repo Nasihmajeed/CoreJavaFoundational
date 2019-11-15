@@ -23,12 +23,12 @@ public static void main(String[] args) {
 	 			break;
 	 	case 2:control.read();
 	 			break;
-/*	 	case 3:v.searchContact();
+	 	case 3:control.search ();
 	 			break;
-	 	case 4:v.updateContact();
+/*	 	case 4:v.updateContact();
 	 			break;
 	 	case 5:v.deleteContact();
-	 			break;*/
+	 			break; */
 	 }
 	}while(true); 
   }
