@@ -8,17 +8,34 @@ import com.lxisoft.domain.*;
 
 public class ContactController
 {
-	View view;
+	View view=new View();
 	FileRepository repository=new FileRepository();
 	//ArrayList<Contact> contactList=new ArrayList<Contact>();
 
-	public void features(int option)
+	public void features()
+	{
+		while(true)
+		{
+			int option=view.optionsScaning();
+			if(option==6)
+				break;
+			else
+			{
+				System.out.println("kbdjsbs "+ option );
+				contactOptions(option);
+				System.out.println("\n");
+			}
+		}
+		System.out.println("\t\t\t\t THANK YOU");
+	}
+
+	public void contactOptions(int option)
 	{
 		System.out.println("kbdjsbs "+ option );
 		switch(option)
 		{
 			case 1:saveContact();break;
-			//case 2:contactByName();break;
+			case 2:contactByName();break;
 			//case 3:deleteContact();break;
 			//case 4:editContact();break;
 			case 5:allContacts();break;
@@ -27,7 +44,6 @@ public class ContactController
 
 	public void saveContact()
 	{
-		
 		String[] temp=view.scan();
 		Contact contact=new Contact();
 		if(temp[2].equals("y"))
@@ -40,14 +56,14 @@ public class ContactController
 
 	public void allContacts()
 	{
-		view=new View();
 		ViewAllModel viewAllModel=new ViewAllModel();
 		viewAllModel.setList(repository.findAll());
 		view.findAllContacts(viewAllModel);
 	}
 
-	public void contactByName(String name)
+	public void contactByName()
 	{
+		String name=view.byName();
 		ViewSingle viewSingle=new ViewSingle();
 		viewSingle.setList(repository.findAll());
 		int i=0;

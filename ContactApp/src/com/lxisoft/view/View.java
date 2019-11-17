@@ -13,48 +13,32 @@ public class View
 	
 	public void findAllContacts(ViewAllModel viewAllModel)
 	{
-		controller=new ContactController();
 		int i=0;
 		System.out.print("\n THE CONTACT LIST IS \nID\t\t  NAME\n");
 		for(Contact contact: viewAllModel.getList())
 		{
 			System.out.println("S.No:-"+(++i)+"\t\tName- " +contact.getName());
 		}
-		byName();
 	}
 
-	public void byName()
+	public String byName()
 	{
 		System.out.println("enter the name  to check ");
 		String name=sc.next();
-		controller.contactByName(name);
+		return name;
 	}
 	
 	public void printByName(Contact contact,int i)
 	{
 		System.out.print("Id:-"+(i)+"\t\tName- " +contact.getName());
 		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-		contactOptions();
 	}
 
-	public void contactOptions()
+	public int optionsScaning()
 	{
-		//controller=new ContactController();
-		while(true)
-		{
-			System.out.println("\n press for features-->  1-save  2-search  3-delete  4-editContact  5-homepage  6-exit");
-			int option=sc.nextInt();
-			//processing();
-			if(option==6)
-				break;
-			else
-			{
-				System.out.println("kbdjsbs "+ option );
-				controller.features(option);
-				System.out.println("\n");
-			}
-		}
-		System.out.println("\t\t\t\t THANK YOU");	
+		System.out.println("\n press for features-->  1-save  2-search  3-delete  4-editContact  5-homepage  6-exit");
+		int option=sc.nextInt();
+		return option;	
 	}
 
 	public String[] scan()

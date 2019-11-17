@@ -12,5 +12,6 @@ public class Tdd
 	{
 		ContactController controller=new ContactController();
 		controller.allContacts();
+		controller.features();
 	}
 }
