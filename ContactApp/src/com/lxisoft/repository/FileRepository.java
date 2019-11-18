@@ -13,7 +13,8 @@ public class FileRepository implements FileStorage
 
 	public void save(Contact contact)
 	{
-		try
+		int id=index();
+		if(file.exists())
 		{
 			FileWriter fw1=new FileWriter(file,true);
 			BufferedWriter bw1=new BufferedWriter(fw1);
@@ -21,12 +22,33 @@ public class FileRepository implements FileStorage
 			bw1.flush();
 			bw1.close();
 		}
+		else
+		{
+			FileWriter fw=new FileWriter(file);
+			BufferedWriter bw=new BufferedWriter(fw);
+			System.out.println("NEW FILE CREATED");
+			bw.write(contact.getName()+","+contact.getNumber()+"\n");
+			bw.flush();
+			bw.close();
+		}
 		catch(IOException e)
 		{
 			System.out.println("Exception: "+e);
 		}
 	}
 
+	public int index()
+	{
+		ArrayList<Contact> contactList=new ArrayList<Contact>();
+		if(file.exists()==false)
+		{
+			return 0;
+		}
+		else
+		{
+			return contactList.size();
+		}
+	}
 
 	public ArrayList<Contact> findAll()
 	{
@@ -70,42 +92,38 @@ public class FileRepository implements FileStorage
 	// 		view.noContact();
 	// }
 
-	// public ArrayList<Contact> delete(String name)
-	// {
-	// 	int no=0;
-	// 	ArrayList<Contact> contactList=findAll();
-	// 	for(int i=0;i<contactList.size();i++)
-	// 	{
-	// 		if(contactList.get(i).getName().equals(name))
-	// 		{
-	// 			no=1;
-	// 			contactList.remove(i);
-	// 		}
-	// 	}
-	// 	if(no==0)
-	// 		view.noContact();
-	// 	return contactList;
-	// } 
+	public ArrayList<Contact> delete(Contact contact)
+	{
+		ArrayList<Contact> contactList=findAll();
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(contactList.get(i).equals(contact))
+			{
+				contactList.remove(i);
+			}
+		}
+		return contactList;
+	} 
 
-	// public void syncFile(Contact contact,int j)
-	// {
-	// 	try
-	// 	{
-	// 		if(j==0)
-	// 		{
-	// 			file.delete();
-	// 		}
-	// 		FileWriter fwr1=new FileWriter(file,true);
-	// 		BufferedWriter bw1=new BufferedWriter(fwr1);
-	// 		bw1.write(contact.getName()+","+contact.getNumber()+"\n");
-	// 		bw1.flush();
-	// 		bw1.close();		
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("Exception: "+e);
-	// 	}
-	// }
+	public void syncFile(Contact contact,int id)
+	{
+		try
+		{
+			if(id==0)
+			{
+				file.delete();
+			}
+			FileWriter fwr1=new FileWriter(file,true);
+			BufferedWriter bw1=new BufferedWriter(fwr1);
+			bw1.write((++id)+","+contact.getName()+","+contact.getNumber()+"\n");
+			bw1.flush();
+			bw1.close();		
+		}
+		catch(IOException e)
+		{
+			System.out.println("Exception: "+e);
+		}
+	}
 }
 
 

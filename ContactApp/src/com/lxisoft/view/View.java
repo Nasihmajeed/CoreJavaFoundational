@@ -39,7 +39,7 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press-->  1-save  2-search  3-select  4-backtohome ");
+		System.out.println("\n press-->  1-save  2-search  3-select  4-backtohome  5-exit");
 		int option=sc.nextInt();
 		return option;	
 	}
@@ -70,13 +70,14 @@ public class View
 		return ch;
 	}
 
+	public String delete(Contact contact)
+	{
+		System.out.print(" press--> y-delete  n-cancel");
+		String del=sc.next();
+		return del;
+	}
 
-	// public void byId()
-	// {
-	// 	System.out.println("enter the id to check ");
-	// 	int id=sc.nextInt();
-	// 	controller.contactById(id);
-	// }
+
 
 }
 
@@ -89,29 +90,6 @@ public class View
 
 
 
-
-
-
-
-
-
-// public void displayAll(ArrayList<Contact> contactList)
-// 	{
-// 		int i=1;
-// 		System.out.print("\n THE CONTACT LIST IS \n");
-// 		for(Contact contact: contactList)
-// 		{
-// 			System.out.print("S.No:-"+(i++)+"\t\tName- " +contact.getName());
-// 			System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
-// 		}
-// 	}
-
-
-
-// 	public void displayContact(Contact contact)
-// 	{
-// 		System.out.print("Name- " +contact.getName()+"\t\tNumber- " +contact.getNumber());
-// 	}
 
 	
 // 	public void processing()
@@ -135,10 +113,10 @@ public class View
 // 	public String scanElement(int s)
 // 	{
 // 		if(s==0)
-// 			System.out.println("enter the name to search/delete/update");
-// 		else if(s==1)
-// 			System.out.println("enter the update value");
-// 		String element=sc.next();
+		// 	System.out.println("enter the name to search/delete/update");
+		// else if(s==1)
+		// 	System.out.println("enter the update value");
+		// String element=sc.next();
 // 		return element;
 // 	}
 
