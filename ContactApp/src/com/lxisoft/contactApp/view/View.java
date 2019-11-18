@@ -8,13 +8,14 @@ public class View
 {
  	Scanner scan=new Scanner(System.in);
 	Console console = System.console();
-	public Controller controller;
+	public Repository repo;
 	public ViewContactModel viewContacts=new ViewContactModel();
 	public void start()
 	{
-		controller=new Controller();
+		repo=new Repository();
 		System.out.println("********CONTACT BOOK*********\n");
-		controller.fileCreation();
+		repo.createPhoneData(contacts);
+		//controller.fileCreation();
 		//controller.fileFunctions();
 		//controller.createPhoneData();
 		//controller.writeToFile();
@@ -50,7 +51,7 @@ public class View
 				break;
 
 				case 6:
-				controller.store();
+				repo.store();
 				return;
 
 			}
@@ -97,13 +98,13 @@ public class View
 		
 	}
 
-	public void updateById()
+	/*public void updateById()
 	{
 		System.out.println("Enter id to update");
 		int upId=scan.nextInt();
 		updateChoice();
 		
-	}
+	}*/
 
 	public void updateByName()
 	{
@@ -114,20 +115,39 @@ public class View
 		searchedContact=controller.searchContact(sName);
 		if(searchedContact!=null)
 		{
+			int newId=searchedContact.getId();
 			System.out.println("searched contact found\n"+searchedContact.getId()+"\t"+searchedContact.getName()+"\t"+searchedContact.getNumber());
+			System.out.println("edit 1.name or 2.number");
+			int newChoice=scan.nextInt();
+			if(newChoice==1)
+			{
+				System.out.println("Enter edited name:");
+				String newName=console.readLine();
+				controller.updateContact(newId,newName);
+			}
+			if(newChoice==2)
+			{
+				System.out.println("Enter edited phone number:");
+				long newNumber=scan.nextLong();
+				controller.updateContact(newId,newNumber);
+			}
+			show();		
 		}
 		if(searchedContact==null)
 		{
 			System.out.println("Searched contact not found");
 
 		}
-		updateChoice();
+		//updateChoice();
 
 		
 	}
 
-	public void updateChoice()
+	public void updateById()
 	{
+		System.out.println("Enter id to update");
+		int upId=scan.nextInt();
+		//updateChoice();
 		System.out.println("edit 1.name or 2.number");
 		int upChoice=scan.nextInt();
 		if(upChoice==1)

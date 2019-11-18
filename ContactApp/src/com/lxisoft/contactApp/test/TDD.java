@@ -8,10 +8,10 @@ public class TDD
 {
 	public static void main(String args[])
 	{
-		View view =new View();
-		view.start();
+		//View view =new View();
+		//view.start();
 		Controller controller=new Controller();
-		//controller.create();
+		controller.create();
 	}
 
 }

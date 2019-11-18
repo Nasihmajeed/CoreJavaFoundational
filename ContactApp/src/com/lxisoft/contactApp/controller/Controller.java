@@ -2,6 +2,7 @@ package com.lxisoft.contactApp.controller;
 import java.util.ArrayList;
 import com.lxisoft.contactApp.domain.Contact;
 import com.lxisoft.contactApp.repository.Repository;
+import com.lxisoft.contactApp.view.View;
 public class Controller 
 {
 	public Repository repo=new Repository();
@@ -16,6 +17,11 @@ public class Controller
 		return contacts;
 	}
 
+	public void create()
+	{
+		View view=new View();
+		view.start();
+	}
 	public void newContact(String name,long number)
 	{
 		int id=0;
@@ -63,11 +69,11 @@ public class Controller
 	}
 
 
-	public void fileCreation()
+	/*public void fileCreation()
 	{
 		repo.createPhoneData(contacts);
 
-	}
+	}*/
 
 	public void store()
 	{
