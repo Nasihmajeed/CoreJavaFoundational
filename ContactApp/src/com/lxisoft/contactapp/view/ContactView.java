@@ -71,13 +71,13 @@ public class ContactView
 	public void addNewContact(ContactController control)
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("contact Id:	");
-		String id=sc.next();
+		// System.out.println("contact Id:	");
+		// String id=sc.next();
 		System.out.println("contact Name:	");
 		String name=sc.next();
 		System.out.println("number ");
 		String number=sc.next();
-		control.addContactDetails(id,name,number);
+		control.addContactDetails(name,number);
 	}
 	public void searchContact(ContactController control)
 	{

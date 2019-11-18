@@ -8,7 +8,7 @@ import java.io.*;
 public class Repository implements FileStorage
 {  
 	File contactFile=new File(fileName);
-	static int id=0;
+	static int id;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	public ArrayList<Contact> getAllContacts()
 	{
@@ -19,7 +19,6 @@ public class Repository implements FileStorage
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
-				id++;
 				String[] st=str.split(",",3);
 				Contact	contact=new Contact();
 				contact.setId(st[0]);
@@ -35,25 +34,25 @@ public class Repository implements FileStorage
 		return contacts;
 
 	}
-	// public int getId()
-	// {
-	// 	try
-	// 	{
-	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
-	// 		String str=read.readLine();
-	// 		while((str=read.readLine())!=null) 
-	// 		{
-	// 			String[] st=str.split(",",3);
-	// 			id=Integer.parseInt(st[0]);
-	// 		}	
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("");
-	// 	}
-	// 	System.out.println(id);
-	// 	return id;
-	// }
+	public int getId()
+	{
+		try
+		{
+			BufferedReader read=new BufferedReader(new FileReader(contactFile));
+			String str=read.readLine();
+			while((str=read.readLine())!=null) 
+			{
+				String[] st=str.split(",",3);
+				id=Integer.parseInt(st[0]);
+			}	id++;
+		}
+		catch(IOException e)
+		{
+			System.out.println("");
+		}
+		return id;
+
+	}
 	public void addContactDetails(Contact contact)
 	{
 		contacts.add(contact);	
@@ -69,14 +68,14 @@ public class Repository implements FileStorage
 			String str=" ";
 			if((str=read.readLine())!=null)
 			{
-				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+				id=getId();
+				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();
 			}
 			else
 			{
 				br.write(" ID , NAME , NUMBER \n");
-				id++;
 				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();

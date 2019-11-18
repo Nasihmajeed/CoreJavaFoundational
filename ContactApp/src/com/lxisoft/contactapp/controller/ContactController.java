@@ -77,15 +77,15 @@ public class ContactController
 	public void updateContact(int i,String id,String name,String number)
 	{
 		Contact contact=new Contact();
-		contact.setId(id);
+		//contact.setId(id);
 		contact.setName(name);
 		contact.setNo(number);
 		filerepo.updateFile(i,contact);
 	}
-	public void addContactDetails(String id,String name,String number)
+	public void addContactDetails(String name,String number)
 	{
 		Contact contact=new Contact();
-		contact.setId(id);
+		//contact.setId(id);
 		contact.setName(name);
 		contact.setNo(number);
 		filerepo.addContactDetails(contact);
