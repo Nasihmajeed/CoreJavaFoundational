@@ -68,15 +68,16 @@ public class Repository implements FileStorage
 			String str=" ";
 			if((str=read.readLine())!=null)
 			{
-				id=getId();
-				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+				//id=getId();
+				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();
 			}
 			else
 			{
+				id=getId();
 				br.write(" ID , NAME , NUMBER \n");
-				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();
 			}
