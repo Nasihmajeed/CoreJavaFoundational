@@ -13,19 +13,19 @@ public void save()
  repo.setFile(v.setContact());
 
 }
-
+//9352323605
 
 public void read(){
 	v.display(repo.getList());
 
   }
 
-
+/*
 public Contact search(String n){
 	String name=n;
 	Contact contact=repo.searchList(name);
 	return contact;
- }/*
+ }
  
 public void update(String cn){
 for(int i=0;i<contacts.size();i++){
