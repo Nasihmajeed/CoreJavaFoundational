@@ -12,5 +12,7 @@ public class Tdd
 	{
    		View view = new View();
    		view.begin();
+   		// Controller con = new Controller();
+   		// con.display();
 	}
 } 

@@ -1,6 +1,7 @@
 package com.lxisoft.view;
 import com.lxisoft.controller.*;
 import com.lxisoft.model.*;
+import com.lxisoft.repository.*;
 import java.util.*;
 
 public class View
@@ -45,43 +46,44 @@ public class View
 	}
 	public void search()
 	{
-		int f=0;
+		int f;
 		System.out.println("ENTER NAME");
 		Scanner set = new Scanner(System.in);
 		String name= set.nextLine();
-		//con.arraySearch(name);
-		for(int i=0;i<con.getArraySize();i++)
+		con.search(name);
+		for(int i= 0;con.contactList.size();i++)
 		{
-			if(name.equals(rep.array.get(i).getName()))
-			 {
-			 	System.out.println(" NUMBER : "+rep.array.get(i).getNumber());
-			 	f=1;
+		if(con.search(name)==name)
+		{
+			f=1;
+
+    	System.out.println(" NUMBER : "+ rep.array.get(i).getNumber());
+			 	
 			 	do{
 					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
 					Scanner read= new Scanner(System.in);
 					int n = read.nextInt();
 					switch(n)
 						{
-							case 1 :edit(i); break;
-							case 2 : delete(i);break;
+							case 1 :edit(); break;
+							case 2 : delete();break;
 							case 3 :begin(); break;
 							default: System.out.println("INVALID CHOICE");
 						}
 					} while(true);
-					  
-			 }	 
-		}
-		if(f!=1)
-		{
-			System.out.println("NOT FOUND");
-		}
-		
+			}
+		}	 
+			if(f!=1)
+			{
+				System.out.println(" CONTACT NOT FOUND");
+			}
+			
 	}
 	public  void display()
 	{
 		 con.display();
 	}
-	public void edit(int i)
+	public void edit()
 	{
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
@@ -90,14 +92,14 @@ public class View
 		 String number = read.nextLine();
 		 con.editContact(i,name,number);
 	}
-	public void delete(int i)
+	public void delete()
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
 		 Scanner read= new Scanner(System.in);
 		 String choice= read.nextLine();
 		 switch(choice)
 		 {
-		 	case "y": con.deleteContact(i);
+		 	case "y": con.deleteContact();
 		 	          System.out.println("contact deleted ");
 		 	          break;
 		 	case "n" : search(); break;

@@ -9,12 +9,21 @@ public class Controller
 {
 	Contact contact ;
 	Repository rep = new Repository();
+	public List <Contact> contactList = new ArrayList<Contact>();
 	public void addContact(String name,String number)
 	{ 
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
         rep.fileWrite(contact);
+	}
+	public void setContactList(List <Contact> contactList)
+	{
+		this.contactList = contactList;
+	}
+	public List <Contact> getContactList()
+	{
+		return contactList;
 	}
 	public int getArraySize()
 	{
@@ -28,9 +37,19 @@ public class Controller
 	{
 		return contact.getNumber();
 	}
-	public String search()
+	public String search(String name)
 	{
-		return contact.getName();
+		contact = new Contact();
+		contactList = rep.fileRead();
+		int index = 0;
+		for(int i= 0;contactList.size();i++)
+		{
+			if(name.equals(rep.array.get(i).getName()))
+			{	int n=i;
+				contact = contactList.get((index));
+			}
+		}
+		return rep.array.get(n).getName();
 	}
 	public void editContact(int i,String name,String number)
 	{	
@@ -48,16 +67,21 @@ public class Controller
 	{
 		rep.fileRead();
 	}
-	public void arraylistSearch(String name)
-	{
-		// for(int i=0;i<array.size();i++)
-		// {
-		// 	if(name.equals(array.get(i).getName()))
-		// 	 {
-		// 	 	view.search()
-
-		// 	 }
-	 //    }	
-	}
+	// public int arraySearch(String name)
+	// { 
+		
+	// 	for(int i=0;i<rep.getArraySize();i++)
+	// 	{
+	// 		if(name.equals(rep.array.get(i).getName()))
+	// 		 {
+	// 		 	rep.array.get(i).getNumber();
+	// 		 }
+	// 		 else 
+	// 		 {
+			 	
+	// 		 }
+	// 	}
+	// 		return i ;
+	// }
  
 }
