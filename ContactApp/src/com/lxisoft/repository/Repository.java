@@ -51,7 +51,10 @@ public class Repository implements FileRepository
 			BufferedReader br=new BufferedReader(fr);
 			String read;
 			while((read=br.readLine())!=null)
-			System.out.println(read+"\n");
+			{
+				System.out.println(read+"\n");
+			}
+			
 		}
 		catch(IOException e)
 		{

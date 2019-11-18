@@ -8,30 +8,52 @@ public class ContactControl
 {
     Repository repository=new Repository();
     ContactModel model=new ContactModel();
+    ContactView view=new ContactView();
     
 	public void getContactDetails()
-	{
-        
-        ContactView view=new ContactView();
-        ArrayList<ContactModel>contacts=new ArrayList<ContactModel>();
-        int choice=view.disply();
+	{     
         List<Contact>contactList=repository.readFile();
+        ContactListModel listModel=new ContactListModel();
         for(int i=0;i<contactList.size();i++)
         {
             model.setId(contactList.get(i).getId());
             model.setName(contactList.get(i).getName());
-            contacts.add(model);
+            listModel.setContactsList(model);
        }
+        view.getAllContacts(listModel.getContactsList());
+        display();
     }
-    public Contact viewDetails(int i)
+    public void display()
     {
-        return repository.getContactList().get(i);
+        int ch=view.display();
+        switch(ch)
+        {
+            case 1:ContactByIdDetails();
+        }
+    }
+    public void ContactByIdDetails()
+    {
+        List<Contact> contactList=repository.arrayWrite();
+        String d=view.getContactId();
+        Contact c=new Contact();
+        for(int i=0;i<contactList.size();i++)
+        {
+            if((contactList.get(i).getId()).equals(d))
+            {
+                c=contactList.get(i);
+            }
+        }
+        view.getContactById(c);
+    }
+    // public Contact viewDetails(int i)
+    // {
+    //     return repository.getContactList().get(i);
        
-    }
-    public int getArraySize()
-    {
-        return repository.getContactListSize();
-    }
+    // }
+    // public int getArraySize()
+    // {
+    //     return repository.getContactListSize();
+    // }
 //     public void addDetails(String name,String contactNo)
 //     {
 //     	Contact c=new Contact();

@@ -7,14 +7,13 @@ import com.lxisoft.controllers.*;
 
 public class ContactListModel
 {
-	Contact c=new Contact();
-	private ArrayList<ContactModel>contacts=new ArrayList<ContactModel>();
-	public void setContacts(List<ContactModel>contacts)
+	private List<ContactModel>contactsList=new ArrayList<ContactModel>();
+	public void setContactsList(ContactModel model)
 	{
-		this.contacts=contacts;
+		contactsList.add(model);	
 	}
-	public List<Contact> getContacts()
+	public List<ContactModel> getContactsList()
 	{
-		return contacts;
+		return contactsList;
 	}
 }
