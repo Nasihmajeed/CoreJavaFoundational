@@ -1,4 +1,4 @@
-package com.lxisoft.contactmodel;
+package com.lxisoft.contactmodel;																													
 import com.lxisoft.contactcontroller.*;
 public class ContactModel
 {

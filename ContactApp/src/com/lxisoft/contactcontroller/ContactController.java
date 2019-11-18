@@ -27,10 +27,11 @@ public class ContactController
 	}
 	public void display()
 	{
-		int a=view.display();
+		int a=0;
 		do
 		{
-		switch(a)
+			a=view.display();
+			switch(a)
 		    {
 		    	case 1: getContactById(); break;
 		    	case 2: addContact(); break;
