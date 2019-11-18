@@ -37,31 +37,33 @@ public class Controller
 	{
 		return contact.getNumber();
 	}
-	public String search(String name)
+	public Contact search(String name)
 	{
 		contact = new Contact();
 		contactList = rep.fileRead();
 		int index = 0;
-		for(int i= 0;contactList.size();i++)
+		for(int i= 0;i<=contactList.size();i++)
 		{
 			if(name.equals(rep.array.get(i).getName()))
-			{	int n=i;
-				contact = contactList.get((index));
+			{	
+				rep.array.indexOf(con.search(name));
+				// int n=i;
+				// contact = contactList.get((index));
 			}
 		}
-		return rep.array.get(n).getName();
+		return contact;
 	}
-	public void editContact(int i,String name,String number)
+	public void editContact(String name,String number)
 	{	
 		 contact = new Contact();
 		 contact.setName(name);
          contact.setNumber(number);
-         array.remove(i);
-		 array.add(i,contact);
+         //array.remove(i);
+		 contactList.add(contact);
 	}
-	public void deleteContact(int i)
+	public void deleteContact()
 	{
-		array.remove(i);	
+	    contactList.remove(contact);	
 	}
 	public void display()
 	{

@@ -39,8 +39,8 @@ public class Repository implements Filerepository
 	  		{
 	  				String[] str = contacts.split(",",2);
 	  				Contact c = new Contact();
-	  				c.setName() = str[0];
-	  				c.setNumber() = str[1];
+	  				c.setName(str[0]);
+	  				c.setNumber(str[1]);
 	  				array.add(c);
 	  		}
 
@@ -53,6 +53,8 @@ public class Repository implements Filerepository
 	}
 	public void search()
 	{
+		try
+		{
 		    FileReader fr = new FileReader(file);
 		  	BufferedReader br = new BufferedReader(fr);
 		  	String a ;
@@ -60,14 +62,19 @@ public class Repository implements Filerepository
 	  			{
 	  				String[] str = a.split(",",2);
 	  				Contact c = new Contact();
-	  				c.setName() = str[0];
-	  				c.setNumber() = str[1];
-	  				contact.array.add(c);
+	  				c.setName(str[0]) ;
+	  				c.setNumber(str[1]);
+	  				array.add(c);
 	  		for(String b: str)
 	  		{
 	  			System.out.println(b);
 	  		}
 	  	}
+	  }
+	  catch(IOException e)
+		{
+			System.out.println(e);
+		}
 	}
 	public int getArraySize()
 	{

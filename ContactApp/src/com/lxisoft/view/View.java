@@ -50,14 +50,14 @@ public class View
 		System.out.println("ENTER NAME");
 		Scanner set = new Scanner(System.in);
 		String name= set.nextLine();
-		con.search(name);
-		for(int i= 0;con.contactList.size();i++)
-		{
-		if(con.search(name)==name)
-		{
+		
+		if(name.equals(con.search(name).getName()))
+		{	
+			//rep.array.indexOf(con.search(name));
+			int i = con.search();
 			f=1;
 
-    	System.out.println(" NUMBER : "+ rep.array.get(i).getNumber());
+    	      System.out.println(" NUMBER : "+ con.array.get(i).getNumber());
 			 	
 			 	do{
 					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
@@ -72,7 +72,7 @@ public class View
 						}
 					} while(true);
 			}
-		}	 
+			 
 			if(f!=1)
 			{
 				System.out.println(" CONTACT NOT FOUND");
@@ -90,7 +90,7 @@ public class View
 		 String name= read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
-		 con.editContact(i,name,number);
+		 con.editContact(name,number);
 	}
 	public void delete()
 	{
