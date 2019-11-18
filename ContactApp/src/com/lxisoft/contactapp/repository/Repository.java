@@ -10,11 +10,11 @@ public class Repository implements FileStorage
 	File contactFile=new File(fileName);
 	static int id=0;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
-
 	public ArrayList<Contact> getAllContacts()
 	{
 		try
 		{
+			contacts.clear();
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 

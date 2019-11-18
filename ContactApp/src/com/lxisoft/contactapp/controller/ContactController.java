@@ -10,16 +10,32 @@ public class ContactController
 {
 	private Repository filerepo=new Repository();
 	ContactView view=new ContactView();
-	public void getAllcontacts()
+	public void getAllcontactInfo()
 	{
+		view.displayContactInfo();
+	}
+	public ArrayList<ContactModel> getAllcontacts()
+	{
+		ArrayList<ContactModel> contactlist=null;
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		ContactsListModel contact=new ContactsListModel();
 		if(contacts!=null)
 		{
-			contact.setAllContacts(contacts);
-			ArrayList<ContactModel> contactlist=contact.getAllContacts();
-			view.showAllContacts(contactlist);
-		}
+			for(int i=0;i<contacts.size();i++)
+			{
+				ContactModel contactmodel=new ContactModel();
+				contactmodel.setId(contacts.get(i).getId());
+				contactmodel.setName(contacts.get(i).getName());
+				contact.setAllContacts(contactmodel);
+			}
+			contactlist=contact.getAllContacts();
+			//view.showAllContacts(contactlist);
+		}return contactlist;
+	}
+	public ArrayList<Contact> getAllContact()
+	{
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		return contacts;
 	}
 	public Contact getContactById(String id)
 	{
