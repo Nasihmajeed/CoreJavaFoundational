@@ -10,7 +10,6 @@ public class ContactController
 {
 	View view=new View();
 	FileRepository repository=new FileRepository();
-	//ArrayList<Contact> contactList=new ArrayList<Contact>();
 
 	public void features()
 	{
@@ -21,7 +20,6 @@ public class ContactController
 				break;
 			else
 			{
-				System.out.println("kbdjsbs "+ option );
 				contactOptions(option);
 				System.out.println("\n");
 			}
@@ -31,25 +29,24 @@ public class ContactController
 
 	public void contactOptions(int option)
 	{
-		System.out.println("kbdjsbs "+ option );
 		switch(option)
 		{
 			case 1:saveContact();break;
 			case 2:contactByName();break;
-			//case 3:deleteContact();break;
-			//case 4:editContact();break;
-			case 5:allContacts();break;
+			case 3:contactSelect();break;
+			case 4:allContacts();break;
 		}
 	}
 
 	public void saveContact()
 	{
-		String[] temp=view.scan();
+		String[] tempSave=view.save();
 		Contact contact=new Contact();
-		if(temp[2].equals("y"))
+		if(tempSave[2].equals("y"))
 		{
-			contact.setName(temp[0]);
-			contact.setNumber(temp[1]);
+			System.out.println("-contact saved-");
+			contact.setName(tempSave[0]);
+			contact.setNumber(tempSave[1]);
 			repository.save(contact);
 		}
 	}
@@ -63,19 +60,68 @@ public class ContactController
 
 	public void contactByName()
 	{
-		String name=view.byName();
-		ViewSingle viewSingle=new ViewSingle();
-		viewSingle.setList(repository.findAll());
+		String[] tempSearch=view.byName();
+		Contact temp=new Contact();
+		ViewByNameModel viewByName=new ViewByNameModel();
+		viewByName.setList(repository.findAll());
 		int i=0;
-		for(Contact contact: viewSingle.getList())
+		if(tempSearch[1].equals("y"))
+		{
+			System.out.println("-search details-");
+			for(Contact contact: viewByName.getList())
+			{
+				i++;
+				if(contact.getName().equals(tempSearch[0]))
+				{
+					view.printByName(contact,i);
+					temp=contact;
+				}
+			}
+		}
+		String ch=view.choose();
+		contactChoose(temp,ch);
+	}
+
+	public void contactChoose(Contact contact,String ch)
+	{
+		switch(ch)
+		{
+			case "e":editContact(contact);break;
+			case "d":deleteContact(contact);break;
+		}
+	}
+
+	public void contactSelect()
+	{
+		String name=view.select();
+		Contact temp=new Contact();
+		ViewSelectModel viewSelectModel=new ViewSelectModel();
+		viewSelectModel.setList(repository.findAll());
+		int i=0;
+		System.out.println("-contact selected-");
+		for(Contact contact: viewSelectModel.getList())
 		{
 			i++;
 			if(contact.getName().equals(name))
 			{
 				view.printByName(contact,i);
+				temp=contact;
 			}
 		}
+		String ch=view.choose();
+		contactChoose(temp,ch);
 	}
+
+	public void deleteContact(Contact contact)
+	{
+		System.out.println(" delete");
+	}
+
+	public void editContact(Contact contact)
+	{
+		System.out.println(" edit");
+	}
+
 
 	// public void contactById(int id)
 	// {

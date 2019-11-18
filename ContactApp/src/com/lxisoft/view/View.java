@@ -21,11 +21,14 @@ public class View
 		}
 	}
 
-	public String byName()
+	public String[] byName()
 	{
-		System.out.println("enter the name  to check ");
-		String name=sc.next();
-		return name;
+		System.out.println("enter the name  to search ");
+		String[] temp=new String[2];
+		temp[0]=sc.next();
+		System.out.print(" press--> y-search  n-cancel");
+		temp[1]=sc.next();
+		return temp;
 	}
 	
 	public void printByName(Contact contact,int i)
@@ -36,21 +39,37 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press for features-->  1-save  2-search  3-delete  4-editContact  5-homepage  6-exit");
+		System.out.println("\n press-->  1-save  2-search  3-select  4-backtohome ");
 		int option=sc.nextInt();
 		return option;	
 	}
 
-	public String[] scan()
+	public String[] save()
 	{
 		System.out.print("enter the name and number of new contact");
 		String[] temp=new String[3];
 		temp[0]=sc.next();
 		temp[1]=sc.next();
-		System.out.print(" press y for save n for cancel");
+		System.out.print(" press--> y-save  n-cancel");
 		temp[2]=sc.next();
 		return temp;
 	}
+
+	public String select()
+	{
+		System.out.print("enter the name to select");
+		String name=sc.next();
+		return name;
+	}
+
+	public String choose()
+	{
+		String ch;
+		System.out.println(" press-->  e-edit  d-delete  c-cancel");
+		ch=sc.next();
+		return ch;
+	}
+
 
 	// public void byId()
 	// {
