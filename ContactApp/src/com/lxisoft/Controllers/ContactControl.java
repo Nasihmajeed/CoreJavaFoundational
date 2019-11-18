@@ -34,7 +34,11 @@ public class ContactControl
 		ArrayList<ViewListModel> listView=null;
 		if(contacts!=null)
 		{
-			view.setAllContacts(contacts);
+			view.clearArray();
+			for(int i=0;i<contacts.size();i++)
+			{
+				view.setContact(contacts.get(i));
+			}
 			listView=view.getAllContacts();
 		}
 		return listView;
@@ -80,7 +84,6 @@ public class ContactControl
 		{
 			if(contact.equals(contacts.get(i)))
 				{
-					System.out.println(index+""+i);
 					index=i;
 				}
 		}
