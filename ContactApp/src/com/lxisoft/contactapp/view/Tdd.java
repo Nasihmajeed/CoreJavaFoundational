@@ -5,33 +5,95 @@ import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Tdd{
 Scanner s=new Scanner(System.in);
-View v=new View();
+Scanner ss=new Scanner(System.in);
+Controller control=new Controller();
+Repository repo=new Repository();
 static ArrayList<Contact> contacts=new ArrayList<Contact>();
 public static void main(String[] args) {
-	Tdd t=new Tdd();
-	t.options();
-
-}
- public void options(){
- 	Controller control=new Controller();
- do{
+	Controller control=new Controller();
+	do{
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
 	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete \n");
-	 int x=s.nextInt();
+	 int x=t.s.nextInt();
 	 switch(x){
 	 	case 1:control.save();
 	 			break;
 	 	case 2:control.read();
 	 			break;
-	 	case 3:control.search ();
+/*	 	case 3:t.searchContact();
 	 			break;
-/*	 	case 4:v.updateContact();
+	 	case 4:t.updateContact();
 	 			break;
-	 	case 5:v.deleteContact();
-	 			break; */
+	 	case 5:t.deleteContact();
+	 			break;*/
 	 }
 	}while(true); 
   }
- }
+/*public void setContact(){
+System.out.println("\n\nEnter number of contacts : ");
+int n=s.nextInt();
+	for(int i=0;i<n;i++){
+		Contact cc=new Contact();		
+		System.out.println("Enter the name : ");
+		cc.setName(ss.next());
+		System.out.println("Enter the number : ");
+		cc.setNumber(s.next());
+		control.save(cc);
+		System.out.println("(contact saved sucssesfully )");
+    } 
+   
+}
 
- 
+public void display(ArrayList<Contact> contacts){
+	System.out.println("\n-----ALL CONTACTS------\n");
+	for(int i=0;i<contacts.size();i++){
+		System.out.println(contacts.get(i).getName()+"------"+contacts.get(i).getNumber());
+		//System.out.println(contacts.get(i).getNumber());
+	}
+}
+
+public void searchContact(){
+System.out.println("\n\nEnter name to search : ");
+String n=ss.next();
+Contact c=control.search(n);
+if(c==null){
+	System.out.println("cannot find");
+     }
+else{
+	System.out.println("\n------ User-----\n ");
+	  System.out.println(c.getName()+"-------"+c.getNumber());
+	  //System.out.println(c.getNumber());
+    }
+  }
+
+
+public void updateContact(){
+System.out.println("\n\nEnter contact name : ");
+String n=ss.next();
+repo.deleteList(n);
+Contact c=control.search(n);
+	if(c==null){
+		System.out.println("cannot edit");
+    	 }
+	else{
+		
+		System.out.println("Enter new name : ");
+		c.setName(ss.next());
+		System.out.println("Enter new number : ");
+		c.setNumber(s.next());	
+		control.save(c);
+		System.out.println("(contact updated sucssesfully )");
+    }
+  }
+
+
+   
+
+public void deleteContact(){
+System.out.println("\n\nEnter contact name to delete : ");
+String n=ss.next();
+repo.deleteList(n);
+//control.setContact(n);
+System.out.println("---------"+n+" deleted from the contact");
+  }*/
+ }

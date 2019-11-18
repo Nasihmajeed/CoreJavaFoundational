@@ -9,9 +9,10 @@ Repository repo=new  Repository();
 View v=new View();
 public void save()
 {
-//contacts.add(cc);
- repo.setFile(v.setContact());
-
+	 //Contact contact=v.setContact();
+    // contacts.add(contact);
+    repo.setFile(v.setContact());
+ 
 }
 
 
@@ -21,11 +22,15 @@ public void read(){
   }
 
 
-public Contact search(String n){
-	String name=n;
-	Contact contact=repo.searchList(name);
-	return contact;
- }/*
+
+public void search(){
+	Contact contact=v.searchContact();
+	//String name=n;
+	//Contact contact=repo.searchList(name);
+	//sreturn contact;
+ }
+}
+/*
  
 public void update(String cn){
 for(int i=0;i<contacts.size();i++){
@@ -42,7 +47,7 @@ public void  delete(String cn){
     for(int i=0;i<contacts.size();i++){
       	repo.setFile(contacts.get(i));
            } 
-       }  */    
+       }      
 }
 /*public Contact setContact(String cn){
 	contacts=repo.deleteList(cn);
