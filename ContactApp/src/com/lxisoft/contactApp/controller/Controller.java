@@ -6,6 +6,7 @@ import com.lxisoft.contactApp.view.View;
 public class Controller 
 {
 	public Repository repo=new Repository();
+	public View view=new View();
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 
 	public void setContacts(ArrayList<Contact> contacts)
@@ -17,11 +18,46 @@ public class Controller
 		return contacts;
 	}
 
-	public void create()
+	public void initial()
 	{
-		View view=new View();
 		view.start();
 	}
+
+	public void printMenu()
+	{
+		while(true)
+		{
+			switch(view.printMenu())
+			{
+				case 1:
+				create();
+				break;
+			
+				case 2:
+				show();
+				break;
+				
+				case 3:
+				update();
+				break;
+
+				case 4:
+				delete();
+				break;
+
+				case 5:
+				search();
+				break;
+
+				case 6:
+				repo.store();
+				return;
+
+			}
+		}
+
+	}
+
 	public void newContact(String name,long number)
 	{
 		int id=0;
@@ -37,6 +73,17 @@ public class Controller
 		}
 		contacts.add(new Contact(id,name,number));
 
+	}
+
+	public void show()
+	{
+		view.show(contacts);
+	}
+
+	public void create()
+	{
+		controller.newContact(name,number);
+		show();
 	}
 
 	public void updateContact(int upId,String name)

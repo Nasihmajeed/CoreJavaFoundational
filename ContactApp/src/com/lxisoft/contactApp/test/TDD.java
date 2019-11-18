@@ -1,5 +1,5 @@
 package com.lxisoft.contactApp.test;
-import com.lxisoft.contactApp.view.View;
+
 import com.lxisoft.contactApp.controller.Controller;
 import java.util.Scanner;
 import java.io.Console;
@@ -11,7 +11,7 @@ public class TDD
 		//View view =new View();
 		//view.start();
 		Controller controller=new Controller();
-		controller.create();
+		controller.initial();
 	}
 
 }

@@ -22,47 +22,17 @@ public class View
 		printMenu();
 	}
 
-	public void printMenu()
+	public int printMenu()
 	{
-		while(true)
-		{
-			System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Search\t6.Exit");
-			int menu=scan.nextInt();
-			switch(menu)
-			{
-				case 1:
-				create();
-				break;
-			
-				case 2:
-				show();
-				break;
-				
-				case 3:
-				update();
-				break;
-
-				case 4:
-				delete();
-				break;
-
-				case 5:
-				search();
-				break;
-
-				case 6:
-				repo.store();
-				return;
-
-			}
-		}
-
+		System.out.println("\nChoose your options\n==> 1.Create\t2.Show\t3.Update\t4.Delete\t5.Search\t6.Exit");
+		int menu=scan.nextInt();
+		return menu;
 	}
 
-	public void show()
+	public void show(ArrayList<Contact> contacts)
 	{
 		System.out.println("ID\tNAME\t\t\tNUMBER\n");
-		for(Contact contact:controller.getContacts())
+		for(Contact contact:contacts)
 		{
 			System.out.println(contact.getId()+"\t"+contact.getName()+"\t\t\t"+contact.getNumber());
 		}
@@ -71,7 +41,6 @@ public class View
 
 	public void create()
 	{
-		
 		System.out.println("Enter contact name:");
 		String name=console.readLine();
 		System.out.println("Enter contact phone number:");
@@ -98,13 +67,6 @@ public class View
 		
 	}
 
-	/*public void updateById()
-	{
-		System.out.println("Enter id to update");
-		int upId=scan.nextInt();
-		updateChoice();
-		
-	}*/
 
 	public void updateByName()
 	{
