@@ -17,7 +17,7 @@ public class View
 		System.out.print("\n THE CONTACT LIST IS \nID\t\t  NAME\n");
 		for(Contact contact: viewAllModel.getList())
 		{
-			System.out.println("S.No:-"+(++i)+"\t\tName- " +contact.getName());
+			System.out.println(contact.getId()+"\t\tName- " +contact.getName());
 		}
 	}
 
@@ -33,7 +33,7 @@ public class View
 	
 	public void printByName(Contact contact,int i)
 	{
-		System.out.print("Id:-"+(i)+"\t\tName- " +contact.getName());
+		System.out.print("Id:-"+contact.getId()+"\t\tName- " +contact.getName());
 		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
 	}
 
@@ -70,14 +70,28 @@ public class View
 		return ch;
 	}
 
-	public String delete(Contact contact)
+	public String delete()
 	{
 		System.out.print(" press--> y-delete  n-cancel");
 		String del=sc.next();
 		return del;
 	}
 
-
+	public String[] edit()
+	{
+		String[] temp=new String[3];
+		System.out.println(" enter modified name and number");
+		temp[0]=sc.next();
+		temp[1]=sc.next();
+		System.out.print("press--> y-confirmEdit  n-cancel");
+		temp[2]=sc.next();
+		if(del.equals("y"))
+		{
+			return temp[2];
+		}
+		else
+			return null;
+	}
 
 }
 

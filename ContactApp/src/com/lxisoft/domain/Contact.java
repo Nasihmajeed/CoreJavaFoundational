@@ -2,8 +2,19 @@ package com.lxisoft.domain;
 
 public class Contact
 {
+	private String id;
 	private String name;
 	private String number;
+
+	public void setId(String id)
+	{
+		this.id=id;
+	} 
+
+	public String getId()
+	{
+		return id;
+	} 
 
 	public void setName(String name)
 	{

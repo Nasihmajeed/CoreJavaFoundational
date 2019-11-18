@@ -42,12 +42,14 @@ public class ContactController
 	{
 		String[] tempSave=view.save();
 		Contact contact=new Contact();
+		SaveModel saveModel=new SaveModel();
 		if(tempSave[2].equals("y"))
 		{
 			System.out.println("-contact saved-");
 			contact.setName(tempSave[0]);
 			contact.setNumber(tempSave[1]);
-			repository.save(contact);
+			saveModel.setContact(contact);
+			repository.save(saveModel.getContact());
 		}
 	}
 
@@ -112,23 +114,6 @@ public class ContactController
 		contactChoose(temp,ch);
 	}
 
-	public void deleteContact(Contact contact)
-	{
-		DeleteModel deleteModel=new DeleteModel();
-		deleteModel.setContact(contact);
-		String del=view.delete(deleteModel.getContact());
-		if(del.equals("y"))
-		{
-			ArrayList<Contact> contactList=repository.delete(contact);
-		}
-		sync(contactList);
-	}
-
-	public void editContact(Contact contact)
-	{
-		System.out.println(" edit");
-	}
-
 	public void sync(ArrayList<Contact> contactList)
 	{
 		int j=0;
@@ -139,6 +124,39 @@ public class ContactController
 			j++;
 		}
 	}
+
+	public void deleteContact(Contact contact)
+	{
+		DeleteModel deleteModel=new DeleteModel();
+		deleteModel.setContact(contact);
+		String del=view.delete();
+		if(del.equals("y"))
+		{
+			ArrayList<Contact> contactList=repository.delete(deleteModel.getContact());
+			sync(contactList);
+		}
+	}
+
+	public void editContact(Contact contact)
+	{
+		ArrayList<Contact> contactList=repository.findAll();
+		String[] tempEdit=view.edit();
+		if(tempEdit[2].equals("y"))
+		{
+			EditModel editModel=new EditModel();
+			editModel.setContact(contact);
+			for(int i=0;i<contactList.size();i++)
+			{
+				if(contactList.get(i).equals(deleteModel.getContact()))
+				{
+					System.out.println("updating conatact "+deleteModel.getContact().getName());
+					contactList.set(i,setName(tempEdit[0]));
+					contactList.set(i,setNumber(tempEdit[1]));
+				}
+			}
+		}
+	}
+
 }
 
 
@@ -155,42 +173,34 @@ public class ContactController
 
 
 
-// 	public void deleteContact()
-// 	{
-// 		String name=view.scanElement(0);
-// 		contactList=repository.delete(name);
-// 		sync(contactList);
-// 	}
 
-
-
-	public void editContact()
-	{
-		ArrayList<Contact> contactList=repository.findAll();
-		String name=view.scanElement(0);
-		int no=0,i=0;
-		int u=view.whatToUpdate(); 
-		String newData=view.scanElement(1);
-		for(Contact contact:contactList)														
-		{
-			if(contact.getName().equals(name))
-			{
-				no=1;
-				if(u==0)
-				{
-					contact.setName(newData);
-					contactList.set(i,contact);
-				}
-				else if(u==1)
-				{
-					contact.setNumber(newData);
-					contactList.set(i,contact);
-				}
-			}
-			++i;
-			System.out.println(contact.getName());
-		}
-		sync(contactList);
-		if(no==0)
-			view.noContact();
-	}
+	// public void editContact()
+	// {
+		
+	// 	String name=view.scanElement(0);
+	// 	int no=0,i=0;
+	// 	int u=view.whatToUpdate(); 
+	// 	String newData=view.scanElement(1);
+	// 	for(Contact contact:contactList)														
+	// 	{
+	// 		if(contact.getName().equals(name))
+	// 		{
+	// 			no=1;
+	// 			if(u==0)
+	// 			{
+	// 				contact.setName(newData);
+	// 				contactList.set(i,contact);
+	// 			}
+	// 			else if(u==1)
+	// 			{
+	// 				contact.setNumber(newData);
+	// 				contactList.set(i,contact);
+	// 			}
+	// 		}
+	// 		++i;
+	// 		System.out.println(contact.getName());
+	// 	}
+	// 	sync(contactList);
+	// 	if(no==0)
+	// 		view.noContact();
+	// }

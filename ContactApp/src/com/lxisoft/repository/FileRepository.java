@@ -14,22 +14,27 @@ public class FileRepository implements FileStorage
 	public void save(Contact contact)
 	{
 		int id=index();
-		if(file.exists())
+		++id;
+		try
 		{
-			FileWriter fw1=new FileWriter(file,true);
-			BufferedWriter bw1=new BufferedWriter(fw1);
-			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
-			bw1.flush();
-			bw1.close();
-		}
-		else
-		{
-			FileWriter fw=new FileWriter(file);
-			BufferedWriter bw=new BufferedWriter(fw);
-			System.out.println("NEW FILE CREATED");
-			bw.write(contact.getName()+","+contact.getNumber()+"\n");
-			bw.flush();
-			bw.close();
+			if(file.exists())
+			{
+				FileWriter fw1=new FileWriter(file,true);
+				BufferedWriter bw1=new BufferedWriter(fw1);
+				bw1.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
+				bw1.flush();
+				bw1.close();
+			}
+			else
+			{
+				System.out.println("\nfile created and contact saved");
+				FileWriter fw=new FileWriter(file);
+				BufferedWriter bw=new BufferedWriter(fw);
+				System.out.println("NEW FILE CREATED");
+				bw.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
+				bw.flush();
+				bw.close();
+			}
 		}
 		catch(IOException e)
 		{
@@ -39,14 +44,14 @@ public class FileRepository implements FileStorage
 
 	public int index()
 	{
-		ArrayList<Contact> contactList=new ArrayList<Contact>();
-		if(file.exists()==false)
+		ArrayList<Contact> contactList=findAll();
+		if(file.exists())
 		{
-			return 0;
+			return contactList.size();
 		}
 		else
 		{
-			return contactList.size();
+			return 0;
 		}
 	}
 
@@ -55,18 +60,24 @@ public class FileRepository implements FileStorage
 		ArrayList<Contact> contactList=new ArrayList<Contact>();
 		try
 		{
-			FileReader fr=new FileReader(file);
-			BufferedReader  br=new BufferedReader(fr);
-			String details;
-			while((details=br.readLine())!=null)
+			if(file.exists())
 			{
-				String[] data=details.split(",");
-				Contact contact=new Contact();
-				contact.setName(data[0]);
-				contact.setNumber(data[1]);
-				contactList.add(contactList.size(),contact);
+				FileReader fr=new FileReader(file);
+				BufferedReader  br=new BufferedReader(fr);
+				String details;
+				while((details=br.readLine())!=null)
+				{
+					String[] data=details.split(",");
+					Contact contact=new Contact();
+					contact.setId(data[0]);
+					contact.setName(data[1]);
+					contact.setNumber(data[2]);
+					contactList.add(contactList.size(),contact);
+				}
+				br.close();
 			}
-			br.close();
+			else
+				System.out.println("\nfile not present");
 		}
 		catch(IOException e)
 		{
@@ -97,8 +108,9 @@ public class FileRepository implements FileStorage
 		ArrayList<Contact> contactList=findAll();
 		for(int i=0;i<contactList.size();i++)
 		{
-			if(contactList.get(i).equals(contact))
+			if(contactList.get(i).getName().equals(contact.getName()))
 			{
+				System.out.println("deleting conatact "+contactList.get(i).getName());
 				contactList.remove(i);
 			}
 		}
