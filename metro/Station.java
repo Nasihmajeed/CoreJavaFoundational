@@ -1,6 +1,6 @@
 public class Station
 {
-	String name;
+	String departureStationName,arrivalStationName;
     Train[] train = new Train[5];
     TrainFare trainFare = new TrainFare();
 	 void setTrainLists()
