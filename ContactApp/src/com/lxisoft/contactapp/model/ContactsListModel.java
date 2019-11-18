@@ -6,13 +6,13 @@ import java.io.*;
 import java.util.*;
 public class ContactsListModel
 {
-	private ArrayList<ContactModel> contact=new ArrayList<ContactModel>();
+	public ArrayList<ContactModel> contact=new ArrayList<ContactModel>();
 	public void setAllContacts(ArrayList<Contact> contacts)
 	{
-		ContactModel contactmodel;
+		
 		for(int i=0;i<contacts.size();i++)
 		{
-			contactmodel=new ContactModel();
+			ContactModel contactmodel=new ContactModel();
 			contactmodel.setId(contacts.get(i).getId());
 			contactmodel.setName(contacts.get(i).getName());
 			contact.add(contactmodel);

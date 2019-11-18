@@ -6,7 +6,7 @@ import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
 public class ContactView
 {
-	ContactController control;
+	ContactController control;;
 	public void showAllContacts(ArrayList<ContactModel> contact)
 	{
 		if(contact.size()==0)
@@ -31,18 +31,19 @@ public class ContactView
 		Scanner sc=new Scanner(System.in);
 		int default_option=0;
 		char continueOpt='\0';
+		ArrayList<ContactModel> contact=null;
+
 		do
 		{  
 			System.out.println(" \n<---Contact App Menu--->");
-			System.out.println(" 1:Add  \n 2:Search  \n 3:View \n 4:DeleteAll \n");
+			System.out.println(" 1:Add  \n 2:Search  \n 3:DeleteAll \n");
 			System.out.println(" select your option	");
 			int option=sc.nextInt();
 			switch(option)
 			{
 				case 1:		addNewContact();break;
 				case 2:		searchContact();break;
-				// case 3:		viewContact(control);break;
-				// case 4:		deleteAllContacts(control);break;
+				case 3:		deleteAllContacts();break;
 				default:	System.out.println("Enter the correct option!");
 							default_option=1;break;
 			}
@@ -64,42 +65,101 @@ public class ContactView
 	}
 	public void searchContact()
 	{
-		System.out.println("select a contact by Id");
+		System.out.println("Contact Search ");
+		System.out.println("1.select by Id 2.select by Name");
 		Scanner sc=new Scanner(System.in);
-		String id=sc.next();
-		control=new ContactController();
-		control.getContactById(id);
-		System.out.println("\n1:Edit \n2:Delete");
-		int select=sc.nextInt();
-		switch(select)
+		int option=sc.nextInt();
+		switch(option)
 		{
-			case 1: editContact(id);break;
-			case 2: deleteContact(id);break;
+			case 1: getContactById();break;
+			case 2: getContactByName();break;
 		}
 	}
-	public void editContact(String id)
+	public void getContactById()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("1:Edit Name \n2:Edit ContactNo");
+		System.out.println("Enter id to Search");
+		String id=sc.next();
+		control=new ContactController();
+		Contact contact=control.getContactById(id);
+		updateContactInfo(contact);
+	}
+	public void getContactByName()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter name to Search");
+		String name=sc.next();
+		control=new ContactController();
+		Contact contact=control.getContactByName(name);
+		updateContactInfo(contact);
+	}
+	public void updateContactInfo(Contact contact)
+	{
+		Scanner sc=new Scanner(System.in);
+		if((contact.getName())==null)
+		{
+			System.out.println("no contact found..!");
+		}
+		else
+		{
+			System.out.println("ID: "+contact.getId()+"\nNAME: "+contact.getName()+"\nPhno: "+contact.getNo()+"\n");
+			System.out.println("\n1:Edit \n2:Delete \n3:Back to Main");
+			int select=sc.nextInt();
+			switch(select)
+			{
+				case 1: editContact(contact);break;
+				case 2: deleteContact(contact);break;
+				case 3:	displayContactInfo();break;
+			}
+		}
+	}
+	public void editContact(Contact contact)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1:Edit Name \n2:Edit ContactNo \n3:Back to Main");
 		int select=sc.nextInt();
-		String name;String num;
 		switch(select)
 		{
-			case 1:	System.out.println("Enter the new name");name=sc.next();
-					num=control.getNo(id);control.updateContact(id,name,num);System.out.println("updated!");break;
-			case 2: System.out.println("Enter the new number");num=sc.next();
-					name=control.getName(id);control.updateContact(id,name,num);System.out.println("updated!");break;
+			case 1:	editContactName(contact);break;
+			case 2: editContactNumber(contact);break;
+			case 3:	displayContactInfo();break;
 		}		
 	}
-	public void deleteContact(String id)
+	public void editContactName(Contact contact)
 	{
-		control.deleteContact(id);
+		Scanner sc=new Scanner(System.in);
+		int index=control.getIndex(contact);
+		System.out.println("Enter the new name");
+		String name=sc.next();
+		String num=control.getNo(contact);
+		String id=control.getId(contact);
+		control=new ContactController();
+		control.updateContact(index,id,name,num);
+		System.out.println("updated!");
+	}
+	public void editContactNumber(Contact contact)
+	{
+		Scanner sc=new Scanner(System.in);
+		int index=control.getIndex(contact);
+		System.out.println("Enter the new number");
+		String num=sc.next();
+		String name=control.getName(contact);
+		String id=control.getId(contact);
+		control=new ContactController();
+		control.updateContact(index,id,name,num);
+		System.out.println("updated!");
+	}
+	public void deleteContact(Contact contact)
+	{
+		int index=control.getIndex(contact);
+		control=new ContactController();
+		control.deleteContact(index);
 		System.out.println("contact Deleted!");
 	}
-	public void getContactById(Contact contact)
+	public void deleteAllContacts()
 	{
-		System.out.println(contact.getName());
-		System.out.println(contact.getNo());		
+		control=new ContactController();
+		control.deleteAllContacts();
 	}
 
 }

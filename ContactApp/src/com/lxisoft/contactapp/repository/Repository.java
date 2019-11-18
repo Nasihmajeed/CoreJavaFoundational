@@ -8,8 +8,7 @@ import java.io.*;
 public class Repository implements FileStorage
 {  
 	File contactFile=new File(fileName);
-	static int slNo=0;
-	Contact contact;
+	static int id=0;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 
 	public ArrayList<Contact> getAllContacts()
@@ -20,9 +19,9 @@ public class Repository implements FileStorage
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
-				slNo++;
+				id++;
 				String[] st=str.split(",",3);
-				contact=new Contact();
+				Contact	contact=new Contact();
 				contact.setId(st[0]);
 				contact.setName(st[1]);
 				contact.setNo(st[2]);
@@ -36,16 +35,31 @@ public class Repository implements FileStorage
 		return contacts;
 
 	}
-	public void addContactDetails(String id,String name,String number)
+	// public int getId()
+	// {
+	// 	try
+	// 	{
+	// 		BufferedReader read=new BufferedReader(new FileReader(contactFile));
+	// 		String str=read.readLine();
+	// 		while((str=read.readLine())!=null) 
+	// 		{
+	// 			String[] st=str.split(",",3);
+	// 			id=Integer.parseInt(st[0]);
+	// 		}	
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("");
+	// 	}
+	// 	System.out.println(id);
+	// 	return id;
+	// }
+	public void addContactDetails(Contact contact)
 	{
-		contact=new Contact();
-		contact.setId(id);
-		contact.setName(name);
-		contact.setNo(number);
 		contacts.add(contact);	
-		setContacts(contact);
+		contactWriteIntoFile(contact);
 	}
-	public void setContacts(Contact contact)
+	public void contactWriteIntoFile(Contact contact)
 	{
 		try
 		{
@@ -55,7 +69,6 @@ public class Repository implements FileStorage
 			String str=" ";
 			if((str=read.readLine())!=null)
 			{
-				slNo++;
 				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();
@@ -63,7 +76,7 @@ public class Repository implements FileStorage
 			else
 			{
 				br.write(" ID , NAME , NUMBER \n");
-				slNo++;
+				id++;
 				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 				br.flush();
 				br.close();
@@ -74,52 +87,32 @@ public class Repository implements FileStorage
 			System.out.println("File exception "+e);
 		}
 	}
-	public void deleteContact(String id)
+	public void deleteContact(int i)
 	{
-		int k=Integer.parseInt(id);
-		System.out.println(k);
-		contacts.remove(k);
-		for(int i=0;i<contacts.size();i++)
-			{
-				System.out.println(contacts.get(i).getId());
-				System.out.println(contacts.get(i).getName());
-				System.out.println(contacts.get(i).getNo());
-			}
+		contacts=getAllContacts();
+		contacts.remove(i);
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				setContacts(contacts.get(j));
+				contactWriteIntoFile(contacts.get(j));
 			}
 	}
-	public void updateContact(String id,String name,String num)
+	public void updateFile(int i,Contact contact)
 	{
-		contact=new Contact();
-		contact.setName(name);
-		contact.setNo(num);
-		int i=Integer.valueOf(id);
+		contacts=getAllContacts();
 		contacts.set(i,contact);
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				setContacts(contacts.get(j));
+				contactWriteIntoFile(contacts.get(j));
 			}
-	}
-	public String getName(String id)
-	{
-		int i=Integer.valueOf(id);
-		return contacts.get(i).getName();
-	}
-	public String getNo(String id)
-	{
-		int i=Integer.valueOf(id);
-		return contacts.get(i).getNo(); 
 	}
 	public void clearRepository()
 	{
 		try
 		{
+			id=0;
 			FileWriter ff= new FileWriter(contactFile);
-			slNo=0;
 		}	
 		catch(IOException e)
 		{

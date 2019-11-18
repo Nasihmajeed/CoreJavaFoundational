@@ -8,54 +8,117 @@ import java.io.*;
 import java.util.*;
 public class ContactController
 {
-	public Repository filerepo=new Repository();
-	public ContactView view=new ContactView();
+	private Repository filerepo=new Repository();
+	ContactView view=new ContactView();
 	public void getAllcontacts()
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		ContactsListModel contact=new ContactsListModel();
-		contact.setAllContacts(contacts);
-		ArrayList<ContactModel> contactlist1=contact.getAllContacts();
-		view.showAllContacts(contactlist1);
+		if(contacts!=null)
+		{
+			contact.setAllContacts(contacts);
+			ArrayList<ContactModel> contactlist=contact.getAllContacts();
+			view.showAllContacts(contactlist);
+		}
 	}
-	public void getContactById(String id)
+	public Contact getContactById(String id)
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Contact contact=new Contact();
-		//int value=0,val=0;
 		for(int i=0;i<contacts.size();i++)
 		{
 			if(id.equals(contacts.get(i).getId()))
 			{
-				view.getContactById(contacts.get(i));
+				contact=contacts.get(i);
 			}
-		}
+		}return contact;
 	}
-	public void updateContact(String id,String name,String number)
+	public Contact getContactByName(String name)
 	{
-		filerepo.updateContact(id,name,number);
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		Contact contact=new Contact();
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(name.equals(contacts.get(i).getName()))
+			{
+				contact=contacts.get(i);
+			}
+		}return contact;
+	}
+	public int getIndex(Contact contact)
+	{
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		int index=0;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				index=i;
+				System.out.println("index==="+index);
+			}
+		}return index;
+	}
+	public void updateContact(int i,String id,String name,String number)
+	{
+		Contact contact=new Contact();
+		contact.setId(id);
+		contact.setName(name);
+		contact.setNo(number);
+		filerepo.updateFile(i,contact);
 	}
 	public void addContactDetails(String id,String name,String number)
 	{
-		filerepo.addContactDetails(id,name,number);
+		Contact contact=new Contact();
+		contact.setId(id);
+		contact.setName(name);
+		contact.setNo(number);
+		filerepo.addContactDetails(contact);
 	}
-	public void deleteContact(String id)
+	public void deleteContact(int i)
 	{
-		filerepo.deleteContact(id);
+		filerepo.deleteContact(i);
 	}
-	public String getName(String id)
+	public String getName(Contact contact)
 	{
-		String name=filerepo.getName(id);
+		String name=null;
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				name=contact.getName();
+			}
+		}
 		return name;
 	}
-	public String getNo(String id)
+	public String getNo(Contact contact)
 	{
-		String num=filerepo.getNo(id);
+		String num=null;
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				num=contact.getNo();
+			}
+		}
 		return num;
 	}
-	// public String getId(String id)
-	// {
-	// 	id=filerepo.getId(id);
-	// 	return id;
-	// }
+	public String getId(Contact contact)
+	{
+		String id=null;
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				id=contact.getId();
+			}
+		}
+		return id;
+	}
+	public void deleteAllContacts()
+	{
+		filerepo.clearRepository();
+	}
 }
