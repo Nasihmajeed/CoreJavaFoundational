@@ -8,46 +8,42 @@ import java.util.ArrayList;
 import java.util.List;
 public class ContactController
 {
-	// private List <Contact> contactList=new ArrayList<Contact>();
 	Repository repo=new Repository();
 	View view=new View();
 	static int v=0;
-	// public void setContactList(List <Contact> contactList)
-	// {
-	// 	this.contactList=contactList;
-	// }
-	// public List <Contact> getContactList()
-	// {
-	// 	return contactList;
-	// }
-	// public int getListSize()
-	// {
-	// 	return contactList.size();
-	// }
-	// public void getContactInfo()
-	// {
-	//     getAllContacts();
-	//     view.display();
-	// 	// return contactList.get(j);
-	// }
 	public void getAllContacts()
 	{
 		List <Contact> contactList=repo.readFile();
-	    List<ContactModel> listModel=new ArrayList<ContactModel>();
+		ContactListModel listModel=new ContactListModel();
 	    for(int i=0;i<contactList.size();i++)
 	    {
 	    	ContactModel model=new ContactModel();
 	    	model.setId(contactList.get(i).getContactId());
 	    	model.setName(contactList.get(i).getContactName());
-	    	listModel.add(model);
+	    	listModel.setContactListModel(model);
 	    }
-	    view.getAllContacts(listModel);
+	    view.getAllContacts(listModel.getContactListModel());
+        display();
 	}
-	public Contact getContactById(String n)
+	public void display()
 	{
+		int a=view.display();
+		do
+		{
+		switch(a)
+		    {
+		    	case 1: getContactById(); break;
+		    	case 2: addContact(); break;
+				case 3: searchContact(); break;
+				case 4: deleteAllContact(); break;
+		    }
+		}while(a!=5);
+	}
+	public void getContactById()
+	{
+		String n=view.getContactId();
 		List <Contact> contactList=repo.readFile();
 		Contact contact=new Contact();
-		contactList=repo.readFile();
 		for(int i=0;i<contactList.size();i++)
 		{
 			if((contactList.get(i).getContactId()).equals(n))
@@ -55,82 +51,88 @@ public class ContactController
 				contact=contactList.get(i);
 			}
 		}
-		return contact;
+		view.getContactById(contact);
+		int a=0;
+		do
+		{
+			a=view.getContactOperation();
+			switch(a)
+			{
+				case 1: updateContact(n); break;
+				case 2: deleteContact(n); break;
+			}
+
+		}while(a!=3);
 	}
-	// public void setFile()
-	// {
-	// 	v=repo.checkFile(v);
-	// 	repo.setFile(v);
-	// }
-	// public void addContact(String name,String number)
-	// {
-	// 	Contact cont=new Contact();
-	// 	cont.setContactName(name);
-	// 	cont.setContactNumber(number);
-	// 	repo.writeFile(cont);
-	// }
-	// public Contact searchContact(int n)
-	// {
-	// 	Contact contact=new Contact();
-	// 	contactList=repo.readFile();
-	// 	int index=0;
-	// 	for(int i=0;i<contactList.size();i++)
-	// 	{
-	// 		index=contactList.indexOf(contactList.get(i));
-	// 		if((n-1)==(index))
-	// 		{
-	// 			contact=contactList.get((index));
-	// 		}
-	// 	}
-	// 	return contact;
-	// }
-	// public void deleteContact(int n)
-	// {
-	// 	contactList=repo.readFile();
-	// 	System.out.println(" ab  "+contactList.size());
-	// 	for(int i=0;i<contactList.size();i++)
-	// 	{
-	// 		int index=contactList.indexOf(contactList.get(i));
-	// 		if(n==(index+1))
-	// 		{
-	// 			contactList.remove(i);
-	// 		}	
-	// 	}
-	// 	repo.resetFile();
-	// 	int v=1;
-	// 	repo.setFile(v);
-	// 	System.out.println(" a l "+contactList.size());
-	// 	for(int j=0;j<contactList.size();j++)
-	// 	{
-	// 		repo.rewriteFile(contactList.get(j));
-	// 	}
-	// }
-	// public void updateContact(String num,int n)
-	// {
-	// 	contactList=repo.readFile();
-	// 	System.out.println(" read file=  "+contactList.size());
-	// 	for(int i=0;i<contactList.size();i++)
-	// 	{
-	// 		if(contactList.get(n).equals(contactList.get(i)))
-	// 		{
-	// 			Contact c=contactList.get(i);
-	// 			c.setContactNumber(num);
-	// 			contactList.set(i,c);
-	// 		}	
-	// 	}
-	// 	repo.resetFile();
-	// 	System.out.println(" list size "+contactList.size());
-	// 	int v=1;
-	// 	repo.setFile(v);
-	// 	for(int j=0;j<contactList.size();j++)
-	// 	{
-	// 		repo.rewriteFile(contactList.get(j));
-	// 	}
-	// }
-	// public void deleteAllContact()
-	// {
-	// 	repo.resetFile();
-	// 	contactList.clear();
-	// }
+	public void setFile()
+	{
+		v=repo.checkFile(v);
+		repo.setFile(v);
+	}
+	public void addContact()
+	{
+		setFile();
+		Contact cont=view.addContact();	
+		repo.writeFile(cont);
+	}
+	public void searchContact()
+	{
+		String n=view.getContactId();
+		Contact contact=new Contact();
+		List <Contact> contactList=repo.readFile();
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(n.equals(contactList.get(i).getContactId()))
+			{
+				contact=contactList.get(i);
+			}
+		}
+		view.searchContact(contact);
+	}
+	public void deleteContact(String n)
+	{
+		List <Contact> contactList=repo.readFile();
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(n.equals(contactList.get(i).getContactId()))
+			{
+				contactList.remove(i);
+			}	
+		}
+		repo.resetFile();
+		int v=1;
+		repo.setFile(v);
+		for(int j=0;j<contactList.size();j++)
+		{
+			repo.rewriteFile(contactList.get(j));
+		}
+		view.deleteContact();
+	}
+	public void updateContact(String n)
+	{
+		List <Contact> contactList=repo.readFile();
+		String num=view.updateContact();
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(n.equals(contactList.get(i).getContactId()))
+			{
+				Contact c=contactList.get(i);
+				c.setContactNumber(num);
+				contactList.set(i,c);
+			}	
+		}
+		repo.resetFile();
+		int v=1;
+		repo.setFile(v);
+		for(int j=0;j<contactList.size();j++)
+		{
+			repo.rewriteFile(contactList.get(j));
+		}
+	}
+	public void deleteAllContact()
+	{
+		repo.resetFile();
+		view.deleteAllContact();
+	}
 	
 }

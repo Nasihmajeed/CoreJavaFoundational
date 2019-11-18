@@ -12,68 +12,68 @@ public class Repository implements FileDataSource
 	FileWriter f=null;
 	BufferedWriter b=null;
 	
-	// public int checkFile(int v)
-	// {
-	// 	String s=null;
-	// 	try
-	// 	{
-	// 		fw=new FileWriter(contactFile,true);
-	// 		bw=new BufferedWriter(fw);
-	// 		FileReader fr=new FileReader(contactFile);
-	// 		BufferedReader br=new BufferedReader(fr);
-	// 		if((s=br.readLine())==null)
-	// 		{
-	// 			v=1;
-	// 		}
-	// 		else
-	// 		{
-	// 			while((s=br.readLine())!=null)
-	// 			{
-	// 				in++;
-	// 			}
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println(" file is not present"+e);
-	// 	}
-	// 	return v;
-	// }
-	// public void setFile(int v)
-	// {
+	public int checkFile(int v)
+	{
+		String s=null;
+		try
+		{
+			fw=new FileWriter(contactFile,true);
+			bw=new BufferedWriter(fw);
+			FileReader fr=new FileReader(contactFile);
+			BufferedReader br=new BufferedReader(fr);
+			if((s=br.readLine())==null)
+			{
+				v=1;
+			}
+			else
+			{
+				while((s=br.readLine())!=null)
+				{
+					in++;
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(" file is not present"+e);
+		}
+		return v;
+	}
+	public void setFile(int v)
+	{
 		
-	// 	try
-	// 	{
-	// 		fw=new FileWriter(contactFile,true);
-	// 		bw=new BufferedWriter(fw);
-	// 		if(v==1)
-	// 		{
-	// 			bw.write("ID"+","+"NAME"+","+"Number\n");
-	// 			bw.flush();
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println(" file is not present"+e);
-	// 	}
+		try
+		{
+			fw=new FileWriter(contactFile,true);
+			bw=new BufferedWriter(fw);
+			if(v==1)
+			{
+				bw.write("ID"+","+"NAME"+","+"Number\n");
+				bw.flush();
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(" file is not present"+e);
+		}
 		
-	// }
-	// public void writeFile(Contact contact)
-	// {
-	// 	try
-	// 	{
-	// 		fw=new FileWriter(contactFile,true);
-	// 		bw=new BufferedWriter(fw);
-	// 		in++;
-	// 		String id=String.valueOf(in);
-	// 		bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
-	// 		bw.flush();
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(" error"+e);
-	// 	}	
-	// }
+	}
+	public void writeFile(Contact contact)
+	{
+		try
+		{
+			fw=new FileWriter(contactFile,true);
+			bw=new BufferedWriter(fw);
+			in++;
+			String id=String.valueOf(in);
+			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
+			bw.flush();
+		}
+		catch(IOException e)
+		{
+			System.out.println(" error"+e);
+		}	
+	}
 	public List <Contact> readFile()
 	{
 	
@@ -91,7 +91,7 @@ public class Repository implements FileDataSource
 				c.setContactId(cont[0]);
 				c.setContactName(cont[1]);	
 				c.setContactNumber(cont[2]);
-				in++;			
+				// in++;			
 				contactList.add(c);
 			}
 		}
@@ -101,33 +101,32 @@ public class Repository implements FileDataSource
 		}
 		return contactList; 
 	}
-	// public void resetFile()
-	// {
-	// 	try
-	// 	{
-	// 		f=new FileWriter(contactFile);
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(" error"+e);
-	// 	}
-	// 	in=0;
-	// }
-	// public void rewriteFile(Contact contact)
-	// {
-	// 	try
-	// 	{
-	// 		f=new FileWriter(contactFile,true);
-	// 		b=new BufferedWriter(f);
-	// 		in++;
-	// 		String id=String.valueOf(in);
-            
-	// 		b.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
-	// 		b.flush();
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(" error"+e);
-	// 	}	
-	// }
+	public void resetFile()
+	{
+		try
+		{
+			f=new FileWriter(contactFile);
+		}
+		catch(IOException e)
+		{
+			System.out.println(" error"+e);
+		}
+		in=0;
+	}
+	public void rewriteFile(Contact contact)
+	{
+		try
+		{
+			f=new FileWriter(contactFile,true);
+			b=new BufferedWriter(f);
+			// in++;
+			// String id=String.valueOf(in);
+			b.write(contact.getContactId()+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
+			b.flush();
+		}
+		catch(IOException e)
+		{
+			System.out.println(" error"+e);
+		}	
+	}
 }

@@ -6,9 +6,9 @@ import java.util.List;
 public class ContactListModel
 {
 	private List<ContactModel> contactListModel=new ArrayList<ContactModel>();
-	public void setContactListModel(List<ContactModel> contactListModel)
+	public void setContactListModel(ContactModel model)
 	{
-		this.contactListModel=contactListModel;
+		contactListModel.add(model);
 	}
 	public List<ContactModel> getContactListModel()
 	{
