@@ -1,6 +1,6 @@
 package com.lxisoft.Model;
 
-public class View
+public class Model1
 {   
 	private String id;
 	private String name;
@@ -17,7 +17,7 @@ public class View
 	{
 		this.id=id;
 	}
-	public String id()
+	public String getId()
 	{
 		return this.id;
 	}

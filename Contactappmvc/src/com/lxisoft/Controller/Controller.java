@@ -12,6 +12,9 @@ public ArrayList <Contact> start()
 {
 	contactslist = r.getAllContacts();
 	view.display();
+  Model1 model = new Model1();
+  model.setId(contactslist.get(i).getId());
+  model.setName(contactslist.get(i).getName()); 
 	
 
 	//return contactslist;

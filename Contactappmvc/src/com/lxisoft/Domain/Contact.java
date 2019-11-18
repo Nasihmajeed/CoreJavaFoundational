@@ -1,7 +1,8 @@
 package com.lxisoft.Domain;
 import com.lxisoft.Controller.Controller;
 public class Contact
-{   private String name;
+{ 
+  private String name;
 	private String number;
 	private String id;
 	public void setName(String n)

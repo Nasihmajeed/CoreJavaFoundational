@@ -20,7 +20,7 @@ public class View
       a = in.nextInt();
       switch(a)
       {
-         case 1 : //ADD
+          case 1 : //ADD
                  addContact(control);
                  break;
           case 2 : //DELETE
