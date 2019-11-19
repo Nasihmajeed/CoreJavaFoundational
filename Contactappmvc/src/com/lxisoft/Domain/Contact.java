@@ -4,7 +4,7 @@ public class Contact
 { 
   private String name;
 	private String number;
-	private String id;
+	private static String id;
 	public void setName(String n)
 	{
       this.name = n;

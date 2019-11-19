@@ -2,26 +2,34 @@ package com.lxisoft.Controller;
 import com.lxisoft.Domain.Contact;
 import java.util.ArrayList;
 import com.lxisoft.Repository.Repository;
-
+import com.lxisoft.View.View;
+import com.lxisoft.Model.Model1;
+import com.lxisoft.Model.ModelList;
 public class Controller
 {
   ArrayList <Contact> contactslist = new  ArrayList <Contact>();	
   Repository r = new Repository();
   View view = new View();
-public ArrayList <Contact> start()
-{
-	contactslist = r.getAllContacts();
-	view.display();
-  Model1 model = new Model1();
-  model.setId(contactslist.get(i).getId());
-  model.setName(contactslist.get(i).getName()); 
-	
+  
+  public void start()
+  {
+	  contactslist = r.getAllContacts();
+    for(int i=0;i<contactslist.size();i++)
+    {
+    Model1 model = new Model1();
+    model.setId(contactslist.get(i).getId());
+    model.setName(contactslist.get(i).getName()); 
+    ModelList ml = new ModelList();
+    ml.setContactsList(model);
+	  }
+    view.display();
 
-	//return contactslist;
-}
-  public ArrayList<Contact> addContact(String name,String number)
+  }
+ 
+  public ArrayList<Contact> addContact(String id,String name,String number)
   {
    Contact contact = new Contact(); 
+   contact.setId(id);
    contact.setName(name);
    contact.setNumber(number);
    contactslist.add(contact);

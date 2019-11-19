@@ -1,5 +1,5 @@
 package com.lxisoft.Model;
-
+import com.lxisoft.Controller.Controller;
 public class Model1
 {   
 	private String id;

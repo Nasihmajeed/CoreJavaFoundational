@@ -1,6 +1,6 @@
 package com.lxisoft.View;
 import com.lxisoft.Controller.Controller;
-import com.lxisoft.Model.Contact;
+import com.lxisoft.Domain.Contact;
 import java.io.*;
 import java.util.*;
 public class View
@@ -47,12 +47,12 @@ public class View
         for(int i=1;i<=x;i++)
         {   try{       
                 Contact c ;
-              
+                String id;
                 System.out.println("Enter the name:");
                 String name = input.readLine();
                 System.out.println("Enter the phone number:");
                 String number = input.readLine();
-                contactslist=control.addContact(name,number);
+                contactslist=control.addContact(id,name,number);
                 System.out.println(contactslist.size());
               }catch(IOException e){}
               
@@ -64,8 +64,10 @@ public class View
      {    contactslist = control.display();
           for(int i=0;i<contactslist.size();i++)
           {
+            System.out.println("Id     "+(i+1)+":"+contactslist.get(i).getId());
             System.out.println("Name   "+(i+1)+":"+contactslist.get(i).getName());
             System.out.println("Number "+(i+1)+":"+contactslist.get(i).getNumber());
+
           }
      }
   

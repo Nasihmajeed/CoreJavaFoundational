@@ -12,11 +12,11 @@ public class Repository
        File file = new File("Contact1.csv");
        PrintWriter pw = new PrintWriter(file); 
        if(file.length()==0) 
-        {pw.println("NAME"+","+"NUMBER");}
+        {pw.println("ID"+","+"NAME"+","+"NUMBER");}
          pw.flush();
      for(int i=0;i<contactslist.size();i++)
      {
-     	pw.println(contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
+     	pw.println(contactslist.get(i).getId()+","+contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
         pw.flush();
      }
       }catch(IOException e){}
@@ -35,6 +35,7 @@ public class Repository
            	String name = datas[0];
            	String number=datas[1];
            	Contact c= new Contact();
+           // c.setId(id);
            	c.setName(name);
            	c.setNumber(number);
            	filelist.add(c);

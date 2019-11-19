@@ -1,6 +1,5 @@
 package com.lxisoft.Model;
-
-
+import java.util.ArrayList;
 public class ModelList
 {
 	private ArrayList <Model1> modelslist = new ArrayList <Model1>();
