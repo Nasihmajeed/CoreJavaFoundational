@@ -7,17 +7,27 @@ import com.lxisoft.contactapp.view.*;
 import java.io.*;
 import java.util.*;
 /**
- * Main method to get All contact Information.
- * @param string array.
+ * Contactcontroller class to control All the views.
  */
 public class ContactController
 {
+	/**
+	 * instance variables filerepo and view.
+	 */
 	private Repository filerepo=new Repository();
-	ContactView view=new ContactView();
+	private ContactView view=new ContactView();
+	/**
+	 * getAllContactInfo to get the contact details from repository and displaying in view.
+	   @return null.
+	 */
 	public void getAllcontactInfo()
 	{
 		view.displayContactInfo();
 	}
+	/**
+	 *  getAllContacts (id and name only) from file to arraylist.
+	    @return contact Arraylist.
+	 */
 	public ArrayList<ContactModel> getAllcontacts()
 	{
 		ArrayList<ContactModel> contactlist=null;
@@ -36,11 +46,20 @@ public class ContactController
 			//view.showAllContacts(contactlist);
 		}return contactlist;
 	}
+	/**
+	 *  getAllContacts (all contact details) from file to arraylist.
+	    @return contact Arraylist based on domain.
+	 */
 	public ArrayList<Contact> getAllContact()
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		return contacts;
 	}
+	/**
+	 *  get contact by id from repository.
+	 	@param id.
+	    @return contact entity based on domain.
+	 */
 	public Contact getContactById(String id)
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
@@ -53,6 +72,11 @@ public class ContactController
 			}
 		}return contact;
 	}
+	/**
+	 *  get contact by name from repository.
+	 	@param name.
+	    @return contact entity based on domain.
+	 */
 	public Contact getContactByName(String name)
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
@@ -63,8 +87,13 @@ public class ContactController
 			{
 				contact=contacts.get(i);
 			}
-		}return contact;
+		}return contact;  
 	}
+	/**
+	 *  get contact index from repository.
+	 	@param contact.
+	    @return index
+	 */
 	public int getIndex(Contact contact)
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
@@ -78,6 +107,11 @@ public class ContactController
 			}
 		}return index;
 	}
+	/**
+	 *  update contact based on name and number.
+	 	@param index,id,name,number.
+	    @return null
+	 */
 	public void updateContact(int i,String id,String name,String number)
 	{
 		Contact contact=new Contact();
@@ -86,6 +120,11 @@ public class ContactController
 		contact.setNo(number);
 		filerepo.updateFile(i,contact);
 	}
+	/**
+	 *  add contact details.
+	 	@param name,number.
+	    @return null
+	 */
 	public void addContactDetails(String name,String number)
 	{
 		Contact contact=new Contact();
@@ -94,10 +133,19 @@ public class ContactController
 		contact.setNo(number);
 		filerepo.addContactDetails(contact);
 	}
+	/**
+	 *  delete contact details.
+	    @return null
+	 */
 	public void deleteContact(int i)
 	{
 		filerepo.deleteContact(i);
 	}
+	/**
+	 *  getname of the corresponding contact.
+	 	@param contact
+	    @return name
+	 */
 	public String getName(Contact contact)
 	{
 		String name=null;
@@ -111,6 +159,11 @@ public class ContactController
 		}
 		return name;
 	}
+	/**
+	 *  getnumber of the corresponding contact.
+	 	@param contact.
+	    @return num.
+	 */
 	public String getNo(Contact contact)
 	{
 		String num=null;
@@ -124,6 +177,7 @@ public class ContactController
 		}
 		return num;
 	}
+
 	public String getId(Contact contact)
 	{
 		String id=null;

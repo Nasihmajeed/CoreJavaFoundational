@@ -1,10 +1,18 @@
 package com.lxisoft.contactapp.Domain;
+/**
+ * pojo : Contact class for set and get contact details
+ */
 public class Contact
 {
+	/**
+	 * instance variables id name and number.
+	 */
 	private String id;
 	private String name;
 	private String phno;
-	
+	/**
+	 * 
+	 */
 	public void setId(String id)
 	{
 		this.id=id;
