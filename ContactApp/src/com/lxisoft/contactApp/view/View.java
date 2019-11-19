@@ -3,16 +3,18 @@ import com.lxisoft.contactApp.model.ViewContactModel;
 import com.lxisoft.contactApp.controller.Controller;
 import java.util.Scanner;
 import java.io.Console;
+import java.util.ArrayList;
 import com.lxisoft.contactApp.domain.Contact;
+import com.lxisoft.contactApp.repository.Repository;
 public class View 
 {
  	Scanner scan=new Scanner(System.in);
 	Console console = System.console();
-	public Repository repo;
+	Repository repo=new Repository();
 	public ViewContactModel viewContacts=new ViewContactModel();
 	public void start()
 	{
-		repo=new Repository();
+		
 		System.out.println("********CONTACT BOOK*********\n");
 		repo.createPhoneData(contacts);
 		//controller.fileCreation();
@@ -39,7 +41,7 @@ public class View
 		System.out.println();
 	}
 
-	public void create()
+	/*public void create()
 	{
 		System.out.println("Enter contact name:");
 		String name=console.readLine();
@@ -154,6 +156,6 @@ public class View
 
 		}
 
-	}
+	}*/
 
 }

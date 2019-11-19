@@ -5,7 +5,7 @@ import com.lxisoft.contactApp.repository.Repository;
 import com.lxisoft.contactApp.view.View;
 public class Controller 
 {
-	public Repository repo=new Repository();
+	Repository repo=new Repository();
 	public View view=new View();
 	private ArrayList<Contact> contacts=new ArrayList<Contact>();
 
