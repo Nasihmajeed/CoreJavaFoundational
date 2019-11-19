@@ -7,7 +7,7 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		System.out.println("        CONTACT APP\n        ***************");
+		System.out.println("           CONTACT APP\n        *******************");
 		ContactControl control=new ContactControl();
 		control.getContactDetails();
     }

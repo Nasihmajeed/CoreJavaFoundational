@@ -7,7 +7,6 @@ import com.lxisoft.repository.*;
 public class ContactControl
 {
     Repository repository=new Repository();
-    
     ContactView view=new ContactView();
     
 	public void getContactDetails()
@@ -29,8 +28,8 @@ public class ContactControl
         int ch=view.display();
         switch(ch)
         {
-            case 1:ContactByIdDetails();
-            
+            case 1:ContactByIdDetails();break;     
+            case 2:addDetails();break; 
         }
     }
     public void ContactByIdDetails()
@@ -47,23 +46,13 @@ public class ContactControl
         }
         view.getContactById(c);
     }
-    // public Contact viewDetails(int i)
-    // {
-    //     return repository.getContactList().get(i);
-       
-    // }
-    // public int getArraySize()
-    // {
-    //     return repository.getContactListSize();
-    // }
-    // public void addDetails(String name,String contactNo)
-    // {
-    // 	Contact c=new Contact();
-    // 	c.setName(name);
-    // 	c.setContactNo(contactNo);
-    //     repository.createFile(c);
-    //     // repository.readFile();
-    // }
+    public void addDetails()
+    {
+    	Contact c=new Contact();
+    	c=view.addContact();
+        repository.createFile(c);
+        repository.readFile();
+    }
 //     public void selectDetails(int no)
 //     {
 //         for(int i=0;i<contactList.size();i++)

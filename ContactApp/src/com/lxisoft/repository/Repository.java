@@ -77,7 +77,7 @@ public class Repository implements FileRepository
 				c.setId(str[0]);
 				c.setName(str[1]);
 				c.setContactNo(str[2]);
-				System.out.println(read+"\n");
+				// System.out.println(read+"\n");
 				contactList.add(c);
 			}
 		}

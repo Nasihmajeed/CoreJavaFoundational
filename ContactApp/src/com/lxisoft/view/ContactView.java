@@ -20,9 +20,9 @@ public class ContactView
 		// 	c=0;
 		// 	System.out.println("\nDo you want to perform any operations?\n0-Add\n1-Select\n2-Search");
 		// 	int x=sc.nextInt();
-		// 	switch(x)
+		// 	switch(x)89
 		// 	{
-		// 		case 0:addContact(control);break;a
+		// 		case 0:addContact(control);break;
 		// 		case 1:selectContact(control);break;
 		// 		case 2:searchContact(control);break;
 		// 		default:System.out.println("Invalid Selection");
@@ -37,7 +37,7 @@ public class ContactView
 	{
 		if((contactsList.size()!=0))
 		{
-			System.out.println("         CONTACT LIST \n        ***************");
+			System.out.println("         Contact List \n        --------------------");
 			System.out.println("\t ID \t NAME ");
 			for(int i=0;i<contactsList.size();i++)
 			{
@@ -77,15 +77,18 @@ public class ContactView
 	// 		System.out.println(" Name= "+control.viewDetails(i).getName());
 	// 	}
 	// }
-	// public void addContact(ContactControl control)
-	// {
-	// 	Scanner sc=new Scanner(System.in);
-	// 	System.out.println("\nEnter Contact name:");
-	// 	String name=sc.next();
-	// 	System.out.println("\nEnter contact number:");
-	// 	String contactNo=sc.next();
-	// 	// control.addDetails(name,contactNo);
-	// }
+	public Contact addContact()
+	{
+		Scanner sc=new Scanner(System.in);
+		Contact c=new Contact();
+		System.out.println("\nEnter Contact name:");
+		String name=sc.next();
+		c.setName(name);
+		System.out.println("\nEnter contact number:");
+		String contactNo=sc.next();
+		c.setContactNo(contactNo);
+	    return c;
+	}
 // 	public void selectContact(ContactControl control)
 // 	{
 // 		Scanner sc=new Scanner(System.in);
