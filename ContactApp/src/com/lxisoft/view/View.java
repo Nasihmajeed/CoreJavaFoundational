@@ -13,7 +13,6 @@ public class View
 	
 	public void findAllContacts(ViewAllModel viewAllModel)
 	{
-		int i=0;
 		System.out.print("\n THE CONTACT LIST IS \nID\t\t  NAME\n");
 		for(Contact contact: viewAllModel.getList())
 		{
@@ -23,7 +22,17 @@ public class View
 
 	public String[] byName()
 	{
-		System.out.println("enter the name  to search ");
+		System.out.println("enter the NAME  to search ");
+		String[] temp=new String[2];
+		temp[0]=sc.next();
+		System.out.print(" press--> y-search  n-cancel");
+		temp[1]=sc.next();
+		return temp;
+	}
+
+	public String[] byId()
+	{
+		System.out.println("enter the ID  to search ");
 		String[] temp=new String[2];
 		temp[0]=sc.next();
 		System.out.print(" press--> y-search  n-cancel");
@@ -31,7 +40,7 @@ public class View
 		return temp;
 	}
 	
-	public void printByName(Contact contact,int i)
+	public void printByName(Contact contact)
 	{
 		System.out.print("Id:-"+contact.getId()+"\t\tName- " +contact.getName());
 		System.out.print("\t\tNumber- " + contact.getNumber()+"\n");
@@ -39,7 +48,7 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press-->  1-save  2-search  3-select  4-backtohome  5-exit");
+		System.out.println("\n press-->  1-save  2-search  3-searchById  4-select  5-backtohome  6-exit");
 		int option=sc.nextInt();
 		return option;	
 	}
@@ -91,6 +100,11 @@ public class View
 		}
 		else
 			return null;
+	}
+
+	public void noContact()
+	{
+		System.out.println("Contact not present");
 	}
 
 }

@@ -86,23 +86,6 @@ public class FileRepository implements FileStorage
 		return contactList;
 	}	
 
-	// public void findByName(String name)
-	// {
-	// 	int no=0;
-	// 	ArrayList<Contact> contactList=findAll();
-	// 	for(int i=0;i<contactList.size();i++)
-	// 	{
-	// 		if(contactList.get(i).getName().equals(name))
-	// 		{
-	// 			no=1;
-	// 			view.displayContact(contactList.get(i));
-	// 			System.out.print("\n");
-	// 		}
-	// 	}
-	// 	if(no==0)
-	// 		view.noContact();
-	// }
-
 	public ArrayList<Contact> delete(Contact contact)
 	{
 		ArrayList<Contact> contactList=findAll();

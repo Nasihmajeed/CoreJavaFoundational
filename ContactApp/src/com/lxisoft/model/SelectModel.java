@@ -3,7 +3,7 @@ import com.lxisoft.model.*;
 import com.lxisoft.domain.*;
 import java.util.ArrayList;
 
-public class ViewSelectModel
+public class SelectModel
 {
 	ArrayList<Contact> contactList=new ArrayList<Contact>();
 

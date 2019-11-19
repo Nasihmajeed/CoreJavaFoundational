@@ -16,7 +16,7 @@ public class ContactController
 		while(true)
 		{
 			int option=view.optionsScaning();
-			if(option==5)
+			if(option==6)
 				break;
 			else
 			{
@@ -33,8 +33,9 @@ public class ContactController
 		{
 			case 1:saveContact();break;
 			case 2:contactByName();break;
-			case 3:contactSelect();break;
-			case 4:allContacts();break;
+			case 3:contactById();break;
+			case 4:contactSelect();break;
+			case 5:allContacts();break;
 		}
 	}
 
@@ -72,16 +73,49 @@ public class ContactController
 			System.out.println("-search details-");
 			for(Contact contact: viewByName.getList())
 			{
-				i++;
 				if(contact.getName().equals(tempSearch[0]))
 				{
-					view.printByName(contact,i);
+					i=1;
+					view.printByName(contact);
 					temp=contact;
 				}
 			}
 		}
-		String ch=view.choose();
-		contactChoose(temp,ch);
+		if(i==1)
+		{
+			String ch=view.choose();
+			contactChoose(temp,ch);
+		}
+		else
+			view.noContact();
+	}
+
+	public void contactById()
+	{
+		int i=0;
+		String[] tempSearch=view.byId();
+		ArrayList<Contact> contactList=repository.findAll();
+		ViewByIdModel viewByIdModel=new ViewByIdModel();
+		if(tempSearch[1].equals("y"))
+		{
+			System.out.println("-id search details-");
+			for(Contact contact: contactList)
+			{
+				if(contact.getId().equals(tempSearch[0]))
+				{
+					i=1;
+					viewByIdModel.setContact(contact);
+					view.printByName(viewByIdModel.getContact());
+				}
+			}
+		}
+		if(i==1)
+		{
+			String ch=view.choose();
+			contactChoose(viewByIdModel.getContact(),ch);
+		}
+		else
+			view.noContact();
 	}
 
 	public void contactChoose(Contact contact,String ch)
@@ -97,21 +131,26 @@ public class ContactController
 	{
 		String name=view.select();
 		Contact temp=new Contact();
-		ViewSelectModel viewSelectModel=new ViewSelectModel();
-		viewSelectModel.setList(repository.findAll());
+		SelectModel selectModel=new SelectModel();
+		selectModel.setList(repository.findAll());
 		int i=0;
 		System.out.println("-contact selected-");
-		for(Contact contact: viewSelectModel.getList())
+		for(Contact contact: selectModel.getList())
 		{
-			i++;
 			if(contact.getName().equals(name))
 			{
-				view.printByName(contact,i);
+				i=1;
+				view.printByName(contact);
 				temp=contact;
 			}
 		}
-		String ch=view.choose();
-		contactChoose(temp,ch);
+		if(i==1)
+		{
+			String ch=view.choose();
+			contactChoose(temp,ch);
+		}
+		else
+			view.noContact();
 	}
 
 	public void sync(ArrayList<Contact> contactList)
