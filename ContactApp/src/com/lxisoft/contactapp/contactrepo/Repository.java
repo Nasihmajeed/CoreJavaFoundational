@@ -50,7 +50,7 @@ public Contact searchList(String name){
 			if(name.equals(contacts.get(i).getName())){
 				count++;
 				c=contacts.get(i);
-      		}
+      		} 
   		 }
     if(count==1){
    		return c;
