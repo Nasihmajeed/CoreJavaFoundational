@@ -6,6 +6,10 @@ import com.lxisoft.contactapp.repository.*;
 import com.lxisoft.contactapp.view.*;
 import java.io.*;
 import java.util.*;
+/**
+ * Main method to get All contact Information.
+ * @param string array.
+ */
 public class ContactController
 {
 	private Repository filerepo=new Repository();
@@ -77,7 +81,7 @@ public class ContactController
 	public void updateContact(int i,String id,String name,String number)
 	{
 		Contact contact=new Contact();
-		//contact.setId(id);
+		contact.setId(id);
 		contact.setName(name);
 		contact.setNo(number);
 		filerepo.updateFile(i,contact);

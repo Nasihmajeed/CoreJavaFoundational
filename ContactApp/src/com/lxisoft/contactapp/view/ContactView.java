@@ -22,7 +22,6 @@ public class ContactView
 				System.out.println(contact.get(i).getId()+"\t"+contact.get(i).getName()+"\n");
 			}
 		}
-		//displayContactInfo(control);
 	}
 	public void displayContactInfo()
 	{
@@ -143,10 +142,12 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		int index=control.getIndex(contact);
+		System.out.println("ind"+index);
 		System.out.println("Enter the new name");
 		String name=sc.next();
 		String num=control.getNo(contact);
 		String id=control.getId(contact);
+		System.out.println("num"+num);
 		control.updateContact(index,id,name,num);
 		System.out.println("updated!");
 	}
@@ -154,16 +155,19 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		int index=control.getIndex(contact);
+		System.out.println("ind"+index);
 		System.out.println("Enter the new number");
 		String num=sc.next();
 		String name=control.getName(contact);
 		String id=control.getId(contact);
+		System.out.println("name"+name);
 		control.updateContact(index,id,name,num);
 		System.out.println("updated!");
 	}
 	public void deleteContact(Contact contact,ContactController control)
 	{
 		int index=control.getIndex(contact);
+		System.out.println("ind"+index);
 		control.deleteContact(index);
 		System.out.println("contact Deleted!");
 	}
@@ -171,5 +175,4 @@ public class ContactView
 	{
 		control.deleteAllContacts();
 	}
-
 }
