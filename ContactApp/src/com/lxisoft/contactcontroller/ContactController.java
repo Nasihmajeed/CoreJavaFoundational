@@ -22,7 +22,7 @@ public class ContactController
 	    	model.setName(contactList.get(i).getContactName());
 	    	listModel.setContactListModel(model);
 	    }
-	    view.getAllContacts(listModel.getContactListModel());
+		view.getAllContacts(listModel.getContactListModel());
         display();
 	}
 	public void display()
@@ -62,7 +62,6 @@ public class ContactController
 				case 1: updateContact(n); break;
 				case 2: deleteContact(n); break;
 			}
-
 		}while(a!=3);
 	}
 	public void setFile()

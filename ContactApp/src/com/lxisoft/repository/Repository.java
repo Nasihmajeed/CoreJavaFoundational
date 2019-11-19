@@ -5,7 +5,7 @@ import java.util.List;
 import com.lxisoft.domain.*;
 public class Repository implements FileDataSource
 {
-	static int in=0;
+	static int in=1;
 	File contactFile=new File(fileName);
 	FileWriter fw=null;
 	BufferedWriter bw=null;
@@ -21,21 +21,14 @@ public class Repository implements FileDataSource
 			bw=new BufferedWriter(fw);
 			FileReader fr=new FileReader(contactFile);
 			BufferedReader br=new BufferedReader(fr);
-			if((s=br.readLine())==null)
+			if(((s=br.readLine())==null)&(v==0))
 			{
 				v=1;
 			}
-			else
-			{
-				while((s=br.readLine())!=null)
-				{
-					in++;
-				}
-			}
 		}
-		catch(Exception e)
+		catch(IOException e)
 		{
-			System.out.println(" file is not present"+e);
+			System.out.println(""+e);
 		}
 		return v;
 	}
@@ -58,14 +51,35 @@ public class Repository implements FileDataSource
 		}
 		
 	}
+	public int getContactId()
+	{
+		String s=null;
+		try
+		{
+			BufferedReader br=new BufferedReader(new FileReader(contactFile));
+			s=br.readLine();
+			while((s=br.readLine())!=null)
+			{	
+				String[] c=s.split(",",3);
+				in=Integer.parseInt(c[0]);
+				in++;
+			}
+
+		}
+		catch(IOException e)
+		{
+			System.out.println(""+e);
+		}
+		return in;
+	}
 	public void writeFile(Contact contact)
 	{
 		try
 		{
 			fw=new FileWriter(contactFile,true);
 			bw=new BufferedWriter(fw);
-			in++;
-			String id=String.valueOf(in);
+			int i=getContactId();
+			String id=String.valueOf(i);
 			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
 			bw.flush();
 		}
@@ -80,19 +94,25 @@ public class Repository implements FileDataSource
 		List <Contact> contactList=new ArrayList<Contact>();
 		try
 		{
-			String contacts;
-			FileReader fr=new FileReader(contactFile);
-			BufferedReader br=new BufferedReader(fr);
-			contacts=br.readLine();
-			while((contacts=br.readLine())!=null)
+			if(contactFile.exists())
 			{
-				String[] cont=contacts.split(",",3);
-				Contact c=new Contact();
-				c.setContactId(cont[0]);
-				c.setContactName(cont[1]);	
-				c.setContactNumber(cont[2]);
-				// in++;			
-				contactList.add(c);
+				String contacts;
+				FileReader fr=new FileReader(contactFile);
+				BufferedReader br=new BufferedReader(fr);
+				contacts=br.readLine();
+				while((contacts=br.readLine())!=null)
+				{
+					String[] cont=contacts.split(",",3);
+					Contact c=new Contact();
+					c.setContactId(cont[0]);
+					c.setContactName(cont[1]);	
+					c.setContactNumber(cont[2]);			
+					contactList.add(c);
+				}
+			}
+			else
+			{
+				System.out.println(" \n contact app is empty!!!!!");
 			}
 		}
 		catch(IOException e)
@@ -111,7 +131,6 @@ public class Repository implements FileDataSource
 		{
 			System.out.println(" error"+e);
 		}
-		in=0;
 	}
 	public void rewriteFile(Contact contact)
 	{

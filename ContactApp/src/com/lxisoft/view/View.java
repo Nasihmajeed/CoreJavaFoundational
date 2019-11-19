@@ -15,24 +15,17 @@ public class View
 		{
 			System.out.println("\t <-------CONTACT LIST------>\n");
 			System.out.println("\t ID \t NAME \n\t-----\t------");
-			int i = 1;
 			for(int j=0;j<listModel.size();j++)
 			{
 				System.out.println("\t"+listModel.get(j).getId()+"\t"+listModel.get(j).getName());
-				i++;
 			}
-		}
-		else
-		{
-			System.out.println(" contact list is empty!!!!!");
-		}
+		}		
 	}
 	public int display()
 	{
 		System.out.println("<---Enter your choice--->");
 		System.out.println("1-select \t 2-Add\t 3-Search\t 4-DeleteAll \t5-Exit");
-		int a=s.nextInt();
-		return a;
+		return s.nextInt();
 	}
 	public String getContactId()
 	{
