@@ -1,5 +1,5 @@
 public class Product
 {
 	String name;
-	int amount
+	int amount;
 }
