@@ -64,14 +64,14 @@ public class ContactController
 			}
 		}while(a!=3);
 	}
-	public void setFile()
-	{
-		v=repo.checkFile(v);
-		repo.setFile(v);
-	}
+	// public void setFile()
+	// {
+	// 	// v=repo.checkFile(v);
+	// 	v=repo.setFile(v);
+	// }
 	public void addContact()
 	{
-		setFile();
+		// setFile();
 		Contact cont=view.addContact();	
 		repo.writeFile(cont);
 	}
@@ -100,8 +100,8 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
-		int v=1;
-		repo.setFile(v);
+		// int v=1;
+		repo.setFile();
 		for(int j=0;j<contactList.size();j++)
 		{
 			repo.rewriteFile(contactList.get(j));
@@ -122,8 +122,8 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
-		int v=1;
-		repo.setFile(v);
+		// int v=1;
+		repo.setFile();
 		for(int j=0;j<contactList.size();j++)
 		{
 			repo.rewriteFile(contactList.get(j));

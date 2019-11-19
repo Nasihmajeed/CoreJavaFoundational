@@ -12,44 +12,42 @@ public class Repository implements FileDataSource
 	FileWriter f=null;
 	BufferedWriter b=null;
 	
-	public int checkFile(int v)
+	// public int checkFile(int v)
+	// {
+	// 	String s=null;
+	// 	try
+	// 	{
+	// 		fw=new FileWriter(contactFile,true);
+	// 		bw=new BufferedWriter(fw);
+	// 		// FileReader fr=new FileReader(contactFile);
+			
+	// 		{
+	// 			v=1;
+	// 		}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println(""+e);
+	// 	}
+	// 	return v;
+	// }
+	public void setFile()
 	{
-		String s=null;
+		// String s=null;
 		try
 		{
+			// BufferedReader br=new BufferedReader(new FileReader(contactFile));
+			// contactFile=new File(fileName);
 			fw=new FileWriter(contactFile,true);
 			bw=new BufferedWriter(fw);
-			FileReader fr=new FileReader(contactFile);
-			BufferedReader br=new BufferedReader(fr);
-			if(((s=br.readLine())==null)&(v==0))
-			{
-				v=1;
-			}
-		}
-		catch(IOException e)
-		{
-			System.out.println(""+e);
-		}
-		return v;
-	}
-	public void setFile(int v)
-	{
-		
-		try
-		{
-			fw=new FileWriter(contactFile,true);
-			bw=new BufferedWriter(fw);
-			if(v==1)
-			{
-				bw.write("ID"+","+"NAME"+","+"Number\n");
-				bw.flush();
-			}
+		 	bw.write("ID"+","+"NAME"+","+"Number\n");
+			bw.flush();
 		}
 		catch(Exception e)
 		{
 			System.out.println(" file is not present"+e);
 		}
-		
+		// return v;
 	}
 	public int getContactId()
 	{
@@ -113,6 +111,7 @@ public class Repository implements FileDataSource
 			else
 			{
 				System.out.println(" \n contact app is empty!!!!!");
+				setFile();
 			}
 		}
 		catch(IOException e)
