@@ -32,6 +32,7 @@ public class Repository implements Filerepository
 		
 		try
 		{
+			array.clear();
 			String contacts;
 		  	FileReader fr = new FileReader(file);
 		  	BufferedReader br = new BufferedReader(fr);

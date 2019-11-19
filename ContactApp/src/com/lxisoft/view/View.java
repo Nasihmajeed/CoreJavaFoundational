@@ -97,7 +97,7 @@ public class View
 		 String choice= read.nextLine();
 		 switch(choice)
 		 {
-		 	case "y": con.deleteContact();
+		 	case "y": con.deleteContact(i);
 		 	          System.out.println("contact deleted ");
 		 	          break;
 		 	case "n" : search(); break;

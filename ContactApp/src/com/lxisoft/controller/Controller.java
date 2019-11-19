@@ -56,18 +56,38 @@ public class Controller
 		 contactList = rep.fileRead();
 		 contact.setName(name);
          contact.setNumber(number);
-         contactList.remove(i);
+         contactList.set(i,contact);
          rep.clearFile();
-		 contactList.add(contact);
-		 rep.fileWrite(contact);
+		 // contactList.add(contact);
+		 for(int j=0; j<contactList.size();j++)
+		 {
+		 	 rep.fileWrite(contactList.get(j));
+		 }
+		
 	}
-	public void deleteContact()
+	public void deleteContact(int i)
 	{
-	    contactList.remove(contact);	
+		contact = new Contact();
+		contactList = rep.fileRead();
+	    contactList.remove(i);	
+	    rep.clearFile();
+		//contactList.add(contact);
+		 for(int j=0; j<contactList.size();j++)
+		 {
+		 	 rep.fileWrite(contactList.get(j));
+		 }
 	}
 	public void display()
 	{
-		rep.fileRead();
+		contact = new Contact();
+		List <Contact> contactDetail = new ArrayList<Contact>();
+		contactDetail=rep.fileRead();
+		// contact.setName(name);
+  //       contact.setNumber(number);
+		for(int i=0; i < contactDetail.size();i++)
+		{
+			 System.out.println("\n NAME : "+contactDetail.get(i).getName() +"\t NUMBER : "+contactDetail.get(i).getNumber());
+		}
 	}
 
 }
