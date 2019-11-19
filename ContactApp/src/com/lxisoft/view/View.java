@@ -85,9 +85,9 @@ public class View
 		temp[1]=sc.next();
 		System.out.print("press--> y-confirmEdit  n-cancel");
 		temp[2]=sc.next();
-		if(del.equals("y"))
+		if(temp[2].equals("y"))
 		{
-			return temp[2];
+			return temp;
 		}
 		else
 			return null;
@@ -122,26 +122,4 @@ public class View
 // 			}
 // 		}
 // 		System.out.print("\n");
-// 	}
-
-// 	public String scanElement(int s)
-// 	{
-// 		if(s==0)
-		// 	System.out.println("enter the name to search/delete/update");
-		// else if(s==1)
-		// 	System.out.println("enter the update value");
-		// String element=sc.next();
-// 		return element;
-// 	}
-
-// 	public int whatToUpdate()
-// 	{
-// 		System.out.println("for updating name-0  number-1");
-// 		int u=sc.nextInt();
-// 		return u;
-// 	}
-
-// 	public void noContact()
-// 	{
-// 		System.out.println("Contact not present");
 // 	}

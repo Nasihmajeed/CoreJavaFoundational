@@ -147,60 +147,15 @@ public class ContactController
 			editModel.setContact(contact);
 			for(int i=0;i<contactList.size();i++)
 			{
-				if(contactList.get(i).equals(deleteModel.getContact()))
+				if(contactList.get(i).getName().equals(editModel.getContact().getName()))
 				{
-					System.out.println("updating conatact "+deleteModel.getContact().getName());
-					contactList.set(i,setName(tempEdit[0]));
-					contactList.set(i,setNumber(tempEdit[1]));
+					System.out.println("updating conatact "+editModel.getContact().getName());
+					editModel.getContact().setName(tempEdit[0]);
+					editModel.getContact().setNumber(tempEdit[1]);
+					contactList.set(i,editModel.getContact());
 				}
 			}
+			sync(contactList);
 		}
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// public void editContact()
-	// {
-		
-	// 	String name=view.scanElement(0);
-	// 	int no=0,i=0;
-	// 	int u=view.whatToUpdate(); 
-	// 	String newData=view.scanElement(1);
-	// 	for(Contact contact:contactList)														
-	// 	{
-	// 		if(contact.getName().equals(name))
-	// 		{
-	// 			no=1;
-	// 			if(u==0)
-	// 			{
-	// 				contact.setName(newData);
-	// 				contactList.set(i,contact);
-	// 			}
-	// 			else if(u==1)
-	// 			{
-	// 				contact.setNumber(newData);
-	// 				contactList.set(i,contact);
-	// 			}
-	// 		}
-	// 		++i;
-	// 		System.out.println(contact.getName());
-	// 	}
-	// 	sync(contactList);
-	// 	if(no==0)
-	// 		view.noContact();
-	// }
