@@ -27,7 +27,7 @@ public class Controller
 	}
 	public int getArraySize()
 	{
-		rep.getArraySize();
+		return rep.getArraySize();
 	}
 	public String getName()
 	{
@@ -41,25 +41,25 @@ public class Controller
 	{
 		contact = new Contact();
 		contactList = rep.fileRead();
-		int index = 0;
-		for(int i= 0;i<=contactList.size();i++)
+		for(int i= 0;i<contactList.size();i++)
 		{
-			if(name.equals(rep.array.get(i).getName()))
+			if(name.equals(contactList.get(i).getName()))
 			{	
-				rep.array.indexOf(con.search(name));
-				// int n=i;
-				// contact = contactList.get((index));
+				contact = contactList.get(i);
 			}
 		}
 		return contact;
 	}
-	public void editContact(String name,String number)
+	public void editContact(int i,String name,String number)
 	{	
 		 contact = new Contact();
+		 contactList = rep.fileRead();
 		 contact.setName(name);
          contact.setNumber(number);
-         //array.remove(i);
+         contactList.remove(i);
+         rep.clearFile();
 		 contactList.add(contact);
+		 rep.fileWrite(contact);
 	}
 	public void deleteContact()
 	{
@@ -69,21 +69,5 @@ public class Controller
 	{
 		rep.fileRead();
 	}
-	// public int arraySearch(String name)
-	// { 
-		
-	// 	for(int i=0;i<rep.getArraySize();i++)
-	// 	{
-	// 		if(name.equals(rep.array.get(i).getName()))
-	// 		 {
-	// 		 	rep.array.get(i).getNumber();
-	// 		 }
-	// 		 else 
-	// 		 {
-			 	
-	// 		 }
-	// 	}
-	// 		return i ;
-	// }
- 
+
 }

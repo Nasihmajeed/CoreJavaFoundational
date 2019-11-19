@@ -46,18 +46,16 @@ public class View
 	}
 	public void search()
 	{
-		int f;
+		int f=0;
 		System.out.println("ENTER NAME");
 		Scanner set = new Scanner(System.in);
 		String name= set.nextLine();
 		
 		if(name.equals(con.search(name).getName()))
 		{	
-			//rep.array.indexOf(con.search(name));
-			int i = con.search();
-			f=1;
-
-    	      System.out.println(" NUMBER : "+ con.array.get(i).getNumber());
+			 int i = con.contactList.indexOf(con.search(name));
+			 f=1; 
+    	     System.out.println("\n NAME : "+name +" NUMBER : "+ con.contactList.get(i).getNumber());
 			 	
 			 	do{
 					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
@@ -65,8 +63,8 @@ public class View
 					int n = read.nextInt();
 					switch(n)
 						{
-							case 1 :edit(); break;
-							case 2 : delete();break;
+							case 1 :edit(i); break;
+							case 2 : delete(i);break;
 							case 3 :begin(); break;
 							default: System.out.println("INVALID CHOICE");
 						}
@@ -83,16 +81,16 @@ public class View
 	{
 		 con.display();
 	}
-	public void edit()
+	public void edit(int i)
 	{
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
 		 String name= read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
-		 con.editContact(name,number);
+		 con.editContact(i,name,number);
 	}
-	public void delete()
+	public void delete(int i)
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
 		 Scanner read= new Scanner(System.in);

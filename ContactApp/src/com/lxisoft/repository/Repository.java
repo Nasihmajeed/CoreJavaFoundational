@@ -62,7 +62,7 @@ public class Repository implements Filerepository
 	  			{
 	  				String[] str = a.split(",",2);
 	  				Contact c = new Contact();
-	  				c.setName(str[0]) ;
+	  				c.setName(str[0]);
 	  				c.setNumber(str[1]);
 	  				array.add(c);
 	  		for(String b: str)
@@ -79,5 +79,21 @@ public class Repository implements Filerepository
 	public int getArraySize()
 	{
 		return array.size();
+	}
+	public void clearFile()
+	{
+		try
+		{
+			FileWriter fw = new FileWriter(file);
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		
+	}
+	public void editContact()
+	{
+
 	}
 }
