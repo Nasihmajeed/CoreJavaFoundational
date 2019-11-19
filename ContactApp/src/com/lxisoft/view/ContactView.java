@@ -33,15 +33,15 @@ public class ContactView
 	      // getContact(control);
 	      // return choice;
 	// }
-	public void getAllContacts(List<ContactModel> contacts)
+	public void getAllContacts(List<ContactModel> contactsList)
 	{
-		if((contacts.size()!=0))
+		if((contactsList.size()!=0))
 		{
-			System.out.println("       CONTACT LIST \n        ***************");
+			System.out.println("         CONTACT LIST \n        ***************");
 			System.out.println("\t ID \t NAME ");
-			for(int j=0;j<contacts.size();j++)
+			for(int i=0;i<contactsList.size();i++)
 			{
-				System.out.println("\t"+contacts.get(j).getId()+"\t"+contacts.get(j).getName());
+				System.out.println("\t"+contactsList.get(i).getId()+"\t"+contactsList.get(i).getName());
 			}
 		}
 	}
@@ -49,18 +49,15 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter your choice:");
-		System.out.println("1-select \t\t 2-add\t");
+		System.out.println("1-select  2-Add ");
 		int ch=sc.nextInt();
 		return ch;
 	}
 	public String getContactId()
 	{
-		// ContactControl control=new ContactControl();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter id to search");
 		String d=sc.next();
-		// Contact c=control.ContactByIdDetails(d);
-		// int ch=0;
 		return d;
 	}
 	public void getContactById(Contact c)
@@ -80,16 +77,15 @@ public class ContactView
 	// 		System.out.println(" Name= "+control.viewDetails(i).getName());
 	// 	}
 	// }
-// 	public void addContact(ContactControl control)
-// 	{
-// 		Scanner sc=new Scanner(System.in);
-// 		System.out.println("\nEnter Contact name:");
-// 		String name=sc.next();
-// 		System.out.println("\nEnter contact number:");
-// 		String contactNo=sc.next();
-// 		control.addDetails(name,contactNo);
-// 		viewContact(control);
-// 	}
+	// public void addContact(ContactControl control)
+	// {
+	// 	Scanner sc=new Scanner(System.in);
+	// 	System.out.println("\nEnter Contact name:");
+	// 	String name=sc.next();
+	// 	System.out.println("\nEnter contact number:");
+	// 	String contactNo=sc.next();
+	// 	// control.addDetails(name,contactNo);
+	// }
 // 	public void selectContact(ContactControl control)
 // 	{
 // 		Scanner sc=new Scanner(System.in);

@@ -7,15 +7,16 @@ import com.lxisoft.repository.*;
 public class ContactControl
 {
     Repository repository=new Repository();
-    ContactModel model=new ContactModel();
+    
     ContactView view=new ContactView();
     
 	public void getContactDetails()
 	{     
-        List<Contact>contactList=repository.readFile();
+        List<Contact>contactList=repository.arrayWrite();
         ContactListModel listModel=new ContactListModel();
         for(int i=0;i<contactList.size();i++)
         {
+            ContactModel model=new ContactModel();
             model.setId(contactList.get(i).getId());
             model.setName(contactList.get(i).getName());
             listModel.setContactsList(model);
@@ -29,6 +30,7 @@ public class ContactControl
         switch(ch)
         {
             case 1:ContactByIdDetails();
+            
         }
     }
     public void ContactByIdDetails()
@@ -54,15 +56,14 @@ public class ContactControl
     // {
     //     return repository.getContactListSize();
     // }
-//     public void addDetails(String name,String contactNo)
-//     {
-//     	Contact c=new Contact();
-//     	c.setName(name);
-//     	c.setContactNo(contactNo);
-//     	contactList.add(c);
-//         repository.createFile(c);
-//         repository.readFile();
-//     }
+    // public void addDetails(String name,String contactNo)
+    // {
+    // 	Contact c=new Contact();
+    // 	c.setName(name);
+    // 	c.setContactNo(contactNo);
+    //     repository.createFile(c);
+    //     // repository.readFile();
+    // }
 //     public void selectDetails(int no)
 //     {
 //         for(int i=0;i<contactList.size();i++)

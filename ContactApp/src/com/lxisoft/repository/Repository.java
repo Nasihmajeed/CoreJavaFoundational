@@ -72,11 +72,12 @@ public class Repository implements FileRepository
 			String read;       
 			while((read=br.readLine())!=null)
 			{
-				System.out.println(read+"\n");
 				String[] str=read.split(",",3);
 				Contact c=new Contact();
+				c.setId(str[0]);
 				c.setName(str[1]);
 				c.setContactNo(str[2]);
+				System.out.println(read+"\n");
 				contactList.add(c);
 			}
 		}
