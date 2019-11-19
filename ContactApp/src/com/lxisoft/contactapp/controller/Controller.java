@@ -20,13 +20,12 @@ public void read(){
 
   }
 
-/*
-public Contact search(String n){
-	String name=n;
-	Contact contact=repo.searchList(name);
-	return contact;
+
+public void search(){
+	v.searchContact();
+	
  }
- 
+/* 
 public void update(String cn){
 for(int i=0;i<contacts.size();i++){
 	if(cn.equals(contacts.get(i).getName())){

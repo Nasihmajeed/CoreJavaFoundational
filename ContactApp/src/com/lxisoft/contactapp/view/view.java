@@ -6,7 +6,7 @@ import java.util.*;
 public class View{
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
-//Controller control=new Controller();
+public ArrayList<Contact> contacts=new ArrayList<Contact>();
 Repository repo=new Repository();
 public Contact setContact(){
 System.out.println("\n\nEnter number of contacts : ");
@@ -17,11 +17,11 @@ int n=s.nextInt();
 		cc.setName(ss.next());
 		System.out.println("Enter the number : ");
 		cc.setNumber(s.next());
-		control.save(cc);
+		//control.save();
 		System.out.println("(contact saved sucssesfully )");
 		return cc;
     } 
-   
+    return null;  
 }
 
 public void display(ArrayList<Contact> contacts){
@@ -34,19 +34,19 @@ public void display(ArrayList<Contact> contacts){
 
 public void searchContact(){
 System.out.println("\n\nEnter name to search : ");
-String n=ss.next();
-Contact c=control.search(n);
+String n=ss.next(); 
+Contact c=repo.searchList(n);
 if(c==null){
 	System.out.println("cannot find");
      }
 else{
 	System.out.println("\n------ User-----\n ");
 	  System.out.println(c.getName()+"-------"+c.getNumber());
-	  //System.out.println(c.getNumber());
+	  
     }
   }
 
-
+/*
 public void updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
@@ -75,6 +75,6 @@ String n=ss.next();
 repo.deleteList(n);
 //control.setContact(n);
 System.out.println("---------"+n+" deleted from the contact");
-  }
+  }*/
  }
 

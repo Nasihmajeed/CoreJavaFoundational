@@ -1,34 +1,29 @@
 package com.lxisoft.contactapp.view;
 import com.lxisoft.contactapp.controller.*;
-import com.lxisoft.contactapp.model.*;
-import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
 public class Tdd{
-Scanner s=new Scanner(System.in);
-Scanner ss=new Scanner(System.in);
-Controller control=new Controller();
-Repository repo=new Repository();
-static ArrayList<Contact> contacts=new ArrayList<Contact>();
 public static void main(String[] args) {
 	Controller control=new Controller();
 	do{
+			 Scanner s=new Scanner(System.in);
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
 	System.out.println("1- create new contact\n2-DISPLAY\n3-search\n4-update CONTACT\n5-Delete \n");
-	 int x=t.s.nextInt();
+	 int x=s.nextInt();
 	 switch(x){
 	 	case 1:control.save();
 	 			break;
 	 	case 2:control.read();
 	 			break;
-/*	 	case 3:t.searchContact();
+	 	case 3:control.search();
 	 			break;
-	 	case 4:t.updateContact();
+/*	 	case 4:t.updateContact();
 	 			break;
 	 	case 5:t.deleteContact();
 	 			break;*/
 	 }
 	}while(true); 
   }
+ }
 /*public void setContact(){
 System.out.println("\n\nEnter number of contacts : ");
 int n=s.nextInt();
@@ -96,4 +91,4 @@ repo.deleteList(n);
 //control.setContact(n);
 System.out.println("---------"+n+" deleted from the contact");
   }*/
- }
+ 
