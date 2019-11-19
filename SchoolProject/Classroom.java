@@ -4,7 +4,7 @@ public class Classroom
 	Scanner scan=new Scanner(System.in);
 	String name;
 	int num;
-	Student[] stud= new Student[5];
+	Student[] stud= new Student[2];
 
      
     	
@@ -23,19 +23,20 @@ public class Classroom
 		for(int i=0;i<num;i++)
 		{
 			stud[i]=new Student();
+			
+			
 			stud[i].setDetails();
-			}	
+}
 	
 }
 public void sort()
 {	
-	
-	
 
-	for(int i=0;i<stud.length;i++)
+	for(int i=0;i<2;i++)
 	{
-		for(int j=i+1;j<stud.length;j++)
+				for(int j=i+1;j<=2;j++)
 			{
+
 				if(stud[i].total()<stud[j].total())
 				{
 				    Student temp=stud[i];
@@ -50,6 +51,7 @@ public void sort()
 
 		}
 	}
+	
 
 
 	public void getDetails()

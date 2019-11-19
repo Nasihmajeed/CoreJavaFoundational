@@ -80,6 +80,7 @@ avg=(float)(total)/3;
 		{
 		System.out.println(" Subject is :"+sub[i].name);
 		 System.out.println("The mark is "+sub[i].mark);
+		 System.out.println("************");
 		  
 		}
 		System.out.println("Total is "+this.total());
