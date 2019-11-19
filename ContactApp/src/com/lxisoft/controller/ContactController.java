@@ -184,17 +184,8 @@ public class ContactController
 		{
 			EditModel editModel=new EditModel();
 			editModel.setContact(contact);
-			for(int i=0;i<contactList.size();i++)
-			{
-				if(contactList.get(i).getName().equals(editModel.getContact().getName()))
-				{
-					System.out.println("updating conatact "+editModel.getContact().getName());
-					editModel.getContact().setName(tempEdit[0]);
-					editModel.getContact().setNumber(tempEdit[1]);
-					contactList.set(i,editModel.getContact());
-				}
-			}
-			sync(contactList);
+			contactList=repository.edit(editModel,tempEdit);
 		}
+		sync(contactList);
 	}
 }

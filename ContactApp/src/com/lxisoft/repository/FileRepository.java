@@ -55,6 +55,22 @@ public class FileRepository implements FileStorage
 		}
 	}
 
+	public ArrayList<Contact> edit(EditModel editModel,String[] tempEdit)
+	{
+		ArrayList<Contact> contactList=findAll();
+		for(int i=0;i<contactList.size();i++)
+		{
+			if(contactList.get(i).getName().equals(editModel.getContact().getName()))
+			{
+				System.out.println("updating conatact "+editModel.getContact().getName());
+				editModel.getContact().setName(tempEdit[0]);
+				editModel.getContact().setNumber(tempEdit[1]);
+				contactList.set(i,editModel.getContact());
+			}
+		}
+		return contactList;
+	}
+
 	public ArrayList<Contact> findAll()
 	{
 		ArrayList<Contact> contactList=new ArrayList<Contact>();
