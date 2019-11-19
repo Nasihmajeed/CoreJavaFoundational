@@ -80,10 +80,10 @@ public class Controller
 		view.show(contacts);
 	}
 
-	public void create()
+	public Object create()
 	{
-		controller.newContact(name,number);
-		show();
+		return newContact(name,number);
+		//show();
 	}
 
 	public void updateContact(int upId,String name)
