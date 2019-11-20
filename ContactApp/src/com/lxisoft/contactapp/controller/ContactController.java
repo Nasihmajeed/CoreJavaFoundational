@@ -22,13 +22,30 @@ public class ContactController
 	 */
 	public void getAllcontactInfo()
 	{
-		view.displayContactInfo();
+		Scanner sc=new Scanner(System.in);
+		int default_option=0,option=0;
+		char continueOpt='\0';
+		do
+		{
+		option=view.displayContactInfo();
+		switch(option)
+			{
+				case 1:		addNewContact();break;
+				case 2:		searchContact();break;	
+				case 3:		getAllContactDetails();break;
+				case 4:		deleteAllContacts();break;
+				default:	System.out.println("Enter the correct option!");
+							default_option=1;break;
+			}
+			System.out.println("Do you want to continue ? Y/N");
+			continueOpt=sc.next().charAt(0);
+		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
 	}
 	/**
 	 *  getAllContacts (id and name only) from file to arraylist.
 	    @return contact Arraylist.
 	 */
-	public ArrayList<ContactModel> getAllcontacts()
+	public void getAllcontacts()
 	{
 		ArrayList<ContactModel> contactlist=null;
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
@@ -43,25 +60,48 @@ public class ContactController
 				contact.setAllContacts(contactmodel);
 			}
 			contactlist=contact.getAllContacts();
-			//view.showAllContacts(contactlist);
-		}return contactlist;
+			view.showAllContacts(contactlist);
+		}
 	}
 	/**
-	 *  getAllContacts (all contact details) from file to arraylist.
-	    @return contact Arraylist based on domain.
+	 *  add contact details.
+	    @return null
 	 */
-	public ArrayList<Contact> getAllContact()
+	public void addNewContact()
+	{
+		String []contacts=view.addNewContact();
+		Contact contact=new Contact();
+		contact.setName(contacts[0]);
+		contact.setNo(contacts[1]);
+	
+		filerepo.addContactDetails(contact);
+	}
+	public void searchContact()
+	{
+		int option=view.searchContact();
+		switch(option)
+		{
+			case 1: getContactById();break;
+			case 2: getContactByName();break;
+		}
+	}
+	// /**
+	//  *  getAllContacts (all contact details) from file to arraylist.
+	//     @return contact Arraylist based on domain.
+	//  */
+	public void getAllContactDetails()
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
-		return contacts;
+		view.showAllContactDetails(contacts);
 	}
 	/**
 	 *  get contact by id from repository.
 	 	@param id.
 	    @return contact entity based on domain.
 	 */
-	public Contact getContactById(String id)
+	public void getContactById()
 	{
+		String id=view.viewContactById();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Contact contact=new Contact();
 		for(int i=0;i<contacts.size();i++)
@@ -70,15 +110,59 @@ public class ContactController
 			{
 				contact=contacts.get(i);
 			}
-		}return contact;
+		}
+		updateContact(contact);
 	}
+	public void updateContact(Contact contact)
+	{
+		int option=view.updateContactInfo(contact);
+		switch(option)
+
+			{
+				case 1: editContact(contact);break;
+				case 2: deleteContact(contact);break;
+				case 3:	getAllcontactInfo();break;
+			}
+	}
+	public void editContact(Contact contact)
+	{
+		int option=view.editContact(contact);
+		switch(option)
+		{
+			case 1:	editContactName(contact);break;
+			case 2: editContactNumber(contact);break;
+			case 3:	getAllcontactInfo();break;
+		}	
+	}
+	public void editContactName(Contact contact)
+	{
+		int index=getIndex(contact);
+		System.out.println("ind"+index);
+		String name=view.editContactName(contact);
+		String num=getNo(contact);
+		String id=getId(contact);
+		System.out.println("num"+num);
+		updateContact(index,id,name,num);
+	}
+	public void editContactNumber(Contact contact)
+	{
+		int index=getIndex(contact);
+		System.out.println("ind"+index);
+		String num=view.editContactNumber(contact);
+		String name=getName(contact);
+		String id=getId(contact);
+		System.out.println("name"+name);
+		updateContact(index,id,name,num);
+	}
+
 	/**
 	 *  get contact by name from repository.
 	 	@param name.
 	    @return contact entity based on domain.
 	 */
-	public Contact getContactByName(String name)
+	public void getContactByName()
 	{
+		String name=view.viewContactByName();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Contact contact=new Contact();
 		for(int i=0;i<contacts.size();i++)
@@ -87,7 +171,7 @@ public class ContactController
 			{
 				contact=contacts.get(i);
 			}
-		}return contact;  
+		}updateContact(contact);
 	}
 	/**
 	 *  get contact index from repository.
@@ -119,27 +203,17 @@ public class ContactController
 		contact.setName(name);
 		contact.setNo(number);
 		filerepo.updateFile(i,contact);
-	}
-	/**
-	 *  add contact details.
-	 	@param name,number.
-	    @return null
-	 */
-	public void addContactDetails(String name,String number)
-	{
-		Contact contact=new Contact();
-		//contact.setId(id);
-		contact.setName(name);
-		contact.setNo(number);
-		filerepo.addContactDetails(contact);
-	}
+	}	
 	/**
 	 *  delete contact details.
 	    @return null
 	 */
-	public void deleteContact(int i)
+	public void deleteContact(Contact contact)
 	{
-		filerepo.deleteContact(i);
+		view.deleteContact(contact);
+		int index=getIndex(contact);
+		System.out.println("ind"+index);
+		filerepo.deleteContact(index);
 	}
 	/**
 	 *  getname of the corresponding contact.

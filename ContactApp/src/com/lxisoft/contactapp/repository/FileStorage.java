@@ -8,5 +8,5 @@ public interface FileStorage
 	/**
  	* instance variable file name to store file path.
  	*/
-	public String fileName="E:\\PUSHKALA\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactapp\\repository\\ContactFile.csv";
+	public String file="E:\\PUSHKALA\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactapp\\repository\\ContactFile.csv";
 }

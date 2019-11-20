@@ -11,12 +11,14 @@ public class Contact
 	private String name;
 	private String phno;
 	/**
-	 * 
+	 * set id in contacts
+	 * @param id
 	 */
 	public void setId(String id)
 	{
 		this.id=id;
 	}
+	
 	public void setName(String name)
 	{ 
 		this.name=name;
@@ -36,5 +38,12 @@ public class Contact
 	public String getNo()
 	{
 		return this.phno;
+	}
+	public boolean equals(Object obj)
+	{
+		Contact contact=(Contact)obj;
+		if(this.name.equals(contact.getName()))
+			return true;
+		else return false;
 	}
 }

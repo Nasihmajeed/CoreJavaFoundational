@@ -7,7 +7,7 @@ import java.util.*;
 import java.io.*;
 public class Repository implements FileStorage
 {  
-	File contactFile=new File(fileName);
+	File contactFile=new File(file);
 	static int id;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	public ArrayList<Contact> getAllContacts()
@@ -32,7 +32,6 @@ public class Repository implements FileStorage
 			System.out.println("");
 		}
 		return contacts;
-
 	}
 	public int getId()
 	{
@@ -51,7 +50,6 @@ public class Repository implements FileStorage
 			System.out.println("");
 		}
 		return id;
-
 	}
 	public void addContactDetails(Contact contact)
 	{
@@ -77,6 +75,8 @@ public class Repository implements FileStorage
 				br.write(" ID , NAME , NUMBER \n");
 				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
 			}
+			br.flush();
+			br.close();
 		}
 		catch(IOException e)
 		{
@@ -115,5 +115,4 @@ public class Repository implements FileStorage
 			System.out.println("Exception!!! "+e);
 		}
 	}
-
 }
