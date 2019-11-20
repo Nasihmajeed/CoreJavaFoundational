@@ -40,16 +40,18 @@ public class Hotel
 
 		 foodProduct[4].setName("Porotta");
 		 foodProduct[4].setAmount(10);
-		 /*getProduct();*/
 	}
 	void getProduct()
 	{
 		int n=1;
 		for(int i=0;i<foodProduct.length;i++)
 		{
-		System.out.println(n+"."+foodProduct[i].getName());
-		System.out.println("  "+foodProduct[i].getAmount()+" Rs");
-		n++;
+			if(foodProduct[i].getName() != null)
+			{
+				System.out.println(n+"."+foodProduct[i].getName());
+				System.out.println("  "+foodProduct[i].getAmount()+" Rs");
+				n++;
+	        }
 		}
 	}
 }
