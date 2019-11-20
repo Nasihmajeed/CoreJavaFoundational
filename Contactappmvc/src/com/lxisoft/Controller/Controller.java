@@ -5,12 +5,17 @@ import com.lxisoft.Repository.Repository;
 import com.lxisoft.View.View;
 import com.lxisoft.Model.Model1;
 import com.lxisoft.Model.ModelList;
+/*
+*Controller class
+*/
 public class Controller
 {
   ArrayList <Contact> contactslist = new  ArrayList <Contact>();	
   Repository r = new Repository();
   View view = new View();
-  
+  /*
+  *Start method with no param
+  */
   public void start()
   {
 	  contactslist = r.getAllContacts();
@@ -25,18 +30,28 @@ public class Controller
     view.display();
 
   }
+  /*
+  *To add contact
+  *
+  *@param id,name,number - user details
+  *@return contactslist 
+  */
  
-  public ArrayList<Contact> addContact(String id,String name,String number)
+  public ArrayList<Contact> addContact(String name,String number)
   {
    Contact contact = new Contact(); 
-   contact.setId(id);
+   int a = contact.getId();
+   contact.setId(++a);
    contact.setName(name);
    contact.setNumber(number);
    contactslist.add(contact);
 
    return contactslist;
   }
-
+ /*
+ *
+ *
+ */
   public void file(ArrayList <Contact> contactslist)
   {
     r.file(contactslist);

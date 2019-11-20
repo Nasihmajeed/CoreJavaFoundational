@@ -9,7 +9,7 @@ public class View
    static BufferedReader input = new BufferedReader(new InputStreamReader (System.in));
    static Scanner in = new Scanner(System.in);
    static Controller control = new Controller();
-  public void display()
+   public void display()
   {
     int a;
     do
@@ -47,12 +47,12 @@ public class View
         for(int i=1;i<=x;i++)
         {   try{       
                 Contact c ;
-                String id;
+                int id=0;
                 System.out.println("Enter the name:");
                 String name = input.readLine();
                 System.out.println("Enter the phone number:");
                 String number = input.readLine();
-                contactslist=control.addContact(id,name,number);
+                contactslist=control.addContact(name,number);
                 System.out.println(contactslist.size());
               }catch(IOException e){}
               
@@ -61,7 +61,7 @@ public class View
     }
 
    public static void displayAll()
-     {    contactslist = control.display();
+     {   // contactslist = control.display();
           for(int i=0;i<contactslist.size();i++)
           {
             System.out.println("Id     "+(i+1)+":"+contactslist.get(i).getId());
@@ -93,6 +93,7 @@ public class View
     { String b=null;
       String a=null;
       String c=null;
+      int d=0;
       try{System.out.println("Enter the name for edit:");
           a = input.readLine();
           System.out.println("Enter the new name     :");

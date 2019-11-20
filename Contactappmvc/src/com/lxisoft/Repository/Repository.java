@@ -35,7 +35,9 @@ public class Repository
            	String name = datas[0];
            	String number=datas[1];
            	Contact c= new Contact();
-           // c.setId(id);
+            //c.setId(id);
+            int oldId=c.getId();
+            c.setId(++oldId);
            	c.setName(name);
            	c.setNumber(number);
            	filelist.add(c);

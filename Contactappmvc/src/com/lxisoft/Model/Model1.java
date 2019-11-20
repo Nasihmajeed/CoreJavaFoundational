@@ -2,7 +2,7 @@ package com.lxisoft.Model;
 import com.lxisoft.Controller.Controller;
 public class Model1
 {   
-	private String id;
+	private int id;
 	private String name;
 
 	public void setName(String n)
@@ -13,11 +13,11 @@ public class Model1
 	{
       return this.name;
 	}
-	public void setId(String id)
+	public void setId(int id)
 	{
 		this.id=id;
 	}
-	public String getId()
+	public int getId()
 	{
 		return this.id;
 	}
