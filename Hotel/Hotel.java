@@ -1,48 +1,55 @@
-import java.util.Scanner;
 public class Hotel
 {
-	String name,place;
-	Scanner scanner;
-	Product product[];
-	void booking()
-	{
-		scanner = new Scanner(System.in);
-		setProduct();
-		/*getProduct();*/
-	}
-	void setHotel()
-	{
-
-	}
+	private String name,place;
+	FoodProduct foodProduct[];
+	
+	public void setName(String newName)
+		{
+			this.name = newName;
+		}
+	public String getName()
+		{
+			return name;
+		}
+	public void setPlace(String newPlace)
+		{
+			this.place = newPlace;
+		}
+	public String getPlace()
+		{
+			return place;
+		}
 	void setProduct()
 	{
-		 product = new Product[5];
-		 for(int i = 0;i<5;i++)
+		 foodProduct = new FoodProduct[10];
+		 for(int i = 0;i<10;i++)
 		 {
-		 	product[i]= new Product();
+		 	foodProduct[i]= new FoodProduct();
 		 }
-		 product[0].name = "Chicken Biriyani";
-		 product[0].amount = 110;
+		 foodProduct[0].setName("Chicken Biriyani");
+		 foodProduct[0].setAmount(110);
 
-		 product[1].name = "Meals";
-		 product[1].amount = 60;
+		 foodProduct[1].setName("Meals");
+		 foodProduct[1].setAmount(60);
 
-		 product[2].name = "Fried Rice";
-		 product[2].amount = 130;
+		 foodProduct[2].setName("Fried Rice");
+		 foodProduct[2].setAmount(130);
 
-		 product[3].name = "Chapathi";
-		 product[3].amount = 5;
+		 foodProduct[3].setName("Chapathi");
+		 foodProduct[3].setAmount(5);
 
-		 product[4].name = "Porotta";
-		 product[4].amount = 10;
-
+		 foodProduct[4].setName("Porotta");
+		 foodProduct[4].setAmount(10);
+		 /*getProduct();*/
 	}
 	void getProduct()
 	{
-		for(int i=0;i<5;i++)
+		int n=1;
+		for(int i=0;i<foodProduct.length;i++)
 		{
-		System.out.println(product[i].name);
-		System.out.println(product[i].amount);
+		System.out.println(n+"."+foodProduct[i].getName());
+		System.out.println("  "+foodProduct[i].getAmount()+" Rs");
+		n++;
 		}
 	}
 }
