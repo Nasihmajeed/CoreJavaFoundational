@@ -6,6 +6,13 @@ import com.lxisoft.view.*;
 import java.util.*;
 public class ContactView
 {
+	/**
+ * class view
+ */
+
+	/**
+ * contacts print from ArrayList
+ */
 	public void getAllContacts(List<ContactModel> contactsList)
 	{
 		if((contactsList.size()!=0))
@@ -18,6 +25,10 @@ public class ContactView
 			}
 		}
 	}
+	/**
+ * operations
+ */
+	
 	public int display()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -26,6 +37,9 @@ public class ContactView
 		int ch=sc.nextInt();
 		return ch;
 	}
+	/**
+ * operations
+ */
 	public int getOperations()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -33,6 +47,9 @@ public class ContactView
 		int ch=sc.nextInt();
 		return ch;
 	}
+	/**
+ * Select id
+ */
 	public String getContactId()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -40,6 +57,9 @@ public class ContactView
 		String d=sc.next();
 		return d;
 	}
+	/**
+ * Select a contact by id
+ */
 	public void getContactById(Contact c)
 	{
 		if((c.getName())!=null)
@@ -47,12 +67,14 @@ public class ContactView
 			System.out.println("Name= "+c.getName());
 			System.out.println("Number= "+c.getContactNo());
 		}
-		// else
-		// {
-		// 	System.out.println("No Search Result");
-		// }
+		else
+		{
+			System.out.println("No Search Result");
+		}
 	}
-    
+    /**
+ * Add new contact
+ */
 	public Contact addContact()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -65,10 +87,16 @@ public class ContactView
 		c.setContactNo(contactNo);
 	    return c;
 	}
+	/**
+ * delete contact
+ */
 	public void deleteContact()
 	{
 		System.out.println("Deleted");
 	}
+	/**
+ * Edit contact number
+ */
 	public String updateContact()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -76,11 +104,20 @@ public class ContactView
 		String contactNo=sc.next();
 		return contactNo;	
 	}
+	/**
+ * Search a contact using id
+ */
 	public void searchContact(Contact c)
-	
 	{
-		System.out.println("\n Name="+c.getName());
-		System.out.println(" Number="+c.getContactNo());			
+		if((c.getName()==null)&(c.getContactNo()==null))
+		{
+			System.out.println("Not Found Search Result");
+		}
+		else
+		{
+			System.out.println("\n Name="+c.getName());
+			System.out.println(" Number="+c.getContactNo());
+		}			
 	}
  
 } 

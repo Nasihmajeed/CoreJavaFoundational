@@ -7,9 +7,12 @@ import com.lxisoft.domain.*;
 import com.lxisoft.repository.*;
 public class ContactControl
 {
+    /**
+ * class controller
+ */
     Repository repository=new Repository();
     ContactView view=new ContactView();
-    
+   
 	public void getContactDetails()
 	{     
         List<Contact>contactList=repository.arrayWrite();
@@ -66,7 +69,6 @@ public class ContactControl
     	Contact c=new Contact();
     	c=view.addContact();
         repository.createFile(c);
-        // repository.readFile();
     }
     public void deleteDetails(String d)
     {
