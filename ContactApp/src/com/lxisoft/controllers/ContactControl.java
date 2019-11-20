@@ -1,4 +1,5 @@
 package com.lxisoft.controllers;
+import java.io.*;
 import java.util.*;
 import com.lxisoft.view.*;
 import com.lxisoft.models.*;
@@ -25,16 +26,23 @@ public class ContactControl
     }
     public void display()
     {
-        int ch=view.display();
-        switch(ch)
+        int ch;
+        do
         {
-            case 1:ContactByIdDetails();break;     
-            case 2:addDetails();break; 
-        }
+            ch=view.display();
+            switch(ch)
+            {
+                case 1:ContactByIdDetails();break;     
+                case 2:addDetails();break; 
+                case 3:searchDetails();break;
+                case 4:getContactDetails();break;
+            } 
+        }while(ch!=5);
+        
     }
     public void ContactByIdDetails()
     {
-        List<Contact> contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.arrayWrite();
         String d=view.getContactId();
         Contact c=new Contact();
         for(int i=0;i<contactList.size();i++)
@@ -45,66 +53,69 @@ public class ContactControl
             }
         }
         view.getContactById(c);
+        int ch=0;
+        ch=view.getOperations();
+        switch(ch)
+        {
+            case 1: updateDetails(d); break;
+            case 2: deleteDetails(d); break;
+        }
     }
     public void addDetails()
     {
     	Contact c=new Contact();
     	c=view.addContact();
         repository.createFile(c);
-        repository.readFile();
+        // repository.readFile();
     }
-//     public void selectDetails(int no)
-//     {
-//         for(int i=0;i<contactList.size();i++)
-//         {
-//             contactList.get(i);
-//         }
-//     }
-//     public void deleteDetails(int no)
-//     {
-//         for(int i=0;i<contactList.size();i++)
-//     	{
-//     		int index=contactList.indexOf(contactList.get(i));
-//             if(no==index)
-//     		{
-//          		contactList.remove(i);
-//          	}
-//     	}
-//         repository.resetFile();
-//         for(int i=0;i<contactList.size();i++)
-//         {
-//             repository.createFile(contactList.get(i));
-//         }
-//     }
-//     public void updateDetails(String contactNo,int no)
-//     {
-//         Contact c=new Contact();
-//   		for(int i=0;i<contactList.size();i++)
-//     	{
-//     		int index=contactList.indexOf(contactList.get(i));
-//             if(no==index)
-//     		{
-//          		c=contactList.get(i);
-//                 c.setContactNo(contactNo);
-//                 contactList.set(i,c);     
-//          	}
-//     	}
-//         repository.resetFile();
-//         for(int i=0;i<contactList.size();i++)
-//         {
-//             repository.createFile(contactList.get(i));
-//         }
-//     }
-//     public Contact searchDetails(String name)
-//     {
-//         Contact c=new Contact();
-//         for(int i=0;i<contactList.size();i++)
-//         {
-//             if(name.equals(contactList.get(i).getName()))
-//             {
-//                 c=contactList.get(i);
-//             }
-//         }
-//         return c;
-//     }
+    public void deleteDetails(String d)
+    {
+        List<Contact>contactList=repository.arrayWrite();
+        for(int i=0;i<contactList.size();i++)
+    	{
+            if(d.equals(contactList.get(i).getId()))
+            {
+                contactList.remove(i);
+            }
+    	}
+        repository.resetFile();
+        for(int i=0;i<contactList.size();i++)
+        {
+            repository.rewriteFile(contactList.get(i));
+        }
+        view.deleteContact();
+    }
+    public void updateDetails(String d)
+    {
+        List<Contact>contactList=repository.arrayWrite();
+        String contactNo=view.updateContact();
+  		for(int i=0;i<contactList.size();i++)
+    	{
+            if(d.equals(contactList.get(i).getId()))
+            {
+                Contact c=contactList.get(i);
+                c.setContactNo(contactNo);
+                contactList.set(i,c);
+            }   
+    	}
+        repository.resetFile();
+        for(int i=0;i<contactList.size();i++)
+        {
+            repository.rewriteFile(contactList.get(i));
+        }
+    }
+    public void searchDetails()
+    {
+        String d=view.getContactId();
+        Contact c=new Contact();
+        List<Contact>contactList=repository.arrayWrite();
+        for(int i=0;i<contactList.size();i++)
+        {
+            if(d.equals(contactList.get(i).getId()))
+            {
+                c=contactList.get(i);
+            }
+        }
+        view.searchContact(c);
+    }
  } 

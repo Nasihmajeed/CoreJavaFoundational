@@ -11,6 +11,8 @@ public class Repository implements FileRepository
 {
 	File file=new File(fileName);
 	FileWriter fw=null;
+	FileWriter f=null;
+	BufferedWriter bw=null;
 	static int id=0;
 	private List<Contact>contactList=new ArrayList<Contact>();
 	public void setContactList(List<Contact>contactList)
@@ -43,30 +45,31 @@ public class Repository implements FileRepository
 		}
 		return contactList;	
 	}
-	public List<Contact> readFile()
-	{
-		try
-		{
-			FileReader fr=new FileReader(file);
-			BufferedReader br=new BufferedReader(fr);
-			String read;
-			while((read=br.readLine())!=null)
-			{
-				System.out.println(read+"\n");
-			}
+	// public List<Contact> readFile()
+	// {
+	// 	try
+	// 	{
+	// 		FileReader fr=new FileReader(file);
+	// 		BufferedReader br=new BufferedReader(fr);
+	// 		String read;
+	// 		while((read=br.readLine())!=null)
+	// 		{
+	// 			System.out.println(read+"\n");
+	// 		}
 			
-		}
-		catch(IOException e)
-		{
-			System.out.println("an error ");
-		}
-		return contactList; 	
-	}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("an error ");
+	// 	}
+	// 	return contactList; 	
+	// }
 	public List<Contact> arrayWrite()
 	{
 		try
 		{
-			fw=new FileWriter(file,true);
+			// fw=new FileWriter(file,true);
+			contactList.clear();
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String read;       
@@ -83,7 +86,7 @@ public class Repository implements FileRepository
 		}
 		catch(IOException e)
 		{
-			System.out.println(" error ");
+			System.out.println(" contact list empty!!!!");
 		}	
 		return contactList;
 	}
@@ -107,12 +110,26 @@ public class Repository implements FileRepository
 	{
 		try
 		{
-			FileWriter f=new FileWriter(file);
+			f=new FileWriter(file);
 			id=0;
 		}
 		catch(IOException e)
 		{
 			System.out.println("An error occured");
 		}
+	}
+	public void rewriteFile(Contact c)
+	{
+		try
+		{
+			FileWriter r=new FileWriter(file,true);
+			bw=new BufferedWriter(r);
+			bw.write(c.getId()+","+c.getName()+","+c.getContactNo()+"\n");
+			bw.flush();
+		}
+		catch(IOException e)
+		{
+			System.out.println("an error"+e);
+		}	
 	}
 }
