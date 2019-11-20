@@ -24,32 +24,5 @@ public void read(){
 public void search(){
 	v.searchContact();
 	
- }
-/* 
-public void update(String cn){
-for(int i=0;i<contacts.size();i++){
-	if(cn.equals(contacts.get(i).getName())){
-		contacts.remove(i);
-          }
-       }
+   }
 }
-
-
-public void  delete(String cn){
-    repo.deleteList(cn);  
-    repo.clearList();
-    for(int i=0;i<contacts.size();i++){
-      	repo.setFile(contacts.get(i));
-           } 
-       }  */    
-}
-/*public Contact setContact(String cn){
-	contacts=repo.deleteList(cn);
-	Contact contact=null;
-	//=new Contact();
-	for(int i=0;i<contacts.size();i++){
-			contact=contacts.get(i);
-			return contact;
-	}
-}*/
-

@@ -42,10 +42,10 @@ if(c==null){
 else{
 	System.out.println("\n------ User-----\n ");
 	  System.out.println(c.getName()+"-------"+c.getNumber());
-	  System.out.println("1-EDIT\t2-Delete ");
+	  System.out.println("\n1-EDIT\t2-Delete ");
 	  int x=s.nextInt();
 	  switch(x){
-	  	case 1:String[] temp=this.updateContact();
+	  	case 1:String[] temp=this.updateContact(n);
 	  			repo.editList(c,temp);
 	  			break;
 	  	case 2:this.deleteContact();
@@ -57,12 +57,12 @@ else{
   }
 
 
-public String[] updateContact(){
-System.out.println("\n\nEnter contact name : ");
+public String[] updateContact(String n){
+/*System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
-//repo.deleteList(n);
+repo.deleteList(n);*/
 String[] temp=new String[2];
-// Contact c=control.search(n);
+ Contact c=repo.searchList(n);
 	if(c==null){
 		temp=null;
 		System.out.println("cannot edit");

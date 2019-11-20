@@ -46,7 +46,6 @@ public ArrayList<Contact>  getList(){
 public Contact searchList(String name){
  int count=0;
  Contact c=null;			
- System.out.println("djkdjj "+name);
  contacts=this.getList();
 for(int i=0;i<contacts.size();i++){
 	if(name.equals(contacts.get(i).getName())){
@@ -59,15 +58,21 @@ for(int i=0;i<contacts.size();i++){
   } //7306546322
 
 
-public void editList(Contact contact,String[] temp){
+public void editList(Contact contac,String[] temp){
 	//Contact contact=new Contact();
 	for(int i=0;i<contacts.size();i++){
-		if(contacts.get(i).getName().equals(contact.getName())){
+		if(contacts.get(i).getName().equals(contac.getName())){
+			//System.out.println("\n : "+temp[0]+" 	no :"+temp[1]+"  "+i);
+			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
 			contacts.set(i,contact);
 		}
 	}
+	  this.clearList();
+      for(int i=0;i<contacts.size();i++){
+      	this.setFile(contacts.get(i));
+      } 
   }
 
 public void deleteList(String cn){
