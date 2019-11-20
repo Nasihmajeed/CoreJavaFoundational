@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import com.lxisoft.repository.*;
 import com.lxisoft.view.View;
 
+/**
+ *testing class
+ */
 public class Tdd
 {
+	/**
+	 *@param args argument needed for compiler
+	 */
 	public static void main(String[] args)
 	{
 		ContactController controller=new ContactController();

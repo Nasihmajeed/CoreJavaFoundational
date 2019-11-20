@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import com.lxisoft.repository.*;
 import com.lxisoft.view.View;
 import com.lxisoft.domain.*;
-
+/**
+ *controller class
+ */
 public class ContactController
 {
 	View view=new View();
 	FileRepository repository=new FileRepository();
-
+	/**
+	 *to select features
+	 */
 	public void features()
 	{
 		while(true)
@@ -26,7 +30,10 @@ public class ContactController
 		}
 		System.out.println("\t\t\t\t THANK YOU");
 	}
-
+	/**
+	 *to select contact operation
+	 *@param option 
+	 */
 	public void contactOptions(int option)
 	{
 		switch(option)
@@ -38,7 +45,9 @@ public class ContactController
 			case 5:allContacts();break;
 		}
 	}
-
+	/**
+	 *to save contact
+	 */
 	public void saveContact()
 	{
 		String[] tempSave=view.save();
@@ -53,14 +62,18 @@ public class ContactController
 			repository.save(saveModel.getContact());
 		}
 	}
-
+	/**
+	 *to get all contact
+	 */
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
 		viewAllModel.setList(repository.findAll());
 		view.findAllContacts(viewAllModel);
 	}
-
+	/**
+	 *to get contact details by name
+	 */
 	public void contactByName()
 	{
 		String[] tempSearch=view.byName();
@@ -89,7 +102,9 @@ public class ContactController
 		else
 			view.noContact();
 	}
-
+	/**
+	 *to get contact details by id
+	 */
 	public void contactById()
 	{
 		int i=0;
@@ -117,7 +132,11 @@ public class ContactController
 		else
 			view.noContact();
 	}
-
+	/**
+	 *to choose contact operation
+	 *@param contact
+	 *@param ch
+	 */
 	public void contactChoose(Contact contact,String ch)
 	{
 		switch(ch)
@@ -126,7 +145,9 @@ public class ContactController
 			case "d":deleteContact(contact);break;
 		}
 	}
-
+	/**
+	 *to select contact
+	 */
 	public void contactSelect()
 	{
 		String name=view.select();
@@ -152,18 +173,24 @@ public class ContactController
 		else
 			view.noContact();
 	}
-
+	/**
+	 *to synchronise data in file and array list
+	 */
 	public void sync(ArrayList<Contact> contactList)
 	{
-		int j=0;
+		int i=0;
 		for(Contact contact: contactList)
 		{
 			//System.out.print(j+"sync Name- " +contact.getName());
 			repository.syncFile(contact,j);
-			j++;
+			i++;
 		}
 	}
-
+	/**
+	 *to delete contact
+	 *
+	 *@param contact
+	 */
 	public void deleteContact(Contact contact)
 	{
 		DeleteModel deleteModel=new DeleteModel();
@@ -175,7 +202,11 @@ public class ContactController
 			sync(contactList);
 		}
 	}
-
+	/**
+	 *to edit contact
+	 *
+	 *@param contact
+	 */
 	public void editContact(Contact contact)
 	{
 		ArrayList<Contact> contactList=repository.findAll();

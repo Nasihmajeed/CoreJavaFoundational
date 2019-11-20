@@ -10,7 +10,11 @@ public class FileRepository implements FileStorage
 {
 	File file=new File(directory);
 	View view=new View();
-
+	/**
+	 *to save contact
+	 *
+	 *@param contact saving one contact
+	 */
 	public void save(Contact contact)
 	{
 		int id=index();
@@ -41,20 +45,30 @@ public class FileRepository implements FileStorage
 			System.out.println("Exception: "+e);
 		}
 	}
-
+	/**
+	 *to get last index
+	 *
+	 *@return integer
+	 */
 	public int index()
 	{
 		ArrayList<Contact> contactList=findAll();
 		if(file.exists())
 		{
-			return contactList.size();
+			return Integer.parseInt(contactList.get(contactList.size()-1).getId());
 		}
 		else
 		{
 			return 0;
 		}
 	}
-
+	/**
+	 *to edit contact
+	 *
+	 *@param editModel object of edit model class
+	 *@param tempEdit update value
+	 *@return arraylist
+	 */
 	public ArrayList<Contact> edit(EditModel editModel,String[] tempEdit)
 	{
 		ArrayList<Contact> contactList=findAll();
@@ -70,7 +84,11 @@ public class FileRepository implements FileStorage
 		}
 		return contactList;
 	}
-
+	/**
+	 *to find all contacts
+	 *
+	 *@return arraylist
+	 */
 	public ArrayList<Contact> findAll()
 	{
 		ArrayList<Contact> contactList=new ArrayList<Contact>();
@@ -101,7 +119,12 @@ public class FileRepository implements FileStorage
 		}
 		return contactList;
 	}	
-
+	/**
+	 *to delete contact
+	 *
+	 *@param contact contact to delete
+	 *@return updated arraylist
+	 */
 	public ArrayList<Contact> delete(Contact contact)
 	{
 		ArrayList<Contact> contactList=findAll();
@@ -115,18 +138,23 @@ public class FileRepository implements FileStorage
 		}
 		return contactList;
 	} 
-
-	public void syncFile(Contact contact,int id)
+	/**
+	 *to synchronise file with arraylist
+	 *
+	 *@param contact
+	 *@param i to delete file for saving entire arraylist after updation
+	 */
+	public void syncFile(Contact contact,int i)
 	{
 		try
 		{
-			if(id==0)
+			if(i==0)
 			{
 				file.delete();
 			}
 			FileWriter fwr1=new FileWriter(file,true);
 			BufferedWriter bw1=new BufferedWriter(fwr1);
-			bw1.write((++id)+","+contact.getName()+","+contact.getNumber()+"\n");
+			bw1.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");
 			bw1.flush();
 			bw1.close();		
 		}
