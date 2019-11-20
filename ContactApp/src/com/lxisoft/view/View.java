@@ -26,6 +26,8 @@ public class View
 	    
        
 	}
+	
+	
 	public void defaultPrint(int n )
 	{
 		switch(n)
@@ -34,8 +36,7 @@ public class View
 			          con.choice() ; break;
 			case 1 : System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 
-		}
-		
+		}	
 
 	}
 	public void addContact()
@@ -46,7 +47,7 @@ public class View
 		String name= read.nextLine();
 		System.out.println("ENTER NUMBER");
 		String number=read.nextLine();
-		
+
 		con.addContact(name,number);
 	}
 	public void search()

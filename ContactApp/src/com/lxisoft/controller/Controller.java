@@ -99,7 +99,7 @@ public class Controller
 		}
 		choice();
 	}
-
+         
 	public int getArraySize()
 	{
 		return rep.getArraySize();
