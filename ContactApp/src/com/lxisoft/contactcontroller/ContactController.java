@@ -151,7 +151,7 @@ public class ContactController
 		}
 	}
 	/**
-	 *to delete al contact
+	 *to delete all contact
 	 */
 	public void deleteAllContact()
 	{

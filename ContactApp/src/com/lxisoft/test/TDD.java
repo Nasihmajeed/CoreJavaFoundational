@@ -7,7 +7,7 @@ public class TDD
 {
 	/**
 	 *main method
-	 *@param args
+	 *@param args argument needed for compiler
 	 */
 	public static void main(String[] args)
 	{
