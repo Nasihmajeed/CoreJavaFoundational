@@ -4,8 +4,16 @@ import com.lxisoft.contactapp.controller.ContactController;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
+/**
+* class ContactView to interact with user.
+	 
+	 */
 public class ContactView
 {
+	/**
+	 * showAllcontacts name and number 
+	 * @param Arraylist contact
+	 */
 	public void showAllContacts(ArrayList<ContactModel> contact)
 	{
 		if(contact.size()==0)
@@ -22,6 +30,10 @@ public class ContactView
 			}
 		}
 	}
+	/**
+	 * displayContactInfo to user
+	 * @return option
+	 */
 	public int displayContactInfo()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -31,6 +43,10 @@ public class ContactView
 		int option=sc.nextInt();
 		return option;
 	}
+	/**
+	 * show All ContactDetails 
+	 * @param contacts
+	 */
 	public void showAllContactDetails(ArrayList<Contact> contacts)
 	{
 		if(contacts.size()==0)
@@ -47,6 +63,10 @@ public class ContactView
 			}
 		}
 	}
+	/**
+	 * Add new contacts 
+	 * @return contact
+	 */
 	public String[] addNewContact()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -60,6 +80,10 @@ public class ContactView
 		System.out.println("contact Added!");
 		return contact;
 	}
+	/**
+	 * search contact 
+	 * @return option
+	 */
 	public int searchContact()
 	{
 		System.out.println("Contact Search ");
@@ -68,6 +92,10 @@ public class ContactView
 		int option=sc.nextInt();
 		return option;
 	}
+	/**
+	 * view contact by id 
+	 * @return id
+	 */
 	public String viewContactById()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -75,6 +103,10 @@ public class ContactView
 		String id=sc.next();
 		return id;
 	}
+	/**
+	 * view contact by name 
+	 * @return name
+	 */
 	public String viewContactByName()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -82,6 +114,11 @@ public class ContactView
 		String name=sc.next();
 		return name;
 	}
+	/**
+	 * update contact Info
+	 * @param contact 
+	 * @return select
+	 */
 	public int updateContactInfo(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);int select=0;
@@ -97,6 +134,11 @@ public class ContactView
 		}
 		return select;
 	}
+	/**
+	 * edit contact details
+	 * @param contact
+	 * @return select
+	 */
 	public int editContact(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -104,6 +146,11 @@ public class ContactView
 		int select=sc.nextInt();
 		return select;	
 	}
+	/**
+	 * edit contact name
+	 * @param contact
+	 * @return name
+	 */
 	public String editContactName(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -112,6 +159,11 @@ public class ContactView
 		System.out.println("updated!");
 		return name;
 	}
+	/**
+	 * edit contact number
+	 * @param contact
+	 * @return num
+	 */
 	public String editContactNumber(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -120,6 +172,10 @@ public class ContactView
 		System.out.println("updated!");
 		return num;
 	}
+	/**
+	 * delete contact details
+	 * @param contact
+	 */
 	public void deleteContact(Contact contact)
 	{
 		System.out.println("contact Deleted!");

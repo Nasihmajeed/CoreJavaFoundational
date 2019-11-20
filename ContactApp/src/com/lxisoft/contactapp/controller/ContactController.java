@@ -73,9 +73,12 @@ public class ContactController
 		Contact contact=new Contact();
 		contact.setName(contacts[0]);
 		contact.setNo(contacts[1]);
-	
 		filerepo.addContactDetails(contact);
 	}
+	/**
+	 *  To search contact details.
+	    @return null
+	 */
 	public void searchContact()
 	{
 		int option=view.searchContact();
@@ -85,10 +88,9 @@ public class ContactController
 			case 2: getContactByName();break;
 		}
 	}
-	// /**
-	//  *  getAllContacts (all contact details) from file to arraylist.
-	//     @return contact Arraylist based on domain.
-	//  */
+	/**
+	 *  getAllContacts (all contact details) from file to arraylist.
+	 */
 	public void getAllContactDetails()
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
@@ -96,8 +98,6 @@ public class ContactController
 	}
 	/**
 	 *  get contact by id from repository.
-	 	@param id.
-	    @return contact entity based on domain.
 	 */
 	public void getContactById()
 	{
@@ -113,6 +113,10 @@ public class ContactController
 		}
 		updateContact(contact);
 	}
+	/**
+	 *  update contactdetails
+	 @param contact
+	 */
 	public void updateContact(Contact contact)
 	{
 		int option=view.updateContactInfo(contact);
@@ -124,6 +128,10 @@ public class ContactController
 				case 3:	getAllcontactInfo();break;
 			}
 	}
+	/**
+	 *  Edit contact details.
+	 @param contact
+	 */
 	public void editContact(Contact contact)
 	{
 		int option=view.editContact(contact);
@@ -134,6 +142,10 @@ public class ContactController
 			case 3:	getAllcontactInfo();break;
 		}	
 	}
+	/**
+	 *  Edit contactName details.
+	 @param contact
+	 */
 	public void editContactName(Contact contact)
 	{
 		int index=getIndex(contact);
@@ -144,6 +156,10 @@ public class ContactController
 		System.out.println("num"+num);
 		updateContact(index,id,name,num);
 	}
+	/**
+	 *  Edit contactNumber.
+	 @param contact
+	 */
 	public void editContactNumber(Contact contact)
 	{
 		int index=getIndex(contact);
@@ -157,8 +173,6 @@ public class ContactController
 
 	/**
 	 *  get contact by name from repository.
-	 	@param name.
-	    @return contact entity based on domain.
 	 */
 	public void getContactByName()
 	{
@@ -251,7 +265,11 @@ public class ContactController
 		}
 		return num;
 	}
-
+	/**
+	 *  getid of the corresponding contact.
+	 	@param contact.
+	    @return id.
+	 */
 	public String getId(Contact contact)
 	{
 		String id=null;
@@ -265,6 +283,9 @@ public class ContactController
 		}
 		return id;
 	}
+	/**
+	 *  delete all contacts from repository.
+	 */
 	public void deleteAllContacts()
 	{
 		filerepo.clearRepository();

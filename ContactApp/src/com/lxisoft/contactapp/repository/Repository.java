@@ -5,11 +5,21 @@ import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
 import java.io.*;
+/**
+ * class Repository is created to do file operations that implements filestorage
+ */
 public class Repository implements FileStorage
 {  
+/**
+ * instance variable Arraylist based on domain and entity id ,a File name to store the path of the file specified.
+ */
 	File contactFile=new File(file);
 	static int id;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
+	/**
+	 * getAllContacts from file.
+	 * @return contacts.
+	 */
 	public ArrayList<Contact> getAllContacts()
 	{
 		try
@@ -33,6 +43,10 @@ public class Repository implements FileStorage
 		}
 		return contacts;
 	}
+	/**
+	 * getId of the contact from file.
+	 * @return id.
+	 */
 	public int getId()
 	{
 		try
@@ -51,11 +65,19 @@ public class Repository implements FileStorage
 		}
 		return id;
 	}
+	/**
+	 * Add contact details from file.
+	 * @param contact.
+	 */
 	public void addContactDetails(Contact contact)
 	{
 		contacts.add(contact);	
 		contactWriteIntoFile(contact);
 	}
+	/**
+	 * writting data to file.
+	 * @param contact
+	 */
 	public void contactWriteIntoFile(Contact contact)
 	{
 		try
@@ -83,6 +105,10 @@ public class Repository implements FileStorage
 			System.out.println("File exception "+e);
 		}
 	}
+	/**
+	 * delete Contact from file.
+	 * @param index
+	 */
 	public void deleteContact(int i)
 	{
 		contacts=getAllContacts();
@@ -93,6 +119,10 @@ public class Repository implements FileStorage
 				contactWriteIntoFile(contacts.get(j));
 			}
 	}
+	/**
+	 * update data of file.
+	 * @param contact,index
+	 */
 	public void updateFile(int i,Contact contact)
 	{
 		contacts=getAllContacts();
@@ -103,6 +133,9 @@ public class Repository implements FileStorage
 				contactWriteIntoFile(contacts.get(j));
 			}
 	}
+	/**
+	 * Reset the file.
+	 */
 	public void clearRepository()
 	{
 		try
