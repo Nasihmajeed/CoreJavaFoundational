@@ -9,34 +9,38 @@ public class Controller
 {
 	Contact contact ;
 	Repository rep = new Repository();
+	View view = new View();
 	public List <Contact> contactList = new ArrayList<Contact>();
+	
+	public void choice()
+	{
+		int n=view.begin();
+		rep.setId();
+			switch(n)
+			{
+				case 1 : view.addContact(); break;
+				case 2 : view.search();break;
+				case 3 : view.display(); break;
+				default: view.defaultPrint(0);
+			}		
+		
+       
+	}
+
 	public void addContact(String name,String number)
 	{ 
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
+		//int i = indexOf(contact.getName(name));
+		// int i ;
+		// if(contact.)
+        //contact.setId(i);
         rep.fileWrite(contact);
+        choice();
+
 	}
-	public void setContactList(List <Contact> contactList)
-	{
-		this.contactList = contactList;
-	}
-	public List <Contact> getContactList()
-	{
-		return contactList;
-	}
-	public int getArraySize()
-	{
-		return rep.getArraySize();
-	}
-	public String getName()
-	{
-		return contact.getName();
-	}
-	public String getNumber()
-	{
-		return contact.getNumber();
-	}
+	
 	public Contact search(String name)
 	{
 		contact = new Contact();
@@ -49,7 +53,9 @@ public class Controller
 			}
 		}
 		return contact;
+		
 	}
+
 	public void editContact(int i,String name,String number)
 	{	
 		 contact = new Contact();
@@ -58,36 +64,53 @@ public class Controller
          contact.setNumber(number);
          contactList.set(i,contact);
          rep.clearFile();
-		 // contactList.add(contact);
+		
 		 for(int j=0; j<contactList.size();j++)
 		 {
 		 	 rep.fileWrite(contactList.get(j));
-		 }
-		
+		 }	
+		 choice();
+	
 	}
+
 	public void deleteContact(int i)
 	{
 		contact = new Contact();
 		contactList = rep.fileRead();
 	    contactList.remove(i);	
 	    rep.clearFile();
-		//contactList.add(contact);
+		
 		 for(int j=0; j<contactList.size();j++)
 		 {
 		 	 rep.fileWrite(contactList.get(j));
 		 }
+		 choice();
+
 	}
 	public void display()
 	{
 		contact = new Contact();
 		List <Contact> contactDetail = new ArrayList<Contact>();
 		contactDetail=rep.fileRead();
-		// contact.setName(name);
-  //       contact.setNumber(number);
+
 		for(int i=0; i < contactDetail.size();i++)
 		{
-			 System.out.println("\n NAME : "+contactDetail.get(i).getName() +"\t NUMBER : "+contactDetail.get(i).getNumber());
+			 System.out.println("\n ID : "+contactDetail.get(i).getId()+" NAME : "+contactDetail.get(i).getName() +" NUMBER : "+contactDetail.get(i).getNumber());
 		}
+		choice();
+	}
+
+	public int getArraySize()
+	{
+		return rep.getArraySize();
+	}
+	public String getName()
+	{
+		return contact.getName();
+	}
+	public String getNumber()
+	{
+		return contact.getNumber();
 	}
 
 }

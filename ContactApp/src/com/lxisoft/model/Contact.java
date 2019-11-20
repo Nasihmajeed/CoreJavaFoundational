@@ -6,7 +6,8 @@ import com.lxisoft.test.*;
 
 public class Contact
 {
-	private String name,number,id;
+	private String name,number;
+	private int id;
 
 	public void setName(String name)
 	{
@@ -24,11 +25,11 @@ public class Contact
 	{
 		return this.number;
 	}
-	public void setId(String id)
+	public void setId(int id)
 	{
-		this.id= id;
+		this.id = id;
 	}
-	public String getId()
+	public int getId()
 	{
 		return this.id;
 	}

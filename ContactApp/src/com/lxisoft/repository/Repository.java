@@ -9,6 +9,7 @@ import com.lxisoft.view.*;
 
 public class Repository implements Filerepository
 {
+	static int id;
 	File file = new File(filename);
 	public ArrayList<Contact> array = new ArrayList<Contact>();
 	public void fileWrite(Contact contact)
@@ -18,14 +19,35 @@ public class Repository implements Filerepository
 		
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
-
-	  	bw.write(contact.getName()+", "+contact.getNumber()+"\n");
+	  	bw.write(id+","+contact.getName()+", "+contact.getNumber()+"\n");
 	  	bw.flush();
-	  		}
+
+	  	}
 		catch (IOException e)
 		{
 			System.out.println(e);
 		}
+		// System.out.println(id++);
+	}
+	public void setId()
+	{
+		try
+		{
+		FileReader f = new FileReader(file);
+		BufferedReader buf = new BufferedReader(f);
+		String ss;
+		while((ss= buf.readLine())!=null)
+		{
+			String[] str =  ss.split(",",3);
+			id=(Integer.parseInt(str[0])) ;
+
+		}
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		id++;
 	}
 	public List <Contact> fileRead()
 	{
@@ -38,10 +60,11 @@ public class Repository implements Filerepository
 		  	BufferedReader br = new BufferedReader(fr);
 		  		while( (contacts= br.readLine())!=null)
 	  		{
-	  				String[] str = contacts.split(",",2);
+	  				String[] str = contacts.split(",",3);
 	  				Contact c = new Contact();
-	  				c.setName(str[0]);
-	  				c.setNumber(str[1]);
+	  				c.setId(Integer.parseInt(str[0]));
+	  				c.setName(str[1]);
+	  				c.setNumber(str[2]);
 	  				array.add(c);
 	  		}
 

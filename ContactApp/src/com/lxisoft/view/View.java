@@ -7,32 +7,36 @@ import java.util.*;
 public class View
 {
 	public static Controller con = new Controller();
-	public void begin()
+
+	public int  begin()
 	{
-		System.out.println("  \n \t \t -----CONTACT LIST------");
+		int n=0;
+		
 		do
 		{
-			try
-		{
+		System.out.println("  \n \t \t -----CONTACT LIST------");
+		
 		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY ");
 		Scanner read= new Scanner(System.in);
-		int n = read.nextInt();
-		
-			switch(n)
-			{
-				case 1 : addContact(); break;
-				case 2 : search();break;
-				case 3 : display(); break;
-				default: System.out.println("INVALID CHOICE");
-			}
-		
-		}
-		catch (InputMismatchException exception) 
-        {
-        	System.out.println(" PLEASE ENTER THE NUMERIC SUGGESTIONS GIVEN ABOVE");
-        }
+		n = read.nextInt();	
+		return n;
+		 
+		}while(true);	
+	    
+	    
+       
+	}
+	public void defaultPrint(int n )
+	{
+		switch(n)
+		{
+			case 0 : System.out.println("INVALID CHOICE");
+			          con.choice() ; break;
+			case 1 : System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 
-        }while(true);
+		}
+		
+
 	}
 	public void addContact()
 	{
@@ -42,6 +46,7 @@ public class View
 		String name= read.nextLine();
 		System.out.println("ENTER NUMBER");
 		String number=read.nextLine();
+		
 		con.addContact(name,number);
 	}
 	public void search()
@@ -97,8 +102,9 @@ public class View
 		 String choice= read.nextLine();
 		 switch(choice)
 		 {
-		 	case "y": con.deleteContact(i);
-		 	          System.out.println("contact deleted ");
+		 	case "y": System.out.println("contact deleted ");
+		 	         con.deleteContact(i);
+		 	          
 		 	          break;
 		 	case "n" : search(); break;
 		 }

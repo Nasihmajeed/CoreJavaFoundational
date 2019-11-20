@@ -10,9 +10,9 @@ public class Tdd
 	
 	public static void main(String[] args)
 	{
-   		View view = new View();
-   		view.begin();
-   		// Controller con = new Controller();
-   		// con.display();
+   		// View view = new View();
+   		// view.begin();
+   		Controller con = new Controller();
+   		con.choice();
 	}
 } 
