@@ -6,13 +6,19 @@ import com.lxisoft.Models.*;
 import com.lxisoft.Controllers.*;
 import java.io.*;
 import java.util.*;
-
+/**
+*file repository class
+*/
 public class Repository implements FileRepository
 {
 	File file=new File(fileName);
 	ArrayList<Contact> contacts =new ArrayList<Contact>();
 	static int id;
-	
+	/**
+	*method to write the contact details to file
+	*@param contact contact to write
+	*@param write indication for new contact/editing 
+	*/
 	public void writeNewContact(Contact contact,boolean write)
 	{
 		try
@@ -20,7 +26,6 @@ public class Repository implements FileRepository
 			FileWriter bf=new FileWriter(file,true);
 			if(write)
 			{
-				id=getId();
 				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
 			}
 			else
@@ -32,8 +37,18 @@ public class Repository implements FileRepository
 		catch(Exception e)
 		{
 			System.out.println("error1");
-		}
+		}id++;
 	}
+	/**
+	*method to set id number
+	*/
+	public void setId()
+	{
+		id=getId();
+	}
+	/**
+	*method to view all contact details in file
+	*/
 	public void viewAllContacts()
 	{
 		try
@@ -50,6 +65,10 @@ public class Repository implements FileRepository
 			System.out.println("error");
 		}
 	}
+	/**
+	*method to get all contacts in an arraylist
+	*@return return all contacts
+	*/
 	public ArrayList<Contact> getAllContacts()
 	{
 		try
@@ -68,9 +87,6 @@ public class Repository implements FileRepository
 				contact.setName(strln[1]);
 				contact.setNo(strln[2]);
 				contacts.add(contact);
-				// System.out.println("test Repository"+strln[1]);
-					
-				
 			}
 		}
 		catch(Exception e)
@@ -79,7 +95,10 @@ public class Repository implements FileRepository
 		}
 		return contacts;
 	}
-
+	/**
+	*method to get id from the last existing contact
+	*@return return id
+	*/
 	public int getId()
 	{
 		try
@@ -99,20 +118,28 @@ public class Repository implements FileRepository
 		}
 		return ++id;
 	}
+	/**
+	*method to edit a contact detail 
+	*/
 	public void editFile(Contact contact, int i)
 	{
 		contacts=getAllContacts();
 		contacts.set(i,contact);
 		clearFile();
 		resetFile();
-		
 	}
+	/**
+	*method for rewriting the conatcts to file
+	*/
 	public void resetFile()
 	{ for(int i=0;i<contacts.size();i++)
 		{
 			writeNewContact(contacts.get(i),false);
 		}
 	}
+	/**
+	*method to delete a contact
+	*/
 	public void deleteContact(int i)
 	{
 		contacts=getAllContacts();
@@ -120,6 +147,9 @@ public class Repository implements FileRepository
 		clearFile();
 		resetFile();
 	}
+	/**
+	*method to clear the file
+	*/
 	public void clearFile()
 	{
 		try

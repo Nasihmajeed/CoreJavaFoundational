@@ -4,35 +4,43 @@ import com.lxisoft.Models.*;
 import com.lxisoft.Controllers.*;
 import com.lxisoft.Domain.*;
 import java.util.*;
-
+/*
+user interface view
+*/
 public class View
 {
+	
 	public ContactControl control =new ContactControl();
-	public void printAll() 
+	/**
+	*to get the user option for the further process
+	*@return return user input
+	*/
+	public int getUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
-		int loop=0;
-		int repeat=0; 
-		do
-		{
-			viewAllContacts();
-			repeat=0;
-			loop=0;
-			System.out.println(" enter : 0 select contact 1 add  2 search 3 delete all");
-			int select=sc.nextInt();
-			switch(select)
-			{
-				case 0: selectContact(0);break;
-				case 1: setNewContact();break;
-				case 2: selectContact(2);break;
-				case 3: clearAllContacts();break;
-				default:System.out.println("enter the correct option");
-						repeat=1;
-			}
-			System.out.println("do u want to continue: 1 y or 0 no");
-			loop=sc.nextInt();
-		}while(loop==1|repeat==1);
+		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 delete all");
+	 	return sc.nextInt();
 	}
+	/**
+	*to indicate the wrong selection
+	*/
+	public void invalidOption() 
+	{
+		System.out.println("enter the correct option");
+	}
+	/**
+	*get input to continue program
+	*@return return user input 0 or 1
+	*/
+	public int isContinue()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("do u want to continue: 1 y or 0 no");
+		return sc.nextInt();
+	}
+	/**
+	*get the name and number for the new contact
+	*/
 	public void setNewContact()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -42,6 +50,10 @@ public class View
 		String number=sc.next();
 		control.createNewContact(name,number);
 	}
+	/**
+	*print name and ID of all contacts
+	*@return the exixtance of contact  
+	*/
 	public boolean viewAllContacts()
 	{
 		ArrayList<ViewListModel>listView=control.viewAllContacts();
@@ -58,6 +70,11 @@ public class View
 			contactsExist=true;
 		}return contactsExist;
 	}
+	/**
+	*@param selection indication for search / select
+	*shows the options for the selected contact , like edit, delete
+	*print respective selection notification for the search and select option
+	*/
 	public void selectContact(int selection)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -82,6 +99,9 @@ public class View
 			}while(loop==1|repeat==1);
 		}
 	}
+	/**
+	select a contact by name from the contacts
+	*/
 	public void selectByName()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -91,6 +111,9 @@ public class View
 		contact=control.searchContact(name);
 		selectedContact(contact);
 	}
+	/**
+	*select a contact by id from the contacts
+	*/
 	public void selectById()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -99,7 +122,11 @@ public class View
 		Contact contact=new Contact(); 
 		contact=control.searchContact(id);
 		selectedContact(contact);
-	}	
+	}
+	/**
+	*@param contact selected contact
+	*select option for the selected or searched contact
+	*/	
 	public void selectedContact(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -114,35 +141,40 @@ public class View
 			do
 			{
 				repeat=0;
-				System.out.println(" enter : 0 edit  1 delete  2 back to main menu");
+				System.out.println(" enter : \t0 edit  \t1 delete  \t2 back to main menu");
 				int select=sc.nextInt();
 				switch(select)
 				{
 					case 0: editContact(contact);break;
 					case 1: deleteContact(contact);break;
-					case 2: printAll();break;
+					case 2: control.start();break;
 					// case 4: clearAllContacts();break;
 					default:System.out.println("enter the correct option");
 							repeat=1;
 				}
 				
 			}while(repeat==1);
-
-
 		}	
-
 	}
+	/**
+	*get new name and number to edit contact
+	*@param contact selected contact
+	*/
 	public void editContact(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
 		int index=control.getIndex(contact);
-		System.out.println("enter new name"+index);
+		System.out.println("enter new name");
 		String name=sc.next();
 		System.out.println("enter number");
 		String number=sc.next();
 		control.editContact(name,number,index);
 		System.out.println("contact modified succesfully \n");			
 	}
+	/**
+	*@param contact selected contact
+	*pass the index of given contact to control to get deleted
+	*/
 	public void deleteContact(Contact contact)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -150,6 +182,9 @@ public class View
 		control.deleteContact(index);
 		System.out.println("contact deleted succesfully \n");	
 	}
+	/**
+	*command to clear all the contacts in file
+	*/
 	public void clearAllContacts()
 	{
 		control.clearAllContacts();
