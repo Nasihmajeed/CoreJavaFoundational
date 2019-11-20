@@ -6,11 +6,16 @@ import com.lxisoft.view.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *controller class
+ */
 public class ContactController
 {
 	Repository repo=new Repository();
 	View view=new View();
-	static int v=0;
+	/**
+	 *to get all contact
+	 */
 	public void getAllContacts()
 	{
 		List <Contact> contactList=repo.readFile();
@@ -23,23 +28,30 @@ public class ContactController
 	    	listModel.setContactListModel(model);
 	    }
 		view.getAllContacts(listModel.getContactListModel());
-        display();
+        getChoice();
 	}
-	public void display()
+	/**
+	 *to choose contact operation
+	 */
+	public void getChoice()
 	{
 		int a=0;
 		do
 		{
-			a=view.display();
+			a=view.getChoice();
 			switch(a)
 		    {
 		    	case 1: getContactById(); break;
 		    	case 2: addContact(); break;
 				case 3: searchContact(); break;
 				case 4: deleteAllContact(); break;
+				case 5: getAllContacts(); break;
 		    }
-		}while(a!=5);
+		}while(a!=6);
 	}
+	/**
+	 *to get contact by using id
+	 */
 	public void getContactById()
 	{
 		String n=view.getContactId();
@@ -64,17 +76,17 @@ public class ContactController
 			}
 		}while(a!=3);
 	}
-	// public void setFile()
-	// {
-	// 	// v=repo.checkFile(v);
-	// 	v=repo.setFile(v);
-	// }
+	/**
+	 *to add contact in to file.
+	 */
 	public void addContact()
 	{
-		// setFile();
 		Contact cont=view.addContact();	
 		repo.writeFile(cont);
 	}
+	/**
+	 *to search contact
+	 */
 	public void searchContact()
 	{
 		String n=view.getContactId();
@@ -89,6 +101,11 @@ public class ContactController
 		}
 		view.searchContact(contact);
 	}
+	/**
+	 *to delete contact
+	 *
+	 *@param n contact id to delete
+	 */
 	public void deleteContact(String n)
 	{
 		List <Contact> contactList=repo.readFile();
@@ -100,7 +117,6 @@ public class ContactController
 			}	
 		}
 		repo.resetFile();
-		// int v=1;
 		repo.setFile();
 		for(int j=0;j<contactList.size();j++)
 		{
@@ -108,30 +124,39 @@ public class ContactController
 		}
 		view.deleteContact();
 	}
+	/**
+	 *to update contact.
+	 *
+	 *@param n contact id to update
+	 */
 	public void updateContact(String n)
 	{
 		List <Contact> contactList=repo.readFile();
-		String num=view.updateContact();
+		Contact con=view.updateContact();
 		for(int i=0;i<contactList.size();i++)
 		{
 			if(n.equals(contactList.get(i).getContactId()))
 			{
 				Contact c=contactList.get(i);
-				c.setContactNumber(num);
+				c.setContactName(con.getContactName());
+				c.setContactNumber(con.getContactNumber());
 				contactList.set(i,c);
 			}	
 		}
 		repo.resetFile();
-		// int v=1;
 		repo.setFile();
 		for(int j=0;j<contactList.size();j++)
 		{
 			repo.rewriteFile(contactList.get(j));
 		}
 	}
+	/**
+	 *to delete al contact
+	 */
 	public void deleteAllContact()
 	{
 		repo.resetFile();
+		repo.setFile();
 		view.deleteAllContact();
 	}
 	

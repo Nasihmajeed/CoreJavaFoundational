@@ -3,6 +3,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.lxisoft.domain.*;
+/**
+ *class: repository for file operation
+ */
 public class Repository implements FileDataSource
 {
 	static int in=1;
@@ -11,33 +14,13 @@ public class Repository implements FileDataSource
 	BufferedWriter bw=null;
 	FileWriter f=null;
 	BufferedWriter b=null;
-	
-	// public int checkFile(int v)
-	// {
-	// 	String s=null;
-	// 	try
-	// 	{
-	// 		fw=new FileWriter(contactFile,true);
-	// 		bw=new BufferedWriter(fw);
-	// 		// FileReader fr=new FileReader(contactFile);
-			
-	// 		{
-	// 			v=1;
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(""+e);
-	// 	}
-	// 	return v;
-	// }
+	/**
+	 *to set file
+	 */
 	public void setFile()
 	{
-		// String s=null;
 		try
 		{
-			// BufferedReader br=new BufferedReader(new FileReader(contactFile));
-			// contactFile=new File(fileName);
 			fw=new FileWriter(contactFile,true);
 			bw=new BufferedWriter(fw);
 		 	bw.write("ID"+","+"NAME"+","+"Number\n");
@@ -47,8 +30,12 @@ public class Repository implements FileDataSource
 		{
 			System.out.println(" file is not present"+e);
 		}
-		// return v;
 	}
+	/**
+	 *to get contact id
+	 *
+	 *@return contact id
+	 */
 	public int getContactId()
 	{
 		String s=null;
@@ -62,7 +49,6 @@ public class Repository implements FileDataSource
 				in=Integer.parseInt(c[0]);
 				in++;
 			}
-
 		}
 		catch(IOException e)
 		{
@@ -70,6 +56,11 @@ public class Repository implements FileDataSource
 		}
 		return in;
 	}
+	/**
+	 *to write in to file
+	 *
+	 *@param contact contact containing name and number
+	 */
 	public void writeFile(Contact contact)
 	{
 		try
@@ -86,6 +77,11 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}	
 	}
+	/**
+	 *to read date from file
+	 *
+	 *@return arraylist of contact
+	 */
 	public List <Contact> readFile()
 	{
 	
@@ -120,6 +116,9 @@ public class Repository implements FileDataSource
 		}
 		return contactList; 
 	}
+	/**
+	 *to clear file
+	 */
 	public void resetFile()
 	{
 		try
@@ -131,14 +130,17 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}
 	}
+	/**
+	 *to rewrite in to file after clearing file
+	 *
+	 *@param contact contact with id, name and number.
+	 */
 	public void rewriteFile(Contact contact)
 	{
 		try
 		{
 			f=new FileWriter(contactFile,true);
 			b=new BufferedWriter(f);
-			// in++;
-			// String id=String.valueOf(in);
 			b.write(contact.getContactId()+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
 			b.flush();
 		}
