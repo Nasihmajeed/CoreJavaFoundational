@@ -42,28 +42,41 @@ if(c==null){
 else{
 	System.out.println("\n------ User-----\n ");
 	  System.out.println(c.getName()+"-------"+c.getNumber());
+	  System.out.println("1-EDIT\t2-Delete ");
+	  int x=s.nextInt();
+	  switch(x){
+	  	case 1:String[] temp=this.updateContact();
+	  			repo.editList(c,temp);
+	  			break;
+	  	case 2:this.deleteContact();
+	  			break;
+	  	default:System.out.println("wrong entry");
+	  }
 	  
     }
   }
 
-/*
-public void updateContact(){
+
+public String[] updateContact(){
 System.out.println("\n\nEnter contact name : ");
 String n=ss.next();
-repo.deleteList(n);
-Contact c=control.search(n);
+//repo.deleteList(n);
+String[] temp=new String[2];
+// Contact c=control.search(n);
 	if(c==null){
+		temp=null;
 		System.out.println("cannot edit");
     	 }
 	else{
 		
 		System.out.println("Enter new name : ");
-		c.setName(ss.next());
+		temp[0]=ss.next();
 		System.out.println("Enter new number : ");
-		c.setNumber(s.next());	
-		control.save(c);
+		temp[1]=ss.next();	
+		//control.save(c);
 		System.out.println("(contact updated sucssesfully )");
     }
+    return temp;
   }
 
 
@@ -75,6 +88,6 @@ String n=ss.next();
 repo.deleteList(n);
 //control.setContact(n);
 System.out.println("---------"+n+" deleted from the contact");
-  }*/
+  }
  }
 

@@ -42,27 +42,36 @@ public ArrayList<Contact>  getList(){
 
     return contacts;
   }
-
+ 
 public Contact searchList(String name){
-		 int count=0;
-		 Contact c=null;
-		for(int i=0;i<contacts.size();i++){
-			if(name.equals(contacts.get(i).getName())){
-				count++;
-				c=contacts.get(i);
-      		} 
-  		 }
-    if(count==1){
-   		return c;
-  		 }
-    else{
-   		return null;
-  		 }
+ int count=0;
+ Contact c=null;			
+ System.out.println("djkdjj "+name);
+ contacts=this.getList();
+for(int i=0;i<contacts.size();i++){
+	if(name.equals(contacts.get(i).getName())){
+		count=1;
+		c=contacts.get(i);
+		} 
+	 }
+	 return c;
 
   } //7306546322
 
+
+public void editList(Contact contact,String[] temp){
+	//Contact contact=new Contact();
+	for(int i=0;i<contacts.size();i++){
+		if(contacts.get(i).getName().equals(contact.getName())){
+			contact.setName(temp[0]);
+			contact.setNumber(temp[1]);
+			contacts.set(i,contact);
+		}
+	}
+  }
+
 public void deleteList(String cn){
-	contacts=this.getList();
+contacts=this.getList();
 for(int i=0;i<contacts.size();i++){
 	if(cn.equals(contacts.get(i).getName())){
 		contacts.remove(i);
@@ -81,8 +90,7 @@ public void clearList(){
 	}
 		catch(IOException e){
     	System.out.println("Exception "+e);
+      }
     }
-  }
-
 
 }
