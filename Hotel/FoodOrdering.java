@@ -19,7 +19,7 @@ public class FoodOrdering
 			System.out.println("1 . Admin");
 			System.out.println("2 . User");
 			adminUser = scanner.nextInt();
-			if(adminUser ==1)
+			if(adminUser==1)
 			{
 				System.out.println("1 . Add");
 				System.out.println("2 . Delete");
@@ -30,8 +30,6 @@ public class FoodOrdering
 				if (num==1)
 				{
 					admin.add();
-					/*hotel.setProduct();
-					hotel.getProduct();*/
 				}
 			}
 			else if(adminUser ==2)

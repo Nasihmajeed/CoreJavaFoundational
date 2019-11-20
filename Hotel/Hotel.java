@@ -44,14 +44,14 @@ public class Hotel
 	void getProduct()
 	{
 		int n=1;
-		for(int i=0;i<foodProduct.length;i++)
+		for(int i=0;i<10;i++)
 		{
-			if(foodProduct[i].getName() != null)
+			if(foodProduct[i].getName()!= null)
 			{
 				System.out.println(n+"."+foodProduct[i].getName());
 				System.out.println("  "+foodProduct[i].getAmount()+" Rs");
-				n++;
 	        }
+	        n++;
 		}
 	}
 }

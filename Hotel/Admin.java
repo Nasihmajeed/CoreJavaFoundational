@@ -9,12 +9,12 @@ public class Admin
 		scanner = new Scanner(System.in);
 		hotel = new Hotel();
 		hotel.setProduct();
-		int n=0/*flag=1*/;
+		int flag=1;
 			for(int i=0;i<hotel.foodProduct.length;i++)
 				{
 					
-					/*if(flag==1)
-					{*/
+					if(flag==1)
+					{
 						boolean flag1 = false;
 						do
 						{
@@ -22,10 +22,10 @@ public class Admin
 							if(hotel.foodProduct[i].getName()==null)
 							{
 								System.out.print("Enter Food Name : ");
-								hotel.foodProduct[n].setName(scanner.next());
+								hotel.foodProduct[i].setName(scanner.next());
 								System.out.print("Enter Food Amount : ");
-								hotel.foodProduct[n].setAmount(scanner.nextInt());
-								System.out.println("Do you Want to Enter Another Product ? (If yes press 1,If no press 2)");
+								hotel.foodProduct[i].setAmount(scanner.nextInt());
+								System.out.print("Do you Want to Enter Another Product ? (If yes press 1,If no press 2) : ");
 								int num = scanner.nextInt();
 								if(num==1)
 								{
@@ -33,20 +33,25 @@ public class Admin
 								}
 								else if(num==2)
 								{
+									flag = 0;
 									break;
-									/*flag = 0;*/
+									
 								}
+							}
+							else if(hotel.foodProduct[i].getName()!=null)
+							{
+								break;
 							}
 					    }
 						while(flag1);
-						n++;
-				   /* }
+				    }
 				    else if(flag==0)
 				    {
 				    	break;
-				    }*/
+				    }
 
 				}
+				hotel.getProduct();
 	}
 	void update()
 	{
