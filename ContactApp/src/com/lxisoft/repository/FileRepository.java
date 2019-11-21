@@ -2,7 +2,7 @@ package com.lxisoft.repository;
 import java.io.*;
 import com.lxisoft.model.*;
 import com.lxisoft.domain.*;
-import java.util.ArrayList;
+import java.util.*;
 import com.lxisoft.view.*;
 import com.lxisoft.repository.FileStorage;
 
@@ -92,6 +92,7 @@ public class FileRepository implements FileStorage
 	public ArrayList<Contact> findAll()
 	{
 		ArrayList<Contact> contactList=new ArrayList<Contact>();
+		Set<Contact> contactsSet=new TreeSet<Contact>();
 		try
 		{
 			if(file.exists())
@@ -106,8 +107,9 @@ public class FileRepository implements FileStorage
 					contact.setId(data[0]);
 					contact.setName(data[1]);
 					contact.setNumber(data[2]);
-					contactList.add(contactList.size(),contact);
+					contactsSet.add(contact);
 				}
+				contactList.addAll(contactsSet);
 				br.close();
 			}
 			else

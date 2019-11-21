@@ -182,7 +182,7 @@ public class ContactController
 		for(Contact contact: contactList)
 		{
 			//System.out.print(j+"sync Name- " +contact.getName());
-			repository.syncFile(contact,j);
+			repository.syncFile(contact,i);
 			i++;
 		}
 	}
