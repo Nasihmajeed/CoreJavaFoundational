@@ -33,7 +33,8 @@ public class ContactController
 				case 1:		addNewContact();break;
 				case 2:		searchContact();break;	
 				case 3:		getAllContactDetails();break;
-				case 4:		deleteAllContacts();break;
+				case 4:		sortContactDetails();break;
+				case 5:		deleteAllContacts();break;
 				default:	System.out.println("Enter the correct option!");
 							default_option=1;break;
 			}
@@ -95,6 +96,30 @@ public class ContactController
 	{
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		view.showAllContactDetails(contacts);
+	}
+	/**
+	 *  sort contacts .
+	 */
+	public void sortContactDetails()
+	{
+		int option=view.viewSortedDetails();
+		switch(option)
+		{
+			case 1: sortByName();break;
+			//case 2: getContactByName();break;
+		}
+	}
+	public void sortByName()
+	{
+		Contact contact =new Contact();
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		Set<Contact> contactlist = new TreeSet<Contact>();
+		for(int i=0;i<contactlist.size();i++)
+		{
+			contactlist.add(contacts.get(i));
+		}
+		contacts.addAll(contactlist);
+		view.sortByName(contacts);
 	}
 	/**
 	 *  get contact by id from repository.

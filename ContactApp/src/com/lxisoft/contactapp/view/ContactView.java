@@ -38,10 +38,28 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println(" \n<---Contact App Menu--->");
-		System.out.println(" 1:Add  \n 2:Search  \n 3:view \n 4:DeleteAll \n");
+		System.out.println(" 1:Add  \n 2:Search  \n 3:view \n 4:sort \n 5:DeleteAll \n");
 		System.out.println(" select your option	");
 		int option=sc.nextInt();
 		return option;
+	}
+	public int viewSortedDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println(" \n<---contact sort--->");
+		System.out.println(" 1:by name  \n 2:by number ");
+		System.out.println(" select your option	");
+		int option=sc.nextInt();
+		return option;
+	}
+	public void sortByName(ArrayList<Contact> contactlist)
+	{
+		System.out.println(" ID \t NAME \t NUMBER");
+		for(int i=0;i<contactlist.size();i++)
+		{
+			System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
+			//System.out.println(contactlist.get(i));
+		}
 	}
 	/**
 	 * show All ContactDetails 

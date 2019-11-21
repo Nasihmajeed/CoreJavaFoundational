@@ -1,8 +1,9 @@
 package com.lxisoft.contactapp.Domain;
+import  java.lang.Comparable;
 /**
- * pojo : Contact class for set and get contact details
+ * pojo : Contact class for set and get contact details that implements Comparable
  */
-public class Contact
+public class Contact implements Comparable<Contact>
 {
 	/**
 	 * instance variables id name and number.
@@ -42,6 +43,7 @@ public class Contact
 	{
 		return this.id;
 	}
+
 	/**
 	 * get name in contacts
 	 * @return name
@@ -59,7 +61,7 @@ public class Contact
 		return this.phno;
 	}
 	/**
-	 * overriding equal method to check whether object equals or not
+	 * @override equal method to check whether object equals or not
 	 *@param object
 	 * @return boolean true or false.
 	 */
@@ -69,5 +71,13 @@ public class Contact
 		if(this.name.equals(contact.getName()))
 			return true;
 		else return false;
+	}
+	/**
+	 * @override compareTo method to check whether object equals or not
+	 *@param object
+	 */
+	public int compareTo(Contact contact)
+	{int val=0;
+		return val; 
 	}
 }
