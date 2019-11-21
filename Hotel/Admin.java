@@ -2,6 +2,7 @@ import java.util.*;
 public class Admin
 {
 	String password;
+	Hotel hotel;
 	
 
 
@@ -27,22 +28,23 @@ public class Admin
 					int c;
 					Scanner scan=new Scanner(System.in);
 					System.out.println("Enter your choice ");
-					System.out.println("1.Add \n2.Edit \n3.Delete \n4.Display");
+					System.out.println("1.Add \n2.Display \n3.Delete \n4.Edit");
 					c=scan.nextInt();
-					switch(c)
+					
+				switch(c)
 					{
 						case 1:System.out.println("Add");
 										add();
 										break;
-						case 2:System.out.println("Edit");
-										//edit();
-										//break;
-						case 3:System.out.println("Delete");
-										//delete();
-										//break();
-						case 4:System.out.println("Display");
-										//display();
-										//break();
+						case 2:System.out.println("Display");
+									display();
+									break;
+						/*case 3:System.out.println("Delete");
+										delete();
+										break();
+						case 4:System.out.println("Edit");
+										edit();
+										break();*/
 
 						default:System.out.println("ERROR");
 
@@ -51,18 +53,37 @@ public class Admin
 
 
 		}
-	}
+
 	
-				/*void add()
+	
+				void add()
 				{
-					FoodItems food=new FoodItems();
-					{
-			
-					}
+							Scanner scan=new Scanner(System.in);
+						
+								hotel=new Hotel();
+								hotel.menu();
+								for(int i=0;i<hotel.food.length;i++)
+								{
+									if(hotel.food[i].name==null)
+									{
+										System.out.println("Enter the FoodName");
+										hotel.food[i].name=scan.next();
+										System.out.println("Enter the price");
+										hotel.food[i].price=scan.nextInt();
+										break;
+										
+									}
 
 
+																
+								}adminChoice();
+								hotel.getMenu();  
 				}
-			}*/
+
+
+
+}
+			
 
 
 	

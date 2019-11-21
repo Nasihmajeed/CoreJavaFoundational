@@ -3,6 +3,8 @@ public class Hotel
 {
 	String name,place;
 	Admin admin=new Admin();
+	User user=new User();
+	FoodItems[] food;
 	
 
 	void setDetails()
@@ -26,7 +28,7 @@ public class Hotel
 		  			admin.adminChoice();
 		  			break;
 		  	case 2:System.out.println("User");
-		  				//user();
+		  				user.users();
 		  				break;
 		  	default:System.out.println("Error");
 
@@ -34,8 +36,8 @@ public class Hotel
 		  }
 		void menu()
 		{
-			FoodItems[] food=new FoodItems[10];
-			for(int i=0;i<5;i++)
+			food=new FoodItems[10];
+			for(int i=0;i<10;i++)
 			{
 				food[i]=new FoodItems();
 			}
@@ -49,12 +51,19 @@ public class Hotel
 			food[3].price=80;
 			food[4].name="BBQ";
 			food[4].price=150;
+			
+}
+		void getMenu()
+		{
 			System.out.println("\t****MENU*****");
-			for(int i=0;i<5;i++) 
+			for(int i=0;i<10;i++) 
 			{
+				if(food[i].name!=null)
+				{
 						System.out.println(food[i].name);
 						System.out.println("\t"+food[i].price);
+				}		
 
 			}
-}
+		}
 }
