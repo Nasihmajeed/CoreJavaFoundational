@@ -1,5 +1,5 @@
 package com.lxisoft.contactapp.model;
-public class Contact{
+public class Contact implements Comparable<Contact>{
 	private  String name;
 	 private String  number;
 public void setName(String name){
@@ -13,5 +13,9 @@ public void setNumber(String  number){
 }
 public String getNumber(){
 	return number;
+}
+public int compareTo(Contact contact){
+	int x=this.contact.name>contact.name;
+	return x;
 }
 }

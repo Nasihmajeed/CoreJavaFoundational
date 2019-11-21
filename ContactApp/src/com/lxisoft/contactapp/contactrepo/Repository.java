@@ -62,7 +62,7 @@ public void editList(Contact contac,String[] temp){
 	//Contact contact=new Contact();
 	for(int i=0;i<contacts.size();i++){
 		if(contacts.get(i).getName().equals(contac.getName())){
-			//System.out.println("\n : "+temp[0]+" 	no :"+temp[1]+"  "+i);
+			// System.out.println("\n : "+temp[0]+" 	no :"+temp[1]+"  "+i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);
