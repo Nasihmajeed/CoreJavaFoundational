@@ -5,11 +5,11 @@ import com.lxisoft.contactmodel.*;
 import com.lxisoft.view.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 /**
  *controller class
  */
-public class ContactController
+public class ContactController 
 {
 	Repository repo=new Repository();
 	View view=new View();

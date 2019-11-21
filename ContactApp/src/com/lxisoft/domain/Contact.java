@@ -1,8 +1,9 @@
 package com.lxisoft.domain;
+import java.util.*;
 /**
  *pojo: class for set and get contact details
  */
-public class Contact
+public class Contact implements Comparable<Contact>
 {
 	/**
 	 *instance variables id, name and number
@@ -63,5 +64,9 @@ public class Contact
 	public String getContactNumber()
 	{
 		return contactNumber;
+	}
+	public int compareTo(Contact c)
+	{
+		return this.contactName.compareTo(c.getContactName());
 	}
 }

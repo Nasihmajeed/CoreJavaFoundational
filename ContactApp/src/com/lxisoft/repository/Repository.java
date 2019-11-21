@@ -1,7 +1,7 @@
 package com.lxisoft.repository;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import com.lxisoft.domain.*;
 /**
  *class: repository for file operation
@@ -10,10 +10,6 @@ public class Repository implements FileDataSource
 {
 	static int in=1;
 	File contactFile=new File(fileName);
-	FileWriter fw=null;
-	BufferedWriter bw=null;
-	FileWriter f=null;
-	BufferedWriter b=null;
 	/**
 	 *to set file
 	 */
@@ -21,8 +17,8 @@ public class Repository implements FileDataSource
 	{
 		try
 		{
-			fw=new FileWriter(contactFile,true);
-			bw=new BufferedWriter(fw);
+			FileWriter fw=new FileWriter(contactFile,true);
+			BufferedWriter bw=new BufferedWriter(fw);
 		 	bw.write("ID"+","+"NAME"+","+"Number\n");
 			bw.flush();
 		}
@@ -65,8 +61,8 @@ public class Repository implements FileDataSource
 	{
 		try
 		{
-			fw=new FileWriter(contactFile,true);
-			bw=new BufferedWriter(fw);
+			FileWriter fw=new FileWriter(contactFile,true);
+			BufferedWriter bw=new BufferedWriter(fw);
 			int i=getContactId();
 			String id=String.valueOf(i);
 			bw.write(id+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
@@ -84,7 +80,7 @@ public class Repository implements FileDataSource
 	 */
 	public List <Contact> readFile()
 	{
-	
+		Set<Contact> contactSet=new TreeSet<Contact>();
 		List <Contact> contactList=new ArrayList<Contact>();
 		try
 		{
@@ -101,8 +97,10 @@ public class Repository implements FileDataSource
 					c.setContactId(cont[0]);
 					c.setContactName(cont[1]);	
 					c.setContactNumber(cont[2]);			
-					contactList.add(c);
+					// contactList.add(c);
+					contactSet.add(c);
 				}
+				contactList.addAll(contactSet);
 			}
 			else
 			{
@@ -116,6 +114,10 @@ public class Repository implements FileDataSource
 		}
 		return contactList; 
 	}
+	public void sortFile()
+	{
+
+	}
 	/**
 	 *to clear file
 	 */
@@ -123,7 +125,7 @@ public class Repository implements FileDataSource
 	{
 		try
 		{
-			f=new FileWriter(contactFile);
+			FileWriter f=new FileWriter(contactFile);
 		}
 		catch(IOException e)
 		{
@@ -139,8 +141,8 @@ public class Repository implements FileDataSource
 	{
 		try
 		{
-			f=new FileWriter(contactFile,true);
-			b=new BufferedWriter(f);
+			FileWriter f=new FileWriter(contactFile,true);
+			BufferedWriter b=new BufferedWriter(f);
 			b.write(contact.getContactId()+","+contact.getContactName()+","+contact.getContactNumber()+"\n");
 			b.flush();
 		}
