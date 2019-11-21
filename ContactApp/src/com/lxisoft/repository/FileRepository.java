@@ -55,7 +55,14 @@ public class FileRepository implements FileStorage
 		ArrayList<Contact> contactList=findAll();
 		if(file.exists())
 		{
-			return Integer.parseInt(contactList.get(contactList.size()-1).getId());
+			int n=0,x;
+			for(int i=0;i<contactList.size();i++)
+			{
+				x=Integer.parseInt(contactList.get(i).getId());
+				if(n<x)
+					n=x;
+			}
+			return n;
 		}
 		else
 		{
