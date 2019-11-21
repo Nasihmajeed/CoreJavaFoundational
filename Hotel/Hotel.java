@@ -1,7 +1,7 @@
 public class Hotel
 {
 	private String name,place;
-	FoodProduct foodProduct[];
+	FoodProduct[] foodProduct;
 	
 	public void setName(String newName)
 		{
@@ -19,7 +19,7 @@ public class Hotel
 		{
 			return place;
 		}
-	Static void setProduct()
+	void setProduct()
 	{
 		 foodProduct = new FoodProduct[10];
 		 for(int i = 0;i<10;i++)
