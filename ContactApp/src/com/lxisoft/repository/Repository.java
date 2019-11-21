@@ -19,7 +19,7 @@ public class Repository implements Filerepository
 		         
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
-	  	bw.write(id+","+contact.getName()+", "+contact.getNumber()+"\n");
+	  	bw.write(contact.getId()+","+contact.getName()+", "+contact.getNumber()+"\n");
 	  	bw.flush();
 
 	  	}
@@ -29,7 +29,7 @@ public class Repository implements Filerepository
 		}
 		// System.out.println(id++);
 	}
-	public void setId()
+	public int setId()
 	{
 		try
 		{
@@ -48,6 +48,7 @@ public class Repository implements Filerepository
 			System.out.println(e);
 		}
 		id++;
+		return id;
 	}
 	public List <Contact> fileRead()
 	{

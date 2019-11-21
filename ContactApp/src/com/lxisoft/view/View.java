@@ -11,7 +11,8 @@ public class View
 	public int  begin()
 	{
 		int n=0;
-		
+		try
+	   { 
 		do
 		{
 		System.out.println("  \n \t \t -----CONTACT LIST------");
@@ -19,15 +20,16 @@ public class View
 		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY ");
 		Scanner read= new Scanner(System.in);
 		n = read.nextInt();	
-		return n;
-		 
-		}while(true);	
-	    
-	    
-       
+		
+		}while(n==1 && n==2 && n==3);	
+	   }
+	    catch(Exception e)
+	    {
+	    	System.out.println("PLEASE ENTER THE NUMERIC VALUE");
+	    	con.choice();
+	    }
+        return n;
 	}
-	
-	
 	public void defaultPrint(int n )
 	{
 		switch(n)
@@ -36,7 +38,8 @@ public class View
 			          con.choice() ; break;
 			case 1 : System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 
-		}	
+		}
+		
 
 	}
 	public void addContact()
@@ -47,7 +50,6 @@ public class View
 		String name= read.nextLine();
 		System.out.println("ENTER NUMBER");
 		String number=read.nextLine();
-
 		con.addContact(name,number);
 	}
 	public void search()
