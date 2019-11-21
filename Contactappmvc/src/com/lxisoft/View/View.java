@@ -3,12 +3,19 @@ import com.lxisoft.Controller.Controller;
 import com.lxisoft.Domain.Contact;
 import java.io.*;
 import java.util.*;
+/*
+*class for view All 
+*
+*/
 public class View
 { 
    static ArrayList <Contact> contactslist = new  ArrayList <Contact>();  
    static BufferedReader input = new BufferedReader(new InputStreamReader (System.in));
    static Scanner in = new Scanner(System.in);
    static Controller control = new Controller();
+   /*
+   *MENU
+   */
    public void display()
   {
     int a;
@@ -40,6 +47,10 @@ public class View
     }while(a!=5);
          //contactslist = control.addContact();
   }
+  /*
+  *display for Add contact
+  *@param control
+  */
   public static void addContact(Controller control)
    {
       System.out.println("Enter the number of the persons:");
@@ -59,7 +70,9 @@ public class View
         }  control.file(contactslist);
 
     }
-
+/*
+*view for display all contact details
+*/
    public static void displayAll()
      {   // contactslist = control.display();
           for(int i=0;i<contactslist.size();i++)
@@ -70,7 +83,9 @@ public class View
 
           }
      }
-  
+  /*
+  *view for delete selected contact
+  */
 
     public static void deleteContact()
 
@@ -88,12 +103,14 @@ public class View
            }catch(IOException e){}
            control.file(contactslist);
     } 
-
+/*
+*view for edit selected contact
+*/
     public static void editContact()
     { String b=null;
       String a=null;
-      String c=null;
-      int d=0;
+      String c=null;   
+      int d=1;
       try{System.out.println("Enter the name for edit:");
           a = input.readLine();
           System.out.println("Enter the new name     :");

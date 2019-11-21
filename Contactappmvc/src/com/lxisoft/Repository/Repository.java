@@ -2,26 +2,38 @@ package com.lxisoft.Repository;
 import com.lxisoft.Domain.Contact;
 import java.io.*;
 import java.util.ArrayList;
-
+/*
+*Repository class for file operation
+*/
 public class Repository
 {  ArrayList <Contact> filelist = new  ArrayList <Contact>();
-  
+   File file = new File("Contact1.csv");
+   /*
+   *method for file operation
+   */
   public void file(ArrayList <Contact> contactslist)
   {
-   try{ 
-       File file = new File("Contact1.csv");
-       PrintWriter pw = new PrintWriter(file); 
-       if(file.length()==0) 
-        {pw.println("ID"+","+"NAME"+","+"NUMBER");}
-         pw.flush();
-     for(int i=0;i<contactslist.size();i++)
-     {
-     	pw.println(contactslist.get(i).getId()+","+contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
-        pw.flush();
-     }
-      }catch(IOException e){}
-      
+   try{  
+             if(!file.exists())
+              {
+              PrintWriter pw = new PrintWriter(file); 
+              if(file.length()==0) 
+                { pw.println("ID"+","+"NAME"+","+"NUMBER");}
+                  pw.flush();
+                  for(int i=0;i<contactslist.size();i++)
+                    {
+     	               pw.println(contactslist.get(i).getId()+","+contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
+                     pw.flush();
+                    }}
+                else
+              {System.out.println("empty");}
+
+       }catch(IOException e){}
   }
+  /*
+  *get all contacts from file
+  *
+  */
   public ArrayList <Contact> getAllContacts()
   {  String contacts;
   	   try

@@ -53,12 +53,7 @@ public class Controller
  *
  */
   public void file(ArrayList <Contact> contactslist)
-  {
+  { 
     r.file(contactslist);
   }
-  // public ArrayList<Contact> display()
-  // {
-  //   contactslist=r.readFile();
-  //   return contactslist;
-  // }
  }
