@@ -97,6 +97,7 @@ public class Repository implements FileRepository
  */
 	public List<Contact> arrayWrite()
 	{
+		Set<Contact> ts=new TreeSet<Contact>();
 		try
 		{
 			// fw=new FileWriter(file,true);
@@ -112,8 +113,10 @@ public class Repository implements FileRepository
 				c.setName(str[1]);
 				c.setContactNo(str[2]);
 				// System.out.println(read+"\n");
-				contactList.add(c);
+				ts.add(c);
+				
 			}
+			contactList.addAll(ts);
 		}
 		catch(IOException e)
 		{
@@ -156,7 +159,7 @@ public class Repository implements FileRepository
 		}
 	}
 	 /**
- * file rewrite
+ * file rewritej
  */
 	public void rewriteFile(Contact c)
 	{

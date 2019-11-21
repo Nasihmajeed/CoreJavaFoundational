@@ -3,7 +3,8 @@ import com.lxisoft.controllers.*;
 import com.lxisoft.models.*;
 import com.lxisoft.view.*;
 import java.util.*;
-public class Contact
+import java.io.*;
+public class Contact implements Comparable<Contact>
 {
 	private String id;
 	private String name;
@@ -30,8 +31,7 @@ public class Contact
 	}
 	 /**
  *set contact name 
- */
-	  /**
+ `	  /**
  * @param name contact name
  */
 	public void setName(String name)
@@ -67,5 +67,10 @@ public class Contact
 	public String getContactNo()
 	{
 		return contactNo;
+	}
+
+	public int compareTo(Contact c)
+	{
+		return this.name.compareTo(c.getName());
 	}
 }
