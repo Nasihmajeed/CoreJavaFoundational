@@ -1,5 +1,4 @@
 package com.lxisoft.contactmodel;
-import com.lxisoft.contactcontroller.*;
 import com.lxisoft.contactmodel.*;
 import java.util.ArrayList;
 import java.util.List;

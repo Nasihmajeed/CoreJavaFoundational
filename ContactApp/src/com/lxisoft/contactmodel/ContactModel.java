@@ -1,5 +1,4 @@
-package com.lxisoft.contactmodel;																													
-import com.lxisoft.contactcontroller.*;
+package com.lxisoft.contactmodel;					
 /**
  *model class:contact model with contact id and contact name
  */

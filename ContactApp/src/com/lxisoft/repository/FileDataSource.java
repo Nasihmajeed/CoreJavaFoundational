@@ -1,6 +1,4 @@
 package com.lxisoft.repository;
-import com.lxisoft.domain.*;
-import java.util.List;
 /**
  *file data source interface for saving file path
  */
