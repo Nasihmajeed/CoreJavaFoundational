@@ -1,6 +1,6 @@
 package com.lxisoft.Domain;
 
-public class Contact
+public class Contact implements Comparable<Contact>
 {
 	private int id;
 	private String name;
@@ -35,5 +35,13 @@ public class Contact
 		if(this.name.equals(c.getName()))
 			return true;
 		else return false;
+	}
+	public int compareTo(Contact c)
+	{
+		return ((this.getName()).compareTo(c.getName()));
+	}
+
+	public String toString() {
+			return this.name;
 	}
 }

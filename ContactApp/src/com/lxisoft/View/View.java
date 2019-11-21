@@ -18,7 +18,7 @@ public class View
 	public int getUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 delete all");
+		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 view all contacts \n4 delete all");
 	 	return sc.nextInt();
 	}
 	/**
@@ -44,8 +44,14 @@ public class View
 	public void setNewContact()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("enter the name: ");
-		String name=sc.next();
+		boolean exist=false;
+		String name;
+		do
+		{
+			System.out.println("enter the name: ");
+			exist=control.checkName((name=sc.next()));
+			if(exist)System.out.println("contact name already found , try another :");
+		}while(exist);
 		System.out.println("enter the number: ");
 		String number=sc.next();
 		control.createNewContact(name,number);
@@ -85,13 +91,14 @@ public class View
 			{
 				repeat=0;
 				loop=0;
-				if (selection==2)System.out.println(" enter : 0 search by ID   \t 1 search by Name ");
-				if (selection==0)System.out.println(" enter : 0 select by ID   \t 1 select by Name ");
+				if (selection==2)System.out.println(" enter : 0 search by ID   \t 1 search by Name \t 2 back to main");
+				if (selection==0)System.out.println(" enter : 0 select by ID   \t 1 select by Name \t 2 back to main");
 				int select=sc.nextInt();
 				switch(select)
 				{
 					case 0: selectById();break;
 					case 1: selectByName();break;
+					case 2: control.start();break;
 					default:System.out.println("enter the correct option");
 							repeat=1;
 				}
@@ -164,11 +171,18 @@ public class View
 	{
 		Scanner sc=new Scanner(System.in);
 		int index=control.getIndex(contact);
-		System.out.println("enter new name");
-		String name=sc.next();
+		boolean exist=false;
+		String name;
+		do
+		{
+			System.out.println("enter new name: ");
+			exist=control.checkName((name=sc.next()));
+			if(exist)System.out.println("contact name already found , try another :");
+		}while(exist);
 		System.out.println("enter number");
 		String number=sc.next();
-		control.editContact(name,number,index);
+		int id=contact.getId();
+		control.editContact(id,name,number,index);
 		System.out.println("contact modified succesfully \n");			
 	}
 	/**

@@ -32,7 +32,8 @@ public class ContactControl
 				case 0: view.selectContact(0);break;
 				case 1: view.setNewContact();break;
 				case 2: view.selectContact(2);break;
-				case 3: view.clearAllContacts();break;
+				case 3: view.viewAllContacts();break;
+				case 4: view.clearAllContacts();break;
 				default:view.invalidOption();
 			}
 			repeat=view.isContinue();
@@ -49,6 +50,7 @@ public class ContactControl
 		contact.setName(name);
 		contact.setNo(number);
 		repo.writeNewContact(contact,true);
+		repo.sorting(repo.getAllContacts());
 	}
 	/**
 	*get all contact details from repository and get viewListModel array
@@ -140,13 +142,14 @@ public class ContactControl
 	*@param number new number
 	*@param i index number 
 	*/
-	public void editContact(String name, String number, int i)
+	public void editContact(int id,String name, String number, int i)
 	{
 		Contact contact=new Contact();
-		contact.setId(i);
+		contact.setId(id);
 		contact.setName(name);
 		contact.setNo(number);
 		repo.editFile(contact,i);
+		repo.sorting(repo.getAllContacts());
 	}
 	/**
 	*method to delete a contact
@@ -155,6 +158,7 @@ public class ContactControl
 	public void deleteContact(int i)
 	{
 		repo.deleteContact(i);
+		repo.sorting(repo.getAllContacts());
 	}
 	/**
 	*method to clear all contact
@@ -162,5 +166,22 @@ public class ContactControl
 	public void clearAllContacts()
 	{
 		repo.clearFile();
+	}
+	/**
+	*method to check whether the contact name already used
+	*@param name inputed name
+	*@return return booelean
+	*/
+	public boolean checkName(String name)
+	{
+		ArrayList<Contact> contacts=new ArrayList<Contact>();
+		contacts=repo.getAllContacts();
+
+		boolean exist=false;
+		for(Contact a : contacts)
+		{
+			if(a.getName().equals(name))
+				exist=true;
+		}return exist;
 	}
 }

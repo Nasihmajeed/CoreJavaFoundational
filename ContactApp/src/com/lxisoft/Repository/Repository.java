@@ -38,6 +38,7 @@ public class Repository implements FileRepository
 		{
 			System.out.println("error1");
 		}id++;
+
 	}
 	/**
 	*method to set id number
@@ -108,15 +109,15 @@ public class Repository implements FileRepository
 			while((str=bf.readLine())!=null)
 			{
 				String[] strln=str.split(",",2);
-				id=Integer.parseInt(strln[0]);				
-				
-			}
+				int idtemp=Integer.parseInt(strln[0]);	
+				if(idtemp>id)id=idtemp;
+			}id++;
 		}
 		catch(Exception e)
 		{
 			System.out.println("error");
 		}
-		return ++id;
+		return id;
 	}
 	/**
 	*method to edit a contact detail 
@@ -154,12 +155,24 @@ public class Repository implements FileRepository
 	{
 		try
 		{
-			id=0;
+			id=1;
 			FileWriter fi=new FileWriter(file);
 		}catch(Exception e)
 		{
 			System.out.println("error");
 		}
+	}
+	public void sorting(ArrayList<Contact> contacts)
+	{
+		TreeSet <Contact> ts=new TreeSet <Contact>();
+		for(Contact c : contacts)
+		   ts.add(c);
+
+		 // System.out.println(ts);
+		clearFile();
+		for(Contact c : ts)
+		   writeNewContact(c, false);
+  
 	}
 
 }
