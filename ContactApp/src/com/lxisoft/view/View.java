@@ -91,10 +91,9 @@ public class View
 	}
 	public void edit(int i)
 	{
-		 Contact contact= new Contact();
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
-		 contact.setName(read.nextLine());
+		 String name  = read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
 		 con.editContact(i,name,number);
