@@ -6,7 +6,9 @@ import com.lxisoft.domain.*;
 import com.lxisoft.view.*;
 import java.util.*;
 import java.io.*;
-
+ /**
+ * class Repository
+ */
 public class Repository implements FileRepository
 {
 	File file=new File(fileName);
@@ -15,21 +17,43 @@ public class Repository implements FileRepository
 	BufferedWriter bw=null;
 	static int id=0;
 	private List<Contact>contactList=new ArrayList<Contact>();
+	 /**
+ * set arraylist
+ */
+	 /**
+ * @param contactList  is arraylist
+ */
 	public void setContactList(List<Contact>contactList)
 	{
 		this.contactList=contactList;
 	}
+	 /**
+ * get contactlist
+ */
+	  /**
+ * @return arraylist
+ */
 	public List<Contact> getContactList()
 	{
 		return contactList;
 	}
-
+ /**
+ * @return size of arraylist
+ */
 	public int getContactListSize()
 	{
 		return contactList.size();
 	}
 
-
+ /**
+ * file write
+ */
+  /**
+ * @param c contact
+ */
+   /**
+ * @return arraylist
+ */
 	public List<Contact> createFile(Contact c)
 	{
 		try
@@ -64,6 +88,13 @@ public class Repository implements FileRepository
 	// 	}
 	// 	return contactList; 	
 	// }
+
+	 /**
+ * 
+ */
+	  /**
+ * @return arraylist
+ */
 	public List<Contact> arrayWrite()
 	{
 		try
@@ -90,6 +121,9 @@ public class Repository implements FileRepository
 		}	
 		return contactList;
 	}
+	 /**
+ * to set id
+ */
 	public void count()
 	{
 		try
@@ -106,6 +140,9 @@ public class Repository implements FileRepository
 			System.out.println("an error ");
 		}	
 	}
+	 /**
+ * reset file
+ */
 	public void resetFile()
 	{
 		try
@@ -118,6 +155,9 @@ public class Repository implements FileRepository
 			System.out.println("An error occured");
 		}
 	}
+	 /**
+ * file rewrite
+ */
 	public void rewriteFile(Contact c)
 	{
 		try

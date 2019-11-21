@@ -11,7 +11,7 @@ public class ContactView
  */
 
 	/**
- * contacts print from ArrayList
+ * to get all contacts
  */
 	public void getAllContacts(List<ContactModel> contactsList)
 	{
@@ -26,19 +26,24 @@ public class ContactView
 		}
 	}
 	/**
- * operations
+ * select choices
  */
-	
+	 /**
+ * @return choice 
+ */
 	public int display()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter your choice:");
 		System.out.println("1-select\n2-Add\n3-Search\n4-Home page\n5-Exit");
-		int ch=sc.nextInt();
+		int ch=sc.nextInt();//ch is selected choice
 		return ch;
 	}
 	/**
  * operations
+ */
+	 /**
+ * @return choice
  */
 	public int getOperations()
 	{
@@ -50,6 +55,9 @@ public class ContactView
 	/**
  * Select id
  */
+	 /**
+ * @return id
+ */
 	public String getContactId()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -59,6 +67,9 @@ public class ContactView
 	}
 	/**
  * Select a contact by id
+ */
+	/**
+ * @param c contact
  */
 	public void getContactById(Contact c)
 	{
@@ -74,6 +85,9 @@ public class ContactView
 	}
     /**
  * Add new contact
+ */
+     /**
+ * @return contact
  */
 	public Contact addContact()
 	{
@@ -97,6 +111,9 @@ public class ContactView
 	/**
  * Edit contact number
  */
+	 /**
+ * @return contact number
+ */
 	public String updateContact()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -106,6 +123,9 @@ public class ContactView
 	}
 	/**
  * Search a contact using id
+ */
+	/**
+ * @param c contact
  */
 	public void searchContact(Contact c)
 	{

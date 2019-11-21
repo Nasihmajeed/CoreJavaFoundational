@@ -12,7 +12,9 @@ public class ContactControl
  */
     Repository repository=new Repository();
     ContactView view=new ContactView();
-   
+   /**
+ * to get all contacts
+ */
 	public void getContactDetails()
 	{     
         List<Contact>contactList=repository.arrayWrite();
@@ -27,6 +29,9 @@ public class ContactControl
         view.getAllContacts(listModel.getContactsList());
         display();
     }
+    /**
+ * to select choices
+ */
     public void display()
     {
         int ch;
@@ -43,6 +48,9 @@ public class ContactControl
         }while(ch!=5);
         
     }
+    /**
+ * contact select by id and operations delete and update
+ */
     public void ContactByIdDetails()
     {
         List<Contact>contactList=repository.arrayWrite();
@@ -64,12 +72,18 @@ public class ContactControl
             case 2: deleteDetails(d); break;
         }
     }
+    /**
+ * add contact
+ */
     public void addDetails()
     {
     	Contact c=new Contact();
     	c=view.addContact();
         repository.createFile(c);
     }
+     /**
+ * delete contact
+ */
     public void deleteDetails(String d)
     {
         List<Contact>contactList=repository.arrayWrite();
@@ -87,6 +101,12 @@ public class ContactControl
         }
         view.deleteContact();
     }
+     /**
+ * update contact
+ */
+      /**
+ * @param d selected id
+ */
     public void updateDetails(String d)
     {
         List<Contact>contactList=repository.arrayWrite();
@@ -106,6 +126,9 @@ public class ContactControl
             repository.rewriteFile(contactList.get(i));
         }
     }
+     /**
+ * search a contact by id
+ */
     public void searchDetails()
     {
         String d=view.getContactId();
