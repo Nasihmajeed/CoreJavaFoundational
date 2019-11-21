@@ -14,8 +14,9 @@ public class Controller
 	
 	public void choice()
 	{
+
 		int n=view.begin();
-		rep.setId();
+		
 			switch(n)
 			{
 				case 1 : view.addContact(); break;
@@ -29,6 +30,7 @@ public class Controller
 
 	public void addContact(String name,String number)
 	{ 
+		rep.setId();
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
@@ -36,7 +38,7 @@ public class Controller
 		// int i ;
 		// if(contact.)
         //contact.setId(i);
-        rep.fileWrite(contact);
+        rep.fileWrite(contact,true);
         choice();
 
 	}
@@ -62,12 +64,14 @@ public class Controller
 		 contactList = rep.fileRead();
 		 contact.setName(name);
          contact.setNumber(number);
+         System.out.println("value i ="+i+"   id ="+contact.getId());
+
          contactList.set(i,contact);
          rep.clearFile();
 		
 		 for(int j=0; j<contactList.size();j++)
 		 {
-		 	 rep.fileWrite(contactList.get(j));
+		 	 rep.fileWrite(contactList.get(j),false);
 		 }	
 		 choice();
 	
@@ -82,7 +86,7 @@ public class Controller
 		
 		 for(int j=0; j<contactList.size();j++)
 		 {
-		 	 rep.fileWrite(contactList.get(j));
+		 	 rep.fileWrite(contactList.get(j),false);
 		 }
 		 choice();
 
@@ -95,7 +99,7 @@ public class Controller
 
 		for(int i=0; i < contactDetail.size();i++)
 		{
-			 System.out.println("\n ID : "+contactDetail.get(i).getId()+" NAME : "+contactDetail.get(i).getName() +" NUMBER : "+contactDetail.get(i).getNumber());
+			 System.out.println("\n ID:"+contactDetail.get(i).getId()+" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
 		}
 		choice();
 	}

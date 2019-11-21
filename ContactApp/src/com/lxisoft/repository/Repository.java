@@ -12,9 +12,28 @@ public class Repository implements Filerepository
 	static int id;
 	File file = new File(filename);
 	public ArrayList<Contact> array = new ArrayList<Contact>();
-	public void fileWrite(Contact contact)
+
+	public void fileWrite(Contact contact,boolean isTrue)
 	{ 		
+		if(isTrue == true)
+		{
 		try
+		{
+		         
+		FileWriter fw = new FileWriter(file,true);
+		BufferedWriter bw= new BufferedWriter(fw);
+	  	bw.write(id+","+contact.getName()+", "+contact.getNumber()+"\n");
+	  	bw.flush();
+
+	  	}
+		catch (IOException e)
+		{
+			System.out.println(e);
+		}
+	    }
+	    else if(isTrue== false)
+	    {
+	    	try
 		{
 		         
 		FileWriter fw = new FileWriter(file,true);
@@ -27,10 +46,12 @@ public class Repository implements Filerepository
 		{
 			System.out.println(e);
 		}
-		// System.out.println(id++);
+	    }
+		
 	}
 	public int setId()
 	{
+
 		try
 		{
 		FileReader f = new FileReader(file);
@@ -40,14 +61,14 @@ public class Repository implements Filerepository
 		{
 			String[] str =  ss.split(",",3);
 			id=(Integer.parseInt(str[0])) ;
-
+			id++;
 		}
 		}
 		catch(IOException e)
 		{
 			System.out.println(e);
 		}
-		id++;
+		
 		return id;
 	}
 	public List <Contact> fileRead()
