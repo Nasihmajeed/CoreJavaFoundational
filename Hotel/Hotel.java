@@ -19,7 +19,7 @@ public class Hotel
 		{
 			return place;
 		}
-	void setProduct()
+	Static void setProduct()
 	{
 		 foodProduct = new FoodProduct[10];
 		 for(int i = 0;i<10;i++)
