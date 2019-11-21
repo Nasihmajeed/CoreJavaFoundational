@@ -7,27 +7,47 @@ public class FoodOrdering
 	void booking()
 	{
 		
+		/*hotel.setProduct();*/
 		adminUser();
 		/*setHotel();*/
 		/*hotel.getProduct();*/
 	}
 	void adminUser()
 	{	
-		scanner = new Scanner(System.in);
 		hotel = new Hotel();
-		admin = new Admin();
-		hotel.setProduct();
-			System.out.println("1 . Admin");
-			System.out.println("2 . User");
-			int adminUser = scanner.nextInt();
-			if(adminUser==1)
-			{
-				admin.crud();
-			}
-			else if(adminUser==2)
-			{
+	    scanner = new Scanner(System.in);
+		System.out.println("1 . Admin");
+		System.out.println("2 . User");
+		int adminUser = scanner.nextInt();
+		if(adminUser==1)
+		{
+			crud();
+		}
+		else if(adminUser==2)
+		{
 
-			}
+		}
+	}
+	void crud()
+	{
+		scanner = new Scanner(System.in);
+		admin = new Admin();
+	    System.out.println("1 . Add");
+		System.out.println("2 . Update");
+		System.out.println("3 . Delete");
+		System.out.println("4 . Read");
+		int num = scanner.nextInt();
+
+		if (num==1)
+		{
+			num = 0;
+			admin.add();
+		}
+		else if (num==2)
+		{
+			num = 0;
+			admin.update();
+		}
 	}
 	void setHotel()
 	{

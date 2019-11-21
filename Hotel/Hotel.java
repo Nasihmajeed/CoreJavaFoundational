@@ -1,7 +1,7 @@
 public class Hotel
 {
 	private String name,place;
-	FoodProduct[] foodProduct;
+	FoodProduct[] foodProduct = new FoodProduct[10];
 	
 	public void setName(String newName)
 		{
@@ -19,13 +19,16 @@ public class Hotel
 		{
 			return place;
 		}
-	void setProduct()
+	void setProductObject()
 	{
-		 foodProduct = new FoodProduct[10];
-		 for(int i = 0;i<10;i++)
+		for(int i = 0;i<10;i++)
 		 {
 		 	foodProduct[i]= new FoodProduct();
 		 }
+	}
+	void setProduct()
+	{
+		 setProductObject();
 		 foodProduct[0].setName("Chicken Biriyani");
 		 foodProduct[0].setAmount(110);
 

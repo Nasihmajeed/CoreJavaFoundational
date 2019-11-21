@@ -5,14 +5,18 @@ public class Admin
 	Hotel hotel;
 	FoodOrdering foodOrdering;
 	Scanner scanner;
-	int test=0,test1=0;
+	int flag=1;
+	boolean flag2=true;
 	void add()
 	{
+		if(flag2)
+		{
 		scanner = new Scanner(System.in);
 		hotel = new Hotel();
-		foodOrdering = new FoodOrdering();
+		hotel.setProductObject();
 		hotel.setProduct();
-		int flag=1;
+		foodOrdering = new FoodOrdering();
+	    }
 		for(int i=0;i<10;i++)
 			{
 				if(flag==1)
@@ -35,19 +39,26 @@ public class Admin
 								case 1:
 								num = 0;
 								flag1 = true;
+								break;
 								case 2:
+								flag2=false;
 								System.out.println("Checking : "+i);
-								crud();
+								foodOrdering.crud();
 								num = 0;
+								break;
 								case 3:
 								num = 0;
 								hotel.getProduct();
+								flag1 = true;
+								flag = 0;
+								break;
 								case 4:
 								num = 0;
 								flag = 0;
 								break;
 								default :
 								System.out.println("Select Any 4");
+								break;
 							}
 						}
 						else if(hotel.foodProduct[i].getName()!=null)
@@ -63,26 +74,6 @@ public class Admin
 			    }
 
 			}		
-	}
-	void crud()
-	{
-		scanner = new Scanner(System.in);
-	    System.out.println("1 . Add");
-		System.out.println("2 . Update");
-		System.out.println("3 . Delete");
-		System.out.println("4 . Read");
-		int num = scanner.nextInt();
-
-		if (num==1)
-		{
-			num = 0;
-			add();
-		}
-		else if (num==2)
-		{
-			num = 0;
-			update();
-		}
 	}
 	void update()
 	{
