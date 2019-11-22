@@ -41,7 +41,7 @@ public class View
 	public int getChoice()
 	{
 		System.out.println("<---Enter your choice--->");
-		System.out.println("1-select\t2-Add\t3-Search\t4-DeleteAll\t5-Back to Home\t6-Exit");
+		System.out.println("\t\t1-select\n2-Add\n3-Search\n4-DeleteAll\n5-Home\n6-sort by name\n7-sort by number\n9-Exit");
 		return s.nextInt();
 	}
 	/**

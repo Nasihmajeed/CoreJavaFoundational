@@ -3,7 +3,7 @@ import java.util.*;
 /**
  *pojo: class for set and get contact details
  */
-public class Contact implements Comparable<Contact>
+public class Contact //implements Comparable<Contact>
 {
 	/**
 	 *instance variables id, name and number
@@ -65,8 +65,8 @@ public class Contact implements Comparable<Contact>
 	{
 		return contactNumber;
 	}
-	public int compareTo(Contact c)
-	{
-		return this.contactName.compareTo(c.getContactName());
-	}
+	// public int compareTo(Contact c)
+	// {
+	// 	return this.contactName.compareTo(c.getContactName());
+	// }
 }

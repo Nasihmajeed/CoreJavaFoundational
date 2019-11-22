@@ -46,8 +46,11 @@ public class ContactController
 				case 3: searchContact(); break;
 				case 4: deleteAllContact(); break;
 				case 5: getAllContacts(); break;
+				case 6: sortByName(); break;
+				// case 7: sortByNumber(); break;
+				// case 8: sortById(); break;
 		    }
-		}while(a!=6);
+		}while(a!=9);
 	}
 	/**
 	 *to get contact by using id
@@ -75,6 +78,19 @@ public class ContactController
 				case 2: deleteContact(n); break;
 			}
 		}while(a!=3);
+	}
+	public void sortByName()
+	{
+		List <Contact> contactList=repo.sortByName();
+		ContactListModel listModel=new ContactListModel();
+	    for(int i=0;i<contactList.size();i++)
+	    {
+	    	ContactModel model=new ContactModel();
+	    	model.setId(contactList.get(i).getContactId());
+	    	model.setName(contactList.get(i).getContactName());
+	    	listModel.setContactListModel(model);
+	    }
+		view.getAllContacts(listModel.getContactListModel());
 	}
 	/**
 	 *to add contact in to file.

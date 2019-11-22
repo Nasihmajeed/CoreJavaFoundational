@@ -1,7 +1,8 @@
 package com.lxisoft.repository;
 import java.io.*;
 import java.util.*;
-import com.lxisoft.domain.*;
+import com.lxisoft.domain.Contact;
+import com.lxisoft.contactmodel.*;
 /**
  *class: repository for file operation
  */
@@ -9,6 +10,7 @@ public class Repository implements FileDataSource
 {
 	static int in=1;
 	File contactFile=new File(fileName);
+	List <Contact> contactList=new ArrayList<Contact>();
 	/**
 	 *to set file
 	 */
@@ -58,6 +60,7 @@ public class Repository implements FileDataSource
 	 */
 	public void writeFile(Contact contact)
 	{
+		// contactList.add(contact);
 		try
 		{
 			FileWriter fw=new FileWriter(contactFile,true);
@@ -72,6 +75,13 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}	
 	}
+	public List <Contact> sortByName()
+	{
+		contactList.clear();
+		contactList=readFile();
+		Collections.sort(contactList, new SortByName());
+		return contactList;
+	}
 	/**
 	 *to read date from file
 	 *
@@ -79,12 +89,13 @@ public class Repository implements FileDataSource
 	 */
 	public List <Contact> readFile()
 	{
-		Set<Contact> contactSet=new TreeSet<Contact>();
-		List <Contact> contactList=new ArrayList<Contact>();
+		// Set<Contact> contactSet=new TreeSet<Contact>();
+		
 		try
 		{
 			if(contactFile.exists())
 			{
+				// contactList.clear();
 				String contacts;
 				FileReader fr=new FileReader(contactFile);
 				BufferedReader br=new BufferedReader(fr);
@@ -96,10 +107,10 @@ public class Repository implements FileDataSource
 					c.setContactId(cont[0]);
 					c.setContactName(cont[1]);	
 					c.setContactNumber(cont[2]);			
-					// contactList.add(c);
-					contactSet.add(c);
+					contactList.add(c);
+					// contactSet.add(c);
 				}
-				contactList.addAll(contactSet);
+				// contactList.addAll(contactSet);
 			}
 			else
 			{
