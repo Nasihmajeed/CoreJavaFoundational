@@ -72,12 +72,15 @@ public class ContactController
 		String option=view.sort();
 		if(option.equals("i"))
 		{
-			Collections.sort(contactList, new Sortbyroll()); 
+			Collections.sort(contactList,new IdSort()); 
 		}
 		else if(option.equals("n"))
 		{
 
 		}
+		ViewAllModel temp=new ViewAllModel();
+		temp.setList(contactList);
+		view.findAllContacts(temp);
 	}
 	/**
 	 *to get all contact
