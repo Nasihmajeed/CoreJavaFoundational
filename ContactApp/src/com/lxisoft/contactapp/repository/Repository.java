@@ -4,6 +4,7 @@ import com.lxisoft.contactapp.controller.ContactController;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.Domain.*;
 import java.util.*;
+import java.util.Collections;
 import java.io.*;
 /**
  * class Repository is created to do file operations that implements filestorage
@@ -122,7 +123,7 @@ public class Repository implements FileStorage
 	/**
 	 * update data of file.
 	 * @param contact,index.
-	 
+
 	 */
 	public void updateFile(int i,Contact contact)
 	{
@@ -134,13 +135,39 @@ public class Repository implements FileStorage
 				contactWriteIntoFile(contacts.get(j));
 			}
 	}
-	public void sortContactDetails(ArrayList<Contact> contacts)
+	public ArrayList<Contact> sortContactByName()
 	{
+		// Set<Contact> contactlist = new TreeSet<Contact>();
+		// contactlist.addAll(contacts);
+		// contacts.clear();
+		// contacts.addAll(contactlist);
+		Collections.sort(contacts,new SortByName());
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
 				contactWriteIntoFile(contact);
 			}	
+		return contacts;
+	}
+	public ArrayList<Contact> sortContactByNumber()
+	{
+		Collections.sort(contacts,new SortByNumber());
+		clearRepository();
+	 		for(Contact contact : contacts)
+			{
+				contactWriteIntoFile(contact);
+			}	
+		return contacts;
+	}
+	public ArrayList<Contact> sortContactById()
+	{
+		Collections.sort(contacts,new SortById());
+		clearRepository();
+	 		for(Contact contact : contacts)
+			{
+				contactWriteIntoFile(contact);
+			}	
+		return contacts;
 	}
 	/**
 	 * Reset the file.

@@ -102,7 +102,8 @@ public class ContactController
 		switch(option)
 		{
 			case 1: sortByName();break;
-			//case 2: getContactByName();break;
+			case 2: sortByNumber();break;
+			case 3:	sortById();break;
 		}
 	}
 	/**
@@ -110,14 +111,26 @@ public class ContactController
 	 */
 	public void sortByName()
 	{
-		ArrayList<Contact> contacts=filerepo.getAllContacts();
-		Set<Contact> contactlist = new TreeSet<Contact>();
-		contactlist.addAll(contacts);
-		contacts.clear();
-		contacts.addAll(contactlist);	
-		filerepo.sortContactDetails(contacts);
+		ArrayList<Contact> contacts=filerepo.sortContactByName();
 		view.sortByName(contacts);
 	}
+	/**
+	 *  sort contacts ByNumber.
+	 */
+	public void sortByNumber()
+	{
+		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
+		view.sortByNumber(contacts);
+	}
+	/**
+	 *  sort contacts id.
+	 */
+	public void sortById()
+	{
+		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
+		view.sortByNumber(contacts);
+	}
+
 	/**
 	 *  get contact by id from repository.
 	 */
