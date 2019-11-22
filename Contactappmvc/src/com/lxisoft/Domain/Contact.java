@@ -3,7 +3,7 @@ package com.lxisoft.Domain;
 /*
 *pojo - class for set and get contactdetails
 */
-public class Contact
+public class Contact implements Comparable<Contact>
 { 
   private String name;
 	private String number;
@@ -23,7 +23,7 @@ public class Contact
      return this.name;
    }  
   /*
-  *to set number
+  *to set number TreeSet<String> al=new TreeSet<String>();  
   */
    public void setNumber(String no)
    {
@@ -49,5 +49,9 @@ public class Contact
    public int getId()
    {
      return this.id;
+   }
+   public int compareTo(Contact c)
+   {
+    return this.name.compareTo(c.getName());
    }
 }

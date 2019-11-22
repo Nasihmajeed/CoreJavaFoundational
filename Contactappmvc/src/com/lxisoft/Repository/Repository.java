@@ -1,22 +1,23 @@
 package com.lxisoft.Repository;
 import com.lxisoft.Domain.Contact;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 /*
 *Repository class for file operation
 */
 public class Repository
 {  ArrayList <Contact> filelist = new  ArrayList <Contact>();
    File file = new File("Contact1.csv");
+
    /*
    *method for file operation
    */
   public void file(ArrayList <Contact> contactslist)
   {
    try{  
-             if(!file.exists())
-              {
-              PrintWriter pw = new PrintWriter(file); 
+             //if(!file.exists())
+              //{
+              PrintWriter pw = new PrintWriter(file);
               if(file.length()==0) 
                 { pw.println("ID"+","+"NAME"+","+"NUMBER");}
                   pw.flush();
@@ -24,9 +25,9 @@ public class Repository
                     {
      	               pw.println(contactslist.get(i).getId()+","+contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
                      pw.flush();
-                    }}
-                else
-              {System.out.println("empty");}
+                    }//}
+               // else
+              //{System.out.println("empty");}
 
        }catch(IOException e){}
   }
@@ -36,6 +37,7 @@ public class Repository
   */
   public ArrayList <Contact> getAllContacts()
   {  String contacts;
+      TreeSet<Contact> ts=new TreeSet<Contact>();  
   	   try
   	   {
   	    File file = new File("Contact1.csv");
@@ -52,8 +54,13 @@ public class Repository
             c.setId(++oldId);
            	c.setName(name);
            	c.setNumber(number);
-           	filelist.add(c);
-           }filelist.remove(0);
+            ts.add(c);
+          
+           	//filelist=tc;
+            System.out.println(filelist.size()+"***********");
+           }
+           filelist.addAll(ts);
+           filelist.remove(0);
       for(int i=0;i<filelist.size();i++)
           {
             System.out.println("Name   "+(i+1)+":"+filelist.get(i).getName());
@@ -65,6 +72,3 @@ public class Repository
   }
   	   
 }
-
-
-

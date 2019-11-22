@@ -110,7 +110,7 @@ public class View
     { String b=null;
       String a=null;
       String c=null;   
-      int d=1;
+      int d = 1;
       try{System.out.println("Enter the name for edit:");
           a = input.readLine();
           System.out.println("Enter the new name     :");
