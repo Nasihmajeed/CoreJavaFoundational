@@ -15,7 +15,7 @@ public String getNumber(){
 	return number;
 }
 public int compareTo(Contact contact){
-	int x=this.contact.name>contact.name;
+	int x=this.name.compareTo(contact.name);
 	return x;
 }
 }

@@ -24,6 +24,7 @@ public void setFile(Contact contact){
 
 public ArrayList<Contact>  getList(){
 	 contacts=new ArrayList<Contact>();
+	 TreeSet<Contact>contactlist=new TreeSet<Contact>();
 	try{
 		FileReader read=new FileReader(file);
 		BufferedReader bread=new BufferedReader(read);
@@ -33,8 +34,9 @@ public ArrayList<Contact>  getList(){
 				Contact contact=new Contact();	
 				contact.setName(dataArray[0]);
 			 	contact.setNumber(dataArray[1]);
-				contacts.add(contact);
+				contactlist.add(contact);
 		}
+		contacts.addAll(contactlist);
 	}
 	catch(IOException e){
     	System.out.println("Exception "+e);
@@ -58,11 +60,9 @@ for(int i=0;i<contacts.size();i++){
   } //7306546322
 
 
-public void editList(Contact contac,String[] temp){
-	//Contact contact=new Contact();
+public void editList(Contact contac,String[] temp){  
 	for(int i=0;i<contacts.size();i++){
 		if(contacts.get(i).getName().equals(contac.getName())){
-			// System.out.println("\n : "+temp[0]+" 	no :"+temp[1]+"  "+i);
 			Contact contact=new Contact();
 			contact.setName(temp[0]);
 			contact.setNumber(temp[1]);

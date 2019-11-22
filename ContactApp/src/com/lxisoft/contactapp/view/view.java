@@ -28,7 +28,6 @@ public void display(ArrayList<Contact> contacts){
 	System.out.println("\n-----ALL CONTACTS------\n");
 	for(int i=0;i<contacts.size();i++){
 		System.out.println(contacts.get(i).getName()+"------"+contacts.get(i).getNumber());
-		//System.out.println(contacts.get(i).getNumber());
 	}
 }
 
@@ -48,7 +47,7 @@ else{
 	  	case 1:String[] temp=this.updateContact(n);
 	  			repo.editList(c,temp);
 	  			break;
-	  	case 2:this.deleteContact();
+	  	case 2:this.deleteContact(n);
 	  			break;
 	  	default:System.out.println("wrong entry");
 	  }
@@ -58,9 +57,6 @@ else{
 
 
 public String[] updateContact(String n){
-/*System.out.println("\n\nEnter contact name : ");
-String n=ss.next();
-repo.deleteList(n);*/
 String[] temp=new String[2];
  Contact c=repo.searchList(n);
 	if(c==null){
@@ -82,11 +78,8 @@ String[] temp=new String[2];
 
    
 
-public void deleteContact(){
-System.out.println("\n\nEnter contact name to delete : ");
-String n=ss.next();
+public void deleteContact(String n){
 repo.deleteList(n);
-//control.setContact(n);
 System.out.println("---------"+n+" deleted from the contact");
   }
  }
