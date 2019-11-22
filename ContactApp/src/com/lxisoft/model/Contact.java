@@ -4,7 +4,7 @@ import com.lxisoft.controller.*;
 import java.util.Scanner;
 import com.lxisoft.test.*;
 
-public class Contact
+public class Contact implements Comparable <Contact>
 {
 	private String name,number;
 	private int id;
@@ -32,5 +32,10 @@ public class Contact
 	public int getId()
 	{
 		return this.id;
+	}
+	public int compareTo(Contact c)
+	{
+		int z= this.getName().compareTo(c.getName());
+		return z;
 	}
 }

@@ -58,17 +58,19 @@ public class Controller
 		
 	}
 
-	public void editContact(int i,String name,String number)
+	public void editContact(int i,int id,String name,String number)
 	{	
+		//System.out.println("value i ="+i+"   id ="+id );
+
 		 contact = new Contact();
 		 contactList = rep.fileRead();
 		 contact.setName(name);
          contact.setNumber(number);
-         System.out.println("value i ="+i+"   id ="+contact.getId());
-
+         contact.setId(id);
+         //System.out.println(contact.getId()+"****");
          contactList.set(i,contact);
          rep.clearFile();
-		
+		//System.out.println(contact.getId()+"****");
 		 for(int j=0; j<contactList.size();j++)
 		 {
 		 	 rep.fileWrite(contactList.get(j),false);

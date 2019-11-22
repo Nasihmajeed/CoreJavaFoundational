@@ -28,6 +28,7 @@ public class View
 	    	System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 	    	con.choice();
 	    }
+	    //System.out.println("value of n "+n);
         return n;
 	}
 	public void defaultPrint(int n )
@@ -62,41 +63,53 @@ public class View
 		if(name.equals(con.search(name).getName()))
 		{	
 			 int i = con.contactList.indexOf(con.search(name));
+			 //System.out.println("value of indx numbr i = "+i+" id is= "+con.contactList.get(i).getId());
 			 f=1; 
     	     System.out.println("\n NAME : "+name +" NUMBER : "+ con.contactList.get(i).getNumber());
-			 	
+			 	try
+			 	{
 			 	do{
 					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
 					Scanner read= new Scanner(System.in);
 					int n = read.nextInt();
 					switch(n)
 						{
-							case 1 :edit(i); break;
+
+							case 1 :edit(i,con.contactList.get(i).getId()); break;
+							        //System.out.println("value of indx numbr i = "+i+" id is= "+con.contactList.get(i).getId()); break;
 							case 2 : delete(i);break;
-							case 3 :begin(); break;
+							case 3 :con.choice(); break;
 							default: System.out.println("INVALID CHOICE");
 						}
 					} while(true);
+			}
+			catch(Exception e)
+			{
+				System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 			}
 			 
 			if(f!=1)
 			{
 				System.out.println(" CONTACT NOT FOUND");
+				con.choice();
 			}
 			
-	}
+	    }
+	}    
 	public  void display()
 	{
 		 con.display();
 	}
-	public void edit(int i)
+	public void edit(int i,int id)
 	{
+		//Contact contact = new contact();
+		 //System.out.println("id= "+id);
 		 System.out.println("ENTER THE NEW NAME");
 		 Scanner read= new Scanner(System.in);
 		 String name  = read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
-		 con.editContact(i,name,number);
+		 con.editContact(i,id,name,number);
 	}
 	public void delete(int i)
 	{

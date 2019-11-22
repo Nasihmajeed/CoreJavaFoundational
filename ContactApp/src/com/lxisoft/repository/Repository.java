@@ -9,46 +9,35 @@ import com.lxisoft.view.*;
 
 public class Repository implements Filerepository
 {
-	static int id;
+	static int id=1;
 	File file = new File(filename);
 	public ArrayList<Contact> array = new ArrayList<Contact>();
 
 	public void fileWrite(Contact contact,boolean isTrue)
 	{ 		
+		
+		try
+		{		         
+		FileWriter fw = new FileWriter(file,true);
+		BufferedWriter bw= new BufferedWriter(fw);
 		if(isTrue == true)
 		{
-		try
-		{
-		         
-		FileWriter fw = new FileWriter(file,true);
-		BufferedWriter bw= new BufferedWriter(fw);
-	  	bw.write(id+","+contact.getName()+", "+contact.getNumber()+"\n");
-	  	bw.flush();
-
-	  	}
-		catch (IOException e)
-		{
-			System.out.println(e);
-		}
+		  	bw.write(id+","+contact.getName()+", "+contact.getNumber()+"\n");
+		  	bw.flush();
 	    }
-	    else if(isTrue== false)
+	     else if(isTrue== false)
 	    {
-	    	try
-		{
-		         
-		FileWriter fw = new FileWriter(file,true);
-		BufferedWriter bw= new BufferedWriter(fw);
-	  	bw.write(contact.getId()+","+contact.getName()+", "+contact.getNumber()+"\n");
-	  	bw.flush();
-
+		    bw.write(contact.getId()+","+contact.getName()+", "+contact.getNumber()+"\n");
+		  	bw.flush();
 	  	}
+	    }
 		catch (IOException e)
 		{
 			System.out.println(e);
 		}
-	    }
 		
-	}
+	  
+    }
 	public int setId()
 	{
 
@@ -59,6 +48,7 @@ public class Repository implements Filerepository
 		String ss;
 		while((ss= buf.readLine())!=null)
 		{
+			
 			String[] str =  ss.split(",",3);
 			id=(Integer.parseInt(str[0])) ;
 			id++;
@@ -73,7 +63,8 @@ public class Repository implements Filerepository
 	}
 	public List <Contact> fileRead()
 	{
-		
+		TreeSet <Contact> ts = new TreeSet <Contact> (); 
+
 		try
 		{
 			array.clear();
@@ -87,9 +78,10 @@ public class Repository implements Filerepository
 	  				c.setId(Integer.parseInt(str[0]));
 	  				c.setName(str[1]);
 	  				c.setNumber(str[2]);
-	  				array.add(c);
+	  				ts.add(c);
 	  		}
 
+	  		array.addAll(ts);
 		}
 		catch(IOException e)
 		{
@@ -122,6 +114,10 @@ public class Repository implements Filerepository
 			System.out.println(e);
 		}
 	}
+	
+	
+	
+
 	public int getArraySize()
 	{
 		return array.size();
