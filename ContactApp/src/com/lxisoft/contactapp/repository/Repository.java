@@ -121,7 +121,8 @@ public class Repository implements FileStorage
 	}
 	/**
 	 * update data of file.
-	 * @param contact,index
+	 * @param contact,index.
+	 
 	 */
 	public void updateFile(int i,Contact contact)
 	{
@@ -133,6 +134,14 @@ public class Repository implements FileStorage
 				contactWriteIntoFile(contacts.get(j));
 			}
 	}
+	public void sortContactDetails(ArrayList<Contact> contacts)
+	{
+		clearRepository();
+	 		for(Contact contact : contacts)
+			{
+				contactWriteIntoFile(contact);
+			}	
+	}
 	/**
 	 * Reset the file.
 	 */
@@ -140,6 +149,7 @@ public class Repository implements FileStorage
 	{
 		try
 		{
+
 			id=0;
 			FileWriter ff= new FileWriter(contactFile);
 		}	

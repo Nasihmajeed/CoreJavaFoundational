@@ -10,7 +10,7 @@ public class Tdd
 {
 /**
  * Main method to get All contact Information.
- * @param string array.
+ * @param args  string array.
  */
 	public static void main(String []args)
 	{

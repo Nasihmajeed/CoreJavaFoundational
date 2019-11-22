@@ -43,6 +43,10 @@ public class ContactView
 		int option=sc.nextInt();
 		return option;
 	}
+	/**
+	 * view sorted contactlist
+	 * @return option
+	 */
 	public int viewSortedDetails()
 	{
 		Scanner sc=new Scanner(System.in);

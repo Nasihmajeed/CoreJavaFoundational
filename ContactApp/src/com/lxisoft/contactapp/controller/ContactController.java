@@ -18,7 +18,6 @@ public class ContactController
 	private ContactView view=new ContactView();
 	/**
 	 * getAllContactInfo to get the contact details from repository and displaying in view.
-	   @return null.
 	 */
 	public void getAllcontactInfo()
 	{
@@ -44,7 +43,6 @@ public class ContactController
 	}
 	/**
 	 *  getAllContacts (id and name only) from file to arraylist.
-	    @return contact Arraylist.
 	 */
 	public void getAllcontacts()
 	{
@@ -66,7 +64,6 @@ public class ContactController
 	}
 	/**
 	 *  add contact details.
-	    @return null
 	 */
 	public void addNewContact()
 	{
@@ -78,7 +75,6 @@ public class ContactController
 	}
 	/**
 	 *  To search contact details.
-	    @return null
 	 */
 	public void searchContact()
 	{
@@ -109,16 +105,17 @@ public class ContactController
 			//case 2: getContactByName();break;
 		}
 	}
+	/**
+	 *  sort contacts ByName.
+	 */
 	public void sortByName()
 	{
-		Contact contact =new Contact();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Set<Contact> contactlist = new TreeSet<Contact>();
-		for(int i=0;i<contactlist.size();i++)
-		{
-			contactlist.add(contacts.get(i));
-		}
-		contacts.addAll(contactlist);
+		contactlist.addAll(contacts);
+		contacts.clear();
+		contacts.addAll(contactlist);	
+		filerepo.sortContactDetails(contacts);
 		view.sortByName(contacts);
 	}
 	/**
@@ -140,7 +137,7 @@ public class ContactController
 	}
 	/**
 	 *  update contactdetails
-	 @param contact
+	 * @param contact contact
 	 */
 	public void updateContact(Contact contact)
 	{
@@ -155,7 +152,7 @@ public class ContactController
 	}
 	/**
 	 *  Edit contact details.
-	 @param contact
+	 * @param contact entity
 	 */
 	public void editContact(Contact contact)
 	{
@@ -169,7 +166,7 @@ public class ContactController
 	}
 	/**
 	 *  Edit contactName details.
-	 @param contact
+	 * @param contact contact
 	 */
 	public void editContactName(Contact contact)
 	{
@@ -183,7 +180,7 @@ public class ContactController
 	}
 	/**
 	 *  Edit contactNumber.
-	 @param contact
+	 *@param contact contact
 	 */
 	public void editContactNumber(Contact contact)
 	{
@@ -199,6 +196,7 @@ public class ContactController
 	/**
 	 *  get contact by name from repository.
 	 */
+
 	public void getContactByName()
 	{
 		String name=view.viewContactByName();
@@ -214,8 +212,8 @@ public class ContactController
 	}
 	/**
 	 *  get contact index from repository.
-	 	@param contact.
-	    @return index
+	 *@param contact contact.
+	 *@return index
 	 */
 	public int getIndex(Contact contact)
 	{
@@ -232,8 +230,10 @@ public class ContactController
 	}
 	/**
 	 *  update contact based on name and number.
-	 	@param index,id,name,number.
-	    @return null
+	 * @param  i index
+	 * @param id contact id
+	 * @param name contact name
+	 * @param number contact number
 	 */
 	public void updateContact(int i,String id,String name,String number)
 	{
@@ -245,7 +245,7 @@ public class ContactController
 	}	
 	/**
 	 *  delete contact details.
-	    @return null
+	 * @param contact contact
 	 */
 	public void deleteContact(Contact contact)
 	{
@@ -256,8 +256,8 @@ public class ContactController
 	}
 	/**
 	 *  getname of the corresponding contact.
-	 	@param contact
-	    @return name
+	 * @param  contact contact
+	 * @return name
 	 */
 	public String getName(Contact contact)
 	{
@@ -274,8 +274,8 @@ public class ContactController
 	}
 	/**
 	 *  getnumber of the corresponding contact.
-	 	@param contact.
-	    @return num.
+	 * @param contact contact
+	 * @return num.
 	 */
 	public String getNo(Contact contact)
 	{
@@ -292,8 +292,8 @@ public class ContactController
 	}
 	/**
 	 *  getid of the corresponding contact.
-	 	@param contact.
-	    @return id.
+	 * @param contact contact.
+	 * @return id.
 	 */
 	public String getId(Contact contact)
 	{

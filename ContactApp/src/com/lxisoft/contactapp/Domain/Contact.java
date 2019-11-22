@@ -13,7 +13,7 @@ public class Contact implements Comparable<Contact>
 	private String phno;
 	/**
 	 * set id in contacts
-	 * @param id
+	 * @param id contactid
 	 */
 	public void setId(String id)
 	{
@@ -21,7 +21,7 @@ public class Contact implements Comparable<Contact>
 	}
 	/**
 	 * set name in contacts
-	 * @param name
+	 * @param name contactname
 	 */
 	public void setName(String name)
 	{ 
@@ -29,7 +29,7 @@ public class Contact implements Comparable<Contact>
 	}
 	/**
 	 * set number in contacts
-	 * @param phno
+	 * @param phno contactnumber
 	 */
 	public void setNo(String phno)
 	{
@@ -61,9 +61,9 @@ public class Contact implements Comparable<Contact>
 		return this.phno;
 	}
 	/**
-	 * @override equal method to check whether object equals or not
-	 *@param object
-	 * @return boolean true or false.
+	 * equal method to check whether object equals or not
+	 *@param obj object reference
+	 * @return boolean 
 	 */
 	public boolean equals(Object obj)
 	{
@@ -73,11 +73,12 @@ public class Contact implements Comparable<Contact>
 		else return false;
 	}
 	/**
-	 * @override compareTo method to check whether object equals or not
-	 *@param object
+	 * compareTo method to check whether object equals or not
+	 *@param contact contact
+	 * @return int value
 	 */
 	public int compareTo(Contact contact)
-	{int val=0;
-		return val; 
+	{
+		return this.getName().compareTo(contact.getName()); 
 	}
 }

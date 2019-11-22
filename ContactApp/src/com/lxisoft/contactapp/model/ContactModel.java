@@ -19,7 +19,7 @@ public class ContactModel
 	}
 	/**
 	 * set name of contact
-	 *@param name
+	 *@param name.
 	 */
 	public void setName(String name)
 	{
