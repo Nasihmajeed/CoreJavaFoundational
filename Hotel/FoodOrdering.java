@@ -48,6 +48,10 @@ public class FoodOrdering
 			num = 0;
 			admin.update();
 		}
+		else if(num==4)
+		{
+			admin.read();
+		}
 	}
 	void setHotel()
 	{

@@ -16,6 +16,7 @@ public class Admin
 		hotel.setProductObject();
 		hotel.setProduct();
 		foodOrdering = new FoodOrdering();
+		int flag=1;
 	    }
 		for(int i=0;i<10;i++)
 			{
@@ -28,43 +29,50 @@ public class Admin
 						if(hotel.foodProduct[i].getName()==null)
 						{
 							
-							System.out.print("Enter Food Name : ");
-							hotel.foodProduct[i].setName(scanner.next());
-							System.out.print("Enter Food Amount : ");
-							hotel.foodProduct[i].setAmount(scanner.nextInt());
-							System.out.print("1.Add 2.back 3.Print 4.Stop = ");
+							System.out.println("1.Add 2.Print 3.Stop ");
 							int num = scanner.nextInt();
+							
 							switch(num)
 							{
 								case 1:
-								num = 0;
-								flag1 = true;
-								break;
+									System.out.print("Enter Food Name : ");
+								    hotel.foodProduct[i].setName(scanner.next());
+								    System.out.print("Enter Food Amount : ");
+								    hotel.foodProduct[i].setAmount(scanner.nextInt());
+									num = 0;
+								    break;
+								/*case 2:
+									flag2=false;
+									System.out.println("Checking : "+i);
+									foodOrdering.crud();
+									num = 0;
+									break;*/
 								case 2:
-								flag2=false;
-								System.out.println("Checking : "+i);
-								foodOrdering.crud();
-								num = 0;
-								break;
+									num = 0;
+									/*hotel.getProduct();*/
+									for(int j=0;j<10;j++)
+									{
+										if(hotel.foodProduct[j].getName()!= null)
+										{
+										System.out.println(hotel.foodProduct[j].getName());
+										System.out.println(hotel.foodProduct[j].getAmount());
+									    }
+									}
+									break;
 								case 3:
-								num = 0;
-								hotel.getProduct();
-								flag1 = true;
-								flag = 0;
-								break;
-								case 4:
-								num = 0;
-								flag = 0;
-								break;
+									num = 0;
+									flag = 0;
+									flag1=true;
+									break;
 								default :
-								System.out.println("Select Any 4");
-								break;
+									System.out.println("Select Any 4");
+									break;
 							}
 						}
-						else if(hotel.foodProduct[i].getName()!=null)
+						/*else if(hotel.foodProduct[i].getName()!=null)
 						{
 							break;
-						}
+						}*/
 				    }
 					while(flag1);
 			    }
@@ -78,5 +86,18 @@ public class Admin
 	void update()
 	{
 		System.out.print("***********");
+	}
+	void read()
+	{
+		hotel = new Hotel();
+		for(int i=0;i<10;i++)
+		{
+			if(hotel.foodProduct[i].getName()!= null)
+			{
+			System.out.println(hotel.foodProduct[i].getName());
+			System.out.println(hotel.foodProduct[i].getAmount());
+		    }
+		}
+
 	}
 }
