@@ -15,31 +15,17 @@ public class Repository implements FileRepository
 	FileWriter fw=null;
 	FileWriter f=null;
 	BufferedWriter bw=null;
-	static int id=0;
+	static  int id=0;
 	private List<Contact>contactList=new ArrayList<Contact>();
-	 /**
- * set arraylist
- */
-	 /**
- * @param contactList  is arraylist
- */
+	
 	public void setContactList(List<Contact>contactList)
 	{
 		this.contactList=contactList;
 	}
-	 /**
- * get contactlist
- */
-	  /**
- * @return arraylist
- */
 	public List<Contact> getContactList()
 	{
 		return contactList;
 	}
- /**
- * @return size of arraylist
- */
 	public int getContactListSize()
 	{
 		return contactList.size();
@@ -132,12 +118,22 @@ public class Repository implements FileRepository
 		try
 		{
 			id=0;
+			Contact c=new Contact();
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String read;
 			while((read=br.readLine())!=null)
-			id++;
+			{
+				String[] str=read.split(",",2);
+				int temp=Integer.parseInt(str[0]);	
+				if(temp>id)id=temp;
+				System.out.println(id+"tempp====="+temp);
+			}id++;
+
+			
+			System.out.println("id========"+id);
 		}
+
 		catch(IOException e)
 		{
 			System.out.println("an error ");
