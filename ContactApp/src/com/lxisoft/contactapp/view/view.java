@@ -3,15 +3,24 @@ import com.lxisoft.contactapp.controller.*;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.contactrepo.*;
 import java.util.*;
+/**
+*class for UI
+*/
 public class View{
+
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
 Repository repo=new Repository();
+
+/**
+*method used to get data from user
+*@return Contact 
+*/
+
+
 public Contact setContact(){
-System.out.println("\n\nEnter number of contacts : ");
-int n=s.nextInt();
-	for(int i=0;i<n;i++){
+	for(int i=0;i<1;i++){
 		Contact cc=new Contact();		
 		System.out.println("Enter the name : ");
 		cc.setName(ss.next());
@@ -23,6 +32,10 @@ int n=s.nextInt();
     } 
     return null;  
 }
+/**
+*method used to display all data
+*@param ArrayList of Contact
+*/
 
 public void display(ArrayList<Contact> contacts){
 	System.out.println("\n-----ALL CONTACTS------\n");
@@ -30,6 +43,9 @@ public void display(ArrayList<Contact> contacts){
 		System.out.println(contacts.get(i).getName()+"------"+contacts.get(i).getNumber());
 	}
 }
+/**
+*method used to search a contact from list
+*/
 
 public void searchContact(){
 System.out.println("\n\nEnter name to search : ");
@@ -69,14 +85,12 @@ String[] temp=new String[2];
 		temp[0]=ss.next();
 		System.out.println("Enter new number : ");
 		temp[1]=ss.next();	
-		//control.save(c);
 		System.out.println("(contact updated sucssesfully )");
     }
     return temp;
   }
+ 
 
-
-   
 
 public void deleteContact(String n){
 repo.deleteList(n);
