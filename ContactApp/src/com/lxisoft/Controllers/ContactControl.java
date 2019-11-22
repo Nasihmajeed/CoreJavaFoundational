@@ -32,8 +32,9 @@ public class ContactControl
 				case 0: view.selectContact(0);break;
 				case 1: view.setNewContact();break;
 				case 2: view.selectContact(2);break;
-				case 3: view.viewAllContacts();break;
-				case 4: view.clearAllContacts();break;
+				case 3: view.sortContact();break;
+				case 4: view.viewAllContacts();break;
+				case 5: view.clearAllContacts();break;
 				default:view.invalidOption();
 			}
 			repeat=view.isContinue();
@@ -50,7 +51,7 @@ public class ContactControl
 		contact.setName(name);
 		contact.setNo(number);
 		repo.writeNewContact(contact,true);
-		repo.sorting(repo.getAllContacts());
+		// repso.sorting(repo.getAllContacts());
 	}
 	/**
 	*get all contact details from repository and get viewListModel array
@@ -149,7 +150,7 @@ public class ContactControl
 		contact.setName(name);
 		contact.setNo(number);
 		repo.editFile(contact,i);
-		repo.sorting(repo.getAllContacts());
+		// repo.sorting(repo.getAllContacts());
 	}
 	/**
 	*method to delete a contact
@@ -158,7 +159,7 @@ public class ContactControl
 	public void deleteContact(int i)
 	{
 		repo.deleteContact(i);
-		repo.sorting(repo.getAllContacts());
+		// repo.sorting(repo.getAllContacts());
 	}
 	/**
 	*method to clear all contact
@@ -183,5 +184,17 @@ public class ContactControl
 			if(a.getName().equals(name))
 				exist=true;
 		}return exist;
+	}
+	public void sortByName()
+	{
+		repo.sortByName();
+	}
+	public void sortById()
+	{
+		repo.sortById();
+	}
+	public void sortByNumber()
+	{
+		repo.sortByNumber();
 	}
 }

@@ -18,7 +18,7 @@ public class View
 	public int getUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 view all contacts \n4 delete all");
+		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 sorting \n4 view all contacts \n5 delete all");
 	 	return sc.nextInt();
 	}
 	/**
@@ -203,5 +203,42 @@ public class View
 	{
 		control.clearAllContacts();
 		System.out.println(" All contacts deleted succesfully \n");
+	}
+	public void sortContact()
+	{
+			Scanner sc=new Scanner(System.in);
+			int repeat=0,loop=0;
+			do
+			{
+				repeat=0;
+				System.out.println(" enter : \t0 sort by Name  \t1 sort by ID  \t2 Sort by Number \t3 back to main ");
+				int select=sc.nextInt();
+				switch(select)
+				{
+					case 0: sortByName();break;
+					case 1: sortById();break;
+					case 2: sortByNumber();break;
+					case 3: control.start();break;
+					default:System.out.println("enter the correct option");
+							repeat=1;
+				}
+				
+			}while(repeat==1);
+		
+	}
+	public void sortByName()
+	{
+		control.sortByName();
+		System.out.println("sorted by name ");
+	}
+	public void sortById()
+	{
+		control.sortById();
+		System.out.println("sorted by ID ");
+	}
+	public void sortByNumber()
+	{
+		control.sortByNumber();
+		System.out.println("sorted by number");
 	}
 }

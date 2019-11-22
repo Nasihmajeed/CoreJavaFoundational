@@ -41,7 +41,8 @@ public class Contact implements Comparable<Contact>
 		return ((this.getName()).compareTo(c.getName()));
 	}
 
-	public String toString() {
+	public String toString() 
+	{
 			return this.name;
 	}
 }

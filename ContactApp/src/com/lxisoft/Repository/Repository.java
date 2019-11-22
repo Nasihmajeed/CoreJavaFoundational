@@ -26,6 +26,7 @@ public class Repository implements FileRepository
 			FileWriter bf=new FileWriter(file,true);
 			if(write)
 			{
+				setId();
 				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
 			}
 			else
@@ -37,7 +38,7 @@ public class Repository implements FileRepository
 		catch(Exception e)
 		{
 			System.out.println("error1");
-		}id++;
+		}
 
 	}
 	/**
@@ -172,7 +173,30 @@ public class Repository implements FileRepository
 		clearFile();
 		for(Contact c : ts)
 		   writeNewContact(c, false);
-  
-	}
+  	}
+  	public void sortByName()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortByName());
+		clearFile();
+		resetFile();
+
+  	}
+  	public void sortById()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortById());
+		clearFile();
+		resetFile();
+
+  	}
+  	public void sortByNumber()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortByNumber());
+		clearFile();
+		resetFile();
+
+  	}
 
 }
