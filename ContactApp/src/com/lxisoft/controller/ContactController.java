@@ -1,7 +1,7 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.*;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 import com.lxisoft.repository.*;
 import com.lxisoft.view.View;
 import com.lxisoft.domain.*;
@@ -20,7 +20,7 @@ public class ContactController
 		while(true)
 		{
 			int option=view.optionsScaning();
-			if(option==6)
+			if(option==7)
 				break;
 			else
 			{
@@ -42,7 +42,8 @@ public class ContactController
 			case 2:contactByName();break;
 			case 3:contactById();break;
 			case 4:contactSelect();break;
-			case 5:allContacts();break;
+			case 5:contactSort();break;
+			case 6:allContacts();break;
 		}
 	}
 	/**
@@ -60,6 +61,22 @@ public class ContactController
 			contact.setNumber(tempSave[1]);
 			saveModel.setContact(contact);
 			repository.save(saveModel.getContact());
+		}
+	}
+	/**
+	 *to sort all contact
+	 */
+	public void contactSort()
+	{
+		ArrayList<Contact> contactList=repository.findAll();	
+		String option=view.sort();
+		if(option.equals("i"))
+		{
+			Collections.sort(contactList, new Sortbyroll()); 
+		}
+		else if(option.equals("n"))
+		{
+
 		}
 	}
 	/**
