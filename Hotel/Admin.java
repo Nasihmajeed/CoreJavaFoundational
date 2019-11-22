@@ -2,7 +2,7 @@ import java.util.*;
 public class Admin
 {
 	String password;
-	Hotel hotel;
+	
 	
 
 
@@ -36,7 +36,7 @@ public class Admin
 						case 1:System.out.println("Add");
 										add();
 										break;
-						case 2:System.out.println("Display");
+						/*case 2:System.out.println("Display");
 									display();
 									break;
 						/*case 3:System.out.println("Delete");
@@ -60,7 +60,7 @@ public class Admin
 				{
 							Scanner scan=new Scanner(System.in);
 						
-								hotel=new Hotel();
+								Hotel hotel=new Hotel();
 								hotel.menu();
 								for(int i=0;i<hotel.food.length;i++)
 								{
@@ -76,14 +76,18 @@ public class Admin
 
 
 																
-								}adminChoice();
-								hotel.getMenu();  
+								}
+								adminChoice();
+								  
 				}
 
 
+				/*void display()
+				
+
 
 }
-			
+		
 
 
 	

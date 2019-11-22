@@ -7,14 +7,14 @@ public class Hotel
 	FoodItems[] food;
 	
 
-	void setDetails()
+	void details()
 	{
 		System.out.println("\tWelcome to **CafeIn**");
 		System.out.println("\tPlace: Thodupuzha");
 		System.out.println("\t***************");
 
 	}
-	void select()
+	void login()
 	{
 		Scanner scan=new Scanner(System.in);
 		int u;
