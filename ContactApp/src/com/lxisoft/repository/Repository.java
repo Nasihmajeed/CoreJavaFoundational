@@ -1,6 +1,5 @@
 package com.lxisoft.repository;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.*;
 import com.lxisoft.domain.*;
 /**
@@ -114,10 +113,6 @@ public class Repository implements FileDataSource
 		}
 		return contactList; 
 	}
-	public void sortFile()
-	{
-
-	}
 	/**
 	 *to clear file
 	 */
@@ -126,6 +121,7 @@ public class Repository implements FileDataSource
 		try
 		{
 			FileWriter f=new FileWriter(contactFile);
+			in=1;
 		}
 		catch(IOException e)
 		{
