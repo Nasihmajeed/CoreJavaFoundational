@@ -61,7 +61,7 @@ public class Controller
 	public void editContact(int i,int id,String name,String number)
 	{	
 		//System.out.println("value i ="+i+"   id ="+id );
-
+		
 		 contact = new Contact();
 		 contactList = rep.fileRead();
 		 contact.setName(name);
