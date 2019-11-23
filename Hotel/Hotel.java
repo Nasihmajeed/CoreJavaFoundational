@@ -19,16 +19,17 @@ public class Hotel
 		{
 			return place;
 		}
-	void setProductObject()
+	FoodProduct[] setProductObject(FoodProduct[] foodProduct)
 	{
 		for(int i = 0;i<10;i++)
 		 {
-		 	foodProduct[i]= new FoodProduct();
+		 	foodProduct[i] = new FoodProduct();
 		 }
+		 return foodProduct;
 	}
-	void setProduct()
+	 FoodProduct[] setProduct(FoodProduct[] foodProduct)
 	{
-		 setProductObject();
+		 setProductObject(foodProduct);
 		 foodProduct[0].setName("Chicken Biriyani");
 		 foodProduct[0].setAmount(110);
 
@@ -43,6 +44,7 @@ public class Hotel
 
 		 foodProduct[4].setName("Porotta");
 		 foodProduct[4].setAmount(10);
+		 return foodProduct;
 	}
 	void getProduct()
 	{

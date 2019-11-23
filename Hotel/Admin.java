@@ -3,6 +3,7 @@ public class Admin
 {
 	FoodProduct foodProduct;
 	FoodOrdering foodOrdering;
+	Hotel test = foodOrdering.sample();
 	Scanner scanner = new Scanner(System.in);
 	int flag=1;
 	void add(Hotel hotel)
@@ -37,7 +38,7 @@ public class Admin
 									flag1=true;
 									break;
 								case 4:
-									foodOrdering.crud(hotel);
+									foodOrdering.crud(test);
 								default :
 									System.out.println("Select Any 4");
 									break;
@@ -55,13 +56,13 @@ public class Admin
 	}
 	void update(Hotel hotel)
 	{
-		/*int numb;*/
 		boolean isRight;
+		int numb;
 		do
 		{
 		isRight = false;
 		System.out.println("Press ==> 1.Edit 2.Print 3.Back 4.Stop ");
-		int numb = scanner.nextInt();
+		numb = scanner.nextInt();
 			switch(numb)
 			{
 				case 1:

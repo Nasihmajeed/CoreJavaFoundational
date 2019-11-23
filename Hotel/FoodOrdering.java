@@ -7,15 +7,19 @@ public class FoodOrdering
 	void booking()
 	{
 		scanner = new Scanner(System.in);
-		hotel = new Hotel();
-		hotel.setProduct();
-		adminUser(hotel);
+		adminUser(sample());
 		/*setHotel();*/
 		/*hotel.getProduct();*/
 	}
+	Hotel sample()
+	{
+		Hotel hotelSample;
+		hotel = new Hotel();
+		hotelSample = hotel.setProduct();
+		return hotelSample;
+	}
 	void adminUser(Hotel hotel)
 	{	
-	    
 		System.out.println("1 . Admin");
 		System.out.println("2 . User");
 		int adminUser = scanner.nextInt();
