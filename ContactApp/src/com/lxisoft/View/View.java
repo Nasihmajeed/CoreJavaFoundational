@@ -15,11 +15,11 @@ public class View
 	*to get the user option for the further process
 	*@return return user input
 	*/
-	public int getUserOption()
+	public String getUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println(" enter any option  : \n0 select a contact \n1 add a contact  \n2 search contact \n3 sorting \n4 view all contacts \n5 delete all");
-	 	return sc.nextInt();
+		System.out.println(" enter any option / Contact  : \n1 add a contact  \n2 search contact \n3 sorting \n4 view all contacts \n5 delete all");
+	 	return sc.next();
 	}
 	/**
 	*to indicate the wrong selection
@@ -128,6 +128,18 @@ public class View
 		int id=sc.nextInt();
 		Contact contact=new Contact(); 
 		contact=control.searchContact(id);
+		selectedContact(contact);
+	}
+	public void moderateDisplay(ArrayList<Contact> selectedContacts)
+	{
+		for(Contact a: selectedContacts)
+		 System.out.println("ID : "+a.getId()+"\tNAME: "+a.getName()+"\n");
+
+
+		Scanner sc=new Scanner(System.in);
+		String name=sc.next();
+		Contact contact=new Contact(); 
+		contact=control.searchContact(name);
 		selectedContact(contact);
 	}
 	/**

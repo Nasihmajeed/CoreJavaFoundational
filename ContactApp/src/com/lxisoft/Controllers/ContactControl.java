@@ -22,23 +22,34 @@ public class ContactControl
 		view.viewAllContacts();
 		int loop=0;
 		int repeat=0; 
-		do
+		String select=null;
+		try
 		{
-			int select=view.getUserOption();
-			repeat=0;
-			loop=0;
-			switch(select)
+			do
 			{
-				case 0: view.selectContact(0);break;
-				case 1: view.setNewContact();break;
-				case 2: view.selectContact(2);break;
-				case 3: view.sortContact();break;
-				case 4: view.viewAllContacts();break;
-				case 5: view.clearAllContacts();break;
-				default:view.invalidOption();
-			}
-			repeat=view.isContinue();
-		}while(loop==1|repeat==1);
+				select=view.getUserOption();
+				repeat=0;
+				loop=0;
+				int option;
+				switch((option=Integer.parseInt(select)))
+				{
+					// case 0: view.selectContact(0);break;
+					case 1: view.setNewContact();break;
+					case 2: view.selectContact(2);break;
+					case 3: view.sortContact();break;
+					case 4: view.viewAllContacts();break;
+					case 5: view.clearAllContacts();break;
+					default:view.invalidOption();
+				}
+				repeat=view.isContinue();
+			}while(loop==1|repeat==1);
+		}catch(Exception e)
+		{
+			Contact contact= (searchContact(select));
+			if(contact !=null)view.selectedContact(contact);
+			else moderateSerach(select);
+			
+		}
 	}
 	/**
 	*@param name contact name
@@ -196,5 +207,18 @@ public class ContactControl
 	public void sortByNumber()
 	{
 		repo.sortByNumber();
+	}
+	public void moderateSerach(String name)
+	{
+		ArrayList<Contact> contacts=new ArrayList<Contact>();
+		contacts=repo.getAllContacts();
+		ArrayList<Contact> selectedContacts=new ArrayList<Contact>();
+		for(Contact a: contacts)
+		{
+			if((a.getName()).contains(name))
+			selectedContacts.add(a);
+		}
+		int limit=selectedContacts.size();
+		if(limit!=0)view.moderateDisplay(selectedContacts);
 	}
 }
