@@ -7,7 +7,7 @@ import java.util.*;
 public class View
 {
 	public static Controller con = new Controller();
-
+     
 	public int  begin()
 	{
 		int n=0;
@@ -27,7 +27,7 @@ public class View
 	    {
 	    	System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 	    	con.choice();
-	    }
+	    }     
 	    //System.out.println("value of n "+n);
         return n;
 	}

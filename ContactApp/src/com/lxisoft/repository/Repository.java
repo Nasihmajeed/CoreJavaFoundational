@@ -46,7 +46,7 @@ public class Repository implements Filerepository
 		FileReader f = new FileReader(file);
 		BufferedReader buf = new BufferedReader(f);
 		String ss;
-		while((ss= buf.readLine())!=null)
+		while((ss = buf.readLine())!=null)
 		{
 			
 			String[] str =  ss.split(",",3);
@@ -63,8 +63,7 @@ public class Repository implements Filerepository
 	}
 	public List <Contact> fileRead()
 	{
-		TreeSet <Contact> ts = new TreeSet <Contact> (); 
-
+		// TreeSet <Contact> ts = new TreeSet <Contact> (); 
 		try
 		{
 			array.clear();
@@ -78,16 +77,22 @@ public class Repository implements Filerepository
 	  				c.setId(Integer.parseInt(str[0]));
 	  				c.setName(str[1]);
 	  				c.setNumber(str[2]);
-	  				ts.add(c);
+	  				array.add(c);
 	  		}
 
-	  		array.addAll(ts);
+	  		//array.addAll(ts);
 		}
 		catch(IOException e)
 		{
 			System.out.println(e);
 		}
 		return array;
+	}
+	public void SortByname()
+	{
+		array=fileRead();
+		Collections.sort(array, new SortName()); 
+
 	}
 	public void search()
 	{
