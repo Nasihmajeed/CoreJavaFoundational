@@ -53,17 +53,50 @@ public class Admin
 
 			}		
 	}
-	void update()
+	void update(Hotel hotel)
 	{
-		System.out.print("***********");
-	}
+		/*int numb;*/
+		boolean isRight;
+		do
+		{
+		isRight = false;
+		System.out.println("Press ==> 1.Edit 2.Print 3.Back 4.Stop ");
+		int numb = scanner.nextInt();
+			switch(numb)
+			{
+				case 1:
+					System.out.println("Select a Product to Update");
+					hotel.getProduct();
+					int num = scanner.nextInt();
+					System.out.println("Enter Product Name");
+					hotel.foodProduct[num-1].setName(scanner.next());
+					System.out.println("Enter Product Amount");
+					hotel.foodProduct[num-1].setAmount(scanner.nextInt());
+					isRight = true;
+					break;
+				case 2:
+					hotel.getProduct();
+					isRight = true;
+					break;
+				case 3:
+					foodOrdering.crud(hotel);
+					break;
+				case 4:
+					break;
+				default :
+					System.out.println("Sorry!!!! Select Options From Above ");
+					break;
+			}
+		}
+		while(isRight);
+    }
 	void delete(Hotel hotel)
 	{
 		System.out.println("Select a Product to Delete");
 		hotel.getProduct();
 		int num = scanner.nextInt();
 		hotel.foodProduct[num-1].setName(null);
-		hotel.foodProduct[num-1].setName(null);
+		hotel.foodProduct[num-1].setAmount(0);
 		hotel.getProduct();
 	}
 	void read(Hotel hotel)

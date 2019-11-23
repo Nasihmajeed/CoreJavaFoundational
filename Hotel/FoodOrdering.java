@@ -44,6 +44,7 @@ public class FoodOrdering
 			break;
 			case 2:
 			num = 0;
+			admin.update(hotel);
 			break;
 			case 3:
 			admin.delete(hotel);
@@ -52,7 +53,7 @@ public class FoodOrdering
 			admin.read(hotel);
 			break;
 			default :
-			System.out.println("******");
+			System.out.println("Sorry!!!! Select Options From Above ");
 			break;
 		}
 	}
