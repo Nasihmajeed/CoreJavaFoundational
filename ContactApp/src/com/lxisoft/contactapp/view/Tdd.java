@@ -1,6 +1,9 @@
 package com.lxisoft.contactapp.view;
 import com.lxisoft.contactapp.controller.*;
 import java.util.*;
+/**
+*class for testing
+*/
 public class Tdd{
 public static void main(String[] args) {
 	Controller control=new Controller();

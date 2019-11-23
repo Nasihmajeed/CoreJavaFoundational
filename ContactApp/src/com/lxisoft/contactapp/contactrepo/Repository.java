@@ -4,10 +4,17 @@ import java.util.*;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.view.*;
 import com.lxisoft.contactapp.controller.*;
+/**
+*class for file repository
+*/
 public class Repository implements Filestorage{
 File file=new File(directory);
 //Controller controlller=new Controller();
 ArrayList<Contact> contacts=new ArrayList<Contact>();
+/**
+*method used to write contact to the file
+*@param Contact single contact
+*/
 public void setFile(Contact contact){
   	try{
 	FileWriter write=new FileWriter(file,true);
@@ -21,7 +28,10 @@ public void setFile(Contact contact){
     	System.out.println("Exception "+e);
     }
   }
-
+/**
+*method used to read from the file
+*@return ArrayList contact list
+*/
 public ArrayList<Contact>  getList(){
 	 contacts=new ArrayList<Contact>();
 	 TreeSet<Contact>contactlist=new TreeSet<Contact>();
@@ -44,6 +54,11 @@ public ArrayList<Contact>  getList(){
 
     return contacts;
   }
+  /**
+*method used to search a contact from the file
+*@param String contact name
+*@return Contact single contact
+*/
  
 public Contact searchList(String name){
  int count=0;
@@ -58,7 +73,10 @@ for(int i=0;i<contacts.size();i++){
 	 return c;
 
   } //7306546322
-
+/**
+*method used to edit a contact from list
+*@param String[],Contact array contains name and number,single contact
+*/
 
 public void editList(Contact contac,String[] temp){  
 	for(int i=0;i<contacts.size();i++){
@@ -74,6 +92,10 @@ public void editList(Contact contac,String[] temp){
       	this.setFile(contacts.get(i));
       } 
   }
+ /**
+*method used to delete a contact from list
+*@param String contact name
+*/
 
 public void deleteList(String cn){
 contacts=this.getList();
@@ -88,7 +110,9 @@ for(int i=0;i<contacts.size();i++){
       	this.setFile(contacts.get(i));
       } 
     } 
-
+/**
+*method used to clear all data
+*/
 public void clearList(){
 	try{
 		FileWriter f=new FileWriter(file);

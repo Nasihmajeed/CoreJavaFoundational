@@ -70,7 +70,11 @@ else{
 	  
     }
   }
-
+/**
+*method used to edit a contact from list
+*@param String contact name
+*@return String[] string array of name and number
+*/
 
 public String[] updateContact(String n){
 String[] temp=new String[2];
@@ -89,8 +93,10 @@ String[] temp=new String[2];
     }
     return temp;
   }
- 
-
+/**
+*method used to delete a contact from list
+*@param String contact name
+*/
 
 public void deleteContact(String n){
 repo.deleteList(n);
