@@ -48,7 +48,7 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press-->  1-save  2-search  3-searchById  4-select  5-sort  6-backtohome  7-exit");
+		System.out.println("\n press-->  1-save  2-search  3-searchById  4-select  5-sort  6-partsearch  7-backtohome  8-exit");
 		int option=sc.nextInt();
 		return option;	
 	}
@@ -62,6 +62,13 @@ public class View
 		System.out.print(" press--> y-save  n-cancel");
 		temp[2]=sc.next();
 		return temp;
+	}
+
+	public String enSearch()
+	{
+		System.out.print("enter the search word");
+		String word=sc.next();
+		return word;
 	}
 
 	public String sort()

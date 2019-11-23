@@ -20,7 +20,7 @@ public class ContactController
 		while(true)
 		{
 			int option=view.optionsScaning();
-			if(option==7)
+			if(option==8)
 				break;
 			else
 			{
@@ -43,9 +43,19 @@ public class ContactController
 			case 3:contactById();break;
 			case 4:contactSelect();break;
 			case 5:contactSort();break;
-			case 6:allContacts();break;
+			case 6:enhancedSearch();break;
+			case 7:allContacts();break;
 		}
 	}
+	/**
+	 *for enhanced searching
+	 */
+	public void enhancedSearch()
+	{
+		ArrayList<Contact> contactList=repository.findAll();
+		String word=view.enSearch();
+		EnSearchModel enSearchModel=new EnSearchModel();
+	}	
 	/**
 	 *to save contact
 	 */
