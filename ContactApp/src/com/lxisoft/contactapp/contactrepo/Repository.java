@@ -6,7 +6,7 @@ import com.lxisoft.contactapp.view.*;
 import com.lxisoft.contactapp.controller.*;
 /**
 *class for file repository
-*/
+*/ 
 public class Repository implements Filestorage{
 File file=new File(directory);
 //Controller controlller=new Controller();
