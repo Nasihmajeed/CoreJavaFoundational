@@ -1,5 +1,4 @@
 package com.lxisoft.view;
-import java.io.*;
 import com.lxisoft.contactcontroller.*;
 import com.lxisoft.domain.*;
 import com.lxisoft.contactmodel.*;
@@ -41,7 +40,7 @@ public class View
 	public int getChoice()
 	{
 		System.out.println("<---Enter your choice--->");
-		System.out.println("1-select\t\n2-Add\t\n3-Search\t\n4-DeleteAll\t\n5-Home\t\n6-sort\t\n7-Exit");
+		System.out.println("\n1-select\t2-Add\t3-Search\n\n4-DeleteAll\t5-Home\t6-sort\t\n\n7-Exit");
 		return s.nextInt();
 	}
 	/**
@@ -73,6 +72,11 @@ public class View
 			System.out.println(" contact is not present");
 		}		
 	}
+	/**
+	 *to get sorted contact
+	 *
+	 *@param contactList 
+	 */
 	public void getSortedContacts(List<Contact> contactList)
 	{
 		if((contactList.size()!=0))
@@ -128,16 +132,18 @@ public class View
 	 *
 	 *@param c contact with id, name and number.
 	 */
-	public void searchContact(Contact c)
+	public void searchContact(List<String> contact)
 	{
-		if((c.getContactName()==null)&(c.getContactNumber()==null))
+		if(contact.size()!=0)
 		{
-			System.out.println(" contact is not present");
+			for(int j=0;j<contact.size();j++)
+			{
+				System.out.println(contact.get(j));
+			}
 		}
 		else
 		{
-			System.out.println("contact name--->"+c.getContactName());
-			System.out.println("contact no  --->"+c.getContactNumber());
+			System.out.println(" contact is not present");
 		}
 	}
 	/**

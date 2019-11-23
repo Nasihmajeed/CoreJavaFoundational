@@ -75,6 +75,11 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}	
 	}
+	/**
+	 *to sort contact by number
+	 *
+	 *@return arraylist of contact
+	 */
 	public List <Contact> sortByNumber()
 	{
 		contactList.clear();
@@ -82,6 +87,11 @@ public class Repository implements FileDataSource
 		Collections.sort(contactList, new SortByNumber());
 		return contactList;
 	}
+	/**
+	 *to sort contact by name
+	 *
+	 *@return arraylist of contact
+	 */
 	public List <Contact> sortByName()
 	{
 		contactList.clear();
@@ -89,6 +99,11 @@ public class Repository implements FileDataSource
 		Collections.sort(contactList, new SortByName());
 		return contactList;
 	}
+	/**
+	 *to sort contact by id
+	 *
+	 *@return arraylist of contact
+	 */
 	public List <Contact> sortById()
 	{
 		contactList.clear();

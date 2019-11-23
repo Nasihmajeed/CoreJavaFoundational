@@ -1,10 +1,20 @@
 package com.lxisoft.contactmodel;
 import java.util.Comparator;
 import com.lxisoft.domain.Contact;
+/**
+ *class to sort contacts by name
+ */
 public class SortByName implements Comparator<Contact>
 {
-	public int compare(Contact c,Contact c1)
+	/**
+	 *to compare contact using name
+	 *
+	 *@param c1 contact 1
+	 *@param c2 contact 2
+	 *@return integer value
+	 */
+	public int compare(Contact c1,Contact c2)
 	{
-		return c.getContactName().compareTo(c1.getContactName());
+		return c1.getContactName().compareTo(c2.getContactName());
 	}
 }
