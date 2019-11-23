@@ -65,6 +65,11 @@ public class ContactView
 		String d=sc.next();
 		return d;
 	}
+	// public void sort()
+	// {
+	// 	repo.idSort();
+	// 	System.out.println()
+	// }
 	/**
  * Select a contact by id
  */

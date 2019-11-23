@@ -100,7 +100,6 @@ public class Repository implements FileRepository
 				c.setContactNo(str[2]);
 				// System.out.println(read+"\n");
 				ts.add(c);
-				
 			}
 			contactList.addAll(ts);
 		}
@@ -118,20 +117,20 @@ public class Repository implements FileRepository
 		try
 		{
 			id=0;
+			
 			Contact c=new Contact();
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String read;
 			while((read=br.readLine())!=null)
-			{
-				String[] str=read.split(",",2);
-				int temp=Integer.parseInt(str[0]);	
-				if(temp>id)id=temp;
-				System.out.println(id+"tempp====="+temp);
-			}id++;
-
-			
-			System.out.println("id========"+id);
+			// {
+			// 	String[] str=read.split(",",2);
+			// 	int temp=Integer.parseInt(str[0]);	
+			// 	if(temp>id)id=temp;
+			// 	// System.out.println(id+"tempp====="+temp);
+			// }
+			id++;
+            // System.out.println("id========"+id);
 		}
 
 		catch(IOException e)
@@ -171,4 +170,28 @@ public class Repository implements FileRepository
 			System.out.println("an error"+e);
 		}	
 	}
+
+	public List<Contact> idSort()
+  	{
+  		contactList=arrayWrite();
+  		Collections.sort(contactList,new IdComparator());
+		resetFile();
+		return contactList;
+  	}
+
+  	public List<Contact> nameSort()
+  	{
+  		contactList=arrayWrite();
+  		Collections.sort(contactList,new NameComparator());
+		resetFile();
+		return contactList;
+  	}
+
+  	public List<Contact> numberSort()
+  	{
+  		contactList=arrayWrite();
+  		Collections.sort(contactList,new NoComparator());
+		resetFile();
+		return contactList;
+  	}
 }
