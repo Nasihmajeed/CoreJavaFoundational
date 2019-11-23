@@ -84,7 +84,17 @@ public class ContactController
 		{
 			case 1: getContactById();break;
 			case 2: getContactByName();break;
+			case 3:	getByAlphabets();break;
 		}
+	}
+	/**
+	 *  getAllContacts on the basis of Alphabets that we are enter
+	 */
+	public void getByAlphabets()
+	{
+		String name=view.getByAlphabets();
+		ArrayList<Contact> contacts=filerepo.searchStartsWith(name);
+
 	}
 	/**
 	 *  getAllContacts (all contact details) from file to arraylist.

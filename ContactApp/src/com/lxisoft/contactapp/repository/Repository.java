@@ -158,6 +158,11 @@ public class Repository implements FileStorage
 			}	
 		return contacts;
 	}
+	public ArrayList<Contact> searchStartsWith(String name)
+	{
+		//name.startsWith(name);
+		return contacts;
+	}
 	public ArrayList<Contact> sortContactByNumber()
 	{
 		Collections.sort(contacts,new SortByNumber());

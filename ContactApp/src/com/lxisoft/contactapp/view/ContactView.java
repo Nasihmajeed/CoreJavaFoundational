@@ -120,6 +120,13 @@ public class ContactView
 		System.out.println("contact Added!");
 		return contact;
 	}
+	public String getByAlphabets()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter Alphabet");
+		String name=sc.next();
+		return name;
+	}
 	/**
 	 * search contact 
 	 * @return option
@@ -127,7 +134,7 @@ public class ContactView
 	public int searchContact()
 	{
 		System.out.println("Contact Search ");
-		System.out.println("1.select by Id 2.select by Name");
+		System.out.println("1.select by Id 2.select by Name 3.by alphabets");
 		Scanner sc=new Scanner(System.in);
 		int option=sc.nextInt();
 		return option;
