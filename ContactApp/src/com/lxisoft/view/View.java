@@ -41,7 +41,7 @@ public class View
 	public int getChoice()
 	{
 		System.out.println("<---Enter your choice--->");
-		System.out.println("\t\t1-select\n2-Add\n3-Search\n4-DeleteAll\n5-Home\n6-sort by name\n7-sort by number\n9-Exit");
+		System.out.println("1-select\t\n2-Add\t\n3-Search\t\n4-DeleteAll\t\n5-Home\t\n6-sort\t\n7-Exit");
 		return s.nextInt();
 	}
 	/**
@@ -73,6 +73,18 @@ public class View
 			System.out.println(" contact is not present");
 		}		
 	}
+	public void getSortedContacts(List<Contact> contactList)
+	{
+		if((contactList.size()!=0))
+		{
+			System.out.println("\t <-------CONTACT LIST------>\n");
+			System.out.println("\t ID \t NAME \t NUMBER\n\t-----\t------\t--------");
+			for(int j=0;j<contactList.size();j++)
+			{
+				System.out.println("\t"+contactList.get(j).getContactId()+"\t"+contactList.get(j).getContactName()+"\t"+contactList.get(j).getContactNumber());
+			}
+		}
+	}
 	/**
 	 *to get contact operation
 	 *
@@ -81,6 +93,17 @@ public class View
 	public int getContactOperation()
 	{
 		System.out.println("\n\n 1-Update\t 2-Delete \t 3-Exit");
+		int a=s.nextInt();
+		return a;
+	}
+	/**
+	 *to get sort option
+	 *
+	 *@return integer value 
+	 */
+	public int getSortOption()
+	{
+		System.out.println("\n\n 1-SortByName\t 2-SortByNumber\t 3-SortById\t4-Exit");
 		int a=s.nextInt();
 		return a;
 	}

@@ -75,11 +75,25 @@ public class Repository implements FileDataSource
 			System.out.println(" error"+e);
 		}	
 	}
+	public List <Contact> sortByNumber()
+	{
+		contactList.clear();
+		contactList=readFile();
+		Collections.sort(contactList, new SortByNumber());
+		return contactList;
+	}
 	public List <Contact> sortByName()
 	{
 		contactList.clear();
 		contactList=readFile();
 		Collections.sort(contactList, new SortByName());
+		return contactList;
+	}
+	public List <Contact> sortById()
+	{
+		contactList.clear();
+		contactList=readFile();
+		Collections.sort(contactList, new SortById());
 		return contactList;
 	}
 	/**
@@ -95,7 +109,7 @@ public class Repository implements FileDataSource
 		{
 			if(contactFile.exists())
 			{
-				// contactList.clear();
+				contactList.clear();
 				String contacts;
 				FileReader fr=new FileReader(contactFile);
 				BufferedReader br=new BufferedReader(fr);
