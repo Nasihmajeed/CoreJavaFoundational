@@ -32,7 +32,7 @@ public class Repository implements FileStorage
 			{
 				String[] st=str.split(",",3);
 				Contact	contact=new Contact();
-				contact.setId(st[0]);
+				contact.setId(Integer.parseInt(st[0]));
 				contact.setName(st[1]);
 				contact.setNo(st[2]);
 				contacts.add(contact);
@@ -73,13 +73,14 @@ public class Repository implements FileStorage
 	public void addContactDetails(Contact contact)
 	{
 		contacts.add(contact);	
-		contactWriteIntoFile(contact);
+		boolean val=false;
+		contactWriteIntoFile(contact,val);
 	}
 	/**
 	 * writting data to file.
-	 * @param contact
+	 * @param contact single contact 
 	 */
-	public void contactWriteIntoFile(Contact contact)
+	public void contactWriteIntoFile(Contact contact,boolean fileExist)
 	{
 		try
 		{
@@ -89,8 +90,13 @@ public class Repository implements FileStorage
 			String str=" ";
 			if((str=read.readLine())!=null)
 			{
-				id=getId();
-				br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+				if(fileExist==false)
+				{
+					id=getId();
+					br.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+				}
+				else
+				br.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 			}
 			else
 			{
@@ -117,7 +123,8 @@ public class Repository implements FileStorage
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				contactWriteIntoFile(contacts.get(j));
+				boolean value=true;
+				contactWriteIntoFile(contacts.get(j),value);
 			}
 	}
 	/**
@@ -132,7 +139,8 @@ public class Repository implements FileStorage
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				contactWriteIntoFile(contacts.get(j));
+				boolean val=true;
+				contactWriteIntoFile(contacts.get(j),val);
 			}
 	}
 	public ArrayList<Contact> sortContactByName()
@@ -145,7 +153,8 @@ public class Repository implements FileStorage
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				contactWriteIntoFile(contact);
+				boolean val=true;
+				contactWriteIntoFile(contact,val);
 			}	
 		return contacts;
 	}
@@ -155,7 +164,8 @@ public class Repository implements FileStorage
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				contactWriteIntoFile(contact);
+				boolean val=true;
+				contactWriteIntoFile(contact,val);
 			}	
 		return contacts;
 	}
@@ -165,7 +175,8 @@ public class Repository implements FileStorage
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				contactWriteIntoFile(contact);
+				boolean val=true;
+				contactWriteIntoFile(contact,val);
 			}	
 		return contacts;
 	}

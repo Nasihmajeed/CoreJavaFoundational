@@ -6,6 +6,6 @@ public class SortById implements Comparator<Contact>
 {
 	public int compare(Contact con,Contact cont)
 	{
-		return con.getId().compareTo(cont.getId());
+		return con.getId()-(cont.getId());
 	}
 }

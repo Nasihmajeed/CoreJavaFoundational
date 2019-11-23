@@ -8,12 +8,12 @@ public class ContactModel
 	 * instance variables name and id.
 	 */
 	private String name;
-	private String id;
+	private int id;
 	/**
 	 * setid of contact
 	 *@param id
 	 */
-	public void setId(String id)
+	public void setId(int id)
 	{
 		this.id=id;
 	}
@@ -37,7 +37,7 @@ public class ContactModel
 	 * getid of contact
 	 *@return id
 	 */
-	public String getId()
+	public int getId()
 	{
 		return this.id;
 	}

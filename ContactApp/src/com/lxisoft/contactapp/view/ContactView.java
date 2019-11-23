@@ -136,11 +136,11 @@ public class ContactView
 	 * view contact by id 
 	 * @return id
 	 */
-	public String viewContactById()
+	public int viewContactById()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter id to Search");
-		String id=sc.next();
+		int id=sc.nextInt();
 		return id;
 	}
 	/**

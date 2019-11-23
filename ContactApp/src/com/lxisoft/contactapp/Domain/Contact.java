@@ -8,14 +8,14 @@ public class Contact implements Comparable<Contact>
 	/**
 	 * instance variables id name and number.
 	 */
-	private String id;
+	private int id;
 	private String name;
 	private String phno;
 	/**
 	 * set id in contacts
 	 * @param id contactid
 	 */
-	public void setId(String id)
+	public void setId(int id)
 	{
 		this.id=id;
 	}
@@ -39,7 +39,7 @@ public class Contact implements Comparable<Contact>
 	 * get id in contacts
 	 * @return id
 	 */
-	public String getId()
+	public int getId()
 	{
 		return this.id;
 	}

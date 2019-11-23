@@ -9,6 +9,7 @@ import java.util.*;
 /**
  * Contactcontroller class to control All the views.
  */
+
 public class ContactController
 {
 	/**
@@ -96,6 +97,7 @@ public class ContactController
 	/**
 	 *  sort contacts .
 	 */
+	
 	public void sortContactDetails()
 	{
 		int option=view.viewSortedDetails();
@@ -136,12 +138,12 @@ public class ContactController
 	 */
 	public void getContactById()
 	{
-		String id=view.viewContactById();
+		int id=view.viewContactById();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Contact contact=new Contact();
 		for(int i=0;i<contacts.size();i++)
 		{
-			if(id.equals(contacts.get(i).getId()))
+			if(id==(contacts.get(i).getId()))
 			{
 				contact=contacts.get(i);
 			}
@@ -187,7 +189,7 @@ public class ContactController
 		System.out.println("ind"+index);
 		String name=view.editContactName(contact);
 		String num=getNo(contact);
-		String id=getId(contact);
+		int id=getId(contact);
 		System.out.println("num"+num);
 		updateContact(index,id,name,num);
 	}
@@ -201,7 +203,7 @@ public class ContactController
 		System.out.println("ind"+index);
 		String num=view.editContactNumber(contact);
 		String name=getName(contact);
-		String id=getId(contact);
+		int id=getId(contact);
 		System.out.println("name"+name);
 		updateContact(index,id,name,num);
 	}
@@ -248,7 +250,7 @@ public class ContactController
 	 * @param name contact name
 	 * @param number contact number
 	 */
-	public void updateContact(int i,String id,String name,String number)
+	public void updateContact(int i,int id,String name,String number)
 	{
 		Contact contact=new Contact();
 		contact.setId(id);
@@ -308,9 +310,9 @@ public class ContactController
 	 * @param contact contact.
 	 * @return id.
 	 */
-	public String getId(Contact contact)
+	public int getId(Contact contact)
 	{
-		String id=null;
+		int id=0;
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		for(int i=0;i<contacts.size();i++)
 		{
