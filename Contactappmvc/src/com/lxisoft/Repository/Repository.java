@@ -7,27 +7,27 @@ import java.util.*;
 */
 public class Repository
 {  ArrayList <Contact> filelist = new  ArrayList <Contact>();
-   File file = new File("Contact1.csv");
+  //File file = new File("Contact1.csv");
 
    /*
    *method for file operation
    */
   public void file(ArrayList <Contact> contactslist)
   {
-   try{  
-             //if(!file.exists())
-              //{
-              PrintWriter pw = new PrintWriter(file);
-              if(file.length()==0) 
-                { pw.println("ID"+","+"NAME"+","+"NUMBER");}
-                  pw.flush();
+   try{ 
+            String s="Contact1.csv";
+              PrintWriter pw = new PrintWriter("Contact1.csv");
+              if("Contact1.csv".length()==0) 
+                { 
+                  pw.println("ID"+","+"NAME"+","+"NUMBER");
+                }
+                
                   for(int i=0;i<contactslist.size();i++)
                     {
      	               pw.println(contactslist.get(i).getId()+","+contactslist.get(i).getName()+","+contactslist.get(i).getNumber());
-                     pw.flush();
-                    }//}
-               // else
-              //{System.out.println("empty");}
+                   
+                    }
+           pw.flush();
 
        }catch(IOException e){}
   }
@@ -36,13 +36,15 @@ public class Repository
   *
   */
   public ArrayList <Contact> getAllContacts()
-  {  String contacts;
+  { 
+       String contacts;
       TreeSet<Contact> ts=new TreeSet<Contact>();  
   	   try
   	   {
-  	    File file = new File("Contact1.csv");
-  	      FileReader fr = new FileReader(file);
-           BufferedReader br = new BufferedReader(fr);
+  	       
+  	        FileReader fr = new FileReader("Contact1.csv");
+            BufferedReader br = new BufferedReader(fr);
+         
            while((contacts=br.readLine())!= null)
            {
            	String []datas=contacts.split(",");
@@ -50,14 +52,14 @@ public class Repository
            	String number=datas[1];
            	Contact c= new Contact();
             //c.setId(id);
-            int oldId=c.getId();
-            c.setId(++oldId);
+            //int oldId=c.getId();
+            c.setId();
            	c.setName(name);
            	c.setNumber(number);
             ts.add(c);
           
            	//filelist=tc;
-            System.out.println(filelist.size()+"***********");
+            //System.out.println(filelist.size()+"***********");
            }
            filelist.addAll(ts);
            filelist.remove(0);

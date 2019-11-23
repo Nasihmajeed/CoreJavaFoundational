@@ -27,8 +27,10 @@ public class View
       a = in.nextInt();
       switch(a)
       {
+
+        
           case 1 : //ADD
-                 addContact(control);
+                 addContact();
                  break;
           case 2 : //DELETE
                  deleteContact();
@@ -51,7 +53,7 @@ public class View
   *display for Add contact
   *@param control
   */
-  public static void addContact(Controller control)
+  public static void addContact()
    {
       System.out.println("Enter the number of the persons:");
       int x = in.nextInt();

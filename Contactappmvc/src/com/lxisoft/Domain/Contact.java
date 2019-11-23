@@ -39,9 +39,9 @@ public class Contact implements Comparable<Contact>
   /*
   *to set id
   */
-     public void setId(int id)
+     public void setId()
    {
-    this.id = id;
+    this.id = ++id;
    }
   /*
   *to get id

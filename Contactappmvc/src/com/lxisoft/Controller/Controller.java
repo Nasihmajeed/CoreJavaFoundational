@@ -40,8 +40,8 @@ public class Controller
   public ArrayList<Contact> addContact(String name,String number)
   {
    Contact contact = new Contact(); 
-   int a = contact.getId();
-   contact.setId(++a);
+ 
+   contact.setId();
    contact.setName(name);
    contact.setNumber(number);
    contactslist.add(contact);
