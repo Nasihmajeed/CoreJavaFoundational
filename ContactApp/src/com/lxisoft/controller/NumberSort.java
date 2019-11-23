@@ -1,5 +1,5 @@
 package com.lxisoft.controller;
-import com.lxisoft.model.*;
+import com.lxisoft.domain.*;
 import java.util.*;
 
 public class NumberSort implements Comparator<Contact>
@@ -9,7 +9,7 @@ public class NumberSort implements Comparator<Contact>
     { 
 
     // for comparison 
-    return c1.getNumber().compareTo(c1.getNumber()); 
+    return c1.getNumber().compareTo(c2.getNumber()); 
  	 
     } 
 }

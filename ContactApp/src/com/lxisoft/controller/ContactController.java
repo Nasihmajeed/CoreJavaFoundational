@@ -76,7 +76,7 @@ public class ContactController
 		}
 		else if(option.equals("n"))
 		{
-
+			Collections.sort(contactList,new NumberSort()); 
 		}
 		ViewAllModel temp=new ViewAllModel();
 		temp.setList(contactList);
