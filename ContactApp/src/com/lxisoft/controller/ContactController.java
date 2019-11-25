@@ -53,8 +53,18 @@ public class ContactController
 	public void enhancedSearch()
 	{
 		ArrayList<Contact> contactList=repository.findAll();
+		ArrayList<Contact> tempList=new ArrayList<Contact>();
 		String word=view.enSearch();
-		EnSearchModel enSearchModel=new EnSearchModel();
+		ViewAllModel tempModel=new ViewAllModel();
+		for(Contact contact: contactList)
+		{
+			if(contact.getName().contains(word))
+			{
+				tempList.add(contact);
+			}
+		}
+		tempModel.setList(tempList);
+		view.findAllContacts(tempModel);
 	}	
 	/**
 	 *to save contact
