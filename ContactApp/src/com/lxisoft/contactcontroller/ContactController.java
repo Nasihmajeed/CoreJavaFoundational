@@ -109,13 +109,12 @@ public class ContactController
 	public void searchContact()
 	{
 		Scanner sc=new Scanner(System.in);
-		char s=sc.next().charAt(0);
-		int c=0;
+		String name=sc.next();
 		List<String>contact=new ArrayList<String>();
 		List <Contact> contactList=repo.readFile();
 		for(int i=0;i<contactList.size();i++)
 		{
-			if(s==((contactList.get(i).getContactName()).charAt(0)))
+			if(contactList.get(i).getContactName().contains(name))
 			{
 				contact.add(contactList.get(i).getContactName());
 			}
