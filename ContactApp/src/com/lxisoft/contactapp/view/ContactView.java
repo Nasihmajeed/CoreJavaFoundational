@@ -34,13 +34,13 @@ public class ContactView
 	 * displayContactInfo to user
 	 * @return option
 	 */
-	public int displayContactInfo()
+	public String viewUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println(" \n<---Contact App Menu--->");
 		System.out.println(" 1:Add  \n 2:Search  \n 3:view \n 4:sort \n 5:DeleteAll \n");
 		System.out.println(" select your option	");
-		int option=sc.nextInt();
+		String option=sc.next();
 		return option;
 	}
 	/**
@@ -123,7 +123,7 @@ public class ContactView
 	public String getByAlphabets()
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("enter Alphabet");
+		System.out.println("search here..");
 		String name=sc.next();
 		return name;
 	}
@@ -134,10 +134,14 @@ public class ContactView
 	public int searchContact()
 	{
 		System.out.println("Contact Search ");
-		System.out.println("1.select by Id 2.select by Name 3.by alphabets");
+		System.out.println("1.select by Id 2.select by Name ");
 		Scanner sc=new Scanner(System.in);
 		int option=sc.nextInt();
 		return option;
+	}
+	public void noSuchContacts()
+	{
+		System.out.println(" no such contacts!");
 	}
 	/**
 	 * view contact by id 
@@ -226,5 +230,22 @@ public class ContactView
 	public void deleteContact(Contact contact)
 	{
 		System.out.println("contact Deleted!");
+	}
+	public void moderateSearchDisplay(ArrayList<Contact> contacts)
+	{
+		System.out.println(" \n<----Contact List---->");
+		System.out.println("ID\tNAME\tNUMBER\n");
+		for(int i=0;i<contacts.size();i++)
+		{
+			System.out.println(contacts.get(i).getId()+"\t"+contacts.get(i).getName()+"\t"+contacts.get(i).getNo()+"\n");
+		}
+	}
+	public boolean isContinue()
+	{
+		Scanner sc=new Scanner(System.in);boolean cont=false;
+		System.out.println("Continue? y:Yes n:No");
+		char c=sc.next().charAt(0);
+		if(c=='y'|c=='Y') cont=true;
+		return cont;
 	}
 }

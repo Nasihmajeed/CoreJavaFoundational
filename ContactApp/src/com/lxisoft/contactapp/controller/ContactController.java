@@ -25,22 +25,36 @@ public class ContactController
 		Scanner sc=new Scanner(System.in);
 		int default_option=0,option=0;
 		char continueOpt='\0';
-		do
+		boolean cont=false;
+		String userChoice=null;
+		try
 		{
-		option=view.displayContactInfo();
-		switch(option)
-			{
-				case 1:		addNewContact();break;
-				case 2:		searchContact();break;	
-				case 3:		getAllContactDetails();break;
-				case 4:		sortContactDetails();break;
-				case 5:		deleteAllContacts();break;
-				default:	System.out.println("Enter the correct option!");
-							default_option=1;break;
-			}
-			System.out.println("Do you want to continue ? Y/N");
-			continueOpt=sc.next().charAt(0);
-		}while(default_option==1|(continueOpt=='Y'|continueOpt=='y'));
+			do
+			{	
+				userChoice=view.viewUserOption();
+				//if(option!=option){ throw new NumberFormatException ("");}
+				if(option>5) {throw new NullPointerException ("");}
+				switch((option=Integer.parseInt(userChoice)))
+					{
+						case 1:		addNewContact();break;
+						case 2:		searchContact();break;	
+						case 3:		getAllContactDetails();break;
+						case 4:		sortContactDetails();break;
+						case 5:		deleteAllContacts();break;
+						default:	System.out.println("Enter the correct option!");
+									default_option=1;break;
+					}cont=isContinue();
+					// System.out.println("Do you want to continue ? Y/N");
+					// continueOpt=sc.next().charAt(0);
+			}while(default_option==1|cont);
+		}
+		catch(NullPointerException |NumberFormatException e)
+		{
+			Contact contact=getContactByName(userChoice);
+			if(contact.getName()!=null)updateContact(contact);
+			else moderateSearch(userChoice);
+			//System.out.println("exception occured " +e +sc.nextLine());
+		}
 	}
 	/**
 	 *  getAllContacts (id and name only) from file to arraylist.
@@ -84,17 +98,31 @@ public class ContactController
 		{
 			case 1: getContactById();break;
 			case 2: getContactByName();break;
-			case 3:	getByAlphabets();break;
+			//case 3:	getByAlphabets();break;
 		}
 	}
 	/**
-	 *  getAllContacts on the basis of Alphabets that we are enter
+	 *  getAllContacts on the basis of contain Alphabets that we are enter
 	 */
-	public void getByAlphabets()
+	public void moderateSearch(String name)
 	{
-		String name=view.getByAlphabets();
-		ArrayList<Contact> contacts=filerepo.searchStartsWith(name);
-
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		ArrayList<Contact>searchList= new ArrayList<Contact>();
+		for(Contact contact:contacts)
+		{
+			if((contact.getName()).contains(name))
+			{
+				searchList.add(contact);
+			}
+		}
+		if(searchList!=null)
+		{
+			view.moderateSearchDisplay(searchList);
+			searchContact();
+			isContinue(); 
+		}
+		// else{ view.noSuchContacts();isContinue();
+		// }
 	}
 	/**
 	 *  getAllContacts (all contact details) from file to arraylist.
@@ -151,13 +179,16 @@ public class ContactController
 		int id=view.viewContactById();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
 		Contact contact=new Contact();
+		int val=1;
 		for(int i=0;i<contacts.size();i++)
 		{
 			if(id==(contacts.get(i).getId()))
 			{
 				contact=contacts.get(i);
 			}
+			else val=0;
 		}
+		if(val==0){ view.noSuchContacts();}
 		updateContact(contact);
 	}
 	/**
@@ -168,7 +199,6 @@ public class ContactController
 	{
 		int option=view.updateContactInfo(contact);
 		switch(option)
-
 			{
 				case 1: editContact(contact);break;
 				case 2: deleteContact(contact);break;
@@ -200,7 +230,6 @@ public class ContactController
 		String name=view.editContactName(contact);
 		String num=getNo(contact);
 		int id=getId(contact);
-		System.out.println("num"+num);
 		updateContact(index,id,name,num);
 	}
 	/**
@@ -214,25 +243,51 @@ public class ContactController
 		String num=view.editContactNumber(contact);
 		String name=getName(contact);
 		int id=getId(contact);
-		System.out.println("name"+name);
 		updateContact(index,id,name,num);
 	}
 
 	/**
-	 *  get contact by name from repository.
+	 *  get contact by name from repository
+	 * @param name contact name
 	 */
-
-	public void getContactByName()
+	
+	public Contact getContactByName(String name)
 	{
-		String name=view.viewContactByName();
 		ArrayList<Contact> contacts=filerepo.getAllContacts();
-		Contact contact=new Contact();
+		Contact contact=new Contact(); int val=1;
 		for(int i=0;i<contacts.size();i++)
 		{
 			if(name.equals(contacts.get(i).getName()))
 			{
 				contact=contacts.get(i);
 			}
+			else val=0;
+		}
+		if(val==0)
+		{
+			view.noSuchContacts();
+		}return contact;
+	}
+
+	/**
+	 *  get contact by name from repository.
+	 */
+	public void getContactByName()
+	{
+		String name=view.viewContactByName();
+		ArrayList<Contact> contacts=filerepo.getAllContacts();
+		Contact contact=new Contact(); int val=1;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(name.equals(contacts.get(i).getName()))
+			{
+				contact=contacts.get(i);
+			}
+			else val=0;
+		}
+		if(val==0)
+		{
+			view.noSuchContacts();
 		}updateContact(contact);
 	}
 	/**
@@ -249,7 +304,6 @@ public class ContactController
 			if(contact.equals(contacts.get(i)))
 			{
 				index=i;
-				System.out.println("index==="+index);
 			}
 		}return index;
 	}
@@ -276,7 +330,6 @@ public class ContactController
 	{
 		view.deleteContact(contact);
 		int index=getIndex(contact);
-		System.out.println("ind"+index);
 		filerepo.deleteContact(index);
 	}
 	/**
@@ -339,5 +392,10 @@ public class ContactController
 	public void deleteAllContacts()
 	{
 		filerepo.clearRepository();
+	}
+	public boolean isContinue()
+	{
+		boolean cont=view.isContinue();
+		return cont;
 	}
 }
