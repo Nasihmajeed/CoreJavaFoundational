@@ -7,7 +7,7 @@ import java.util.*;
 public class View
 {
 	public static Controller con = new Controller();
-     
+    static Scanner read = new Scanner(System.in);
 	public int  begin()
 	{
 		int n=0;
@@ -18,7 +18,6 @@ public class View
 		System.out.println("  \n \t \t -----CONTACT LIST------");
 		
 		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY \n 4 = DELETE ALL");
-		Scanner read= new Scanner(System.in);
 		n = read.nextInt();	
 		
 		}while(n==1 && n==2 && n==3 && n ==4);
@@ -52,19 +51,18 @@ public class View
 	{
 		
 		System.out.println("ENTER NAME");
-		Scanner read = new Scanner(System.in);
 		String name= read.nextLine();
 		System.out.println("ENTER NUMBER");
 		String number=read.nextLine();
-		con.addContact(name,number);
 		System.out.println("CONTACT SAVED");
+		con.addContact(name,number);
+		
 	}
 	public void search()
 	{
 		int f=0;
 		System.out.println("ENTER NAME");
-		Scanner set = new Scanner(System.in);
-		String name= set.nextLine();
+		String name= read.nextLine();
 		
 		if(name.equals(con.search(name).getName()))
 		{	
@@ -105,9 +103,8 @@ public class View
 	public  int  display()
 	{	
 		System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME");
-		int n =0;
-		Scanner read = new Scanner(System.in);
-		n = read.nextInt();
+		int n =read.nextInt();
+		//System.out.println("n-"+n);
 		return n;
 	}
 	public void edit(int i,int id)
@@ -115,7 +112,6 @@ public class View
 		//Contact contact = new contact();
 		 //System.out.println("id= "+id);
 		 System.out.println("ENTER THE NEW NAME");
-		 Scanner read= new Scanner(System.in);
 		 String name  = read.nextLine();
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.nextLine();
@@ -124,7 +120,6 @@ public class View
 	public void delete(int i)
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
-		 Scanner read= new Scanner(System.in);
 		 String choice= read.nextLine();
 		 switch(choice)
 		 {

@@ -11,22 +11,17 @@ public class Controller
 	Repository rep = new Repository();
 	View view = new View();
 	public List <Contact> contactList = new ArrayList<Contact>();
-	
 	public void choice()
 	{
-
 		int n=view.begin();
-		
-			switch(n)
-			{
-				case 1 : view.addContact(); break;
-				case 2 : view.search();break;
-				case 3 : view.display(); break;
-				case 4 : deleteAll();break;
-				default: view.defaultPrint(0);
-			}		
-		
-       
+		switch(n)
+		{
+			case 1 : view.addContact(); break;
+			case 2 : view.search();break;
+			case 3 : display(); break;
+			case 4 : deleteAll();break;
+			default: view.defaultPrint(0);
+		}		
 	}
 
 	public void addContact(String name,String number)
@@ -96,22 +91,27 @@ public class Controller
 	}
 	public void display()
 	{
-		int n = view.display();
-		contact = new Contact();
-		List <Contact> contactDetail = new ArrayList<Contact>();
-		contactDetail=rep.fileRead();
+		int n=view.display();
+		//System.out.println("n="+n);
 		switch(n)
 		{
-			case 1 : for(int i=0; i < contactDetail.size();i++)
-		              {
-			 			System.out.println(/*"\n ID:"+contactDetail.get(i).getId()*/" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
-		              }
-		    case 2 : rep.sortByname();
+			case 1 : dateDisplay(); break;
+		    case 2 : rep.sortByname();break;
 		}
 		
 		choice();
 	}
+	public void dateDisplay()
+	{
+		contact = new Contact();
+		List <Contact> contactDetail = new ArrayList<Contact>();
+		contactDetail=rep.fileRead();
+		for(int i=0; i < contactDetail.size();i++)
+		      {
+			     System.out.println(/*"\n ID:"+contactDetail.get(i).getId()*/" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
+		      }
 
+	}
 	public int getArraySize()
 	{
 		return rep.getArraySize();

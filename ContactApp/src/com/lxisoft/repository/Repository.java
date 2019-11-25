@@ -90,11 +90,11 @@ public class Repository implements Filerepository
 	}
 	public void sortByname()
 	{
-		array=fileRead();
-		Collections.sort(array, new SortName()); 
-		for(int i=0; i <array.size();i++)
+		ArrayList<Contact>arrayList=fileRead();
+		Collections.sort(arrayList, new SortName()); 
+		for(int i=0; i <arrayList.size();i++)
 		{
-		   System.out.println( "NAME:"+array.get(i).getName()+" NUMBER:"+array.get(i).getNumber());
+		   System.out.println( "NAME:"+arrayList.get(i).getName()+" NUMBER:"+arrayList.get(i).getNumber());
 		}
 		
 	}
