@@ -46,7 +46,7 @@ public class Hotel
 		 foodProduct[4].setAmount(10);
 		 return foodProduct;
 	}
-	void getProduct()
+	void getProduct(FoodProduct[] foodProduct)
 	{
 		int n=1;
 		for(int i=0;i<10;i++)

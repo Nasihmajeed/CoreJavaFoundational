@@ -3,7 +3,6 @@ public class Admin
 {
 	FoodProduct foodProduct;
 	FoodOrdering foodOrdering;
-	Hotel test = foodOrdering.sample();
 	Scanner scanner = new Scanner(System.in);
 	int flag=1;
 	void add(Hotel hotel)
@@ -19,7 +18,7 @@ public class Admin
 						flag1=false;
 						if(hotel.foodProduct[i].getName()==null)
 						{
-							System.out.println("1.Add 2.Print 3.Stop 4.Back ");
+							System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
 							int num = scanner.nextInt();
 							
 							switch(num)
@@ -31,14 +30,15 @@ public class Admin
 								    hotel.foodProduct[i].setAmount(scanner.nextInt());
 								    break;
 								case 2:
-									hotel.getProduct();
+									hotel.getProduct(hotel.foodProduct);
 									break;
 								case 3:
+								    foodOrdering.crud(hotel);
+								    break;
+								case 4:
 									flag = 0;
 									flag1=true;
 									break;
-								case 4:
-									foodOrdering.crud(test);
 								default :
 									System.out.println("Select Any 4");
 									break;
@@ -66,17 +66,17 @@ public class Admin
 			switch(numb)
 			{
 				case 1:
-					System.out.println("Select a Product to Update");
-					hotel.getProduct();
+					System.out.println("==>> Select a Product to Update");
+					hotel.getProduct(hotel.foodProduct);
 					int num = scanner.nextInt();
-					System.out.println("Enter Product Name");
+					System.out.println("==> Enter Product Name");
 					hotel.foodProduct[num-1].setName(scanner.next());
-					System.out.println("Enter Product Amount");
+					System.out.println("==> Enter Product Amount");
 					hotel.foodProduct[num-1].setAmount(scanner.nextInt());
 					isRight = true;
 					break;
 				case 2:
-					hotel.getProduct();
+					hotel.getProduct(hotel.foodProduct);
 					isRight = true;
 					break;
 				case 3:
@@ -94,15 +94,15 @@ public class Admin
 	void delete(Hotel hotel)
 	{
 		System.out.println("Select a Product to Delete");
-		hotel.getProduct();
+		hotel.getProduct(hotel.foodProduct);
 		int num = scanner.nextInt();
 		hotel.foodProduct[num-1].setName(null);
 		hotel.foodProduct[num-1].setAmount(0);
-		hotel.getProduct();
+		hotel.getProduct(hotel.foodProduct);
 	}
 	void read(Hotel hotel)
 	{
-		hotel.getProduct();
+		hotel.getProduct(hotel.foodProduct);
 
 	}
 }
