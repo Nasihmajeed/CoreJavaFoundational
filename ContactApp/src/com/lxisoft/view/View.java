@@ -17,15 +17,20 @@ public class View
 		{
 		System.out.println("  \n \t \t -----CONTACT LIST------");
 		
-		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY ");
+		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY \n 4 = DELETE ALL");
 		Scanner read= new Scanner(System.in);
 		n = read.nextInt();	
 		
-		}while(n==1 && n==2 && n==3);	
+		}while(n==1 && n==2 && n==3 && n ==4);
+		 if(n==4)
+		 {
+		 	System.out.println("ALL CONTACTS DELETED");
+		 }
+
 	   }
 	    catch(Exception e)
 	    {
-	    	System.out.println("PLEASE ENTER THE NUMERIC VALUE");
+	    	//System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 	    	con.choice();
 	    }     
 	    //System.out.println("value of n "+n);
@@ -52,6 +57,7 @@ public class View
 		System.out.println("ENTER NUMBER");
 		String number=read.nextLine();
 		con.addContact(name,number);
+		System.out.println("CONTACT SAVED");
 	}
 	public void search()
 	{
@@ -96,9 +102,13 @@ public class View
 			
 	    }
 	}    
-	public  void display()
-	{
-		 con.display();
+	public  int  display()
+	{	
+		System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME");
+		int n =0;
+		Scanner read = new Scanner(System.in);
+		n = read.nextInt();
+		return n;
 	}
 	public void edit(int i,int id)
 	{

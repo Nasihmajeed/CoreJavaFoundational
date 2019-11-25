@@ -61,7 +61,7 @@ public class Repository implements Filerepository
 		
 		return id;
 	}
-	public List <Contact> fileRead()
+	public ArrayList <Contact> fileRead()
 	{
 		// TreeSet <Contact> ts = new TreeSet <Contact> (); 
 		try
@@ -88,11 +88,15 @@ public class Repository implements Filerepository
 		}
 		return array;
 	}
-	public void SortByname()
+	public void sortByname()
 	{
 		array=fileRead();
 		Collections.sort(array, new SortName()); 
-
+		for(int i=0; i <array.size();i++)
+		{
+		   System.out.println( "NAME:"+array.get(i).getName()+" NUMBER:"+array.get(i).getNumber());
+		}
+		
 	}
 	public void search()
 	{

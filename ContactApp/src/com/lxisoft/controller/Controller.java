@@ -22,6 +22,7 @@ public class Controller
 				case 1 : view.addContact(); break;
 				case 2 : view.search();break;
 				case 3 : view.display(); break;
+				case 4 : deleteAll();break;
 				default: view.defaultPrint(0);
 			}		
 		
@@ -95,14 +96,19 @@ public class Controller
 	}
 	public void display()
 	{
+		int n = view.display();
 		contact = new Contact();
 		List <Contact> contactDetail = new ArrayList<Contact>();
 		contactDetail=rep.fileRead();
-
-		for(int i=0; i < contactDetail.size();i++)
+		switch(n)
 		{
-			 System.out.println("\n ID:"+contactDetail.get(i).getId()+" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
+			case 1 : for(int i=0; i < contactDetail.size();i++)
+		              {
+			 			System.out.println(/*"\n ID:"+contactDetail.get(i).getId()*/" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
+		              }
+		    case 2 : rep.sortByname();
 		}
+		
 		choice();
 	}
 
@@ -117,6 +123,11 @@ public class Controller
 	public String getNumber()
 	{
 		return contact.getNumber();
+	}
+	public void deleteAll()
+	{
+		rep.clearFile();
+		choice();
 	}
 
 }
