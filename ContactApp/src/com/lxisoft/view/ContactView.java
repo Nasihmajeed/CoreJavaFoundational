@@ -84,10 +84,19 @@ public class ContactView
 			System.out.println("No Search Result");
 		}
 	}
+
+	public String getContactName()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Search name");
+		String n=sc.next();
+		return n;
+	}
     /**
  * Add new contact
  */
      /**
+     
  * @return contact
  */
 	public Contact addContact()
