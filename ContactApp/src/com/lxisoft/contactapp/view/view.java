@@ -42,6 +42,8 @@ public void display(ArrayList<Contact> contacts){
 	for(int i=0;i<contacts.size();i++){
 		System.out.println(contacts.get(i).getName()+"------"+contacts.get(i).getNumber());
 	}
+	System.out.println("sort by number");
+	repo.sortNumber();
 }
 /**
 *method used to search a contact from list

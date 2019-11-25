@@ -54,6 +54,14 @@ public ArrayList<Contact>  getList(){
 
     return contacts;
   }
+
+  public void sortNumber(){
+  	Collections.sort(contacts,new SortNumber());
+  	for(Contact contact:contacts){
+  		System.out.println(contact.getName()+"------"+contact.getNumber());
+  	}
+
+  }
   /**
 *method used to search a contact from the file
 *@param String contact name

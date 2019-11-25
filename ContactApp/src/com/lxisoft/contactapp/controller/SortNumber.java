@@ -2,4 +2,11 @@ package com.lxisoft.contactapp.controller;
 import com.lxisoft.contactapp.model.*;
 import com.lxisoft.contactapp.view.*;
 import com.lxisoft.contactapp.contactrepo.*;
-import java util.*;
+import java.util.*;
+public class SortNumber implements Comparator<Contact>{
+
+
+	public int compare(Contact c1,Contact c2){
+		return c1.getNumber().compareTo(c2.getNumber());
+	}
+}
