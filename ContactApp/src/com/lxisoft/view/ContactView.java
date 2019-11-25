@@ -1,5 +1,6 @@
 package com.lxisoft.view;
 import com.lxisoft.controllers.*;
+import com.lxisoft.repository.*;
 import com.lxisoft.models.*;
 import com.lxisoft.domain.*;
 import com.lxisoft.view.*;
@@ -35,7 +36,7 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter your choice:");
-		System.out.println("1-select\n2-Add\n3-Search\n4-Home page\n5-Exit");
+		System.out.println("1-select\n2-Add\n3-Search\n4-sort\n5-Home page\n6-Exit");
 		int ch=sc.nextInt();//ch is selected choice
 		return ch;
 	}
@@ -65,11 +66,6 @@ public class ContactView
 		String d=sc.next();
 		return d;
 	}
-	// public void sort()
-	// {
-	// 	repo.idSort();
-	// 	System.out.println()
-	// }
 	/**
  * Select a contact by id
  */
@@ -144,5 +140,31 @@ public class ContactView
 			System.out.println(" Number="+c.getContactNo());
 		}			
 	}
- 
+	public int sort()
+	{
+		Scanner sc=new Scanner(System.in);
+		// do
+		// {
+			System.out.println("Enter your choice:");
+			System.out.println("1-Sorted Id\n2-Sorted Name\n3-Sorted number\n4-Exit");
+			int c=sc.nextInt();
+			return c;
+		// 	switch(c)
+		// 	{
+		// 		case 0:sortId();break;
+		// 		case 1:sortName();break;
+		// 		case 2:sortNum();break;
+		// 		default:System.out.println("choose correct option");
+		// 	}
+		// }while(a==1);
+	}
+	public void sortContact(List<Contact>contactList)
+	{
+		for(int i=0;i<contactList.size();i++)
+		{
+			System.out.println("Id="+contactList.get(i).getId());
+     		System.out.println("Name="+contactList.get(i).getName());
+     		System.out.println("Number="+contactList.get(i).getContactNo());
+     	}
+	}
 } 

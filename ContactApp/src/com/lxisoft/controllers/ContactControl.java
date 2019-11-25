@@ -43,10 +43,26 @@ public class ContactControl
                 case 1:ContactByIdDetails();break;     
                 case 2:addDetails();break; 
                 case 3:searchDetails();break;
-                case 4:getContactDetails();break;
+                case 4:sort();break;
+                case 5:getContactDetails();break;
             } 
-        }while(ch!=5);
-        
+        }while(ch!=6); 
+    }
+    public void sort()
+    {
+        int c=0;
+        List<Contact>contactList=null;
+        do
+        {
+            c=view.sort();
+            switch(c)
+            {
+                case 1:contactList=repository.idSort();break;
+                case 2:contactList=repository.nameSort();break;
+                case 3:contactList= repository.numberSort();break;
+            }
+        }while(c!=4);
+        view.sortContact(contactList);
     }
     /**
  * contact select by id and operations delete and update
@@ -143,4 +159,19 @@ public class ContactControl
         }
         view.searchContact(c);
     }
+   // public void sortedId()
+   //  {
+   //      view.sortId();
+   //  }
+   //  public void sortedName()
+   //  {
+   //      view.sortName();
+   //  }
+   //  public void sortedNum()
+   //  {
+   //      view.sortNum();
+   //      // System.out.println("Sorted Id");
+   //  }
+
+
  } 

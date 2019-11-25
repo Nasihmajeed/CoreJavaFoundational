@@ -99,9 +99,11 @@ public class Repository implements FileRepository
 				c.setName(str[1]);
 				c.setContactNo(str[2]);
 				// System.out.println(read+"\n");
-				ts.add(c);
+				// ts.add(c);
+				contactList.add(c);
+
 			}
-			contactList.addAll(ts);
+			// contactList.addAll(ts);
 		}
 		catch(IOException e)
 		{
@@ -175,7 +177,7 @@ public class Repository implements FileRepository
   	{
   		contactList=arrayWrite();
   		Collections.sort(contactList,new IdComparator());
-		resetFile();
+		// resetFile();
 		return contactList;
   	}
 
@@ -183,7 +185,7 @@ public class Repository implements FileRepository
   	{
   		contactList=arrayWrite();
   		Collections.sort(contactList,new NameComparator());
-		resetFile();
+		// resetFile();
 		return contactList;
   	}
 
@@ -191,7 +193,7 @@ public class Repository implements FileRepository
   	{
   		contactList=arrayWrite();
   		Collections.sort(contactList,new NoComparator());
-		resetFile();
+		// resetFile();
 		return contactList;
   	}
 }

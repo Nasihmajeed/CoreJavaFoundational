@@ -10,7 +10,6 @@ public class IdComparator implements Comparator<Contact>
 {
 	public int compare(Contact c,Contact c1)
     {
-    	// return c.getId().compareTo(c1.getId());
-    	 return (Integer.parseInt(c.getId()))-(Integer.parseInt(c1.getId()));
+    	return (Integer.parseInt(c.getId()))-(Integer.parseInt(c1.getId()));
     }
 }
