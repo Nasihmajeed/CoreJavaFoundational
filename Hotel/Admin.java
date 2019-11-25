@@ -124,12 +124,35 @@ public class Admin
     }
 	void delete(Hotel hotel)
 	{
-		System.out.println("Select a Product to Delete");
-		hotel.getProduct(hotel.foodProduct);
-		int num = scanner.nextInt();
-		hotel.foodProduct[num-1].setName(null);
-		hotel.foodProduct[num-1].setAmount(0);
-		hotel.getProduct(hotel.foodProduct);
+		boolean isRight = false;
+		do
+		{
+			isRight = false;
+			System.out.println("******MENU******");
+			hotel.getProduct(hotel.foodProduct);
+			System.out.println("==> Select a Product to Delete");
+			int num = scanner.nextInt();
+			hotel.foodProduct[num-1].setName(null);
+			hotel.foodProduct[num-1].setAmount(0);
+			hotel.getProduct(hotel.foodProduct);
+			System.out.println("Press ==> 1.Delete 2.Back");
+			int numb = scanner.nextInt();
+			switch(numb)
+			{
+				case 1:
+				isRight = true;
+				break;
+				case 2:
+				crud(hotel);
+				break;
+				default :
+				System.out.println("Select Any Options From Above");
+				isRight = true;
+				break;
+			}
+
+
+		}while(isRight);
 	}
 	void read(Hotel hotel)
 	{

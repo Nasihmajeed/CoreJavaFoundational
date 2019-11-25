@@ -55,8 +55,9 @@ public class Hotel
 			{
 				System.out.println(n+"."+foodProduct[i].getName());
 				System.out.println("  "+foodProduct[i].getAmount()+" Rs");
+				n++;
 	        }
-	        n++;
+	        
 		}
 	}
 }

@@ -34,7 +34,7 @@ public class FoodOrdering
 				if(setPassword==password)
 				{
 					System.out.println("$$$ Successfully Login $$$");
-					setHotel();
+					setHotel(hotel);
 					admin.crud(hotel);		
 				}
 				else
@@ -51,15 +51,15 @@ public class FoodOrdering
 			user.bill(hotel);
 		}
 	}
-	void setHotel()
+	void setHotel(Hotel hotel)
 	{
 		System.out.println("Enter The hotel Name ");
 		hotel.setName(scanner.next());
 		System.out.println("Enter the Place");
 		hotel.setPlace(scanner.next());
-		getHotel();
+		getHotel(hotel);
 	}
-	void getHotel()
+	void getHotel(Hotel hotel)
 	{
 		 System.out.println("Hotel Name : "+hotel.getName());
 		 System.out.println("Hotel Place : "+hotel.getPlace());
