@@ -35,7 +35,7 @@ public String getNumber(){
 }
 /**
 *method for sorting
-*@param Contact a single contact
+*@param Contact a single contact 
 *@return String contact name
 */
 public int compareTo(Contact contact){
