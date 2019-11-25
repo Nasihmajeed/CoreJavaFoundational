@@ -1,8 +1,10 @@
 public class Tdd{
 	public static void main(String[] args) {
-		Hotel hotel=new Hotel();
+		Sample sample = new Sample();
+		sample.test();
+		/*Hotel hotel=new Hotel();
 		hotel.details();
 		hotel.login();
-		hotel.menu();
+		hotel.menu();*/
 	}
 }
