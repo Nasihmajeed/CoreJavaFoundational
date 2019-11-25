@@ -36,15 +36,15 @@ public class Admin
 						case 1:System.out.println("Add");
 										add(hotel);
 										break;
-						/*case 2:System.out.println("Display");
+						case 2:System.out.println("Display");
 									display(hotel);
 									break;
 						case 3:System.out.println("Delete");
 										delete(hotel);
 										break;
 						/*case 4:System.out.println("Edit");
-										edit();
-										break();*/
+										edit(hotel);
+										break;*/
 
 						default:System.out.println("ERROR");
 
@@ -97,10 +97,11 @@ public class Admin
 				}			
 
 
-				/*void display(Hotel hotel)
+				void display(Hotel hotel)
 
 				{
 						hotel.getMenu();
+						adminChoice(hotel);
 				}
 
 				void delete(Hotel hotel)
@@ -112,12 +113,34 @@ public class Admin
 					hotel.food[f-1].name=null;
 					hotel.food[f-1].price=0;
 					hotel.getMenu();
+					adminChoice(hotel);
+
+
 					
 				}
+
+				/*void edit(Hotel hotel)
+				{
+					Scanner scan=new Scanner(System.in);
+					hotel.getMenu();
+					System.out.println("Select the food you want to update ");
+					int n=scan.nextInt();
+					System.out.println("Enter the name you want to update ");
+					String f=scan.next();
+					System.out.println("Enter the price you want to update ");
+					int p=scan.nextInt();
+						hotel.food[n-1].name=f;
+						hotel.food[n-1].price=p;
+						hotel.getMenu();
+						adminChoice(hotel);
+				}*/
+				
+}
+
 				
 
 
-}
+
 		
 
 

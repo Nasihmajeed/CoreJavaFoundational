@@ -19,6 +19,7 @@ public class Sample
 	{
 		Scanner scan=new Scanner(System.in);
 		Admin admin = new Admin();
+		User user=new User();
 		int u;
 		 System.out.println("Select the user");
 		 System.out.println("1.Admin \n2.User");
@@ -29,10 +30,13 @@ public class Sample
 		  			admin.adminCheck();
 		  			admin.adminChoice(hotel);
 		  			break;
-		  	case 2:System.out.println("User");
-		  				/*user.users();*/
-		  				break;
+		  	/*case 2:System.out.println("User");
+		  				user.users();
+		  				user.foodOrdering(hotel);*/
+		  				break;*
 		  	default:System.out.println("Error");
+
+		  	
 
 		  }
 	}
