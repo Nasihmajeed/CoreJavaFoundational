@@ -19,7 +19,6 @@ public class ContactControl
 	{
 		repo.setId();
 		View view=new View();
-		view.viewAllContacts();
 		int loop=0;
 		int repeat=0; 
 		String select=null;
@@ -27,6 +26,7 @@ public class ContactControl
 		{
 			do
 			{
+				view.viewAllContacts();
 				select=view.getUserOption();
 				repeat=0;
 				loop=0;
@@ -48,7 +48,6 @@ public class ContactControl
 			Contact contact= (searchContact(select));
 			if(contact !=null)view.selectedContact(contact);
 			else moderateSerach(select);
-			
 		}
 	}
 	/**
@@ -95,7 +94,7 @@ public class ContactControl
 	{
 		ArrayList<Contact> contacts= new ArrayList<Contact>(); 
 		contacts=repo.getAllContacts();
-		Contact contact=new Contact();
+		Contact contact=null;
 		for(int i=0;i<contacts.size();i++)
 		{
 			String s=contacts.get(i).getName();
@@ -210,6 +209,7 @@ public class ContactControl
 	}
 	public void moderateSerach(String name)
 	{
+		View view=new View();
 		ArrayList<Contact> contacts=new ArrayList<Contact>();
 		contacts=repo.getAllContacts();
 		ArrayList<Contact> selectedContacts=new ArrayList<Contact>();
@@ -219,6 +219,6 @@ public class ContactControl
 			selectedContacts.add(a);
 		}
 		int limit=selectedContacts.size();
-		if(limit!=0)view.moderateDisplay(selectedContacts);
+		if(limit>0)view.moderateDisplay(selectedContacts);
 	}
 }

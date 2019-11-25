@@ -137,6 +137,7 @@ public class View
 
 
 		Scanner sc=new Scanner(System.in);
+		System.out.println("enter full name to continue");
 		String name=sc.next();
 		Contact contact=new Contact(); 
 		contact=control.searchContact(name);
