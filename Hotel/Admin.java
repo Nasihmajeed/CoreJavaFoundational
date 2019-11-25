@@ -1,13 +1,42 @@
 import java.util.Scanner;
 public class Admin
 {
-	FoodProduct foodProduct;
-	FoodOrdering foodOrdering;
 	Scanner scanner = new Scanner(System.in);
 	int flag=1;
+	void crud(Hotel hotel)
+	{
+		FoodOrdering foodOrdering = new FoodOrdering();
+		int num;
+	    System.out.println("1 . Add");
+		System.out.println("2 . Update");
+		System.out.println("3 . Delete");
+		System.out.println("4 . Read");
+		System.out.println("5 . Back");
+		num = scanner.nextInt();
+		switch(num)
+		{
+			case 1:
+				add(hotel);
+				break;
+			case 2:
+				num = 0;
+				update(hotel);
+				break;
+			case 3:
+				delete(hotel);
+				break;
+			case 4:
+				read(hotel);
+				break;
+			case 5: 
+			foodOrdering.adminUser(hotel);
+			default :
+			System.out.println("Sorry!!!! Select Options From Above ");
+			break;
+		}
+	}
 	void add(Hotel hotel)
 	{
-		foodOrdering = new FoodOrdering();
 		for(int i=0;i<10;i++)
 			{
 				if(flag==1)
@@ -33,14 +62,14 @@ public class Admin
 									hotel.getProduct(hotel.foodProduct);
 									break;
 								case 3:
-								    foodOrdering.crud(hotel);
+								    crud(hotel);
 								    break;
 								case 4:
 									flag = 0;
-									flag1=true;
 									break;
 								default :
 									System.out.println("Select Any 4");
+									flag1 = true;
 									break;
 							}
 						}
@@ -66,8 +95,9 @@ public class Admin
 			switch(numb)
 			{
 				case 1:
-					System.out.println("==>> Select a Product to Update");
+					System.out.println("******MENU******");
 					hotel.getProduct(hotel.foodProduct);
+					System.out.println("==>> Select a Product to Update");
 					int num = scanner.nextInt();
 					System.out.println("==> Enter Product Name");
 					hotel.foodProduct[num-1].setName(scanner.next());
@@ -80,12 +110,13 @@ public class Admin
 					isRight = true;
 					break;
 				case 3:
-					foodOrdering.crud(hotel);
+					crud(hotel);
 					break;
 				case 4:
 					break;
 				default :
 					System.out.println("Sorry!!!! Select Options From Above ");
+					isRight = true;
 					break;
 			}
 		}
