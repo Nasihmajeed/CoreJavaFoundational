@@ -1,5 +1,5 @@
 package com.lxisoft.Model;
-import java.util.ArrayList;
+import java.utbbil.ArrayList;
 /*
 *Modellist class for contactslist
 */
@@ -14,6 +14,7 @@ public class ModelList
      modelslist.add(model);
 	}
   /*
+  .
   *to get contact
   */
 	public ArrayList <Model1> getContactsList()

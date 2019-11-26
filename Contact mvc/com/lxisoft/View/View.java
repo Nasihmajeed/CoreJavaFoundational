@@ -29,7 +29,7 @@ public class View
     {
       System.out.println("\t\t\t***************MENU****************");
       System.out.println("\t\t\t1. ADD"+"\t\t\t2. DELETE\n");
-      System.out.println("\t\t\t3. DISPLAY"+"\t\t4. EDIT\n\n\t\t\t5. EXIT\nEnter your Choice:");
+      System.out.println("\t\t\t3. DISPLAY"+"\t\t4. EDIT\n\n\t\t\t5. SORT"+"\t\t\t6. EXIT\n\n\n\t\t\tEnter your Choice:");
       a = in.nextInt();
        switch(a)
        {
@@ -47,12 +47,16 @@ public class View
          case 4 : // EDIT
                  editContact();  
                  break;    
-          case 5 : //EXIT
+          case 5 : //SORTING
+                 sort();
+
                  break;  
+          case 6 : //EXIT
+                 break;        
            default :  System.out.println("INVALID CHOICE");
                  break;                     
         }
-     }while(a!=5);
+     }while(a!=6);
          //contactslist = control.addContact();
   }
   public void addContact()
@@ -94,18 +98,27 @@ public class View
       }catch(IOException e){}
   }
   public void editContact()
-  {
-    System.out.println("Enter the name     : ");
-    String name = input.readLine();
-    System.out.println("Enter the new name : ");
-    String newname = input.readLine();
-    Contact contact= new Contact();
-    flag=control.editContact(name,newname);
-    if(flag)
-    {System.out.println("*****");}
-  else
-    System.out.println("No contact found!!");
-
+  { boolean flag=false;
+    try{
+          System.out.println("Enter the name     : ");
+          String name = input.readLine();
+          System.out.println("Enter the new name : ");
+          String newname = input.readLine();
+          Contact contact= new Contact();
+          flag=control.editContact(name,newname);
+          if(flag)
+          {System.out.println("*****");}
+          else
+          System.out.println("No contact found!!");
+       }catch(IOException e){}
+  }
+  public void sort()
+  { ArrayList <Contact> sortList = new ArrayList <Contact>();
+    sortList = control.sort();
+    for(int i=0;i<sortList.size();i++)
+       {
+        System.out.println(sortList.get(i).getName());
+       }
   }
 
 }

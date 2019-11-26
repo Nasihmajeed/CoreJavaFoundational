@@ -102,7 +102,7 @@ public class View
             for(int i=0;i<contactslist.size();i++)
             if(c.equals(contactslist.get(i).getName())) 
             contactslist.remove(i);
-          Systrem.out.println("contact deleted successfuly...")
+          
            }catch(IOException e){}
            control.file(contactslist);
     } 

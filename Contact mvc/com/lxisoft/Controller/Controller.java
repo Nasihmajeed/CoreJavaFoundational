@@ -1,6 +1,7 @@
 package com.lxisoft.Controller;
 import com.lxisoft.Domain.Contact;
 import com.lxisoft.View.View;
+import com.lxisoft.Model.SortName;
 import java.util.ArrayList;
 import com.lxisoft.Repository.Repository;
 
@@ -40,18 +41,23 @@ public class Controller
   public boolean editContact(String name,String newname)
   {
     boolean flag=false;
-    contactsList=repo.getFromfile();
+    contactsList=repo.getFromFile();
     int eId=-1;
    for(int i=0;i<contactsList.size();i++)
             { 
               if(name.equals(contactsList.get(i).getName()))  
                  {
                   eId=contactsList.get(i).getId();
-                  repo.delete(eId,newname);
+                  repo.edit(eId,newname);
                   flag=true;
                  }
             }
+            return flag;
+  }
+  public ArrayList <Contact> sort()
+  {
+    repo.sortName();
+    return contactsList;
   }
 
 }
-
