@@ -9,12 +9,16 @@ import com.lxisoft.View.*;
 */
 public class TDD 
 {
+	static	public ContactControl control=new ContactControl();
+	static
+	{
+			control.repo.setId();
+	}
 	/**
 	*main method used to crate new object of control , invoking start method
 	*/
 	public static void main(String[] args)
 	{
-		ContactControl control=new ContactControl();
 		System.out.println("*******CONTACT APP*******\n");
 		control.start();
 	}

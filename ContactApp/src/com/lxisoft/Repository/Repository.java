@@ -1,202 +1,112 @@
 package com.lxisoft.Repository;
 import com.lxisoft.Repository.*;
 import com.lxisoft.Domain.*;
-import com.lxisoft.View.*;
-import com.lxisoft.Models.*;
-import com.lxisoft.Controllers.*;
-import java.io.*;
-import java.util.*;
-/**
-*file repository class
-*/
-public class Repository implements FileRepository
-{
-	File file=new File(fileName);
-	ArrayList<Contact> contacts =new ArrayList<Contact>();
-	static int id;
-	/**
-	*method to write the contact details to file
-	*@param contact contact to write
-	*@param write indication for new contact/editing 
-	*/
-	public void writeNewContact(Contact contact,boolean write)
-	{
-		try
-		{
-			FileWriter bf=new FileWriter(file,true);
-			if(write)
-			{
-				setId();
-				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
-			}
-			else
-			{
-				bf.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
-			}
-			bf.flush();
-		}
-		catch(Exception e)
-		{
-			System.out.println("error1");
-		}
 
-	}
-	/**
-	*method to set id number
-	*/
-	public void setId()
-	{
-		id=getId();
-	}
-	/**
-	*method to view all contact details in file
-	*/
-	public void viewAllContacts()
-	{
-		try
-		{
-			BufferedReader bf=new BufferedReader(new FileReader(file));
-			String str=null;
-			while((str=bf.readLine())!=null)
-			{
-				System.out.println(str);
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("error");
-		}
-	}
-	/**
-	*method to get all contacts in an arraylist
-	*@return return all contacts
-	*/
-	public ArrayList<Contact> getAllContacts()
+import java.sql.*;
+import java.util.*;
+
+public class Repository implements MysqlRepo
+{
+	static Connection con =null;
+	static PreparedStatement stmt=null;
+	static ResultSet rs=null;
+	static int id;
+	ArrayList<Contact> contacts=new ArrayList<Contact> (); 
+	
+	public void connection()throws SQLException,ClassNotFoundException
 	{
 		try
 		{
-			FileWriter d=new FileWriter(file,true);
-			BufferedReader bf=new BufferedReader(new FileReader(file));
-			String str=null;
-			Contact contact=null;
-			contacts.clear();
-			while((str=bf.readLine())!=null)
+		Class.forName(driverName);
+		con = DriverManager.getConnection(connectionName,"root","root");
+		System.out.println("Connection registered");
+		}
+		catch(ClassNotFoundException e)
+		{
+		System.out.println(e);
+		}
+	}
+	public void writeNewContact(Contact contact,boolean write)throws SQLException, ClassNotFoundException
+	{
+		try
+		{
+			stmt=con.prepareStatement("insert into tab values(?,?,?)");
+			stmt.setInt(1,id);
+			stmt.setString(2,contact.getName());
+			stmt.setString(3,contact.getNo());
+			stmt.executeUpdate();
+			System.out.println("contact added");
+			id++;
+		}catch(Exception p)
+		{
+			System.out.println("Error"+p);
+		}
+	}
+	public ArrayList<Contact> getAllContacts()throws SQLException, ClassNotFoundException
+	{
+		contacts.clear();
+		try
+		{
+			rs=stmt.executeQuery("select * from tab");
+			while(rs.next())
 			{
-				contact=new Contact();
-				String[] strln=str.split(",",3);
-				
-				contact.setId((Integer.parseInt(strln[0])));
-				contact.setName(strln[1]);
-				contact.setNo(strln[2]);
+				Contact contact=new Contact();
+				contact.setId(rs.getInt("ID"));
+				contact.setName(rs.getString("NAME"));
+				contact.setNo(rs.getString("NUMBER"));
 				contacts.add(contact);
 			}
 		}
-		catch(Exception e)
+		catch(Exception p)
 		{
-			System.out.println("error2");
+			System.out.println(p);
 		}
+		for(Contact a: contacts)
+		System.out.println(a.getName());
 		return contacts;
 	}
-	/**
-	*method to get id from the last existing contact
-	*@return return id
-	*/
-	public int getId()
+	public void editContact(Contact contact)
 	{
 		try
 		{
-			BufferedReader bf=new BufferedReader(new FileReader(file));
-			String str=null;
-			while((str=bf.readLine())!=null)
+			stmt=con.prepareStatement("update tab set name=?,number=? where id=?");
+			stmt.setString(1,contact.getName());
+			stmt.setString(2,contact.getNo());
+			stmt.setInt(3,contact.getId());
+			stmt.executeUpdate();
+			System.out.println("contact added");
+		}catch(Exception p)
+		{
+			System.out.println(p);
+		}
+	}
+	public static void setId()
+	{
+		try
+		{
+			rs=stmt.executeQuery("select * from tab");
+			while(rs.next())
 			{
-				String[] strln=str.split(",",2);
-				int idtemp=Integer.parseInt(strln[0]);	
-				if(idtemp>id)id=idtemp;
-			}id++;
-		}
-		catch(Exception e)
+				id=rs.getInt("ID");
+				System.out.println(id+"id");
+				
+			}
+			id++;
+		}catch(Exception p)
 		{
-			System.out.println("error");
-		}
-		return id;
-	}
-	/**
-	*method to edit a contact detail 
-	*/
-	public void editFile(Contact contact, int i)
-	{
-		contacts=getAllContacts();
-		contacts.set(i,contact);
-		clearFile();
-		resetFile();
-	}
-	/**
-	*method for rewriting the conatcts to file
-	*/
-	public void resetFile()
-	{ for(int i=0;i<contacts.size();i++)
-		{
-			writeNewContact(contacts.get(i),false);
+			System.out.println(p);
 		}
 	}
-	/**
-	*method to delete a contact
-	*/
-	public void deleteContact(int i)
-	{
-		contacts=getAllContacts();
-		contacts.remove(i);
-		clearFile();
-		resetFile();
-	}
-	/**
-	*method to clear the file
-	*/
-	public void clearFile()
+	public void clearAllContacts()
 	{
 		try
 		{
-			id=1;
-			FileWriter fi=new FileWriter(file);
-		}catch(Exception e)
+			stmt=con.prepareStatement("truncate table tab");
+			stmt.executeUpdate();
+		}catch(Exception p)
 		{
-			System.out.println("error");
+			System.out.println(p);
 		}
 	}
-	public void sorting(ArrayList<Contact> contacts)
-	{
-		TreeSet <Contact> ts=new TreeSet <Contact>();
-		for(Contact c : contacts)
-		   ts.add(c);
-
-		 // System.out.println(ts);
-		clearFile();
-		for(Contact c : ts)
-		   writeNewContact(c, false);
-  	}
-  	public void sortByName()
-  	{
-  		contacts=getAllContacts();
-		Collections.sort(contacts, new SortByName());
-		clearFile();
-		resetFile();
-
-  	}
-  	public void sortById()
-  	{
-  		contacts=getAllContacts();
-		Collections.sort(contacts, new SortById());
-		clearFile();
-		resetFile();
-
-  	}
-  	public void sortByNumber()
-  	{
-  		contacts=getAllContacts();
-		Collections.sort(contacts, new SortByNumber());
-		clearFile();
-		resetFile();
-
-  	}
 
 }

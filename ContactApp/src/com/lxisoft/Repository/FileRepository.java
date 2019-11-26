@@ -1,13 +1,202 @@
 package com.lxisoft.Repository;
 import com.lxisoft.Repository.*;
+import com.lxisoft.Domain.*;
 import com.lxisoft.View.*;
 import com.lxisoft.Models.*;
 import com.lxisoft.Controllers.*;
 import java.io.*;
 import java.util.*;
-
-public interface FileRepository
+/**
+*file repository class
+*/
+public class Repository implements FileRepository
 {
-	String fileName="F:\\KP ZONE\\java\\GIT repo\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\Repository\\textfile.csv";
-	
+	File file=new File(fileName);
+	ArrayList<Contact> contacts =new ArrayList<Contact>();
+	static int id;
+	/**
+	*method to write the contact details to file
+	*@param contact contact to write
+	*@param write indication for new contact/editing 
+	*/
+	public void writeNewContact(Contact contact,boolean write)
+	{
+		try
+		{
+			FileWriter bf=new FileWriter(file,true);
+			if(write)
+			{
+				setId();
+				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+			}
+			else
+			{
+				bf.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
+			}
+			bf.flush();
+		}
+		catch(Exception e)
+		{
+			System.out.println("error1");
+		}
+
+	}
+	/**
+	*method to set id number
+	*/
+	public void setId()
+	{
+		id=getId();
+	}
+	/**
+	*method to view all contact details in file
+	*/
+	public void viewAllContacts()
+	{
+		try
+		{
+			BufferedReader bf=new BufferedReader(new FileReader(file));
+			String str=null;
+			while((str=bf.readLine())!=null)
+			{
+				System.out.println(str);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("error");
+		}
+	}
+	/**
+	*method to get all contacts in an arraylist
+	*@return return all contacts
+	*/
+	public ArrayList<Contact> getAllContacts()
+	{
+		try
+		{
+			FileWriter d=new FileWriter(file,true);
+			BufferedReader bf=new BufferedReader(new FileReader(file));
+			String str=null;
+			Contact contact=null;
+			contacts.clear();
+			while((str=bf.readLine())!=null)
+			{
+				contact=new Contact();
+				String[] strln=str.split(",",3);
+				
+				contact.setId((Integer.parseInt(strln[0])));
+				contact.setName(strln[1]);
+				contact.setNo(strln[2]);
+				contacts.add(contact);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("error2");
+		}
+		return contacts;
+	}
+	/**
+	*method to get id from the last existing contact
+	*@return return id
+	*/
+	public int getId()
+	{
+		try
+		{
+			BufferedReader bf=new BufferedReader(new FileReader(file));
+			String str=null;
+			while((str=bf.readLine())!=null)
+			{
+				String[] strln=str.split(",",2);
+				int idtemp=Integer.parseInt(strln[0]);	
+				if(idtemp>id)id=idtemp;
+			}id++;
+		}
+		catch(Exception e)
+		{
+			System.out.println("error");
+		}
+		return id;
+	}
+	/**
+	*method to edit a contact detail 
+	*/
+	public void editFile(Contact contact, int i)
+	{
+		contacts=getAllContacts();
+		contacts.set(i,contact);
+		clearFile();
+		resetFile();
+	}
+	/**
+	*method for rewriting the conatcts to file
+	*/
+	public void resetFile()
+	{ for(int i=0;i<contacts.size();i++)
+		{
+			writeNewContact(contacts.get(i),false);
+		}
+	}
+	/**
+	*method to delete a contact
+	*/
+	public void deleteContact(int i)
+	{
+		contacts=getAllContacts();
+		contacts.remove(i);
+		clearFile();
+		resetFile();
+	}
+	/**
+	*method to clear the file
+	*/
+	public void clearFile()
+	{
+		try
+		{
+			id=1;
+			FileWriter fi=new FileWriter(file);
+		}catch(Exception e)
+		{
+			System.out.println("error");
+		}
+	}
+	public void sorting(ArrayList<Contact> contacts)
+	{
+		TreeSet <Contact> ts=new TreeSet <Contact>();
+		for(Contact c : contacts)
+		   ts.add(c);
+
+		 // System.out.println(ts);
+		clearFile();
+		for(Contact c : ts)
+		   writeNewContact(c, false);
+  	}
+  	public void sortByName()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortByName());
+		clearFile();
+		resetFile();
+
+  	}
+  	public void sortById()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortById());
+		clearFile();
+		resetFile();
+
+  	}
+  	public void sortByNumber()
+  	{
+  		contacts=getAllContacts();
+		Collections.sort(contacts, new SortByNumber());
+		clearFile();
+		resetFile();
+
+  	}
+
 }
