@@ -12,22 +12,68 @@ import java.io.*;
  */
 public class Repository implements MySqlRepo
 {  
-	public void dB_Connection()
+	static Connection con=null;
+	static PreparedStatement stmt=null;
+	public static void dB_Connection()throws ClassNotFoundException, SQLException
 	{
-			Connection con=null;
-			Statement stmt=null;
 			try
 			{
 			Class.forName(driver_Class);
 			con=DriverManager.getConnection(db_URL,userName,password);
 			System.out.println("DB Connection created successfully");
 			System.out.println("Creating statement..."); 
-		    // stmt = con.createStatement(); 
+		    createTable();
 		    // ResultSet rs = stmt.executeQuery(table); 
 			}
 			catch(ClassNotFoundException |SQLException ex) 
 			{ 
 		   	System.out.println("Error: unable to load driver class!"); 
 			}
-		}
+
 	}
+	/**
+	 * Add contact details from file.
+	 * @param contact.
+	 */
+	public void addContactDetails(Contact contact)throws SQLException//Contact contact
+	{
+		//contacts.add(contact);	
+		boolean val=false;
+		try
+		{	
+			//createTable();
+			int i=0;
+			stmt=con.prepareStatement("insert into Contactlist values(?,?,?)");  
+			stmt.setInt(1,contact.getId());
+			stmt.setString (2,contact.getName());
+			stmt.setString(3,contact.getNo());
+			i=stmt.executeUpdate();
+			System.out.println(i+"inserted");
+		}
+	catch(SQLException ex) 
+			{ 
+		   	System.out.println("Error: unable to load driver class!"); 
+			}
+
+		//contactWriteIntoFile(contact,val);
+
+	}
+	public static void createTable()throws SQLException
+	{
+		try
+		{
+		System.out.println("create ");
+			String create_Table="create table Contactlist(ID int(3),NAME varchar(50),NUMBER varchar(10))";
+			stmt=con.prepareStatement(create_Table);
+			
+			stmt.execute();
+			System.out.println("table cretaed successfully");
+		}
+		catch(SQLException ex) 
+		{ 
+		   	System.out.println("Error: SQLSyntax error!"); 
+		}
+		
+		
+	}
+}

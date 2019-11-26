@@ -11,15 +11,18 @@ public class Tdd
 /**
  * Main method to get All contact Information.
  * @param args  string array.
- */
+ */static ContactController control=new ContactController();
 	public static void main(String []args)
 	{
 		/**
 		 * object with reference of Contactcontroller class.
 		 */
-		ContactController control=new ContactController();
-		control.getDBConnection();
+		control=new ContactController();
+		
 		//control.getAllcontacts();
-		//control.getAllcontactInfo();
+		control.getAllcontactInfo();
+	}
+	static{
+		control.getDBConnection();
 	}
 }

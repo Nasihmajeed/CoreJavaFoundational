@@ -5,6 +5,7 @@ import com.lxisoft.contactapp.Domain.*;
 import com.lxisoft.contactapp.repository.*;
 import com.lxisoft.contactapp.view.*;
 import java.io.*;
+import java.sql.*;
 import java.util.*;
 /**
  * Contactcontroller class to control All the views.
@@ -15,51 +16,57 @@ public class ContactController
 	/**
 	 * instance variables filerepo and view.
 	 */
-	private Repository filerepo=new Repository();
+	private static Repository filerepo=new Repository();
 	private ContactView view=new ContactView();
-	public void getDBConnection()
+	public static void getDBConnection()
 	{
+		try
+		{
 		filerepo.dB_Connection();
+		}catch(Exception e)
+		{
+			System.out.println("error "+e);
+		}
 	}
 	/**
 	 * getAllContactInfo to get the contact details from repository and displaying in view.
 	 */
-	// public void getAllcontactInfo()
-	// {
-	// 	Scanner sc=new Scanner(System.in);
-	// 	int default_option=0,option=0;
-	// 	char continueOpt='\0';
-	// 	boolean cont=false;
-	// 	String userChoice=null;
-	// 	try
-	// 	{
-	// 		do
-	// 		{	
-	// 			userChoice=view.viewUserOption();
-	// 			//if(option!=option){ throw new NumberFormatException ("");}
-	// 			if(option>5) {throw new NullPointerException ("");}
-	// 			switch((option=Integer.parseInt(userChoice)))
-	// 				{
-	// 					case 1:		addNewContact();break;
-	// 					case 2:		searchContact();break;	
-	// 					case 3:		getAllContactDetails();break;
-	// 					case 4:		sortContactDetails();break;
-	// 					case 5:		deleteAllContacts();break;
-	// 					default:	System.out.println("Enter the correct option!");
-	// 								default_option=1;break;
-	// 				}cont=isContinue();
-	// 				// System.out.println("Do you want to continue ? Y/N");
-	// 				// continueOpt=sc.next().charAt(0);
-	// 		}while(default_option==1|cont);
-	// 	}
-	// 	catch(NullPointerException |NumberFormatException e)
-	// 	{
-	// 		Contact contact=getContactByName(userChoice);
-	// 		if(contact.getName()!=null)updateContact(contact);
-	// 		else moderateSearch(userChoice);
-	// 		//System.out.println("exception occured " +e +sc.nextLine());
-	// 	}
-	// }
+	public void getAllcontactInfo()
+	{
+		Scanner sc=new Scanner(System.in);
+		int default_option=0,option=0;
+		char continueOpt='\0';
+		boolean cont=false;
+		String userChoice=null;
+		try
+		{
+			do
+			{	
+				userChoice=view.viewUserOption();
+				//if(option!=option){ throw new NumberFormatException ("");}
+				if(option>5) {throw new NullPointerException ("");}
+				switch((option=Integer.parseInt(userChoice)))
+					{
+						case 1:		addNewContact();break;
+						// case 2:		searchContact();break;	
+						// case 3:		getAllContactDetails();break;
+						// case 4:		sortContactDetails();break;
+						// case 5:		deleteAllContacts();break;
+						default:	System.out.println("Enter the correct option!");
+									default_option=1;break;
+					}cont=isContinue();
+					// System.out.println("Do you want to continue ? Y/N");
+					// continueOpt=sc.next().charAt(0);
+			}while(default_option==1|cont);
+		}
+		catch(NullPointerException |NumberFormatException e)
+		{
+			// Contact contact=getContactByName(userChoice);
+			// if(contact.getName()!=null)updateContact(contact);
+			// else moderateSearch(userChoice);
+			////System.out.println("exception occured " +e +sc.nextLine());
+		}
+	}
 	// /**
 	//  *  getAllContacts (id and name only) from file to arraylist.
 	//  */
@@ -81,17 +88,26 @@ public class ContactController
 	// 		view.showAllContacts(contactlist);
 	// 	}
 	// }
-	// /**
-	//  *  add contact details.
-	//  */
-	// public void addNewContact()
-	// {
-	// 	String []contacts=view.addNewContact();
-	// 	Contact contact=new Contact();
-	// 	contact.setName(contacts[0]);
-	// 	contact.setNo(contacts[1]);
-	// 	filerepo.addContactDetails(contact);
-	// }
+	/**
+	 *  add contact details.
+	 */
+	public void addNewContact()
+	{
+		String []contacts=view.addNewContact();
+		Contact contact=new Contact();
+		contact.setName(contacts[0]);
+		contact.setNo(contacts[1]);
+		try
+		{
+		//getDBConnection(contact);
+		//filerepo.createTable();
+		filerepo.addContactDetails(contact);
+		}
+		catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+	}
 	// /**
 	//  *  To search contact details.
 	//  */
@@ -397,9 +413,9 @@ public class ContactController
 	// {
 	// 	filerepo.clearRepository();
 	// }
-	// public boolean isContinue()
-	// {
-	// 	boolean cont=view.isContinue();
-	// 	return cont;
-	// }
+	public boolean isContinue()
+	{
+		boolean cont=view.isContinue();
+		return cont;
+	}
 }
