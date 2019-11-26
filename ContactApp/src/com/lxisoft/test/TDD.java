@@ -1,5 +1,6 @@
 package com.lxisoft.test;
 import com.lxisoft.contactcontroller.*;
+import com.lxisoft.repository.*;
 /**
  *class TDD for initialising program
  */
@@ -13,6 +14,8 @@ public class TDD
 	{
 		ContactController control=new ContactController();
 		control.getAllContacts();
+		Repo r=new Repo();
+		r.databaseConnection();
 	} 
 	
 }

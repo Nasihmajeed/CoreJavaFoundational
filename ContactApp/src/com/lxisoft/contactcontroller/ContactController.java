@@ -17,6 +17,7 @@ public class ContactController
 	 */
 	public void getAllContacts()
 	{
+		
 		List <Contact> contactList=repo.readFile();
 		ContactListModel listModel=new ContactListModel();
 	    for(int i=0;i<contactList.size();i++)

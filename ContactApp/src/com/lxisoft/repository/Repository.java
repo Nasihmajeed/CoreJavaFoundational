@@ -3,10 +3,11 @@ import java.io.*;
 import java.util.*;
 import com.lxisoft.domain.Contact;
 import com.lxisoft.contactmodel.*;
+import com.lxisoft.repository.*;
 /**
  *class: repository for file operation
  */
-public class Repository implements FileDataSource
+public class Repository implements FileRepository
 {
 	static int in=1;
 	File contactFile=new File(fileName);
