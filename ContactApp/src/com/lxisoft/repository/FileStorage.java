@@ -1,5 +1,6 @@
 package com.lxisoft.repository;
 import com.lxisoft.model.*;
+import java.util.ArrayList;
 import com.lxisoft.domain.*;
 
 public interface FileStorage
