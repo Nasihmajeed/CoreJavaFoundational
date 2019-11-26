@@ -20,6 +20,6 @@ public class Tdd
 		controller.allContacts();
 		controller.features();
 		DbRepository dbRepository=new DbRepository();
-		dbRepository.dbConnect();
+		dbRepository.findAll();
 	}
 }

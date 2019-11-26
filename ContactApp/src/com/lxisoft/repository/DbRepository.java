@@ -10,40 +10,44 @@ import java.sql.*;
 public class DbRepository implements DbStorage
 {
 	Connection connection;
+	PreparedStatement ps;
 
-	public void dbConnect()
+	public ArrayList<Contact> findAll()
 	{
+		ArrayList<Contact> contactList=new ArrayList<Contact>(); 
 		try
-		{
+		{			
 			Class.forName(driverName); 
 			connection=DriverManager.getConnection(dbUrl,username,password);
-			// for(int j=0;j<3;j++)
-			// {
-			PreparedStatement ps=connection.prepareStatement("insert into contactList (ID,NAME,NUMBER) values(?,?,?)");
-			ps.setString(1,"22");
-			ps.setString(2,"adc");
-			ps.setString(3,"adc");
-			//}
-
-			int i=0;
-			 ResultSet rs=ps.executeQuery("select * from contactList");
+			ps=connection.prepareStatement("insert into contactList (ID,NAME,NUMBER) values(?,?,?)");
+			ResultSet rs=ps.executeQuery("select * from contactList");
 			while(rs.next())
 			{
-				System.out.println((++i)+"  "+Integer.parseInt(rs.getString("ID")));
-				System.out.println(" 22 "+rs.getString("NAME"));
-				System.out.println(" 33 "+rs.getString("NUMBER"));
+				Contact contact=new Contact();
+				contact.setId(rs.getString("ID"));
+				contact.setName(rs.getString("NAME"));
+				contact.setNumber(rs.getString("NUMBER"));
+				contactList.add(contact);
 			}
-			// int x=1;
-			// String s="zzzn";
-
-			//ps.setString();
-			ps.executeUpdate();
-			connection.close();
+			
 		}
-		catch(Exception e)
+		catch(ClassNotFoundException|SQLException e)
 		{
 			System.out.println(e);
 		}	
+		return contactList;
 	}
 	
 }
+
+
+	
+			// ps.setString(1,"22");
+			// ps.setString(2,"adc");
+			// ps.setString(3,"adc");
+			// ps.executeUpdate();
+
+// int x=1;
+			// String s="zzzn";
+
+			//ps.setString();

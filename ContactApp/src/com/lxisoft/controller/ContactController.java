@@ -12,6 +12,7 @@ public class ContactController
 {
 	View view=new View();
 	FileRepository repository=new FileRepository();
+	DbRepository dbRepository=new DbRepository();
 	/**
 	 *to select features
 	 */
@@ -108,7 +109,7 @@ public class ContactController
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
-		viewAllModel.setList(repository.findAll());
+		viewAllModel.setList(dbRepository.findAll());
 		view.findAllContacts(viewAllModel);
 	}
 	/**
