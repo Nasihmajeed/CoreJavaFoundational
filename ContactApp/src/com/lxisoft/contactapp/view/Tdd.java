@@ -21,7 +21,7 @@ public static void main(String[] args) {
 	 			break;
 	 	//case 2:control.read();
 	 			//break;
-	 	case 3:control.search();
+	 	case 2:control.search();
 	 			break;
 	 	default:System.out.println("wrong entry");
 	 }

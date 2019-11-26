@@ -5,6 +5,16 @@ package com.lxisoft.contactapp.model;
 public class Contact implements Comparable<Contact>{
 	private  String name;
     private String  number;
+    private int id;
+
+
+public void setId(int id){
+	this.id=id;
+}
+
+public int getId(){
+	return id;
+}
 /**
 *setter for name
 *@param String contact name

@@ -9,6 +9,7 @@ import com.lxisoft.contactapp.controller.*;
 */ 
 public class Repository implements Filestorage{
 File file=new File(directory);
+static int id=0;
 //Controller controlller=new Controller();
 ArrayList<Contact> contacts=new ArrayList<Contact>();
 /**
@@ -17,11 +18,26 @@ ArrayList<Contact> contacts=new ArrayList<Contact>();
 */
 public void setFile(Contact contact){
   	try{
+
 	FileWriter write=new FileWriter(file,true);
 	BufferedWriter fwrite=new BufferedWriter(write);
-	fwrite.write(contact.getName()+","+contact.getNumber()+"\n");  
-	fwrite.flush();
-	fwrite.close();
+	int temp=id;
+	if(temp>id){
+  		id=temp++;
+		contact.setId(id);
+		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
+		fwrite.flush();
+		fwrite.close();	
+  	}
+  	else{
+  		id++;
+		contact.setId(id);
+		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
+		fwrite.flush();
+		fwrite.close();
+
+  	}
+
       
     }
     catch(IOException e){
@@ -41,9 +57,10 @@ public ArrayList<Contact>  getList(){
 		String data;
 		while((data=bread.readLine())!=null){	
 			String[] dataArray=data.split(",");
-				Contact contact=new Contact();	
-				contact.setName(dataArray[0]);
-			 	contact.setNumber(dataArray[1]);
+				Contact contact=new Contact();
+				contact.setId(Integer.parseInt((dataArray[0])));	
+				contact.setName(dataArray[1]);
+			 	contact.setNumber(dataArray[2]);
 				contactlist.add(contact);
 		}
 		contacts.addAll(contactlist);
