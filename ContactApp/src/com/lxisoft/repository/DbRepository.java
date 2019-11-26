@@ -37,6 +37,66 @@ public class DbRepository implements DbStorage
 		}	
 		return contactList;
 	}
+
+	public void save(Contact contact) 
+	{
+		int id=index();
+		try
+		{
+			ps.setString(1,id+"");
+			ps.setString(2,contact.getName());
+			ps.setString(3,contact.getNumber());
+			ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}	
+	}
+
+	public int index()
+	{
+		ArrayList<Contact> contactList=findAll();
+		int n=0,x=0;
+		for(int i=0;i<contactList.size();i++)
+		{
+			x=Integer.parseInt(contactList.get(i).getId());
+			if(n<x)
+				n=x;
+		}
+		return n+1;
+	}
+
+	// public void save(Contact contact)
+	// {
+	// 	int id=index();
+	// 	++id;
+	// 	try
+	// 	{
+	// 		if(file.exists())
+	// 		{
+	// 			FileWriter fw1=new FileWriter(file,true);
+	// 			BufferedWriter bw1=new BufferedWriter(fw1);
+	// 			bw1.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
+	// 			bw1.flush();
+	// 			bw1.close();
+	// 		}
+	// 		else
+	// 		{
+	// 			System.out.println("\nfile created and contact saved");
+	// 			FileWriter fw=new FileWriter(file);
+	// 			BufferedWriter bw=new BufferedWriter(fw);
+	// 			System.out.println("NEW FILE CREATED");
+	// 			bw.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
+	// 			bw.flush();
+	// 			bw.close();
+	// 		}
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("Exception: "+e);
+	// 	}
+	// }
 	
 }
 

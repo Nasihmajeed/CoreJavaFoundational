@@ -9,4 +9,6 @@ public interface DbStorage
 	String dbUrl="jdbc:mysql://localhost:3306/contact";
 	String username="root";
 	String password="root";
+
+	public ArrayList<Contact> findAll();
 }

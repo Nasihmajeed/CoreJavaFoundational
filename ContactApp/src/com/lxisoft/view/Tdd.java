@@ -19,7 +19,5 @@ public class Tdd
 		ContactController controller=new ContactController();
 		controller.allContacts();
 		controller.features();
-		DbRepository dbRepository=new DbRepository();
-		dbRepository.findAll();
 	}
 }

@@ -81,7 +81,7 @@ public class ContactController
 			contact.setName(tempSave[0]);
 			contact.setNumber(tempSave[1]);
 			saveModel.setContact(contact);
-			repository.save(saveModel.getContact());
+			dbRepository.save(saveModel.getContact());
 		}
 	}
 	/**
