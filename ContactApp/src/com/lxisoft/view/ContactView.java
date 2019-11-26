@@ -137,18 +137,32 @@ public class ContactView
 	/**
  * @param c contact
  */
-	public void searchContact(Contact c)
+	public void searchContact(List<String> c)
 	{
-		if((c.getName()==null)&(c.getContactNo()==null))
+		if(c.size()!=0)
 		{
-			System.out.println("Not Found Search Result");
+			for(int i=0;i<c.size();i++)
+			{
+				System.out.println(c.get(i));
+			}
 		}
 		else
 		{
-			System.out.println("\n Name="+c.getName());
-			System.out.println(" Number="+c.getContactNo());
-		}			
+			System.out.println("Not Found Search Results");
+		}
 	}
+	// public void searchContact(Contact c)
+	// {
+	// 	if((c.getName()==null)&(c.getContactNo()==null))
+	// 	{
+	// 		System.out.println("Not Found Search Result");
+	// 	}
+	// 	else
+	// 	{
+	// 		System.out.println("\n Name="+c.getName());
+	// 		System.out.println(" Number="+c.getContactNo());
+	// 	}			
+	// }
 	public int sort()
 	{
 		Scanner sc=new Scanner(System.in);

@@ -143,35 +143,20 @@ public class ContactControl
         }
     }
      /**
- * search a contact by id
+ * search a contact 
  */
     public void searchDetails()
     {
-        String d=view.getContactId();
-        Contact c=new Contact();
+        String n=view.getContactName();
+        List<String>c=new ArrayList<String>();
         List<Contact>contactList=repository.arrayWrite();
         for(int i=0;i<contactList.size();i++)
         {
-            if(d.equals(contactList.get(i).getId()))
+            if(contactList.get(i).getName().contains(n))
             {
-                c=contactList.get(i);
+                c.add(contactList.get(i).getName());
             }
         }
         view.searchContact(c);
     }
-   // public void sortedId()
-   //  {
-   //      view.sortId();
-   //  }
-   //  public void sortedName()
-   //  {
-   //      view.sortName();
-   //  }
-   //  public void sortedNum()
-   //  {
-   //      view.sortNum();
-   //      // System.out.println("Sorted Id");
-   //  }
-
-
- } 
+} 
