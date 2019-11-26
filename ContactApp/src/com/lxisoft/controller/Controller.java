@@ -1,14 +1,14 @@
 package com.lxisoft.controller;
 import com.lxisoft.view.*;
 import com.lxisoft.model.*;
-import com.lxisoft.repository.*;
+import com.lxisoft.filerepository.*;
 import java.util.*;
 import com.lxisoft.test.*;
 
 public class Controller
 {
 	Contact contact ;
-	Repository rep = new Repository();
+	Filerepository rep = new Filerepository();
 	View view = new View();
 	public List <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
