@@ -1,3 +1,5 @@
+/*package com.lxisoft.users;
+import com.lxisoft.hotel.Hotel;*/
 import java.util.*;
 public class Admin
 {
@@ -6,7 +8,7 @@ public class Admin
 	
 
 
-	void adminCheck()
+	public void adminCheck(Hotel hotel)
 	{
 		String def="qwerty";
 		Scanner scan=new Scanner(System.in);
@@ -14,16 +16,20 @@ public class Admin
 		password=scan.next();
 		if(password.equals(def))
 		{
-				System.out.println("***Welcome Admin***");
+				System.out.println("\t***Welcome Admin***");
+				adminChoice(hotel);
+
 		}
 		  else
 		  {
 		  	System.out.println("Invalid password");
+
 		  }
+
 
 		}	
 
-		void adminChoice(Hotel hotel)
+		public void adminChoice(Hotel hotel)
 		{			
 					int c;
 					Scanner scan=new Scanner(System.in);
@@ -37,14 +43,14 @@ public class Admin
 										add(hotel);
 										break;
 						case 2:System.out.println("Display");
-									display(hotel);
-									break;
+										display(hotel);
+										break;
 						case 3:System.out.println("Delete");
 										delete(hotel);
 										break;
-						/*case 4:System.out.println("Edit");
+						case 4:System.out.println("Edit");
 										edit(hotel);
-										break;*/
+										break;
 
 						default:System.out.println("ERROR");
 
@@ -119,7 +125,7 @@ public class Admin
 					
 				}
 
-				/*void edit(Hotel hotel)
+				void edit(Hotel hotel)
 				{
 					Scanner scan=new Scanner(System.in);
 					hotel.getMenu();
@@ -133,7 +139,7 @@ public class Admin
 						hotel.food[n-1].price=p;
 						hotel.getMenu();
 						adminChoice(hotel);
-				}*/
+				}
 				
 }
 

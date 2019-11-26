@@ -1,7 +1,10 @@
+/*package com.lxisoft.hotel;
+import com.lxisoft.users.Admin;
+import com.lxisoft.users.User;*/
 import java.util.Scanner;
 public class Sample
 {
-	void test()
+	public void test()
 	{
 		Hotel hotel = new Hotel();
 		hotel.menu();
@@ -27,8 +30,7 @@ public class Sample
 		  switch(u)
 		  {
 		  	case 1:System.out.println("Admin");
-		  			admin.adminCheck();
-		  			admin.adminChoice(hotel);
+		  			admin.adminCheck(hotel);
 		  			break;
 		  	case 2:System.out.println("User");
 		  				user.users();

@@ -1,3 +1,5 @@
+/*package com.lxisoft.users;*/
+import com.lxisoft.hotel.Hotel;
 import java.util.*;
 public class User
 {
@@ -6,7 +8,7 @@ public class User
 
 
 
-void users()
+public void users()
 	{	
 		Scanner scan=new Scanner(System.in);
 		System.out.print("Enter your name :");
@@ -14,7 +16,7 @@ void users()
 		System.out.println("\t Welcome " +name);
 	}
 
-	void foodOrdering(Hotel hotel)
+	public void foodOrdering(Hotel hotel)
 	{
 		int[] billarr=new int[10];
 		int i=0,c,sum=0;

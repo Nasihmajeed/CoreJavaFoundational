@@ -1,9 +1,10 @@
+/*import com.lxisoft.hotel.FoodItems;*/
 import java.util.*;
 public class Hotel
 {
 	String name,place;
-	FoodItems[] food;
-		void menu()
+	public FoodItems[] food;
+		public void menu()
 		{
 			food=new FoodItems[10];
 			for(int i=0;i<10;i++)
@@ -22,7 +23,7 @@ public class Hotel
 			food[4].price=150;
 			
 }
-		void getMenu()
+		public void getMenu()
 		{
 			int n=1;
 			System.out.println("\t****MENU*****");
