@@ -1,7 +1,9 @@
+package com.lxisoft.hotel;
+
 public class Hotel
 {
 	private String name,place;
-	FoodProduct[] foodProduct = new FoodProduct[10];
+	public FoodProduct[] foodProduct = new FoodProduct[10];
 	
 	public void setName(String newName)
 		{
@@ -19,7 +21,7 @@ public class Hotel
 		{
 			return place;
 		}
-	FoodProduct[] setProductObject(FoodProduct[] foodProduct)
+	public FoodProduct[] setProductObject(FoodProduct[] foodProduct)
 	{
 		for(int i = 0;i<10;i++)
 		 {
@@ -27,7 +29,7 @@ public class Hotel
 		 }
 		 return foodProduct;
 	}
-	 FoodProduct[] setProduct(FoodProduct[] foodProduct)
+	public FoodProduct[] setProduct(FoodProduct[] foodProduct)
 	{
 		 setProductObject(foodProduct);
 		 foodProduct[0].setName("Chicken Biriyani");
@@ -46,7 +48,7 @@ public class Hotel
 		 foodProduct[4].setAmount(10);
 		 return foodProduct;
 	}
-	void getProduct(FoodProduct[] foodProduct)
+	public void getProduct(FoodProduct[] foodProduct)
 	{
 		int n=1;
 		for(int i=0;i<10;i++)

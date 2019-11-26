@@ -1,21 +1,22 @@
+package com.lxisoft.hotel;
 public class FoodProduct
 {
 	private String name;
 	private int amount;
 
-	void setName(String newName)
+	public void setName(String newName)
 	{
 		this.name = newName;
 	}
-	String getName()
+	public String getName()
 	{
 		return name;
 	}
-	void setAmount(int newAmount)
+	public void setAmount(int newAmount)
 	{
 		this.amount = newAmount;
 	}
-	int getAmount()
+	public int getAmount()
 	{
 		return amount;
 	}

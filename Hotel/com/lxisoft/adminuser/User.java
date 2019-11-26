@@ -1,7 +1,10 @@
+package com.lxisoft.adminuser;
+import com.lxisoft.hotel.Hotel;
+import com.lxisoft.hotel.FoodOrdering;
 import java.util.Scanner;
 public class User
 {
-	void bill(Hotel hotel)
+	public void bill(Hotel hotel)
 	{
 		int[] array = new int[10];
 		Scanner scanner = new Scanner(System.in);
@@ -9,8 +12,6 @@ public class User
 		int i=0,amount = 0;
 		System.out.println("********Menu********");
 		hotel.getProduct(hotel.foodProduct);
-		/*System.out.println("==> Order Food ");
-		array[0] = scanner.nextInt();*/
 		Boolean isTrue = false;
 		do
 		{
@@ -43,14 +44,13 @@ public class User
 						{
 							System.out.println("**Hotel Name Not Entered**");
 						}
+						System.out.println("Food Items  \t  Amount ");
 					for(int j=0;j<10;j++)
 					{
 						if(array[j]!=0)
 						{
 						System.out.print(hotel.foodProduct[array[j]-1].getName());
-						System.out.print("     ");
-						System.out.print(hotel.foodProduct[array[j]-1].getAmount());
-						System.out.println(" ");
+						System.out.println(" : "+hotel.foodProduct[array[j]-1].getAmount()+" Rs");
 					    }
 					}
 					System.out.println("Total Amount : "+amount+" Rs");

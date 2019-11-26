@@ -1,9 +1,11 @@
+package com.lxisoft.adminuser;
+import com.lxisoft.hotel.*;
 import java.util.Scanner;
 public class Admin
 {
 	Scanner scanner = new Scanner(System.in);
 	int flag=1;
-	void crud(Hotel hotel)
+	public void crud(Hotel hotel)
 	{
 		FoodOrdering foodOrdering = new FoodOrdering();
 		int num;
@@ -35,7 +37,7 @@ public class Admin
 			break;
 		}
 	}
-	void add(Hotel hotel)
+	public void add(Hotel hotel)
 	{
 		for(int i=0;i<10;i++)
 			{
@@ -68,7 +70,7 @@ public class Admin
 									flag = 0;
 									break;
 								default :
-									System.out.println("Select Any 4");
+									System.out.println("Select Any 4 Options");
 									flag1 = true;
 									break;
 							}
@@ -83,7 +85,7 @@ public class Admin
 
 			}		
 	}
-	void update(Hotel hotel)
+	public void update(Hotel hotel)
 	{
 		boolean isRight;
 		int numb;
@@ -122,7 +124,7 @@ public class Admin
 		}
 		while(isRight);
     }
-	void delete(Hotel hotel)
+	public void delete(Hotel hotel)
 	{
 		boolean isRight = false;
 		do
@@ -154,7 +156,7 @@ public class Admin
 
 		}while(isRight);
 	}
-	void read(Hotel hotel)
+	public void read(Hotel hotel)
 	{
 		hotel.getProduct(hotel.foodProduct);
 

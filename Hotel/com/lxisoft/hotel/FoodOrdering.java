@@ -1,3 +1,6 @@
+package com.lxisoft.hotel;
+import com.lxisoft.adminuser.Admin;
+import com.lxisoft.adminuser.User;
 import java.util.Scanner;
 public class FoodOrdering
 {
@@ -5,7 +8,7 @@ public class FoodOrdering
 	Scanner scanner;
 	Hotel hotel;
 	Admin admin;
-	void booking()
+	public void booking()
 	{
 		scanner = new Scanner(System.in);
 		hotel = new Hotel();
@@ -13,7 +16,7 @@ public class FoodOrdering
 		adminUser(hotel);
 	}
 
-	void adminUser(Hotel hotel)
+	public void adminUser(Hotel hotel)
 	{	
 		scanner = new Scanner(System.in);
 		int num;
@@ -51,7 +54,7 @@ public class FoodOrdering
 			user.bill(hotel);
 		}
 	}
-	void setHotel(Hotel hotel)
+	public void setHotel(Hotel hotel)
 	{
 		System.out.println("Enter The hotel Name ");
 		hotel.setName(scanner.next());
@@ -59,7 +62,7 @@ public class FoodOrdering
 		hotel.setPlace(scanner.next());
 		getHotel(hotel);
 	}
-	void getHotel(Hotel hotel)
+	public void getHotel(Hotel hotel)
 	{
 		 System.out.println("Hotel Name : "+hotel.getName());
 		 System.out.println("Hotel Place : "+hotel.getPlace());
