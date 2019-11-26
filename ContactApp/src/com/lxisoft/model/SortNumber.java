@@ -4,7 +4,7 @@ import com.lxisoft.controller.*;
 import java.util.Scanner;
 import com.lxisoft.test.*;
 
-public class SortNumber implements Comparable <Contact>
+public class SortNumber implements Comparator <Contact>
 {
  public int Compare ( Contact c,Contact c1)
    {

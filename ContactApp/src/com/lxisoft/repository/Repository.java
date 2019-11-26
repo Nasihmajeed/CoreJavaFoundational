@@ -88,16 +88,7 @@ public class Repository implements Filerepository
 		}
 		return array;
 	}
-	public void sortByname()
-	{
-		ArrayList<Contact>arrayList=fileRead();
-		Collections.sort(arrayList, new SortName()); 
-		for(int i=0; i <arrayList.size();i++)
-		{
-		   System.out.println( "NAME:"+arrayList.get(i).getName()+" NUMBER:"+arrayList.get(i).getNumber());
-		}
-		
-	}
+	
 	public void search()
 	{
 		try

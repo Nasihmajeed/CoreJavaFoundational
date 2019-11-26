@@ -53,6 +53,13 @@ public class Controller
 		return contact;
 		
 	}
+	public ArrayList<Contact> fileRead()
+	{
+		contact = new Contact();
+		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
+		return contactDetail=rep.fileRead();
+
+	}
 
 	public void editContact(int i,int id,String name,String number)
 	{	
@@ -95,23 +102,14 @@ public class Controller
 		//System.out.println("n="+n);
 		switch(n)
 		{
-			case 1 : dateDisplay(); break;
-		    case 2 : rep.sortByname();break;
+			case 1 : view.dateDisplay(); break;
+		    case 2 : view.sortByname();break;
+		    case 3 : view.sortByid(); break;
 		}
 		
 		choice();
 	}
-	public void dateDisplay()
-	{
-		contact = new Contact();
-		List <Contact> contactDetail = new ArrayList<Contact>();
-		contactDetail=rep.fileRead();
-		for(int i=0; i < contactDetail.size();i++)
-		      {
-			     System.out.println(/*"\n ID:"+contactDetail.get(i).getId()*/" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
-		      }
-
-	}
+	
 	public int getArraySize()
 	{
 		return rep.getArraySize();

@@ -7,6 +7,7 @@ import java.util.*;
 public class View
 {
 	public static Controller con = new Controller();
+	public ArrayList<Contact> array = new ArrayList<Contact>();
     static Scanner read = new Scanner(System.in);
 	public int  begin()
 	{
@@ -102,10 +103,39 @@ public class View
 	}    
 	public  int  display()
 	{	
-		System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME");
+		System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME \n 3 = SORT BY ID");
 		int n =read.nextInt();
 		//System.out.println("n-"+n);
 		return n;
+	}
+	public void dateDisplay()
+	{
+		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
+		contactDetail=con.fileRead();
+		for(int i=0; i < contactDetail.size();i++)
+		      {
+			     System.out.println(" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
+		      }
+
+	}
+	public void sortByname()
+	{
+		ArrayList<Contact>arrayList=con.fileRead();
+		Collections.sort(arrayList, new SortName()); 
+		for(int i=0; i <arrayList.size();i++)
+		{
+		   System.out.println( "NAME:"+arrayList.get(i).getName()+" NUMBER:"+arrayList.get(i).getNumber());
+		}
+		
+	}
+	public void sortByid()
+	{
+		ArrayList<Contact>arrayList=con.fileRead();
+		Collections.sort(arrayList, new SortId()); 
+		for(int i=0; i <arrayList.size();i++)
+		{
+		   System.out.println(" ID:"+arrayList.get(i).getId()+" NAME:"+arrayList.get(i).getName());
+		}
 	}
 	public void edit(int i,int id)
 	{
