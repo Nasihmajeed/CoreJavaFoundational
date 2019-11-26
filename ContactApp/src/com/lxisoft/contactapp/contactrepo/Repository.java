@@ -18,27 +18,25 @@ ArrayList<Contact> contacts=new ArrayList<Contact>();
 */
 public void setFile(Contact contact){
   	try{
-
-	FileWriter write=new FileWriter(file,true);
-	BufferedWriter fwrite=new BufferedWriter(write);
+  	id++;
 	int temp=id;
 	if(temp>id){
-  		id=temp++;
-		contact.setId(id);
-		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
-		fwrite.flush();
-		fwrite.close();	
-  	}
-  	else{
-  		id++;
+		id=temp++;
+		FileWriter write=new FileWriter(file,true);
+		BufferedWriter fwrite=new BufferedWriter(write);
 		contact.setId(id);
 		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
 		fwrite.flush();
 		fwrite.close();
-
-  	}
-
-      
+         }
+     else{
+	    FileWriter write=new FileWriter(file,true);
+		BufferedWriter fwrite=new BufferedWriter(write);
+		contact.setId(id);
+		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
+		fwrite.flush();
+		fwrite.close();
+        }
     }
     catch(IOException e){
     	System.out.println("Exception "+e);
