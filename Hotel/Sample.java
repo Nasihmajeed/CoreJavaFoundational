@@ -30,10 +30,10 @@ public class Sample
 		  			admin.adminCheck();
 		  			admin.adminChoice(hotel);
 		  			break;
-		  	/*case 2:System.out.println("User");
+		  	case 2:System.out.println("User");
 		  				user.users();
-		  				user.foodOrdering(hotel);*/
-		  				break;*
+		  				user.foodOrdering(hotel);
+		  				break;
 		  	default:System.out.println("Error");
 
 		  	

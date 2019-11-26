@@ -6,31 +6,44 @@ public class User
 
 
 
-	void users()
+void users()
 	{	
 		Scanner scan=new Scanner(System.in);
-		System.out.println("Enter your name");
+		System.out.print("Enter your name :");
 		name=scan.next();
-		System.out.println("\t Welcome"+name);
+		System.out.println("\t Welcome " +name);
 	}
 
 	void foodOrdering(Hotel hotel)
 	{
-		int c;
+		int[] billarr=new int[10];
+		int i=0,c,sum=0;
 		do{
 			Scanner scan=new Scanner(System.in);
-			System.out.println("Select the fooditems");
 			hotel.getMenu();
-			int n=scan.nextInt();
-			System.out.println(hotel.food[n-1].name);
-			System.out.println(hotel.food[n-1].price);
-			System.out.println("Do you want to select more 1.yes \n2.No");
+			System.out.print("Select the fooditems :");
+			billarr[i]=scan.nextInt();
+			i++;
+			System.out.println("Do you want to select more \n1.yes \n2.No");
 			c=scan.nextInt();
 
 
 
-			
+
+
 		
 		}while(c==1);
-    }
+		System.out.println("\t***BILL****");
+    	for(i=0;i<10;i++)
+    		if(billarr[i]!=0)
+    		{
+    		System.out.println("\t"+hotel.food[billarr[i]-1].name);
+			System.out.println("\t\t"+hotel.food[billarr[i]-1].price);
+			sum=sum+hotel.food[billarr[i]-1].price;
+
+
+			}
+			System.out.println("Total price " +sum);
+
+		}
 }
