@@ -7,7 +7,7 @@ import com.lxisoft.view.*;
 import com.lxisoft.repository.*;
 import java.sql.*;
 
-public class DbRepository implements DbStorage
+public class DbRepository implements Repository
 {
 	Connection connection;
 	PreparedStatement ps;
@@ -17,8 +17,8 @@ public class DbRepository implements DbStorage
 		ArrayList<Contact> contactList=new ArrayList<Contact>(); 
 		try
 		{			
-			Class.forName(driverName); 
-			connection=DriverManager.getConnection(dbUrl,username,password);
+			Class.forName("com.mysql.jdbc.Driver"); 
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/contact","root","root");
 			ps=connection.prepareStatement("insert into contactList (ID,NAME,NUMBER) values(?,?,?)");
 			ResultSet rs=ps.executeQuery("select * from contactList");
 			while(rs.next())
@@ -67,38 +67,20 @@ public class DbRepository implements DbStorage
 		return n+1;
 	}
 
-	// public void save(Contact contact)
-	// {
-	// 	int id=index();
-	// 	++id;
-	// 	try
-	// 	{
-	// 		if(file.exists())
-	// 		{
-	// 			FileWriter fw1=new FileWriter(file,true);
-	// 			BufferedWriter bw1=new BufferedWriter(fw1);
-	// 			bw1.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw1.flush();
-	// 			bw1.close();
-	// 		}
-	// 		else
-	// 		{
-	// 			System.out.println("\nfile created and contact saved");
-	// 			FileWriter fw=new FileWriter(file);
-	// 			BufferedWriter bw=new BufferedWriter(fw);
-	// 			System.out.println("NEW FILE CREATED");
-	// 			bw.write(id+","+contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw.flush();
-	// 			bw.close();
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("Exception: "+e);
-	// 	}
-	// }
+	public ArrayList<Contact> delete(Contact contact)
+	{
+
+	}
+	
 	
 }
+
+
+
+
+
+
+
 
 
 	
