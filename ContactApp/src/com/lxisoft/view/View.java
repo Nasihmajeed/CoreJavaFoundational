@@ -8,7 +8,7 @@ public class View
 {
 	public static Controller con = new Controller();
 	public ArrayList<Contact> array = new ArrayList<Contact>();
-    static Scanner read = new Scanner(System.in);
+    Scanner read = new Scanner(System.in);
 	public int  begin()
 	{
 		int n=0;
@@ -16,10 +16,9 @@ public class View
 	   { 
 		do
 		{
-		System.out.println("  \n \t \t -----CONTACT LIST------");
-		
-		System.out.println(" \n \n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY \n 4 = DELETE ALL");
-		n = read.nextInt();	
+			
+		System.out.println( "\n 1 = ADD NEW CONTACT \n 2 = SEARCH \n 3 = DISPLAY \n 4 = DELETE ALL");
+		n = Integer.parseInt(read.next());	
 		
 		}while(n==1 && n==2 && n==3 && n ==4);
 		 if(n==4)
@@ -50,11 +49,11 @@ public class View
 	}
 	public void addContact()
 	{
-		
+		 Scanner set = new Scanner(System.in);
 		System.out.println("ENTER NAME");
-		String name= read.nextLine();
+		String name= set.nextLine();
 		System.out.println("ENTER NUMBER");
-		String number=read.nextLine();
+		String number=set.nextLine();
 		System.out.println("CONTACT SAVED");
 		con.addContact(name,number);
 		
@@ -63,7 +62,7 @@ public class View
 	{
 		int f=0;
 		System.out.println("ENTER NAME");
-		String name= read.nextLine();
+		String name= read.next();
 		
 		if(name.equals(con.search(name).getName()))
 		{	
@@ -92,14 +91,12 @@ public class View
 			{
 				System.out.println("PLEASE ENTER THE NUMERIC VALUE");
 			}
-			 
-			if(f!=1)
+	    }
+	    else if(f==0)
 			{
 				System.out.println(" CONTACT NOT FOUND");
 				con.choice();
 			}
-			
-	    }
 	}    
 	public  int  display()
 	{	
@@ -142,15 +139,15 @@ public class View
 		//Contact contact = new contact();
 		 //System.out.println("id= "+id);
 		 System.out.println("ENTER THE NEW NAME");
-		 String name  = read.nextLine();
+		 String name  = read.next();
 		 System.out.println("ENTER THE NEW NUMBER");
-		 String number = read.nextLine();
+		 String number = read.next();
 		 con.editContact(i,id,name,number);
 	}
 	public void delete(int i)
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
-		 String choice= read.nextLine();
+		 String choice= read.next();
 		 switch(choice)
 		 {
 		 	case "y": System.out.println("contact deleted ");
@@ -158,6 +155,20 @@ public class View
 		 	          
 		 	          break;
 		 	case "n" : search(); break;
+		 	default : search();
 		 }
+	}
+	public void deleteAll()
+	{
+		System.out.println("are you sure ? \n press y   OR \t\t  n");
+		 String choice= read.next();
+		 switch(choice)
+		 {
+		 	case "y": con.deleteAll();
+		 	          //System.out.println("All contacts deleted ");
+		 	          break;
+		 	case "n" : con.choice(); break;
+		 	default : con.choice();
+		 }	
 	}
 }

@@ -13,6 +13,7 @@ public class Tdd
    		// View view = new View();
    		// view.begin();
    		Controller con = new Controller();
+   		System.out.println("\n \t \t -----CONTACT LIST------ \n ");
    		con.choice();
 	}
 } 

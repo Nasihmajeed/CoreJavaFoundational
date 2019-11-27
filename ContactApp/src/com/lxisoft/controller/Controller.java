@@ -3,6 +3,7 @@ import com.lxisoft.view.*;
 import com.lxisoft.model.*;
 import com.lxisoft.filerepository.*;
 import java.util.*;
+import com.lxisoft.repository.*;
 import com.lxisoft.test.*;
 
 public class Controller
@@ -13,13 +14,14 @@ public class Controller
 	public List <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
 	{
+		view.dateDisplay();
 		int n=view.begin();
 		switch(n)
 		{
 			case 1 : view.addContact(); break;
 			case 2 : view.search();break;
 			case 3 : display(); break;
-			case 4 : deleteAll();break;
+			case 4 : view.deleteAll();break;
 			default: view.defaultPrint(0);
 		}		
 	}
