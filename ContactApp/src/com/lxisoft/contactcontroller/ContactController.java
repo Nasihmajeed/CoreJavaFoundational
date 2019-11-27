@@ -10,7 +10,6 @@ import java.util.*;
  */
 public class ContactController 
 {
-	FileRepository frepo=new FileRepository();
 	// Repository repo=new FileRepository();
 	Repository repo=new MysqlRepository();
 	View view=new View();
@@ -46,7 +45,7 @@ public class ContactController
 				case 3: searchContact(); break;
 				case 4: deleteAllContact(); break;
 				case 5: getAllContacts(); break;
-				// case 6: sortContact(); break;
+				case 6: sortContact(); break;
 		    }
 		}while(a!=7);
 	}
@@ -72,22 +71,22 @@ public class ContactController
 	/**
 	 *to sort contact
 	 */
-	// public void sortContact()
-	// {
-	// 	int a=0;
-	// 	List <Contact> contactList=null;
-	// 	do
-	// 	{
-	// 		a=view.getSortOption();
-	// 		switch(a)
-	// 		{
-	// 			case 1: contactList=repo.sortByName(); break;
-	// 			case 2: contactList=repo.sortByNumber(); break;
-	// 			case 3: contactList=repo.sortById(); break;
-	// 		}
-	// 	}while(a!=4);
-	// 	view.getSortedContacts(contactList);
-	// }
+	public void sortContact()
+	{
+		int a=0;
+		List <Contact> contactList=null;
+		do
+		{
+			a=view.getSortOption();
+			switch(a)
+			{
+				case 1: contactList=repo.sortByName(); break;
+				case 2: contactList=repo.sortByNumber(); break;
+				case 3: contactList=repo.sortById(); break;
+			}
+		}while(a!=4);
+		view.getSortedContacts(contactList);
+	}
 	/**
 	 *to add contact in to file.
 	 */

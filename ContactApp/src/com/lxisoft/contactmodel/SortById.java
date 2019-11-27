@@ -15,8 +15,6 @@ public class SortById implements Comparator<Contact>
 	 */
 	public int compare(Contact c1,Contact c2)
 	{
-		int x=Integer.parseInt(c1.getContactId());
-		int y=Integer.parseInt(c2.getContactId());
-		return x-y;
+		return c1.getContactId().compareTo(c2.getContactId());
 	}
 }

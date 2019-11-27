@@ -13,5 +13,8 @@ public interface Repository
 	public void deleteContact(int n);
 	public void updateContact(int n,Contact con);
 	public void deleteAllContact();
+	public List <Contact> sortById();
+	public List <Contact> sortByName();
+	public List <Contact> sortByNumber();
 
 }

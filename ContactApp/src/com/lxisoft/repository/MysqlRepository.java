@@ -2,6 +2,7 @@ package com.lxisoft.repository;
 import java.sql.*;
 import java.util.*;
 import com.lxisoft.domain.Contact;
+import com.lxisoft.contactmodel.*;
 public class MysqlRepository implements Repository
 {
 	List <Contact> contactList=new ArrayList<Contact>();
@@ -14,17 +15,26 @@ public class MysqlRepository implements Repository
 		{  
 			Class.forName("com.mysql.jdbc.Driver");  
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contact","root","root");
-			System.out.println("Connection established");
+
 			// con.close();
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	} 
 	public void createStorage()
 	{
-
+		try
+		{
+			Statement s=con.createStatement();
+			String st="create table contactApp(ID int,NAME varchar(20),Number varchar(20)";
+			s.executeUpdate(st);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	public List<Contact> findAllContact()
 	{
@@ -46,7 +56,7 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return contactList; 
 	}
@@ -66,7 +76,7 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return id;
 	}
@@ -83,7 +93,7 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	public Contact findContactById(int n)
@@ -100,7 +110,7 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return c;
 	}
@@ -114,7 +124,7 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	public void updateContact(int n,Contact con)
@@ -141,7 +151,43 @@ public class MysqlRepository implements Repository
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
+	}
+	/**
+	 *to sort contact by number
+	 *
+	 *@return arraylist of contact
+	 */
+	public List <Contact> sortByNumber()
+	{
+		contactList.clear();
+		contactList=findAllContact();
+		Collections.sort(contactList, new SortByNumber());
+		return contactList;
+	}
+	/**
+	 *to sort contact by name
+	 *
+	 *@return arraylist of contact
+	 */
+	public List <Contact> sortByName()
+	{
+		contactList.clear();
+		contactList=findAllContact();
+		Collections.sort(contactList, new SortByName());
+		return contactList;
+	}
+	/**
+	 *to sort contact by id
+	 *
+	 *@return arraylist of contact
+	 */
+	public List <Contact> sortById()
+	{
+		contactList.clear();
+		contactList=findAllContact();
+		Collections.sort(contactList, new SortById());
+		return contactList;
 	}	  
 }
