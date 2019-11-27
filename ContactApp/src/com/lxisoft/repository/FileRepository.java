@@ -76,7 +76,7 @@ public class FileRepository implements Repository
 	 *@param tempEdit update value
 	 *@return arraylist
 	 */
-	public ArrayList<Contact> edit(EditModel editModel,String[] tempEdit)
+	public void edit(EditModel editModel,String[] tempEdit)
 	{
 		ArrayList<Contact> contactList=findAll();
 		for(int i=0;i<contactList.size();i++)
@@ -89,7 +89,7 @@ public class FileRepository implements Repository
 				contactList.set(i,editModel.getContact());
 			}
 		}
-		return contactList;
+		syncFile(contactList);
 	}
 	/**
 	 *to find all contacts
@@ -134,7 +134,7 @@ public class FileRepository implements Repository
 	 *@param contact contact to delete
 	 *@return updated arraylist
 	 */
-	public ArrayList<Contact> delete(Contact contact)
+	public void delete(Contact contact)
 	{
 		ArrayList<Contact> contactList=findAll();
 		for(int i=0;i<contactList.size();i++)
@@ -145,7 +145,7 @@ public class FileRepository implements Repository
 				contactList.remove(i);
 			}
 		}
-		return contactList;
+		syncFile(contactList);
 	} 
 	/**
 	 *to synchronise file with arraylist
@@ -153,19 +153,24 @@ public class FileRepository implements Repository
 	 *@param contact
 	 *@param i to delete file for saving entire arraylist after updation
 	 */
-	public void syncFile(Contact contact,int i)
+	public void syncFile(ArrayList<Contact> contactList)
 	{
 		try
 		{
-			if(i==0)
+			int i=0;
+			for(Contact contact: contactList)
 			{
-				file.delete();
+				if(i==0)
+				{
+					file.delete();
+				}
+				FileWriter fwr1=new FileWriter(file,true);
+				BufferedWriter bw1=new BufferedWriter(fwr1);
+				bw1.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");
+				bw1.flush();
+				bw1.close();
+				i++;		
 			}
-			FileWriter fwr1=new FileWriter(file,true);
-			BufferedWriter bw1=new BufferedWriter(fwr1);
-			bw1.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");
-			bw1.flush();
-			bw1.close();		
 		}
 		catch(IOException e)
 		{
@@ -175,55 +180,3 @@ public class FileRepository implements Repository
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// public void save(Contact contact)
-	// {
-	// 	try
-	// 	{
-	// 		if(file.exists())
-	// 		{
-	// 			FileWriter fw1=new FileWriter(file,true);
-	// 			BufferedWriter bw1=new BufferedWriter(fw1);
-	// 			bw1.write(contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw1.flush();
-	// 			bw1.close();
-	// 		}
-	// 		else
-	// 		{
-	// 			FileWriter fw=new FileWriter(file);
-	// 			BufferedWriter bw=new BufferedWriter(fw);
-	// 			System.out.println("NEW FILE CREATED");
-	// 			bw.write(contact.getName()+","+contact.getNumber()+"\n");
-	// 			bw.flush();
-	// 			bw.close();
-	// 		}
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("Exception: "+e);
-	// 	}
-	// }

@@ -11,8 +11,8 @@ import com.lxisoft.domain.*;
 public class ContactController
 {
 	View view=new View();
-	FileRepository repository=new FileRepository();
-	DbRepository dbRepository=new DbRepository();
+	// Repository repository=new FileRepository();
+	Repository repository=new DbRepository();
 	/**
 	 *to select features
 	 */
@@ -81,7 +81,7 @@ public class ContactController
 			contact.setName(tempSave[0]);
 			contact.setNumber(tempSave[1]);
 			saveModel.setContact(contact);
-			dbRepository.save(saveModel.getContact());
+			repository.save(saveModel.getContact());
 		}
 	}
 	/**
@@ -109,7 +109,7 @@ public class ContactController
 	public void allContacts()
 	{
 		ViewAllModel viewAllModel=new ViewAllModel();
-		viewAllModel.setList(dbRepository.findAll());
+		viewAllModel.setList(repository.findAll());
 		view.findAllContacts(viewAllModel);
 	}
 	/**
@@ -215,19 +215,6 @@ public class ContactController
 			view.noContact();
 	}
 	/**
-	 *to synchronise data in file and array list
-	 */
-	public void sync(ArrayList<Contact> contactList)
-	{
-		int i=0;
-		for(Contact contact: contactList)
-		{
-			//System.out.print(j+"sync Name- " +contact.getName());
-			repository.syncFile(contact,i);
-			i++;
-		}
-	}
-	/**
 	 *to delete contact
 	 *
 	 *@param contact
@@ -239,8 +226,7 @@ public class ContactController
 		String del=view.delete();
 		if(del.equals("y"))
 		{
-			ArrayList<Contact> contactList=repository.delete(deleteModel.getContact());
-			sync(contactList);
+			repository.delete(deleteModel.getContact());
 		}
 	}
 	/**
@@ -256,8 +242,7 @@ public class ContactController
 		{
 			EditModel editModel=new EditModel();
 			editModel.setContact(contact);
-			contactList=repository.edit(editModel,tempEdit);
+			repository.edit(editModel,tempEdit);
 		}
-		sync(contactList);
 	}
 }

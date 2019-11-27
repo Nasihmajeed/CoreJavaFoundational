@@ -41,6 +41,7 @@ public class DbRepository implements Repository
 	public void save(Contact contact) 
 	{
 		int id=index();
+		++id;
 		try
 		{
 			ps.setString(1,id+"");
@@ -64,32 +65,52 @@ public class DbRepository implements Repository
 			if(n<x)
 				n=x;
 		}
-		return n+1;
+		return n;
 	}
 
-	public ArrayList<Contact> delete(Contact contact)
+	public void delete(Contact contact)
 	{
-
+		try
+		{
+			PreparedStatement pd=connection.prepareStatement("delete from contactList where ID=?");
+			ArrayList<Contact> contactList=findAll();
+			for(int i=0;i<contactList.size();i++)
+			{
+				if(contactList.get(i).getName().equals(contact.getName()))
+				{
+					System.out.println("deleting conatact "+contactList.get(i).getName());
+					pd.setString(1,contactList.get(i).getId());
+					pd.executeUpdate();
+				}
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}	
 	}
 	
-	
+	public void edit(EditModel editModel,String[] tempEdit)
+	{
+		try
+		{
+			PreparedStatement pu=connection.prepareStatement("update contactList set NAME=?,NUMBER=? where ID=?");
+			ArrayList<Contact> contactList=findAll();
+			for(int i=0;i<contactList.size();i++)
+			{
+				if(contactList.get(i).getName().equals(editModel.getContact().getName()))
+				{
+					System.out.println("updating conatact "+editModel.getContact().getName());
+					pu.setString(1,tempEdit[0]);
+					pu.setString(2,tempEdit[1]);
+					pu.setString(3,contactList.get(i).getId());
+					pu.executeUpdate();
+				}
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}	
+	}
 }
-
-
-
-
-
-
-
-
-
-	
-			// ps.setString(1,"22");
-			// ps.setString(2,"adc");
-			// ps.setString(3,"adc");
-			// ps.executeUpdate();
-
-// int x=1;
-			// String s="zzzn";
-
-			//ps.setString();
