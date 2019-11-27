@@ -9,7 +9,8 @@ import com.lxisoft.contactapp.controller.*;
 */ 
 public class Repository implements Filestorage{
 File file=new File(directory);
-static int id=0;
+static int id=1;
+int temp=1;
 //Controller controlller=new Controller();
 ArrayList<Contact> contacts=new ArrayList<Contact>();
 /**
@@ -17,31 +18,61 @@ ArrayList<Contact> contacts=new ArrayList<Contact>();
 *@param Contact single contact
 */
 public void setFile(Contact contact){
-  	try{
-  	id++;
-	int temp=id;
-	if(temp>id){
-		id=temp++;
-		FileWriter write=new FileWriter(file,true);
+	id=count();
+	++id;
+try{
+	if(file.exists()){
+        FileWriter write=new FileWriter(file,true);
 		BufferedWriter fwrite=new BufferedWriter(write);
 		contact.setId(id);
 		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
 		fwrite.flush();
 		fwrite.close();
-         }
-     else{
-	    FileWriter write=new FileWriter(file,true);
-		BufferedWriter fwrite=new BufferedWriter(write);
+	    }
+	else{
+	    FileWriter write1=new FileWriter(file);
+		BufferedWriter fwrite1=new BufferedWriter(write1);
 		contact.setId(id);
-		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
-		fwrite.flush();
-		fwrite.close();
+		fwrite1.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
+		fwrite1.flush();
+		fwrite1.close();
         }
     }
-    catch(IOException e){
+catch(IOException e){
     	System.out.println("Exception "+e);
-    }
+    }	
   }
+
+/* public void writeFile(Contact contact,int id){
+ 	try{
+ 	    FileWriter write=new FileWriter(file,true);
+		BufferedWriter fwrite=new BufferedWriter(write);
+		contact.setId(id);
+		fwrite.write(contact.getId()+","+contact.getName()+","+contact.getNumber()+"\n");  
+		fwrite.flush();
+		fwrite.close();
+	}
+	    catch(IOException e){
+    	System.out.println("Exception "+e);
+    }	
+ }*/
+
+ public int count(){
+ 	ArrayList<Contact> contacts=getList();
+ 	if(file.exists()){
+ 		int c=0,t;
+ 		for(int i=0;i<contacts.size();i++){
+ 			t=contacts.get(i).getId();
+ 			if(c<t){
+ 				c=t;
+ 			}
+ 		}
+ 		return c;
+ 	}
+ 	else{
+ 		return 0;
+ 	}
+ }
 /**
 *method used to read from the file
 *@return ArrayList contact list
@@ -73,10 +104,16 @@ public ArrayList<Contact>  getList(){
   public void sortNumber(){
   	Collections.sort(contacts,new SortNumber());
   	for(Contact contact:contacts){
-  		System.out.println(contact.getName()+"------"+contact.getNumber());
+  		System.out.println(contact.getId()+"------"+contact.getName());
   	}
+ }
 
-  }
+   public void sortId(){
+  	Collections.sort(contacts,new SortId());
+  	for(Contact contact:contacts){
+  		System.out.println(contact.getId()+"------"+contact.getName());
+  	}
+ }
   /**
 *method used to search a contact from the file
 *@param String contact name

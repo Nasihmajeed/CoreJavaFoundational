@@ -38,9 +38,9 @@ public Contact setContact(){
 */
 
 public void display(ArrayList<Contact> contacts){
-	System.out.println("\n-----ALL CONTACTS------\n");
+	System.out.println("\n-----ALL CONTACTS------\nID\tNAME");
 	for(int i=0;i<contacts.size();i++){
-		System.out.println(contacts.get(i).getName()+"------"+contacts.get(i).getNumber());
+		System.out.println(contacts.get(i).getId()+"------"+contacts.get(i).getName());
 	}
 /*	System.out.println("sort by number");
 	repo.sortNumber();*/
@@ -57,15 +57,18 @@ if(c==null){
 	System.out.println("cannot find");
      }
 else{
-	System.out.println("\n------ User-----\n ");
-	  System.out.println(c.getName()+"-------"+c.getNumber());
-	  System.out.println("\n1-EDIT\t2-Delete ");
+	  System.out.println("\n------ User-----\n ");
+	  System.out.println("ID\tNAME\tNUMBER");
+	  System.out.println(c.getId()+"-------"+c.getName()+"-------"+c.getNumber());
+	  System.out.println("\n1-EDIT\t2-Delete\t3-Delete All");
 	  int x=s.nextInt();
 	  switch(x){
 	  	case 1:String[] temp=this.updateContact(n);
 	  			repo.editList(c,temp);
 	  			break;
 	  	case 2:this.deleteContact(n);
+	  			break;
+	  	case 3:repo.clearList();
 	  			break;
 	  	default:System.out.println("wrong entry");
 	  }
@@ -104,5 +107,17 @@ public void deleteContact(String n){
 repo.deleteList(n);
 System.out.println("---------"+n+" deleted from the contact");
   }
+
+ public void sort(){
+ 	System.out.println("1-sort by number\t2-sort by id");
+ 	int x=s.nextInt();
+ 	switch(x){
+ 		case 1:repo.sortNumber();
+ 				break;
+ 		case 2:repo.sortId();
+ 				break;
+ 		default:System.out.println("wrong entry");
+ 	}
+ }
  }
 

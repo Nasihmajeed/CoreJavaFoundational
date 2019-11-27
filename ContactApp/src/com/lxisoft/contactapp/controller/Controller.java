@@ -35,4 +35,9 @@ public void search(){
 	v.searchContact();
 	
    }
+
+public void sort(){
+	v.sort();
+}
+
 }

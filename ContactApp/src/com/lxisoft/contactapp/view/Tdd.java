@@ -14,7 +14,7 @@ public static void main(String[] args) {
 			 Scanner s=new Scanner(System.in);
 	System.out.println("\n\n\t\t........CONTACT APP..........\n\tMENU\n ");
 	control.read();
-	System.out.println("\n1- create new contact\t2-search\n");
+	System.out.println("\n1- create new contact\t2-search\t3-Sort");
 	 int x=s.nextInt();
 	 switch(x){
 	 	case 1:control.save();
@@ -23,6 +23,8 @@ public static void main(String[] args) {
 	 			//break;
 	 	case 2:control.search();
 	 			break;
+	 	case 3:control.sort();
+	 			break;		
 	 	default:System.out.println("wrong entry");
 	 }
 	}while(true); 
