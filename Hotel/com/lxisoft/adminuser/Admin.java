@@ -4,96 +4,99 @@ import java.util.Scanner;
 public class Admin
 {
 	Scanner scanner = new Scanner(System.in);
-	int flag=1;
 	public void crud(Hotel hotel)
 	{
 		FoodOrdering foodOrdering = new FoodOrdering();
 		int num;
-	    System.out.println("1 . Add");
-		System.out.println("2 . Update");
-		System.out.println("3 . Delete");
-		System.out.println("4 . Read");
-		System.out.println("5 . Back");
-		num = scanner.nextInt();
-		switch(num)
+		boolean isTrue = false;
+		do
 		{
-			case 1:
-				add(hotel);
+			isTrue = false;
+			System.out.println("1 . Add");
+			System.out.println("2 . Update");
+			System.out.println("3 . Delete");
+			System.out.println("4 . Read");
+			System.out.println("5 . Back");
+			num = scanner.nextInt();
+			switch(num)
+			{
+				case 1:
+					add(hotel);
+					break;
+				case 2:
+					update(hotel);
+					break;
+				case 3:
+					delete(hotel);
+					break;
+				case 4:
+					read(hotel);
+					break;
+				case 5: 
+				foodOrdering.adminUser(hotel);
+				default :
+				System.out.println("Sorry!!!! Select Options From Above ");
+				isTrue = true;
 				break;
-			case 2:
-				num = 0;
-				update(hotel);
-				break;
-			case 3:
-				delete(hotel);
-				break;
-			case 4:
-				read(hotel);
-				break;
-			case 5: 
-			foodOrdering.adminUser(hotel);
-			default :
-			System.out.println("Sorry!!!! Select Options From Above ");
-			break;
-		}
+			}
+		}while(isTrue);
+	    
 	}
 	public void add(Hotel hotel)
 	{
-		for(int i=0;i<10;i++)
-			{
-				if(flag==1)
-				{
-					boolean flag1=false;
-					do
+		boolean isTrue=false;
+		do
+		{
+			isTrue=false;
+			int flag = 0;
+			for(int i=0;i<10;i++)
+            {
+            	if(flag==0)
+            	{
+					if(hotel.foodProduct[i].getName()==null)
 					{
-						flag1=false;
-						if(hotel.foodProduct[i].getName()==null)
+						System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
+						int num = scanner.nextInt();
+						switch(num)
 						{
-							System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
-							int num = scanner.nextInt();
-							
-							switch(num)
-							{
-								case 1:
-									System.out.print("Enter Food Name : ");
-								    hotel.foodProduct[i].setName(scanner.next());
-								    System.out.print("Enter Food Amount : ");
-								    hotel.foodProduct[i].setAmount(scanner.nextInt());
-								    break;
-								case 2:
-									hotel.getProduct(hotel.foodProduct);
-									break;
-								case 3:
-								    crud(hotel);
-								    break;
-								case 4:
-									flag = 0;
-									break;
-								default :
-									System.out.println("Select Any 4 Options");
-									flag1 = true;
-									break;
-							}
+						case 1:
+						    checkDuplicate(hotel,i);
+						    flag=1;
+						    isTrue=true;
+						    break;
+						case 2:
+							hotel.getProduct(hotel.foodProduct);
+							isTrue=true;
+							break;
+						case 3:
+						    crud(hotel);
+						    break;
+						case 4:
+							crud(hotel);
+							break;
+						default :
+							System.out.println("Select Any 4 Options");
+							isTrue = true;
+							break;
 						}
-				    }
-					while(flag1);
-			    }
-			    else if(flag==0)
-			    {
-			    	break;
-			    }
-
-			}		
-	}
+					}
+				}
+				else if(flag==1)
+				{
+					break;
+				}
+			}
+	    }
+		while(isTrue);
+	}		
 	public void update(Hotel hotel)
 	{
 		boolean isRight;
-		int numb;
 		do
 		{
 		isRight = false;
 		System.out.println("Press ==> 1.Edit 2.Print 3.Back 4.Stop ");
-		numb = scanner.nextInt();
+		int numb = scanner.nextInt();
 			switch(numb)
 			{
 				case 1:
@@ -115,6 +118,7 @@ public class Admin
 					crud(hotel);
 					break;
 				case 4:
+					isRight= true;
 					break;
 				default :
 					System.out.println("Sorry!!!! Select Options From Above ");
@@ -160,5 +164,31 @@ public class Admin
 	{
 		hotel.getProduct(hotel.foodProduct);
 
+	}
+	public void checkDuplicate(Hotel hotel,int i)
+	{
+		boolean exists = true;
+		System.out.print("Enter Food Name : ");
+	    String productName = scanner.next();
+	    System.out.print("Enter Food Amount : ");
+	    int productAmount = scanner.nextInt();
+		for(int m = 0;m<10;m++)
+		{
+			if(hotel.foodProduct[m].getName()!=null)
+			{
+				if(hotel.foodProduct[m].getName().equals(productName))
+				{
+					System.out.println(productName+" Already Exists !!!!!!!");
+					exists = false;
+					break;
+				}
+		    }
+		}
+		if(exists)
+		{
+			hotel.foodProduct[i].setName(productName);
+			hotel.foodProduct[i].setAmount(productAmount);
+		
+		}
 	}
 }
