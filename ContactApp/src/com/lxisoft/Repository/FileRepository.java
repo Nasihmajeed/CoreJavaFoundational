@@ -9,7 +9,7 @@ import java.util.*;
 /**
 *file repository class
 */
-public class Repository implements FileRepository
+public class FileRepository implements Repository
 {
 	File file=new File(fileName);
 	ArrayList<Contact> contacts =new ArrayList<Contact>();
@@ -26,8 +26,8 @@ public class Repository implements FileRepository
 			FileWriter bf=new FileWriter(file,true);
 			if(write)
 			{
-				setId();
 				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
+				id++;
 			}
 			else
 			{
@@ -123,11 +123,11 @@ public class Repository implements FileRepository
 	/**
 	*method to edit a contact detail 
 	*/
-	public void editFile(Contact contact, int i)
+	public void editContact(Contact contact, int i)
 	{
 		contacts=getAllContacts();
 		contacts.set(i,contact);
-		clearFile();
+		clearAllContacts();
 		resetFile();
 	}
 	/**
@@ -146,13 +146,13 @@ public class Repository implements FileRepository
 	{
 		contacts=getAllContacts();
 		contacts.remove(i);
-		clearFile();
+		clearAllContacts();
 		resetFile();
 	}
 	/**
 	*method to clear the file
 	*/
-	public void clearFile()
+	public void clearAllContacts()
 	{
 		try
 		{
@@ -170,7 +170,7 @@ public class Repository implements FileRepository
 		   ts.add(c);
 
 		 // System.out.println(ts);
-		clearFile();
+		clearAllContacts();
 		for(Contact c : ts)
 		   writeNewContact(c, false);
   	}
@@ -178,7 +178,7 @@ public class Repository implements FileRepository
   	{
   		contacts=getAllContacts();
 		Collections.sort(contacts, new SortByName());
-		clearFile();
+		clearAllContacts();
 		resetFile();
 
   	}
@@ -186,7 +186,7 @@ public class Repository implements FileRepository
   	{
   		contacts=getAllContacts();
 		Collections.sort(contacts, new SortById());
-		clearFile();
+		clearAllContacts();
 		resetFile();
 
   	}
@@ -194,7 +194,7 @@ public class Repository implements FileRepository
   	{
   		contacts=getAllContacts();
 		Collections.sort(contacts, new SortByNumber());
-		clearFile();
+		clearAllContacts();
 		resetFile();
 
   	}

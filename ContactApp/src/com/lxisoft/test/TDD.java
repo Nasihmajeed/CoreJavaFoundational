@@ -10,10 +10,10 @@ import com.lxisoft.View.*;
 public class TDD 
 {
 	static	public ContactControl control=new ContactControl();
-	static
-	{
-			control.repo.setId();
-	}
+	// static
+	// {
+	// 		control.repo.setId();
+	// }
 	/**
 	*main method used to crate new object of control , invoking start method
 	*/
