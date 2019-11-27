@@ -10,15 +10,16 @@ import java.util.*;
  */
 public class ContactController 
 {
-	Repository repo=new Repository();
+	FileRepository frepo=new FileRepository();
+	// Repository repo=new FileRepository();
+	Repository repo=new MysqlRepository();
 	View view=new View();
 	/**
 	 *to get all contact
 	 */
 	public void getAllContacts()
 	{
-		
-		List <Contact> contactList=repo.readFile();
+		List <Contact> contactList=repo.findAllContact();
 		ContactListModel listModel=new ContactListModel();
 	    for(int i=0;i<contactList.size();i++)
 	    {
@@ -27,7 +28,6 @@ public class ContactController
 	    	model.setName(contactList.get(i).getContactName());
 	    	listModel.setContactListModel(model);
 	    }
-		view.getAllContacts(listModel.getContactListModel());
         getChoice();
 	}
 	/**
@@ -46,7 +46,7 @@ public class ContactController
 				case 3: searchContact(); break;
 				case 4: deleteAllContact(); break;
 				case 5: getAllContacts(); break;
-				case 6: sortContact(); break;
+				// case 6: sortContact(); break;
 		    }
 		}while(a!=7);
 	}
@@ -55,16 +55,8 @@ public class ContactController
 	 */
 	public void getContactById()
 	{
-		String n=view.getContactId();
-		List <Contact> contactList=repo.readFile();
-		Contact contact=new Contact();
-		for(int i=0;i<contactList.size();i++)
-		{
-			if((contactList.get(i).getContactId()).equals(n))
-			{
-				contact=contactList.get(i);
-			}
-		}
+		int n=view.getContactId();
+		Contact contact=repo.findContactById(n);
 		view.getContactById(contact);
 		int a=0;
 		do
@@ -80,29 +72,29 @@ public class ContactController
 	/**
 	 *to sort contact
 	 */
-	public void sortContact()
-	{
-		int a=0;
-		List <Contact> contactList=null;
-		do
-		{
-			a=view.getSortOption();
-			switch(a)
-			{
-				case 1: contactList=repo.sortByName(); break;
-				case 2: contactList=repo.sortByNumber(); break;
-				case 3: contactList=repo.sortById(); break;
-			}
-		}while(a!=4);
-		view.getSortedContacts(contactList);
-	}
+	// public void sortContact()
+	// {
+	// 	int a=0;
+	// 	List <Contact> contactList=null;
+	// 	do
+	// 	{
+	// 		a=view.getSortOption();
+	// 		switch(a)
+	// 		{
+	// 			case 1: contactList=repo.sortByName(); break;
+	// 			case 2: contactList=repo.sortByNumber(); break;
+	// 			case 3: contactList=repo.sortById(); break;
+	// 		}
+	// 	}while(a!=4);
+	// 	view.getSortedContacts(contactList);
+	// }
 	/**
 	 *to add contact in to file.
 	 */
 	public void addContact()
 	{
 		Contact cont=view.addContact();	
-		repo.writeFile(cont);
+		repo.saveContact(cont);
 	}
 	/**
 	 *to search contact
@@ -112,7 +104,7 @@ public class ContactController
 		Scanner sc=new Scanner(System.in);
 		String name=sc.next();
 		List<String>contact=new ArrayList<String>();
-		List <Contact> contactList=repo.readFile();
+		List <Contact> contactList=repo.findAllContact();
 		for(int i=0;i<contactList.size();i++)
 		{
 			if(contactList.get(i).getContactName().contains(name))
@@ -127,22 +119,9 @@ public class ContactController
 	 *
 	 *@param n contact id to delete
 	 */
-	public void deleteContact(String n)
+	public void deleteContact(int n)
 	{
-		List <Contact> contactList=repo.readFile();
-		for(int i=0;i<contactList.size();i++)
-		{
-			if(n.equals(contactList.get(i).getContactId()))
-			{
-				contactList.remove(i);
-			}	
-		}
-		repo.resetFile();
-		repo.setFile();
-		for(int j=0;j<contactList.size();j++)
-		{
-			repo.rewriteFile(contactList.get(j));
-		}
+		repo.deleteContact(n);
 		view.deleteContact();
 	}
 	/**
@@ -150,34 +129,17 @@ public class ContactController
 	 *
 	 *@param n contact id to update
 	 */
-	public void updateContact(String n)
+	public void updateContact(int n)
 	{
-		List <Contact> contactList=repo.readFile();
 		Contact con=view.updateContact();
-		for(int i=0;i<contactList.size();i++)
-		{
-			if(n.equals(contactList.get(i).getContactId()))
-			{
-				Contact c=contactList.get(i);
-				c.setContactName(con.getContactName());
-				c.setContactNumber(con.getContactNumber());
-				contactList.set(i,c);
-			}	
-		}
-		repo.resetFile();
-		repo.setFile();
-		for(int j=0;j<contactList.size();j++)
-		{
-			repo.rewriteFile(contactList.get(j));
-		}
+		repo.updateContact(n,con);
 	}
 	/**
 	 *to delete all contact
 	 */
 	public void deleteAllContact()
 	{
-		repo.resetFile();
-		repo.setFile();
+		repo.deleteAllContact();
 		view.deleteAllContact();
 	}
 	

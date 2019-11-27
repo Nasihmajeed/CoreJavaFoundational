@@ -48,10 +48,10 @@ public class View
 	 *
 	 *@return contact id
 	 */
-	public String getContactId()
+	public int getContactId()
 	{
 		System.out.println("Enter contact id to search");
-		String n=s.next();
+		int n=s.nextInt();
 		return n;
 	}
 	/**

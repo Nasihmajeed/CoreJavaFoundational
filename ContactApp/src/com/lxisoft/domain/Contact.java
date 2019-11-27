@@ -8,7 +8,7 @@ public class Contact //implements Comparable<Contact>
 	/**
 	 *instance variables id, name and number
 	 */
-	private String contactId;
+	private int contactId;
 	private String contactName;
 	private String contactNumber;
 	/**
@@ -16,7 +16,7 @@ public class Contact //implements Comparable<Contact>
 	 *
 	 *@param id
 	 */
-	public void setContactId(String contactId)
+	public void setContactId(int contactId)
 	{
 		this.contactId=contactId;
 	}
@@ -25,7 +25,7 @@ public class Contact //implements Comparable<Contact>
 	 *
 	 *@return contactId
 	 */
-	public String getContactId()
+	public int getContactId()
 	{
 		return contactId;
 	}

@@ -14,8 +14,6 @@ public class TDD
 	{
 		ContactController control=new ContactController();
 		control.getAllContacts();
-		Repo r=new Repo();
-		r.databaseConnection();
 	} 
 	
 }
