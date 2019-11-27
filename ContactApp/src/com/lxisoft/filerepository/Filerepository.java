@@ -10,9 +10,9 @@ import com.lxisoft.view.*;
 public class Filerepository implements Repository
 {
 	static int id=1;
+	String filename = "C:\\Users\\Admin\\Desktop\\gitland org\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\repository\\sample.csv";
 	File file = new File(filename);
 	public ArrayList<Contact> array = new ArrayList<Contact>();
-
 	public void fileWrite(Contact contact,boolean isTrue)
 	{ 		
 		

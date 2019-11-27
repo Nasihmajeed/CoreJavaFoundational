@@ -9,7 +9,8 @@ import com.lxisoft.test.*;
 public class Controller
 {
 	Contact contact ;
-	Filerepository rep = new Filerepository();
+	//Repository rep = new Sqlrepository();
+	Repository rep = new Filerepository();
 	View view = new View();
 	public List <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
