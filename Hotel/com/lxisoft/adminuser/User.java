@@ -6,10 +6,12 @@ public class User
 {
 	public void bill(Hotel hotel)
 	{
+		boolean numberExist = false;
 		int[] array = new int[10];
+		int[] quantity = new int[10];
 		Scanner scanner = new Scanner(System.in);
 		FoodOrdering foodOrdering = new FoodOrdering();
-		int i=0,amount = 0;
+		int i=0,n=1,amount = 0;
 		System.out.println("********Menu********");
 		hotel.getProduct(hotel.foodProduct);
 		Boolean isTrue = false;
@@ -23,8 +25,28 @@ public class User
 			{
 				case 1:
 					System.out.println("==> Select Food");
-					array[i] = scanner.nextInt();
-					i++;
+					int number = scanner.nextInt();
+					for(int j=0;j<10;j++)
+					{
+						if(number==array[j])
+						{
+							n++;
+						    quantity[j]=n;
+							numberExist = true;
+							break;
+					    }
+					}
+					if(numberExist)
+					{
+					numberExist = false;
+					}
+					else
+					{
+						n=1;
+						quantity[i]=n;
+						array[i] = number;
+						i++;
+					}
 					isTrue = true;
 					break;
 				case 2:
@@ -33,7 +55,7 @@ public class User
 					{
 						if(array[k]!=0)
 						{
-							amount = amount + hotel.foodProduct[array[k]-1].getAmount();
+							amount = amount + (hotel.foodProduct[array[k]-1].getAmount()*quantity[k]);
 						}
 					}
 					if(hotel.getName()!=null)
@@ -44,16 +66,17 @@ public class User
 						{
 							System.out.println("**Hotel Name Not Entered**");
 						}
-						System.out.println("Food Items  \t  Amount ");
+						System.out.println("Food Items  \t Quantity \t  Amount ");
 					for(int j=0;j<10;j++)
 					{
 						if(array[j]!=0)
 						{
-						System.out.print(hotel.foodProduct[array[j]-1].getName());
-						System.out.println(" : "+hotel.foodProduct[array[j]-1].getAmount()+" Rs");
+						System.out.println(hotel.foodProduct[array[j]-1].getName()+"\t"+quantity[j]+"\t"+hotel.foodProduct[array[j]-1].getAmount()+" Rs");
+						/*System.out.print();
+						System.out.println();*/
 					    }
 					}
-					System.out.println("Total Amount : "+amount+" Rs");
+					System.out.println("Total Amount \t\t\t"+amount+" Rs");
 					break;
 				default :
 					System.out.println("==> Select the Above Option");
