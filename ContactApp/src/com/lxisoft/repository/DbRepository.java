@@ -14,7 +14,8 @@ public class DbRepository implements Repository
 
 	public ArrayList<Contact> findAll()
 	{
-		ArrayList<Contact> contactList=new ArrayList<Contact>(); 
+		ArrayList<Contact> contactList=new ArrayList<Contact>();
+		Set<Contact> contactsSet=new TreeSet<Contact>();
 		try
 		{			
 			Class.forName("com.mysql.jdbc.Driver"); 
@@ -27,8 +28,9 @@ public class DbRepository implements Repository
 				contact.setId(rs.getString("ID"));
 				contact.setName(rs.getString("NAME"));
 				contact.setNumber(rs.getString("NUMBER"));
-				contactList.add(contact);
+				contactsSet.add(contact);
 			}
+			contactList.addAll(contactsSet);
 			
 		}
 		catch(ClassNotFoundException|SQLException e)
@@ -118,7 +120,6 @@ public class DbRepository implements Repository
 	{
 		try
 		{
-			// Statement st = conn.createStatement();
 			Statement smt=connection.createStatement();
 			smt.executeUpdate("truncate contactList");
 		}
