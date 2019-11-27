@@ -21,7 +21,7 @@ public class ContactController
 		while(true)
 		{
 			int option=view.optionsScaning();
-			if(option==8)
+			if(option==9)
 				break;
 			else
 			{
@@ -46,6 +46,7 @@ public class ContactController
 			case 5:contactSort();break;
 			case 6:enhancedSearch();break;
 			case 7:allContacts();break;
+			case 8:repository.clear();break;
 		}
 	}
 	/**

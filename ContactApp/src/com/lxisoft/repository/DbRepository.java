@@ -113,4 +113,18 @@ public class DbRepository implements Repository
 			System.out.println(e);
 		}	
 	}
+
+	public void clear()
+	{
+		try
+		{
+			// Statement st = conn.createStatement();
+			Statement smt=connection.createStatement();
+			smt.executeUpdate("truncate contactList");
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}	
+	}
 }

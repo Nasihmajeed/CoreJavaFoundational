@@ -48,7 +48,7 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press-->  1-save  2-search  3-searchById  4-select  5-sort  6-searchminimal  7-backtohome  8-exit");
+		System.out.println("\n press-->  1-save  2-search  3-Id  4-select  5-sort  6-searchminimal  7-backtohome  8-clearall  9-exit");
 		int option=sc.nextInt();
 		return option;	
 	}
@@ -120,6 +120,14 @@ public class View
 	{
 		System.out.println("Contact not present");
 	}
+
+	public String clearAll()
+	{
+		String ch;
+		System.out.println(" press-->  y-clean  c-cancel");
+		ch=sc.next();
+		return ch;
+	} 
 
 }
 

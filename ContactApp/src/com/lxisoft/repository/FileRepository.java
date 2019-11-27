@@ -177,6 +177,24 @@ public class FileRepository implements Repository
 			System.out.println("Exception: "+e);
 		}
 	}
+
+	public void clear()
+	{
+		String cl=view.clearAll();
+		if(cl.equals("y"))
+		{
+			try
+			{	
+				FileWriter fwr1=new FileWriter(file);
+				BufferedWriter bw1=new BufferedWriter(fwr1);
+				bw1.close();		
+			}
+			catch(IOException e)
+			{
+				System.out.println("Exception: "+e);
+			}
+		}
+	}
 }
 
 
