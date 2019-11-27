@@ -10,14 +10,15 @@ public class ContactControl
     /**
  * class controller
  */
-    Repository repository=new Repository();
+    FileRepository repository=new FileRepository();
     ContactView view=new ContactView();
+    MysqlRepository myrepo=new MysqlRepository();
    /**
  * to get all contacts
  */
 	public void getContactDetails()
 	{     
-        List<Contact>contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.read();
         ContactListModel listModel=new ContactListModel();
         for(int i=0;i<contactList.size();i++)
         {
@@ -59,7 +60,7 @@ public class ContactControl
             {
                 case 1:contactList=repository.idSort();break;
                 case 2:contactList=repository.nameSort();break;
-                case 3:contactList= repository.numberSort();break;
+                case 3:contactList=repository.numberSort();break;
             }
         }while(c!=4);
         view.sortContact(contactList);
@@ -69,7 +70,7 @@ public class ContactControl
  */
     public void ContactByIdDetails()
     {
-        List<Contact>contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.read();
         String d=view.getContactId();
         Contact c=new Contact();
         for(int i=0;i<contactList.size();i++)
@@ -95,14 +96,16 @@ public class ContactControl
     {
     	Contact c=new Contact();
     	c=view.addContact();
-        repository.createFile(c);
+        repository.create(c);
+        myrepo.create();
+        myrepo.insert();
     }
      /**
  * delete contact
  */
     public void deleteDetails(String d)
     {
-        List<Contact>contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.read();
         for(int i=0;i<contactList.size();i++)
     	{
             if(d.equals(contactList.get(i).getId()))
@@ -125,7 +128,7 @@ public class ContactControl
  */
     public void updateDetails(String d)
     {
-        List<Contact>contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.read();
         String contactNo=view.updateContact();
   		for(int i=0;i<contactList.size();i++)
     	{
@@ -149,7 +152,7 @@ public class ContactControl
     {
         String n=view.getContactName();
         List<String>c=new ArrayList<String>();
-        List<Contact>contactList=repository.arrayWrite();
+        List<Contact>contactList=repository.read();
         for(int i=0;i<contactList.size();i++)
         {
             if(contactList.get(i).getName().contains(n))
