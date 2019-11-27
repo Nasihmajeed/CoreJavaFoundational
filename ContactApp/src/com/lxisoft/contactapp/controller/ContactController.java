@@ -49,9 +49,9 @@ public class ContactController
 					{
 						case 1:		addNewContact();break;
 						case 2:		searchContact();break;	
-						// case 3:		getAllContactDetails();break;
-						// case 4:		sortContactDetails();break;
-						// case 5:		deleteAllContacts();break;
+						case 3:		getAllContactDetails();break;
+						//case 4:		sortContactDetails();break;
+						case 5:		deleteAllContacts();break;
 						default:	System.out.println("Enter the correct option!");
 									default_option=1;break;
 					}cont=isContinue();
@@ -148,17 +148,24 @@ public class ContactController
 	// 	// else{ view.noSuchContacts();isContinue();
 	// 	// }
 	// }
-	// /**
-	//  *  getAllContacts (all contact details) from file to arraylist.
-	//  */
-	// public void getAllContactDetails()
-	// {
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	view.showAllContactDetails(contacts);
-	// }
-	// /**
-	//  *  sort contacts .
-	//  */
+	/**
+	 *  getAllContacts (all contact details) from file to arraylist.
+	 */
+	public void getAllContactDetails()
+	{
+		ArrayList<Contact> contacts=null;
+		try
+		{
+			contacts=filerepo.getAllContacts();
+			view.showAllContactDetails(contacts);
+		}catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+	}
+	/**
+	 *  sort contacts .
+	 */
 	
 	// public void sortContactDetails()
 	// {
@@ -175,24 +182,42 @@ public class ContactController
 	//  */
 	// public void sortByName()
 	// {
-	// 	ArrayList<Contact> contacts=filerepo.sortContactByName();
-	// 	view.sortByName(contacts);
+	// 	try
+	// 	{
+	// 		ArrayList<Contact> contacts=filerepo.sortContactByName();
+	// 		view.sortByName(contacts);
+	// 	}catch(SQLException e)
+	// 	{
+	// 		System.out.println("error"+e);
+	// 	}
 	// }
 	// /**
 	//  *  sort contacts ByNumber.
 	//  */
 	// public void sortByNumber()
 	// {
-	// 	ArrayList<Contact> contacts=filerepo.sortContactByNumber();
-	// 	view.sortByNumber(contacts);
+	// 	try
+	// 	{
+	// 		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
+	// 		view.sortByNumber(contacts);
+	// 	}catch(SQLException e)
+	// 	{
+	// 		System.out.println("error"+e);
+	// 	}
 	// }
 	// /**
 	//  *  sort contacts id.
 	//  */
 	// public void sortById()
 	// {
-	// 	ArrayList<Contact> contacts=filerepo.sortContactByNumber();
-	// 	view.sortByNumber(contacts);
+	// 	try
+	// 	{
+	// 		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
+	// 		view.sortByNumber(contacts);
+	// 	}catch(SQLException e)
+	// 	{
+	// 		System.out.println("error"+e);
+	// 	}
 	// }
 
 	// /**

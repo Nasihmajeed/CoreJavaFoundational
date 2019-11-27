@@ -17,7 +17,7 @@ public class Repository implements MySqlRepo
 	ResultSet rs=null;
 	static int id=0;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
-	public void dB_Connection()throws SQLException,ClassNotFoundException
+	public void dB_Connection() throws SQLException,ClassNotFoundException
 	{
 		try
 		{
@@ -68,7 +68,8 @@ public class Repository implements MySqlRepo
 			stmt=con.prepareStatement(create_Table);
 			stmt.execute();
 			System.out.println("table craeted successfully");
-		}catch(SQLException ex) 
+		}
+		catch(SQLException ex) 
 		{ 
 		   	System.out.println("Error: SQLSyntax error!"); 
 		}
@@ -130,10 +131,10 @@ public class Repository implements MySqlRepo
 	{
 		try
 		{
-			stmt=con.prepareStatement("update Contactlist set name=?,number=? where id=i");
+			stmt=con.prepareStatement("update Contactlist set name=?,number=? where id=?");
 			stmt.setString(1,contact.getName());
 			stmt.setString(2,contact.getNo());
-			stmt.setInt(3,contact.getId());
+			stmt.setInt(3,contacts.get(i).getId());
 			stmt.executeUpdate();
 			System.out.println("contact updated");
 		}catch(SQLException e)
@@ -141,11 +142,12 @@ public class Repository implements MySqlRepo
 			e.printStackTrace();
 		}
 	}
-	public void deleteContact(int index)throws SQLException
+	public void deleteContact(int i)throws SQLException
 	{
 		try
 		{
-			stmt=con.prepareStatement("delete from Contactlist where id=index");
+			stmt=con.prepareStatement("delete from Contactlist where id=?");
+			stmt.setInt(1,contacts.get(i).getId());
 			stmt.executeUpdate();
 		}catch(SQLException e)
 		{
