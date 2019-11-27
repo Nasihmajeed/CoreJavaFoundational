@@ -16,9 +16,9 @@ public class ContactController
 	/**
 	 * instance variables filerepo and view.
 	 */
-	private static Repository filerepo=new Repository();
+	private Repository filerepo=new Repository();
 	private ContactView view=new ContactView();
-	public static void getDBConnection()
+	public void getDBConnection()
 	{
 		try
 		{
@@ -48,7 +48,7 @@ public class ContactController
 				switch((option=Integer.parseInt(userChoice)))
 					{
 						case 1:		addNewContact();break;
-						// case 2:		searchContact();break;	
+						case 2:		searchContact();break;	
 						// case 3:		getAllContactDetails();break;
 						// case 4:		sortContactDetails();break;
 						// case 5:		deleteAllContacts();break;
@@ -67,27 +67,35 @@ public class ContactController
 			////System.out.println("exception occured " +e +sc.nextLine());
 		}
 	}
-	// /**
-	//  *  getAllContacts (id and name only) from file to arraylist.
-	//  */
-	// public void getAllcontacts()
-	// {
-	// 	ArrayList<ContactModel> contactlist=null;
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	ContactsListModel contact=new ContactsListModel();
-	// 	if(contacts!=null)
-	// 	{
-	// 		for(int i=0;i<contacts.size();i++)
-	// 		{
-	// 			ContactModel contactmodel=new ContactModel();
-	// 			contactmodel.setId(contacts.get(i).getId());
-	// 			contactmodel.setName(contacts.get(i).getName());
-	// 			contact.setAllContacts(contactmodel);
-	// 		}
-	// 		contactlist=contact.getAllContacts();
-	// 		view.showAllContacts(contactlist);
-	// 	}
-	// }
+	/**
+	 *  getAllContacts (id and name only) from file to arraylist.
+	 */
+	public void getAllcontacts()
+	{
+		ArrayList<ContactModel> contactlist=null;
+		ArrayList<Contact> contacts=null;
+		getDBConnection();
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException  e)
+		{
+			e.printStackTrace();
+		}
+		ContactsListModel contact=new ContactsListModel();
+		if(contacts!=null)
+		{
+			for(int i=0;i<contacts.size();i++)
+			{
+				ContactModel contactmodel=new ContactModel();
+				contactmodel.setId(contacts.get(i).getId());
+				contactmodel.setName(contacts.get(i).getName());
+				contact.setAllContacts(contactmodel);
+			}
+			contactlist=contact.getAllContacts();
+			view.showAllContacts(contactlist);
+		}
+	}
 	/**
 	 *  add contact details.
 	 */
@@ -99,28 +107,24 @@ public class ContactController
 		contact.setNo(contacts[1]);
 		try
 		{
-		//getDBConnection(contact);
-		//filerepo.createTable();
 		filerepo.addContactDetails(contact);
-		}
-		catch(SQLException e)
+		}catch(SQLException e)
 		{
 			System.out.println("error"+e);
 		}
 	}
-	// /**
-	//  *  To search contact details.
-	//  */
-	// public void searchContact()
-	// {
-	// 	int option=view.searchContact();
-	// 	switch(option)
-	// 	{
-	// 		case 1: getContactById();break;
-	// 		case 2: getContactByName();break;
-	// 		//case 3:	getByAlphabets();break;
-	// 	}
-	// }
+	/**
+	 *  To search contact details.
+	 */
+	public void searchContact()
+	{
+		int option=view.searchContact();
+		switch(option)
+		{
+			case 1: getContactById();break;
+			case 2: getContactByName();break;
+		}
+	}
 	// /**
 	//  *  getAllContacts on the basis of contain Alphabets that we are enter
 	//  */
@@ -194,225 +198,293 @@ public class ContactController
 	// /**
 	//  *  get contact by id from repository.
 	//  */
-	// public void getContactById()
-	// {
-	// 	int id=view.viewContactById();
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	Contact contact=new Contact();
-	// 	int val=1;
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(id==(contacts.get(i).getId()))
-	// 		{
-	// 			contact=contacts.get(i);
-	// 		}
-	// 		else val=0;
-	// 	}
-	// 	if(val==0){ view.noSuchContacts();}
-	// 	updateContact(contact);
-	// }
-	// /**
-	//  *  update contactdetails
-	//  * @param contact contact
-	//  */
-	// public void updateContact(Contact contact)
-	// {
-	// 	int option=view.updateContactInfo(contact);
-	// 	switch(option)
-	// 		{
-	// 			case 1: editContact(contact);break;
-	// 			case 2: deleteContact(contact);break;
-	// 			case 3:	getAllcontactInfo();break;
-	// 		}
-	// }
-	// /**
-	//  *  Edit contact details.
-	//  * @param contact entity
-	//  */
-	// public void editContact(Contact contact)
-	// {
-	// 	int option=view.editContact(contact);
-	// 	switch(option)
-	// 	{
-	// 		case 1:	editContactName(contact);break;
-	// 		case 2: editContactNumber(contact);break;
-	// 		case 3:	getAllcontactInfo();break;
-	// 	}	
-	// }
-	// /**
-	//  *  Edit contactName details.
-	//  * @param contact contact
-	//  */
-	// public void editContactName(Contact contact)
-	// {
-	// 	int index=getIndex(contact);
-	// 	System.out.println("ind"+index);
-	// 	String name=view.editContactName(contact);
-	// 	String num=getNo(contact);
-	// 	int id=getId(contact);
-	// 	updateContact(index,id,name,num);
-	// }
-	// /**
-	//  *  Edit contactNumber.
-	//  *@param contact contact
-	//  */
-	// public void editContactNumber(Contact contact)
-	// {
-	// 	int index=getIndex(contact);
-	// 	System.out.println("ind"+index);
-	// 	String num=view.editContactNumber(contact);
-	// 	String name=getName(contact);
-	// 	int id=getId(contact);
-	// 	updateContact(index,id,name,num);
-	// }
+	public void getContactById()
+	{
+		int id=view.viewContactById();
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		Contact contact=new Contact();
+		int val=1;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(id==(contacts.get(i).getId()))
+			{
+				contact=contacts.get(i);
+			}
+			else val=0;
+		}
+		if(val==0){ view.noSuchContacts();}
+		updateContact(contact);
+	}
+	/**
+	 *  update contactdetails
+	 * @param contact contact
+	 */
+	public void updateContact(Contact contact)
+	{
+		int option=view.updateContactInfo(contact);
+		switch(option)
+			{
+				case 1: editContact(contact);break;
+				case 2: deleteContact(contact);break;
+				case 3:	getAllcontactInfo();break;
+			}
+	}
+	/**
+	 *  Edit contact details.
+	 * @param contact entity
+	 */
+	public void editContact(Contact contact)
+	{
+		int option=view.editContact(contact);
+		switch(option)
+		{
+			case 1:	editContactName(contact);break;
+			case 2: editContactNumber(contact);break;
+			case 3:	getAllcontactInfo();break;
+		}	
+	}
+	/**
+	 *  Edit contactName details.
+	 * @param contact contact
+	 */
+	public void editContactName(Contact contact)
+	{
+		int index=getIndex(contact);
+		System.out.println("ind"+index);
+		String name=view.editContactName(contact);
+		String num=getNo(contact);
+		int id=getId(contact);
+		updateContact(index,id,name,num);
+	}
+	/**
+	 *  Edit contactNumber.
+	 *@param contact contact
+	 */
+	public void editContactNumber(Contact contact)
+	{
+		int index=getIndex(contact);
+		System.out.println("ind"+index);
+		String num=view.editContactNumber(contact);
+		String name=getName(contact);
+		int id=getId(contact);
+		updateContact(index,id,name,num);
+	}
 
-	// /**
-	//  *  get contact by name from repository
-	//  * @param name contact name
-	//  */
+	/**
+	 *  get contact by name from repository
+	 * @param name contact name
+	 */
 	
-	// public Contact getContactByName(String name)
-	// {
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	Contact contact=new Contact(); int val=1;
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(name.equals(contacts.get(i).getName()))
-	// 		{
-	// 			contact=contacts.get(i);
-	// 		}
-	// 		else val=0;
-	// 	}
-	// 	if(val==0)
-	// 	{
-	// 		view.noSuchContacts();
-	// 	}return contact;
-	// }
+	public Contact getContactByName(String name)
+	{
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		Contact contact=new Contact(); int val=1;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(name.equals(contacts.get(i).getName()))
+			{
+				contact=contacts.get(i);
+			}
+			else val=0;
+		}
+		if(val==0)
+		{
+			view.noSuchContacts();
+		}return contact;
+	}
 
-	// /**
-	//  *  get contact by name from repository.
-	//  */
-	// public void getContactByName()
-	// {
-	// 	String name=view.viewContactByName();
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	Contact contact=new Contact(); int val=1;
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(name.equals(contacts.get(i).getName()))
-	// 		{
-	// 			contact=contacts.get(i);
-	// 		}
-	// 		else val=0;
-	// 	}
-	// 	if(val==0)
-	// 	{
-	// 		view.noSuchContacts();
-	// 	}updateContact(contact);
-	// }
-	// /**
-	//  *  get contact index from repository.
-	//  *@param contact contact.
-	//  *@return index
-	//  */
-	// public int getIndex(Contact contact)
-	// {
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	int index=0;
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(contact.equals(contacts.get(i)))
-	// 		{
-	// 			index=i;
-	// 		}
-	// 	}return index;
-	// }
-	// /**
-	//  *  update contact based on name and number.
-	//  * @param  i index
-	//  * @param id contact id
-	//  * @param name contact name
-	//  * @param number contact number
-	//  */
-	// public void updateContact(int i,int id,String name,String number)
-	// {
-	// 	Contact contact=new Contact();
-	// 	contact.setId(id);
-	// 	contact.setName(name);
-	// 	contact.setNo(number);
-	// 	filerepo.updateFile(i,contact);
-	// }	
-	// /**
-	//  *  delete contact details.
-	//  * @param contact contact
-	//  */
-	// public void deleteContact(Contact contact)
-	// {
-	// 	view.deleteContact(contact);
-	// 	int index=getIndex(contact);
-	// 	filerepo.deleteContact(index);
-	// }
-	// /**
-	//  *  getname of the corresponding contact.
-	//  * @param  contact contact
-	//  * @return name
-	//  */
-	// public String getName(Contact contact)
-	// {
-	// 	String name=null;
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(contact.equals(contacts.get(i)))
-	// 		{
-	// 			name=contact.getName();
-	// 		}
-	// 	}
-	// 	return name;
-	// }
-	// /**
-	//  *  getnumber of the corresponding contact.
-	//  * @param contact contact
-	//  * @return num.
-	//  */
-	// public String getNo(Contact contact)
-	// {
-	// 	String num=null;
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(contact.equals(contacts.get(i)))
-	// 		{
-	// 			num=contact.getNo();
-	// 		}
-	// 	}
-	// 	return num;
-	// }
-	// /**
-	//  *  getid of the corresponding contact.
-	//  * @param contact contact.
-	//  * @return id.
-	//  */
-	// public int getId(Contact contact)
-	// {
-	// 	int id=0;
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	for(int i=0;i<contacts.size();i++)
-	// 	{
-	// 		if(contact.equals(contacts.get(i)))
-	// 		{
-	// 			id=contact.getId();
-	// 		}
-	// 	}
-	// 	return id;
-	// }
-	// /**
-	//  *  delete all contacts from repository.
-	//  */
-	// public void deleteAllContacts()
-	// {
-	// 	filerepo.clearRepository();
-	// }
+	/**
+	 *  get contact by name from repository.
+	 */
+	public void getContactByName()
+	{
+		String name=view.viewContactByName();
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		Contact contact=new Contact(); int val=1;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(name.equals(contacts.get(i).getName()))
+			{
+				contact=contacts.get(i);
+			}
+			else val=0;
+		}
+		if(val==0)
+		{
+			view.noSuchContacts();
+		}updateContact(contact);
+	}
+	/**
+	 *  get contact index from repository.
+	 *@param contact contact.
+	 *@return index
+	 */
+	public int getIndex(Contact contact)
+	{
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		int index=0;
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				index=i;
+			}
+		}return index;
+	}
+	/**
+	 *  update contact based on name and number.
+	 * @param  i index
+	 * @param id contact id
+	 * @param name contact name
+	 * @param number contact number
+	 */
+	public void updateContact(int i,int id,String name,String number)
+	{
+		Contact contact=new Contact();
+		contact.setId(id);
+		contact.setName(name);
+		contact.setNo(number);
+		try
+		{
+			filerepo.updateRepo(i,contact);
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}	
+	/**
+	 *  delete contact details.
+	 * @param contact contact
+	 */
+	public void deleteContact(Contact contact)
+	{
+		view.deleteContact(contact);
+		int index=getIndex(contact);
+		try
+		{
+			filerepo.deleteContact(index);
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	/**
+	 *  getname of the corresponding contact.
+	 * @param  contact contact
+	 * @return name
+	 */
+	public String getName(Contact contact)
+	{
+		String name=null;
+		ArrayList<Contact> contacts=null;
+		try
+		{
+			contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				name=contact.getName();
+			}
+		}
+		return name;
+	}
+	/**
+	 *  getnumber of the corresponding contact.
+	 * @param contact contact
+	 * @return num.
+	 */
+	public String getNo(Contact contact)
+	{
+		String num=null;
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				num=contact.getNo();
+			}
+		}
+		return num;
+	}
+	/**
+	 *  getid of the corresponding contact.
+	 * @param contact contact.
+	 * @return id.
+	 */
+	public int getId(Contact contact)
+	{
+		int id=0;
+		ArrayList<Contact> contacts=null;
+		try
+		{
+		contacts=filerepo.getAllContacts();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		for(int i=0;i<contacts.size();i++)
+		{
+			if(contact.equals(contacts.get(i)))
+			{
+				id=contact.getId();
+			}
+		}
+		return id;
+	}
+	/**
+	 *  delete all contacts from repository.
+	 */
+	public void deleteAllContacts()
+	{
+		try
+		{
+			filerepo.clearRepository();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	
+	}
 	public boolean isContinue()
 	{
 		boolean cont=view.isContinue();
