@@ -15,12 +15,6 @@ public class Menu
 		int month=(int)(Math.random()*12)+1;
 		return date;
 	}
-/*	public void menudetails()
-	{
-		Biriyani biriyani=new Biriyani();
-		Vegmeals vmeals=new Vegmeals();
-	}*/
-	
 	public void printdetails()
 	{
 		biriyani=new Biriyani();

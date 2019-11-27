@@ -1,12 +1,13 @@
 package com.lxisoft.hotel;
-public class Biriyani extends Food implements Nonveg
+public class Biriyani extends Food implements Nonveg,Veg
+
 {
 	String biriyani;
 	int price;
 
 	public void type()
 	{
-		biriyani="Chicken Biriyani";
+		biriyani="Biriyani";
 
 		price=90;
 		int no=1;
@@ -14,6 +15,10 @@ public class Biriyani extends Food implements Nonveg
 	}
 	public void nonveg()
 	{
-		System.out.println("Special hydrabad Biriyani");
+		System.out.println("Special hydrabad Chiken Biriyani");
+	}
+	public void vegitarien()
+	{
+		System.out.println("Special vegitable Biriyani");
 	}
 } 
