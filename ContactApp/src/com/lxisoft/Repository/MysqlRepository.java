@@ -1,5 +1,6 @@
 package com.lxisoft.Repository;
 import com.lxisoft.Repository.*;
+import com.lxisoft.Models.*;
 import com.lxisoft.Domain.*;
 
 import java.sql.*;
@@ -61,6 +62,7 @@ public class MysqlRepository implements Repository
 				stmt.setString(2,contact.getName());
 				stmt.setString(3,contact.getNo());
 				stmt.executeUpdate();
+				setId();
 				// System.out.println("contact added");
 			}
 			
@@ -111,6 +113,7 @@ public class MysqlRepository implements Repository
 	public  void setId()throws SQLException, ClassNotFoundException
 	{
 	
+					System.out.println("id  ");
 		try
 		{
 			contacts=getAllContacts();
@@ -127,7 +130,7 @@ public class MysqlRepository implements Repository
 				{
 					id=a.getId();
 				}
-		id++;
+		id++; 
 		}
 		
 		System.out.println("id=="+id);
@@ -158,32 +161,53 @@ public class MysqlRepository implements Repository
 			System.out.println(p);
 		}
 	}
-	public void sortByName()
+	public void sortByName()throws SQLException, ClassNotFoundException
   	{
-  		contacts=getAllContacts();
+  		try
+		{
+			contacts=getAllContacts();
+		}catch(Exception e)
+		{
+
+		}
+
 		Collections.sort(contacts, new SortByName());
 		clearAllContacts();
 		resetDataBase();
 
   	}
-  	public void sortById()
+  	public void sortById()throws SQLException, ClassNotFoundException
   	{
-  		contacts=getAllContacts();
+  		try
+		{
+			contacts=getAllContacts();
+		}catch(Exception e)
+		{
+
+		}
+
 		Collections.sort(contacts, new SortById());
 		clearAllContacts();
 		resetDataBase();
 
   	}
-  	public void sortByNumber()
+  	public void sortByNumber()throws SQLException, ClassNotFoundException
   	{
-  		contacts=getAllContacts();
+  		try
+		{
+			contacts=getAllContacts();
+		}catch(Exception e)
+		{
+
+		}
+
 		Collections.sort(contacts, new SortByNumber());
 		clearAllContacts();
 		resetDataBase();
 	}
-	public void resetDataBase()
+	public void resetDataBase()throws SQLException, ClassNotFoundException
 	{
-		for (Contact a:Contacts ) 
+		for (Contact a:contacts ) 
 		writeNewContact(a,false);			
 	}
   	

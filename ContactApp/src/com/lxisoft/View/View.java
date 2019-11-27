@@ -15,6 +15,7 @@ public class View
 	*to get the user option for the further process
 	*@return return user input
 	*/
+	static int select=1;
 	public String getUserOption()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -62,6 +63,7 @@ public class View
 	*/
 	public boolean viewAllContacts()
 	{
+		sorting(select);
 		ArrayList<ViewListModel>listView=control.viewAllContacts();
 		boolean contactsExist=false;
 		if(listView.size()==0)
@@ -217,15 +219,22 @@ public class View
 		control.clearAllContacts();
 		System.out.println(" All contacts deleted succesfully \n");
 	}
+	
 	public void sortContact()
 	{
-			Scanner sc=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
+		System.out.println(" enter : \t0 sort by Name  \t1 sort by ID  \t2 Sort by Number \t3 back to main ");
+				select=sc.nextInt();
+			
+		sorting(select);
+	}
+	public void sorting(int select)		
+	{	
 			int repeat=0,loop=0;
 			do
 			{
 				repeat=0;
-				System.out.println(" enter : \t0 sort by Name  \t1 sort by ID  \t2 Sort by Number \t3 back to main ");
-				int select=sc.nextInt();
+				
 				switch(select)
 				{
 					case 0: sortByName();break;

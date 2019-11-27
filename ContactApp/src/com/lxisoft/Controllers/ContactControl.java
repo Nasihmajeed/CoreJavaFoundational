@@ -11,7 +11,7 @@ import java.util.*;
 */
 public class ContactControl
 {
-	static public FileRepository repo=new FileRepository();
+	static public MysqlRepository repo=new MysqlRepository();
 	/**
 	*start method to select the repective view as per the user selection
 	*/
@@ -20,6 +20,7 @@ public class ContactControl
 		
 		try
 		{
+			System.out.println("ertyuiopoiuytrtyu");
 			repo.setId();
 		}catch(Exception e)
 		{
@@ -264,15 +265,39 @@ public class ContactControl
 	}
 	public void sortByName()
 	{
-		repo.sortByName();
+		try
+		{
+			repo.sortByName();
+		}catch(Exception e)
+		{
+
+		}
+
+		
 	}
 	public void sortById()
 	{
-		repo.sortById();
+		try
+		{
+			repo.sortById();
+		}catch(Exception e)
+		{
+
+		}
+
+		
 	}
 	public void sortByNumber()
 	{
-		repo.sortByNumber();
+		try
+		{
+			repo.sortByNumber();
+		}catch(Exception e)
+		{
+
+		}
+
+
 	}
 	public void moderateSerach(String name)
 	{
