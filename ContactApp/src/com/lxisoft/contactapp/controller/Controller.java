@@ -8,7 +8,7 @@ import java.util.*;
 */
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-Repository repo=new  Repository();
+FileRepository repo=new  FileRepository();
 View v=new View();
 /**
 *method for save contact

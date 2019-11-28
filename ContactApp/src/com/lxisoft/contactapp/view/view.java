@@ -11,7 +11,7 @@ public class View{
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-Repository repo=new Repository();
+FileRepository repo=new FileRepository();
 
 /**
 *method used to get data from user
@@ -82,18 +82,19 @@ else{
 */
 
 public String[] updateContact(String n){
-String[] temp=new String[2];
+String[] temp=new String[3];
  Contact c=repo.searchList(n);
 	if(c==null){
 		temp=null;
 		System.out.println("cannot edit");
     	 }
 	else{
-		
+		int a=c.getId();
+		temp[0]=Integer.toString(a);
 		System.out.println("Enter new name : ");
-		temp[0]=ss.next();
+		temp[1]=ss.next();
 		System.out.println("Enter new number : ");
-		temp[1]=ss.next();	
+		temp[2]=ss.next();	
 		System.out.println("(contact updated sucssesfully )");
     }
     return temp;

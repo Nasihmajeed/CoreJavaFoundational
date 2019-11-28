@@ -19,8 +19,6 @@ public static void main(String[] args) {
 	 switch(x){
 	 	case 1:control.save();
 	 			break;
-	 	//case 2:control.read();
-	 			//break;
 	 	case 2:control.search();
 	 			break;
 	 	case 3:control.sort();
