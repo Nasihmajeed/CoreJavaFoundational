@@ -51,38 +51,38 @@ public class ContactView
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println(" \n<---contact sort--->");
-		System.out.println(" 1:by name  \n 2:by number \n3:by Id ");
+		System.out.println(" 1:by name  \n 2:by number \n 3:by Id ");
 		System.out.println(" select your option	");
 		int option=sc.nextInt();
 		return option;
 	}
-	/**
-	 * view sortByname in contactlist.
-	 */
-	public void sortByName(ArrayList<Contact> contactlist)
-	{
-		System.out.println(" ID \t NAME \t NUMBER");
-		for(int i=0;i<contactlist.size();i++)
-		{
-			System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
-		}
-	}
-	public void sortByNumber(ArrayList<Contact> contactlist)
-	{
-		System.out.println(" ID \t NAME \t NUMBER");
-		for(int i=0;i<contactlist.size();i++)
-		{
-			System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
-		}
-	}
-	public void sortById(ArrayList<Contact> contactlist)
-	{
-		System.out.println(" ID \t NAME \t NUMBER");
-		for(int i=0;i<contactlist.size();i++)
-		{
-			System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
-		}
-	}
+	// /**
+	//  * view sortByname in contactlist.
+	//  */
+	// public void sortByName(ArrayList<Contact> contactlist)
+	// {
+	// 	System.out.println(" ID \t NAME \t NUMBER");
+	// 	for(int i=0;i<contactlist.size();i++)
+	// 	{
+	// 		System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
+	// 	}
+	// }
+	// public void sortByNumber(ArrayList<Contact> contactlist)
+	// {
+	// 	System.out.println(" ID \t NAME \t NUMBER");
+	// 	for(int i=0;i<contactlist.size();i++)
+	// 	{
+	// 		System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
+	// 	}
+	// }
+	// public void sortById(ArrayList<Contact> contactlist)
+	// {
+	// 	System.out.println(" ID \t NAME \t NUMBER");
+	// 	for(int i=0;i<contactlist.size();i++)
+	// 	{
+	// 		System.out.println(contactlist.get(i).getId()+"\t"+contactlist.get(i).getName()+"\t"+contactlist.get(i).getNo()+"\n");
+	// 	}
+	// }
 	/**
 	 * show All ContactDetails 
 	 * @param contacts

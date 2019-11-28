@@ -15,9 +15,9 @@ public class FileRepo implements Repository
 /**
  * instance variable Arraylist based on domain and entity id ,a File name to store the path of the file specified.
  */
- 	String file="E:\\PUSHKALA\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactapp\\repository\\ContactFile.csv";
-	File contactFile=new File(file);
-	static int id;
+ 	String filePath="E:\\PUSHKALA\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\contactapp\\repository\\ContactFile.csv";
+	File contactFile=new File(filePath);
+	static int id=0;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 	/**
 	 * getAllContacts from file.

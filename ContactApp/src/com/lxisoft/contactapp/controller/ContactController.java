@@ -76,24 +76,25 @@ public class ContactController
 		getDBConnection();
 		try
 		{
-		contacts=repo.getAllContacts();
+			sortContact(sort_option);
+			contacts=repo.getAllContacts();
+			ContactsListModel contact=new ContactsListModel();
+			if(contacts!=null)
+			{
+				for(int i=0;i<contacts.size();i++)
+				{
+					ContactModel contactmodel=new ContactModel();
+					contactmodel.setId(contacts.get(i).getId());
+					contactmodel.setName(contacts.get(i).getName());
+					contact.setAllContacts(contactmodel);
+				}
+
+				contactlist=contact.getAllContacts();
+				view.showAllContacts(contactlist);
+			}
 		}catch(SQLException  e)
 		{
 			e.printStackTrace();
-		}
-		ContactsListModel contact=new ContactsListModel();
-		if(contacts!=null)
-		{
-			for(int i=0;i<contacts.size();i++)
-			{
-				ContactModel contactmodel=new ContactModel();
-				contactmodel.setId(contacts.get(i).getId());
-				contactmodel.setName(contacts.get(i).getName());
-				contact.setAllContacts(contactmodel);
-			}
-
-			contactlist=contact.getAllContacts();
-			view.showAllContacts(contactlist);
 		}
 	}
 	/**
@@ -179,6 +180,10 @@ public class ContactController
 	public void sortContactDetails()
 	{
 		sort_option=view.viewSortedDetails();
+		sortContact(sort_option);
+	}
+	public void sortContact(int sort_option)
+	{
 		switch(sort_option)
 		{
 			case 1: sortByName();break;
@@ -194,7 +199,7 @@ public class ContactController
 		try
 		{
 			ArrayList<Contact> contacts=repo.sortContactByName();
-			view.sortByName(contacts);
+			//view.sortByName(contacts);
 		}catch(SQLException e)
 		{
 			System.out.println("error"+e);
@@ -208,7 +213,7 @@ public class ContactController
 		try
 		{
 			ArrayList<Contact> contacts=repo.sortContactByNumber();
-			view.sortByNumber(contacts);
+			//view.sortByNumber(contacts);
 		}catch(SQLException e)
 		{
 			System.out.println("error"+e);
@@ -222,7 +227,7 @@ public class ContactController
 		try
 		{
 			ArrayList<Contact> contacts=repo.sortContactById();
-			view.sortByNumber(contacts);
+			//view.sortByNumber(contacts);
 		}catch(SQLException e)
 		{
 			System.out.println("error"+e);
