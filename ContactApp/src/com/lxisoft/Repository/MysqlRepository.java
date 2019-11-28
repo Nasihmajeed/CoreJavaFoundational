@@ -11,7 +11,7 @@ public class MysqlRepository implements Repository
 	static Connection con =null;
 	static PreparedStatement stmt=null;
 	static ResultSet rs=null;
-	static int id=1;
+	static int id=0;
 	static Statement stm=null;
 	ArrayList<Contact> contacts=new ArrayList<Contact> (); 
 	static
@@ -19,7 +19,7 @@ public class MysqlRepository implements Repository
 		try
 		{
 			connection();
-			System.out.println("static block mysql");
+			// System.out.println("static block mysql");
 		}catch(Exception p)
 		{
 			System.out.println("error"+p);
@@ -33,10 +33,77 @@ public class MysqlRepository implements Repository
 		con = DriverManager.getConnection(connectionName,"root","root");
 		stm=con.createStatement();
 		System.out.println("Connection registered");
+		// checkDatabase();
+		// checkTable();
+	//System.out.println(connectionName+dataBase);
+
 		}
 		catch(ClassNotFoundException e)
 		{
 		System.out.println("errororo");
+		}
+	}
+	public static void checkDatabase()throws SQLException,ClassNotFoundException
+	{
+		try
+		{
+			if(con != null)
+			{
+				
+				System.out.println("check if a database exists using java");
+
+				rs = con.getMetaData().getCatalogs();
+
+				while(rs.next())
+				{
+					String catalogs = rs.getString("Table_CAT");
+					System.out.println(catalogs+ " catalog..");
+					
+					if(dataBase.equals(catalogs)){
+						System.out.println("the database "+dataBase+" exists");
+					}
+					else
+					{
+						int Result = stm.executeUpdate("CREATE DATABASE "+dataBase);
+
+					}	
+				}
+						con = DriverManager.getConnection(connectionName+dataBase,"root","root");
+						
+						// Statement s=con.createStatement();
+						// s.executeQuery("use contact");
+						// s.excecute();
+			}
+		}catch(Exception e)
+		{
+
+		}
+	}
+	public static void checkTable()
+	{
+		boolean exist=false;
+		try
+		{
+			rs=con.getMetaData().getTables(null,null,"tab",null);
+			if(rs.next())
+			{
+				exist=true;
+			}
+			System.out.println(" exist"+exist);
+			if(exist)
+			{
+				System.out.println("Table exist");
+			}
+			else
+			{
+				stmt=con.prepareStatement("create table tab(ID int(4), NAME  varchar(20), NUMBER varchar(50))");
+				stmt.execute();
+				System.out.println("Table created succesfully");
+			}
+		}catch(Exception e)
+		{
+				System.out.println(e+"Table creation errror");
+
 		}
 	}
 	public void writeNewContact(Contact contact,boolean write)throws SQLException, ClassNotFoundException
@@ -45,6 +112,7 @@ public class MysqlRepository implements Repository
 		{
 			// stmt=con.prepareStatement("use tab");
 			// setId();
+		// System.out.println("erroro"+contact.getName());
 			if (write)
 			{
 				stmt=con.prepareStatement("insert into tab values(?,?,?)");
@@ -52,7 +120,7 @@ public class MysqlRepository implements Repository
 				stmt.setString(2,contact.getName());
 				stmt.setString(3,contact.getNo());
 				stmt.executeUpdate();
-				// System.out.println("contact added");
+				// System.out.println(" added");
 				id++;
 			}
 			else
@@ -62,8 +130,8 @@ public class MysqlRepository implements Repository
 				stmt.setString(2,contact.getName());
 				stmt.setString(3,contact.getNo());
 				stmt.executeUpdate();
-				setId();
-				// System.out.println("contact added");
+				
+				// System.out.println("contact");
 			}
 			
 		}catch(Exception p)
@@ -104,7 +172,7 @@ public class MysqlRepository implements Repository
 			stmt.setString(2,contact.getNo());
 			stmt.setInt(3,contact.getId());
 			stmt.executeUpdate();
-			System.out.println("contact added");
+			// System.out.println("contact added");
 		}catch(Exception p)
 		{
 			System.out.println(p);
@@ -113,10 +181,10 @@ public class MysqlRepository implements Repository
 	public  void setId()throws SQLException, ClassNotFoundException
 	{
 	
-					System.out.println("id  ");
+		// id=0;			System.out.println("id  ");
 		try
 		{
-			contacts=getAllContacts();
+		
 		}catch(Exception e)
 		{
 
@@ -130,10 +198,12 @@ public class MysqlRepository implements Repository
 				{
 					id=a.getId();
 				}
-		id++; 
+		// System.out.println(" id==i "+a.getId());
 		}
+		id++; 
 		
-		System.out.println("id=="+id);
+		// System.out.println(contacts.size()+"===size id=="+id);
+		return ;
 		
 	}
 	public void deleteContact(int i)throws SQLException, ClassNotFoundException
@@ -153,8 +223,8 @@ public class MysqlRepository implements Repository
 	{
 		try
 		{
-			id=1;
-			stmt=con.prepareStatement("truncate table tab");
+			id=0;
+			stmt=con.prepareStatement("delete from tab");
 			stmt.executeUpdate();
 		}catch(Exception p)
 		{
@@ -166,14 +236,15 @@ public class MysqlRepository implements Repository
   		try
 		{
 			contacts=getAllContacts();
+		Collections.sort(contacts, new SortByName());
+		clearAllContacts();
+		resetDataBase();
 		}catch(Exception e)
+		// System.out.println("     "+a.getName());			
 		{
 
 		}
 
-		Collections.sort(contacts, new SortByName());
-		clearAllContacts();
-		resetDataBase();
 
   	}
   	public void sortById()throws SQLException, ClassNotFoundException
@@ -181,14 +252,15 @@ public class MysqlRepository implements Repository
   		try
 		{
 			contacts=getAllContacts();
+		Collections.sort(contacts, new SortById());
+		
+		clearAllContacts();
+		resetDataBase();
 		}catch(Exception e)
 		{
 
 		}
 
-		Collections.sort(contacts, new SortById());
-		clearAllContacts();
-		resetDataBase();
 
   	}
   	public void sortByNumber()throws SQLException, ClassNotFoundException
@@ -196,19 +268,29 @@ public class MysqlRepository implements Repository
   		try
 		{
 			contacts=getAllContacts();
+		Collections.sort(contacts, new SortByNumber());
+		clearAllContacts();
+		resetDataBase();
 		}catch(Exception e)
 		{
 
 		}
 
-		Collections.sort(contacts, new SortByNumber());
-		clearAllContacts();
-		resetDataBase();
 	}
 	public void resetDataBase()throws SQLException, ClassNotFoundException
 	{
-		for (Contact a:contacts ) 
-		writeNewContact(a,false);			
+		try
+		{
+		// for(Contact a: contacts)
+			for (int i=0;i<contacts.size();i++) 
+			{
+				// System.out.println(contacts.size()+"=size "+i+"i  "+contacts.get(i).getName());			
+				writeNewContact(contacts.get(i),false);
+			}
+		}catch(Exception e)
+		{
+
+		}setId();
 	}
   	
 }

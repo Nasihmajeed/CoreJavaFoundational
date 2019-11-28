@@ -20,7 +20,7 @@ public class ContactControl
 		
 		try
 		{
-			System.out.println("ertyuiopoiuytrtyu");
+			// System.out.println("ertyuiopoiuytrtyu");
 			repo.setId();
 		}catch(Exception e)
 		{

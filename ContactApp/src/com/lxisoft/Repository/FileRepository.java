@@ -13,7 +13,7 @@ public class FileRepository implements Repository
 {
 	File file=new File(fileName);
 	ArrayList<Contact> contacts =new ArrayList<Contact>();
-	static int id;
+	static int id=1;
 	/**
 	*method to write the contact details to file
 	*@param contact contact to write

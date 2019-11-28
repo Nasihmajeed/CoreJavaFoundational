@@ -63,7 +63,7 @@ public class View
 	*/
 	public boolean viewAllContacts()
 	{
-		sorting(select);
+		sorting();
 		ArrayList<ViewListModel>listView=control.viewAllContacts();
 		boolean contactsExist=false;
 		if(listView.size()==0)
@@ -226,9 +226,9 @@ public class View
 		System.out.println(" enter : \t0 sort by Name  \t1 sort by ID  \t2 Sort by Number \t3 back to main ");
 				select=sc.nextInt();
 			
-		sorting(select);
+		sorting();
 	}
-	public void sorting(int select)		
+	public void sorting()		
 	{	
 			int repeat=0,loop=0;
 			do
