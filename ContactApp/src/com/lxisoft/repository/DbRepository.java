@@ -20,8 +20,11 @@ public class DbRepository implements Repository
 		{			
 			Class.forName("com.mysql.jdbc.Driver"); 
 			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/contact","root","root");
+			Statement s=connection.createStatement();
+			s.executeUpdate("create table if not exists contactList (ID int,NAME varchar(25),NUMBER varchar(15))");
 			ps=connection.prepareStatement("insert into contactList (ID,NAME,NUMBER) values(?,?,?)");
 			ResultSet rs=ps.executeQuery("select * from contactList");
+
 			while(rs.next())
 			{
 				Contact contact=new Contact();
