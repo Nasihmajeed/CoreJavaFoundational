@@ -1,9 +1,15 @@
-/*import com.lxisoft.hotel.FoodItems;*/
-import java.util.*;
+package com.lxisoft.hotel;
+import com.lxisoft.hotel.FoodItems;
+import java.util.Scanner;
 public class Hotel
 {
 	String name,place;
 	public FoodItems[] food;
+	public Hotel(String name,String place)
+	{
+		this.name=name;
+		this.place=place;
+	}
 		public void menu()
 		{
 			food=new FoodItems[10];

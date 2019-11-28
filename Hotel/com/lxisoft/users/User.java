@@ -1,6 +1,6 @@
-/*package com.lxisoft.users;*/
+package com.lxisoft.users;
 import com.lxisoft.hotel.Hotel;
-import java.util.*;
+import java.util.Scanner;
 public class User
 {
 	String name;
@@ -28,24 +28,18 @@ public void users()
 			i++;
 			System.out.println("Do you want to select more \n1.yes \n2.No");
 			c=scan.nextInt();
-
-
-
-
-
-		
-		}while(c==1);
-		System.out.println("\t***BILL****");
-    	for(i=0;i<10;i++)
-    		if(billarr[i]!=0)
-    		{
-    		System.out.println("\t"+hotel.food[billarr[i]-1].name);
-			System.out.println("\t\t"+hotel.food[billarr[i]-1].price);
-			sum=sum+hotel.food[billarr[i]-1].price;
-
-
+			}while(c==1);
+		     System.out.println("\t***BILL****");
+    	    for(i=0;i<10;i++)
+    	    {
+    			if(billarr[i]!=0)
+    			{
+    				System.out.println("\t"+hotel.food[billarr[i]-1].name);
+					System.out.println("\t\t"+hotel.food[billarr[i]-1].price);
+					sum=sum+hotel.food[billarr[i]-1].price;
+				}
 			}
-			System.out.println("Total price " +sum);
+				System.out.println("Total price " +sum);
 
 		}
 }

@@ -1,21 +1,21 @@
-/*package com.lxisoft.hotel;
+package com.lxisoft.hotel;
 import com.lxisoft.users.Admin;
-import com.lxisoft.users.User;*/
+import com.lxisoft.users.User;
 import java.util.Scanner;
 public class Sample
 {
 	public void test()
 	{
-		Hotel hotel = new Hotel();
+		Hotel hotel = new Hotel("CafeIn","Thodupuzha");
 		hotel.menu();
-		details();
+		details(hotel);
 		login(hotel);
 	}
-	void details()
+	void details(Hotel hotel)
 	{
-		System.out.println("\tWelcome to **CafeIn**");
-		System.out.println("\tPlace: Thodupuzha");
-		System.out.println("\t***************");
+		System.out.println("\t*****Welcome to"+hotel.name+"*****");
+		System.out.println("\t\t"+hotel.place);
+		
 
 	}
 	void login(Hotel hotel)

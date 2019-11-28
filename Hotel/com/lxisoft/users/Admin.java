@@ -1,5 +1,5 @@
-/*package com.lxisoft.users;
-import com.lxisoft.hotel.Hotel;*/
+package com.lxisoft.users;
+import com.lxisoft.hotel.Hotel;
 import java.util.*;
 public class Admin
 {
@@ -80,13 +80,10 @@ public class Admin
 										switch(c)
 										{
 											case 1:
-											    System.out.println("Add");
-												System.out.println("Enter the FoodName");
-												hotel.food[i].name=scan.next();
-												System.out.println("Enter the price");
-												hotel.food[i].price=scan.nextInt();
+													addExist(hotel,i);
 												b = true;
 												break; 
+										
 											case 2:
 												hotel.getMenu();
 												adminChoice(hotel);
@@ -100,6 +97,30 @@ public class Admin
 								}
 							}while(b);
 
+				}
+				void addExist(Hotel hotel,int i)
+				{
+												boolean test=true;
+												Scanner scan=new Scanner(System.in);
+											    System.out.println("Add");
+												System.out.println("Enter the FoodName");
+												String newfood=scan.next();
+												System.out.println("Enter the price");
+												int newprice=scan.nextInt();
+												for(int j=0;j<hotel.food.length;j++)
+												{
+													if(newfood.equals(hotel.food[j].name))
+													{
+														System.out.println("Already exists");
+														test=false;
+													}
+												}
+												if(test)
+												{
+													hotel.food[i].name=newfood;
+													hotel.food[i].price=newprice;
+													
+												}
 				}			
 
 

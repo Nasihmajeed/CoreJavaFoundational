@@ -1,4 +1,4 @@
-/*package com.lxisoft.test;*/
+package com.lxisoft.test;
 import com.lxisoft.hotel.Sample;
 public class Tdd{
 	public static void main(String[] args) {
