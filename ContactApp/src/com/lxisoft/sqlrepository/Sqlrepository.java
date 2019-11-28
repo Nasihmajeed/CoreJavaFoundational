@@ -10,6 +10,7 @@ public class Sqlrepository implements Repository
 {
 	String drivername = "com.mysql.jdbc.Driver"; 
 	String connectionname = ("jdbc:mysql://localhost:3306/abhijith","root","root");
+	
 	public void connection()
 	{
 		try
@@ -22,5 +23,9 @@ public class Sqlrepository implements Repository
         	System.out.println(e);
         }                             
 	}
-	
+	public void create()
+	{
+		
+	}
+
 }

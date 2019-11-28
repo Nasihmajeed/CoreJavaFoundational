@@ -105,9 +105,9 @@ public class View
 	{
 		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
 		contactDetail=con.fileRead();
-		for(int i=0; i < contactDetail.size();i++)
+		for(Contact i : contactDetail)
 		      {
-			     System.out.println(" NAME:"+contactDetail.get(i).getName()+" NUMBER:"+contactDetail.get(i).getNumber());
+			     System.out.println(" NAME:"+i.getName()+" NUMBER:"+i.getNumber());
 		      }
 
 	}
@@ -115,9 +115,9 @@ public class View
 	{
 		ArrayList<Contact>arrayList=con.fileRead();
 		Collections.sort(arrayList, new SortName()); 
-		for(int i=0; i <arrayList.size();i++)
+		for(Contact i : arrayList)
 		{
-		   System.out.println( "NAME:"+arrayList.get(i).getName()+" NUMBER:"+arrayList.get(i).getNumber());
+		   System.out.println( "NAME:"+i.getName()+" NUMBER:"+i.getNumber());
 		}
 		
 	}
@@ -125,9 +125,9 @@ public class View
 	{
 		ArrayList<Contact>arrayList=con.fileRead();
 		Collections.sort(arrayList, new SortId()); 
-		for(int i=0; i <arrayList.size();i++)
+		for(Contact i : arrayList)
 		{
-		   System.out.println(" ID:"+arrayList.get(i).getId()+" NAME:"+arrayList.get(i).getName());
+		   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
 		}
 	}
 	public void edit(int i,int id)

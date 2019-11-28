@@ -77,9 +77,9 @@ public class Controller
          contactList.set(i,contact);
          rep.clearFile();
 		//System.out.println(contact.getId()+"****");
-		 for(int j=0; j<contactList.size();j++)
+		 for(Contact j : contactList)
 		 {
-		 	 rep.fileWrite(contactList.get(j),false);
+		 	 rep.fileWrite(j,false);
 		 }	
 		 choice();
 	
@@ -92,9 +92,9 @@ public class Controller
 	    contactList.remove(i);	
 	    rep.clearFile();
 		
-		 for(int j=0; j<contactList.size();j++)
+		for(Contact j : contactList)
 		 {
-		 	 rep.fileWrite(contactList.get(j),false);
+		 	 rep.fileWrite(j,false);
 		 }
 		 choice();
 
