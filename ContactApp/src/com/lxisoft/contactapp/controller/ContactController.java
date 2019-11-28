@@ -16,13 +16,15 @@ public class ContactController
 	/**
 	 * instance variables filerepo and view.
 	 */
-	private Repository filerepo=new Repository();
+	private MySqlRepo repo=new MySqlRepo();
+	//private FileRepo repo=new FileRepo();
 	private ContactView view=new ContactView();
+	static int sort_option=1;
 	public void getDBConnection()
 	{
 		try
 		{
-		filerepo.dB_Connection();
+		repo.dB_Connection();
 		}catch(Exception e)
 		{
 			System.out.println("error "+e);
@@ -50,21 +52,18 @@ public class ContactController
 						case 1:		addNewContact();break;
 						case 2:		searchContact();break;	
 						case 3:		getAllContactDetails();break;
-						//case 4:		sortContactDetails();break;
+						case 4:		sortContactDetails();break;
 						case 5:		deleteAllContacts();break;
 						default:	System.out.println("Enter the correct option!");
 									default_option=1;break;
 					}cont=isContinue();
-					// System.out.println("Do you want to continue ? Y/N");
-					// continueOpt=sc.next().charAt(0);
 			}while(default_option==1|cont);
 		}
 		catch(NullPointerException |NumberFormatException e)
 		{
-			// Contact contact=getContactByName(userChoice);
-			// if(contact.getName()!=null)updateContact(contact);
-			// else moderateSearch(userChoice);
-			////System.out.println("exception occured " +e +sc.nextLine());
+			Contact contact=getContactByName(userChoice);
+			if(contact.getName()!=null)updateContact(contact);
+			else moderateSearch(userChoice);
 		}
 	}
 	/**
@@ -77,7 +76,7 @@ public class ContactController
 		getDBConnection();
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException  e)
 		{
 			e.printStackTrace();
@@ -92,6 +91,7 @@ public class ContactController
 				contactmodel.setName(contacts.get(i).getName());
 				contact.setAllContacts(contactmodel);
 			}
+
 			contactlist=contact.getAllContacts();
 			view.showAllContacts(contactlist);
 		}
@@ -107,8 +107,9 @@ public class ContactController
 		contact.setNo(contacts[1]);
 		try
 		{
-		filerepo.addContactDetails(contact);
-		}catch(SQLException e)
+			repo.addContactDetails(contact);
+		}
+		catch(SQLException e)
 		{
 			System.out.println("error"+e);
 		}
@@ -125,29 +126,37 @@ public class ContactController
 			case 2: getContactByName();break;
 		}
 	}
-	// /**
-	//  *  getAllContacts on the basis of contain Alphabets that we are enter
-	//  */
-	// public void moderateSearch(String name)
-	// {
-	// 	ArrayList<Contact> contacts=filerepo.getAllContacts();
-	// 	ArrayList<Contact>searchList= new ArrayList<Contact>();
-	// 	for(Contact contact:contacts)
-	// 	{
-	// 		if((contact.getName()).contains(name))
-	// 		{
-	// 			searchList.add(contact);
-	// 		}
-	// 	}
-	// 	if(searchList!=null)
-	// 	{
-	// 		view.moderateSearchDisplay(searchList);
-	// 		searchContact();
-	// 		isContinue(); 
-	// 	}
-	// 	// else{ view.noSuchContacts();isContinue();
-	// 	// }
-	// }
+	/**
+	 *  getAllContacts on the basis of contain Alphabets that we are enter
+	 */
+	public void moderateSearch(String name)
+	{
+		ArrayList<Contact> contacts=null;
+		try{
+		contacts=repo.getAllContacts();
+		}catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+		ArrayList<Contact>searchList= new ArrayList<Contact>();
+		for(Contact contact:contacts)
+		{
+			if((contact.getName()).contains(name))
+			{
+				searchList.add(contact);
+			}
+		}
+		if(searchList!=null)
+		{
+			boolean cont;
+			view.moderateSearchDisplay(searchList);
+			searchContact();
+			cont=isContinue();
+			if(cont) getAllcontactInfo();
+		}
+		// else{ view.noSuchContacts();isContinue();
+		// }
+	}
 	/**
 	 *  getAllContacts (all contact details) from file to arraylist.
 	 */
@@ -156,7 +165,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-			contacts=filerepo.getAllContacts();
+			contacts=repo.getAllContacts();
 			view.showAllContactDetails(contacts);
 		}catch(SQLException e)
 		{
@@ -167,58 +176,58 @@ public class ContactController
 	 *  sort contacts .
 	 */
 	
-	// public void sortContactDetails()
-	// {
-	// 	int option=view.viewSortedDetails();
-	// 	switch(option)
-	// 	{
-	// 		case 1: sortByName();break;
-	// 		case 2: sortByNumber();break;
-	// 		case 3:	sortById();break;
-	// 	}
-	// }
-	// /**
-	//  *  sort contacts ByName.
-	//  */
-	// public void sortByName()
-	// {
-	// 	try
-	// 	{
-	// 		ArrayList<Contact> contacts=filerepo.sortContactByName();
-	// 		view.sortByName(contacts);
-	// 	}catch(SQLException e)
-	// 	{
-	// 		System.out.println("error"+e);
-	// 	}
-	// }
-	// /**
-	//  *  sort contacts ByNumber.
-	//  */
-	// public void sortByNumber()
-	// {
-	// 	try
-	// 	{
-	// 		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
-	// 		view.sortByNumber(contacts);
-	// 	}catch(SQLException e)
-	// 	{
-	// 		System.out.println("error"+e);
-	// 	}
-	// }
-	// /**
-	//  *  sort contacts id.
-	//  */
-	// public void sortById()
-	// {
-	// 	try
-	// 	{
-	// 		ArrayList<Contact> contacts=filerepo.sortContactByNumber();
-	// 		view.sortByNumber(contacts);
-	// 	}catch(SQLException e)
-	// 	{
-	// 		System.out.println("error"+e);
-	// 	}
-	// }
+	public void sortContactDetails()
+	{
+		sort_option=view.viewSortedDetails();
+		switch(sort_option)
+		{
+			case 1: sortByName();break;
+			case 2: sortByNumber();break;
+			case 3:	sortById();break;
+		}
+	}
+	/**
+	 *  sort contacts ByName.
+	 */
+	public void sortByName()
+	{
+		try
+		{
+			ArrayList<Contact> contacts=repo.sortContactByName();
+			view.sortByName(contacts);
+		}catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+	}
+	/**
+	 *  sort contacts ByNumber.
+	 */
+	public void sortByNumber()
+	{
+		try
+		{
+			ArrayList<Contact> contacts=repo.sortContactByNumber();
+			view.sortByNumber(contacts);
+		}catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+	}
+	/**
+	 *  sort contacts id.
+	 */
+	public void sortById()
+	{
+		try
+		{
+			ArrayList<Contact> contacts=repo.sortContactById();
+			view.sortByNumber(contacts);
+		}catch(SQLException e)
+		{
+			System.out.println("error"+e);
+		}
+	}
 
 	// /**
 	//  *  get contact by id from repository.
@@ -229,7 +238,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -312,7 +321,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -341,7 +350,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -370,7 +379,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -399,7 +408,7 @@ public class ContactController
 		contact.setNo(number);
 		try
 		{
-			filerepo.updateRepo(i,contact);
+			repo.updateRepo(i,contact);
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -415,7 +424,7 @@ public class ContactController
 		int index=getIndex(contact);
 		try
 		{
-			filerepo.deleteContact(index);
+			repo.deleteContact(index);
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -432,7 +441,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-			contacts=filerepo.getAllContacts();
+			contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -457,7 +466,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -482,7 +491,7 @@ public class ContactController
 		ArrayList<Contact> contacts=null;
 		try
 		{
-		contacts=filerepo.getAllContacts();
+		contacts=repo.getAllContacts();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -503,7 +512,7 @@ public class ContactController
 	{
 		try
 		{
-			filerepo.clearRepository();
+			repo.clearRepository();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
