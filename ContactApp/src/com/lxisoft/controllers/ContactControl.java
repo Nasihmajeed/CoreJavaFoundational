@@ -11,8 +11,8 @@ public class ContactControl
  * class controller
  */
     FileRepository repository=new FileRepository();
-    ContactView view=new ContactView();
     MysqlRepository myrepo=new MysqlRepository();
+    ContactView view=new ContactView();
    /**
  * to get all contacts
  */
@@ -98,7 +98,7 @@ public class ContactControl
     	c=view.addContact();
         repository.create(c);
         myrepo.create();
-        myrepo.insert();
+        // c=myrepo.insertContact(c);
     }
      /**
  * delete contact
@@ -118,6 +118,7 @@ public class ContactControl
         {
             repository.rewriteFile(contactList.get(i));
         }
+        myrepo.deleteContact(d);
         view.deleteContact();
     }
      /**
@@ -144,6 +145,7 @@ public class ContactControl
         {
             repository.rewriteFile(contactList.get(i));
         }
+        // myrepo.updateContact(c);
     }
      /**
  * search a contact 

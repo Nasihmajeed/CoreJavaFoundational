@@ -7,7 +7,7 @@ import java.io.*;
 public class MysqlRepository implements Repository
 {
 	List<Contact>contactList=new ArrayList<Contact>();
-	Contact contact;
+	Contact c;
 	PreparedStatement stmt=null;
 	Connection conn=null;
 	public void connectionDB()
@@ -35,15 +35,39 @@ public class MysqlRepository implements Repository
  			e.printStackTrace();
  		}
  	}
-				
- 	public void insert()
+	
+	public List<Contact> getAllContact()
+	{
+		connectionDB();
+		try
+		{
+			contactList.clear();
+			Statement smt=conn.createStatement();
+			ResultSet rs=smt.executeQuery("select * from Contactlist");
+			while(rs.next())
+			{
+				Contact c=new Contact();
+				c.setId(rs.getString("ID"));
+				c.setName(rs.getString("NAME"));	
+				c.setContactNo(rs.getString("NUMBER"));
+				contactList.add(c);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return contactList; 
+	}
+
+ 	public List<Contact> insertContact()
  	{
  		try
  		{
-	 		stmt=conn.prepareStatement("insert into contactList values(?,?,?)");
-	 		stmt.setString(1,contact.getId());
-	 		stmt.setString(2,contact.getName());
-	 	    stmt.setString(3,contact.getContactNo());
+	 		stmt=conn.prepareStatement("insert into Contactlist values(?,?,?)");
+	 		stmt.setString(1,c.getId());
+	 		stmt.setString(2,c.getName());
+	 	    stmt.setString(3,c.getContactNo());
 	 		stmt.executeUpdate();
 	 		System.out.println("Successfully Inserted");
  		}
@@ -51,5 +75,35 @@ public class MysqlRepository implements Repository
  		{
  			System.out.println("Insert Failed");
  		}
+ 		return contactList;
  	}
+
+ 	public void updateContact()
+ 	{
+ 		try
+ 		{
+	 		stmt=conn.prepareStatement("update Contactlist set SentOn=? where id=?");
+	 		stmt.setString(1,c.getContactNo());
+	 		stmt.setString(2,c.getId());
+	 	    stmt.executeUpdate();
+	 		System.out.println("Successfully Updated");
+ 		}
+ 		catch(Exception e)
+ 		{
+ 			System.out.println("Updation Failed");
+ 		}
+ 	}
+ 	public void deleteContact(String d)
+	{
+		try
+		{
+			stmt=conn.prepareStatement("delete from Contactlist where id=?");
+			stmt.setString(1,d);
+			stmt.execute();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

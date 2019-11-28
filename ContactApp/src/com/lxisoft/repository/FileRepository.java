@@ -16,20 +16,20 @@ public class FileRepository implements Repository
 	FileWriter f=null;
 	BufferedWriter bw=null;
 	static  int id=0;
-	private List<Contact>contactList=new ArrayList<Contact>();
+	List<Contact>contactList=new ArrayList<Contact>();
 	
-	public void setContactList(List<Contact>contactList)
-	{
-		this.contactList=contactList;
-	}
-	public List<Contact> getContactList()
-	{
-		return contactList;
-	}
-	public int getContactListSize()
-	{
-		return contactList.size();
-	}
+	// public void setContactList(List<Contact>contactList)
+	// {
+	// 	this.contactList=contactList;
+	// }
+	// public List<Contact> getContactList()
+	// {
+	// 	return contactList;
+	// }
+	// public int getContactListSize()
+	// {
+	// 	return contactList.size();
+	// }
 
  /**
  * file write
