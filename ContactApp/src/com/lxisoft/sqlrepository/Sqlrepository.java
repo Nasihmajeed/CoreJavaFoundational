@@ -19,7 +19,8 @@ public class Sqlrepository implements Repository
         }  
         catch(Exception e)
         {
-
+        	System.out.println(e);
         }                             
 	}
+	
 }

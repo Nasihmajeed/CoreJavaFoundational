@@ -118,7 +118,7 @@ public class Filerepository implements Repository
 	
 	
 
-	public int getArraySize()
+	public int getArraysize()
 	{
 		return array.size();
 	}
@@ -134,8 +134,5 @@ public class Filerepository implements Repository
 		}
 		
 	}
-	public void editContact()
-	{
-
-	}
+	
 }

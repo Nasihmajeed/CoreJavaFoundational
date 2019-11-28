@@ -21,10 +21,6 @@ public class View
 		n = Integer.parseInt(read.next());	
 		
 		}while(n==1 && n==2 && n==3 && n ==4);
-		 if(n==4)
-		 {
-		 	System.out.println("ALL CONTACTS DELETED");
-		 }
 
 	   }
 	    catch(Exception e)
@@ -165,7 +161,7 @@ public class View
 		 switch(choice)
 		 {
 		 	case "y": con.deleteAll();
-		 	          //System.out.println("All contacts deleted ");
+		 	          System.out.println("All contacts deleted ");
 		 	          break;
 		 	case "n" : con.choice(); break;
 		 	default : con.choice();

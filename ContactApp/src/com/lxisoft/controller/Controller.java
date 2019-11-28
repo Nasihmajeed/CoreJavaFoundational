@@ -12,7 +12,7 @@ public class Controller
 	//Repository rep = new Sqlrepository();
 	Repository rep = new Filerepository();
 	View view = new View();
-	public List <Contact> contactList = new ArrayList<Contact>();
+	public ArrayList <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
 	{
 		view.dateDisplay();
@@ -115,7 +115,7 @@ public class Controller
 	
 	public int getArraySize()
 	{
-		return rep.getArraySize();
+		return rep.getArraysize();
 	}
 	public String getName()
 	{
