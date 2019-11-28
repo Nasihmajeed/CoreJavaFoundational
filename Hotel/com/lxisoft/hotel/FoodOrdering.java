@@ -11,7 +11,7 @@ public class FoodOrdering
 	public void booking()
 	{
 		scanner = new Scanner(System.in);
-		hotel = new Hotel();
+		hotel = new Hotel("Arya Bhavan","Ottapalam");
 		hotel.setProduct(hotel.foodProduct);
 		adminUser(hotel);
 	}
@@ -37,7 +37,8 @@ public class FoodOrdering
 				if(setPassword==password)
 				{
 					System.out.println("$$$ Successfully Login $$$");
-					setHotel(hotel);
+					System.out.println("Hotel Name : "+hotel.name);
+					System.out.println("Place : "+hotel.place);
 					admin.crud(hotel);		
 				}
 				else
@@ -53,18 +54,5 @@ public class FoodOrdering
 		{
 			user.bill(hotel);
 		}
-	}
-	public void setHotel(Hotel hotel)
-	{
-		System.out.println("Enter The hotel Name ");
-		hotel.setName(scanner.next());
-		System.out.println("Enter the Place");
-		hotel.setPlace(scanner.next());
-		getHotel(hotel);
-	}
-	public void getHotel(Hotel hotel)
-	{
-		 System.out.println("Hotel Name : "+hotel.getName());
-		 System.out.println("Hotel Place : "+hotel.getPlace());
 	}
 }

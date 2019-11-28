@@ -99,31 +99,28 @@ public class Admin
 		int numb = scanner.nextInt();
 			switch(numb)
 			{
-				case 1:
-					System.out.println("******MENU******");
-					hotel.getProduct(hotel.foodProduct);
-					System.out.println("==>> Select a Product to Update");
-					int num = scanner.nextInt();
-					System.out.println("==> Enter Product Name");
-					hotel.foodProduct[num-1].setName(scanner.next());
-					System.out.println("==> Enter Product Amount");
-					hotel.foodProduct[num-1].setAmount(scanner.nextInt());
-					isRight = true;
-					break;
-				case 2:
-					hotel.getProduct(hotel.foodProduct);
-					isRight = true;
-					break;
-				case 3:
-					crud(hotel);
-					break;
-				case 4:
-					isRight= true;
-					break;
-				default :
-					System.out.println("Sorry!!!! Select Options From Above ");
-					isRight = true;
-					break;
+			case 1:
+				System.out.println("******MENU******");
+				hotel.getProduct(hotel.foodProduct);
+				System.out.println("==>> Select a Product to Update");
+				int num = scanner.nextInt();
+				checkDuplicate(hotel,num-1);
+				isRight = true;
+				break;
+			case 2:
+				hotel.getProduct(hotel.foodProduct);
+				isRight = true;
+				break;
+			case 3:
+				crud(hotel);
+				break;
+			case 4:
+				isRight= true;
+				break;
+			default :
+				System.out.println("Sorry!!!! Select Options From Above ");
+				isRight = true;
+				break;
 			}
 		}
 		while(isRight);
@@ -134,30 +131,31 @@ public class Admin
 		do
 		{
 			isRight = false;
-			System.out.println("******MENU******");
-			hotel.getProduct(hotel.foodProduct);
-			System.out.println("==> Select a Product to Delete");
-			int num = scanner.nextInt();
-			hotel.foodProduct[num-1].setName(null);
-			hotel.foodProduct[num-1].setAmount(0);
-			hotel.getProduct(hotel.foodProduct);
-			System.out.println("Press ==> 1.Delete 2.Back");
+			System.out.println("Press ==> 1.Delete 2.Print 3.Back");
 			int numb = scanner.nextInt();
 			switch(numb)
 			{
-				case 1:
+			case 1:
+				System.out.println("******MENU******");
+				hotel.getProduct(hotel.foodProduct);
+				System.out.println("==> Select a Product to Delete");
+				int num = scanner.nextInt();
+				hotel.foodProduct[num-1].setName(null);
+				hotel.foodProduct[num-1].setAmount(0);
 				isRight = true;
 				break;
-				case 2:
+			case 2:
+				hotel.getProduct(hotel.foodProduct);
+				isRight = true;
+				break;
+			case 3:
 				crud(hotel);
 				break;
-				default :
+			default :
 				System.out.println("Select Any Options From Above");
 				isRight = true;
 				break;
 			}
-
-
 		}while(isRight);
 	}
 	public void read(Hotel hotel)

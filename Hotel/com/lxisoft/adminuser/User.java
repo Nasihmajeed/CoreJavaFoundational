@@ -8,11 +8,10 @@ public class User
 	public void bill(Hotel hotel)
 	{
 		scanner = new Scanner(System.in);
-		/*FoodOrdering foodOrdering = new FoodOrdering();*/
 		boolean numberExist = false;
 		int[] productIndex = new int[10];
 		int[] quantity = new int[10];
-		int i=0;
+		/*int i=0;*/
 		System.out.println("********Menu********");
 		hotel.getProduct(hotel.foodProduct);
 		Boolean isTrue = false;
@@ -82,7 +81,6 @@ public class User
 	{
 		scanner = new Scanner(System.in);
 		int amount = 0;
-		System.out.println("******BILL******");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
@@ -90,15 +88,10 @@ public class User
 				amount = amount + (hotel.foodProduct[productIndex[i]-1].getAmount()*quantity[i]);
 			}
 		}
-		if(hotel.getName()!=null)
-			{
-				/*foodOrdering.getHotel(hotel);*/		
-			}
-		else
-			{
-				System.out.println("**Hotel Name Not Entered**");
-			}
-			System.out.println("Food Items  \t Quantity \t  Amount ");
+		System.out.println("******BILL******");
+		/*System.out.println("Hotel Name : "+hotel.name);
+		System.out.println("Place : "+hotel.place);*/
+		System.out.println("Food Items  \t Quantity \t  Amount ");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)

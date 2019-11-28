@@ -2,25 +2,13 @@ package com.lxisoft.hotel;
 
 public class Hotel
 {
-	private String name,place;
+	String name,place;
 	public FoodProduct[] foodProduct = new FoodProduct[10];
-	
-	public void setName(String newName)
-		{
-			this.name = newName;
-		}
-	public String getName()
-		{
-			return name;
-		}
-	public void setPlace(String newPlace)
-		{
-			this.place = newPlace;
-		}
-	public String getPlace()
-		{
-			return place;
-		}
+	public Hotel(String name,String place)
+	{
+	 this.name = name;
+	 this.place = place;
+	}
 	public FoodProduct[] setProductObject(FoodProduct[] foodProduct)
 	{
 		for(int i = 0;i<10;i++)
