@@ -10,7 +10,7 @@ public class User
 		scanner = new Scanner(System.in);
 		/*FoodOrdering foodOrdering = new FoodOrdering();*/
 		boolean numberExist = false;
-		int[] array = new int[10];
+		int[] productIndex = new int[10];
 		int[] quantity = new int[10];
 		int i=0;
 		System.out.println("********Menu********");
@@ -21,14 +21,17 @@ public class User
 			isTrue = false;
 			System.out.println("Press ==> 1.Add Food to Cart 2.Print Bill ");
 			int num = scanner.nextInt();
+			
 			switch(num)
 			{
 			case 1:
-				selectProduct(array);
+				System.out.println("==> Select Food");
+				int productNumber = scanner.nextInt();
+				selectProduct(productIndex,productNumber,quantity);
 				isTrue = true;
 				break;
 			case 2:
-				print(hotel,selectProduct(array),quantity);
+				print(hotel,productIndex,quantity);
 				isTrue = false;
 				break;
 			default :
@@ -40,33 +43,51 @@ public class User
 		}while(isTrue);
 		
 	}
-	public int[] selectProduct(int[] array)
+	public int[] selectProduct(int[] productIndex,int productNumber,int[] quantity)
 	{
-		scanner = new Scanner(System.in);
-		int n=1;
-		System.out.println("==> Select Food");
-		int productNumber = scanner.nextInt();
-		for(int i=0;i<10;i++)
+		int n=1,k=1;
+		if(checkIfExists(productIndex,productNumber)==-1)
 		{
-			if(array[i]==0)
+			for(int i=0;i<10;i++)
 			{
-				array[i]=productNumber;
-				break;
-				/*quantity[i]=n;*/
+				if(productIndex[i]==0)
+				{
+					productIndex[i]=productNumber;
+					quantity[i]=k;
+					break;
+				}
+				n++;
 			}
 		}
-		return array;
+		else if(checkIfExists(productIndex,productNumber)==1)
+		{
+			quantity[n-1]++;
+		}
+		return productIndex;
 	}
-	public void print(Hotel hotel,int[] array,int[] quantity)
+	public int checkIfExists(int[] productIndex,int productNumber)
+	{
+		int index = -1;
+		for(int i=0;i<10;i++)
+		{
+			if(productIndex[i]==productNumber)
+			{
+				index = 1;
+				break;
+			}
+		}
+		return index;
+	}
+	public void print(Hotel hotel,int[] productIndex,int[] quantity)
 	{
 		scanner = new Scanner(System.in);
 		int amount = 0;
 		System.out.println("******BILL******");
 		for(int i=0;i<10;i++)
 		{
-			if(array[i]!=0)
+			if(productIndex[i]!=0)
 			{
-				amount = amount + (hotel.foodProduct[array[i]-1].getAmount());
+				amount = amount + (hotel.foodProduct[productIndex[i]-1].getAmount()*quantity[i]);
 			}
 		}
 		if(hotel.getName()!=null)
@@ -80,9 +101,9 @@ public class User
 			System.out.println("Food Items  \t Quantity \t  Amount ");
 		for(int i=0;i<10;i++)
 		{
-			if(array[i]!=0)
+			if(productIndex[i]!=0)
 			{
-			System.out.println(hotel.foodProduct[array[i]-1].getName()+"\t"+quantity[i]+"\t"+hotel.foodProduct[array[i]-1].getAmount()+" Rs");
+			System.out.println(hotel.foodProduct[productIndex[i]-1].getName()+"\t"+quantity[i]+"\t"+hotel.foodProduct[productIndex[i]-1].getAmount()+" Rs");
 		    }
 		}
 		System.out.println("Total Amount \t\t\t"+amount+" Rs");
