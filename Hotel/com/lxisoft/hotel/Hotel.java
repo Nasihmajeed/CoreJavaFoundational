@@ -1,53 +1,59 @@
 package com.lxisoft.hotel;
-
+import com.lxisoft.adminuser.Admin;
+import com.lxisoft.adminuser.User;
+import com.lxisoft.hotel.FoodItem;
+import java.util.Scanner;
 public class Hotel
 {
 	String name,place;
-	public FoodProduct[] foodProduct = new FoodProduct[10];
+	Scanner scanner; 
 	public Hotel(String name,String place)
 	{
 	 this.name = name;
 	 this.place = place;
 	}
-	public FoodProduct[] setProductObject(FoodProduct[] foodProduct)
+	public void booking(Hotel hotel)
 	{
-		for(int i = 0;i<10;i++)
-		 {
-		 	foodProduct[i] = new FoodProduct();
-		 }
-		 return foodProduct;
+		scanner = new Scanner(System.in);
+		FoodList foodList = new FoodList();
+		foodList.setFoodItem(foodList.foodItem);
+		adminUser(foodList,hotel);
 	}
-	public FoodProduct[] setProduct(FoodProduct[] foodProduct)
-	{
-		 setProductObject(foodProduct);
-		 foodProduct[0].setName("Chicken Biriyani");
-		 foodProduct[0].setAmount(110);
 
-		 foodProduct[1].setName("Meals");
-		 foodProduct[1].setAmount(60);
-
-		 foodProduct[2].setName("Fried Rice");
-		 foodProduct[2].setAmount(130);
-
-		 foodProduct[3].setName("Chapathi");
-		 foodProduct[3].setAmount(5);
-
-		 foodProduct[4].setName("Porotta");
-		 foodProduct[4].setAmount(10);
-		 return foodProduct;
-	}
-	public void getProduct(FoodProduct[] foodProduct)
-	{
-		int n=1;
-		for(int i=0;i<10;i++)
+	public void adminUser(FoodList foodList,Hotel hotel)
+	{	
+		scanner = new Scanner(System.in);
+		Admin admin = new Admin();
+		User user = new User();
+		System.out.println("1 . Admin");
+		System.out.println("2 . User");
+		int num = scanner.nextInt();
+		if(num==1)
 		{
-			if(foodProduct[i].getName()!= null)
+			int setPassword = 123;
+			boolean isTrue = false;
+			do
 			{
-				System.out.println(n+"."+foodProduct[i].getName());
-				System.out.println("  "+foodProduct[i].getAmount()+" Rs");
-				n++;
-	        }
-	        
+				isTrue = false;
+				System.out.println("!!Enter Password!!");
+				int password = scanner.nextInt();
+				if(setPassword==password)
+				{
+					System.out.println("$$$ Successfully Login $$$");
+					admin.crud(foodList,hotel);
+				}
+				else
+				{
+					isTrue = true;
+					System.out.println("Wrong Password");
+				}
+				
+			}while(isTrue);
+			
+		}
+		else if(num==2)
+		{
+			/*user.bill(foodList);*/
 		}
 	}
 }

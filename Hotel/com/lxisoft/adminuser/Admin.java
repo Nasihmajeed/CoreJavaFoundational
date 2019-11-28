@@ -3,11 +3,10 @@ import com.lxisoft.hotel.*;
 import java.util.Scanner;
 public class Admin
 {
-	Scanner scanner = new Scanner(System.in);
-	public void crud(Hotel hotel)
+	Scanner scanner;
+	public void crud(FoodList foodlist,Hotel hotel)
 	{
-		FoodOrdering foodOrdering = new FoodOrdering();
-		int num;
+		scanner = new Scanner(System.in);
 		boolean isTrue = false;
 		do
 		{
@@ -17,23 +16,24 @@ public class Admin
 			System.out.println("3 . Delete");
 			System.out.println("4 . Read");
 			System.out.println("5 . Back");
-			num = scanner.nextInt();
+			int num = scanner.nextInt();
 			switch(num)
 			{
 				case 1:
-					add(hotel);
+					add(foodlist,hotel);
 					break;
 				case 2:
-					update(hotel);
+					update(foodlist,hotel);
 					break;
 				case 3:
-					delete(hotel);
+					delete(foodlist,hotel);
 					break;
 				case 4:
-					read(hotel);
+					read(foodlist);
+					isTrue = true;
 					break;
 				case 5: 
-				foodOrdering.adminUser(hotel);
+				hotel.adminUser(foodlist,hotel);
 				default :
 				System.out.println("Sorry!!!! Select Options From Above ");
 				isTrue = true;
@@ -42,7 +42,7 @@ public class Admin
 		}while(isTrue);
 	    
 	}
-	public void add(Hotel hotel)
+	public void add(FoodList foodList,Hotel hotel)
 	{
 		boolean isTrue=false;
 		do
@@ -53,26 +53,26 @@ public class Admin
             {
             	if(flag==0)
             	{
-					if(hotel.foodProduct[i].getName()==null)
+					if(foodList.foodItem[i].getName()==null)
 					{
 						System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
 						int num = scanner.nextInt();
 						switch(num)
 						{
 						case 1:
-						    checkDuplicate(hotel,i);
+						    checkDuplicate(foodList,i);
 						    flag=1;
 						    isTrue=true;
 						    break;
 						case 2:
-							hotel.getProduct(hotel.foodProduct);
+							foodList.getFoodItem(foodList.foodItem);
 							isTrue=true;
 							break;
 						case 3:
-						    crud(hotel);
+						    crud(foodList,hotel);
 						    break;
 						case 4:
-							crud(hotel);
+							flag = 1;
 							break;
 						default :
 							System.out.println("Select Any 4 Options");
@@ -89,7 +89,7 @@ public class Admin
 	    }
 		while(isTrue);
 	}		
-	public void update(Hotel hotel)
+	public void update(FoodList foodList,Hotel hotel)
 	{
 		boolean isRight;
 		do
@@ -101,18 +101,18 @@ public class Admin
 			{
 			case 1:
 				System.out.println("******MENU******");
-				hotel.getProduct(hotel.foodProduct);
+				foodList.getFoodItem(foodList.foodItem);
 				System.out.println("==>> Select a Product to Update");
 				int num = scanner.nextInt();
-				checkDuplicate(hotel,num-1);
+				checkDuplicate(foodList,num-1);
 				isRight = true;
 				break;
 			case 2:
-				hotel.getProduct(hotel.foodProduct);
+				foodList.getFoodItem(foodList.foodItem);
 				isRight = true;
 				break;
 			case 3:
-				crud(hotel);
+				crud(foodList,hotel);
 				break;
 			case 4:
 				isRight= true;
@@ -125,7 +125,7 @@ public class Admin
 		}
 		while(isRight);
     }
-	public void delete(Hotel hotel)
+	public void delete(FoodList foodList,Hotel hotel)
 	{
 		boolean isRight = false;
 		do
@@ -137,19 +137,19 @@ public class Admin
 			{
 			case 1:
 				System.out.println("******MENU******");
-				hotel.getProduct(hotel.foodProduct);
+				foodList.getFoodItem(foodList.foodItem);
 				System.out.println("==> Select a Product to Delete");
 				int num = scanner.nextInt();
-				hotel.foodProduct[num-1].setName(null);
-				hotel.foodProduct[num-1].setAmount(0);
+				foodList.foodItem[num-1].setName(null);
+				foodList.foodItem[num-1].setPrice(0);
 				isRight = true;
 				break;
 			case 2:
-				hotel.getProduct(hotel.foodProduct);
+				foodList.getFoodItem(foodList.foodItem);
 				isRight = true;
 				break;
 			case 3:
-				crud(hotel);
+				crud(foodList,hotel);
 				break;
 			default :
 				System.out.println("Select Any Options From Above");
@@ -158,12 +158,12 @@ public class Admin
 			}
 		}while(isRight);
 	}
-	public void read(Hotel hotel)
+	public void read(FoodList foodList)
 	{
-		hotel.getProduct(hotel.foodProduct);
+		foodList.getFoodItem(foodList.foodItem);
 
 	}
-	public void checkDuplicate(Hotel hotel,int i)
+	public void checkDuplicate(FoodList foodList,int i)
 	{
 		boolean exists = true;
 		System.out.print("Enter Food Name : ");
@@ -172,9 +172,9 @@ public class Admin
 	    int productAmount = scanner.nextInt();
 		for(int m = 0;m<10;m++)
 		{
-			if(hotel.foodProduct[m].getName()!=null)
+			if(foodList.foodItem[m].getName()!=null)
 			{
-				if(hotel.foodProduct[m].getName().equals(productName))
+				if(foodList.foodItem[m].getName().equals(productName))
 				{
 					System.out.println(productName+" Already Exists !!!!!!!");
 					exists = false;
@@ -184,8 +184,8 @@ public class Admin
 		}
 		if(exists)
 		{
-			hotel.foodProduct[i].setName(productName);
-			hotel.foodProduct[i].setAmount(productAmount);
+			foodList.foodItem[i].setName(productName);
+			foodList.foodItem[i].setPrice(productAmount);
 		
 		}
 	}
