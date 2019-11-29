@@ -27,6 +27,7 @@ public class ContactControl
             model.setName(contactList.get(i).getName());
             listModel.setContactsList(model);
        }
+        contactList=myrepo.getAllContact();
         view.getAllContacts(listModel.getContactsList());
         display();
     }
@@ -97,8 +98,8 @@ public class ContactControl
     	Contact c=new Contact();
     	c=view.addContact();
         repository.create(c);
-        myrepo.create();
-        // c=myrepo.insertContact(c);
+        // myrepo.create();
+        myrepo.insertContact();
     }
      /**
  * delete contact
@@ -118,7 +119,7 @@ public class ContactControl
         {
             repository.rewriteFile(contactList.get(i));
         }
-        myrepo.deleteContact(d);
+        // myrepo.deleteContact(d);
         view.deleteContact();
     }
      /**
@@ -145,7 +146,7 @@ public class ContactControl
         {
             repository.rewriteFile(contactList.get(i));
         }
-        // myrepo.updateContact(c);
+        // myrepo.updateContact();
     }
      /**
  * search a contact 
