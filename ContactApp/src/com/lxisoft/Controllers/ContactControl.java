@@ -69,12 +69,12 @@ public class ContactControl
 		Contact contact=new Contact();
 		contact.setName(name);
 		contact.setNo(number);
-		try{
+		// try{
 			repo.writeNewContact(contact,true);
-			}catch(Exception e)
-		{
-			System.out.println("error in createnew contact control");
-		}
+		// 	}catch(Exception e)
+		// {
+		// 	System.out.println("error in createnew contact control");
+		// }
 		// repso.sorting(repo.getAllContacts());
 	}
 	/**

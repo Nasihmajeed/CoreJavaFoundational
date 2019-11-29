@@ -14,27 +14,38 @@ public class MysqlRepository implements Repository
 	static int id=0;
 	static Statement stm=null;
 	ArrayList<Contact> contacts=new ArrayList<Contact> (); 
-	static
+	
 	{
 		try
 		{
-			connection();
+			connection(true);
 			// System.out.println("static block mysql");
 		}catch(Exception p)
 		{
 			System.out.println("error"+p);
 		}
 	}
-	public static void connection()throws SQLException,ClassNotFoundException
+	public  void connection(boolean newsql)throws SQLException,ClassNotFoundException
 	{
 		try
 		{
-		Class.forName(driverName);
-		con = DriverManager.getConnection(connectionName,"root","root");
-		stm=con.createStatement();
-		System.out.println("Connection registered");
-		// checkDatabase();
-		// checkTable();
+			if(newsql)
+			{	Class.forName(driverName);
+				con = DriverManager.getConnection(connectionName,"root","root");
+				stm=con.createStatement();
+				System.out.println("Connection registered");
+				checkDatabase();
+				checkTable();
+			}
+			else
+			{
+				Class.forName(driverName);
+				con = DriverManager.getConnection(connectionName+dataBase,"root","root");
+				con.setCatalog(dataBase);
+				PreparedStatement stmt;
+				ResultSet rs;
+							
+			}
 	//System.out.println(connectionName+dataBase);
 
 		}
@@ -43,7 +54,7 @@ public class MysqlRepository implements Repository
 		System.out.println("errororo");
 		}
 	}
-	public static void checkDatabase()throws SQLException,ClassNotFoundException
+	public  void checkDatabase()throws SQLException,ClassNotFoundException
 	{
 		try
 		{
@@ -65,11 +76,10 @@ public class MysqlRepository implements Repository
 					else
 					{
 						int Result = stm.executeUpdate("CREATE DATABASE "+dataBase);
+						connection(false);
 
 					}	
 				}
-						con = DriverManager.getConnection(connectionName+dataBase,"root","root");
-						
 						// Statement s=con.createStatement();
 						// s.executeQuery("use contact");
 						// s.excecute();
@@ -106,7 +116,7 @@ public class MysqlRepository implements Repository
 
 		}
 	}
-	public void writeNewContact(Contact contact,boolean write)throws SQLException, ClassNotFoundException
+	public void writeNewContact(Contact contact,boolean write)
 	{
 		try
 		{
