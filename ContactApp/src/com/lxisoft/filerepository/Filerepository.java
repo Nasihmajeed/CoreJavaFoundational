@@ -13,7 +13,7 @@ public class Filerepository implements Repository
 	String filename = "C:\\Users\\Admin\\Desktop\\gitland org\\CoreJavaFoundational\\ContactApp\\src\\com\\lxisoft\\repository\\sample.csv";
 	File file = new File(filename);
 	public ArrayList<Contact> array = new ArrayList<Contact>();
-	public void fileWrite(Contact contact,boolean isTrue)
+	public void write(Contact contact,boolean isTrue)
 	{ 		
 		
 		try
@@ -61,7 +61,7 @@ public class Filerepository implements Repository
 		
 		return id;
 	}
-	public ArrayList <Contact> fileRead()
+	public ArrayList <Contact> read()
 	{
 		// TreeSet <Contact> ts = new TreeSet <Contact> (); 
 		try
@@ -122,7 +122,7 @@ public class Filerepository implements Repository
 	{
 		return array.size();
 	}
-	public void clearFile()
+	public void clear()
 	{
 		try
 		{

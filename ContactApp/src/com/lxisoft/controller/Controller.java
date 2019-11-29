@@ -9,8 +9,8 @@ import com.lxisoft.test.*;
 public class Controller
 {
 	Contact contact ;
-	//Repository rep = new Sqlrepository();
-	Repository rep = new Filerepository();
+	Repository rep = new Sqlrepository();
+	//Repository rep = new Filerepository();
 	View view = new View();
 	public ArrayList <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
@@ -33,11 +33,7 @@ public class Controller
 		contact = new Contact();
         contact.setName(name);
         contact.setNumber(number);
-		//int i = indexOf(contact.getName(name));
-		// int i ;
-		// if(contact.)
-        //contact.setId(i);
-        rep.fileWrite(contact,true);
+        rep.write(contact,true);
         choice();
 
 	}
@@ -45,7 +41,7 @@ public class Controller
 	public Contact search(String name)
 	{
 		contact = new Contact();
-		contactList = rep.fileRead();
+		contactList = rep.read();
 		for(int i= 0;i<contactList.size();i++)
 		{
 			if(name.equals(contactList.get(i).getName()))
@@ -60,7 +56,7 @@ public class Controller
 	{
 		contact = new Contact();
 		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
-		return contactDetail=rep.fileRead();
+		return contactDetail=rep.read();
 
 	}
 
@@ -69,17 +65,17 @@ public class Controller
 		//System.out.println("value i ="+i+"   id ="+id );
 		
 		 contact = new Contact();
-		 contactList = rep.fileRead();
+		 contactList = rep.read();
 		 contact.setName(name);
          contact.setNumber(number);
          contact.setId(id);
          //System.out.println(contact.getId()+"****");
          contactList.set(i,contact);
-         rep.clearFile();
+         rep.clear();
 		//System.out.println(contact.getId()+"****");
 		 for(Contact j : contactList)
 		 {
-		 	 rep.fileWrite(j,false);
+		 	 rep.write(j,false);
 		 }	
 		 choice();
 	
@@ -88,13 +84,13 @@ public class Controller
 	public void deleteContact(int i)
 	{
 		contact = new Contact();
-		contactList = rep.fileRead();
+		contactList = rep.read();
 	    contactList.remove(i);	
-	    rep.clearFile();
+	    rep.clear();
 		
 		for(Contact j : contactList)
 		 {
-		 	 rep.fileWrite(j,false);
+		 	 rep.write(j,false);
 		 }
 		 choice();
 
@@ -127,7 +123,7 @@ public class Controller
 	}
 	public void deleteAll()
 	{
-		rep.clearFile();
+		rep.clear();
 		choice();
 	}
 
