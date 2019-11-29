@@ -24,7 +24,7 @@ public class ContactController
 	{
 		try
 		{
-		repo.dB_Connection();
+		repo.dB_Connection(false);
 		}catch(Exception e)
 		{
 			System.out.println("error "+e);
