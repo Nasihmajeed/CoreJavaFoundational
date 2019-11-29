@@ -131,12 +131,7 @@ public class Admin
 			switch(numb)
 			{
 			case 1:
-				System.out.println("******MENU******");
-				foodList.getFoodItem(foodList.foodItem);
-				System.out.println("==> Select a Product to Delete");
-				int num = scanner.nextInt();
-				foodList.foodItem[num-1].setName(null);
-				foodList.foodItem[num-1].setPrice(0);
+				reAligningFoodList(foodList);
 				isRight = true;
 				break;
 			case 2:
@@ -183,5 +178,27 @@ public class Admin
 			foodList.foodItem[num].setPrice(productAmount);
 		
 		}
+	}
+	public void reAligningFoodList (FoodList foodList)
+	{
+		System.out.println("******MENU******");
+		foodList.getFoodItem(foodList.foodItem);
+		System.out.println("==> Select a Product to Delete");
+		int num = scanner.nextInt();
+		foodList.foodItem[num-1].setName(null);
+		foodList.foodItem[num-1].setPrice(0);
+		for(int i=num;i<10;i++)
+		{
+			if(foodList.foodItem[i]!=null)
+			{
+				foodList.foodItem[i-1].setName(foodList.foodItem[i].getName());
+				foodList.foodItem[i-1].setPrice(foodList.foodItem[i].getPrice());
+		    }
+		    else if(foodList.foodItem[i]==null)
+		    {
+		    	foodList.foodItem[i+1].setName(null);
+		        foodList.foodItem[i+1].setPrice(0);
+		    }
+	    }
 	}
 }
