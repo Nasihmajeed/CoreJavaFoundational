@@ -1,11 +1,11 @@
 package com.lxisoft.adminuser;
 import com.lxisoft.hotel.Hotel;
-import com.lxisoft.hotel.FoodOrdering;
+import com.lxisoft.hotel.FoodList;
 import java.util.Scanner;
 public class User
 {
 	Scanner scanner;
-	public void bill(Hotel hotel)
+	public void bill(FoodList foodList)
 	{
 		scanner = new Scanner(System.in);
 		boolean numberExist = false;
@@ -13,7 +13,7 @@ public class User
 		int[] quantity = new int[10];
 		/*int i=0;*/
 		System.out.println("********Menu********");
-		hotel.getProduct(hotel.foodProduct);
+		foodList.getFoodItem(foodList.foodItem);
 		Boolean isTrue = false;
 		do
 		{
@@ -30,7 +30,7 @@ public class User
 				isTrue = true;
 				break;
 			case 2:
-				print(hotel,productIndex,quantity);
+				print(foodList,productIndex,quantity);
 				isTrue = false;
 				break;
 			default :
@@ -45,7 +45,7 @@ public class User
 	public int[] selectProduct(int[] productIndex,int productNumber,int[] quantity)
 	{
 		int n=1,k=1;
-		if(checkIfExists(productIndex,productNumber)==-1)
+		if(checkIfExists(productIndex,productNumber,quantity)==-1)
 		{
 			for(int i=0;i<10;i++)
 			{
@@ -58,13 +58,9 @@ public class User
 				n++;
 			}
 		}
-		else if(checkIfExists(productIndex,productNumber)==1)
-		{
-			quantity[n-1]++;
-		}
 		return productIndex;
 	}
-	public int checkIfExists(int[] productIndex,int productNumber)
+	public int checkIfExists(int[] productIndex,int productNumber,int[] quantity)
 	{
 		int index = -1;
 		for(int i=0;i<10;i++)
@@ -72,33 +68,32 @@ public class User
 			if(productIndex[i]==productNumber)
 			{
 				index = 1;
+				quantity[i]++;
 				break;
 			}
 		}
 		return index;
 	}
-	public void print(Hotel hotel,int[] productIndex,int[] quantity)
+	public void print(FoodList foodList,int[] productIndex,int[] quantity)
 	{
 		scanner = new Scanner(System.in);
-		int amount = 0;
+		int tottalAmount = 0;
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-				amount = amount + (hotel.foodProduct[productIndex[i]-1].getAmount()*quantity[i]);
+				tottalAmount = tottalAmount + (foodList.foodItem[productIndex[i]-1].getPrice()*quantity[i]);
 			}
 		}
 		System.out.println("******BILL******");
-		/*System.out.println("Hotel Name : "+hotel.name);
-		System.out.println("Place : "+hotel.place);*/
-		System.out.println("Food Items  \t Quantity \t  Amount ");
+		System.out.println("Food Items  \t Quantity \t  Price ");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-			System.out.println(hotel.foodProduct[productIndex[i]-1].getName()+"\t"+quantity[i]+"\t"+hotel.foodProduct[productIndex[i]-1].getAmount()+" Rs");
+			System.out.println(foodList.foodItem[productIndex[i]-1].getName()+"\t"+quantity[i]+"\t"+foodList.foodItem[productIndex[i]-1].getPrice()+" Rs");
 		    }
 		}
-		System.out.println("Total Amount \t\t\t"+amount+" Rs");
+		System.out.println("Total Amount \t\t\t"+tottalAmount+" Rs");
 	}
 }

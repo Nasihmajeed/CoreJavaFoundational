@@ -53,7 +53,7 @@ public class Hotel
 		}
 		else if(num==2)
 		{
-			/*user.bill(foodList);*/
+			user.bill(foodList);
 		}
 	}
 }
