@@ -10,4 +10,5 @@ public interface Repository
 	public void edit(EditModel editModel,String[] tempEdit);
 	public void delete(Contact contact);
 	public void clear();
+	public void table();
 }

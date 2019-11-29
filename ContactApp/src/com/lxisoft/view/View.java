@@ -48,7 +48,7 @@ public class View
 
 	public int optionsScaning()
 	{
-		System.out.println("\n press-->  1-save  2-search  3-Id  4-select  5-sort  6-searchminimal  7-backtohome  8-clearall  9-exit");
+		System.out.println("\n press-->  1-save  2-search  3-Id  4-select  5-sort  6-searchminimal  7-backtohome  8-clearall  9-exit  10-custTable");
 		int option=sc.nextInt();
 		return option;	
 	}
@@ -128,6 +128,16 @@ public class View
 		ch=sc.next();
 		return ch;
 	} 
+
+	public String[] newTable()
+	{
+		String[] temp=new String[4];
+		System.out.println("enter the title of three columns of new table");
+		temp[0]=sc.next();
+		temp[1]=sc.next();
+		temp[2]=sc.next();
+		return temp;
+	}
 
 }
 

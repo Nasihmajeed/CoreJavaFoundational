@@ -47,6 +47,7 @@ public class ContactController
 			case 6:enhancedSearch();break;
 			case 7:allContacts();break;
 			case 8:repository.clear();break;
+			case 10:repository.table();break;
 		}
 	}
 	/**

@@ -131,4 +131,26 @@ public class DbRepository implements Repository
 			System.out.println(e);
 		}	
 	}
+
+	public void table()
+	{
+		try
+		{
+			String[] t=new View().newTable();
+			String q="create table if not exists xyz("+t[0]+" varchar(20),"+t[1]+" varchar(20),"+t[2]+" varchar(20 ))";
+			Statement s=connection.createStatement();
+			s.executeUpdate(q);
+			// s.executeUpdate("drop table ashiq");
+			//'"+c1.NAME+"','"+c1.EMAILID+"','"+c1.MOB+"'
+			// PreparedStatement pt=connection.prepareStatement("create table if not exists ashiq(? int,? varchar(25),? varchar(15))");	
+			// pt.setString(1,t[0]);
+			// pt.setString(2,t[1]);
+			// pt.setString(3,t[2]);
+			// pt.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+	}
 }
