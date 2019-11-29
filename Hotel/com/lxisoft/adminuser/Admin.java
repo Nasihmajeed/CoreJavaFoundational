@@ -95,27 +95,22 @@ public class Admin
 		do
 		{
 		isRight = false;
-		System.out.println("Press ==> 1.Edit 2.Print 3.Back 4.Stop ");
+		System.out.println("******MENU******");
+		foodList.getFoodItem(foodList.foodItem);
+		System.out.println("Press ==> 1.Edit 2.Back 3.Stop ");
 		int numb = scanner.nextInt();
 			switch(numb)
 			{
 			case 1:
-				System.out.println("******MENU******");
-				foodList.getFoodItem(foodList.foodItem);
 				System.out.println("==>> Select a Product to Update");
 				int num = scanner.nextInt();
 				checkDuplicate(foodList,num-1);
 				isRight = true;
 				break;
 			case 2:
-				foodList.getFoodItem(foodList.foodItem);
-				isRight = true;
-				break;
-			case 3:
 				crud(foodList,hotel);
 				break;
-			case 4:
-				isRight= true;
+			case 3:
 				break;
 			default :
 				System.out.println("Sorry!!!! Select Options From Above ");
@@ -163,18 +158,18 @@ public class Admin
 		foodList.getFoodItem(foodList.foodItem);
 
 	}
-	public void checkDuplicate(FoodList foodList,int i)
+	public void checkDuplicate(FoodList foodList,int num)
 	{
 		boolean exists = true;
 		System.out.print("Enter Food Name : ");
 	    String productName = scanner.next();
 	    System.out.print("Enter Food Amount : ");
 	    int productAmount = scanner.nextInt();
-		for(int m = 0;m<10;m++)
+		for(int i = 0;i<10;i++)
 		{
-			if(foodList.foodItem[m].getName()!=null)
+			if(foodList.foodItem[i].getName()!=null)
 			{
-				if(foodList.foodItem[m].getName().equals(productName))
+				if(foodList.foodItem[i].getName().equals(productName))
 				{
 					System.out.println(productName+" Already Exists !!!!!!!");
 					exists = false;
@@ -184,8 +179,8 @@ public class Admin
 		}
 		if(exists)
 		{
-			foodList.foodItem[i].setName(productName);
-			foodList.foodItem[i].setPrice(productAmount);
+			foodList.foodItem[num].setName(productName);
+			foodList.foodItem[num].setPrice(productAmount);
 		
 		}
 	}
