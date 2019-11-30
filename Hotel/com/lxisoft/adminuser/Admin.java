@@ -29,7 +29,7 @@ public class Admin
 					delete(foodlist,hotel);
 					break;
 				case 4:
-					read(foodlist);
+					read(foodlist,hotel);
 					isTrue = true;
 					break;
 				case 5: 
@@ -65,10 +65,12 @@ public class Admin
 						    isTrue=true;
 						    break;
 						case 2:
+						    flag = 1;
 							foodList.getFoodItem(foodList.foodItem);
 							isTrue=true;
 							break;
 						case 3:
+							flag = 1;
 						    crud(foodList,hotel);
 						    break;
 						case 4:
@@ -76,6 +78,7 @@ public class Admin
 							break;
 						default :
 							System.out.println("Select Any 4 Options");
+							flag = 1;
 							isTrue = true;
 							break;
 						}
@@ -148,16 +151,36 @@ public class Admin
 			}
 		}while(isRight);
 	}
-	public void read(FoodList foodList)
+	public void read(FoodList foodList,Hotel hotel)
 	{
-		foodList.getFoodItem(foodList.foodItem);
-
+		boolean isTrue = false;
+		do
+		{
+		isTrue = false;
+		System.out.println("Press==> 1.Print Menu 2.Back");
+		int num = scanner.nextInt();
+			switch(num)
+			{
+			case 1:
+				foodList.getFoodItem(foodList.foodItem);
+				isTrue = true;
+				break;
+			case 2:
+				crud(foodList,hotel);
+				break;
+			default :
+				System.out.println("Select Any Options from Above ");
+				isTrue = true;
+				break;
+		    }
+	    }while(isTrue);
 	}
 	public void checkDuplicate(FoodList foodList,int num)
 	{
 		boolean exists = true;
 		System.out.print("Enter Food Name : ");
-	    String productName = scanner.next();
+	    String productName = scanner.nextLine();
+	    productName = scanner.nextLine();
 	    System.out.print("Enter Food Amount : ");
 	    int productAmount = scanner.nextInt();
 		for(int i = 0;i<10;i++)

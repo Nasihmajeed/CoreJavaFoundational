@@ -86,14 +86,14 @@ public class User
 			}
 		}
 		System.out.println("******BILL******");
-		System.out.println("Food Items  \t Quantity \t  Price ");
+		System.out.printf("%-20.30s  %-20.30s %-20.30s%n","Food Items","Quantity","Price");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-			System.out.println(foodList.foodItem[productIndex[i]-1].getName()+"\t"+quantity[i]+"\t"+foodList.foodItem[productIndex[i]-1].getPrice()+" Rs");
+			System.out.printf("%-20.30s  %-20.30s %-20.30s%n",foodList.foodItem[productIndex[i]-1].getName(),quantity[i],foodList.foodItem[productIndex[i]-1].getPrice()+" Rs");
 		    }
 		}
-		System.out.println("Total Amount \t\t\t"+tottalAmount+" Rs");
+		System.out.println("Total Amount\t\t\t\t   "+tottalAmount+" Rs");
 	}
 }
