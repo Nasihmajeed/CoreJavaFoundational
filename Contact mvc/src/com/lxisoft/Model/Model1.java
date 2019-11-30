@@ -1,5 +1,5 @@
 package com.lxisoft.Model;
-import com.lxisoft.Controller.Controller;
+import com.lxisoft.ctr.Controller;
 /*
 *Model class
 */

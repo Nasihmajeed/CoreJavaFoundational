@@ -4,7 +4,8 @@ import com.lxisoft.Model.SortName;
 import java.io.*;
 import java.util.*;
 
-public class Repository
+
+public class Repository implements Repository1
 {
 
  static int id;

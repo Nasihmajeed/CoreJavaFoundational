@@ -1,5 +1,5 @@
 package com.lxisoft.View;
-import com.lxisoft.Controller.Controller;
+import com.lxisoft.ctr.Controller;
 import com.lxisoft.Domain.Contact;
 import java.io.*;
 import java.util.*;
@@ -87,15 +87,10 @@ public class View
   { 
     boolean flag=false;
     try{
-        ArrayList <Contact>  currentList= control.getContacts();
         System.out.println("Enter the name to delete :");
         String name = input.readLine();
-        flag=control.deleteContact(name);
-        if(flag)
-        System.out.println("contact deleted successfuly...");
-      else
-        System.out.println("No contact found!!");
-      }catch(IOException e){}
+        control.deleteContact(name);
+       }catch(IOException e){}
   }
   public void editContact()
   { boolean flag=false;
@@ -106,10 +101,10 @@ public class View
           String newname = input.readLine();
           Contact contact= new Contact();
           flag=control.editContact(name,newname);
-          if(flag)
-          {System.out.println("*****");}
-          else
-          System.out.println("No contact found!!");
+          // if(flag)
+          // {System.out.println("*****");}
+          // else
+          // System.out.println("No contact found!!");
        }catch(IOException e){}
   }
   public void sort()

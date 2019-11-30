@@ -1,5 +1,5 @@
 package com.lxisoft.Test;
-import com.lxisoft.Controller.Controller;
+import com.lxisoft.ctr.Controller;
 /*
 *Starting contact app with Tdd
 */
