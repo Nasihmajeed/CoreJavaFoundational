@@ -107,7 +107,7 @@ public class FileRepository implements Repository
 		}
 		catch(IOException e)
 		{
-			System.out.println(" contact list empty!!!!");
+			System.out.println("Contact list empty!!!!");
 		}	
 		return contactList;
 	}

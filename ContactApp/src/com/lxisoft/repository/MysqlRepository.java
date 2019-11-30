@@ -20,12 +20,16 @@ public class MysqlRepository implements Repository
 			System.out.println("not connected");	
 		}
 	}
+	public MysqlRepository()
+	{
+		c=new Contact();
+	}
 	public void connectionDB()
 	{
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:8080/contact","root","root");	
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/contact","root","root");	
  	    }
  	    catch(Exception e)
  	    {
@@ -36,8 +40,7 @@ public class MysqlRepository implements Repository
  	{
  		try
  		{ 
- 			String cr="CREATE TABLE contactlist(ID int(2),Name varchar(25),Number varchar(25))";
-			// Statement s=conn.createStatement();
+ 			String cr="CREATE TABLE contactlist(ID int,Name varchar(25),Number varchar(25))";
 			stmt.execute();
  		}
  		catch(SQLException e)
@@ -48,7 +51,6 @@ public class MysqlRepository implements Repository
 	
 	public List<Contact> getAllContact()
 	{
-		// connectionDB();
 		try
 		{
 			contactList.clear();
@@ -56,8 +58,8 @@ public class MysqlRepository implements Repository
 			ResultSet rs=smt.executeQuery("select * from contactlist");
 			while(rs.next())
 			{
-				Contact c=new Contact();
-				c.setId(rs.getString("ID"));
+				// Contact c=new Contact();
+				c.setId(String.valueOf(rs.getInt("ID")));
 				c.setName(rs.getString("NAME"));	
 				c.setContactNo(rs.getString("NUMBER"));
 				contactList.add(c);
@@ -66,37 +68,19 @@ public class MysqlRepository implements Repository
 		catch(SQLException e)
 		{
 			e.printStackTrace();
+			System.out.println("Contact list empty!!!!");
 		}
 		return contactList; 
 	}
-	// public int getContactId()
-	// {
-	// 	int id=0;
-	// 	try
-	// 	{
-	// 		Statement st=con.createStatement();
-	// 		ResultSet rs=st.executeQuery("select ID ");
-	// 		while(rs.next())
-	// 		{
-	// 			id=rs.getInt("ID");
-	// 			id++;
-	// 		}
-	// 	}
-	// 	catch(SQLException e)
-	// 	{
-	// 		e.printStackTrace();
-	// 	}
-	// 	return id;
-	// }
-
- 	public void insertContact()
+	
+ 	public void insertContact(Contact c)
  	{
  		try
  		{
-	 		stmt=conn.prepareStatement("insert into contactlist values(?,?,?)");
-	 		stmt.setString(1,c.getId());
-	 		stmt.setString(2,c.getName());
-	 	    stmt.setString(3,c.getContactNo());
+	 		stmt=conn.prepareStatement("insert into contactlist(Name,Number)values(?,?)");
+	 		// stmt.setInt(1,Integer.parseInt(c.getId()));
+	 		stmt.setString(1,c.getName());
+	 	    stmt.setString(2,c.getContactNo());
 	 		stmt.executeUpdate();
 	 		System.out.println("Successfully Inserted");
  		}
@@ -108,19 +92,19 @@ public class MysqlRepository implements Repository
  		// return contactList;
  	}
 
- 	public void updateContact()
+  	public void updateContact(String d,Contact c)
  	{
  		try
  		{
-	 		stmt=conn.prepareStatement("update contactlist set SentOn=? where id=?");
-	 		// stmt.setString(1,c.getContactNo());
-	 		stmt.setString(2,c.getId());
+	 		stmt=conn.prepareStatement("update contactlist set cotactNo=? where id=?");
+	 		stmt.setString(1,d);
+	 		stmt.setString(2,c.getContactNo());
 	 	    stmt.executeUpdate();
 	 		System.out.println("Successfully Updated");
  		}
  		catch(Exception e)
  		{
- 			System.out.println("Updation Failed");
+ 			System.out.println("Updation Failed"+e);
  		}
  	}
  	public void deleteContact(String d)
@@ -136,4 +120,20 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	}
+	// public Contact searchContact(String d)
+	// {
+	// 	try
+	// 	{
+	// 		Statement s=conn.createStatement();
+	// 		ResultSet rs=s.executeQuery("select Name,Number from contactApp where Id=?");
+	// 		stmt.setInt(1,d);
+	// 		c.setName(rs.setString("Name"));
+	// 		c.setContactNo(rs.setString("Number"));	
+	// 	}
+	// 	catch(SQLException e)
+	// 	{
+	// 		e.printStackTrace();
+	// 	}
+	// 	return c;
+	// }
 }

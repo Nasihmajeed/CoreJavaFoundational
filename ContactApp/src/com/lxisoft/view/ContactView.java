@@ -151,18 +151,18 @@ public class ContactView
 			System.out.println("Not Found Search Results");
 		}
 	}
-	// public void searchContact(Contact c)
-	// {
-	// 	if((c.getName()==null)&(c.getContactNo()==null))
-	// 	{
-	// 		System.out.println("Not Found Search Result");
-	// 	}
-	// 	else
-	// 	{
-	// 		System.out.println("\n Name="+c.getName());
-	// 		System.out.println(" Number="+c.getContactNo());
-	// 	}			
-	// }
+	public void searchContact(Contact c)
+	{
+		if((c.getName()==null)&(c.getContactNo()==null))
+		{
+			System.out.println("Not Found Search Result");
+		}
+		else
+		{
+			System.out.println("\n Name="+c.getName());
+			System.out.println(" Number="+c.getContactNo());
+		}			
+	}
 	public int sort()
 	{
 		Scanner sc=new Scanner(System.in);

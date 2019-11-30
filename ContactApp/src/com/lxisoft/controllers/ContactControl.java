@@ -18,7 +18,7 @@ public class ContactControl
  */
 	public void getContactDetails()
 	{     
-        List<Contact>contactList=repository.read();
+        List<Contact>contactList=myrepo.getAllContact();
         ContactListModel listModel=new ContactListModel();
         for(int i=0;i<contactList.size();i++)
         {
@@ -44,7 +44,7 @@ public class ContactControl
             {
                 case 1:ContactByIdDetails();break;     
                 case 2:addDetails();break; 
-                case 3:searchDetails();break;
+                // case 3:searchDetails();break;
                 case 4:sort();break;
                 case 5:getContactDetails();break;
             } 
@@ -71,7 +71,7 @@ public class ContactControl
  */
     public void ContactByIdDetails()
     {
-        List<Contact>contactList=repository.read();
+        List<Contact>contactList=myrepo.getAllContact();
         String d=view.getContactId();
         Contact c=new Contact();
         for(int i=0;i<contactList.size();i++)
@@ -86,7 +86,7 @@ public class ContactControl
         ch=view.getOperations();
         switch(ch)
         {
-            case 1: updateDetails(d); break;
+            case 1: updateDetails(c,d); break;
             case 2: deleteDetails(d); break;
         }
     }
@@ -97,16 +97,17 @@ public class ContactControl
     {
     	Contact c=new Contact();
     	c=view.addContact();
-        repository.create(c);
+        // repository.create(c);
         // myrepo.create();
-        myrepo.insertContact();
+        myrepo.insertContact(c);
     }
      /**
  * delete contact
  */
     public void deleteDetails(String d)
     {
-        List<Contact>contactList=repository.read();
+        List<Contact>contactList=myrepo.getAllContact();
+        // List<Contact>contactList=repository.read();
         for(int i=0;i<contactList.size();i++)
     	{
             if(d.equals(contactList.get(i).getId()))
@@ -114,13 +115,13 @@ public class ContactControl
                 contactList.remove(i);
             }
     	}
-        repository.resetFile();
-        for(int i=0;i<contactList.size();i++)
-        {
-            repository.rewriteFile(contactList.get(i));
-        }
-        // myrepo.deleteContact(d);
-        view.deleteContact();
+        myrepo.deleteContact(d);
+    //     repository.resetFile();
+    //     for(int i=0;i<contactList.size();i++)
+    //     {
+    //         repository.rewriteFile(contactList.get(i));
+    //     }
+    //     view.deleteContact();
     }
      /**
  * update contact
@@ -128,41 +129,43 @@ public class ContactControl
       /**
  * @param d selected id
  */
-    public void updateDetails(String d)
+    public void updateDetails(Contact c,String d)
     {
-        List<Contact>contactList=repository.read();
+        // List<Contact>contactList=repository.read();
+        List<Contact>contactList=myrepo.getAllContact();
         String contactNo=view.updateContact();
   		for(int i=0;i<contactList.size();i++)
     	{
             if(d.equals(contactList.get(i).getId()))
             {
-                Contact c=contactList.get(i);
+                c=contactList.get(i);
                 c.setContactNo(contactNo);
                 contactList.set(i,c);
             }   
     	}
-        repository.resetFile();
-        for(int i=0;i<contactList.size();i++)
-        {
-            repository.rewriteFile(contactList.get(i));
-        }
-        // myrepo.updateContact();
+        myrepo.updateContact(d,c);
+        // repository.resetFile();
+        // for(int i=0;i<contactList.size();i++)
+        // {
+        //     repository.rewriteFile(contactList.get(i));
+        // }
     }
      /**
  * search a contact 
  */
     public void searchDetails()
     {
-        String n=view.getContactName();
+        String d=view.getContactName();
         List<String>c=new ArrayList<String>();
-        List<Contact>contactList=repository.read();
+        List<Contact>contactList=myrepo.getAllContact();
         for(int i=0;i<contactList.size();i++)
         {
-            if(contactList.get(i).getName().contains(n))
+            if(contactList.get(i).getName().contains(d))
             {
                 c.add(contactList.get(i).getName());
             }
         }
-        view.searchContact(c);
+        // c=myrepo.searchContact(d);
+        // view.searchContact(c);
     }
 } 
