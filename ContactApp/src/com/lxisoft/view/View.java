@@ -43,13 +43,17 @@ public class View
 	}
 	public void addContact()
 	{
-		 Scanner set = new Scanner(System.in);
+		Contact contact = new Contact();
+		Scanner set = new Scanner(System.in);
 		System.out.println("ENTER NAME");
-		String name= set.nextLine();
+		//String name= set.nextLine();
+		contact.setName(set.nextLine());
 		System.out.println("ENTER NUMBER");
-		String number=set.nextLine();
+		//String number=set.nextLine();
+		contact.setNumber(set.nextLine());
 		System.out.println("CONTACT SAVED");
-		con.addContact(name,number);
+
+		con.addContact(contact);
 		
 	}
 	// public void search()

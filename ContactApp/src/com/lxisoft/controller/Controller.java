@@ -15,6 +15,7 @@ public class Controller
 	public ArrayList <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
 	{
+
 		//view.dateDisplay();
 		int n=view.begin();
 		switch(n)
@@ -27,13 +28,13 @@ public class Controller
 		}		
 	}
 
-	public void addContact(String name,String number)
+	public void addContact(Contact contact)
 	{ 
 		////rep.setId();
 		contact = new Contact();
 		contact.setId(2);
-        contact.setName(name);
-        contact.setNumber(number);
+        contact.setName(contact.getName());
+        contact.setNumber(contact.getNumber());
         rep.write(contact,true);
         choice();
 

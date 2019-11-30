@@ -6,7 +6,7 @@ import com.lxisoft.test.*;
 import com.lxisoft.model.*;
 public interface Repository
 {
-	public void connection();
+	//public void connection();
 	public void write(Contact contact, boolean isTrue);
 
 	// public  int setId();

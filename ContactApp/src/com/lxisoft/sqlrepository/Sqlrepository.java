@@ -8,15 +8,20 @@ import java.sql.*;
 import java.io.*;
 public class Sqlrepository implements Repository
 {
-	String drivername = "com.mysql.jdbc.Driver"; 
-	String connectionname = "jdbc:mysql://localhost:3306/abhijith,root,root";
-	Connection con;
-	public void connection()
+	//String drivername = "com.mysql.jdbc.Driver"; 
+	//String connectionname = "jdbc:mysql://localhost:3306/abhijith,root,root";
+	Connection con; 
+	PreparedStatement stmnt; 
+	public Sqlrepository()
 	{
 		try
 		{
+			System.out.println("Initiating Connection");
 			Class.forName("com.mysql.jdbc.Driver");  
-	        Connection con=DriverManager.getConnection(connectionname);  
+			this.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/abhijith","root","root");  
+
+			System.out.println("Initiating Connection Successfull");
+	        
         }  
         catch(Exception e)
         {
@@ -28,15 +33,22 @@ public class Sqlrepository implements Repository
 		try
 		{
 		System.out.println("name "+contact.getName()+"  Number  "+contact.getNumber());
-		PreparedStatement stmnt = con.prepareStatement("insert into contact values(?,?,?)");
-		stmnt.setInt(1,1);
-		stmnt.setString(2,contact.getName());
-		stmnt.setString(3,contact.getNumber());
-		stmnt.executeUpdate();
+		if(con != null) 
+		{
+	     	stmnt = con.prepareStatement("insert into contact values(?,?,?)");
+	     	stmnt.setInt(1,1);
+			stmnt.setString(2,contact.getName());
+			stmnt.setString(3,contact.getNumber());
+			stmnt.executeUpdate();
+		} else
+		 {
+			System.out.println("djhhdhdjhjdjhdjh");
+		}
+	
 	    }
 	    catch(Exception e)
 	    {
-	    	System.out.println(e);
+	    	e.printStackTrace();
 	    }
 	}
 
