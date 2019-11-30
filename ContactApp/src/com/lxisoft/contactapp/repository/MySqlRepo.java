@@ -24,15 +24,15 @@ public class MySqlRepo implements Repository
 	static int id=0;
 	ArrayList<Contact> contacts=new ArrayList<Contact>();
 
-	// {
-	// try
-	// 	{
-	// 	dB_Connection(true);
-	// 	}catch(Exception e)
-	// 	{
-	// 		System.out.println("error "+e);
-	// 	}
-	// }
+	{
+	try
+		{
+		dB_Connection(true);
+		}catch(Exception e)
+		{
+			System.out.println("error "+e);
+		}
+	}
 	public void dB_Connection(boolean dBexists) throws SQLException,ClassNotFoundException
 	{
 		try
@@ -42,20 +42,20 @@ public class MySqlRepo implements Repository
 			{	
 				Class.forName(driver_Class);
 				con=DriverManager.getConnection(db_URL,userName,password);
-				System.out.println("DB Connection created successfully");
-				System.out.println("trueee");
 				stm=con.createStatement();
+				System.out.println("DB Connection created successfully");
 				checkDBExists();
 				
 			}
 			else
 			{
-				System.out.println("else");
 				Class.forName(driver_Class);
-				checkDBExists();con.setCatalog(dataBase);
 				con=DriverManager.getConnection(db_URL+dataBase,userName,password);
 				System.out.println("DB Connection created successfully");
-				
+				con.setCatalog(dataBase);
+				System.out.println("DB set");
+				PreparedStatement stmt;
+				ResultSet rs;
 				
 			}
 			boolean tableExists=checkTableExists();
@@ -65,7 +65,6 @@ public class MySqlRepo implements Repository
 		    	createTable();
 		}catch(SQLException ex) 
 		{ 
-	   		System.out.println("Error: unable to load driver class!"); 
 	   		ex.printStackTrace();
 		}
 	}
@@ -108,7 +107,7 @@ public class MySqlRepo implements Repository
 			String create_Table="create table Contactlist(ID int(3),NAME varchar(50),NUMBER varchar(10))";
 			stmt=con.prepareStatement(create_Table);
 			stmt.execute();
-			System.out.println("table craeted successfully");
+			System.out.println("table created successfully");
 		}
 		catch(SQLException ex) 
 		{ 
@@ -138,28 +137,30 @@ public class MySqlRepo implements Repository
 		{
 			if(con != null)
 			{
-				exists=true;String catalog=null;
-				System.out.println("check if a database exists using java");
+				String catalog=null;
 				rs =  con.getMetaData().getCatalogs();
 	     		while (rs.next())
 	     		{
-	      	 		catalog = rs.getString(catalog);  //"TABLE_CATALOG"
-	       			System.out.println("catalog: "+dataBase.equals(rs.getString(1)));
+	      	 		catalog = rs.getString(1); 
+		      		if(dataBase.equals(catalog))exists=true;
 		      	}
-				if(dataBase.equals(catalog))
+				if(exists)
 				{
+					Class.forName(driver_Class);
+					con=DriverManager.getConnection(db_URL+dataBase,userName,password);
+					stm=con.createStatement();
 					System.out.println("the database "+dataBase+" exists");
 				}
 				else
 				{
-					System.out.println("not");
-					stmt=con.prepareStatement("CREATE DATABASE "+dataBase);
+					stmt=con.prepareStatement("create database "+dataBase);
+					stmt.executeUpdate();
 					dB_Connection(false);
 				}	
 			}
 		}catch(SQLException | ClassNotFoundException e)
 		{
-			System.out.println("error"+e);
+			System.out.println("SQLException"+e);
 		}
 	}
 	public int getId()
@@ -182,9 +183,8 @@ public class MySqlRepo implements Repository
 	{
 		try
 		{
-		
 			contacts.clear();
-			
+			stmt=con.prepareStatement("use contacts");
 			rs = stmt.executeQuery("select * from Contactlist");
 			while(rs.next()) 
 			{ 

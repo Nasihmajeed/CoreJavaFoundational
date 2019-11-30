@@ -17,8 +17,7 @@ public class Tdd
 		/**
 		 * object with reference of Contactcontroller class.
 		 */
-		 ContactController control=new ContactController();
-		
+		ContactController control=new ContactController();
 		control.getAllcontacts();
 		control.getAllcontactInfo();
 	}

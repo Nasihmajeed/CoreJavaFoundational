@@ -16,20 +16,20 @@ public class ContactController
 	/**
 	 * instance variables filerepo and view.
 	 */
-	private MySqlRepo repo=new MySqlRepo();
-	//private FileRepo repo=new FileRepo();
+	//private Repository repo=new MySqlRepo();
+	private Repository repo=new FileRepo();
 	private ContactView view=new ContactView();
 	static int sort_option=1;
-	public void getDBConnection()
-	{
-		try
-		{
-		repo.dB_Connection(false);
-		}catch(Exception e)
-		{
-			System.out.println("error "+e);
-		}
-	}
+	// public void getDBConnection()
+	// {
+	// 	try
+	// 	{
+	// 	repo.dB_Connection(true);
+	// 	}catch(Exception e)
+	// 	{
+	// 		System.out.println("error "+e);
+	// 	}
+	// }
 	/**
 	 * getAllContactInfo to get the contact details from repository and displaying in view.
 	 */
@@ -73,7 +73,7 @@ public class ContactController
 	{
 		ArrayList<ContactModel> contactlist=null;
 		ArrayList<Contact> contacts=null;
-		getDBConnection();
+		//getDBConnection();
 		try
 		{
 			sortContact(sort_option);
@@ -88,7 +88,6 @@ public class ContactController
 					contactmodel.setName(contacts.get(i).getName());
 					contact.setAllContacts(contactmodel);
 				}
-
 				contactlist=contact.getAllContacts();
 				view.showAllContacts(contactlist);
 			}
@@ -163,10 +162,9 @@ public class ContactController
 	 */
 	public void getAllContactDetails()
 	{
-		ArrayList<Contact> contacts=null;
 		try
 		{
-			contacts=repo.getAllContacts();
+			ArrayList<Contact> contacts=repo.getAllContacts();
 			view.showAllContactDetails(contacts);
 		}catch(SQLException e)
 		{

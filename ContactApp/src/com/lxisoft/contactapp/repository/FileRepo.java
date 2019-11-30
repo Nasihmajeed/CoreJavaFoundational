@@ -27,18 +27,25 @@ public class FileRepo implements Repository
 	{
 		try
 		{
+
+			FileWriter fw= new FileWriter(contactFile,true);
 			contacts.clear();
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			String str=read.readLine();
+			String str=read.readLine();System.out.println("get");
 			while((str=read.readLine())!=null) 
 			{
+				System.out.println("contactssss");
 				String[] st=str.split(",",3);
 				Contact	contact=new Contact();
 				contact.setId(Integer.parseInt(st[0]));
 				contact.setName(st[1]);
 				contact.setNo(st[2]);
 				contacts.add(contact);
-			}	
+
+			}	for(Contact contact:contacts)
+				{
+					System.out.println(contact.getName()+ "nooooo "+contact.getNo());
+				}
 		}
 		catch(IOException e)
 		{
@@ -76,7 +83,7 @@ public class FileRepo implements Repository
 	{
 		contacts.add(contact);	
 		boolean val=false;
-		contactWriteIntoFile(contact,val);
+		insertContactDetails(contact,val);
 	}
 	/**
 	 * writting data to file.
@@ -126,7 +133,7 @@ public class FileRepo implements Repository
 		for(int j=0;j<contacts.size();j++)
 			{
 				boolean value=true;
-				contactWriteIntoFile(contacts.get(j),value);
+				insertContactDetails(contacts.get(j),value);
 			}
 	}
 	/**
@@ -142,7 +149,7 @@ public class FileRepo implements Repository
 		for(int j=0;j<contacts.size();j++)
 			{
 				boolean val=true;
-				contactWriteIntoFile(contacts.get(j),val);
+				insertContactDetails(contacts.get(j),val);
 			}
 	}
 	public ArrayList<Contact> sortContactByName()
@@ -156,7 +163,7 @@ public class FileRepo implements Repository
 	 		for(Contact contact : contacts)
 			{
 				boolean val=true;
-				contactWriteIntoFile(contact,val);
+				insertContactDetails(contact,val);
 			}	
 		return contacts;
 	}
@@ -172,7 +179,7 @@ public class FileRepo implements Repository
 	 		for(Contact contact : contacts)
 			{
 				boolean val=true;
-				contactWriteIntoFile(contact,val);
+				insertContactDetails(contact,val);
 			}	
 		return contacts;
 	}
@@ -183,7 +190,7 @@ public class FileRepo implements Repository
 	 		for(Contact contact : contacts)
 			{
 				boolean val=true;
-				contactWriteIntoFile(contact,val);
+				insertContactDetails(contact,val);
 			}	
 		return contacts;
 	}
@@ -203,3 +210,4 @@ public class FileRepo implements Repository
 			System.out.println("Exception!!! "+e);
 		}
 	}
+}

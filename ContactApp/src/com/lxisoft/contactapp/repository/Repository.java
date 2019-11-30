@@ -8,9 +8,10 @@ import com.lxisoft.contactapp.*;
 
 public interface Repository
 {
-	public void dB_Connection(boolean dBexists) throws SQLException,ClassNotFoundException;
-	public void createTable()throws SQLException;
-	public boolean checkTableExists();
+	// public void dB_Connection(boolean dBexists) throws SQLException,ClassNotFoundException;
+	// public void createTable()throws SQLException;
+	// public boolean checkTableExists();
+	// public void checkDBExists();
 	public int getId();
 	public ArrayList<Contact> getAllContacts()throws SQLException;
 	public void addContactDetails(Contact contact)throws SQLException;
