@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class User
 {
 	Scanner scanner;
-	public void bill(FoodList foodList)
+	public void bill(FoodList foodList,Hotel hotel)
 	{
 		scanner = new Scanner(System.in);
 		boolean numberExist = false;
@@ -30,7 +30,7 @@ public class User
 				isTrue = true;
 				break;
 			case 2:
-				print(foodList,productIndex,quantity);
+				print(foodList,productIndex,quantity,hotel);
 				isTrue = false;
 				break;
 			default :
@@ -74,7 +74,12 @@ public class User
 		}
 		return index;
 	}
-	public void print(FoodList foodList,int[] productIndex,int[] quantity)
+	/*public void timerLoading()
+    {
+     int i = 5;
+     System.out.print("Loading...."); 
+    }*/
+	public void print(FoodList foodList,int[] productIndex,int[] quantity,Hotel hotel)
 	{
 		scanner = new Scanner(System.in);
 		int tottalAmount = 0;
@@ -85,7 +90,11 @@ public class User
 				tottalAmount = tottalAmount + (foodList.foodItem[productIndex[i]-1].getPrice()*quantity[i]);
 			}
 		}
-		System.out.println("******BILL******");
+		/*timerLoading();*/
+		System.out.println("");
+		System.out.println("\t\t******BILL******");
+		System.out.println("Hotel Name : "+hotel.name);
+		System.out.println("Place : "+hotel.place);
 		System.out.printf("%-20.30s  %-20.30s %-20.30s%n","Food Items","Quantity","Price");
 		for(int i=0;i<10;i++)
 		{

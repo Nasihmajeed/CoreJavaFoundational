@@ -5,7 +5,7 @@ import com.lxisoft.hotel.FoodItem;
 import java.util.Scanner;
 public class Hotel
 {
-	String name,place;
+	public String name,place;
 	Scanner scanner; 
 	public Hotel(String name,String place)
 	{
@@ -53,7 +53,7 @@ public class Hotel
 		}
 		else if(num==2)
 		{
-			user.bill(foodList);
+			user.bill(foodList,hotel);
 		}
 	}
 }
