@@ -1,7 +1,7 @@
 package com.lxisoft.controller;
 import com.lxisoft.view.*;
 import com.lxisoft.model.*;
-import com.lxisoft.filerepository.*;
+import com.lxisoft.sqlrepository.*;
 import java.util.*;
 import com.lxisoft.repository.*;
 import com.lxisoft.test.*;
@@ -15,22 +15,23 @@ public class Controller
 	public ArrayList <Contact> contactList = new ArrayList<Contact>();
 	public void choice()
 	{
-		view.dateDisplay();
+		//view.dateDisplay();
 		int n=view.begin();
 		switch(n)
 		{
 			case 1 : view.addContact(); break;
-			case 2 : view.search();break;
-			case 3 : display(); break;
-			case 4 : view.deleteAll();break;
+			// case 2 : view.search();break;
+			// case 3 : display(); break;
+			// case 4 : view.deleteAll();break;
 			default: view.defaultPrint(0);
 		}		
 	}
 
 	public void addContact(String name,String number)
 	{ 
-		rep.setId();
+		////rep.setId();
 		contact = new Contact();
+		contact.setId(2);
         contact.setName(name);
         contact.setNumber(number);
         rep.write(contact,true);
@@ -38,93 +39,88 @@ public class Controller
 
 	}
 	
-	public Contact search(String name)
-	{
-		contact = new Contact();
-		contactList = rep.read();
-		for(int i= 0;i<contactList.size();i++)
-		{
-			if(name.equals(contactList.get(i).getName()))
-			{	
-				contact = contactList.get(i);
-			}
-		}
-		return contact;
+	// public Contact search(String name)
+	// {
+	// 	contact = new Contact();
+	// 	contactList = rep.read();
+	// 	for(int i= 0;i<contactList.size();i++)
+	// 	{
+	// 		if(name.equals(contactList.get(i).getName()))
+	// 		{	
+	// 			contact = contactList.get(i);
+	// 		}
+	// 	}
+	// 	return contact;
 		
-	}
-	public ArrayList<Contact> fileRead()
-	{
-		contact = new Contact();
-		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
-		return contactDetail=rep.read();
+	// }
+	// public ArrayList<Contact> fileRead()
+	// {
+	// 	contact = new Contact();
+	// 	ArrayList <Contact> contactDetail = new ArrayList<Contact>();
+	// 	return contactDetail=rep.read();
 
-	}
+	// }
 
-	public void editContact(int i,int id,String name,String number)
-	{	
-		//System.out.println("value i ="+i+"   id ="+id );
-		
-		 contact = new Contact();
-		 contactList = rep.read();
-		 contact.setName(name);
-         contact.setNumber(number);
-         contact.setId(id);
-         //System.out.println(contact.getId()+"****");
-         contactList.set(i,contact);
-         rep.clear();
-		//System.out.println(contact.getId()+"****");
-		 for(Contact j : contactList)
-		 {
-		 	 rep.write(j,false);
-		 }	
-		 choice();
+	// public void editContact(int i,int id,String name,String number)
+	// {	
+	// 	 contact = new Contact();
+	// 	 contactList = rep.read();
+	// 	 contact.setName(name);
+ //         contact.setNumber(number);
+ //         contact.setId(id);
+ //         contactList.set(i,contact);
+ //         rep.clear();
+	// 	for(Contact j : contactList)
+	// 	 {
+	// 	 	 rep.write(j,false);
+	// 	 }	
+	// 	 choice();
 	
-	}
+	// }
 
-	public void deleteContact(int i)
-	{
-		contact = new Contact();
-		contactList = rep.read();
-	    contactList.remove(i);	
-	    rep.clear();
+	// public void deleteContact(int i)
+	// {
+	// 	contact = new Contact();
+	// 	contactList = rep.read();
+	//     contactList.remove(i);	
+	//     rep.clear();
 		
-		for(Contact j : contactList)
-		 {
-		 	 rep.write(j,false);
-		 }
-		 choice();
+	// 	for(Contact j : contactList)
+	// 	 {
+	// 	 	 rep.write(j,false);
+	// 	 }
+	// 	 choice();
 
-	}
-	public void display()
-	{
-		int n=view.display();
-		//System.out.println("n="+n);
-		switch(n)
-		{
-			case 1 : view.dateDisplay(); break;
-		    case 2 : view.sortByname();break;
-		    case 3 : view.sortByid(); break;
-		}
+	// }
+	// public void display()
+	// {
+	// 	int n=view.display();
+	// 	switch(n)
+	// 	{
+	// 		case 1 : view.dateDisplay(); break;
+	// 	    case 2 : view.sortByname();break;
+	// 	    case 3 : view.sortByid(); break;
+	// 	}
 		
-		choice();
-	}
+	// 	choice();
+	// }
 	
-	public int getArraySize()
-	{
-		return rep.getArraysize();
-	}
-	public String getName()
-	{
-		return contact.getName();
-	}
-	public String getNumber()
-	{
-		return contact.getNumber();
-	}
-	public void deleteAll()
-	{
-		rep.clear();
-		choice();
-	}
+	// public int getArraySize()
+	// {
+	// 	return rep.getArraysize();
+	// }
+	// public String getName()
+	// {
+	// 	return contact.getName();
+	// }
+	// public String getNumber()
+	// {
+	// 	return contact.getNumber();
+	// }
+	// public void deleteAll()
+	// {
+	// 	rep.clear();
+	// 	choice();
+	// }
 
 }
