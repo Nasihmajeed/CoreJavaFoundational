@@ -31,10 +31,9 @@ public class FileRepo implements Repository
 			FileWriter fw= new FileWriter(contactFile,true);
 			contacts.clear();
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
-			String str=read.readLine();System.out.println("get");
+			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
-				System.out.println("contactssss");
 				String[] st=str.split(",",3);
 				Contact	contact=new Contact();
 				contact.setId(Integer.parseInt(st[0]));
@@ -42,10 +41,7 @@ public class FileRepo implements Repository
 				contact.setNo(st[2]);
 				contacts.add(contact);
 
-			}	for(Contact contact:contacts)
-				{
-					System.out.println(contact.getName()+ "nooooo "+contact.getNo());
-				}
+			}	
 		}
 		catch(IOException e)
 		{
@@ -158,6 +154,7 @@ public class FileRepo implements Repository
 		// contactlist.addAll(contacts);
 		// contacts.clear();
 		// contacts.addAll(contactlist);
+		contacts=getAllContacts();
 		Collections.sort(contacts,new SortByName());
 		clearRepository();
 	 		for(Contact contact : contacts)
@@ -174,6 +171,7 @@ public class FileRepo implements Repository
 	}
 	public ArrayList<Contact> sortContactByNumber()
 	{
+		contacts=getAllContacts();
 		Collections.sort(contacts,new SortByNumber());
 		clearRepository();
 	 		for(Contact contact : contacts)
@@ -185,6 +183,7 @@ public class FileRepo implements Repository
 	}
 	public ArrayList<Contact> sortContactById()
 	{
+		contacts=getAllContacts();
 		Collections.sort(contacts,new SortById());
 		clearRepository();
 	 		for(Contact contact : contacts)
