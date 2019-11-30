@@ -31,7 +31,7 @@ public class MysqlRepository implements Repository
 		{
 			if(newsql)
 			{	Class.forName(driverName);
-				con = DriverManager.getConnection(connectionName,"root","root");
+				con = DriverManager.getConnection(connectionName);
 				stm=con.createStatement();
 				System.out.println("Connection registered");
 				checkDatabase();
@@ -40,10 +40,9 @@ public class MysqlRepository implements Repository
 			else
 			{
 				Class.forName(driverName);
-				con = DriverManager.getConnection(connectionName+dataBase,"root","root");
+				con = DriverManager.getConnection(connectionName+dataBase);
 				con.setCatalog(dataBase);
-				PreparedStatement stmt;
-				ResultSet rs;
+				
 							
 			}
 	//System.out.println(connectionName+dataBase);
@@ -51,35 +50,36 @@ public class MysqlRepository implements Repository
 		}
 		catch(ClassNotFoundException e)
 		{
-		System.out.println("errororo");
+		System.out.println("error connection");
 		}
 	}
 	public  void checkDatabase()throws SQLException,ClassNotFoundException
 	{
 		try
 		{
+			boolean exist=false;
 			if(con != null)
 			{
 				
 				System.out.println("check if a database exists using java");
-
 				rs = con.getMetaData().getCatalogs();
-
 				while(rs.next())
 				{
-					String catalogs = rs.getString("Table_CAT");
+					String catalogs = rs.getString(1);
 					System.out.println(catalogs+ " catalog..");
-					
-					if(dataBase.equals(catalogs)){
-						System.out.println("the database "+dataBase+" exists");
+					if(dataBase.equals(catalogs))exist=true;
+				}
+					if(exist)
+					{
+						System.out.println("the database "+dataBase+ exist);
 					}
+					
 					else
 					{
 						int Result = stm.executeUpdate("CREATE DATABASE "+dataBase);
 						connection(false);
-
 					}	
-				}
+					System.out.println("the d"+ exist);
 						// Statement s=con.createStatement();
 						// s.executeQuery("use contact");
 						// s.excecute();

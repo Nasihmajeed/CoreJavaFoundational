@@ -21,32 +21,27 @@ public class FileRepository implements Repository
 	*/
 	public void writeNewContact(Contact contact,boolean write)
 	{
+		
 		try
 		{
 			FileWriter bf=new FileWriter(file,true);
 			if(write)
 			{
+				setId();
 				bf.write(id+","+contact.getName()+","+contact.getNo()+"\n");
-				id++;
 			}
 			else
 			{
 				bf.write(contact.getId()+","+contact.getName()+","+contact.getNo()+"\n");
 			}
 			bf.flush();
+			
 		}
 		catch(Exception e)
 		{
 			System.out.println("error1");
 		}
 
-	}
-	/**
-	*method to set id number
-	*/
-	public void setId()
-	{
-		id=getId();
 	}
 	/**
 	*method to view all contact details in file
@@ -101,24 +96,27 @@ public class FileRepository implements Repository
 	*method to get id from the last existing contact
 	*@return return id
 	*/
-	public int getId()
+	public void setId()
 	{
 		try
 		{
+			id=0;
 			BufferedReader bf=new BufferedReader(new FileReader(file));
 			String str=null;
 			while((str=bf.readLine())!=null)
 			{
+				
 				String[] strln=str.split(",",2);
 				int idtemp=Integer.parseInt(strln[0]);	
 				if(idtemp>id)id=idtemp;
-			}id++;
+			}
+			id++;
 		}
 		catch(Exception e)
 		{
 			System.out.println("error");
 		}
-		return id;
+		
 	}
 	/**
 	*method to edit a contact detail 
@@ -156,12 +154,13 @@ public class FileRepository implements Repository
 	{
 		try
 		{
-			id=1;
+			
 			FileWriter fi=new FileWriter(file);
 		}catch(Exception e)
 		{
 			System.out.println("error");
 		}
+	id=0;
 	}
 	public void sorting(ArrayList<Contact> contacts)
 	{
