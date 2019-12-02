@@ -1,23 +1,27 @@
 package com.lxisoft.animalgame;
 
 public class Rabbit extends Animal implements Herbivores {
-
+  public Forest forest;
 	public Rabbit(Animal animal, Forest forest) {
 		animal = animal;
-		forest = forest;
+		this.forest = forest;
 	}
 
+
 	@Override
+	
 	public void run() {
 		System.out.println("\n rabbit run slowly");
 	}
 
 	@Override
+	
 	public void eat() {
 		System.out.println("\n rabbit eat carrot");
 	}
 
 	@Override
+	
 	public int[] graze() {
 		int x2, y2;
 		int[] position;
@@ -32,6 +36,7 @@ public class Rabbit extends Animal implements Herbivores {
 	@Override
 	public int attack(Animal enemy1) {
 		System.out.println("\n " + enemy1.animalName + "  attacks  " + this.animalName);
+		
 		if (this.luck > enemy1.luck) {
 			System.out.println(" " + this.animalName + "-----1-ESCAPED TO JUNGLE---------");
 			return 0;
@@ -58,8 +63,8 @@ public class Rabbit extends Animal implements Herbivores {
 	@Override
 	public int attack(Animal[] enemy, int e) {
 		int x = 5;
-		// int a=arr.length;
-		// enemy=new Animal[a];
+		
+		
 		for (int i = 0; i < e; i++) {
 			System.out.println("\n " + enemy[i].animalName + "  attacks  " + this.animalName);
 			if (this.luck > enemy[i].luck) {

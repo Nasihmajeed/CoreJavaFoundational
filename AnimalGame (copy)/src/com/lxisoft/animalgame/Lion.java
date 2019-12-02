@@ -11,9 +11,10 @@ public class Lion extends Animal implements Carnivores {
 		System.out.println("\n lion eat flush");
 	}
 
-	public Lion(Animal a) {
-		super();
-	}
+public Lion(String animalName, int strength, int range, boolean isDead, int luck, Position pos, int sight,
+			Hunger hunger, int speed){
+			
+			}
 
 	@Override
 	public int[] roam() {
@@ -29,6 +30,7 @@ public class Lion extends Animal implements Carnivores {
 	}
 
 	@Override
+	
 	public Animal fight(Animal defender1) {
 		System.out.println("\n\t\t    " + this.animalName + "  v  " + defender1.animalName);
 		if (this.strength > defender1.strength) {

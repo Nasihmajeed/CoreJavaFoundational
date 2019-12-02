@@ -6,7 +6,7 @@ public class Bear extends Animal implements Herbivores {
 		System.out.println("\n bear run slowly");
 	}
 
-	public void eat1() {
+	public void eat() {
 		System.out.println("\n bear eat honey");
 	}
 

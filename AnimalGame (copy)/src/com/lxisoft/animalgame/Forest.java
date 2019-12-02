@@ -9,7 +9,7 @@ public class Forest {
 	String name;
 	Animal animals;
 	Animal[] animalArr;
-	public Gamelevel gamelevel;
+	public  Gamelevel gamelevel;
 	TreeMap<Integer, Animal> animalss = new TreeMap<Integer, Animal>();
 
 	public void meetAnimal() {
@@ -108,7 +108,7 @@ public class Forest {
 		aLion.run();
 		aLion.eat();
 		for (int j = number[0]; j < (number[0] + number[1]); j++) {
-			aLion = new Lion();
+			//aLion = new Lion();
 			System.out.println("enter name of lion-" + l);
 			aLion.animalName = s.next();
 			System.out.println("enter strength level  of lion-" + l);
@@ -167,7 +167,6 @@ public class Forest {
 		aRabbit.run();
 		aRabbit.eat();
 		for (int g = (number[0] + number[1] + number[2]); g < (number[0] + number[1] + number[2] + number[3]); g++) {
-			aRabbit = new Rabbit();
 			System.out.println("enter name of rabbit-" + r);
 			aRabbit.animalName = s.next();
 			System.out.println("enter strength level of rabbit-" + r);
@@ -244,44 +243,34 @@ public class Forest {
 					animalArr[arr[i]] = animalFightHunger(animalArr[arr[i]]);
 			}
 		}
-		Thread thread1 = new Thread(new Forest());
+		/*Thread thread1 = new Thread(new Forest());
 		thread1.start();
-		thread1.start();
+		thread1.start();*/
 
 	}
 
 	public int animalLuck(new Carnivores() {
-		@Override
+	/**@Override methods*/
 		public int[] roam() {}
-		@Override
+		
 		public void run() {}
-		@Override
+		
 		public void eat() {}
-	}) {
+
 		switch (this.gamelevel) {
-		case EASY: {
-			animals.luck = (int) (Math.random() * 60);
-			break;
-		}
-		case MEDIUM: {
-			animals.luck = (int) (Math.random() * 40);
-			break;
-		}
-		case HARD: {
-			animals.luck = (int) (Math.random() * 20);
-			break;
-		}
-		}
+		case EASY:   animals.luck = (int) (Math.random() * 60);break;
+		case MEDIUM: animals.luck = (int) (Math.random() * 40);break;
+		case HARD:   animals.luck = (int) (Math.random() * 20);break;
+		
+		
 		System.out.println(animals.animalName + " luck-" + animals.luck);
 		return animals.luck;
-	}
-
+		)};
 	public int animalLocation(int positionX[], int positionY[]) {
 		int location = (int) (Math.sqrt((positionY[0] - positionX[0]) * (positionY[0] - positionX[0])
 				+ (positionY[1] - positionX[1]) * (positionY[1] - positionX[1])));
 		return location;
 	}
-
 	public int[] animalInSight(int y) throws AnimalNotMeet {
 		int distance = 0, count = 0;
 		int[] arr = new int[animalArr.length];
@@ -353,8 +342,8 @@ public class Forest {
 					int v = animalArr[i].pos.getPositionX();
 					int u = animalArr[i].pos.getPositionY();
 					if ((v == row) & (u == col)) {
-						grid[u][v] = animalArr[i].animalName;
-						// System.out.println(animalArr[i].animalName);
+						grid[u][v] = (int)animalArr[i].animalName;
+						 System.out.println(animalArr[i].animalName);
 					}
 				}
 			}

@@ -6,10 +6,11 @@ import com.lxisoft.animalgame.Forest;
 import com.lxisoft.animalgame.Gamelevel;
 
 public class TDD {
-	public void main(String[] args) throws NullPointerException {
+	int  static final  level;
+	public static void main(String[] args) throws NullPointerException {
 		Scanner s = new Scanner(System.in);
 		Forest forest = new Forest();
-		int level = 0;
+		
 		boolean ex;
 		do {
 			ex = false;
@@ -20,7 +21,7 @@ public class TDD {
 					throw new NullPointerException("");
 				}
 			} catch (NullPointerException e) {
-				throw new NotException();
+				
 				ex = true;
 				System.out.println("Exception");
 			}
