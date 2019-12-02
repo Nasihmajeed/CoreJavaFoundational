@@ -83,19 +83,20 @@ public class User
 				totalAmount = totalAmount + (foodList.foodItemList[productIndex[i]-1].getPrice()*quantity[i]);
 			}
 		}
-		/*timerLoading();*/
-		/*System.out.println("");*/
-		System.out.println("\t\t******BILL******");
-		/*System.out.println("Hotel Name : "+hotel.name);
-		System.out.println("Place : "+hotel.place);*/
-		System.out.printf("%-20.30s  %-20.30s %-20.30s%n","Food Items","Quantity","Price");
+		System.out.println("+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
+		System.out.println("|\t\t     BILL                         |");
+		System.out.println("+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
+		System.out.printf("|%-20.30s  %-20.30s %-20.30s%n","Food Items","Quantity","Price |");
+		System.out.println("+-------------------------------------------------+");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-			System.out.printf("%-20.30s  %-20.30s %-20.30s%n",foodList.foodItemList[productIndex[i]-1].getName(),quantity[i],foodList.foodItemList[productIndex[i]-1].getPrice()+" Rs");
+			System.out.printf(" %-20.30s  %-20.30s %-20.30s%n",foodList.foodItemList[productIndex[i]-1].getName(),quantity[i],foodList.foodItemList[productIndex[i]-1].getPrice()+" Rs");
 		    }
 		}
-		System.out.println("Total Amount\t\t\t\t   "+totalAmount+" Rs");
+		System.out.println("+=================================================+");
+		System.out.println("|\t\t\tTotal Amount\t    "+totalAmount+" Rs|");
+		System.out.println("+=================================================+");
 	}
 }

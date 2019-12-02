@@ -4,11 +4,9 @@ import java.util.Scanner;
 public class Admin
 {
 	Scanner scanner;
-	/*FoodList foodList = new FoodList();*/
 	public void crud(FoodList foodList)
 	{
 		scanner = new Scanner(System.in);
-		/*Hotel hotel = new Hotel();*/
 		boolean isTrue = false;
 		do
 		{
@@ -40,9 +38,9 @@ public class Admin
 				case 5: 
 				    break;
 				default :
-				System.out.println("Sorry!!!! Select Options From Above ");
-				isTrue = true;
-				break;
+					System.out.println("Sorry!!!! Select Options From Above ");
+					isTrue = true;
+					break;
 			}
 		}while(isTrue);
 	    
@@ -115,9 +113,9 @@ public class Admin
 				isRight = true;
 				break;
 			case 2:
-				/*crud(foodItemList);*/
 				break;
 			case 3:
+			System.exit(0);
 				break;
 			default :
 				System.out.println("Sorry!!!! Select Options From Above ");
@@ -146,7 +144,6 @@ public class Admin
 				isRight = true;
 				break;
 			case 3:
-				/*crud(foodItemList);*/
 				break;
 			default :
 				System.out.println("Select Any Options From Above");
@@ -170,7 +167,6 @@ public class Admin
 				isTrue = true;
 				break;
 			case 2:
-				/*crud(foodItemList);*/
 				break;
 			default :
 				System.out.println("Select Any Options from Above ");
@@ -203,7 +199,6 @@ public class Admin
 		{
 			foodList.foodItemList[num].setName(productName);
 			foodList.foodItemList[num].setPrice(productAmount);
-		
 		}
 	}
 	public void reAligningFoodList (FoodList foodList)

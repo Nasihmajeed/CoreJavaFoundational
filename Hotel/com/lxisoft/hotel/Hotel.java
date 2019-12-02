@@ -18,7 +18,6 @@ public class Hotel
 		foodList.setFoodItem(foodList.foodItemList);
 		login(foodList);
 	}
-
 	public void login(FoodList foodList)
 	{	
 		scanner = new Scanner(System.in);
@@ -51,9 +50,7 @@ public class Hotel
 						isTrue = true;
 						System.out.println("Wrong Password");
 					}
-					
-				}while(isTrue);
-				
+				}while(isTrue);			
 			}
 			else if(num==2)
 			{
