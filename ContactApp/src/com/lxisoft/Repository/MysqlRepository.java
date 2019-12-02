@@ -40,7 +40,7 @@ public class MysqlRepository implements Repository
 			else
 			{
 				Class.forName(driverName);
-				con = DriverManager.getConnection(connectionName+dataBase);
+				con = DriverManager.getConnection(connectionName);
 				con.setCatalog(dataBase);
 				
 							
@@ -72,6 +72,9 @@ public class MysqlRepository implements Repository
 					if(exist)
 					{
 						System.out.println("the database "+dataBase+ exist);
+						Class.forName(driverName);
+						con = DriverManager.getConnection(connectionName);
+						con.setCatalog(dataBase);
 					}
 					
 					else
