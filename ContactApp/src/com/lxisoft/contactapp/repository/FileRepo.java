@@ -78,8 +78,7 @@ public class FileRepo implements Repository
 	public void addContactDetails(Contact contact)
 	{
 		contacts.add(contact);	
-		boolean val=false;
-		insertContactDetails(contact,val);
+		insertContactDetails(contact,false);
 	}
 	/**
 	 * writting data to file.
@@ -128,8 +127,7 @@ public class FileRepo implements Repository
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				boolean value=true;
-				insertContactDetails(contacts.get(j),value);
+				insertContactDetails(contacts.get(j),true);
 			}
 	}
 	/**
@@ -144,8 +142,7 @@ public class FileRepo implements Repository
 		clearRepository();
 		for(int j=0;j<contacts.size();j++)
 			{
-				boolean val=true;
-				insertContactDetails(contacts.get(j),val);
+				insertContactDetails(contacts.get(j),true);
 			}
 	}
 	public ArrayList<Contact> sortContactByName()
@@ -159,8 +156,7 @@ public class FileRepo implements Repository
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				boolean val=true;
-				insertContactDetails(contact,val);
+				insertContactDetails(contact,true);
 			}	
 		return contacts;
 	}
@@ -176,8 +172,7 @@ public class FileRepo implements Repository
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				boolean val=true;
-				insertContactDetails(contact,val);
+				insertContactDetails(contact,true);
 			}	
 		return contacts;
 	}
@@ -188,8 +183,7 @@ public class FileRepo implements Repository
 		clearRepository();
 	 		for(Contact contact : contacts)
 			{
-				boolean val=true;
-				insertContactDetails(contact,val);
+				insertContactDetails(contact,true);
 			}	
 		return contacts;
 	}

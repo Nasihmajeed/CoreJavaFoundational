@@ -14,7 +14,7 @@ import java.util.*;
 public class ContactController
 {
 	/**
-	 * instance variables filerepo and view.
+	 * instance variable reference filerepo and Mysqlrepo and view and option for sort
 	 */
 	//private Repository repo=new MySqlRepo();
 	private Repository repo=new FileRepo();
@@ -45,7 +45,6 @@ public class ContactController
 			do
 			{	
 				userChoice=view.viewUserOption();
-				//if(option!=option){ throw new NumberFormatException ("");}
 				if(option>5) {throw new NullPointerException ("");}
 				switch((option=Integer.parseInt(userChoice)))
 					{
@@ -132,30 +131,31 @@ public class ContactController
 	public void moderateSearch(String name)
 	{
 		ArrayList<Contact> contacts=null;
-		try{
-		contacts=repo.getAllContacts();
+		try
+		{
+			boolean cont;
+			contacts=repo.getAllContacts();
+			ArrayList<Contact>searchList= new ArrayList<Contact>();
+			for(Contact contact:contacts)
+			{
+				if((contact.getName()).contains(name))
+				{
+					searchList.add(contact);
+				}
+			}
+			if(searchList.size()>0)
+			{
+				view.moderateSearchDisplay(searchList);
+				searchContact();
+				
+			}
+			else{ view.noSuchContacts();cont=isContinue();
+				if(cont) getAllcontactInfo();
+		}
 		}catch(SQLException e)
 		{
 			System.out.println("error"+e);
 		}
-		ArrayList<Contact>searchList= new ArrayList<Contact>();
-		for(Contact contact:contacts)
-		{
-			if((contact.getName()).contains(name))
-			{
-				searchList.add(contact);
-			}
-		}
-		if(searchList!=null)
-		{
-			boolean cont;
-			view.moderateSearchDisplay(searchList);
-			searchContact();
-			cont=isContinue();
-			if(cont) getAllcontactInfo();
-		}
-		// else{ view.noSuchContacts();isContinue();
-		// }
 	}
 	/**
 	 *  getAllContacts (all contact details) from file to arraylist.
@@ -321,27 +321,33 @@ public class ContactController
 	
 	public Contact getContactByName(String name)
 	{
-		ArrayList<Contact> contacts=null;
+		Contact contact=new Contact();
 		try
 		{
-		contacts=repo.getAllContacts();
-		}catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		Contact contact=new Contact(); int val=1;
+		ArrayList<Contact>contacts=repo.getAllContacts();
+		int val=0,v=0;
 		for(int i=0;i<contacts.size();i++)
 		{
 			if(name.equals(contacts.get(i).getName()))
 			{
 				contact=contacts.get(i);
+				val=1;
 			}
-			else val=0;
+				// if(val==0)
+				// {
+				// 	v=1;
+				// }
 		}
-		if(val==0)
+		// if(v==1)
+		// {
+		// 	view.noSuchContacts();
+		// }
+		}catch(SQLException e)
 		{
-			view.noSuchContacts();
-		}return contact;
+			e.printStackTrace();
+
+		}
+		return contact;
 	}
 
 	/**
