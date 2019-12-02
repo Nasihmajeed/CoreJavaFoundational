@@ -34,8 +34,8 @@ public class Controller
   }
 
 
-  public void editContact(String name,String newname)
-  { drr.edit(name,newname);
+  public void editContact(String name,String newname,String number)
+  { drr.edit(name,newname,number);
    //  boolean flag=false;
    //  int eId=-1;
    // for(int i=0;i<contactsList.size();i++)

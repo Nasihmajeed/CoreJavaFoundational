@@ -44,7 +44,7 @@ public class View
           case 3 : //DISPLAY
                  displayAll();
                  break;  
-         case 4 : // EDIT
+          case 4 : // EDIT
                  editContact();  
                  break;    
           case 5 : //SORTING
@@ -94,13 +94,22 @@ public class View
   }
   public void editContact()
   { boolean flag=false;
-    try{
+    try{  String name,newnamw,newnumber;
           System.out.println("Enter the name     : ");
-          String name = input.readLine();
-          System.out.println("Enter the new name : ");
-          String newname = input.readLine();
+          name = input.readLine();
+          System.out.println("Select anyone to edit...");
+          Sytem.out.println("1. NAME"+"\t\t\t2. NUMBER\n");
+          switch(a)
+          {
+            case 1 : System.out.println("Enter the new name:");
+                     newname = input.readLine();  
+                     break;
+            case 2 : System.out.println("Enter the new number:");     
+                     newnumber = input.readLine();  
+                     break;
+          }  
           Contact contact= new Contact();
-          flag=control.editContact(name,newname);
+          flag=control.editContact(name,newname,newnumber);
           // if(flag)
           // {System.out.println("*****");}
           // else

@@ -37,7 +37,9 @@ public class DataRepository
         Class.forName("com.mysql.jdbc.Driver");  
         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contact","root","root");  
         Statement stmt=con.createStatement();
-        stmt.executeUpdate("update contactlist set name ='"+newname+"' where name = '"+name+"'");
+        if(newname==null)
+        {
+          stmt.executeUpdate("update contactlist set name ='"+newname+"' where name = '"+name+"'");
         //ResultSet rs = stmt.executeQuery("select * from contactlist");
 
         //while(rs.next())
