@@ -2,44 +2,44 @@ package com.lxisoft.hotel;
 import com.lxisoft.hotel.FoodItem;
 public class FoodList
 {
-	public FoodItem[] foodItem = new FoodItem[10];
+	public FoodItem[] foodItemList = new FoodItem[10];
 
-	public FoodItem[] setFoodObject(FoodItem[] foodItem)
+	public FoodItem[] setFoodObject(FoodItem[] foodItemList)
 	{
 		for(int i = 0;i<10;i++)
 		 {
-		 	foodItem[i] = new FoodItem();
+		 	foodItemList[i] = new FoodItem();
 		 }
-		 return foodItem;
+		 return foodItemList;
 	}
-	public FoodItem[] setFoodItem(FoodItem[] foodItem)
+	public FoodItem[] setFoodItem(FoodItem[] foodItemList)
 	{
-		 setFoodObject(foodItem);
-		 foodItem[0].setName("Chicken Biriyani");
-		 foodItem[0].setPrice(110);
+		 setFoodObject(foodItemList);
+		 foodItemList[0].setName("Chicken Biriyani");
+		 foodItemList[0].setPrice(110);
 
-		 foodItem[1].setName("Meals");
-		 foodItem[1].setPrice(60);
+		 foodItemList[1].setName("Meals");
+		 foodItemList[1].setPrice(60);
 
-		 foodItem[2].setName("Fried Rice");
-		 foodItem[2].setPrice(130);
+		 foodItemList[2].setName("Fried Rice");
+		 foodItemList[2].setPrice(130);
 
-		 foodItem[3].setName("Chapathi");
-		 foodItem[3].setPrice(5);
+		 foodItemList[3].setName("Chapathi");
+		 foodItemList[3].setPrice(5);
 
-		 foodItem[4].setName("Porotta");
-		 foodItem[4].setPrice(10);
-		 return foodItem;
+		 foodItemList[4].setName("Porotta");
+		 foodItemList[4].setPrice(10);
+		 return foodItemList;
 	}
-	public void getFoodItem(FoodItem[] foodItem)
+	public void getFoodItem()
 	{
 		int n=1;
 		for(int i=0;i<10;i++)
 		{
-			if(foodItem[i].getName()!= null)
+			if(foodItemList[i].getName()!= null)
 			{
-				System.out.println(n+"."+foodItem[i].getName());
-				System.out.println("  "+foodItem[i].getPrice()+" Rs");
+				System.out.println(n+"."+foodItemList[i].getName());
+				System.out.println("  "+foodItemList[i].getPrice()+" Rs");
 				n++;
 	        }
 	        

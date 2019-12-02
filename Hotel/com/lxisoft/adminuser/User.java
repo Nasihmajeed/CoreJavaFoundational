@@ -5,15 +5,14 @@ import java.util.Scanner;
 public class User
 {
 	Scanner scanner;
-	public void bill(FoodList foodList,Hotel hotel)
+	public void bill(FoodList foodList)
 	{
 		scanner = new Scanner(System.in);
 		boolean numberExist = false;
 		int[] productIndex = new int[10];
 		int[] quantity = new int[10];
-		/*int i=0;*/
 		System.out.println("********Menu********");
-		foodList.getFoodItem(foodList.foodItem);
+		foodList.getFoodItem();
 		Boolean isTrue = false;
 		do
 		{
@@ -30,8 +29,7 @@ public class User
 				isTrue = true;
 				break;
 			case 2:
-				print(foodList,productIndex,quantity,hotel);
-				isTrue = false;
+				print(foodList,productIndex,quantity);
 				break;
 			default :
 				System.out.println("==> Select the Above Option");
@@ -74,35 +72,30 @@ public class User
 		}
 		return index;
 	}
-	/*public void timerLoading()
-    {
-     int i = 5;
-     System.out.print("Loading...."); 
-    }*/
-	public void print(FoodList foodList,int[] productIndex,int[] quantity,Hotel hotel)
+	public void print(FoodList foodList,int[] productIndex,int[] quantity)
 	{
 		scanner = new Scanner(System.in);
-		int tottalAmount = 0;
+		int totalAmount = 0;
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-				tottalAmount = tottalAmount + (foodList.foodItem[productIndex[i]-1].getPrice()*quantity[i]);
+				totalAmount = totalAmount + (foodList.foodItemList[productIndex[i]-1].getPrice()*quantity[i]);
 			}
 		}
 		/*timerLoading();*/
-		System.out.println("");
+		/*System.out.println("");*/
 		System.out.println("\t\t******BILL******");
-		System.out.println("Hotel Name : "+hotel.name);
-		System.out.println("Place : "+hotel.place);
+		/*System.out.println("Hotel Name : "+hotel.name);
+		System.out.println("Place : "+hotel.place);*/
 		System.out.printf("%-20.30s  %-20.30s %-20.30s%n","Food Items","Quantity","Price");
 		for(int i=0;i<10;i++)
 		{
 			if(productIndex[i]!=0)
 			{
-			System.out.printf("%-20.30s  %-20.30s %-20.30s%n",foodList.foodItem[productIndex[i]-1].getName(),quantity[i],foodList.foodItem[productIndex[i]-1].getPrice()+" Rs");
+			System.out.printf("%-20.30s  %-20.30s %-20.30s%n",foodList.foodItemList[productIndex[i]-1].getName(),quantity[i],foodList.foodItemList[productIndex[i]-1].getPrice()+" Rs");
 		    }
 		}
-		System.out.println("Total Amount\t\t\t\t   "+tottalAmount+" Rs");
+		System.out.println("Total Amount\t\t\t\t   "+totalAmount+" Rs");
 	}
 }

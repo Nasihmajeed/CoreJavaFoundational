@@ -5,6 +5,6 @@ public class Tdd
 	public static void main (String[] arg)
 	{
 		Hotel hotel = new Hotel("Nila Resturant","Ottapalam");
-		hotel.booking(hotel);
+		hotel.booking();
 	}
 }
