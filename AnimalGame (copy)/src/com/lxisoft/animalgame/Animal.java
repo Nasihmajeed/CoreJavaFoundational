@@ -1,6 +1,7 @@
 package com.lxisoft.animalgame;
-public abstract class Animal
-{
+
+public class Animal {
+
 	public String animalName;
 	public int strength;
 	public int range;
@@ -10,8 +11,15 @@ public abstract class Animal
 	public int sight;
 	public Hunger hunger;
 	public int speed;
-	
+
+	public Animal(String animalName, int strength, int range, boolean isDead, int luck, Position pos, int sight,
+			Hunger hunger, int speed) {
+		this();
+		this.animalName = animalName;
+	}
+
 	public abstract void run();
+
 	public abstract void eat();
-	
+
 }
