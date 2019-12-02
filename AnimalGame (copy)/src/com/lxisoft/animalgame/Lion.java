@@ -1,21 +1,19 @@
 package com.lxisoft.animalgame;
-
-public class Lion extends Animal implements Carnivores {
-	@Override
+import com.lxisoft.animalgame.*;
+public class Lion extends Animal implements Carnivores
+{
+	
+	
 	public void run() {
 		System.out.println("\n lion run fast");
 	}
 
-	@Override
+	
 	public void eat() {
 		System.out.println("\n lion eat flush");
 	}
 
-	public Lion(Animal a) {
-		super();
-	}
 
-	@Override
 	public int[] roam() {
 		int x2, y2;
 		int[] position;
@@ -28,7 +26,7 @@ public class Lion extends Animal implements Carnivores {
 		return position;
 	}
 
-	@Override
+
 	public Animal fight(Animal defender1) {
 		System.out.println("\n\t\t    " + this.animalName + "  v  " + defender1.animalName);
 		if (this.strength > defender1.strength) {

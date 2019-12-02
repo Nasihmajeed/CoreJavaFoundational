@@ -1,24 +1,19 @@
 package com.lxisoft.animalgame;
+import com.lxisoft.animalgame.*;
+public class Rabbit extends Animal implements Carnivores
+{
 
-public class Rabbit extends Animal implements Herbivores {
-
-	public Rabbit(Animal animal, Forest forest) {
-		animal = animal;
-		forest = forest;
-	}
-
-	@Override
 	public void run() {
 		System.out.println("\n rabbit run slowly");
 	}
 
-	@Override
+	
 	public void eat() {
 		System.out.println("\n rabbit eat carrot");
 	}
 
-	@Override
-	public int[] graze() {
+	
+	public int[] roam() {
 		int x2, y2;
 		int[] position;
 		position = new int[2];
@@ -29,7 +24,7 @@ public class Rabbit extends Animal implements Herbivores {
 		return position;
 	}
 
-	@Override
+	
 	public int attack(Animal enemy1) {
 		System.out.println("\n " + enemy1.animalName + "  attacks  " + this.animalName);
 		if (this.luck > enemy1.luck) {
@@ -42,7 +37,6 @@ public class Rabbit extends Animal implements Herbivores {
 		}
 	}
 
-	@Override
 	public int attack(Animal enemy1, Animal enemy2) {
 		System.out.println("\n " + enemy1.animalName + "  and  " + enemy2.animalName + " attacks " + this.animalName);
 		if ((this.luck > enemy1.luck) & (this.luck > enemy2.luck)) {
@@ -55,7 +49,7 @@ public class Rabbit extends Animal implements Herbivores {
 		}
 	}
 
-	@Override
+	
 	public int attack(Animal[] enemy, int e) {
 		int x = 5;
 		// int a=arr.length;

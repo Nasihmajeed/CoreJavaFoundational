@@ -1,18 +1,20 @@
 package com.lxisoft.test;
 
 import java.util.Scanner;
-
+import com.lxisoft.animalgame.AnimalNotMeet;
 import com.lxisoft.animalgame.Forest;
 import com.lxisoft.animalgame.Gamelevel;
 
+
 public class TDD {
-	public void main(String[] args) throws NullPointerException {
+	public static void main(String[] args) throws NullPointerException,AnimalNotMeet {
 		Scanner s = new Scanner(System.in);
 		Forest forest = new Forest();
 		int level = 0;
 		boolean ex;
+		ex = false;
 		do {
-			ex = false;
+			
 			try {
 				System.out.println(" enter animal game lavel (1-easy,2-medium,3-hard)");
 				level = s.nextInt();
@@ -20,9 +22,10 @@ public class TDD {
 					throw new NullPointerException("");
 				}
 			} catch (NullPointerException e) {
-				throw new NotException();
 				ex = true;
-				System.out.println("Exception");
+				System.out.println("Exception");		
+				throw new AnimalNotMeet();
+				
 			}
 		} while (ex);
 		forest = animalGameLevel(forest, level);

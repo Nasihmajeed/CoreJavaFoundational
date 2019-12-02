@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+
 public class Forest {
 	String name;
 	Animal animals;
@@ -38,8 +39,7 @@ public class Forest {
 		animalss.put(4, new Bear());
 		int a, count, win = 0, w = 0, i, n = 1, r = 1;
 		a = animalArr.length;
-		System.out.println(
-				"\t\tjungle\n\t\t-------\n\t\tanimals meet and fight begins\n\t\t------------------------------");
+		System.out.println("\t\tjungle\n\t\t-------\n\t\tanimals meet and fight begins\n\t\t------------------------------");
 		for (i = 0; true; i++) {
 			count = 0;
 			int x = (int) (Math.random() * a);
@@ -86,7 +86,7 @@ public class Forest {
 			aTiger.strength = s.nextInt();
 			int a = (int) (Math.random() * 10);
 			int b = (int) (Math.random() * 10);
-			aTiger.pos = new Position();
+			Position pos = new Position();
 			aTiger.pos.setPositionX(a);
 			aTiger.pos.setPositionY(b);
 			aTiger.sight = 4;
@@ -228,7 +228,7 @@ public class Forest {
 			else
 				animalArr[arr[0]] = animalFightHunger(animalArr[arr[0]]);
 		} else if (e == 2) {
-			escape = (animalArr[y]).attack(animalArr[arr[0]], animalArr[arr[1]]);
+			escape = ((Herbivores)animalArr[y]).attack(animalArr[arr[0]], animalArr[arr[1]]);
 			for (int i = 0; i < 2; i++) {
 				if (escape == 0)
 					animalArr[arr[i]] = animalAttackHunger(animalArr[arr[i]]);
@@ -244,20 +244,14 @@ public class Forest {
 					animalArr[arr[i]] = animalFightHunger(animalArr[arr[i]]);
 			}
 		}
-		Thread thread1 = new Thread(new Forest());
+		Thread thread1 = new Thread( );
 		thread1.start();
-		thread1.start();
+		//thread1.start();
 
 	}
 
-	public int animalLuck(new Carnivores() {
-		@Override
-		public int[] roam() {}
-		@Override
-		public void run() {}
-		@Override
-		public void eat() {}
-	}) {
+	public int animalLuck(Animal animals)
+  {
 		switch (this.gamelevel) {
 		case EASY: {
 			animals.luck = (int) (Math.random() * 60);
@@ -290,7 +284,7 @@ public class Forest {
 		for (int j = 0; j < animalArr.length; j++) {
 
 			if (animalArr[j] instanceof Carnivores) {
-				int[] axisC = ((animalArr[j])).roam();
+				int[] axisC = ((Carnivores)(animalArr[j])).roam();
 				distance = animalLocation(axisC, axisH);
 			}
 			if (distance < animalArr[y].sight) {
@@ -342,7 +336,7 @@ public class Forest {
 
 	public void grid() {
 		Animal bear = new Bear();
-		bear.bite();
+		((Bear)bear).bite();
 		Arrays.sort(animalArr);
 		TreeSet<Animal> animals = new TreeSet<Animal>();
 		animals.add(new Bear());
@@ -353,12 +347,10 @@ public class Forest {
 					int v = animalArr[i].pos.getPositionX();
 					int u = animalArr[i].pos.getPositionY();
 					if ((v == row) & (u == col)) {
-						grid[u][v] = animalArr[i].animalName;
-						// System.out.println(animalArr[i].animalName);
+						//grid[u][v] = animalArr[i].animalName;
+						  System.out.println(animalArr[i].animalName);
 					}
 				}
 			}
-		}
-	}
-
-}
+			}
+		}}
