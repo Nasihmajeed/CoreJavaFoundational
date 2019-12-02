@@ -79,7 +79,6 @@ public class Filerepository implements Repository
 	  				c.setNumber(str[2]);
 	  				array.add(c);
 	  		}
-
 	  		//array.addAll(ts);
 		}
 		catch(IOException e)

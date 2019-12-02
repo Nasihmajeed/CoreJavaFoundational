@@ -8,9 +8,8 @@ public interface Repository
 {
 	//public void connection();
 	public void write(Contact contact, boolean isTrue);
-
-	// public  int setId();
-	// public  ArrayList read();
+	//public  int setId();
+	 public  ArrayList <Contact> read();
 	// public void write(Contact contact, boolean isTrue);
 	// public void search();
 	// public int getArraysize();

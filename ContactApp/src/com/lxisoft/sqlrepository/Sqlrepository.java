@@ -8,20 +8,15 @@ import java.sql.*;
 import java.io.*;
 public class Sqlrepository implements Repository
 {
-	//String drivername = "com.mysql.jdbc.Driver"; 
-	//String connectionname = "jdbc:mysql://localhost:3306/abhijith,root,root";
+	ArrayList <Contact> contactList = new ArrayList<Contact>();
 	Connection con; 
 	PreparedStatement stmnt; 
 	public Sqlrepository()
 	{
 		try
 		{
-			System.out.println("Initiating Connection");
 			Class.forName("com.mysql.jdbc.Driver");  
-			this.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/abhijith","root","root");  
-
-			System.out.println("Initiating Connection Successfull");
-	        
+			this.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/abhijith","root","root");
         }  
         catch(Exception e)
         {
@@ -30,9 +25,9 @@ public class Sqlrepository implements Repository
 	}
 	public void write(Contact contact, boolean isTrue)
 	{
+		//System.out.println("CONTACT DETAILS  "+contact.getNumber()+contact.getName());
 		try
 		{
-		System.out.println("name "+contact.getName()+"  Number  "+contact.getNumber());
 		if(con != null) 
 		{
 	     	stmnt = con.prepareStatement("insert into contact values(?,?,?)");
@@ -42,14 +37,49 @@ public class Sqlrepository implements Repository
 			stmnt.executeUpdate();
 		} else
 		 {
-			System.out.println("djhhdhdjhjdjhdjh");
+			System.out.println("insertion failed");
 		}
 	
 	    }
 	    catch(Exception e)
 	    {
-	    	e.printStackTrace();
+	    	System.out.println(e);
 	    }
 	}
-
+	public ArrayList <Contact> read()
+	{
+		try
+		{
+			contactList.clear();
+			Statement s = con.createStatement();
+			ResultSet rs = s.executeQuery("select * from contact");
+			while(rs.next())
+			{
+				Contact contact = new Contact();
+				contact.setId(rs.getInt("id"));
+				contact.setName(rs.getString("name"));
+				contact.setNumber(rs.getString("number"));
+				contactList.add(contact);
+			}
+			s.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		return contactList;
+	}
+	public void edit(Contact contact)
+	{
+		stmnt = con.prepareStatement("update contact set  number=? ,name=?, where id = ? ");
+		stmnt= setInt(1,getId());
+		stmnt = setString(2,contact.getName());
+		stmnt = setString(3,contact.getNumber());
+		stmnt.executeUpdate();
+	}
+	public void clear()
+	{
+		Statement s = con.createStatement();
+		ResultSet rs = s.executeQuery("truncate contact");
+	}
 }

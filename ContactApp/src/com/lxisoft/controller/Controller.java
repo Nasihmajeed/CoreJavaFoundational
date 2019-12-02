@@ -21,39 +21,39 @@ public class Controller
 		switch(n)
 		{
 			case 1 : view.addContact(); break;
-			// case 2 : view.search();break;
+			 case 2 : view.search();break;
 			// case 3 : display(); break;
 			// case 4 : view.deleteAll();break;
 			default: view.defaultPrint(0);
 		}		
 	}
 
-	public void addContact(Contact contact)
+	public void addContact(String name,String number)
 	{ 
-		////rep.setId();
+		//rep.setId();
 		contact = new Contact();
 		contact.setId(2);
-        contact.setName(contact.getName());
-        contact.setNumber(contact.getNumber());
+        contact.setName(name);
+        contact.setNumber(number);
         rep.write(contact,true);
         choice();
 
 	}
 	
-	// public Contact search(String name)
-	// {
-	// 	contact = new Contact();
-	// 	contactList = rep.read();
-	// 	for(int i= 0;i<contactList.size();i++)
-	// 	{
-	// 		if(name.equals(contactList.get(i).getName()))
-	// 		{	
-	// 			contact = contactList.get(i);
-	// 		}
-	// 	}
-	// 	return contact;
+	public Contact search(String name)
+	{
+		contact = new Contact();
+		contactList = rep.read();
+		for(int i= 0;i<contactList.size();i++)
+		{
+			if(name.equals(contactList.get(i).getName()))
+			{	
+				contact = contactList.get(i);
+			}
+		}
+		return contact;
 		
-	// }
+	}
 	// public ArrayList<Contact> fileRead()
 	// {
 	// 	contact = new Contact();
@@ -62,37 +62,38 @@ public class Controller
 
 	// }
 
-	// public void editContact(int i,int id,String name,String number)
-	// {	
-	// 	 contact = new Contact();
-	// 	 contactList = rep.read();
-	// 	 contact.setName(name);
- //         contact.setNumber(number);
- //         contact.setId(id);
- //         contactList.set(i,contact);
- //         rep.clear();
-	// 	for(Contact j : contactList)
-	// 	 {
-	// 	 	 rep.write(j,false);
-	// 	 }	
-	// 	 choice();
+	public void editContact(int i,int id,String name,String number)
+	{	
+		 contact = new Contact();
+		 contactList = rep.read();
+		 contact.setName(name);
+         contact.setNumber(number);
+         contact.setId(id);
+         contactList.set(i,contact);
+         //rep.clear();
+		// for(Contact j : contactList)
+		//  {
+		//  	 rep.write(j,false);
+		//  }	
+         rep.edit(j,false);
+		 choice();
 	
-	// }
+	}
 
-	// public void deleteContact(int i)
-	// {
-	// 	contact = new Contact();
-	// 	contactList = rep.read();
-	//     contactList.remove(i);	
-	//     rep.clear();
+	public void deleteContact(int i)
+	{
+		contact = new Contact();
+		contactList = rep.read();
+	    contactList.remove(i);	
+	    rep.clear();
 		
-	// 	for(Contact j : contactList)
-	// 	 {
-	// 	 	 rep.write(j,false);
-	// 	 }
-	// 	 choice();
+		for(Contact j : contactList)
+		 {
+		 	 rep.write(j,false);
+		 }
+		 choice();
 
-	// }
+	}
 	// public void display()
 	// {
 	// 	int n=view.display();

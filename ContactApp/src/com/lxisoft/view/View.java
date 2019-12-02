@@ -46,54 +46,53 @@ public class View
 		Contact contact = new Contact();
 		Scanner set = new Scanner(System.in);
 		System.out.println("ENTER NAME");
-		//String name= set.nextLine();
-		contact.setName(set.nextLine());
+		String name= set.nextLine();
+		//contact.setName(set.nextLine());
 		System.out.println("ENTER NUMBER");
-		//String number=set.nextLine();
-		contact.setNumber(set.nextLine());
+		String number=set.nextLine();
+		//contact.setNumber(set.nextLine());
 		System.out.println("CONTACT SAVED");
-
-		con.addContact(contact);
+		con.addContact(name,number);
 		
 	}
-	// public void search()
-	// {
-	// 	int f=0;
-	// 	System.out.println("ENTER NAME");
-	// 	String name= read.next();
+	public void search()
+	{
+		int f=0;
+		System.out.println("ENTER NAME");
+		String name= read.next();
 		
-	// 	if(name.equals(con.search(name).getName()))
-	// 	{	
-	// 		 int i = con.contactList.indexOf(con.search(name));
-	// 		f=1; 
- //    	     System.out.println("\n NAME : "+name +" NUMBER : "+ con.contactList.get(i).getNumber());
-	// 		 	try
-	// 		 	{
-	// 		 	do{
-	// 				System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
-	// 				Scanner read= new Scanner(System.in);
-	// 				int n = read.nextInt();
-	// 				switch(n)
-	// 					{
+		if(name.equals(con.search(name).getName()))
+		{	
+			 int i = con.contactList.indexOf(con.search(name));
+			f=1; 
+    	     System.out.println("\n NAME : "+name +" NUMBER : "+ con.contactList.get(i).getNumber());
+			 	try
+			 	{
+			 	do{
+					System.out.println(" \n \n 1 = EDIT \n 2 = DELETE \n 3 = BACK TO MAIN MENU ");
+					Scanner read= new Scanner(System.in);
+					int n = read.nextInt();
+					switch(n)
+						{
 
-	// 						case 1 :edit(i,con.contactList.get(i).getId()); break;
-	// 						case 2 : delete(i);break;
-	// 						case 3 :con.choice(); break;
-	// 						default: System.out.println("INVALID CHOICE");
-	// 					}
-	// 				} while(true);
-	// 		}
-	// 		catch(Exception e)
-	// 		{
-	// 			System.out.println("PLEASE ENTER THE NUMERIC VALUE");
-	// 		}
-	//     }
-	//     else if(f==0)
-	// 		{
-	// 			System.out.println(" CONTACT NOT FOUND");
-	// 			con.choice();
-	// 		}
-	// }    
+							case 1 :edit(i,con.contactList.get(i).getId()); break;
+							case 2 : delete(i);break;
+							case 3 :con.choice(); break;
+							default: System.out.println("INVALID CHOICE");
+						}
+					} while(true);
+			}
+			catch(Exception e)
+			{
+				System.out.println("PLEASE ENTER THE NUMERIC VALUE");
+			}
+	    }
+	    else if(f==0)
+			{
+				System.out.println(" CONTACT NOT FOUND");
+				con.choice();
+			}
+	}    
 	// public  int  display()
 	// {	
 	// 	System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME \n 3 = SORT BY ID");
@@ -129,28 +128,28 @@ public class View
 	// 	   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
 	// 	}
 	// }
-	// public void edit(int i,int id)
-	// {
-	// 	 System.out.println("ENTER THE NEW NAME");
-	// 	 String name  = read.next();
-	// 	 System.out.println("ENTER THE NEW NUMBER");
-	// 	 String number = read.next();
-	// 	 con.editContact(i,id,name,number);
-	// }
-	// public void delete(int i)
-	// {
-	// 	System.out.println("are you sure ? \n press y   OR \t\t  n");
-	// 	 String choice= read.next();
-	// 	 switch(choice)
-	// 	 {
-	// 	 	case "y": System.out.println("contact deleted ");
-	// 	 	         con.deleteContact(i);
+	public void edit(int i,int id)
+	{
+		 System.out.println("ENTER THE NEW NAME");
+		 String name  = read.next();
+		 System.out.println("ENTER THE NEW NUMBER");
+		 String number = read.next();
+		 con.editContact(i,id,name,number);
+	}
+	public void delete(int i)
+	{
+		System.out.println("are you sure ? \n press y   OR \t\t  n");
+		 String choice= read.next();
+		 switch(choice)
+		 {
+		 	case "y": System.out.println("contact deleted ");
+		 	         con.deleteContact(i);
 		 	          
-	// 	 	          break;
-	// 	 	case "n" : search(); break;
-	// 	 	default : search();
-	// 	 }
-	// }
+		 	          break;
+		 	case "n" : search(); break;
+		 	default : search();
+		 }
+	}
 	// public void deleteAll()
 	// {
 	// 	System.out.println("are you sure ? \n press y   OR \t\t  n");
