@@ -55,7 +55,6 @@ public class Hotel
 			else if(num==2)
 			{
 				creatingBill(foodList);
-				/*user.printBill(foodList,productIndex,quantity);*/
 			}
 	    }while(adminUser);
 	}
@@ -74,7 +73,6 @@ public class Hotel
 			isTrue = false;
 			System.out.println("Press ==> 1.Add Food to Cart 2.Print Bill ");
 			int num = scanner.nextInt();
-			
 			switch(num)
 			{
 			case 1:
@@ -84,16 +82,14 @@ public class Hotel
 				isTrue = true;
 				break;
 			case 2:
-				user.printBill(foodList,productIndex,quantity);
+				user.printBill(foodList,productIndex,quantity,name,place);
 				break;
 			default :
 				System.out.println("==> Select the Above Option");
 				isTrue = true;
 				break;
 			}
-
 		}while(isTrue);
-		
 	}
 	public int[] selectProduct(int[] productIndex,int productNumber,int[] quantity)
 	{

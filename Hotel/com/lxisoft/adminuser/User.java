@@ -1,12 +1,10 @@
 package com.lxisoft.adminuser;
-/*import com.lxisoft.hotel.Hotel;*/
 import com.lxisoft.hotel.FoodList;
 import java.util.Scanner;
 public class User
 {
 	Scanner scanner;
-	
-	public void printBill(FoodList foodList,int[] productIndex,int[] quantity)
+	public void printBill(FoodList foodList,int[] productIndex,int[] quantity,String name,String place)
 	{
 		int totalAmount = 0;
 		for(int i=0;i<10;i++)
@@ -16,6 +14,8 @@ public class User
 				totalAmount = totalAmount + (foodList.foodItemList[productIndex[i]-1].getPrice()*quantity[i]);
 			}
 		}
+		System.out.println("Hotel Name : "+name);
+	    System.out.println("Place : "+place);
 		System.out.println("+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
 		System.out.println("|\t\t     BILL                         |");
 		System.out.println("+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
