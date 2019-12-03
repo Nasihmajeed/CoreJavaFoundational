@@ -128,23 +128,22 @@ public class View
 	// 	   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
 	// 	}
 	// }
-	public void edit(int i,int id)
-	{
-		 System.out.println("ENTER THE NEW NAME");
-		 String name  = read.next();
-		 System.out.println("ENTER THE NEW NUMBER");
-		 String number = read.next();
-		 con.editContact(i,id,name,number);
-	}
-	public void delete(int i)
+	// public void edit(int i,int id)
+	// {
+	// 	 System.out.println("ENTER THE NEW NAME");
+	// 	 String name  = read.next();
+	// 	 System.out.println("ENTER THE NEW NUMBER");
+	// 	 String number = read.next();
+	// 	 con.editContact(i,id,name,number);
+	// }
+	public void delete(String name)
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
 		 String choice= read.next();
 		 switch(choice)
 		 {
 		 	case "y": System.out.println("contact deleted ");
-		 	         con.deleteContact(i);
-		 	          
+		 	         con.deleteContact(name);
 		 	          break;
 		 	case "n" : search(); break;
 		 	default : search();
@@ -152,7 +151,7 @@ public class View
 	}
 	// public void deleteAll()
 	// {
-	// 	System.out.println("are you sure ? \n press y   OR \t\t  n");
+	// 	System.out.pri/ntln("are you sure ? \n press y   OR \t\t  n");
 	// 	 String choice= read.next();
 	// 	 switch(choice)
 	// 	 {

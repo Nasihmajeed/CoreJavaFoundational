@@ -62,30 +62,30 @@ public class Controller
 
 	// }
 
-	public void editContact(int i,int id,String name,String number)
-	{	
-		 contact = new Contact();
-		 contactList = rep.read();
-		 contact.setName(name);
-         contact.setNumber(number);
-         contact.setId(id);
-         contactList.set(i,contact);
-         //rep.clear();
-		// for(Contact j : contactList)
-		//  {
-		//  	 rep.write(j,false);
-		//  }	
-         rep.edit(j,false);
-		 choice();
+	// public void editContact(int i,int id,String name,String number)
+	// {	
+	// 	 contact = new Contact();
+	// 	 contactList = rep.read();
+	// 	 contact.setName(name);
+ //         contact.setNumber(number);
+ //         contact.setId(id);
+ //         contactList.set(i,contact);
+ //         //rep.clear();
+	// 	// for(Contact j : contactList)
+	// 	//  {
+	// 	//  	 rep.write(j,false);
+	// 	//  }	
+ //         rep.edit(j,false);
+	// 	 choice();
 	
-	}
+	
 
-	public void deleteContact(int i)
+	public void deleteContact(String name)
 	{
 		contact = new Contact();
 		contactList = rep.read();
 	    contactList.remove(i);	
-	    rep.clear();
+	   // rep.clear();
 		
 		for(Contact j : contactList)
 		 {
@@ -124,5 +124,4 @@ public class Controller
 	// 	rep.clear();
 	// 	choice();
 	// }
-
 }

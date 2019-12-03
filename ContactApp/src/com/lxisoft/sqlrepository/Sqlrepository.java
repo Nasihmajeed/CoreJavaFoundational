@@ -28,18 +28,20 @@ public class Sqlrepository implements Repository
 		//System.out.println("CONTACT DETAILS  "+contact.getNumber()+contact.getName());
 		try
 		{
-		if(con != null) 
-		{
+			
 	     	stmnt = con.prepareStatement("insert into contact values(?,?,?)");
-	     	stmnt.setInt(1,1);
+	     	if(isTrue==false)
+	     	{
+	     		stmnt.setInt(1,contact.getId());
+	     	}
+	     	else if (isTrue==true)
+	     	{
+	     		stmnt.setInt(1,id);
+	     	}
 			stmnt.setString(2,contact.getName());
 			stmnt.setString(3,contact.getNumber());
 			stmnt.executeUpdate();
-		} else
-		 {
-			System.out.println("insertion failed");
-		}
-	
+		
 	    }
 	    catch(Exception e)
 	    {
@@ -77,9 +79,10 @@ public class Sqlrepository implements Repository
 		stmnt = setString(3,contact.getNumber());
 		stmnt.executeUpdate();
 	}
-	public void clear()
+	public void delete()
 	{
-		Statement s = con.createStatement();
-		ResultSet rs = s.executeQuery("truncate contact");
+		stmnt = con.prepareStatement("delete from contact where id = ? ");
+
 	}
+	
 }
