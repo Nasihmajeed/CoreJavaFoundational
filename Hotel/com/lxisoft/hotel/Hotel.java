@@ -4,7 +4,7 @@ import com.lxisoft.adminuser.User;
 import java.util.Scanner;
 public class Hotel
 {
-	public String name,place;
+	private String name,place;
 	Scanner scanner; 
 	public Hotel(String name,String place)
 	{
@@ -22,7 +22,7 @@ public class Hotel
 	{	
 		scanner = new Scanner(System.in);
 		Admin admin = new Admin();
-		User user = new User();
+		
 		boolean adminUser = false;
 		do
 		{
@@ -54,8 +54,77 @@ public class Hotel
 			}
 			else if(num==2)
 			{
-				user.bill(foodList);
+				creatingBill(foodList);
+				/*user.printBill(foodList,productIndex,quantity);*/
 			}
 	    }while(adminUser);
+	}
+	public void creatingBill(FoodList foodList)
+	{
+		scanner = new Scanner(System.in);
+		User user = new User();
+		boolean numberExist = false;
+		int[] productIndex = new int[10];
+		int[] quantity = new int[10];
+		System.out.println("********Menu********");
+		foodList.getFoodItem();
+		Boolean isTrue = false;
+		do
+		{
+			isTrue = false;
+			System.out.println("Press ==> 1.Add Food to Cart 2.Print Bill ");
+			int num = scanner.nextInt();
+			
+			switch(num)
+			{
+			case 1:
+				System.out.println("==> Select Food");
+				int productNumber = scanner.nextInt();
+				selectProduct(productIndex,productNumber,quantity);
+				isTrue = true;
+				break;
+			case 2:
+				user.printBill(foodList,productIndex,quantity);
+				break;
+			default :
+				System.out.println("==> Select the Above Option");
+				isTrue = true;
+				break;
+			}
+
+		}while(isTrue);
+		
+	}
+	public int[] selectProduct(int[] productIndex,int productNumber,int[] quantity)
+	{
+		int n=1,k=1;
+		if(checkIfExists(productIndex,productNumber,quantity)==-1)
+		{
+			for(int i=0;i<10;i++)
+			{
+				if(productIndex[i]==0)
+				{
+					productIndex[i]=productNumber;
+					quantity[i]=k;
+					break;
+				}
+				n++;
+			}
+		}
+		return productIndex;
+	}
+	public int checkIfExists(int[] productIndex,int productNumber,int[] quantity)
+	{
+		int index = -1;
+		for(int i=0;i<10;i++)
+		{
+			if(productIndex[i]==productNumber)
+			{
+				index = 1;
+				quantity[i]++;
+				break;
+			}
+		}
+		return index;
 	}
 }
