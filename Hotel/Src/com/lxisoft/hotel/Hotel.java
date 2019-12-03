@@ -46,7 +46,7 @@ public class Hotel
 		{
 			System.out.println("Do you want to order food  y/n ?");
 			char word=scr.next(). charAt(0);
-			System.out.println("\n")
+			System.out.println("\n");
 			if("y".charAt(0) == word)
 			{
 				Menu menu=new Menu();
@@ -55,38 +55,46 @@ public class Hotel
 				int num=scr.nextInt();
 		
 				System.out.println("\n");
-				Food[] f; 
+				Food[]f=new Food[10];	
 				switch (num)
 				{				
 					case 1:			
 							if(biriyani.count!=0)
 							{
-							f=new Food();		
-								biriyani.type();
+								
 								System.out.println("which Biriyani you want Veg 'v' or Nonveg 'n':");
-								char ltr=scr.next(). charAt(0);
+								char ltr=scr.next().charAt(0);
 								System.out.println("\n");
-								if("v".charAt(0) == ltr)
+								if(ltr=='v')
 								{
+									
+									
 						    		if(biriyani instanceof Food)
 						    		{
 							   			Biriyani b=(Biriyani) biriyani;
+							   			b.setdetails();
 						    			b.nonveg();
+						    			f[0]=b;
 						   			}
 
-						   		f[0]=biriyani;
+						   		
 						   		
 							   	}
-						   		else if ("n".charAt(0) == ltr) 
+
+						   		else if (ltr=='n') 
 						   		{
+							   		
 							   		System.out.println("\n");
 							   			if(biriyani instanceof Food)
 							    		{
+
 								   			Biriyani b=(Biriyani) biriyani;
+								   			b.setdetails();
 							    			b.vegitarien();
+							    			f[1]=b;		
 							   			}
 							   			System.out.println("\n");
-							   	f[1]=biriyani;	
+							   		
 							   	}
 							   	else
 							   	{
@@ -115,7 +123,7 @@ public class Hotel
 									if(vegmeals.count!=0)
 									{
 										System.out.println("\n");
-										vegmeals.type();
+										vegmeals.setdetails();
 										if(vegmeals instanceof Food)
 							    		{
 							    			Vegmeals v=(Vegmeals) vegmeals;
@@ -123,7 +131,7 @@ public class Hotel
 							    		}
 							    		System.out.println("\n");
 							    		f[2]=vegmeals;
-							    		bill.billdetails2(f);
+							    		bill.billdetails1(f);
 							    		vegmeals.count=vegmeals.count-1;
 							    		System.out.println("\n");
 							    		System.out.println("number of vegmeals "+vegmeals.count);
@@ -145,6 +153,8 @@ public class Hotel
 									
 						}
 					}
+
+					
 						else if("n".charAt(0) == word)
 						{
 							System.out.println("Thank you");
@@ -154,8 +164,20 @@ public class Hotel
 						{
 							System.out.println("wrong entry");
 						}
+					}
+				}
+public void choosing()
+{
+	Scanner scr=new Scanner(System.in);
+	System.out.println("You want another food 'y/n'");
+	char cho=scr.next().charAt(0);
+	if(cho=='y')
+	{
+		setdetails();		
+	}
+}
 					
 /*		  throw new Myexception();
-*/		}
-	}	
+*/		
+		
 }

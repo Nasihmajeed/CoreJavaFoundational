@@ -24,8 +24,8 @@ public class Menu
 		System.out.println("\n");
 
 		System.out.println("-Food menu-");
-		biriyani.type();
-		vmeals.type();
+		biriyani.setdetails();
+		vmeals.setdetails();
 
 	}
 }

@@ -3,7 +3,7 @@ public class Vegmeals extends Food implements Veg
 {
 	String vegmeals;
 	int price;
-	public void type()
+	public void setdetails()
 	{
 		vegmeals="Full Vegmeals";
 		price=70;

@@ -5,7 +5,7 @@ public class Biriyani extends Food implements Nonveg,Veg
 	String biriyani;
 	int price;
 
-	public void type()
+	public void setdetails()
 	{
 		biriyani="Biriyani";
 
