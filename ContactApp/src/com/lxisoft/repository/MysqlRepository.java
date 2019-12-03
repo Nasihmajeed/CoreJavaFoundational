@@ -1,6 +1,7 @@
 package com.lxisoft.repository;
 import com.lxisoft.repository.*;
 import com.lxisoft.domain.*;
+import com.lxisoft.models.*;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
@@ -8,6 +9,7 @@ public class MysqlRepository implements Repository
 {
 	List<Contact>contactList=new ArrayList<Contact>();
 	Contact c;
+	ResultSet rs=null;
 	PreparedStatement stmt=null;
 	Connection conn=null;
 	{
@@ -55,10 +57,11 @@ public class MysqlRepository implements Repository
 		{
 			contactList.clear();
 			Statement smt=conn.createStatement();
-			ResultSet rs=smt.executeQuery("select * from contactlist");
+			// ResultSet 
+			rs=smt.executeQuery("select * from contactlist");
 			while(rs.next())
 			{
-				// Contact c=new Contact();
+				Contact c=new Contact();
 				c.setId(String.valueOf(rs.getInt("ID")));
 				c.setName(rs.getString("NAME"));	
 				c.setContactNo(rs.getString("NUMBER"));
@@ -96,9 +99,9 @@ public class MysqlRepository implements Repository
  	{
  		try
  		{
-	 		stmt=conn.prepareStatement("update contactlist set cotactNo=? where id=?");
-	 		stmt.setString(1,d);
-	 		stmt.setString(2,c.getContactNo());
+	 		stmt=conn.prepareStatement("update contactlist set Number=? where ID=?");
+	 		stmt.setString(1,c.getContactNo());
+	 		stmt.setString(2,d);
 	 	    stmt.executeUpdate();
 	 		System.out.println("Successfully Updated");
  		}
@@ -111,7 +114,7 @@ public class MysqlRepository implements Repository
 	{
 		try
 		{
-			stmt=conn.prepareStatement("delete from Contactlist where id=?");
+			stmt=conn.prepareStatement("delete from Contactlist where ID=?");
 			stmt.setString(1,d);
 			stmt.execute();
 		}
@@ -120,20 +123,44 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	}
-	// public Contact searchContact(String d)
+	// public void searchContact(String d)
 	// {
 	// 	try
 	// 	{
-	// 		Statement s=conn.createStatement();
-	// 		ResultSet rs=s.executeQuery("select Name,Number from contactApp where Id=?");
-	// 		stmt.setInt(1,d);
-	// 		c.setName(rs.setString("Name"));
-	// 		c.setContactNo(rs.setString("Number"));	
+	// 		// Statement smt=conn.createStatement();
+	// 		// ResultSet 
+	// 		rs=stmt.executeQuery("select Name,Number from contactlist where ID=?");
+	// 		stmt.setString(1,d);
+	// 		c.setName(rs.getString("Name"));
+	// 		c.setContactNo(rs.getString("Number"));	
 	// 	}
 	// 	catch(SQLException e)
 	// 	{
 	// 		e.printStackTrace();
 	// 	}
-	// 	return c;
+	// 	// return contactList;
 	// }
+	public List<Contact> idSort()
+  	{
+  		contactList=getAllContact();
+  		Collections.sort(contactList,new IdComparator());
+		// resetFile();
+		return contactList;
+  	}
+
+  	public List<Contact> nameSort()
+  	{
+  		contactList=getAllContact();
+  		Collections.sort(contactList,new NameComparator());
+		// resetFile();
+		return contactList;
+  	}
+
+  	public List<Contact> numberSort()
+  	{
+  		contactList=getAllContact();
+  		Collections.sort(contactList,new NoComparator());
+		// resetFile();
+		return contactList;
+  	}
 }

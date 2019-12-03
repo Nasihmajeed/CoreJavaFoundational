@@ -44,7 +44,7 @@ public class ContactControl
             {
                 case 1:ContactByIdDetails();break;     
                 case 2:addDetails();break; 
-                // case 3:searchDetails();break;
+                case 3:searchDetails();break;
                 case 4:sort();break;
                 case 5:getContactDetails();break;
             } 
@@ -59,9 +59,12 @@ public class ContactControl
             c=view.sort();
             switch(c)
             {
-                case 1:contactList=repository.idSort();break;
-                case 2:contactList=repository.nameSort();break;
-                case 3:contactList=repository.numberSort();break;
+                // case 1:contactList=repository.idSort();break;
+                // case 2:contactList=repository.nameSort();break;
+                // case 3:contactList=repository.numberSort();break;
+                case 1:contactList=myrepo.idSort();break;
+                case 2:contactList=myrepo.nameSort();break;
+                case 3:contactList=myrepo.numberSort();break;
             }
         }while(c!=4);
         view.sortContact(contactList);
@@ -165,7 +168,7 @@ public class ContactControl
                 c.add(contactList.get(i).getName());
             }
         }
-        // c=myrepo.searchContact(d);
-        // view.searchContact(c);
+        // myrepo.searchContact(d);
+        view.searchContact(c);
     }
 } 
