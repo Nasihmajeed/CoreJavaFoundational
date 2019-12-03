@@ -94,34 +94,34 @@ public class Controller
 		 choice();
 
 	}
-	// public void display()
-	// {
-	// 	int n=view.display();
-	// 	switch(n)
-	// 	{
-	// 		case 1 : view.dateDisplay(); break;
-	// 	    case 2 : view.sortByname();break;
-	// 	    case 3 : view.sortByid(); break;
-	// 	}
+	public void display()
+	{
+		int n=view.display();
+		switch(n)
+		{
+			case 1 : view.dateDisplay(); break;
+		    case 2 : view.sortByname();break;
+		    case 3 : view.sortByid(); break;
+		}
 		
-	// 	choice();
-	// }
+		choice();
+	}
 	
-	// public int getArraySize()
-	// {
-	// 	return rep.getArraysize();
-	// }
-	// public String getName()
-	// {
-	// 	return contact.getName();
-	// }
-	// public String getNumber()
-	// {
-	// 	return contact.getNumber();
-	// }
-	// public void deleteAll()
-	// {
-	// 	rep.clear();
-	// 	choice();
-	// }
+	public int getArraySize()
+	{
+		return rep.getArraysize();
+	}
+	public String getName()
+	{
+		return contact.getName();
+	}
+	public String getNumber()
+	{
+		return contact.getNumber();
+	}
+	public void deleteAll()
+	{
+		rep.clear();
+		choice();
+	}
 }
