@@ -8,7 +8,7 @@ import java.util.*;
 */
 public class Controller{
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-FileRepository repo=new  FileRepository();
+Repository repo=new  DbRepository();
 View v=new View();
 /**
 *method for save contact
@@ -16,7 +16,7 @@ View v=new View();
 public void save()
 {
 //contacts.add(cc);
- repo.setFile(v.setContact());
+ repo.setContact(v.setContact());
 
 }
 /**
@@ -24,7 +24,7 @@ public void save()
 */
 
 public void read(){
-	v.display(repo.getList());
+	v.display(repo.getAll());
 
   }
 /**

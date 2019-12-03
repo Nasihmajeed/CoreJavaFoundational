@@ -1,12 +1,15 @@
 package com.lxisoft.contactapp.contactrepo;
-import java.util.*;
 import java.io.*;
+import java.util.*;
+import com.lxisoft.contactapp.model.*;
+import com.lxisoft.contactapp.view.*;
+import com.lxisoft.contactapp.controller.*;
 public interface Repository{
-/*Contact contact=new Contact();
+Contact contact=new Contact();
 ArrayList<Contact> contacts=new ArrayList<Contact>();
-public void setFile(Contact contact);
-public ArrayList<Contact>  getList();
-void editList(Contact c,String[] t);
-public Contact searchList(String name);*/
+public void setContact(Contact contact);
+public ArrayList<Contact>  getAll();
+//void editList(Contact c,String[] t);
+//public Contact searchList(String name);
 
 }

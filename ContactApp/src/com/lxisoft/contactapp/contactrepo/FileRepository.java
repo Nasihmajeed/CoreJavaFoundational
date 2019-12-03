@@ -18,7 +18,7 @@ ArrayList<Contact> contacts=new ArrayList<Contact>();
 *method used to write contact to the file
 *@param Contact single contact
 */
-public void setFile(Contact contact){
+public void setContact(Contact contact){
 	id=count();
 	++id;
 try{
@@ -48,7 +48,7 @@ catch(IOException e){
 *@return int
 */
 public int count(){
- 	ArrayList<Contact> contacts=getList();
+ 	ArrayList<Contact> contacts=getAll();
  	if(file.exists()){
  		int c=0,t;
  		for(int i=0;i<contacts.size();i++){
@@ -67,7 +67,7 @@ public int count(){
 *method used to read from the file
 *@return ArrayList contact list
 */
-public ArrayList<Contact>  getList(){
+public ArrayList<Contact>  getAll(){
 	 contacts=new ArrayList<Contact>();
 	 TreeSet<Contact>contactlist=new TreeSet<Contact>();
 	try{
@@ -113,7 +113,7 @@ public ArrayList<Contact>  getList(){
 public Contact searchList(String name){
  int count=0;
  Contact c=null;			
- contacts=this.getList();
+ contacts=this.getAll();
 for(int i=0;i<contacts.size();i++){
 	if(name.equals(contacts.get(i).getName())){
 		count=1;
@@ -129,7 +129,7 @@ for(int i=0;i<contacts.size();i++){
 */
 
 public void editList(Contact contac,String[] temp){  
-	ArrayList<Contact> con=this.getList();
+	ArrayList<Contact> con=this.getAll();
 	for(int i=0;i<con.size();i++){
 		if(con.get(i).getName().equals(contac.getName())){
 			Contact contact=new Contact();
@@ -142,7 +142,7 @@ public void editList(Contact contac,String[] temp){
 	}
 	  this.clearList();
       for(int i=0;i<con.size();i++){
-      	this.setFile(con.get(i));
+      	this.setContact(con.get(i));
       } 
   }
  /**
@@ -151,7 +151,7 @@ public void editList(Contact contac,String[] temp){
 */
 
 public void deleteList(String cn){
-ArrayList<Contact> con=this.getList();
+ArrayList<Contact> con=this.getAll();
 for(int i=0;i<con.size();i++){
 	if(cn.equals(con.get(i).getName())){
 		con.remove(i);
@@ -160,7 +160,7 @@ for(int i=0;i<con.size();i++){
        } 
       this.clearList();
       for(int i=0;i<con.size();i++){
-      	this.setFile(con.get(i));
+      	this.setContact(con.get(i));
       } 
     } 
 /**
