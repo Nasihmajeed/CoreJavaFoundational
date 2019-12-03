@@ -15,6 +15,8 @@ public class SortById implements Comparator<Contact>
 	 */
 	public int compare(Contact c1,Contact c2)
 	{
-		return c1.getContactId().compareTo(c2.getContactId());
+		String s1=String.valueOf(c1.getContactId());
+		String s2=String.valueOf(c2.getContactId());
+		return s1.compareTo(s2);
 	}
 }

@@ -8,7 +8,7 @@ public class MysqlRepository implements Repository
 	List <Contact> contactList=new ArrayList<Contact>();
 	Connection con=null;
 	PreparedStatement ps=null;
-	PreparedStatement pst=null;
+	// PreparedStatement pst=null;
 	public void databaseConnection()
 	{
 		try
@@ -18,7 +18,7 @@ public class MysqlRepository implements Repository
 
 			// con.close();
 		}
-		catch(SQLException e)
+		catch(SQLException|ClassNotFoundException e)
 		{
 			e.printStackTrace();
 		}
@@ -28,8 +28,7 @@ public class MysqlRepository implements Repository
 		try
 		{
 			Statement s=con.createStatement();
-			String st="create table contactApp(ID int,NAME varchar(20),Number varchar(20)";
-			s.executeUpdate(st);
+			s.executeUpdate("create table if not exists contactApp(ID int,NAME varchar(20),Number varchar(20))");
 		}
 		catch(SQLException e)
 		{
@@ -39,6 +38,7 @@ public class MysqlRepository implements Repository
 	public List<Contact> findAllContact()
 	{
 		databaseConnection();
+		createStorage();
 		try
 		{
 			contactList.clear();
@@ -50,7 +50,7 @@ public class MysqlRepository implements Repository
 				c.setContactId(rs.getInt("ID"));
 				c.setContactName(rs.getString("NAME"));	
 				c.setContactNumber(rs.getString("NUMBER"));
-				contactList.add(c);
+				contactList.add(c);				
 			}
 			s.close();
 		}
@@ -62,7 +62,7 @@ public class MysqlRepository implements Repository
 	}
 	public int getContactId()
 	{
-		int id=0;
+		int id=1;
 		try
 		{
 			Statement s=con.createStatement();
@@ -84,7 +84,7 @@ public class MysqlRepository implements Repository
 	{
 		try
 		{
-			ps=con.prepareStatement("insert into contactApp(ID,NAME,NUMBER)"+"values(?,?,?)");
+			ps=con.prepareStatement("insert into contactApp(ID,NAME,NUMBER) values(?,?,?)");
 			int id=getContactId();
 			ps.setInt(1,id);
 			ps.setString(2,contact.getContactName());
@@ -98,21 +98,17 @@ public class MysqlRepository implements Repository
 	}
 	public Contact findContactById(int n)
 	{
-		Contact c=new Contact();
-		try
+		
+		contactList=findAllContact();
+		Contact contact=new Contact();
+		for(int i=0;i<contactList.size();i++)
 		{
-			Statement s=con.createStatement();
-			ResultSet rs=s.executeQuery("select NAME,NUMBER from contactApp where ID=?");
-			ps.setInt(1,n);
-			c.setContactName(rs.setString("NAME"));
-			c.setContactNumber(rs.setString("Number"));
-			
+			if((contactList.get(i).getContactId())==(n))
+			{
+				contact=contactList.get(i);
+			}
 		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		return c;
+		return contact;
 	}
 	public void deleteContact(int n)
 	{
@@ -127,14 +123,14 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	}
-	public void updateContact(int n,Contact con)
+	public void updateContact(int n,Contact c)
 	{
 		try
 		{
-			pst=con.prepareStatement("update contactApp set NAME=?,Number=? where ID=?");
-			pst.setInt(1,n);
-			pst.setString(2,con.getContactName());
-			pst.setString(3,con.getContactNumber());
+			PreparedStatement pst=con.prepareStatement("update contactApp set NAME=?,Number=? where ID=?");
+			pst.setString(1,c.getContactName());
+			pst.setString(2,c.getContactNumber());
+			pst.setInt(3,n);
 			pst.execute();
 		}
 		catch(SQLException e)

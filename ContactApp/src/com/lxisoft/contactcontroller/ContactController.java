@@ -11,7 +11,7 @@ import java.util.*;
 public class ContactController 
 {
 	// Repository repo=new FileRepository();
-	Repository repo=new MysqlRepository();
+	 Repository repo=new MysqlRepository();
 	View view=new View();
 	/**
 	 *to get all contact
@@ -27,6 +27,7 @@ public class ContactController
 	    	model.setName(contactList.get(i).getContactName());
 	    	listModel.setContactListModel(model);
 	    }
+	    view.getAllContacts(listModel.getContactListModel());
         getChoice();
 	}
 	/**
@@ -130,8 +131,8 @@ public class ContactController
 	 */
 	public void updateContact(int n)
 	{
-		Contact con=view.updateContact();
-		repo.updateContact(n,con);
+		Contact c=view.updateContact();
+		repo.updateContact(n,c);
 	}
 	/**
 	 *to delete all contact
