@@ -31,7 +31,7 @@ public class MysqlRepository implements Repository
 		{
 			if(newsql)
 			{	Class.forName(driverName);
-				con = DriverManager.getConnection(connectionName);
+				con = DriverManager.getConnection(connectionName,"root","root");
 				stm=con.createStatement();
 				System.out.println("Connection registered");
 				checkDatabase();
@@ -40,7 +40,7 @@ public class MysqlRepository implements Repository
 			else
 			{
 				Class.forName(driverName);
-				con = DriverManager.getConnection(connectionName);
+				con = DriverManager.getConnection(connectionName,"root","root");
 				con.setCatalog(dataBase);
 				
 							
@@ -61,19 +61,19 @@ public class MysqlRepository implements Repository
 			if(con != null)
 			{
 				
-				System.out.println("check if a database exists using java");
+				// System.out.println("check if a database exists using java");
 				rs = con.getMetaData().getCatalogs();
 				while(rs.next())
 				{
 					String catalogs = rs.getString(1);
-					System.out.println(catalogs+ " catalog..");
+					// System.out.println(catalogs+ " catalog..");
 					if(dataBase.equals(catalogs))exist=true;
 				}
 					if(exist)
 					{
-						System.out.println("the database "+dataBase+ exist);
+						// System.out.println("the database "+dataBase+ exist);
 						Class.forName(driverName);
-						con = DriverManager.getConnection(connectionName);
+						con = DriverManager.getConnection(connectionName,"root","root");
 						con.setCatalog(dataBase);
 					}
 					
@@ -82,7 +82,7 @@ public class MysqlRepository implements Repository
 						int Result = stm.executeUpdate("CREATE DATABASE "+dataBase);
 						connection(false);
 					}	
-					System.out.println("the d"+ exist);
+					// System.out.println("the d"+ exist);
 						// Statement s=con.createStatement();
 						// s.executeQuery("use contact");
 						// s.excecute();
@@ -102,16 +102,16 @@ public class MysqlRepository implements Repository
 			{
 				exist=true;
 			}
-			System.out.println(" exist"+exist);
-			if(exist)
-			{
-				System.out.println("Table exist");
-			}
+			// System.out.println(" exist"+exist);
+			// if(exist)
+			// {
+			// 	System.out.println("Table exist");
+			// }
 			else
 			{
 				stmt=con.prepareStatement("create table tab(ID int(4), NAME  varchar(20), NUMBER varchar(50))");
 				stmt.execute();
-				System.out.println("Table created succesfully");
+				// System.out.println("Table created succesfully");
 			}
 		}catch(Exception e)
 		{
