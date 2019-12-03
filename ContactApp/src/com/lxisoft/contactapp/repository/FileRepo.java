@@ -53,22 +53,25 @@ public class FileRepo implements Repository
 	 * getId of the contact from file.
 	 * @return id.
 	 */
-	public int getId()
+	public int  getId()
 	{
 		try
 		{
+			//id=0;
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
 				String[] st=str.split(",",3);
 				id=Integer.parseInt(st[0]);
+				System.out.println(id+" ..inside  ID");
 			}	id++;
 		}
 		catch(IOException e)
 		{
 			System.out.println("");
 		}
+		System.out.println(id+" ..ID");
 		return id;
 	}
 	/**
