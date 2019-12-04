@@ -57,7 +57,7 @@ public class View
 	/**
 	 *to get contact details using contact id
 	 *
-	 *@param c contact with id,nam and number
+	 *@param c contact with id,name and number
 	 */
 	public void getContactById(Contact c)
 	{

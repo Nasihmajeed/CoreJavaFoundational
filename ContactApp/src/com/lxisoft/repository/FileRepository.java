@@ -30,7 +30,7 @@ public class FileRepository implements Repository
 		}
 	}
 	/**
-	 *to read date from file
+	 *to read all contact from file
 	 *
 	 *@return arraylist of contact
 	 */
@@ -115,6 +115,11 @@ public class FileRepository implements Repository
 			System.out.println(" error"+e);
 		}	
 	}
+	/**
+	 *to read contact from file with the desired id
+	 *
+	 *@return contact
+	 */
 	public Contact findContactById(int n)
 	{
 		contactList=findAllContact();
@@ -128,6 +133,11 @@ public class FileRepository implements Repository
 		}
 		return contact;
 	}
+	/**
+	 *to delete contact
+	 *
+	 *@param n integer value
+	 */
 	public void deleteContact(int n)
 	{
 		contactList=findAllContact();
@@ -145,6 +155,12 @@ public class FileRepository implements Repository
 			rewriteFile(contactList.get(j));
 		}
 	}
+	/**
+	 *to update contact
+	 *
+	 *@param n integer value
+	 *@param con contact
+	 */
 	public void updateContact(int n,Contact con)
 	{
 		contactList=findAllContact();
@@ -165,6 +181,9 @@ public class FileRepository implements Repository
 			rewriteFile(contactList.get(j));
 		}
 	}
+	/**
+	 *to delete all contact
+	 */
 	public void deleteAllContact()
 	{
 		resetFile();

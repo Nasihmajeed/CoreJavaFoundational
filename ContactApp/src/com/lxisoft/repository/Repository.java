@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.*;
 import com.lxisoft.domain.Contact;
 /**
- *
+ * interface repository
  */
 public interface Repository
 {

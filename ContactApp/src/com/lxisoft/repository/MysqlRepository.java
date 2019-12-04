@@ -3,12 +3,27 @@ import java.sql.*;
 import java.util.*;
 import com.lxisoft.domain.Contact;
 import com.lxisoft.contactmodel.*;
+/**
+ *class: repository for mysql operation
+ */
 public class MysqlRepository implements Repository
 {
 	List <Contact> contactList=new ArrayList<Contact>();
 	Connection con=null;
 	PreparedStatement ps=null;
-	// PreparedStatement pst=null;
+	{
+		try
+		{
+			databaseConnection();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	/**
+	 *to get database connection
+	 */
 	public void databaseConnection()
 	{
 		try
@@ -23,6 +38,9 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	} 
+	/**
+	 *to create table
+	 */
 	public void createStorage()
 	{
 		try
@@ -35,9 +53,13 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	}
+	/**
+	 *to read all contact from database
+	 *
+	 *@return arraylist of contact
+	 */
 	public List<Contact> findAllContact()
 	{
-		databaseConnection();
 		createStorage();
 		try
 		{
@@ -60,6 +82,11 @@ public class MysqlRepository implements Repository
 		}
 		return contactList; 
 	}
+	/**
+	 *to get contact id
+	 *
+	 *@return contact id
+	 */
 	public int getContactId()
 	{
 		int id=1;
@@ -80,6 +107,11 @@ public class MysqlRepository implements Repository
 		}
 		return id;
 	}
+	/**
+	 *to write contact in to database
+	 *
+	 *@param contact contact containing id,name and number
+	 */
 	public void saveContact(Contact contact)
 	{
 		try
@@ -89,13 +121,19 @@ public class MysqlRepository implements Repository
 			ps.setInt(1,id);
 			ps.setString(2,contact.getContactName());
 			ps.setString(3,contact.getContactNumber());
-			ps.execute();
+			int x=ps.executeUpdate();
+			System.out.println(""+x);
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
 	}
+	/**
+	 *to read contact from database with the desired id
+	 *
+	 *@return contact
+	 */
 	public Contact findContactById(int n)
 	{
 		
@@ -110,6 +148,11 @@ public class MysqlRepository implements Repository
 		}
 		return contact;
 	}
+	/**
+	 *to delete contact
+	 *
+	 *@param n integer value
+	 */
 	public void deleteContact(int n)
 	{
 		try
@@ -123,6 +166,12 @@ public class MysqlRepository implements Repository
 			e.printStackTrace();
 		}
 	}
+	/**
+	 *to update contact
+	 *
+	 *@param n integer value
+	 *@param c contact
+	 */
 	public void updateContact(int n,Contact c)
 	{
 		try
@@ -138,12 +187,15 @@ public class MysqlRepository implements Repository
 			System.out.println(e);
 		}
 	}
+	/**
+	 *to delete all contact
+	 */
 	public void deleteAllContact()
 	{
 		try
 		{
 			Statement s=con.createStatement();
-			s.executeUpdate("truncate contactApp");
+			int x=s.executeUpdate("truncate contactApp");
 		}
 		catch(SQLException e)
 		{
