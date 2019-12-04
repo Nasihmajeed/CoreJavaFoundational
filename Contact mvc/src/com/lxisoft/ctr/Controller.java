@@ -34,22 +34,20 @@ public class Controller
   }
 
 
-  public void editContact(String name,String newname,String number)
-  { drr.edit(name,newname,number);
-   //  boolean flag=false;
-   //  int eId=-1;
-   // for(int i=0;i<contactsList.size();i++)
-   //          { 
-   //            if(name.equals(contactsList.get(i).getName()))  
-   //               {
-   //                drr.edit(name,newname);
-   //                eId=contactsList.get(i).getId();
-   //                repo.edit(eId,newname);
-   //                flag=true;
-   //               }
-   //          }
-   //          return flag;
+  // public void editContact(String name,String newname,String number)
+  // {
+  //  drr.edit(name,newname,number);
+  // }
+
+  public void editByName(String name,String newname)
+  {
+   drr.editByName(name,newname);
   }
+   public void editByNumber(String name,String newnumber)
+  {
+   drr.editByNumber(name,newnumber); 
+  }
+  
   public ArrayList <Contact> sort()
   {
     repo.sortName();

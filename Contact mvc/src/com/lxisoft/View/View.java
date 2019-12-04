@@ -98,23 +98,35 @@ public class View
           System.out.println("Enter the name     : ");
           name = input.readLine();
           System.out.println("Select anyone to edit...");
-          Sytem.out.println("1. NAME"+"\t\t\t2. NUMBER\n");
+          System.out.println("1. NAME"+"\t\t\t2. NUMBER\n");
+          int a = in.nextInt();
           switch(a)
           {
-            case 1 : System.out.println("Enter the new name:");
-                     newname = input.readLine();  
+            case 1 : editByName(name);
                      break;
-            case 2 : System.out.println("Enter the new number:");     
-                     newnumber = input.readLine();  
+            case 2 : editByNumber(name);
                      break;
           }  
           Contact contact= new Contact();
-          flag=control.editContact(name,newname,newnumber);
-          // if(flag)
-          // {System.out.println("*****");}
-          // else
-          // System.out.println("No contact found!!");
+          //flag=control.editContact(name,newname,newnumber);
        }catch(IOException e){}
+  }
+  public void editByName(String name)
+  {
+    try{
+        System.out.println("Enter the new Name :");
+        String newname = input.readLine();
+        control.editByName(name,newname);
+       }catch(IOException e){}
+
+  }
+  public void editByNumber(String name)
+  {
+    try{
+        System.out.println("Enter the new Number :");
+        String newnumber = input.readLine();
+        control.editByNumber(name,newnumber);
+        }catch(IOException e){}
   }
   public void sort()
   { ArrayList <Contact> sortList = new ArrayList <Contact>();
