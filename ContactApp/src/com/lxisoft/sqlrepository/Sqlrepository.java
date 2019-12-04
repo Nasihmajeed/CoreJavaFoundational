@@ -16,7 +16,7 @@ public class Sqlrepository implements Repository
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");  
-			this.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/abhijith","root","root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/abhijith","root","root");
         }  
         catch(Exception e)
         {
@@ -25,21 +25,12 @@ public class Sqlrepository implements Repository
 	}
 	public void write(Contact contact, boolean isTrue)
 	{
-		//System.out.println("CONTACT DETAILS  "+contact.getNumber()+contact.getName());
 		try
 		{
 			
-	     	stmnt = con.prepareStatement("insert into contact values(?,?,?)");
-	     	if(isTrue==false)
-	     	{
-	     		stmnt.setInt(1,contact.getId());
-	     	}
-	     	else if (isTrue==true)
-	     	{
-	     		stmnt.setInt(1,id);
-	     	}
-			stmnt.setString(2,contact.getName());
-			stmnt.setString(3,contact.getNumber());
+	     	stmnt = con.prepareStatement("insert into contact (name,number)values(?,?)");
+			stmnt.setString(1,contact.getName());
+			stmnt.setString(2,contact.getNumber());
 			stmnt.executeUpdate();
 		
 	    }
@@ -47,6 +38,8 @@ public class Sqlrepository implements Repository
 	    {
 	    	System.out.println(e);
 	    }
+		
+		
 	}
 	public ArrayList <Contact> read()
 	{
@@ -71,18 +64,18 @@ public class Sqlrepository implements Repository
 		}
 		return contactList;
 	}
-	public void edit(Contact contact)
-	{
-		stmnt = con.prepareStatement("update contact set  number=? ,name=?, where id = ? ");
-		stmnt= setInt(1,getId());
-		stmnt = setString(2,contact.getName());
-		stmnt = setString(3,contact.getNumber());
-		stmnt.executeUpdate();
-	}
-	public void delete()
-	{
-		stmnt = con.prepareStatement("delete from contact where id = ? ");
+	// public void edit(Contact contact)
+	// {
+	// 	stmnt = con.prepareStatement("update contact set  number=? ,name=?, where id = ? ");
+	// 	stmnt= setInt(1,getId());
+	// 	stmnt = setString(2,contact.getName());
+	// 	stmnt = setString(3,contact.getNumber());
+	// 	stmnt.executeUpdate();
+	// }
+	// public void delete()
+	// {
+	// 	stmnt = con.prepareStatement("delete from contact where id = ? ");
 
-	}
+	// }
 	
 }

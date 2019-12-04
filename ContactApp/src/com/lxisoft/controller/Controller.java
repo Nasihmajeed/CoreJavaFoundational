@@ -80,48 +80,48 @@ public class Controller
 	
 	
 
-	public void deleteContact(String name)
-	{
-		contact = new Contact();
-		contactList = rep.read();
-	    contactList.remove(i);	
-	   // rep.clear();
+	// public void deleteContact(String name)
+	// {
+	// 	contact = new Contact();
+	// 	contactList = rep.read();
+	//     contactList.remove(i);	
+	//    // rep.clear();
 		
-		for(Contact j : contactList)
-		 {
-		 	 rep.write(j,false);
-		 }
-		 choice();
+	// 	for(Contact j : contactList)
+	// 	 {
+	// 	 	 rep.write(j,false);
+	// 	 }
+	// 	 choice();
 
-	}
-	public void display()
-	{
-		int n=view.display();
-		switch(n)
-		{
-			case 1 : view.dateDisplay(); break;
-		    case 2 : view.sortByname();break;
-		    case 3 : view.sortByid(); break;
-		}
+	// }
+	// public void display()
+	// {
+	// 	int n=view.display();
+	// 	switch(n)
+	// 	{
+	// 		case 1 : view.dateDisplay(); break;
+	// 	    case 2 : view.sortByname();break;
+	// 	    case 3 : view.sortByid(); break;
+	// 	}
 		
-		choice();
-	}
+	// 	choice();
+	// }
 	
-	public int getArraySize()
-	{
-		return rep.getArraysize();
-	}
-	public String getName()
-	{
-		return contact.getName();
-	}
-	public String getNumber()
-	{
-		return contact.getNumber();
-	}
-	public void deleteAll()
-	{
-		rep.clear();
-		choice();
-	}
+	// public int getArraySize()
+	// {
+	// 	return rep.getArraysize();
+	// }
+	// public String getName()
+	// {
+	// 	return contact.getName();
+	// }
+	// public String getNumber()
+	// {
+	// 	return contact.getNumber();
+	// }
+	// public void deleteAll()
+	// {
+	// 	rep.clear();
+	// 	choice();
+	// }
 }
