@@ -11,7 +11,7 @@ public class View{
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-Repository repo=new DbRepository();
+Repository repo=new DRepository();
 
 /**
 *method used to get data from user

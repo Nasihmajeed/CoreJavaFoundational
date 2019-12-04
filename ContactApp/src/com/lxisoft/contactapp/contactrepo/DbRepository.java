@@ -18,8 +18,8 @@ public ArrayList<Contact>getAll(){
 
 
 		Statement s=con.createStatement();
-		s.executeUpdate("create table if not exist contactlist (ID int,NAME varchar(15),NUMBER varchar(15))");
-        // ps=con.prepareStatement("insert into contactlist (ID,NAME,NUMBER) values(?,?,?)");
+		s.executeUpdate("create table  contactlist (ID int auto_increment primary key,NAME varchar(15),NUMBER varchar(15))");
+        // ps=con.prepareStatement("insert into contactlist (NAME,NUMBER) values(?,?)");
 		ResultSet rs=ps.executeQuery("select * from contactlist");
 
 		while(rs.next()){
@@ -40,7 +40,7 @@ public void setContact(Contact contact){
 		Class.forName("com.mysql.jdbc.Driver");
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contacts","root","root");
 		Statement s=con.createStatement();
-		s.executeUpdate("insert into contactlist(ID,NAME,NUMBER) values("+contact.getId()+","+contact.getName()+","+contact.getNumber()+")");
+		s.executeUpdate("insert into contactlist(NAME,NUMBER) values("+contact.getName()+","+contact.getNumber()+")");
 		con.close();
 	}
 	catch(Exception ee){
@@ -48,14 +48,19 @@ public void setContact(Contact contact){
 
 	}
 public Contact searchList(String name){
+	Contact contact=new Contact();
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contacts","root","root");
 		Statement s=con.createStatement();
 		//ArrayList<Contact> colist=this.getAll();
-		s.executeUpdate("select * from contactlist where NAME like '%'+name+'%' ");
+		ResultSet rs=s.executeQuery("select * from contactlist where(NAME ='"+name+"')");
+		contact.setId(rs.getInt("ID"));
+		contact.setName(rs.getString("NAME"));
+		contact.setNumber(rs.getString("NUMBER"));
         }
     catch(Exception ee){
 		System.out.println(ee);} 
+		return contact;
    }
 }
