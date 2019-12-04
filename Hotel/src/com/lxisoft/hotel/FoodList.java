@@ -34,6 +34,7 @@ public class FoodList
 	public void getFoodItem()
 	{
 		int n=1;
+		System.out.println("*********Menu*********");
 		for(int i=0;i<10;i++)
 		{
 			if(foodItemList[i].getName()!= null)
