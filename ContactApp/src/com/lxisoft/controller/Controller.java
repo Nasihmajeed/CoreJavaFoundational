@@ -54,6 +54,11 @@ public class Controller
 		return contact;
 		
 	}
+	public void getId(ArrayList contactList)
+	{
+		ArrayList <Contact> contactList = new ArrayList<Contact>();
+		
+	}
 	// public ArrayList<Contact> fileRead()
 	// {
 	// 	contact = new Contact();
@@ -80,20 +85,19 @@ public class Controller
 	
 	
 
-	// public void deleteContact(String name)
-	// {
-	// 	contact = new Contact();
-	// 	contactList = rep.read();
-	//     contactList.remove(i);	
-	//    // rep.clear();
+	public void deleteContact(String name)
+	{
+		contact = new Contact();
+		contactList = rep.read();
+	 //    contactList.remove(i);	
+	 //   // rep.clear();
 		
-	// 	for(Contact j : contactList)
-	// 	 {
-	// 	 	 rep.write(j,false);
-	// 	 }
-	// 	 choice();
-
-	// }
+		// for(Contact j : contactList)
+		//  {
+		//  	 rep.write(j,false);
+		//  }
+		//  choice();
+	}
 	// public void display()
 	// {
 	// 	int n=view.display();

@@ -10,6 +10,7 @@ public class Sqlrepository implements Repository
 {
 	ArrayList <Contact> contactList = new ArrayList<Contact>();
 	Connection con; 
+	ResultSet rs ;
 	PreparedStatement stmnt; 
 	public Sqlrepository()
 	{
@@ -47,7 +48,7 @@ public class Sqlrepository implements Repository
 		{
 			contactList.clear();
 			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery("select * from contact");
+			 rs = s.executeQuery("select * from contact");
 			while(rs.next())
 			{
 				Contact contact = new Contact();
