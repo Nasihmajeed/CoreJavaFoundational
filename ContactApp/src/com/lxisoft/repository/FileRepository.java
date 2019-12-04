@@ -6,8 +6,8 @@ import com.lxisoft.domain.*;
 import com.lxisoft.view.*;
 import java.util.*;
 import java.io.*;
- /**
- * class Repository
+  /**
+ * Repository for file operation
  */
 public class FileRepository implements Repository 
 {
@@ -156,7 +156,7 @@ public class FileRepository implements Repository
 		}
 	}
 	 /**
- * file rewritej
+ * file rewrite
  */
 	public void rewriteFile(Contact c)
 	{
@@ -172,7 +172,12 @@ public class FileRepository implements Repository
 			System.out.println("an error"+e);
 		}	
 	}
-
+ /**
+ * sort id 
+ */
+  /**
+ * @return contactList 
+ */
 	public List<Contact> idSort()
   	{
   		contactList=read();
@@ -180,7 +185,12 @@ public class FileRepository implements Repository
 		// resetFile();
 		return contactList;
   	}
-
+ /**
+ * sort name 
+ */
+  /**
+ * @return contactList 
+ */
   	public List<Contact> nameSort()
   	{
   		contactList=read();
@@ -188,7 +198,12 @@ public class FileRepository implements Repository
 		// resetFile();
 		return contactList;
   	}
-
+ /**
+ * sort number 
+ */
+  /**
+ * @return contactList 
+ */
   	public List<Contact> numberSort()
   	{
   		contactList=read();

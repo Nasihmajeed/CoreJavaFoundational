@@ -5,15 +5,14 @@ import com.lxisoft.models.*;
 import com.lxisoft.domain.*;
 import com.lxisoft.view.*;
 import java.util.*;
+/**
+ *class for user Interface
+ */
 public class ContactView
 {
-	/**
- * class view
- */
-
-	/**
- * to get all contacts
- */
+   /**
+ 	* to get all contacts
+ 	*/
 	public void getAllContacts(List<ContactModel> contactsList)
 	{
 		if((contactsList.size()!=0))
@@ -30,7 +29,7 @@ public class ContactView
  * select choices
  */
 	 /**
- * @return choice 
+ * @return Integer 
  */
 	public int display()
 	{
@@ -41,11 +40,9 @@ public class ContactView
 		return ch;
 	}
 	/**
- * operations
- */
-	 /**
- * @return choice
- */
+	 * to get operations
+	 * @return Integer
+	 */
 	public int getOperations()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -54,11 +51,9 @@ public class ContactView
 		return ch;
 	}
 	/**
- * Select id
- */
-	 /**
- * @return id
- */
+ 	 * Select id
+ 	 * @return String
+ 	 */
 	public String getContactId()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -67,11 +62,9 @@ public class ContactView
 		return d;
 	}
 	/**
- * Select a contact by id
- */
-	/**
- * @param c contact
- */
+	* get a contact by id
+	* @param c contact
+	*/
 	public void getContactById(Contact c)
 	{
 		if((c.getName())!=null)
@@ -84,7 +77,10 @@ public class ContactView
 			System.out.println("No Search Result");
 		}
 	}
-
+    /**
+	* get a contact by name
+	* @return String
+	*/
 	public String getContactName()
 	{
 		Scanner sc=new Scanner(System.in);

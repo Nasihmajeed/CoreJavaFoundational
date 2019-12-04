@@ -5,6 +5,9 @@ import com.lxisoft.models.*;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
+ /**
+ * Repository for Database operation
+ */
 public class MysqlRepository implements Repository
 {
 	List<Contact>contactList=new ArrayList<Contact>();
@@ -26,6 +29,10 @@ public class MysqlRepository implements Repository
 	{
 		c=new Contact();
 	}
+
+	  /**
+ * connect to database 
+ */
 	public void connectionDB()
 	{
 		try
@@ -51,6 +58,12 @@ public class MysqlRepository implements Repository
  		}
  	}
 	
+	  /**
+ * get all contact 
+ */
+	   /**
+ * @return contactList 
+ */
 	public List<Contact> getAllContact()
 	{
 		try
@@ -75,7 +88,9 @@ public class MysqlRepository implements Repository
 		}
 		return contactList; 
 	}
-	
+	  /**
+ * add contact 
+ */
  	public void insertContact(Contact c)
  	{
  		try
@@ -94,7 +109,9 @@ public class MysqlRepository implements Repository
  		}
  		// return contactList;
  	}
-
+  /**
+ * Edit contact 
+ */
   	public void updateContact(String d,Contact c)
  	{
  		try
@@ -110,6 +127,9 @@ public class MysqlRepository implements Repository
  			System.out.println("Updation Failed"+e);
  		}
  	}
+ 	  /**
+ * delete contact 
+ */
  	public void deleteContact(String d)
 	{
 		try
@@ -140,6 +160,13 @@ public class MysqlRepository implements Repository
 	// 	}
 	// 	// return contactList;
 	// }
+
+	  /**
+ * sort id 
+ */
+	   /**
+ * @return contactList 
+ */
 	public List<Contact> idSort()
   	{
   		contactList=getAllContact();
@@ -147,7 +174,12 @@ public class MysqlRepository implements Repository
 		// resetFile();
 		return contactList;
   	}
-
+      /**
+ * sort name 
+ */
+       /**
+ * @return contactList 
+ */
   	public List<Contact> nameSort()
   	{
   		contactList=getAllContact();
@@ -155,7 +187,12 @@ public class MysqlRepository implements Repository
 		// resetFile();
 		return contactList;
   	}
-
+      /**
+ * sort number 
+ */
+       /**
+ * @return contactList 
+ */
   	public List<Contact> numberSort()
   	{
   		contactList=getAllContact();
