@@ -122,7 +122,7 @@ for(int i=0;i<contacts.size();i++){
 	 }
 	 return c;
 
-  } //7306546322
+  } 
 /**
 *method used to edit a contact from list
 *@param String[],Contact array contains name and number,single contact

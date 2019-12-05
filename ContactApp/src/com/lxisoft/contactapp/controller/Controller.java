@@ -24,6 +24,7 @@ public void save()
 */
 
 public void read(){
+	System.out.println("****Controller  read() 	*********");
 	v.display(repo.getAll());
 
   }
@@ -32,12 +33,13 @@ public void read(){
 */
 
 public void search(){
+	System.out.println("######");
 	v.searchContact();
 	
    }
 
-public void sort(){
+/*public void sort(){
 	v.sort();
-}
+}*/
 
 }

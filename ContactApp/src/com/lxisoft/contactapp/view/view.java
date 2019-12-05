@@ -11,7 +11,7 @@ public class View{
 Scanner s=new Scanner(System.in);
 Scanner ss=new Scanner(System.in);
 public ArrayList<Contact> contacts=new ArrayList<Contact>();
-Repository repo=new DRepository();
+Repository repo=new DbRepository();
 
 /**
 *method used to get data from user
@@ -53,6 +53,7 @@ public void searchContact(){
 System.out.println("\n\nEnter name to search : ");
 String n=ss.next(); 
 Contact c=repo.searchList(n);
+System.out.println("######"+c.getName());
 if(c==null){
 	System.out.println("cannot find");
      }
@@ -109,7 +110,7 @@ repo.deleteList(n);
 System.out.println("---------"+n+" deleted from the contact");
   }
 
- public void sort(){
+/* public void sort(){
  	System.out.println("1-sort by number\t2-sort by id");
  	int x=s.nextInt();
  	switch(x){
@@ -119,6 +120,6 @@ System.out.println("---------"+n+" deleted from the contact");
  				break;
  		default:System.out.println("wrong entry");
  	}
- }
+ }*/
  }
 
