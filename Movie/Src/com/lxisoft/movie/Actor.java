@@ -1,10 +1,13 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.Actor;
-public abstract class Actor
+public class Actor
 {
 	String name;
-	public abstract void type();
-	public abstract void act();
+	public void playcharecter()
+	{
+		name="Ajith kp";
+		System.out.println(name);
+	}
 
 
 }

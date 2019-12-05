@@ -4,18 +4,20 @@ public class Comedian extends Actor implements Comic
 {
 	String name;
 	
-	public void charecter()
+	public String charecter()
 	{
-		System.out.println("News Reporter");
+		String chr="News Reporter";
+		return chr;
 	}
-	public void act()
+	public String act()
 	{
-		System.out.println("Soldier");
+		String ac="Soldier";
+		return ac;
 	}
-	public void type()
+	public String type()
 	{
-		System.out.println("Super Hero");
-
+		String tp="Super Hero";
+		return tp;
 	}
 	
 }

@@ -4,14 +4,23 @@ public class Script
 {	
 	String[] cdialouge;
 	String[] vdialouge;
-
-	public void setdetails(String[] cdialouge,String[] vdialouge)
-	{
+	public String[] setdialouge1()
+	{ 
 		cdialouge=new String[2];
- 		vdialouge=new String[2];
-		cdialouge[1]="Play for winnig not for begining";
-		vdialouge[1]="I just want to help you";
-		cdialouge[2]="shut up thanos you die";
-		vdialouge[2]="ill kill you insect";
+		
+		String dialouge1="Play for winnig not for begining";
+		cdialouge[0]=dialouge1;
+		String dialouge2="shut up thanos you die";
+		cdialouge[1]=dialouge2;
+		return cdialouge;
+	}
+	public String[] setdialouge2()
+	{
+		vdialouge=new String[2];
+		String dialouge3="I just want to help you";
+		vdialouge[0]=dialouge3;
+		String dialouge4="ill kill you insect";
+		vdialouge[1]=dialouge4;
+		return vdialouge;
 	}
 }
