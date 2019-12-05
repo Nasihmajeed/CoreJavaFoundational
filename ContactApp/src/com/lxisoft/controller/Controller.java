@@ -54,10 +54,12 @@ public class Controller
 		return contact;
 		
 	}
-	public void getId(ArrayList contactList)
+	public int getId()
 	{
-		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		
+		contact = new Contact();
+		contact = search();
+		int id = contact.getId();
+		return id;		
 	}
 	// public ArrayList<Contact> fileRead()
 	// {
@@ -89,14 +91,7 @@ public class Controller
 	{
 		contact = new Contact();
 		contactList = rep.read();
-	 //    contactList.remove(i);	
-	 //   // rep.clear();
-		
-		// for(Contact j : contactList)
-		//  {
-		//  	 rep.write(j,false);
-		//  }
-		//  choice();
+	
 	}
 	// public void display()
 	// {
