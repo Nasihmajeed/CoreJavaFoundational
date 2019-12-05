@@ -54,13 +54,14 @@ public class Controller
 		return contact;
 		
 	}
-	public int getId()
+	public int getId(String name)
 	{
 		contact = new Contact();
-		contact = search();
+		contact = search(name);
 		int id = contact.getId();
 		return id;		
 	}
+
 	// public ArrayList<Contact> fileRead()
 	// {
 	// 	contact = new Contact();
@@ -69,29 +70,24 @@ public class Controller
 
 	// }
 
-	// public void editContact(int i,int id,String name,String number)
-	// {	
-	// 	 contact = new Contact();
-	// 	 contactList = rep.read();
-	// 	 contact.setName(name);
- //         contact.setNumber(number);
- //         contact.setId(id);
- //         contactList.set(i,contact);
- //         //rep.clear();
-	// 	// for(Contact j : contactList)
-	// 	//  {
-	// 	//  	 rep.write(j,false);
-	// 	//  }	
- //         rep.edit(j,false);
-	// 	 choice();
-	
-	
+	public void editContact(int id,String name,String number)
+	{	
+		 // contact = new Contact();
+		 // contactList = rep.read();
+		 // contact.setName(name);
+   //       contact.setNumber(number);
+   //       contact.setId(id);
+   //       contactList.set(i,contact);	
 
-	public void deleteContact(String name)
-	{
-		contact = new Contact();
-		contactList = rep.read();
+         rep.edit(id,name,number);
+		 choice();
 	
+	}
+
+	public void deleteContact(int id)
+	{
+		rep.delete(id);
+		
 	}
 	// public void display()
 	// {

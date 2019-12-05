@@ -65,18 +65,35 @@ public class Sqlrepository implements Repository
 		}
 		return contactList;
 	}
-	// public void edit(Contact contact)
-	// {
-	// 	stmnt = con.prepareStatement("update contact set  number=? ,name=?, where id = ? ");
-	// 	stmnt= setInt(1,getId());
-	// 	stmnt = setString(2,contact.getName());
-	// 	stmnt = setString(3,contact.getNumber());
-	// 	stmnt.executeUpdate();
-	// }
-	// public void delete()
-	// {
-	// 	stmnt = con.prepareStatement("delete from contact where id = ? ");
+	public void edit(int id,String name, String number)
+	{ 
+		try
+		{
+		stmnt = con.prepareStatement("update contact set name=?,number=? where id =?");
+		stmnt.setString(1,name);
+		stmnt.setString(2,number);
+		stmnt.setInt(3,id);
+		stmnt.executeUpdate();
+		}
+		catch(Exception e)
+		{
 
-	// }
+		}
+		
+	}
+	public void delete(int id)
+	{
+		try
+		{
+		stmnt = con.prepareStatement("delete from contact where id = ? ");
+		stmnt.setInt(1,id);
+		stmnt.executeUpdate();
+
+		}
+		catch(Exception ee)
+		{
+
+		}
+	}
 	
 }

@@ -75,8 +75,8 @@ public class View
 					switch(n)
 						{
 
-							// case 1 :edit(i,con.contactList.get(i).getId()); break;
-							 case 2 : delete(get(i).getName());break;
+							case 1 :edit(con.contactList.get(i).getId()); break;
+							 case 2 : delete(con.contactList.get(i).getId());break;
 							case 3 :con.choice(); break;
 							default: System.out.println("INVALID CHOICE");
 						}
@@ -128,22 +128,23 @@ public class View
 	// 	   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
 	// 	}
 	// }
-	// public void edit(int i,int id)
-	// {
-	// 	 System.out.println("ENTER THE NEW NAME");
-	// 	 String name  = read.next();
-	// 	 System.out.println("ENTER THE NEW NUMBER");
-	// 	 String number = read.next();
-	// 	 con.editContact(i,id,name,number);
-	// }
-	public void delete(String name)
+	public void edit(int id)
+	{
+		 System.out.println("ENTER THE NEW NAME");
+		 String name  = read.next();
+		 System.out.println("ENTER THE NEW NUMBER");
+		 String number = read.next();
+		 con.editContact(id,name,number);
+		 System.out.println("UPDATED");
+	}
+	public void delete(int id)
 	{
 		System.out.println("are you sure ? \n press y   OR \t\t  n");
 		 String choice= read.next();
 		 switch(choice)
 		 {
 		 	case "y": System.out.println("contact deleted ");
-		 	         con.deleteContact(name);
+		 	         con.deleteContact(id);
 		 	          break;
 		 	case "n" : search(); break;
 		 	default : search();

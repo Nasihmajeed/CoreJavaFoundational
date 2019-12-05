@@ -6,13 +6,9 @@ import com.lxisoft.test.*;
 import com.lxisoft.model.*;
 public interface Repository
 {
-	//public void connection();
+	public void delete(int id);
 	public void write(Contact contact, boolean isTrue);
 	//public  int setId();
 	 public  ArrayList <Contact> read();
-	// public void write(Contact contact, boolean isTrue);
-	// public void search();
-	// public int getArraysize();
-	// public void clear();
-
+	public void edit(int id,String name, String number);
 }
