@@ -4,19 +4,11 @@ public class Villain extends Actor implements Villainic
 {
 	String name;
 	
-	public String charecter()
+	public void playcharecter()
 	{
+		
 		String chr="Stone collector";
-		return chr;
+		
 	}
-	public String act()
-	{ 
-		String ac="Steet cloun";
-		return ac;
-	}
-	public String type()
-	{
-		String tp="Villain";
-		return tp;
-	}
+	
 }

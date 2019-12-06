@@ -5,8 +5,9 @@ public class Actor
 	String name;
 	public void playcharecter()
 	{
-		name="Ajith kp";
-		System.out.println(name);
+		
+		
+		System.out.println("\n");
 	}
 
 
