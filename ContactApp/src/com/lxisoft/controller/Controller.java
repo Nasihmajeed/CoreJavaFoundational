@@ -16,14 +16,14 @@ public class Controller
 	public void choice()
 	{
 
-		//view.dateDisplay();
+		view.dateDisplay();
 		int n=view.begin();
 		switch(n)
 		{
 			case 1 : addContact(); break;
 			 case 2 : view.search();break;
 			 case 3 : display(); break;
-			// case 4 : view.deleteAll();break;
+			case 4 : view.clear();break;
 			default: view.defaultPrint(0);
 		}		
 	}
@@ -83,8 +83,8 @@ public class Controller
 		switch(n)
 		{
 			case 1 : view.dateDisplay(); break;
-		    // case 2 : view.sortByname();break;
-		    // case 3 : view.sortByid(); break;
+		    case 2 : view.sortByname();break;
+		    case 3 : view.sortByid(); break;
 		}
 		
 		choice();
@@ -102,9 +102,9 @@ public class Controller
 	// {
 	// 	return contact.getNumber();
 	// }
-	// public void deleteAll()
-	// {
-	// 	rep.clear();
-	// 	choice();
-	// }
+	public void deleteAll()
+	{
+		rep.clear();
+		choice();
+	}
 }

@@ -107,25 +107,25 @@ public class View
 		      }
 
 	}
-	// public void sortByname()
-	// {
-	// 	ArrayList<Contact>arrayList=con.fileRead();
-	// 	Collections.sort(arrayList, new SortName()); 
-	// 	for(Contact i : arrayList)
-	// 	{
-	// 	   System.out.println( "NAME:"+i.getName()+" NUMBER:"+i.getNumber());
-	// 	}
+	public void sortByname()
+	{
+		ArrayList<Contact>arrayList=con.read();
+		Collections.sort(arrayList, new SortName()); 
+		for(Contact i : arrayList)
+		{
+		   System.out.println( "NAME:"+i.getName()+" NUMBER:"+i.getNumber());
+		}
 		
-	// }
-	// public void sortByid()
-	// {
-	// 	ArrayList<Contact>arrayList=con.fileRead();
-	// 	Collections.sort(arrayList, new SortId()); 
-	// 	for(Contact i : arrayList)
-	// 	{
-	// 	   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
-	// 	}
-	// }
+	}
+	public void sortByid()
+	{
+		ArrayList<Contact>arrayList=con.read();
+		Collections.sort(arrayList, new SortId()); 
+		for(Contact i : arrayList)
+		{
+		   System.out.println(" ID:"+i.getId()+" NAME:"+i.getName());
+		}
+	}
 	public void edit(int id)
 	{
 		 System.out.println("ENTER THE NEW NAME");
@@ -148,17 +148,17 @@ public class View
 		 	default : search();
 		 }
 	}
-	// public void deleteAll()
-	// {
-	// 	System.out.pri/ntln("are you sure ? \n press y   OR \t\t  n");
-	// 	 String choice= read.next();
-	// 	 switch(choice)
-	// 	 {
-	// 	 	case "y": con.deleteAll();
-	// 	 	          System.out.println("All contacts deleted ");
-	// 	 	          break;
-	// 	 	case "n" : con.choice(); break;
-	// 	 	default : con.choice();
-	// 	 }	
-	// }
+	public void clear()
+	{
+		System.out.println("are you sure ? \n press y   OR \t\t  n");
+		 String choice= read.next();
+		 switch(choice)
+		 {
+		 	case "y": con.deleteAll();
+		 	          System.out.println("All contacts deleted ");
+		 	          break;
+		 	case "n" : con.choice(); break;
+		 	default : con.choice();
+		 }	
+	}
 }

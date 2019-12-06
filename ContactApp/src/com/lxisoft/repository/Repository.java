@@ -8,7 +8,7 @@ public interface Repository
 {
 	public void delete(int id);
 	public void write(Contact contact, boolean isTrue);
-	//public  int setId();
+	public void clear();
 	 public  ArrayList <Contact> read();
 	public void edit(int id,String name, String number);
 }

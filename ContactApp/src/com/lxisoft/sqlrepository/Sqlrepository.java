@@ -96,5 +96,17 @@ public class Sqlrepository implements Repository
 
 		}
 	}
+	public void clear()
+	{
+		try
+		{
+			stmnt= con.prepareStatement("TRUNCATE TABLE contact");
+			stmnt.executeUpdate();
+		}
+		catch(Exception ee)
+		{
+			System.out.println(ee);
+		}
+	}
 	
 }
