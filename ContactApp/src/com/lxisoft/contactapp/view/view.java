@@ -53,7 +53,6 @@ public void searchContact(){
 System.out.println("\n\nEnter name to search : ");
 String n=ss.next(); 
 Contact c=repo.searchList(n);
-System.out.println("######"+c.getName());
 if(c==null){
 	System.out.println("cannot find");
      }
