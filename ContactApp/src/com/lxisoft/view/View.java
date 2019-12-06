@@ -41,19 +41,17 @@ public class View
 		
 
 	}
-	public void addContact()
+	public Contact addContact()
 	{
 		Contact contact = new Contact();
 		Scanner set = new Scanner(System.in);
 		System.out.println("ENTER NAME");
-		String name= set.nextLine();
-		//contact.setName(set.nextLine());
+		contact.setName(set.nextLine());
 		System.out.println("ENTER NUMBER");
-		String number=set.nextLine();
-		//contact.setNumber(set.nextLine());
+		contact.setNumber(set.nextLine());
 		System.out.println("CONTACT SAVED");
-		con.addContact(name,number);
-		
+
+		return contact;
 	}
 	public void search()
 	{
@@ -93,22 +91,22 @@ public class View
 				con.choice();
 			}
 	}    
-	// public  int  display()
-	// {	
-	// 	System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME \n 3 = SORT BY ID");
-	// 	int n =read.nextInt();
-	// 	return n;
-	// }
-	// public void dateDisplay()
-	// {
-	// 	ArrayList <Contact> contactDetail = new ArrayList<Contact>();
-	// 	contactDetail=con.fileRead();
-	// 	for(Contact i : contactDetail)
-	// 	      {
-	// 		     System.out.println(" NAME:"+i.getName()+" NUMBER:"+i.getNumber());
-	// 	      }
+	public  int  display()
+	{	
+		System.out.println("\n 1 = SORT BY DATE \n 2 = SORT BY NAME \n 3 = SORT BY ID");
+		int n =read.nextInt();
+		return n;
+	}
+	public void dateDisplay()
+	{
+		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
+		contactDetail=con.read();
+		for(Contact i : contactDetail)
+		      {
+			     System.out.println(" NAME:"+i.getName()+" NUMBER:"+i.getNumber());
+		      }
 
-	// }
+	}
 	// public void sortByname()
 	// {
 	// 	ArrayList<Contact>arrayList=con.fileRead();
@@ -135,7 +133,7 @@ public class View
 		 System.out.println("ENTER THE NEW NUMBER");
 		 String number = read.next();
 		 con.editContact(id,name,number);
-		 System.out.println("UPDATED");
+		 System.out.println("UPDATED");    
 	}
 	public void delete(int id)
 	{

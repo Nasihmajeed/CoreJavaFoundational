@@ -20,21 +20,17 @@ public class Controller
 		int n=view.begin();
 		switch(n)
 		{
-			case 1 : view.addContact(); break;
+			case 1 : addContact(); break;
 			 case 2 : view.search();break;
-			// case 3 : display(); break;
+			 case 3 : display(); break;
 			// case 4 : view.deleteAll();break;
 			default: view.defaultPrint(0);
 		}		
 	}
 
-	public void addContact(String name,String number)
+	public void addContact()
 	{ 
-		//rep.setId();
-		contact = new Contact();
-		contact.setId(2);
-        contact.setName(name);
-        contact.setNumber(number);
+		contact= view.addContact();
         rep.write(contact,true);
         choice();
 
@@ -62,26 +58,18 @@ public class Controller
 		return id;		
 	}
 
-	// public ArrayList<Contact> fileRead()
-	// {
-	// 	contact = new Contact();
-	// 	ArrayList <Contact> contactDetail = new ArrayList<Contact>();
-	// 	return contactDetail=rep.read();
+	public ArrayList<Contact> read()
+	{
+		//contact = new Contact();
+		ArrayList <Contact> contactDetail = new ArrayList<Contact>();
+		return contactDetail=rep.read();
 
-	// }
+	}
 
 	public void editContact(int id,String name,String number)
 	{	
-		 // contact = new Contact();
-		 // contactList = rep.read();
-		 // contact.setName(name);
-   //       contact.setNumber(number);
-   //       contact.setId(id);
-   //       contactList.set(i,contact);	
-
          rep.edit(id,name,number);
 		 choice();
-	
 	}
 
 	public void deleteContact(int id)
@@ -89,18 +77,18 @@ public class Controller
 		rep.delete(id);
 		
 	}
-	// public void display()
-	// {
-	// 	int n=view.display();
-	// 	switch(n)
-	// 	{
-	// 		case 1 : view.dateDisplay(); break;
-	// 	    case 2 : view.sortByname();break;
-	// 	    case 3 : view.sortByid(); break;
-	// 	}
+	public void display()
+	{
+		int n=view.display();
+		switch(n)
+		{
+			case 1 : view.dateDisplay(); break;
+		    // case 2 : view.sortByname();break;
+		    // case 3 : view.sortByid(); break;
+		}
 		
-	// 	choice();
-	// }
+		choice();
+	}
 	
 	// public int getArraySize()
 	// {

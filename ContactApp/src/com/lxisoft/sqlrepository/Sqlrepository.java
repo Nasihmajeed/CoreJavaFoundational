@@ -26,6 +26,7 @@ public class Sqlrepository implements Repository
 	}
 	public void write(Contact contact, boolean isTrue)
 	{
+		
 		try
 		{
 			
