@@ -100,7 +100,6 @@ public class Admin
 		do
 		{
 		isRight = false;
-		/*System.out.println("******MENU******");*/
 		foodList.getFoodItem();
 		System.out.println("Press ==> 1.Edit 2.Back 3.Stop ");
 		int numb = scanner.nextInt();

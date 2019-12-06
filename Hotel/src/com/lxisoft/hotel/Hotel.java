@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Hotel
 {
 	private String name,place;
-	Scanner scanner; 
+	Scanner scanner;
 	public Hotel(String name,String place)
 	{
 	 this.name = name;
@@ -22,7 +22,6 @@ public class Hotel
 	{	
 		scanner = new Scanner(System.in);
 		Admin admin = new Admin();
-		
 		boolean adminUser = false;
 		do
 		{
