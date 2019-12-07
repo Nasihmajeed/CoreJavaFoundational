@@ -14,6 +14,7 @@ public class Movie
 		director=new Director();
 		scriptwriter=new Scriptwriter();
 		actor=new Actor();
+		director.name="Mysskin";
 		scriptwriter.name="P.A.Renjith";
 
 		System.out.println("    ----------------------");
@@ -22,7 +23,7 @@ public class Movie
 		System.out.println("\n");
 		System.out.println("__________________________");
 
-		System.out.println("Director :"+director.castactor());
+		System.out.println("Director :"+director.name);
 		System.out.println("Producer : S.Thanu");
 		System.out.println("Story    :"+scriptwriter.name);
 		System.out.println("__________________________");
@@ -32,10 +33,10 @@ public class Movie
 		System.out.println("__________________________");
 
 /*		actor.playcharecter();
-*/
-		scriptwriter.setscript();
+*/		director.direction();
+		scriptwriter.setScript();
 		System.out.println("\n");
-		System.out.println("A film by  "+director.castactor());
+		System.out.println("A film by  "+director.name);
 	}
 	
 }

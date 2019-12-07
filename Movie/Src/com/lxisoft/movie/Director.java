@@ -2,9 +2,12 @@ package com.lxisoft.movie;
 public class Director
 {
 	String name;
-	public String castactor()
+
+	public void direction()
 	{
-		String name="Mysskin";
-		return name;
+		Script script=new Script();
+		String[] scene;
+		scene=script.scenes();
+		System.out.println(scene[0]);
 	}
 }

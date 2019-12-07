@@ -4,38 +4,40 @@ public class Scriptwriter
 {
 	String name;
 	Script script;
-	public int randomdialouge()
+	public int randomDialouge()
 	{
-		int n=(int)(Math.random()*2)+1;	
+		int n=(int)(Math.random()*3);	
 		return n;
 	}
 	
-	public void setscript()
+	public void setScript()
 	{
-		int num=randomdialouge();
-		String[] s=new String[2];
+		int num=0;
+		String[] s=new String[3];
+		String[] names=new String[3];
 		for(int k=0;k<s.length;k++)
 		{
-			
+			num=randomDialouge();
 			name=new String();
 
 			script=new Script();
 
 			
-			s=script.setdialouge1();
+			s=script.setDialouge1();
+			names=script.name();
 			Actor actor1=new Actor();
 			actor1.name="Ajith";
 			
-			System.out.println(actor1.name+" : "+s[num]);
+			System.out.println(names[0]+" : "+s[num]);
 			
 
 			System.out.println("\n");
-			s=script.setdialouge2();	
+			s=script.setDialouge2();	
 			Actor actor2=new Actor();
 			actor2.name="Sankil";
 			
 			
-			System.out.println(actor2.name+" : "+s[num]);
+			System.out.println(names[1]+" : "+s[num]);
 	
 			
 		}
