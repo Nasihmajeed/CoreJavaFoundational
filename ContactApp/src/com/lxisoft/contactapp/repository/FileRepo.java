@@ -57,14 +57,15 @@ public class FileRepo implements Repository
 	{
 		try
 		{
-			//id=0;
+			id=0;
 			BufferedReader read=new BufferedReader(new FileReader(contactFile));
 			String str=read.readLine();
 			while((str=read.readLine())!=null) 
 			{
 				String[] st=str.split(",",3);
-				id=Integer.parseInt(st[0]);
+				int temp=Integer.parseInt(st[0]);
 				System.out.println(id+" ..inside  ID");
+				if(temp>id) id=temp;
 			}	id++;
 		}
 		catch(IOException e)
@@ -173,7 +174,7 @@ public class FileRepo implements Repository
 		contacts=getAllContacts();
 		Collections.sort(contacts,new SortByNumber());
 		clearRepository();
-	 		for(Contact contact : contacts)
+	 		for(Contact contact : contacts)   
 			{
 				insertContactDetails(contact,true);
 			}	

@@ -16,8 +16,8 @@ public class ContactController
 	/**
 	 * instance variable reference filerepo and Mysqlrepo and view and option for sort
 	 */
-	//private Repository repo=new MySqlRepo();
-	private Repository repo=new FileRepo();
+	private Repository repo=new MySqlRepo();
+	//private Repository repo=new FileRepo();
 	private ContactView view=new ContactView();
 	static int sort_option=1;
 	// public void getDBConnection()
@@ -164,6 +164,7 @@ public class ContactController
 	{
 		try
 		{
+			sortContact(sort_option);
 			ArrayList<Contact> contacts=repo.getAllContacts();
 			view.showAllContactDetails(contacts);
 		}catch(SQLException e)

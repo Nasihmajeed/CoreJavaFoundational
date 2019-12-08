@@ -167,11 +167,13 @@ public class MySqlRepo implements Repository
 	{
 		try
 		{
+			id=0;
 			contacts=getAllContacts();
 			rs = stmt.executeQuery("select * from Contactlist");
 			while(rs.next()) 
 			{ 
-	 			id = rs.getInt("ID");
+	 			int temp = rs.getInt("ID");
+	 			if(temp>id) id=temp;
 			}id++;
 		}catch(SQLException e)
 		{
@@ -297,7 +299,6 @@ public class MySqlRepo implements Repository
 	public void addContactDetails(Contact contact)throws SQLException
 	{
 		contacts.add(contact);	
-		boolean val=false;
-		insertContactDetails(contact,val);
+		insertContactDetails(contact,false);
 	}
 }
