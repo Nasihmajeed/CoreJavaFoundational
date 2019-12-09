@@ -28,13 +28,20 @@ public class Movie
 		System.out.println("Story    :"+scriptwriter.name);
 		System.out.println("__________________________");
 
-		System.out.println("Actor 1  :Ajith  (Hero)");
-		System.out.println("Actor 2  :Sankil (villain)");
+		Actor[] actorlist=director.casting();
+		
 		System.out.println("__________________________");
 
 /*		actor.playcharecter();
 */		director.direction();
-		scriptwriter.setScript();
+		actorlist=scriptwriter.setScript(actorlist);
+		for (int i=0;i<actorlist.length;i++) 
+		{
+			
+			System.out.println( actorlist[i].getActorname()+""+actorlist[i].getCharecter()+" : "+actorlist[i].getDialogues());
+			
+			
+		}
 		System.out.println("\n");
 		System.out.println("A film by  "+director.name);
 	}

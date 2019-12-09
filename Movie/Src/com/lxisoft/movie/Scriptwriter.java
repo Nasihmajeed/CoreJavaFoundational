@@ -10,37 +10,37 @@ public class Scriptwriter
 		return n;
 	}
 	
-	public void setScript()
+	public Actor[] setScript(Actor[] actorlist)
 	{
 		int num=0;
-		String[] s=new String[3];
-		String[] names=new String[3];
-		for(int k=0;k<s.length;k++)
-		{
-			num=randomDialouge();
-			name=new String();
-
-			script=new Script();
-
-			
-			s=script.setDialouge1();
-			names=script.name();
-			Actor actor1=new Actor();
-			actor1.name="Ajith";
-			
-			System.out.println(names[0]+" : "+s[num]);
-			
-
-			System.out.println("\n");
-			s=script.setDialouge2();	
-			Actor actor2=new Actor();
-			actor2.name="Sankil";
-			
-			
-			System.out.println(names[1]+" : "+s[num]);
+		String s;
+		
 	
+			num=randomDialouge();			
+			script=new Script();
+			s=script.setDialouge1(num);
+			actorlist[0].setDialogues(s);
 			
-		}
+			num=randomDialouge();			
+			script=new Script();
+			s=script.setDialouge2(num);
+			actorlist[1].setDialogues(s);
+
+			num=randomDialouge();			
+			script=new Script();
+			s=script.setDialouge1(num);
+
+			actorlist[2].setDialogues(s);
+
+			num=randomDialouge();			
+			script=new Script();
+			s=script.setDialouge2(num);
+			actorlist[3].setDialogues(s);
+		
+		
+		
+		
+		return actorlist;
 
 	}
 }	

@@ -1,9 +1,7 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.Comedian;
-public class Comedian extends Actor implements Comic
+public class Comedian extends Actor 
 {
-	String name;
 	
-	public void 
 	
 }

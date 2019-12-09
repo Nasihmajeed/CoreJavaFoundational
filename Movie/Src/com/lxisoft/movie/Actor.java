@@ -1,18 +1,35 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.Actor;
-public class Actor
+public  class Actor
 {
-	private String[] charecter=new String[2];
-	String name;
-	public void setCharecter(String[] names)
+	String actorcharecter;
+	String actorname;
+	String dialogue;
+
+	public void setActorname(String actorname)
 	{
-		this.charecter=names;
-		
-		System.out.println("\n");
-	}
-	public String[] getCharecter()
+		this.actorname=actorname;
+	}	
+	public String getActorname()
 	{
-		return this.charecter;
+		return actorname;
 	}
+	public void setCharecter(String character)
+	{
+		this.actorcharecter=character;
+	}
+	public String getCharecter()
+	{
+		return actorcharecter;
+	}
+	public void setDialogues(String s)
+	{ 
+		this.dialogue=s;
+	}
+	public String getDialogues()
+	{
+		return dialogue;
+	}
+	
 
 }
