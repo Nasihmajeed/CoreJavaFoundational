@@ -38,8 +38,7 @@ public class FoodList
 				System.out.println(n+"."+foodItemList.get(i).getName());
 				System.out.println("  "+foodItemList.get(i).getPrice()+" Rs");
 				n++;
-	        }
-	        
+	        } 
 		}
 	}
 }

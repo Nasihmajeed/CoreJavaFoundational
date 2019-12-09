@@ -19,31 +19,30 @@ public class Admin
 			int num = scanner.nextInt();
 			switch(num)
 			{
-				case 1:
-					add(foodList);
-					isTrue = true;
-					break;
-				case 2:
-					update(foodList);
-					isTrue = true;
-					break;
-				case 3:
-					delete(foodList);
-					isTrue = true;
-					break;
-				case 4:
-					read(foodList);
-					isTrue = true;
-					break;
-				case 5: 
-				    break;
-				default :
-					System.out.println("Sorry!!!! Select Options From Above ");
-					isTrue = true;
-					break;
+			case 1:
+				add(foodList);
+				isTrue = true;
+				break;
+			case 2:
+				update(foodList);
+				isTrue = true;
+				break;
+			case 3:
+				delete(foodList);
+				isTrue = true;
+				break;
+			case 4:
+				read(foodList);
+				isTrue = true;
+				break;
+			case 5: 
+			    break;
+			default :
+				System.out.println("Sorry!!!! Select Options From Above ");
+				isTrue = true;
+				break;
 			}
-		}while(isTrue);
-	    
+		}while(isTrue); 
 	}
 	public void add(FoodList foodList)
 	{
