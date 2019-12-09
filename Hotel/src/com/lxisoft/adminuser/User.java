@@ -11,7 +11,7 @@ public class User
 		{
 			if(productIndex[i]!=0)
 			{
-				totalAmount = totalAmount + (foodList.foodItemList[productIndex[i]-1].getPrice()*quantity[i]);
+				totalAmount = totalAmount + (foodList.foodItemList.get(productIndex[i]-1).getPrice()*quantity[i]);
 			}
 		}
 		System.out.println("Hotel Name : "+name);
@@ -25,7 +25,7 @@ public class User
 		{
 			if(productIndex[i]!=0)
 			{
-			System.out.printf(" %-20.30s  %-20.30s %-20.30s%n",foodList.foodItemList[productIndex[i]-1].getName(),quantity[i],foodList.foodItemList[productIndex[i]-1].getPrice()+" Rs");
+			System.out.printf(" %-20.30s  %-20.30s %-20.30s%n",foodList.foodItemList.get(productIndex[i]-1).getName(),quantity[i],foodList.foodItemList.get(productIndex[i]-1).getPrice()+" Rs");
 		    }
 		}
 		System.out.println("+=================================================+");

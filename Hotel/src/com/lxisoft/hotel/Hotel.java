@@ -15,7 +15,7 @@ public class Hotel
 	{
 		scanner = new Scanner(System.in);
 		FoodList foodList = new FoodList();
-		foodList.setFoodItem(foodList.foodItemList);
+		foodList.setFoodItem();
 		login(foodList);
 	}
 	public void login(FoodList foodList)

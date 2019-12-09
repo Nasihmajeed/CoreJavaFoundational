@@ -51,45 +51,27 @@ public class Admin
 		do
 		{
 			isTrue=false;
-			int flag = 0;
-			for(int i=0;i<10;i++)
-            {
-            	if(flag==0)
-            	{
-					if(foodList.foodItemList[i].getName()==null)
-					{
-						System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
-						int num = scanner.nextInt();
-						switch(num)
-						{
-						case 1:
-						    checkDuplicate(foodList,i);
-						    flag=1;
-						    isTrue=true;
-						    break;
-						case 2:
-						    flag = 1;
-							foodList.getFoodItem();
-							isTrue=true;
-							break;
-						case 3:
-							flag = 1;
-						    break;
-						case 4:
-							System.exit(0);
-							break;
-						default :
-							System.out.println("Select Any 4 Options");
-							flag = 1;
-							isTrue = true;
-							break;
-						}
-					}
-				}
-				else if(flag==1)
-				{
-					break;
-				}
+			System.out.println("Press ==> 1.Add 2.Print 3.Back 4.Stop ");
+			int num = scanner.nextInt();
+			switch(num)
+			{
+			case 1:
+			    checkDuplicate(foodList);
+			    isTrue=true;
+			    break;
+			case 2:
+				foodList.getFoodItem();
+				isTrue=true;
+				break;
+			case 3:
+			    break;
+			case 4:
+				System.exit(0);
+				break;
+			default :
+				System.out.println("Select Any 4 Options");
+				isTrue = true;
+				break;
 			}
 	    }
 		while(isTrue);
@@ -108,13 +90,13 @@ public class Admin
 			case 1:
 				System.out.println("==>> Select a Product to Update");
 				int num = scanner.nextInt();
-				checkDuplicate(foodList,num-1);
+				checkDuplicate(foodList);
 				isRight = true;
 				break;
 			case 2:
 				break;
 			case 3:
-			System.exit(0);
+				System.exit(0);
 				break;
 			default :
 				System.out.println("Sorry!!!! Select Options From Above ");
@@ -135,7 +117,7 @@ public class Admin
 			switch(numb)
 			{
 			case 1:
-				reAligningFoodList(foodList);
+				removeFromArrayList(foodList);
 				isRight = true;
 				break;
 			case 2:
@@ -174,7 +156,7 @@ public class Admin
 		    }
 	    }while(isTrue);
 	}
-	public void checkDuplicate(FoodList foodList,int num)
+	public void checkDuplicate(FoodList foodList)
 	{
 		boolean exists = true;
 		System.out.print("Enter Food Name : ");
@@ -182,44 +164,34 @@ public class Admin
 	    productName = scanner.nextLine();
 	    System.out.print("Enter Food Amount : ");
 	    int productAmount = scanner.nextInt();
-		for(int i = 0;i<10;i++)
+		for(int i = 0;i<foodList.foodItemList.size();i++)
 		{
-			if(foodList.foodItemList[i].getName()!=null)
+			if(foodList.foodItemList.get(i).getName().equals(productName))
 			{
-				if(foodList.foodItemList[i].getName().equals(productName))
-				{
-					System.out.println(productName+" Already Exists !!!!!!!");
-					exists = false;
-					break;
-				}
-		    }
+				System.out.println(productName+" Already Exists !!!!!!!");
+				exists = false;
+				break;
+			}
 		}
 		if(exists)
 		{
-			foodList.foodItemList[num].setName(productName);
-			foodList.foodItemList[num].setPrice(productAmount);
+			foodList.foodItemList.add(new FoodItem());
+			for(int j=0;j<foodList.foodItemList.size();j++)
+			{
+				if(foodList.foodItemList.get(j).getName()==null)
+				{
+					foodList.foodItemList.get(j).setName(productName);
+					foodList.foodItemList.get(j).setPrice(productAmount);
+				}
+		    }
 		}
 	}
-	public void reAligningFoodList (FoodList foodList)
+	public void removeFromArrayList(FoodList foodList)
 	{
 		System.out.println("******MENU******");
 		foodList.getFoodItem();
 		System.out.println("==> Select a Product to Delete");
 		int num = scanner.nextInt();
-		foodList.foodItemList[num-1].setName(null);
-		foodList.foodItemList[num-1].setPrice(0);
-		for(int i=num;i<10;i++)
-		{
-			if(foodList.foodItemList[i]!=null)
-			{
-				foodList.foodItemList[i-1].setName(foodList.foodItemList[i].getName());
-				foodList.foodItemList[i-1].setPrice(foodList.foodItemList[i].getPrice());
-		    }
-		    else if(foodList.foodItemList[i]==null)
-		    {
-		    	foodList.foodItemList[i+1].setName(null);
-		        foodList.foodItemList[i+1].setPrice(0);
-		    }
-	    }
+		foodList.foodItemList.remove(num-1);
 	}
 }

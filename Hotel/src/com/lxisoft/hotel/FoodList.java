@@ -1,53 +1,42 @@
 package com.lxisoft.hotel;
+import java.util.ArrayList;
 import com.lxisoft.hotel.*;
 public class FoodList
 {
-	public FoodItem[] foodItemList = new FoodItem[10];
+	public ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
 
-
-	/*public FoodItem[] setFoodObject(FoodItem[] foodItemList)
+	public void setFoodItem()
 	{
-		for(int i = 0;i<10;i++)
-		 {
-		 	foodItemList[i] = new FoodItem();
-		 }
-		 return foodItemList;
-	}*/
-	public FoodItem[] setFoodItem(FoodItem[] foodItemList)
-	{
-		Biriyani biriyani = new Biriyani();
-		 /*setFoodObject(foodItemList);*/
-		 biriyani.setBiriyani();
-		 foodItemList[0] = biriyani;
-		 /*foodItemList[0].setPrice(110);*/
+		FoodItem biriyani = new Biriyani();
+		((Biriyani)biriyani).setBiriyani();
+		 foodItemList.add(biriyani);
 
-		 foodItemList[1] = new FoodItem();
-		 foodItemList[1].setName("Meals");
-		 foodItemList[1].setPrice(60);
+		 foodItemList.add(new FoodItem());
+		 foodItemList.get(1).setName("Meals");
+		 foodItemList.get(1).setPrice(60);
 
-         foodItemList[2] = new FoodItem();
-		 foodItemList[2].setName("Fried Rice");
-		 foodItemList[2].setPrice(130);
+         foodItemList.add(new FoodItem());
+		 foodItemList.get(2).setName("Chappathi");
+		 foodItemList.get(2).setPrice(10);
 
-         foodItemList[3] = new FoodItem();
-		 foodItemList[3].setName("Chapathi");
-		 foodItemList[3].setPrice(5);
+         foodItemList.add(new FoodItem());
+		 foodItemList.get(3).setName("Porotta");
+		 foodItemList.get(3).setPrice(20);
 
-		 foodItemList[4] = new FoodItem();
-		 foodItemList[4].setName("Porotta");
-		 foodItemList[4].setPrice(10);
-		 return foodItemList;
+		 foodItemList.add(new FoodItem());
+		 foodItemList.get(4).setName("Fried Rice");
+		 foodItemList.get(4).setPrice(130);
 	}
 	public void getFoodItem()
 	{
 		int n=1;
 		System.out.println("*********Menu*********");
-		for(int i=0;i<10;i++)
+		for(int i=0;i<foodItemList.size();i++)
 		{
-			if(foodItemList[i].getName()!= null)
+			if(foodItemList.get(i).getName()!= null)
 			{
-				System.out.println(n+"."+foodItemList[i].getName());
-				System.out.println("  "+foodItemList[i].getPrice()+" Rs");
+				System.out.println(n+"."+foodItemList.get(i).getName());
+				System.out.println("  "+foodItemList.get(i).getPrice()+" Rs");
 				n++;
 	        }
 	        
