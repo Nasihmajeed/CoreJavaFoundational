@@ -4,33 +4,33 @@ public class Director
 {
 	
 	String name;
-	
-	public void direction()
-	{
-		Script script=new Script();
-		String[] scene;
-		scene=script.scenes();
-		System.out.println(scene[0]);
-	}
-	public Actor[] casting()
-	{	
-		Actor[] a=new Actor[4];
-		Hero hero=setHero(); 
-		Villain villain=setVillain();
-		Comedian comedian=setComedian();
-		Heroin heroin=setHeroin();
-		a[0]=hero;
-		a[1]=villain;
-		a[2]=comedian;
-		a[3]=heroin;
-		return a;
-		
-	}
 	public int randomactor()
 	{
 		int n=(int)(Math.random()*4);	
 		return n;
 	}
+	public String direction()
+	{
+		int num=randomactor();
+		Script script=new Script();
+		String scene;
+		scene=script.scenes(num);
+		System.out.println(scene);
+		return scene;
+		
+	}
+	public Actor[] casting()
+	{	
+		
+		Hero hero=setHero(); 
+		Villain villain=setVillain();
+		Comedian comedian=setComedian();
+		Heroin heroin=setHeroin();
+		Actor[] a={hero,villain,comedian,heroin};
+		return a;
+		
+	}
+	
 	public Hero setHero()
 	{
 		Hero hero=new Hero();

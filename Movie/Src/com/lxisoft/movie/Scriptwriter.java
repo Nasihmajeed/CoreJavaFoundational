@@ -29,7 +29,6 @@ public class Scriptwriter
 			num=randomDialouge();			
 			script=new Script();
 			s=script.setDialouge1(num);
-
 			actorlist[2].setDialogues(s);
 
 			num=randomDialouge();			
