@@ -6,8 +6,5 @@ public class Tdd
 	{
 		Hotel hotel = new Hotel("Nila Resturant","Ottapalam");
 		hotel.booking();
-		/*FoodList s = new FoodList();
-		s.setFoodItem();
-		s.getFoodItem();*/
 	}
 }
