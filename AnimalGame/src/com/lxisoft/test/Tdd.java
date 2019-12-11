@@ -6,6 +6,5 @@ public class Tdd
 	{
 		Forest forest = new Forest();
 		forest.meetAnimal();
-
 	}
 }

@@ -7,42 +7,16 @@ public class Forest
 
 	public void meetAnimal()
 	{
-		String sample,test;
 		setAnimal();
 		System.out.println("!!!! Game Started !!!!");
-		for(int i=0;i<5;i++)
+		for(int i=0;i<6;i++)
 		{
 			int x =(int) (Math.random()*animal.size());
 			int y =(int) (Math.random()*animal.size());
 			if(!animal.get(x).getName().equals(animal.get(y).getName()))
 			{
-				if(animal.get(x) instanceof Carnivorus)
-				{
-					System.out.println(animal.get(x).getName());
-					sample=((Carnivorus)animal.get(x)).kill();
-				}
-				else if(animal.get(x) instanceof Herbivorus)
-				{
-					System.out.println(animal.get(x).getName());
-					sample=((Herbivorus)animal.get(x)).meet();
-				}
-
-				if(animal.get(y) instanceof Carnivorus)
-				{
-					System.out.println(animal.get(y).getName());
-					test=((Carnivorus)animal.get(y)).kill();	
-				}
-				else if(animal.get(x) instanceof Herbivorus)
-				{
-					System.out.println(animal.get(y).getName());
-					test =((Herbivorus)animal.get(y)).meet();
-				}
-
-				/*if(sample.equals(test))
-				{
-					System.out.println();
-				}*/
-				
+				String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
+				checkingMammals(sample1,sample2,test1,test2,x,y);
 			}
 		}
 	}
@@ -69,5 +43,50 @@ public class Forest
 		animal.get(7).setName("Rabbit2");
 		animal.get(8).setName("Tiger1");
 		animal.get(9).setName("Tiger2");
+	}
+	public void checkingMammals(String sample1,String sample2,String test1,String test2,int x,int y)
+	{
+		if(animal.get(x) instanceof Carnivorus)
+		{
+			System.out.print(animal.get(x).getName());
+			sample1=((Carnivorus)animal.get(x)).kill();
+		}
+		else if(animal.get(x) instanceof Herbivorus)
+		{
+			System.out.print(animal.get(x).getName());
+			sample2=((Herbivorus)animal.get(x)).meet();
+		}
+
+		if(animal.get(y) instanceof Carnivorus)
+		{
+			System.out.println(" - Meets - "+animal.get(y).getName());
+			test1=((Carnivorus)animal.get(y)).kill();
+		}
+		else if(animal.get(y) instanceof Herbivorus)
+		{
+			System.out.println(" - Meets - "+animal.get(y).getName());
+			test2 =((Herbivorus)animal.get(y)).meet();
+		}
+		fightAnimals(sample1,sample2,test1,test2,x,y);
+	}
+
+	public void fightAnimals(String sample1,String sample2,String test1,String test2,int x,int y)
+	{
+		if(sample1.equals("Carnivorus") && test1.equals("Carnivorus"))
+		{
+			System.out.println(animal.get(x).getName()+" Figt with "+animal.get(y).getName());
+		}
+		else if(sample2.equals("Herbivorus") && test2.equals("Herbivorus"))
+		{
+			System.out.println(animal.get(x).getName()+" Meet's "+animal.get(y).getName());
+		}
+		else if(sample1.equals("Carnivorus") && test2.equals("Herbivorus"))
+		{
+			System.out.println(animal.get(x).getName()+" Kill's "+animal.get(y).getName());
+		}
+		else if(sample2.equals("Herbivorus") && test1.equals("Carnivorus"))
+		{
+			System.out.println(animal.get(y).getName()+" Kill's "+animal.get(x).getName());
+		}
 	}
 }
