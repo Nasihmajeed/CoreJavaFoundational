@@ -7,18 +7,42 @@ public class Forest
 
 	public void meetAnimal()
 	{
+		String sample,test;
 		setAnimal();
 		System.out.println("!!!! Game Started !!!!");
-		for(int i=0;i<10;i++)
+		for(int i=0;i<5;i++)
 		{
 			int x =(int) (Math.random()*animal.size());
 			int y =(int) (Math.random()*animal.size());
-
 			if(!animal.get(x).getName().equals(animal.get(y).getName()))
 			{
-				System.out.print(animal.get(x).getName());
-				System.out.println(" Meets "+animal.get(y).getName());
-				System.out.println("Meet !!!!!");
+				if(animal.get(x) instanceof Carnivorus)
+				{
+					System.out.println(animal.get(x).getName());
+					sample=((Carnivorus)animal.get(x)).kill();
+				}
+				else if(animal.get(x) instanceof Herbivorus)
+				{
+					System.out.println(animal.get(x).getName());
+					sample=((Herbivorus)animal.get(x)).meet();
+				}
+
+				if(animal.get(y) instanceof Carnivorus)
+				{
+					System.out.println(animal.get(y).getName());
+					test=((Carnivorus)animal.get(y)).kill();	
+				}
+				else if(animal.get(x) instanceof Herbivorus)
+				{
+					System.out.println(animal.get(y).getName());
+					test =((Herbivorus)animal.get(y)).meet();
+				}
+
+				/*if(sample.equals(test))
+				{
+					System.out.println();
+				}*/
+				
 			}
 		}
 	}
