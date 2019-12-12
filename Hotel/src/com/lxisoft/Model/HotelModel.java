@@ -1,10 +1,12 @@
 package com.lxisoft.Model;
+import com.lxisoft.Model.*;
+import java.util.*;
 public class HotelModel 
 {	
 	private String hotelName;
 	private int itemQuantity;
-	private ArrayList<Food> foodList;
-	private ArrayList<Stock> stockList;
+	private ArrayList<FoodModel> foodList=new ArrayList<FoodModel>();
+	//private ArrayList<StockModel> stockList;
 	public void setItemQuantity(int itemQuantity)
 	{
 		this.itemQuantity=itemQuantity;
@@ -21,22 +23,22 @@ public class HotelModel
 	{
 		return this.hotelName;
 	}
-	public void setFoodList(ArrayList<Food> foodList)
+	public void setFoodList(FoodModel food)
 	{
-		this.foodList=foodList;
+		this.foodList.add(food);
 	}
-	public ArrayList<Food> getFoodList()
+	public ArrayList<FoodModel> getFoodList()
 	{
 		return this.foodList;
 	}
-	public void setStockList(ArrayList<Stock> stockList)
+	/*public void setStockList(ArrayList<Stock> stockList)
 	{
 		this.stockList=stockList;
 	}
 	public ArrayList<Stock> getStockList()
 	{
 		return this.stockList;
-	}
+	}*/
 }	
 
  
