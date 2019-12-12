@@ -3,8 +3,7 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Carnivorus;
 public class Fox extends Animal implements Carnivorus
 {
-	boolean isTrue;
-	public int strength()
+	public int cStrength()
 	{
 		int carnivorusStrength = 15;
 		return 	carnivorusStrength;

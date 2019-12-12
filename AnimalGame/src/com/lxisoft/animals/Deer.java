@@ -3,15 +3,15 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Herbivorus;
 public class Deer extends Animal implements Herbivorus
 {
-	boolean isTrue;
-	public boolean isAlive(boolean isTrue)
+	/*public boolean isAlive(boolean isTrue)
 	{
 		if(isTrue)
 		{
 			meet();
 		}
-	}
-	public int strength()
+		return isTrue;
+	}*/
+	public int hStrength()
 	{
 		int herbivorusStrength = 10;
 		return herbivorusStrength;

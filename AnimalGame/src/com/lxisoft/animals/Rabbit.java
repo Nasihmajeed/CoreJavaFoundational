@@ -3,8 +3,7 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Herbivorus;
 public class Rabbit extends Animal implements Herbivorus
 {
-	boolean isTrue;
-	public int strength()
+	public int hStrength()
 	{
 		int herbivorusStrength = 5;
 		return herbivorusStrength;
