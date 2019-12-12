@@ -3,7 +3,13 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Carnivorus;
 public class Tiger extends Animal implements Carnivorus
 {
-	int tigerStrength = 40,tigerHungerLevel = 20;
+	boolean isTrue;
+	public int strength()
+	{
+		int carnivorusStrength = 40;
+		return 	carnivorusStrength;
+	}
+	int tigerHungerLevel = 20;
 	public String kill()
 	{
 		String behaviour = "Carnivorus";
