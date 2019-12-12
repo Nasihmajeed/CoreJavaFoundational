@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class HotelView 
 {		
 	static Scanner sc=new Scanner(System.in);
-	public HotelModel hotel=new HotelModel();	
+	public HotelModel mhotel=new HotelModel();	
 	public int addFood()
 	{
 		System.out.println("\nWhich type of food you want to add");
-		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n");
+		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit \n 5.Display");
 		int item=sc.nextInt();
 		return item;
 	}		
@@ -22,7 +22,7 @@ public class HotelView
 		biriyani.setFoodPrice(sc.nextInt());	
 		System.out.println("Biriyani ID");
 		biriyani.setId(sc.nextInt());
-		hotel.setFoodList(biriyani);
+		mhotel.setFoodList(biriyani);
 						
 	}
 	public void addDosa()
@@ -34,7 +34,7 @@ public class HotelView
 		dosa.setFoodPrice(sc.nextInt());
 	 	System.out.println("Dosa ID");
 		dosa.setId(sc.nextInt());						
-		hotel.setFoodList(dosa);
+		mhotel.setFoodList(dosa);
 		
 	}
 	public void addShake()
@@ -46,9 +46,19 @@ public class HotelView
 		shake.setFoodPrice(sc.nextInt());				
 		System.out.println("Shake ID");
 		shake.setId(sc.nextInt());			
-		hotel.setFoodList(shake);
+		mhotel.setFoodList(shake);
 		
 	} 
+	public void displayFood()
+	{
+		System.out.println("\nDisplay the details of Food");
+		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
+		for(int i=0;i<mhotel.getFoodList().size();i++)
+		{			
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodType(),mhotel.getFoodList().get(i).getFoodPrice());
+		}
+		
+	}
 }	
 
  
