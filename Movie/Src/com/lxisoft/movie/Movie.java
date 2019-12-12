@@ -29,30 +29,28 @@ public class Movie
 		System.out.println("Story    :"+scriptwriter.name);
 		System.out.println("__________________________");
 
-		Actor[] actorlist=director.casting();
+		Actor[] actorlist=director.castActor();
 		
 		System.out.println("__________________________");
 		runscenes(actorlist);
 		return actorlist;
 		
 	}
-	public int random()
-	{
-		int n=(int)(Math.random()*3)+1;	
-		return n;
-	}
+
 	public void runscenes(Actor[] actorlist)
 	{
-		int num=random();
+		int n=(int)(Math.random()*3)+1;	
 		
-		for (int j=1;j<=num;j++) 
+		
+		for (int j=1;j<=n;j++) 
 		{
-			int ran=random();
-			System.out.println("Scene "+j+" : "+director.direction());
+			int ran=n;
+			System.out.println("Scene "+j+" : "+director.directes());
 			for (int i=0;i<ran;i++) 
 			{
 				actorlist=scriptwriter.setScript(actorlist);
-				int ra=random();
+
+				int ra=ran;
 			    System.out.println( actorlist[ra].getActorname()+""+actorlist[ra].getCharecter()+" : "+actorlist[ra].getDialogues());
 				System.out.println(" ");
 			}

@@ -6,40 +6,21 @@ public class Scriptwriter
 	Script script;
 	public int randomDialouge()
 	{
-		int n=(int)(Math.random()*3);	
+		int n=(int)(Math.random()*5);	
 		return n;
 	}
-	
 	public Actor[] setScript(Actor[] actorlist)
 	{
-		int num=0;
-		String s;
 		
-	
-			num=randomDialouge();			
-			script=new Script();
-			s=script.setDialouge1(num);
-			actorlist[0].setDialogues(s);
-			
-			num=randomDialouge();			
-			script=new Script();
-			s=script.setDialouge2(num);
-			actorlist[1].setDialogues(s);
+		
+		for (int i=0;i<actorlist.length;i++) 
+		{
 
-			num=randomDialouge();			
+			int num=randomDialouge();			
 			script=new Script();
-			s=script.setDialouge1(num);
-			actorlist[2].setDialogues(s);
-
-			num=randomDialouge();			
-			script=new Script();
-			s=script.setDialouge2(num);
-			actorlist[3].setDialogues(s);
-		
-		
-		
-		
+			String s=script.setDialouge1(num);
+			actorlist[i].setDialogues(s);
+		}
 		return actorlist;
-
 	}
 }	

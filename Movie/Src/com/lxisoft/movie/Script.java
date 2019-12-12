@@ -15,7 +15,7 @@ public class Script
 	}
 	public String scenes(int num)
 	{
-		String[] scene={"on the bridge","Sankil going","In the car","Ship basement"};
+		String[] scene={"on the bridge","center of meetingroom","In the car","Ship basement","The company"};
 		return scene[num];
 	}
 	
