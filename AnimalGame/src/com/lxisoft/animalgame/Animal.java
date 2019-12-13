@@ -2,6 +2,7 @@ package com.lxisoft.animalgame;
 public class Animal
 {
 	boolean isTrue = true;
+	public int strength;
 	private String name;
 
 	public void setName(String name)

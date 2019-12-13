@@ -3,11 +3,12 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Herbivorus;
 public class Rabbit extends Animal implements Herbivorus
 {
-	public int hStrength()
+	public int herbivorusStrength = 10;
+	/*public int hStrength(int strength)
 	{
-		int herbivorusStrength = 5;
+		
 		return herbivorusStrength;
-	}
+	}*/
 	int rabbitHungerLevel = 8;
 	public String meet()
 	{

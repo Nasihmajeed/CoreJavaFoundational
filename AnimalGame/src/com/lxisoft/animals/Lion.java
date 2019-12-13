@@ -3,11 +3,12 @@ import com.lxisoft.animalgame.Animal;
 import com.lxisoft.animalgame.Carnivorus;
 public class Lion extends Animal implements Carnivorus
 {
-	public int cStrength()
+	public int carnivorusStrength = 50;
+	/*public int cStrength(int strength)
 	{
-		int carnivorusStrength = 50;
+		
 		return 	carnivorusStrength;
-	}
+	}*/
 	int lionHungerLevel = 25;
 	public String kill()
 	{
