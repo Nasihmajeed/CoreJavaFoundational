@@ -16,7 +16,7 @@ public class HotelControl
 				case 2: view.addStock(); break;
 				case 3: view.displayFood(); break;	
 				case 4: view.displayStock(); break;
-				//case 5: hotel.printBill(); break;
+				case 5: view.printBill(); break;
 				case 6: System.exit(0); break;		
 			}d++;
 		}	
