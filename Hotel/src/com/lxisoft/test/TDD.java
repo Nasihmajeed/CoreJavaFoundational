@@ -5,7 +5,7 @@ public class TDD
 	public static void main(String[] arg)
 	{						
 		HotelControl control=new HotelControl();
-		control.addFood();
+		control.menu();
 		
 	}	
 }

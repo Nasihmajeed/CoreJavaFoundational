@@ -3,24 +3,24 @@ import com.lxisoft.View.HotelView;
 public class HotelControl 
 {		
 
-	public void addFood()
+	public void menu()
 	{
 		HotelView view=new HotelView();
 		int d=1;	
-		while(d<=5)
-		{	
-			int item=view.addFood();
-			switch(item)
+		while(d<=6)
+		{
+			int menu=view.menu();			
+			switch (menu)
 			{
-		 		case 1: view.addBiriyani(); break;
-				case 2: view.addDosa(); break;
-				case 3: view.addShake(); break;	
-				case 4: System.exit(0); break;
-				case 5:	view.displayFood(); break;					
-			}d++;	
+				case 1: view.addFood(); break;				
+				case 2: view.addStock(); break;
+				case 3: view.displayFood(); break;	
+				case 4: view.displayStock(); break;
+				//case 5: hotel.printBill(); break;
+				case 6: System.exit(0); break;		
+			}d++;
+		}	
+	}
 		
-		}
-		
-	}	
 }	
 	

@@ -6,7 +6,7 @@ public class HotelModel
 	private String hotelName;
 	private int itemQuantity;
 	private ArrayList<FoodModel> foodList=new ArrayList<FoodModel>();
-	//private ArrayList<StockModel> stockList;
+	private ArrayList<StockModel> stockList=new ArrayList<StockModel>();
 	public void setItemQuantity(int itemQuantity)
 	{
 		this.itemQuantity=itemQuantity;
@@ -30,15 +30,15 @@ public class HotelModel
 	public ArrayList<FoodModel> getFoodList()
 	{
 		return this.foodList;
-	}
-	/*public void setStockList(ArrayList<Stock> stockList)
+	}	
+	public void setStockList(StockModel stock)
 	{
-		this.stockList=stockList;
+		this.stockList.add(stock);
 	}
-	public ArrayList<Stock> getStockList()
+	public ArrayList<StockModel> getStockList()
 	{
 		return this.stockList;
-	}*/
+	}
 }	
 
  
