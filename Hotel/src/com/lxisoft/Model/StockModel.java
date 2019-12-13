@@ -1,7 +1,6 @@
 package com.lxisoft.Model;
 public class StockModel
 {		
-	//Food food;	
 	private  int foodQuantity;
 	public void setQuantity(int foodQuantity)
 	{

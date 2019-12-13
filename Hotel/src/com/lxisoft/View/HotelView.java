@@ -7,7 +7,7 @@ public class HotelView
 	public HotelModel mhotel=new HotelModel();	
 	public int menu()
 	{
-		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit \n ");
+		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit \n7.file \n ");
 		int menu=sc.nextInt();	
 		return menu;
 	}		

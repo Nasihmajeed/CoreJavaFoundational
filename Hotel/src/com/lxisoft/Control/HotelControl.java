@@ -2,10 +2,10 @@ package com.lxisoft.Control;
 import com.lxisoft.View.HotelView;
 public class HotelControl 
 {		
-
 	public void menu()
 	{
 		HotelView view=new HotelView();
+		
 		int d=1;	
 		while(d<=6)
 		{
@@ -17,10 +17,10 @@ public class HotelControl
 				case 3: view.displayFood(); break;	
 				case 4: view.displayStock(); break;
 				case 5: view.printBill(); break;
+				case 7: ; break;
 				case 6: System.exit(0); break;		
 			}d++;
 		}	
-	}
-		
+	}		
 }	
 	
