@@ -1,26 +1,26 @@
 package com.lxisoft.movie;
+import java.util.Scanner;
 import java.lang.Math;
 public class Scriptwriter
 {
 	String name;
 	Script script;
-	public int randomDialouge()
+	Actor[] s;
+	
+	public void setScript()
 	{
-		int n=(int)(Math.random()*5);	
-		return n;
-	}
-	public Actor[] setScript(Actor[] actorlist)
-	{
-		
-		
-		for (int i=0;i<actorlist.length;i++) 
+		Scanner scr=new Scanner(System.in);
+		System.out.println("Enter number of Actors");
+		int num=scr.nextInt();
+		for (int i=0;i<num;i++)
 		{
-
-			int num=randomDialouge();			
+			int n=(int)(Math.random()*4);						
 			script=new Script();
-			String s=script.setDialouge1(num);
-			actorlist[i].setDialogues(s);
+			/*s=script.setDialouge1(n);*/
 		}
-		return actorlist;
+	}
+	public Actor[] getScript()
+	{
+		return s;
 	}
 }	
