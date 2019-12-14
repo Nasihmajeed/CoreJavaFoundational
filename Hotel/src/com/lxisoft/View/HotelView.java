@@ -11,7 +11,7 @@ public class HotelView
 		int u=sc.nextInt();	
 		return u;
 	}		
-	public int addFood()
+	public int selectFood()
 	{	
 		System.out.println("\nWhich type of food you want to add");
 	 	System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
