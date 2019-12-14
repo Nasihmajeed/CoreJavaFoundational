@@ -4,7 +4,7 @@ public  class Actor
 {
 	String charecterName;
 	String actorName;
-	String dialogue;
+	Actor dialogue;
 
 	public void setActorName(String actorname)
 	{

@@ -5,21 +5,22 @@ public class Scriptwriter
 {
 	String name;
 	Script script;
-	Actor[] s;
+	String s;
 	
-	public void setScript()
+	public void setScript(Actor[] actorlist)
 	{
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter number of Actors");
-		int num=scr.nextInt();
-		for (int i=0;i<num;i++)
+		int num=scr.nextInt();	
+		for (int i=0;i<num;i++) 
 		{
-			int n=(int)(Math.random()*4);						
+			int n=(int)(Math.random()*3)+1;					
 			script=new Script();
-			/*s=script.setDialouge1(n);*/
+			s=script.setDialouge1(n);
+			actorlist[i].setDialogues(s);
 		}
 	}
-	public Actor[] getScript()
+	public String getScript()
 	{
 		return s;
 	}

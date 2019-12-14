@@ -4,7 +4,7 @@ public class Director
 {
 	
 	String name;
-	Actor[] cast;
+	Actor[] castList;
 		
 	public String directes()
 	{
@@ -23,15 +23,15 @@ public class Director
 		Villain villain=getVillain();
 		Comedian comedian=getComedian();
 		Heroin heroin=getHeroin();
-		cast[0]=hero;
-		cast[1]=villain;
-		cast[2]=comedian;
-		cast[3]=heroin;
+		castList[0]=hero;
+		castList[1]=villain;
+		castList[2]=comedian;
+		castList[3]=heroin;
 		
 	}	
 	public Actor[] getCastActor()
 	{
-		return cast;
+		return castList;
 	}
 	public Hero getHero()
 	{
