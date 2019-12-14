@@ -13,5 +13,9 @@ public class Animal
 	{
 		return name;
 	}
-
+	public int setRange(int range1,int range2)
+	{
+		int x = (int)(Math.random()*((range1-range2)+1))+range2;
+        return x;
+	}
 }

@@ -45,6 +45,8 @@ public class Forest
 
 		animal.get(0).setName("Deer1");
 		animal.get(0).strength=20;
+		/*animal.get(0).xAxis = animal.get(0).setRange(30,55);
+		animal.get(0).yAxis = animal.get(0).setRange(50,80);*/
 		animal.get(1).setName("Deer2");
 		animal.get(1).strength=20;
 		animal.get(2).setName("Fox1");
@@ -150,10 +152,9 @@ public class Forest
 			 System.out.println(animal.get(y).getName()+" Died");
 			 c--;
 			}
-			
 		}
 		else if(sample2.equals("Herbivorus") && test1.equals("Carnivorus"))
-		{	
+		{
 			int luck2 = (int) (Math.random()*2);
 			if(luck2==0)
 			{
@@ -175,9 +176,8 @@ public class Forest
 				}
 				animal.get(x).isTrue = false;
 				System.out.println(animal.get(x).getName()+" Died");
-				c--;	
+				c--;
 			}
-			
 		}
 	}
 }
