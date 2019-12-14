@@ -9,10 +9,8 @@ public class Forest
 	{
 		setAnimal();
 		System.out.println("!!!! Game Started !!!!");
-		for(int k=0;k<c;k++)
+		while(c>1)
 		{
-			System.out.println("C : "+c);
-			System.out.println("K : "+k);
 			int x =(int) (Math.random()*animal.size());
 			int y =(int) (Math.random()*animal.size());
 			if(animal.get(x).isTrue && animal.get(y).isTrue)
@@ -23,23 +21,14 @@ public class Forest
 					checkingMammals(sample1,sample2,test1,test2,x,y);
 				}
 		    }
-		    else
-		    {
-		    	k--;
-		    }
-		    /*if(dead==4)
-		    {
-		    	break;
-		    }
-		    for(int i=0;i<animal.size();i++)
-		    {
-		    	if(animal.get(i).isTrue)
-		    	{
-		    		animalAlive = animalAlive + 1;
-		    	}
-		    }
-		    System.out.println("ZZZZZZ : "+animalAlive);*/
 		}
+	    for(int i=0;i<animal.size();i++)
+	    {
+	    	if(animal.get(i).isTrue)
+	    	{
+	    		System.out.println(animal.get(i).getName()+" Wins ");
+	    	}
+	    }
 	}
 	public void setAnimal()
 	{
@@ -111,20 +100,23 @@ public class Forest
 				System.out.println(animal.get(x).getName()+" Figt with "+animal.get(y).getName());
 		    	System.out.println(animal.get(x).strength+"             "+animal.get(y).strength);
 				animal.get(x).strength = animal.get(x).strength - 5;
+				if(animal.get(x).strength<=0)
+			     {
+				  animal.get(x).isTrue = false;
+				  System.out.println(animal.get(x).getName()+" Died");
+				  c--;
+			     }
 			}
-			else if(animal.get(x).strength<=0)
-			{
-				animal.get(x).isTrue = false;
-				c--;
-			}
+			
 			if(animal.get(y).strength >0)
 			{
-				animal.get(y).strength = animal.get(y).strength - 5;	
-			}
-			else if(animal.get(y).strength<=0)
-			{
-				animal.get(y).isTrue = false;
-				c--;
+				animal.get(y).strength = animal.get(y).strength - 5;
+				if(animal.get(y).strength<=0)
+			    {
+				 animal.get(y).isTrue = false;
+				 System.out.println(animal.get(y).getName()+" Died");
+				 c--;
+			    }
 			}
 		}
 		else if(sample2.equals("Herbivorus") && test2.equals("Herbivorus"))
@@ -134,35 +126,58 @@ public class Forest
 		}
 		else if(sample1.equals("Carnivorus") && test2.equals("Herbivorus"))
 		{
-			if(animal.get(x).strength >0)
+	
+			int luck =(int) (Math.random()*2);
+			if(luck==0)
 			{
+				System.out.println(animal.get(y).getName()+" Luckly Escaped");
+			}
+			else if(luck==1)
+			{
+				if(animal.get(x).strength >0)
+			    {
 				System.out.println(animal.get(x).getName()+" Kill's "+animal.get(y).getName());
 			    System.out.println(animal.get(x).strength+"             "+animal.get(y).strength);
 				animal.get(x).strength = animal.get(x).strength - 5;
+				    if(animal.get(x).strength<=0)
+					{
+						animal.get(x).isTrue = false;
+						System.out.println(animal.get(x).getName()+" Died");
+						c--;
+					}
+			    }
+			 animal.get(y).isTrue = false;
+			 System.out.println(animal.get(y).getName()+" Died");
+			 c--;
 			}
-			else if(animal.get(x).strength<=0)
-			{
-				animal.get(x).isTrue = false;
-				c--;
-			}
-			animal.get(y).isTrue = false;
-			c--;
+			
 		}
 		else if(sample2.equals("Herbivorus") && test1.equals("Carnivorus"))
-		{
-			if(animal.get(y).strength >0)
+		{	
+			int luck2 = (int) (Math.random()*2);
+			if(luck2==0)
 			{
+				System.out.println(animal.get(x).getName()+" Luckly Escaped");
+			}
+			else if(luck2==1)
+			{
+				if(animal.get(y).strength >0)
+				{
 				System.out.println(animal.get(y).getName()+" Kill's "+animal.get(x).getName());
 			    System.out.println(animal.get(y).strength+"             "+animal.get(x).strength);
 				animal.get(y).strength = animal.get(y).strength - 5;
+				    if(animal.get(y).strength<=0)
+					{
+						animal.get(y).isTrue = false;
+						System.out.println(animal.get(y).getName()+" Died");
+						c--;
+					}
+				}
+				animal.get(x).isTrue = false;
+				System.out.println(animal.get(x).getName()+" Died");
+				c--;	
 			}
-			else if(animal.get(y).strength<=0)
-			{
-				animal.get(y).isTrue = false;
-				c--;
-			}
-			animal.get(x).isTrue = false;
-			c--;
+			
 		}
 	}
 }
