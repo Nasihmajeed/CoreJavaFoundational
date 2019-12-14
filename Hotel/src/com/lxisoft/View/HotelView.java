@@ -7,41 +7,20 @@ public class HotelView
 	public HotelModel mhotel=new HotelModel();	
 	public int menu()
 	{
-		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit \n7.file \n ");
-		int menu=sc.nextInt();	
-		return menu;
+		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit  \n ");
+		int u=sc.nextInt();	
+		return u;
 	}		
-	public void addFood()
-	{		
-		int d=1;	
-		while(d<=5)
-		{	
-			System.out.println("\nWhich type of food you want to add");
-	 		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit ");
-			int item=sc.nextInt();
-			switch(item)
-			{
-		 		case 1: addBiriyani(); break;
-				case 2: addDosa(); break;
-				case 3: addShake(); break;	
-				case 4: System.exit(0); break;
-				default:
-					
-			}d++;	
-			System.out.println("Do you want to continue 1.No 2.Yes");
-			int y=sc.nextInt();            			
-			if (y==1)
-			{
-				break;
-			}
-			else
-			{
-				continue;
-			}		
-		}
+	public int addFood()
+	{	
+		System.out.println("\nWhich type of food you want to add");
+	 	System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
+		int item=sc.nextInt();
+		return item;
+			
 	}			
 	public void addBiriyani()
-	{
+	{			
 		System.out.println("Which type biriyani you want to add");
 		FoodModel biriyani=new Biriyani();
 		biriyani.setFoodType(sc.next());
@@ -49,7 +28,8 @@ public class HotelView
 		biriyani.setFoodPrice(sc.nextInt());	
 		System.out.println("Biriyani ID");
 		biriyani.setId(sc.nextInt());
-		mhotel.setFoodList(biriyani);						
+		mhotel.setFoodList(biriyani);
+
 	}
 	public void addDosa()
 	{
