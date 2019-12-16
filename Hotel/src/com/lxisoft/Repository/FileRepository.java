@@ -8,7 +8,7 @@ public class FileRepository
 {
 
 	File file=new File("D:\\file.csv");
-	//File stocks=new File("D:\\stock.csv");
+	File stocks=new File("D:\\stock.csv");
 	public void addwriter(HotelModel mhotel)
 	{
 		try

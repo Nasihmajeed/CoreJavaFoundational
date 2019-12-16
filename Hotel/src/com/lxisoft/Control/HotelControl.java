@@ -16,7 +16,7 @@ public class HotelControl
 				case 2: addStock();test=true;  break;
 				case 3: view.displayFood();test=true; break;	
 				case 4: view.displayStock(); test=true; break;
-				case 5: view.printBill();test=true;  break;
+				case 5: billPrint();test=true;  break;
 				case 6: System.exit(0); break;	
 			}
 		}while(test);
@@ -44,7 +44,7 @@ public class HotelControl
 	public void addStock()
 	{
 		String c=view.selectStock();
-		view.mhotel.getStockList();
+		// view.mhotel.getStockList();
 		for(int j=0;j<view.mhotel.getFoodList().size();j++)
 		{
 			if((view.mhotel.getFoodList().get(j).getFoodType()).equals(c))
@@ -53,7 +53,45 @@ public class HotelControl
 		 	}
 		}	
 	}
-	
-	
+	public void billPrint()
+	{
+		boolean sample;	
+		do{
+			view.displayStock();			
+			view.addFoodUser();
+			sample= repeatProcess();
+		}
+		while(sample);			
+	}
+	public boolean repeatProcess()
+	{		
+		boolean sample = false;
+		int n=view.repeate();
+		if (n==1)
+		{
+		sample = true;	
+		}
+		else if(n==2)
+		{
+			sample = false;
+		}
+		return sample;
+	}
+	public void addFoodUser()
+	{
+		view.displayStock();
+		//int b=sc.nextInt();
+		// for(int q=0;q<mhotel.getFoodList().size();q++)
+		// {
+		//  	if((mhotel.getFoodList().get(q).getId())==b)				
+		//  	{
+		//  		int f=view.addFoodUser();		
+		//  		mhotel.setItemQuantity(f);
+		//  	}	
+		//  	int val=(mhotel.getStockList().get(q).getQuantity()-mhotel.getItemQuantity());
+		//  	mhotel.getStockList().get(q).setQuantity(val);	        
+  //           view.currentStock();		
+		//}		
+	}	
 }	
 	

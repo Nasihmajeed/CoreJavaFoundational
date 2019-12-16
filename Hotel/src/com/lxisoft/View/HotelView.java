@@ -8,13 +8,13 @@ public class HotelView
 	public StockModel stock=new StockModel();
 	public int menu()
 	{
-		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit  \n ");
+		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
 		int u=sc.nextInt();	
 		return u;
 	}		
 	public int selectFood(int n)
 	{	
-		System.out.println("\n Select food");
+		System.out.println("\nSelect food");
 		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
 		int item=sc.nextInt();
 		return item;
@@ -71,77 +71,56 @@ public class HotelView
 	}
 	public void addStockMethod()
 	{	
-		System.out.println("How much food you want to add");
-		mhotel.setStockList(stock);		
+		System.out.println("How much food you want to add");	
 		stock.setQuantity(sc.nextInt());
-		//doYouWantaContinue();
-				
+		mhotel.setStockList(stock);	
+						
 	}
 	public void displayStock()
 	{	
 		System.out.println("\nDisplay stock details");
+
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food ID","Food Name","Quantity");
 		for(int k=0;k<mhotel.getStockList().size();k++)
 		{			
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(k).getId(),mhotel.getFoodList().get(k).getFoodType(),mhotel.getStockList().get(k).getQuantity());
 		}	 		      	                                          	
 	}
-	public void printBill()
-	{	
-		boolean sample=false;	
-		do{
-			sample=false;
-			displayStock();
-			System.out.println("\nWhich food you want");
-			curentStock();
-			doYouWantContinue();
-		}
-		while(sample);		
-	}	
-	public void doYouWantContinue()
+	public int repeate()
 	{
-		int i=10;
-		do
-		{
-			System.out.println("Do you want More 1.No 2.Yes");
-			int n=sc.nextInt();
-			if (n==1)
-			{
-				break;
-			}
-			else
-			{
-				continue;
-			}
-		}while(i<20);
+		System.out.println("Do you want More 1.Yes 2.No");
+		int n=sc.nextInt();
+		return n;
+	}		
+	
+	public int addFoodUser()
+	{
+		System.out.println("How much food do you want");		
+		int f=(sc.nextInt());
+		return f;
+		 	
 	}
-	public void curentStock()
+	public void currentStock()	
 	{
-		for(int q=0;q<mhotel.getFoodList().size();q++)
-		{
-		 	String d=sc.next();
-		 	if((mhotel.getFoodList().get(q).getFoodType()).equals(d))				
-		 	{
-		 		System.out.println("How much food do you want");		
-		 		mhotel.setItemQuantity(sc.nextInt());
-		 	}	
-		 	int val=(mhotel.getStockList().get(q).getQuantity()-mhotel.getItemQuantity());
-		 	mhotel.getStockList().get(q).setQuantity(val);	        
-            System.out.println("Current stock"+(mhotel.getStockList().get(q).getQuantity()));
-         	if(mhotel.getStockList().get(q).getQuantity()>=mhotel.getItemQuantity())
-          	{
-            	System.out.println("\nAvailable Stocks");
-			 	System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food Type","Food Price","Quantity");
-			 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(q).getFoodType(),mhotel.getFoodList().get(q).getFoodPrice(),mhotel.getItemQuantity());
-			 	System.out.println("Total Bill Amount="+((mhotel.getFoodList().get(q).getFoodPrice())*(mhotel.getItemQuantity())));
-		   	}	
-            else if(mhotel.getStockList().get(q).getQuantity()<mhotel.getItemQuantity())
-			{	
-			 	System.out.println("- Stock");
-			 	break;
-			}		
+		// System.out.println("Current stock"+(mhotel.getStockList().get(q).getQuantity()));
+  //       checkStock(q);
+	}
+	public void checkStock(int q)
+	{
+		if(mhotel.getStockList().get(q).getQuantity()>=mhotel.getItemQuantity())
+        {
+          	System.out.println("\nAvailable Stocks");
+		  	System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food Type","Food Price","Quantity");
+		 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(q).getFoodType(),mhotel.getFoodList().get(q).getFoodPrice(),mhotel.getItemQuantity());
+		 	System.out.println("Total Bill Amount="+((mhotel.getFoodList().get(q).getFoodPrice())*(mhotel.getItemQuantity())));
+		}	
+        else if(mhotel.getStockList().get(q).getQuantity()<mhotel.getItemQuantity())
+		{	
+		  	System.out.println("- Less Stock");
 		}		
-	}					
+	}
+	
+
 }	
 
  
