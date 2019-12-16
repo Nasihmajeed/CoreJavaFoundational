@@ -4,20 +4,20 @@ import java.util.Scanner;
 public class HotelView 
 {		
 	static Scanner sc=new Scanner(System.in);
-	public HotelModel mhotel=new HotelModel();	
+	public HotelModel mhotel=new HotelModel();
+	public StockModel stock=new StockModel();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Print Bill \n6.Exit  \n ");
 		int u=sc.nextInt();	
 		return u;
 	}		
-	public int selectFood()
+	public int selectFood(int n)
 	{	
-		System.out.println("\nWhich type of food you want to add");
-	 	System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
+		System.out.println("\n Select food");
+		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
 		int item=sc.nextInt();
 		return item;
-			
 	}			
 	public void addBiriyani()
 	{			
@@ -62,22 +62,20 @@ public class HotelView
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodType(),mhotel.getFoodList().get(i).getFoodPrice());
 		}		
 	}
-	public void addStock()
+	public String selectStock()
 	{   
 		displayFood();
 		System.out.println("\nIn which food you want add quantity");		
 		String s=sc.next();
-		StockModel stock=new StockModel();
-		mhotel.getStockList();
-		for(int j=0;j<mhotel.getFoodList().size();j++)
-		{
-			 if((mhotel.getFoodList().get(j).getFoodType()).equals(s))
-		 	{
-		 		System.out.println("How much food you want to add");
-		 		mhotel.setStockList(stock);		
-		 		stock.setQuantity(sc.nextInt());
-		 	}		 	
-		}
+		return s;
+	}
+	public void addStockMethod()
+	{	
+		System.out.println("How much food you want to add");
+		mhotel.setStockList(stock);		
+		stock.setQuantity(sc.nextInt());
+		//doYouWantaContinue();
+				
 	}
 	public void displayStock()
 	{	
@@ -96,6 +94,15 @@ public class HotelView
 			displayStock();
 			System.out.println("\nWhich food you want");
 			curentStock();
+			doYouWantContinue();
+		}
+		while(sample);		
+	}	
+	public void doYouWantContinue()
+	{
+		int i=10;
+		do
+		{
 			System.out.println("Do you want More 1.No 2.Yes");
 			int n=sc.nextInt();
 			if (n==1)
@@ -105,13 +112,11 @@ public class HotelView
 			else
 			{
 				continue;
-			}	
-		}
-		while(sample);		
-	}	
+			}
+		}while(i<20);
+	}
 	public void curentStock()
 	{
-
 		for(int q=0;q<mhotel.getFoodList().size();q++)
 		{
 		 	String d=sc.next();

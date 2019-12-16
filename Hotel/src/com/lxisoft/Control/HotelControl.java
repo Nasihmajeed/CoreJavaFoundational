@@ -13,7 +13,7 @@ public class HotelControl
 			switch (m)
 			{
 				case 1:	foodItem();	test=true;break;				
-				case 2: view.addStock();test=true;  break;
+				case 2: addStock();test=true;  break;
 				case 3: view.displayFood();test=true; break;	
 				case 4: view.displayStock(); test=true; break;
 				case 5: view.printBill();test=true;  break;
@@ -28,7 +28,8 @@ public class HotelControl
 		do	
 		{
 			check=false;
-			int i=view.addFood();
+			int n=1;
+			int i=view.selectFood(n);
 			switch (i)
 			{
 	 			case 1: view.addBiriyani();check=true; break;
@@ -38,10 +39,21 @@ public class HotelControl
 			}
 				
 		}while(check);
-
 		
-		
-	}		
-
+	}
+	public void addStock()
+	{
+		String c=view.selectStock();
+		view.mhotel.getStockList();
+		for(int j=0;j<view.mhotel.getFoodList().size();j++)
+		{
+			if((view.mhotel.getFoodList().get(j).getFoodType()).equals(c))
+		 	{
+		 		view.addStockMethod();
+		 	}
+		}	
+	}
+	
+	
 }	
 	
