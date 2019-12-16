@@ -3,6 +3,8 @@ public class Animal
 {
 	boolean isTrue = true;
 	public int strength;
+	public int xAxis = (int) (Math.random()*50);
+	public int yAxis = (int) (Math.random()*50);
 	private String name;
 
 	public void setName(String name)
@@ -12,10 +14,5 @@ public class Animal
 	public String getName()
 	{
 		return name;
-	}
-	public int setRange(int range1,int range2)
-	{
-		int x = (int)(Math.random()*((range1-range2)+1))+range2;
-        return x;
 	}
 }

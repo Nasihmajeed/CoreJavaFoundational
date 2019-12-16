@@ -17,8 +17,7 @@ public class Forest
 			{
 				if(!animal.get(x).getName().equals(animal.get(y).getName()))
 				{
-					String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
-					checkingMammals(sample1,sample2,test1,test2,x,y);
+					checkDistance(x,y);
 				}
 		    }
 		}
@@ -45,8 +44,6 @@ public class Forest
 
 		animal.get(0).setName("Deer1");
 		animal.get(0).strength=20;
-		/*animal.get(0).xAxis = animal.get(0).setRange(30,55);
-		animal.get(0).yAxis = animal.get(0).setRange(50,80);*/
 		animal.get(1).setName("Deer2");
 		animal.get(1).strength=20;
 		animal.get(2).setName("Fox1");
@@ -178,6 +175,20 @@ public class Forest
 				System.out.println(animal.get(x).getName()+" Died");
 				c--;
 			}
+		}
+	}
+	public void checkDistance(int x,int y)
+	{
+		int distance = (int) (Math.sqrt(((animal.get(x).xAxis - animal.get(y).xAxis)*(animal.get(x).xAxis - animal.get(y).xAxis))+((animal.get(x).yAxis - animal.get(y).yAxis)*(animal.get(x).yAxis - animal.get(y).yAxis))));
+        System.out.println("Distance : "+distance);
+		if(distance<40)
+		{
+			String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
+			checkingMammals(sample1,sample2,test1,test2,x,y);
+		}
+		else if(distance>40)
+		{
+			System.out.println("Not in Distance");
 		}
 	}
 }
