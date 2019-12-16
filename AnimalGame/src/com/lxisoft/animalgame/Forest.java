@@ -5,6 +5,7 @@ public class Forest
 {
 	public ArrayList<Animal> animal = new ArrayList<Animal>();
 	int c = 10;
+	int press = 1;
 	public void meetAnimal()
 	{
 		setAnimal();
@@ -180,13 +181,13 @@ public class Forest
 	public void checkDistance(int x,int y)
 	{
 		int distance = (int) (Math.sqrt(((animal.get(x).xAxis - animal.get(y).xAxis)*(animal.get(x).xAxis - animal.get(y).xAxis))+((animal.get(x).yAxis - animal.get(y).yAxis)*(animal.get(x).yAxis - animal.get(y).yAxis))));
-        System.out.println("Distance : "+distance);
-		if(distance<40)
+        
+		if(distance<=20)
 		{
 			String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
 			checkingMammals(sample1,sample2,test1,test2,x,y);
 		}
-		else if(distance>40)
+		else if(distance>20)
 		{
 			System.out.println("Not in Distance");
 		}

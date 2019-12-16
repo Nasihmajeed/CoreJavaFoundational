@@ -3,8 +3,8 @@ public class Animal
 {
 	boolean isTrue = true;
 	public int strength;
-	public int xAxis = (int) (Math.random()*50);
-	public int yAxis = (int) (Math.random()*50);
+	public int xAxis = (int) (Math.random()*30);
+	public int yAxis = (int) (Math.random()*30);
 	private String name;
 
 	public void setName(String name)
