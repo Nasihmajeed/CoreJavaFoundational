@@ -1,11 +1,13 @@
 package com.lxisoft.View;
 import com.lxisoft.Model.*;
+import com.lxisoft.Repository.FileRepository;
 import java.util.Scanner;
 public class HotelView 
 {		
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
 	public StockModel stock=new StockModel();
+	FileRepository filerepo=new FileRepository();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
@@ -29,6 +31,8 @@ public class HotelView
 		System.out.println("Biriyani ID");
 		biriyani.setId(sc.nextInt());
 		mhotel.setFoodList(biriyani);
+		filerepo.addwriter(mhotel);
+		//filerepo.readFile();
 
 	}
 	public void addDosa()
@@ -40,7 +44,9 @@ public class HotelView
 		dosa.setFoodPrice(sc.nextInt());
 	 	System.out.println("Dosa ID");
 		dosa.setId(sc.nextInt());						
-		mhotel.setFoodList(dosa);		
+		mhotel.setFoodList(dosa);
+		filerepo.addwriter(mhotel);
+		
 	}
 	public void addShake()
 	{
@@ -51,7 +57,9 @@ public class HotelView
 		shake.setFoodPrice(sc.nextInt());				
 		System.out.println("Shake ID");
 		shake.setId(sc.nextInt());			
-		mhotel.setFoodList(shake);		
+		mhotel.setFoodList(shake);	
+		filerepo.addwriter(mhotel);
+	
 	} 
 	public void displayFood()
 	{
@@ -73,7 +81,9 @@ public class HotelView
 	{	
 		System.out.println("How much food you want to add");	
 		stock.setQuantity(sc.nextInt());
-		mhotel.setStockList(stock);							
+		mhotel.setStockList(stock);
+		filerepo.addToStock(mhotel);
+		//fr.readStock(stock);							
 	}
 	public void displayStock()
 	{	
