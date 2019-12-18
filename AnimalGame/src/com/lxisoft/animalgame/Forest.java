@@ -5,6 +5,7 @@ public class Forest
 {
 	public ArrayList<Animal> animal = new ArrayList<Animal>();
 	int c = 10;
+
 	public void meetAnimal()
 	{
 		setAnimal();
@@ -17,9 +18,7 @@ public class Forest
 			{
 				if(!animal.get(x).getName().equals(animal.get(y).getName()))
 				{
-					String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
-			        checkingMammals(sample1,sample2,test1,test2,x,y);
-					/*checkDistance(x,y);*/
+					checkDistance(x,y);
 				}
 		    }
 		}
@@ -80,7 +79,7 @@ public class Forest
 		
 	}
 	public void checkingMammals(String sample1,String sample2,String test1,String test2,int x,int y)
-	{
+	{	
 		if(animal.get(x) instanceof Carnivorus)
 		{
 			System.out.print(animal.get(x).getName());
@@ -109,105 +108,43 @@ public class Forest
 	{
 		if(sample1.equals("Carnivorus") && test1.equals("Carnivorus"))
 		{
-			if(animal.get(x).strength >0)
-			{
-				System.out.println(animal.get(x).getName()+"<== Figt with ==>"+animal.get(y).getName());
-		    	System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
-				animal.get(x).strength = animal.get(x).strength - 7;
-				animal.get(x).hungerLevel = animal.get(x).hungerLevel + 1;
-				if(animal.get(x).strength<=0)
-			     {
-				  animal.get(x).isTrue = false;
-				  System.out.println(animal.get(x).getName()+" Died");
-				  c--;
-			     }
-			}
-			
-			if(animal.get(y).strength >0)
-			{
-				animal.get(y).strength = animal.get(y).strength - 5;
-				if(animal.get(y).strength<=0)
-			    {
-				 animal.get(y).isTrue = false;
-				 System.out.println(animal.get(y).getName()+" Died");
-				 c--;
-			    }
-			}
+			carnivorusVsCarnivorus(x,y);		
 		}
 		else if(sample2.equals("Herbivorus") && test2.equals("Herbivorus"))
 		{
-			System.out.println(animal.get(x).getName()+"<== Meet's ==>"+animal.get(y).getName());
-			System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
+			herbivorusVsHerbivorus(x,y);
 		}
 		else if(sample1.equals("Carnivorus") && test2.equals("Herbivorus"))
 		{
-	
-			int luck =(int) (Math.random()*2);
-			if(luck==0)
-			{
-				System.out.println(animal.get(y).getName()+" Luckly Escaped");
-			}
-			else if(luck==1)
-			{
-				if(animal.get(x).strength >0)
-			    {
-				System.out.println(animal.get(x).getName()+"<== Kill's ==>"+animal.get(y).getName());
-			    System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
-				animal.get(x).strength = animal.get(x).strength + 5;
-				animal.get(x).hungerLevel = animal.get(x).hungerLevel + 5;
-				    if(animal.get(x).strength<=0)
-					{
-						animal.get(x).isTrue = false;
-						System.out.println(animal.get(x).getName()+" Died");
-						c--;
-					}
-			    }
-			 animal.get(y).isTrue = false;
-			 System.out.println(animal.get(y).getName()+" Died");
-			 c--;
-			}
+			carnivorusVsHerbivorus(x,y);
 		}
 		else if(sample2.equals("Herbivorus") && test1.equals("Carnivorus"))
 		{
-			int luck2 = (int) (Math.random()*2);
-			if(luck2==0)
-			{
-				System.out.println(animal.get(x).getName()+" Luckly Escaped");
-			}
-			else if(luck2==1)
-			{
-				if(animal.get(y).strength >0)
-				{
-				System.out.println(animal.get(y).getName()+"<== Kill's ==>"+animal.get(x).getName());
-			    System.out.println("Strength : "+animal.get(y).strength+"      Strength : "+animal.get(x).strength);
-				animal.get(y).strength = animal.get(y).strength + 5;
-				animal.get(y).hungerLevel = animal.get(x).hungerLevel -5;
-				    if(animal.get(y).strength<=0)
-					{
-						animal.get(y).isTrue = false;
-						System.out.println(animal.get(y).getName()+" Died");
-						c--;
-					}
-				}
-				animal.get(x).isTrue = false;
-				System.out.println(animal.get(x).getName()+" Died");
-				c--;
-			}
+			herbivorusVsCarnivorus(x,y);
 		}
 	}
 	public void checkDistance(int x,int y)
 	{
-		int distance = (int) (Math.sqrt(((animal.get(x).xAxis - animal.get(y).xAxis)*(animal.get(x).xAxis - animal.get(y).xAxis))+((animal.get(x).yAxis - animal.get(y).yAxis)*(animal.get(x).yAxis - animal.get(y).yAxis))));
-        
-		if(distance<=20)
+		float distance = 0;
+		distance = (int) (Math.sqrt(((animal.get(x).xAxis - animal.get(y).xAxis)*(animal.get(x).xAxis - animal.get(y).xAxis))+((animal.get(x).yAxis - animal.get(y).yAxis)*(animal.get(x).yAxis - animal.get(y).yAxis))));
+		try
 		{
-			String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
-			checkingMammals(sample1,sample2,test1,test2,x,y);
+			System.out.println("Distance : "+distance);
+			if(distance<=30)
+			{
+				String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
+				checkingMammals(sample1,sample2,test1,test2,x,y);
+			}
+			else if(distance>30)
+			{
+				System.out.println("Not in Distance");
+			}	
 		}
-		else if(distance>20)
+		catch(Exception e)
 		{
-			System.out.println("Not in Distance");
+			e.printStackTrace();
 		}
+		
 	}
 	public void checkingWinner()
 	{
@@ -227,5 +164,99 @@ public class Forest
 	    		}
 	    	}
 	    }
+	}
+	public void carnivorusVsCarnivorus(int x,int y)
+	{
+	if(animal.get(x).strength >0)
+		{
+			System.out.println(animal.get(x).getName()+"<== Figt with ==>"+animal.get(y).getName());
+	    	System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
+			animal.get(x).strength = animal.get(x).strength - 7;
+			animal.get(x).hungerLevel = animal.get(x).hungerLevel + 1;
+			if(animal.get(x).strength<=0)
+		     {
+			  animal.get(x).isTrue = false;
+			  System.out.println(animal.get(x).getName()+" Died");
+			  Animal.testVariable = Animal.testVariable -3;
+			  c--;
+		     }
+		}
+		
+		if(animal.get(y).strength >0)
+		{
+			animal.get(y).strength = animal.get(y).strength - 7;
+			if(animal.get(y).strength<=0)
+		    {
+			 animal.get(y).isTrue = false;
+			 System.out.println(animal.get(y).getName()+" Died");
+			 Animal.testVariable = Animal.testVariable -3;
+			 c--;
+		    }
+		}
+	}
+	public void herbivorusVsHerbivorus(int x,int y)
+	{
+		System.out.println(animal.get(x).getName()+"<== Meet's ==>"+animal.get(y).getName());
+		System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
+		animal.get(x).strength = animal.get(x).strength -3;
+		animal.get(y).strength = animal.get(y).strength -3;
+	}
+	public void carnivorusVsHerbivorus(int x,int y)
+	{
+		int luck =(int) (Math.random()*2);
+		if(luck==0)
+		{
+			System.out.println(animal.get(y).getName()+" Luckly Escaped");
+		}
+		else if(luck==1)
+		{
+			if(animal.get(x).strength >0)
+		    {
+			System.out.println(animal.get(x).getName()+"<== Kill's ==>"+animal.get(y).getName());
+		    System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
+			animal.get(x).strength = animal.get(x).strength + 5;
+			animal.get(x).hungerLevel = animal.get(x).hungerLevel - 5;
+			    if(animal.get(x).strength<=0)
+				{
+					animal.get(x).isTrue = false;
+					System.out.println(animal.get(x).getName()+" Died");
+					Animal.testVariable = Animal.testVariable -3;
+					c--;
+				}
+		    }
+		 animal.get(y).isTrue = false;
+		 System.out.println(animal.get(y).getName()+" Died");
+		 Animal.testVariable = Animal.testVariable -3;
+		 c--;
+		}
+	}
+	public void herbivorusVsCarnivorus(int x,int y)
+	{
+		int luck2 = (int) (Math.random()*2);
+		if(luck2==0)
+		{
+			System.out.println(animal.get(x).getName()+" Luckly Escaped");
+		}
+		else if(luck2==1)
+		{
+			if(animal.get(y).strength >0)
+			{
+			System.out.println(animal.get(y).getName()+"<== Kill's ==>"+animal.get(x).getName());
+		    System.out.println("Strength : "+animal.get(y).strength+"      Strength : "+animal.get(x).strength);
+			animal.get(y).strength = animal.get(y).strength + 5;
+			animal.get(y).hungerLevel = animal.get(x).hungerLevel -5;
+			    if(animal.get(y).strength<=0)
+				{
+					animal.get(y).isTrue = false;
+					System.out.println(animal.get(y).getName()+" Died");
+					Animal.testVariable = Animal.testVariable -3;
+					c--;
+				}
+			}
+			animal.get(x).isTrue = false;
+			System.out.println(animal.get(x).getName()+" Died");
+			Animal.testVariable = Animal.testVariable -3;
+			c--;
+		}
 	}
 }
