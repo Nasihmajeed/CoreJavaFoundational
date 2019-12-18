@@ -79,7 +79,6 @@ public class HotelView
 	public void displayStock()
 	{	
 		System.out.println("\nDisplay stock details");
-
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food ID","Food Name","Quantity");
 		for(int k=0;k<mhotel.getStockList().size();k++)
 		{			
@@ -95,15 +94,21 @@ public class HotelView
 	
 	public int addFoodUser()
 	{
+		System.out.println("Which food you want");
+		int b=sc.nextInt();
+		return b;
+	}
+	public int addFoodUserMethod()
+	{
 		System.out.println("How much food do you want");		
 		int f=(sc.nextInt());
 		return f;
 		 	
 	}
-	public void currentStock()	
+	public void currentStock(int q)	
 	{
-		// System.out.println("Current stock"+(mhotel.getStockList().get(q).getQuantity()));
-  //       checkStock(q);
+		System.out.println("Current stock"+(mhotel.getStockList().get(q).getQuantity()));
+        checkStock(q);
 	}
 	public void checkStock(int q)
 	{
@@ -118,9 +123,9 @@ public class HotelView
 		{	
 		  	System.out.println("- Less Stock");
 		}		
+
 	}
 	
-
 }	
 
- 
+

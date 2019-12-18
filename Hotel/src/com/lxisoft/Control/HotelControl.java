@@ -58,7 +58,8 @@ public class HotelControl
 		boolean sample;	
 		do{
 			view.displayStock();			
-			view.addFoodUser();
+			//view.addFoodUser();
+			foodBillUser();
 			sample= repeatProcess();
 		}
 		while(sample);			
@@ -77,21 +78,22 @@ public class HotelControl
 		}
 		return sample;
 	}
-	public void addFoodUser()
+	public void foodBillUser()
 	{
-		view.displayStock();
-		//int b=sc.nextInt();
-		// for(int q=0;q<mhotel.getFoodList().size();q++)
-		// {
-		//  	if((mhotel.getFoodList().get(q).getId())==b)				
-		//  	{
-		//  		int f=view.addFoodUser();		
-		//  		mhotel.setItemQuantity(f);
-		//  	}	
-		//  	int val=(mhotel.getStockList().get(q).getQuantity()-mhotel.getItemQuantity());
-		//  	mhotel.getStockList().get(q).setQuantity(val);	        
-  //           view.currentStock();		
-		//}		
+		//view.displayStock();
+		int b=view.addFoodUser();
+		for(int q=0;q<view.mhotel.getFoodList().size();q++)
+		{
+		 	if((view.mhotel.getFoodList().get(q).getId())==b)				
+		 	{
+		 		int f=view.addFoodUserMethod();		
+		 		view.mhotel.setItemQuantity(f);
+		 	}	
+		 	int val=(view.mhotel.getStockList().get(q).getQuantity()-view.mhotel.getItemQuantity());
+		 	view.mhotel.getStockList().get(q).setQuantity(val);	        
+            view.currentStock(q);	
+
+		}		
 	}	
 }	
 	
