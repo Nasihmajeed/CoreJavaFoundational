@@ -62,19 +62,18 @@ public class HotelView
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodType(),mhotel.getFoodList().get(i).getFoodPrice());
 		}		
 	}
-	public String selectStock()
+	public int selectStock()
 	{   
 		displayFood();
 		System.out.println("\nIn which food you want add quantity");		
-		String s=sc.next();
+		int s=sc.nextInt();
 		return s;
 	}
 	public void addStockMethod()
 	{	
 		System.out.println("How much food you want to add");	
 		stock.setQuantity(sc.nextInt());
-		mhotel.setStockList(stock);	
-						
+		mhotel.setStockList(stock);							
 	}
 	public void displayStock()
 	{	
@@ -121,9 +120,10 @@ public class HotelView
 		}	
         else if(mhotel.getStockList().get(q).getQuantity()<mhotel.getItemQuantity())
 		{	
-		  	System.out.println("- Less Stock");
-		}		
+		  	System.out.println("-Less Stock");
+		  	System.out.println("Total Bill Amount="+((mhotel.getFoodList().get(q).getFoodPrice())*(mhotel.getItemQuantity())));
 
+		}	
 	}
 	
 }	

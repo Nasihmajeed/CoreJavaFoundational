@@ -43,11 +43,11 @@ public class HotelControl
 	}
 	public void addStock()
 	{
-		String c=view.selectStock();
+		int c=view.selectStock();
 		// view.mhotel.getStockList();
 		for(int j=0;j<view.mhotel.getFoodList().size();j++)
 		{
-			if((view.mhotel.getFoodList().get(j).getFoodType()).equals(c))
+			if((view.mhotel.getFoodList().get(j).getId())==c)
 		 	{
 		 		view.addStockMethod();
 		 	}
@@ -80,7 +80,6 @@ public class HotelControl
 	}
 	public void foodBillUser()
 	{
-		//view.displayStock();
 		int b=view.addFoodUser();
 		for(int q=0;q<view.mhotel.getFoodList().size();q++)
 		{
