@@ -11,9 +11,9 @@ public class Scriptwriter
 		
 		for (int i=0;i<actorlist.length;i++) 
 		{
-			int n=(int)(Math.random()*5);			
+			int randdialogue=(int)(Math.random()*10);			
 			script=new Script();
-			String s=script.setDialouge1(n);
+			String s=script.setDialouge1(randdialogue);
 			actorlist[i].setDialogues(s);
 		}
 		dialoguelist=actorlist;

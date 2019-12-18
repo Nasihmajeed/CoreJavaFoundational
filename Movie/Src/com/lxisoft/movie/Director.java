@@ -1,17 +1,18 @@
 package com.lxisoft.movie;
+import java.util.Scanner;
 import java.lang.Math;
 public class Director
 {
 	String name;
-	Actor[] castList;
-	String directionControl;	
+	String directionControl;
+	Actor[] castList;	
 	public void SetDirectes()
 	{
-		int num=(int)(Math.random()*4);	
+		int randscenenum=(int)(Math.random()*4);	
 		
 		Script script=new Script();
 		String scene;
-		scene=script.scenes(num);
+		scene=script.scenes(randscenenum);
 		
 		directionControl=scene;
 	}
@@ -22,13 +23,22 @@ public class Director
 	
 	public void setCastActor()
 	{	
+		Scanner scr=new Scanner(System.in);
+		System.out.println("Enter number of Actor :");
+		int number=scr.nextInt();
+		castList=new Actor[number];		
 		
-		Hero hero=castHero(); 
-		Villain villain=castVillain();
-		Comedian comedian=castComedian();
-		Heroin heroin=castHeroin();
-		Actor[] a={hero,villain,comedian,heroin};
-		castList=a;
+		for (int i=0;i<number;i++) 
+		{
+			Hero hero=castHero(); 
+			Villain villain=castVillain();
+			Comedian comedian=castComedian();		
+			Heroin heroin=castHeroin();
+			int randactor=(int)(Math.random()*4);	
+			Actor[] a={hero,villain,comedian,heroin};
+			castList[i]=a[randactor];
+		}
+		
 	}	
 	public Actor[] getCastActor()
 	{
@@ -36,54 +46,53 @@ public class Director
 	}
 	public Hero castHero()
 	{
-		int n=(int)(Math.random()*4);	
+		int randhero=(int)(Math.random()*4);	
 		Hero hero=new Hero();
 			
-		String[] actorname={"Ajith","Bruce","Prem nazir","Tony"};
-		hero.setActorName(actorname[n]);
-
+		String[] actorname={"Ajith","Bruce","Prem nazir","Tony,miles morales","peter parker"};
+		hero.setActorName(actorname[randhero]);
 		
-		String[] character={"(police)","(Business Man)","(fisher)","(Superhero)"};
-		hero.setCharecter(character[n]);
+		String[] character={"(police)","(Business Man)","(fisher)","(Superhero)","(Supernatural guy)","(Spiderman)"};
+		hero.setCharecter(character[randhero]);
 		return hero;
 	}
 	public Villain castVillain()
 	{
-		int n=(int)(Math.random()*4);	
+		int randvillain=(int)(Math.random()*6);	
 		Villain villain=new Villain();
 	
-		String[] actorname={"Sankil","Bane","Nambiyar","Thanos"};
-		villain.setActorName(actorname[n]);
+		String[] actorname={"Sankil","Bane","Nambiyar","Thanos","Kingpin","DR:Octobus"};
+		villain.setActorName(actorname[randvillain]);
 
 	
-		String[] character={"(Gangster)","(patient)","(fisher)","(Alien)"};
-		villain.setCharecter(character[n]);
+		String[] character={"(Gangster)","(patient)","(fisher)","(Alien)","(Bussinesman)","(Scientist)"};
+		villain.setCharecter(character[randvillain]);
 		return villain;
 	}
 	public Comedian castComedian()
 	{
-		int n=(int)(Math.random()*4);	
+		int randcomedian=(int)(Math.random()*6);	
 		Comedian comedian=new Comedian();
 		
-		String[] actorname={"Kultheep","Alfred","Nagesh","Drax"};
-		comedian.setActorName(actorname[n]);
+		String[] actorname={"Kultheep","Alfred","Nagesh","Drax","Rocket","martin"};
+		comedian.setActorName(actorname[randcomedian]);
 
 		
-		String[] character={"(Constable","(Worker)","(Boat worker)","(Alien)"};
-		comedian.setCharecter(character[n]);
+		String[] character={"(Constable","(Worker)","(Boat worker)","(Alien)","(physian)","Gangleader"};
+		comedian.setCharecter(character[randcomedian]);
 		return comedian;
 	}
 	public Heroin castHeroin()
 	{
-		int n=(int)(Math.random()*4);	
+		int randheroin=(int)(Math.random()*4);	
 		Heroin heroin=new Heroin();
 		
 		String[] actorname={"nayanthara","bennu","jaya","natasha"};
-		heroin.setActorName(actorname[n]);
+		heroin.setActorName(actorname[randheroin]);
 
 			
 		String[] character={"(police)","(Worker)","(Boat worker)","(Agent)"};
-		heroin.setCharecter(character[n]);
+		heroin.setCharecter(character[randheroin]);
 		return heroin;
 	}
 	/*public */

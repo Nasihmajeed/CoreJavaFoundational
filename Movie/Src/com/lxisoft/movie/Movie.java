@@ -7,14 +7,11 @@ public class Movie
 {
 	Director director;
 	Scriptwriter scriptwriter;
-	Actor actor;
 
-	
-	public Actor[] playscene()
+	public void playScene()
 	{
 		director=new Director();
-		scriptwriter=new Scriptwriter();
-		actor=new Actor();
+		scriptwriter=new Scriptwriter();	
 		director.name="Mysskin";
 		scriptwriter.name="P.A.Renjith";
 
@@ -33,32 +30,31 @@ public class Movie
 		Actor[] actorlist=director.getCastActor();
 		for (int i=0;i<actorlist.length;i++) 
 		{
-			System.out.println(actorlist[i].getActorName());
+			System.out.println(actorlist[i].getActorName()+" play as "+actorlist[i].getCharecter());
 		}
 		System.out.println("__________________________");
-		runscenes(actorlist);
-		return actorlist;
+		runScenes(actorlist);
+		
 		
 	}
 
-	public void runscenes(Actor[] actorlist)
+	public void runScenes(Actor[] actorlist)
 	{
-		int n=(int)(Math.random()*3)+1;	
+		int randscenes=(int)(Math.random()*5)+4;	
 		
 		
-		for (int j=1;j<=n;j++) 
+		for (int j=1;j<=randscenes;j++) 
 		{
 			
 			director.SetDirectes();
 			System.out.println("Scene "+j+" : "+director.getDirectes());
-			int sc=(int)(Math.random()*4)+1;
-			for (int i=0;i<sc;i++) 
+			int randdialogue=(int)(Math.random()*randscenes)+1;
+			for (int i=0;i<randdialogue;i++) 
 			{
 				scriptwriter.setScript(actorlist);
 				actorlist=scriptwriter.getScript();
-				int ra=(int)(Math.random()*3)+1;
-				
-			    System.out.println( actorlist[ra].getActorName()+""+actorlist[ra].getCharecter()+" : "+actorlist[ra].getDialogues());
+				int randindex=(int)(Math.random()*actorlist.length);
+			    System.out.println( actorlist[randindex].getActorName()+""+actorlist[randindex].getCharecter()+" : "+actorlist[randindex].getDialogues());
 				System.out.println(" ");
 			
 			}

@@ -2,10 +2,9 @@ package com.lxisoft.movie;
 import com.lxisoft.movie.Actor;
 public  class Actor
 {
-String charecterName;
+	String charecterName;
 	String actorName;
 	String dialogue;
-
 	public void setActorName(String actorName)
 	{
 		this.actorName=actorName;
