@@ -31,30 +31,29 @@ public class FileRepository
 
 		}
 	}	
-	// public void readFile()
-	// {	
-	// 	try
-	// 	{
-	// 		FileReader fr=new FileReader(file);
-	// 		BufferedReader br=new BufferedReader(fr);
-	// 		String data=br.readLine();
-	// 		while((data=br.readLine())!=null)
-	// 		{	
-	// 			String	[] dt=data.split(",",3);
-	// 			Food foods=new Food();
-	// 			foods.setId(Integer.parseInt(dt[0]));
-	// 			foods.setName(dt[1]);
-	// 			foods.setPrice(Integer.parseInt(dt[2]));
-	// 			System.out.println(dt[0] + (dt[1]) + (dt[2]));
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println("Error");
-	// 		e.printStackTrace();
-	//  	}
-	// }		
-		
+	public void readFile()
+	{	
+		try
+		{
+			FileReader fr=new FileReader(file);
+			BufferedReader br=new BufferedReader(fr);
+			String data=br.readLine();
+			while((data=br.readLine())!=null)
+			{	
+				String	[] dt=data.split(",",3);
+				//FoodModel foods=new FoodModel();
+				//foods.setId(Integer.parseInt(dt[0]));
+				//foods.setName(dt[1]);
+				//foods.setPrice(Integer.parseInt(dt[2]));
+				System.out.println(dt[0] + (dt[1]) + (dt[2]));
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+			e.printStackTrace();
+	 	}
+	}		
 	public void addToStock(HotelModel mhotel)
 	{
 		try
