@@ -32,7 +32,7 @@ public class HotelView
 		biriyani.setId(sc.nextInt());
 		mhotel.setFoodList(biriyani);
 		filerepo.addwriter(mhotel);
-		//filerepo.readFile();
+		filerepo.readFile();
 
 	}
 	public void addDosa()
@@ -46,7 +46,8 @@ public class HotelView
 		dosa.setId(sc.nextInt());						
 		mhotel.setFoodList(dosa);
 		filerepo.addwriter(mhotel);
-		
+		filerepo.readFile();
+
 	}
 	public void addShake()
 	{
@@ -59,7 +60,8 @@ public class HotelView
 		shake.setId(sc.nextInt());			
 		mhotel.setFoodList(shake);	
 		filerepo.addwriter(mhotel);
-	
+		filerepo.readFile();
+
 	} 
 	public void displayFood()
 	{
@@ -79,11 +81,12 @@ public class HotelView
 	}
 	public void addStockMethod()
 	{	
-		System.out.println("How much food you want to add");	
-		stock.setQuantity(sc.nextInt());
+		System.out.println("How much food you want to add");
 		mhotel.setStockList(stock);
+		stock.setQuantity(sc.nextInt());
 		filerepo.addToStock(mhotel);
-		//fr.readStock(stock);							
+		filerepo.readToStock();
+						
 	}
 	public void displayStock()
 	{	

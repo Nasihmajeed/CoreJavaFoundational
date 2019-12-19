@@ -17,18 +17,14 @@ public class FileRepository
 			BufferedWriter bw=new BufferedWriter(fw);
 			for(int i=0;i<mhotel.getFoodList().size();i++)
 			{
-				
 				bw.write(mhotel.getFoodList().get(i).getId()+","+mhotel.getFoodList().get(i).getFoodType()+","+mhotel.getFoodList().get(i).getFoodPrice()+"\n");  
-				
 			}	
 			bw.flush();
-			bw.close();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Exception");
 			e.printStackTrace();
-
 		}
 	}	
 	public void readFile()
@@ -37,14 +33,13 @@ public class FileRepository
 		{
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
-			String data=br.readLine();
-			while((data=br.readLine())!=null)
+			while((String data=br.readLine())!=null)
 			{	
 				String	[] dt=data.split(",",3);
-				//FoodModel foods=new FoodModel();
-				//foods.setId(Integer.parseInt(dt[0]));
-				//foods.setName(dt[1]);
-				//foods.setPrice(Integer.parseInt(dt[2]));
+				FoodModel foods=new FoodModel();
+				foods.setId(Integer.parseInt(dt[0]));
+				foods.setName(dt[1]);
+				foods.setPrice(Integer.parseInt(dt[2]));
 				System.out.println(dt[0] + (dt[1]) + (dt[2]));
 			}
 		}
@@ -63,7 +58,7 @@ public class FileRepository
 			for(int j=0;j<mhotel.getFoodList().size();j++)
 			{	
 				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodType()+","+mhotel.getStockList().get(j).getQuantity()+"\n");
-			
+				
 			}
 			bwr.flush();
 			bwr.close();
@@ -75,30 +70,29 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	// // public void readStock()
-	// {	
-	// 	try
-	// 	{
-	// 		FileReader frs=new FileReader(stocks);
-	// 		BufferedReader sbr=new BufferedReader(frs);
-	// 		String datas=sbr.readLine();
-	// 		while((datas=sbr.readLine())!=null)
-	// 		{	
-	// 			String[] dtr=datas.split(",",3);
-	// 			//Food foods=new Food();
-	// 			Stock stocks=new Stock();
-	// 			foods.setId(Integer.parseInt(dtr[0]));
-	// 			foods.setName(dtr[1]);
-	// 			stocks.setQuantity(Integer.parseInt(dtr[2]));
-	// 			System.out.println(dtr[0] + (dtr[1]) + (dtr[2]));
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println("Error");
-	// 		e.printStackTrace();
-	// 	}
-	// }	
+	public void readToStock()
+	{	
+		try
+		{
+			FileReader frs=new FileReader(stocks);
+			BufferedReader sbr=new BufferedReader(frs);
+			while((String datas=sbr.readLine())!=null)
+			{	
+				String[] dtr=datas.split(",",3);
+				//Food foods=new Food();
+				Stock stocks=new Stock();
+				foods.setId(Integer.parseInt(dtr[0]));
+				foods.setName(dtr[1]);
+				stocks.setQuantity(Integer.parseInt(dtr[2]));
+				System.out.println(dtr[0] + (dtr[1]) + (dtr[2]));
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+	}	
 }
 
 
