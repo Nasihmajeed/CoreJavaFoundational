@@ -15,11 +15,17 @@ public class FileRepository
 		{					
 			FileWriter fw=new FileWriter(file,true);
 			BufferedWriter bw=new BufferedWriter(fw);
+			BufferedReader br=new BufferedReader(fr);
+			
 			for(int i=0;i<mhotel.getFoodList().size();i++)
 			{
+				if(String data=br.read()==null)
+				{
 				bw.write(mhotel.getFoodList().get(i).getId()+","+mhotel.getFoodList().get(i).getFoodType()+","+mhotel.getFoodList().get(i).getFoodPrice()+"\n");  
+				}		
 			}	
 			bw.flush();
+			bw.close();
 		}
 		catch(Exception e)
 		{
@@ -33,9 +39,9 @@ public class FileRepository
 		{
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
-			while((String data=br.readLine())!=null)
+			while((String data=br.read())!=null)
 			{	
-				String	[] dt=data.split(",",3);
+				String[] dt=data.split(",",3);
 				FoodModel foods=new FoodModel();
 				foods.setId(Integer.parseInt(dt[0]));
 				foods.setName(dt[1]);

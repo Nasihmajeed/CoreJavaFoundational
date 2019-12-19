@@ -22,17 +22,29 @@ public class HotelView
 		return item;
 	}			
 	public void addBiriyani()
-	{			
+	{		
+
 		System.out.println("Which type biriyani you want to add");
-		FoodModel biriyani=new Biriyani();
-		biriyani.setFoodType(sc.next());
-		System.out.println("food price");
-		biriyani.setFoodPrice(sc.nextInt());	
-		System.out.println("Biriyani ID");
-		biriyani.setId(sc.nextInt());
-		mhotel.setFoodList(biriyani);
-		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+		int test=sc.nextInt();
+		for(int i=0;i<mhotel.getFoodList().size();i++)
+		{
+				if(test==mhotel.getFoodList().get(i).getId())
+				{
+					System.out.println("Already exist");	
+				}
+				else if(test!=mhotel.getFoodList().get(i).getId())
+				{
+					FoodModel biriyani=new Biriyani();
+					biriyani.setFoodType(sc.next());
+					System.out.println("food price");
+					biriyani.setFoodPrice(sc.nextInt());	
+					System.out.println("Biriyani ID");
+					biriyani.setId(sc.nextInt());
+					mhotel.setFoodList(biriyani);
+					filerepo.addwriter(mhotel);
+					filerepo.readFile();
+				}
+			}
 
 	}
 	public void addDosa()
