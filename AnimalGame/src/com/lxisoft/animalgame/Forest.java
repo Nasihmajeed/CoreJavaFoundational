@@ -5,20 +5,29 @@ public class Forest
 {
 	public ArrayList<Animal> animal = new ArrayList<Animal>();
 	int c = 10;
-
+	int count=0;
+	int range=20;
 	public void meetAnimal()
 	{
+
 		setAnimal();
 		System.out.println("!!!! Game Started !!!!");
 		while(c>1)
 		{
 			int x =(int) (Math.random()*animal.size());
 			int y =(int) (Math.random()*animal.size());
+
+			/*public int testVariable = 50;*/
+	        int animal1xAxis = (int) (Math.random()*50);
+	        int animal1yAxis = (int) (Math.random()*50);
+
+	         int animal2xAxis = (int) (Math.random()*50);
+	         int animal2yAxis = (int) (Math.random()*50);
 			if(animal.get(x).isTrue && animal.get(y).isTrue)
 			{
 				if(!animal.get(x).getName().equals(animal.get(y).getName()))
 				{
-					checkDistance(x,y);
+					checkDistance(x,y,animal1xAxis,animal1yAxis,animal2xAxis,animal2yAxis);
 				}
 		    }
 		}
@@ -123,28 +132,34 @@ public class Forest
 			herbivorusVsCarnivorus(x,y);
 		}
 	}
-	public void checkDistance(int x,int y)
+	public void checkDistance(int x,int y,int x1,int x2,int y1,int y2)
 	{
 		float distance = 0;
-		distance = (int) (Math.sqrt(((animal.get(x).xAxis - animal.get(y).xAxis)*(animal.get(x).xAxis - animal.get(y).xAxis))+((animal.get(x).yAxis - animal.get(y).yAxis)*(animal.get(x).yAxis - animal.get(y).yAxis))));
+
+		distance = (int) (Math.sqrt(((x1 - y1)*(x1 - y1))+((x2 - y2*(x2 - y2)))));
 		try
 		{
 			System.out.println("Distance : "+distance);
-			if(distance<=30)
+			if(distance<=range)
 			{
 				String sample1="S1 Null",sample2 = "S2 Null",test1 = "T1 Null",test2 = "T2 Null";
 				checkingMammals(sample1,sample2,test1,test2,x,y);
 			}
-			else if(distance>30)
+			else if(distance>20)
 			{
 				System.out.println("Not in Distance");
-			}	
+				count++;
+				System.out.println("Count : "+count);
+				if(count>30)
+				{
+				    range++;
+				}
+			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
 	}
 	public void checkingWinner()
 	{
@@ -177,7 +192,6 @@ public class Forest
 		     {
 			  animal.get(x).isTrue = false;
 			  System.out.println(animal.get(x).getName()+" Died");
-			  Animal.testVariable = Animal.testVariable -3;
 			  c--;
 		     }
 		}
@@ -189,7 +203,6 @@ public class Forest
 		    {
 			 animal.get(y).isTrue = false;
 			 System.out.println(animal.get(y).getName()+" Died");
-			 Animal.testVariable = Animal.testVariable -3;
 			 c--;
 		    }
 		}
@@ -198,8 +211,9 @@ public class Forest
 	{
 		System.out.println(animal.get(x).getName()+"<== Meet's ==>"+animal.get(y).getName());
 		System.out.println("Strength : "+animal.get(x).strength+"      Strength : "+animal.get(y).strength);
-		animal.get(x).strength = animal.get(x).strength -3;
-		animal.get(y).strength = animal.get(y).strength -3;
+		animal.get(x).isTrue = false;
+		/*animal.get(x).strength = animal.get(x).strength -3;
+		animal.get(y).strength = animal.get(y).strength -3;*/
 	}
 	public void carnivorusVsHerbivorus(int x,int y)
 	{
@@ -220,13 +234,11 @@ public class Forest
 				{
 					animal.get(x).isTrue = false;
 					System.out.println(animal.get(x).getName()+" Died");
-					Animal.testVariable = Animal.testVariable -3;
 					c--;
 				}
 		    }
 		 animal.get(y).isTrue = false;
 		 System.out.println(animal.get(y).getName()+" Died");
-		 Animal.testVariable = Animal.testVariable -3;
 		 c--;
 		}
 	}
@@ -249,13 +261,11 @@ public class Forest
 				{
 					animal.get(y).isTrue = false;
 					System.out.println(animal.get(y).getName()+" Died");
-					Animal.testVariable = Animal.testVariable -3;
 					c--;
 				}
 			}
 			animal.get(x).isTrue = false;
 			System.out.println(animal.get(x).getName()+" Died");
-			Animal.testVariable = Animal.testVariable -3;
 			c--;
 		}
 	}
