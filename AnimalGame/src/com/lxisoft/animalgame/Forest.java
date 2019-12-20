@@ -117,7 +117,7 @@ public class Forest
 	{
 		if(sample1.equals("Carnivorus") && test1.equals("Carnivorus"))
 		{
-			carnivorusVsCarnivorus(x,y);		
+			carnivorusVsCarnivorus(x,y);
 		}
 		else if(sample2.equals("Herbivorus") && test2.equals("Herbivorus"))
 		{
@@ -135,8 +135,11 @@ public class Forest
 	public void checkDistance(int x,int y,int x1,int x2,int y1,int y2)
 	{
 		float distance = 0;
-
-		distance = (int) (Math.sqrt(((x1 - y1)*(x1 - y1))+((x2 - y2*(x2 - y2)))));
+		System.out.println(x1);
+		System.out.println(x2);
+		System.out.println(y1);
+		System.out.println(y2);
+		distance = (int) (Math.sqrt(((x1 - y1)*(x1 - y1))+((x2 - y2)*(x2 - y2))));
 		try
 		{
 			System.out.println("Distance : "+distance);
@@ -148,12 +151,12 @@ public class Forest
 			else if(distance>20)
 			{
 				System.out.println("Not in Distance");
-				count++;
+				/*count++;
 				System.out.println("Count : "+count);
 				if(count>30)
 				{
 				    range++;
-				}
+				}*/
 			}
 		}
 		catch(Exception e)
