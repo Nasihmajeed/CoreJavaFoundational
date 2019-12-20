@@ -24,27 +24,48 @@ public class HotelView
 	public void addBiriyani()
 	{		
 
-		System.out.println("Which type biriyani you want to add");
-		int test=sc.nextInt();
-		for(int i=0;i<mhotel.getFoodList().size();i++)
+		//System.out.println("Which type biriyani you want to add");
+		if(mhotel.getFoodList().size()==0)
 		{
-				if(test==mhotel.getFoodList().get(i).getId())
+			FoodModel biriyani=new Biriyani();
+			System.out.println("Biriyani ID");
+			biriyani.setId(sc.nextInt());
+			System.out.println("Type");
+			biriyani.setFoodType(sc.next());
+			System.out.println("food price");
+			biriyani.setFoodPrice(sc.nextInt());	
+			mhotel.setFoodList(biriyani);
+			filerepo.addwriter(mhotel);
+
+		}
+		else if(mhotel.getFoodList().size()>0) 
+		{
+			boolean check=true;
+			System.out.println("Biriyani ID");
+			int test=sc.nextInt();
+			for(int i=0;i<mhotel.getFoodList().size();i++)
+		 	{
+		 		if(test==mhotel.getFoodList().get(i).getId())
 				{
+					check=false;
 					System.out.println("Already exist");	
-				}
-				else if(test!=mhotel.getFoodList().get(i).getId())
-				{
-					FoodModel biriyani=new Biriyani();
-					biriyani.setFoodType(sc.next());
-					System.out.println("food price");
-					biriyani.setFoodPrice(sc.nextInt());	
-					System.out.println("Biriyani ID");
-					biriyani.setId(sc.nextInt());
-					mhotel.setFoodList(biriyani);
-					filerepo.addwriter(mhotel);
-					filerepo.readFile();
-				}
+				}				
+					
 			}
+			if(check)
+			{
+				FoodModel biriyani=new Biriyani();
+				// System.out.println("Biriyani ID");
+				biriyani.setId(test);
+				System.out.println("Type");
+				biriyani.setFoodType(sc.next());
+				System.out.println("food price");
+				biriyani.setFoodPrice(sc.nextInt());	
+				mhotel.setFoodList(biriyani);
+				filerepo.addwriter(mhotel);
+				//filerepo.readFile();
+			}
+		}	
 
 	}
 	public void addDosa()
@@ -58,7 +79,7 @@ public class HotelView
 		dosa.setId(sc.nextInt());						
 		mhotel.setFoodList(dosa);
 		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+		//filerepo.readFile();
 
 	}
 	public void addShake()
@@ -72,7 +93,7 @@ public class HotelView
 		shake.setId(sc.nextInt());			
 		mhotel.setFoodList(shake);	
 		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+		//filerepo.readFile();
 
 	} 
 	public void displayFood()
@@ -97,8 +118,7 @@ public class HotelView
 		mhotel.setStockList(stock);
 		stock.setQuantity(sc.nextInt());
 		filerepo.addToStock(mhotel);
-		filerepo.readToStock();
-						
+		//filerepo.readToStock();						
 	}
 	public void displayStock()
 	{	
