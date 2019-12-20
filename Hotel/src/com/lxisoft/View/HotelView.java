@@ -20,22 +20,24 @@ public class HotelView
 		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
 		int item=sc.nextInt();
 		return item;
-	}			
+	}	
 	public void addBiriyani()
 	{		
-
-		//System.out.println("Which type biriyani you want to add");
+		FoodModel biriyani=new Biriyani();
+		System.out.println("Biriyani ID");
+		biriyani.setId(sc.nextInt());
+		System.out.println("Type");
+		biriyani.setFoodType(sc.next());
+		System.out.println("food price");
+		biriyani.setFoodPrice(sc.nextInt());	
+		mhotel.setFoodList(biriyani);
+		filerepo.addwriter(mhotel);
+	}
+	public void methodBiriyani()
+	{
 		if(mhotel.getFoodList().size()==0)
 		{
-			FoodModel biriyani=new Biriyani();
-			System.out.println("Biriyani ID");
-			biriyani.setId(sc.nextInt());
-			System.out.println("Type");
-			biriyani.setFoodType(sc.next());
-			System.out.println("food price");
-			biriyani.setFoodPrice(sc.nextInt());	
-			mhotel.setFoodList(biriyani);
-			filerepo.addwriter(mhotel);
+			addBiriyani();
 
 		}
 		else if(mhotel.getFoodList().size()>0) 
@@ -54,46 +56,146 @@ public class HotelView
 			}
 			if(check)
 			{
-				FoodModel biriyani=new Biriyani();
-				// System.out.println("Biriyani ID");
-				biriyani.setId(test);
-				System.out.println("Type");
-				biriyani.setFoodType(sc.next());
-				System.out.println("food price");
-				biriyani.setFoodPrice(sc.nextInt());	
-				mhotel.setFoodList(biriyani);
-				filerepo.addwriter(mhotel);
-				//filerepo.readFile();
+				addBiriyani();
 			}
 		}	
 
-	}
+	}		
+	// public void addBiriyani()
+	// {		
+		
+	// 	if(mhotel.getFoodList().size()==0)
+	// 	{
+	// 		FoodModel biriyani=new Biriyani();
+	// 		System.out.println("Biriyani ID");
+	// 		biriyani.setId(sc.nextInt());
+	// 		System.out.println("Type");
+	// 		biriyani.setFoodType(sc.next());
+	// 		System.out.println("food price");
+	// 		biriyani.setFoodPrice(sc.nextInt());	
+	// 		mhotel.setFoodList(biriyani);
+	// 		filerepo.addwriter(mhotel);
+
+	// 	}
+	// 	else if(mhotel.getFoodList().size()>0) 
+	// 	{
+	// 		boolean check=true;
+	// 		System.out.println("Biriyani ID");
+	// 		int test=sc.nextInt();
+	// 		for(int i=0;i<mhotel.getFoodList().size();i++)
+	// 	 	{
+	// 	 		if(test==mhotel.getFoodList().get(i).getId())
+	// 			{
+	// 				check=false;
+	// 				System.out.println("Already exist");	
+	// 			}				
+					
+	// 		}
+	// 		if(check)
+	// 		{
+	// 			FoodModel biriyani=new Biriyani();
+	// 			biriyani.setId(test);
+	// 			System.out.println("Type");
+	// 			biriyani.setFoodType(sc.next());
+	// 			System.out.println("food price");
+	// 			biriyani.setFoodPrice(sc.nextInt());	
+	// 			mhotel.setFoodList(biriyani);
+	// 			filerepo.addwriter(mhotel);
+	// 			//filerepo.readFile();
+	// 		}
+	// 	}	
+
+	// }
 	public void addDosa()
 	{
-		System.out.println("Which type dosa you want to add");				
-		FoodModel dosa=new Dosa();
-		dosa.setFoodType(sc.next());
-		System.out.println("food price");
-		dosa.setFoodPrice(sc.nextInt());
-	 	System.out.println("Dosa ID");
-		dosa.setId(sc.nextInt());						
-		mhotel.setFoodList(dosa);
-		filerepo.addwriter(mhotel);
-		//filerepo.readFile();
+
+		if(mhotel.getFoodList().size()==0)
+		{
+					
+			FoodModel dosa=new Dosa();
+			System.out.println("Dosa ID");
+			dosa.setId(sc.nextInt());		
+			System.out.println("Type");
+			dosa.setFoodType(sc.next());
+			System.out.println("food price");
+			dosa.setFoodPrice(sc.nextInt());
+		 	mhotel.setFoodList(dosa);
+			filerepo.addwriter(mhotel);
+			//filerepo.readFile();
+		}
+		else if(mhotel.getFoodList().size()>0) 
+		{
+			boolean chk=true;
+			System.out.println("Dosa ID");
+			int d=sc.nextInt();
+			for(int i=0;i<mhotel.getFoodList().size();i++)
+		 	{
+		 		if(d==mhotel.getFoodList().get(i).getId())
+				{
+					chk=false;
+					System.out.println("Already exist");	
+				}				
+					
+			}
+			if(chk)
+			{
+				FoodModel dosa=new Dosa();
+				System.out.println("Dosa ID");
+				dosa.setId(sc.nextInt());		
+				System.out.println("Type");
+				dosa.setFoodType(sc.next());
+				System.out.println("food price");
+				dosa.setFoodPrice(sc.nextInt());
+			 	mhotel.setFoodList(dosa);
+				filerepo.addwriter(mhotel);
+			}
+
+			
+		}
 
 	}
 	public void addShake()
 	{
-		System.out.println("Which type shake you want to add");
-		FoodModel shake=new Shake();
-		shake.setFoodType(sc.next());
-		System.out.println("food price");
-		shake.setFoodPrice(sc.nextInt());				
-		System.out.println("Shake ID");
-		shake.setId(sc.nextInt());			
-		mhotel.setFoodList(shake);	
-		filerepo.addwriter(mhotel);
-		//filerepo.readFile();
+		
+		if(mhotel.getFoodList().size()==0)
+		{			
+			FoodModel shake=new Shake();
+			shake.setId(sc.nextInt());
+			System.out.println("Type");
+			shake.setFoodType(sc.next());
+			System.out.println("food price");
+			shake.setFoodPrice(sc.nextInt());				
+			mhotel.setFoodList(shake);	
+			filerepo.addwriter(mhotel);
+			//filerepo.readFile();
+		}	
+		else if(mhotel.getFoodList().size()>0) 
+		{
+			boolean ck=true;
+			System.out.println("Shake ID");
+			int s=sc.nextInt();
+			for(int i=0;i<mhotel.getFoodList().size();i++)
+		 	{
+		 		if(s==mhotel.getFoodList().get(i).getId())
+				{
+					ck=false;
+					System.out.println("Already exist");	
+				}				
+					
+			}
+			if(ck)
+			{
+				FoodModel shake=new Shake();
+				shake.setId(sc.nextInt());
+				System.out.println("Type");
+				shake.setFoodType(sc.next());
+				System.out.println("food price");
+				shake.setFoodPrice(sc.nextInt());				
+				mhotel.setFoodList(shake);	
+				filerepo.addwriter(mhotel);
+			}
+
+		}
 
 	} 
 	public void displayFood()
