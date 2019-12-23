@@ -46,6 +46,7 @@ public class HotelControl
 			if((view.mhotel.getFoodList().get(j).getId())==c)
 		 	{
 		 		view.addStockMethod();
+		 	//	view.addStockMethod(food);
 		 	}
 		}	
 	}

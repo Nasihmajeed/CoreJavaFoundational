@@ -8,9 +8,8 @@ import com.lxisoft.Model.FoodModel;
 import com.lxisoft.Model.StockModel;
 public class FileRepository
 {
-
 	File file=new File("D:\\file.csv");
-	File stocks=new File("D:\\stockfile.csv");
+	File stocks=new File("D:\\filestock.csv");
 	public void addwriter(HotelModel mhotel)
 	{
 		try
@@ -40,10 +39,10 @@ public class FileRepository
 			while((str=br.readLine())!=null)
 			{	
 				String[] s=str.split(",",3);
-				FoodModel foods=new FoodModel();
-				foods.setId(Integer.parseInt(s[0]));
-				foods.setFoodType(s[1]);
-				foods.setFoodPrice(Integer.parseInt(s[2]));
+				FoodModel food=new FoodModel();
+				food.setId(Integer.parseInt(s[0]));
+				food.setFoodType(s[1]);
+				food.setFoodPrice(Integer.parseInt(s[2]));
 				System.out.println(s[0] + (s[1]) + (s[2]));	
 			}
 		}
@@ -73,7 +72,7 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	public void readToStock(StockModel stock,HotelModel mhotel,FoodModel foods)
+	public void readToStock(FoodModel food,HotelModel mhotel)
 	{	
 		try
 		{
@@ -84,8 +83,8 @@ public class FileRepository
 			{	
 				String[] ss=string.split(",",3);
 				StockModel stocks=new StockModel();
-				foods.setId(Integer.parseInt(ss[0]));
-				foods.setFoodType(ss[1]);
+				food.setId(Integer.parseInt(ss[0]));
+				food.setFoodType(ss[1]);
 				stocks.setQuantity(Integer.parseInt(ss[2]));
 				System.out.println(ss[0] + (ss[1]) + (ss[2]));	
 			}

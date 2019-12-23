@@ -10,5 +10,4 @@ public class StockModel
 	{
 		return this.foodQuantity;
 	}
-	
 }	
