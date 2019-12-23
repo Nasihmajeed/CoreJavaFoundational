@@ -13,7 +13,10 @@ public class Scriptwriter
 		{
 			int randdialogue=(int)(Math.random()*10);			
 			script=new Script();
-			String s=script.setDialouge1(randdialogue);
+			
+			Fileoperation fo=new Fileoperation();
+			String s=fo.operation();
+			
 			actorlist[i].setDialogues(s);
 		}
 		dialoguelist=actorlist;

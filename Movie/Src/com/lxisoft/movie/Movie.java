@@ -33,11 +33,8 @@ public class Movie
 			System.out.println(actorlist[i].getActorName()+" play as "+actorlist[i].getCharecter());
 		}
 		System.out.println("__________________________");
-		runScenes(actorlist);
-		
-		
+		runScenes(actorlist);	
 	}
-
 	public void runScenes(Actor[] actorlist)
 	{
 		int randscenes=(int)(Math.random()*5)+4;	
