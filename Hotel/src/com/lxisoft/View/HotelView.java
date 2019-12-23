@@ -26,9 +26,9 @@ public class HotelView
 		FoodModel biriyani=new Biriyani();
 		System.out.println("Biriyani ID");
 		biriyani.setId(sc.nextInt());
-		System.out.println("Type");
+		System.out.println("Biriyani Type");
 		biriyani.setFoodType(sc.next());
-		System.out.println("food price");
+		System.out.println("Biriyani price");
 		biriyani.setFoodPrice(sc.nextInt());	
 		mhotel.setFoodList(biriyani);
 		filerepo.addwriter(mhotel);
@@ -45,12 +45,13 @@ public class HotelView
 		FoodModel dosa=new Dosa();
 		System.out.println("Dosa ID");
 		dosa.setId(sc.nextInt());		
-		System.out.println("Type");
+		System.out.println("Dosa Type");
 		dosa.setFoodType(sc.next());
-		System.out.println("food price");
+		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
 		filerepo.addwriter(mhotel);
+		filerepo.readFile();
 	}		
 	public int dosaId()
 	{
@@ -62,12 +63,13 @@ public class HotelView
 	{
 		FoodModel shake=new Shake();
 		shake.setId(sc.nextInt());
-		System.out.println("Type");
+		System.out.println("Shake Type");
 		shake.setFoodType(sc.next());
-		System.out.println("food price");
+		System.out.println("Shake price");
 		shake.setFoodPrice(sc.nextInt());				
 		mhotel.setFoodList(shake);	
 		filerepo.addwriter(mhotel);
+		filerepo.readFile();
 	}
 	public int shakeId()
 	{
@@ -94,10 +96,10 @@ public class HotelView
 	public void addStockMethod()
 	{	
 		System.out.println("How much food you want to add");
-		mhotel.setStockList(stock);
 		stock.setQuantity(sc.nextInt());
+		mhotel.setStockList(stock);
 		filerepo.addToStock(mhotel,stock);
-		//filerepo.readToStock();						
+		//filerepo.readToStock();								
 	}
 	public void displayStock()
 	{	

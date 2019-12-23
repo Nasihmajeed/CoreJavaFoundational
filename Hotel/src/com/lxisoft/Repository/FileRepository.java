@@ -10,7 +10,7 @@ public class FileRepository
 {
 
 	File file=new File("D:\\file.csv");
-	File stocks=new File("D:\\Stock.csv");
+	File stocks=new File("D:\\stockfile.csv");
 	public void addwriter(HotelModel mhotel)
 	{
 		try
@@ -73,33 +73,34 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	// public void readToStock(Stock stock,FoodModel food)
-	// {	
-	// 	try
-	// 	{
-	// 		FileReader frs=new FileReader(stocks);
-	// 		BufferedReader sbr=new BufferedReader(frs);
-	//String st;
-	// 		while((String st=sbr.readLine())!=null)
-	// 		{	
-	// 			String[] ss=st.split(",",3);
-	// 			Stock stocks=new Stock();
-	// 			foods.setId(Integer.parseInt(st[0]));
-	// 			foods.setFoodName(st[1]);
-	// 			stocks.setFoodQuantity(Integer.parseInt(st[2]));
-	// 			System.out.println(st[0] + (st[1]) + (st[2]));
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println("Error");
-	// 		e.printStackTrace();
-	// 	}
-	// }	
+	public void readToStock(StockModel stock,HotelModel mhotel,FoodModel foods)
+	{	
+		try
+		{
+			FileReader frs=new FileReader(stocks);
+			BufferedReader bfr=new BufferedReader(frs);
+			String string;
+			while((string=bfr.readLine())!=null)
+			{	
+				String[] ss=string.split(",",3);
+				StockModel stocks=new StockModel();
+				foods.setId(Integer.parseInt(ss[0]));
+				foods.setFoodType(ss[1]);
+				stocks.setQuantity(Integer.parseInt(ss[2]));
+				System.out.println(ss[0] + (ss[1]) + (ss[2]));	
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+	}	
 }
 
 
-
+		
+			
 
 
 
