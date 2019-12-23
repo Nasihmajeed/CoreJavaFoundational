@@ -96,7 +96,7 @@ public class HotelView
 		System.out.println("How much food you want to add");
 		mhotel.setStockList(stock);
 		stock.setQuantity(sc.nextInt());
-		filerepo.addToStock(mhotel);
+		filerepo.addToStock(mhotel,stock);
 		//filerepo.readToStock();						
 	}
 	public void displayStock()

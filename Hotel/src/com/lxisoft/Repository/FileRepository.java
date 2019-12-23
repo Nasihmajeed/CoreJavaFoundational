@@ -5,11 +5,12 @@ import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.HotelControl;
 import com.lxisoft.Model.HotelModel;
 import com.lxisoft.Model.FoodModel;
+import com.lxisoft.Model.StockModel;
 public class FileRepository
 {
 
 	File file=new File("D:\\file.csv");
-	File stocks=new File("D:\\stock.csv");
+	File stocks=new File("D:\\Stock.csv");
 	public void addwriter(HotelModel mhotel)
 	{
 		try
@@ -52,16 +53,15 @@ public class FileRepository
 			e.printStackTrace();
 	 	}
 	}		
-	public void addToStock(HotelModel mhotel)
+	public void addToStock(HotelModel mhotel,StockModel stock)
 	{
 		try
 		{					
 			FileWriter fwr=new FileWriter(stocks,false);
 			BufferedWriter bwr=new BufferedWriter(fwr);
-			for(int j=0;j<mhotel.getFoodList().size();j++)
+			for(int j=0;j<mhotel.getStockList().size();j++)
 			{	
 				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodType()+","+mhotel.getStockList().get(j).getQuantity()+"\n");
-				
 			}
 			bwr.flush();
 			bwr.close();
@@ -69,7 +69,7 @@ public class FileRepository
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception");
+			System.out.println(e+"Error");
 			e.printStackTrace();
 		}
 	}	
@@ -79,14 +79,15 @@ public class FileRepository
 	// 	{
 	// 		FileReader frs=new FileReader(stocks);
 	// 		BufferedReader sbr=new BufferedReader(frs);
-	// 		while((String datas=sbr.readLine())!=null)
+	//String st;
+	// 		while((String st=sbr.readLine())!=null)
 	// 		{	
-	// 			String[] dtr=datas.split(",",3);
+	// 			String[] ss=st.split(",",3);
 	// 			Stock stocks=new Stock();
-	// 			foods.setId(Integer.parseInt(dtr[0]));
-	// 			foods.setFoodName(dtr[1]);
-	// 			stocks.setFoodQuantity(Integer.parseInt(dtr[2]));
-	// 			System.out.println(dtr[0] + (dtr[1]) + (dtr[2]));
+	// 			foods.setId(Integer.parseInt(st[0]));
+	// 			foods.setFoodName(st[1]);
+	// 			stocks.setFoodQuantity(Integer.parseInt(st[2]));
+	// 			System.out.println(st[0] + (st[1]) + (st[2]));
 	// 		}
 	// 	}
 	// 	catch(Exception e)
