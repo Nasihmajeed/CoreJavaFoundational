@@ -19,8 +19,7 @@ public class HotelControl
 				case 5: billPrint();test=true;  break;
 				case 6: System.exit(0); break;	
 			}
-		}while(test);
-			
+		}while(test);			
 	}
 	public void foodItem()
 	{
@@ -32,19 +31,16 @@ public class HotelControl
 			int i=view.selectFood(n);
 			switch (i)
 			{
-	 			case 1: view.addBiriyani();check=true; break;
-				case 2: view.addDosa();check=true; break;
-				case 3: view.addShake();check=true; break;
+	 			case 1: addBiriyaniId();check=true; break;
+				case 2: addDosaId();check=true; break;
+				case 3: addShakeId();check=true; break;
 				default:
-			}
-				
-		}while(check);
-		
+			}				
+		}while(check);		
 	}
 	public void addStock()
 	{
 		int c=view.selectStock();
-		// view.mhotel.getStockList();
 		for(int j=0;j<view.mhotel.getFoodList().size();j++)
 		{
 			if((view.mhotel.getFoodList().get(j).getId())==c)
@@ -58,7 +54,6 @@ public class HotelControl
 		boolean sample;	
 		do{
 			view.displayStock();			
-			//view.addFoodUser();
 			foodBillUser();
 			sample= repeatProcess();
 		}
@@ -91,8 +86,79 @@ public class HotelControl
 		 	int val=(view.mhotel.getStockList().get(q).getQuantity()-view.mhotel.getItemQuantity());
 		 	view.mhotel.getStockList().get(q).setQuantity(val);	        
             view.currentStock(q);	
-
 		}		
+	}
+	public void addBiriyaniId()
+	{
+		if(view.mhotel.getFoodList().size()==0)
+		{
+			view.addBiriyani();
+		}
+		else if(view.mhotel.getFoodList().size()>0) 
+		{
+			boolean check=true;
+			int t=view.biriyaniId();
+			for(int i=0;i<view.mhotel.getFoodList().size();i++)
+		 	{
+		 		if(t==view.mhotel.getFoodList().get(i).getId())
+				{
+					check=false;
+					System.out.println("Already exist");	
+				}						
+			}
+			if(check)
+			{
+				view.addBiriyani();
+			}
+		}
 	}	
+	public void addDosaId()
+	{
+		if(view.mhotel.getFoodList().size()==0)
+		{
+			view.addDosa();			
+		}
+		else if(view.mhotel.getFoodList().size()>0) 
+		{
+			boolean chk=true;
+			int a=view.dosaId();
+			for(int i=0;i<view.mhotel.getFoodList().size();i++)
+		 	{
+		 		if(a==view.mhotel.getFoodList().get(i).getId())
+				{
+					chk=false;
+					System.out.println("Already exist");	
+				}						
+			}
+			if(chk)
+			{
+				view.addDosa();
+			}			
+		}	
+	}	
+	public void addShakeId()
+	{
+		if(view.mhotel.getFoodList().size()==0)
+		{			
+			view.addShake();
+		}	
+		else if(view.mhotel.getFoodList().size()>0) 
+		{
+			boolean ck=true;
+			int s=view.shakeId();
+			for(int i=0;i<view.mhotel.getFoodList().size();i++)
+		 	{
+		 		if(s==view.mhotel.getFoodList().get(i).getId())
+				{
+					ck=false;
+					System.out.println("Already exist");	
+				}						
+			}
+			if(ck)
+			{
+				view.addShake();
+			}
+		}
+	}
 }	
 	

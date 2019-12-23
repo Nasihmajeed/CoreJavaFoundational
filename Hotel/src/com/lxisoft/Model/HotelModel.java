@@ -15,14 +15,6 @@ public class HotelModel
 	{
 		return this.itemQuantity;
 	}
-	// public void setHotelName(String hotelName)
-	// {
-	// 	this.hotelName=hotelName;
-	// }
-	// public String getHotelName()
-	// {
-	// 	return this.hotelName;
-	// }
 	public void setFoodList(FoodModel food)
 	{
 		this.foodList.add(food);

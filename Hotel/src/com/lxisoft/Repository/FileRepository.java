@@ -4,6 +4,7 @@ import java.io.*;
 import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.HotelControl;
 import com.lxisoft.Model.HotelModel;
+import com.lxisoft.Model.FoodModel;
 public class FileRepository
 {
 
@@ -28,28 +29,29 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	// public void readFile()
-	// {	
-	// 	try
-	// 	{
-	// 		FileReader fr=new FileReader(file);
-	// 		BufferedReader br=new BufferedReader(fr);
-	// 		while((String data=br.read())!=null)
-	// 		{	
-	// 			String[] dt=data.split(",",3);
-	// 			FoodModel foods=new FoodModel();
-	// 			foods.setId(Integer.parseInt(dt[0]));
-	// 			foods.setName(dt[1]);
-	// 			foods.setPrice(Integer.parseInt(dt[2]));
-	// 			System.out.println(dt[0] + (dt[1]) + (dt[2]));
-	// 		}
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.println("Error");
-	// 		e.printStackTrace();
-	//  	}
-	// }		
+	public void readFile()
+	{	
+		try
+		{
+			FileReader fr=new FileReader(file);
+			BufferedReader br=new BufferedReader(fr);
+			String str;
+			while((str=br.readLine())!=null)
+			{	
+				String[] s=str.split(",",3);
+				FoodModel foods=new FoodModel();
+				foods.setId(Integer.parseInt(s[0]));
+				foods.setFoodType(s[1]);
+				foods.setFoodPrice(Integer.parseInt(s[2]));
+				System.out.println(s[0] + (s[1]) + (s[2]));	
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+			e.printStackTrace();
+	 	}
+	}		
 	public void addToStock(HotelModel mhotel)
 	{
 		try
@@ -71,7 +73,7 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	// public void readToStock()
+	// public void readToStock(Stock stock,FoodModel food)
 	// {	
 	// 	try
 	// 	{
@@ -80,11 +82,10 @@ public class FileRepository
 	// 		while((String datas=sbr.readLine())!=null)
 	// 		{	
 	// 			String[] dtr=datas.split(",",3);
-	// 			//Food foods=new Food();
 	// 			Stock stocks=new Stock();
 	// 			foods.setId(Integer.parseInt(dtr[0]));
-	// 			foods.setName(dtr[1]);
-	// 			stocks.setQuantity(Integer.parseInt(dtr[2]));
+	// 			foods.setFoodName(dtr[1]);
+	// 			stocks.setFoodQuantity(Integer.parseInt(dtr[2]));
 	// 			System.out.println(dtr[0] + (dtr[1]) + (dtr[2]));
 	// 		}
 	// 	}
