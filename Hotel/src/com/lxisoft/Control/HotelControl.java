@@ -45,8 +45,7 @@ public class HotelControl
 		{
 			if((view.mhotel.getFoodList().get(j).getId())==c)
 		 	{
-		 		view.addStockMethod();
-		 	//	view.addStockMethod(food);
+		 		view.addStockMethod();		 		
 		 	}
 		}	
 	}
@@ -117,7 +116,7 @@ public class HotelControl
 	{
 		if(view.mhotel.getFoodList().size()==0)
 		{
-			view.addDosa();			
+			view.addDosa(view.dosaId());			
 		}
 		else if(view.mhotel.getFoodList().size()>0) 
 		{
@@ -133,7 +132,7 @@ public class HotelControl
 			}
 			if(chk)
 			{
-				view.addDosa();
+				view.addDosa(a);
 			}			
 		}	
 	}	
@@ -141,7 +140,7 @@ public class HotelControl
 	{
 		if(view.mhotel.getFoodList().size()==0)
 		{			
-			view.addShake();
+			view.addShake(view.shakeId());
 		}	
 		else if(view.mhotel.getFoodList().size()>0) 
 		{
@@ -157,7 +156,7 @@ public class HotelControl
 			}
 			if(ck)
 			{
-				view.addShake();
+				view.addShake(s);
 			}
 		}
 	}

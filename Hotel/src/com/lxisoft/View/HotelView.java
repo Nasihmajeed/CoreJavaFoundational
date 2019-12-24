@@ -40,11 +40,10 @@ public class HotelView
 		int test=sc.nextInt();
 		return test;
 	}		
-	public void addDosa()
+	public void addDosa(int d)
 	{
 		FoodModel dosa=new Dosa();
-		System.out.println("Dosa ID");
-		dosa.setId(sc.nextInt());		
+		dosa.setId(d);		
 		System.out.println("Dosa Type");
 		dosa.setFoodType(sc.next());
 		System.out.println("Dosa price");
@@ -59,10 +58,10 @@ public class HotelView
 		int d=sc.nextInt();
 		return d;
 	}
-	public void addShake()
+	public void addShake(int s)
 	{
 		FoodModel shake=new Shake();
-		shake.setId(sc.nextInt());
+		shake.setId(s);
 		System.out.println("Shake Type");
 		shake.setFoodType(sc.next());
 		System.out.println("Shake price");
@@ -93,13 +92,13 @@ public class HotelView
 		int s=sc.nextInt();
 		return s;
 	}
-	public void addStockMethod()//food
+	public void addStockMethod()
 	{	
 		System.out.println("How much food you want to add");
 		stock.setQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
 		filerepo.addToStock(mhotel,stock);
-		//filerepo.readToStock(food,mhotel);								
+		filerepo.readToStock(mhotel);								
 	}
 	public void displayStock()
 	{	

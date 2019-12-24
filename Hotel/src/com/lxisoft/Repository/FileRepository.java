@@ -10,6 +10,7 @@ public class FileRepository
 {
 	File file=new File("D:\\file.csv");
 	File stocks=new File("D:\\filestock.csv");
+	FoodModel food=new FoodModel();
 	public void addwriter(HotelModel mhotel)
 	{
 		try
@@ -39,7 +40,7 @@ public class FileRepository
 			while((str=br.readLine())!=null)
 			{	
 				String[] s=str.split(",",3);
-				FoodModel food=new FoodModel();
+				//FoodModel food=new FoodModel();
 				food.setId(Integer.parseInt(s[0]));
 				food.setFoodType(s[1]);
 				food.setFoodPrice(Integer.parseInt(s[2]));
@@ -72,7 +73,7 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	public void readToStock(FoodModel food,HotelModel mhotel)
+	public void readToStock(HotelModel mhotel)
 	{	
 		try
 		{
