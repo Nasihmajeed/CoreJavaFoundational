@@ -5,23 +5,22 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Fileoperation
 {
-	public String[] operation()
+	public String operation(int randdialogue)
 	{
-		 String[] data=null;
+		 String[] data=new String[10];
 		String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv"};
         String line = "";
        try{
-       	for (int i=0;i<1;i++)
-       	{
-          BufferedReader br = new BufferedReader(new FileReader(csvFile[i]));
-          
-            while ((line = br.readLine()) != null) 
-            {
-                data = line.split(",");
-               
-            }
-             System.out.println(data[i]);
-        }
+	       	
+	          BufferedReader br = new BufferedReader(new FileReader(csvFile[randdialogue]));
+	          int i=0;
+	            while ((line = br.readLine()) != null) 
+	            {
+	               String[] datas= line.split(","); 
+	              data[i++]=datas[0];
+	              
+	            }
+	              
            }
     		catch (FileNotFoundException e)
           	{
@@ -31,6 +30,6 @@ public class Fileoperation
         {
             e.printStackTrace();
         } 
-        return data;      
+        return data[randdialogue];      
 	}
 }
