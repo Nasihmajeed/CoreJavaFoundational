@@ -40,7 +40,6 @@ public class FileRepository
 			while((str=br.readLine())!=null)
 			{	
 				String[] s=str.split(",",3);
-				//FoodModel food=new FoodModel();
 				food.setId(Integer.parseInt(s[0]));
 				food.setFoodType(s[1]);
 				food.setFoodPrice(Integer.parseInt(s[2]));
@@ -64,8 +63,7 @@ public class FileRepository
 				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodType()+","+mhotel.getStockList().get(j).getQuantity()+"\n");
 			}
 			bwr.flush();
-			bwr.close();
-				
+			bwr.close();				
 		}
 		catch(Exception e)
 		{
