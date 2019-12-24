@@ -6,7 +6,6 @@ public class HotelView
 {		
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
-	public StockModel stock=new StockModel();
 	FileRepository filerepo=new FileRepository();
 	public int menu()
 	{
@@ -93,7 +92,8 @@ public class HotelView
 		return s;
 	}
 	public void addStockMethod()
-	{	
+	{
+		StockModel stock=new StockModel();
 		System.out.println("How much food you want to add");
 		stock.setQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
@@ -107,7 +107,11 @@ public class HotelView
 		for(int k=0;k<mhotel.getStockList().size();k++)
 		{			
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(k).getId(),mhotel.getFoodList().get(k).getFoodType(),mhotel.getStockList().get(k).getQuantity());
-		}	 		      	                                          	
+			// System.out.println("object name :  "+mhotel.getStockList().get(k));
+			// System.out.println("  size    "+mhotel.getStockList().size());
+		}
+		System.out.println("out object name :  "+mhotel.getStockList().get(0).getQuantity());
+		System.out.println("out object name :  "+mhotel.getStockList().get(1).getQuantity());
 	}
 	public int repeate()
 	{
