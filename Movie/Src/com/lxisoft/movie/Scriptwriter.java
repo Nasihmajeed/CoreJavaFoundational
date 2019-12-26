@@ -11,11 +11,11 @@ public class Scriptwriter
 		
 		for (int i=0;i<actorlist.length;i++) 
 		{
-			int randdialogue=(int)(Math.random()*4);			
+						
 			script=new Script();
 			
 			Fileoperation fo=new Fileoperation();
-			String s=fo.operation(randdialogue);
+			String s=fo.operation();
 			
 			actorlist[i].setDialogues(s);
 		}
