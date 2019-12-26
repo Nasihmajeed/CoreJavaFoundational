@@ -9,6 +9,9 @@ public class Movie
 	}
 	public void coversation()
 	{
-		
+		Script script = new Script();
+		script.setDialougeArrayList();
+		script.writeToFile();
+		script.readFromFile();
 	}
 }

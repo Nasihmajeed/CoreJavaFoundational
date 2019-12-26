@@ -5,5 +5,6 @@ public class Tdd
 	public static void main(String[] arg)
 	{
 		Movie movie = new Movie("Spirit");
+		movie.coversation();
 	}
 }
