@@ -15,7 +15,8 @@ public class Scriptwriter
 			script=new Script();
 			
 			Fileoperation fo=new Fileoperation();
-			String s=fo.operation();
+			int randdialogue=(int)(Math.random()*4);	
+			String s=fo.operation(randdialogue);
 			
 			actorlist[i].setDialogues(s);
 		}
