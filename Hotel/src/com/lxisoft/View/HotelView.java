@@ -107,11 +107,7 @@ public class HotelView
 		for(int k=0;k<mhotel.getStockList().size();k++)
 		{			
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(k).getId(),mhotel.getFoodList().get(k).getFoodType(),mhotel.getStockList().get(k).getQuantity());
-			// System.out.println("object name :  "+mhotel.getStockList().get(k));
-			// System.out.println("  size    "+mhotel.getStockList().size());
 		}
-		System.out.println("out object name :  "+mhotel.getStockList().get(0).getQuantity());
-		System.out.println("out object name :  "+mhotel.getStockList().get(1).getQuantity());
 	}
 	public int repeate()
 	{
