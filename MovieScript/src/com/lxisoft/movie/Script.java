@@ -6,8 +6,6 @@ public class Script
 {
 	public ArrayList<Dialouge> villanDialouge = new ArrayList<Dialouge>();
 	public ArrayList<Dialouge> comedianDialouge = new ArrayList<Dialouge>();
-	File villanFile = new File("villanDialouge.txt");
-	File comedianFile = new File("comedianFile.txt");
 
 	public ArrayList<Dialouge> setArray(ArrayList<Dialouge> dialouge)
 	{
@@ -33,9 +31,9 @@ public class Script
 		dialouge.get(3).setDialouge("Hello3");
 		dialouge.get(4).setDialouge("Hello4");
 	}
-	public boolean villanFileExist()
+	public boolean fileExist(File file)
 	{
-		boolean exists = villanFile.exists();
+		boolean exists = file.exists();
 		if(exists)
 		{
 			exists = true;
@@ -46,36 +44,15 @@ public class Script
 		}
 		return exists;
 	}
-	public boolean comedianFileExist()
-	{
-		boolean exists = comedianFile.exists();
-		if(exists)
-		{
-			exists = true;
-		}
-		else if(!exists)
-		{
-			exists = false;
-		}
-		return exists;
-	}
-	public File createVillanFile (boolean exists)
+	public File createFile (boolean exists,File file)
 	{
 		if(!exists)
 		{
-			villanFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\villanDialouge.txt");
+			file = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\"+file+".txt");
 		}
-		return villanFile;
+		return file;
 	}
-	public File createComedianFile(boolean exists)
-	{
-		if(!exists)
-		{
-			comedianFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\comedianDialouge.txt");
-		}
-		return comedianFile;
-	}
-	public void writeToFile(File file,ArrayList<Dialouge> dialougearray)
+	public void writeToFile(File file,ArrayList<Dialouge> dialougeArray)
 	{
 		if(file.length()==0)
 		{
@@ -83,7 +60,7 @@ public class Script
 			{
 				FileWriter fileWriter = new FileWriter(file,false);
 				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-				for(Dialouge dial : dialougearray)
+				for(Dialouge dial : dialougeArray)
 				{
 					if(dial.getDialouge()!=null)
 					{
@@ -101,30 +78,45 @@ public class Script
 		    }
 	    }
 	}
-	public void readFromFile(File file)
+	public ArrayList<Dialouge> readFromFile(File file,ArrayList<Dialouge> dialougeArray)
 	{
-		ArrayList<Dialouge> test = new ArrayList<Dialouge>();
 		try
 		{
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String dia;
-			for(int i=0;i<10;i++)
+			while((dia = bufferedReader.readLine()) != null)
 			{
-			test.add(new Dialouge());
-		    }
-			for(Dialouge dial : test)
-			{
-				while((dia = bufferedReader.readLine()) != null)
+				dialougeArray.add(new Dialouge());
+				for(int i=0;i<dialougeArray.size();i++)
 				{
-					dial.setDialouge(dia);
-					break;
+					if(dialougeArray.get(i).getDialouge()==null)
+					{
+						dialougeArray.get(i).setDialouge(dia);
+						break;
+					}
 				}
-		    }
+			}
 	    }
 	    catch(Exception e)
 	    {
 	    	e.printStackTrace();
 	    }
+	    return dialougeArray;
+	}
+	public ArrayList<Dialouge> clearArray(ArrayList<Dialouge> dialouge)
+	{
+		for(int i=0;i<dialouge.size();i++)
+		{
+			dialouge.remove(i);
+		}
+		return dialouge;
+	}
+	public void print(ArrayList<Dialouge> dialouge)
+	{
+		for(int i=0;i<dialouge.size();i++)
+		{
+			System.out.println(dialouge.get(i).getDialouge());
+		}
 	}
 }
