@@ -4,29 +4,34 @@ import java.util.*;
 import java.io.*;
 public class Script
 {
-	ArrayList<Dialouge> villanDialouge = new ArrayList<Dialouge>();
-	ArrayList<Dialouge> comedianDialouge = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> villanDialouge = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianDialouge = new ArrayList<Dialouge>();
 	File villanFile = new File("villanDialouge.txt");
 	File comedianFile = new File("comedianFile.txt");
 
-	public void setDialougeArrayList()
+	public ArrayList<Dialouge> setArray(ArrayList<Dialouge> dialouge)
 	{
 		for(int i=0;i<5;i++)
 		{
-			villanDialouge.add(new Dialouge());
-			comedianDialouge.add(new Dialouge());
+			dialouge.add(new Dialouge());
 		}
-		villanDialouge.get(0).setDialouge("Hi0");
-		villanDialouge.get(1).setDialouge("Hi1");
-		villanDialouge.get(2).setDialouge("Hi2");
-		villanDialouge.get(3).setDialouge("Hi3");
-		villanDialouge.get(4).setDialouge("Hi4");
-
-		comedianDialouge.get(0).setDialouge("Hello0");
-		comedianDialouge.get(1).setDialouge("Hello1");
-		comedianDialouge.get(2).setDialouge("Hello2");
-		comedianDialouge.get(3).setDialouge("Hello3");
-		comedianDialouge.get(4).setDialouge("Hello4");
+		return dialouge;
+	}
+	public void setVillanDialouge(ArrayList<Dialouge> dialouge)
+	{
+		dialouge.get(0).setDialouge("Hi0");
+		dialouge.get(1).setDialouge("Hi1");
+		dialouge.get(2).setDialouge("Hi2");
+		dialouge.get(3).setDialouge("Hi3");
+		dialouge.get(4).setDialouge("Hi4");
+	}
+	public void setComedianDialouge(ArrayList<Dialouge> dialouge)
+	{
+		dialouge.get(0).setDialouge("Hello0");
+		dialouge.get(1).setDialouge("Hello1");
+		dialouge.get(2).setDialouge("Hello2");
+		dialouge.get(3).setDialouge("Hello3");
+		dialouge.get(4).setDialouge("Hello4");
 	}
 	public boolean villanFileExist()
 	{
@@ -70,57 +75,52 @@ public class Script
 		}
 		return comedianFile;
 	}
-	public void writeToVillanFile(File villanFile)
+	public void writeToFile(File file,ArrayList<Dialouge> dialougearray)
 	{
-		try
+		if(file.length()==0)
 		{
-			FileWriter fileWriter = new FileWriter(villanFile,false);
-			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-			for(Dialouge dial : villanDialouge)
+			try
 			{
-				 bufferedWriter.write(dial.getDialouge());
-				 bufferedWriter.newLine();
+				FileWriter fileWriter = new FileWriter(file,false);
+				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+				for(Dialouge dial : dialougearray)
+				{
+					if(dial.getDialouge()!=null)
+					{
+					 bufferedWriter.write(dial.getDialouge());
+					 bufferedWriter.newLine();
+					}
+			    }
+			    bufferedWriter.flush();
+			    bufferedWriter.close();
+			    
 		    }
-		    bufferedWriter.flush();
-		    bufferedWriter.close();
-		    
-	    }
-	    catch(Exception e)
-	    {
-	    	e.printStackTrace();
-	    }
-	}
-	public void writeToComedianFile(File comedianFile)
-	{
-		try
-		{
-			FileWriter fileWriter = new FileWriter(comedianFile,false);
-			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-			for(Dialouge dial : comedianDialouge)
-			{
-				 bufferedWriter.write(dial.getDialouge());
-				 bufferedWriter.newLine();
+		    catch(Exception e)
+		    {
+		    	e.printStackTrace();
 		    }
-		    bufferedWriter.flush();
-		    bufferedWriter.close();
-		    
 	    }
-	    catch(Exception e)
-	    {
-	    	e.printStackTrace();
-	    }	
 	}
 	public void readFromFile(File file)
 	{
+		ArrayList<Dialouge> test = new ArrayList<Dialouge>();
 		try
 		{
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String dia;
-			while((dia = bufferedReader.readLine()) != null)
+			for(int i=0;i<10;i++)
 			{
-				System.out.println(dia);
-			}
+			test.add(new Dialouge());
+		    }
+			for(Dialouge dial : test)
+			{
+				while((dia = bufferedReader.readLine()) != null)
+				{
+					dial.setDialouge(dia);
+					break;
+				}
+		    }
 	    }
 	    catch(Exception e)
 	    {
