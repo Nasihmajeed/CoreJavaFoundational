@@ -6,6 +6,9 @@ public class Movie
 	private String name;
     public ArrayList<Dialouge> vDialouge;
 	public ArrayList<Dialouge> cDialouge;
+	public ArrayList<Dialouge> sample = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> sample1 = new ArrayList<Dialouge>();
+
 	public Movie(String name)
 	{
 		this.name=name;
@@ -32,26 +35,26 @@ public class Movie
         script.writeToFile(villanFile,vDialouge);
         script.writeToFile(comedianFile,cDialouge);
 
-        vDialouge = script.clearArray(vDialouge);
-        cDialouge = script.clearArray(cDialouge);
+        //vDialouge = script.clearArray(vDialouge);
+        //cDialouge = script.clearArray(cDialouge);
 
-        vDialouge = script.readFromFile(villanFile,vDialouge);
-        cDialouge = script.readFromFile(comedianFile,cDialouge);
-        //script.print(vDialouge);
+        sample = script.readFromFile(villanFile,sample);
+        sample1 = script.readFromFile(comedianFile,sample1);
+      	
         //script.print(cDialouge);
         startConversation();
 	}
 
 	public void startConversation()
 	{
-		int x = (int)(Math.random()*vDialouge.size());
+		int x = (int)(Math.random()*sample.size());
 
-		for(int i=0;i<vDialouge.size();i++)
+		for(int i=0;i<sample.size();i++)
 		{
-			System.out.println(vDialouge.get(i).getDialouge());
-			System.out.println(cDialouge.get(i).getDialouge());
+			System.out.println(sample.get(i).getDialouge());
+			System.out.println(sample1.get(i).getDialouge());
 		}
-			System.out.println(vDialouge.size());
-			System.out.println(vDialouge.size());
+			//System.out.println(sample.size());
+			//System.out.println(sample1.size());
 	}
 }
