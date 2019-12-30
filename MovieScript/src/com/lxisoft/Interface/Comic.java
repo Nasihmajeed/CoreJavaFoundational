@@ -1,5 +1,5 @@
 package com.lxisoft.Interface;
-public interface Comedian
+public interface Comic
 {
 	
 }
