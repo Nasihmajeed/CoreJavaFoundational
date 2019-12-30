@@ -28,7 +28,5 @@ public  class Actor
 	public String getDialogues()	
 	{
 		return dialogue;
-	}
-	
-
+	}  
 }
