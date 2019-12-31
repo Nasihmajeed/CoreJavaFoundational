@@ -57,4 +57,8 @@ public class Movie
 			//System.out.println(sample.size());
 			//System.out.println(sample1.size());
 	}
+	public void selectActor()
+	{
+		
+	}
 }
