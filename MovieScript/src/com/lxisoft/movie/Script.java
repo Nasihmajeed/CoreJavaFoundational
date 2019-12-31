@@ -70,7 +70,6 @@ public class Script
 			    }
 			    bufferedWriter.flush();
 			    bufferedWriter.close();
-			    
 		    }
 		    catch(Exception e)
 		    {
