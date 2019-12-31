@@ -1,12 +1,13 @@
 package com.lxisoft.View;
 import com.lxisoft.Model.*;
-import com.lxisoft.Repository.FileRepository;
+import com.lxisoft.Repository.*;
 import java.util.Scanner;
 public class HotelView 
 {		
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
-	FileRepository filerepo=new FileRepository();
+	//FileRepository filerepo=new FileRepository();
+	//SqlRepository sqlrepo = new SqlRepository();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
@@ -30,8 +31,9 @@ public class HotelView
 		System.out.println("Biriyani price");
 		biriyani.setFoodPrice(sc.nextInt());	
 		mhotel.setFoodList(biriyani);
-		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+		// filerepo.addwriter(mhotel);
+		// filerepo.readFile();
+		//sqlrepo.createTable();
 	}
 	public int biriyaniId()
 	{
@@ -48,8 +50,9 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
-		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+
+		// filerepo.addwriter(mhotel);
+		// filerepo.readFile();
 	}		
 	public int dosaId()
 	{
@@ -66,8 +69,8 @@ public class HotelView
 		System.out.println("Shake price");
 		shake.setFoodPrice(sc.nextInt());				
 		mhotel.setFoodList(shake);	
-		filerepo.addwriter(mhotel);
-		filerepo.readFile();
+		// filerepo.addwriter(mhotel);
+		// filerepo.readFile();
 	}
 	public int shakeId()
 	{
@@ -97,8 +100,8 @@ public class HotelView
 		System.out.println("How much food you want to add");
 		stock.setQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
-		filerepo.addToStock(mhotel,stock);
-		filerepo.readToStock(mhotel);								
+		// filerepo.addToStock(mhotel,stock);
+		// filerepo.readToStock(mhotel);								
 	}
 	public void displayStock()
 	{	

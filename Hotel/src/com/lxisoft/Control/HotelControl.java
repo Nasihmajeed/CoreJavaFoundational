@@ -1,5 +1,6 @@
 package com.lxisoft.Control;
 import com.lxisoft.View.HotelView;
+import com.lxisoft.Repository.SqlRepository;
 public class HotelControl 
 {		
 	HotelView view=new HotelView();		
@@ -23,6 +24,8 @@ public class HotelControl
 	}
 	public void foodItem()
 	{
+		SqlRepository sqlrepo = new SqlRepository();
+		sqlrepo.createTable();
 		boolean check=false;
 		do	
 		{

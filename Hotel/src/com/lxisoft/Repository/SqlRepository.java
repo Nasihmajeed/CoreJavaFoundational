@@ -6,38 +6,39 @@ import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.*;
 public class SqlRepository
 {
-	Connection connection = null;
-	Statement statement = null;
+	Connection con = null;
+	PreparedStatement ps = null;
 	public void dataBaseConnectionEstablish()
 	{
-		if (connection == null)
+		if (con == null)
 		{
 			try
 			{
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodlist", "root", "root");
-				statement = connection.createStatement();
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hotel", "root", "root");						
 			}
 			catch (Exception e)
 			{
-				System.out.println(e);
+				System.out.println("eeeeeeeeeeeeeeeeee"+e);
 			}
 		}
 	}
-	public void dataToTable()
+	public void createTable()
 	{
 		try 
 		{
 			this.dataBaseConnectionEstablish();
-			String sql;
-			statement.execute("INSERT INTO foodlist(Id,FoodType,FoodPrice)"+ "VALUES(11,'cb',60)");
-			connection.close();
+			String qry;
+			qry="create table foodlist (Id int,Foodname varchar(15),Foodprice int)";
+			ps = con.prepareStatement(qry);
+			ps.execute();			     
+			con.close();
 		}
 		catch (SQLException e)
 		{			
 			e.printStackTrace();
 		}
-
+		
 	}
 
 }	
