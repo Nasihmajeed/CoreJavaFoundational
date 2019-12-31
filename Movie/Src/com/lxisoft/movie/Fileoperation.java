@@ -12,13 +12,13 @@ public class Fileoperation
         String line = "";
        try{
 	       	
-	          BufferedReader br = new BufferedReader(new FileReader(csvFile[randdialogue]));
-	          int i=0;
-	            while ((line = br.readLine()) != null)
-	            {
-	               String[] datas= line.split(","); 
-	              data[i++]=datas[0];
-	            }
+    	       BufferedReader br = new BufferedReader(new FileReader(csvFile[randdialogue]));
+    	       int i=0;
+	           while ((line = br.readLine()) != null)
+	           {
+    	           String[] datas= line.split(","); 
+    	           data[i++]=datas[0];
+	           }
            }
     		catch (FileNotFoundException e)
           	{
@@ -32,12 +32,12 @@ public class Fileoperation
 	}
 	public void writeIntoFile()
 	{
-        String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv"};
+        String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv","../version..2/com/lxisoft/movie/Dialogue.csv"};
         FileWriter fr = null;
         BufferedWriter br = null;
 
         Scanner scr=new Scanner(System.in);
-		System.out.println("select the actor \n 1 : Hero \n 2 : Villain \n 3 : Heroin \n 4 : Comedian");
+		System.out.println("select the actor \n 1 : Hero \n 2 : Comedian \n 3 : Villain \n 4 : Heroin \n 5 : Dialogue");
         int number=scr.nextInt();
 
 		System.out.println("No of dialogue");
@@ -46,11 +46,12 @@ public class Fileoperation
 		String[] dialogues=new String[noOfLines+1];
 		for (int i=0;i<noOfLines;i++) 
 		{
+            Scanner scr=new Scanner(System.in);
 			System.out.println("Dialogue :"+i);
-			 dialogues[i]=scr.next();
+			dialogues[i]=scr.nextLine();
+            System.out.println("");
 		}
 
-        System.out.println("");
 
         try{
             fr = new FileWriter(csvFile[--number],true);
@@ -60,6 +61,7 @@ public class Fileoperation
             {
             	System.out.println(dialogues[j]);
                 br.write(dialogues[j]+",");
+
             }
         } catch (IOException e) 
         {

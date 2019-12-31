@@ -1,16 +1,23 @@
 package com.lxisoft.test;
 import com.lxisoft.movie.Movie;
 import com.lxisoft.movie.Fileoperation;
+import java.util.Scanner;
 public class Tdd
 {
 	public static void main(String[] args) 
 	{
-		
-		System.out.println("\n");
+		Scanner scr=new Scanner(System.in);
 		Movie movie=new Movie();
-		movie.playScene();
-		Fileoperation fo=new Fileoperation();
-		fo.writeIntoFile();
+		
+		
+						System.out.println("\n");
+						movie.playScene();
+				
+						Fileoperation fo=new Fileoperation();
+						fo.writeIntoFile();
+				
+
+	
  			
 	}
 }
