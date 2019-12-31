@@ -19,7 +19,18 @@ public class Movie
 	public void fileCreation()
 	{
 		File villan=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanDialogue.txt");
-		File comedian=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianDialogue.txt");
+		File comedian=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianDialogue.txt");	
+		if(villan.exists())
+		{
+			System.out.println("file"+villan.getName()+"already exixts");
+		}
+		
+		if(comedian.exists())
+		{
+			System.out.println("file"+comedian.getName()+"already exixts");
+		
+		}
+	
 		script.comedianDialogue();
 		script.villanDialogue();
 		script.writeToFile(villan,script.villan);
@@ -34,6 +45,10 @@ public class Movie
 		{
 			System.out.println(d2.dialogue);
 		}
+
+	}
+	public void ifExists()
+	{
 
 	}
 
