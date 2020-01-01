@@ -7,6 +7,7 @@ public class Movie
 	String director = "christopher nolan";
 	String producer = "warner bros";
 	Script script=new Script();
+	public ArrayList<Actor> actor=new ArrayList<Actor>();
 
 	public void display()
 	{
@@ -14,6 +15,7 @@ public class Movie
 		System.out.println("**************************************");
 		System.out.println("scene no 1\n-----------");
 		fileCreation();
+		conversation();
 		
 	}
 	public void fileCreation()
@@ -33,8 +35,8 @@ public class Movie
 	
 		script.comedianDialogue();
 		script.villanDialogue();
-		script.writeToFile(villan,script.villan);
-		script.writeToFile(comedian,script.comedian);
+		script.writeToFile(villan,script.v.villan);
+		script.writeToFile(comedian,script.c.comedian);
 		ArrayList<Dialogue> readArray1= script.readFromFile(villan);
 		ArrayList<Dialogue> readArray2= script.readFromFile(comedian);
 		for(Dialogue d1: readArray1)
@@ -47,9 +49,19 @@ public class Movie
 		}
 
 	}
-	public void ifExists()
+	public void conversation()
 	{
+		int size1=(script.c.comedian.size());
+		int size2=(script.v.villan.size());
+		for (int i=0;i<size1;i++)
+		{
+			actor.add(new Comedian());
+		}
+		for (int i=0;i<size2;i++)
+		{
+			actor.add(new Villan());
+		}
+		
 
 	}
-
 }

@@ -4,27 +4,27 @@ import java.io.*;
 public class Script 
 {
 	String scriptWriter = "christopher nolan";
-	public ArrayList<Dialogue>comedian= new ArrayList<Dialogue>();
-	public ArrayList<Dialogue>villan= new ArrayList<Dialogue>();
+	Comedian c=new Comedian();
+	Villan v=new Villan();
 	public void comedianDialogue()
 	{
 		for(int i=0;i<3;i++)
 		{
-			comedian.add(new Dialogue());
+			c.comedian.add(new Dialogue());
 		}
-		comedian.get(0).dialogue="hello";
-		comedian.get(1).dialogue="whats your role in this movie ?";
-		comedian.get(2).dialogue="i am the comedian ";
+		c.comedian.get(0).dialogue="hello";
+		c.comedian.get(1).dialogue="whats your role in this movie ?";
+		c.comedian.get(2).dialogue="i am the comedian ";
 	}
 	public void villanDialogue()
 	{
 		for(int i=0;i<3;i++)
 		{
-			villan.add(new Dialogue());
+			v.villan.add(new Dialogue());
 		}
-		villan.get(0).dialogue="hai..";
-		villan.get(1).dialogue="i am the villan ";
-		villan.get(2).dialogue="whats your role in the movie ?";
+		v.villan.get(0).dialogue="hai..";
+		v.villan.get(1).dialogue="i am the villan ";
+		v.villan.get(2).dialogue="whats your role in the movie ?";
 	}
 	public void writeToFile(File file,ArrayList<Dialogue>dialogueArray)
 	{
