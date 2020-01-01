@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import com.lxisoft.Interface.*;
 import java.util.*;
 import java.io.*;
 public class Movie 
@@ -35,30 +36,39 @@ public class Movie
         script.writeToFile(villanFile,vDialouge);
         script.writeToFile(comedianFile,cDialouge);
 
-        //vDialouge = script.clearArray(vDialouge);
-        //cDialouge = script.clearArray(cDialouge);
-
         sample = script.readFromFile(villanFile,sample);
         sample1 = script.readFromFile(comedianFile,sample1);
-      	
-        //script.print(cDialouge);
-        startConversation();
+      
+        selectActor(sample,sample1);
 	}
 
-	public void startConversation()
+	public void startConversation(ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
 	{
-		int x = (int)(Math.random()*sample.size());
-
-		for(int i=0;i<sample.size();i++)
+		for(int i=0;i<vDialouge.size();i++)
 		{
-			System.out.println(sample.get(i).getDialouge());
-			System.out.println(sample1.get(i).getDialouge());
+			//if(vDialouge.get(i).getDialouge()!=null && cDialouge.get(i).getDialouge()!=null)
+			//{
+				System.out.println(vDialouge.get(i).getDialouge());
+				System.out.println(cDialouge.get(i).getDialouge());
+		    //}
 		}
-			//System.out.println(sample.size());
-			//System.out.println(sample1.size());
 	}
-	public void selectActor()
+	public void selectActor(ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
 	{
-		
+		ArrayList<Actors> actors = new ArrayList<Actors>();
+		actors.add(new Villan());
+		actors.add(new Comedian());
+
+		int x = (int)(Math.random()*actors.size());
+		int y = (int)(Math.random()*sample.size());
+
+		if(actors.get(x) instanceof Comic)
+		{
+			startConversation(sample1,sample);
+		}
+		else if(actors.get(x) instanceof Villanic)
+		{
+			startConversation(sample,sample1);	
+		}
 	}
 }
