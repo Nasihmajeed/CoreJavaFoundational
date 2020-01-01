@@ -28,7 +28,7 @@ public class SqlRepository
 	{
 		try 
 		{
-			this.dataBaseConnectionEstablish();
+			dataBaseConnectionEstablish();
 			String qry;
 			qry="create table foodlist (Id int,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
@@ -49,11 +49,61 @@ public class SqlRepository
 			sql="insert into foodlist(Id,Foodname,Foodprice) values(101,'cb',45)";
 			ps = con.prepareStatement(sql);
 			ps.execute();
-			con.close();
+			//con.close();
 		}
 		catch (Exception e)
 		{
 			System.out.println("qqqqqqqqq"+e);
+			e.printStackTrace();
 		}
 	}
+	public void deleteQuery()
+	{
+		try
+		{
+			dataBaseConnectionEstablish();
+			String sq;
+			sq = "delete from foodlist where Id=101";
+			ps = con.prepareStatement(sq);
+			ps.execute();
+		}
+		catch (Exception e)
+		{
+			System.out.println("ddddddddddddd"+e);
+		}
+	}
+	public void alterQuery()
+	{
+		try
+		{
+			dataBaseConnectionEstablish();
+			String sq;
+			sq = "alter table foodlist add itemquantity int";
+			ps = con.prepareStatement(sq);
+			ps.execute();
+		}
+		catch (Exception e)
+		{
+			System.out.println("aaaaa"+e);
+		}
+
+	}
+	public void displayQuery()
+	{
+		try
+		{
+			dataBaseConnectionEstablish();
+			String q;
+			q=("select * from foodlist");
+			ps = con.prepareStatement(q);
+			ps.execute();
+			con.close();
+		}
+		catch(SQLException e)
+		{
+			System.out.println("uuuuuuuu"+e);
+			e.printStackTrace();
+		}
+	}
+
 }	
