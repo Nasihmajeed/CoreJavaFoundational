@@ -46,9 +46,8 @@ public class Fileoperation
 		String[] dialogues=new String[noOfLines+1];
 		for (int i=0;i<noOfLines;i++) 
 		{
-            Scanner scr=new Scanner(System.in);
 			System.out.println("Dialogue :"+i);
-			dialogues[i]=scr.nextLine();
+			dialogues[i]=scr.next();
             System.out.println("");
 		}
 
