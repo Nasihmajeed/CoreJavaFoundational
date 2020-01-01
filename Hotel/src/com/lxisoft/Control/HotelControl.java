@@ -14,10 +14,10 @@ public class HotelControl
 			switch (m)
 			{
 				case 1:	foodItem();	test=true;break;				
-				case 2: addStock();test=true;  break;
-				case 3: view.displayFood();test=true; break;	
+				case 2: addStock(); test=true;  break;
+				case 3: view.displayFood(); test=true; break;	
 				case 4: view.displayStock(); test=true; break;
-				case 5: billPrint();test=true;  break;
+				case 5: billPrint(); test=true;  break;
 				case 6: System.exit(0); break;	
 			}
 		}while(test);			
@@ -26,6 +26,7 @@ public class HotelControl
 	{
 		SqlRepository sqlrepo = new SqlRepository();
 		sqlrepo.createTable();
+		sqlrepo.insertQuery();
 		boolean check=false;
 		do	
 		{

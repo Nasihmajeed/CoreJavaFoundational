@@ -3,9 +3,7 @@ import java.util.*;
 import java.io.*;
 import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.HotelControl;
-import com.lxisoft.Model.HotelModel;
-import com.lxisoft.Model.FoodModel;
-import com.lxisoft.Model.StockModel;
+import com.lxisoft.Model.*;
 public class FileRepository
 {
 	File file=new File("D:\\file.csv");
