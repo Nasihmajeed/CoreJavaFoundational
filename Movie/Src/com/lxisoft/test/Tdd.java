@@ -7,39 +7,43 @@ public class Tdd
 	public static void main(String[] args) 
 	{
 		Scanner scr=new Scanner(System.in);
-		System.out.println("1 : Play movie \n2 : write dialogue");
-		int num=scr.nextInt();
 		
 		
-		Movie movie=new Movie();
+		boolean flag=true;
 		
-		System.out.println("you want write Character dialogue y / n");
-		char ltr=scr.next().charAt(0); 
 		do{
 
-
+   			System.out.println("1 : Play movie \n2 : write dialogue\n3.exit\nEnter your choice:");
+   			int num=scr.nextInt();
 			switch(num)
 			{
 				case 1:
-						System.out.println("\n");
-						movie.playScene();
-
-						break;
+						try
+						{
+							Movie movie=new Movie();						
+							movie.playScene();						
+							
+						}
+						catch(ArrayIndexOutOfBoundsException e)
+						{
+							System.out.println("invalid number");
+							System.out.println("\n");
+							break;
+						}
+						
 			
 				case 2:
 
 						Fileoperation fo=new Fileoperation();
-						fo.writeIntoFile();
-						
+						fo.writeIntoFile();						
 						break;
+				case 3:
+						flag=false;break;
+
+
 			}
-						System.out.println("you want write dialogue y / n");
-						char lr=scr.next().charAt(0);
-						if(lr=='n')
-						{
-							break;
-						}
-		}while(ltr=='y');
+						
+		}while(flag);
 				
 
 	

@@ -8,7 +8,7 @@ public class Movie
 	Director director;
 	Scriptwriter scriptwriter;
 
-	public void playScene()
+	public void playScene()throws ArrayIndexOutOfBoundsException
 	{
 		director=new Director();
 		scriptwriter=new Scriptwriter();	

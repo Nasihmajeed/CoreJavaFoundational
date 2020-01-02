@@ -21,7 +21,7 @@ public class Director
 		return directionControl;
 	}
 	
-	public void setCastActor()
+	public void setCastActor()throws ArrayIndexOutOfBoundsException
 	{	
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter number of Actor :");
