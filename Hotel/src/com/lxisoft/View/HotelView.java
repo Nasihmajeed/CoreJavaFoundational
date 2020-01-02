@@ -33,7 +33,6 @@ public class HotelView
 		mhotel.setFoodList(biriyani);
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
-		//sqlrepo.createTable();
 	}
 	public int biriyaniId()
 	{
@@ -50,7 +49,6 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
-
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
 	}		

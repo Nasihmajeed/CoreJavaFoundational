@@ -46,7 +46,7 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String sql;
-			sql="insert into foodlist(Id,Foodname,Foodprice) values(101,'cb',45)";
+			sql="insert into foodlist(Id,Foodname,Foodprice) values(11,'mb',45)";
 			ps = con.prepareStatement(sql);
 			ps.execute();
 			//con.close();
@@ -86,17 +86,27 @@ public class SqlRepository
 		{
 			System.out.println("aaaaa"+e);
 		}
-
 	}
-	public void displayQuery()
+	public void displayAll()
 	{
 		try
 		{
 			dataBaseConnectionEstablish();
 			String q;
 			q=("select * from foodlist");
-			ps = con.prepareStatement(q);
-			ps.execute();
+			ResultSet rs = ps.executeQuery(q);
+			if(rs.next())
+			{ 
+				do
+				{
+					System.out.print(rs.getInt(1));
+					System.out.print( rs.getString(2));
+					System.out.print( rs.getInt(3));
+				}while(rs.next());
+			}
+			else{
+				System.out.println("Not Found...");
+			}
 			con.close();
 		}
 		catch(SQLException e)
@@ -105,5 +115,5 @@ public class SqlRepository
 			e.printStackTrace();
 		}
 	}
-
+		
 }	

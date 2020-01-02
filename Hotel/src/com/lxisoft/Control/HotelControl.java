@@ -27,7 +27,7 @@ public class HotelControl
 		SqlRepository sqlrepo = new SqlRepository();
 		sqlrepo.createTable();
 		sqlrepo.insertQuery();
-		sqlrepo.displayQuery();
+		sqlrepo.displayAll();
 		boolean check=false;
 		do	
 		{
