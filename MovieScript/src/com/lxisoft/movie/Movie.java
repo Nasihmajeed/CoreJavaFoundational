@@ -4,37 +4,105 @@ import java.util.*;
 import java.io.*;
 public class Movie 
 {
+	public static Scanner scanner = new Scanner(System.in); 
 	private String name;
     public ArrayList<Dialouge> vDialouge;
 	public ArrayList<Dialouge> cDialouge;
 	public ArrayList<Dialouge> sample = new ArrayList<Dialouge>();
 	public ArrayList<Dialouge> sample1 = new ArrayList<Dialouge>();
-
+	Script script = new Script();
+	File villanFile = new File("villanDialouge.txt");
+	File comedianFile = new File("comedianFile.txt");
 	public Movie(String name)
 	{
 		this.name=name;
 	}
-	public void coversation()
+	public void startMovie()
 	{
-		File villanFile = new File("villanDialouge.txt");
-	    File comedianFile = new File("comedianFile.txt");
+		try
+		{
+			boolean isTrue = true;
+			do 
+			{
+				System.out.println("Press ==> 1.Start Movie  2.Add Dialouge");
+			    int x = scanner.nextInt();
+				isTrue = true;
+				switch(x)
+				{
+				case 1:
+				   startCoversation();
+				   isTrue = false;
+				   break;
+				case 2:
+				   addDialougeToFile();
+				   break;
+				default :
+				   System.out.println("!!! Select Options From Above !!!");
+				   break;
+				}
+		    }while(isTrue);
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	}
+	public void addDialougeToFile()
+	{
+		try
+		{
+			boolean isTrue = true,villanFileExists = false,comedianFileExists = false;
+			do 
+			{
+		        System.out.println("press ==> 1.Add to villian File 2.Add to Comedian File 3.Back");
+			    int x = scanner.nextInt();
+				isTrue = true;
+				switch(x)
+				{
+				case 1:
+				   villanFileExists = script.fileExist(villanFile);
+				   villanFile = script.createFile(villanFileExists,villanFile);
+				   script.writeToFile(villanFile,scanner,script.villanDialouge);
+				   break;
+				case 2:
+				   comedianFileExists = script.fileExist(comedianFile);
+				   comedianFile = script.createFile(comedianFileExists,comedianFile);
+				   script.writeToFile(comedianFile,scanner,script.comedianDialouge);
+				   break;
+				case 3:
+					isTrue = false;
+					break;
+				default :
+				   System.out.println("!!! Select Options From Above !!!");
+				   break;
+				}
+		    }while(isTrue);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void startCoversation()
+	{
+		
 		boolean villanExists,comedianExists;
-		Script script = new Script();
+		
 
-		vDialouge = script.setArray(script.villanDialouge);
-		cDialouge = script.setArray(script.comedianDialouge);
+		//vDialouge = script.setArray(script.villanDialouge);
+		//cDialouge = script.setArray(script.comedianDialouge);
 
-        script.setVillanDialouge(vDialouge);
-        script.setComedianDialouge(cDialouge);
+        //script.setVillanDialouge(vDialouge);
+        //script.setComedianDialouge(cDialouge);
 
-        villanExists = script.fileExist(villanFile);
-        comedianExists = script.fileExist(comedianFile);
+        //villanExists = script.fileExist(villanFile);
+        //comedianExists = script.fileExist(comedianFile);
 
-        villanFile = script.createFile(villanExists,villanFile);
-        comedianFile = script.createFile(comedianExists,comedianFile);
+        //villanFile = script.createFile(villanExists,villanFile);
+        //comedianFile = script.createFile(comedianExists,comedianFile);
 
-        script.writeToFile(villanFile,vDialouge);
-        script.writeToFile(comedianFile,cDialouge);
+        //script.writeToFile(villanFile,vDialouge);
+        //script.writeToFile(comedianFile,cDialouge);
 
         sample = script.readFromFile(villanFile,sample);
         sample1 = script.readFromFile(comedianFile,sample1);

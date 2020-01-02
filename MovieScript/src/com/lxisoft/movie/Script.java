@@ -52,29 +52,47 @@ public class Script
 		}
 		return file;
 	}
-	public void writeToFile(File file,ArrayList<Dialouge> dialougeArray)
+	public void writeToFile(File file,Scanner scanner,ArrayList<Dialouge> dialougeArray)
 	{
-		if(file.length()==0)
+		try
 		{
-			try
+			ArrayList<Dialouge> dialouge;
+			boolean isTrue = false;
+			FileWriter fileWriter = new FileWriter(file,true);
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+			do
 			{
-				FileWriter fileWriter = new FileWriter(file,false);
-				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-				for(Dialouge dial : dialougeArray)
-				{
-					if(dial.getDialouge()!=null)
-					{
-					 bufferedWriter.write(dial.getDialouge());
-					 bufferedWriter.newLine();
-					}
-			    }
-			    bufferedWriter.flush();
-			    bufferedWriter.close();
-		    }
-		    catch(Exception e)
-		    {
-		    	e.printStackTrace();
-		    }
+			isTrue = false;
+			System.out.println("Press ==> 1.Add Dialouge 2.Read Dialouge 3.Back");
+			int x = scanner.nextInt();
+			switch(x)
+			{
+				case 1:
+					System.out.println("Enter Dialouge");
+					String dialogue = scanner.next();
+					bufferedWriter.write(dialogue);
+				    bufferedWriter.flush();
+				    bufferedWriter.newLine();
+				    isTrue = true;
+				    break;
+				case 2:
+					dialouge = readFromFile(file,dialougeArray);
+					print(dialouge);
+					//clearArray(dialouge);
+					isTrue = true;
+					break;
+				case 3:
+				    bufferedWriter.close();
+					break;
+				default :
+					System.out.println("!!! Select Options From Above !!!");
+					break;
+			}
+		    }while(isTrue);
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
 	    }
 	}
 	public ArrayList<Dialouge> readFromFile(File file,ArrayList<Dialouge> dialougeArray)
@@ -103,13 +121,13 @@ public class Script
 	    }
 	    return dialougeArray;
 	}
-	public ArrayList<Dialouge> clearArray(ArrayList<Dialouge> dialouge)
+	public void clearArray(ArrayList<Dialouge> dialouge)
 	{
+		
 		for(int i=0;i<dialouge.size();i++)
 		{
 			dialouge.remove(i);
 		}
-		return dialouge;
 	}
 	public void print(ArrayList<Dialouge> dialouge)
 	{
