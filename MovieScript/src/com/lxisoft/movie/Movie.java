@@ -45,6 +45,7 @@ public class Movie
 	{
 		try
 		{
+			int k=0;
 			ArrayList<Actors> actors = new ArrayList<Actors>();
 			actors.add(new Villan());
 			actors.add(new Comedian());
@@ -56,13 +57,13 @@ public class Movie
 
 				if(actors.get(x) instanceof Comic)
 				{
-					checkQuestion(actors.get(x),cDialouge,vDialouge);
+					checkQuestion(k,actors.get(x),cDialouge,vDialouge);
 					c++;
 					exists = conversationexeed(c,exists);
 				}
 				else if(actors.get(x) instanceof Villanic)
 				{
-					checkQuestion(actors.get(x),cDialouge,vDialouge);
+					checkQuestion(k,actors.get(x),cDialouge,vDialouge);
 					c++;
 					exists = conversationexeed(c,exists);
 				}
@@ -93,35 +94,63 @@ public class Movie
 	// 		e.printStackTrace();
 	// 	}
 	// }
-	public void checkQuestion(Actors actor,ArrayList<Dialouge> cDialouge,ArrayList<Dialouge> vDialouge)
+	public void checkQuestion(int k,Actors actor,ArrayList<Dialouge> cDialouge,ArrayList<Dialouge> vDialouge)
 	{
+		//int k =0;
 		ArrayList<Integer> cqus = new ArrayList<Integer>();
 		ArrayList<Integer> vqus = new ArrayList<Integer>();
 		int y = (int)(Math.random()*5);
+		boolean bool = true,bool1 = true;
+
 		if(actor instanceof Comic)
 		{
-			for(int i=0;i<cqus.size();i++)
+
+			for(int i=0;i<=cqus.size();i++)
 			{
-				if(!cqus.equals(y))
+				if(cqus.equals(y))
 				{
-					cqus.add(y);
-					System.out.println(cDialouge.get(y).getDialouge());
-					System.out.println(vDialouge.get(y+5).getDialouge());
+					bool = false;
+					// cqus.add(y);
+					// System.out.println(cDialouge.get(y).getDialouge());
+					// System.out.println(vDialouge.get(y+5).getDialouge());
+					break;
 				}
+		    }
+		    if(bool)
+		    {
+		    	cqus.add(y);
+			    System.out.println(cDialouge.get(y).getDialouge());
+			    System.out.println(vDialouge.get(y+5).getDialouge());
 		    }
 		}
 		if(actor instanceof Villanic)
 		{
-			for(int i=0;i<vqus.size();i++)
+			for(int j=0;j<=vqus.size();j++)
 			{
-				if(!cqus.equals(y))
+				if(vqus.equals(y))
 				{
-					vqus.add(y);
-					System.out.println(vDialouge.get(y).getDialouge());
-					System.out.println(cDialouge.get(y+5).getDialouge());	
+					bool1=false;
+					System.out.println("Asked Villan Question : "+vqus.get(k));
+					//vqus.add(y);
+					//System.out.println(vDialouge.get(y).getDialouge());
+					//System.out.println(cDialouge.get(y+5).getDialouge());
+					break;
 				}
 		    }
+		    if(bool1)
+		    {
+	    	    vqus.add(y);
+	    	    System.out.println("Villan Question : "+vqus.get(k));
+	    	    k++;
+				System.out.println(vDialouge.get(y).getDialouge());
+				System.out.println(cDialouge.get(y+5).getDialouge());
+		    }
 		}
+		//for(int i=0;i<vqus.size();i++)
+		//{
+			
+			//System.out.println("Comedian Question : "+cqus.get(i));
+		//}
 	}
 	public boolean conversationexeed(int x,boolean exists)
 	{
