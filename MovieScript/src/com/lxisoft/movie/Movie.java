@@ -15,7 +15,7 @@ public class Movie
 		System.out.println("**************************************");
 		System.out.println("scene no 1\n-----------");
 		fileCreation();
-		conversation();
+		
 		
 	}
 	public void fileCreation()
@@ -24,12 +24,12 @@ public class Movie
 		File comedian=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianDialogue.txt");	
 		if(villan.exists())
 		{
-			System.out.println("file"+villan.getName()+"already exixts");
+			System.out.println("file"+villan.getName()+" already exixts");
 		}
 		
 		if(comedian.exists())
 		{
-			System.out.println("file"+comedian.getName()+"already exixts");
+			System.out.println("file"+comedian.getName()+" already exixts");
 		
 		}
 	
@@ -37,22 +37,13 @@ public class Movie
 		script.villanDialogue();
 		script.writeToFile(villan,script.v.villan);
 		script.writeToFile(comedian,script.c.comedian);
-		ArrayList<Dialogue> readArray1= script.readFromFile(villan);
-		ArrayList<Dialogue> readArray2= script.readFromFile(comedian);
-		for(Dialogue d1: readArray1)
-		{
-			System.out.println(d1.dialogue);
-		}
-		for(Dialogue d2: readArray2)
-		{
-			System.out.println(d2.dialogue);
-		}
-
+		conversation(villan,comedian);
 	}
-	public void conversation()
+	public void conversation(File a,File b)
 	{
 		int size1=(script.c.comedian.size());
 		int size2=(script.v.villan.size());
+		int size3=(script.c.comedian.size())+(script.v.villan.size());
 		for (int i=0;i<size1;i++)
 		{
 			actor.add(new Comedian());
@@ -61,7 +52,24 @@ public class Movie
 		{
 			actor.add(new Villan());
 		}
-		
+		ArrayList<Dialogue> readArray1= script.readFromFile(b);
+		ArrayList<Dialogue> readArray2= script.readFromFile(a);
+		for (int i=0;i<size3;i++)
+		{
 
-	}
+		int random1=(int) (Math.random()*actor.size());
+		if(actor.get(random1)instanceof Comedy)
+		{
+			
+			int comedianRandom=(int) (Math.random()*readArray1.size());
+			System.out.println("comedian : "+readArray1.get(comedianRandom).dialogue);
+		}
+		else if(actor.get(random1)instanceof Villanism)
+		{
+			int villanRandom=(int) (Math.random()*readArray2.size());
+			System.out.println("villan : "+readArray2.get(villanRandom).dialogue);
+		
+		}
+
+	}}
 }
