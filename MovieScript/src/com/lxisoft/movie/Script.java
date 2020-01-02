@@ -24,10 +24,12 @@ public class Script
 		}
 		v.villan.get(0).dialogue="hai..";
 		v.villan.get(1).dialogue="i am the villan ";
-		v.villan.get(2).dialogue="whats your role in the movie ?";
+		v.villan.get(2).dialogue="whats your role in this movie";
 	}
 	public void writeToFile(File file,ArrayList<Dialogue>dialogueArray)
 	{
+		if(file.length()==0)
+		{
 		try{
 		FileWriter fw =new FileWriter(file,false);
 		BufferedWriter bw =new BufferedWriter(fw);
@@ -43,7 +45,7 @@ public class Script
 	{
 		e.printStackTrace();
 	}
-	}
+	}}
 	public ArrayList<Dialogue> readFromFile(File file)
 	{
 		ArrayList<Dialogue> readDialogue=new ArrayList<Dialogue>();
