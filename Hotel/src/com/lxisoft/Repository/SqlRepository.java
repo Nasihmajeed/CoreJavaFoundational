@@ -30,10 +30,9 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table foodlist (Id int,Foodname varchar(15),Foodprice int)";
+			qry="create table if not exists foodlist (Id int,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
-			//con.close();
 		}
 		catch (SQLException e)
 		{			
@@ -57,36 +56,36 @@ public class SqlRepository
 			e.printStackTrace();
 		}
 	}
-	public void deleteQuery()
-	{
-		try
-		{
-			dataBaseConnectionEstablish();
-			String sq;
-			sq = "delete from foodlist where Id=101";
-			ps = con.prepareStatement(sq);
-			ps.execute();
-		}
-		catch (Exception e)
-		{
-			System.out.println("ddddddddddddd"+e);
-		}
-	}
-	public void alterQuery()
-	{
-		try
-		{
-			dataBaseConnectionEstablish();
-			String sq;
-			sq = "alter table foodlist add itemquantity int";
-			ps = con.prepareStatement(sq);
-			ps.execute();
-		}
-		catch (Exception e)
-		{
-			System.out.println("aaaaa"+e);
-		}
-	}
+	// public void deleteQuery()
+	// {
+	// 	try
+	// 	{
+	// 		dataBaseConnectionEstablish();
+	// 		String sq;
+	// 		sq = "delete from foodlist where Id=101";
+	// 		ps = con.prepareStatement(sq);
+	// 		ps.execute();
+	// 	}
+	// 	catch (Exception e)
+	// 	{
+	// 		System.out.println("ddddddddddddd"+e);
+	// 	}
+	// }
+	// public void alterQuery()
+	// {
+	// 	try
+	// 	{
+	// 		dataBaseConnectionEstablish();
+	// 		String sq;
+	// 		sq = "alter table foodlist add itemquantity int";
+	// 		ps = con.prepareStatement(sq);
+	// 		ps.execute();
+	// 	}
+	// 	catch (Exception e)
+	// 	{
+	// 		System.out.println("aaaaa"+e);
+	// 	}
+	// }
 	public void displayAll()
 	{
 		try

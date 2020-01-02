@@ -24,10 +24,10 @@ public class HotelControl
 	}
 	public void foodItem()
 	{
-		SqlRepository sqlrepo = new SqlRepository();
-		sqlrepo.createTable();
-		sqlrepo.insertQuery();
-		sqlrepo.displayAll();
+		// SqlRepository sqlrepo = new SqlRepository();
+		// sqlrepo.createTable();
+		// sqlrepo.insertQuery();
+		// sqlrepo.displayAll();
 		boolean check=false;
 		do	
 		{

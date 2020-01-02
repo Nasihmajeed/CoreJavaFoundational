@@ -7,7 +7,7 @@ public class HotelView
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
 	//FileRepository filerepo=new FileRepository();
-	//SqlRepository sqlrepo = new SqlRepository();
+	SqlRepository sqlrepo = new SqlRepository();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
@@ -19,6 +19,7 @@ public class HotelView
 		System.out.println("\nSelect food");
 		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
 		int item=sc.nextInt();
+		//sqlrepo.createTable();
 		return item;
 	}	
 	public void addBiriyani()
@@ -31,6 +32,7 @@ public class HotelView
 		System.out.println("Biriyani price");
 		biriyani.setFoodPrice(sc.nextInt());	
 		mhotel.setFoodList(biriyani);
+	//	sqlrepo.insertQuery();
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
 	}
@@ -49,6 +51,7 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
+	 //	sqlrepo.insertQuery();
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
 	}		
