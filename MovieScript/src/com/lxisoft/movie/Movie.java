@@ -41,34 +41,105 @@ public class Movie
       
         selectActor(sample,sample1);
 	}
-
-	public void startConversation(ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
-	{
-		for(int i=0;i<vDialouge.size();i++)
-		{
-			//if(vDialouge.get(i).getDialouge()!=null && cDialouge.get(i).getDialouge()!=null)
-			//{
-				System.out.println(vDialouge.get(i).getDialouge());
-				System.out.println(cDialouge.get(i).getDialouge());
-		    //}
-		}
-	}
 	public void selectActor(ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
 	{
-		ArrayList<Actors> actors = new ArrayList<Actors>();
-		actors.add(new Villan());
-		actors.add(new Comedian());
-
-		int x = (int)(Math.random()*actors.size());
-		int y = (int)(Math.random()*sample.size());
-
-		if(actors.get(x) instanceof Comic)
+		try
 		{
-			startConversation(sample1,sample);
-		}
-		else if(actors.get(x) instanceof Villanic)
+			ArrayList<Actors> actors = new ArrayList<Actors>();
+			actors.add(new Villan());
+			actors.add(new Comedian());
+			int c =0;
+			boolean exists=false;
+			do
+			{
+			 int x = (int)(Math.random()*actors.size());
+
+				if(actors.get(x) instanceof Comic)
+				{
+					checkQuestion(actors.get(x),cDialouge,vDialouge);
+					c++;
+					exists = conversationexeed(c,exists);
+				}
+				else if(actors.get(x) instanceof Villanic)
+				{
+					checkQuestion(actors.get(x),cDialouge,vDialouge);
+					c++;
+					exists = conversationexeed(c,exists);
+				}
+		    }while(exists);
+	   }
+	   catch(Exception e)
+	   {
+	   	e.printStackTrace();
+	   }
+	}
+	// public void startConversation(Actors actor,ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
+	// {
+	// 	try
+	// 	{
+	// 		int y = (int)(Math.random()*5);
+
+	// 		if(actor instanceof Comic)
+	// 		{
+				
+	// 		}
+	// 		else if(actor instanceof Villanic)
+	// 		{
+				
+	// 		}
+	//     }
+	// 	catch(Exception e)
+	// 	{
+	// 		e.printStackTrace();
+	// 	}
+	// }
+	public void checkQuestion(Actors actor,ArrayList<Dialouge> cDialouge,ArrayList<Dialouge> vDialouge)
+	{
+		ArrayList<Integer> cqus = new ArrayList<Integer>();
+		ArrayList<Integer> vqus = new ArrayList<Integer>();
+		int y = (int)(Math.random()*5);
+		if(actor instanceof Comic)
 		{
-			startConversation(sample,sample1);	
+			for(int i=0;i<cqus.size();i++)
+			{
+				if(!cqus.equals(y))
+				{
+					cqus.add(y);
+					System.out.println(cDialouge.get(y).getDialouge());
+					System.out.println(vDialouge.get(y+5).getDialouge());
+				}
+		    }
 		}
+		if(actor instanceof Villanic)
+		{
+			for(int i=0;i<vqus.size();i++)
+			{
+				if(!cqus.equals(y))
+				{
+					vqus.add(y);
+					System.out.println(vDialouge.get(y).getDialouge());
+					System.out.println(cDialouge.get(y+5).getDialouge());	
+				}
+		    }
+		}
+	}
+	public boolean conversationexeed(int x,boolean exists)
+	{
+		try
+		{
+			if(x==9)
+			{
+				exists = false;
+			}
+			else if(x<10)
+			{
+				exists = true;
+			}
+	    }
+	    catch (Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	    return exists;
 	}
 }
