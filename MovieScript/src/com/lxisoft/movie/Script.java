@@ -4,12 +4,18 @@ import java.util.*;
 import java.io.*;
 public class Script
 {
-	public ArrayList<Dialouge> villanDialouge = new ArrayList<Dialouge>();
-	public ArrayList<Dialouge> comedianDialouge = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> villanQuestion = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianQuestion = new ArrayList<Dialouge>();
+
+	public ArrayList<Dialouge> villanAnswer = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianAnswer = new ArrayList<Dialouge>();
+
+	public ArrayList<Dialouge> villanCommonDialouge = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianCommonDialouge = new ArrayList<Dialouge>();
 
 	public ArrayList<Dialouge> setArray(ArrayList<Dialouge> dialouge)
 	{
-		for(int i=0;i<5;i++)
+		for(int i=0;i<4;i++)
 		{
 			dialouge.add(new Dialouge());
 		}
@@ -17,19 +23,79 @@ public class Script
 	}
 	public void setVillanDialouge(ArrayList<Dialouge> dialouge)
 	{
-		dialouge.get(0).setDialouge("Hi0");
-		dialouge.get(1).setDialouge("Hi1");
-		dialouge.get(2).setDialouge("Hi2");
-		dialouge.get(3).setDialouge("Hi3");
-		dialouge.get(4).setDialouge("Hi4");
+		dialouge.get(0).setDialouge("Hello");
+		dialouge.get(1).setDialouge("Who are You ?");
+		dialouge.get(2).setDialouge("Hi");
+		dialouge.get(3).setDialouge("Iam Villan");
 	}
 	public void setComedianDialouge(ArrayList<Dialouge> dialouge)
 	{
-		dialouge.get(0).setDialouge("Hello0");
-		dialouge.get(1).setDialouge("Hello1");
-		dialouge.get(2).setDialouge("Hello2");
-		dialouge.get(3).setDialouge("Hello3");
-		dialouge.get(4).setDialouge("Hello4");
+		dialouge.get(0).setDialouge("Hello");
+		dialouge.get(1).setDialouge("Who are you ?");
+		dialouge.get(2).setDialouge("Hi");
+		dialouge.get(3).setDialouge("Iam Comedian");
+	}
+	public void commonConversation(Actors actor,ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
+	{
+		setArray(vDialouge);
+		setArray(cDialouge);
+		setVillanDialouge(vDialouge);
+		setComedianDialouge(cDialouge);
+		if(actor instanceof Villan)
+		{
+			for(int i=0;i<vDialouge.size()-2;i++)
+			{
+				System.out.println("Villan : "+vDialouge.get(i).getDialouge());
+				System.out.println("Comedian : "+cDialouge.get(i+2).getDialouge());
+			}
+	    }
+	    else if(actor instanceof Comedian)
+	    {
+	    	for(int i=0;i<cDialouge.size()-2;i++)
+			{
+				System.out.println("Comedian : "+cDialouge.get(i).getDialouge());
+				System.out.println("Villan : "+vDialouge.get(i+2).getDialouge());
+			}	
+	    }
+	}
+	public void questionOrAnswer(Scanner scanner,File questionFile,File answerFile,ArrayList<Dialouge> questionArray,ArrayList<Dialouge> answerArray)
+	{
+		try
+		{
+			boolean isTrue = false,fileexists = false;
+			do
+			{
+				isTrue = false;
+				fileexists = false;
+				System.out.println("press ==> 1.Question 2.Answer 3.Back");
+				int x = scanner.next();
+				switch(x)
+				{
+					case 1:
+						fileExists = fileExist(questionFile);
+				   		questionFile = createFile(fileExists,questionFile);
+				   		writeToFile(questionFile,scanner,questionArray);
+						isTrue = true;
+						break;
+					case 2:
+						fileExists = fileExist(answerFile);
+				   		answerFile = createFile(fileExists,answerFile);
+				   		writeToFile(answerFile,scanner,answerArray);
+						isTrue = true;
+						break;
+					case 3:
+						break;
+					default :
+						System.out.println("!!! Select Options From Above !!!");
+						break;
+				}
+
+			}while();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 	public boolean fileExist(File file)
 	{
@@ -69,7 +135,8 @@ public class Script
 			{
 				case 1:
 					System.out.println("Enter Dialouge");
-					String dia = scanner.next();
+					String dia = scanner.nextLine();
+					dia = scanner.nextLine();
 					createNewLine(file,bufferedWriter);
 					bufferedWriter.write(dia);
 				    bufferedWriter.flush();
