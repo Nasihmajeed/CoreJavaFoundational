@@ -69,16 +69,17 @@ public class Script
 			{
 				case 1:
 					System.out.println("Enter Dialouge");
-					String dialogue = scanner.next();
-					bufferedWriter.write(dialogue);
+					String dia = scanner.next();
+					createNewLine(file,bufferedWriter);
+					bufferedWriter.write(dia);
 				    bufferedWriter.flush();
-				    bufferedWriter.newLine();
 				    isTrue = true;
 				    break;
 				case 2:
 					dialouge = readFromFile(file,dialougeArray);
 					print(dialouge);
-					//clearArray(dialouge);
+					clearArray(dialougeArray);
+					clearArray(dialouge);
 					isTrue = true;
 					break;
 				case 3:
@@ -89,6 +90,20 @@ public class Script
 					break;
 			}
 		    }while(isTrue);
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	}
+	public void createNewLine(File file,BufferedWriter bw)
+	{
+		try
+		{
+		if(file.length()>0)
+		{
+			bw.newLine();
+		}
 	    }
 	    catch(Exception e)
 	    {
@@ -123,17 +138,17 @@ public class Script
 	}
 	public void clearArray(ArrayList<Dialouge> dialouge)
 	{
-		
-		for(int i=0;i<dialouge.size();i++)
+		int x = dialouge.size();
+		for(int i=0;i<x;i++)
 		{
-			dialouge.remove(i);
+			dialouge.remove(0);
 		}
 	}
 	public void print(ArrayList<Dialouge> dialouge)
 	{
 		for(int i=0;i<dialouge.size();i++)
 		{
-			System.out.println(dialouge.get(i).getDialouge());
+			System.out.println("Dialouge : "+dialouge.get(i).getDialouge());
 		}
 	}
 }

@@ -22,7 +22,7 @@ public class Movie
 		try
 		{
 			boolean isTrue = true;
-			do 
+			do
 			{
 				System.out.println("Press ==> 1.Start Movie  2.Add Dialouge");
 			    int x = scanner.nextInt();
@@ -30,7 +30,7 @@ public class Movie
 				switch(x)
 				{
 				case 1:
-				   startCoversation();
+				   selectActor();
 				   isTrue = false;
 				   break;
 				case 2:
@@ -85,25 +85,7 @@ public class Movie
 	}
 	public void startCoversation()
 	{
-		
 		boolean villanExists,comedianExists;
-		
-
-		//vDialouge = script.setArray(script.villanDialouge);
-		//cDialouge = script.setArray(script.comedianDialouge);
-
-        //script.setVillanDialouge(vDialouge);
-        //script.setComedianDialouge(cDialouge);
-
-        //villanExists = script.fileExist(villanFile);
-        //comedianExists = script.fileExist(comedianFile);
-
-        //villanFile = script.createFile(villanExists,villanFile);
-        //comedianFile = script.createFile(comedianExists,comedianFile);
-
-        //script.writeToFile(villanFile,vDialouge);
-        //script.writeToFile(comedianFile,cDialouge);
-
         sample = script.readFromFile(villanFile,sample);
         sample1 = script.readFromFile(comedianFile,sample1);
       
@@ -214,11 +196,6 @@ public class Movie
 				System.out.println(cDialouge.get(y+5).getDialouge());
 		    }
 		}
-		//for(int i=0;i<vqus.size();i++)
-		//{
-			
-			//System.out.println("Comedian Question : "+cqus.get(i));
-		//}
 	}
 	public boolean conversationexeed(int x,boolean exists)
 	{
