@@ -7,7 +7,7 @@ public class HotelView
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
 	//FileRepository filerepo=new FileRepository();
-	SqlRepository sqlrepo = new SqlRepository();
+	//SqlRepository sqlrepo = new SqlRepository();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
@@ -19,22 +19,21 @@ public class HotelView
 		System.out.println("\nSelect food");
 		System.out.println("\n 1.Biriyani \n 2.Dosa \n 3.Shake \n 4.Exit"); 																																																																																																																																																															
 		int item=sc.nextInt();
-		//sqlrepo.createTable();
 		return item;
 	}	
-	public void addBiriyani()
+	public void addBiriyani(SqlRepository sqlrepo)
 	{		
 		FoodModel biriyani=new Biriyani();
 		System.out.println("Biriyani ID");
 		biriyani.setId(sc.nextInt());
 		System.out.println("Biriyani Type");
-		biriyani.setFoodType(sc.next());
+		biriyani.setFoodName(sc.next());
 		System.out.println("Biriyani price");
 		biriyani.setFoodPrice(sc.nextInt());	
 		mhotel.setFoodList(biriyani);
-	//	sqlrepo.insertQuery();
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
+		sqlrepo.insertQuery(mhotel);
 	}
 	public int biriyaniId()
 	{
@@ -47,7 +46,7 @@ public class HotelView
 		FoodModel dosa=new Dosa();
 		dosa.setId(d);		
 		System.out.println("Dosa Type");
-		dosa.setFoodType(sc.next());
+		dosa.setFoodName(sc.next());
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
@@ -66,7 +65,7 @@ public class HotelView
 		FoodModel shake=new Shake();
 		shake.setId(s);
 		System.out.println("Shake Type");
-		shake.setFoodType(sc.next());
+		shake.setFoodName(sc.next());
 		System.out.println("Shake price");
 		shake.setFoodPrice(sc.nextInt());				
 		mhotel.setFoodList(shake);	
@@ -85,7 +84,7 @@ public class HotelView
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
 		for(int i=0;i<mhotel.getFoodList().size();i++)
 		{			
-			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodType(),mhotel.getFoodList().get(i).getFoodPrice());
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodName(),mhotel.getFoodList().get(i).getFoodPrice());
 		}		
 	}
 	public int selectStock()
@@ -110,7 +109,7 @@ public class HotelView
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food ID","Food Name","Quantity");
 		for(int k=0;k<mhotel.getStockList().size();k++)
 		{			
-			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(k).getId(),mhotel.getFoodList().get(k).getFoodType(),mhotel.getStockList().get(k).getQuantity());
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(k).getId(),mhotel.getFoodList().get(k).getFoodName(),mhotel.getStockList().get(k).getQuantity());
 		}
 	}
 	public int repeate()
@@ -142,7 +141,7 @@ public class HotelView
         {
           	System.out.println("\nAvailable Stocks");
 		  	System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food Type","Food Price","Quantity");
-		 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(q).getFoodType(),mhotel.getFoodList().get(q).getFoodPrice(),mhotel.getItemQuantity());
+		 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(q).getFoodName(),mhotel.getFoodList().get(q).getFoodPrice(),mhotel.getItemQuantity());
 		 	System.out.println("Total Bill Amount="+((mhotel.getFoodList().get(q).getFoodPrice())*(mhotel.getItemQuantity())));
 		}	
         else if(mhotel.getStockList().get(q).getQuantity()<mhotel.getItemQuantity())

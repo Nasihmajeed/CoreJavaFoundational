@@ -12,11 +12,11 @@ public class FoodModel
 	{
 		return this.id;
 	}	
-	public void setFoodType(String foodType)
+	public void setFoodName(String foodType)
 	{
 		this.foodType=foodType;
 	}
-	public String getFoodType()
+	public String getFoodName()
 	{
 		return this.foodType;
 	}

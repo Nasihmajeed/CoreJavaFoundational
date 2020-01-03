@@ -39,15 +39,31 @@ public class SqlRepository
 			e.printStackTrace();
 		}		
 	}
-	public void insertQuery()
+	public void insertQuery(HotelModel mhotel)
 	{
 		try
 		{
 			dataBaseConnectionEstablish();
 			String sql;
-			sql="insert into foodlist(Id,Foodname,Foodprice) values(11,'mb',45)";
+			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
 			ps = con.prepareStatement(sql);
-			ps.execute();
+			for(int j=0;j<mhotel.getFoodList().size();j++)
+			{
+				ps.setInt(1,mhotel.getFoodList().get(j).getId());
+				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
+				ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
+						
+				int i = ps.executeUpdate();
+			}
+			// if(i!=0)
+			// {
+			// 	System.out.println("add");
+
+			// }
+			// else
+			// {
+			// 	System.out.println("failed to add");
+			// }
 			//con.close();
 		}
 		catch (Exception e)
@@ -98,9 +114,9 @@ public class SqlRepository
 			{ 
 				do
 				{
-					System.out.print(rs.getInt(1));
-					System.out.print( rs.getString(2));
-					System.out.print( rs.getInt(3));
+					// System.out.print(rs.getInt(1));
+					// System.out.print( rs.getString(2));
+					// System.out.print( rs.getInt(3));
 				}while(rs.next());
 			}
 			else{

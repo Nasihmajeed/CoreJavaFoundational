@@ -3,7 +3,8 @@ import com.lxisoft.View.HotelView;
 import com.lxisoft.Repository.SqlRepository;
 public class HotelControl 
 {		
-	HotelView view=new HotelView();		
+	HotelView view=new HotelView();	
+	SqlRepository sqlrepo = new SqlRepository();	
 	public void menuItem()
 	{
 		boolean test=false;
@@ -13,7 +14,7 @@ public class HotelControl
 			int m=view.menu();
 			switch (m)
 			{
-				case 1:	foodItem();	test=true;break;				
+				case 1:	foodItem(sqlrepo);	test=true;break;				
 				case 2: addStock(); test=true;  break;
 				case 3: view.displayFood(); test=true; break;	
 				case 4: view.displayStock(); test=true; break;
@@ -22,12 +23,9 @@ public class HotelControl
 			}
 		}while(test);			
 	}
-	public void foodItem()
-	{
-		// SqlRepository sqlrepo = new SqlRepository();
-		// sqlrepo.createTable();
-		// sqlrepo.insertQuery();
-		// sqlrepo.displayAll();
+	public void foodItem(SqlRepository sqlrepo)
+	{		
+		sqlrepo.createTable();
 		boolean check=false;
 		do	
 		{
@@ -36,7 +34,7 @@ public class HotelControl
 			int i=view.selectFood(n);
 			switch (i)
 			{
-	 			case 1: addBiriyaniId();check=true; break;
+	 			case 1: addBiriyaniId(sqlrepo);check=true; break;
 				case 2: addDosaId();check=true; break;
 				case 3: addShakeId();check=true; break;
 				default:
@@ -93,11 +91,11 @@ public class HotelControl
             view.currentStock(q);	
 		}		
 	}
-	public void addBiriyaniId()
+	public void addBiriyaniId(SqlRepository sqlrepo)
 	{
 		if(view.mhotel.getFoodList().size()==0)
 		{
-			view.addBiriyani();
+			view.addBiriyani(sqlrepo);
 		}
 		else if(view.mhotel.getFoodList().size()>0) 
 		{
@@ -113,7 +111,7 @@ public class HotelControl
 			}
 			if(check)
 			{
-				view.addBiriyani();
+				view.addBiriyani(sqlrepo);
 			}
 		}
 	}	
