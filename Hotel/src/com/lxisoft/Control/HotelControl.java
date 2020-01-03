@@ -35,8 +35,8 @@ public class HotelControl
 			switch (i)
 			{
 	 			case 1: addBiriyaniId(sqlrepo);check=true; break;
-				case 2: addDosaId();check=true; break;
-				case 3: addShakeId();check=true; break;
+				case 2: addDosaId(sqlrepo);check=true; break;
+				case 3: addShakeId(sqlrepo);check=true; break;
 				default:
 			}				
 		}while(check);		
@@ -115,11 +115,11 @@ public class HotelControl
 			}
 		}
 	}	
-	public void addDosaId()
+	public void addDosaId(SqlRepository sqlrepo)
 	{
 		if(view.mhotel.getFoodList().size()==0)
 		{
-			view.addDosa(view.dosaId());			
+			view.addDosa(view.dosaId(),sqlrepo);			
 		}
 		else if(view.mhotel.getFoodList().size()>0) 
 		{
@@ -135,15 +135,15 @@ public class HotelControl
 			}
 			if(chk)
 			{
-				view.addDosa(a);
+				view.addDosa(a,sqlrepo);
 			}			
 		}	
 	}	
-	public void addShakeId()
+	public void addShakeId(SqlRepository sqlrepo)
 	{
 		if(view.mhotel.getFoodList().size()==0)
 		{			
-			view.addShake(view.shakeId());
+			view.addShake(view.shakeId(),sqlrepo);
 		}	
 		else if(view.mhotel.getFoodList().size()>0) 
 		{
@@ -159,7 +159,7 @@ public class HotelControl
 			}
 			if(ck)
 			{
-				view.addShake(s);
+				view.addShake(s,sqlrepo);
 			}
 		}
 	}

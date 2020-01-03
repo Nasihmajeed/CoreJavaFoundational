@@ -41,7 +41,7 @@ public class HotelView
 		int test=sc.nextInt();
 		return test;
 	}		
-	public void addDosa(int d)
+	public void addDosa(int d,SqlRepository sqlrepo)
 	{
 		FoodModel dosa=new Dosa();
 		dosa.setId(d);		
@@ -50,7 +50,7 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
-	 //	sqlrepo.insertQuery();
+	 	sqlrepo.insertQuery(mhotel);
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
 	}		
@@ -60,7 +60,7 @@ public class HotelView
 		int d=sc.nextInt();
 		return d;
 	}
-	public void addShake(int s)
+	public void addShake(int s,SqlRepository sqlrepo)
 	{
 		FoodModel shake=new Shake();
 		shake.setId(s);
@@ -71,6 +71,7 @@ public class HotelView
 		mhotel.setFoodList(shake);	
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
+		sqlrepo.insertQuery(mhotel);
 	}
 	public int shakeId()
 	{

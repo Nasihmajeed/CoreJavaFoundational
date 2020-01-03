@@ -30,7 +30,7 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table if not exists foodlist (Id int,Foodname varchar(15),Foodprice int)";
+			qry="create table if not exists foodlist (Id int not null unique,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
 		}
@@ -52,18 +52,8 @@ public class SqlRepository
 				ps.setInt(1,mhotel.getFoodList().get(j).getId());
 				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
 				ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
-						
 				int i = ps.executeUpdate();
 			}
-			// if(i!=0)
-			// {
-			// 	System.out.println("add");
-
-			// }
-			// else
-			// {
-			// 	System.out.println("failed to add");
-			// }
 			//con.close();
 		}
 		catch (Exception e)
