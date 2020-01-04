@@ -2,7 +2,7 @@ package com.lxisoft.movie;
 import com.lxisoft.Interface.*;
 import java.util.*;
 import java.io.*;
-public class Movie 
+public class Movie
 {
 	public static Scanner scanner = new Scanner(System.in); 
 	private String name;
@@ -65,9 +65,6 @@ public class Movie
 				   break;
 				case 2:
 				   script.questionOrAnswer(scanner,comedianQuestionFile,comedianAnswerFile,script.comedianQuestion,script.comedianAnswer);
-				   //comedianFileExists = script.fileExist(comedianFile);
-				   //comedianFile = script.createFile(comedianFileExists,comedianFile);
-				   //script.writeToFile(comedianFile,scanner,script.comedianDialouge);
 				   break;
 				case 3:
 					isTrue = false;
@@ -93,14 +90,17 @@ public class Movie
 			actors.add(new Villan());
 			actors.add(new Comedian());
 			int c =0;
-			boolean exists=false;
+			boolean exists = false;
 			do
 			{
+				exists = false;
 			 int x = (int)(Math.random()*actors.size());
 
 				if(actors.get(x) instanceof Comic)
 				{
 					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
+					System.out.print("!!!!!!!!!!!!!!!!!!");
+					System.out.print("Boolean Value 1 : "+fileExists);
 					if(fileExists)
 					{
 						selectDialogue(actors.get(x),comedianQuestion,villanAnswer);
@@ -116,6 +116,8 @@ public class Movie
 				else if(actors.get(x) instanceof Villanic)
 				{
 					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
+					System.out.print("###################");
+					System.out.print("Boolean Value 2 : "+fileExists);
 					if(fileExists)
 					{
 					selectDialogue(actors.get(x),villanQuestion,comedianAnswer);

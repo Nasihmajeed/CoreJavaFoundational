@@ -104,7 +104,10 @@ public class Script
 		boolean villanAnserFileExists = villanAnswerFile.exists();
 		boolean comedianAnswerFileExists = comedianAnswerFile.exists();
 		boolean exists = false;
-
+		System.out.println("VQF : "+villanQuestionFileExists);
+		System.out.println("CQF : "+comedianQuestionFileExists);
+		System.out.println("VAF : "+villanAnserFileExists);
+		System.out.println("CAF : "+comedianAnswerFileExists);
 		if(villanQuestionFileExists && comedianQuestionFileExists && villanAnserFileExists && comedianAnswerFileExists)
 		{
 			exists = true;
