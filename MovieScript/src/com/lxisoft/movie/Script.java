@@ -10,21 +10,21 @@ public class Script
 	{
 		for(int i=0;i<3;i++)
 		{
-			c.comedian.add(new Dialogue());
+			c.comedianQns.add(new Dialogue());
 		}
-		c.comedian.get(0).dialogue="hello";
-		c.comedian.get(1).dialogue="whats your role in this movie ?";
-		c.comedian.get(2).dialogue="i am the comedian ";
+		c.comedianQns.get(0).dialogue="hello";
+		c.comedianQns.get(1).dialogue="whats your role in this movie ?";
+		c.comedianQns.get(2).dialogue="i am the comedian ";
 	}
 	public void villanDialogue()
 	{
 		for(int i=0;i<3;i++)
 		{
-			v.villan.add(new Dialogue());
+			v.villanQns.add(new Dialogue());
 		}
-		v.villan.get(0).dialogue="hai..";
-		v.villan.get(1).dialogue="i am the villan ";
-		v.villan.get(2).dialogue="whats your role in this movie";
+		v.villanQns.get(0).dialogue="hai..";
+		v.villanQns.get(1).dialogue="i am the villan ";
+		v.villanQns.get(2).dialogue="whats your role in this movie";
 	}
 	public void writeToFile(File file,ArrayList<Dialogue>dialogueArray)
 	{
