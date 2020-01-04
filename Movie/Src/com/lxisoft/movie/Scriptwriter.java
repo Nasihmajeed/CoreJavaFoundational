@@ -13,9 +13,29 @@ public class Scriptwriter
 		{
 						
 			script=new Script();
-			
+			int randdialogue;
 			Fileoperation fo=new Fileoperation();
-			int randdialogue=(int)(Math.random()*4);	
+			//int randdialogue=(int)(Math.random()*4);	
+			if(actorlist[i] instanceof Hero)
+			{
+				randdialogue=0;
+			}
+			else if(actorlist[i] instanceof Comedian)
+			{
+				randdialogue=1;
+			}
+			else if(actorlist[i] instanceof Villain)
+			{
+				randdialogue=2;
+			}
+			else if(actorlist[i] instanceof Heroin)
+			{
+				randdialogue=3;
+			}
+			else
+			{
+				randdialogue=4;
+			}
 			String s=fo.operation(randdialogue);
 			
 			actorlist[i].setDialogues(s);

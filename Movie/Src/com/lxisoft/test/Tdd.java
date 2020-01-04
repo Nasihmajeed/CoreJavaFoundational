@@ -27,9 +27,11 @@ public class Tdd
 						catch(ArrayIndexOutOfBoundsException e)
 						{
 							System.out.println("invalid number");
-							System.out.println("\n");
-							break;
+							
+							
 						}
+						System.out.println("\n");
+						break;
 						
 			
 				case 2:

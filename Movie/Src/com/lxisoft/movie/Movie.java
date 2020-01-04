@@ -51,7 +51,7 @@ public class Movie
 				scriptwriter.setScript(actorlist);
 				actorlist=scriptwriter.getScript();
 				int randindex=(int)(Math.random()*actorlist.length);
-			    System.out.println( actorlist[randindex].getActorName()+""+actorlist[randindex].getCharecter()+" : "+actorlist[randindex].getDialogues());
+			    System.out.println( actorlist[randindex].getActorName()+"" +actorlist[randindex].getCharecter()+" : "+actorlist[randindex].getDialogues());
 				System.out.println(" ");
 			
 			}

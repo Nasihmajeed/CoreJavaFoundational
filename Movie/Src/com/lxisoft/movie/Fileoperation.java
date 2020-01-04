@@ -28,7 +28,9 @@ public class Fileoperation
         {
             e.printStackTrace();
         } 
-        return data[randdialogue];      
+       // int randVar==(int)( Math.random()*data.length);
+        int randVar=(int)(Math.random()*4);
+        return data[randVar];      
 	}
 	public void writeIntoFile()
 	{
