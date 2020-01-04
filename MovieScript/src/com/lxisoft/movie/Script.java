@@ -62,23 +62,23 @@ public class Script
 	{
 		try
 		{
-			boolean isTrue = false,fileexists = false;
+			boolean isTrue = false,fileExists = false;
 			do
 			{
 				isTrue = false;
-				fileexists = false;
+				fileExists = false;
 				System.out.println("press ==> 1.Question 2.Answer 3.Back");
-				int x = scanner.next();
+				int x = scanner.nextInt();
 				switch(x)
 				{
 					case 1:
-						fileExists = fileExist(questionFile);
+						fileExists = singleFileExists(questionFile);
 				   		questionFile = createFile(fileExists,questionFile);
 				   		writeToFile(questionFile,scanner,questionArray);
 						isTrue = true;
 						break;
 					case 2:
-						fileExists = fileExist(answerFile);
+						fileExists = singleFileExists(answerFile);
 				   		answerFile = createFile(fileExists,answerFile);
 				   		writeToFile(answerFile,scanner,answerArray);
 						isTrue = true;
@@ -90,25 +90,31 @@ public class Script
 						break;
 				}
 
-			}while();
+			}while(isTrue);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	public boolean fileExist(File file)
+	public boolean fileExist(File villanQuestionFile,File comedianQuestionFile,File villanAnswerFile,File comedianAnswerFile)
 	{
-		boolean exists = file.exists();
-		if(exists)
+		boolean villanQuestionFileExists = villanQuestionFile.exists();
+		boolean comedianQuestionFileExists = comedianQuestionFile.exists();
+		boolean villanAnserFileExists = villanAnswerFile.exists();
+		boolean comedianAnswerFileExists = comedianAnswerFile.exists();
+		boolean exists = false;
+
+		if(villanQuestionFileExists && comedianQuestionFileExists && villanAnserFileExists && comedianAnswerFileExists)
 		{
 			exists = true;
 		}
-		else if(!exists)
-		{
-			exists = false;
-		}
 		return exists;
+	}
+	public boolean singleFileExists(File file)
+	{
+		boolean exist = file.exists();
+		return exist;
 	}
 	public File createFile (boolean exists,File file)
 	{
