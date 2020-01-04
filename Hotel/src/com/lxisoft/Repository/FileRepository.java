@@ -56,6 +56,7 @@ public class FileRepository
 		{					
 			FileWriter fwr=new FileWriter(stocks,false);
 			BufferedWriter bwr=new BufferedWriter(fwr);
+			
 			for(int j=0;j<mhotel.getStockList().size();j++)
 			{	
 				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodName()+","+mhotel.getStockList().get(j).getFoodQuantity()+"\n");

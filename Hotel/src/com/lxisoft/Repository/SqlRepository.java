@@ -7,6 +7,14 @@ import com.lxisoft.Control.*;
 import com.lxisoft.Model.*;   
 public class SqlRepository
 {
+	private static SqlRepository sqlrepo = null;
+	private SqlRepository() {}
+	public static SqlRepository getInstance()
+	{
+		if(sqlrepo==null)
+		sqlrepo=new SqlRepository();
+		return sqlrepo;
+	}
 	Connection con = null;
 	PreparedStatement ps = null;
 	public void dataBaseConnectionEstablish()
@@ -43,18 +51,18 @@ public class SqlRepository
 	{
 		try
 		{
+			deleteFoodlist();
 			dataBaseConnectionEstablish();
 			String sql;
 			sql=("insert into foodlist(Foodname,Foodprice) values(?,?)");
 			ps = con.prepareStatement(sql);
 			for(int j=0;j<mhotel.getFoodList().size();j++)
 			{
-				//ps.setInt(1,Id);
+				
 				ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
 				ps.setInt(2,mhotel.getFoodList().get(j).getFoodPrice());
 				int i = ps.executeUpdate();
 			}
-			//con.close();
 		}
 		catch (Exception e)
 		{
@@ -112,7 +120,7 @@ public class SqlRepository
 			else{
 				System.out.println("Not Found...");
 			}
-			con.close();
+			//con.close();
 		}
 		catch(SQLException e)
 		{
@@ -126,7 +134,7 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table if not exists stocklist (Id int primary key auto_increment,Foodname varchar(15),Quantity int)";
+			qry="create table if not exists stocklist(Id int primary key auto_increment,Foodname varchar(15),Quantity int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
 		}
@@ -136,27 +144,57 @@ public class SqlRepository
 			e.printStackTrace();
 		}		
 	}
-	// public void insertStockQuery()
-	// {
-	// 	try
-	// 	{
-	// 		dataBaseConnectionEstablish();
-	// 		String sql;
-	// 		sql=("insert into stocklist(Foodname,Quantity) values(?,?)");
-	// 		ps = con.prepareStatement(sql);
-	// 		for(int j=0;j<mhotel.getFoodList().size();j++)
-	// 		{
-	// 			//ps.setInt(1,Id);
-	// 			ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
-	// 			ps.setInt(2,mhotel.getFoodList().get(j).getFoodQuantity());
-	// 			int i = ps.executeUpdate();
-	// 		}
-	// 		//con.close();
-	// 	}
-	// 	catch (Exception e)
-	// 	{
-	// 		System.out.println("qqqqqqqqq"+e);
-	// 		e.printStackTrace();
-	// 	}
-	// }		
+	public void insertStockQuery(HotelModel mhotel)
+	{
+		try
+		{
+			deleteStocklist();
+			dataBaseConnectionEstablish();
+			String sql;
+			sql=("insert into stocklist(Foodname,Quantity) values(?,?)");
+			ps = con.prepareStatement(sql);
+			for(int j=0;j<mhotel.getFoodList().size();j++)
+			{
+				ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
+				ps.setInt(2,mhotel.getStockList().get(j).getFoodQuantity());
+				int i = ps.executeUpdate();
+			}
+			//con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println("qqqqqqqqq"+e);
+			e.printStackTrace();
+		}
+	}
+	public void deleteStocklist()
+	{
+		try
+		{
+			dataBaseConnectionEstablish();
+			String sq;
+			sq = "delete from stocklist ";
+			ps = con.prepareStatement(sq);
+			ps.execute();
+		}
+		catch (Exception e)
+		{
+
+		}
+	}		
+	public void deleteFoodlist()
+	{
+		try
+		{
+			dataBaseConnectionEstablish();
+			String sq;
+			sq = "delete from foodlist ";
+			ps = con.prepareStatement(sq);
+			ps.execute();
+		}
+		catch (Exception e)
+		{
+
+		}
+	}		
 }	

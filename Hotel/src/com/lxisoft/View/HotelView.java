@@ -94,14 +94,16 @@ public class HotelView
 		int s=sc.nextInt();
 		return s;
 	}
-	public void addStockMethod()
+	public void addStockMethod(SqlRepository sqlrepo)
 	{
 		StockModel stock=new StockModel();
 		System.out.println("How much food you want to add");
 		stock.setFoodQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
 		// filerepo.addToStock(mhotel,stock);
-		// filerepo.readToStock(mhotel);								
+		// filerepo.readToStock(mhotel);
+		sqlrepo.createStockTable();	
+		sqlrepo.insertStockQuery(mhotel);							
 	}
 	public void displayStock()
 	{	

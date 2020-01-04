@@ -4,7 +4,7 @@ import com.lxisoft.Repository.SqlRepository;
 public class HotelControl 
 {		
 	HotelView view=new HotelView();	
-	SqlRepository sqlrepo = new SqlRepository();	
+	SqlRepository sqlrepo = SqlRepository.getInstance();	
 	public void menuItem()
 	{
 		boolean test=false;
@@ -48,7 +48,7 @@ public class HotelControl
 		{
 			if((view.mhotel.getFoodList().get(j).getId())==c)
 		 	{
-		 		view.addStockMethod();		 		
+		 		view.addStockMethod(sqlrepo);		 		
 		 	}
 		}	
 	}
