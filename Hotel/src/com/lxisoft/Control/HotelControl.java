@@ -86,8 +86,8 @@ public class HotelControl
 		 		int f=view.addFoodUserMethod();		
 		 		view.mhotel.setItemQuantity(f);
 		 	}	
-		 	int val=(view.mhotel.getStockList().get(q).getQuantity()-view.mhotel.getItemQuantity());
-		 	view.mhotel.getStockList().get(q).setQuantity(val);	        
+		 	int val=(view.mhotel.getStockList().get(q).getFoodQuantity()-view.mhotel.getItemQuantity());
+		 	view.mhotel.getStockList().get(q).setFoodQuantity(val);	        
             view.currentStock(q);	
 		}		
 	}

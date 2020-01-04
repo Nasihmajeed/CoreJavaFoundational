@@ -30,7 +30,7 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table if not exists foodlist (Id int not null unique,Foodname varchar(15),Foodprice int)";
+			qry="create table if not exists foodlist (Id int primary key auto_increment,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
 		}
@@ -45,13 +45,13 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String sql;
-			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
+			sql=("insert into foodlist(Foodname,Foodprice) values(?,?)");
 			ps = con.prepareStatement(sql);
 			for(int j=0;j<mhotel.getFoodList().size();j++)
 			{
-				ps.setInt(1,mhotel.getFoodList().get(j).getId());
-				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
-				ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
+				//ps.setInt(1,Id);
+				ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
+				ps.setInt(2,mhotel.getFoodList().get(j).getFoodPrice());
 				int i = ps.executeUpdate();
 			}
 			//con.close();
@@ -104,9 +104,9 @@ public class SqlRepository
 			{ 
 				do
 				{
-					// System.out.print(rs.getInt(1));
-					// System.out.print( rs.getString(2));
-					// System.out.print( rs.getInt(3));
+					System.out.print(rs.getInt(1));
+					System.out.print( rs.getString(2));
+					System.out.print( rs.getInt(3));
 				}while(rs.next());
 			}
 			else{
@@ -120,5 +120,43 @@ public class SqlRepository
 			e.printStackTrace();
 		}
 	}
-		
+	public void createStockTable()
+	{
+		try 
+		{
+			dataBaseConnectionEstablish();
+			String qry;
+			qry="create table if not exists stocklist (Id int primary key auto_increment,Foodname varchar(15),Quantity int)";
+			ps = con.prepareStatement(qry);
+			ps.execute();			     
+		}
+		catch (SQLException e)
+		{			
+			System.out.println("sssssssssssss"+e);
+			e.printStackTrace();
+		}		
+	}
+	// public void insertStockQuery()
+	// {
+	// 	try
+	// 	{
+	// 		dataBaseConnectionEstablish();
+	// 		String sql;
+	// 		sql=("insert into stocklist(Foodname,Quantity) values(?,?)");
+	// 		ps = con.prepareStatement(sql);
+	// 		for(int j=0;j<mhotel.getFoodList().size();j++)
+	// 		{
+	// 			//ps.setInt(1,Id);
+	// 			ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
+	// 			ps.setInt(2,mhotel.getFoodList().get(j).getFoodQuantity());
+	// 			int i = ps.executeUpdate();
+	// 		}
+	// 		//con.close();
+	// 	}
+	// 	catch (Exception e)
+	// 	{
+	// 		System.out.println("qqqqqqqqq"+e);
+	// 		e.printStackTrace();
+	// 	}
+	// }		
 }	

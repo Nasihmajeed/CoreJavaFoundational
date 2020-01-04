@@ -58,7 +58,7 @@ public class FileRepository
 			BufferedWriter bwr=new BufferedWriter(fwr);
 			for(int j=0;j<mhotel.getStockList().size();j++)
 			{	
-				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodName()+","+mhotel.getStockList().get(j).getQuantity()+"\n");
+				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodName()+","+mhotel.getStockList().get(j).getFoodQuantity()+"\n");
 			}
 			bwr.flush();
 			bwr.close();				
@@ -82,7 +82,7 @@ public class FileRepository
 				StockModel stocks=new StockModel();
 				food.setId(Integer.parseInt(ss[0]));
 				food.setFoodType(ss[1]);
-				stocks.setQuantity(Integer.parseInt(ss[2]));
+				stocks.setFoodQuantity(Integer.parseInt(ss[2]));
 				System.out.println(ss[0] + (ss[1]) + (ss[2]));	
 			}
 		}
