@@ -74,6 +74,17 @@ public class Movie
 			readArray1.get(comedianRandom).same=false;
 			x--;
 			}
+			try
+ 			{
+ 				if(readArray1.get(comedianRandom).same!=true)
+ 				{
+ 					MyEx ex=new MyEx(" same dialogue exception");
+ 					throw ex;
+ 				}}
+ 				catch(MyEx e)
+ 				{
+ 					e.printStackTrace();
+ 				}
 		}
 		else if(actor.get(random1)instanceof Villanism)
 		{
