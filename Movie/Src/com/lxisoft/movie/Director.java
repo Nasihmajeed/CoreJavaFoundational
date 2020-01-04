@@ -1,6 +1,7 @@
 package com.lxisoft.movie;
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.*;
 public class Director
 {
 	String name;
@@ -36,8 +37,12 @@ public class Director
 			Comedian comedian=castComedian();
 			Villain villain=castVillain();		
 			Heroin heroin=castHeroin();
-			Actor[] a={hero,comedian,villain,heroin};
-			castList[i]=a[--num];
+			ArrayList<Actor> a=new ArrayList<Actor>();
+			a.add(hero);
+			a.add(comedian);
+			a.add(villain);
+			a.add(heroin);
+			castList[i]=a.get(--num);
 		}
 		
 	}	
@@ -49,25 +54,46 @@ public class Director
 	{
 		int randhero=(int)(Math.random()*4);	
 		Hero hero=new Hero();
-			
-		String[] actorname={"Ajith","Bruce","Prem nazir","Tony","miles morales","peter parker"};
-		hero.setActorName(actorname[randhero]);
-		
-		String[] character={"(police)","(Business Man)","(fisher)","(Superhero)","(Supernatural guy)","(Spiderman)"};
-		hero.setCharecter(character[randhero]);
+		ArrayList<String>actorname=new ArrayList<String>();
+		actorname.add("Ajith");
+		actorname.add("Bruce");
+		actorname.add("Prem nazir");
+		actorname.add("Tony");
+		actorname.add("miles morales");
+		actorname.add("peter parker");
+		hero.setActorName(actorname.get(randhero));
+		ArrayList<String>character=new ArrayList<String>();
+		character.add("(police)");
+		character.add("(Business Man)");
+		character.add("(fisher)");
+		character.add("(Superhero)");
+		character.add("(Supernatural guy)");
+		character.add("(Spiderman)");
+		hero.setCharecter(character.get(randhero));
 		return hero;
 	}
 	public Comedian castComedian()
 	{
 		int randcomedian=(int)(Math.random()*6);	
 		Comedian comedian=new Comedian();
+		ArrayList<String>actorname=new ArrayList<String>();
+		actorname.add("Kultheep");
+		actorname.add("Alfred");
+		actorname.add("Nagesh");
+		actorname.add("Drax");
+		actorname.add("Rocket");
+		actorname.add("martin");
 		
-		String[] actorname={"Kultheep","Alfred","Nagesh","Drax","Rocket","martin"};
-		comedian.setActorName(actorname[randcomedian]);
+		comedian.setActorName(actorname.get(randcomedian));
 
-		
-		String[] character={"(Constable)","(Worker)","(Boat worker)","(Alien)","(physian)","(Gangleader)"};
-		comedian.setCharecter(character[randcomedian]);
+		ArrayList<String>character=new ArrayList<String>();
+		character.add("(Constable)");
+		character.add("(Worker)");
+			character.add("(Boat worker)");
+				character.add("(Alien)");
+					character.add("(physian)");
+						character.add("(Gangleader)");
+		comedian.setCharecter(character.get(randcomedian));
 		return comedian;
 	}
 	public Villain castVillain()
@@ -75,11 +101,22 @@ public class Director
 		int randvillain=(int)(Math.random()*6);	
 		Villain villain=new Villain();
 	
-		String[] actorname={"Sankil","Bane","Nambiyar","Thanos","Kingpin","DR:Octobus"};
-		villain.setActorName(actorname[randvillain]);
+		ArrayList<String>actorname=new ArrayList<String>();
+		actorname.add("Sankil");
+		actorname.add("Bane");
+		actorname.add("Nambiyar");
+		actorname.add("Thanos");
+		actorname.add("Kingpin");
+		actorname.add("DR:Octobus");
+		villain.setActorName(actorname.get(randvillain));
 
-	
-		String[] character={"(Gangster)","(patient)","(fisher)","(Alien)","(Bussinesman)","(Scientist)"};
+		ArrayList<String>character=new ArrayList<String>();
+		character.add("(Gangster)");
+		character.add("(patient)");
+		character.add("(fisher)");
+		character.add("(Alien)");
+		character.add("(Bussinesman)");
+		character.add("(Scientist)");
 		villain.setCharecter(character[randvillain]);
 		return villain;
 	}
@@ -88,12 +125,19 @@ public class Director
 		int randheroin=(int)(Math.random()*4);	
 		Heroin heroin=new Heroin();
 		
-		String[] actorname={"nayanthara","bennu","jaya","natasha"};
-		heroin.setActorName(actorname[randheroin]);
+		ArrayList<String>actorname=new ArrayList<String>();
+		actorname.add("nayanthara");
+		actorname.add("bennu");
+		actorname.add("jaya");
+		actorname.add("natasha");
+		heroin.setActorName(actorname.get(randheroin));
 
-			
-		String[] character={"(police)","(Worker)","(Boat worker)","(Agent)"};
-		heroin.setCharecter(character[randheroin]);
+		ArrayList<String>character=new ArrayList<String>();	
+		character.add("(police)");
+		character.add("(Worker)");
+		character.add("(Boat worker)");
+		character.add("(Agent)");
+		heroin.setCharecter(character.get(randheroin));
 		return heroin;
 	}
 	/*public */
