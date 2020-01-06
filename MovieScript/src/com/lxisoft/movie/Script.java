@@ -1,5 +1,6 @@
 package com.lxisoft.movie;
 import java.util.ArrayList;
+import com.lxisoft.Interface.*;
 import java.util.*;
 import java.io.*;
 public class Script
@@ -111,10 +112,6 @@ public class Script
 			readFromFile(villanAnswerFile,villanAnswer);
 			readFromFile(villanQuestionFile,villanQuestion);
 			readFromFile(comedianAnswerFile,comedianAnswer);
-			System.out.println("comedianQuestion : "+comedianQuestion.size());
-			System.out.println("villanAnswer : "+villanAnswer.size());
-			System.out.println("villanQuestion : "+villanQuestion.size());
-			System.out.println("comedianAnswer : "+comedianAnswer.size());
 		}
 		else
 		{
@@ -131,11 +128,10 @@ public class Script
 	{
 		try
 		{
-		if(!exists)
-		{
-			//file = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\"+file+".txt");
-			file.createNewFile();
-		}
+			if(!exists)
+			{
+				file.createNewFile();
+			}
 	    }
 	    catch(Exception e)
 	    {
@@ -147,7 +143,6 @@ public class Script
 	{
 		try
 		{
-			ArrayList<Dialouge> dialouge;
 			boolean isTrue = false;
 			FileWriter fileWriter = new FileWriter(file,true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -159,19 +154,11 @@ public class Script
 			switch(x)
 			{
 				case 1:
-					System.out.println("Enter Dialouge");
-					String dia = scanner.nextLine();
-					dia = scanner.nextLine();
-					createNewLine(file,bufferedWriter);
-					bufferedWriter.write(dia);
-				    bufferedWriter.flush();
+					dialougeEntry(file,scanner,bufferedWriter);
 				    isTrue = true;
 				    break;
 				case 2:
-					dialouge = readFromFile(file,dialougeArray);
-					print(dialouge);
-					clearArray(dialougeArray);
-					clearArray(dialouge);
+					readDialoge(file,dialougeArray);
 					isTrue = true;
 					break;
 				case 3:
@@ -187,6 +174,34 @@ public class Script
 	    {
 	    	e.printStackTrace();
 	    }
+	}
+	public void readDialoge(File file,ArrayList<Dialouge> dialougeArray)
+	{
+		try{
+			ArrayList<Dialouge> dialouge;
+			dialouge = readFromFile(file,dialougeArray);
+			printDialouge(dialougeArray);
+			clearArray(dialougeArray);
+			clearArray(dialouge);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void dialougeEntry(File file,Scanner scanner,BufferedWriter bufferedWriter)
+	{
+		try{
+			System.out.println("Enter Dialouge");
+			String dia = scanner.nextLine();
+			dia = scanner.nextLine();
+			createNewLine(file,bufferedWriter);
+			bufferedWriter.write(dia);
+		    bufferedWriter.flush();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	public void createNewLine(File file,BufferedWriter bw)
 	{
@@ -236,11 +251,24 @@ public class Script
 			dialouge.remove(0);
 		}
 	}
-	public void print(ArrayList<Dialouge> dialouge)
+	public void printDialouge(ArrayList<Dialouge> dialouge)
 	{
 		for(int i=0;i<dialouge.size();i++)
 		{
-			System.out.println("Dialouge : "+dialouge.get(i).getDialouge());
+			System.out.println(dialouge.get(i).getDialouge());
 		}
+	}
+	public void print(int x,ArrayList<Dialouge> dialouge1,ArrayList<Dialouge> dialouge2,Actors actor)
+	{
+		if(actor instanceof Comic)
+		{
+			System.out.println("Comedian : "+dialouge2.get(x).getDialouge());
+			System.out.println("Villan : "+dialouge1.get(x).getDialouge());
+	    }
+	    else if(actor instanceof Villanic)
+	    {
+	    	System.out.println("Villan : "+dialouge1.get(x).getDialouge());
+			System.out.println("Comedian : "+dialouge2.get(x).getDialouge());	
+	    }
 	}
 }

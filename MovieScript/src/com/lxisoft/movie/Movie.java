@@ -52,21 +52,23 @@ public class Movie
 	{
 		try
 		{
-			boolean isTrue = true,fileExists;
+			boolean isTrue = true;
+			boolean fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
 			int k=0;
 			ArrayList<Actors> actors = new ArrayList<Actors>();
 			actors.add(new Villan());
 			actors.add(new Comedian());
 			int c =0;
 			boolean exists = false;
+			//Set While loop and remove do While
+			//Remove repetation...
+			//print dialouge properly...
 			do
 			{
-				exists = false;
+			 exists = false;
 			 int x = (int)(Math.random()*actors.size());
-
 				if(actors.get(x) instanceof Comic)
 				{
-					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
 					if(fileExists)
 					{
 						selectDialogue(actors.get(x),comedianQuestion,villanAnswer);
@@ -81,7 +83,6 @@ public class Movie
 				}
 				else if(actors.get(x) instanceof Villanic)
 				{
-					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
 					if(fileExists)
 					{
 					selectDialogue(actors.get(x),villanQuestion,comedianAnswer);
@@ -100,6 +101,10 @@ public class Movie
 	   {
 	   	e.printStackTrace();
 	   }
+	}
+	public void checkInstance(Actor actor)
+	{
+
 	}
 	public void addDialougeToFile(File villanAnswerFile,File comedianAnswerFile,File villanQuestionFile,File comedianQuestionFile)
 	{
@@ -139,11 +144,10 @@ public class Movie
 	{
 		ArrayList<Integer> cqus = new ArrayList<Integer>();
 		ArrayList<Integer> vqus = new ArrayList<Integer>();
-		int y = (int)(Math.random()*1);
 		boolean bool = true,bool1 = true;
-
 		if(actor instanceof Comic)
 		{
+			int y = (int)(Math.random()*cDialouge.size());
 			for(int i=0;i<=cqus.size();i++)
 			{
 				if(cqus.size()==0)
@@ -160,12 +164,12 @@ public class Movie
 		    if(bool)
 		    {
 		    	cqus.add(y);
-			    System.out.println(cDialouge.get(y).getDialouge());
-			    System.out.println(vDialouge.get(y).getDialouge());
+		    	script.print(y,cDialouge,vDialouge,actor);
 		    }
 		}
 		if(actor instanceof Villanic)
 		{
+			int y = (int)(Math.random()*vDialouge.size());
 			for(int j=0;j<=vqus.size();j++)
 			{
 				if(vqus.size()==0)
@@ -182,8 +186,7 @@ public class Movie
 		    if(bool1)
 		    {
 	    	    vqus.add(y);
-				System.out.println(vDialouge.get(y).getDialouge());
-				System.out.println(cDialouge.get(y).getDialouge());
+	    	    script.print(y,cDialouge,vDialouge,actor);
 		    }
 		}
 	}
