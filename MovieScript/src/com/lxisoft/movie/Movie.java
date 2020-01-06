@@ -24,24 +24,27 @@ public class Movie
 		File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianQns.txt");
 		File villanAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanAns.txt");
 		File comedianAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianAns.txt");	
-		// if(villanAns.exists())
-		// {
-		// 	System.out.println("file "+villanAns.getName()+" already exixts");
-		// }
+		 if(villanAns.exists()&&villanQns.exists()&&comedianAns.exists()&&comedianQns.exists())
+		 {
+		 	conversation(villanQns,comedianQns,villanAns,comedianAns);
+		 }
+		 else {
 		
-		// if(comedianAns.exists())
-		// {
-		// 	System.out.println("file "+comedianAns.getName()+" already exixts");
-		
-		// }
-	
 		script.comedianDialogue();
 		script.villanDialogue();
-		script.writeToFile(villanQns,script.v.villanQns);
-		script.writeToFile(comedianQns,script.c.comedianQns);
-		script.writeToFile(villanAns,script.v.villanAns);
-		script.writeToFile(comedianAns,script.c.comedianAns);
-		conversation(villanQns,comedianQns,villanAns,comedianAns);
+		ArrayList<Dialogue> random1=commonDialogue();
+		 for(int i=0;i<random1.size();i++)
+			{
+		int random2=(int)(Math.random()*random1.size());
+		System.out.println("comedian : "+ random1.get(random2).dialogue);
+		System.out.println("villan : "+ random1.get(random2).dialogue);
+			}}
+		// script.writeToFile(villanQns,script.v.villanQns);
+		// script.writeToFile(comedianQns,script.c.comedianQns);
+		// script.writeToFile(villanAns,script.v.villanAns);
+		// script.writeToFile(comedianAns,script.c.comedianAns);
+		// conversation(villanQns,comedianQns,villanAns,comedianAns);
+
 	}
 	public void conversation(File a,File b,File c,File d)
 	{
@@ -99,4 +102,18 @@ public class Movie
 		}
 
 	}}
+	public ArrayList<Dialogue> commonDialogue()
+	{
+	  ArrayList<Dialogue> commonD =new ArrayList<Dialogue>();
+		for(int i=0;i<4;i++)
+		{
+		commonD.add(new Dialogue());
+		}
+			commonD.get(0).dialogue="hai";
+			commonD.get(1).dialogue="hello";
+			commonD.get(2).dialogue="how are you?";
+			commonD.get(3).dialogue="i am fine";
+			return commonD;
+
+	}
 }
