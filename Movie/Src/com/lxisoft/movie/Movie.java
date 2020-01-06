@@ -42,12 +42,13 @@ public class Movie
 		
 		for (int j=1;j<=randscenes;j++) 
 		{
-			
-			director.SetDirectes();
-			System.out.println("Scene "+j+" : "+director.getDirectes());
+			Script script=new Script();
+			director.setDirectionControl(script);
+			System.out.println("Scene "+j+" : "+director.getDirectionControl());
 			int randdialogue=(int)(Math.random()*randscenes)+1;
-			for (int i=0;i<randdialogue;i++) 
+			for (int i=0;i<randdialogue;i++)  
 			{
+
 				scriptwriter.setScript(actorlist);
 				actorlist=scriptwriter.getScript();
 				int randindex=(int)(Math.random()*actorlist.length);

@@ -1,13 +1,19 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.Script;
+import java.util.*;
 public class Script
 {	
 	
 	
 	public String scenes(int randscenenum)
 	{
-		String[] scene={"on the bridge","center of meetingroom","In the car","Ship basement","The company"};
-		return scene[randscenenum];
+		ArrayList<String> scenes=new ArrayList<String>();
+		scenes.add("on the bridge");
+		scenes.add("center of meetingroom");
+		scenes.add("In the car");
+		scenes.add("Ship basement");
+		scenes.add("The company");
+		return scenes.get(randscenenum);
 	}
 	
 

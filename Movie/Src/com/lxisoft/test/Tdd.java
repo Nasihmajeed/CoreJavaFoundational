@@ -40,6 +40,7 @@ public class Tdd
 						fo.writeIntoFile();						
 						break;
 				case 3:
+						System.out.println("The End");
 						flag=false;break;
 
 

@@ -6,18 +6,13 @@ public class Director
 {
 	String name;
 	String directionControl;
-	Actor[] castList;	
-	public void SetDirectes()
+	Actor[] castActor;
+	public void setDirectionControl(Script script)
 	{
 		int randscenenum=(int)(Math.random()*4);	
-		
-		Script script=new Script();
-		String scene;
-		scene=script.scenes(randscenenum);
-		
-		directionControl=scene;
+		directionControl=script.scenes(randscenenum);
 	}
-	public String getDirectes()
+	public String getDirectionControl()
 	{
 		return directionControl;
 	}
@@ -27,7 +22,7 @@ public class Director
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter number of Actor :");
 		int number=scr.nextInt();
-		castList=new Actor[number];		
+		castActor=new Actor[number];		
 		
 		for (int i=0;i<number;i++) 
 		{
@@ -42,13 +37,14 @@ public class Director
 			a.add(comedian);
 			a.add(villain);
 			a.add(heroin);
-			castList[i]=a.get(--num);
+			castActor[i]=a.get(--num);
 		}
 		
 	}	
 	public Actor[] getCastActor()
+
 	{
-		return castList;
+		return castActor;
 	}
 	public Hero castHero()
 	{
@@ -89,10 +85,10 @@ public class Director
 		ArrayList<String>character=new ArrayList<String>();
 		character.add("(Constable)");
 		character.add("(Worker)");
-			character.add("(Boat worker)");
-				character.add("(Alien)");
-					character.add("(physian)");
-						character.add("(Gangleader)");
+		character.add("(Boat worker)");
+		character.add("(Alien)");
+		character.add("(physian)");
+		character.add("(Gangleader)");
 		comedian.setCharecter(character.get(randcomedian));
 		return comedian;
 	}
@@ -117,7 +113,7 @@ public class Director
 		character.add("(Alien)");
 		character.add("(Bussinesman)");
 		character.add("(Scientist)");
-		villain.setCharecter(character[randvillain]);
+		villain.setCharecter(character.get(randvillain));
 		return villain;
 	}
 	public Heroin castHeroin()

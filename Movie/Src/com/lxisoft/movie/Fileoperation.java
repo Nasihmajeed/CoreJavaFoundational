@@ -5,21 +5,22 @@ import java.util.*;
 
 public class Fileoperation
 {
-	public String operation(int randdialogue)
+	public String operation(String randdialogue)
 	{
 		String[] data=new String[10];
-        ArrayList<String>csvFile=new ArrayList<String>();
+       /* ArrayList<String>csvFile=new ArrayList<String>();
 		csvFile.add("../version..2/com/lxisoft/movie/Hero.csv");
         csvFile.add("../version..2/com/lxisoft/movie/Comedian.csv");
         csvFile.add("../version..2/com/lxisoft/movie/Villain.csv");
         csvFile.add("../version..2/com/lxisoft/movie/Heroin.csv");
-        String line = "";
+*/        String line = "";
        try{
-	       	
-    	       BufferedReader br = new BufferedReader(new FileReader(csvFile.get(randdialogue)));
+	       	   String csvFile = "../version..2/com/lxisoft/movie/Dialogue.csv";
+    	       BufferedReader br = new BufferedReader(new FileReader(csvFile));
     	       int i=0;
 	           while ((line = br.readLine()) != null)
 	           {
+                 
     	           String[] datas= line.split(","); 
     	           data[i++]=datas[0];
 	           }
