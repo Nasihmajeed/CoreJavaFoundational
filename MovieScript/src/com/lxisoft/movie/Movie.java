@@ -10,10 +10,10 @@ public class Movie
     public ArrayList<Dialouge> vDialouge;
 	public ArrayList<Dialouge> cDialouge;
 	
-	File villanQuestionFile = new File("villanQuestionFile.txt");
-	File comedianQuestionFile = new File("comedianQuestionFile.txt");
-	File villanAnswerFile = new File("villanAnswerFile.txt");
-	File comedianAnswerFile = new File("comedianAnswerFile.txt");
+	File villanQuestionFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\villanQuestionFile.txt");
+	File comedianQuestionFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\comedianQuestionFile.txt");
+	File villanAnswerFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\villanAnswerFile.txt");
+	File comedianAnswerFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\comedianAnswerFile.txt");
 	public Movie(String name)
 	{
 		this.name=name;
@@ -48,6 +48,59 @@ public class Movie
 	    	e.printStackTrace();
 	    }
 	}
+	public void selectActor(ArrayList<Dialouge> villanQuestion,ArrayList<Dialouge> comedianQuestion,ArrayList<Dialouge> villanAnswer,ArrayList<Dialouge> comedianAnswer)
+	{
+		try
+		{
+			boolean isTrue = true,fileExists;
+			int k=0;
+			ArrayList<Actors> actors = new ArrayList<Actors>();
+			actors.add(new Villan());
+			actors.add(new Comedian());
+			int c =0;
+			boolean exists = false;
+			do
+			{
+				exists = false;
+			 int x = (int)(Math.random()*actors.size());
+
+				if(actors.get(x) instanceof Comic)
+				{
+					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
+					if(fileExists)
+					{
+						selectDialogue(actors.get(x),comedianQuestion,villanAnswer);
+						c++;
+					    exists = conversationexeed(c,exists);
+					}
+					else if(!fileExists)
+					{
+						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
+						exists=false;
+					}
+				}
+				else if(actors.get(x) instanceof Villanic)
+				{
+					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
+					if(fileExists)
+					{
+					selectDialogue(actors.get(x),villanQuestion,comedianAnswer);
+					c++;
+					exists = conversationexeed(c,exists);
+					}
+					else if(!fileExists)
+					{
+						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
+						exists=false;
+					}
+				}
+		    }while(exists);
+	   }
+	   catch(Exception e)
+	   {
+	   	e.printStackTrace();
+	   }
+	}
 	public void addDialougeToFile(File villanAnswerFile,File comedianAnswerFile,File villanQuestionFile,File comedianQuestionFile)
 	{
 		try
@@ -80,68 +133,13 @@ public class Movie
 			e.printStackTrace();
 		}
 	}
-	public void selectActor(ArrayList<Dialouge> villanQuestion,ArrayList<Dialouge> comedianQuestion,ArrayList<Dialouge> villanAnswer,ArrayList<Dialouge> comedianAnswer)
-	{
-		try
-		{
-			boolean isTrue = true,fileExists = false;
-			int k=0;
-			ArrayList<Actors> actors = new ArrayList<Actors>();
-			actors.add(new Villan());
-			actors.add(new Comedian());
-			int c =0;
-			boolean exists = false;
-			do
-			{
-				exists = false;
-			 int x = (int)(Math.random()*actors.size());
 
-				if(actors.get(x) instanceof Comic)
-				{
-					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
-					System.out.print("!!!!!!!!!!!!!!!!!!");
-					System.out.print("Boolean Value 1 : "+fileExists);
-					if(fileExists)
-					{
-						selectDialogue(actors.get(x),comedianQuestion,villanAnswer);
-						c++;
-					    exists = conversationexeed(c,exists);
-					}
-					else if(!fileExists)
-					{
-						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
-						exists=false;
-					}
-				}
-				else if(actors.get(x) instanceof Villanic)
-				{
-					fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
-					System.out.print("###################");
-					System.out.print("Boolean Value 2 : "+fileExists);
-					if(fileExists)
-					{
-					selectDialogue(actors.get(x),villanQuestion,comedianAnswer);
-					c++;
-					exists = conversationexeed(c,exists);
-					}
-					else if(!fileExists)
-					{
-						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
-						exists=false;
-					}
-				}
-		    }while(exists);
-	   }
-	   catch(Exception e)
-	   {
-	   	e.printStackTrace();
-	   }
-	}
+	
 	public void selectDialogue(Actors actor,ArrayList<Dialouge> cDialouge,ArrayList<Dialouge> vDialouge)
 	{
 		ArrayList<Integer> cqus = new ArrayList<Integer>();
 		ArrayList<Integer> vqus = new ArrayList<Integer>();
-		int y = (int)(Math.random()*5);
+		int y = (int)(Math.random()*1);
 		boolean bool = true,bool1 = true;
 
 		if(actor instanceof Comic)
@@ -163,7 +161,7 @@ public class Movie
 		    {
 		    	cqus.add(y);
 			    System.out.println(cDialouge.get(y).getDialouge());
-			    System.out.println(vDialouge.get(y+5).getDialouge());
+			    System.out.println(vDialouge.get(y).getDialouge());
 		    }
 		}
 		if(actor instanceof Villanic)
@@ -185,7 +183,7 @@ public class Movie
 		    {
 	    	    vqus.add(y);
 				System.out.println(vDialouge.get(y).getDialouge());
-				System.out.println(cDialouge.get(y+5).getDialouge());
+				System.out.println(cDialouge.get(y).getDialouge());
 		    }
 		}
 	}

@@ -103,14 +103,22 @@ public class Script
 		boolean comedianQuestionFileExists = comedianQuestionFile.exists();
 		boolean villanAnserFileExists = villanAnswerFile.exists();
 		boolean comedianAnswerFileExists = comedianAnswerFile.exists();
-		boolean exists = false;
-		System.out.println("VQF : "+villanQuestionFileExists);
-		System.out.println("CQF : "+comedianQuestionFileExists);
-		System.out.println("VAF : "+villanAnserFileExists);
-		System.out.println("CAF : "+comedianAnswerFileExists);
+		boolean exists;
 		if(villanQuestionFileExists && comedianQuestionFileExists && villanAnserFileExists && comedianAnswerFileExists)
 		{
 			exists = true;
+			readFromFile(comedianQuestionFile,comedianQuestion);
+			readFromFile(villanAnswerFile,villanAnswer);
+			readFromFile(villanQuestionFile,villanQuestion);
+			readFromFile(comedianAnswerFile,comedianAnswer);
+			System.out.println("comedianQuestion : "+comedianQuestion.size());
+			System.out.println("villanAnswer : "+villanAnswer.size());
+			System.out.println("villanQuestion : "+villanQuestion.size());
+			System.out.println("comedianAnswer : "+comedianAnswer.size());
+		}
+		else
+		{
+			exists = false;
 		}
 		return exists;
 	}
@@ -121,10 +129,18 @@ public class Script
 	}
 	public File createFile (boolean exists,File file)
 	{
+		try
+		{
 		if(!exists)
 		{
-			file = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\"+file+".txt");
+			//file = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\"+file+".txt");
+			file.createNewFile();
 		}
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
 		return file;
 	}
 	public void writeToFile(File file,Scanner scanner,ArrayList<Dialouge> dialougeArray)
