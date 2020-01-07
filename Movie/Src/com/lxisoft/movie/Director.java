@@ -70,7 +70,7 @@ public class Director
 	}
 	public Comedian castComedian()
 	{
-		int randcomedian=(int)(Math.random()*6);	
+		int randcomedian=(int)(Math.random()*6);
 		Comedian comedian=new Comedian();
 		ArrayList<String>actorname=new ArrayList<String>();
 		actorname.add("Kultheep");
