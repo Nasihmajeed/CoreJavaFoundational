@@ -6,8 +6,8 @@ import com.lxisoft.Control.HotelControl;
 import com.lxisoft.Model.*;
 public class FileRepository
 {
-	File file=new File("D:\\file.csv");
-	File stocks=new File("D:\\filestock.csv");
+	File file=new File("D:\\Food.csv");
+	File stocks=new File("D:\\Stock.csv");
 	FoodModel food=new FoodModel();
 	public void addwriter(HotelModel mhotel)
 	{

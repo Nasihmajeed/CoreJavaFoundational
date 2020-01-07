@@ -16,8 +16,8 @@ public class HotelControl
 			{
 				case 1:	foodItem(sqlrepo);	test=true;break;				
 				case 2: addStock(); test=true;  break;
-				case 3: view.displayFood(); test=true; break;	
-				case 4: view.displayStock(); test=true; break;
+				case 3: view.displayFood(sqlrepo); test=true; break;	
+				case 4: view.displayStock(sqlrepo); test=true; break;
 				case 5: billPrint(); test=true;  break;
 				case 6: System.exit(0); break;	
 			}
@@ -43,7 +43,7 @@ public class HotelControl
 	}
 	public void addStock()
 	{
-		int c=view.selectStock();
+		int c=view.selectStock(sqlrepo);
 		for(int j=0;j<view.mhotel.getFoodList().size();j++)
 		{
 			if((view.mhotel.getFoodList().get(j).getId())==c)
@@ -56,7 +56,7 @@ public class HotelControl
 	{
 		boolean sample;	
 		do{
-			view.displayStock();			
+			view.displayStock(sqlrepo);			
 			foodBillUser();
 			sample= repeatProcess();
 		}

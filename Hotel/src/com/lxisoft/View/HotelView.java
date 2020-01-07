@@ -32,7 +32,7 @@ public class HotelView
 		mhotel.setFoodList(biriyani);
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
-		sqlrepo.insertQuery(mhotel);
+		sqlrepo.insertDataToFoodlist(mhotel);
 	}
 	public int biriyaniId()
 	{
@@ -49,7 +49,7 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
-	 	sqlrepo.insertQuery(mhotel);
+	 	sqlrepo.insertDataToFoodlist(mhotel);
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
 	}		
@@ -70,7 +70,7 @@ public class HotelView
 		mhotel.setFoodList(shake);	
 		// filerepo.addwriter(mhotel);
 		// filerepo.readFile();
-		sqlrepo.insertQuery(mhotel);
+		sqlrepo.insertDataToFoodlist(mhotel);
 	}
 	public int shakeId()
 	{
@@ -78,8 +78,9 @@ public class HotelView
 		int s=sc.nextInt();
 		return s;
 	}			
-	public void displayFood()
+	public void displayFood(SqlRepository sqlrepo)
 	{
+		sqlrepo.displayFoodlist();
 		System.out.println("\nDisplay the details of Food");
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
 		for(int i=0;i<mhotel.getFoodList().size();i++)
@@ -87,9 +88,9 @@ public class HotelView
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodName(),mhotel.getFoodList().get(i).getFoodPrice());
 		}		
 	}
-	public int selectStock()
+	public int selectStock(SqlRepository sqlrepo)
 	{   
-		displayFood();
+		displayFood(sqlrepo);
 		System.out.println("\nIn which food you want add quantity");		
 		int s=sc.nextInt();
 		return s;
@@ -105,8 +106,9 @@ public class HotelView
 		sqlrepo.createStockTable();	
 		sqlrepo.insertStockQuery(mhotel);							
 	}
-	public void displayStock()
+	public void displayStock(SqlRepository sqlrepo)
 	{	
+		sqlrepo.displayStocklist();
 		System.out.println("\nDisplay stock details");
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","Food ID","Food Name","Quantity");
 		for(int k=0;k<mhotel.getStockList().size();k++)
