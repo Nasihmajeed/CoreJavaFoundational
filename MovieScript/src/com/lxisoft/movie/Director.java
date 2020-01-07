@@ -1,6 +1,5 @@
 package com.lxisoft.movie;
-import com.lxisoft.Interface.Villanic;
-public class Villan extends Actors implements Villanic
+public class Director
 {
 	private String name;
 	public void setName(String name)

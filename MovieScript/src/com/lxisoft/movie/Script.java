@@ -27,16 +27,16 @@ public class Script
 		dialouge.get(0).setDialouge("Hello");
 		dialouge.get(1).setDialouge("Who are You ?");
 		dialouge.get(2).setDialouge("Hi");
-		dialouge.get(3).setDialouge("Iam Villan");
+		dialouge.get(3).setDialouge("Iam Pillechan");
 	}
 	public void setComedianDialouge(ArrayList<Dialouge> dialouge)
 	{
 		dialouge.get(0).setDialouge("Hello");
 		dialouge.get(1).setDialouge("Who are you ?");
 		dialouge.get(2).setDialouge("Hi");
-		dialouge.get(3).setDialouge("Iam Comedian");
+		dialouge.get(3).setDialouge("Iam Madhavan");
 	}
-	public void commonConversation(Actors actor,ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge)
+	public void commonConversation(Actors actor,ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge,ArrayList<Actors> actorArray)
 	{
 		setArray(vDialouge);
 		setArray(cDialouge);
@@ -46,16 +46,16 @@ public class Script
 		{
 			for(int i=0;i<vDialouge.size()-2;i++)
 			{
-				System.out.println("Villan : "+vDialouge.get(i).getDialouge());
-				System.out.println("Comedian : "+cDialouge.get(i+2).getDialouge());
+				System.out.println(((Villan)actorArray.get(0)).getName()+" : "+vDialouge.get(i).getDialouge());
+				System.out.println(((Comedian)actorArray.get(1)).getName()+" : "+cDialouge.get(i+2).getDialouge());
 			}
 	    }
 	    else if(actor instanceof Comedian)
 	    {
 	    	for(int i=0;i<cDialouge.size()-2;i++)
 			{
-				System.out.println("Comedian : "+cDialouge.get(i).getDialouge());
-				System.out.println("Villan : "+vDialouge.get(i+2).getDialouge());
+				System.out.println(((Comedian)actorArray.get(1)).getName()+" : "+cDialouge.get(i).getDialouge());
+				System.out.println(((Villan)actorArray.get(0)).getName()+" : "+vDialouge.get(i+2).getDialouge());
 			}	
 	    }
 	}
@@ -284,13 +284,13 @@ public class Script
 	{
 		if(actor instanceof Comic)
 		{
-			System.out.println("Comedian : "+dialouge2.get(x).getDialouge());
-			System.out.println("Villan : "+dialouge1.get(x).getDialouge());
+			System.out.println(" : "+dialouge1.get(x).getDialouge());
+			System.out.println("Villan : "+dialouge2.get(x).getDialouge());
 	    }
 	    else if(actor instanceof Villanic)
 	    {
-	    	System.out.println("Villan : "+dialouge1.get(x).getDialouge());
-			System.out.println("Comedian : "+dialouge2.get(x).getDialouge());	
+	    	System.out.println("Villan : "+dialouge2.get(x).getDialouge());
+			System.out.println("Comedian : "+dialouge1.get(x).getDialouge());	
 	    }
 	}
 }

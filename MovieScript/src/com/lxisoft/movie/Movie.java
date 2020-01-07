@@ -18,6 +18,13 @@ public class Movie
 	{
 		this.name=name;
 	}
+	public void movieDetails()
+	{
+		Director director = new Director();
+		director.setName("Lal Jose");
+		System.out.println("Movie Name : "+name);
+		System.out.println("Director Name : "+director.getName());
+	}
 	public void startMovie()
 	{
 		try
@@ -31,6 +38,7 @@ public class Movie
 				switch(x)
 				{
 				case 1:
+				   movieDetails();
 				   selectActor(script.villanQuestion,script.comedianQuestion,script.villanAnswer,script.comedianAnswer);
 				   isTrue = false;
 				   break;
@@ -56,12 +64,11 @@ public class Movie
 			boolean fileExists = script.fileExist(villanQuestionFile,comedianQuestionFile,villanAnswerFile,comedianAnswerFile);
 			ArrayList<Actors> actors = new ArrayList<Actors>();
 			actors.add(new Villan());
+			((Villan)actors.get(0)).setName("Pillechan");
 			actors.add(new Comedian());
+			((Comedian)actors.get(1)).setName("Madhavan");
 			int[] c = script.limitOfDialogue(villanQuestion.size(),comedianQuestion.size(),villanAnswer.size(),comedianAnswer.size(),fileExists);
 			boolean exists = false;
-			//Set While loop and remove do While
-			//Remove repetation...
-			//print dialouge properly...
 			while(c[0]>0)
 			{
 			 int x = (int)(Math.random()*actors.size());
@@ -74,7 +81,7 @@ public class Movie
 					}
 					else if(!fileExists)
 					{
-						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
+						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge,actors);
 						break;
 					}
 				}
@@ -87,7 +94,7 @@ public class Movie
 					}
 					else if(!fileExists)
 					{
-						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge);
+						script.commonConversation(actors.get(x),script.villanCommonDialouge,script.comedianCommonDialouge,actors);
 						break;
 					}
 				}
@@ -98,10 +105,6 @@ public class Movie
 	   	e.printStackTrace();
 	   }
 	}
-	//public void checkInstance(Actor actor)
-	//{
-
-	//}
 	public void addDialougeToFile(File villanAnswerFile,File comedianAnswerFile,File villanQuestionFile,File comedianQuestionFile)
 	{
 		try
@@ -134,15 +137,13 @@ public class Movie
 			e.printStackTrace();
 		}
 	}
-
-	
 	public void selectDialogue(int x,Actors actor,ArrayList<Dialouge> cDialouge,ArrayList<Dialouge> vDialouge)
 	{
 		try
 		{
 			if(actor instanceof Comic)
 			{
-				int y = (int)(Math.random()*cDialouge.size());
+				int y = (int)(Math.random()*x);
 				if(cDialouge.get(y).isTaken)
 				{
 					script.print(y,cDialouge,vDialouge,actor);
@@ -152,7 +153,7 @@ public class Movie
 			}
 			if(actor instanceof Villanic)
 			{
-				int y = (int)(Math.random()*vDialouge.size());
+				int y = (int)(Math.random()*x);
 				if(cDialouge.get(y).isTaken)
 				{
 					script.print(y,vDialouge,cDialouge,actor);
@@ -165,24 +166,5 @@ public class Movie
 	    {
 	    	e.printStackTrace();
 	    }
-	}
-	public boolean conversationexeed(int x,boolean exists)
-	{
-		try
-		{
-			if(x==9)
-			{
-				exists = false;
-			}
-			else if(x<9)
-			{
-				exists = true;
-			}
-	    }
-	    catch (Exception e)
-	    {
-	    	e.printStackTrace();
-	    }
-	    return exists;
 	}
 }
