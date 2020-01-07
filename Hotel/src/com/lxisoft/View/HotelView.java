@@ -6,7 +6,7 @@ public class HotelView
 {		
 	static Scanner sc=new Scanner(System.in);
 	public HotelModel mhotel=new HotelModel();
-	//FileRepository filerepo=new FileRepository();
+	FileRepository filerepo=new FileRepository();
 	public int menu()
 	{
 		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
@@ -30,9 +30,10 @@ public class HotelView
 		System.out.println("Biriyani price");
 		biriyani.setFoodPrice(sc.nextInt());	
 		mhotel.setFoodList(biriyani);
-		// filerepo.addwriter(mhotel);
-		// filerepo.readFile();
-		sqlrepo.insertDataToFoodlist(mhotel);
+		filerepo.saveData(mhotel);
+		filerepo.displayAll();
+		sqlrepo.saveData(mhotel);
+		
 	}
 	public int biriyaniId()
 	{
@@ -49,9 +50,9 @@ public class HotelView
 		System.out.println("Dosa price");
 		dosa.setFoodPrice(sc.nextInt());
 	 	mhotel.setFoodList(dosa);
-	 	sqlrepo.insertDataToFoodlist(mhotel);
-		// filerepo.addwriter(mhotel);
-		// filerepo.readFile();
+	 	filerepo.saveData(mhotel);
+		filerepo.displayAll();
+		sqlrepo.saveData(mhotel);
 	}		
 	public int dosaId()
 	{
@@ -68,9 +69,9 @@ public class HotelView
 		System.out.println("Shake price");
 		shake.setFoodPrice(sc.nextInt());				
 		mhotel.setFoodList(shake);	
-		// filerepo.addwriter(mhotel);
-		// filerepo.readFile();
-		sqlrepo.insertDataToFoodlist(mhotel);
+		filerepo.saveData(mhotel);
+		filerepo.displayAll();
+		sqlrepo.saveData(mhotel);
 	}
 	public int shakeId()
 	{
@@ -80,7 +81,7 @@ public class HotelView
 	}			
 	public void displayFood(SqlRepository sqlrepo)
 	{
-		sqlrepo.displayFoodlist();
+		sqlrepo.displayAll();
 		System.out.println("\nDisplay the details of Food");
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
 		for(int i=0;i<mhotel.getFoodList().size();i++)
@@ -101,8 +102,8 @@ public class HotelView
 		System.out.println("How much food you want to add");
 		stock.setFoodQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
-		// filerepo.addToStock(mhotel,stock);
-		// filerepo.readToStock(mhotel);
+		filerepo.addToStock(mhotel,stock);
+		filerepo.readToStock(mhotel);
 		sqlrepo.createStockTable();	
 		sqlrepo.insertStockQuery(mhotel);							
 	}
@@ -152,7 +153,6 @@ public class HotelView
 		{	
 		  	System.out.println("-Less Stock");
 		  	System.out.println("Total Bill Amount="+((mhotel.getFoodList().get(q).getFoodPrice())*(mhotel.getItemQuantity())));
-
 		}	
 	}	
 }	

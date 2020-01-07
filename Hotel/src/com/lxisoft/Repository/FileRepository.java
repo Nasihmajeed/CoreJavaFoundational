@@ -4,12 +4,12 @@ import java.io.*;
 import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.HotelControl;
 import com.lxisoft.Model.*;
-public class FileRepository
+public class FileRepository implements Repository
 {
 	File file=new File("D:\\Food.csv");
 	File stocks=new File("D:\\Stock.csv");
 	FoodModel food=new FoodModel();
-	public void addwriter(HotelModel mhotel)
+	public void saveData(HotelModel mhotel)
 	{
 		try
 		{					
@@ -28,7 +28,7 @@ public class FileRepository
 			e.printStackTrace();
 		}
 	}	
-	public void readFile()
+	public void displayAll()
 	{	
 		try
 		{
@@ -39,7 +39,7 @@ public class FileRepository
 			{	
 				String[] s=str.split(",",3);
 				food.setId(Integer.parseInt(s[0]));
-				food.setFoodType(s[1]);
+				food.setFoodName(s[1]);
 				food.setFoodPrice(Integer.parseInt(s[2]));
 				System.out.println(s[0] + (s[1]) + (s[2]));	
 			}
@@ -82,7 +82,7 @@ public class FileRepository
 				String[] ss=string.split(",",3);
 				StockModel stocks=new StockModel();
 				food.setId(Integer.parseInt(ss[0]));
-				food.setFoodType(ss[1]);
+				food.setFoodName(ss[1]);
 				stocks.setFoodQuantity(Integer.parseInt(ss[2]));
 				System.out.println(ss[0] + (ss[1]) + (ss[2]));	
 			}

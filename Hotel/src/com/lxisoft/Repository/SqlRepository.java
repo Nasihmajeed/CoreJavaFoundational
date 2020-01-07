@@ -5,7 +5,7 @@ import java.sql.*;
 import com.lxisoft.View.HotelView;
 import com.lxisoft.Control.*;
 import com.lxisoft.Model.*;   
-public class SqlRepository
+public class SqlRepository implements Repository
 {
 	private static SqlRepository sqlrepo = null;
 	private SqlRepository() {}
@@ -47,14 +47,14 @@ public class SqlRepository
 			e.printStackTrace();
 		}		
 	}
-	public void insertDataToFoodlist(HotelModel mhotel)
+	public void saveData(HotelModel mhotel)
 	{
 		try
 		{
 			deleteFoodlist();
 			dataBaseConnectionEstablish();
 			String sql;
-			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?)");
+			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
 			ps = con.prepareStatement(sql);
 			for(int j=0;j<mhotel.getFoodList().size();j++)
 			{
@@ -70,7 +70,7 @@ public class SqlRepository
 			e.printStackTrace();
 		}
 	}
-	public void displayFoodlist()
+	public void displayAll()
 	{
 		try
 		{
@@ -133,12 +133,13 @@ public class SqlRepository
 			deleteStocklist();
 			dataBaseConnectionEstablish();
 			String sql;
-			sql=("insert into stocklist(Foodname,Quantity) values(?,?)");
+			sql=("insert into stocklist(Id,Foodname,Quantity) values(?,?,?)");
 			ps = con.prepareStatement(sql);
 			for(int j=0;j<mhotel.getFoodList().size();j++)
 			{
-				ps.setString(1,mhotel.getFoodList().get(j).getFoodName());
-				ps.setInt(2,mhotel.getStockList().get(j).getFoodQuantity());
+				ps.setInt(1,mhotel.getFoodList().get(j).getId());
+				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
+				ps.setInt(3,mhotel.getStockList().get(j).getFoodQuantity());
 				int i = ps.executeUpdate();
 			}
 		}
@@ -194,7 +195,7 @@ public class SqlRepository
 		{
 			dataBaseConnectionEstablish();
 			String d;
-			d=("update stocklist set name= 'am' where SlNo=1");
+			d=("update stocklist set name='am' where SlNo=1");
 			ps = con.prepareStatement(d);
 			ps.execute();
 		}
