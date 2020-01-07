@@ -4,7 +4,7 @@ public class Tdd
 {
  public static void main(String[] args) {
  	Movie mov =new Movie();
- 	mov.display();
+ 	mov.choice();
 		
 	}
 }

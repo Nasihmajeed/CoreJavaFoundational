@@ -69,4 +69,19 @@ public class Script
 		}
 		return readDialogue;
 	}
+	public ArrayList<Dialogue> commonDialogue()
+	{
+	  ArrayList<Dialogue> commonD =new ArrayList<Dialogue>();
+		for(int i=0;i<4;i++)
+		{
+		commonD.add(new Dialogue());
+		}
+			commonD.get(0).dialogue="hai";
+			commonD.get(1).dialogue="hello";
+			commonD.get(2).dialogue="how are you?";
+			commonD.get(3).dialogue="i am fine";
+			return commonD;
+
+	}
+	
 }
