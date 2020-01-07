@@ -2,7 +2,7 @@ package com.lxisoft.movie;
 public class Dialouge
 {
 	private String dialouge;
-	public boolean isTaken=false;
+	public boolean isTaken=true;
 	
 	public void setDialouge(String dialouge)
 	{

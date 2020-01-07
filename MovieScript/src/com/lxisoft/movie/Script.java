@@ -98,6 +98,28 @@ public class Script
 			e.printStackTrace();
 		}
 	}
+	public int[] limitOfDialogue(int a,int b,int c,int d,boolean isTrue)
+	{
+		int[] x= new int[2];
+		if(isTrue)
+		{
+		ArrayList<Integer> limit = new ArrayList<Integer>();
+		limit.add(a);
+		limit.add(b);
+		limit.add(c);
+		limit.add(d);
+
+		Collections.sort(limit);
+		x[0] = limit.get(0)*4;
+		x[1] = limit.get(0);
+	    }
+	    else if(!isTrue)
+	    {
+	    	x[0] = 8;
+	    	x[1] = 4;
+	    }
+		return x;
+	}
 	public boolean fileExist(File villanQuestionFile,File comedianQuestionFile,File villanAnswerFile,File comedianAnswerFile)
 	{
 		boolean villanQuestionFileExists = villanQuestionFile.exists();
