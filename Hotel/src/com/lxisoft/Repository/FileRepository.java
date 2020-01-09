@@ -50,13 +50,12 @@ public class FileRepository implements Repository
 			e.printStackTrace();
 	 	}
 	}		
-	public void addToStock(HotelModel mhotel,StockModel stock)
+	public void addToStock(HotelModel mhotel)
 	{
 		try
 		{					
 			FileWriter fwr=new FileWriter(stocks,false);
-			BufferedWriter bwr=new BufferedWriter(fwr);
-			
+			BufferedWriter bwr=new BufferedWriter(fwr);			
 			for(int j=0;j<mhotel.getStockList().size();j++)
 			{	
 				bwr.write(mhotel.getFoodList().get(j).getId()+","+mhotel.getFoodList().get(j).getFoodName()+","+mhotel.getStockList().get(j).getFoodQuantity()+"\n");

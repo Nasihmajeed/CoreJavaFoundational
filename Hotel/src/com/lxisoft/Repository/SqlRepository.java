@@ -17,6 +17,7 @@ public class SqlRepository implements Repository
 	}
 	Connection con = null;
 	PreparedStatement ps = null;
+	ResultSet rs =null;
 	public void dataBaseConnectionEstablish()
 	{
 		if (con == null)
@@ -37,7 +38,6 @@ public class SqlRepository implements Repository
 		try 
 		{
 			dataBaseConnectionEstablish();
-			deleteFoodlist();
 			String qry;
 			qry="create table if not exists foodlist (SlNo int primary key auto_increment,Id int,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
@@ -52,18 +52,15 @@ public class SqlRepository implements Repository
 	{
 		try
 		{
-			//deleteFoodlist();
 			dataBaseConnectionEstablish();
 			String sql;
 			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
 			ps = con.prepareStatement(sql);
-			for(int j=0;j<mhotel.getFoodList().size();j++)
-			{
-				ps.setInt(1,mhotel.getFoodList().get(j).getId());
-				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
-				ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
-				int i = ps.executeUpdate();
-			}
+			int j=(mhotel.getFoodList().size())-1;
+			ps.setInt(1,mhotel.getFoodList().get(j).getId());
+			ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
+			ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
+			int i = ps.executeUpdate();
 		}
 		catch (Exception e)
 		{
@@ -78,17 +75,18 @@ public class SqlRepository implements Repository
 			dataBaseConnectionEstablish();
 			String q;
 			q=("select * from foodlist");
-			ResultSet rs = ps.executeQuery(q);
-			if(rs.next())
-			{ 
-				System.out.printf("%-20.30s %-20.30s %-20.30s%n","SlNo","Food Type","Food Price");
-				while(rs.next())
-				{
-					System.out.printf("%-20.30s %-20.30s %-20.30s%n",rs.getInt(1),rs.getString(2),rs.getInt(3));
-				}
+			System.out.println("ps"+ps);
+			System.out.println("exe"+ps.executeQuery(q));
+
+			rs = ps.executeQuery(q);
+			System.out.println("rs"+rs);
+			
+			
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n","SlNo","Food Type","Food Price");
+			while(rs.next())
+			{
+				System.out.printf("%-20.30s %-20.30s %-20.30s%n",rs.getInt(2),rs.getString(3),rs.getInt(4));
 			}
-			else
-				System.out.println("Not Found...");
 		}
 		catch(SQLException e)
 		{
@@ -101,7 +99,6 @@ public class SqlRepository implements Repository
 		try 
 		{
 			dataBaseConnectionEstablish();
-			deleteStocklist();
 			String qry;
 			qry="create table if not exists stocklist(SlNo int primary key auto_increment,Id int,Foodname varchar(15),Quantity int)";
 			ps = con.prepareStatement(qry);
@@ -131,18 +128,15 @@ public class SqlRepository implements Repository
 	{
 		try
 		{
-			//deleteStocklist();
 			dataBaseConnectionEstablish();
 			String sql;
 			sql=("insert into stocklist(Id,Foodname,Quantity) values(?,?,?)");
 			ps = con.prepareStatement(sql);
-			for(int j=0;j<mhotel.getFoodList().size();j++)
-			{
+				int j=(mhotel.getStockList().size())-1;
 				ps.setInt(1,mhotel.getFoodList().get(j).getId());
 				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
 				ps.setInt(3,mhotel.getStockList().get(j).getFoodQuantity());
 				int i = ps.executeUpdate();
-			}
 		}
 		catch (Exception e)
 		{
@@ -171,17 +165,13 @@ public class SqlRepository implements Repository
 			dataBaseConnectionEstablish();
 			String q;
 			q=("select * from stocklist");
-			ResultSet rs = ps.executeQuery(q);
-			if(rs.next())
-			{ 
-				System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Name","Quantity");
-				while(rs.next())
-				{
-					System.out.printf("%-20.30s %-20.30s %-20.30s%n",rs.getInt(1),rs.getString(2),rs.getInt(3));
-				}
+			rs = ps.executeQuery(q);
+			System.out.println("rs.next stock"+rs.next());
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n","SlNo","Food Name","Quantity");
+			while(rs.next())
+			{
+				System.out.printf("%-20.30s %-20.30s %-20.30s%n",rs.getInt(2),rs.getString(3),rs.getInt(4));
 			}
-			else
-				System.out.println("Not Found...");			
 		}
 		catch(SQLException e)
 		{

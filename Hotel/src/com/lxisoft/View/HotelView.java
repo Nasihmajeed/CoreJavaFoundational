@@ -82,12 +82,12 @@ public class HotelView
 	public void displayFood(SqlRepository sqlrepo)
 	{
 		sqlrepo.displayAll();
-		System.out.println("\nDisplay the details of Food");
-		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
-		for(int i=0;i<mhotel.getFoodList().size();i++)
-		{			
-			System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodName(),mhotel.getFoodList().get(i).getFoodPrice());
-		}		
+		// System.out.println("\nDisplay the details of Food");
+		// System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Food Type","Food Price");
+		// for(int i=0;i<mhotel.getFoodList().size();i++)
+		// {			
+		// 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",mhotel.getFoodList().get(i).getId(),mhotel.getFoodList().get(i).getFoodName(),mhotel.getFoodList().get(i).getFoodPrice());
+		// }		
 	}
 	public int selectStock(SqlRepository sqlrepo)
 	{   
@@ -102,7 +102,7 @@ public class HotelView
 		System.out.println("How much food you want to add");
 		stock.setFoodQuantity(sc.nextInt());
 		mhotel.setStockList(stock);
-		filerepo.addToStock(mhotel,stock);
+		filerepo.addToStock(mhotel);
 		filerepo.readToStock(mhotel);
 		sqlrepo.createStockTable();	
 		sqlrepo.insertStockQuery(mhotel);							
