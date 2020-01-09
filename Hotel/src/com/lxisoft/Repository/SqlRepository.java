@@ -37,6 +37,7 @@ public class SqlRepository implements Repository
 		try 
 		{
 			dataBaseConnectionEstablish();
+			deleteFoodlist();
 			String qry;
 			qry="create table if not exists foodlist (SlNo int primary key auto_increment,Id int,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
@@ -51,7 +52,7 @@ public class SqlRepository implements Repository
 	{
 		try
 		{
-			deleteFoodlist();
+			//deleteFoodlist();
 			dataBaseConnectionEstablish();
 			String sql;
 			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
@@ -100,6 +101,7 @@ public class SqlRepository implements Repository
 		try 
 		{
 			dataBaseConnectionEstablish();
+			deleteStocklist();
 			String qry;
 			qry="create table if not exists stocklist(SlNo int primary key auto_increment,Id int,Foodname varchar(15),Quantity int)";
 			ps = con.prepareStatement(qry);
@@ -116,21 +118,20 @@ public class SqlRepository implements Repository
 		try
 		{
 			dataBaseConnectionEstablish();
-			String sq;
-			sq = "delete from foodlist where id=1 ";
-			ps = con.prepareStatement(sq);
+			String t=("truncate table foodlist");
+			ps = con.prepareStatement(t);
 			ps.execute();
 		}
-		catch (Exception e)
+		catch(SQLException e)
 		{
-			System.out.println("vfg"+e);
+			System.out.println("ttttttt"+e);
 		}
 	}		
 	public void insertStockQuery(HotelModel mhotel)
 	{
 		try
 		{
-			deleteStocklist();
+			//deleteStocklist();
 			dataBaseConnectionEstablish();
 			String sql;
 			sql=("insert into stocklist(Id,Foodname,Quantity) values(?,?,?)");
@@ -154,14 +155,13 @@ public class SqlRepository implements Repository
 		try
 		{
 			dataBaseConnectionEstablish();
-			String sq;
-			sq = "delete from stocklist where Quantity=2";
-			ps = con.prepareStatement(sq);
+			String t=("truncate table stocklist");
+			ps = con.prepareStatement(t);
 			ps.execute();
 		}
-		catch (Exception e)
+		catch(SQLException e)
 		{
-			System.out.println("frrss"+e);
+			System.out.println("ttttttt"+e);
 		}
 	}		
 	public void displayStocklist()
@@ -203,5 +203,6 @@ public class SqlRepository implements Repository
 		{
 			System.out.println(e);
 		}
-	}	
+	}
+	
 }	

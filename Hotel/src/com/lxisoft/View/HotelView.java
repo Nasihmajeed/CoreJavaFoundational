@@ -9,7 +9,7 @@ public class HotelView
 	FileRepository filerepo=new FileRepository();
 	public int menu()
 	{
-		System.out.println("\n\tMENU  \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
+		System.out.println("\n\tMENU \n1.Add Food \n2.Add Stock \n3.Display Food \n4.Display Stock \n5.Add food User \n6.Exit  \n ");
 		int u=sc.nextInt();	
 		return u;
 	}		
