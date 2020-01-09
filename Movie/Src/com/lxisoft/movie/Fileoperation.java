@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Fileoperation
 {
-	public String operation(String randdialogue)
+	public String operation(String actordia)
 	{
 		String[] data=new String[10];
         String line = "";
@@ -18,7 +18,7 @@ public class Fileoperation
 
                  
     	           String[] datas= line.split(","); 
-                   if(randdialogue.equals(datas[0]))
+                   if(actordia.equals(datas[0]))
                    {
     	               data[i++]=datas[1];
                    }
@@ -32,57 +32,49 @@ public class Fileoperation
         {
             e.printStackTrace();
         } 
-       // int randVar==(int)( Math.random()*data.length);
         int randVar=(int)(Math.random()*4);
         return data[randVar];      
 	}
 	public void writeIntoFile()
-	{
-        ArrayList<String>csvFile=new ArrayList<String>();
-        csvFile.add("../version..2/com/lxisoft/movie/Hero.csv");
-        csvFile.add("../version..2/com/lxisoft/movie/Comedian.csv");
-        csvFile.add("../version..2/com/lxisoft/movie/Villain.csv");
-        csvFile.add("../version..2/com/lxisoft/movie/Heroin.csv");        
+    {
+       
+        String csvFile="../version..2/com/lxisoft/movie/Dialogue.csv";
+        String line = "";   
         FileWriter fr = null;
         BufferedWriter br = null;
-
         Scanner scr=new Scanner(System.in);
-		System.out.println("select the actor \n 1 : Hero \n 2 : Comedian \n 3 : Villain \n 4 : Heroin \n 5 : Dialogue");
+        System.out.println("select the actor \n 1 : Hero \n 2 : Comedian \n 3 : Villain \n 4 : Heroin \n 5 : Dialogue");
         int number=scr.nextInt();
 
-		System.out.println("No of dialogue");
-		int noOfLines=scr.nextInt();
+        ArrayList<String>actordia=new ArrayList<String>();
+        actordia.add("Hero");
+        actordia.add("Comedian");
+        actordia.add("Villain");
+        actordia.add("Heroin");
+        actordia.add("Dialogue");
 
-		String[] dialogues=new String[noOfLines+1];
-		for (int i=0;i<noOfLines;i++) 
-		{
-			System.out.println("Dialogue :"+i);
-			dialogues[i]=scr.next();
-            System.out.println("");
-		}
+        System.out.println("No of dialogue");
+        int noOfLines=scr.nextInt();
 
-
+        String[] dialogues=new String[noOfLines+1];
+        String[] data=new String[10];
+        for (int i=0;i<noOfLines;i++) 
+        {
+            System.out.println("Dialogue :"+(i+1));
+            dialogues[i]=scr.next();
+            
+        }
         try{
-            for (int i=1;i<=5;i++) 
-            {
-                if(number==i)
-                {
-                    String[] datas= line.split(",");
-                   fr = new FileWriter(datas(1),true); 
-                }
-                else
-                {
-                    break;
-                }
-            }
-            
+            fr = new FileWriter(csvFile,true);
             br = new BufferedWriter(fr);
-            
-            for(int i = noOfLines,j=0; i>0; i--,j++)
+                
+            for (int i=0;i<noOfLines ;i++) 
             {
-            	System.out.println(dialogues[j]);
-                br.write(dialogues[j]+",");
-
+                //System.out.println(dialogues[j]);
+                  
+                        br.write(actordia.get(--number)+","+dialogues[i]+"\n");
+                   
+                
             }
         } catch (IOException e) 
         {
@@ -94,10 +86,55 @@ public class Fileoperation
             {
                 br.close();
                 fr.close();
-            } catch (IOException e) {
+            } 
+            catch (IOException e) 
+            {
                 e.printStackTrace();
-            
+            }   
         }
     }
-}
+    public void editDialogue()
+    {
+       
+        
+       // String csvFile="../version..2/com/lxisoft/movie/Dialogue.csv";
+        
+            
+         
+        Scanner scr=new Scanner(System.in);
+        System.out.println("select the actor \n 1 : Hero \n 2 : Comedian \n 3 : Villain \n 4 : Heroin \n 5 : Dialogue");
+        int number=scr.nextInt();
+        
+        ArrayList<String>actordia=new ArrayList<String>();
+        actordia.add("Hero");
+        actordia.add("Comedian");
+        actordia.add("Villain");
+        actordia.add("Heroin");
+        actordia.add("Dialogue");
+
+        String[] data=new String[10];
+        String line = "";
+       try{
+               String csvFile = "../version..2/com/lxisoft/movie/Dialogue.csv";
+               BufferedReader br = new BufferedReader(new FileReader(csvFile));
+               int i=0;
+               while ((line = br.readLine()) != null)
+               { 
+                   String[] datas= line.split(","); 
+                   if(actordia.equals(datas[0]))
+                   {
+                       data[i++]=datas[1];
+                       System.out.println(data[i]);
+                   }
+               }
+           }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        } 
+        } 
 }

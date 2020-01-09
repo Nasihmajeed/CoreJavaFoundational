@@ -13,7 +13,7 @@ public class Tdd
 		
 		do{
 
-   			System.out.println("1 : Play movie \n2 : write dialogue\n3.exit\nEnter your choice:");
+   			System.out.println("1 : Play movie \n2 : write dialogue\n3 : Edit dialogue\n4 : exit\n Enter your choice:");
    			int num=scr.nextInt();
 			switch(num)
 			{
@@ -40,6 +40,11 @@ public class Tdd
 						fo.writeIntoFile();						
 						break;
 				case 3:
+
+						Fileoperation fd=new Fileoperation();
+						fd.editDialogue();
+						break;
+				case 4:
 						System.out.println("The End");
 						flag=false;break;
 

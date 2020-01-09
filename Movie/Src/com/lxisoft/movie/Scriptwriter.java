@@ -13,30 +13,30 @@ public class Scriptwriter
 		{
 						
 			script=new Script();
-			String randdialogue;
+			String actordia;
 			Fileoperation fo=new Fileoperation();
-			//int randdialogue=(int)(Math.random()*4);	
+			//int actordia=(int)(Math.random()*4);	
 			if(actorlist[i] instanceof Hero)
 			{
-				randdialogue="Hero";
+				actordia="Hero";
 			}
 			else if(actorlist[i] instanceof Comedian)
 			{
-				randdialogue="Comedian";
+				actordia="Comedian";
 			}
 			else if(actorlist[i] instanceof Villain)
 			{
-				randdialogue="Villain";
+				actordia="Villain";
 			}
 			else if(actorlist[i] instanceof Heroin)
 			{
-				randdialogue="Heroin";
+				actordia="Heroin";
 			}
 			else
 			{
-				randdialogue="Dialouge";
+				actordia="Dialouge";
 			}
-			String s=fo.operation(randdialogue);
+			String s=fo.operation(actordia);
 			
 			actorlist[i].setDialogues(s);
 		}
