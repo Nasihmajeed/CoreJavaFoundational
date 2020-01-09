@@ -5,17 +5,10 @@ import java.util.*;
 import java.io.*;
 public class Script
 {
-	public ArrayList<Dialouge> villanQuestion = new ArrayList<Dialouge>();
-	public ArrayList<Dialouge> comedianQuestion = new ArrayList<Dialouge>();
-
-	public ArrayList<Dialouge> villanAnswer = new ArrayList<Dialouge>();
-	public ArrayList<Dialouge> comedianAnswer = new ArrayList<Dialouge>();
-
-	public ArrayList<Dialouge> villanCommonDialouge = new ArrayList<Dialouge>();
-	public ArrayList<Dialouge> comedianCommonDialouge = new ArrayList<Dialouge>();
-
-	public ArrayList<Dialouge> setArray(ArrayList<Dialouge> dialouge)
+	
+	public ArrayList<Dialouge> setArray()
 	{
+		ArrayList<Dialouge> dialouge = new ArrayList<Dialouge>();
 		for(int i=0;i<4;i++)
 		{
 			dialouge.add(new Dialouge());
@@ -27,21 +20,17 @@ public class Script
 		dialouge.get(0).setDialouge("Hello");
 		dialouge.get(1).setDialouge("Who are You ?");
 		dialouge.get(2).setDialouge("Hi");
-		dialouge.get(3).setDialouge("Iam Pillechan");
+		dialouge.get(3).setDialouge("Iam Villan");
 	}
 	public void setComedianDialouge(ArrayList<Dialouge> dialouge)
 	{
 		dialouge.get(0).setDialouge("Hello");
 		dialouge.get(1).setDialouge("Who are you ?");
 		dialouge.get(2).setDialouge("Hi");
-		dialouge.get(3).setDialouge("Iam Madhavan");
+		dialouge.get(3).setDialouge("Iam Comedian");
 	}
 	public void commonConversation(Actors actor,ArrayList<Dialouge> vDialouge,ArrayList<Dialouge> cDialouge,ArrayList<Actors> actorArray)
 	{
-		setArray(vDialouge);
-		setArray(cDialouge);
-		setVillanDialouge(vDialouge);
-		setComedianDialouge(cDialouge);
 		if(actor instanceof Villan)
 		{
 			for(int i=0;i<vDialouge.size()-2;i++)
@@ -58,45 +47,6 @@ public class Script
 				System.out.println(((Villan)actorArray.get(0)).getName()+" : "+vDialouge.get(i+2).getDialouge());
 			}	
 	    }
-	}
-	public void questionOrAnswer(Scanner scanner,File questionFile,File answerFile,ArrayList<Dialouge> questionArray,ArrayList<Dialouge> answerArray)
-	{
-		try
-		{
-			boolean isTrue = false,fileExists = false;
-			do
-			{
-				isTrue = false;
-				fileExists = false;
-				System.out.println("press ==> 1.Question 2.Answer 3.Back");
-				int x = scanner.nextInt();
-				switch(x)
-				{
-					case 1:
-						fileExists = singleFileExists(questionFile);
-				   		questionFile = createFile(fileExists,questionFile);
-				   		writeToFile(questionFile,scanner,questionArray);
-						isTrue = true;
-						break;
-					case 2:
-						fileExists = singleFileExists(answerFile);
-				   		answerFile = createFile(fileExists,answerFile);
-				   		writeToFile(answerFile,scanner,answerArray);
-						isTrue = true;
-						break;
-					case 3:
-						break;
-					default :
-						System.out.println("!!! Select Options From Above !!!");
-						break;
-				}
-
-			}while(isTrue);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
 	}
 	public int[] limitOfDialogue(int a,int b,int c,int d,boolean isTrue)
 	{
@@ -120,7 +70,7 @@ public class Script
 	    }
 		return x;
 	}
-	public boolean fileExist(File villanQuestionFile,File comedianQuestionFile,File villanAnswerFile,File comedianAnswerFile)
+	public boolean fileExist(ScriptWriter sw,File villanQuestionFile,File comedianQuestionFile,File villanAnswerFile,File comedianAnswerFile)
 	{
 		boolean villanQuestionFileExists = villanQuestionFile.exists();
 		boolean comedianQuestionFileExists = comedianQuestionFile.exists();
@@ -130,10 +80,10 @@ public class Script
 		if(villanQuestionFileExists && comedianQuestionFileExists && villanAnserFileExists && comedianAnswerFileExists)
 		{
 			exists = true;
-			readFromFile(comedianQuestionFile,comedianQuestion);
-			readFromFile(villanAnswerFile,villanAnswer);
-			readFromFile(villanQuestionFile,villanQuestion);
-			readFromFile(comedianAnswerFile,comedianAnswer);
+			readFromFile(sw.comedianQuestionFile,sw.comedianQuestion);
+			readFromFile(sw.villanAnswerFile,sw.villanAnswer);
+			readFromFile(sw.villanQuestionFile,sw.villanQuestion);
+			readFromFile(sw.comedianAnswerFile,sw.comedianAnswer);
 		}
 		else
 		{
@@ -229,10 +179,10 @@ public class Script
 	{
 		try
 		{
-		if(file.length()>0)
-		{
-			bw.newLine();
-		}
+			if(file.length()>0)
+			{
+				bw.newLine();
+			}
 	    }
 	    catch(Exception e)
 	    {
@@ -280,17 +230,17 @@ public class Script
 			System.out.println(dialouge.get(i).getDialouge());
 		}
 	}
-	public void print(int x,ArrayList<Dialouge> dialouge1,ArrayList<Dialouge> dialouge2,Actors actor)
+	public void print(int x,ArrayList<Dialouge> dialouge1,ArrayList<Dialouge> dialouge2,Actors actor,ArrayList<Actors> actorsArray)
 	{
 		if(actor instanceof Comic)
 		{
-			System.out.println(" : "+dialouge1.get(x).getDialouge());
-			System.out.println("Villan : "+dialouge2.get(x).getDialouge());
+			System.out.println(((Comedian)actorsArray.get(1)).getName()+" : "+dialouge1.get(x).getDialouge());
+			System.out.println(((Villan)actorsArray.get(0)).getName()+" : "+dialouge2.get(x).getDialouge());
 	    }
 	    else if(actor instanceof Villanic)
 	    {
-	    	System.out.println("Villan : "+dialouge2.get(x).getDialouge());
-			System.out.println("Comedian : "+dialouge1.get(x).getDialouge());	
+	    	System.out.println(((Villan)actorsArray.get(0)).getName()+" : "+dialouge2.get(x).getDialouge());
+			System.out.println(((Comedian)actorsArray.get(1)).getName()+" : "+dialouge1.get(x).getDialouge());	
 	    }
 	}
 }
