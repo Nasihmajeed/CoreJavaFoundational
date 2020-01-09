@@ -11,6 +11,12 @@ public class Movie
 	public ArrayList<Actor> actor=new ArrayList<Actor>();
 	public Scanner sc=new Scanner(System.in);
 
+		File villanQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
+		File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianQns.txt");
+		File villanAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanAns.txt");
+		File comedianAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianAns.txt");	
+		
+
 	public void choice()
 	{int x;
 		do{
@@ -54,11 +60,7 @@ public class Movie
 	}
 	public void fileCreation()
 	{
-		File villanQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
-		File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianQns.txt");
-		File villanAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanAns.txt");
-		File comedianAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianAns.txt");	
-		 if(villanAns.exists()&&villanQns.exists()&&comedianAns.exists()&&comedianQns.exists())
+	 if(villanAns.exists()&&villanQns.exists()&&comedianAns.exists()&&comedianQns.exists())
 		 {
 		 	conversation(villanQns,comedianQns,villanAns,comedianAns);
 		 }
@@ -82,23 +84,15 @@ public class Movie
 	}
 	public void conversation(File a,File b,File c,File d)
 	{
-		// int size1=(script.c.comedian.size());
-		// int size2=(script.v.villan.size());
-		// int size3=(script.c.comedian.size())+(script.v.villan.size());
 		actor.add(new Comedian());
 		actor.add(new Villan());
 		ArrayList<Dialogue> readArray1= script.readFromFile(b);
 		ArrayList<Dialogue> readArray2= script.readFromFile(a);
 		ArrayList<Dialogue> readArray3= script.readFromFile(c);
 		ArrayList<Dialogue> readArray4= script.readFromFile(d);
-		// System.out.println("readArray1.size() : "+readArray1.size());
-		// System.out.println("readArray2.size() : "+readArray2.size());
-		// System.out.println("readArray3.size() : "+readArray3.size());
-		// System.out.println("readArray4.size() : "+readArray4.size());
 		int x=readArray1.size()+readArray4.size();
 		while(x>0)
 		{
-	
 		int random1=(int) (Math.random()*actor.size());
 		if(actor.get(random1)instanceof Comedy)
 		{
@@ -139,131 +133,151 @@ public class Movie
  	}
  	public void choiceVillan()
  	{
+ 		int a=0;
+ 		do{
  		System.out.println("1.question.");
  		System.out.println("2.answer.");
- 		int a=sc.nextInt();
- 		switch(a)
+ 		System.out.println("3.diaplay question file.");
+ 		System.out.println("4.display answer file.");
+ 		int b=sc.nextInt();
+ 		switch(b)
  		{
  			case 1: villanQ();
  					break;
 			case 2:	villanA();
 					break;
-		}
+			case 3: create(villanQns);
+					break;
+			case 4: create(villanAns);
+					break;
+			default: System.out.println("enter the right choice ");
+		
+		}System.out.println("press 1 if you want to go back");
+						 a=sc.nextInt();
+		}while(a==1);
 
  	}
  	public void choiceComedian()
  	{
+ 		int a=0;
+ 		do{
  		System.out.println("1.question.");
  		System.out.println("2.answer.");
- 		int a=sc.nextInt();
- 		switch(a)
+ 		System.out.println("3.diaplay question file.");
+ 		System.out.println("4.display answer file.");
+ 		int b=sc.nextInt();
+ 		switch(b)
  		{
  			case 1: comedianQ();
  					break;
 			case 2:	comedianA();
 					break;
-		}
+			case 3: create(comedianQns);
+					break;
+			case 4:create(comedianAns);
+					break;
+			default: System.out.println("enter the right choice ");
+		}System.out.println("press 1 if you want to go back");
+						 a=sc.nextInt();
+		}while(a==1);
+
  	}
  	public void villanQ()
- 	{
- 		System.out.println("enter the number of questions you wish to add : ");
- 					int b= sc.nextInt();
- 						try{
- 						   		File villanQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
-								FileWriter fw =new FileWriter(villanQns,false);
-								BufferedWriter bw =new BufferedWriter(fw);
-								for(int i=0;i<b;i++)
-								{	
-									System.out.println("enter the dialogue : ");
-									String d= sc.nextLine();
-									d=sc.nextLine();
-									bw.write(d);
-									bw.newLine();
-								}
-								bw.flush();
-								bw.close();
-								read(villanQns);
-							}
-							catch(Exception e)
-							{
-								e.printStackTrace();
-							}
+ 	{int a=0;
+ 		do{
+			try{
+ 				File villanQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");	
+   			 	FileWriter fw =new FileWriter(villanQns,true);
+				BufferedWriter bw =new BufferedWriter(fw);
+				System.out.println("enter the dialogue : ");
+				String d= sc.nextLine();
+				d=sc.nextLine();
+				bw.write(d);
+				bw.newLine();
+				bw.flush();
+				bw.close();
+				read(villanQns);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				System.out.println("press 1 if you want to add dialogue");
+				 a=sc.nextInt();
+ 	}while(a==1);
  	}
 
   	public void villanA()
-  	{
-  			System.out.println("enter the number of answers you wish to add : ");
- 					int b= sc.nextInt();
- 						try{
- 						   		File villanAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
-								FileWriter fw =new FileWriter(villanAns,false);
-								BufferedWriter bw =new BufferedWriter(fw);
-								for(int i=0;i<b;i++)
-								{	
-									System.out.println("enter the dialogue : ");
-									String d= sc.nextLine();
-									d=sc.nextLine();
-									bw.write(d);
-									bw.newLine();
-								}
-								bw.flush();
-								bw.close();
-								read(villanAns);
-							}
-							catch(Exception e)
-							{
-								e.printStackTrace();
-							}	
+  	{int a=0;
+  		do{	
+  			try{
+ 				File villanAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanAns.txt");
+				FileWriter fw =new FileWriter(villanAns,true);
+				BufferedWriter bw =new BufferedWriter(fw);	
+				System.out.println("enter the dialogue : ");
+				String d= sc.nextLine();
+				d=sc.nextLine();
+				bw.write(d);
+				bw.newLine();
+				bw.flush();
+				bw.close();
+				read(villanAns);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}	
+				System.out.println("press 1 if you want to add dialogue");
+				 a=sc.nextInt();
+ 	}while(a==1);
   	}
   	public void comedianQ()
-  	{
-  		System.out.println("enter the number of questions you wish to add : ");
- 					int b= sc.nextInt();
- 						try{
- 						   		File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
-								FileWriter fw =new FileWriter(comedianQns,false);
-								BufferedWriter bw =new BufferedWriter(fw);
-								for(int i=0;i<b;i++)
-								{	
-									System.out.println("enter the dialogue : ");
-									String d= sc.nextLine();
-									d=sc.nextLine();
-									bw.write(d);
-									bw.newLine();
-								}
-								bw.flush();
-								bw.close();
-								read(comedianQns);
-							}
-							catch(Exception e)
-							{
-								e.printStackTrace();
-							}
+  	{int a=0;
+  		do{
+ 			try{
+ 				File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianQns.txt");
+				FileWriter fw =new FileWriter(comedianQns,true);
+				BufferedWriter bw =new BufferedWriter(fw);
+				System.out.println("enter the dialogue : ");
+				String d= sc.nextLine();
+				d=sc.nextLine();
+				bw.write(d);
+				bw.newLine();
+				bw.flush();
+				bw.close();
+				read(comedianQns);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				System.out.println("press 1 if you want to add dialogue");
+				 a=sc.nextInt();
+ 	}while(a==1);
   	}
   	public void comedianA()
-  	{
-  		System.out.println("enter the number of answers you wish to add : ");
- 					int b= sc.nextInt();
- 						try{
- 						   		File comedianQns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\villanQns.txt");
-								FileWriter fw =new FileWriter(comedianQns,false);
-								BufferedWriter bw =new BufferedWriter(fw);
-								for(int i=0;i<b;i++)
-								{	
-									System.out.println("enter the dialogue : ");
-									String d= sc.nextLine();
-									d=sc.nextLine();
-									bw.write(d);
-									bw.newLine();
-								}
-								bw.flush();
-								bw.close();
-								read(comedianQns);
-							}
-							catch(Exception e)
-							{
-								e.printStackTrace();
-							}
+  	{int a=0;
+  		do{
+ 			try{
+ 				File comedianAns=new File("D:\\lxi\\java\\my Git\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\file\\comedianAns.txt");
+				FileWriter fw =new FileWriter(comedianAns,true);
+				BufferedWriter bw =new BufferedWriter(fw);
+				System.out.println("enter the dialogue : ");
+				String d= sc.nextLine();
+				d=sc.nextLine();
+				bw.write(d);
+				bw.newLine();
+				bw.flush();
+				bw.close();
+				read(comedianAns);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				System.out.println("press 1 if you want to add dialogue");
+				 a=sc.nextInt();
+ 	}while(a==1);
   	}
   	public void read(File file)
   	{
@@ -281,6 +295,8 @@ public class Movie
 						readDialogue.get(i).dialogue=s;
 					}
 			}
+			System.out.println("\n dialogues in "+file.getName()+" are");
+			System.out.println("****************************************");
 			for(int i=0;i<readDialogue.size();i++)
 			{
 				System.out.println(readDialogue.get(i).dialogue);
@@ -291,5 +307,24 @@ public class Movie
 			e.printStackTrace();
 		}
   	}
+  	public void create(File a)
+  	{
+  		try{
+  				if(a.exists())
+					{
+					read(a);
+					}
+					else
+					{
+						a.createNewFile();
+						read(a);
+					}
+			}
+			catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+  	}
+  
 		
 }
