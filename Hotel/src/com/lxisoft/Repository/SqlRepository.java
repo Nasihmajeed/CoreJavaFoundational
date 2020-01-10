@@ -11,13 +11,13 @@ public class SqlRepository implements Repository
 	private SqlRepository() {}
 	public static SqlRepository getInstance()
 	{
-		if(sqlrepo==null)
-		sqlrepo=new SqlRepository();
+		if(sqlrepo == null)
+		sqlrepo = new SqlRepository();
 		return sqlrepo;
 	}
 	Connection con = null;
 	PreparedStatement ps = null;
-	ResultSet rs =null;
+	ResultSet rs = null;
 	public void dataBaseConnectionEstablish()
 	{
 		if (con == null)
@@ -39,7 +39,7 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table if not exists foodlist (SlNo int primary key auto_increment,Id int,Foodname varchar(15),Foodprice int)";
+			qry = "create table if not exists foodlist (SlNo int primary key auto_increment,Id int,Foodname varchar(15),Foodprice int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
 		}
@@ -54,9 +54,9 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String sql;
-			sql=("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
+			sql = ("insert into foodlist(Id,Foodname,Foodprice) values(?,?,?)");
 			ps = con.prepareStatement(sql);
-			int j=(mhotel.getFoodList().size())-1;
+			int j = (mhotel.getFoodList().size())-1;
 			ps.setInt(1,mhotel.getFoodList().get(j).getId());
 			ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
 			ps.setInt(3,mhotel.getFoodList().get(j).getFoodPrice());
@@ -74,14 +74,9 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String q;
-			q=("select * from foodlist");
-			System.out.println("ps"+ps);
-			System.out.println("exe"+ps.executeQuery(q));
-
+			q = ("select * from foodlist");
+			ps = con.prepareStatement(q);
 			rs = ps.executeQuery(q);
-			System.out.println("rs"+rs);
-			
-			
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n","SlNo","Food Type","Food Price");
 			while(rs.next())
 			{
@@ -100,7 +95,7 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String qry;
-			qry="create table if not exists stocklist(SlNo int primary key auto_increment,Id int,Foodname varchar(15),Quantity int)";
+			qry = "create table if not exists stocklist(SlNo int primary key auto_increment,Id int,Foodname varchar(15),Quantity int)";
 			ps = con.prepareStatement(qry);
 			ps.execute();			     
 		}
@@ -115,7 +110,7 @@ public class SqlRepository implements Repository
 		try
 		{
 			dataBaseConnectionEstablish();
-			String t=("truncate table foodlist");
+			String t = ("truncate table foodlist");
 			ps = con.prepareStatement(t);
 			ps.execute();
 		}
@@ -130,13 +125,13 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String sql;
-			sql=("insert into stocklist(Id,Foodname,Quantity) values(?,?,?)");
+			sql = ("insert into stocklist(Id,Foodname,Quantity) values(?,?,?)");
 			ps = con.prepareStatement(sql);
-				int j=(mhotel.getStockList().size())-1;
-				ps.setInt(1,mhotel.getFoodList().get(j).getId());
-				ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
-				ps.setInt(3,mhotel.getStockList().get(j).getFoodQuantity());
-				int i = ps.executeUpdate();
+			int j=(mhotel.getStockList().size())-1;
+			ps.setInt(1,mhotel.getFoodList().get(j).getId());
+			ps.setString(2,mhotel.getFoodList().get(j).getFoodName());
+			ps.setInt(3,mhotel.getStockList().get(j).getFoodQuantity());
+			int i = ps.executeUpdate();
 		}
 		catch (Exception e)
 		{
@@ -149,7 +144,7 @@ public class SqlRepository implements Repository
 		try
 		{
 			dataBaseConnectionEstablish();
-			String t=("truncate table stocklist");
+			String t = ("truncate table stocklist");
 			ps = con.prepareStatement(t);
 			ps.execute();
 		}
@@ -164,9 +159,9 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String q;
-			q=("select * from stocklist");
+			q = ("select * from stocklist");
+			ps = con.prepareStatement(q);
 			rs = ps.executeQuery(q);
-			System.out.println("rs.next stock"+rs.next());
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n","SlNo","Food Name","Quantity");
 			while(rs.next())
 			{
@@ -185,7 +180,7 @@ public class SqlRepository implements Repository
 		{
 			dataBaseConnectionEstablish();
 			String d;
-			d=("update stocklist set name='am' where SlNo=1");
+			d = ("update stocklist set name='am' where SlNo=1");
 			ps = con.prepareStatement(d);
 			ps.execute();
 		}
@@ -193,6 +188,5 @@ public class SqlRepository implements Repository
 		{
 			System.out.println(e);
 		}
-	}
-	
+	}	
 }	
