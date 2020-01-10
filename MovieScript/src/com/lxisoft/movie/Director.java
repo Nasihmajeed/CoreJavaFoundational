@@ -31,8 +31,9 @@ public class Director
 			boolean fileExists = script.fileExist(scriptWriter,scriptWriter.villanQuestionFile,scriptWriter.comedianQuestionFile,scriptWriter.villanAnswerFile,scriptWriter.comedianAnswerFile);
 			ArrayList<Actors> actors = creatingActors();
 			int[] c = script.limitOfDialogue(scriptWriter.villanQuestion.size(),scriptWriter.comedianQuestion.size(),scriptWriter.villanAnswer.size(),scriptWriter.comedianAnswer.size(),fileExists);
+			System.out.println("c : "+c[0]);
 			boolean exists = false;
-			while(c[0]>0)
+			while(c[0]>=0)
 			{
 			 int x = (int)(Math.random()*actors.size());
 				if(actors.get(x) instanceof Comic)

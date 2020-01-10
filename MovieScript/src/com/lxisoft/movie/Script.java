@@ -239,8 +239,8 @@ public class Script
 	    }
 	    else if(actor instanceof Villanic)
 	    {
-	    	System.out.println(((Villan)actorsArray.get(0)).getName()+" : "+dialouge2.get(x).getDialouge());
-			System.out.println(((Comedian)actorsArray.get(1)).getName()+" : "+dialouge1.get(x).getDialouge());	
+	    	System.out.println(((Villan)actorsArray.get(0)).getName()+" : "+dialouge1.get(x).getDialouge());
+			System.out.println(((Comedian)actorsArray.get(1)).getName()+" : "+dialouge2.get(x).getDialouge());	
 	    }
 	}
 }
