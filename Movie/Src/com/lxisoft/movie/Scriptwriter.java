@@ -8,7 +8,7 @@ public class Scriptwriter
 	Actor[] dialoguelist;
 	public void setScript(Actor[] actorlist)
 	{
-		 ArrayList<Integer>randVariable=new ArrayList<Integer>();
+		
 		for (int i=0;i<actorlist.length;i++) 
 		{
 						
@@ -36,7 +36,7 @@ public class Scriptwriter
 			{
 				actordia="Dialouge";
 			}
-			String s=fo.operation(actordia,randVariable);
+			String s=fo.operation(actordia);
 			
 			actorlist[i].setDialogues(s);
 		}

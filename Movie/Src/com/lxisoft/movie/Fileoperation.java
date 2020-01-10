@@ -5,8 +5,7 @@ import java.util.*;
 
 public class Fileoperation
 {
-
-	public String operation(String actordia,ArrayList<Integer> randVariable)
+	public String operation(String actordia)
 	{
 		String[] data=new String[10];
         String line = "";
@@ -28,24 +27,17 @@ public class Fileoperation
     		catch (FileNotFoundException e)
           	{
             	e.printStackTrace();
-        	}
+        	} 
         catch (IOException e) 
         {
             e.printStackTrace();
         } 
-       
-
-        int randVar=(int)(Math.random()*4);
-        for (int i=0;i<randVariable.size();i++) 
+         for (int i=0;i<4;i++) 
         {
-                 if(randVariable.get(i)!=randVar);
-            {
-                randVariable.add(randVar);
-            }
+            int randVar=i; 
         }
        
-       
-        return data[randVariable];     
+        return data[randVar];      
 	}
 	public void writeIntoFile()
     {
