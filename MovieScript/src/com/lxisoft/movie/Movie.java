@@ -41,12 +41,15 @@ public class Movie
 		System.out.println("select the charector whose dialogue needs to be changed");
 			System.out.println("1. villan.");
 			System.out.println("2. comedian.");
+			System.out.println("3. back.");
 			int a=sc.nextInt();
 			switch(a)
 			{
 				case 1: choiceVillan();
 						break;
 				case 2: choiceComedian();
+						break;
+				case 3: choice();
 						break;
 			}
 	}
@@ -139,6 +142,7 @@ public class Movie
  		System.out.println("2.answer.");
  		System.out.println("3.diaplay question file.");
  		System.out.println("4.display answer file.");
+ 		System.out.println("5.back.");
  		int b=sc.nextInt();
  		switch(b)
  		{
@@ -149,6 +153,8 @@ public class Movie
 			case 3: create(villanQns);
 					break;
 			case 4: create(villanAns);
+					break;
+			case 5: choiceActor();
 					break;
 			default: System.out.println("enter the right choice ");
 		
@@ -165,6 +171,7 @@ public class Movie
  		System.out.println("2.answer.");
  		System.out.println("3.diaplay question file.");
  		System.out.println("4.display answer file.");
+ 		System.out.println("5.back.");
  		int b=sc.nextInt();
  		switch(b)
  		{
@@ -175,6 +182,8 @@ public class Movie
 			case 3: create(comedianQns);
 					break;
 			case 4:create(comedianAns);
+					break;
+			case 5: choiceActor();
 					break;
 			default: System.out.println("enter the right choice ");
 		}System.out.println("press 1 if you want to go back");
