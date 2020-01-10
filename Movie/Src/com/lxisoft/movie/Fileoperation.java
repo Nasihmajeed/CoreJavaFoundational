@@ -5,7 +5,8 @@ import java.util.*;
 
 public class Fileoperation
 {
-	public String operation(String actordia)
+
+	public String operation(String actordia,ArrayList<Integer> randVariable)
 	{
 		String[] data=new String[10];
         String line = "";
@@ -27,13 +28,24 @@ public class Fileoperation
     		catch (FileNotFoundException e)
           	{
             	e.printStackTrace();
-        	} 
+        	}
         catch (IOException e) 
         {
             e.printStackTrace();
         } 
+       
+
         int randVar=(int)(Math.random()*4);
-        return data[randVar];      
+        for (int i=0;i<randVariable.size();i++) 
+        {
+                 if(randVariable.get(i)!=randVar);
+            {
+                randVariable.add(randVar);
+            }
+        }
+       
+       
+        return data[randVariable];     
 	}
 	public void writeIntoFile()
     {
@@ -69,12 +81,8 @@ public class Fileoperation
             br = new BufferedWriter(fr);
                 
             for (int i=0;i<noOfLines ;i++) 
-            {
-                //System.out.println(dialogues[j]);
-                  
-                        br.write(actordia.get(--number)+","+dialogues[i]+"\n");
-                   
-                
+            {     
+                br.write(actordia.get(--number)+","+dialogues[i]+"\n");    
             }
         } catch (IOException e) 
         {
@@ -95,12 +103,7 @@ public class Fileoperation
     }
     public void editDialogue()
     {
-       
         
-       // String csvFile="../version..2/com/lxisoft/movie/Dialogue.csv";
-        
-            
-         
         Scanner scr=new Scanner(System.in);
         System.out.println("select the actor \n 1 : Hero \n 2 : Comedian \n 3 : Villain \n 4 : Heroin \n 5 : Dialogue");
         int number=scr.nextInt();
