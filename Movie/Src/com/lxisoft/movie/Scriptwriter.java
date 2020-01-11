@@ -1,6 +1,7 @@
 package com.lxisoft.movie;
 import java.lang.Math;
 import java.util.Scanner;
+import java.util.*;
 public class Scriptwriter
 {
 	String name;

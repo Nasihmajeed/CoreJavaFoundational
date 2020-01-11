@@ -35,17 +35,19 @@ public class Fileoperation
         } 
        
 
-        int randVar=(int)(Math.random()*4);
+        
         for (int i=0;i<randVariable.size();i++) 
         {
+            int randVar=(int)(Math.random()*4);
                  if(randVariable.get(i)!=randVar);
             {
                 randVariable.add(randVar);
+                data[i]=randVariable.get(i);
             }
         }
        
        
-        return data[randVariable];     
+        return data;     
 	}
 	public void writeIntoFile()
     {
