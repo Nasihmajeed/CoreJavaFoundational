@@ -7,9 +7,9 @@ public class Scriptwriter
 	String name;
 	Script script;
 	Actor[] dialoguelist;
-	public void setScript(Actor[] actorlist)
+	public void setScript(Actor[] actorlist,ArrayList<String>test)
 	{
-		 ArrayList<Integer>randVariable=new ArrayList<Integer>();
+		ArrayList<Integer>randVariable=new ArrayList<Integer>();
 		for (int i=0;i<actorlist.length;i++) 
 		{
 						
@@ -37,9 +37,17 @@ public class Scriptwriter
 			{
 				actordia="Dialouge";
 			}
-			String s=fo.operation(actordia,randVariable);
+			String s=fo.operation(actordia);
+			String sam=fo.operation(actordia);
+			test.add(sam);
+			for(int j=0;j<test.size();j++)
+			{
+				if(!s.equals(test.get(j)))
+				{
+					actorlist[j].setDialogues(s);
+				}
+			}
 			
-			actorlist[i].setDialogues(s);
 		}
 		dialoguelist=actorlist;
 	}

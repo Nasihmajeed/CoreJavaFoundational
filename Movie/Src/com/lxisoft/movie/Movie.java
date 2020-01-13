@@ -2,7 +2,9 @@ package com.lxisoft.movie;
 import com.lxisoft.movie.Movie;
 import com.lxisoft.movie.Actor;
 import java.lang.Math;
+import java.util.*;
 import com.lxisoft.movie.Scriptwriter;
+
 public class Movie
 {
 	Director director;
@@ -46,10 +48,12 @@ public class Movie
 			director.setDirectionControl(script);
 			System.out.println("Scene "+j+" : "+director.getDirectionControl());
 			int randdialogue=(int)(Math.random()*randscenes)+1;
+			ArrayList<String>test=new ArrayList<String>();
+				
 			for (int i=0;i<randdialogue;i++)  
 			{
-
-				scriptwriter.setScript(actorlist);
+				int a=i;
+				scriptwriter.setScript(actorlist,test);
 				actorlist=scriptwriter.getScript();
 				int randindex=(int)(Math.random()*actorlist.length);
 			    System.out.println( actorlist[randindex].getActorName()+"" +actorlist[randindex].getCharecter()+" : "+actorlist[randindex].getDialogues());

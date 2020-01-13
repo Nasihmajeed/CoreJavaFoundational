@@ -6,7 +6,7 @@ import java.util.*;
 public class Fileoperation
 {
 
-	public String operation(String actordia,ArrayList<Integer> randVariable)
+	public String operation(String actordia)
 	{
 		String[] data=new String[10];
         String line = "";
@@ -36,7 +36,7 @@ public class Fileoperation
        
 
         
-        for (int i=0;i<randVariable.size();i++) 
+       /* for (int i=0;i<randVariable.size();i++) 
         {
             int randVar=(int)(Math.random()*4);
                  if(randVariable.get(i)!=randVar);
@@ -44,10 +44,10 @@ public class Fileoperation
                 randVariable.add(randVar);
                 data[i]=randVariable.get(i);
             }
-        }
+        }*/
        
-       
-        return data;     
+        int randVar=(int)(Math.random()*4);
+        return data[randVar];     
 	}
 	public void writeIntoFile()
     {
