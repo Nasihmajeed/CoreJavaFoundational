@@ -1,0 +1,103 @@
+package com.lxisoft.movie;
+import com.lxisoft.Interface.*;
+import java.util.*;
+import java.io.*;
+public class ScriptWriter
+{
+	File villanQuestionFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\villanQuestionFile.txt");
+	File comedianQuestionFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\comedianQuestionFile.txt");
+	File villanAnswerFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\villanAnswerFile.txt");
+	File comedianAnswerFile = new File("D:\\Program Files\\workspace\\Projects\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\File\\comedianAnswerFile.txt");
+	Script script = new Script();
+	public ArrayList<Dialouge> villanCommonDialouge = script.setArray();
+    public ArrayList<Dialouge> comedianCommonDialouge = script.setArray();
+
+    public ArrayList<Dialouge> villanQuestion = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianQuestion = new ArrayList<Dialouge>();
+
+	public ArrayList<Dialouge> villanAnswer = new ArrayList<Dialouge>();
+	public ArrayList<Dialouge> comedianAnswer = new ArrayList<Dialouge>();
+	
+	public void commonDialogue(Actors actor,ArrayList<Actors> actorsArray)
+	{
+		try
+		{
+			script.setVillanDialouge(villanCommonDialouge);
+			script.setComedianDialouge(comedianCommonDialouge);
+			script.commonConversation(actor,villanCommonDialouge,comedianCommonDialouge,actorsArray);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void selectDialogue(int x,Actors actor,ArrayList<Actors> actorsArray)
+	{
+		try
+		{
+			if(actor instanceof Comic)
+			{
+				int y = (int)(Math.random()*x);
+				if(comedianQuestion.get(y).isTaken)
+				{
+					script.print(y,comedianQuestion,villanAnswer,actor,actorsArray);
+					comedianQuestion.get(y).isTaken = false;
+					villanAnswer.get(y).isTaken = false;
+				}
+			}
+			if(actor instanceof Villanic)
+			{
+				int y = (int)(Math.random()*x);
+				if(villanQuestion.get(y).isTaken)
+				{
+					script.print(y,villanQuestion,comedianAnswer,actor,actorsArray);
+					villanQuestion.get(y).isTaken = false;
+					comedianAnswer.get(y).isTaken = false;
+				}
+			}
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	}
+	public void questionOrAnswer(Scanner scanner,File questionFile,File answerFile,ArrayList<Dialouge> questionArray,ArrayList<Dialouge> answerArray)
+	{
+		try
+		{
+			boolean isTrue = false,fileExists = false;
+			do
+			{
+				isTrue = false;
+				fileExists = false;
+				System.out.println("press ==> 1.Question 2.Answer 3.Back");
+				int x = scanner.nextInt();
+				switch(x)
+				{
+					case 1:
+						fileExists = script.singleFileExists(questionFile);
+				   		questionFile = script.createFile(fileExists,questionFile);
+				   		script.writeToFile(questionFile,scanner,questionArray);
+						isTrue = true;
+						break;
+					case 2:
+						fileExists = script.singleFileExists(answerFile);
+				   		answerFile = script.createFile(fileExists,answerFile);
+				   		script.writeToFile(answerFile,scanner,answerArray);
+						isTrue = true;
+						break;
+					case 3:
+						break;
+					default :
+						System.out.println("!!! Select Options From Above !!!");
+						break;
+				}
+
+			}while(isTrue);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
