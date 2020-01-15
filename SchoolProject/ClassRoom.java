@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class ClassRoom
 {
-	int noStudent;
+	int n1,n2;
 	Student ss1,ss2;
 	Teacher t1;
 	Scanner input =new Scanner(System.in);
@@ -31,7 +31,7 @@ public class ClassRoom
 	{
 		
 		
-		System.out.println("No of Students   = "+this.noStudent);
+		
 		t1.teacherDetails() ;
 		ss1.studentDetails();
 		ss2.studentDetails();
