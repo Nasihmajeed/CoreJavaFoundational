@@ -1,22 +1,21 @@
 import java.util.Scanner;
 public class ClassRoom
 {
-	int n1,n2;
-	Student ss1,ss2;
+	int n1;
+	Student ss[]=new Student [5];
 	Teacher t1;
 	Scanner input =new Scanner(System.in);
 	void CreateStudent()
 	{
-		ss1=new Student();
-		ss2=new Student();
-		System.out.println("Name of 1st Student  =");
-		ss1.name=input.next();
+		for(int i=1;i<=n1;i++)
+		{
+		ss[i]=new Student();
+		
+		System.out.println("Name of "+i+"st Student  =");
+		ss[i].name=input.next();
 		System.out.println("Roll no.=");
-		ss1.roll=input.nextInt();
-		System.out.println("Name of 2nd student =");
-		ss2.name=input.next();
-		System.out.println("Roll no.=");
-		ss2.roll=input.nextInt();
+		ss[i].roll=input.nextInt();
+		}
 	}
 	void CreateTeacher()
 	{
@@ -33,7 +32,9 @@ public class ClassRoom
 		
 		
 		t1.teacherDetails() ;
-		ss1.studentDetails();
-		ss2.studentDetails();
+		for(int i=1;i<=n1;i++)
+		{
+		ss[i].studentDetails();
+		}
 	}
 }
