@@ -1,11 +1,19 @@
-public class ClassRoom
+import java.util.*; 
+
+class ClassRoom
 {
-	Student s1;
-	Student s2;
+	
+	Student s1,s2;
 	int noOfstudents;
-	String nameOfTeacher;
+	Teacher t1;
 	
-	
+	void createTeacher()
+	{
+		t1 = new Teacher();
+		t1.name = "Sindhu";
+		t1.subject = "English";
+		
+	}
 	void createStudent()
 	{
 		s1 = new  Student();
@@ -19,8 +27,8 @@ public class ClassRoom
 	
 	void classDetails()
 	{
+		t1.teacherDetails();
 		System.out.println("No.Of Students:"+ this.noOfstudents);
-		System.out.println("Teacher Name:" + this.nameOfTeacher);
 		s1.studentDetails();
 		s2.studentDetails();
 	}
