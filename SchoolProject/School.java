@@ -7,23 +7,23 @@ void classCreat()
 {
 	ClassRoom cr1 =new ClassRoom();
 	cr1.noStudent=45;
-	cr1.teacher="Diviya";
 	cl1=cr1;
 	cl1.CreateStudent();
+	cl1.CreateTeacher();
+	System.out.println("\n 2ndclass \n");
 	ClassRoom cr2 =new ClassRoom();
 	cr2.noStudent=55;
-	cr2.teacher="kavaya";
 	cl2=cr2;
 	cl2.CreateStudent();
+	cl2.CreateTeacher();
 }
 
 void printDetail()
 {
-	System.out.println("Name OF School"); 
-	System.out.println(this.name);
-	System.out.println("class 1\n");	
+	System.out.println("Name OF School"+this.name); 
+	System.out.println("\nclass 1\n");	
 	cl1.printDetails();
-	System.out.println("class 2\n");
+	System.out.println("\nclass 2\n");
 	cl2.printDetails();
 }
 }

@@ -1,24 +1,38 @@
+import java.util.Scanner;
 public class ClassRoom
 {
 	int noStudent;
-	String teacher;
 	Student ss1,ss2;
-	
+	Teacher t1;
+	Scanner input =new Scanner(System.in);
 	void CreateStudent()
 	{
 		ss1=new Student();
 		ss2=new Student();
-		ss1.name="Ashik";
-		ss1.roll=14;
-		ss2.name="Rahul";
-		ss2.roll=16;
+		System.out.println("Name of 1st Student  =");
+		ss1.name=input.next();
+		System.out.println("Roll no.=");
+		ss1.roll=input.nextInt();
+		System.out.println("Name of 2nd student =");
+		ss2.name=input.next();
+		System.out.println("Roll no.=");
+		ss2.roll=input.nextInt();
+	}
+	void CreateTeacher()
+	{
+		t1=new Teacher();
+		System.out.println("Teacher=");
+		t1.name=input.next();
+		System.out.println("Subject=");
+		t1.subject=input.next();
 	}
 	
 	void printDetails() 
 	{
 		
-		System.out.println("\nName Of teacher ="+this.teacher);
-		System.out.println("\nNo of Students = "+this.noStudent);
+		
+		System.out.println("No of Students   = "+this.noStudent);
+		t1.teacherDetails() ;
 		ss1.studentDetails();
 		ss2.studentDetails();
 	}
