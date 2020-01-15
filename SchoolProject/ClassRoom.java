@@ -1,35 +1,39 @@
-import java.util.*; 
-
-class ClassRoom
+import java.util.Scanner;
+public class ClassRoom
 {
-	
-	Student s1,s2;
-	int noOfstudents;
+	int n1,n2;
+	Student ss1,ss2;
 	Teacher t1;
-	
-	void createTeacher()
+	Scanner input =new Scanner(System.in);
+	void CreateStudent()
 	{
-		t1 = new Teacher();
-		t1.name = "Sindhu";
-		t1.subject = "English";
-		
+		ss1=new Student();
+		ss2=new Student();
+		System.out.println("Name of 1st Student  =");
+		ss1.name=input.next();
+		System.out.println("Roll no.=");
+		ss1.roll=input.nextInt();
+		System.out.println("Name of 2nd student =");
+		ss2.name=input.next();
+		System.out.println("Roll no.=");
+		ss2.roll=input.nextInt();
 	}
-	void createStudent()
+	void CreateTeacher()
 	{
-		s1 = new  Student();
-		s2 = new  Student();
-		s1.rollNo = 46;
-		s1.studentName = "Rahul";
-		s2.rollNo = 45;
-		s2.studentName = "Ashik";
-		
+		t1=new Teacher();
+		System.out.println("Teacher=");
+		t1.name=input.next();
+		System.out.println("Subject=");
+		t1.subject=input.next();
 	}
 	
-	void classDetails()
+	void printDetails() 
 	{
-		t1.teacherDetails();
-		System.out.println("No.Of Students:"+ this.noOfstudents);
-		s1.studentDetails();
-		s2.studentDetails();
+		
+		
+		
+		t1.teacherDetails() ;
+		ss1.studentDetails();
+		ss2.studentDetails();
 	}
 }

@@ -1,11 +1,14 @@
-class Student 
+public class Student
 {
-	String studentName;
-	int rollNo;
-	
-	void studentDetails()
+int roll;
+String name;
+
+void studentDetails() 
 	{
-		System.out.println("Name:"+this.studentName);
-		System.out.println("Roll No:"+this.rollNo);
+		System.out.println("\n\nStudent name = "+this.name);
+		
+		System.out.println("roll number  ="+this.roll);
+	
+		
 	}
 }
