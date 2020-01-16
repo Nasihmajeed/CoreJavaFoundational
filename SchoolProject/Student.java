@@ -14,6 +14,8 @@ public class Student
 			m.mark();
 			
 
+			
+
 	}
 
 
@@ -23,6 +25,14 @@ public class Student
 		System.out.println("RollNo Of Student:"+this.rollNo);
 		
 		m.printMark();
+		if(m.average>45)
+			{
+			System.out.println("Passed");
+			}
+			else
+			{
+			System.out.println("Failed");
+			}
 	}
 
 }

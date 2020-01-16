@@ -2,7 +2,7 @@ import java.util.*;
 public class Mark
 {
 Scanner sc = new Scanner(System.in);
-int m1,m2,m3,totalMark=0;
+float m1,m2,m3,totalMark=0;
 float average;
 
 	void mark()
@@ -15,6 +15,7 @@ float average;
 		m3 = sc.nextInt();
 		totalMark = m1+m2+m3;
 		average = (totalMark/300)*100;
+		
 
 	}
 
