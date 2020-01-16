@@ -29,7 +29,7 @@ public class ClassRoom
 		t.teacherDeatils();
 		for(int i=0;i<noOfStudent;i++)
 		{
-			
+
 			s[i].studentDetails();
 		}
 		

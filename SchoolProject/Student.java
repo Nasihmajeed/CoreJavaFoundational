@@ -14,8 +14,6 @@ public class Student
 			m.mark();
 			
 
-			
-
 	}
 
 
