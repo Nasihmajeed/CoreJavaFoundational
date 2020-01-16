@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Student
 {
+Mark mr=new Mark();	
 int roll,n1;
 String name;
 Scanner input =new Scanner(System.in);
@@ -10,6 +11,7 @@ void CreateStudent()
 		name=input.next();
 		System.out.println("Roll no.=");
 		roll=input.nextInt();
+		mr.MarkCreat();
 	}
 
 void studentDetails() 
@@ -17,7 +19,7 @@ void studentDetails()
 		System.out.println("\n\nStudent name = "+this.name);
 		
 		System.out.println("roll number  ="+this.roll);
-	
+	mr.MarkDisplay();
 		
 	}
 }
