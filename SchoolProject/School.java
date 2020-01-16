@@ -1,40 +1,42 @@
-import java.util.Scanner;
+import java.util.*;
 public class School
 {
-	int i,cls;
-String name;
-ClassRoom cl[] = new ClassRoom[5];
-Scanner input =new Scanner(System.in);
-void classCreat()
-{
-	for(i=1;i<=cls;i++)
+	Scanner sc = new Scanner(System.in);
+	String schoolName;
+	String principalName;
+	int noOfClass; 
+	ClassRoom cr[];
+	
+	void start()
 	{
-		cl[i] = new ClassRoom();
-		System.out.println("Class "+i+" Details");
-		cl[i].CreateTeacher(); 
-		System.out.println("Enter Number of students in  class  "+ i +":");
-		cl[i].n = input.nextInt();
-		cl[i].CreateStudent();
-		
-		
-	}
-	//cl1.CreateTeacher();
-	//cl1.CreateStudent();
+	System.out.println("Enter Name of School:");	
+	schoolName = sc.nextLine();
+	System.out.println("Enter Name of Principal:");	
+	principalName = sc.nextLine();
+	System.out.println("Enter Numer of classroom:");
+	noOfClass = sc.nextInt();
+    
+    cr = new ClassRoom[noOfClass];
 
-	
-}
-
-void printDetail()
-{
-	System.out.println("Name OF School"+this.name);
-	for(i=1;i<=cls;i++)
+	for(int i=0;i<noOfClass;i++)
 	{
-
-	System.out.println("\nclass "+ i +"\n");
-	System.out.println("No of Students   = "+this.cl[i].n);
-	cl[i].printDetails();
-	
-	
+		cr[i] = new ClassRoom();
+		cr[i].classCreate();
 	}
-}
+
+
+	}
+	
+	void schooDeatils()
+	{
+		System.out.println("School Name:"+this.schoolName);
+		System.out.println("Principal Name:"+this.principalName);
+		for(int i=0;i<noOfClass;i++)
+		{
+		    System.out.println("CLASS"+(i+1));
+			cr[i].classDetails();
+		
+		}
+	}
+
 }
