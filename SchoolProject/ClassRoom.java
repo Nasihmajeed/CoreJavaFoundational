@@ -27,7 +27,7 @@ void classCreat()
 		t1.teacherDetails() ;
 		for(int i=1;i<=n1;i++)
 		{
-			//ss[i]=new Student();
+			
 			ss[i].studentDetails();
 		}
 	}
