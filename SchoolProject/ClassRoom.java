@@ -1,40 +1,34 @@
 import java.util.Scanner;
 public class ClassRoom
 {
+	Student ss[]=new Student[10];
+	Teacher t1=new Teacher();
 	int n1;
-	Student ss[]=new Student [5];
-	Teacher t1;
+
 	Scanner input =new Scanner(System.in);
-	void CreateStudent()
+	
+	
+void classCreat()
+{
+	System.out.println("Number of  Student  =");
+	n1=input.nextInt();
+	for(int j=1;j<=n1;j++)
 	{
-		for(int i=1;i<=n1;i++)
-		{
-		ss[i]=new Student();
-		
-		System.out.println("Name of "+i+"st Student  =");
-		ss[i].name=input.next();
-		System.out.println("Roll no.=");
-		ss[i].roll=input.nextInt();
-		}
+		ss[j]=new Student();
+		ss[j].CreateStudent();
 	}
-	void CreateTeacher()
-	{
-		t1=new Teacher();
-		System.out.println("Teacher=");
-		t1.name=input.next();
-		System.out.println("Subject=");
-		t1.subject=input.next();
-	}
+	t1.CreateTeacher();
+}	
+	
 	
 	void printDetails() 
 	{
 		
-		
-		
 		t1.teacherDetails() ;
 		for(int i=1;i<=n1;i++)
 		{
-		ss[i].studentDetails();
+			//ss[i]=new Student();
+			ss[i].studentDetails();
 		}
 	}
 }

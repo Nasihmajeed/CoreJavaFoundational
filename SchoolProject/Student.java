@@ -1,7 +1,16 @@
+import java.util.Scanner;
 public class Student
 {
-int roll;
+int roll,n1;
 String name;
+Scanner input =new Scanner(System.in);
+void CreateStudent()
+	{
+		System.out.println("Name of  Student  =");
+		name=input.next();
+		System.out.println("Roll no.=");
+		roll=input.nextInt();
+	}
 
 void studentDetails() 
 	{

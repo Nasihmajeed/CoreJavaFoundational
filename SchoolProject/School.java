@@ -1,26 +1,31 @@
 import java.util.Scanner;
 public class School
 {
-	int cls;
+	
 String name;
+int cls;
+
 ClassRoom cl[]=new ClassRoom[5];
 Scanner input =new Scanner(System.in);
-void classCreat()
+
+void createSchool()
 {
-	for(int j=1;j<=cls;j++)
+
+	System.out.println("Enter the Name of School =");
+	name =input.next();
+	System.out.println("Enter the No of class =");
+	cls =input.nextInt();
+	for(int i=1;i<=cls;i++)
 	{
-	System.out.println("\n "+j+"stclass \n");
-	
-	cl[j] =new ClassRoom();
-	System.out.println("Enter the No of Students =");
-	cl[j].n1=input.nextInt();
-	cl[j].CreateTeacher();
-	cl[j].CreateStudent();
+		cl[i]=new ClassRoom();
+		cl[i].classCreat();
 	}
-	
 }
 
-void printDetail()
+	
+
+
+void schoolDetail()
 {
 	System.out.println("Name OF School\t"+this.name); 
 	for(int j=1;j<=cls;j++)
