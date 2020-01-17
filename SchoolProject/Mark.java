@@ -1,7 +1,7 @@
-import java.util.Scanner;
+import java.util.*;
 public class Mark
 {
-float m1,m2,m3,total;
+int m1,m2,m3,total;
 float per;
 Scanner input =new Scanner(System.in);
 void MarkCreat()

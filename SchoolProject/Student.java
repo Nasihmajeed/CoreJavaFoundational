@@ -1,8 +1,8 @@
-import java.util.Scanner;
+import java.util.*;
 public class Student
 {
-Mark mr=new Mark();	
-int roll,n1;
+Subject sub[]=new Subject[5];
+int roll,n1,ns,total,temp;
 String name;
 Scanner input =new Scanner(System.in);
 void CreateStudent()
@@ -11,15 +11,30 @@ void CreateStudent()
 		name=input.next();
 		System.out.println("Roll no.=");
 		roll=input.nextInt();
-		mr.MarkCreat();
+		System.out.println("No.of of  Subject  =");
+		ns=input.nextInt();
+		for(int i=1;i<=ns;i++)
+			{
+				sub[i]=new Subject();
+				sub[i].SubjectCreat();
+				total=total+sub[i].m1;
+			}
+
 	}
+
+
+
 
 void studentDetails() 
 	{
+
 		System.out.println("\n\nStudent name = "+this.name);
 		
 		System.out.println("roll number  ="+this.roll);
-	mr.MarkDisplay();
+	for(int i=1;i<=ns;i++)
+			{
+				sub[i].SubjectDisplay();
+			}
 		
 	}
 }

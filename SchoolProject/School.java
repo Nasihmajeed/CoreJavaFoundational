@@ -27,10 +27,12 @@ void createSchool()
 
 void schoolDetail()
 {
+	
 	System.out.println("Name OF School\t"+this.name); 
 	for(int j=1;j<=cls;j++)
 	{
-	System.out.println("\nclass "+j+"\n");	
+	System.out.println("\nclass "+j+"\n");
+	cl[j].sorting();	
 	cl[j].printDetails();
 	System.out.println("\n\nNo of Students   = "+this.cl[j].n1);
 	}
