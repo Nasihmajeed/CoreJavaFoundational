@@ -4,7 +4,7 @@ public class ClassRoom
 {
 	Student ss[]=new Student[10];
 	Teacher t1=new Teacher();
-	int n1;
+	int n1,gt;
 	Student temp;
 
 	Scanner input =new Scanner(System.in);
@@ -18,13 +18,14 @@ void classCreat()
 	{
 		ss[j]=new Student();
 		ss[j].CreateStudent();
+		gt=gt+ss[j].total;
 
 	}
 
 	t1.CreateTeacher();
 }	
 
-void sorting()
+void studentSorting()
 {
 	for (int i=1;i<=n1;i++)
 	{

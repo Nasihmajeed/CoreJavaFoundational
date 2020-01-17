@@ -34,7 +34,9 @@ void studentDetails()
 	for(int i=1;i<=ns;i++)
 			{
 				sub[i].SubjectDisplay();
+
 			}
+		System.out.println("Total Mark ="+this.total);
 		
 	}
 }

@@ -17,7 +17,6 @@ void SubjectCreat()
    void SubjectDisplay()
 	{ 
 		System.out.println(sbjt+" = "+m1);
-		sbjt=input.next();
 		
 	}
 }
