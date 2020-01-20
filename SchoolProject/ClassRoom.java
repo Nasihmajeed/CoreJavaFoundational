@@ -2,23 +2,26 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class ClassRoom
 {
-	Student ss[]=new Student[10];
+	Student ss[];
 	Teacher t1=new Teacher();
-	int n1,gt;
-	Student temp;
+	
+	static int grandtotal=0; 
 
-	Scanner input =new Scanner(System.in);
+
+static Scanner input =new Scanner(System.in);
 	
 	
 void classCreat()
 {
+	
 	System.out.println("Number of  Student  =");
-	n1=input.nextInt();
-	for(int j=1;j<=n1;j++)
+	int students=input.nextInt();
+	ss=new Student[students];
+	for(int j=0;j<ss.length;j++)
 	{
 		ss[j]=new Student();
 		ss[j].CreateStudent();
-		gt=gt+ss[j].total;
+		grandtotal=grandtotal+ss[j].totalmark;
 
 	}
 
@@ -27,13 +30,13 @@ void classCreat()
 
 void studentSorting()
 {
-	for (int i=1;i<=n1;i++)
+	for (int i=0;i<ss.length;i++)
 	{
-		for (int j=i+1;j<=n1;j++)
+		for (int j=i+1;j<ss.length;j++)
 		{
-		if(ss[i].total<ss[j].total)
+		if(ss[i].totalmark<ss[j].totalmark)
 		{
-		temp=new Student();
+		Student temp=new Student();
 		temp=ss[i];
 		ss[i]=ss[j];
 		ss[j]=temp;
@@ -49,7 +52,7 @@ void studentSorting()
 	{
 		
 		t1.teacherDetails() ;
-		for(int i=1;i<=n1;i++)
+		for(int i=0;i<ss.length;i++)
 		{
 			ss[i].studentDetails();
 		}

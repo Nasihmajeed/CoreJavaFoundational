@@ -3,11 +3,9 @@ public class School
 {
 	
 String name;
-int cls;
+ClassRoom cl[];
 
-ClassRoom cl[]=new ClassRoom[5];
-ClassRoom tempc;
-Scanner input =new Scanner(System.in);
+static Scanner input =new Scanner(System.in);
 
 void createSchool()
 {
@@ -15,8 +13,9 @@ void createSchool()
 	System.out.println("Enter the Name of School =");
 	name =input.next();
 	System.out.println("Enter the No of class =");
-	cls =input.nextInt();
-	for(int i=1;i<=cls;i++)
+	int clsses =input.nextInt();
+	cl=new ClassRoom[clsses];
+	for(int i=0;i<cl.length;i++)
 	{
 		cl[i]=new ClassRoom();
 		cl[i].classCreat();
@@ -26,13 +25,14 @@ void createSchool()
 
 void classSorting()
 {
-	for (int i=1;i<=cls;i++)
+	for (int i=0;i<cl.length;i++)
 	{
-		for (int j=i+1;j<=cls;j++)
+		for (int j=i+1;j<cl.length;j++)
 		{
-		if(cl[i].gt<cl[j].gt)
+		if(cl[i].grandtotal<cl[j].grandtotal)
 		{
-		tempc=new ClassRoom();
+
+	ClassRoom tempc=new ClassRoom();
 		tempc=cl[i];
 		cl[i]=cl[j];
 		cl[j]=tempc;
@@ -47,12 +47,12 @@ void schoolDetail()
 {
 	
 	System.out.println("Name OF School\t"+this.name); 
-	for(int j=1;j<=cls;j++)
+	for(int j=0;j<cl.length;j++)
 	{
 	System.out.println("\nclass "+j+"\n");
 	cl[j].studentSorting();	
 	cl[j].printDetails();
-	System.out.println("\n\nNo of Students   = "+this.cl[j].n1);
+	System.out.println("\n\nNo of Students   = "+this.cl[j].ss.length);
 	}
 }
 }
