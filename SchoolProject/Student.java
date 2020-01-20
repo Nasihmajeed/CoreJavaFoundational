@@ -1,7 +1,7 @@
 import java.util.*;
 public class Student
 {
-Subject sub[];
+Subject subject[];
 int roll,totalmark;
 String name;
 static Scanner input =new Scanner(System.in);
@@ -14,12 +14,12 @@ void CreateStudent()
 		roll=input.nextInt();
 		System.out.println("No.of of  Subject  =");
 		int subt=input.nextInt();
-		sub=new Subject[subt];
-		for(int i=0;i<sub.length;i++)
+		subject=new Subject[subt];
+		for(int i=0;i<subject.length;i++)
 			{
-				sub[i]=new Subject();
-				sub[i].SubjectCreat();
-			    totalmark=totalmark+sub[i].m1;
+				subject[i]=new Subject();
+				subject[i].SubjectCreat();
+			    totalmark=totalmark+subject[i].mark;
 			}
 
 	}
@@ -30,15 +30,17 @@ void CreateStudent()
 void studentDetails() 
 	{
 
-		System.out.println("\n\nStudent name = "+this.name);
+		System.out.println("\nStudent name = "+this.name);
 		
-		System.out.println("roll number  ="+this.roll);
-	for(int i=0;i<sub.length;i++)
+		System.out.println("roll number  = "+this.roll);
+	for(int i=0;i<subject.length;i++)
 			{
-				sub[i].SubjectDisplay();
+				System.out.println("------------------");
+				subject[i].SubjectDisplay();
 
 			}
-		System.out.println("Total Mark ="+this.totalmark);
+			System.out.println("_________________");
+		System.out.println("\nTotal Mark = "+this.totalmark);
 		
 	}
 }

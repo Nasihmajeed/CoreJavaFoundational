@@ -2,10 +2,10 @@ class Tdd
 {
 public static void main(String args[])
 	{
-		School s1=new School();
-		s1.createSchool();
-		s1.classSorting();
-		s1.schoolDetail();
+		School school=new School();
+		school.createSchool();
+		school.classSorting();
+		school.schoolDetail();
 		
 	}
 }
