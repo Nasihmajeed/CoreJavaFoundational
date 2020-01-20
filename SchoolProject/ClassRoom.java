@@ -2,8 +2,8 @@ import java.util.*;
 public class ClassRoom
 {
 	Teacher t = new Teacher();
-	Student[] s;
-	Subject[] sub;
+	Student[] student;
+	//Subject[] sub;
 
 	static int gt = 0;
 	
@@ -13,14 +13,14 @@ public class ClassRoom
 	Scanner sc = new Scanner(System.in);	
 	System.out.println("Enter number of Student:");
 	int noOfStudent = sc.nextInt();
-	s = new Student[noOfStudent];	
+	student = new Student[noOfStudent];	
 	
-	for(int i=0;i<s.length;i++)
+	for(int i=0;i<student.length;i++)
 	{
-		s[i] = new Student();
-		s[i].createStudent();
+		student[i] = new Student();
+		student[i].createStudent();
 		 
-		gt = gt + s[i].totalMark;
+		gt = gt + student[i].totalMark;
 	}
 	
 	t.createTeacher();
@@ -32,16 +32,16 @@ public class ClassRoom
 	{
 		Student temp;
 
-		for(int i=0;i<s.length;i++)
+		for(int i=0;i<student.length;i++)
 		{
-			for(int j=i+1;j<s.length;j++)
+			for(int j=i+1;j<student.length;j++)
 			{
-				if(s[i].totalMark<s[j].totalMark)
+				if(student[i].totalMark<student[j].totalMark)
 				{
 					temp = new Student();
-					temp = s[i];
-					s[i] = s[j];
-					s[j] = temp;
+					temp = student[i];
+					student[i] = student[j];
+					student[j] = temp;
 				}
 
 			}
@@ -53,10 +53,10 @@ public class ClassRoom
 
 		t.teacherDetails();
 		System.out.println("\n");
-		for(int i=0;i<s.length;i++)
+		for(int i=0;i<student.length;i++)
 		{
 
-			s[i].studentDetails();
+			student[i].studentDetails();
 			System.out.println("\n");
 		}
 		

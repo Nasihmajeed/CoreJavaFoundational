@@ -3,8 +3,9 @@ public class Student
 {
 	String studentName;
 	int rollNo,totalMark ;
-	Subject[] sub;
+	Subject[] subject;
 
+	
 	void createStudent()
 	{
 		Scanner sc = new Scanner(System.in);
@@ -14,27 +15,32 @@ public class Student
 		rollNo = sc.nextInt();
 		System.out.println("Enter Number Of Subjects: ");
 		int noOfSub = sc.nextInt();
-		sub = new Subject[noOfSub];
-		for(int i=0;i<sub.length;i++)
+		subject = new Subject[noOfSub];
+		for(int i=0;i<subject.length;i++)
 		{
-			sub[i] = new Subject();
-			sub[i].markCreate();
-			totalMark = totalMark + sub[i].subMark;
+			subject[i] = new Subject();
+			subject[i].markCreate();
+			totalMark = totalMark + subject[i].subMark;
+			
 		}
 	}
 
 
 	void studentDetails()
 	{
-		System.out.println("Name Of Student:"+this.studentName);
-		
-		System.out.println("RollNo Of " + this.studentName +" = " +this.rollNo);
-		
-		for(int i=0;i<sub.length;i++)
-		{
-			sub[i].subjectDetails();
-		}
 
+		System.out.println("\nName|RollNo");
+		System.out.println("__________________");
+		System.out.println(this.studentName+"\t"+this.rollNo+"\n");
+
+		System.out.println("\nSubject|Mark");
+		System.out.println("_________________________");
+
+		for(int i=0;i<subject.length;i++)
+		{
+			subject[i].subjectDetails();
+		}
+		System.out.println("__________________");
 		System.out.println("Total Mark : " +this.totalMark+"\n");
 		
 
