@@ -4,10 +4,9 @@ public class ClassRoom
 {
 	Student student[];
 	Teacher teacher=new Teacher();
+	int num;
 	
-	static int grandtotal=0; 
-
-
+	
 static Scanner input =new Scanner(System.in);
 	
 	
@@ -16,13 +15,13 @@ void classCreat()
 	
 	System.out.println("Number of  Student  =");
 	int students=input.nextInt();
+	num=num+students;
 	student=new Student[students];
 	for(int j=0;j<student.length;j++)
 	{
 		student[j]=new Student();
 		student[j].CreateStudent();
-		grandtotal=grandtotal+student[j].totalmark;
-
+		
 	}
 
 	teacher.CreateTeacher();

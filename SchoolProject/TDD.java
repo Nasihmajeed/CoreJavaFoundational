@@ -4,8 +4,9 @@ public static void main(String args[])
 	{
 		School school=new School();
 		school.createSchool();
-		school.classSorting();
 		school.schoolDetail();
+		school.classSorting();
+		school.schoolRankList();
 		
 	}
 }

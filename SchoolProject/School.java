@@ -4,6 +4,7 @@ public class School
 	
 String name;
 ClassRoom classroom[];
+Student tem[];
 
 static Scanner input =new Scanner(System.in);
 
@@ -25,21 +26,37 @@ void createSchool()
 
 void classSorting()
 {
-	for (int i=0;i<classroom.length;i++)
+	int k=0;
+	tem=new Student[20];
+	while(k<5)
 	{
-		for (int j=i+1;j<classroom.length;j++)
-		{
-		if(classroom[i].grandtotal<classroom[j].grandtotal)
-		{
+	for(int i=0;i<classroom.length;i++)
+	{
+	for (int j=0;j<classroom[i].student.length;j++)
+	{
+		tem[k]=new Student();
+		tem[k]=classroom[i].student[j];
+		k++;
+	}
+	
+	}
+}
 
-	ClassRoom tempc=new ClassRoom();
-		tempc=classroom[i];
-		classroom[i]=classroom[j];
-		classroom[j]=tempc;
+	for (int x=0;x<5;x++)
+	{
+		for (int y=x+1;y<5;y++)
+		{
+		if(tem[x].totalmark<tem[y].totalmark)
+		{
+		Student temp=new Student();
+		temp=tem[x];
+		tem[x]=tem[y];
+		tem[y]=temp;
 		}
 		}
 	
 	}
+
 }	
 
 
@@ -55,5 +72,15 @@ void schoolDetail()
 	classroom[j].printDetails();
 	System.out.println("\n\nNo of Students   = "+this.classroom[j].student.length);
 	}
+}
+void schoolRankList()
+{
+	System.out.println(" School wise Result");
+	System.out.println("--*--*--*--*--*--*--");
+	for(int m=0;m<5;m++)
+	{
+	tem[m].studentDetails();
+	}
+
 }
 }
