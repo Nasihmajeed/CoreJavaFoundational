@@ -5,14 +5,16 @@ public class ClassRoom
 	Student[] student;
 	//Subject[] sub;
 
+
 	static int gt = 0;
 	
 	void classCreate()
 	{
-
+	
 	Scanner sc = new Scanner(System.in);	
 	System.out.println("Enter number of Student:");
 	int noOfStudent = sc.nextInt();
+	
 	student = new Student[noOfStudent];	
 	
 	for(int i=0;i<student.length;i++)
@@ -48,15 +50,15 @@ public class ClassRoom
 		}
 	}
 
-	void classDetails()
+	void printClassDetails()
 	{
 
-		t.teacherDetails();
+		t.printTeacherDetails();
 		System.out.println("\n");
 		for(int i=0;i<student.length;i++)
 		{
 
-			student[i].studentDetails();
+			student[i].printStudentDetails();
 			System.out.println("\n");
 		}
 		

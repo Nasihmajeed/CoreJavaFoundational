@@ -15,7 +15,7 @@ public class Subject
 	}
 
 
-	void subjectDetails()
+	void printSubjectDetails()
 	{
 		System.out.println(this.subName+"\t"+this.subMark+"\n");
 

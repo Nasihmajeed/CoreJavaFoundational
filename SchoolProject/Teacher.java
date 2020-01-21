@@ -13,7 +13,7 @@ public class Teacher
 		teacherSub = sc.nextLine();
 	}
 
-	void teacherDetails()
+	void printTeacherDetails()
 	{
 		System.out.println("Teacher Name : "+this.teacherName);
 		

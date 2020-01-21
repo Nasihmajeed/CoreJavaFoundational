@@ -26,7 +26,7 @@ public class Student
 	}
 
 
-	void studentDetails()
+	void printStudentDetails()
 	{
 
 		System.out.println("\nName|RollNo");
@@ -38,13 +38,16 @@ public class Student
 
 		for(int i=0;i<subject.length;i++)
 		{
-			subject[i].subjectDetails();
+			subject[i].printSubjectDetails();
 		}
 		System.out.println("__________________");
 		System.out.println("Total Mark : " +this.totalMark+"\n");
 		
 
 	}
+
+
+	
 
 
 }
