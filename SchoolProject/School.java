@@ -5,7 +5,7 @@ public class School
 String name;
 ClassRoom classroom[];
 Student tem[];
-
+	int k=0;
 static Scanner input =new Scanner(System.in);
 
 void createSchool()
@@ -26,10 +26,10 @@ void createSchool()
 
 void classSorting()
 {
-	int k=0;
+
 	tem=new Student[20];
-	while(k<5)
-	{
+	//while(k<5)
+	//{
 	for(int i=0;i<classroom.length;i++)
 	{
 	for (int j=0;j<classroom[i].student.length;j++)
@@ -40,9 +40,9 @@ void classSorting()
 	}
 	
 	}
-}
+//}
 
-	for (int x=0;x<5;x++)
+	for (int x=0;x<k;x++)
 	{
 		for (int y=x+1;y<5;y++)
 		{
@@ -77,7 +77,7 @@ void schoolRankList()
 {
 	System.out.println(" School wise Result");
 	System.out.println("--*--*--*--*--*--*--");
-	for(int m=0;m<5;m++)
+	for(int m=0;m<k;m++)
 	{
 	tem[m].studentDetails();
 	}
