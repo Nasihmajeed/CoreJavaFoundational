@@ -4,8 +4,10 @@ public class Tdd{
 		School school=new School();
 		school.createSchool();
 		school.schoolSort();
+
 		school.printSchooDeatails();
 		school.rankWiseResult();
+		
 		
 	}
 }

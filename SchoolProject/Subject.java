@@ -19,7 +19,5 @@ public class Subject
 	{
 		System.out.println(this.subName+"\t"+this.subMark+"\n");
 
-		//System.out.println("Subject Name : "+this.subName);
-		//System.out.println( this.subName + " mark  : " +this.subMark);
 	}
 }

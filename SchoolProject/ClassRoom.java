@@ -3,11 +3,8 @@ public class ClassRoom
 {
 	Teacher t = new Teacher();
 	Student[] student;
-	//Subject[] sub;
-
-
-	static int gt = 0;
-	
+	int gt = 0;
+	int sum=0;
 	void classCreate()
 	{
 	
@@ -19,12 +16,14 @@ public class ClassRoom
 	
 	for(int i=0;i<student.length;i++)
 	{
+
 		student[i] = new Student();
 		student[i].createStudent();
-		 
+		//sum = sum + noOfStudent ;
 		gt = gt + student[i].totalMark;
 	}
 	
+	//System.out.println(sum );
 	t.createTeacher();
 
 	}

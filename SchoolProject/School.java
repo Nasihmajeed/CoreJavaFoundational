@@ -4,9 +4,10 @@ public class School
 	String schoolName;
 	String principalName; 
 	ClassRoom classroom[];
-	Student[] temp;
+	Student[] temp1;
+	//Student[] newtemp;
 
-
+	int count=0;
 	void createSchool()
 	{
 		Scanner sc = new Scanner(System.in);
@@ -29,61 +30,34 @@ public class School
 
 	void schoolSort()
 	{
-		int k=0;
-		Student temps;
-		Student[] student;
-		temp = new Student[20];
-		while(k<6)
-		{
-
+		temp1 = new Student[25];
+		
 		for(int i=0;i<classroom.length;i++)
 		{
 			for(int j=0;j<classroom[i].student.length;j++)
 			{
-				// if(classroom[i].student[j].totalMark<classroom[i].student[k].totalMark)
-				// {
-					
-				// 	System.out.println("foo");
-
-
-				// 	//System.out.println(classroom[i].student[j].totalMark);
-				// 	// temps = new Student();
-				// 	// temps = classroom[i].student[j];
-				// 	// classroom[i].student[j] = classroom[i].student[k] ;
-				// 	// classroom[i].student[k] = temps;
-				// }
-		
-				temp[k] =  new Student();
-				temp[k] = classroom[i].student[j];
-				k++;
+				temp1[count] = new Student();
+				temp1[count] = classroom[i].student[j]; 
+				count++;
 			}
-
-
-
-
-			}
-
 		}
 
-
-		for(int p=0;p<10;p++)
+		Student newtemp = new Student();
+		for(int p=0;p<count;p++)
 		{
-			for(int q=p+1;q<10;q++)
+			for(int q=p+1;q<count;q++)
 			{
-				if(temp[p].totalMark<temp[q].totalMark)
+				if(temp1[p].totalMark<temp1[q].totalMark)
 				{
-					Student t = new Student();
-					t = temp[p];
-					temp[p] = temp[q];
-					temp[q] = t;
+					//newtemp= new Student();
+					newtemp = temp1[p];
+					temp1[p] = temp1[q];
+					temp1[q] = newtemp;
 				}
 			}
 		}
-
-
-
+		
 	}
-
 
 	void printSchooDeatails()
 	{
@@ -105,11 +79,13 @@ public class School
 
 	void rankWiseResult()
 	{
-		for(int m=0;m<6;m++)
+		System.out.println("Rank Wise Result");
+		System.out.println("___________________");
+		for(int x=0;x<count;x++)
 		{
-			temp[m].printStudentDetails();
+			temp1[x].printStudentDetails();
 		}
+	}
+}
 
 
-}
-}
