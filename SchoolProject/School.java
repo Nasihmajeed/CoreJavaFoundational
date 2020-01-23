@@ -89,10 +89,12 @@ void schoolRankList()
 {
 	System.out.println("\n School wise Result");
 	System.out.println("--*--*--*--*--*--*--");
+	System.out.println("\n Rank\tname\t Mark\tpercentage ");
+	System.out.println("\t__________________________________________");	
 	for(int m=0;m<totalstdnt;m++)
 	{
-	System.out.println("\n\t Rank "+(m+1));
-	System.out.println("\t___________");	
+	System.out.print((m+1)+"\t");
+	
 	stdnt[m].rankList();
 	}
 

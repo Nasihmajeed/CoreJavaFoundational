@@ -37,6 +37,8 @@ void studentDetails()
 		
 		System.out.println("roll number  = "+this.roll);
 		System.out.println("------------------");
+		System.out.println("\nSubject   Mark");
+		System.out.println("...............");
 	for(int i=0;i<subject.length;i++)
 			{
 				
@@ -51,9 +53,9 @@ void studentDetails()
 
 	void rankList()
 {
-	System.out.print("\n*  Student name = "+this.name);
-	System.out.print("\tMark = "+this.totalmark+"\n");
-
+	System.out.print(this.name);
+	System.out.print("\t"+this.totalmark);
+	System.out.print("\t"+this.per);
 }
 
 }
