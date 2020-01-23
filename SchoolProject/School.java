@@ -13,12 +13,7 @@ public class School
 		Scanner sc = new Scanner(System.in);
 		System.out.println("School Name::\t");
 		schoolName = sc.nextLine();
-		System.out.println("School Address::\t");
-		adress.state = sc.nextLine();
-		adress.district = sc.nextLine();
-		adress.place = sc.nextLine();
-		adress.pincode = sc.nextLine();
-		
+		adress.createAdress();
 		System.out.println("Principal Name::\t");
 		principalName = sc.nextLine();
 		System.out.println("No.Of ClassRoom::\t");
@@ -97,7 +92,7 @@ public class School
 		for(int x=0;x<studentCount;x++)
 		{
 			student = new Student();
-			System.out.println((x+1)+"\t"+tempStudent[x].studentName+"\t"+tempStudent[x].rollNo+"\t"+tempStudent[x].totalMark+"\t   "+tempStudent[x].averageMark);
+			System.out.println((x+1)+"\t"+tempStudent[x].studentName+"\t"+tempStudent[x].rollNo+"\t"+tempStudent[x].totalMark+"\t   "+tempStudent[x].percentageMark);
 		}
 	}
 

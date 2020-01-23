@@ -4,7 +4,7 @@ public class Student
 	String studentName;
 	int rollNo;
 	float totalMark;
-	float averageMark;
+	float percentageMark;
 	Subject[] subject;
 
 	void createStudent()
@@ -23,7 +23,7 @@ public class Student
 			subject[i].markCreate();
 			totalMark = totalMark + subject[i].subjectMark;
 
-			averageMark = (totalMark/300)*100;
+			percentageMark = (totalMark/300)*100;
 		}
 	}
 
