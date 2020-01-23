@@ -3,8 +3,7 @@ public class ClassRoom
 {
 	Teacher t = new Teacher();
 	Student[] student;
-	int gt = 0;
-	int sum=0;
+	float grossTotal = 0;
 	void classCreate()
 	{
 	
@@ -19,11 +18,10 @@ public class ClassRoom
 
 		student[i] = new Student();
 		student[i].createStudent();
-		//sum = sum + noOfStudent ;
-		gt = gt + student[i].totalMark;
+		grossTotal = grossTotal + student[i].totalMark;
 	}
 	
-	//System.out.println(sum );
+	
 	t.createTeacher();
 
 	}

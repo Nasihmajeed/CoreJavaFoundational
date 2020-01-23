@@ -1,58 +1,66 @@
 import java.util.*;
 public class School
 {
-	String schoolName;
-	String principalName; 
-	ClassRoom classroom[];
-	Student[] temp1;
-	//Student[] newtemp;
-
-	int count=0;
+	String schoolName,principalName;
+	Adress adress = new Adress();
+	ClassRoom[] classRoom;
+	Student[] tempStudent;
+	Student student ;
+	int studentCount = 0;
+	int noOfClassRoom;
 	void createSchool()
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Name of School:");	
+		System.out.println("School Name::\t");
 		schoolName = sc.nextLine();
-		System.out.println("Enter Name of Principal:");	
+		System.out.println("School Address::\t");
+		adress.state = sc.nextLine();
+		adress.district = sc.nextLine();
+		adress.place = sc.nextLine();
+		adress.pincode = sc.nextLine();
+		
+		System.out.println("Principal Name::\t");
 		principalName = sc.nextLine();
-		System.out.println("Enter Numer of classroom:");
-		int noOfClass = sc.nextInt();
+		System.out.println("No.Of ClassRoom::\t");
+		noOfClassRoom = sc.nextInt();
+		classRoom = new ClassRoom[noOfClassRoom];
 
-		classroom = new ClassRoom[noOfClass];
-
-		for(int i=0;i<classroom.length;i++)
-		{	
-		classroom[i] = new ClassRoom();
-		classroom[i].classCreate();
+		for(int i=0;i<classRoom.length;i++)
+		{
+			classRoom[i] = new ClassRoom();
+			classRoom[i].classCreate();
 		}
 
+		schoolSort();
+		printSchooDeatails();
+		rankWiseResult();
 	}
 
 	void schoolSort()
 	{
-		temp1 = new Student[25];
+		tempStudent = new Student[25];
 		
-		for(int i=0;i<classroom.length;i++)
+		for(int i=0;i<classRoom.length;i++)
 		{
-			for(int j=0;j<classroom[i].student.length;j++)
+			for(int j=0;j<classRoom[i].student.length;j++)
 			{
-				temp1[count] = new Student();
-				temp1[count] = classroom[i].student[j]; 
-				count++;
+				tempStudent[studentCount] = new Student();
+				tempStudent[studentCount] = classRoom[i].student[j]; 
+				studentCount++;
 			}
 		}
 
-		Student newtemp = new Student();
-		for(int p=0;p<count;p++)
+		Student newStudent = new Student();
+		for(int p=0;p<studentCount;p++)
 		{
-			for(int q=p+1;q<count;q++)
+			for(int q=p+1;q<studentCount;q++)
 			{
-				if(temp1[p].totalMark<temp1[q].totalMark)
+				if(tempStudent[p].totalMark<tempStudent[q].totalMark)
 				{
-					//newtemp= new Student();
-					newtemp = temp1[p];
-					temp1[p] = temp1[q];
-					temp1[q] = newtemp;
+					
+					newStudent = tempStudent[p];
+					tempStudent[p] = tempStudent[q];
+					tempStudent[q] = newStudent;
 				}
 			}
 		}
@@ -61,16 +69,17 @@ public class School
 
 	void printSchooDeatails()
 	{
-		System.out.println("\n*****"+this.schoolName+"*****\n");
-		System.out.println("\nPrincipal Name:"+this.principalName);
+		System.out.println("\t\t"+this.schoolName+"\n");
+		System.out.println("ADDRESS\n"+adress.state+"\n"+adress.district+"\n"+adress.place+"\n"+adress.pincode+"\n"); 		
+		System.out.println("\tPrincipal Name:"+this.principalName+"\n");
 		
-		for(int i=0;i<classroom.length;i++)
+		for(int i=0;i<classRoom.length;i++)
 		{
 			System.out.println("\n");
 		    System.out.println("CLASS  "+(i+1));
-		    System.out.println("Number Of Students :" + this.classroom[i].student.length);
-			classroom[i].studentSort();
-			classroom[i].printClassDetails();
+		    System.out.println("Number Of Students :\t" + this.classRoom[i].student.length);
+			classRoom[i].studentSort();
+			classRoom[i].printClassDetails();
 			
 		
 		}
@@ -81,11 +90,17 @@ public class School
 	{
 		System.out.println("Rank Wise Result");
 		System.out.println("___________________");
-		for(int x=0;x<count;x++)
+
+		System.out.println("\nRank | Name | RollNo | TotalMark | Percentage ");
+		System.out.println("____________________________________________");
+		
+		for(int x=0;x<studentCount;x++)
 		{
-			temp1[x].printStudentDetails();
+			student = new Student();
+			System.out.println((x+1)+"\t"+tempStudent[x].studentName+"\t"+tempStudent[x].rollNo+"\t"+tempStudent[x].totalMark+"\t   "+tempStudent[x].averageMark);
 		}
 	}
+
+
+
 }
-
-

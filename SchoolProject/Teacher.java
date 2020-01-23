@@ -1,8 +1,8 @@
 import java.util.*;
 public class Teacher
 {
-	String teacherName,teacherSub;
-
+	String teacherName;
+	Subject subject = new Subject();
 
 	void createTeacher()
 	{
@@ -10,14 +10,14 @@ public class Teacher
 		System.out.println("Teacher Name :");
 		teacherName = sc.nextLine();
 		System.out.println("Subject Name :");
-		teacherSub = sc.nextLine();
+		subject.subjectName= sc.nextLine();
 	}
 
 	void printTeacherDetails()
 	{
 		System.out.println("Teacher Name : "+this.teacherName);
 		
-		System.out.println("Subject Name : "+this.teacherSub);
+		System.out.println("Subject Name : "+this.subject.subjectName);
 					
 	}
 
