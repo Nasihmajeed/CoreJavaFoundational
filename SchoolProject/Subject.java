@@ -15,8 +15,9 @@ void SubjectCreat()
 }
    void SubjectDisplay()
 	{ 
-		
-		System.out.println(sbjt+" = "+mark);
+		System.out.println("Subject   Mark");
+		System.out.println("...............");
+		System.out.println(">"sbjt+" = "+mark);
 		
 	}
 }

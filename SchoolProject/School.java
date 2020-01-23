@@ -3,9 +3,10 @@ public class School
 {
 	
 String name;
-ClassRoom classroom[];
-Student tem[];
-	int k=0;
+Adress adress;
+ClassRoom[] classroom;
+Student[] stdnt;
+int totalstdnt=0;
 static Scanner input =new Scanner(System.in);
 
 void createSchool()
@@ -13,6 +14,8 @@ void createSchool()
 
 	System.out.println("Enter the Name of School =");
 	name =input.next();
+	adress = new Adress();
+	adress .CreateAdress();
 	System.out.println("Enter the No of class =");
 	int clsses =input.nextInt();
 	classroom=new ClassRoom[clsses];
@@ -22,36 +25,44 @@ void createSchool()
 		classroom[i].classCreat();
 
 	}
+	schoolDetail();
+	
+	classSorting();
+	schoolRankList();
 }
 
 void classSorting()
 {
 
-	tem=new Student[20];
-	//while(k<5)
-	//{
+	stdnt=new Student[20];
+	
 	for(int i=0;i<classroom.length;i++)
 	{
 	for (int j=0;j<classroom[i].student.length;j++)
 	{
-		tem[k]=new Student();
-		tem[k]=classroom[i].student[j];
-		k++;
-	}
-	
-	}
-//}
+		stdnt[totalstdnt]=new Student();
+		stdnt[totalstdnt]=classroom[i].student[j];
 
-	for (int x=0;x<k;x++)
+		totalstdnt++;
+	}
+
+	// for(int m=0;m<totalstdnt;m++)
+	// {
+	// stdnt[m].rankList();
+	// }
+	}
+
+
+	for (int x=0;x<totalstdnt;x++)
 	{
-		for (int y=x+1;y<5;y++)
+		for (int y=x+1;y<totalstdnt;y++)
 		{
-		if(tem[x].totalmark<tem[y].totalmark)
+		if(stdnt[x].totalmark<stdnt[y].totalmark)
 		{
 		Student temp=new Student();
-		temp=tem[x];
-		tem[x]=tem[y];
-		tem[y]=temp;
+		temp=stdnt[x];
+		stdnt[x]=stdnt[y];
+		stdnt[y]=temp;
 		}
 		}
 	
@@ -63,7 +74,8 @@ void classSorting()
 void schoolDetail()
 {
 	
-	System.out.println("Name OF School\t:  "+this.name); 
+	System.out.println("\n\nName OF School\t:  "+this.name); 
+	adress.printAdress() ;
 	for(int j=0;j<classroom.length;j++)
 	{
 		System.out.println("--*--*--*--*--*--*--");
@@ -75,11 +87,13 @@ void schoolDetail()
 }
 void schoolRankList()
 {
-	System.out.println(" School wise Result");
+	System.out.println("\n School wise Result");
 	System.out.println("--*--*--*--*--*--*--");
-	for(int m=0;m<k;m++)
+	for(int m=0;m<totalstdnt;m++)
 	{
-	tem[m].studentDetails();
+	System.out.println("\n\t Rank "+(m+1));
+	System.out.println("\t___________");	
+	stdnt[m].rankList();
 	}
 
 }
