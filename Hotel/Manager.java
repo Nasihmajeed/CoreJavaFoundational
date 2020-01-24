@@ -2,26 +2,26 @@ import java.util.Scanner;
 public class Manager
 {
 String name;
-Menu menu;
 
+int f=0;
 static Scanner input =new Scanner(System.in);
-void createManager()
+void createManager(Menu menu)
 	{
 		int choise;
-		int f=0;
-		menu=new Menu();
+		System.out.println("F "+this.f);
+		
 		if(f>0)
 		{
 		menu.editMenu();
 		}	
-		do
+		if(f==0)
 		{
 		System.out.println("name Of Manager= ");
 		name=input.next();
 		menu.createMenu();
 		f++;
 		}
-		while(f==0);
+		//while(f==0);
 
 		
 	}

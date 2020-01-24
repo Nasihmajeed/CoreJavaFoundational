@@ -15,6 +15,6 @@ void createFood()
 
 void displayFood()
 	{
-		System.out.println("\n"+this.name+"\t:\t"+this.rate);
+		System.out.print("\n"+this.name+"\t:\t"+this.rate);
 	}
 }

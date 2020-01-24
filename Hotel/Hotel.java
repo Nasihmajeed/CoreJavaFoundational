@@ -4,6 +4,7 @@ public class Hotel
 String name;
 Manager manager;
 User user;
+Menu menu;
 static Scanner input =new Scanner(System.in);
 void CreateHotel()
 	{
@@ -17,7 +18,8 @@ void CreateHotel()
 void DisplayHotel()
 	{
 		int choise;
-		
+		manager=new Manager();
+		menu=new Menu();
 	do
 	{
 		System.out.println("\nHOTEL "+this.name.toUpperCase());
@@ -25,13 +27,13 @@ void DisplayHotel()
 		choise=input.nextInt();
 		if(choise==2)
 		{
-			manager=new Manager();
-			manager.createManager();
+			
+			manager.createManager(menu);
 		}
 		else if(choise==1)
 		{
 			user=new User();
-			user.createUser();
+			user.createUser(menu);
 		}
 		else if(choise==0)
 		{
