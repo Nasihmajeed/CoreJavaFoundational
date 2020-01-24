@@ -1,29 +1,36 @@
 package com.lxisoft.food;
-import java.util.*;
 public class Food
 {
-	String foodName;
-	int foodRate;
+	private String foodName;
+	private int foodRate;
+	private int quantity;
+
+	public void setFoodName(String str)
+	{
+		this.foodName = str;
+	}
+	public String getFoodName()
+	{
+		return foodName ;
+	}
+	public void setFoodRate(int rate)
+	{
+		this.foodRate = rate;
+	}
+	public int getFoodRate()
+	{
+		return foodRate;
+	}
+
+	public void setQuantity(int qty)
+	{
+		this.quantity = qty;
+	}
+	public int getFoodRate()
+	{
+		return quantity;
+	}
 
 
-	public void addFood()
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Food Name:");
-		foodName = sc.nextLine();
-		System.out.println("Rate:");
-		foodRate = sc.nextInt();
-	}
-	public void deleteFood()
-	{
-		
-	}
-	public void displayFoodDetails()
-	{
-		
-		System.out.println("Food Name:"+foodName);
-		System.out.println("Rate:"+foodRate);
-
-	}
 
 }
