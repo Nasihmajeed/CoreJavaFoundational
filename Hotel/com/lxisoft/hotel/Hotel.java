@@ -17,9 +17,25 @@ public class Hotel
 	try{
 
 		admin.createAdmin();
-		menu.createMenu();
+		Boolean flag=false;
+		System.out.println("Enter Password to LogIn");
+		System.out.println("Password::\t");
+		String loginpass = sc.nextLine();
+		if(loginpass.equals(admin.getPassword()))
+		{
+			flag = true;
+		}	
+		if(flag == true)
+		{
+			menu.createMenu();
+		}
+		else 
+		{
+			System.out.println("Wrong Credentials");
 
-	}catch(Exception e)
+			menu.createMenu();	
+		}	
+		}catch(Exception e)
 	{
 		System.out.println(e);
 	}

@@ -15,20 +15,22 @@ public class Menu
 	Scanner sc = new Scanner(System.in);
 	do
 	{
+
 	System.out.println("\t\t*****MENU*****\n");
 	System.out.println("\t\t1.Admin\n\t\t2.Buyer");
 	System.out.print("Enter Ur Choice:\t");
 	choice1 = sc.nextInt();
 	if(choice1 == 1)
 	{
+		
 		System.out.println("\t\t*****Admin UI*****\n");
-		System.out.println("\t\t*****MENU*****\n");
+		System.out.println("\t\t*****ADMIN MENU*****\n");
 		System.out.println("\t\t1.Add Food\n\t\t2.Delete Food\n\t\t3.Update Food\n\t\t4.View Order\n\t\t5.Delete Order");
-		System.out.print("Enter Ur Choice:\t");
+		System.out.print("\tEnter Ur Choice:\t");
 		int choice2 = sc.nextInt();
 		switch(choice2)
 		{
-			case 1 : //admin.addFood();break;
+			case 1 : admin.addFood();break;
 			case 2 : //admin.deleteFood();break;
 			case 3 : //admin.viewOrder();break;
 			case 4 : //admin.deleteOrder();break;

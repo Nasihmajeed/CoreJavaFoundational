@@ -34,19 +34,22 @@ public class Admin
 		System.out.print("\tEnter Admin Password:");
 		System.out.print("\t");String pass = sc.nextLine();
 		System.out.print("\tConfirm Admin Password:");
-		System.out.print("\t");String confPass = sc.nextLine();
-		if(confPass == pass)
+		System.out.print("\t");String confPass = sc.next();
+		
+		if(pass.equals(confPass))
 		{
 			setPassword(pass);
-			System.out.println("Admin Created");
+			System.out.println("\tAdmin Created");
 
 		}
 		else
 		{
-			System.out.println("PassWords did not Match!!!");			
+			System.out.println("\tPassWords did not Match!!!");			
 		}
 		
 	}
+
+	
 
 	public void addFood()
 	{
