@@ -1,10 +1,13 @@
+package com.lxisoft.hotel;
+import com.lxisoft.user.*;
+import com.lxisoft.hotel.*;
 import java.util.*;
 public class Menu
 {
-Food[] food=new Food[20];
-int choise;
+public Food[] food=new Food[20];
+public int choise;
 static Scanner input =new Scanner(System.in);
-void createMenu()
+public void createMenu()
 	{
 		System.out.println("How many Food items u want to add ");
 		choise=input.nextInt();
@@ -16,7 +19,7 @@ void createMenu()
 		}
 	}
 
-void editMenu()
+public void editMenu()
 	{
 		System.out.println("\n Modify Menu\n1.Add\n2.Delete\n3.Edit\n ");	
 		System.out.println("Enter the Choice= ");
@@ -38,6 +41,7 @@ void editMenu()
 
 			 break;
 			 case 2:
+			 displayMenu();
 			 System.out.println("Which item you Want to delete ");
 			 int id=input.nextInt();
 			 food[id]=null;
@@ -53,7 +57,7 @@ void editMenu()
 	}
 
 
-void displayMenu()
+public void displayMenu()
 	{
 		System.out.println("Id\tName of food  \tRate");
 		System.out.println("_________________________________");

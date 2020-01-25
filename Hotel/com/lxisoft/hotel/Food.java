@@ -1,10 +1,12 @@
+package com.lxisoft.hotel;
+
 import java.util.Scanner;
 public class Food
 {
-String name;
-int rate;
+public String name;
+public int rate;
 static Scanner input =new Scanner(System.in);
-void createFood()
+public void createFood()
 	{
 		System.out.println("Food = ");
 		name=input.next();
@@ -13,8 +15,8 @@ void createFood()
 	}
 
 
-void displayFood()
+public void displayFood()
 	{
-		System.out.print("\n"+this.name+"\t:\t"+this.rate);
+		System.out.println("\t"+this.name+"\t:\t"+this.rate);
 	}
 }

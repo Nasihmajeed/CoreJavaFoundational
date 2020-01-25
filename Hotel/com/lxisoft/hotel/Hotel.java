@@ -1,12 +1,15 @@
-import java.util.Scanner;
+package com.lxisoft.hotel;
+import com.lxisoft.user.*;
+import com.lxisoft.hotel.*;
+import java.util.*;
 public class Hotel
 {
-String name;
+public String name;
 Manager manager;
 User user;
-Menu menu;
+public Menu menu;
 static Scanner input =new Scanner(System.in);
-void CreateHotel()
+public void CreateHotel()
 	{
 		System.out.println("Enter The Name of Hotel= ");
 		name=input.next();
@@ -15,15 +18,16 @@ void CreateHotel()
 	}
 
 
-void DisplayHotel()
+public void DisplayHotel()
 	{
 		int choise;
 		manager=new Manager();
 		menu=new Menu();
 	do
-	{
-		System.out.println("\nHOTEL "+this.name.toUpperCase());
-		System.out.println("\n\nPress 1 for User Menu \n\nManager Press 2\n\nPress 0 for Exit \n");
+	{	
+		System.out.println("\n\tHOTEL "+this.name.toUpperCase());
+		System.out.println("\n________________________");
+		System.out.println("\n\n1. User Menu \n\n2. Manager \n\n Press 0 for Exit \n");
 		choise=input.nextInt();
 		if(choise==2)
 		{

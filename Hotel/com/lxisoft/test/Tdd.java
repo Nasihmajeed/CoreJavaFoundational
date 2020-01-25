@@ -1,3 +1,5 @@
+package com.lxisoft.test;
+import com.lxisoft.hotel.Hotel;
 class Tdd
 {
 public static void main(String args[])
