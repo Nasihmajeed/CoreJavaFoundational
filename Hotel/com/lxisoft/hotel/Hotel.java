@@ -23,6 +23,7 @@ public void DisplayHotel()
 		int choise;
 		manager=new Manager();
 		menu=new Menu();
+		user=new User();
 	do
 	{	
 		System.out.println("\n\tHOTEL "+this.name.toUpperCase());
@@ -32,7 +33,7 @@ public void DisplayHotel()
 		if(choise==2)
 		{
 			
-			manager.createManager(menu);
+			manager.createManager(menu,user);
 		}
 		else if(choise==1)
 		{

@@ -6,7 +6,7 @@ public class User
 {
 public String name;
 public int order;
-public int quantity;
+//public int quantity;
 //Menu menu;
 static Scanner input =new Scanner(System.in);
 public void createUser(Menu menu)
@@ -19,11 +19,12 @@ public void createUser(Menu menu)
 		order=input.nextInt();
 		if(order<menu.food.length)
 		{
-			System.out.println("\nEnter the Quantity of "+menu.food[order].name+" = ");
-			quantity=input.nextInt();
-			int totl= quantity*menu.food[order].rate;
-			System.out.println("\nYour Oredr of "+menu.food[order].name+" Was Sucess full");
-			System.out.println("\nTotal Amount ="+(quantity+" * "+menu.food[order].rate)+" = "+totl+".Rs");
+
+			// System.out.println("\nEnter the Quantity of "+menu.food[order].name+" = ");
+			// quantity=input.nextInt();
+			// int totl= quantity*menu.food[order].rate;
+			// System.out.println("\nYour Oredr of "+menu.food[order].name+" Was Sucess full");
+			// System.out.println("\nTotal Amount ="+(quantity+" * "+menu.food[order].rate)+" = "+totl+".Rs");
 		}
 
 	}
