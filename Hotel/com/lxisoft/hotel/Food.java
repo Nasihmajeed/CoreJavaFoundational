@@ -1,4 +1,4 @@
-package com.lxisoft.food;
+package com.lxisoft.hotel;
 public class Food
 {
 	private String foodName;
@@ -26,7 +26,7 @@ public class Food
 	{
 		this.quantity = qty;
 	}
-	public int getFoodRate()
+	public int getQuantity()
 	{
 		return quantity;
 	}

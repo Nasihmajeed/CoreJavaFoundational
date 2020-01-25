@@ -1,27 +1,32 @@
-package com.lxisoft.test;
-import  com.lxisoft.user.*;
-import  com.lxisoft.food.*;
-import  com.lxisoft.order.*;
+package com.lxisoft.hotel;
+import  com.lxisoft.user.Admin;
 import java.util.*;
 public class Hotel
 {
 
 	String hotelName;
-	Manager manager;
+	Admin admin = new Admin();
 	Menu menu = new Menu();
 	static  Scanner sc = new Scanner(System.in);
-	
+
 	public void createHotel()
-	{	
+	{
 	System.out.println("Enter Hotel Name");
 	hotelName  = sc.nextLine();
 	System.out.println("\t\tHOTEL "+hotelName.toUpperCase()+"\n");
-	
-	menu.createMenu();
+	try{
 
+		admin.createAdmin();
+		menu.createMenu();
 
+	}catch(Exception e)
+	{
+		System.out.println(e);
 	}
 	
+
+	}
+
 	// int generateOrderId()
 	// {
 	// 	int randomNo;

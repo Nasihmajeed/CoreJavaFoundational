@@ -1,4 +1,4 @@
-package com.lxisoft.order;
+package com.lxisoft.hotel;
 public class Order
 {
 	int orderId;
@@ -19,5 +19,5 @@ public class Order
 	{
 		return itemName;
 	}
-	
+
 }
