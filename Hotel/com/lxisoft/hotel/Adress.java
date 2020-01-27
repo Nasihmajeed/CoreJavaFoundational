@@ -1,18 +1,16 @@
 package com.lxisoft.hotel;
+import com.lxisoft.hotel.*;
 public class Adress
 {
-	private String place;
-	
+	private String adress;
 
 	public void setAdress(String str)
 	{
-		this.place = str;
+		this.adress = str;
 	}
 	public String getAdress()
 	{
-		return place;
+		return adress;
 	}
-	
-
 
 }
