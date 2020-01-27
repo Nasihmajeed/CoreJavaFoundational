@@ -6,13 +6,11 @@ public class User
 {
 public String name;
 public Order order=new Order();
-//public int quantity;
-//Menu menu;
+
 static Scanner input =new Scanner(System.in);
 public void createUser(Menu menu)
 	{
-		//menu=new Menu();
-		//	System.out.println(""+menu.food.length);
+		
 		System.out.println("name Of customer= ");
 		name=input.next();
 		menu.displayMenu();

@@ -8,7 +8,7 @@ public int quantity;
 public int choise,temp;
 static Scanner input =new Scanner(System.in);
 public void creatOrder(Menu menu)
-{				//System.out.println(""+menu.food.length);
+{				
 			System.out.println("\nEnter the choise Choise = ");
 			int choise=input.nextInt();
 			temp=choise;

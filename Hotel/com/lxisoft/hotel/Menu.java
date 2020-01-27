@@ -47,7 +47,11 @@ public void editMenu()
 			 food[id]=null;
 			 break;
 			 case 3:
-			 System.out.println("edit ");
+			 System.out.println("Which item you want to Edit ");
+			 id=input.nextInt();
+			 //food[id]=null;
+			 food[id].createFood();
+			 System.out.println("Edited Sucessfully ");
 			 break;	
 			 default:
 			 System.out.println("Back");
