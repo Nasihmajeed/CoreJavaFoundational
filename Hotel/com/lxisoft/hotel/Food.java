@@ -1,34 +1,52 @@
 package com.lxisoft.hotel;
+import java.util.*;
 public class Food
 {
-	private String foodName;
-	private int foodRate;
-	private int quantity;
+	public int id;
+	public String foodName;
+	public int foodRate;
+	public int foodqty;
 
-	public void setFoodName(String str)
+	static Scanner sc = new Scanner(System.in);
+	Food[] foodStore; 
+	public void createFood()
 	{
-		this.foodName = str;
-	}
-	public String getFoodName()
-	{
-		return foodName ;
-	}
-	public void setFoodRate(int rate)
-	{
-		this.foodRate = rate;
-	}
-	public int getFoodRate()
-	{
-		return foodRate;
+
+		System.out.println("Enter How many food are adding to the store");
+		int count = sc.nextInt();
+		for(int i=0;i<count;i++)
+		{
+			foodStore = new Food[count];
+			foodStore[i] = new Food();
+			foodStore[i].id = generateFoodId();
+			System.out.println(generateFoodId());
+			System.out.println("Enter Food Name:");
+			foodStore[i].foodName = sc.next();
+			System.out.println("Enter Food Rate:");
+			foodStore[i].foodRate = sc.nextInt();
+
+		}
 	}
 
-	public void setQuantity(int qty)
+	public void displayFood()
 	{
-		this.quantity = qty;
+		System.out.println("\t"+foodName+"\t"+foodRate);
 	}
-	public int getQuantity()
+
+
+
+	public int generateFoodId()
 	{
-		return quantity;
+		int randomNo=0;
+		final String alphabet = "0123456789ABCDE";
+		final int length = alphabet.length();
+		Random random = new Random();
+		for(int i=0;i<5;i++)
+		{
+			randomNo = alphabet.charAt(random.nextInt(length));
+
+		}
+		return randomNo;
 	}
 
 

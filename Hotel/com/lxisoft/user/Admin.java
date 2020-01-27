@@ -1,77 +1,46 @@
 package com.lxisoft.user;
-import com.lxisoft.hotel.*;
+import com.lxisoft.hotel.Food;
 import java.util.*;
 public class Admin
 {
+	public String adminPassword = "admin";
 	
-	Food[] foodStore ;
-	Food food;
+	// public void setPassWord(String str)
+	// {
+	// 	this.adminPassword = str;
+	// }
+	// public String getPassWord()
+	// {
+	// 	return adminPassword;
+	// }
+
 	static Scanner sc = new Scanner(System.in);
-	private String adminName,adminPassword;
-
-	public void setAdminName(String str)
-	{
-		this.adminName = str;
-	}
-	public String getAdminName()
-	{
-		return adminName;
-	}
-	public void setPassword(String str)
-	{
-		this.adminPassword= str;
-	}
-	public String getPassword()
-	{
-		return adminPassword;
-	}
-
-	public void createAdmin()
-	{
-		System.out.print("\tEnter Admin Name:");
-		System.out.print("\t");String name = sc.nextLine();
-		setAdminName(name);
-		System.out.print("\tEnter Admin Password:");
-		System.out.print("\t");String pass = sc.nextLine();
-		System.out.print("\tConfirm Admin Password:");
-		System.out.print("\t");String confPass = sc.next();
-		
-		if(pass.equals(confPass))
-		{
-			setPassword(pass);
-			System.out.println("\tAdmin Created");
-
-		}
-		else
-		{
-			System.out.println("\tPassWords did not Match!!!");			
-		}
-		
-	}
 
 	
+	// public void deleteFood()
+	// {
 
-	public void addFood()
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter How many items are addding to the Food Store:");
-		int count = sc.nextInt();
-		foodStore = new Food[count];
-		for(int i=0;i<count;i++)
-		{
-		foodStore[i] = new Food();
-		System.out.println("\t*****Food "+(i+1)+"*****");
-		System.out.println("\t__________________");
-		System.out.println("\tEnter Food Name:");
-		String foodname  = sc.nextLine();
-		System.out.print("\t");sc.nextLine();
-		foodStore[i].setFoodName(foodname);
-		System.out.println("\tEnter Rate:");
-		System.out.print("\t");int foodrate = sc.nextInt();
-		foodStore[i].setFoodRate(foodrate);
-		}
-	}
+	// 	foodMenu();
+	// 	System.out.println("Enter id of food to delete");
+	// 	int id = sc.nextInt();
+	// 	for(int i=0;i<foodStore.length;i++)
+	// 	{
+	// 		if(id == foodStore[i].id)
+	// 		{
+	// 		foodStore[i] = null;	
+	// 		}
+	// 	}	
 
+	// }
 
+	// public void foodMenu()
+	// {
+	// 	System.out.println("\tID\tNAME\tRATE\t");
+	// 	System.out.println("_________________");
+	// 	for(int i=0;i<foodStore.length();i++)
+	// 	{
+	// 	System.out.println("\t"+(i+1)+"\t"+foodStore[i].foodName+"\t"+foodStore[i].foodRate);
+	// 	}	
+	// }	
 
 }
