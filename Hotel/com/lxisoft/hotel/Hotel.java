@@ -20,27 +20,28 @@ public void CreateHotel()
 
 public void DisplayHotel()
 	{
-		int choise;
+		int choi;
+		user=new User();
 		manager=new Manager();
 		menu=new Menu();
-		user=new User();
+		
 	do
 	{	
 		System.out.println("\n\tHOTEL "+this.name.toUpperCase());
 		System.out.println("\n________________________");
 		System.out.println("\n\n1. User Menu \n\n2. Manager \n\n Press 0 for Exit \n");
-		choise=input.nextInt();
-		if(choise==2)
+		choi=input.nextInt();
+		if(choi==2)
 		{
 			
 			manager.createManager(menu,user);
 		}
-		else if(choise==1)
+		else if(choi==1)
 		{
-			user=new User();
+			//user=new User();
 			user.createUser(menu);
 		}
-		else if(choise==0)
+		else if(choi==0)
 		{
 			System.out.println(" Exited");
 		}
@@ -49,7 +50,7 @@ public void DisplayHotel()
 			System.out.println(" WrOnG ChOiSe");
 		}
 	}
-		while(choise!=0); 
+		while(choi!=0); 
 
 	}
 }

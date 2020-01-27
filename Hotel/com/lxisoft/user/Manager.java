@@ -5,12 +5,11 @@ import java.util.Scanner;
 public class Manager
 {
 String name;
-
 int f=0;
 static Scanner input =new Scanner(System.in);
 public void createManager(Menu menu,User user)
 	{
-		int choise;
+		//int choise;
 		//System.out.println("F "+this.f);
 		
 		if(f>0)
@@ -21,12 +20,12 @@ public void createManager(Menu menu,User user)
 			if(mode==1)
 			{
 				System.out.println("\t___Customer Order____ ");
-				user.displayUser();
+				user.displayUser(menu);
 			}
 			if(mode==2)
 			{
 				menu.editMenu();
-				System.out.println("\n--DELETED--\n");
+				//System.out.println("\n--DELETED--\n");
 			}
 		}	
 		if(f==0)
