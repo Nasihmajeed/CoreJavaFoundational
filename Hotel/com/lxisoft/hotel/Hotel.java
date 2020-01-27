@@ -1,34 +1,60 @@
 package com.lxisoft.hotel;
-import com.lxisoft.user.Admin;
+import com.lxisoft.user.*;
 import java.util.*;
 public class Hotel
 {
 	String hotelName;
+	String hotelAdress;
 
-	Adress adress = new Adress();
+	Admin admin;
+	User user;
+	Menu menu;
 
-	Menu menu = new Menu();
 	static Scanner sc = new Scanner(System.in);
+	
 	public void createHotel()
 	{
+		System.out.println("Hotel Name::");
+		hotelName = sc.next();
+		System.out.println("Hotel Address::");
+		hotelAdress = sc.next();
 
-		System.out.println("Hotel Name:");
-		String hotelName = sc.nextLine();
-		System.out.println("Adress:");
-		String adr = sc.nextLine();
-		adress.setAdress(adr);
-		System.out.println("\n\t*****HOTEL " +hotelName.toUpperCase() + "*****");
-		displayHotel();
-		System.out.println("\n");
-		menu.createMenu();
+
+		displayHotelMenu();
 
 	}
 
-
-
-	public void displayHotel()
-	{	
-		System.out.println("\t"+adress.getAdress().toUpperCase());		
-
+	public void displayHotelMenu()
+	{
+		user= new User();
+	    admin = new Admin();
+		menu=new Menu();
+		int choice;
+		do
+		{	
+		System.out.println("\n\tHOTEL "+hotelName.toUpperCase());
+		System.out.println("\n________________________");
+		System.out.println("\t"+hotelAdress.toUpperCase());
+		System.out.println("\n\n1. Admin \n\n2. User \n");
+		choice=sc.nextInt();
+		if(choice==1)
+		{
+			admin.adminMenu();
+		}
+		else if(choice==2)
+		{
+			
+			user.userMenu();
+		}
+		else if(choice==0)
+		{
+			System.exit(0);
+		}
+		else
+		{
+			System.out.println(" WrOnG ChOiSe");
+		}
+	}while(choice!=0);
+	
 	}
 }

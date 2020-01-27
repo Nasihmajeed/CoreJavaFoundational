@@ -1,46 +1,41 @@
 package com.lxisoft.user;
-import com.lxisoft.hotel.Food;
+import com.lxisoft.hotel.*;
 import java.util.*;
 public class Admin
 {
 	public String adminPassword = "admin";
-	
-	// public void setPassWord(String str)
-	// {
-	// 	this.adminPassword = str;
-	// }
-	// public String getPassWord()
-	// {
-	// 	return adminPassword;
-	// }
 
 	static Scanner sc = new Scanner(System.in);
+	Food food = new Food();
+	Menu menu ;
 
+	public void adminMenu()
+	{
+		System.out.println("Enter admin Password:");
+		String pass = sc.next();
+		menu = new Menu();
+		if(pass.equals(adminPassword))
+		{
+				boolean flag = true;
+				System.out.println("\tLogin Successfull.......");
+				System.out.println("\t\t*****Admin UI*****\n");
+				System.out.println("\t\t*****ADMIN MENU*****\n");
+				System.out.println("\t\t1.Add Food\n\t\t2.Delete Food\n\t\t3.Update Food\n\t\t4.View Order\n\t\t5.Delete Order");
+				System.out.print("\tEnter Ur Choice:\t");
+				int ch1 = sc.nextInt();
+				switch(ch1)
+				{
+					case 1:menu.createFood();break;
+					case 2:food.displayFood();break;
+					default :System.out.println("Enter valid choice");break;
+				}
+		}
 	
-	// public void deleteFood()
-	// {
+		else		
+		{
+			System.out.println("Welcome");
 
-	// 	foodMenu();
-	// 	System.out.println("Enter id of food to delete");
-	// 	int id = sc.nextInt();
-	// 	for(int i=0;i<foodStore.length;i++)
-	// 	{
-	// 		if(id == foodStore[i].id)
-	// 		{
-	// 		foodStore[i] = null;	
-	// 		}
-	// 	}	
-
-	// }
-
-	// public void foodMenu()
-	// {
-	// 	System.out.println("\tID\tNAME\tRATE\t");
-	// 	System.out.println("_________________");
-	// 	for(int i=0;i<foodStore.length();i++)
-	// 	{
-	// 	System.out.println("\t"+(i+1)+"\t"+foodStore[i].foodName+"\t"+foodStore[i].foodRate);
-	// 	}	
-	// }	
-
+		}
+		
+	}
 }
