@@ -26,9 +26,9 @@ public class Food
 
 	public void createFood()
 	{
-		System.out.println(" Food Name:");
+		System.out.println("Food Name:");
 		foodName = sc.next();
-		System.out.println(" Rate:");
+		System.out.println("Rate:");
 		foodRate = sc.nextInt();
 	}
 

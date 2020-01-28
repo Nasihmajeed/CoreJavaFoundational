@@ -5,6 +5,7 @@ public class Hotel
 {
 	String  hotelName;
 	Admin admin;
+	User user;
 	Adress adress;
 	FoodMenu foodmenu;
 
@@ -15,7 +16,8 @@ public class Hotel
 		System.out.println("\t Hotel Name:\n\t");
 		hotelName = sc.next();
 		System.out.println("\t Hotel Address:\n\t");
-		String adr = sc.next();
+		String adr = sc.nextLine();
+		adr = sc.nextLine();
 		adress.setAdress(adr);
 
 		displayHotel();
@@ -27,7 +29,8 @@ public class Hotel
 	{
 		foodmenu = new FoodMenu();
 		admin = new Admin();
-		System.out.println("\t HOTEL "+hotelName.toUpperCase()+"n\t");
+		user = new User();
+		System.out.println("\t HOTEL "+hotelName.toUpperCase()+"\n\t");
 		System.out.println("\t _____________________\n\t");
 		System.out.print("\t ADDRESS:\n\t");
 		System.out.print(adress.getAdress()+"\n");
@@ -45,7 +48,7 @@ public class Hotel
 			}
 			else if(choice==2)
 			{
-				//user
+				user.createUser(foodmenu,adress,user);
 			}
 			else if(choice==0)
 			{

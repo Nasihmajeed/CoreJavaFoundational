@@ -6,14 +6,14 @@ public class FoodMenu
 	
 	static Scanner sc = new Scanner(System.in);
 	Food[] foodStore = new Food[25];
-
+	int count,n;
 	public void addFood()
 	{
 		System.out.println("Enter How many food do you want to add:");
-		int count  = sc.nextInt();
+		n  = sc.nextInt();
+		count = count+n;
 		for(int i=0;i<count;i++)
 		{
-			foodStore = new Food[count];
 			foodStore[i] = new Food();
 			foodStore[i].createFood();
 		}
@@ -22,6 +22,8 @@ public class FoodMenu
 
 	public void editFood()
 	{
+		displayFoodMenu();
+
 		System.out.println("Enter Id Food To be edited");
 		int id = sc.nextInt();
 		foodStore[id].createFood();
@@ -30,28 +32,35 @@ public class FoodMenu
 
 	public void deleteFood()
 	{
-		System.out.println("Enter Id Food To be Deleted");
+		
+		displayFoodMenu();	
+		
+		System.out.println("\nEnter Id Food To be Deleted");
 		int id = sc.nextInt();
 		foodStore[id] = null;
+		System.out.println("Successfully Removed item from the list...");
 			
 	}
 	public void viewOrder()
 	{
-		System.out.println("Enter Id Food To be Deleted");
-		int id = sc.nextInt();
-		foodStore[id] = null;
-			
+		
 	}
 
-	public void dispalyFoodMenu()
+	public void displayFoodMenu()
 	{
-		System.out.println("ID\tNAME\tRATE\n");
+		System.out.println("ID\tNAME\tRATE");
 		System.out.println("___________________");
-		for(int i=0;i<foodStore.length;i++)
+		
+		for(int i=0;i<count;i++)
 		{
-			System.out.print(i);
-			foodStore[i].displayFoodDetails();
+			if(foodStore[i]!=null)
+			{
+				System.out.print(i);
+				foodStore[i].displayFoodDetails();	
+			}
+			
 		}
+		System.out.println("\n");
 	}
 
 

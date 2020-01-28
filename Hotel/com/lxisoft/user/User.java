@@ -1,6 +1,7 @@
 package com.lxisoft.user;
 import com.lxisoft.hotel.*;
-public class user
+import java.util.*;
+public class User
 {
 
 	public String userId;
@@ -9,13 +10,12 @@ public class user
 
 	Scanner sc= new Scanner(System.in);
 
-	public void createUser(FoodMenu foodmenu)
+	public void createUser(FoodMenu foodmenu,Adress adress,User user)
 	{
 		System.out.println("Enter User ID:");
-		String userId = sc.nextInt();
-		foodmenu.dispalyFoodMenu();
+		String userId = sc.next();
 
-		order.createOrder();
+		order.createOrder(foodmenu,adress);
 
 
 	}
