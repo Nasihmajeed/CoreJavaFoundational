@@ -41,11 +41,6 @@ public class FoodMenu
 		System.out.println("Successfully Removed item from the list...");
 			
 	}
-	public void viewOrder()
-	{
-		
-	}
-
 	public void displayFoodMenu()
 	{
 		System.out.println("ID\tNAME\tRATE");
@@ -53,7 +48,11 @@ public class FoodMenu
 		
 		for(int i=0;i<count;i++)
 		{
-			if(foodStore[i]!=null)
+			if(foodStore[i] == null)
+			{
+				System.out.println("Store Empty !!! add Food to store");
+			}
+			else
 			{
 				System.out.print(i);
 				foodStore[i].displayFoodDetails();	

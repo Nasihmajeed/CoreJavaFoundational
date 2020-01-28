@@ -4,20 +4,25 @@ import java.util.*;
 public class User
 {
 
-	public String userId;
+	
 
 	public Order order = new Order();
 
 	Scanner sc= new Scanner(System.in);
 
-	public void createUser(FoodMenu foodmenu,Adress adress,User user)
+	public void createUser(FoodMenu foodmenu,Adress adress)
 	{
-		System.out.println("Enter User ID:");
-		String userId = sc.next();
+		
 
-		order.createOrder(foodmenu,adress);
+		order.createOrder(foodmenu);
 
 
+	}
+
+	public void displayUser(FoodMenu foodmenu)
+	{
+		
+		order.displayOrder(foodmenu);
 	}
 
 

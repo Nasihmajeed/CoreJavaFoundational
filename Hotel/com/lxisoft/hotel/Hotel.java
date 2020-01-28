@@ -44,11 +44,11 @@ public class Hotel
 			if(choice == 1)
 			{
 
-				admin.createAdmin(foodmenu);
+				admin.createAdmin(foodmenu,user);
 			}
 			else if(choice==2)
 			{
-				user.createUser(foodmenu,adress,user);
+				user.createUser(foodmenu,adress);
 			}
 			else if(choice==0)
 			{

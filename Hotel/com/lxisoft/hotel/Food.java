@@ -7,23 +7,6 @@ public class Food
 	public int foodRate;
 
 	Scanner sc = new Scanner(System.in);
-	// public void setFoodName(String str)
-	// {
-	// 	this.foodName = str;
-	// }
-	// public String getFoodName()
-	// {
-	// 	return foodName;
-	// }
-	// public void setFoodRate(int n)
-	// {
-	// 	this.foodRate = n;
-	// }
-	// public int getFoodRate()
-	// {
-	// 	return foodRate;
-	// }
-
 	public void createFood()
 	{
 		System.out.println("Food Name:");
