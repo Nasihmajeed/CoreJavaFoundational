@@ -38,7 +38,6 @@ public void DisplayHotel()
 		}
 		else if(choi==1)
 		{
-			//user=new User();
 			user.createUser(menu);
 		}
 		else if(choi==0)

@@ -26,7 +26,7 @@ public void creatOrder(Menu menu)
 
 public void displayOrder(Menu menu,String name)
 {
-		System.out.println("\n      User = "+name);
+		System.out.println("\n   User = "+name);
 		System.out.println("\n   Oredr of "+menu.food[temp].name);
 		int totl= quantity*menu.food[temp].rate;
 		System.out.println("\nTotal Amount ="+(quantity+" * "+menu.food[temp].rate)+" = "+totl+".Rs");
