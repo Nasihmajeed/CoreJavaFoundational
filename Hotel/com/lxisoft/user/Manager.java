@@ -7,7 +7,7 @@ public class Manager
 String username,password;
 int f=0;
 static Scanner input =new Scanner(System.in);
-public void createManager(Menu menu,User user)
+public void createManager(Menu menu,User[] user)
 	{
 		
 		
@@ -26,14 +26,17 @@ public void createManager(Menu menu,User user)
 			if(mode==1)
 			{
 				System.out.println("\t___Customer Order____ ");
-				if(user.name!=null)
+				for(int i=0;i<user.length;i++)
 				{
-				user.displayUser(menu);
+					if(user[i].name!=null)
+					{
+					user[i].displayUser(menu);
+					}
 				}
-				else
-				{
-					System.out.println("\n\tsYou dont have any Order____");
-				}
+				// else
+				// {
+				// 	System.out.println("\n\tsYou dont have any Order____");
+				// }
 			}
 			if(mode==2)
 			{

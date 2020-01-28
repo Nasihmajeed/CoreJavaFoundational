@@ -24,7 +24,7 @@ public void createUser(Menu menu)
 		order[i].creatOrder(menu);
 		item--;
 		}
-		}while(item>0)
+		}while(item>0);
 
 	}
 
