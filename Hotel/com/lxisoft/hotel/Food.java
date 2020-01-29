@@ -9,10 +9,10 @@ public class Food
 	Scanner sc = new Scanner(System.in);
 	public void createFood()
 	{
-		System.out.println("Food Name:");
-		foodName = sc.next();
-		System.out.println("Rate:");
-		foodRate = sc.nextInt();
+		System.out.println("\tFood Name:");
+		System.out.print("\t");foodName = sc.next();
+		System.out.println("\tRate:");
+		System.out.print("\t");foodRate = sc.nextInt();
 	}
 
 

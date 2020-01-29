@@ -10,7 +10,7 @@ public class User
 
 	Scanner sc= new Scanner(System.in);
 
-	public void createUser(FoodMenu foodmenu,Adress adress)
+	public void createUser(FoodMenu foodmenu)
 	{
 		
 

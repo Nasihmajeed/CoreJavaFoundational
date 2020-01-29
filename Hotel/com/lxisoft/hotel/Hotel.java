@@ -13,9 +13,13 @@ public class Hotel
 	public void createHotel()
 	{
 		adress = new Adress();
-		System.out.println("\t Hotel Name:\n\t");
+		System.out.println("\t*****HOTEL*****\t");
+		System.out.println("\t________________\t");
+
+		
+		System.out.print("\t Hotel Name:\t");
 		hotelName = sc.next();
-		System.out.println("\t Hotel Address:\n\t");
+		System.out.print("\t Hotel Address:\t");
 		String adr = sc.nextLine();
 		adr = sc.nextLine();
 		adress.setAdress(adr);
@@ -30,16 +34,16 @@ public class Hotel
 		foodmenu = new FoodMenu();
 		admin = new Admin();
 		user = new User();
-		System.out.println("\t HOTEL "+hotelName.toUpperCase()+"\n\t");
-		System.out.println("\t _____________________\n\t");
-		System.out.print("\t ADDRESS:\n\t");
-		System.out.print(adress.getAdress()+"\n");
+		System.out.println("\n\t\t HOTEL "+hotelName.toUpperCase()+"\t");
+		System.out.println("\t ___________________________\n\t");
+		System.out.print("\t ADDRESS : ");
+		System.out.println(adress.getAdress()+"\n");
 		int choice;
 		do
 		{
 			
-			System.out.print("1.Admin\n2.User\nEnter Ur Choice:\t");
-			choice= sc.nextInt();
+			System.out.println("\t1.Admin\n\t2.User\n\tEnter Ur Choice:");
+			System.out.print("\t");choice= sc.nextInt();
 
 			if(choice == 1)
 			{
@@ -48,7 +52,7 @@ public class Hotel
 			}
 			else if(choice==2)
 			{
-				user.createUser(foodmenu,adress);
+				user.createUser(foodmenu);
 			}
 			else if(choice==0)
 			{
@@ -56,7 +60,7 @@ public class Hotel
 			}
 			else
 			{
-				System.out.print("Enter Valid Choice\n");
+				System.out.println("\tEnter Valid Choice!!!!!!!!!!\n");
 			}
 
 		}while(choice!=0);

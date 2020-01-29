@@ -16,17 +16,18 @@ public class Order
 
 		foodmenu.displayFoodMenu();
 
-		System.out.println("Enter Id of Item to buy:");
+		System.out.print("\tEnter Id of Item to buy:");
 		itemId = sc.nextInt();
 
 		if(itemId <= foodmenu.foodStore.length)
 		{
-			System.out.println("Enter the quantity of item U needed ");
+			System.out.print("\tEnter the quantity of item U needed :\t");
 			qty = sc.nextInt();
+		
 			totalBill = foodmenu.foodStore[itemId].foodRate*qty;
 			
-			System.out.println("Your Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
-			System.out.println("Amount to Pay = "+totalBill);
+			System.out.println("\tYour Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
+			System.out.println("\tAmount to Pay  ="+totalBill+" Rs");
 
 			
 
@@ -40,17 +41,17 @@ public class Order
 
 	public void displayOrder(FoodMenu foodmenu)
 	{
-		System.out.println("*****Order Detaills*****");
-		System.out.println("______________________");
+		System.out.println("\n\t*****Order Detaills*****");
+		System.out.println("\t______________________");
 
-		System.out.println("Order Id :"+ orderId());
-		System.out.println("Item Name :"+foodmenu.foodStore[itemId].foodName);
-		System.out.println("Rate :"+foodmenu.foodStore[itemId].foodRate);
-		System.out.println("Quantity :"+qty);
+		System.out.println("\tOrder Id :"+ orderId());
+		System.out.println("\tItem Name :"+foodmenu.foodStore[itemId].foodName);
+		System.out.println("\tRate :"+foodmenu.foodStore[itemId].foodRate);
+		System.out.println("\tQuantity :"+qty);
 
 		
-		System.out.println("______________________");
-		System.out.print("Amount To Pay :");System.out.println(totalBill);
+		System.out.println("\t______________________");
+		System.out.print("\tAmount To Pay :");System.out.println(totalBill);
 				
 	}
 
