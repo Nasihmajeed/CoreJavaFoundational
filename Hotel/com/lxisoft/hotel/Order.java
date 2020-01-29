@@ -8,8 +8,10 @@ public int quantity;
 public int choise,temp;
 static Scanner input =new Scanner(System.in);
 public void creatOrder(Menu menu)
-{				
-			System.out.println("\nEnter the choise Choise = ");
+{			
+	if(menu.food[0]!=null)
+	{	
+			System.out.println("\nEnter the item  = ");
 			int choise=input.nextInt();
 			temp=choise;
 			if(choise<=menu.food.length)
@@ -21,16 +23,25 @@ public void creatOrder(Menu menu)
 			System.out.println("\nTotal Amount ="+quantity+" * "+menu.food[choise].rate+" = "+totl+".Rs");
 
 			}
+			else
+			{
+				System.out.println("\nPlease enter a valid Item");
+			}
+	}
+	else
+	{
+		System.out.println("\n!!!!!!!!!Please Contact Manager!!!!!!!!!!!");
+	}		
 
 }
 
 public void displayOrder(Menu menu,String name)
 {
-		System.out.println("\n   User = "+name);
+		//System.out.println("\n   User = "+name);
 		System.out.println("\n   Oredr of "+menu.food[temp].name);
 		int totl= quantity*menu.food[temp].rate;
 		System.out.println("\nTotal Amount ="+(quantity+" * "+menu.food[temp].rate)+" = "+totl+".Rs");
-
+		System.out.println("+++++++++++++++++++++++++++ ");
 
 }
 

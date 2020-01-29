@@ -7,6 +7,7 @@ public class Hotel
 public String name;
 Manager manager;
 User[] user=new User[20];
+public int noOfuser;
 public Menu menu;
 static Scanner input =new Scanner(System.in);
 public void CreateHotel()
@@ -20,7 +21,7 @@ public void CreateHotel()
 
 public void DisplayHotel()
 	{
-		int choi,i=0;
+		int choi;
 		
 		manager=new Manager();
 		menu=new Menu();
@@ -34,13 +35,13 @@ public void DisplayHotel()
 		if(choi==2)
 		{
 			
-			manager.createManager(menu,user);
+			manager.createManager(menu,user,noOfuser);
 		}
 		else if(choi==1)
 		{
-			user[i]=new User();
-			user[i].createUser(menu);
-			i++;
+			user[noOfuser]=new User();
+			user[noOfuser].createUser(menu);
+			noOfuser++;
 		}
 		else if(choi==0)
 		{
