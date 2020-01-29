@@ -6,7 +6,7 @@ public class Admin
 	public String adminPassword="admin";
 
 	
-	public void createAdmin(FoodMenu foodmenu,User user)
+	public void createAdmin(FoodMenu foodmenu,User[] user,int noOfUser)
 	{
 		Scanner sc= new Scanner(System.in);
 		System.out.println("\tEnter Password:");
@@ -45,7 +45,7 @@ public class Admin
 
 					   	break;
 				case 3:foodmenu.displayFoodMenu();break;	   	
-				case 4:user.displayUser(foodmenu);break;
+				case 4:user[noOfUser].displayUser(foodmenu,noOfUser);break;
 				default:System.out.println("Please give valid input!!!!");break;
 
 			}

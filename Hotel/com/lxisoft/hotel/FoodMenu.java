@@ -35,25 +35,43 @@ public class FoodMenu
 
 	public void editFood()
 	{
-		displayFoodMenu();
-
-		System.out.print("\tEnter Id Food To be edited");
-		System.out.println("\t");int id = sc.nextInt();
-		if(id<foodStore.length)
+		boolean flag = false;
+		if(foodStore[0]==null)
 		{
+		flag = true;	
+		System.out.println("\tStore Empty !!!please contact hotel manager to add Food to the store......");
+		}
+		if(flag!=true)
+		{
+			displayFoodMenu();
+
+			System.out.print("\tEnter Id Food To be edited");
+			System.out.println("\t");int id = sc.nextInt();
+			if(id<foodStore.length)
+			{
 			foodStore[id].createFood();	
 			System.out.println("\tEdited Successfully");
-		}
-		else if(id >foodStore.length)
-		{
+			}
+			else if(id >foodStore.length)
+			{
 			System.out.println("\tEnter valid id");
+			}
 		}
+		
 		
 		
 	}
 
 	public void deleteFood()
 	{
+		boolean flag = false;
+		if(foodStore[0]==null)
+		{
+		flag = true;	
+		System.out.println("\tStore Empty !!!");
+		}
+		if(flag!=true)
+		{
 		
 		displayFoodMenu();
 		
@@ -61,21 +79,14 @@ public class FoodMenu
 		System.out.println("\t");int id = sc.nextInt();
 		foodStore[id] = null;
 		System.out.println("\tSuccessfully Removed item from the list...");
-			
+		}	
 	}
 
 
 	public void displayFoodMenu()
-	{
-		System.out.println(foodStore.length);
-		try
-		{
-			if(foodStore[0]==null)
-		{
-		System.out.println("Store Empty !!!please contact hotel manager to add Food to the store......");
-		}	
-		else
-		{
+	{	
+		
+			
 			System.out.println("\tID\tNAME\tRATE");
 			System.out.println("\t___________________");
 		
@@ -89,20 +100,10 @@ public class FoodMenu
 			
 			}
 		System.out.println("\n");
-		}
-
-		
-
-		}catch(Exception e)
-		{
-			System.out.println(e);
-		}
-		
-
 	
-	}
 		
 
 
 
+}
 }

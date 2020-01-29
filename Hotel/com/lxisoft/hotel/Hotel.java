@@ -5,10 +5,10 @@ public class Hotel
 {
 	String  hotelName;
 	Admin admin;
-	User user;
+	User[] user;
 	Adress adress;
 	FoodMenu foodmenu;
-
+	public int noOfUser;
 	static Scanner sc = new Scanner(System.in);
 	public void createHotel()
 	{
@@ -33,7 +33,7 @@ public class Hotel
 	{
 		foodmenu = new FoodMenu();
 		admin = new Admin();
-		user = new User();
+		user = new User[10];
 		System.out.println("\n\t\t HOTEL "+hotelName.toUpperCase()+"\t");
 		System.out.println("\t ___________________________\n\t");
 		System.out.print("\t ADDRESS : ");
@@ -48,11 +48,13 @@ public class Hotel
 			if(choice == 1)
 			{
 
-				admin.createAdmin(foodmenu,user);
+				admin.createAdmin(foodmenu,user,noOfUser);
 			}
 			else if(choice==2)
 			{
-				user.createUser(foodmenu);
+				user[noOfUser] = new User();
+				user[noOfUser].createUser(foodmenu,noOfUser);
+				noOfUser++;
 			}
 			else if(choice==0)
 			{

@@ -10,19 +10,18 @@ public class User
 
 	Scanner sc= new Scanner(System.in);
 
-	public void createUser(FoodMenu foodmenu)
+	public void createUser(FoodMenu foodmenu,int noOfUser)
 	{
 		
 
-		order.createOrder(foodmenu);
+		order.createOrder(foodmenu,noOfUser);
 
 
 	}
 
-	public void displayUser(FoodMenu foodmenu)
+	public void displayUser(FoodMenu foodmenu,int noOfUser)
 	{
-		
-		order.displayOrder(foodmenu);
+		order.displayOrder(foodmenu,noOfUser);
 	}
 
 

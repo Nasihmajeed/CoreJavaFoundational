@@ -10,12 +10,13 @@ public class Order
 	public int itemId;
 	
 	static Scanner sc = new Scanner(System.in);
-	public void createOrder(FoodMenu foodmenu)
+	public void createOrder(FoodMenu foodmenu,int noOfUser)
 	{
 		
 
 		foodmenu.displayFoodMenu();
 
+		System.out.println("\t*****User "+(noOfUser+1)+"******");
 		System.out.print("\tEnter Id of Item to buy:");
 		itemId = sc.nextInt();
 
@@ -26,7 +27,7 @@ public class Order
 		
 			totalBill = foodmenu.foodStore[itemId].foodRate*qty;
 			
-			System.out.println("\tYour Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
+			System.out.println("\tuser "+ noOfUser+" Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
 			System.out.println("\tAmount to Pay  ="+totalBill+" Rs");
 
 			
@@ -39,7 +40,7 @@ public class Order
 		
 	}
 
-	public void displayOrder(FoodMenu foodmenu)
+	public void displayOrder(FoodMenu foodmenu,int noOfUser)
 	{
 		System.out.println("\n\t*****Order Detaills*****");
 		System.out.println("\t______________________");
