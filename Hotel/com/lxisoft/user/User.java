@@ -20,12 +20,12 @@ public void createUser(Menu menu)
 		int temp=item;
 		do
 		{
-		for(int i=0;i<temp;i++)
-		{
-		order[i]=new Order();
-		order[i].creatOrder(menu);
-		temp--;
-		}
+			for(int i=0;i<temp;i++)
+			{
+				order[i]=new Order();
+				order[i].creatOrder(menu);
+				temp--;
+			}
 		}while(temp>0);
 		
 	}
@@ -36,9 +36,8 @@ void displayUser(Menu menu)
 		for(int i=0;i<item;i++)
 		{
 		order[i].displayOrder(menu,name);
-		//System.out.println("*********************************************");				
+				
 		}
-		//System.out.println("***********");		
+		
 	}
-
  }

@@ -27,19 +27,15 @@ public void createManager(Menu menu,User[] user,int noOfuser)
 			{
 				System.out.println("\t___Customer Order____ ");
 				int l=0;
-				//user[0].displayUser(menu);
+				
 				for(int i=0;i<noOfuser;i++)
 				{
-					//if(user[i].name!=null)
-					//{
-					//	l=i+1;
+					
 					user[i].displayUser(menu);
 						
-					//System.out.println(noOfuser);
-					//}
+				
 				}
-				//System.out.println(user.length);
-				//System.out.println(noOfuser);
+				
 				if(user[0].name==null)
 					{
 				 	System.out.println("\n\tsYou dont have any Order____");
