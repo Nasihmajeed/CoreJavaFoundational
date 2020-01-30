@@ -15,19 +15,26 @@ public void createUser(Menu menu)
 		System.out.println("name Of customer= ");
 		name=input.next();
 		menu.displayMenu();
-		System.out.println("How many items You Want to buy = ");
-		item=input.nextInt();
-		int temp=item;
-		do
+
+		if(menu.choise==0)
 		{
-			for(int i=0;i<temp;i++)
-			{
-				order[i]=new Order();
-				order[i].creatOrder(menu);
-				temp--;
-			}
-		}while(temp>0);
-		
+		System.out.println(".......SORRY !!!!!! ");
+		}
+		else
+		{
+				System.out.println("How many items You Want to buy = ");
+				item=input.nextInt();
+				int temp=item;
+				do
+				{
+					for(int i=0;i<temp;i++)
+					{
+						order[i]=new Order();
+						order[i].creatOrder(menu);
+						temp--;
+					}
+				}while(temp>0);
+		}
 	}
 
 void displayUser(Menu menu)

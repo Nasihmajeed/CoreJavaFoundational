@@ -9,12 +9,7 @@ public int choise,temp;
 static Scanner input =new Scanner(System.in);
 public void creatOrder(Menu menu)
 {		
-	if((menu.food[0].name)==null)		
-		{
-			System.out.println("\nthere is no menu\n Please contact Managerss");
-		}
-		else
-		{
+	
 			System.out.println("\nEnter the item = ");
 			int choise=input.nextInt();
 			temp=choise;
@@ -27,7 +22,7 @@ public void creatOrder(Menu menu)
 			System.out.println("\nTotal Amount ="+quantity+" * "+menu.food[choise].rate+" = "+totl+".Rs");
 
 			}
-		}
+		
 
 }
 

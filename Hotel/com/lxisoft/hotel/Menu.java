@@ -63,6 +63,12 @@ public void editMenu()
 
 public void displayMenu()
 	{
+		if(choise==0)		
+		{
+			System.out.println("\n\t\tThere is no menu\n           Please contact Managerss");
+		}
+		else
+		{
 		System.out.println("Id\tName of food  \tRate");
 		System.out.println("_________________________________");
 		for(int i=0;i<food.length;i++)
@@ -74,6 +80,6 @@ public void displayMenu()
 			food[i].displayFood();
 			}
 		}
+		}
 	}
-
 }
