@@ -26,26 +26,28 @@ public void createUser(Menu menu)
 				System.out.println("How many items You Want to buy = ");
 				item=input.nextInt();
 				int temp=item;
-				do
-				{
+				// do
+				// {
 					for(int i=0;i<temp;i++)
 					{
 						order[i]=new Order();
 						order[i].creatOrder(menu);
-						temp--;
+
+						//temp--;
 					}
-				}while(temp>0);
+				//}while(temp>0);
 		//}
 	}
 
 void displayUser(Menu menu)
 	{
-		System.out.println("\n   User = "+this.name);
+		System.out.println("\n   User = "+this.name.toUpperCase());
 		for(int i=0;i<item;i++)
 		{
 		order[i].displayOrder(menu,name);
-				
-		}
+		int total=total+order[i].totl;
 		
+		}
+		System.out.println("\n  Grand Total = "+total);		
 	}
  }

@@ -21,7 +21,7 @@ public void createMenu()
 		food[2].name="Snaks";
 		food[2].rate=8;
 		food[2].qnty=100;
-		
+
 		// System.out.println("How many Food items u want to add ");
 		// choise=input.nextInt();
 		
@@ -57,7 +57,7 @@ public void editMenu()
 			 // 	for(int i=choise;i<temp;i++)
 				// 	{
 				// 		food[i]=new Food();
-				// 		food[i].createFood();
+				// 		food[i].createFood(); 
 				// 	}
 
 			 break;
