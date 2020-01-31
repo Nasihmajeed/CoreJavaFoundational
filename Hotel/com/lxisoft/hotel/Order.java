@@ -10,7 +10,7 @@ public class Order
 	public int itemId;
 	
 	static Scanner sc = new Scanner(System.in);
-	public void createOrder(FoodMenu foodmenu,int noOfUser)
+	public void createOrder(FoodMenu foodmenu,int noOfUser,Food food)
 	{
 		
 
@@ -20,11 +20,13 @@ public class Order
 		System.out.print("\tEnter Id of Item to buy:");
 		itemId = sc.nextInt();
 
-		if(itemId <= foodmenu.foodStore.length)
+		if(itemId <= foodmenu.foodStore.length  )
 		{
 			System.out.print("\tEnter the quantity of item U needed :\t");
 			qty = sc.nextInt();
 		
+			foodmenu.foodStore[itemId].foodQuantity = foodmenu.foodStore[itemId].foodQuantity-qty;
+
 			totalBill = foodmenu.foodStore[itemId].foodRate*qty;
 			
 			System.out.println("\tuser "+ noOfUser+" Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
@@ -37,11 +39,18 @@ public class Order
 		{
 			System.out.println("Enter Valid food Id");
 		}
+		else if(foodmenu.foodStore[itemId].foodQuantity <=0)
+		{
+			System.out.println("Not Enough Food");
+		}
 		
 	}
 
 	public void displayOrder(FoodMenu foodmenu,int noOfUser)
 	{
+		System.out.println(noOfUser);
+		if(noOfUser != 0)
+		{
 		System.out.println("\n\t*****Order Detaills*****");
 		System.out.println("\t______________________");
 
@@ -53,7 +62,13 @@ public class Order
 		
 		System.out.println("\t______________________");
 		System.out.print("\tAmount To Pay :");System.out.println(totalBill);
-				
+			
+		}	
+		else if(noOfUser == 0)
+		{
+			System.out.println("Order list Empty");
+
+		}	
 	}
 
 	int  orderId()
@@ -62,4 +77,5 @@ public class Order
 		int rand = random.nextInt(01234567);
 		return rand;
 	}
+		
 }

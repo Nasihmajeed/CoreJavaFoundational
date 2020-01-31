@@ -3,6 +3,7 @@ import com.lxisoft.user.*;
 import java.util.*;
 public class FoodMenu
 {
+
 	
 	static Scanner sc = new Scanner(System.in);
 	Food[] foodStore = new Food[25];
@@ -11,7 +12,7 @@ public class FoodMenu
 	{
 		System.out.println("\tEnter How many food do you want to add:");
 		System.out.print("\t");count  = sc.nextInt();
-		for(int i=0;i<count;i++)
+		for(int i=3;i<count;i++)
 		{
 			foodStore[i] = new Food();
 			foodStore[i].createFood();
@@ -19,16 +20,21 @@ public class FoodMenu
 
 	}
 
-	public void addFoodAgain()
+	public void inbuiltFood()
 	{
-		System.out.println("\tEnter How many food do you want to add:");
-		System.out.println("\t");int n = sc.nextInt();
-		int temp = count + n;
-		for(int i=count;i<temp;i++)
-		{
-			foodStore[i] = new Food();
-			foodStore[i].createFood();
-		}
+		foodStore[0] = new Food();
+		foodStore[0].foodName = "Biriyani";
+	 	foodStore[0].foodRate = 120;
+		foodStore[0].foodQuantity = 25 ;
+		foodStore[1] = new Food();
+		foodStore[1].foodName = "Beef";
+		foodStore[1].foodRate = 60 ;
+		foodStore[1].foodQuantity = 30 ;
+		foodStore[2] = new Food();
+		foodStore[2].foodName = "Snacks";
+		foodStore[2].foodRate = 15;
+		foodStore[2].foodQuantity = 50;
+		
 
 	}
 
@@ -87,10 +93,10 @@ public class FoodMenu
 	{	
 		
 			
-			System.out.println("\tID\tNAME\tRATE");
-			System.out.println("\t___________________");
-		
-			for(int i=0;i<count;i++)
+			System.out.println("\tID\tNAME\tQTY\tRATE");
+			System.out.println("\t___________________________________");
+			inbuiltFood();
+			for(int i=3;i<count;i++)
 			{
 				if(foodStore[i] != null)
 				{

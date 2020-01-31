@@ -3,41 +3,50 @@ import com.lxisoft.user.*;
 import java.util.*;
 public class Hotel
 {
-	String  hotelName;
+	public String  hotelName = "Calista";;
+	public String  adr = "Palakkad Sreekrishnapuram 67833";
 	Admin admin;
 	User[] user;
-	Adress adress;
+	public Adress adress  = new Adress();;
+	Food food;
 	FoodMenu foodmenu;
 	public int noOfUser;
 	static Scanner sc = new Scanner(System.in);
+
+	
+	
+	
 	public void createHotel()
 	{
-		adress = new Adress();
-		System.out.println("\t*****HOTEL*****\t");
-		System.out.println("\t________________\t");
-
-		
-		System.out.print("\t Hotel Name:\t");
-		hotelName = sc.next();
-		System.out.print("\t Hotel Address:\t");
-		String adr = sc.nextLine();
-		adr = sc.nextLine();
+		System.out.println(adr);
 		adress.setAdress(adr);
-
 		displayHotel();
+		
+		System.out.println("\n");
+
+		menu();
 
 	}
 
 
 	public void displayHotel()
 	{
-		foodmenu = new FoodMenu();
-		admin = new Admin();
-		user = new User[10];
+		
 		System.out.println("\n\t\t HOTEL "+hotelName.toUpperCase()+"\t");
 		System.out.println("\t ___________________________\n\t");
 		System.out.print("\t ADDRESS : ");
-		System.out.println(adress.getAdress()+"\n");
+		System.out.println(adress.getAdress());
+
+
+	}
+
+	public void menu()
+	{
+		foodmenu = new FoodMenu();
+		admin = new Admin();
+		user = new User[10];
+		food = new Food();
+
 		int choice;
 		do
 		{
@@ -47,13 +56,15 @@ public class Hotel
 
 			if(choice == 1)
 			{
-
+				displayHotel();
 				admin.createAdmin(foodmenu,user,noOfUser);
 			}
 			else if(choice==2)
 			{
+				displayHotel();
+				System.out.println(" ");
 				user[noOfUser] = new User();
-				user[noOfUser].createUser(foodmenu,noOfUser);
+				user[noOfUser].createUser(foodmenu,noOfUser,food);
 				noOfUser++;
 			}
 			else if(choice==0)
@@ -67,8 +78,7 @@ public class Hotel
 
 		}while(choice!=0);
 
-
-
+		
 	}
-
-}
+}	
+		
