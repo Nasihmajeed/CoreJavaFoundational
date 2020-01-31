@@ -11,8 +11,8 @@ public void createManager(Menu menu,User[] user,int noOfuser)
 	{
 		
 		
-		if(f>0)
-		{
+		// if(f>0)
+		// {
 
 		System.out.print("Enter username:");
         username = input.nextLine();
@@ -53,19 +53,19 @@ public void createManager(Menu menu,User[] user,int noOfuser)
 
 			
 		}	
-		if(f==0)
-		{
-		System.out.print("Enter name:");
-        username = input.nextLine();
-        System.out.print("Enter password:");
-        password = input.nextLine();
-		menu.createMenu();
-		f++;
-		}
+		// if(f==0)
+		// {
+		// System.out.print("Enter name:");
+  //       username = input.nextLine();
+  //       System.out.print("Enter password:");
+  //       password = input.nextLine();
+		// menu.createMenu();
+		// f++;
+		// }
 		
 
 		
-	}
+	//}
 
 
 

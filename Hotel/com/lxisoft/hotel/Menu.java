@@ -9,14 +9,27 @@ public int choise;
 static Scanner input =new Scanner(System.in);
 public void createMenu()
 	{
-		System.out.println("How many Food items u want to add ");
-		choise=input.nextInt();
+		food[0]=new Food();
+		food[0].name="Tea";
+		food[0].rate=10;
+		food[0].qnty=50;
+		food[1]=new Food();
+		food[1].name="coffe";
+		food[1].rate=20;
+		food[1].qnty=50;
+		food[2]=new Food();
+		food[2].name="Snaks";
+		food[2].rate=8;
+		food[2].qnty=100;
 		
-		for(int i=0;i<choise;i++)
-		{
-			food[i]=new Food();
-			food[i].createFood();
-		}
+		// System.out.println("How many Food items u want to add ");
+		// choise=input.nextInt();
+		
+		// for(int i=0;i<choise;i++)
+		// {
+		// 	food[i]=new Food();
+		// 	food[i].createFood();
+		// }
 	}
 
 public void editMenu()
@@ -28,16 +41,24 @@ public void editMenu()
 		switch(change)
 		{
 			 case 1:
-			 System.out.println("How many items u want to add ");
-			 int item;
-			 int temp;
-			 item=input.nextInt();
-			 	temp=item+choise;
-			 	for(int i=choise;i<temp;i++)
-					{
-						food[i]=new Food();
-						food[i].createFood();
-					}
+			 System.out.println("How many Food items u want to add ");
+		choise=input.nextInt();
+		
+		for(int i=3;i<(choise+3);i++)
+		{
+			food[i]=new Food();
+			food[i].createFood();
+		}
+			 // System.out.println("How many items u want to add ");
+			 // int item;
+			 // int temp;
+			 // item=input.nextInt();
+			 // 	temp=item+choise;
+			 // 	for(int i=choise;i<temp;i++)
+				// 	{
+				// 		food[i]=new Food();
+				// 		food[i].createFood();
+				// 	}
 
 			 break;
 			 case 2:
@@ -63,12 +84,12 @@ public void editMenu()
 
 public void displayMenu()
 	{
-		if(choise==0)		
-		{
-			System.out.println("\n\t\tThere is no menu\n           Please contact Managerss");
-		}
-		else
-		{
+		// if(choise==0)		
+		// {
+		// 	System.out.println("\n\t\tThere is no menu\n           Please contact Managerss");
+		// }
+		// else
+		// {
 		System.out.println("Id\tName of food  \tRate");
 		System.out.println("_________________________________");
 		for(int i=0;i<food.length;i++)
@@ -80,6 +101,6 @@ public void displayMenu()
 			food[i].displayFood();
 			}
 		}
-		}
+		//}
 	}
 }

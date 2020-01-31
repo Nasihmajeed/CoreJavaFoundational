@@ -6,22 +6,23 @@ public class User
 {
 public String name;
 public Order[] order=new Order[20];
-	int item;
+public	int item;
 
 static Scanner input =new Scanner(System.in);
 public void createUser(Menu menu)
 	{
 
-		System.out.println("name Of customer= ");
-		name=input.next();
+		
 		menu.displayMenu();
 
-		if(menu.choise==0)
-		{
-		System.out.println(".......SORRY !!!!!! ");
-		}
-		else
-		{
+		// if(menu.choise==0)
+		// {
+		// System.out.println(".......SORRY !!!!!! ");
+		// }
+		// else
+		// {
+				System.out.println("name Of customer= ");
+				name=input.next();
 				System.out.println("How many items You Want to buy = ");
 				item=input.nextInt();
 				int temp=item;
@@ -34,7 +35,7 @@ public void createUser(Menu menu)
 						temp--;
 					}
 				}while(temp>0);
-		}
+		//}
 	}
 
 void displayUser(Menu menu)

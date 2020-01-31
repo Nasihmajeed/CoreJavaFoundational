@@ -17,6 +17,7 @@ public void creatOrder(Menu menu)
 			{
 			System.out.println("\nEnter the Quantity of "+menu.food[choise].name+" = ");
 			quantity=input.nextInt();
+			menu.food[choise].qnty=(menu.food[choise].qnty-quantity);
 			int totl= quantity*menu.food[choise].rate;
 			System.out.println("\nYour Oredr of "+menu.food[choise].name+" Was Sucess full");
 			System.out.println("\nTotal Amount ="+quantity+" * "+menu.food[choise].rate+" = "+totl+".Rs");

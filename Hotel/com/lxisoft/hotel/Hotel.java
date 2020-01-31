@@ -12,12 +12,18 @@ public Menu menu;
 static Scanner input =new Scanner(System.in);
 public void CreateHotel()
 	{
-		System.out.println("Enter The Name of Hotel= ");
-		name=input.next();
-
+		HotelDetails();
 		DisplayHotel();
 	}
 
+public void HotelDetails()
+	{
+		System.out.println("\n\n\tHotel RUCHI");
+		System.out.println("Place : Palakkad");
+		System.out.println("Cherpualssery");
+		System.out.println("Ph :9876543211");
+		
+	}
 
 public void DisplayHotel()
 	{
@@ -25,10 +31,11 @@ public void DisplayHotel()
 		
 		manager=new Manager();
 		menu=new Menu();
+		menu.createMenu();
 		
 	do
 	{	
-		System.out.println("\n\tHOTEL "+this.name.toUpperCase());
+		//System.out.println("\n\tHOTEL "+this.name.toUpperCase());
 		System.out.println("\n________________________");
 		System.out.println("\n\n1. User Menu \n\n2. Manager \n\n Press 0 for Exit \n");
 		choi=input.nextInt();
