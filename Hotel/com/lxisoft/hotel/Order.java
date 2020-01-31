@@ -14,7 +14,7 @@ public class Order
 	{
 		
 
-		foodmenu.displayFoodMenu();
+		//foodmenu.displayFoodMenu();
 
 		System.out.println("\t*****User "+(noOfUser+1)+"******");
 		System.out.print("\tEnter Id of Item to buy:");

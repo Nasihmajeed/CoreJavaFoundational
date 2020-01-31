@@ -5,12 +5,13 @@ public class Hotel
 {
 	public String  hotelName = "Calista";;
 	public String  adr = "Palakkad Sreekrishnapuram 67833";
+	public int noOfUser;
+
 	Admin admin;
 	User[] user;
-	public Adress adress  = new Adress();;
 	Food food;
 	FoodMenu foodmenu;
-	public int noOfUser;
+	
 	static Scanner sc = new Scanner(System.in);
 
 	
@@ -18,12 +19,8 @@ public class Hotel
 	
 	public void createHotel()
 	{
-		System.out.println(adr);
-		adress.setAdress(adr);
-		displayHotel();
 		
-		System.out.println("\n");
-
+		displayHotel();
 		menu();
 
 	}
@@ -35,18 +32,18 @@ public class Hotel
 		System.out.println("\n\t\t HOTEL "+hotelName.toUpperCase()+"\t");
 		System.out.println("\t ___________________________\n\t");
 		System.out.print("\t ADDRESS : ");
-		System.out.println(adress.getAdress());
+		System.out.println(adr.toUpperCase());
 
 
 	}
 
 	public void menu()
 	{
-		foodmenu = new FoodMenu();
+		
 		admin = new Admin();
 		user = new User[10];
 		food = new Food();
-
+		foodmenu =  new FoodMenu();
 		int choice;
 		do
 		{
@@ -62,7 +59,9 @@ public class Hotel
 			else if(choice==2)
 			{
 				displayHotel();
-				System.out.println(" ");
+				foodmenu.displayFoodMenu();
+
+				
 				user[noOfUser] = new User();
 				user[noOfUser].createUser(foodmenu,noOfUser,food);
 				noOfUser++;

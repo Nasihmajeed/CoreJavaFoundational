@@ -32,20 +32,20 @@ public class Admin
 			int ch;
 			do
 			{
-			System.out.print("\n\t1.View Food\n\t2.Modify Food Menu\n\t3.\n\t4.View Order\n\t5.Back to Menu\n\tEnter Ur choice");
+			System.out.print("\n\t1.View Food\n\t2.Modify Food Menu\n\t3.View Order\n\t4.Back to Menu\n\tEnter Ur choice");
 			System.out.print("\t\t");ch = sc.nextInt();
 			
 			switch(ch)
 			{
-				case 1:foodmenu.addFood();break;
+				case 1:foodmenu.displayFoodMenu();break;
+				
 				case 2:System.out.println("\n\t*****MODIFY FOOD*****");
 					   System.out.println("\t___________________");
-					   System.out.println("n\t1.Add Food\n\t2.Delete Food\n\t3.Edit Food\n\tEnter Ur Choice\t");
+					   System.out.println("\n\t1.Add Food\n\t2.Delete Food\n\t3.Edit Food\n\tEnter Ur Choice\t");
 					   System.out.print("\t");int c = sc.nextInt();
-					   if(c ==1) 
+					   if(c == 1) 
 					   	{
-					   		foodmenu.displayFoodMenu();break;
-					   		
+					   		foodmenu.addFood();
 					   	}
 					   	else if(c == 2)
 					   	{
@@ -62,14 +62,14 @@ public class Admin
 					   	}
 
 					   	break;
-				case 3:	   	
-				case 4:
-						for(int i=0;i<noOfUser;i++)
+				case 3:	for(int i=0;i<noOfUser;i++)
 						{
 						user[i].displayUser(foodmenu,noOfUser);	
 						}
-						break;
-				case 5: hotel.menu();break;
+						break;   	
+
+				case 4:hotel.menu();break;
+						
 				default:System.out.println("Please give valid input!!!!");break;
 
 			}
