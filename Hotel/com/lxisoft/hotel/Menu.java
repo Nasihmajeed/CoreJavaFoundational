@@ -90,11 +90,11 @@ public void displayMenu()
 		// }
 		// else
 		// {
-		System.out.println("Id\tName of food  \tRate");
-		System.out.println("_________________________________");
+		System.out.println("Id\tName of food  \tRate  \tQuantity");
+		System.out.println("______________________________________________");
 		for(int i=0;i<food.length;i++)
 		{
-			if(food[i]!=null)
+			if(food[i]!=null&&food[i].qnty>0)
 
 			{
 			System.out.print(i);

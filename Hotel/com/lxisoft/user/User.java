@@ -41,11 +41,12 @@ public void createUser(Menu menu)
 
 void displayUser(Menu menu)
 	{
+		int total=0;
 		System.out.println("\n   User = "+this.name.toUpperCase());
 		for(int i=0;i<item;i++)
 		{
 		order[i].displayOrder(menu,name);
-		int total=total+order[i].totl;
+		total=total+order[i].totl;
 		
 		}
 		System.out.println("\n  Grand Total = "+total);		

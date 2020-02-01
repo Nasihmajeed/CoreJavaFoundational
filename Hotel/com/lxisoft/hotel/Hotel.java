@@ -18,7 +18,7 @@ public void CreateHotel()
 
 public void HotelDetails()
 	{
-		System.out.println("\n\n\tHotel RUCHI");
+		System.out.println("\n\n   Hotel RUCHI");
 		System.out.println("Place : Palakkad");
 		System.out.println("Cherpualssery");
 		System.out.println("Ph :9876543211");
@@ -36,6 +36,7 @@ public void DisplayHotel()
 	do
 	{	
 		//System.out.println("\n\tHOTEL "+this.name.toUpperCase());
+		HotelDetails();
 		System.out.println("\n________________________");
 		System.out.println("\n\n1. User Menu \n\n2. Manager \n\n Press 0 for Exit \n");
 		choi=input.nextInt();
