@@ -75,7 +75,7 @@ public class Admin
 						{
 							for(int i=0;i<noOfUser;i++)
 							{
-							user[i].displayUser(foodmenu,noOfUser,order,user[i].itemNo);	
+							user[i].displayUser(foodmenu,noOfUser,order);	
 							}
 							
 						}	
