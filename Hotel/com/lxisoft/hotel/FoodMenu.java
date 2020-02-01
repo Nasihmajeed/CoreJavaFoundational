@@ -6,15 +6,16 @@ public class FoodMenu
 
 	
 	static Scanner sc = new Scanner(System.in);
-	Food[] foodStore = new Food[25];
+	public Food[] foodStore = new Food[25];
 	int count;
 
 	public void addFood()
 	{
+		
 		System.out.println("\tEnter How many food do you want to add:");
 		System.out.print("\t");count  = sc.nextInt();
-		
-		for(int i=3;i<(count+3);i++)
+		count = count + 3;
+		for(int i=3;i<count;i++)
 		{
 			foodStore[i] = new Food();
 			foodStore[i].createFood();
@@ -22,7 +23,7 @@ public class FoodMenu
 
 	}
 
-	public void inbuiltFood()
+	public void createMenu()
 	{
 		foodStore[0] = new Food();
 		foodStore[0].foodName = "pups";
@@ -72,6 +73,8 @@ public class FoodMenu
 
 	public void deleteFood()
 	{
+		displayFoodMenu();
+
 		boolean flag = false;
 		if(foodStore[0]==null)
 		{
@@ -95,8 +98,6 @@ public class FoodMenu
 			
 			System.out.println("\tID\tNAME\tQTY\tRATE");
 			System.out.println("\t___________________________________");
-			inbuiltFood();
-			System.out.println(foodStore.length);
 			for(int i=0;i<foodStore.length;i++)
 			{
 				if(foodStore[i] != null)

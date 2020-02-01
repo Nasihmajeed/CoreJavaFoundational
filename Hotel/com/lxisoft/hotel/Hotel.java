@@ -7,11 +7,12 @@ public class Hotel
 	public String  adr = "Palakkad Sreekrishnapuram 67833";
 	public int noOfUser;
 
-	Admin admin;
-	User[] user;
-	Food food;
-	FoodMenu foodmenu;
-	
+	public Admin admin;
+	public User[] user;
+	public Food food;
+	public FoodMenu foodmenu;
+	public Order[] order;
+
 	static Scanner sc = new Scanner(System.in);
 
 	
@@ -22,6 +23,7 @@ public class Hotel
 		
 		displayHotel();
 		menu();
+		
 
 	}
 
@@ -35,6 +37,8 @@ public class Hotel
 		System.out.println(adr.toUpperCase());
 
 
+
+
 	}
 
 	public void menu()
@@ -43,8 +47,12 @@ public class Hotel
 		admin = new Admin();
 		user = new User[10];
 		food = new Food();
+		order = new Order[10];
 		foodmenu =  new FoodMenu();
+		foodmenu.createMenu();
+		
 		int choice;
+		
 		do
 		{
 			
@@ -54,17 +62,19 @@ public class Hotel
 			if(choice == 1)
 			{
 				displayHotel();
-				admin.createAdmin(foodmenu,user,noOfUser);
+				admin.createAdmin(foodmenu,user,noOfUser,order);
 			}
 			else if(choice==2)
 			{
 				displayHotel();
+				System.out.println("\n");
+				System.out.println("\t*****HOTEL MENU*****");
+				System.out.println("\t________________________");
 				foodmenu.displayFoodMenu();
-
-				
 				user[noOfUser] = new User();
-				user[noOfUser].createUser(foodmenu,noOfUser,food);
+				user[noOfUser].createUser(foodmenu,noOfUser,food,order);
 				noOfUser++;
+
 			}
 			else if(choice==0)
 			{

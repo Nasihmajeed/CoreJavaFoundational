@@ -5,7 +5,6 @@ public class Admin
 {
 	public String adminPassword="admin";
 	boolean flag;
-	Hotel hotel =  new Hotel();
 	static Scanner sc= new Scanner(System.in);
 	public void adminLogin()
 	{
@@ -21,11 +20,12 @@ public class Admin
 		}
 		else
 		{
+			System.out.println("Authentication Failed");
 			System.exit(0);
 		}
 	}
 	
-	public void createAdmin(FoodMenu foodmenu,User[] user,int noOfUser)
+	public void createAdmin(FoodMenu foodmenu,User[] user,int noOfUser,Order[] order)
 	{
 
 			adminLogin();
@@ -37,7 +37,10 @@ public class Admin
 			
 			switch(ch)
 			{
-				case 1:foodmenu.displayFoodMenu();break;
+				case 1:	System.out.println("\t*****HOTEL MENU*****");
+						System.out.println("\t________________________\n");
+
+						foodmenu.displayFoodMenu();break;
 				
 				case 2:System.out.println("\n\t*****MODIFY FOOD*****");
 					   System.out.println("\t___________________");
@@ -62,13 +65,24 @@ public class Admin
 					   	}
 
 					   	break;
-				case 3:	for(int i=0;i<noOfUser;i++)
+
+				case 3:	
+						if(noOfUser == 0)
 						{
-						user[i].displayUser(foodmenu,noOfUser);	
+							System.out.println("N0 Orders");
 						}
+						else
+						{
+							for(int i=0;i<noOfUser;i++)
+							{
+							user[i].displayUser(foodmenu,noOfUser,order,user[i].itemNo);	
+							}
+							
+						}	
 						break;   	
 
-				case 4:hotel.menu();break;
+				case 4:	Hotel hotel = new Hotel();
+						hotel.menu();break;
 						
 				default:System.out.println("Please give valid input!!!!");break;
 
