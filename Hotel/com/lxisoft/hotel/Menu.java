@@ -22,14 +22,7 @@ public void createMenu()
 		food[2].rate=8;
 		food[2].qnty=100;
 
-		// System.out.println("How many Food items u want to add ");
-		// choise=input.nextInt();
 		
-		// for(int i=0;i<choise;i++)
-		// {
-		// 	food[i]=new Food();
-		// 	food[i].createFood();
-		// }
 	}
 
 public void editMenu()
@@ -49,16 +42,7 @@ public void editMenu()
 			food[i]=new Food();
 			food[i].createFood();
 		}
-			 // System.out.println("How many items u want to add ");
-			 // int item;
-			 // int temp;
-			 // item=input.nextInt();
-			 // 	temp=item+choise;
-			 // 	for(int i=choise;i<temp;i++)
-				// 	{
-				// 		food[i]=new Food();
-				// 		food[i].createFood(); 
-				// 	}
+			
 
 			 break;
 			 case 2:
@@ -101,6 +85,6 @@ public void displayMenu()
 			food[i].displayFood();
 			}
 		}
-		//}
+		//}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 	}
 }

@@ -35,8 +35,7 @@ public void createUser(Menu menu)
 
 						//temp--;
 					}
-				//}while(temp>0);
-		//}
+			
 	}
 
 void displayUser(Menu menu)

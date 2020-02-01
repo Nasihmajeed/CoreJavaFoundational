@@ -12,7 +12,7 @@ public Menu menu;
 static Scanner input =new Scanner(System.in);
 public void CreateHotel()
 	{
-		HotelDetails();
+		//HotelDetails();
 		DisplayHotel();
 	}
 
@@ -59,8 +59,20 @@ public void DisplayHotel()
 		{
 			System.out.println(" WrOnG ChOiSe");
 		}
+		
+		cls();
 	}
 		while(choi!=0); 
 
 	}
+public static void cls()
+{
+	try
+	{	
+		new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+	}catch(Exception E)
+		{
+			System.out.println(E);
+		}
+}
 }
