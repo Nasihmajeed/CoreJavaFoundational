@@ -10,9 +10,10 @@ public class User
 	Scanner sc= new Scanner(System.in);
 	
 	public void createUser(FoodMenu foodmenu,int noOfUser,Food food,Order[] order)
-	{
-		
-		for(int i=0;i<=noOfUser;i++)
+	{	
+
+		int j = noOfUser;
+		for(int i=j;i<noOfUser+1;i++)
 		{
 			order[i] = new Order();
 			order[i].createOrder(foodmenu,noOfUser,food,order);	
@@ -25,6 +26,8 @@ public class User
 	public void displayUser(FoodMenu foodmenu,int noOfUser,Order[] order)
 
 	{
+
+		 // System.out.println("usernum::"+noOfUser);
 		for(int i=0;i<noOfUser;i++)
 		{
 			order[i].displayOrder(foodmenu,noOfUser);

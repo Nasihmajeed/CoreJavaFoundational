@@ -11,7 +11,13 @@ public class Order
 	public int itemId;
 	public int itemNo;
 	public int totalQuantity;
+	int[] num = new int[20];
+	int[] price = new int[20];
+	int[] amount = new int[20];
 
+	String[] temp = new String[20];
+	int cnt;
+	int n;
 	static Scanner sc = new Scanner(System.in);
 	public void createOrder(FoodMenu foodmenu,int noOfUser,Food food,Order[] order)
 	{
@@ -23,12 +29,10 @@ public class Order
 			
 		System.out.println("How many items do U want to Buy");
 		itemNo = sc.nextInt();	
-
+		n = noOfUser;
 		for(int i=0;i<itemNo;i++)
 		{
-
-			
-
+			// System.out.println(cnt);
 			System.out.print("\tEnter Id of Item to buy:");
 			itemId = sc.nextInt();
 
@@ -37,16 +41,25 @@ public class Order
 
 			System.out.print("\tEnter the quantity of item U needed :\t");
 			qty = sc.nextInt();
-		
+			
+			num[i] = qty;
+			//System.out.println(num[cnt++]);
+			temp[i] = foodmenu.foodStore[itemId].foodName;
+			//System.out.println(num[cnt++]);
+			price[i] = foodmenu.foodStore[itemId].foodRate; 
+
 			foodmenu.foodStore[itemId].foodQuantity = foodmenu.foodStore[itemId].foodQuantity-qty;
 			totalQuantity = totalQuantity + foodmenu.foodStore[itemId].foodQuantity;
-
 			bill = foodmenu.foodStore[itemId].foodRate*qty;
+			amount[i] = bill;
+			
+			// cnt++;
+
 			totalBill = totalBill + bill; 
 			totalQuantity = totalQuantity+qty;
-			System.out.println(totalQuantity);
+			//System.out.println(totalQuantity);
 			System.out.println("\tuser "+ noOfUser+" Purchase on item "+foodmenu.foodStore[itemId].foodName+" was successfull... ");
-			System.out.println("\tAmount to Pay = "+bill +" Rs");
+			System.out.println("\tAmount  = "+bill +" Rs");
 			System.out.println("\tTotal Amount to Pay  ="+totalBill +" Rs");
 
 			}
@@ -58,6 +71,11 @@ public class Order
 			{
 			System.out.println("Not Enough Food");
 			}
+
+			// else if(n==noOfUser)
+			// {
+			// 	break;
+			// }
 		}
 	}
 		
@@ -65,16 +83,25 @@ public class Order
 	public void displayOrder(FoodMenu foodmenu,int noOfUser)
 	{
 
-		if(noOfUser != 0)
+		if(noOfUser != 0 )
 		{
-		System.out.println("\n\t*****Order Detaills*****");
-		System.out.println("\t______________________");
+
+			for(int j = 0;j<noOfUser;j++)
+			{
+			System.out.println("\n\t*****Order Detaills*****");
+			System.out.println("\t______________________");
 		
 			System.out.println("\tOrder Id :"+ orderId());
-			//System.out.println("\tItem Name :"+foodmenu.foodStore[itemId].foodName);
-			//System.out.println("\tRate :"+foodmenu.foodStore[itemId].foodRate);
-			//totalQuantity = totalQuantity+foodmenu.foodStore[itemId].foodQuantity;
-			System.out.println("\tQuantity :"+totalQuantity);
+			for(int i=0;i<itemNo;i++)
+			{
+				System.out.println("\tItem Name :"+temp[i]);
+				System.out.println("\tRate :"+price[i]);
+				System.out.println("\tQuantity :"+num[i]);
+				System.out.println("\tAmount :"+amount[i]);
+	
+			}
+			totalQuantity = totalQuantity+foodmenu.foodStore[itemId].foodQuantity;
+			}
 
 			
 	

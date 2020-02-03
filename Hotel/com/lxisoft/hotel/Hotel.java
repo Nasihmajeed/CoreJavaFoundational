@@ -43,7 +43,7 @@ public class Hotel
 
 	public void menu()
 	{
-		
+ 
 		admin = new Admin();
 		user = new User[10];
 		food = new Food();
@@ -74,6 +74,7 @@ public class Hotel
 				user[noOfUser] = new User();
 				user[noOfUser].createUser(foodmenu,noOfUser,food,order);
 				noOfUser++;
+				
 
 			}
 			else if(choice==0)
