@@ -1,29 +1,30 @@
 package com.lxisoft.forest;
 import java.util.*;
 
-interface Animal
+public class Animal
 {
  
- String animalname;
- int animalStrength;
+ private String animalname;
+ private int animalStrength;
 
-public void setAnimalName(String )
+public void setAnimalName(String arg)
 {
+	this.animalname=arg;
 
 }
 
-public void getAnimalName(String )
+public String getAnimalName()
 {
-	
+	return animalname;
 }
 
-public void setAnimalStrength(String )
+public void setAnimalStrength(int str)
 {
-	
+	this.animalStrength=str;
 }
 
-public voidsetAnimalStrength(String )
+public int getAnimalStrength()
 {
-	
+	return animalStrength; 
 }
 }
