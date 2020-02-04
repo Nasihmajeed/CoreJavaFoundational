@@ -60,7 +60,7 @@ public void DisplayHotel()
 			System.out.println(" WrOnG ChOiSe");
 		}
 		
-		cls();
+		//cls();
 	}
 		while(choi!=0); 
 
