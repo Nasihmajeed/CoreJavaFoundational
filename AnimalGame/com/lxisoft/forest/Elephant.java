@@ -1,9 +1,6 @@
 package  com.lxisoft.forest;
-public class Lion extends Animal
+public class Elephant extends Animal
 {
-	animalName = "Elephant";
-	animalStrength = 8.5;
-	Animal animal = new Animal();
-	animal.setAnimalName(animalName);
-	animal.setAnimalStrength(animalStrength);
+	// String animalName;
+	// int animalStrength;
 }
