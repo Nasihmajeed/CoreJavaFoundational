@@ -26,6 +26,29 @@ public class Forest
 		game  =  new Game();
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
 		System.out.println("-----------------------------------------");
+		
+		createAnimal();
+
+		startGame();
+		
+	}
+
+	public void  startGame()
+	{
+		int choice;
+		System.out.println("\n\t1.Start\n\t2.Stop\n\tEnter Ur Choice::\t");
+		choice = sc.nextInt();
+		if (choice == 1) 
+		{
+			game.playGame(animalList);
+		}
+		else if (choice == 2) 
+		{
+			System.exit(0);	
+		}
+	}
+	public  void createAnimal()
+	{
 
 		animalList.add(new Lion());
 		animalList.get(0).setAnimalName("Lion");
@@ -43,33 +66,14 @@ public class Forest
 		animalList.get(3).setAnimalName("Rabbit");
 		animalList.get(3).setAnimalStrength(3);
 
-		
-		// System.out.println(animalList.get(0).getAnimalName());
-		// System.out.println(animalList.get(0).getAnimalStrength());
-		// System.out.println(animalList.get(1).getAnimalName());
-		// System.out.println(animalList.get(1).getAnimalStrength());
+		animalList.add(new Fox());
+		animalList.get(3).setAnimalName("Fox");
+		animalList.get(3).setAnimalStrength(5);
 
+		animalList.add(new Deer());
+		animalList.get(3).setAnimalName("Deer");
+		animalList.get(3).setAnimalStrength(4);
 
-		//System.out.println(animalList.size());
-
-		int ch = startGame();
-		if (ch == 1) 
-		{
-			game.playGame(animalList);
-		}
-		else if (ch == 2) 
-		{
-			System.exit(0);	
-		}
 	}
-
-	public int  startGame()
-	{
-		int choice;
-		System.out.println("\n\t1.Start\n\t2.Stop\nEnter Ur Choice::\t");
-		choice = sc.nextInt();
-		return choice;
-	}
-
 
 }
