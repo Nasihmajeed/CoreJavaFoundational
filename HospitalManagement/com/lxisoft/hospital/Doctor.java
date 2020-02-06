@@ -1,5 +1,6 @@
 package com.lxisoft.hospital;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import com.lxisoft.user.*;
 public class Doctor
 {
@@ -8,6 +9,8 @@ public class Doctor
 	private String doctorName;
 	private String doctorSpecialisation;
 	private int doctorYearOfExperience;
+	private int doctorFee;
+
 	public void setDoctorName(String name)
 	{
 		this.doctorName = name;
@@ -32,8 +35,17 @@ public class Doctor
 	{
 		return doctorYearOfExperience;
 	}
+	public void setDoctorFee(int fee)
+	{
+		this.doctorFee = fee;
+	}
+	public int getDoctorFee()
+	{
+		return doctorFee;
+	}
 
-	public void modifyDoctor(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList)
+
+	public void modifyDoctor(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration)
 	{
 		int c;
 		do
@@ -46,13 +58,20 @@ public class Doctor
 				case 2:createDoctor(doctor,doctorList);break;
 				case 3:editDoctor(doctor,doctorList);break;
 				case 4:deleteDoctor(doctor,doctorList);break;
-				case 5:admin.adminConsole(admin,doctor,doctorList);break;
+				case 5:admin.adminConsole(admin,doctor,doctorList,registration);break;
 				default:System.out.println("Enter valid Choice!!!");break;
 				}
 
 		}while(c!=0);	
 	}
-		
+	public void consultDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
+	{
+		viewDoctor(doctor,doctorList);
+		System.out.println("\t\tEnter Doctor Id to consult:");
+		int doctorId = sc.nextInt();
+		System.out.println("Peasient Consulting Doctor......");
+		System.out.println("Fee = "+doctorList.get(doctorId).getDoctorFee());
+	}	
 
 	public void viewDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
@@ -60,54 +79,52 @@ public class Doctor
 		System.out.println("\t\t-------------------");
 		if(doctorList.size() == 0)
 		{
-			System.out.println("No Doctors");
+			System.out.println("\t\tNo Doctors");
 		}
 		else
 		{
-			Iterator itr = doctorList.iterator();
-			while(itr.hasNext())
+			System.out.println("\tID  DOCTOR FACULTY  EXPERIENCE");
+			System.out.println("\t---------------------------");
+			for(int i=0;i<doctorList.size();i++)
 			{
-			System.out.println(itr.next());
-			}	
+				System.out.print("\t"+i);
+				System.out.print("\t"+doctorList.get(i).getDoctorName()+"\t");
+				System.out.print(doctorList.get(i).getDoctorSpecialisation()+"\t");
+				System.out.print("   "+doctorList.get(i).getDoctorYearOfExperience()+"\t");
+				System.out.println(" ");
+			}
+
 		}
-		
 	}
 	public void createDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 		doctorList.add(new Doctor());
 		System.out.print("\t\tName:");doctorList.get(doctorCount).setDoctorName(sc.next());
 		System.out.print("\t\tSpecialisation:");doctorList.get(doctorCount).setDoctorSpecialisation(sc.next());
-		System.out.print("\t\tYearOfExperience:");doctorList.get(doctorCount).setDoctorYearOfExperience(sc.nextInt());		
+		System.out.print("\t\tYearOfExperience:");doctorList.get(doctorCount).setDoctorYearOfExperience(sc.nextInt());System.out.println("\n");		
 		doctorCount++;
 	}
 	public void editDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 		viewDoctor(doctor,doctorList);
-
 		System.out.println("Enter Id Of Doctor To be Edited");
 		int editId = sc.nextInt();
 		System.out.print("\t\tName:");doctorList.get(editId).setDoctorName(sc.next());
 		System.out.print("\t\tSpecialisation:");doctorList.get(editId).setDoctorSpecialisation(sc.next());
 		System.out.print("\t\tYearOfExperience:");doctorList.get(editId).setDoctorYearOfExperience(sc.nextInt());
+		viewDoctor(doctor,doctorList);
 	}
 	public void deleteDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 		viewDoctor(doctor,doctorList);
-
 		System.out.println("Enter Id Of Doctor To be Deleted");
 		int deleteId = sc.nextInt();
 		doctorList.remove(deleteId);
-		doctorList.remove(deleteId);
-		doctorList.remove(deleteId);
+		viewDoctor(doctor,doctorList);
 	}
 	public void deleteAllDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 		doctorList.clear();
-
 		viewDoctor(doctor,doctorList);
 	}
-
-	
-
-
 }

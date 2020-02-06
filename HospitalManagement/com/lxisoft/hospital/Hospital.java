@@ -42,8 +42,8 @@ public class Hospital
 			choice = sc.nextInt();
 				switch (choice) 
 				{
-				case 1:admin.adminLogin(admin,doctor,doctorList);break;
-				case 2:patient.patientConsole(registration);break;
+				case 1:admin.adminLogin(admin,doctor,doctorList,registration);break;
+				case 2:patient.patientConsole(registration,doctor,doctorList);break;
 				default:System.out.println("\n\t\tEnter valid choice?");break;	
 				}
 		}while(choice != 0);

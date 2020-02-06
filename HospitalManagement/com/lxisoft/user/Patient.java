@@ -33,17 +33,18 @@ public class Patient
 	{
 		return patientDisease;
 	}
-	public void patientConsole(Registration registration)
+	public void patientConsole(Registration registration,Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 	int choice;	
 	System.out.println("\n\t\t1.View Doctor\n\t\t2.Registration\n\t\t3.Consult Doctor\n\t\t4.Services\n\t\t4.Appoinments\n\t\tSelect a valid choice::");
 	choice = sc.nextInt();
 			switch (choice) 
 			{
-			case 1:registration.startRegistration();break;
-			case 2:registration.viewRegistration();break;
-			case 3://viewServices();break;
-			case 4://viewAppointment();break;
+			case 1:doctor.viewDoctor(doctor,doctorList);break;
+			case 2:registration.startRegistration();break;
+			case 3:doctor.consultDoctor(doctor,doctorList);break;
+			case 4://View Services
+			case 5://View Appointment
 			default:System.out.println("\n\t\tEnter valid choice?");break;	
 			}
 	}

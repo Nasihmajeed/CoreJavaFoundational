@@ -16,27 +16,28 @@ public class Admin
 	{
 		return adminPassword;
 	}
-	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList)
+	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration)
 	{
 		hospital= new Hospital();
 		int ch;
 		do
 		{
-		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t2.View Appointments\n\t\t3.View Bill\n\t\t4.Back\n\t\tEnter Ur Choice::");
+		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Appointments\n\t\t4.View Bill\n\t\t5.Back\n\t\tEnter Ur Choice::");
 		ch = sc.nextInt();
 			switch (ch) 
 			{
-			case 1:doctor.modifyDoctor(admin,doctor,doctorList);break;
-			case 2:
-			case 3:
-			case 4:hospital.createHospital();break;
+			case 1:doctor.modifyDoctor(admin,doctor,doctorList,registration);break;
+			case 2:registration.viewRegistration();break;
+			case 3://Appointments;break;
+			case 4://break;
+			case 5:hospital.createHospital();
 			default:System.out.println("Enter Valid Choice!!!!!");break;
 			}
 		}while(ch!=0);	
 
 	}
 		
-	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList)
+	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration)
 	{
 		System.out.println("Enter Admin Password"); 
 		String pass = sc.next();
@@ -44,7 +45,7 @@ public class Admin
 		{
 			System.out.println("Welcome to Admin Cosole");
 			flag = true;
-			adminConsole(admin,doctor,doctorList);
+			adminConsole(admin,doctor,doctorList,registration);
 		}
 		else if(flag == false)
 		{	
@@ -57,7 +58,7 @@ public class Admin
 				{
 					System.out.println("Welcome to Admin Cosole");
 					flag = true;
-					adminConsole(admin,doctor,doctorList);
+					adminConsole(admin,doctor,doctorList,registration);
 				}
 				else
 				{

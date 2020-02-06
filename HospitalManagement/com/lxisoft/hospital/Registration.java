@@ -23,14 +23,24 @@ public class Registration
 	}
 	public void viewRegistration()
 	{
-		System.out.println("\t\t***Registration UI***");
-		Iterator itr = patientList.iterator();
-		while(itr.hasNext())
+		if(patientList.size()==0)
 		{
-			System.out.println(itr.next());
-		}	
+			System.out.println("\t\tNo Patients");
+		}
+		else
+		{
+			System.out.println("\tID  NAME ADDRESS  DISEASE");
+			System.out.println("\t-------------------------------");
+			for(int i=0;i<patientList.size();i++)
+			{
+				System.out.print("\t"+i);
+				System.out.print("\t"+patientList.get(i).getPatientName()+"\t");
+				System.out.print(patientList.get(i).getPatientAdress()+"\t");
+				System.out.print("   "+patientList.get(i).getPatientDisease()+"\t");
+				System.out.println(" ");
+			}
+		}
 		
-
 	}
-	
 }
+
