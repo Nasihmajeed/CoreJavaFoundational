@@ -2,7 +2,7 @@ package com.lxisoft.hospital;
 import com.lxisoft.user.Patient;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Iterator;
 public class Registration
 {
 	
@@ -21,9 +21,16 @@ public class Registration
 		patientCount++;
 		
 	}
-	// public void viewRegistration()
-	// {
+	public void viewRegistration()
+	{
+		System.out.println("\t\t***Registration UI***");
+		Iterator itr = patientList.iterator();
+		while(itr.hasNext())
+		{
+			System.out.println(itr.next());
+		}	
 		
-	// }
+
+	}
 	
 }

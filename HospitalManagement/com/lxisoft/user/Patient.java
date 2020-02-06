@@ -1,10 +1,13 @@
 package com.lxisoft.user;
+import com.lxisoft.hospital.*;
+import java.util.*;
 public class Patient
 {
 	private String patientName;
 	private String patientAdress;
 	private String patientDisease;
 
+	static Scanner sc = new Scanner(System.in);
 
 	public void setPatientName(String name)
 	{
@@ -30,5 +33,18 @@ public class Patient
 	{
 		return patientDisease;
 	}
-
+	public void patientConsole(Registration registration)
+	{
+	int choice;	
+	System.out.println("\n\t\t1.View Doctor\n\t\t2.Registration\n\t\t3.Consult Doctor\n\t\t4.Services\n\t\t4.Appoinments\n\t\tSelect a valid choice::");
+	choice = sc.nextInt();
+			switch (choice) 
+			{
+			case 1:registration.startRegistration();break;
+			case 2:registration.viewRegistration();break;
+			case 3://viewServices();break;
+			case 4://viewAppointment();break;
+			default:System.out.println("\n\t\tEnter valid choice?");break;	
+			}
+	}
 }

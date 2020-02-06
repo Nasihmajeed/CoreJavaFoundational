@@ -1,10 +1,15 @@
 package com.lxisoft.hospital;
+import com.lxisoft.user.*;
 import java.util.*;
 public class Hospital
 {
 	private String hospitalName = "MIMS HOSPITAL";
 	private String hospitalAdress = "KERALA KOZHIKODE GOVINDAPURAM 673016";
 	Registration registration;
+	Admin admin;
+	Doctor doctor;
+	Patient patient;
+	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
 	static Scanner sc = new Scanner(System.in);
 	public void setHospitalName(String hospitalName)
 	{
@@ -25,24 +30,23 @@ public class Hospital
 
 	public void createHospital()
 	{
-		hospitalDetails();
 		registration = new Registration();
+		admin = new Admin();
+		doctor = new Doctor();
+		patient = new Patient(); 
+		hospitalDetails();
 		int choice;
 		do
-		{
-			System.out.println("\t\t1.Registration\n\t\t2.View Doctor\n\t\t3.Services\n\t\t4.Appoinments\n\t\tSelect a valid choice::");
-		
+		{	
+			System.out.println("\n\t\t1.Admin\n\t\t2.Patient\n\t\tSelect a valid choice::");
 			choice = sc.nextInt();
-			switch (choice) 
-			{
-			case 1:registration.startRegistration();break;
-			case 2://viewDoctor();break;
-			case 3://viewServices();break;
-			case 4://viewAppointment();break;
-			default:System.out.println("\t\tEnter valid choice?");break;	
-			}
-
-		}while(choice!=0);
+				switch (choice) 
+				{
+				case 1:admin.adminLogin(admin,doctor,doctorList);break;
+				case 2:patient.patientConsole(registration);break;
+				default:System.out.println("\n\t\tEnter valid choice?");break;	
+				}
+		}while(choice != 0);
 			
 	}
 
