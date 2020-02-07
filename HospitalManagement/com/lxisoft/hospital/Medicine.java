@@ -16,7 +16,7 @@ public class Medicine
 	{
 		this.medicineQuantity = qty;
 	}
-	public void setMedicineQuantity()
+	public int setMedicineQuantity()
 	{
 		return medicineQuantity;
 	}

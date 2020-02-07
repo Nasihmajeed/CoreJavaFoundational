@@ -14,9 +14,9 @@ public class Service
 	}
 	public void setServiceAmount(int amount)
 	{
-		this.serviceAmount = qty;
+		this.serviceAmount = amount;
 	}
-	public void getServiceAmount()
+	public int getServiceAmount()
 	{
 		return serviceAmount;
 	}

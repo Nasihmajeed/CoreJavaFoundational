@@ -9,6 +9,7 @@ public class Hospital
 	Admin admin;
 	Doctor doctor;
 	Patient patient;
+	//Bill bill;
 	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
 	static Scanner sc = new Scanner(System.in);
 	public void setHospitalName(String hospitalName)
@@ -33,7 +34,8 @@ public class Hospital
 		registration = new Registration();
 		admin = new Admin();
 		doctor = new Doctor();
-		patient = new Patient(); 
+		patient = new Patient();
+		//bill = new Bill(); 
 		hospitalDetails();
 		int choice;
 		do

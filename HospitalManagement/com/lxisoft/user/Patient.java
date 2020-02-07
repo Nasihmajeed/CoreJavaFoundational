@@ -40,7 +40,8 @@ public class Patient
 	choice = sc.nextInt();
 			switch (choice) 
 			{
-			case 1:doctor.viewDoctor(doctor,doctorList);break;
+			case 1:System.out.println(doctorList.size());
+					doctor.viewDoctor(doctor,doctorList);break;
 			case 2:registration.startRegistration();break;
 			case 3:doctor.consultDoctor(doctor,doctorList);break;
 			case 4://View Services
