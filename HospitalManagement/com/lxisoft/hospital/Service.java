@@ -20,4 +20,10 @@ public class Service
 	{
 		return serviceAmount;
 	}
+
+	public void createService()
+	{
+		System.out.println("Name:"+serviceName(sc.next()));
+		System.out.println("Name:"+serviceAmount(sc.nextInt()));
+	}
 }

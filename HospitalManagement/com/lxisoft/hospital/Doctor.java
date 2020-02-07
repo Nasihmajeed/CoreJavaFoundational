@@ -65,12 +65,19 @@ public class Doctor
 	}
 	public void consultDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
+		if(doctorList.size()==0)
+		{
+			System.out.println("No doctors!!");	
+		}
+		else
+		{
 		viewDoctor(doctor,doctorList);
 		System.out.println("\t\tEnter Doctor Id to consult:");
 		int doctorId = sc.nextInt();
 		System.out.println("Patient Consulting Doctor......");
 		System.out.println("Patient Consulted Doctor......");
-		System.out.println("Fee = "+doctorList.get(doctorId).getDoctorFee());
+		System.out.println("Fee = "+doctorList.get(doctorId).getDoctorFee());	
+		}
 	}	
 
 	public void viewDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
@@ -97,7 +104,7 @@ public class Doctor
 			}
 
 		}
-		
+
 	}
 	public ArrayList<Doctor> addDoctor(Doctor doctor,ArrayList<Doctor> doctorList)
 	{

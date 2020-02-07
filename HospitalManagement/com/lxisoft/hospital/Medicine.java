@@ -20,4 +20,9 @@ public class Medicine
 	{
 		return medicineQuantity;
 	}
+	public void createMedicine()
+	{
+		System.out.println("Name:"+setMedicineName(sc.next()));
+		System.out.println("Quantity:"+setMedicineQuantity(sc.nextInt()));
+	}
 }

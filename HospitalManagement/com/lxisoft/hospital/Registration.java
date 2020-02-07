@@ -42,5 +42,11 @@ public class Registration
 		}
 		
 	}
+	public void deleteRegistration()
+	{
+			
+	}
+		
 }
+
 

@@ -22,15 +22,18 @@ public class Admin
 		int ch;
 		do
 		{
-		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Back\n\t\tEnter Ur Choice::");
+		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Add Services\n\t\tEnter Ur Choice::");
 		ch = sc.nextInt();
 			switch (ch) 
 			{
-			case 1:	doctor.addDoctor(doctor,doctorList);
+			case 1:	//doctor.addDoctor(doctor,doctorList);
 					doctor.modifyDoctor(admin,doctor,doctorList,registration);break;
 			case 2:registration.viewRegistration();break;
+			case 2:registration.viewRegistration();break;
+			
 			case 3://bill.createBill();break;
-			case 4:hospital.createHospital();
+			case 4://bill.createBill();break;
+			case 5:hospital.createHospital();
 			default:System.out.println("Enter Valid Choice!!!!!");break;
 			}
 		}while(ch!=0);	
