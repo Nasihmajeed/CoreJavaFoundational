@@ -16,23 +16,20 @@ public class Admin
 	{
 		return adminPassword;
 	}
-	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration)
+	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service)
 	{
 		hospital= new Hospital();
 		int ch;
 		do
 		{
-		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Add Services\n\t\tEnter Ur Choice::");
+		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Services\n\t\t5.Back\n\t\tEnter Ur Choice::");
 		ch = sc.nextInt();
 			switch (ch) 
 			{
-			case 1:	//doctor.addDoctor(doctor,doctorList);
-					doctor.modifyDoctor(admin,doctor,doctorList,registration);break;
-			case 2:registration.viewRegistration();break;
-			case 2:registration.viewRegistration();break;
-			
+			case 1:	doctor.modifyDoctor(admin,doctor,doctorList,registration,serviceList,service);break;
+			case 2: registration.adminViewRegistration(doctor,doctorList);break;
 			case 3://bill.createBill();break;
-			case 4://bill.createBill();break;
+			case 4: service.viewServices(serviceList,service);break;
 			case 5:hospital.createHospital();
 			default:System.out.println("Enter Valid Choice!!!!!");break;
 			}
@@ -40,7 +37,7 @@ public class Admin
 
 	}
 		
-	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration)
+	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service)
 	{
 		System.out.println("Enter Admin Password"); 
 		String pass = sc.next();
@@ -48,7 +45,7 @@ public class Admin
 		{
 			System.out.println("Welcome to Admin Cosole");
 			flag = true;
-			adminConsole(admin,doctor,doctorList,registration);
+			adminConsole(admin,doctor,doctorList,registration,serviceList,service);
 		}
 		else if(flag == false)
 		{	
@@ -61,7 +58,7 @@ public class Admin
 				{
 					System.out.println("Welcome to Admin Cosole");
 					flag = true;
-					adminConsole(admin,doctor,doctorList,registration);
+					adminConsole(admin,doctor,doctorList,registration,serviceList,service);
 				}
 				else
 				{

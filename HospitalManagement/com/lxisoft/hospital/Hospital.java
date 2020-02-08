@@ -9,8 +9,9 @@ public class Hospital
 	Admin admin;
 	Doctor doctor;
 	Patient patient;
-	//Bill bill;
+	Service service;
 	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
+	ArrayList<Service> serviceList = new ArrayList<Service>();
 	static Scanner sc = new Scanner(System.in);
 	public void setHospitalName(String hospitalName)
 	{
@@ -19,7 +20,7 @@ public class Hospital
 	public void setHospitalAdress(String hospitalAdress)
 	{
 		this.hospitalAdress = hospitalAdress;
-	}	
+	}
 	public String getHospitalName()
 	{
 		return hospitalName;
@@ -27,7 +28,7 @@ public class Hospital
 	public String getHospitalAdress()
 	{
 		return hospitalAdress;
-	}	
+	}
 
 	public void createHospital()
 	{
@@ -35,29 +36,29 @@ public class Hospital
 		admin = new Admin();
 		doctor = new Doctor();
 		patient = new Patient();
-		//bill = new Bill(); 
+		service = new Service();
+		doctor.addDoctor(doctor,doctorList);
 		hospitalDetails();
 		int choice;
 		do
-		{	
+		{
 			System.out.println("\n\t\t1.Admin\n\t\t2.Patient\n\t\tSelect a valid choice::");
 			choice = sc.nextInt();
-				switch (choice) 
+				switch (choice)
 				{
-				case 1:admin.adminLogin(admin,doctor,doctorList,registration);break;
+				case 1:admin.adminLogin(admin,doctor,doctorList,registration,serviceList,service);break;
 				case 2:patient.patientConsole(registration,doctor,doctorList);break;
-				default:System.out.println("\n\t\tEnter valid choice?");break;	
+				default:System.out.println("\n\t\tEnter valid choice?");break;
 				}
 		}while(choice != 0);
-			
-	}
 
-	public void hospitalDetails()	
+	}
+	public void hospitalDetails()
 	{
 		System.out.println("\t\t***** "+getHospitalName() +" *****");
 		System.out.println("\t\t--------------------------------------");
 		System.out.println("\t\tAdress==>> "+getHospitalAdress());
 	}
-	
+
 
 }
