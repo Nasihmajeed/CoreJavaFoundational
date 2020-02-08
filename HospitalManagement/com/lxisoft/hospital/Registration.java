@@ -5,11 +5,9 @@ import java.util.Scanner;
 import java.util.Iterator;
 public class Registration
 {
-	
 	Patient patient;
 	Scanner sc = new Scanner(System.in);
 	ArrayList<Patient> patientList = new ArrayList<Patient>();
-
 	public ArrayList<Patient> startRegistration(Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 		doctor.viewDoctor(doctor,doctorList);

@@ -22,7 +22,6 @@ public class Service
 	{
 		return serviceAmount;
 	}
-
 	public ArrayList<Service> createService(ArrayList<Service> serviceList,Service service)
 	{
 		serviceList.add(new Service());
@@ -57,7 +56,5 @@ public class Service
 				System.out.println(" ");
 			}
 		}	
-	}
-	
-
+	}	
 }

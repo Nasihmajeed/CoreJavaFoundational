@@ -7,6 +7,5 @@ public class Tdd
 	{
 		Hospital hospital = new Hospital();
 		hospital.createHospital();	
-	}
-	
+	}	
 }

@@ -7,9 +7,7 @@ public class Patient
 	private String patientAdress;
 	private String patientDisease;
 	private String consultingDoctor;
-
 	static Scanner sc = new Scanner(System.in);
-
 	public void setPatientName(String name)
 	{
 		this.patientName = name;
@@ -34,14 +32,6 @@ public class Patient
 	{
 		return patientDisease;
 	}
-	// public void setConsultingDoctor(String doc)
-	// {
-	// 	this.consultingDoctor = doc;
-	// }
-	// public String getConsultingDoctor()
-	// {
-	// 	return consultingDoctor;
-	// }
 	public void patientConsole(Registration registration,Doctor doctor,ArrayList<Doctor> doctorList)
 	{
 	int choice;	

@@ -16,28 +16,27 @@ public class Admin
 	{
 		return adminPassword;
 	}
-	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service)
+	public void adminConsole(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service,Medicine medicine,ArrayList<Medicine> medicineList)
 	{
 		hospital= new Hospital();
 		int ch;
 		do
 		{
-		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Services\n\t\t5.Back\n\t\tEnter Ur Choice::");
+		System.out.println("\t\t1.Modify Doctor\n\t\t2.View Registration\n\t\t3.View Bill\n\t\t4.Services\n\t\t5.Medicines\n\t\t6.Back\n\t\tEnter Ur Choice::");
 		ch = sc.nextInt();
 			switch (ch) 
 			{
-			case 1:	doctor.modifyDoctor(admin,doctor,doctorList,registration,serviceList,service);break;
+			case 1:	doctor.modifyDoctor(admin,doctor,doctorList,registration,serviceList,service,medicine,medicineList);break;
 			case 2: registration.adminViewRegistration(doctor,doctorList);break;
 			case 3://bill.createBill();break;
 			case 4: service.viewServices(serviceList,service);break;
-			case 5:hospital.createHospital();
+			case 5: medicine.viewMedicine(medicine,medicineList);break;
+			case 6:hospital.createHospital();
 			default:System.out.println("Enter Valid Choice!!!!!");break;
 			}
 		}while(ch!=0);	
-
 	}
-		
-	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service)
+	public void adminLogin(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service,Medicine medicine,ArrayList<Medicine> medicineList)
 	{
 		System.out.println("Enter Admin Password"); 
 		String pass = sc.next();
@@ -45,7 +44,7 @@ public class Admin
 		{
 			System.out.println("Welcome to Admin Cosole");
 			flag = true;
-			adminConsole(admin,doctor,doctorList,registration,serviceList,service);
+			adminConsole(admin,doctor,doctorList,registration,serviceList,service,medicine,medicineList);
 		}
 		else if(flag == false)
 		{	
@@ -58,7 +57,7 @@ public class Admin
 				{
 					System.out.println("Welcome to Admin Cosole");
 					flag = true;
-					adminConsole(admin,doctor,doctorList,registration,serviceList,service);
+					adminConsole(admin,doctor,doctorList,registration,serviceList,service,medicine,medicineList);
 				}
 				else
 				{
@@ -69,10 +68,7 @@ public class Admin
 			{
 				System.out.println("Ur Maximum Try Reached!!!!\nTry again Later");
 				System.exit(0);
-			}	
-					
+			}					
 		}
-	}	
-
-	
+	}		
 }

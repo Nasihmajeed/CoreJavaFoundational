@@ -9,9 +9,11 @@ public class Hospital
 	Admin admin;
 	Doctor doctor;
 	Patient patient;
+	Medicine medicine;
 	Service service;
 	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
 	ArrayList<Service> serviceList = new ArrayList<Service>();
+	ArrayList<Medicine> medicineList = new ArrayList<Medicine>();
 	static Scanner sc = new Scanner(System.in);
 	public void setHospitalName(String hospitalName)
 	{
@@ -36,6 +38,7 @@ public class Hospital
 		admin = new Admin();
 		doctor = new Doctor();
 		patient = new Patient();
+		medicine = new Medicine();
 		service = new Service();
 		doctor.addDoctor(doctor,doctorList);
 		hospitalDetails();
@@ -46,7 +49,7 @@ public class Hospital
 			choice = sc.nextInt();
 				switch (choice)
 				{
-				case 1:admin.adminLogin(admin,doctor,doctorList,registration,serviceList,service);break;
+				case 1:admin.adminLogin(admin,doctor,doctorList,registration,serviceList,service,medicine,medicineList);break;
 				case 2:patient.patientConsole(registration,doctor,doctorList);break;
 				default:System.out.println("\n\t\tEnter valid choice?");break;
 				}
@@ -59,6 +62,4 @@ public class Hospital
 		System.out.println("\t\t--------------------------------------");
 		System.out.println("\t\tAdress==>> "+getHospitalAdress());
 	}
-
-
 }

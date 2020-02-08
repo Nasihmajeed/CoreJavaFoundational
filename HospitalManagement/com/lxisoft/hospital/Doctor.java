@@ -41,7 +41,7 @@ public class Doctor
 	{
 		return doctorFee;
 	}
-	public void modifyDoctor(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service)
+	public void modifyDoctor(Admin admin,Doctor doctor,ArrayList<Doctor> doctorList,Registration registration,ArrayList<Service> serviceList,Service service,Medicine medicine,ArrayList<Medicine> medicineList)
 	{
 		int c;
 		do
@@ -55,7 +55,7 @@ public class Doctor
 				case 3:editDoctor(doctor,doctorList);break;
 				case 4:deleteDoctor(doctor,doctorList);break;
 				case 5:deleteAllDoctor(doctor,doctorList);break;
-				case 6:admin.adminConsole(admin,doctor,doctorList,registration,serviceList,service);break;
+				case 6:admin.adminConsole(admin,doctor,doctorList,registration,serviceList,service,medicine,medicineList);break;
 				default:System.out.println("Enter valid Choice!!!");break;
 				}
 		}while(c!=0);
