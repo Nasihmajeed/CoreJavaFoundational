@@ -3,7 +3,7 @@ public class Animal
 {
 	private String animalName;
 	private int animalStrength;
-
+	private boolean isAlive;
 	public void setAnimalName(String str)
 	{
 		this.animalName = str;
@@ -23,5 +23,16 @@ public class Animal
 	{
 		return animalStrength;
 	}
+
+	public void setIsAlive(boolean alive)
+	{
+		this.isAlive = alive;
+	}
+
+	public boolean getIsAlive()
+	{
+		return isAlive;
+	}
+
 
 }

@@ -49,7 +49,6 @@ public class Forest
 	}
 	public  void createAnimal()
 	{
-
 		animalList.add(new Lion());
 		animalList.get(0).setAnimalName("Lion");
 		animalList.get(0).setAnimalStrength(10);
@@ -73,7 +72,5 @@ public class Forest
 		animalList.add(new Deer());
 		animalList.get(3).setAnimalName("Deer");
 		animalList.get(3).setAnimalStrength(4);
-
 	}
-
 }
