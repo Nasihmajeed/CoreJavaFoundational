@@ -6,7 +6,7 @@ public class Animal
  
  private String animalname;
  private int animalStrength;
-
+private boolean isAlive;
 public void setAnimalName(String arg)
 {
 	this.animalname=arg;
@@ -27,4 +27,14 @@ public int getAnimalStrength()
 {
 	return animalStrength; 
 }
+public void setAlive ()
+{
+	isAlive=true;
+}
+public boolean getAlive ()
+{
+	return isAlive;
+
+}
+
 }
