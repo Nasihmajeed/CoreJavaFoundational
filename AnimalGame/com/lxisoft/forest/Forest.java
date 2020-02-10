@@ -9,7 +9,7 @@ public class Forest
 	static Scanner sc = new Scanner(System.in);
 	ArrayList<Animal> animalList = new ArrayList<Animal>();
 	Game game;
-
+	Animal animal;
 	public void setForestName(String forestName)
 	{
 		this.forestName = forestName;
@@ -22,7 +22,7 @@ public class Forest
 
 	public void createForest()
 	{
-
+		animal = new Animal();
 		game  =  new Game();
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
 		System.out.println("-----------------------------------------");
@@ -66,11 +66,11 @@ public class Forest
 		animalList.get(3).setAnimalStrength(3);
 
 		animalList.add(new Fox());
-		animalList.get(3).setAnimalName("Fox");
-		animalList.get(3).setAnimalStrength(5);
+		animalList.get(4).setAnimalName("Fox");
+		animalList.get(4).setAnimalStrength(5);
 
 		animalList.add(new Deer());
-		animalList.get(3).setAnimalName("Deer");
-		animalList.get(3).setAnimalStrength(4);
+		animalList.get(5).setAnimalName("Deer");
+		animalList.get(5).setAnimalStrength(4);
 	}
 }
