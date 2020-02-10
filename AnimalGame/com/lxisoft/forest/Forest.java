@@ -54,7 +54,7 @@ animal.add(new Elephant());
 public void setAnimalDetails()
 {
 	animal.get(0).setAnimalName("Lion"); 
-		animal.get(0).setAnimalStrength(8); 
+	animal.get(0).setAnimalStrength(8); 
 
 
 		animal.get(1).setAnimalName("Tiger"); 
@@ -70,14 +70,7 @@ public void setAnimalDetails()
 }
 // public void displayForest()
 // 	{
-// 		System.out.println("\n\t"+getForestName());
 
-		
-// 		// System.out.println(animal.get(0).getAnimalName());
-// 		// System.out.println(animal.get(0).getAnimalStrength());
-// 		// // ;
-// 		// animal.get(1)getAnimalName();
-// 		// animal.get(1)getAnimalStrength();
 // 	}
 
 public int playGame()
