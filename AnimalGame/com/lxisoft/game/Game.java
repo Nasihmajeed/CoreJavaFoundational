@@ -19,10 +19,10 @@ public class Game
 			}
 			else
 			{
-				System.out.println(animal.get(randomNumber).getAnimalName()+"win");
+			//	System.out.println(animal.get(randomNumber).getAnimalName()+"win");
 			}
-
-		}while(animal.size()>0);		
+ 
+		}while(/*animal.get(randomNumber).getAlive()==true&&animal.get(random).getAlive()==*/true);		      
 	}
 
 public void  checkStrength(Animal animal1,Animal animal2)
@@ -44,24 +44,7 @@ public void  checkStrength(Animal animal1,Animal animal2)
 			System.out.println(animal1.getAnimalStrength()+"Strength");
 			changeStrength(animal2,animal1);
 		}
-			// if(animal.get(random).getAnimalStrength()<animal.get(randomNumber).getAnimalStrength())
-			// {
-			// 	System.out.println("\n"+animal.get(random).getAnimalName()+" Meet With "+animal.get(randomNumber).getAnimalName()+"\n......\n");
-			// 	System.out.println(animal.get(randomNumber).getAnimalName()+"win");
-			// 	int i=random;
-			// 	int j=randomNumber;
-			// 	changeStrength(animal,random,randomNumber);
-
-			// }
 			
-			// else if(animal.get(random).getAnimalStrength()>animal.get(randomNumber).getAnimalStrength())
-			// {
-			// 	System.out.println("\n"+animal.get(random).getAnimalName()+" Meet With "+animal.get(randomNumber).getAnimalName()+"\n......\n");
-			// 	System.out.println(animal.get(random).getAnimalName()+" Win");
-			// 	int j=random;
-			// 	int i=randomNumber;
-			// 	changeStrength(animal,random,randomNumber);
-			// }
 			else
 			{
 				
@@ -100,6 +83,13 @@ public void changeStrength(Animal animala,Animal animalb)
 
 }
 }
+
+
+
+
+
+
+
 
 
 

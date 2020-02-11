@@ -22,7 +22,7 @@ public void setAnimalStrength(int str)
 {
 	this.animalStrength=str;
 }
-
+		 
 public int getAnimalStrength()
 {
 	return animalStrength; 
