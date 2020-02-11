@@ -12,30 +12,47 @@ public class Game
 			animalList.get(i).setIsAlive(true);	
 		}
 		System.out.println("\t\tGAME STARTS");
+		int	randomIndex;
 		int index;
+
 		do
 		{
-	       	int	randomIndex = random.nextInt(animalList.size());
-	       	int i=0;
-	       	index = i;	
-	       	System.out.println("randomIndex="+randomIndex);
-	       	System.out.println("Index ="+index);
-			
-			if(animalList.get(index).getIsAlive() == animalList.get(randomIndex).getIsAlive())
+	        randomIndex = random.nextInt(animalList.size());
+	       	index = random.nextInt(animalList.size());	
+			if(animalList.get(index).getIsAlive() == true && animalList.get(randomIndex).getIsAlive() == true)
 			{
-				System.out.println("In isalive method");			
+				if(animalList.get(index).getAnimalStrength() == animalList.get(randomIndex).getAnimalStrength())
+				{
+					fightBtwEqStrength(animalList,randomIndex,index);						
+				}
+				else if (animalList.get(index).getAnimalStrength() != animalList.get(randomIndex).getAnimalStrength()) 
+				{
+					fightBtwDiffStrength(animalList,randomIndex,index);
+				}
+									
 			}
 			else if(animalList.get(index).getIsAlive() != animalList.get(randomIndex).getIsAlive()) 
 			{
-				System.out.println("In notIsalive method");
+				setAliveOrNot(animalList,randomIndex,index);			
+			}
+			else if (animalList.get(index).getIsAlive() == false && animalList.get(randomIndex).getIsAlive() == false) 
+			{
+				for(int i = 0;i<animalList.size();i++)
+				{
+					if(animalList.get(i).getIsAlive()  == true )
+					{
+						System.out.println(animalList.get(i).getAnimalName() +" Alive");
+					}
+				}
 			}
 
-			index++;
 
-		}while(index<=animalList.size()); 
+		}while(true); 
 
 
 	}
+
+
 	public ArrayList<Animal> setAliveOrNot(ArrayList<Animal> animalList,int randomIndex,int index)
 	{	
 		changeEnergyLevel(animalList,randomIndex,index);
@@ -53,76 +70,44 @@ public class Game
 
 	public ArrayList<Animal> fightBtwEqStrength(ArrayList<Animal> animalList,int randomIndex,int index)
 	{
-		setAliveOrNot(animalList,randomIndex,index);
 		if(randomIndex == index)
 		{
-			if(animalList.get(index).getIsAlive() == animalList.get(randomIndex).getIsAlive())
-			{
-				if(animalList.get(index).getAnimalStrength() == animalList.get(randomIndex).getAnimalStrength())
-				{
-					System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
-					System.out.println("Fight between Equal Strength");
-					int strength = animalList.get(index).getAnimalStrength();
-					strength = strength -1;
-					animalList.get(index).setAnimalStrength(strength);		
-				}		
-			}
-			else if (animalList.get(index).getIsAlive() != animalList.get(randomIndex).getIsAlive())
-			{ 
-				if(animalList.get(index).getIsAlive() == false)
-				{
-					System.out.println("Not Alive");
-				}
-				else if (animalList.get(randomIndex).getIsAlive()) 
-				{
-					System.out.println("Not Alive");			
-				}		
-			}	
+			System.out.println("inside fightBtwEqStrength");
+			System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+			System.out.println("Fight between Equal Strength");
+			changeEnergyLevel(animalList,randomIndex,index);	
+			System.out.println("index="+animalList.get(index).getAnimalStrength());
+			System.out.println("randomIndex="+animalList.get(randomIndex).getAnimalStrength());		
 		}
 		else if (randomIndex != index) 
 		{
-			if(animalList.get(index).getIsAlive() == animalList.get(randomIndex).getIsAlive())
-			{
-				if(animalList.get(index).getAnimalStrength() == animalList.get(randomIndex).getAnimalStrength())
-				{
-					System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
-					System.out.println("Fight between Equal Strength");
-					int strength = animalList.get(index).getAnimalStrength();
-					strength = strength -1;
-					animalList.get(index).setAnimalStrength(strength);		
-				}		
-			}
-			else if (animalList.get(index).getIsAlive() != animalList.get(randomIndex).getIsAlive())
-			{ 
-				if(animalList.get(index).getIsAlive() == false)
-				{
-					System.out.println("Not Alive");
-				}
-				else if (animalList.get(randomIndex).getIsAlive()) 
-				{
-					System.out.println("Not Alive");			
-				}		
-			}		
-		}
+			System.out.println("inside fightBtwEqStrength");
+			System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+			System.out.println("Fight between Equal Strength");
+			changeEnergyLevel(animalList,randomIndex,index);
+			System.out.println("index="+animalList.get(index).getAnimalStrength());
+			System.out.println("randomIndex="+animalList.get(randomIndex).getAnimalStrength());			
+		}		
 		return animalList;
 	}
 	public ArrayList<Animal> fightBtwDiffStrength(ArrayList<Animal> animalList,int randomIndex,int index)
 	{
-		
-		if(animalList.get(index).getIsAlive() == animalList.get(randomIndex).getIsAlive())
+		if(randomIndex == index)
 		{
-			changeEnergyLevel(animalList,randomIndex,index);			
+			System.out.println("inside fightBtwDiffStrength");
+			System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+			System.out.println("Fight between Equal Strength");
+			changeEnergyLevel(animalList,randomIndex,index);
+			System.out.println("index="+animalList.get(index).getAnimalStrength());
+			System.out.println("randomIndex="+animalList.get(randomIndex).getAnimalStrength());					
 		}
-		else if (animalList.get(index).getIsAlive() != animalList.get(randomIndex).getIsAlive()) 
-		{
-			if(animalList.get(index).getIsAlive() == false )
-			{
-				System.out.println("Not Alive");
-			}		
-			else if (animalList.get(randomIndex).getIsAlive() == false)
-			{
-				System.out.println("Not Alive");
-			}
+		else if (randomIndex != index) 
+		{	
+			System.out.println("inside fightBtwDiffStrength");
+			System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+			changeEnergyLevel(animalList,randomIndex,index);	
+			System.out.println("index="+animalList.get(index).getAnimalStrength());
+			System.out.println("randomIndex="+animalList.get(randomIndex).getAnimalStrength());	
 		}
 		return animalList;
 	}
@@ -134,6 +119,24 @@ public class Game
 			int strength = animalList.get(index).getAnimalStrength();
 			strength = strength -1;
 			animalList.get(index).setAnimalStrength(strength);
+			if(animalList.get(index).getAnimalStrength() == 0)
+				{	
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(index).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}
+				}
+				else if (animalList.get(randomIndex).getAnimalStrength() == 0) 
+				{
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(randomIndex).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}		
+				}
 		}
 		else if (animalList.get(index).getAnimalStrength() != animalList.get(randomIndex).getAnimalStrength()) 
 		{
@@ -144,7 +147,25 @@ public class Game
 				strength1 = strength1 -2;
 				strength2 = strength2 -3;
 				animalList.get(index).setAnimalStrength(strength1);
-				animalList.get(randomIndex).setAnimalStrength(strength2);	
+				animalList.get(randomIndex).setAnimalStrength(strength2);
+				if(animalList.get(index).getAnimalStrength() == 0)
+				{	
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(index).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}
+				}
+				else if (animalList.get(randomIndex).getAnimalStrength() == 0) 
+				{
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(randomIndex).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}		
+				}	
 			}
 			else if(animalList.get(index).getAnimalStrength()<animalList.get(randomIndex).getAnimalStrength())
 			{
@@ -153,118 +174,30 @@ public class Game
 				strength1 = strength1 -3;
 				strength2 = strength2 -2;
 				animalList.get(index).setAnimalStrength(strength1);
-				animalList.get(randomIndex).setAnimalStrength(strength2);	
+				animalList.get(randomIndex).setAnimalStrength(strength2);
+				if(animalList.get(index).getAnimalStrength() == 0)
+				{	
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(index).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}
+				}
+				else if (animalList.get(randomIndex).getAnimalStrength() == 0) 
+				{
+					System.out.println("Animal Is in critical situation");
+					setAliveOrNot(animalList,randomIndex,index);
+					if(animalList.get(randomIndex).getIsAlive() == false)
+					{
+						System.out.println("Animal Dead");
+					}		
+				}	
 			}	
 		}
 		return animalList;
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// for(int i=0;i<animalList.size();i++)
-		// {
-		// 	int randomIndex = random.nextInt(animalList.size());
-		// 	System.out.println("randomIndex = "+randomIndex);
-		// 	int index = i;
-		// 	if(animalList.get(index).getIsAlive() == true && animalList.get(randomIndex).getIsAlive() == true)
-		// 	{
-		// 		if(animalList.get(index).getAnimalStrength() == animalList.get(randomIndex).getAnimalStrength())
-		// 		{
-		// 			System.out.println("foo121");
-		// 			System.out.println(animalList.get(index).getAnimalName() +" meets "+animalList.get(randomIndex).getAnimalName());
-		// 			System.out.println("Fight between Equal Strength");
-		// 			int strength = animalList.get(index).getAnimalStrength();
-		// 			strength = strength - 1;
-		// 		}	
-		// 		else if (index != randomIndex) 
-		// 		{
-		// 			if(animalList.get(index).getAnimalStrength() > animalList.get(randomIndex).getAnimalStrength())
-		// 			{
-		// 				System.out.println("foo");
-		// 				System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
-		// 				System.out.println(animalList.get(index).getAnimalName()+" wins");
-		// 				int strengthOne = animalList.get(index).getAnimalStrength();
-		// 				strengthOne = strengthOne -2;
-		// 				System.out.println(animalList.get(index).getAnimalName() +" = "+ strengthOne);
-		// 				int strengthTwo = animalList.get(randomIndex).getAnimalStrength();
-		// 				strengthTwo = strengthTwo-3;
-		// 				System.out.println(animalList.get(randomIndex).getAnimalName()+" = "+strengthTwo);
-		// 				int newindex = index;
-		// 				if(animalList.get(newindex).getAnimalStrength())
-		// 				{
-
-		// 				}
-		// 			}
-		// 			else if(animalList.get(index).getAnimalStrength() < animalList.get(randomIndex).getAnimalStrength()) 
-		// 			{
-		// 				System.out.println("foo00");
-		// 				System.out.println(animalList.g
-		// 					et(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
-		// 				System.out.println(animalList.get(randomIndex).getAnimalName()+" wins");
-		// 				int strengthOne = animalList.get(index).getAnimalStrength();
-		// 				strengthOne =strengthOne -3;
-		// 				System.out.println(animalList.get(index).getAnimalName() + " = "+ strengthOne);
-		// 				int strengthTwo = animalList.get(randomIndex).getAnimalStrength();
-		// 				strengthTwo =strengthTwo -2;
-		// 				System.out.println(animalList.get(randomIndex).getAnimalName()+" = "+strengthTwo);
-		// 				if(animalList.get(index).getAnimalStrength() == 0)
-		// 				{
-		// 					animalList.get(index).setIsAlive(false);
-		// 					System.out.println("ANIMAL "+animalList.get(index).getAnimalName() + " is dead " );
-		// 				}
-		// 				else if (animalList.get(randomIndex).getAnimalStrength() == 0) 
-		// 				{
-		// 					animalList.get(randomIndex).setIsAlive(false);
-		// 					System.out.println("ANIMAL "+animalList.get(randomIndex).getAnimalName() + " is dead ");	
-		// 				}	
-		// 			}
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		continue;
-		// 	}	
-		// }
-	
-			
-
-
-
-
-
-
-
-
-
-
 
 
 
