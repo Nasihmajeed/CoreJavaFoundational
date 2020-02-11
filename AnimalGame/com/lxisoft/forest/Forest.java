@@ -55,19 +55,19 @@ public void setAnimalDetails()
 {
 	animal.get(0).setAnimalName("Lion"); 
 	animal.get(0).setAnimalStrength(8); 
-	animal.get(0).setAlive (); 
+	animal.get(0).setAlive(true); 
 
 		animal.get(1).setAnimalName("Tiger"); 
 		animal.get(1).setAnimalStrength(7); 
-		animal.get(1).setAlive (); 
+		animal.get(1).setAlive (true); 
 		 
 		animal.get(2).setAnimalName("Rabbit"); 
 		animal.get(2).setAnimalStrength(4); 
-		animal.get(2).setAlive (); 
+		animal.get(2).setAlive (true); 
 		 
 		animal.get(3).setAnimalName("Elephant"); 
 		animal.get(3).setAnimalStrength(9);
-		animal.get(3).setAlive ();  
+		animal.get(3).setAlive (true);  
 }
 // public void displayForest()
 // 	{

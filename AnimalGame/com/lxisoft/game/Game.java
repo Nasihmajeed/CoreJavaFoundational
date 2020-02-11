@@ -7,23 +7,43 @@ public class Game
 	public void startGame(ArrayList<Animal> animal)
 	{
 		System.out.println("\n\nYou Entered in to Game\n\n");
+
+
 	do{
 		int randomNumber = objGenerator.nextInt(3);
 		int random=objGenerator.nextInt(3);
 			if(animal.get(randomNumber).getAlive()==true&&animal.get(random).getAlive()==true )
 			{
-				checkStrength(animal,random,randomNumber);	
+				checkStrength(animal.get(randomNumber),animal.get(random));	
+
 			}
 			else
 			{
-				//System.out.println(animal.get(randomNumber).getAnimalName()+"win");
+				System.out.println(animal.get(randomNumber).getAnimalName()+"win");
 			}
+
 		}while(animal.size()>0);		
 	}
 
 public void  checkStrength(Animal animal1,Animal animal2)
 {
+		if(animal1.getAnimalStrength()<animal2.getAnimalStrength())
+		{
+			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
+			System.out.println(animal2.getAnimalName()+" win");
+			System.out.println(animal2.getAnimalStrength()+"Strength");
+			System.out.println(animal1.getAnimalStrength()+"Strength");
+			changeStrength(animal1,animal2);
 
+		}
+		else if(animal1.getAnimalStrength()>animal2.getAnimalStrength())
+		{
+			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
+			System.out.println(animal1.getAnimalName()+"win");
+			System.out.println(animal2.getAnimalStrength()+"Strength");
+			System.out.println(animal1.getAnimalStrength()+"Strength");
+			changeStrength(animal2,animal1);
+		}
 			// if(animal.get(random).getAnimalStrength()<animal.get(randomNumber).getAnimalStrength())
 			// {
 			// 	System.out.println("\n"+animal.get(random).getAnimalName()+" Meet With "+animal.get(randomNumber).getAnimalName()+"\n......\n");
@@ -42,23 +62,42 @@ public void  checkStrength(Animal animal1,Animal animal2)
 			// 	int i=randomNumber;
 			// 	changeStrength(animal,random,randomNumber);
 			// }
-			// else
-			// {
-			// 	System.out.println("\n"+animal.get(random).getAnimalName()+" Meet With "+animal.get(randomNumber).getAnimalName()+"\n......\n");
-			// 	System.out.println("No Atack");
-			// }
+			else
+			{
+				
+				System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
+				System.out.println(animal2.getAnimalStrength()+"Strength");
+			System.out.println(animal1.getAnimalStrength()+"Strength");
+				System.out.println("No Atack");
+			}
 }
 
 
 
-public void changeStrength(ArrayList<Animal> animal,int random,int randomNumber)
+public void changeStrength(Animal animala,Animal animalb)
 {
-	int x=animal.get(i).getAnimalStrength();
+	int x=animala.getAnimalStrength();
+	if(x==0)
+	{
+		animala.setAlive(false);
+	}
+	else
+	{	
 	x=x-2;
-	animal.get(i).setAnimalStrength(x);
-	int y=animal.get(j).getAnimalStrength();
+	}
+	animala.setAnimalStrength(x);
+	int y=animalb.getAnimalStrength();
+	if(y==0)
+	{
+		animalb.setAlive(false);
+	}
+	else
+	{	
 	y=y-1;
-	animal.get(j).setAnimalStrength(y);
+	}
+	
+	animalb.setAnimalStrength(y);
+
 }
 }
 

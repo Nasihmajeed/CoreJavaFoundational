@@ -27,11 +27,11 @@ public int getAnimalStrength()
 {
 	return animalStrength; 
 }
-public void setAlive ()
+public void setAlive(boolean a)
 {
-	isAlive=true;
+	isAlive=a;
 }
-public boolean getAlive ()
+public boolean getAlive()
 {
 	return isAlive;
 
