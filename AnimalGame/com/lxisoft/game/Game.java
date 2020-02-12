@@ -10,8 +10,8 @@ public class Game
 		System.out.println("\n\nYou Entered in to Game\n\n");
 
 	do{
-		int randomNumber = objGenerator.nextInt(3);
-		int random=objGenerator.nextInt(3);
+		int randomNumber = objGenerator.nextInt(4);
+		int random=objGenerator.nextInt(4);
 			if((animal.get(randomNumber).getAlive()==true&&animal.get(random).getAlive()==true)&&(animal.get(randomNumber).getAnimalName()!=animal.get(random).getAnimalName()) )
 			{
 				temp =checkStrength(animal.get(randomNumber),animal.get(random),temp);	
@@ -20,6 +20,15 @@ public class Game
 			
  
 		}while(temp>1);		      
+	for(int i=0;i<animal.size();i++)
+	{
+		if(animal.get(i).getAlive()==true)
+		{
+			System.out.println(animal.get(i).getAnimalName()+" is Alive");	
+		}
+	}
+
+
 	}
 
 public int checkStrength(Animal animal1,Animal animal2,int temp)
@@ -28,17 +37,17 @@ public int checkStrength(Animal animal1,Animal animal2,int temp)
 		{
 			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 			System.out.println(animal1.getAnimalName()+" Runned Away");
-			//System.out.println(animal2.getAnimalStrength()+"Strength");
-			//System.out.println(animal1.getAnimalStrength()+"Strength");
-			//changeStrength(animal1,animal2);
+			System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+			System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+			
 
 		}
 		else if(animal1.getAnimalStrength()>animal2.getAnimalStrength())
 		{
 			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 			System.out.println(animal1.getAnimalName()+"win");
-			System.out.println(animal2.getAnimalStrength()+"Strength");
-			System.out.println(animal1.getAnimalStrength()+"Strength");
+			System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+			System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 			temp=changeStrength(animal2,animal1,temp);
 		}
 			
@@ -46,8 +55,8 @@ public int checkStrength(Animal animal1,Animal animal2,int temp)
 			{
 				
 				System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
-				System.out.println(animal2.getAnimalStrength()+"Strength");
-			System.out.println(animal1.getAnimalStrength()+"Strength");
+			System.out.println(animal1.getAnimalStrength()+" Strength"+animal1.getAnimalName());
+			System.out.println(animal2.getAnimalStrength()+" Strength"+animal2.getAnimalName());
 				System.out.println("No Atack");
 			}
 			return temp;
@@ -85,9 +94,6 @@ public int changeStrength(Animal animala,Animal animalb,int temp)
 return temp;
 }
 }
-
-
-
 
 
 

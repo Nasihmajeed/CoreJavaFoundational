@@ -8,17 +8,6 @@ private String forestname ="Black Forest";
 ArrayList<Animal> animal = new ArrayList<Animal>();
 static Scanner input =new Scanner(System.in);
 Game game;
-// public void setForestName(String arg)
-// {
-// 	forestname =forestname;
-
-// }
-// public String getForestName()
-// {
-// 	return forestname;
-// }
-
-
 
 public void createForest()
 	{
@@ -54,7 +43,7 @@ animal.add(new Elephant());
 public void setAnimalDetails()
 {
 	animal.get(0).setAnimalName("Lion"); 
-	animal.get(0).setAnimalStrength(9); 
+	animal.get(0).setAnimalStrength(8); 
 	animal.get(0).setAlive(true); 
 
 		animal.get(1).setAnimalName("Tiger"); 
@@ -66,10 +55,11 @@ public void setAnimalDetails()
 		animal.get(2).setAlive (true); 
 		 
 		animal.get(3).setAnimalName("Elephant"); 
-		animal.get(3).setAnimalStrength(8);
+		animal.get(3).setAnimalStrength(9);
 		animal.get(3).setAlive (true);  
 	
 }
+
 
 public int playGame()
 {
