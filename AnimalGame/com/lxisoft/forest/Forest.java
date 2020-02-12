@@ -72,5 +72,10 @@ public class Forest
 		animalList.add(new Deer());
 		animalList.get(5).setAnimalName("Deer");
 		animalList.get(5).setAnimalStrength(4);
+		
+		for(int i = 0;i<animalList.size();i++)
+		{
+			animalList.get(i).setIsAlive(true);	
+		}
 	}
 }
