@@ -54,7 +54,7 @@ animal.add(new Elephant());
 public void setAnimalDetails()
 {
 	animal.get(0).setAnimalName("Lion"); 
-	animal.get(0).setAnimalStrength(8); 
+	animal.get(0).setAnimalStrength(9); 
 	animal.get(0).setAlive(true); 
 
 		animal.get(1).setAnimalName("Tiger"); 
@@ -66,7 +66,7 @@ public void setAnimalDetails()
 		animal.get(2).setAlive (true); 
 		 
 		animal.get(3).setAnimalName("Elephant"); 
-		animal.get(3).setAnimalStrength(9);
+		animal.get(3).setAnimalStrength(8);
 		animal.get(3).setAlive (true);  
 	
 }
