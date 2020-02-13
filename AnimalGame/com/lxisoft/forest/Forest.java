@@ -37,7 +37,7 @@ animal.add(new Lion());
 animal.add(new Tiger()); 
 animal.add(new Rabbit());
 animal.add(new Elephant());
-
+animal.add(new Wolf());
 }
 
 public void setAnimalDetails()
@@ -57,6 +57,11 @@ public void setAnimalDetails()
 		animal.get(3).setAnimalName("Elephant"); 
 		animal.get(3).setAnimalStrength(9);
 		animal.get(3).setAlive (true);  
+
+		animal.get(4).setAnimalName("Wolf"); 
+		animal.get(4).setAnimalStrength(6);
+		animal.get(4).setAlive (true);  
+	
 	
 }
 

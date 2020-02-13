@@ -1,7 +1,7 @@
 package com.lxisoft.forest;
 import java.util.*;
 
-class Tiger extends Animal implements  Carnivores
+class Wolf extends Animal implements  Carnivores
 {
 
  
