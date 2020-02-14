@@ -4,21 +4,20 @@ import java.util.*;
 import com.lxisoft.forest.*;
 public class Forest
 {
-private String forestname ="Black Forest";
-ArrayList<Animal> animal = new ArrayList<Animal>();
+private String name ="Black Forest";
+ArrayList<Animal> animals = new ArrayList<Animal>();
 static Scanner input =new Scanner(System.in);
 Game game;
 
 public void createForest()
 	{
-		System.out.println("\n\t"+forestname);
+		System.out.println("\n\t"+name);
 		
 		creatAnimal();
 
 		setAnimalDetails();
 		
 		int temp=playGame();
-		//System.out.println(temp);
 		if(temp==0)
 		{
 			System.out.println("Exited");
@@ -26,41 +25,41 @@ public void createForest()
 		if(temp==1)
 		{
 			game=new Game();
-			game.startGame(animal);
+			game.startGame(animals);
 		}
 
 			
 	}
 public void creatAnimal()
 {
-animal.add(new Lion()); 
-animal.add(new Tiger()); 
-animal.add(new Rabbit());
-animal.add(new Elephant());
-animal.add(new Wolf());
+animals.add(new Lion()); 
+animals.add(new Tiger()); 
+animals.add(new Rabbit());
+animals.add(new Elephant());
+animals.add(new Wolf());
 }
 
 public void setAnimalDetails()
 {
-	animal.get(0).setAnimalName("Lion"); 
-	animal.get(0).setAnimalStrength(8); 
-	animal.get(0).setAlive(true); 
+	animals.get(0).setAnimalName("Lion"); 
+	animals.get(0).setAnimalStrength(8); 
+	animals.get(0).setAlive(true); 
 
-		animal.get(1).setAnimalName("Tiger"); 
-		animal.get(1).setAnimalStrength(7); 
-		animal.get(1).setAlive (true); 
+		animals.get(1).setAnimalName("Tiger"); 
+		animals.get(1).setAnimalStrength(7); 
+		animals.get(1).setAlive (true); 
 		 
-		animal.get(2).setAnimalName("Rabbit"); 
-		animal.get(2).setAnimalStrength(4); 
-		animal.get(2).setAlive (true); 
+		animals.get(2).setAnimalName("Rabbit"); 
+		animals.get(2).setAnimalStrength(4); 
+		animals.get(2).setAlive (true); 
 		 
-		animal.get(3).setAnimalName("Elephant"); 
-		animal.get(3).setAnimalStrength(9);
-		animal.get(3).setAlive (true);  
+		animals.get(3).setAnimalName("Elephant"); 
+		animals.get(3).setAnimalStrength(9);
+		animals.get(3).setAlive (true);  
 
-		animal.get(4).setAnimalName("Wolf"); 
-		animal.get(4).setAnimalStrength(6);
-		animal.get(4).setAlive (true);  
+		animals.get(4).setAnimalName("Wolf"); 
+		animals.get(4).setAnimalStrength(6);
+		animals.get(4).setAlive (true);  
 	
 	
 }
