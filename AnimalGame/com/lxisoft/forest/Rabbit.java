@@ -1,7 +1,5 @@
 package com.lxisoft.forest;
-public class Rabbit extends Animal
+public class Rabbit extends Animal implements Herbivores
 {
-	public boolean isAlive;
-	// String animalName;
-	// int animalStrength;
+	
 }

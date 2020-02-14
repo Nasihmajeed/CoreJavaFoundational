@@ -51,11 +51,11 @@ public class Forest
 	{
 		animalList.add(new Lion());
 		animalList.get(0).setAnimalName("Lion");
-		animalList.get(0).setAnimalStrength(10);
+		animalList.get(0).setAnimalStrength(9);
 
 		animalList.add(new Elephant());
 		animalList.get(1).setAnimalName("Elephant");
-		animalList.get(1).setAnimalStrength(8);
+		animalList.get(1).setAnimalStrength(10);
 
 		animalList.add(new Bear());
 		animalList.get(2).setAnimalName("Bear");
@@ -67,12 +67,44 @@ public class Forest
 
 		animalList.add(new Fox());
 		animalList.get(4).setAnimalName("Fox");
-		animalList.get(4).setAnimalStrength(5);
+		animalList.get(4).setAnimalStrength(6);
 
 		animalList.add(new Deer());
 		animalList.get(5).setAnimalName("Deer");
 		animalList.get(5).setAnimalStrength(4);
-		
+
+		animalList.add(new Horse());
+		animalList.get(6).setAnimalName("Horse");
+		animalList.get(6).setAnimalStrength(5);
+
+
+		animalList.add(new Squirrel());
+		animalList.get(7).setAnimalName("Squirrel");
+		animalList.get(7).setAnimalStrength(2);
+
+		animalList.add(new Wolf());
+		animalList.get(8).setAnimalName("Wolf");
+		animalList.get(8).setAnimalStrength(6);
+
+		animalList.add(new Giraffe());
+		animalList.get(9).setAnimalName("Giraffe");
+		animalList.get(9).setAnimalStrength(5);
+
+		animalList.add(new Tiger());
+		animalList.get(10).setAnimalName("Tiger");
+		animalList.get(10).setAnimalStrength(9);
+
+		animalList.add(new Cheetah());
+		animalList.get(11).setAnimalName("Cheetah");
+		animalList.get(11).setAnimalStrength(8);
+
+		animalList.add(new Hyena());
+		animalList.get(12).setAnimalName("Hyena");
+		animalList.get(12).setAnimalStrength(6);
+
+		animalList.add(new Zebra());
+		animalList.get(13).setAnimalName("Zebra");
+		animalList.get(13).setAnimalStrength(4);
 		for(int i = 0;i<animalList.size();i++)
 		{
 			animalList.get(i).setIsAlive(true);	

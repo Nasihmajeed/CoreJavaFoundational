@@ -4,9 +4,11 @@ public class Animal
 	private String animalName;
 	private int animalStrength;
 	private boolean isAlive;
-	public void setAnimalName(String str)
+	private boolean isLuck;
+
+	public void setAnimalName(String name)
 	{
-		this.animalName = str;
+		this.animalName = name;
 	}
 
 	public String getAnimalName()
@@ -14,9 +16,9 @@ public class Animal
 		return animalName;
 	}
 
-	public void setAnimalStrength(int n)
+	public void setAnimalStrength(int strength)
 	{
-		this.animalStrength = n;
+		this.animalStrength = strength;
 	}
 
 	public int getAnimalStrength()
@@ -33,6 +35,15 @@ public class Animal
 	{
 		return isAlive;
 	}
+	public void setLuckFactor(boolean luck)
+	{
+		this.isLuck = luck;
+	}
 
+	public boolean getIsLuck()
+	{
+		return isLuck;
+	}
+		
 
 }

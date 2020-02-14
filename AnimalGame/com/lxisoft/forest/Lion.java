@@ -1,6 +1,5 @@
 package  com.lxisoft.forest;
-public class Lion extends Animal
+public class Lion extends Animal implements Carnivores 
 {
-	// String animalName;
-	// int animalStrength;
+	
 }

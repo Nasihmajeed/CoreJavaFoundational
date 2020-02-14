@@ -1,6 +1,5 @@
 package com.lxisoft.forest;
-public class Deer extends Animal
+public class Deer extends Animal implements Herbivores
 {
-	// String animalName;
-	// int animalStrength;
+	
 }
