@@ -117,22 +117,15 @@ public boolean luckyFactor()
 public int win(Animal animal1,Animal animal2,int temp)
 {
 boolean x=luckyFactor();
-			if(x==true&&animal2 instanceof Herbivores)
+			if((x==true)&&(animal2 instanceof Herbivores))
 			{
 			luckrunAway(animal1,animal2);
 			}
 			else
 			{
-				if(animal2 instanceof Herbivores&&animal2.getAnimalStrength()<5)
+				if((animal2 instanceof Herbivores)&&(animal2.getAnimalStrength()<5))
 				{
-					System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
-					System.out.println("Strength before Atack");
-					System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-					System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-					System.out.println(animal1.getAnimalName()+"win");
-						System.out.println("Strength After Atack");
-					System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-					System.out.println(animal2.getAnimalName()+" Dead");
+					directAtack(animal1,animal2);
 					animal2.setAlive(false);
 					temp--;
 				}
@@ -155,6 +148,7 @@ boolean x=luckyFactor();
 }
 
 
+
 public void luckrunAway(Animal animal1,Animal animal2)
 {
 			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
@@ -164,6 +158,17 @@ public void luckrunAway(Animal animal1,Animal animal2)
 			
 }
 
+public void directAtack(Animal animal1,Animal animal2)
+{
+System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
+					System.out.println("Strength before Atack");
+					System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+					System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+					System.out.println(animal1.getAnimalName()+"win");
+					System.out.println("Strength After Atack");
+					System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+					System.out.println(animal2.getAnimalName()+" Dead");
+}
 
 }
 

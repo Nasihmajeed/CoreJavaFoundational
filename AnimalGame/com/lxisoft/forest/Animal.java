@@ -1,7 +1,7 @@
 package com.lxisoft.forest;
 import java.util.*;
 
-public class Animal
+public abstract class Animal
 {
  
  private String animalname;
