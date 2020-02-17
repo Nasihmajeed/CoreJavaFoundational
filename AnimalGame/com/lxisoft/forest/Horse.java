@@ -1,5 +1,11 @@
 package com.lxisoft.forest;
-public class Horse extends Animal implements Herbivores
+import java.util.*;
+public class Horse extends Animal,Herbivores
 {
-	
+	public boolean luckFactor()
+	{
+		Random random = new Random();
+		boolean flag = random.nextBoolean();
+		return flag;
+	}
 }

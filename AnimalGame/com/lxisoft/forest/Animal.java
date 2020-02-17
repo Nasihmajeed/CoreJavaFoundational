@@ -4,7 +4,7 @@ public class Animal
 	private String animalName;
 	private int animalStrength;
 	private boolean isAlive;
-	private boolean isLuck;
+	//private boolean isLuck;
 
 	public void setAnimalName(String name)
 	{
@@ -34,16 +34,6 @@ public class Animal
 	public boolean getIsAlive()
 	{
 		return isAlive;
-	}
-	public void setLuckFactor(boolean luck)
-	{
-		this.isLuck = luck;
-	}
-
-	public boolean getIsLuck()
-	{
-		return isLuck;
-	}
-		
+	}		
 
 }

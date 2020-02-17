@@ -1,5 +1,11 @@
 package  com.lxisoft.forest;
-public class Elephant extends Animal implements Herbivores
+import java.util.*;
+public class Elephant extends Animal,Herbivores
 {
-	
+	public boolean luckFactor()
+	{
+		Random random = new Random();
+		boolean flag = random.nextBoolean();
+		return flag;
+	}
 }
