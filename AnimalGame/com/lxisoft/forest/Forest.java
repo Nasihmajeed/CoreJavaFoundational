@@ -41,9 +41,9 @@ animals.add(new Wolf());
 
 public void setAnimalDetails()
 {
-	animals.get(0).setAnimalName("Lion"); 
-	animals.get(0).setAnimalStrength(8); 
-	animals.get(0).setAlive(true); 
+		animals.get(0).setAnimalName("Lion"); 
+		animals.get(0).setAnimalStrength(8); 
+		animals.get(0).setAlive(true); 
 
 		animals.get(1).setAnimalName("Tiger"); 
 		animals.get(1).setAnimalStrength(7); 
