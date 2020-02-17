@@ -9,7 +9,6 @@ public class Forest
 	static Scanner sc = new Scanner(System.in);
 	ArrayList<Animal> animalList = new ArrayList<Animal>();
 	Game game;
-	Animal animal;
 	public void setForestName(String forestName)
 	{
 		this.forestName = forestName;
@@ -22,7 +21,6 @@ public class Forest
 
 	public void createForest()
 	{
-		animal = new Animal();
 		game  =  new Game();
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
 		System.out.println("-----------------------------------------");

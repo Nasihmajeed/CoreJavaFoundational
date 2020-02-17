@@ -13,163 +13,163 @@ public class Game
 			Random random = new Random();
 			int index = random.nextInt(animalList.size());
 			int randomIndex = random.nextInt(animalList.size());
-			if(animalList.get(index).getIsAlive()==true && animalList.get(randomIndex).getIsAlive()==true)
+			if (animalList.get(index).getIsAlive() == true && animalList.get(randomIndex).getIsAlive() == true) 
+			{
+				if(index!=randomIndex)
 				{
-					if (index!=randomIndex) 
-					{
-						if(animalList.get(index) instanceof Herbivores && animalList.get(randomIndex) instanceof Herbivores)
-						{
-							noFight(animalList,index,randomIndex);
-						}
-						else if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Carnivores) 
-						{
-							animalCount = fightEachOther(animalList,index,randomIndex,animalCount);	
-						}
-						else if(animalList.get(index) instanceof Herbivores && animalList.get(randomIndex) instanceof Carnivores)
-						{
-							animalCount = fightEachOther(animalList,index,randomIndex,animalCount);
-						}
-						else if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Herbivores) 
-						{
-							animalCount = fightEachOther(animalList,index,randomIndex,animalCount);
-						}
-					}
-					else
-					{
-						System.out.println(animalList.get(index).getAnimalName()+" and "+animalList.get(randomIndex).getAnimalName());
-						System.out.println("Same index dont Fight together");
-					}	
+					animalCount = doOrDie(animalList,index,randomIndex,animalCount);
 				}
-				else
-				{
-					animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);	
-				}							
+			}
 		}while(animalCount>1);
-		for(int i=0;i<animalCount;i++)
+		for (int i=0;i<animalList.size();i++ ) 
 		{
 			if(animalList.get(i).getIsAlive() == true)
 			{
-				System.out.println(animalList.get(i).getAnimalName()+" = "+animalList.get(i).getAnimalStrength() +" Survived...");	
-			}
-		}
-		
-	}
-	public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
-	{
-		System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-		System.out.println(animalList.get(index).getAnimalName()+" = "+animalList.get(index).getAnimalStrength());
-		System.out.println(animalList.get(randomIndex).getAnimalName()+" = "+animalList.get(randomIndex).getAnimalStrength());
-		System.out.println(" No Fight");
-		System.out.println(" ");	
-	}	
-	public int fightEachOther(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{	
-		if(animalList.get(index) instanceof Carnivores&&animalList.get(randomIndex) instanceof Carnivores)
-		{
-			if(animalList.get(index).getAnimalStrength() < animalList.get(randomIndex).getAnimalStrength())
-			{
-			System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-			System.out.println("Both Fighting Each Other");
-			System.out.println(animalList.get(randomIndex).getAnimalName() +" Wins");
-			animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);
-			System.out.println(animalList.get(index).getAnimalName()+" = "+animalList.get(index).getAnimalStrength());
-			System.out.println(animalList.get(randomIndex).getAnimalName()+" = "+animalList.get(randomIndex).getAnimalStrength());
-			}
-			else if(animalList.get(index).getAnimalStrength() > animalList.get(randomIndex).getAnimalStrength())
-			{	
-			System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-			System.out.println("Both Fighting Each Other");
-			System.out.println(animalList.get(index).getAnimalName() +" Wins");
-			animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);
-			System.out.println(animalList.get(index).getAnimalName()+" = "+animalList.get(index).getAnimalStrength());
-			System.out.println(animalList.get(randomIndex).getAnimalName()+" = "+animalList.get(randomIndex).getAnimalStrength());
-
+				System.out.println(animalList.get(i).getAnimalName()+" Survived");
 			}	
 		}
-		else if(animalList.get(index) instanceof Herbivores || animalList.get(randomIndex) instanceof Carnivores) 
-		{
-			boolean luck = ((Herbivores)animalList.get(index)).luckFactor();
-			if(animalList.get(index) instanceof Herbivores)
-			{
-				if(luck == true)
-				{
-					ranAway(animalList,index,randomIndex,animalCount);				
-				}
-			}
-			else if(animalList.get(randomIndex) instanceof Carnivores) 
-			{
-				if(luck == true)
-				{
-					ranAway(animalList,index,randomIndex,animalCount);				
-				}
-			}
-		}
-		
-		return animalCount;
-	}
 
-	public  void ranAway (ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{
-		if(animalList.get(index) instanceof Herbivores)
-		{
-			System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-			System.out.println(animalList.get(index).getAnimalName() +" Ran Away");
-		}
-		else if (animalList.get(randomIndex) instanceof Herbivores) 
-		{
-			System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-			System.out.println(animalList.get(randomIndex).getAnimalName() +" Ran Away");	
-		}
 	}
+		public int doOrDie(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+		{
+				if(animalList.get(index) instanceof Herbivores && animalList.get(randomIndex) instanceof Herbivores)
+				{
+					noFight(animalList,index,randomIndex);
+				}
+				else
+				{
+				 	animalCount = fightEachOther(animalList,index,randomIndex,animalCount);
+				}
+			return animalCount;		
+		}
+
+		public int fightEachOther(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+		{	
+			if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Carnivores)
+			{	
+				animalCount = fightBtwSameSpecies(animalList,index,randomIndex,animalCount);
+			}
+			else
+			{
+				animalCount = fightDiffSpecies(animalList,index,randomIndex,animalCount);	
+			}
+			return animalCount;
+		}
 	
-	public int changeEnergyLevel(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{
-		int strength1 = animalList.get(index).getAnimalStrength();
-		int strength2 = animalList.get(randomIndex).getAnimalStrength();
-		if(strength1<=0 )
+		public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
 		{
-			animalList.get(index).setIsAlive(false);
-			animalCount--;
+			System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
+			System.out.println("No Fight");			
 		}
-		else
+		public void ranAway(ArrayList<Animal> animalList,int index,int randomIndex)
 		{
-			strength1 = strength1 - 1;
-			animalList.get(index).setAnimalStrength(strength1);
+			if(animalList.get(index) instanceof Herbivores)
+			{	
+				boolean luck  = luckFactor();
+				if(luck == true)
+				{
+				System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
+				System.out.println(animalList.get(index).getAnimalName()+" Ran away ");		
+				}	
+			}
+			else if(animalList.get(randomIndex) instanceof Herbivores) 
+			{
+				boolean luck = luckFactor();
+				if(luck == true)
+				{
+					System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
+					System.out.println(animalList.get(randomIndex).getAnimalName()+" Ran away ");	
+				}
+			}			
 		}
+		public int fightBtwSameSpecies(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+		{	
+			if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Carnivores)
+			{
+				if(animalList.get(index).getAnimalStrength()>animalList.get(randomIndex).getAnimalStrength())
+				{
+					System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+					System.out.println(animalList.get(index).getAnimalName()+" Wins");
+					animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);
+				}
+				else
+				{
+					System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+					System.out.println(animalList.get(randomIndex).getAnimalName()+" Wins");
+					animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);	
+				}
+			}
+			return animalCount;
+		}
+		public int fightDiffSpecies(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+		{	
+			boolean escape = runAwayLuck();
+			if(escape == true)
+			{
+				ranAway(animalList,index,randomIndex);
+			}
+			else 
+			{
+				suddenKill(animalList,index,randomIndex,animalCount);
+			}
 
-		if(strength2<=0)
+			return animalCount;	
+		}
+		public int changeEnergyLevel(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 		{
-			animalList.get(randomIndex).setIsAlive(false);
-			animalCount--;	
+			int energyOne = animalList.get(index).getAnimalStrength();
+			int energyTwo = animalList.get(randomIndex).getAnimalStrength();
+			if(energyOne<=0)
+			{	
+				animalList.get(index).setIsAlive(false);
+				animalCount--;
+			}
+			else
+			{
+				energyOne =  energyOne - 1;
+				animalList.get(index).setAnimalStrength(energyOne);
+			}
+
+			if(energyTwo<=0)
+			{	
+				animalList.get(randomIndex).setIsAlive(false);
+				animalCount--;
+			}
+			else
+			{
+				energyTwo =  energyTwo - 2;
+				animalList.get(randomIndex).setAnimalStrength(energyTwo);
+			}
+			return animalCount;
 		}
-		else 
+		public int suddenKill(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 		{
-			strength2 = strength2 - 2;
-			animalList.get(randomIndex).setAnimalStrength(strength2);	
+			if(animalList.get(index)instanceof Carnivores && animalList.get(randomIndex).getAnimalStrength()<5)
+			{
+				System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+				System.out.println(animalList.get(index).getAnimalName()+" kills "+animalList.get(randomIndex).getAnimalName());
+				animalList.get(randomIndex).setIsAlive(false);
+				animalCount--;
+			}
+			else if( animalList.get(randomIndex)instanceof Carnivores && animalList.get(index).getAnimalStrength()<5)
+			{
+				System.out.println(animalList.get(index).getAnimalName()+" meets "+animalList.get(randomIndex).getAnimalName());
+				System.out.println(animalList.get(randomIndex).getAnimalName()+" kills "+animalList.get(index).getAnimalName());
+				animalList.get(index).setIsAlive(false);
+				animalCount--;
+			}
+			return animalCount;
 		}
-		return animalCount;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		public boolean runAwayLuck()
+		{
+		Random random = new Random();
+		boolean flag = random.nextBoolean();
+		return flag;
+		}
+		public boolean luckFactor()
+		{	
+		Random random = new Random();
+		boolean flag = random.nextBoolean();
+		return flag;
+		}
+}		
