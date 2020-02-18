@@ -7,6 +7,7 @@ public abstract class Animal
  private String animalname;
  private int animalStrength;
 private boolean isAlive;
+private int x,y;
 public void setAnimalName(String arg)
 {
 	this.animalname=arg;
@@ -37,4 +38,23 @@ public boolean getAlive()
 
 }
 
+public void setxaxis(int x)
+{
+	this.x=x;
+}
+public int getxaxis()
+{
+	return x;
+
+}
+
+public void setyaxis(int y)
+{
+	this.y=y;
+}
+public int getyaxis()
+{
+	return y;
+
+}
 }
