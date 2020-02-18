@@ -47,23 +47,29 @@ public class Forest
 	}
 	public  void createAnimal()
 	{
+		
+
+
 		animalList.add(new Lion());
 		animalList.get(0).setAnimalName("Lion");
 		animalList.get(0).setAnimalStrength(9);
 
+		
 		animalList.add(new Elephant());
 		animalList.get(1).setAnimalName("Elephant");
 		animalList.get(1).setAnimalStrength(10);
-
+		
 		animalList.add(new Bear());
 		animalList.get(2).setAnimalName("Bear");
 		animalList.get(2).setAnimalStrength(7);
+		
 		
 		animalList.add(new Rabbit());
 		animalList.get(3).setAnimalName("Rabbit");
 		animalList.get(3).setAnimalStrength(3);
 
-		animalList.add(new Fox());
+		
+		animalList.add(new Fox());	
 		animalList.get(4).setAnimalName("Fox");
 		animalList.get(4).setAnimalStrength(6);
 
@@ -106,6 +112,14 @@ public class Forest
 		for(int i = 0;i<animalList.size();i++)
 		{
 			animalList.get(i).setIsAlive(true);	
+		}
+		for (int i=0;i<animalList.size();i++) 
+		{
+			Random random = new Random();
+			int x = random.nextInt(50);
+			int y = random.nextInt(50);
+			animalList.get(i).setX(x);
+			animalList.get(i).setY(y);
 		}
 	}
 }
