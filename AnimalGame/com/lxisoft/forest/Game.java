@@ -2,6 +2,7 @@ package com.lxisoft.forest;
 import com.lxisoft.forest.*;
 import java.util.*;
 import java.util.Random;
+import java.lang.Math;
 public class Game
 {
 	public void playGame(ArrayList<Animal> animalList)
@@ -23,39 +24,6 @@ public class Game
 		}while(animalCount>1);
 		printSurvivedAnimal(animalList);
 	}
-	public void checkCoordinate(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{
-		if(animalList.get(index) instanceof Herbivores && animalList.get(index) instanceof Carnivores)
-		{
-
-		}
-		else if(animalList.get(index) instanceof Carnivores && animalList.get(index) instanceof Herbivores)
-		{
-
-		}	
-	}
-	public void distBtwCoordinate(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{
-		if(animalList.get(index) instanceof Herbivores)
-		{
-			int x = animalList.get(index).getX();
-			int y = animalList.get(index).getY();
-
-		}
-	}
-	public void checkDistnce(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
-	{
-	}
-	public void printSurvivedAnimal(ArrayList<Animal> animalList)
-	{
-		for (int i=0;i<animalList.size();i++ ) 
-		{
-			if(animalList.get(i).getIsAlive() == true)
-			{
-				System.out.println(animalList.get(i).getAnimalName()+" Survived");
-			}	
-		}
-	}
 	public int doOrDie(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
 		if(animalList.get(index) instanceof Herbivores && animalList.get(randomIndex) instanceof Herbivores)
@@ -68,23 +36,87 @@ public class Game
 		}
 		return animalCount;		
 	}
-	public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
-	{
-		System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
-		System.out.println("No Fight");		
-	}
 	public int fightEachOther(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{	
 		if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Carnivores)
 		{	
-			animalCount = fightBtwSameSpecies(animalList,index,randomIndex,animalCount);
+			animalCount = checkCoordinate(animalList,index,randomIndex,animalCount);
+			//animalCount = fightBtwSameSpecies(animalList,index,randomIndex,animalCount);
 		}
 		else
 		{
-			animalCount = fightBtwDiffSpecies(animalList,index,randomIndex,animalCount);	
+			animalCount = checkCoordinate(animalList,index,randomIndex,animalCount);
+			//animalCount = fightBtwDiffSpecies(animalList,index,randomIndex,animalCount);	
 		}
 		return animalCount;
 	}
+
+
+
+
+	public int checkCoordinate(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+	{
+		if(animalList.get(index) instanceof Carnivores)
+		{
+			animalCount = distBtwCoordinate(animalList,index,randomIndex,animalCount);
+		}
+		else if(animalList.get(randomIndex) instanceof Carnivores)
+		{
+			animalCount = distBtwCoordinate(animalList,index,randomIndex,animalCount);
+		}	
+		return animalCount;
+	}
+	public int distBtwCoordinate(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+	{	
+		if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Herbivores)
+		{	
+			int distance = calculateDistnce(animalList,index,randomIndex,animalCount);
+			if(distance<20 )
+			{
+				animalCount = fightBtwDiffSpecies(animalList,index,randomIndex,animalCount);	
+			}
+		}
+		else if(animalList.get(index) instanceof Herbivores && animalList.get(randomIndex) instanceof Carnivores) 
+		{
+			int distance = calculateDistnce(animalList,index,randomIndex,animalCount);
+			if(distance<20)
+			{
+				animalCount = fightBtwDiffSpecies(animalList,index,randomIndex,animalCount);	
+			}
+		}
+		else
+		{
+			animalCount = fightBtwSameSpecies(animalList,index,randomIndex,animalCount);		
+		}
+		return animalCount;
+	}
+	public int calculateDistnce(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+	{
+		int x1 = animalList.get(index).getX();
+		int y1 = animalList.get(index).getY();
+		int x2 = animalList.get(randomIndex).getX();
+		int y2 = animalList.get(randomIndex).getY();
+		int newX = x2-x1;
+		int newY = y2-y1;
+		int distance = (int)Math.sqrt((int)Math.pow(newX,2)+(int)Math.pow(newY,2));
+		System.out.println("Distance Between "+animalList.get(index).getAnimalName()+" & "+animalList.get(randomIndex).getAnimalName()+" = "+distance);	
+		return distance;
+	}
+	public void printSurvivedAnimal(ArrayList<Animal> animalList)
+	{
+		for (int i=0;i<animalList.size();i++ ) 
+		{
+			if(animalList.get(i).getIsAlive() == true)
+			{
+				System.out.println(animalList.get(i).getAnimalName()+" Survived");
+			}	
+		}
+	}
+	public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
+	{
+		System.out.println(animalList.get(index).getAnimalName()+" Meets "+animalList.get(randomIndex).getAnimalName());
+		System.out.println("No Fight");		
+	}	
 	public int fightBtwSameSpecies(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{	
 		if(animalList.get(index) instanceof Carnivores && animalList.get(randomIndex) instanceof Carnivores)
