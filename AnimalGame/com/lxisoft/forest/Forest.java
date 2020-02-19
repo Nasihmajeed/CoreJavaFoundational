@@ -113,13 +113,13 @@ public class Forest
 		{
 			animalList.get(i).setIsAlive(true);	
 		}
-		for (int i=0;i<animalList.size();i++) 
-		{
-			Random random = new Random();
-			int x = random.nextInt(50);
-			int y = random.nextInt(50);
-			animalList.get(i).setX(x);
-			animalList.get(i).setY(y);
-		}
+		// for (int i=0;i<animalList.size();i++) 
+		// {
+		// 	Random random = new Random();
+		// 	int x = random.nextInt(50);
+		// 	int y = random.nextInt(50);
+		// 	animalList.get(i).setX(x);
+		// 	animalList.get(i).setY(y);
+		// }
 	}
 }
