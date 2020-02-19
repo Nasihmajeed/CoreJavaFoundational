@@ -9,7 +9,8 @@ public class Game
 	{
 		Area area=new Area();
 		int temp=animals.size();
-		System.out.println("\n\nYou Entered in to Game\n\n");
+		System.out.println("\n\nYou Entered in to Game");
+		System.out.println("\n________________________\n\n");
 
 	do{
 		int randomNumber = objGenerator.nextInt(5); 
@@ -27,7 +28,7 @@ public class Game
 				if(distance<20)
 				{
 				temp =checkStrength(animals.get(randomNumber),animals.get(random),temp);
-					System.out.println(temp+"Temp");
+					System.out.println("\n**********\n\n");
 				}
 			}
 		}	
@@ -38,7 +39,7 @@ public class Game
 		{
 		if(animals.get(i).getAlive()==true)
 		{
-			System.out.println(animals.get(i).getAnimalName()+" is Alive");	
+			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");	
 		}
 		}
 
@@ -179,3 +180,5 @@ public void luckrunAway(Animal animal1,Animal animal2)
 }
 
 }
+
+
