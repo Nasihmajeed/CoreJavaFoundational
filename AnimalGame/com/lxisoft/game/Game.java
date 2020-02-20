@@ -86,7 +86,18 @@ return result;
 			}
 			else if(animal1 instanceof  Carnivores||animal2 instanceof  Carnivores)
 			{
-				temp =fight(animal1,animal2,temp);
+				if(animal1.getAnimalStrength()>animal2.getAnimalStrength())
+				{
+					temp =fight(animal1,animal2,temp);	
+				}
+				else if(animal1.getAnimalStrength()<animal2.getAnimalStrength())
+				{
+					temp =fight(animal2,animal1,temp);
+				}
+				else
+				{
+					temp =fight(animal2,animal1,temp);	
+				}
 			}
 				return temp;
      	}
@@ -125,24 +136,18 @@ boolean x=luckyFactor();
 			else
 			{
 				if((animal2 instanceof Herbivores)&&(animal2.getAnimalStrength()<5))
-				{
+					{
 					directAtack(animal1,animal2);
 					animal2.setAlive(false);
 					temp--;
-				}
-
+					}
+				
 				else
 				{
-				System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
-				System.out.println("Strength before Atack");
-				System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-				System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-				temp=changeStrength(animal2,animal1,temp);
-				System.out.println(animal1.getAnimalName()+"win");
-										System.out.println("Strength After Atack");
-				System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-				System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+					temp=win(animal1,animal2,temp);
 				}
+				
+				
 			}
 			return temp;
 
@@ -178,7 +183,20 @@ public void luckrunAway(Animal animal1,Animal animal2)
 		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	}		
 }
-
+public int win(Animal animal1,Animal animal2,int temp) 
+	{
+		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
+		System.out.println("Strength before Atack");
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		temp=changeStrength(animal2,animal1,temp);
+		System.out.println(animal1.getAnimalName()+"win");
+				System.out.println("Strength After Atack");
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+	
+		return temp;
+	}
 }
 
 
