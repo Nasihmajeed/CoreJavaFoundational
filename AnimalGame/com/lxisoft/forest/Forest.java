@@ -1,4 +1,5 @@
 package com.lxisoft.forest;
+import java.io.*;
 import com.lxisoft.forest.*;
 import java.util.ArrayList;
 import java.util.*;
@@ -33,17 +34,25 @@ public class Forest
 
 	public void  startGame()
 	{
-		int choice;
-		System.out.println("\n\t1.Start\n\t2.Stop\n\tEnter Ur Choice::\t");
-		choice = sc.nextInt();
-		if (choice == 1) 
+		try
 		{
-			game.playGame(animalList);
+			int choice;
+			System.out.println("\n\t1.Start\n\t2.Stop\n\tEnter Ur Choice::\t");
+			choice = sc.nextInt();
+			if (choice == 1) 
+			{
+				game.playGame(animalList);
+			}
+			else if (choice == 2) 
+			{
+				System.exit(0);	
+			}
 		}
-		else if (choice == 2) 
+		catch(InputMismatchException e)
 		{
-			System.exit(0);	
+			System.out.println(e);
 		}
+		
 	}
 	public  void createAnimal()
 	{
