@@ -22,8 +22,20 @@ public class Game
 					animalCount = checkInstanceOfAnimal(animalList,index,randomIndex,animalCount);
 				}
 			}
+			else
+			{
+				try
+				{
+					throw new MyException("Both aanimal are Not Alive");	
+				}
+				catch(MyException e)
+				{
+					System.out.println("Caught");
+				}	
+			}
+			
 		}while(animalCount>1);
-		printSurvivedAnimal(animalList);
+		printSurvivedAnimal(animalList,animalCount);
 	}
 	public void randomCoordinates(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
@@ -47,8 +59,7 @@ public class Game
 		else
 		{
 			animalCount = herbivoresVsCarnivores(animalList,index,randomIndex,animalCount);
-			//printInitialEnergyLevel(animalList,index,randomIndex);
-			
+			//printInitialEnergyLevel(animalList,index,randomIndex);	
 		}
 		return animalCount;
 	}
@@ -205,7 +216,7 @@ public class Game
 			System.out.println(animalList.get(index).getAnimalName() + " Vs  "+ animalList.get(randomIndex).getAnimalName());
 			System.out.println(animalList.get(randomIndex).getAnimalName() + " Wins ");
 			animalCount =  changeEnergyLevel(animalList,index,randomIndex,animalCount);
-			printNewEnergyLevel(animalList,index,randomIndex);	
+			printNewEnergyLevel(animalList,index,randomIndex);
 		}
 		return animalCount;
 	}
@@ -253,7 +264,7 @@ public class Game
 			}
 			return animalCount;	
 	}			
-	public void printSurvivedAnimal(ArrayList<Animal> animalList)
+	public void printSurvivedAnimal(ArrayList<Animal> animalList,int animalCount)
 	{
 		for (int i=0;i<animalList.size();i++) 
 		{
@@ -261,6 +272,16 @@ public class Game
 			{
 				System.out.println(animalList.get(i).getAnimalName()+" Survived");
 			}	
+
+		}
+		if(animalCount==0)		
+		try
+		{
+			throw new MyException("No Animal Survived");	
+		}
+		catch(MyException e)
+		{
+			System.out.println("Caught");
 		}
 	}
 	public int calculateDistance(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
@@ -281,11 +302,15 @@ public class Game
 		{
 			if(animalList.get(index).getAnimalStrength()>animalList.get(randomIndex).getAnimalStrength())
 			{
+				printInitialEnergyLevel(animalList,index,randomIndex);
 				animalCount = animalOneOfGreaterStrength(animalList,index,randomIndex,animalCount);
+				printNewEnergyLevel(animalList,index,randomIndex);
 			}
 			else
 			{
+				printInitialEnergyLevel(animalList,index,randomIndex);
 				animalCount = animaltwoOfGreaterStrength(animalList,index,randomIndex,animalCount);
+				printNewEnergyLevel(animalList,index,randomIndex);
 			}
 		}
 		return animalCount;
