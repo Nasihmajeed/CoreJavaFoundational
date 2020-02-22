@@ -41,6 +41,19 @@ public class Game
 		{
 			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");	
 		}
+
+		}
+		if(temp==0)
+		{
+			try
+			{
+			throw new MyException("NO Animal Survived");	
+			}
+			catch(MyException e)
+			{
+				System.out.println("Exception caught  "+e);
+			}
+
 		}
 
 	}

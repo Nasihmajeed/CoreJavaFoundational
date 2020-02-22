@@ -1,6 +1,7 @@
 package com.lxisoft.forest;
 import com.lxisoft.game.*;
 import java.util.*;
+import java.io.*;
 import com.lxisoft.forest.*;
 public class Forest
 {
@@ -17,8 +18,11 @@ public void createForest()
 		creatAnimal();
 
 		setAnimalDetails();
+		try
+		{
 		area.setAnimalPosition(animals);
 		int temp=playGame();
+		
 		if(temp==0)
 		{
 			System.out.println("Exited");
@@ -28,7 +32,12 @@ public void createForest()
 			game=new Game();
 			game.startGame(animals);
 		}
+	}
+	catch(Exception in)
+	{
+	System.out.println("**********"+in); 
 
+	}
 			
 	}
 public void creatAnimal()
