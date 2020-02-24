@@ -1,4 +1,4 @@
-package com.lxisoft.forest;
+package com.lxisoft.game;
 public class MyException extends Exception
 {
 public  MyException(String ar)

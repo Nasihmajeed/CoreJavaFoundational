@@ -5,13 +5,14 @@ import com.lxisoft.forest.*;
 public class Game
 {
 	Random objGenerator = new Random();
+	static Scanner input =new Scanner(System.in);
 	public void startGame(ArrayList<Animal> animals)
 	{
 		Area area=new Area();
 		int temp=animals.size();
 		System.out.println("\n\nYou Entered in to Game");
 		System.out.println("\n________________________\n\n");
-
+		GameLevel();
 	do{
 		int randomNumber = objGenerator.nextInt(5); 
 		int random=objGenerator.nextInt(5);
@@ -210,6 +211,38 @@ public int win(Animal animal1,Animal animal2,int temp)
 	
 		return temp;
 	}
+
+public void GameLevel()
+{
+	System.out.print("\n1.Low Level\n2.Medium Level\n3.Hard Level\n\n Enter Your Choise :");
+	int choise=input.nextInt();
+	Level level;
+	switch(choise)
+	{
+		
+		case 1:
+		level = Level.LOW; 
+        System.out.println("You Selected "+level+"Level"); 
+		break;
+		case 2:
+		 level = Level.NORMAL; 
+
+        System.out.println("You Selected "+level+"Level"); 
+		break;
+		case 3:
+		level = Level.HARD; 
+        System.out.println("You Selected "+level+"Level"); 
+		break;
+		default:
+		System.out.println("PLease Select a LEvel ....."); 
+		break;        
+	}
+}
+
+
+
+
+
 }
 
 
