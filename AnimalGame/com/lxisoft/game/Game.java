@@ -5,8 +5,7 @@ import java.util.Random;
 import java.lang.Math;
 public class Game
 {
-	private int energyOfOne;
-	private int energyOfTwo;
+	EnergyLevel energyLevel = new EnergyLevel();
 	static Random random = new Random();
 	public void playGame(ArrayList<Animal> animalList)
 	{		  
@@ -24,19 +23,7 @@ public class Game
 				{
 					animalCount = checkInstanceOfAnimal(animalList,index,randomIndex,animalCount);
 				}
-			}
-			else
-			{
-				try
-				{
-					throw new MyException("Both aanimal are Not Alive");	
-				}
-				catch(MyException e)
-				{
-					System.out.println("Caught");
-				}	
-			}
-			
+			}	
 		}while(animalCount>1);
 		printSurvivedAnimal(animalList,animalCount);
 	}
@@ -52,17 +39,14 @@ public class Game
 		if(animalList.get(index) instanceof  Herbivores && animalList.get(randomIndex) instanceof  Herbivores)
 		{
 			herbivoresVsHerbivores(animalList,index,randomIndex,animalCount);
-			//printInitialEnergyLevel(animalList,index,randomIndex);					
 		}
 		else if(animalList.get(index) instanceof  Carnivores && animalList.get(randomIndex) instanceof  Carnivores)
 		{
-			animalCount = carnivoresVsCarnivores(animalList,index,randomIndex,animalCount);
-			//printInitialEnergyLevel(animalList,index,randomIndex);									
+			animalCount = carnivoresVsCarnivores(animalList,index,randomIndex,animalCount);									
 		}
 		else
 		{
 			animalCount = herbivoresVsCarnivores(animalList,index,randomIndex,animalCount);
-			//printInitialEnergyLevel(animalList,index,randomIndex);	
 		}
 		return animalCount;
 	}
@@ -90,7 +74,7 @@ public class Game
 	public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
 		System.out.println(animalList.get(index).getAnimalName()+" Vs "+animalList.get(randomIndex).getAnimalName());
-		System.out.println("No Fight");		
+		System.out.println("No Fight\n");		
 	}
 	public int checkAnimalRegion(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
@@ -187,19 +171,19 @@ public class Game
 	}
 	public void escape(ArrayList<Animal> animalList,int index)
 	{	
-		System.out.println(animalList.get(index).getAnimalName()+" RanAway");		
+		System.out.println(animalList.get(index).getAnimalName()+" RanAway\n");		
 	}
 	public int directAttack(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
 		if(animalList.get(index) instanceof Herbivores)
 		{	
-			System.out.println(animalList.get(index).getAnimalName()+" Directly killed ");
+			System.out.println(animalList.get(index).getAnimalName()+" Directly killed\n");
 			animalList.get(index).setIsAlive(false);
 			animalCount--;	
 		}	
 		else if (animalList.get(randomIndex) instanceof Herbivores) 
 		{
-			System.out.println(animalList.get(randomIndex).getAnimalName()+" Directly killed ");
+			System.out.println(animalList.get(randomIndex).getAnimalName()+" Directly killed\n");
 			animalList.get(randomIndex).setIsAlive(false);
 			animalCount--;
 		}
@@ -211,6 +195,7 @@ public class Game
 		{
 			System.out.println(animalList.get(index).getAnimalName() + " Vs  "+ animalList.get(randomIndex).getAnimalName());
 			System.out.println(animalList.get(index).getAnimalName() + " Wins ");
+			printInitialEnergyLevel(animalList,index,randomIndex);
 			animalCount =  changeEnergyLevel(animalList,index,randomIndex,animalCount);
 			printNewEnergyLevel(animalList,index,randomIndex);
 		}
@@ -218,6 +203,7 @@ public class Game
 		{
 			System.out.println(animalList.get(index).getAnimalName() + " Vs  "+ animalList.get(randomIndex).getAnimalName());
 			System.out.println(animalList.get(randomIndex).getAnimalName() + " Wins ");
+			printInitialEnergyLevel(animalList,index,randomIndex);
 			animalCount =  changeEnergyLevel(animalList,index,randomIndex,animalCount);
 			printNewEnergyLevel(animalList,index,randomIndex);
 		}
@@ -240,14 +226,14 @@ public class Game
 	public int animalOneEnergy(ArrayList<Animal> animalList,int index,int animalCount)
 	{	
 			int energyOne = animalList.get(index).getAnimalStrength();
-			if(energyOne<1)
+			if(energyOne<0)
 			{	
 			animalList.get(index).setIsAlive(false);
 			animalCount--;
 			}
 			else
 			{
-			energyOne = energyOne - energyOfOne;
+			energyOne = energyOne - energyLevel.getEnergyParamOfOne();
 			animalList.get(index).setAnimalStrength(energyOne);
 			}	
 			return animalCount;
@@ -255,14 +241,14 @@ public class Game
 	public int animalTwoEnergy(ArrayList<Animal> animalList,int randomIndex,int animalCount)
 	{
 			int energyTwo = animalList.get(randomIndex).getAnimalStrength();
-			if(energyTwo<1)
+			if(energyTwo<0)
 			{	
 			animalList.get(randomIndex).setIsAlive(false);
 			animalCount--;
 			}
 			else
 			{
-			energyTwo =  energyTwo - energyOfTwo;
+			energyTwo =  energyTwo - energyLevel.getEnergyParamOfTwo();
 			animalList.get(randomIndex).setAnimalStrength(energyTwo);
 			}
 			return animalCount;	
@@ -275,7 +261,6 @@ public class Game
 			{
 				System.out.println(animalList.get(i).getAnimalName()+" Survived");
 			}	
-
 		}
 		if(animalCount==0)		
 		try
@@ -323,7 +308,6 @@ public class Game
 		System.out.println(animalList.get(index).getAnimalName()+" Vs "+animalList.get(randomIndex).getAnimalName());
 		System.out.println(animalList.get(index).getAnimalName()+" Wins");
 		animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);
-		//printNewEnergyLevel(animalList,index,randomIndex);
 		return animalCount;
 	}
 	public int animaltwoOfGreaterStrength(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
@@ -331,7 +315,6 @@ public class Game
 		System.out.println(animalList.get(index).getAnimalName()+" Vs "+animalList.get(randomIndex).getAnimalName());
 		System.out.println(animalList.get(randomIndex).getAnimalName()+" Wins");
 		animalCount = changeEnergyLevel(animalList,index,randomIndex,animalCount);
-		//printNewEnergyLevel(animalList,index,randomIndex);
 		return animalCount;
 	}
 	public void printInitialEnergyLevel(ArrayList<Animal> animalList,int index,int randomIndex)
@@ -358,38 +341,29 @@ public class Game
 	{
 		GameLevel level;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\n\t1.LOW\n\t2.MEDIUM\n\t3.HIGH\n\tEnter Ur Choice::\t");
+		System.out.println("\n\t1.LOW\n\t2.MEDIUM\n\t3.HARD\n\tEnter Ur Choice::\t");
 		int ch = sc.nextInt();
 		switch (ch) 
 		{
 			case 1:	
 					level = GameLevel.LOW;
 					System.out.println("Level = "+level);
-					setEnergyParamOfOne(1);
-					setEnergyParamOfTwo(1);
+					energyLevel.setEnergyParamOfOne(1);
+					energyLevel.setEnergyParamOfTwo(1);
 					break;
 			case 2:	
 					level = GameLevel.MEDIUM;
 					System.out.println("Level = "+level);
-					setEnergyParamOfOne(2);
-					setEnergyParamOfTwo(1);
+					energyLevel.setEnergyParamOfOne(2);
+					energyLevel.setEnergyParamOfTwo(1);
 					break;
 			case 3:	
 					level = GameLevel.HARD;
 					System.out.println("Level = "+level);
-					setEnergyParamOfOne(3);
-					setEnergyParamOfTwo(3);
+					energyLevel.setEnergyParamOfOne(3);
+					energyLevel.setEnergyParamOfTwo(3);
 					break;
 			default:System.out.println("Invalid Choice");
-		}
-		
-	}
-	public void setEnergyParamOfOne(int x)
-	{
-		this.energyOfOne = x;
-	}
-	public void setEnergyParamOfTwo(int y)
-	{
-		this.energyOfTwo = y;
+		}	
 	}
 }	
