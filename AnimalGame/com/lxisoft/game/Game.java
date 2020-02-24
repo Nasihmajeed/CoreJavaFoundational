@@ -4,6 +4,8 @@ import java.lang.*;
 import com.lxisoft.forest.*;
 public class Game
 {
+
+	private int energyLevel1,energyLevel2;
 	Random objGenerator = new Random();
 	static Scanner input =new Scanner(System.in);
 	public void startGame(ArrayList<Animal> animals)
@@ -68,14 +70,14 @@ public int changeStrength(Animal animala,Animal animalb,int temp)
 	{	animala.setAlive(false);
 		temp--;	}
 	else
-	{	x=x-2;	}
+	{	x=x-energyLevel1;	}
 	animala.setAnimalStrength(x);
 	int y=animalb.getAnimalStrength();
 	if(y<=0)
 	{	animalb.setAlive(false);
 		temp--;	}
 	else
-	{	y=y-1;	}
+	{	y=y-energyLevel2;	}
 
 	animalb.setAnimalStrength(y);
 return temp;
@@ -223,24 +225,34 @@ public void GameLevel()
 		case 1:
 		level = Level.LOW; 
         System.out.println("You Selected "+level+"Level"); 
+        setEnergy1(3);
+        setEnergy2(2);
 		break;
 		case 2:
 		 level = Level.NORMAL; 
-
         System.out.println("You Selected "+level+"Level"); 
+        setEnergy1(2);
+        setEnergy2(1);
 		break;
 		case 3:
 		level = Level.HARD; 
-        System.out.println("You Selected "+level+"Level"); 
+        System.out.println("You Selected "+level+"Level");
+         setEnergy1(1);
+        setEnergy2(0); 
 		break;
 		default:
 		System.out.println("PLease Select a LEvel ....."); 
 		break;        
 	}
 }
-
-
-
+public void setEnergy1(int x)
+{
+	this.energyLevel1=x;
+}
+public void setEnergy2(int x)
+{
+	this.energyLevel2=x;
+}
 
 
 }
