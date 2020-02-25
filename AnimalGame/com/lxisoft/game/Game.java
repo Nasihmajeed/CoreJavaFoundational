@@ -26,7 +26,7 @@ public class Game
 						animalCount = checkInstanceOfAnimal(animalList,index,randomIndex,animalCount);
 				}
 			}	
-			System.out.println("ANIMAL COUNT==="+animalCount);
+			//System.out.println("ANIMAL COUNT==="+animalCount);
 		}while(animalCount>1);
 		printSurvivedAnimal(animalList,animalCount);
 	}
@@ -348,26 +348,29 @@ public class Game
 		int ch = sc.nextInt();
 		switch (ch) 
 		{
-			case 1:	
-					level = GameLevel.LOW;
-					System.out.println("Level = "+level);
-					energyLevel.setEnergyParamOfOne(1);
-					energyLevel.setEnergyParamOfTwo(1);
-					break;
-			case 2:	
-					level = GameLevel.MEDIUM;
-					System.out.println("Level = "+level);
-					energyLevel.setEnergyParamOfOne(2);
-					energyLevel.setEnergyParamOfTwo(1);
-					break;
-			case 3:	
-					level = GameLevel.HARD;
-					System.out.println("Level = "+level);
-					energyLevel.setEnergyParamOfOne(3);
-					energyLevel.setEnergyParamOfTwo(3);
-					break;
+			case 1:	low(GameLevel.LOW);break;
+			case 2:	medium(GameLevel.MEDIUM);break;
+			case 3:	hard(GameLevel.HARD);break;
 			default:System.out.println("Invalid Choice");
 		}	
+	}
+	public void low(GameLevel level)
+	{
+		System.out.println("Level = "+level);
+		energyLevel.setEnergyParamOfOne(1);
+		energyLevel.setEnergyParamOfTwo(1);
+	}
+	public void medium(GameLevel level)
+	{
+		System.out.println("Level = "+level);
+		energyLevel.setEnergyParamOfOne(2);
+		energyLevel.setEnergyParamOfTwo(1);
+	}
+	public void hard(GameLevel level)
+	{
+		System.out.println("Level = "+level);
+		energyLevel.setEnergyParamOfOne(3);
+		energyLevel.setEnergyParamOfTwo(3);
 	}
 	public void nameOfAnimal()
 	{		
@@ -385,7 +388,6 @@ public class Game
 		catch(IOException e)
 		{
 			System.out.println(e);
-		}
-		
+		}	
 	}
 }	
