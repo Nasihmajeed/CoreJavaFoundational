@@ -49,6 +49,11 @@ animals.add(new Tiger());
 animals.add(new Rabbit());
 animals.add(new Elephant());
 animals.add(new Wolf());
+animals.add(new Lion()); 
+animals.add(new Tiger()); 
+animals.add(new Rabbit());
+animals.add(new Elephant());
+animals.add(new Wolf());
 	}
 catch(Exception ex)
 {
@@ -77,7 +82,27 @@ public void setAnimalDetails()
 		
 		animals.get(4).setAnimalName("Wolf"); 
 		animals.get(4).setAnimalStrength(6);
-		animals.get(4).setAlive (true);  
+		animals.get(4).setAlive (true);
+
+		animals.get(5).setAnimalName("Lion2"); 
+		animals.get(5).setAnimalStrength(8); 
+		animals.get(5).setAlive(true); 
+	
+		animals.get(6).setAnimalName("Tiger2"); 
+		animals.get(6).setAnimalStrength(7); 
+		animals.get(6).setAlive (true); 
+		
+		animals.get(7).setAnimalName("Rabbit2"); 
+		animals.get(7).setAnimalStrength(4); 
+		animals.get(7).setAlive (true); 
+		
+		animals.get(8).setAnimalName("Elephant2"); 
+		animals.get(8).setAnimalStrength(9);
+		animals.get(8).setAlive (true);  
+		
+		animals.get(9).setAnimalName("Wolf2"); 
+		animals.get(9).setAnimalStrength(6);
+		animals.get(9).setAlive (true);    
 		
 }
 

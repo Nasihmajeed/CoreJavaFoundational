@@ -68,7 +68,7 @@ public class Game
 
 		}
 
-	}
+	
 
 
 
@@ -92,6 +92,19 @@ public int changeStrength(Animal animala,Animal animalb,int temp)
 return temp;
 }
 
+public int changeAlive(Animal animala,Animal animalb,int temp)
+{
+	int x=animala.getAnimalStrength();
+	if(x<=0)
+	{	animala.setAlive(false);
+		temp--;	}
+	
+	if(y<=0)
+	{	animalb.setAlive(false);
+		temp--;	}
+	
+return temp;
+}
 public int checkDistance(Animal animal1,Animal animal2)
 {
 int a=animal1.getxaxis();
@@ -185,7 +198,7 @@ public void directAtack(Animal animal1,Animal animal2)
 	System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 	System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	System.out.println(animal1.getAnimalName()+"win");
-	//System.out.println("Strength After Atack");
+	System.out.println("Strength After Atack");
 	System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 	System.out.println(animal2.getAnimalName()+" Dead");
 }
@@ -197,29 +210,29 @@ public void luckrunAway(Animal animal1,Animal animal2)
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println(animal2.getAnimalName()+" Runned Away By Luck Factor");
-		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	}
 	else
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println(animal1.getAnimalName()+" Runned Away By Luck Factor");
-		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	}		
 }
 public int win(Animal animal1,Animal animal2,int temp) 
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println("Strength before Atack");
-		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 		temp=changeStrength(animal2,animal1,temp);
 		System.out.println(animal1.getAnimalName()+"win");
 				System.out.println("Strength After Atack");
-		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-	
+		 System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		 System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+	temp=changeAlive(animal2,animal1,temp);
 		return temp;
 	}
 
@@ -264,6 +277,6 @@ public void GameLevel()
 }
 
 
-}
+
 
 
