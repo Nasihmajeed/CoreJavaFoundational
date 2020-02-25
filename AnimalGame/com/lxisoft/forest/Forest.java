@@ -19,21 +19,22 @@ public class Forest
 	{
 		return forestName;
 	}
-
-
 	public void createForest()
 	{
 		game  =  new Game();
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
-		System.out.println("-----------------------------------------");
-		
+		System.out.println("-----------------------------------------");	
 		createAnimal();
-
-		startGame();
-		
+		try
+		{
+			startGame();	
+		}
+		catch(NoSuchMethodException e)
+		{
+			System.out.println(e);
+		}
 	}
-
-	public void  startGame()
+	public void  startGame() throws NoSuchMethodException	
 	{
 		try
 		{
@@ -42,7 +43,7 @@ public class Forest
 			choice = sc.nextInt();
 			if (choice == 1) 
 			{
-				game.playGame(animalList);
+				game.playGame(animalList); 
 			}
 			else if (choice == 2) 
 			{

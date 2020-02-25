@@ -1,6 +1,7 @@
 package com.lxisoft.game;
 import com.lxisoft.forest.*;
 import java.util.*;
+import java.io.*;
 import java.util.Random;
 import java.lang.Math;
 public class Game
@@ -12,6 +13,7 @@ public class Game
 		System.out.println("\t\tGAME STARTS");
 		int animalCount = animalList.size();
 		gameLevel();
+		nameOfAnimal();
 		do
 		{	
 			int index = random.nextInt(animalList.size());
@@ -21,9 +23,10 @@ public class Game
 			{
 				if(index != randomIndex)
 				{
-					animalCount = checkInstanceOfAnimal(animalList,index,randomIndex,animalCount);
+						animalCount = checkInstanceOfAnimal(animalList,index,randomIndex,animalCount);
 				}
 			}	
+			System.out.println("ANIMAL COUNT==="+animalCount);
 		}while(animalCount>1);
 		printSurvivedAnimal(animalList,animalCount);
 	}
@@ -197,7 +200,7 @@ public class Game
 			System.out.println(animalList.get(index).getAnimalName() + " Wins ");
 			printInitialEnergyLevel(animalList,index,randomIndex);
 			animalCount =  changeEnergyLevel(animalList,index,randomIndex,animalCount);
-			printNewEnergyLevel(animalList,index,randomIndex);
+			//printNewEnergyLevel(animalList,index,randomIndex);
 		}
 		else if (animalList.get(randomIndex) instanceof Carnivores) 
 		{
@@ -205,7 +208,7 @@ public class Game
 			System.out.println(animalList.get(randomIndex).getAnimalName() + " Wins ");
 			printInitialEnergyLevel(animalList,index,randomIndex);
 			animalCount =  changeEnergyLevel(animalList,index,randomIndex,animalCount);
-			printNewEnergyLevel(animalList,index,randomIndex);
+			//printNewEnergyLevel(animalList,index,randomIndex);
 		}
 		return animalCount;
 	}
@@ -226,7 +229,7 @@ public class Game
 	public int animalOneEnergy(ArrayList<Animal> animalList,int index,int animalCount)
 	{	
 			int energyOne = animalList.get(index).getAnimalStrength();
-			if(energyOne<0)
+			if(energyOne<1)
 			{	
 			animalList.get(index).setIsAlive(false);
 			animalCount--;
@@ -241,7 +244,7 @@ public class Game
 	public int animalTwoEnergy(ArrayList<Animal> animalList,int randomIndex,int animalCount)
 	{
 			int energyTwo = animalList.get(randomIndex).getAnimalStrength();
-			if(energyTwo<0)
+			if(energyTwo<1)
 			{	
 			animalList.get(randomIndex).setIsAlive(false);
 			animalCount--;
@@ -292,13 +295,13 @@ public class Game
 			{
 				printInitialEnergyLevel(animalList,index,randomIndex);
 				animalCount = animalOneOfGreaterStrength(animalList,index,randomIndex,animalCount);
-				printNewEnergyLevel(animalList,index,randomIndex);
+				//printNewEnergyLevel(animalList,index,randomIndex);
 			}
 			else
 			{
 				printInitialEnergyLevel(animalList,index,randomIndex);
 				animalCount = animaltwoOfGreaterStrength(animalList,index,randomIndex,animalCount);
-				printNewEnergyLevel(animalList,index,randomIndex);
+				//printNewEnergyLevel(animalList,index,randomIndex);
 			}
 		}
 		return animalCount;
@@ -365,5 +368,24 @@ public class Game
 					break;
 			default:System.out.println("Invalid Choice");
 		}	
+	}
+	public void nameOfAnimal()
+	{		
+		int a;
+		try
+		{
+			File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v3.0.1//com//lxisoft//forest//Animal.txt");
+			FileReader filereader = new FileReader(file);
+			System.out.println("Animals In The Forest");
+			while((a=filereader.read())!=-1)
+			{
+				System.out.print((char)a);
+			}	
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		
 	}
 }	

@@ -1,0 +1,14 @@
+Lion
+Bear
+Cheetah
+Deer
+Elephant
+Fox
+Giraffe
+Horse
+Hyena
+Rabbit
+Squirrel
+Tiger
+Wolf
+Zebra
