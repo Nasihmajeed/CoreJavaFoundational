@@ -1,4 +1,4 @@
-
+package com.lxisoft.game;
 
 public class EnergyLevel
 

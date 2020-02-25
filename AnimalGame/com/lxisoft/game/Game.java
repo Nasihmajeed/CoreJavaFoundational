@@ -5,16 +5,24 @@ import com.lxisoft.forest.*;
 public class Game
 {
 
-	private int energyLevel1,energyLevel2;
 	Random objGenerator = new Random();
 	static Scanner input =new Scanner(System.in);
+	EnergyLevel elevel=new EnergyLevel();
 	public void startGame(ArrayList<Animal> animals)
 	{
 		Area area=new Area();
 		int temp=animals.size();
 		System.out.println("\n\nYou Entered in to Game");
 		System.out.println("\n________________________\n\n");
+		try
+		{
 		GameLevel();
+
+		}
+		catch(Exception in)
+		{
+			System.out.println("No NoSuchMethodException  :"+in);
+		}
 	do{
 		int randomNumber = objGenerator.nextInt(5); 
 		int random=objGenerator.nextInt(5);
@@ -42,7 +50,8 @@ public class Game
 		{
 		if(animals.get(i).getAlive()==true)
 		{
-			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");	
+			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");
+
 		}
 
 		}
@@ -70,14 +79,14 @@ public int changeStrength(Animal animala,Animal animalb,int temp)
 	{	animala.setAlive(false);
 		temp--;	}
 	else
-	{	x=x-energyLevel1;	}
+	{	x=x-elevel.getEnergy1();	}
 	animala.setAnimalStrength(x);
 	int y=animalb.getAnimalStrength();
 	if(y<=0)
 	{	animalb.setAlive(false);
 		temp--;	}
 	else
-	{	y=y-energyLevel2;	}
+	{	y=y-elevel.getEnergy2();	}
 
 	animalb.setAnimalStrength(y);
 return temp;
@@ -176,7 +185,7 @@ public void directAtack(Animal animal1,Animal animal2)
 	System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 	System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	System.out.println(animal1.getAnimalName()+"win");
-	System.out.println("Strength After Atack");
+	//System.out.println("Strength After Atack");
 	System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 	System.out.println(animal2.getAnimalName()+" Dead");
 }
@@ -188,28 +197,28 @@ public void luckrunAway(Animal animal1,Animal animal2)
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println(animal2.getAnimalName()+" Runned Away By Luck Factor");
-		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	}
 	else
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println(animal1.getAnimalName()+" Runned Away By Luck Factor");
-		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	}		
 }
 public int win(Animal animal1,Animal animal2,int temp) 
 	{
 		System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
 		System.out.println("Strength before Atack");
-		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 		temp=changeStrength(animal2,animal1,temp);
 		System.out.println(animal1.getAnimalName()+"win");
 				System.out.println("Strength After Atack");
-		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		// System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		// System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
 	
 		return temp;
 	}
@@ -221,37 +230,37 @@ public void GameLevel()
 	Level level;
 	switch(choise)
 	{
-		
+	
+	try{	
 		case 1:
 		level = Level.LOW; 
         System.out.println("You Selected "+level+"Level"); 
-        setEnergy1(3);
-        setEnergy2(2);
+        elevel.setEnergy1(3);
+        elevel.setEnergy2(2);
 		break;
 		case 2:
 		 level = Level.NORMAL; 
         System.out.println("You Selected "+level+"Level"); 
-        setEnergy1(2);
-        setEnergy2(1);
+        elevel.setEnergy1(2);
+        elevel.setEnergy2(1);
 		break;
 		case 3:
 		level = Level.HARD; 
         System.out.println("You Selected "+level+"Level");
-         setEnergy1(1);
-        setEnergy2(0); 
+        elevel.setEnergy1(1);
+        elevel.setEnergy2(0); 
 		break;
 		default:
 		System.out.println("PLease Select a LEvel ....."); 
-		break;        
+		break;
 	}
-}
-public void setEnergy1(int x)
-{
-	this.energyLevel1=x;
-}
-public void setEnergy2(int x)
-{
-	this.energyLevel2=x;
+		catch(Exception ep)
+	{
+	System.out.println("______"+ep); 
+
+	}
+			        
+	}
 }
 
 
