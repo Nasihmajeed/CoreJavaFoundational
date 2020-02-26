@@ -13,7 +13,7 @@ Game game;
 
 public void createForest()
 	{
-		
+
 		creatAnimal();
 
 		
@@ -46,25 +46,26 @@ public void createForest()
  }while(temp>0);
 			
 	}
+
 public void creatAnimal()
 {
 	try
 	{
-animals.add(new Lion()); 
-animals.add(new Tiger()); 
-animals.add(new Rabbit());
-animals.add(new Elephant());
-animals.add(new Wolf());
-animals.add(new Lion()); 
-animals.add(new Tiger()); 
-animals.add(new Rabbit());
-animals.add(new Elephant());
-animals.add(new Wolf());
+	animals.add(new Lion()); 
+	animals.add(new Tiger()); 
+	animals.add(new Rabbit());
+	animals.add(new Elephant());
+	animals.add(new Wolf());
+	animals.add(new Lion()); 
+	animals.add(new Tiger()); 
+	animals.add(new Rabbit());
+	animals.add(new Elephant());
+	animals.add(new Wolf());
 	}
-catch(Exception ex)
-{
-	System.out.println("**"+ex);
-}	
+	catch(Exception ex)
+	{
+		System.out.println("**"+ex);
+	}	
 
 }
 
