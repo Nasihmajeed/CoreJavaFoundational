@@ -13,15 +13,20 @@ Game game;
 
 public void createForest()
 	{
-		System.out.println("\n\t"+name);
 		
 		creatAnimal();
 
-		setAnimalDetails();
+		
+		int temp=0;
+		do
+		{
+		setAnimalDetails();	
+		System.out.println("\n\t"+name);
+		
 		try
 		{
 		area.setAnimalPosition(animals);
-		int temp=playGame();
+		temp=playGame();
 		
 		if(temp==0)
 		{
@@ -38,6 +43,7 @@ public void createForest()
 	System.out.println("**********"+in); 
 
 	}
+ }while(temp>0);
 			
 	}
 public void creatAnimal()

@@ -5,56 +5,47 @@ import com.lxisoft.forest.*;
 public class Game
 {
 
+	private int energyLevel1,energyLevel2;
 	Random objGenerator = new Random();
 	static Scanner input =new Scanner(System.in);
-	EnergyLevel elevel=new EnergyLevel();
 	public void startGame(ArrayList<Animal> animals)
 	{
 		Area area=new Area();
 		int temp=animals.size();
 		System.out.println("\n\nYou Entered in to Game");
 		System.out.println("\n________________________\n\n");
-		try
-		{
 		GameLevel();
 
-		}
-		catch(Exception in)
-		{
-			System.out.println("No NoSuchMethodException  :"+in);
-		}
 	do{
-		int randomNumber = objGenerator.nextInt(5); 
-		int random=objGenerator.nextInt(5);
+		int randomNumber = objGenerator.nextInt(10); 
+		int random=objGenerator.nextInt(10);
 		int distance=checkDistance(animals.get(randomNumber),animals.get(random));
 				
 		if(randomNumber!=random)
 		{
 			if(animals.get(randomNumber).getAlive()==true&&animals.get(random).getAlive()==true)
-			{
-
-			    System.out.println(animals.get(randomNumber).getAnimalName());	
+			{   System.out.println(animals.get(randomNumber).getAnimalName());	
 				System.out.println(animals.get(random).getAnimalName());
 				System.out.println("distance = "+distance);	
 				if(distance<20)
 				{
 				temp =checkStrength(animals.get(randomNumber),animals.get(random),temp);
 					System.out.println("\n**********\n\n");
-				}
-			}
-		}	
-		 	area.setAnimalPosition(animals);
+				temp=checkWin(animals.get(randomNumber),animals.get(random),temp);	
+					System.out.println(" temp ="+temp);
+				}}
+		}	area.setAnimalPosition(animals);
+		
 		}while(temp>1);	
-
 		for(int i=0;i<animals.size();i++)
 		{
 		if(animals.get(i).getAlive()==true)
 		{
-			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");
-
+			System.out.println(animals.get(i).getAnimalName()+" Survrived At last");	
 		}
 
 		}
+		
 		if(temp==0)
 		{
 			try
@@ -67,29 +58,23 @@ public class Game
 			}
 
 		}
+		
+	}
 
-	
 
 
-
-public int changeStrength(Animal animala,Animal animalb,int temp)
+public void changeStrength(Animal animala,Animal animalb)
 {
 	int x=animala.getAnimalStrength();
-	if(x<=0)
-	{	animala.setAlive(false);
-		temp--;	}
-	else
-	{	x=x-elevel.getEnergy1();	}
+	if(x>0)
+	{	x=x-energyLevel1;	}
 	animala.setAnimalStrength(x);
 	int y=animalb.getAnimalStrength();
-	if(y<=0)
-	{	animalb.setAlive(false);
-		temp--;	}
-	else
-	{	y=y-elevel.getEnergy2();	}
+	if(y>0)
+	{	y=y-energyLevel2;	}
 
 	animalb.setAnimalStrength(y);
-return temp;
+
 }
 
 public int changeAlive(Animal animala,Animal animalb,int temp)
@@ -98,13 +83,15 @@ public int changeAlive(Animal animala,Animal animalb,int temp)
 	if(x<=0)
 	{	animala.setAlive(false);
 		temp--;	}
-	
+	int y=animalb.getAnimalStrength();
 	if(y<=0)
 	{	animalb.setAlive(false);
 		temp--;	}
-	
 return temp;
 }
+
+
+
 public int checkDistance(Animal animal1,Animal animal2)
 {
 int a=animal1.getxaxis();
@@ -159,35 +146,36 @@ public boolean luckyFactor()
 	{
 			
 			System.out.println("\n"+animal1.getAnimalName()+" Meet With "+animal2.getAnimalName()+"\n......\n");
-			System.out.println(animal1.getAnimalStrength()+" Strength"+animal1.getAnimalName());
-			System.out.println(animal2.getAnimalStrength()+" Strength"+animal2.getAnimalName());
+			System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+			System.out.println(animal2.getAnimalStrength()+" Strength of"+animal2.getAnimalName());
 			System.out.println("No Atack");
 	}	
 
-	public int fight(Animal animal1,Animal animal2,int temp)
+public int fight(Animal animal1,Animal animal2,int temp)
 {
-boolean x=luckyFactor();
-			if((x==true)&&(animal1 instanceof Herbivores||animal2 instanceof Herbivores))
+  boolean x=luckyFactor();
+		if(x==true)
+		{
+			if((animal1 instanceof Herbivores&&animal1.getAnimalStrength()<5)||(animal2 instanceof Herbivores&&animal2.getAnimalStrength()<5))
+			{luckrunAway(animal1,animal2);}
+		}
+		else
+		{
+			if((animal2 instanceof Herbivores)&&(animal2.getAnimalStrength()<5))
 			{
-			luckrunAway(animal1,animal2);
+				directAtack(animal1,animal2);
+				animal2.setAlive(false);
+				temp--;
 			}
+				
 			else
 			{
-				if((animal2 instanceof Herbivores)&&(animal2.getAnimalStrength()<5))
-					{
-					directAtack(animal1,animal2);
-					animal2.setAlive(false);
-					temp--;
-					}
-				
-				else
-				{
-					temp=win(animal1,animal2,temp);
-				}
-				
-				
+				temp=win(animal1,animal2,temp);
 			}
-			return temp;
+				
+				
+		}
+	return temp;
 
 }
 
@@ -227,13 +215,16 @@ public int win(Animal animal1,Animal animal2,int temp)
 		System.out.println("Strength before Atack");
 		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-		temp=changeStrength(animal2,animal1,temp);
-		System.out.println(animal1.getAnimalName()+"win");
-				System.out.println("Strength After Atack");
-		 System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
-		 System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-	temp=changeAlive(animal2,animal1,temp);
-		return temp;
+		changeStrength(animal2,animal1);
+		int emp=changeAlive(animal2,animal1,temp);
+		if(temp==emp)
+		{System.out.println(animal2.getAnimalName()+"moved away");}
+		else{System.out.println(animal2.getAnimalName()+"dead");}
+		System.out.println("Strength After Atack");
+		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
+		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
+		
+		return emp;
 	}
 
 public void GameLevel()
@@ -243,40 +234,51 @@ public void GameLevel()
 	Level level;
 	switch(choise)
 	{
-	
-	try{	
+		
 		case 1:
 		level = Level.LOW; 
         System.out.println("You Selected "+level+"Level"); 
-        elevel.setEnergy1(3);
-        elevel.setEnergy2(2);
+        setEnergy1(3);
+        setEnergy2(2);
 		break;
 		case 2:
 		 level = Level.NORMAL; 
         System.out.println("You Selected "+level+"Level"); 
-        elevel.setEnergy1(2);
-        elevel.setEnergy2(1);
+        setEnergy1(2);
+        setEnergy2(1);
 		break;
 		case 3:
 		level = Level.HARD; 
         System.out.println("You Selected "+level+"Level");
-        elevel.setEnergy1(1);
-        elevel.setEnergy2(0); 
+         setEnergy1(1);
+        setEnergy2(0); 
 		break;
 		default:
 		System.out.println("PLease Select a LEvel ....."); 
-		break;
-	}
-		catch(Exception ep)
-	{
-	System.out.println("______"+ep); 
-
-	}
-			        
+		break;        
 	}
 }
+public void setEnergy1(int x)
+{
+	this.energyLevel1=x;
+}
+public void setEnergy2(int x)
+{
+	this.energyLevel2=x;
+}
 
+public int checkWin(Animal animal1,Animal animal2,int temp)
+{
+	if(temp==2)
+	{
+		if(animal1 instanceof Herbivores&&animal2 instanceof Herbivores)
+		{
+			System.out.println("Two  Survives At last");	
+			temp--;
+		}
+		
+	}
+	return temp;
+}
 
-
-
-
+}
