@@ -1,3 +1,31 @@
+public int aliveOrNot(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
+	{
+		int energyOne = animalList.get(index).getAnimalStrength();
+		int energyTwo = animalList.get(randomIndex).getAnimalStrength();
+		if(energyOne!=0)
+		{
+			animalList.get(index).setIsAlive(false);
+			animalCount--;
+		}
+		if(energyTwo!=0)
+		{
+			animalList.get(randomIndex).setIsAlive(false);
+			animalCount--;	
+		}
+		return animalCount;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 package com.lxisoft.game;
 import com.lxisoft.forest.*;
 import java.util.*;
