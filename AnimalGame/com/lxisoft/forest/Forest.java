@@ -17,7 +17,7 @@ public void createForest()
 		creatAnimal();
 
 		
-		int temp=0;
+		int gameChoise=0;
 		do
 		{
 		setAnimalDetails();	
@@ -26,24 +26,28 @@ public void createForest()
 		try
 		{
 		area.setAnimalPosition(animals);
-		temp=playGame();
+		gameChoise=playGame();
 		
-		if(temp==0)
+		if(gameChoise==0)
 		{
 			System.out.println("Exited");
 		}
-		if(temp==1)
+		if(gameChoise==1)
 		{
 			game=new Game();
 			game.startGame(animals);
 		}
+		// else
+		// {
+		// 	System.out.println("\nPleace Select a Valid Choise..!!!");
+		// }
 	}
 	catch(Exception in)
 	{
 	System.out.println("**********"+in); 
 
 	}
- }while(temp>0);
+ }while(gameChoise>0);
 			
 	}
 

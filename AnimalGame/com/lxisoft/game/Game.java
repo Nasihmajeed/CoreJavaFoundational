@@ -28,7 +28,7 @@ public void startGame(ArrayList<Animal> animals)
 				if(distance<20)
 				{	temp =checkStrength(animals.get(randomNumber),animals.get(random),temp);
 					System.out.println("\n**********\n\n");
-				    temp=checkWin(animals.get(randomNumber),animals.get(random),temp);	
+				    temp=checkWin(animals,temp);
 				}}}	area.setAnimalPosition(animals);
 		
 		}while(temp>1);	
@@ -59,14 +59,17 @@ public int checkDistance(Animal animal1,Animal animal2)
 return result;
 }
 
-public int checkWin(Animal animal1,Animal animal2,int temp)
-{
-	if(temp==2)
-	{
-		if(animal1 instanceof Herbivores&&animal2 instanceof Herbivores)
-		{ System.out.println("Two  Survives At last");	
-			temp--;	}		
-	}
+public int checkWin(ArrayList<Animal> animals,int temp)
+{	int count=0;
+ 	for (int i=9;i>=0;i--)
+ 	{
+ 	if(animals.get(i).getAlive()==true&&animals.get(i) instanceof Herbivores)
+ 		{count=count+1;}
+ 	}
+ 	if(count==temp)
+ 	{System.out.println(count+" Animals Survived");
+ 	temp=1;}
+
 return temp;
 } 
 
@@ -187,7 +190,7 @@ public int win(Animal animal1,Animal animal2,int temp)
 		System.out.println("\nStrength before Atack");
 		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-		System.out.println(animal1.getAnimalName()+" Atacked "+animal2.getAnimalName());
+		System.out.println("\n"+animal1.getAnimalName()+" Atacked "+animal2.getAnimalName());
 		changeStrength(animal2,animal1);
 		int emp=changeAlive(animal2,animal1,temp);
 		if(temp==emp)
@@ -203,9 +206,10 @@ public int win(Animal animal1,Animal animal2,int temp)
        
 public void GameLevel()
 {
+	int choise=0;
 	do{
 	System.out.print("\n1.Low Level\n2.Medium Level\n3.Hard Level\n\n Enter Your Choise :");
-	int choise=input.nextInt();
+	choise=input.nextInt();
 	Level level;
 	try	{switch(choise)
 	{		
@@ -228,7 +232,7 @@ public void GameLevel()
         setEnergy2(0); 
 		break;
 		default:
-		System.out.println("PLease Select a LEvel ....."); 
+		System.out.println("\nPLease Select a LEvel ....."); 
 		break; }}
 	catch(Exception ex)
 	{ System.out.println("**"+ex);}	
