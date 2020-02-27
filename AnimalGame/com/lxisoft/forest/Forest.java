@@ -25,23 +25,13 @@ public class Forest
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
 		System.out.println("-----------------------------------------");	
 		createAnimal();
-		//int ch;
-		// do
-		// {
-			startGame();
-		// 	System.out.println("Do U Want To Paly Again?Press 1(Play Again) or 0(Quit Game)");
-		// 	ch = sc.nextInt();
-		// }while(ch == 1);	
+		startGame();
 	}
 	public void  startGame() 	
 	{
 		try
 		{
-			 int choice;
-			// int ch;
-			// do
-			// {
-				
+			int choice;	
 			System.out.println("\n\t1.Start\n\t2.Stop\n\tEnter Ur Choice::\t");
 			choice = sc.nextInt();
 			if (choice == 1) 
@@ -53,10 +43,6 @@ public class Forest
 			{
 					System.exit(0);	
 			 }
-			// 	System.out.println("Do U Want To Paly Again?Press 1(Play Again) or 0(Quit Game)");
-			// 	ch = sc.nextInt();
-			// }while(ch == 1);
-			
 		}
 		catch(InputMismatchException e)
 		{

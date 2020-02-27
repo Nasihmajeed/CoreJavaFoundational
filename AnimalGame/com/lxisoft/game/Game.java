@@ -24,7 +24,7 @@ public class Game
 				if(index != randomIndex)
 				{
 					animalCount = checkAnimalInstance(animalList,index,randomIndex,animalCount);
-					animalCount = twoAnimalSurvived(animalList,index,randomIndex,animalCount);
+					//animalCount = twoAnimalSurvived(animalList,index,randomIndex,animalCount);
 				}
 			}	
 			//System.out.println("Animal Count="+animalCount);
@@ -57,8 +57,6 @@ public class Game
 	public void herbivoresVsHerbivores(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
 		noFight(animalList,index,randomIndex);
-		printInitialEnergyLevel(animalList,index,randomIndex);
-		printNewEnergyLevel(animalList,index,randomIndex);
 	}
 	public int carnivoresVsCarnivores(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
@@ -73,17 +71,17 @@ public class Game
 	public void noFight(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
 		System.out.println("\n"+animalList.get(index).getAnimalName()+" Vs "+animalList.get(randomIndex).getAnimalName());
-		System.out.println("No Fight Between Them");		
+		System.out.println("No Fight Between Them\n");		
 	}
 	public int fightBetweenCarnivores(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
 		int distance = calculateDistance(animalList,index,randomIndex,animalCount);
-		if(distance>30)
+		if(distance>50)
 		{
 			noFight(animalList,index,randomIndex);
 			
 		}
-		else if(distance<30)
+		else if(distance<50)
 		{
 			animalCount = checkStrength(animalList,index,randomIndex,animalCount);	
 		}
@@ -138,7 +136,6 @@ public class Game
 		else
 		{
 			animalCount = directAttack(animalList,position,x,animalCount);
-			printNewEnergyLevel(animalList,position,x);
 		}
 		return animalCount;
 	}
@@ -234,7 +231,7 @@ public class Game
 		if(animalList.get(position) instanceof Herbivores)
 		{	
 			printInitialEnergyLevel(animalList,position,x);
-			System.out.println(animalList.get(position).getAnimalName()+" Directly killed and Eaten By"+animalList.get(x).getAnimalName());
+			System.out.println(animalList.get(position).getAnimalName()+" Directly killed and Eaten By "+animalList.get(x).getAnimalName());
 			animalList.get(position).setIsAlive(false);
 			animalList.get(position).setAnimalStrength(0);
 			int energy = animalList.get(x).getAnimalStrength();
