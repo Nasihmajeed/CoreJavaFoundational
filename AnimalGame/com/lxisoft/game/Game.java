@@ -8,6 +8,7 @@ public class Game
 {
 	EnergyLevel energyLevel = new EnergyLevel();
 	static Random random = new Random();
+	Forest forest;
 	public void playGame(ArrayList<Animal> animalList)
 	{		  
 		int animalCount = animalList.size();
@@ -24,7 +25,6 @@ public class Game
 				if(index != randomIndex)
 				{
 					animalCount = checkAnimalInstance(animalList,index,randomIndex,animalCount);
-					//animalCount = twoAnimalSurvived(animalList,index,randomIndex,animalCount);
 				}
 			}	
 			//System.out.println("Animal Count="+animalCount);
@@ -260,8 +260,16 @@ public class Game
 		{
 			if(animalList.get(i).getIsAlive() == true)
 			{
+				forest = new Forest();
 				System.out.println(animalList.get(i).getAnimalName()+" Survived");
+				String name = animalList.get(i).getAnimalName();
+				forest.writeToFile(name);
 			}	
+			else
+			{
+				forest = new Forest();
+				forest.writeToFile("No Animal  Survived");
+			}
 		}
 		if(animalCount==0)		
 		try
@@ -273,6 +281,22 @@ public class Game
 			System.out.println("Caught");
 		}
 	}
+
+	// public void writeToFile(String name)
+	// {
+	// 	File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
+	// 	try
+	// 	{
+	// 		file.createNewFile();
+	// 		FileWriter fw = new FileWriter(file);
+	// 		fw.write(name+ " Wins"); 
+	// 		fw.close();
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println(e);
+	// 	}
+	// }
 	public void printInitialEnergyLevel(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
 		System.out.println(" \n ");
@@ -307,17 +331,28 @@ public class Game
 	}
 	public void gameLevel()
 	{
+		int ch;
 		GameLevel level;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\n\t1.LOW\n\t2.MEDIUM\n\t3.HARD\n\tEnter Ur Choice::\t");
-		int ch = sc.nextInt();
-		switch (ch) 
+		do
 		{
+		System.out.println("\n\t1.LOW\n\t2.MEDIUM\n\t3.HARD\n\tEnter Ur Choice::\t");
+		ch = sc.nextInt();
+		try
+		{
+			switch (ch) 
+			{	
 			case 1:	low(GameLevel.LOW);break;
 			case 2:	medium(GameLevel.MEDIUM);break;
 			case 3:	hard(GameLevel.HARD);break;
 			default:System.out.println("Invalid Choice");
-		}	
+			}	
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println(e);
+		}
+		}while(ch>3);	
 	}
 	public void low(GameLevel level)
 	{
