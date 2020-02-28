@@ -8,6 +8,7 @@ public class Forest
 private String name ="Black Forest";
 ArrayList<Animal> animals = new ArrayList<Animal>();
 Area area=new Area();
+FileReppo winner =new FileReppo();
 static Scanner input =new Scanner(System.in);
 Game game;
 
@@ -15,7 +16,7 @@ public void createForest()
 	{
 
 		creatAnimal();
-
+		winner.creatFile();
 		
 		int gameChoise=0;
 		do

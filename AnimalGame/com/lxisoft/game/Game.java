@@ -6,11 +6,16 @@ public class Game
 {
 	private int energyLevel1,energyLevel2;
 	Random objGenerator = new Random();
+	FileReppo gameResult =new FileReppo();
+	
 	static Scanner input =new Scanner(System.in);
 public void startGame(ArrayList<Animal> animals)
 	{
+
 		Area area=new Area();
+		FileReppo gameResult =new FileReppo();
 		int temp=animals.size();
+
 		System.out.println("\n\nYou Entered in to Game");
 		System.out.println("\n________________________\n\n");
 		GameLevel();
@@ -35,7 +40,8 @@ public void startGame(ArrayList<Animal> animals)
 	for(int i=0;i<animals.size();i++)
 		{
 			if(animals.get(i).getAlive()==true)
-			{System.out.println(animals.get(i).getAnimalName()+" Survrived At last"); }
+			{System.out.println(animals.get(i).getAnimalName()+" Survrived At last");
+			gameResult.writeTofile(animals.get(i).getAnimalName()); }
 		}
 		
 		if(temp==0)
