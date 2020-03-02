@@ -9,10 +9,11 @@ public class Game
 	EnergyLevel energyLevel = new EnergyLevel();
 	static Random random = new Random();
 	Forest forest;
-	public void playGame(ArrayList<Animal> animalList)
+	public void playGame(ArrayList<Animal> animalList,FileRepository repo)
 	{		  
 		int animalCount = animalList.size();
 		System.out.println(animalCount);
+		repo.createFile();
 		gameLevel();
 		nameOfAnimal();
 		do
@@ -28,7 +29,7 @@ public class Game
 				}
 			}	
 		}while(animalCount>1);
-		printSurvivedAnimal(animalList,animalCount);
+		printSurvivedAnimal(animalList,animalCount,repo);
 		printRemainingStrength(animalList,animalCount);
 	}
 	public void generateRandomCoordinate(ArrayList<Animal> animalList,int index,int randomIndex)
@@ -257,7 +258,7 @@ public class Game
 		}
 		return animalCount;
 	}
-	public void printSurvivedAnimal(ArrayList<Animal> animalList,int animalCount)
+	public void printSurvivedAnimal(ArrayList<Animal> animalList,int animalCount,FileRepository repo)
 	{
 		for (int i=0;i<animalList.size();i++) 
 		{
@@ -265,7 +266,7 @@ public class Game
 			{
 				System.out.println(animalList.get(i).getAnimalName()+" Survived");
 				String name = animalList.get(i).getAnimalName();
-				writeToFile(name);
+				repo.writeToFile(name);
 			}
 		}
 		if(animalCount==0)	
@@ -277,7 +278,7 @@ public class Game
 			catch(MyException e)
 			{
 				System.out.println("Caught");
-				writeToFile("No Animal  ");
+				repo.writeToFile("No Animal  ");
 			}
 		}
 	}
@@ -411,21 +412,6 @@ public class Game
 			{
 				System.out.println(winner);
 			}
-		}
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-	}
-	public void writeToFile(String name)
-	{
-		File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
-		try
-		{
-			file.createNewFile();
-			FileWriter fw = new FileWriter(file,true);
-			fw.write(name+ " Wins \n"); 
-			fw.close();
 		}
 		catch(IOException e)
 		{

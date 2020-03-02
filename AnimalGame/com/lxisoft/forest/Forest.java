@@ -21,6 +21,8 @@ public class Forest
 	}
 	public void createForest()
 	{
+		FileRepository repo = new FileRepository();
+		repo.createFile();
 		game  =  new Game();
 		createAnimal();
 		System.out.println("***** WELCOME TO " + getforestName().toUpperCase()+" *****");
@@ -29,23 +31,23 @@ public class Forest
 		do
 		{
 			setAnimalProperties();
-			startGame();
+			startGame(repo);
 			System.out.println("Do U Want To Continue Playing?\n1.Continue(Press 1)\n2.stop(Press 0)\n");
 			ch = sc.nextInt();	
 		}while(ch==1);	
 	}
 	
-	public void  startGame() 	
+	public void  startGame(FileRepository repo) 	
 	{
+		int choice;	
 		try
 		{
-			int choice;	
 			System.out.println("\n\t1.Start\n\t2.Stop\n\t3.WinnersList \n\t Enter Ur Choice::\t");
 			choice = sc.nextInt();
 			if (choice == 1) 
 			{
 				System.out.println("\t\tGAME STARTS");
-				game.playGame(animalList); 			
+				game.playGame(animalList,repo); 			
 			}
 			else if(choice == 2) 
 			{
@@ -53,7 +55,7 @@ public class Forest
 			}
 			else if(choice == 3) 
 			{
-				game.winnerList();		
+				repo.readFromFile();		
 			}
 		}
 		catch(InputMismatchException e)
