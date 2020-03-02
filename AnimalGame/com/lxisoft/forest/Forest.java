@@ -38,6 +38,11 @@ public void createForest()
 			game=new Game();
 			game.startGame(animals);
 		}
+		if(gameChoise==2)
+		{
+			System.out.println("Winner List Of Diffrent Games \n");
+			winner.readResult();
+		}
 		// else
 		// {
 		// 	System.out.println("\nPleace Select a Valid Choise..!!!");
@@ -61,6 +66,7 @@ public void creatAnimal()
 	animals.add(new Rabbit());
 	animals.add(new Elephant());
 	animals.add(new Wolf());
+	
 	animals.add(new Lion()); 
 	animals.add(new Tiger()); 
 	animals.add(new Rabbit());
@@ -121,7 +127,7 @@ public void setAnimalDetails()
 
 public int playGame()
 {
-	System.out.print("\n1.Start The Game\nPress 0 to Exit\n\n Enter Your Choise :");
+	System.out.print("\n1.Start The Game\n press 2 to winner List \nPress 0 to Exit\n\n Enter Your Choise :");
 	int choise=input.nextInt();
 	return choise;
 }

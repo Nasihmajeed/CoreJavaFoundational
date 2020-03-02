@@ -7,11 +7,9 @@ public class Game
 	private int energyLevel1,energyLevel2;
 	Random objGenerator = new Random();
 	FileReppo gameResult =new FileReppo();
-	
 	static Scanner input =new Scanner(System.in);
 public void startGame(ArrayList<Animal> animals)
 	{
-
 		Area area=new Area();
 		FileReppo gameResult =new FileReppo();
 		int temp=animals.size();
@@ -37,14 +35,15 @@ public void startGame(ArrayList<Animal> animals)
 				}}}	area.setAnimalPosition(animals);
 		
 		}while(temp>1);	
+
+		
 	for(int i=0;i<animals.size();i++)
 		{
 			if(animals.get(i).getAlive()==true)
 			{System.out.println(animals.get(i).getAnimalName()+" Survrived At last");
 			gameResult.writeTofile(animals.get(i).getAnimalName()); }
 		}
-		
-		if(temp==0)
+			if(temp==0)
 		{
 			try
 			{	throw new MyException("NO Animal Survived"); }
@@ -207,8 +206,7 @@ public int win(Animal animal1,Animal animal2,int temp)
 		System.out.println("\nStrength After Atack");
 		System.out.println(animal1.getAnimalStrength()+" Strength of "+animal1.getAnimalName());
 		System.out.println(animal2.getAnimalStrength()+" Strength of "+animal2.getAnimalName());
-	return emp;
-	}
+	return emp;	}
        
 public void GameLevel()
 {

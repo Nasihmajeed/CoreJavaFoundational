@@ -1,1 +1,4 @@
-Rabbit2Lion2TigerElephantRabbit2Elephant2
+Game 1 Rabbit wins
+Game 1 Elephant wins
+Game 1 Elephant wins
+Game 1 Elephant2 wins
