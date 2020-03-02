@@ -30,41 +30,31 @@ public class Forest
 		{
 			setAnimalProperties();
 			startGame();
-			System.out.println("Do U Want To Continue Playing?\n1.Continue(Press 1)\n2.stop(Press )\n");
+			System.out.println("Do U Want To Continue Playing?\n1.Continue(Press 1)\n2.stop(Press 0)\n");
 			ch = sc.nextInt();	
 		}while(ch==1);	
 	}
-	public void writeToFile(String name)
-	{
-		File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
-		try
-		{
-			file.createNewFile();
-			FileWriter fw = new FileWriter(file,true);
-			fw.write(name+ " Wins \n"); 
-			fw.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-	}
+	
 	public void  startGame() 	
 	{
 		try
 		{
 			int choice;	
-			System.out.println("\n\t1.Start\n\t2.Stop\n\tEnter Ur Choice::\t");
+			System.out.println("\n\t1.Start\n\t2.Stop\n\t3.WinnersList \n\t Enter Ur Choice::\t");
 			choice = sc.nextInt();
 			if (choice == 1) 
 			{
 				System.out.println("\t\tGAME STARTS");
 				game.playGame(animalList); 			
 			}
-			else if (choice == 2) 
+			else if(choice == 2) 
 			{
-					System.exit(0);	
-			 }
+				System.exit(0);
+			}
+			else if(choice == 3) 
+			{
+				game.winnerList();		
+			}
 		}
 		catch(InputMismatchException e)
 		{
@@ -108,59 +98,58 @@ public class Forest
 				animalList.get(i).setIsAlive(true);				
 			}
 		}
-		public void tiger(int noOfLion,int noOfElephant,int noOfTiger)
+	public void tiger(int noOfLion,int noOfElephant,int noOfTiger)
+	{
+		int j=0;
+		int l = noOfLion+noOfElephant;
+		int m = noOfLion+noOfElephant+noOfTiger;
+		for (int i=l;i<m;i++,j++) 
 		{
-			int j=0;
-			int l = noOfLion+noOfElephant;
-			int m = noOfLion+noOfElephant+noOfTiger;
-			for (int i=l;i<m;i++,j++) 
-			{
-				animalList.add(new Tiger());
-				animalList.get(i).setAnimalName("Tiger-->"+(j+1));
-				animalList.get(i).setAnimalStrength(8);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.add(new Tiger());
+			animalList.get(i).setAnimalName("Tiger-->"+(j+1));
+			animalList.get(i).setAnimalStrength(8);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void fox(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox)
+	}
+	public void fox(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox)
+	{
+		int j=0;
+		int m = noOfLion+noOfElephant+noOfTiger;
+		int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
+		for (int i=m;i<n;i++,j++) 
 		{
-			int j=0;
-			int m = noOfLion+noOfElephant+noOfTiger;
-			int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
-			for (int i=m;i<n;i++,j++) 
-			{
-				animalList.add(new Fox());
-				animalList.get(i).setAnimalName("Fox-->"+(j+1));
-				animalList.get(i).setAnimalStrength(6);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.add(new Fox());
+			animalList.get(i).setAnimalName("Fox-->"+(j+1));
+			animalList.get(i).setAnimalStrength(6);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void rabbit(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit)
+	}
+	public void rabbit(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit)
+	{
+		int j=0;
+		int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
+		int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
+		for (int i=n;i<o;i++,j++) 
 		{
-			int j=0;
-			int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
-			int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
-			for (int i=n;i<o;i++,j++) 
-			{
-				animalList.add(new Rabbit());
-				animalList.get(i).setAnimalName("Rabbit-->"+(j+1));
-				animalList.get(i).setAnimalStrength(6);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.add(new Rabbit());
+			animalList.get(i).setAnimalName("Rabbit-->"+(j+1));
+			animalList.get(i).setAnimalStrength(6);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void deer(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit,int noOfDeer)
+	}
+	public void deer(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit,int noOfDeer)
+	{
+		int j=0;
+		int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
+		int p = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit+noOfDeer;
+		for (int i=o;i<p;i++,j++) 
 		{
-			int j=0;
-			int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
-			int p = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit+noOfDeer;
-			for (int i=o;i<p;i++,j++) 
-			{
-				animalList.add(new Deer());
-				animalList.get(i).setAnimalName("Deer-->"+(j+1));
-				animalList.get(i).setAnimalStrength(4);	
-				animalList.get(i).setIsAlive(true);			
-			}
+			animalList.add(new Deer());
+			animalList.get(i).setAnimalName("Deer-->"+(j+1));
+			animalList.get(i).setAnimalStrength(4);	
+			animalList.get(i).setIsAlive(true);			
 		}
-
+	}
 	public  void setAnimalProperties()
 	{
 		int noOfLion = 2;
@@ -176,69 +165,68 @@ public class Forest
 		rabbitProperties(noOfLion,noOfElephant,noOfTiger,noOfFox,noOfRabbit);
 		deerProperties(noOfLion,noOfElephant,noOfTiger,noOfFox,noOfRabbit,noOfDeer);
 	}
-
-		public void lionProperties(int noOfLion)
+	public void lionProperties(int noOfLion)
+	{
+		for (int i=0;i<noOfLion;i++) 
 		{
-			for (int i=0;i<noOfLion;i++) 
-			{
-				animalList.get(i).setAnimalStrength(9);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.get(i).setAnimalStrength(9);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void elephantProperties(int noOfLion,int noOfElephant)
+	}
+	public void elephantProperties(int noOfLion,int noOfElephant)
+	{
+		int j=0;
+		int l = noOfLion+noOfElephant;
+		for (int i=noOfLion;i<l;i++,j++) 
 		{
-			int j=0;
-			int l = noOfLion+noOfElephant;
-			for (int i=noOfLion;i<l;i++,j++) 
-			{
-				animalList.get(i).setAnimalStrength(10);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.get(i).setAnimalStrength(10);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void tigerProperties(int noOfLion,int noOfElephant,int noOfTiger)
+	}
+	public void tigerProperties(int noOfLion,int noOfElephant,int noOfTiger)
+	{
+		int j=0;
+		int l = noOfLion+noOfElephant;
+		int m = noOfLion+noOfElephant+noOfTiger;
+		for (int i=l;i<m;i++,j++) 
 		{
-			int j=0;
-			int l = noOfLion+noOfElephant;
-			int m = noOfLion+noOfElephant+noOfTiger;
-			for (int i=l;i<m;i++,j++) 
-			{
-				animalList.get(i).setAnimalStrength(8);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.get(i).setAnimalStrength(8);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void foxProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox)
+	}
+	public void foxProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox)
+	{
+		int j=0;
+		int m = noOfLion+noOfElephant+noOfTiger;
+		int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
+		for (int i=m;i<n;i++,j++) 
 		{
-			int j=0;
-			int m = noOfLion+noOfElephant+noOfTiger;
-			int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
-			for (int i=m;i<n;i++,j++) 
-			{
-				animalList.get(i).setAnimalStrength(6);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.get(i).setAnimalStrength(6);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void rabbitProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit)
+	}
+	public void rabbitProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit)
+	{
+		int j=0;
+		int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
+		int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
+		for (int i=n;i<o;i++,j++) 
 		{
-			int j=0;
-			int n =noOfLion+noOfElephant+noOfTiger+noOfFox;
-			int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
-			for (int i=n;i<o;i++,j++) 
-			{
-				animalList.get(i).setAnimalStrength(6);
-				animalList.get(i).setIsAlive(true);				
-			}
+			animalList.get(i).setAnimalStrength(6);
+			animalList.get(i).setIsAlive(true);				
 		}
-		public void deerProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit,int noOfDeer)
+	}
+	public void deerProperties(int noOfLion,int noOfElephant,int noOfTiger,int noOfFox,int noOfRabbit,int noOfDeer)
+	{
+		int j=0;
+		int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
+		int p = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit+noOfDeer;
+		for (int i=o;i<p;i++,j++) 
 		{
-			int j=0;
-			int o = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit;
-			int p = noOfLion+noOfElephant+noOfTiger+noOfFox+noOfRabbit+noOfDeer;
-			for (int i=o;i<p;i++,j++) 
-			{
-				animalList.get(i).setAnimalStrength(4);	
-				animalList.get(i).setIsAlive(true);			
-			}
+			animalList.get(i).setAnimalStrength(4);	
+			animalList.get(i).setIsAlive(true);			
 		}
+	}
 
 
 

@@ -27,9 +27,9 @@ public class Game
 					animalCount = checkAnimalInstance(animalList,index,randomIndex,animalCount);
 				}
 			}	
-			//System.out.println("Animal Count="+animalCount);
 		}while(animalCount>1);
 		printSurvivedAnimal(animalList,animalCount);
+		printRemainingStrength(animalList,animalCount);
 	}
 	public void generateRandomCoordinate(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
@@ -78,10 +78,9 @@ public class Game
 		int distance = calculateDistance(animalList,index,randomIndex,animalCount);
 		if(distance>50)
 		{
-			noFight(animalList,index,randomIndex);
-			
+			noFight(animalList,index,randomIndex);			
 		}
-		else if(distance<50)
+		else if(distance<=50)
 		{
 			animalCount = checkStrength(animalList,index,randomIndex,animalCount);	
 		}
@@ -90,7 +89,7 @@ public class Game
 	public int fightBetweenCarnivoresAndHerbivores(ArrayList<Animal> animalList,int index,int randomIndex,int animalCount)
 	{
 		int distance = calculateDistance(animalList,index,randomIndex,animalCount);
-		if(distance<30)
+		if(distance<=30)
 		{
 			animalCount = checkCarnivoresHerbivoresStrength(animalList,index,randomIndex,animalCount);
 		}
@@ -152,6 +151,10 @@ public class Game
 		else if(animalList.get(x).getAnimalStrength() == animalList.get(position).getAnimalStrength())
 		{
 			animalCount = fightOfEqualStrength(animalList,position,x,animalCount);		
+		}
+		else
+		{
+			noFight(animalList,x,position);	
 		}
 		return animalCount;
 	}
@@ -260,43 +263,24 @@ public class Game
 		{
 			if(animalList.get(i).getIsAlive() == true)
 			{
-				forest = new Forest();
 				System.out.println(animalList.get(i).getAnimalName()+" Survived");
 				String name = animalList.get(i).getAnimalName();
-				forest.writeToFile(name);
-			}	
-			else
-			{
-				forest = new Forest();
-				forest.writeToFile("No Animal  Survived");
+				writeToFile(name);
 			}
 		}
-		if(animalCount==0)		
-		try
-		{
-			throw new MyException("No Animal Survived");	
-		}
-		catch(MyException e)
-		{
-			System.out.println("Caught");
+		if(animalCount==0)	
+		{	
+			try
+			{
+				throw new MyException("No Animal Survived");	
+			}
+			catch(MyException e)
+			{
+				System.out.println("Caught");
+				writeToFile("No Animal  ");
+			}
 		}
 	}
-
-	// public void writeToFile(String name)
-	// {
-	// 	File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
-	// 	try
-	// 	{
-	// 		file.createNewFile();
-	// 		FileWriter fw = new FileWriter(file);
-	// 		fw.write(name+ " Wins"); 
-	// 		fw.close();
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println(e);
-	// 	}
-	// }
 	public void printInitialEnergyLevel(ArrayList<Animal> animalList,int index,int randomIndex)
 	{
 		System.out.println(" \n ");
@@ -402,4 +386,51 @@ public class Game
 		}
 		return animalCount;
 	}
+	public void printRemainingStrength(ArrayList<Animal> animalList,int animalCount)
+	{
+		System.out.println("\n");
+		System.out.println("------------------------------------------------------------------------");
+		System.out.println("|        ANIMAL NAME            |         	     STRENGTH          |");
+		System.out.println("------------------------------------------------------------------------");
+		for (int i=0;i<animalList.size();i++) 
+		{
+			
+			System.out.println(animalList.get(i).getAnimalName()+"\t\t\t\t\t"+animalList.get(i).getAnimalStrength());
+		}	
+	}
+	public void winnerList()
+	{
+		System.out.println("\t------Winners Till Now---------");
+		File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
+		try
+		{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String winner;
+			while((winner = br.readLine())!=null)
+			{
+				System.out.println(winner);
+			}
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+	}
+	public void writeToFile(String name)
+	{
+		File file = new File("C://Users//rahul//Desktop//Java Projects//AnimalGame//v4//com//lxisoft//game//WinnerList.txt");
+		try
+		{
+			file.createNewFile();
+			FileWriter fw = new FileWriter(file,true);
+			fw.write(name+ " Wins \n"); 
+			fw.close();
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+	}
+
 }	
