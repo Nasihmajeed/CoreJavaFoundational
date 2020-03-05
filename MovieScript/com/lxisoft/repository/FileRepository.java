@@ -1,13 +1,20 @@
 package com.lxisoft.repository;
+import com.lxisoft.movie.*;
 import java.io.*;
+import java.util.*;
 public class FileRepository
 {
+	Random random = new Random();
+	//String pathOne = "C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//HeroScript.csv";
+	//String pathTwo = "C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//VillainScript.csv";
 	public void createRepository()
 	{
 		try
 		{
-			File file = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//Script.csv");
-			file.createNewFile();	
+			File fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//HeroScript.csv");
+			File fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//VillainScript.csv");
+			fileOne.createNewFile();
+			fileTwo.createNewFile();	
 		}
 		catch(IOException e)
 		{
@@ -15,36 +22,68 @@ public class FileRepository
 		}
 	}
 
-	public void readFromFile()
+	public void readFromHeroScript(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String pathOne)
 	{
+		String line ="";
 		try
 		{
-			FileReader fr = new FileReader("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//Script.csv");
-			BufferedReader br = new BufferedReader(fr);
-			String conversation;
-			while((conversation = br.readLine())!= null)
-			{
-				System.out.println(conversation);
-			}
+				FileReader fr = new FileReader(pathOne);
+				BufferedReader br = new BufferedReader(fr);
+				while((line = br.readLine())!= null)
+				{
+					String[] dialogue = line.split(",");
+					System.out.println(dialogue[dialogueOne]);
+				}
+				br.close();
 		}
 		catch(IOException e)
 		{
 			System.out.println("Cannot Access File");
+
 		}
 	}
-	public void writeToFile()
+	public void readFromVillainScript(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String pathTwo)
 	{
+		String line ="";
 		try
 		{
-			FileWriter fw = new FileWriter("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//Script.csv",true);
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.close();
+				FileReader fr = new FileReader(pathTwo);
+				BufferedReader br = new BufferedReader(fr);
+				while((line = br.readLine())!= null)
+				{
+					String[] dialogue = line.split(",");
+					System.out.println(dialogue[dialogueTwo]);
+				}
+				br.close();
 		}
 		catch(IOException e)
 		{
-			System.out.println("Cannot Access File");	
-		}	
+			System.out.println("Cannot Access File");
+
+		}
 	}
+
+	// public int checkInstance(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo)
+	// {
+	// 	if(actorList.get(actorOne) instanceof Heroism)
+	// 	{
+
+	// 	}
+	// }
+	// public void writeToFile()
+	// {
+	// 	try
+	// 	{
+	// 		FileWriter fw = new FileWriter("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//Script.csv",true);
+	// 		fw.write("hello ,");
+	// 		fw.flush();
+	// 		fw.close();
+	// 	}
+	// 	catch(IOException e)
+	// 	{
+	// 		System.out.println("Cannot Access File");	
+	// 	}	
+	// }
 
 
 

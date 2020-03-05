@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import com.lxisoft.repository.*;
 import java.util.*;
 public class Actor
 {
@@ -21,24 +22,16 @@ public class Actor
 	{
 		return nameOfRole;
 	}
-	public void createActor(Actor actor)
+	public void createActor(ArrayList<Actor> actorList,Actor actor)
 	{
-		ArrayList<Actor> actorList = new ArrayList<Actor>();
-		actorList.add(new Actor());
+		actorList.add(new IronMan());
 		actorList.get(0).setActorName("Robert Downey Jr");
 		actorList.get(0).setNameOfRole("Iron man");
-		actorList.add(new Actor());
+		actorList.add(new Thanos());
 		actorList.get(1).setActorName("Josh Brolin");
 		actorList.get(1).setNameOfRole("Thanos");
-		display(actorList);
-	}
-	public void display(ArrayList actorList)
-	{
-		for(int i=0;i<actorList.size();i++)
-		{
-			System.out.println(actorList.get(i).getActorName());
-			System.out.println(actorList.get(i).getNameOfRole());
-		}
-		
 	}
 }
+	
+		
+		
