@@ -22,18 +22,25 @@ public class FileRepository
 		}
 	}
 
-	public void readFromHeroScript(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String pathOne)
+	public void readFromScript(Dialogue dialogue,ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String path)
 	{
-		String line ="";
+		String line =" ";
+		String[] conversation = null;
+		ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
 		try
-		{
-				FileReader fr = new FileReader(pathOne);
+		{	
+				FileReader fr = new FileReader(path);
 				BufferedReader br = new BufferedReader(fr);
 				while((line = br.readLine())!= null)
 				{
-					String[] dialogue = line.split(",");
-					System.out.println(dialogue[dialogueOne]);
+					conversation = line.split(",");
+					dialogueList.add(new Dialogue());
+					dialogueList.get(actorOne).setMovieDialogue(conversation[dialogueOne]);
+					dialogueList.add(new Dialogue());
+					dialogueList.get(actorTwo).setMovieDialogue(conversation[dialogueTwo]);		
 				}
+				System.out.println(dialogueList.get(actorOne).getMovieDialogue());	
+				System.out.println(dialogueList.get(actorTwo).getMovieDialogue());
 				br.close();
 		}
 		catch(IOException e)
@@ -42,49 +49,4 @@ public class FileRepository
 
 		}
 	}
-	public void readFromVillainScript(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String pathTwo)
-	{
-		String line ="";
-		try
-		{
-				FileReader fr = new FileReader(pathTwo);
-				BufferedReader br = new BufferedReader(fr);
-				while((line = br.readLine())!= null)
-				{
-					String[] dialogue = line.split(",");
-					System.out.println(dialogue[dialogueTwo]);
-				}
-				br.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println("Cannot Access File");
-
-		}
-	}
-
-	// public int checkInstance(ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo)
-	// {
-	// 	if(actorList.get(actorOne) instanceof Heroism)
-	// 	{
-
-	// 	}
-	// }
-	// public void writeToFile()
-	// {
-	// 	try
-	// 	{
-	// 		FileWriter fw = new FileWriter("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//Script.csv",true);
-	// 		fw.write("hello ,");
-	// 		fw.flush();
-	// 		fw.close();
-	// 	}
-	// 	catch(IOException e)
-	// 	{
-	// 		System.out.println("Cannot Access File");	
-	// 	}	
-	// }
-
-
-
 }
