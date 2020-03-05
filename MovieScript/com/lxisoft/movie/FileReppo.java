@@ -1,6 +1,6 @@
 package com.lxisoft.movie;
 import java.io.*;  
-import java.util.Scanner;  
+import java.util.*;  
 
 public class FileReppo
 {
@@ -14,25 +14,30 @@ public void creatFile()
 	   	{	System.out.println("* "+ex); }
 }
 
-public void writeTofile(String name)
+public void writeTofile(String name,String write)
 {
 	 try {
-      FileWriter myWriter = new FileWriter("Script.csv",true);
-      myWriter.write(name+" wins\n");
+      FileWriter myWriter = new FileWriter(name,true);
+      myWriter.write(write);
       myWriter.close();
       } catch (IOException e) {
       System.out.println("An error occurred."+e);
       e.printStackTrace();    }
 }
 
-public void readResult()
+public void readDialogue(int number,String name)
 {
+String line = null;  
+String splitBy = ",";  
 	try  
 	{  
-	FileInputStream fis=new FileInputStream("Script.csv");       
-	Scanner sc=new Scanner(fis); 
-	while(sc.hasNextLine())  
-	{  System.out.println(sc.nextLine()); }
+	
+	BufferedReader br = new BufferedReader(new FileReader(name));  
+		while ((line = br.readLine()) != null) 
+			{  
+				String[] dialouge = line.split(splitBy); 
+				System.out.println(dialouge[number]);  
+			}  
 	} catch(IOException e)  
 		{  e.printStackTrace();  }  
 }
