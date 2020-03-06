@@ -33,12 +33,6 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 	MovieDetails(actors);
 }
 
-public void MovieDetails(ArrayList<Actor> actors)
-{
-	System.out.println("\n\n\nThanks To All");
-	System.out.println(actors.get(0).getName()+" : "+actors.get(0).getmovieRoll());
-	System.out.println(actors.get(1).getName()+" : "+actors.get(1).getmovieRoll());
-}
 
 public void  PlayDialouge(Actor number1,int dilogeNumber,Actor number2,FileReppo script)
 {
@@ -60,6 +54,13 @@ public void  PlayDialouge(Actor number1,int dilogeNumber,Actor number2,FileReppo
 	script.readDialogue(dilogeNumber,"ComicScript.csv");
 	System.out.println("\n");
 	}	
+}
+
+public void MovieDetails(ArrayList<Actor> actors)
+{
+	System.out.println("\n\n\nThanks To All");
+	System.out.println(actors.get(0).getName()+" : "+actors.get(0).getmovieRoll());
+	System.out.println(actors.get(1).getName()+" : "+actors.get(1).getmovieRoll());
 }
 
 }

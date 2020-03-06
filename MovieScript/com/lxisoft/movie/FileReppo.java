@@ -14,16 +14,7 @@ public void creatFile()
 	   	{	System.out.println("* "+ex); }
 }
 
-public void writeTofile(String name,String write)
-{
-	 try {
-      FileWriter myWriter = new FileWriter(name,true);
-      myWriter.write(write);
-      myWriter.close();
-      } catch (IOException e) {
-      System.out.println("An error occurred."+e);
-      e.printStackTrace();    }
-}
+
 
 public void readDialogue(int number,String name)
 {
@@ -40,6 +31,17 @@ String splitBy = ",";
 			}  
 	} catch(IOException e)  
 		{  e.printStackTrace();  }  
+}
+
+public void writeTofile(String name,String write)
+{
+	 try {
+      FileWriter myWriter = new FileWriter(name,true);
+      myWriter.write(write);
+      myWriter.close();
+      } catch (IOException e) {
+      System.out.println("An error occurred."+e);
+      e.printStackTrace();    }
 }
 
 }
