@@ -11,8 +11,8 @@ public class FileRepository
 	{
 		try
 		{
-			File fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//HeroScript.csv");
-			File fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//VillainScript.csv");
+			File fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v2//com//lxisoft//repository//IronManScript.csv");
+			File fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v2//com//lxisoft//repository//ThanosScript.csv");
 			fileOne.createNewFile();
 			fileTwo.createNewFile();	
 		}
@@ -22,7 +22,7 @@ public class FileRepository
 		}
 	}
 
-	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,Dialogue dialogue,FileRepository repo,String path,int index)
+	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,String path,int index)
 	{
 		String line =" ";
 		String[] conversation = null;
@@ -33,7 +33,7 @@ public class FileRepository
 			if((line = br.readLine())!= null)
 			{
 				conversation = line.split(",");
-				//System.out.println("conversation="+conversation.length);
+				// System.out.println("conversation="+conversation.length);
 				for (int i=index,j=0;i<conversation.length + index;i++,j++) 
 				{
 					if((conversation[j]!=null) || (conversation[j].length()!= 0))

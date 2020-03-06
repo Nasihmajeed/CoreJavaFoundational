@@ -12,7 +12,6 @@ public class Movie
 	ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
 	Script script = new Script();
 	PlayMovie play = new PlayMovie();
-	FileRepository repo = new FileRepository();
 	Actor actor = new Actor();
 	//Dialogue dialogue = new Dialogue();
 	public void setMovieName(String moviename)
@@ -60,7 +59,7 @@ public class Movie
 		int choice;
 		// do
 		// {	
-		 	play.startMovie(actorList,dialogueList,actor.dialogue,repo);
+		 	play.startMovie(actorList,dialogueList);
 		//}while(choice == 1);
 	}
 }
