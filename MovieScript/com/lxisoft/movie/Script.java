@@ -11,4 +11,9 @@ public class Script
 	{
 		return scriptWriter;
 	}
+	public void scriptDetails()
+	{
+		setScriptWriter("rahul");
+		System.out.println("ScriptWriter::"+getScriptWriter().toUpperCase());	
+	}
 }

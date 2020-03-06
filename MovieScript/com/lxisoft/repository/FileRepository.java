@@ -22,31 +22,33 @@ public class FileRepository
 		}
 	}
 
-	public void readFromScript(Dialogue dialogue,ArrayList<Actor> actorList,int actorOne,int actorTwo,int dialogueOne,int dialogueTwo,String path)
+	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,Dialogue dialogue,FileRepository repo,String path,int index)
 	{
 		String line =" ";
 		String[] conversation = null;
-		ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
 		try
 		{	
-				FileReader fr = new FileReader(path);
-				BufferedReader br = new BufferedReader(fr);
-				while((line = br.readLine())!= null)
+			FileReader fr = new FileReader(path);
+			BufferedReader br = new BufferedReader(fr);
+			if((line = br.readLine())!= null)
+			{
+				conversation = line.split(",");
+				//System.out.println("conversation="+conversation.length);
+				for (int i=index,j=0;i<conversation.length + index;i++,j++) 
 				{
-					conversation = line.split(",");
-					dialogueList.add(new Dialogue());
-					dialogueList.get(actorOne).setMovieDialogue(conversation[dialogueOne]);
-					dialogueList.add(new Dialogue());
-					dialogueList.get(actorTwo).setMovieDialogue(conversation[dialogueTwo]);		
-				}
-				System.out.println(dialogueList.get(actorOne).getMovieDialogue());	
-				System.out.println(dialogueList.get(actorTwo).getMovieDialogue());
-				br.close();
+					if((conversation[j]!=null) || (conversation[j].length()!= 0))
+					{
+						dialogueList.add(new Dialogue());
+						dialogueList.get(i).setMovieDialogue(conversation[j]); //.trim();	
+					}	
+				}	
+			}		
+			br.close();
 		}
 		catch(IOException e)
 		{
 			System.out.println("Cannot Access File");
-
 		}
+		return dialogueList;
 	}
 }
