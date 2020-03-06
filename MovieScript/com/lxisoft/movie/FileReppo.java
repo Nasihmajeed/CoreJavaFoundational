@@ -16,7 +16,7 @@ public void creatFile()
 
 
 
-public void readDialogue(int number,String name)
+public void readDialogue(int number,String name ArrayList<Dialogue> dialouge)
 {
 String line = null;  
 String splitBy = ",";  
@@ -26,8 +26,8 @@ String splitBy = ",";
 	BufferedReader br = new BufferedReader(new FileReader(name));  
 		while ((line = br.readLine()) != null) 
 			{  
-				String[] dialouge = line.split(splitBy); 
-				System.out.println(dialouge[number]);  
+				dialouge = line.split(splitBy); 
+				System.out.println(dialouge.get(number).getdialogue());  
 			}  
 	} catch(IOException e)  
 		{  e.printStackTrace();  }  

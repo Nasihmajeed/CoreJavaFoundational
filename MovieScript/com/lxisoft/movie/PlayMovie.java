@@ -4,6 +4,8 @@ import java.util.*;
 class PlayMovie
 {
 	Random random = new Random();
+	ArrayList<Dialogue> jhondialogue =new ArrayList<Dialogue>();
+	ArrayList<Dialogue> aryadialogue =new ArrayList<Dialogue>();
 public void Play(ArrayList<Actor> actors,FileReppo script)
 {
 	int count =5;
@@ -17,7 +19,7 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 		if(actors.get(number1) instanceof Villanisum)
 		{
 			int number2=number1+1;
-			PlayDialouge(actors.get(number1),dilogeNumber,actors.get(number2),script);
+			PlayDialouge(actors.get(number1),                                                                                                                                                                              dilogeNumber,actors.get(number2),script);
 		 	count--;
 		}
 
@@ -39,19 +41,19 @@ public void  PlayDialouge(Actor number1,int dilogeNumber,Actor number2,FileReppo
 	if((dilogeNumber+1)%2==0)	
 	{
 	System.out.print(number1.getName()+" : ");
-	script.readDialogue(dilogeNumber,"ComicScript.csv");
+	script.readDialogue(dilogeNumber,"AryaScript.csv",aryadialogue);
 	
 	System.out.print(number2.getName()+" : ");
-	script.readDialogue(dilogeNumber,"VillanScript.csv");
+	script.readDialogue(dilogeNumber,"JhonScript.csv",jhondialogue);
 	System.out.println("\n");
 	}
 	else
 	{
 	System.out.print(number2.getName()+" : ");
-	script.readDialogue(dilogeNumber,"VillanScript.csv");
+	script.readDialogue(dilogeNumber,"JhonScript.csv",jhondialogue);
 
 	System.out.print(number1.getName()+" : ");
-	script.readDialogue(dilogeNumber,"ComicScript.csv");
+	script.readDialogue(dilogeNumber,"AryaScript.csv",aryadialogue);
 	System.out.println("\n");
 	}	
 }
