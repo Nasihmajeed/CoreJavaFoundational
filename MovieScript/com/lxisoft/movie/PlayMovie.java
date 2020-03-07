@@ -20,17 +20,21 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 		
 		if(actors.get(number1) instanceof Villanisum)
 		{
-			
 			int number2=number1+1;
-			PlayDialouge(actors.get(number1),dilogeNumber,actors.get(number2),script);                                                                                                                                                                      
+		//	PlayDialouge(actors.get(number1),dilogeNumber,actors.get(number2),script);   
+	System.out.println(actors.get(number1).getName()+" : "+jhondialogue.get(dilogeNumber).getdialogue());		
+	System.out.println(actors.get(number2).getName()+" : "+aryadialogue.get(dilogeNumber+3).getdialogue());
+	System.out.println(aryadialogue.size()+"\n"+dilogeNumber);                                           
 		 	count--;
 		}
 
 		else if(actors.get(number1) instanceof Comic)
 		{
-			// int dilogeNumber = random.nextInt(3);
 			int number2=number1-1;
-			PlayDialouge(actors.get(number1),dilogeNumber,actors.get(number2),script);
+			//PlayDialouge(actors.get(number2),dilogeNumber,actors.get(number1),script);
+	System.out.println(actors.get(number1).getName()+" : "+aryadialogue.get(dilogeNumber).getdialogue());
+	System.out.println(actors.get(number2).getName()+" : "+jhondialogue.get(dilogeNumber+3).getdialogue());
+	System.out.println(aryadialogue.size()+"\n"+dilogeNumber);             
 			count--;
 		}
 
@@ -40,26 +44,6 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 }
 
 
-public void  PlayDialouge(Actor number1,int dilogeNumber,Actor number2,FileReppo script)
-{
-	
-	if((dilogeNumber+1)%2==0)	
-	{
-	System.out.println(number1.getName()+" : "+aryadialogue.get(dilogeNumber).getdialogue());
-		
-	System.out.println(number2.getName()+" : "+jhondialogue.get(dilogeNumber).getdialogue());
-	
-	System.out.println(aryadialogue.size()+"\n");
-	}
-	else
-	{
-	System.out.println(number2.getName()+" : "+jhondialogue.get(dilogeNumber).getdialogue());
-	
-	System.out.println(number1.getName()+" : "+aryadialogue.get(dilogeNumber).getdialogue());
-	
-	System.out.println(aryadialogue.size()+"\n");
-	}	
-}
 
 public void MovieDetails(ArrayList<Actor> actors)
 {
