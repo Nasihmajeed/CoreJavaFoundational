@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+//import com.lxisoft.movie.*;
 import java.io.*;  
 import java.util.*;  
 
@@ -16,19 +17,29 @@ public void creatFile()
 
 
 
-public void readDialogue(int number,String name ArrayList<Dialogue> dialouge)
+public void readDialogue(String name,ArrayList<Dialogue> dialouge)
 {
-String line = null;  
-String splitBy = ",";  
+String line = null; 
+
 	try  
 	{  
 	
 	BufferedReader br = new BufferedReader(new FileReader(name));  
-		while ((line = br.readLine()) != null) 
-			{  
-				dialouge = line.split(splitBy); 
-				System.out.println(dialouge.get(number).getdialogue());  
-			}  
+		while ((line = br.readLine()) != null)
+			{
+			
+				String[] conver = line.split(",");
+				for(int i=0;i<conver.length;i++)
+				{
+					if(conver[i]!=null)
+					{ 
+						dialouge.add(new Dialogue());
+						dialouge.get(i).setdialogue(conver[i]);
+					}
+				}
+			} 
+			
+			
 	} catch(IOException e)  
 		{  e.printStackTrace();  }  
 }
