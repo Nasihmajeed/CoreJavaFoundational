@@ -5,8 +5,6 @@ import java.util.*;
 public class FileRepository
 {
 	Random random = new Random();
-	//String pathOne = "C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//HeroScript.csv";
-	//String pathTwo = "C://Users//rahul//Desktop//Java Projects//MovieScript//v1//com//lxisoft//repository//VillainScript.csv";
 	public void createRepository()
 	{
 		try
@@ -22,18 +20,18 @@ public class FileRepository
 		}
 	}
 
-	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,String path,int index)
+	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,String file,int index)
 	{
-		String line =" ";
-		String[] conversation = null;
+		String line = " ";
+		String[] conversation;
 		try
-		{	
-			FileReader fr = new FileReader(path);
+		{
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
-			if((line = br.readLine())!= null)
+			if((line = br.readLine())!=null)
 			{
 				conversation = line.split(",");
-				// System.out.println("conversation="+conversation.length);
+				System.out.println("conversation"+conversation.length);
 				for (int i=index,j=0;i<conversation.length + index;i++,j++) 
 				{
 					if((conversation[j]!=null) || (conversation[j].length()!= 0))
@@ -41,8 +39,8 @@ public class FileRepository
 						dialogueList.add(new Dialogue());
 						dialogueList.get(i).setMovieDialogue(conversation[j]); //.trim();	
 					}	
-				}	
-			}		
+				}
+			}
 			br.close();
 		}
 		catch(IOException e)
@@ -50,5 +48,5 @@ public class FileRepository
 			System.out.println("Cannot Access File");
 		}
 		return dialogueList;
-	}
+	}	
 }

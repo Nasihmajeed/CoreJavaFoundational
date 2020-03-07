@@ -9,11 +9,9 @@ public class Movie
 	Random random = new Random();
 	Scanner sc = new Scanner(System.in);
 	ArrayList<Actor> actorList = new ArrayList<Actor>();
-	ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
-	Script script = new Script();
 	PlayMovie play = new PlayMovie();
+	Script script = new Script();
 	Actor actor = new Actor();
-	//Dialogue dialogue = new Dialogue();
 	public void setMovieName(String moviename)
 	{
 		this.movieName = moviename;
@@ -57,9 +55,6 @@ public class Movie
 		script.scriptDetails();
 		createCharacters();
 		int choice;
-		// do
-		// {	
-		 	play.startMovie(actorList,dialogueList);
-		//}while(choice == 1);
+	 	play.startMovie(actorList,script);
 	}
 }

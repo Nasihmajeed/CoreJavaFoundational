@@ -6,67 +6,77 @@ public class PlayMovie
 {
 	Random random = new Random();
 	FileRepository repo = new FileRepository();
-	public void startMovie(ArrayList<Actor> actorList,ArrayList<Dialogue> dialogueList)
+	public void startMovie(ArrayList<Actor> actorList,Script script)
 	{
-		getHeroDialogues(dialogueList);
-		//getVillainDialogues(dialogueList);
-		System.out.println(dialogueList.size());
-		for (int i=0;i<dialogueList.size();i++) 
-		{
-			System.out.println(i+"= "+dialogueList.get(i).getMovieDialogue());	
-		}
-		playMovie(actorList,dialogueList);
-			
-	}
-	public ArrayList<Dialogue> getHeroDialogues(ArrayList<Dialogue> dialogueList)
+		List[] list  = script.getScript(repo);
+		// System.out.println(list[0].get(0));
+		//System.out.println(list[1]);	
+	 	playMovie(actorList,list);
+	}	
+	public void playMovie(ArrayList<Actor> actorList,List[] list)
 	{
-		repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v2//com//lxisoft//repository//IronManScript.csv",0);
-		return dialogueList;
-	}
-	// public ArrayList<Dialogue> getVillainDialogues(ArrayList<Dialogue> dialogueList)
-	// {
-	// 	repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v2//com//lxisoft//repository//VillainScript.csv",10);
-	// 	return dialogueList;
-	// }
-
-	public void playMovie(ArrayList<Actor> actorList,ArrayList<Dialogue> dialogueList)
-	{
-		int num = dialogueList.size();
-		int i=0;
+		System.out.println("Scene One--->>");
+		System.out.println("--------IronMan Meeting Thanos In Titan-------------");
+		int[] quest = new int[10];
+		boolean flag = false;
 		do
 		{
 			int actorOne = random.nextInt(actorList.size());
-			int actorTwo = random.nextInt(actorList.size());
-			int dialogueOne = random.nextInt((9-0)+0);
-			int dialogueTwo = dialogueOne;
-			num = checkActor(actorList,actorOne,actorTwo,dialogueList,dialogueOne,dialogueTwo);
-			System.out.println(num);	
-		}while(num>1);
+			int actorTwo = selectCharacter(actorOne);
+			int randomDialogue = random.nextInt(10);
+			int[] markedQuest = new int[10];
+			if(actorList.get(actorOne) instanceof Heroism)
+			{
+				System.out.println(actorList.get(actorOne).getActorName()+" --> "+  list[actorOne].get(randomDialogue));
+				System.out.println(actorList.get(actorTwo).getActorName()+" --> "+  list[actorTwo].get(randomDialogue)); 
+				markQuestion(quest,actorOne,actorTwo,randomDialogue);
+				for (int num:quest ) 
+				{
+					System.out.println(num);	
+				}	
+			}
+			else if(actorList.get(actorOne) instanceof Villanism) 
+			{
+				System.out.println(actorList.get(actorOne).getActorName()+" --> "+  list[actorOne].get(randomDialogue));
+				System.out.println(actorList.get(actorTwo).getActorName()+" --> "+  list[actorTwo].get(randomDialogue));
+				markQuestion(quest,actorOne,actorTwo,randomDialogue);
+				for (int num:quest ) 
+				{
+					System.out.println(num);	
+				}
+				
+			
+			}
+		}while(true);		
 	}
-	public int checkActor(ArrayList<Actor> actorList,int actorOne,int actorTwo,ArrayList<Dialogue> dialogueList,int dialogueOne,int dialogueTwo)
-	{	
-		int num  = dialogueList.size();
-		if(actorList.get(actorOne) instanceof Heroism)
-		{	
-			System.out.println(actorList.get(actorOne).getNameOfRole()+" = "+dialogueList.get(dialogueOne).getMovieDialogue());
-			System.out.println(actorList.get(actorTwo).getNameOfRole()+" = "+dialogueList.get(dialogueTwo).getMovieDialogue());
-			num = noOfQuestion(dialogueList,dialogueOne,dialogueTwo);
-		}
-		else if(actorList.get(actorOne) instanceof Villanism)
-		{
-			System.out.println(actorList.get(actorOne).getNameOfRole()+" = "+dialogueList.get(dialogueTwo).getMovieDialogue());
-			System.out.println(actorList.get(actorTwo).getNameOfRole()+" = "+dialogueList.get(dialogueOne).getMovieDialogue());
-			num = noOfQuestion(dialogueList,dialogueOne,dialogueTwo);
-		}
-		return num;
-	}
-	public  int noOfQuestion(ArrayList<Dialogue> dialogueList,int dialogueOne,int dialogueTwo)
+	public int[] markQuestion(int[] quest,int actorOne,int actorTwo,int randomDialogue)
 	{
-		int questionCount = dialogueList.size();
-		dialogueList.remove(dialogueOne);
-		dialogueList.remove(dialogueTwo);
-		questionCount = questionCount-1;
-		questionCount = questionCount-1;
-		return questionCount;
+		int i=0;
+		quest[i] = randomDialogue;
+		i++;
+		return quest;
+	}
+	// public search(int[] quest,int randomDialogue)
+	// {
+	// 	for(int i=0;i<quest.length;i++)
+	// 	{
+	// 		if(quest[i] != randomDialogue)
+	// 		{
+
+	// 		}
+	// 	}
+	// }
+	public  int selectCharacter(int actorOne)
+	{
+		int actorTwo = 0;
+		if(actorOne == 0)
+		{
+			actorTwo = 1;
+		}
+		else
+		{
+		 	actorTwo = 0;
+		}
+		return actorTwo;
 	}
 }
