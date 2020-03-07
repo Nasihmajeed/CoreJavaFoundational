@@ -19,7 +19,7 @@ public class Script
 		setScriptWriter("rahul");
 		System.out.println("ScriptWriter::"+getScriptWriter().toUpperCase());	
 	}
-	public List[] getScript(FileRepository repo)
+	public List<Dialogue>[] getScript(FileRepository repo)
 	{
 		repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v3//com//lxisoft//repository//IronManScript.csv",0);
 		repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v3//com//lxisoft//repository//ThanosScript.csv",10);

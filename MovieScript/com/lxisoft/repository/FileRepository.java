@@ -37,7 +37,8 @@ public class FileRepository
 					if((conversation[j]!=null) || (conversation[j].length()!= 0))
 					{
 						dialogueList.add(new Dialogue());
-						dialogueList.get(i).setMovieDialogue(conversation[j]); //.trim();	
+						dialogueList.get(i).setMovieDialogue(conversation[j]); //.trim();
+						dialogueList.get(i).setMarkDialogue(true);	
 					}	
 				}
 			}

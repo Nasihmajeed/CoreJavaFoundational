@@ -13,7 +13,15 @@ public class Dialogue
 	public String getMovieDialogue()
 	{
 		return movieDialogue;
-	} 
+	}
+	public void setMarkDialogue(boolean flag)
+	{
+		this.markdialogue = flag;
+	}
+	public boolean getMarkDialogue()
+	{
+		return markdialogue;
+	}  
 	public String toString()
 	{
 		return this.movieDialogue;
