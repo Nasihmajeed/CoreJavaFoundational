@@ -34,6 +34,7 @@ public class Movie
 		String nameOfMovie = sc.next();
 		System.out.println("Enter Name Of Director::");
 		String nameOfDirector = sc.next();
+		System.out.println("\n");
 		setMovieName(nameOfMovie);
 		setNameOfDirector(nameOfDirector);	
 		System.out.println(getMovieName().toUpperCase());
@@ -51,10 +52,10 @@ public class Movie
 	}
 	public void createMovie()
 	{
-		setMovieDetails();
-		script.scriptDetails();
-		createCharacters();
-		int choice;
-	 	play.startMovie(actorList,script);
+			setMovieDetails();
+			script.scriptDetails();
+			createCharacters();
+			int choice;
+	 		play.startMovie(actorList,script);	
 	}
 }

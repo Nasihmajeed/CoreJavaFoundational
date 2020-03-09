@@ -5,6 +5,7 @@ import java.util.*;
 public class FileRepository
 {
 	Random random = new Random();
+	Scanner sc = new Scanner(System.in);
 	public void createRepository()
 	{
 		try
@@ -31,7 +32,6 @@ public class FileRepository
 			if((line = br.readLine())!=null)
 			{
 				conversation = line.split(",");
-				System.out.println("conversation"+conversation.length);
 				for (int i=index,j=0;i<conversation.length + index;i++,j++) 
 				{
 					if((conversation[j]!=null) || (conversation[j].length()!= 0))
@@ -49,5 +49,6 @@ public class FileRepository
 			System.out.println("Cannot Access File");
 		}
 		return dialogueList;
-	}	
+	}
+	
 }
