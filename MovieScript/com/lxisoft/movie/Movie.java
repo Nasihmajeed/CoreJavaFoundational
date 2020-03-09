@@ -2,7 +2,7 @@ package com.lxisoft.movie;
 import java.io.*;  
 import java.util.*;  
 public class Movie
-{
+{ 
 private String name ="A Comic Movie";
 ArrayList<Actor> actors = new ArrayList<Actor>();	
 FileReppo script =new FileReppo();
@@ -10,21 +10,20 @@ PlayMovie plymovie;
 static Scanner input =new Scanner(System.in);
 public void CreateMovie()
 {
-	//script.creatFile();
 	actors.add(new Villan());
 	actors.add(new Comadian());
 	System.out.println("\n\t"+name);
-	int ch=MovieControl();
-	if(ch==1)
-	{
+	// int ch=MovieControl();
+	// if(ch==1)
+	// {
 		SetDetails();
 		plymovie =new PlayMovie();
 		plymovie.Play(actors,script);
-	}
-	else if(ch==0)
-	{		System.out.println("EXited");	}
-	else
-		{	System.out.println("You Entered A Rong Choise");}
+	// }
+	// else if(ch==0)
+	// {		System.out.println("EXited");	}
+	// else
+	// 	{	System.out.println("You Entered A Rong Choise");}
 
 }
 public void SetDetails()
