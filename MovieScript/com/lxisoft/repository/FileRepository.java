@@ -21,7 +21,7 @@ public class FileRepository
 		}
 	}
 
-	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,String file,int index)
+	public ArrayList<Dialogue> readFromScript(ArrayList<Dialogue> dialogueList,String file)
 	{
 		String line = " ";
 		String[] conversation;
@@ -38,7 +38,7 @@ public class FileRepository
 					{
 						dialogueList.add(new Dialogue());
 						dialogueList.get(i).setMovieDialogue(conversation[j]); //.trim();
-						dialogueList.get(i).setMarkDialogue(true);	
+						dialogueList.get(i).setMarkDialogue(false);	
 					}	
 				}
 			}

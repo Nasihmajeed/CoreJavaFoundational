@@ -6,26 +6,21 @@ public class PlayMovie
 {
 	Random random = new Random();
 	Scanner sc = new Scanner(System.in);
-	FileRepository repo = new FileRepository();
+	FileRepository repo = new FileRepository();	
 	public void startMovie(ArrayList<Actor> actorList,Script script)
 	{
-
-		List<Dialogue>[] list  = script.getScript(repo);
-	 	startScene(actorList,list,script);	
-	}
-	public void startScene(ArrayList<Actor> actorList,List<Dialogue>[] list,Script script)
-	{
-		System.out.println("1.Play Movie\n2.Edit Script\n3.delete Dialogue\n");
+		System.out.println("1.Play Movie\n2.Edit Script\n");
 		int ch = sc.nextInt();
 		switch (ch) 
 		{
-			case 1:playMovie(actorList,list);
-			case 2:script.editScript(list);
-			default: System.out.println("Enter valid choice!!!!!!");	
-		}
+			case 1:playMovie(actorList,list);break;
+			case 2:script.editScript(actorList,list);break;
+			default: System.out.println("Enter valid choice!!!!!!");break;	
+		}		
 	}	
 	public void playMovie(ArrayList<Actor> actorList,List<Dialogue>[] list)
 	{
+		script.getScript(repo);
 		System.out.println("Scene One--->>");
 		System.out.println("--------IronMan Meeting Thanos In Titan-------------");
 		System.out.println(actorList.get(0).getActorName()+" As "+actorList.get(0).getNameOfRole());

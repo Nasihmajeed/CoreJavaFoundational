@@ -5,6 +5,7 @@ public class Actor
 {
 	private String actorName;
 	private String nameOfRole;
+	private int actorId;
 	public  Dialogue dialogue;
 	Scanner sc = new Scanner(System.in);
 	public void setActorName(String actorname)
@@ -22,6 +23,14 @@ public class Actor
 	public String getNameOfRole()
 	{
 		return nameOfRole;
+	}
+	public void setActorId(int id)
+	{
+		this.actorId = id;
+	}
+	public String getActorId()
+	{
+		return actorId;
 	}
 }
 	

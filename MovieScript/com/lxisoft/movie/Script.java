@@ -6,7 +6,12 @@ public class Script
 {
 	Scanner sc = new Scanner(System.in);
 	private String scriptWriter;
-	ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
+
+	ArrayList<Dialogue> ironManQ = new ArrayList<Dialogue>();
+	ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
+	ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
+	ArrayList<Dialogue> thanosR = new ArrayList<Dialogue>();
+
 	public void setScriptWriter(String scriptwriter)
 	{
 		this.scriptWriter = scriptwriter;
@@ -20,29 +25,47 @@ public class Script
 		setScriptWriter("rahul");
 		System.out.println("ScriptWriter::"+getScriptWriter().toUpperCase());	
 	}
-	public List<Dialogue>[] getScript(FileRepository repo)
+	public void getScript(FileRepository repo)
 	{
-		repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v3//com//lxisoft//repository//IronManScript.csv",0);
-		repo.readFromScript(dialogueList,"C://Users//rahul//Desktop//Java Projects//MovieScript//v3//com//lxisoft//repository//ThanosScript.csv",10);
-		List<Dialogue> dialogueListIronMan = dialogueList.subList(0,10);
-		List<Dialogue> dialogueListThanos = dialogueList.subList(10,20); 
-		return new List[]{dialogueListIronMan,dialogueListThanos};
+		repo.readFromScript(ironManQ,"C://Users//rahul//Desktop//Java Projects//MovieScript//v5//com//lxisoft//repository//ironManQ.csv");
+		repo.readFromScript(ironManR,"C://Users//rahul//Desktop//Java Projects//MovieScript//v5//com//lxisoft//repository//ironManR.csv");
+		repo.readFromScript(thanosQ,"C://Users//rahul//Desktop//Java Projects//MovieScript//v5//com//lxisoft//repository//thanosQ.csv");
+		repo.readFromScript(thanosR,"C://Users//rahul//Desktop//Java Projects//MovieScript//v5//com//lxisoft//repository//thanosR .csv");
 	} 
-	public void editScript(List<Dialogue>[] list)
+	public void editScript(ArrayList<Actor> actorList,List<Dialogue>[] list)
 	{
 		System.out.println("1.Add Dialogue\n2.Delete Dialogue\n");
 		int ch = sc.nextInt();
 		switch(ch)
 		{
-			case 1:addDialogue(list);
-			//case 2:deleteDialogue(list);
-			default :System.out.println("Enter valid choice");
+			case 1:addDialogue(actorList);
+			case 2:deleteDialogue();
+			default:System.out.println("Enter valid choice");
 		}	
 	}
-	public void addDialogue(List<Dialogue>[] list)
+	public void addDialogue(ArrayList<Actor> actorList)
 	{
-		System.out.println("1.Question\n Or \n2.Answer,You Want to add");
-		int ch = sc.nextInt(); 
+		System.out.println("Whose Dialogues You Want to add\n1.IronMan(Press 1)\n2.Thanos(Press 2)\n");
+		int ch = sc.nextInt();
+		switch(ch)
+		{	
+			case 1:addToScript(ch,actorList);
+			case 2:addToScript(ch,actorList);
+			default:System.out.println("Enter valid choice");	
+		}
+
+	}
+	public  void addToScript(int index,ArrayList<Actor> actorList)
+	{
+
+		System.out.println(actorList.get(index).getNameOfRole());
+		System.out.println("Enter dialogue:");
+		String movieDialogue = sc.nextLine();
+		sc.nextLine();
+		System.out.println(actorList.get(index).getNameOfRole());
+		System.out.println("Enter reply:");
+		String movieReply = sc.nextLine();
+		sc.nextLine();
 
 	}
 }
