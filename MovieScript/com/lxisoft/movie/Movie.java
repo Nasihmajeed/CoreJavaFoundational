@@ -83,11 +83,11 @@ public class Movie
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
 		thanosR  = script.readFromScript(d);
-		int count = ironManQ.size();
+		int count = ironManQ.size()+ironManR.size();
 		do
 		{
 			int randomActor = random.nextInt(2);
-			int randomDialogue = random.nextInt(6);
+			int randomDialogue = random.nextInt(ironManQ.size());
 			if(actorList.get(randomActor) instanceof Heroism)
 			{
 				if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
@@ -154,8 +154,9 @@ public class Movie
 		System.out.println("Enter Qustion to add::");
 		String quest = sc.nextLine();
 		quest = sc.nextLine();
-		// ironManQ.add(new Dialogue());
-		// ironManQ.get(length).setMovieDialogue(quest);
+		ironManQ.add(new Dialogue());
+		ironManQ.get(length1).setMovieDialogue(quest);
+		ironManQ.get(length1).setMarkDialogue(true);
 		script.writeToScript(fileOne,quest);
 	}
 	public void addIronManAns()
@@ -164,8 +165,9 @@ public class Movie
 		System.out.println("Enter Answer to add::");
 		String ans = sc.nextLine();
 		ans = sc.nextLine();
-		// ironManQ.add(new Dialogue());
-		// ironManQ.get(length).setMovieDialogue(ans);
+		ironManQ.add(new Dialogue());
+		ironManQ.get(length2).setMovieDialogue(ans);
+		ironManQ.get(length2).setMarkDialogue(true);
 		script.writeToScript(fileTwo,ans);
 	}
 	public void addThanosQuest()
@@ -174,6 +176,9 @@ public class Movie
 		System.out.println("Enter Qustion to add::");
 		String quest = sc.nextLine();
 		quest = sc.nextLine();
+		thanosQ.add(new Dialogue());
+		thanosQ.get(length3).setMovieDialogue(quest);
+		thanosQ.get(length3).setMarkDialogue(false);
 		script.writeToScript(fileThree,quest);
 	}
 	public void addThanosAns()
@@ -182,6 +187,9 @@ public class Movie
 		System.out.println("Enter Answer to add::");
 		String ans = sc.nextLine();
 		ans = sc.nextLine();
+		thanosR.add(new Dialogue());
+		thanosR.get(length4).setMovieDialogue(ans);
+		thanosR.get(length4).setMarkDialogue(true);
 		script.writeToScript(fileFour,ans);
 	}
 	
