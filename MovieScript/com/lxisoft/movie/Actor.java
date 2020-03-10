@@ -28,7 +28,7 @@ public class Actor
 	{
 		this.actorId = id;
 	}
-	public String getActorId()
+	public int getActorId()
 	{
 		return actorId;
 	}
