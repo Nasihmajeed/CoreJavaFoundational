@@ -6,6 +6,7 @@ public class Dialogue
 {
 private String dialogue;
 private Boolean flag=true;
+private int id;
 public void setdialogue(String dialogue)  
     { 
         this.dialogue = dialogue; 
@@ -23,4 +24,13 @@ public boolean getFlag()
 	{
 		return flag;
 	}	
+public void setId(int id)
+    {
+        this.id=id;
+    }
+public int getId()
+    {
+        return id;
+    }   
+
 }

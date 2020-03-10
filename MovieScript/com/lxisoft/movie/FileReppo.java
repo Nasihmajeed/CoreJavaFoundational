@@ -34,7 +34,16 @@ String line = null;
 					if(conver[i]!=null)
 					{ 
 						dialouge.add(new Dialogue());
+						if((i+1)%2!=0)
+						{
+						dialouge.get(i).setId(1);
 						dialouge.get(i).setdialogue(conver[i]);
+						}
+						else
+						{
+						dialouge.get(i).setId(2);	
+						dialouge.get(i).setdialogue(conver[i]);	
+						}	
 					}
 				}
 			} 
@@ -48,7 +57,7 @@ public void writeTofile(String name,String write)
 {
 	 try {
       FileWriter myWriter = new FileWriter(name,true);
-      myWriter.write(write);
+      myWriter.write(write+",");
       myWriter.close();
       } catch (IOException e) {
       System.out.println("An error occurred."+e);
