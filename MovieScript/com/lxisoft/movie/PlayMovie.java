@@ -15,14 +15,15 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 	script.readDialogue(file2,villandialogue);
 	System.out.println("\n\n");
 	System.out.println("\n________________________\n\n");
- 	int n=comicdialogue.size();
- 	int count=n;
+ 	
+ 	int count=((villandialogue.size()+villandialogue.size())/2);
 	do{
 		int number1 = random.nextInt(2); 
-		int dilogeNumber = random.nextInt(n);
-		
+		//System.out.println(" count"+count);		
 		if(actors.get(number1) instanceof Villanisum)
 		{
+			int n=(villandialogue.size());
+			int dilogeNumber = random.nextInt(n);
 			if(villandialogue.get(dilogeNumber).getFlag()==true&&(villandialogue.get(dilogeNumber).getId()==1))
 			{
 			int number2=number1+1;
@@ -32,6 +33,8 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 
 		else if(actors.get(number1) instanceof Comic)
 		{
+			int n=(comicdialogue.size());
+			int dilogeNumber = random.nextInt(n);
 			if(comicdialogue.get(dilogeNumber).getFlag()==true&&(comicdialogue.get(dilogeNumber).getId()==1))
 			{
 			int number2=number1-1;
@@ -89,17 +92,14 @@ public void EditScript(Actor a1,Actor a2,String file1,String file2,FileReppo scr
 public void AddDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,FileReppo script)
 {
 		int size=d1.size();
-		//System.out.print(size);
 		d1.add(new Dialogue());
-		//System.out.print(d1.size());
 		System.out.print(a1.getName()+" : ");
 		String que=input.nextLine();
 		que=input.nextLine();
-		//System.out.print(que);
-		d1.get(size).setId(1);
-		d1.get(size).setdialogue(que);
-
+   		 d1.get(size).setId(1);
+		 d1.get(size).setdialogue(que);
 		script.writeTofile(file,que);
+
 		d1.add(new Dialogue());
 		System.out.print(a2.getName()+" : ");
 		String ans=input.nextLine();
