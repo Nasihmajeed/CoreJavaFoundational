@@ -177,51 +177,59 @@ public class Movie
 	}
 	public void addIronManQuest()
 	{
-		viewScript("ironMan","Qusetion",ironManQ);
-		int length1 = ironManQ.size();
-		System.out.println("Enter Qustion to add::");
-		String quest = sc.nextLine();
-		quest = sc.nextLine();
-		ironManQ.add(new Dialogue());
-		ironManQ.get(length1).setMovieDialogue(quest);
-		ironManQ.get(length1).setMarkDialogue(true);
-		script.writeToScript(fileOne,quest);
+		add("ironMan","Question",ironManQ,fileOne);
+		// ironManQ = script.readFromScript(fileOne);
+		// viewScript("ironMan","Qusetion",ironManQ);
+		// int length1 = ironManQ.size();
+		// System.out.println("Enter Qustion to add::");
+		// String quest = sc.nextLine();
+		// quest = sc.nextLine();
+		// ironManQ.add(new Dialogue());
+		// ironManQ.get(length1).setMovieDialogue(quest);
+		// ironManQ.get(length1).setMarkDialogue(true);
+		// script.writeToScript(fileOne,quest);
 	}
 	public void addIronManAns()
 	{
-		viewScript("ironMan","Reply",ironManR);
-		int length2 = ironManR.size();
-		System.out.println("Enter Answer to add::");
-		String ans = sc.nextLine();
-		ans = sc.nextLine();
-		ironManQ.add(new Dialogue());
-		ironManQ.get(length2).setMovieDialogue(ans);
-		ironManQ.get(length2).setMarkDialogue(true);
-		script.writeToScript(fileTwo,ans);
+		add("ironMan","Reply",ironManR,fileTwo);
+		// ironManR =  script.readFromScript(fileTwo);
+		// viewScript("ironMan","Reply",ironManR);
+		// int length2 = ironManR.size();
+		// System.out.println("Enter Answer to add::");
+		// String ans = sc.nextLine();
+		// ans = sc.nextLine();
+		// ironManQ.add(new Dialogue());
+		// ironManQ.get(length2).setMovieDialogue(ans);
+		// ironManQ.get(length2).setMarkDialogue(true);
+		// script.writeToScript(fileTwo,ans);
 	}
 	public void addThanosQuest()
 	{
-		viewScript("Thanos","Question",thanosQ);
-		int length3 = thanosQ.size();
-		System.out.println("Enter Qustion to add::");
-		String quest = sc.nextLine();
-		quest = sc.nextLine();
-		thanosQ.add(new Dialogue());
-		thanosQ.get(length3).setMovieDialogue(quest);
-		thanosQ.get(length3).setMarkDialogue(false);
-		script.writeToScript(fileThree,quest);
+		add("Thanos","Question",thanosQ,fileThree);
+		// thanosQ = script.readFromScript(fileThree);
+		// viewScript("Thanos","Question",thanosQ);
+		// int length3 = thanosQ.size();
+		// System.out.println("Enter Qustion to add::");
+		// String quest = sc.nextLine();
+		// quest = sc.nextLine();
+		// thanosQ.add(new Dialogue());
+		// thanosQ.get(length3).setMovieDialogue(quest);
+		// thanosQ.get(length3).setMarkDialogue(false);
+		// script.writeToScript(fileThree,quest);
 	}
 	public void addThanosAns()
 	{
-		viewScript("Thanos","Reply",thanosR);
-		int length4 = thanosR.size();
-		System.out.println("Enter Answer to add::");
-		String ans = sc.nextLine();
-		ans = sc.nextLine();
-		thanosR.add(new Dialogue());
-		thanosR.get(length4).setMovieDialogue(ans);
-		thanosR.get(length4).setMarkDialogue(true);
-		script.writeToScript(fileFour,ans);
+		add("Thanos","Reply",thanosR,fileFour);
+		// thanosR = script.readFromScript(fileFour);
+		// viewScript("Thanos","Reply",thanosR);
+		// int length4 = thanosR.size();
+		// System.out.println("Enter Answer to add::");
+		// String ans = sc.nextLine();
+		// ans = sc.nextLine();
+		// thanosR.add(new Dialogue());
+		// thanosR.get(length4).setMovieDialogue(ans);
+		// thanosR.get(length4).setMarkDialogue(true);
+		// script.writeToScript(fileFour,ans);
 	}
 	public void viewScript(String name,String type,ArrayList<Dialogue> a)
 	{
@@ -282,89 +290,53 @@ public class Movie
 	}
 	public void deleteIronManQuest()
 	{
-		viewScript("ironMan","Qusetion",ironManQ);
-		System.out.println("Enter position Of Question to be deleted");
-		int position = sc.nextInt();
-		ironManQ.remove(position);
-		try{
-		if(fileOne.exists() && fileOne.isFile())
-		{
-			fileOne.delete();
-		}
-		fileOne.createNewFile();
-		}
-		catch(IOException e){ System.out.println("Error");}	
-		for(int i=0;i<ironManQ.size();i++) 
-		{
-			String dialogue = ironManQ.get(i).getMovieDialogue();
-			script.writeToScript(fileOne,dialogue);
-
-		}
-
+		delete("ironMan","Question",ironManQ,fileOne);
 	}
 	public void deleteIronManAns()
 	{
-		viewScript("ironMan","Reply",ironManQ);
-		System.out.println("Enter position Of Reply to be deleted");
-		int position = sc.nextInt();
-		ironManR.remove(position);
-		try{
-		if(fileTwo.exists() && fileTwo.isFile())
-		{
-			fileTwo.delete();
-		}
-		fileTwo.createNewFile();
-		}
-		catch(IOException e){ System.out.println("Error");}
-		for(int i=0;i<ironManR.size();i++) 
-		{
-			String dialogue = ironManR.get(i).getMovieDialogue();
-			script.writeToScript(fileTwo,dialogue);
-
-		}	
+		delete("ironMan","Reply",ironManR,fileTwo);	
 	}
 	public void deleteThanosQuest()
 	{
-		viewScript("Thanos","Qusetion",thanosQ);
-		System.out.println("Enter position Of Question to be deleted");
-		int position = sc.nextInt();
-		thanosQ.remove(position);
-		try{
-		if(fileThree.exists() && fileThree.isFile())
-		{
-			fileThree.delete();
-		}
-		fileThree.createNewFile();
-		}
-		catch(IOException e){ System.out.println("Error");}
-		for(int i=0;i<thanosQ.size();i++) 
-		{
-			String dialogue = thanosQ.get(i).getMovieDialogue();
-			script.writeToScript(fileThree,dialogue);
-
-		}	
+		delete("Thanos","Question",thanosQ,fileThree);	
 	}
 	public void deleteThanosAns()
 	{
-		viewScript("Thanos","Reply",thanosR);
+		delete("Thanos","Reply",thanosR,fileFour);	
+	}
+
+	public void delete(String name,String type,ArrayList<Dialogue> d,File file)
+	{
+		viewScript(name,type,d);
 		System.out.println("Enter position Of Reply to be deleted");
 		int position = sc.nextInt();
-		thanosR.remove(position);
+		d.remove(position);
 		try{
-		if(fileFour.exists() && fileFour.isFile())
+		if(file.exists() && file.isFile())
 		{
-			fileFour.delete();
+			file.delete();
 		}
-		fileFour.createNewFile();
+		file.createNewFile();
 		}
 		catch(IOException e){ System.out.println("Error");}
-		for(int i=0;i<thanosR.size();i++) 
+		for(int i=0;i<d.size();i++) 
 		{
-			String dialogue = thanosR.get(i).getMovieDialogue();
-			script.writeToScript(fileFour,dialogue);
-
+			String dialogue = d.get(i).getMovieDialogue();
+			script.writeToScript(file,dialogue);
 		}	
 	}
 
-	
+	public void add(String name,String type,ArrayList<Dialogue> d,File file)
+	{
+		d = script.readFromScript(file);
+		viewScript(name,type,d);
+		int length = d.size();
+		System.out.println("Enter Answer to add::");
+		String dialogue = sc.nextLine();
+		dialogue = sc.nextLine();
+		d.add(new Dialogue());
+		d.get(length).setMovieDialogue(dialogue);
+		d.get(length).setMarkDialogue(true);
+		script.writeToScript(file,dialogue);
+	}
 }
