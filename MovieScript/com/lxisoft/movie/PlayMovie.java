@@ -16,7 +16,7 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 	System.out.println("\n\n");
 	System.out.println("\n________________________\n\n");
  	
- 	int count=((villandialogue.size()+villandialogue.size())/2);
+ 	int count=((villandialogue.size()+villandialogue.size())/2-1);
 	do{
 		int number1 = random.nextInt(2); 
 		//System.out.println(" count"+count);		
@@ -27,7 +27,8 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 			if(villandialogue.get(dilogeNumber).getFlag()==true&&(villandialogue.get(dilogeNumber).getId()==1))
 			{
 			int number2=number1+1;
-			PlayDialoge(actors.get(number1),actors.get(number2),villandialogue,dilogeNumber);            
+			PlayDialoge(actors.get(number1),actors.get(number2),villandialogue,dilogeNumber);    
+			//System.out.println(count);        
 	    	count--;}
 		}
 
@@ -39,6 +40,7 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 			{
 			int number2=number1-1;
 			PlayDialoge(actors.get(number1),actors.get(number2),comicdialogue,dilogeNumber);	
+			//System.out.println(count);        
 			count--;}
 		}
 
@@ -53,6 +55,7 @@ public void PlayDialoge(Actor a1,Actor a2,ArrayList<Dialogue> d1,int dilogeNumbe
 	System.out.println(a1.getName()+" : "+d1.get(dilogeNumber).getdialogue());
 	d1.get(dilogeNumber).setFlag(false);	
 	System.out.println(a2.getName()+" : "+d1.get(dilogeNumber+1).getdialogue());
+	d1.get(dilogeNumber+1).setFlag(false);	
 	System.out.println("\n");                                      
 }
 
@@ -68,25 +71,37 @@ public void EditScript(Actor a1,Actor a2,String file1,String file2,FileReppo scr
 {
 	System.out.print("\nPress 1 To Add Dialogue\nPress 2 to Delete a Dialogue\nPress 0 to Exit\n\n Enter Your Choise :");
 	int option=input.nextInt();
+
+	try{
 	if(option==1)
 	{
 		System.out.println("Whose Dialogue you Want to Add \n1.villan \n2.Comic");
 		int choise=input.nextInt();
 		if((choise-1)==0)
 		{
+			for(int i=0;i<villandialogue.size();i++)
+			{
+				System.out.println("\n"+villandialogue.get(i).getdialogue());
+			}	
 			AddDialouge(a1,a2,villandialogue,file2,script);
 		}
 		else
 		{
+			for(int i=0;i<villandialogue.size();i++)
+			{
+				System.out.println("\n"+comicdialogue.get(i).getdialogue());
+			}	
 			AddDialouge(a2,a1,comicdialogue,file1,script);
 		}
 	}	
-	// if(option==2)
-	// {	DeleteDialouge();	}	
+	if(option==2)
+	{	DeleteDialouge();	}	
 	else if(option==0)
 	{		System.out.println("EXited");	}
 	else
-	{	System.out.println("You Entered A wrong Choise");}
+	{	System.out.println("You Entered A wrong Choise");}}
+catch(Exception ex)
+{System.out.println("**"+ex);}
 }
 
 public void AddDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,FileReppo script)
@@ -107,15 +122,13 @@ public void AddDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,Fil
 		 d1.get(size+1).setdialogue(ans);
 		script.writeTofile(file,ans);
 }
-// public void DeleteDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,ArrayList<Dialogue> d2,int n)
-// {
+public void DeleteDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,FileReppo script)
+{
 	
-// 		System.out.printl(a1.getName()+" : ");
-// 		d1.get(n).remove();
-// 		System.out.println(a2.getName()+" : ");
-// 		d1.remove();
+		d1.get(n).remove();
+		d1.get(n).remove();
 	
-// }
+}
 
 
 }
