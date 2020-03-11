@@ -1,5 +1,4 @@
 package com.lxisoft.movie;
-import com.lxisoft.repository.*;
 import com.lxisoft.movie.*;
 import java.util.*;
 public class Dialogue

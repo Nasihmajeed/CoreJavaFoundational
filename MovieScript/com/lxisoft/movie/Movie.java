@@ -1,5 +1,4 @@
 package com.lxisoft.movie;
-import com.lxisoft.repository.*;
 import com.lxisoft.movie.*;
 import java.util.*;
 import java.io.*;
@@ -20,7 +19,6 @@ public class Movie
 			ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
 			ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
 			ArrayList<Dialogue> thanosR = new ArrayList<Dialogue>();
-
 	public void setMovieName(String moviename)
 	{
 		this.movieName = moviename;
@@ -57,19 +55,36 @@ public class Movie
 	}  
 	public void createMovie()
 	{	
-		int x;
-		do{
-		System.out.println("1.Play Movie\n2.Edit Script\n3.Back\nEnter Ur Choice:\n");
-		x = sc.nextInt();
-		switch(x)
+		int x,ch;
+		try
 		{
+		do{
+		System.out.println("1.Play Movie\n2.Edit Script\n3.Delete Script\n4.Back\nEnter Ur Choice:\n");
+		x = sc.nextInt();
+		try
+		{
+			switch(x)
+			{
 			case 1:playMovie();break;
 			case 2:editScript();break;
-			case 3:createMovie();break;
+			case 3:deleteScript();break;
+			case 4:createMovie();break;
 			default:System.out.println("Enter valid Choice");break;
+			}	
+		}catch(MyException e)
+		{
+			System.out.println("Caught");
 		}
-		System.out.println("Do You Want To Continue Play:Yes(press 1)/No(Press 0)");
-		}while(x==1);
+		finally
+		{
+			System.out.println("Do You Want To Continue Play:Yes(press 1)/No(Press 0)");
+			ch = sc.nextInt();
+		}
+		}while(ch==1);
+		}catch(InputMismatchException e)
+		{
+			System.out.println(e);
+		}
 	}
 	public  void playMovie()
 	{
@@ -112,10 +127,14 @@ public class Movie
 			}
 		}while(count>0);	
 	}		
-	public void editScript()
+	public void editScript() throws MyException
 	{
 		System.out.println("Whose Script You Want To Edit\n1.IronMan\n2.Thanos\n3.Back\n");
 		int x = sc.nextInt();
+		if(x>=4)
+		{
+			throw new MyException("invalid input exception");
+		}
 		switch(x)
 		{
 			case 1:ironManScript();break;
@@ -124,10 +143,14 @@ public class Movie
 			default:System.out.println("Enter Valid Choice!!!!");break;	
 		}
 	}
-	public  void ironManScript()
+	public  void ironManScript()throws MyException
 	{
 		System.out.println("\n1.Qusetion\n2.Answer\n3.Back\n");
 		int x = sc.nextInt();
+		if(x>=4)
+		{
+			throw new MyException("invalid input exception");
+		}
 		switch(x)
 		{
 			case 1:addIronManQuest();break;
@@ -136,10 +159,14 @@ public class Movie
 			default:System.out.println("Enter Valid Choice!!!!");break;	
 		}	
 	}
-	public  void thanosScript()
+	public  void thanosScript()throws MyException
 	{
 		System.out.println("\n1.Qusetion\n2.Answer\n3.Back\n");
 		int x = sc.nextInt();
+		if(x>=4)
+		{
+				throw new MyException("invalid input exception");
+		}
 		switch(x)
 		{
 			case 1:addThanosQuest();break;
@@ -150,6 +177,7 @@ public class Movie
 	}
 	public void addIronManQuest()
 	{
+		viewScript("ironMan","Qusetion",ironManQ);
 		int length1 = ironManQ.size();
 		System.out.println("Enter Qustion to add::");
 		String quest = sc.nextLine();
@@ -161,6 +189,7 @@ public class Movie
 	}
 	public void addIronManAns()
 	{
+		viewScript("ironMan","Reply",ironManR);
 		int length2 = ironManR.size();
 		System.out.println("Enter Answer to add::");
 		String ans = sc.nextLine();
@@ -172,6 +201,7 @@ public class Movie
 	}
 	public void addThanosQuest()
 	{
+		viewScript("Thanos","Question",thanosQ);
 		int length3 = thanosQ.size();
 		System.out.println("Enter Qustion to add::");
 		String quest = sc.nextLine();
@@ -183,6 +213,7 @@ public class Movie
 	}
 	public void addThanosAns()
 	{
+		viewScript("Thanos","Reply",thanosR);
 		int length4 = thanosR.size();
 		System.out.println("Enter Answer to add::");
 		String ans = sc.nextLine();
@@ -192,5 +223,148 @@ public class Movie
 		thanosR.get(length4).setMarkDialogue(true);
 		script.writeToScript(fileFour,ans);
 	}
+	public void viewScript(String name,String type,ArrayList<Dialogue> a)
+	{
+		System.out.println(name + type);
+		System.out.println("--------------------");
+		for (Dialogue  x: a) 
+		{
+			System.out.println(x.getMovieDialogue()+"\n");	
+		}
+	}
+	public void deleteScript()throws MyException
+	{
+		System.out.println("Whose Script You Want To Delete\n1.IronMan\n2.Thanos\n3.Back\n");
+		int x = sc.nextInt();
+		if(x>4)
+		{
+			throw new MyException("invalid input exception");
+		}
+		switch(x)
+		{
+			case 1:ironManScriptDelete();break;
+			case 2:thanosScriptDelete();break;
+			case 3:createMovie();break;
+			default:System.out.println("Enter Valid Choice!!!!");break;		
+		}
+	}
+	public void ironManScriptDelete() throws MyException
+	{
+		System.out.println("\n1.Qusetion\n2.Answer\n3.Back\n");
+		int x = sc.nextInt();
+		if(x>=4)
+		{
+			throw new MyException("invalid input exception");
+		}
+		switch(x)
+		{
+			case 1:deleteIronManQuest();break;
+			case 2:deleteIronManAns();break;
+			case 3:createMovie();break;
+			default:System.out.println("Enter Valid Choice!!!!");break;	
+		}
+	}
+	public void thanosScriptDelete() throws MyException
+	{
+		System.out.println("\n1.Qusetion\n2.Answer\n3.Back\n");
+		int x = sc.nextInt();
+		if(x>=4)
+		{
+			throw new MyException("invalid input exception");
+		}
+		switch(x)
+		{
+			case 1:deleteThanosQuest();break;
+			case 2:deleteThanosAns();break;
+			case 3:createMovie();break;
+			default:System.out.println("Enter Valid Choice!!!!");break;	
+		}
+	}
+	public void deleteIronManQuest()
+	{
+		viewScript("ironMan","Qusetion",ironManQ);
+		System.out.println("Enter position Of Question to be deleted");
+		int position = sc.nextInt();
+		ironManQ.remove(position);
+		try{
+		if(fileOne.exists() && fileOne.isFile())
+		{
+			fileOne.delete();
+		}
+		fileOne.createNewFile();
+		}
+		catch(IOException e){ System.out.println("Error");}	
+		for(int i=0;i<ironManQ.size();i++) 
+		{
+			String dialogue = ironManQ.get(i).getMovieDialogue();
+			script.writeToScript(fileOne,dialogue);
+
+		}
+
+	}
+	public void deleteIronManAns()
+	{
+		viewScript("ironMan","Reply",ironManQ);
+		System.out.println("Enter position Of Reply to be deleted");
+		int position = sc.nextInt();
+		ironManR.remove(position);
+		try{
+		if(fileTwo.exists() && fileTwo.isFile())
+		{
+			fileTwo.delete();
+		}
+		fileTwo.createNewFile();
+		}
+		catch(IOException e){ System.out.println("Error");}
+		for(int i=0;i<ironManR.size();i++) 
+		{
+			String dialogue = ironManR.get(i).getMovieDialogue();
+			script.writeToScript(fileTwo,dialogue);
+
+		}	
+	}
+	public void deleteThanosQuest()
+	{
+		viewScript("Thanos","Qusetion",thanosQ);
+		System.out.println("Enter position Of Question to be deleted");
+		int position = sc.nextInt();
+		thanosQ.remove(position);
+		try{
+		if(fileThree.exists() && fileThree.isFile())
+		{
+			fileThree.delete();
+		}
+		fileThree.createNewFile();
+		}
+		catch(IOException e){ System.out.println("Error");}
+		for(int i=0;i<thanosQ.size();i++) 
+		{
+			String dialogue = thanosQ.get(i).getMovieDialogue();
+			script.writeToScript(fileThree,dialogue);
+
+		}	
+	}
+	public void deleteThanosAns()
+	{
+		viewScript("Thanos","Reply",thanosR);
+		System.out.println("Enter position Of Reply to be deleted");
+		int position = sc.nextInt();
+		thanosR.remove(position);
+		try{
+		if(fileFour.exists() && fileFour.isFile())
+		{
+			fileFour.delete();
+		}
+		fileFour.createNewFile();
+		}
+		catch(IOException e){ System.out.println("Error");}
+		for(int i=0;i<thanosR.size();i++) 
+		{
+			String dialogue = thanosR.get(i).getMovieDialogue();
+			script.writeToScript(fileFour,dialogue);
+
+		}	
+	}
+
 	
 }

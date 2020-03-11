@@ -1,5 +1,4 @@
 package com.lxisoft.movie;
-import com.lxisoft.repository.*;
 import java.util.*;
 public class Actor
 {

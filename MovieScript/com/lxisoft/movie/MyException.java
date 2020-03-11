@@ -1,7 +1,8 @@
+package com.lxisoft.movie;
 public class MyException extends Exception
 {
-	MyException(String str)
+	public MyException(String str)
 	{
-		System.out.println("str");
+		super(str);
 	}
 }
