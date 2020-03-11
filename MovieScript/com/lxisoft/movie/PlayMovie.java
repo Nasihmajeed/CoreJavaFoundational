@@ -19,7 +19,6 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
  	int count=((villandialogue.size()+villandialogue.size())/2-1);
 	do{
 		int number1 = random.nextInt(2); 
-		//System.out.println(" count"+count);		
 		if(actors.get(number1) instanceof Villanisum)
 		{
 			int n=(villandialogue.size());
@@ -28,7 +27,6 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 			{
 			int number2=number1+1;
 			PlayDialoge(actors.get(number1),actors.get(number2),villandialogue,dilogeNumber);    
-			//System.out.println(count);        
 	    	count--;}
 		}
 
@@ -40,14 +38,14 @@ public void Play(ArrayList<Actor> actors,FileReppo script)
 			{
 			int number2=number1-1;
 			PlayDialoge(actors.get(number1),actors.get(number2),comicdialogue,dilogeNumber);	
-			//System.out.println(count);        
 			count--;}
 		}
 
 	}while(count > 0);
 
 	MovieDetails(actors);
-	EditScript(actors.get(0),actors.get(1),file1,file2,script);
+	do{
+	EditScript(actors.get(0),actors.get(1),file1,file2,script);}while(option!=0);
 }
 
 public void PlayDialoge(Actor a1,Actor a2,ArrayList<Dialogue> d1,int dilogeNumber)
@@ -124,11 +122,33 @@ public void AddDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,Fil
 }
 public void DeleteDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,FileReppo script)
 {
-	
-		d1.get(n).remove();
-		d1.get(n).remove();
-	
+	System.out.println("Whose Dialogue you Want to Delete \n1.villan \n2.Comic");
+		int choise=input.nextInt();
+		if((choise-1)==0)
+		{
+			for(int i=0;i<villandialogue.size();i++)
+			{
+				System.out.println("\n"+villandialogue.get(i).getdialogue());
+			}	
+		System.out.println("Select the Dialogue = ");
+		int dia=input.nextInt();
+			RemoveDialouge(a1,a2,villandialogue,file2,script,dia);
+		}
+		else
+		{
+			for(int i=0;i<villandialogue.size();i++)
+			{
+				System.out.println("\n"+comicdialogue.get(i).getdialogue());
+			}	
+		System.out.println("Select the Dialogue = ");
+		int dia=input.nextInt();
+			RemoveDialouge(a2,a1,comicdialogue,file1,script,dia);
+		}
 }
-
+public void RemoveDialouge(Actor a2,Actor a1,ArrayList<Dialogue> d1,String file,FileReppo script,int dia);
+	{
+		 d1.get(dia).remove();
+		 d1.get(dia+1).remove();
+	}
 
 }
