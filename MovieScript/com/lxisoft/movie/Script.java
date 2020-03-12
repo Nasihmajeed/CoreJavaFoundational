@@ -50,7 +50,7 @@ public class Script
 	{
 		try
 		{
-			FileWriter fw = new FileWriter(path,false);
+			FileWriter fw = new FileWriter(path,true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(dialogue+",");
 			bw.close();
