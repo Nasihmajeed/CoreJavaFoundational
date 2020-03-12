@@ -10,7 +10,8 @@ public void creatFile(String name)
 {
 	File file =new File(name);
 		try
-		{ 	file.createNewFile();	}
+		{ 	file.createNewFile();
+		 file.delete();	}
 	   	catch(Exception ex)
 	   	{	System.out.println("* "+ex); }
 }

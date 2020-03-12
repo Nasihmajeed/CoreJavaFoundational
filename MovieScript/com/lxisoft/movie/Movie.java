@@ -13,19 +13,12 @@ public void CreateMovie()
 	actors.add(new Villan());
 	actors.add(new Comadian());
 	System.out.println("\n\t"+name);
-	// int ch=MovieControl();
-	// if(ch==1)
-	// {
+	
 		SetDetails();
 		plymovie =new PlayMovie();
 		plymovie.Play(actors,script);
-	// }
-	// else if(ch==0)
-	// {		System.out.println("EXited");	}
-	// else
-	// 	{	System.out.println("You Entered A Rong Choise");}
-
 }
+
 public void SetDetails()
 {
 	actors.get(0).setName("jhon"); 

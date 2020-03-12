@@ -10,7 +10,7 @@ class Actor
      
     public void setmovieRoll(String movieRoll)  
     { 
-        this.movieRoll = movieRoll; 
+        this.movieRoll = movieRoll;                           
     } 
    
      public String getmovieRoll()  
@@ -18,8 +18,7 @@ class Actor
         return movieRoll; 
     }  
    
-
-    public void setName(String name)  
+    public void setName(String name)                      
     { 
         this.name = name; 
     } 
@@ -27,6 +26,6 @@ class Actor
      public String getName()  
     { 
         return name; 
-    } 
+    }                          
    
 } 
