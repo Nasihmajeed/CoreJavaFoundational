@@ -6,9 +6,9 @@ import java.util.*;
 public class FileReppo
 {
 
-public void creatFile()
+public void creatFile(String name)
 {
-	File file =new File("Script.csv");
+	File file =new File(name);
 		try
 		{ 	file.createNewFile();	}
 	   	catch(Exception ex)
