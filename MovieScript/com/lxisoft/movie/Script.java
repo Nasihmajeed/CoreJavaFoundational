@@ -50,9 +50,9 @@ public class Script
 	{
 		try
 		{
-			FileWriter fw = new FileWriter(path,true);
+			FileWriter fw = new FileWriter(path,false);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(","+dialogue);
+			bw.write(dialogue+",");
 			bw.close();
 		}
 		catch(IOException e)
