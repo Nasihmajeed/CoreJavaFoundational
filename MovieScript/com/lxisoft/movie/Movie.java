@@ -6,15 +6,20 @@ public class Movie
 private String name ="A Comic Movie";
 ArrayList<Actor> actors = new ArrayList<Actor>();	
 FileReppo script =new FileReppo();
-String file1="ComicScript.csv";                               
-String file2="VillanScript.csv";                               
+File file1=new File("ComicScript.csv");
+File file2=new File("VillanScript.csv");
+                
 ArrayList<Dialogue> comicdialogue =new ArrayList<Dialogue>(); 
 ArrayList<Dialogue> villandialogue =new ArrayList<Dialogue>();
 PlayMovie plymovie;
 
 static Scanner input =new Scanner(System.in);
 public void CreateMovie()
-{
+{ if(file1.exists()==true&&file2.exists()==true)
+	{
+		file1.delete();
+		file2.delete();
+	}
 	script.creatFile(file1);
 	script.creatFile(file2);
 
@@ -51,9 +56,13 @@ public void SetDialogue()
 	}
 SetVillan();
 SetComic();
-script.readDialogue(file1,comicdialogue);                     
-script.readDialogue(file2,villandialogue);      
-
+for(int i=0;i<comicdialogue.size();i++)
+{
+ String s1=	comicdialogue.get(i).getdialogue();
+ String s2= villandialogue.get(i).getdialogue();
+script.writeTofile("ComicScript.csv",s1);    
+script.writeTofile("VillanScript.csv",s2);      
+}
 }
 public void SetVillan()
 {

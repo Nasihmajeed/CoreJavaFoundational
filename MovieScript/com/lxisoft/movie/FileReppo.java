@@ -6,9 +6,9 @@ import java.util.*;
 public class FileReppo
 {
 
-public void creatFile(String name)
+public void creatFile(File file)
 {
-	File file =new File(name);
+	// File file =new File(name);
 		try
 		{
 			

@@ -85,7 +85,7 @@ public int EditScript(Actor a1,Actor a2,String file1,String file2,FileReppo scri
 	}	
 	if(option==2)
 	{	DeleteDialouge(a2,a1,script,comicdialogue,villandialogue);	}	
-	else if(option==0)
+	if(option==0)
 	{		System.out.println("EXited");	}
 	else
 	{	System.out.println("You Entered A wrong Choise");}}
@@ -136,7 +136,8 @@ public void DeleteDialouge(Actor a1,Actor a2,FileReppo script,ArrayList<Dialogue
 				{System.out.print(z);                                         
 					z++;}                                            
 				System.out.println("\n"+comicdialogue.get(i).getdialogue());
-			}			                                                                                                           
+			}
+			System.out.print(comicdialogue.size());			                                                                                                           
 			RemoveDialouge(a2,a1,comicdialogue,file1,script);
 		}                                                                    
 }
@@ -144,16 +145,16 @@ public void RemoveDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,
 	{                                                                        
 		System.out.print("Select the Dialogue = ");                            
 		int dia=input.nextInt();                                                                              
-		 d1.remove(dia);                                                                
-		 d1.remove(dia+1);
+		 d1.remove(dia+1);                                                                
+		 d1.remove(dia+2);
 		 try{                                                                                       
 		 File fle=new File(file);
-		 fle.createNewFile();
+		// fle.createNewFile();
 		fle.delete();                                                              
 		 System.out.println(fle.exists());
 		fle.createNewFile();                                                              
 		                                                                                             
-		 script.creatFile(file);                                            
+		 script.creatFile(fle);                                            
 		 for (int i=0;i<d1.size();i++) {
 		 String dilg=d1.get(i).getdialogue(); 	
 		 script.writeTofile(file,dilg); }}catch(Exception ex)
