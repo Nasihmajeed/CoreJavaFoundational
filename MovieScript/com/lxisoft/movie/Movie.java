@@ -6,17 +6,25 @@ public class Movie
 private String name ="A Comic Movie";
 ArrayList<Actor> actors = new ArrayList<Actor>();	
 FileReppo script =new FileReppo();
+String file1="ComicScript.csv";                               
+String file2="VillanScript.csv";                               
+ArrayList<Dialogue> comicdialogue =new ArrayList<Dialogue>(); 
+ArrayList<Dialogue> villandialogue =new ArrayList<Dialogue>();
 PlayMovie plymovie;
+
 static Scanner input =new Scanner(System.in);
 public void CreateMovie()
 {
+	script.creatFile(file1);
+	script.creatFile(file2);
+
 	actors.add(new Villan());
 	actors.add(new Comadian());
 	System.out.println("\n\t"+name);
-	
+		SetDialogue();
 		SetDetails();
 		plymovie =new PlayMovie();
-		plymovie.Play(actors,script);
+		plymovie.Play(actors,script,comicdialogue,villandialogue);
 }
 
 public void SetDetails()
@@ -34,5 +42,48 @@ public int MovieControl()
 	int choise=input.nextInt();
 	return choise;
 }
+public void SetDialogue()
+{
+	for(int i=0;i<6;i++)
+	{	
+	comicdialogue.add(new Dialogue());	
+	villandialogue.add(new Dialogue());
+	}
+SetVillan();
+SetComic();
+script.readDialogue(file1,comicdialogue);                     
+script.readDialogue(file2,villandialogue);      
 
+}
+public void SetVillan()
+{
+villandialogue.get(0).setId(1);
+villandialogue.get(0).setdialogue("x");
+villandialogue.get(1).setId(2);
+villandialogue.get(1).setdialogue("y");
+villandialogue.get(2).setId(1);
+villandialogue.get(2).setdialogue("q");
+villandialogue.get(3).setId(2);
+villandialogue.get(3).setdialogue("w");
+villandialogue.get(4).setId(1);
+villandialogue.get(4).setdialogue("e");
+villandialogue.get(5).setId(2);
+villandialogue.get(5).setdialogue("r");
+}
+
+public void SetComic()
+{
+comicdialogue.get(0).setId(1);
+comicdialogue.get(0).setdialogue("A");
+comicdialogue.get(1).setId(2);
+comicdialogue.get(1).setdialogue("B");
+comicdialogue.get(2).setId(1);
+comicdialogue.get(2).setdialogue("c");
+comicdialogue.get(3).setId(2);
+comicdialogue.get(3).setdialogue("D");
+comicdialogue.get(4).setId(1);
+comicdialogue.get(4).setdialogue("e");
+comicdialogue.get(5).setId(2);
+comicdialogue.get(5).setdialogue("f");
+}
 }
