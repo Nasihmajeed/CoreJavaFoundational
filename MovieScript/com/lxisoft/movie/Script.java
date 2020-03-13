@@ -21,8 +21,7 @@ public class Script
 		String line = " ";
 		String[] conversation;
 		ArrayList<Dialogue> dialogueList = new ArrayList<Dialogue>();
-		try
-		{
+		try{
 			FileReader fr = new FileReader(path);
 			BufferedReader br = new BufferedReader(fr);
 			if((line = br.readLine())!=null)
@@ -39,11 +38,8 @@ public class Script
 				}
 			}
 			br.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println("Cannot Access File");
-		}
+		}catch(IOException e){
+			System.out.println("Cannot Access File");}
 		return dialogueList;
 	}
 	public void writeToScript(File path,String  dialogue)

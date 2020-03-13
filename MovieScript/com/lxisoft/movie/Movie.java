@@ -145,8 +145,7 @@ public class Movie
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
 		thanosR  = script.readFromScript(d);
-		//System.out.println(ironManQ.size()+","+ironManR.size()+","+thanosQ.size()+","+thanosR.size());
-		int count = ironManQ.size()+ironManR.size();
+		int count = ironManQ.size()+ironManR.size(); 
 		do
 		{
 			int randomActor = random.nextInt(2);
@@ -154,7 +153,7 @@ public class Movie
 			if(actorList.get(randomActor) instanceof Heroism)
 			{
 				if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
-				{
+				{	
 				System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
 				System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
 				ironManQ.get(randomDialogue).setMarkDialogue(false);
@@ -189,6 +188,7 @@ public class Movie
 				case 1:add();break;
 				case 2:delete();break;
 				case 3:update();break;
+				case 4:createMovie();break;
 				default:System.out.println("Enter valid choice");
 			}
 		}
@@ -224,7 +224,7 @@ public class Movie
 		int length = d.size();
 		System.out.println("Enter Dialogue::");
 		String dialogue = sc.nextLine();
-		dialogue = sc.nextLine();
+		dialogue = (dialogue.equals(""))?sc.nextLine():dialogue;
 		d.add(new Dialogue());
 		d.get(length).setMovieDialogue(dialogue);
 		d.get(length).setMarkDialogue(true);
