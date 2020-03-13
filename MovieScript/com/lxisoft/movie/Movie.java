@@ -11,10 +11,10 @@ public class Movie
 	ArrayList<Actor> actorList = new ArrayList<Actor>();
 	Script script  = new Script();
 	Actor actor = new Actor();
-			File fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v7//com//lxisoft//repository//ironManQ.csv");
-			File fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v7//com//lxisoft//repository//ironManR.csv");
-			File fileThree = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v7//com//lxisoft//repository//thanosQ.csv");
-			File fileFour = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v7//com//lxisoft//repository//thanosR.csv");
+		File fileOne;
+		File fileTwo ;
+		File fileThree;
+		File fileFour;	
 			ArrayList<Dialogue> ironManQ = new ArrayList<Dialogue>();
 			ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
 			ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
@@ -42,6 +42,21 @@ public class Movie
 		System.out.println("Director::"+getNameOfDirector().toUpperCase());
 		System.out.println("ScriptWriter::"+script.getScriptWriter().toUpperCase());
 	}
+	public void createScript()
+	{
+		 fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//ironManQ.csv");
+		 fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//ironManR.csv");
+		 fileThree = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//thanosQ.csv");
+		 fileFour = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//thanosR.csv");
+		try{
+			if(fileOne.exists() && fileTwo.exists() && fileThree.exists() && fileFour.exists())
+			{
+			fileOne.delete();fileTwo.delete();fileThree.delete();fileFour.delete();
+			}
+		fileOne.createNewFile();fileTwo.createNewFile();fileThree.createNewFile();fileFour.createNewFile();
+		}
+	catch(IOException e){System.out.println("Error");}
+	}
 	public void createCharacters()
 	{
 		actorList.add(new IronMan());
@@ -52,25 +67,68 @@ public class Movie
 		actorList.get(1).setActorName("Josh");
 		actorList.get(1).setNameOfRole("Thanos");
 		actorList.get(1).setActorId(2);
+	}
+	public void ironmanScript()
+	{
+		ironManQ.clear();ironManR.clear();
+		for(int i=0;i<3;i++)
+		{
+			ironManQ.add(new Dialogue());
+			ironManR.add(new Dialogue());
+		}
+		ironManQ.get(0).setMovieDialogue("A");
+		ironManQ.get(1).setMovieDialogue("B");
+		ironManQ.get(2).setMovieDialogue("C");
+		ironManR.get(0).setMovieDialogue("D");
+		ironManR.get(1).setMovieDialogue("E");
+		ironManR.get(2).setMovieDialogue("F");
+		for(int i=0;i<3;i++)
+		{
+			script.writeToScript(fileOne,ironManQ.get(i).getMovieDialogue());
+			script.writeToScript(fileTwo,ironManR.get(i).getMovieDialogue());
+		}
 	}  
+	public void thanosScript()
+	{
+		thanosQ.clear();thanosR.clear();
+		for(int i=0;i<3;i++)
+		{
+			thanosQ.add(new Dialogue());
+			thanosR.add(new Dialogue());
+		}
+		thanosQ.get(0).setMovieDialogue("G");
+		thanosQ.get(1).setMovieDialogue("H");
+		thanosQ.get(2).setMovieDialogue("I");
+		thanosR.get(0).setMovieDialogue("J");
+		thanosR.get(1).setMovieDialogue("K");
+		thanosR.get(2).setMovieDialogue("L");
+		for(int i=0;i<3;i++)
+		{
+			script.writeToScript(fileThree,thanosQ.get(i).getMovieDialogue());
+			script.writeToScript(fileFour,thanosR.get(i).getMovieDialogue());
+		}
+	}
+	
 	public void createMovie()
 	{	
-		int x,ch;
+		createScript();
+		ironmanScript();
+		thanosScript();
+		int x,ch = 0;
 		try
 		{do{
-		System.out.println("1.Play Movie\n2.Edit Script\n3.Back\nEnter Ur Choice:\n");
+		System.out.println("1.Play Movie\n2.Edit Script\nEnter Ur Choice:\n");
 		x = sc.nextInt();
-		try
-		{switch(x)
+		try{
+		switch(x)
 			{
 			case 1:playMovie();break;
 			case 2:editScript();break;
-			case 3:createMovie();break;
 			default:System.out.println("Enter valid Choice");break;
 			}	
-		}catch(MyException e){System.out.println("Caught");}
-		finally{System.out.println("Do You Want To Continue Play:Yes(press 1)/No(Press 0)");
-				ch = sc.nextInt();}
+				System.out.println("Do You Want To Continue Play:Yes(press 1)/No(Press 0)");
+				ch = sc.nextInt();
+		}catch(MyException e){System.out.println("Error");}	
 		}while(ch==1);
 		}catch(InputMismatchException e){System.out.println(e);}
 	}
@@ -82,10 +140,12 @@ public class Movie
 	}
 	public  void startMovie(ArrayList<Actor> actorList,File a,File b,File c,File d)
 	{
+		ironManQ.clear();ironManR.clear();thanosQ.clear();thanosR.clear();
 		ironManQ = script.readFromScript(a);
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
 		thanosR  = script.readFromScript(d);
+		//System.out.println(ironManQ.size()+","+ironManR.size()+","+thanosQ.size()+","+thanosR.size());
 		int count = ironManQ.size()+ironManR.size();
 		do
 		{
@@ -133,7 +193,7 @@ public class Movie
 			}
 		}
 		catch(Exception e){System.out.println(e);}
-	}
+ 	}
 	public void add() throws MyException
 	{
 		System.out.println("\n1.IronManVsThanos\n2.ThanosVsIronMan\n3.Back");
