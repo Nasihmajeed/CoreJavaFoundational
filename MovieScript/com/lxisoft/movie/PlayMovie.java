@@ -21,7 +21,7 @@ public void Play(ArrayList<Actor> actors,FileReppo script,ArrayList<Dialogue> co
 			if(villandialogue.get(dilogeNumber).getFlag()==true&&(villandialogue.get(dilogeNumber).getId()==1))
 			{int number2=number1+1;
 			PlayDialoge(actors.get(number1),actors.get(number2),villandialogue,dilogeNumber); 
-			System.out.println(count);  
+			System.out.println(count);
 	    	count--;}
 		}
 		else if(actors.get(number1) instanceof Comic)
@@ -83,11 +83,11 @@ public int EditScript(Actor a1,Actor a2,String file1,String file2,FileReppo scri
 			AddDialouge(a2,a1,comicdialogue,file1,script);
 		}
 	}	
-	if(option==2)
+	else if(option==2)
 	{	DeleteDialouge(a2,a1,script,comicdialogue,villandialogue);	}	
-	if(option==0)
+	else if(option==0)
 	{		System.out.println("EXited");	}
-	if(option==3)
+	else if(option==3)
 	{ UpdateDialouge(a2,a1,script,comicdialogue,villandialogue);}
 	else
 	{	System.out.println("You Entered A wrong Choise");}}
@@ -147,8 +147,8 @@ public void RemoveDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,
 	{                                                                        
 		System.out.print("Select the Dialogue = ");                            
 		int dia=input.nextInt();                                                                              
-		 d1.remove(dia+1);                                                                
-		 d1.remove(dia+2);
+		 d1.remove(dia);                                                                
+		 d1.remove(dia+1);
 		 try{                                                                                       
 		 File fle=new File(file);
 		// fle.createNewFile();
@@ -196,11 +196,23 @@ public void ChangeDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,
 {
 	System.out.print("Select the Dialogue = ");                            
 		int dia=input.nextInt();                                                                              
-		 d1.remove(dia+1);                                                                
-		 d1.remove(dia+2);
-		 try{                                                                                       
+		 try{      
+
+		System.out.print(" : ");
+		String que=input.nextLine();
+		que=input.nextLine();
+   				 
+		 d1.get(dia).setdialogue(null);
+		 d1.get(dia).setdialogue(que);
+
+		System.out.print(" : ");
+		String ans=input.nextLine();
+		que=input.nextLine();
+
+		 d1.get(dia+1).setdialogue(null);
+		 d1.get(dia+1).setdialogue(ans);
+
 		 File fle=new File(file);
-		// fle.createNewFile();
 		fle.delete();                                                              
 		 System.out.println(fle.exists());
 		fle.createNewFile();                                                              
