@@ -5,12 +5,12 @@ class PlayMovie
 {
 	Random random = new Random();                                 
 String file1="ComicScript.csv";                               
-String file2="VillanScript.csv"; 	
+String file2="VillanScript.csv"; 	                                             
 	static Scanner input =new Scanner(System.in);                                                     
 public void play(ArrayList<Actor> actors,FileReppo script,ArrayList<Dialogue> comicdialogue,ArrayList<Dialogue> villandialogue)        
 {                                                                 
 	   
-	System.out.println("\n\n");
+	System.out.println("\n\n");                                         
 	System.out.println("\n________________________\n\n");
   	int count=((villandialogue.size()+comicdialogue.size()-2)/2);
 	do{	int number1 = random.nextInt(2); 
@@ -22,17 +22,17 @@ public void play(ArrayList<Actor> actors,FileReppo script,ArrayList<Dialogue> co
 			{int number2=number1+1;
 			playDialoge(actors.get(number1),actors.get(number2),villandialogue,dilogeNumber); 
 			System.out.println(count);
-	    	count--;}
+	    	count--;}                                                                         
 		}
 		else if(actors.get(number1) instanceof Comic)
 		{
 			int n=(comicdialogue.size());
 			int dilogeNumber = random.nextInt(n);
 			if(comicdialogue.get(dilogeNumber).getFlag()==true&&(comicdialogue.get(dilogeNumber).getId()==1))
-			{int number2=number1-1;
+			{int number2=number1-1;                  
 			playDialoge(actors.get(number1),actors.get(number2),comicdialogue,dilogeNumber);	
 			System.out.println(count);
-			count--;}
+			count--;}                                                        
 		}}while(count > 0);
 	movieDetails(actors);
 	int opt=0;
@@ -103,18 +103,19 @@ public void addDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,Fil
 		d1.add(new Dialogue());
 		System.out.print(a1.getName()+" : ");
 		String que=input.nextLine();
-		que=input.nextLine();
+		que=input.nextLine();                                                                                
    		 d1.get(size).setId(1);
 		 d1.get(size).setdialogue(que);
 		script.writeTofile(file,que);
-
+                                                           
 		d1.add(new Dialogue());
 		System.out.print(a2.getName()+" : ");
 		String ans=input.nextLine();
 		 d1.get(size+1).setId(2);
 		 d1.get(size+1).setdialogue(ans);
+
 		script.writeTofile(file,ans);
-}
+}                                                                                       
 public void deleteDialouge(Actor a1,Actor a2,FileReppo script,ArrayList<Dialogue> comicdialogue,ArrayList<Dialogue> villandialogue)
 {
 	System.out.println("Whose Dialogue you Want to Delete \n1.villan \n2.Comic");
@@ -124,26 +125,26 @@ public void deleteDialouge(Actor a1,Actor a2,FileReppo script,ArrayList<Dialogue
 			for(int i=0;i<villandialogue.size();i++)
 			{
 				if(villandialogue.get(i).getId()==1)
-				{System.out.print(z);
+				{System.out.println(z);
 					z++;}
 				System.out.println("\n"+villandialogue.get(i).getdialogue());
 			}		
-			removeDialouge(a1,a2,villandialogue,file2,script);
+			removeDialouge(villandialogue,file2,script);
 		}
 		else
 		{ int z=1;
 			for(int i=0;i<comicdialogue.size();i++)
 			{  
 				if(comicdialogue.get(i).getId()==1)
-				{System.out.print(z);                                         
+				{System.out.println(z);                                         
 					z++;}                                            
 				System.out.println("\n"+comicdialogue.get(i).getdialogue());
 			}
 			System.out.print(comicdialogue.size());			                                                                                                           
-			removeDialouge(a2,a1,comicdialogue,file1,script);
+			removeDialouge(comicdialogue,file1,script);
 		}                                                                    
 }
-public void removeDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,FileReppo script)
+public void removeDialouge(ArrayList<Dialogue> d1,String file,FileReppo script)
 	{                                                                        
 		System.out.print("Select the Dialogue = ");                            
 		int dia=input.nextInt();                                                                              
@@ -202,14 +203,13 @@ public void changeDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,
 		String que=input.nextLine();
 		que=input.nextLine();
    				 
-		 //d1.get(dia).setdialogue(null);
+		
 		 d1.get(dia).setdialogue(que);
 
 		System.out.print(" : ");
 		String ans=input.nextLine();
 		que=input.nextLine();
 
-		 //d1.get(dia+1).setdialogue(null);
 		 d1.get(dia+1).setdialogue(ans);
 
 		 File fle=new File(file);
@@ -224,4 +224,8 @@ public void changeDialouge(Actor a1,Actor a2,ArrayList<Dialogue> d1,String file,
 		 {System.out.println(ex);}                                  
 }
 
+public void scene()
+{
+
+}
 }   
