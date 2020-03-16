@@ -44,10 +44,10 @@ public class Movie
 	}
 	public void createScript()
 	{
-		 fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//ironManQ.csv");
-		 fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//ironManR.csv");
-		 fileThree = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//thanosQ.csv");
-		 fileFour = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v8//com//lxisoft//repository//thanosR.csv");
+		 fileOne = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//ironManQ.csv");
+		 fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//ironManR.csv");
+		 fileThree = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//thanosQ.csv");
+		 fileFour = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//thanosR.csv");
 		try{
 			if(fileOne.exists() && fileTwo.exists() && fileThree.exists() && fileFour.exists())
 			{
@@ -150,29 +150,29 @@ public class Movie
 		{
 			int randomActor = random.nextInt(2);
 			int randomDialogue = random.nextInt(ironManQ.size());
-			if(actorList.get(randomActor) instanceof Heroism)
-			{
-				if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
-				{	
-				System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
-				System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
-				ironManQ.get(randomDialogue).setMarkDialogue(false);
-				thanosR.get(randomDialogue).setMarkDialogue(false);
-				count--;
-				}
-			}
-			else if(actorList.get(randomActor) instanceof Villanism) 
-			{
-				if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
+				if(actorList.get(randomActor) instanceof Heroism)
 				{
-				System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ thanosQ.get(randomDialogue));
-				System.out.println(actorList.get((randomActor-1)).getNameOfRole()+"-->"+ironManR.get(randomDialogue));
-				thanosQ.get(randomDialogue).setMarkDialogue(false);
-				ironManR.get(randomDialogue).setMarkDialogue(false);
-				count--;
+					if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
+					{	
+					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
+					System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
+					ironManQ.get(randomDialogue).setMarkDialogue(false);
+					thanosR.get(randomDialogue).setMarkDialogue(false);
+					count--;
+					}
 				}
-			}
-		}while(count>0);	
+				else if(actorList.get(randomActor) instanceof Villanism) 
+				{
+					if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
+					{
+					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ thanosQ.get(randomDialogue));
+					System.out.println(actorList.get((randomActor-1)).getNameOfRole()+"-->"+ironManR.get(randomDialogue));
+					thanosQ.get(randomDialogue).setMarkDialogue(false);
+					ironManR.get(randomDialogue).setMarkDialogue(false);
+					count--;
+					}	
+				}
+			}while(count>0);
 	}
 	public void editScript() throws MyException
 	{
@@ -191,8 +191,7 @@ public class Movie
 				case 4:createMovie();break;
 				default:System.out.println("Enter valid choice");
 			}
-		}
-		catch(Exception e){System.out.println(e);}
+		}catch(Exception e){System.out.println(e);}
  	}
 	public void add() throws MyException
 	{
@@ -261,10 +260,17 @@ public class Movie
 		d2= script.readFromScript(file2);
 		System.out.println("Enter position");
 		int pos = sc.nextInt();
-		deleteDialog(pos,file1,d1);
-		deleteDialog(pos,file2,d2);
-		viewScript(name1,d1);
-		viewScript(name2,d2);
+		if(pos<d1.size())
+		{
+			deleteDialog(pos,file1,d1);
+			deleteDialog(pos,file2,d2);
+			viewScript(name1,d1);
+			viewScript(name2,d2);	
+		}
+		else{
+			System.out.println("IndexOutOfBounds.......");
+		}
+		
 	}
 	public void deleteDialog(int position,File file,ArrayList<Dialogue> d)
 	{
@@ -305,10 +311,16 @@ public class Movie
 		d2= script.readFromScript(file2);
 		System.out.println("Enter position");
 		int pos = sc.nextInt();
-		updateDialog(pos,file1,d1);
-		updateDialog(pos,file2,d2);
-		viewScript(name1,d1);
-		viewScript(name2,d2);
+		if(pos<d1.size()){
+			updateDialog(pos,file1,d1);
+			updateDialog(pos,file2,d2);
+			viewScript(name1,d1);
+			viewScript(name2,d2);
+		}
+		else{
+			System.out.println("IndexOutOfBounds.......");
+		}
+		
 	}
 	public void updateDialog(int position,File file,ArrayList<Dialogue> d)
 	{
