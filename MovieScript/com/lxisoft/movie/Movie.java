@@ -14,7 +14,7 @@ ArrayList<Dialogue> villandialogue =new ArrayList<Dialogue>();
 PlayMovie plymovie;
 
 static Scanner input =new Scanner(System.in);
-public void CreateMovie()
+public void createMovie()
 { if(file1.exists()==true&&file2.exists()==true)
 	{
 		file1.delete();
@@ -26,13 +26,13 @@ public void CreateMovie()
 	actors.add(new Villan());
 	actors.add(new Comadian());
 	System.out.println("\n\t"+name);
-		SetDialogue();
-		SetDetails();
+		setDialogues();
+		setDetails();
 		plymovie =new PlayMovie();
-		plymovie.Play(actors,script,comicdialogue,villandialogue);
+		plymovie.play(actors,script,comicdialogue,villandialogue);
 }
 
-public void SetDetails()
+public void setDetails()
 {
 	actors.get(0).setName("jhon"); 
 	actors.get(0).setmovieRoll("Villan"); 
@@ -47,15 +47,15 @@ public int MovieControl()
 	int choise=input.nextInt();
 	return choise;
 }
-public void SetDialogue()
+public void setDialogues()
 {
 	for(int i=0;i<6;i++)
 	{	
 	comicdialogue.add(new Dialogue());	
 	villandialogue.add(new Dialogue());
 	}
-SetVillan();
-SetComic();
+setVillan();
+setComic();
 for(int i=0;i<comicdialogue.size();i++)
 {
  String s1=	comicdialogue.get(i).getdialogue();
@@ -64,7 +64,7 @@ script.writeTofile("ComicScript.csv",s1);
 script.writeTofile("VillanScript.csv",s2);      
 }
 }
-public void SetVillan()
+public void setVillan()
 {
 villandialogue.get(0).setId(1);
 villandialogue.get(0).setdialogue("x");
@@ -80,7 +80,7 @@ villandialogue.get(5).setId(2);
 villandialogue.get(5).setdialogue("r");
 }
 
-public void SetComic()
+public void setComic()
 {
 comicdialogue.get(0).setId(1);
 comicdialogue.get(0).setdialogue("A");
