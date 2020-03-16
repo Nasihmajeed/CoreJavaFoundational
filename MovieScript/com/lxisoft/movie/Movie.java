@@ -15,10 +15,10 @@ public class Movie
 		File fileTwo ;
 		File fileThree;
 		File fileFour;	
-			ArrayList<Dialogue> ironManQ = new ArrayList<Dialogue>();
-			ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
-			ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
-			ArrayList<Dialogue> thanosR = new ArrayList<Dialogue>();
+		ArrayList<Dialogue> ironManQ = new ArrayList<Dialogue>();
+		ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
+		ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
+		ArrayList<Dialogue> thanosR = new ArrayList<Dialogue>();
 	public void setMovieName(String moviename)
 	{
 		this.movieName = moviename;
@@ -140,39 +140,53 @@ public class Movie
 	}
 	public  void startMovie(ArrayList<Actor> actorList,File a,File b,File c,File d)
 	{
+		int count = ironManQ.size()+ironManR.size();
 		ironManQ.clear();ironManR.clear();thanosQ.clear();thanosR.clear();
 		ironManQ = script.readFromScript(a);
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
-		thanosR  = script.readFromScript(d);
-		int count = ironManQ.size()+ironManR.size(); 
-		do
+		thanosR  = script.readFromScript(d); 
+		int randomScenes = random.nextInt(5);
+		for (int i=1;i<=randomScenes;i++)
 		{
-			int randomActor = random.nextInt(2);
-			int randomDialogue = random.nextInt(ironManQ.size());
-				if(actorList.get(randomActor) instanceof Heroism)
-				{
-					if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
-					{	
-					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
-					System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
-					ironManQ.get(randomDialogue).setMarkDialogue(false);
-					thanosR.get(randomDialogue).setMarkDialogue(false);
-					count--;
-					}
-				}
-				else if(actorList.get(randomActor) instanceof Villanism) 
-				{
-					if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
-					{
-					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ thanosQ.get(randomDialogue));
-					System.out.println(actorList.get((randomActor-1)).getNameOfRole()+"-->"+ironManR.get(randomDialogue));
-					thanosQ.get(randomDialogue).setMarkDialogue(false);
-					ironManR.get(randomDialogue).setMarkDialogue(false);
-					count--;
-					}	
-				}
-			}while(count>0);
+			System.out.println("Scene"+i);
+			//int count = ironManQ.size()+ironManR.size();
+			for (int j=0;i<count;i++){
+				int randomActor = random.nextInt(2);
+				int randomDialogue = random.nextInt(ironManQ.size());
+				count = conversation(randomActor,randomDialogue);
+			}
+
+		}
+		System.out.println("A Film By::"+getNameOfDirector());
+	}
+	public int conversation(int randomActor,int randomDialogue)
+	{
+		int count = ironManQ.size()+ironManR.size();
+		if(actorList.get(randomActor) instanceof Heroism)
+		{
+			if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
+			{	
+				System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
+				System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
+				ironManQ.get(randomDialogue).setMarkDialogue(false);
+				thanosR.get(randomDialogue).setMarkDialogue(false);
+				count--;
+			}
+		}
+		else if(actorList.get(randomActor) instanceof Villanism) 
+		{
+			if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
+			{
+				System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ thanosQ.get(randomDialogue));
+				System.out.println(actorList.get((randomActor-1)).getNameOfRole()+"-->"+ironManR.get(randomDialogue));
+				thanosQ.get(randomDialogue).setMarkDialogue(false);
+				ironManR.get(randomDialogue).setMarkDialogue(false);
+				count--;
+			}	
+		}
+		return count;
+
 	}
 	public void editScript() throws MyException
 	{
