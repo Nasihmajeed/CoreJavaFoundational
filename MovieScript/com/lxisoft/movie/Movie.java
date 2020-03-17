@@ -136,60 +136,46 @@ public class Movie
 	{
 		setMovieDetails();
 		createCharacters();
-		runScenes();   
+		runScenes(fileOne,fileTwo,fileThree,fileFour);   
 	}
-	public void runScenes()
-	{
-		int sceneNum = 1;
-		int count = 0;
-		do{
-			for(int i=0;i<3;i++) 
-			{
-				System.out.println("Scene Number::--->"+sceneNum);
-				count = startMovie(actorList,fileOne,fileTwo,fileThree,fileFour);
-				sceneNum++;
-				System.out.println(count);
-			}									
-		}while(count>0);
-	}
-	public  int startMovie(ArrayList<Actor> actorList,File a,File b,File c,File d)
+	public void runScenes(File a,File b,File c,File d)
 	{
 		ironManQ.clear();ironManR.clear();thanosQ.clear();thanosR.clear();
 		ironManQ = script.readFromScript(a);
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
 		thanosR  = script.readFromScript(d);
+		startMovie(actorList);
+	}
+	public void startMovie(ArrayList<Actor> actorList)
+	{
 		int count = ironManQ.size()+ironManR.size();
-		int randomActor = random.nextInt(2);
-		int randomDialogue = random.nextInt(ironManQ.size());
-			do
+		do{
+			int randomActor = random.nextInt(2);
+			int randomDialogue = random.nextInt(ironManQ.size());
+			if(actorList.get(randomActor) instanceof Heroism)
 			{
-				if(actorList.get(randomActor) instanceof Heroism)
-				{
-					if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
-					{	
+				if(ironManQ.get(randomDialogue).getMarkDialogue() == true)
+				{	
 					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ ironManQ.get(randomDialogue));
 					System.out.println(actorList.get((randomActor+1)).getNameOfRole()+"-->"+thanosR.get(randomDialogue));
 					ironManQ.get(randomDialogue).setMarkDialogue(false);
 					thanosR.get(randomDialogue).setMarkDialogue(false);
 					count--;
-					System.out.println(count);
-					}
 				}
-				else if(actorList.get(randomActor) instanceof Villanism) 
+			}
+			else if(actorList.get(randomActor) instanceof Villanism) 
+			{
+				if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
 				{
-					if(thanosQ.get(randomDialogue).getMarkDialogue() == true)
-					{
 					System.out.println(actorList.get(randomActor).getNameOfRole()+"-->"+ thanosQ.get(randomDialogue));
 					System.out.println(actorList.get((randomActor-1)).getNameOfRole()+"-->"+ironManR.get(randomDialogue));
 					thanosQ.get(randomDialogue).setMarkDialogue(false);
 					ironManR.get(randomDialogue).setMarkDialogue(false);
 					count--;
-					System.out.println(count);
-					}
-				} 
-			}while(count>0);	
-	return count;	
+				}
+			}
+		}while(count>0);	
 	}
 	public void editScript() throws MyException
 	{
