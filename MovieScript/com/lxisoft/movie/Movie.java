@@ -67,32 +67,32 @@ script.writeTofile("VillanScript.csv",s2);
 public void setVillan()
 {
 villandialogue.get(0).setId(1);
-villandialogue.get(0).setdialogue("x");
-villandialogue.get(1).setId(2);
-villandialogue.get(1).setdialogue("y");
+villandialogue.get(0).setdialogue("o");
+villandialogue.get(1).setId(1);
+villandialogue.get(1).setdialogue("q");
 villandialogue.get(2).setId(1);
-villandialogue.get(2).setdialogue("q");
+villandialogue.get(2).setdialogue("s");
 villandialogue.get(3).setId(2);
-villandialogue.get(3).setdialogue("w");
-villandialogue.get(4).setId(1);
-villandialogue.get(4).setdialogue("e");
+villandialogue.get(3).setdialogue("b");
+villandialogue.get(4).setId(2);
+villandialogue.get(4).setdialogue("d");
 villandialogue.get(5).setId(2);
-villandialogue.get(5).setdialogue("r");
+villandialogue.get(5).setdialogue("f");
 }
 
 public void setComic()
 {
 comicdialogue.get(0).setId(1);
 comicdialogue.get(0).setdialogue("A");
-comicdialogue.get(1).setId(2);
-comicdialogue.get(1).setdialogue("B");
+comicdialogue.get(1).setId(1);
+comicdialogue.get(1).setdialogue("c");
 comicdialogue.get(2).setId(1);
-comicdialogue.get(2).setdialogue("c");
+comicdialogue.get(2).setdialogue("e");
 comicdialogue.get(3).setId(2);
-comicdialogue.get(3).setdialogue("D");
-comicdialogue.get(4).setId(1);
-comicdialogue.get(4).setdialogue("e");
+comicdialogue.get(3).setdialogue("p");
+comicdialogue.get(4).setId(2);
+comicdialogue.get(4).setdialogue("r");
 comicdialogue.get(5).setId(2);
-comicdialogue.get(5).setdialogue("f");
+comicdialogue.get(5).setdialogue("t");
 }
 }
