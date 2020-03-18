@@ -15,10 +15,12 @@ public class Movie
 		File fileTwo ;
 		File fileThree;
 		File fileFour;	
+		File fileFive;
 		ArrayList<Dialogue> ironManQ = new ArrayList<Dialogue>();
 		ArrayList<Dialogue> ironManR = new ArrayList<Dialogue>();
 		ArrayList<Dialogue> thanosQ = new ArrayList<Dialogue>();
 		ArrayList<Dialogue> thanosR = new ArrayList<Dialogue>();
+		ArrayList<Dialogue> commonDialogue =new ArrayList<Dialogue>();
 	public void setMovieName(String moviename)
 	{
 		this.movieName = moviename;
@@ -48,12 +50,13 @@ public class Movie
 		 fileTwo = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//ironManR.csv");
 		 fileThree = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//thanosQ.csv");
 		 fileFour = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//thanosR.csv");
+		 fileFive = new File("C://Users//rahul//Desktop//Java Projects//MovieScript//v9//com//lxisoft//repository//commonDialogue.csv");
 		try{
-			if(fileOne.exists() && fileTwo.exists() && fileThree.exists() && fileFour.exists())
+			if(fileOne.exists() && fileTwo.exists() && fileThree.exists() && fileFour.exists() && fileFive.exists())
 			{
-			fileOne.delete();fileTwo.delete();fileThree.delete();fileFour.delete();
+			fileOne.delete();fileTwo.delete();fileThree.delete();fileFour.delete();fileFive.delete();
 			}
-		fileOne.createNewFile();fileTwo.createNewFile();fileThree.createNewFile();fileFour.createNewFile();
+		fileOne.createNewFile();fileTwo.createNewFile();fileThree.createNewFile();fileFour.createNewFile();fileFive.createNewFile();
 		}
 	catch(IOException e){System.out.println("Error");}
 	}
@@ -108,12 +111,28 @@ public class Movie
 			script.writeToScript(fileFour,thanosR.get(i).getMovieDialogue());
 		}
 	}
-	
+	public void commonDialogue()
+	{  
+		for(int i=0;i<3;i++)
+		{
+			commonDialogue.add(new Dialogue());
+		}
+			commonDialogue.get(0).setMovieDialogue("hai");
+			commonDialogue.get(1).setMovieDialogue("hello");
+			commonDialogue.get(2).setMovieDialogue("how are you?");
+			commonDialogue.get(0).setMovieDialogue("I am fine");
+		
+		for(int i=0;i<3;i++)
+		{
+			script.writeToScript(fileFive,ironManQ.get(i).getMovieDialogue());
+		}
+	}
 	public void createMovie()
 	{	
 		createScript();
 		ironmanScript();
 		thanosScript();
+		commonDialogue();
 		int x,ch = 0;
 		try
 		{do{
@@ -136,21 +155,35 @@ public class Movie
 	{
 		setMovieDetails();
 		createCharacters();
-		runScenes(fileOne,fileTwo,fileThree,fileFour);   
+		runScenes(fileOne,fileTwo,fileThree,fileFour,fileFive);   
 	}
-	public void runScenes(File a,File b,File c,File d)
+	public void runScenes(File a,File b,File c,File d,File e)
 	{
 		ironManQ.clear();ironManR.clear();thanosQ.clear();thanosR.clear();
 		ironManQ = script.readFromScript(a);
 		ironManR = script.readFromScript(b);
 		thanosQ  = script.readFromScript(c);
 		thanosR  = script.readFromScript(d);
-		startMovie(actorList);
+		if(fileOne.exists()&&fileTwo.exists()&&fileThree.exists()&&fileFour.exists())
+		{
+			startMovie(actorList);	
+		}
+		else 
+		{
+			commonDialogue = script.readFromScript(e);
+		 	for(int i=0;i<commonDialogue.size();i++)
+			{
+			int randomDia=random.nextInt(commonDialogue.size());
+			System.out.println("IronMan : "+ commonDialogue.get(randomDia).getMovieDialogue());
+			System.out.println("Thanos: "+ commonDialogue.get(randomDia).getMovieDialogue());
+			}
+		}
 	}
 	public void startMovie(ArrayList<Actor> actorList)
 	{
 		int count = ironManQ.size()+ironManR.size();
-		do{
+		while(count>0)
+		{
 			int randomActor = random.nextInt(2);
 			int randomDialogue = random.nextInt(ironManQ.size());
 			if(actorList.get(randomActor) instanceof Heroism)
@@ -175,7 +208,7 @@ public class Movie
 					count--;
 				}
 			}
-		}while(count>0);	
+		}	
 	}
 	public void editScript() throws MyException
 	{
