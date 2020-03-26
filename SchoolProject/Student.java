@@ -1,10 +1,11 @@
 public class Student
 {
-	String studname;
-	int rollno;
-	void printDetails()
+	String studName;
+	int rollNum;
+	/* public Student(String name, int roll)
 	{
-		System.out.println("Student Name : "+studname);
-		System.out.println("Student Roll Number : "+rollno);
+		studName=name;
+		rollNo=roll;
 	}
+	 */
 }
