@@ -6,22 +6,16 @@ public class School
 	Student[] st = new Student[5];
 	void createStudent()
 	{
-		
 		a.cName="CSE";
-		for(int j=0;j<5;j++)
+		st[0]=new Student("hari",1,10,10,8);
+		st[1]=new Student("Manu",2,20,14,8);
+		st[2]=new Student("Akshay",3,15,12,8);
+		st[3]=new Student("Vishnu",4,14,2,8);
+		st[4]=new Student("Midhun",5,1,25,8);
+		for(int i=0;i<5;i++)
 		{
-			st[j] = new Student();
+			st[i].totalMark();
 		}
-		st[0].studName="Hari";
-		st[0].rollNum=01;
-		st[1].studName="Akhil";
-		st[1].rollNum=02;
-		st[2].studName="Manu";
-		st[2].rollNum=03;
-		st[3].studName="Midhun";
-		st[3].rollNum=04;
-		st[4].studName="Vishnu";
-		st[4].rollNum=05;
 	}
 	
 	
@@ -40,7 +34,8 @@ public class School
 		for(int i=0;i<5;i++)
 		{
 			System.out.println("\nStudent Name : "+st[i].studName);
-			System.out.println("Student Roll Number : "+st[i].rollNum);			
+			System.out.println("Student Roll Number : "+st[i].rollNum);	
+			System.out.println("\n Total Mark = "+ st[i].total)	;
 		}
 	}
 }
