@@ -1,29 +1,33 @@
+import java.util.*;
 public class Student
 {
 	String studName;
 	int rollNum;
 	int total;
-	int numOfSub=3;
-	Subject[] sub = new Subject[numOfSub];
-	public Student(String name,int no)
+	int numOfSub;
+	Subject[] sub;
+	
+	
+	public void setStudentDetails()
 	{
-		this.studName=name;
-		this.rollNum=no;
-	}
-	public void setSubject()
-	{
+		Scanner in = new Scanner(System.in);
+		System.out.println("Student Name : ");
+		studName=in.nextLine();
+		System.out.println("Student Roll number : ");
+		rollNum=in.nextInt();
+		in.nextLine();
+		System.out.println("Number of subject = ");	
+		numOfSub=in.nextInt();
+		in.nextLine();
+		sub = new Subject[numOfSub];
 		for(int i=0;i<numOfSub;i++)
 		{
 			sub[i] = new Subject();
+			sub[i].setSubjectDetails();
 		}
-		sub[0].subName="Physics";
-		sub[0].subMark=15;
-		sub[1].subName="Chemistry";
-		sub[1].subMark=10;
-		sub[2].subName="Malayalam";
-		sub[2].subMark=25;
-		setTotalMark();
 	}
+	
+	
 	
 	public void setTotalMark()
 	{
@@ -39,6 +43,11 @@ public class Student
 		
 		System.out.println("Student Name : "+this.studName);
 		System.out.println("Student Roll Number : "+this.rollNum);	
+		System.out.println("Subject Name - Subject Mark");
+		for(int i=0;i<sub.length;i++)
+		{
+			sub[i].printSubject();
+		}
 		System.out.println("Total Mark = "+ this.total);
 		
 		

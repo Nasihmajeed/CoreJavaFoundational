@@ -1,26 +1,30 @@
+import java.util.*;
 public class Classroom
 {
 	String cName;
 	int totStudent;
-	Student[] st = new Student[5];
+	Student[] st;
 	Teacher[] t = new Teacher[3];
-	public void setStudentDetails()
+	 
+	public void setClassroomDetails()
 	{
-		st[0]=new Student("hari",1);
-		st[1]=new Student("Manu",2);
-		st[2]=new Student("Akshay",3);
-		st[3]=new Student("Vishnu",4);
-		st[4]=new Student("Midhun",5);
+		Scanner in = new Scanner(System.in);
+		totStudent = in.nextInt();
+		in.nextLine();
+		System.out.println("Class Name :\t");
+		cName = in.nextLine();	
 		
-		//set subjects
-		
-		for(int i=0;i<5;i++)
+		//********Student Details**************
+		st = new Student[this.totStudent];
+		for(int i=0;i<this.totStudent;i++)
 		{
-			st[i].setSubject();
+			st[i] = new Student();
+			System.out.println("Enter Student " + (i+1) +" Details") ;
+			st[i].setStudentDetails();
 		}
+		//**********Teacher******
 		setTeacherDetails();
-		
-		
+
 	}
 	
 	public void  setTeacherDetails()
