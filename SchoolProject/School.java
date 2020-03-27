@@ -5,7 +5,7 @@ public class School
 	int sCode;
 	int numClass;
 	Address ad = new Address();
-	Classroom[] a;
+	Classroom[] a ;
 	
 	
 	void insertDetails()
@@ -24,9 +24,6 @@ public class School
 		System.out.println("Number Of Classes:\t");
 		numClass = in.nextInt();
 		in.nextLine();
-		
-		
-		
 		a= new Classroom[numClass];
 		for(int i=0;i<a.length;i++)
 		{
@@ -38,12 +35,12 @@ public class School
 	}
 	void printSchoolDetails()
 	{	
-		System.out.println("School Info");
+		/* System.out.println("School Info");
 		System.out.println("*****************************");
 		System.out.println("School Name : "+sName);
 		System.out.println("School Code : "+sCode);
 		
-		System.out.println("*****************************");
+		System.out.println("*****************************"); */
 		System.out.println("Class Info");
 		System.out.println("*****************************");
 		System.out.println("NUMBER OF CLASS = " + numClass);

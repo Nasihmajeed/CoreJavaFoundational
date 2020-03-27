@@ -6,16 +6,16 @@ public class Subject
 	
 	void setSubjectDetails()
 	{
-		Scanner sc = new Scanner(System.in); 
+		Scanner in = new Scanner(System.in); 
 		System.out.println("Enter Subject Name : ");
-		subName = sc.nextLine(); 
+		subName = in.nextLine(); 
 		System.out.println("Enter "+ subName  +" Mark : ");
-		subMark = sc.nextInt();
-		sc.nextLine();
+		subMark = in.nextInt();
+		in.nextLine();
 	}
 	void printSubject()
 	{
-		System.out.println(this.subName +"\t"+this.subMark+"\n");
+		System.out.println(this.subName +"\t\t"+this.subMark+"\n");
 
 	}
 

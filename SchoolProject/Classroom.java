@@ -4,7 +4,7 @@ public class Classroom
 	String cName;
 	int totStudent;
 	Student[] st;
-	Teacher[] t = new Teacher[3];
+	Teacher t = new Teacher();
 	 
 	public void setClassroomDetails()
 	{
@@ -23,16 +23,13 @@ public class Classroom
 			st[i].setStudentDetails();
 		}
 		//**********Teacher******
-		setTeacherDetails();
+		t.setTeacherDetails();
+		
 
 	}
 	
-	public void  setTeacherDetails()
-	{
-		t[0] = new Teacher("smitha","Chemistry");
-		t[1] = new Teacher("Subin","Physics");
-		t[2] = new Teacher("jisha" , "Maths");
-	}
+	
+	
 	void printClassDetails()
 	{
 		
@@ -40,6 +37,7 @@ public class Classroom
 		System.out.println("Number Of Students = "+this.totStudent+"\n");
 		System.out.println("Student Info\n");
 		System.out.println("*****************************");
+		System.out.println("Student Name - Roll Number - Total Mark");
 		for(int i=0;i<totStudent;i++)
 		{
 			st[i].printStudentDetails();
@@ -53,11 +51,7 @@ public class Classroom
 		
 		System.out.println("\n\nFaculty Info");
 		System.out.println("*****************************");
-		for(int i=0;i<3;i++)
-		{
-			System.out.println("\nTeacher Name : "+t[i].tName);
-			System.out.println("\nTeacher's Subject : "+t[i].tSub);
-		}
+		t.printTeacher();
 		System.out.println("*****************************");
 
 	}

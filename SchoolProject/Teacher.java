@@ -1,9 +1,21 @@
+import java.util.*;
 public class Teacher
 {
-	String tName,tSub;
-	public Teacher(String name, String sub)
+	String tName;
+	Subject s = new Subject();
+	void setTeacherDetails()
 	{
-		this.tName=name;
-		this.tSub=sub;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the Teacher's Name : ");
+		tName = in.nextLine();
+		System.out.println("Enter the Subject Name : ");
+		s.subName = in.nextLine();
 	}
+	void printTeacher()
+	{
+		System.out.println("Teacher's Name - Teacehr Subject");
+		System.out.println("--------------------------------");
+		System.out.println(this.tName +"\t\t\t"+ s.subName);
+	}
+	
 }

@@ -40,15 +40,19 @@ public class Student
 	
 	void printStudentDetails()
 	{
+		setTotalMark();
 		
-		System.out.println("Student Name : "+this.studName);
+		System.out.println("---------------------------------------");
+		System.out.println( this.studName + "\t\t" + this.rollNum + "\t\t"  +  this.total );
+		/*System.out.println("Student Name : "+this.studName);
 		System.out.println("Student Roll Number : "+this.rollNum);	
 		System.out.println("Subject Name - Subject Mark");
 		for(int i=0;i<sub.length;i++)
 		{
 			sub[i].printSubject();
 		}
-		System.out.println("Total Mark = "+ this.total);
+		
+		System.out.println("Total Mark = "+ this.total); */
 		
 		
 	}
