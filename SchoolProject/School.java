@@ -41,12 +41,13 @@ public class School
 		System.out.println("School Code : "+sCode);
 		
 		System.out.println("*****************************"); */
-		System.out.println("Class Info");
-		System.out.println("*****************************");
+		System.out.println("\n\t\tClass Info");
+		System.out.println("\t*****************************");
 		System.out.println("NUMBER OF CLASS = " + numClass);
 		for(int i=0;i<a.length;i++)
 		{
-			System.out.println("Class-"+ (i+1));
+			System.out.println("\n \t Class-"+ (i+1));
+			System.out.println("--------------------------------");
 			a[i].printClassDetails();
 			a[i].printTeacherDetails();
 		} 

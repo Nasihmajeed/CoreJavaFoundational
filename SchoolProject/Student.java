@@ -55,16 +55,19 @@ public class Student
 		
 		System.out.println("-----------------------------------------------------------------------------------");
 		System.out.println( this.studName + "\t\t\t" + this.rollNum + "\t\t\t"  +  this.total +"\t\t\t"+this.percentage+"\t\t\t"+this.result);
-		/*System.out.println("Student Name : "+this.studName);
-		System.out.println("Student Roll Number : "+this.rollNum);	
-		System.out.println("Subject Name - Subject Mark");
+		
+		
+		
+		
+		
+	}
+	void printSubjectDetails()
+	{
+		
 		for(int i=0;i<sub.length;i++)
 		{
-			sub[i].printSubject();
+			System.out.println(this.studName+"\t\t" + sub[i].subName +"\t\t"+ sub[i].subMark );
 		}
-		
-		System.out.println("Total Mark = "+ this.total); */
-		
-		
+		System.out.println("\n");
 	}
 }

@@ -13,7 +13,7 @@ public class Teacher
 	}
 	void printTeacher()
 	{
-		System.out.println("Teacher's Name - Teacehr Subject");
+		System.out.println("Teacher's Name - Teacher Subject");
 		System.out.println("--------------------------------");
 		System.out.println(this.tName +"\t\t\t"+ s.subName);
 	}

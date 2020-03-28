@@ -13,10 +13,6 @@ public class Subject
 		subMark = in.nextInt();
 		in.nextLine();
 	}
-	void printSubject()
-	{
-		System.out.println(this.subName +"\t\t"+this.subMark+"\n");
-
-	}
+	
 
 }
