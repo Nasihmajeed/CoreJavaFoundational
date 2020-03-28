@@ -37,7 +37,7 @@ public class Classroom
 		System.out.println("Number Of Students = "+this.totStudent+"\n");
 		System.out.println("Student Info\n");
 		System.out.println("*****************************");
-		System.out.println("Student Name - Roll Number - Total Mark");
+		System.out.println("Student Name     -     Roll Number     -     Total Mark     -     percentage     -     Reslut");
 		for(int i=0;i<totStudent;i++)
 		{
 			st[i].printStudentDetails();

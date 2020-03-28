@@ -5,6 +5,8 @@ public class Student
 	int rollNum;
 	int total;
 	int numOfSub;
+	float percentage;
+	String result;
 	Subject[] sub;
 	
 	
@@ -33,7 +35,16 @@ public class Student
 	{
 		for(int i=0;i<numOfSub;i++)
 		{
-			this.total=this.total+sub[i].subMark;
+			this.total=this.total+sub[i].subMark;	
+		}
+		this.percentage=(float)(this.total/50.00)*100;
+		if(this.percentage>=45)
+		{
+			result="PASS";
+		}
+		else
+		{
+			result="FAIL";
 		}
 	  
 	}
@@ -42,8 +53,8 @@ public class Student
 	{
 		setTotalMark();
 		
-		System.out.println("---------------------------------------");
-		System.out.println( this.studName + "\t\t" + this.rollNum + "\t\t"  +  this.total );
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println( this.studName + "\t\t\t" + this.rollNum + "\t\t\t"  +  this.total +"\t\t\t"+this.percentage+"\t\t\t"+this.result);
 		/*System.out.println("Student Name : "+this.studName);
 		System.out.println("Student Roll Number : "+this.rollNum);	
 		System.out.println("Subject Name - Subject Mark");
