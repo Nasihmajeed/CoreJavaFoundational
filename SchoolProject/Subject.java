@@ -3,6 +3,7 @@ public class Subject
 {
 	String subName;
 	int subMark;
+	String printOrNot;
 	
 	void setSubjectDetails()
 	{

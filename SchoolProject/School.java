@@ -6,6 +6,7 @@ public class School
 	int numClass;
 	Address ad = new Address();
 	Classroom[] a ;
+	String printOrNot;
 	
 	
 	void insertDetails()
@@ -34,13 +35,20 @@ public class School
 		}
 	}
 	void printSchoolDetails()
-	{	
-		/* System.out.println("School Info");
-		System.out.println("*****************************");
-		System.out.println("School Name : "+sName);
-		System.out.println("School Code : "+sCode);
+	{	Scanner in = new Scanner(System.in);
+		System.out.println("Do you want to display the school details(yes/no)");
+		printOrNot=in.nextLine();
+		if(printOrNot.equals("yes"))
+		{
+			System.out.println("School Info");
+			System.out.println("*****************************");
+			System.out.println("School Name : "+sName);
+			System.out.println("School Code : "+sCode);
+			ad.printAddress();
+		}
 		
-		System.out.println("*****************************"); */
+		
+	
 		System.out.println("\n\t\tClass Info");
 		System.out.println("\t*****************************");
 		System.out.println("NUMBER OF CLASS = " + numClass);

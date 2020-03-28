@@ -4,6 +4,7 @@ public class Address
 	String city;
 	String district;
 	String state;
+	String printOrNot;
 	int pin;
 	public void setAddress()
 	{

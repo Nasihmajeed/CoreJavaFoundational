@@ -2,6 +2,7 @@ import java.util.*;
 public class Classroom
 {
 	String cName;
+	String printOrNot;
 	int totStudent;
 	Student[] st;
 	Teacher t = new Teacher();
@@ -43,8 +44,7 @@ public class Classroom
 		{
 			st[i].printSubjectDetails();
 		}
-		
-		
+		System.out.println("\n");
 		System.out.println("\n \t\t Student Info");
 		System.out.println("\t*****************************");
 		System.out.println("Student Name     -     Roll Number     -     Total Mark     -     percentage     -     Reslut");
