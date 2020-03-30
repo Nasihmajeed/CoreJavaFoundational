@@ -56,10 +56,11 @@ public class Classroom
 		printOrNot=in.nextLine();
 		if(printOrNot.equals("yes"))
 		{
-			System.out.println(" \t\tClass Ranklist ");
+			System.out.println(" \t\t Class Ranklist ");
 			System.out.println("\t------------------------------");
 			
 		}
+		
 		
 		
 		
