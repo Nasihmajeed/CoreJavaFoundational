@@ -2,7 +2,6 @@ import java.util.*;
 public class Teacher
 {
 	String tName;
-	String printOrNot;
 	Subject s = new Subject();
 	void setTeacherDetails()
 	{

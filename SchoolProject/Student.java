@@ -8,7 +8,7 @@ public class Student
 	float percentage;
 	String result;
 	Subject[] sub;
-	String printOrNot;
+
 	
 	
 	public void setStudentDetails()
