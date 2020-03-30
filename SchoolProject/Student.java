@@ -55,7 +55,7 @@ public class Student
 		setTotalMark();
 		
 		System.out.println("-----------------------------------------------------------------------------------");
-		System.out.println( this.studName + "\t\t\t" + this.rollNum + "\t\t\t"  +  this.total +"\t\t\t"+this.percentage+"\t\t\t"+this.result);
+		System.out.println(this.studName+"\t"+this.rollNum+"\t"+this.total+"\t"+this.percentage+"\t"+this.result+"\n");
 		
 		
 		
