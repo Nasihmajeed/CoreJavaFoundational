@@ -33,7 +33,7 @@ public class Classroom
 	
 	void printClassDetails()
 	{
-		
+		Scanner in = new Scanner(System.in);
 		System.out.println("Class Name : "+this.cName);
 		System.out.println("Number Of Students = "+this.totStudent+"\n");
 		System.out.println("\t\tSubject Wise Marks\t");
@@ -52,6 +52,15 @@ public class Classroom
 		{
 			st[i].printStudentDetails();
 		}
+		System.out.println("Display Class Ranklist(yes/not) \n");
+		printOrNot=in.nextLine();
+		if(printOrNot.equals("yes"))
+		{
+			System.out.println(" \t\tClass Ranklist ");
+			System.out.println("\t------------------------------");
+			
+		}
+		
 		
 		
 		
