@@ -29,37 +29,28 @@ public class Menu
 			System.out.println("  "+(i+1)+"\t\t"+item[i].itemName +"\t\t" + item[i].itemPrice);
 		}
 		System.out.println("----------------------------------------\n");
-		System.out.println("Select your Dish(Please enter the Item Number) ->");
-		while(iNum<6)
+		do
 		{
+			System.out.println("Select your Dish(Please enter the Item Number) ->");
 			iNum=in.nextInt();
-			if(iNum<6)
+			if(iNum<6 && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
 			}
 			
-		}
+		}while(iNum<6 && iNum >0);
 		ord.setTotal(index);
-		this.printOrderDetails();
+		ord.printOrderDetails(index);
 
 	}
 	void selectOrder(int itemNumber)
 	{
+		Scanner in = new Scanner(System.in);
 		ord.order[index].itemName=item[itemNumber].itemName;
 		ord.order[index].itemPrice=item[itemNumber].itemPrice;
+		System.out.println("Enter the quantity of " + ord.order[index].itemName + "Required \n");
+		ord.order[index].itemQuantity = in.nextInt();
 		index++;
 	}
-	void printOrderDetails()
-	{
-		System.out.println("------------Bill-------------");
-		System.out.println("Item Name \t\t Price\t");
-		System.out.println("----------------------------");
-		for(int i=0;i<index;i++)
-		{
-			
-			System.out.println(ord.order[i].itemName +"\t--->    "+ ord.order[i].itemPrice);
-		}
-		System.out.println("----------------------------");
-		System.out.println("TOTAL = "+ord.total);
-	}
+	
 }
