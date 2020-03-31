@@ -4,6 +4,7 @@ public class Menu
 	Item[] item;
 	int iNum=-1,index=0;
 	Order ord = new Order();
+	String ch;
 	void setItem()
 	{
 		item = new Item[5];
@@ -31,14 +32,33 @@ public class Menu
 		System.out.println("----------------------------------------\n");
 		do
 		{
-			System.out.println("Select your Dish(Please enter the Item Number) ->");
+			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) ->");
 			iNum=in.nextInt();
 			if(iNum<6 && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
 			}
+			else if(iNum==0)
+			{
+				System.out.println("Do you Placed your orders Completely (yes/no)");
+				in.nextLine();
+				ch=in.nextLine();
+				if(ch.equals("yes"))
+				{
+					System.out.println("\n\tThank you : Order placed\t");
+				}
+				else
+				{
+					iNum=1;
+				}
+			}
+			else
+			{
+				System.out.println("\n ****INVALID ITEM NUMBER*******\n");
+				iNum=1;
+			}
 			
-		}while(iNum<6 && iNum >0);
+		}while(iNum!=0);
 		ord.setTotal(index);
 		ord.printOrderDetails(index);
 
@@ -48,7 +68,7 @@ public class Menu
 		Scanner in = new Scanner(System.in);
 		ord.order[index].itemName=item[itemNumber].itemName;
 		ord.order[index].itemPrice=item[itemNumber].itemPrice;
-		System.out.println("Enter the quantity of " + ord.order[index].itemName + "Required \n");
+		System.out.println("Enter the quantity of " + ord.order[index].itemName + " Required \n");
 		ord.order[index].itemQuantity = in.nextInt();
 		index++;
 	}
