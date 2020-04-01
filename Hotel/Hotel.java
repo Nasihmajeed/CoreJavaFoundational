@@ -7,6 +7,6 @@ public class Hotel
 	{
 		System.out.println("\n\t"+hotelName+"\n");
 		menu.setItem();
-		menu.printMenu();
+		
 	}
 }

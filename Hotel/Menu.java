@@ -3,29 +3,57 @@ public class Menu
 {
 	Item[] item;
 	int iNum=-1,index=0;
+	String iName;
+	int price,ind;
 	Order ord = new Order();
 	String ch;
 	void setItem()
 	{
-		item = new Item[5];
-		for(int i=0;i<5;i++)
+		Scanner in = new Scanner(System.in);
+		item = new Item[20];
+		for(int i=0;i<20;i++)
 		{
 			item[i] = new Item();
-		}
+			
+		}		
 		item[0].setItem("Porotta   ",8);
 		item[1].setItem("Ghee Roast",45);
 		item[2].setItem("Coffee    ",15);
 		item[3].setItem("Biriyani  ",120);
 		item[4].setItem("Fried Rice",80);
+		for(int i=0;i<item.length;i++)
+		{
+			if(item[i].itemName==null)
+			{
+				System.out.println("Do you need to add more food items (yes/no)");
+				ch=in.nextLine();
+				if(ch.equals("yes"))
+				{
+					System.out.println("Enter the item Name");
+					iName = in.nextLine();
+					System.out.println("Enter the item Name");
+					price = in.nextInt();
+					in.nextLine();
+					item[i].setItem(iName,price);
+					ind=i;
+				}
+				else
+					break;
+			}
+			
+		}
+			
 		ord.setOrder();
+		this.printMenu(ind);
 	}
-	void printMenu()
+	void printMenu(int ind)
 	{
+		System.out.println("ind"+ ind);
 		Scanner in = new Scanner(System.in);
 		System.out.println("\t\t Menu \t");
 		System.out.println("----------------------------------------");
 		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
-		for(int i=0;i<5;i++)
+		for(int i=0;item[i].itemName!=null;i++)
 		{
 			System.out.println("  "+(i+1)+"\t\t"+item[i].itemName +"\t\t" + item[i].itemPrice);
 		}
@@ -34,7 +62,7 @@ public class Menu
 		{
 			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) ->");
 			iNum=in.nextInt();
-			if(iNum<6 && iNum >0)
+			if(iNum<=(ind+1) && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
 			}
