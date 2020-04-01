@@ -21,27 +21,8 @@ public class Menu
 		item[2].setItem("Coffee    ",15);
 		item[3].setItem("Biriyani  ",120);
 		item[4].setItem("Fried Rice",80);
-		for(int i=0;i<item.length;i++)
-		{
-			if(item[i].itemName==null)
-			{
-				System.out.println("Do you need to add more food items (yes/no)");
-				ch=in.nextLine();
-				if(ch.equals("yes"))
-				{
-					System.out.println("Enter the item Name");
-					iName = in.nextLine();
-					System.out.println("Enter the item Name");
-					price = in.nextInt();
-					in.nextLine();
-					item[i].setItem(iName,price);
-					ind=i;
-				}
-				else
-					break;
-			}
-			
-		}
+		ind=4;
+		
 			
 		ord.setOrder();
 		this.printMenu(ind);
