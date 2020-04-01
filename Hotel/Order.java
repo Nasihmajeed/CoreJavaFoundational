@@ -13,6 +13,7 @@ public class Order
 	
 	void setTotal(int index)
 	{
+		this.total=0;
 		for(int i=0;i<index;i++)
 		{
 			order[i].setItemAmount();
@@ -29,7 +30,7 @@ public class Order
 		for(int i=0;i<index;i++)
 		{
 			
-			System.out.println(order[i].itemName +"\t--->    "+ order[i].itemPrice+ "\t           " +order[i].itemQuantity);
+			System.out.println(this.order[i].itemName +"\t--->    "+ this.order[i].itemPrice+ "\t           " +this.order[i].itemQuantity);
 		}
 		System.out.println("-----------------------------------------");
 		System.out.println("TOTAL = "+this.total);

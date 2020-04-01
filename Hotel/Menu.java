@@ -7,9 +7,9 @@ public class Menu
 	int price,ind;
 	Order ord = new Order();
 	String ch;
-	void setItem()
+	void setFood()
 	{
-		Scanner in = new Scanner(System.in);
+		
 		item = new Item[20];
 		for(int i=0;i<20;i++)
 		{
@@ -23,22 +23,30 @@ public class Menu
 		item[4].setItem("Fried Rice",80);
 		ind=4;
 		
-			
-		ord.setOrder();
-		this.printMenu(ind);
 	}
-	void printMenu(int ind)
+	void printMenu()
 	{
-		System.out.println("ind"+ ind);
+		
 		Scanner in = new Scanner(System.in);
 		System.out.println("\t\t Menu \t");
 		System.out.println("----------------------------------------");
 		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
-		for(int i=0;item[i].itemName!=null;i++)
+		for(int i=0;this.item[i].itemName!=null;i++)
 		{
-			System.out.println("  "+(i+1)+"\t\t"+item[i].itemName +"\t\t" + item[i].itemPrice);
+			System.out.println("  "+(i+1)+"\t\t"+this.item[i].itemName +"\t\t" +this.item[i].itemPrice);
 		}
 		System.out.println("----------------------------------------\n");
+		
+
+	}
+	
+	void ordering(int ind)
+	{
+		//************************
+		this.index=0;
+		//***********************
+		this.ord.setOrder();
+		Scanner in = new Scanner(System.in);
 		do
 		{
 			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) ->");
@@ -70,15 +78,16 @@ public class Menu
 		}while(iNum!=0);
 		ord.setTotal(index);
 		ord.printOrderDetails(index);
+}
 
-	}
+
 	void selectOrder(int itemNumber)
 	{
 		Scanner in = new Scanner(System.in);
-		ord.order[index].itemName=item[itemNumber].itemName;
-		ord.order[index].itemPrice=item[itemNumber].itemPrice;
-		System.out.println("Enter the quantity of " + ord.order[index].itemName + " Required \n");
-		ord.order[index].itemQuantity = in.nextInt();
+		this.ord.order[index].itemName=this.item[itemNumber].itemName;
+		this.ord.order[index].itemPrice=this.item[itemNumber].itemPrice;
+		System.out.println("Enter the quantity of " + this.ord.order[index].itemName + " Required \n");
+		this.ord.order[index].itemQuantity = in.nextInt();
 		index++;
 	}
 	
