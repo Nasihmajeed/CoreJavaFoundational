@@ -1,18 +1,33 @@
 import java.util.*;
 public class Admin
 {
+	OrderDetails[] od = new OrderDetails[10];
 	Menu menu = new Menu();
 	User usr = new User();
 	String iName,ch;
 	int price,p=1;
+	int var=0;
+	int totalAmount=0;
 	public void passToUser(int uc,int ac)
 	{
+		
 		if((uc==0)&&(ac==0))
+		{
+			
 			menu.setFood();
+			for(int i=0;i<10;i++)
+			{
+				od[i]= new OrderDetails();
+			}
+		}
 		usr.userDetails();
 		menu.printMenu();
 		menu.ordering(menu.ind);
+		od[var].name=usr.userName;
+		od[var].total=menu.ord.total;
+		setTotalAmount(od[var].total);
 		System.out.println("Thank you "+usr.userName);
+		var=var+1;
 		
 	}
 	public void checkAdmin(int ac)
@@ -44,7 +59,7 @@ public class Admin
 	{
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println("\n \t 1.Add Food Item \n \t 2. Edit Food Item\n \t 3. Delete Food Item");
+		System.out.println("1.Add Food Item \n 2. Edit Food Item \n 3. Delete Food Item \n 4. Total Gain");
 		System.out.println("\nEnter your choice ");
 		c=in.nextInt();
 		
@@ -59,6 +74,9 @@ public class Admin
 				   break;
 			case 3:System.out.println("Delete an Food Item");
 				   deleteItem(ac);
+				   break;
+			case 4:System.out.println("Total Gain = "+totalAmount);
+				   printStatus();
 				   break;
 
 			default:System.out.println("ERROR");
@@ -156,6 +174,27 @@ public class Admin
 				
 				}
 				
+			}
+		}
+	
+	}
+	
+	void setTotalAmount(int total)
+	{
+		this.totalAmount=this.totalAmount+total;
+	}
+	void printStatus()
+	{
+		Scanner in = new Scanner(System.in);
+		String ch;
+		System.out.println("Do you need to add more food items (yes/no)");
+		ch=in.nextLine();
+		if(ch.equals("yes"))
+		{
+			for(int i=0;od[i].name!=null;i++)
+			{
+				System.out.println("\nCustomer Name : "+od[i].name + "\n \t Bill Amount = " + od[i].total);
+				System.out.println("---------------------------------------------------------");
 			}
 		}
 	
