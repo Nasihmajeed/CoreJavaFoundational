@@ -30,6 +30,7 @@ public class Hotel
 			str=in.nextLine();
 		}while((str.equals("yes")));
 		
+		
 	}
 	
 	void printDetails()

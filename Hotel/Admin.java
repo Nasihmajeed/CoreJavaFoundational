@@ -12,7 +12,7 @@ public class Admin
 		usr.userDetails();
 		menu.printMenu();
 		menu.ordering(menu.ind);
-		
+		System.out.println("Thank you "+usr.userName);
 		
 	}
 	public void checkAdmin(int ac)
@@ -44,7 +44,7 @@ public class Admin
 	{
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println("1.Add Food Item \n");
+		System.out.println("1.Add Food Item \n 2. Edit Food Item");
 		System.out.println("\nEnter your choice ");
 		c=in.nextInt();
 		
@@ -54,7 +54,9 @@ public class Admin
 					addItem(ac);
 					break;
 			
-			
+			case 2:System.out.println("Edit an Food Item");
+				   editItem(ac);
+				   break;
 
 			default:System.out.println("ERROR");
 					break;
@@ -88,6 +90,30 @@ public class Admin
 				else
 					
 					break;
+			}
+		}
+		
+	}
+	
+	void editItem(int ac)
+	{
+		Scanner in = new Scanner(System.in);
+		int iNum;
+		if(ac==0)
+			menu.setFood();
+		System.out.println("Enter The Item Number You Need To Edit");
+		iNum = in.nextInt();
+		in.nextLine();
+		for(int i=0;i<menu.item.length;i++)
+		{
+			if((i+1)==iNum)
+			{
+				System.out.println("Enter the item Name");
+				menu.item[i].itemName = in.nextLine();
+				System.out.println("Enter the item Price");
+				menu.item[i].itemPrice = in.nextInt();
+				in.nextLine();
+				menu.printMenu();
 			}
 		}
 		
