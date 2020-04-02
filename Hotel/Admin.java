@@ -44,7 +44,7 @@ public class Admin
 	{
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println("1.Add Food Item \n 2. Edit Food Item");
+		System.out.println("\n \t 1.Add Food Item \n \t 2. Edit Food Item\n \t 3. Delete Food Item");
 		System.out.println("\nEnter your choice ");
 		c=in.nextInt();
 		
@@ -56,6 +56,9 @@ public class Admin
 			
 			case 2:System.out.println("Edit an Food Item");
 				   editItem(ac);
+				   break;
+			case 3:System.out.println("Delete an Food Item");
+				   deleteItem(ac);
 				   break;
 
 			default:System.out.println("ERROR");
@@ -101,6 +104,7 @@ public class Admin
 		int iNum;
 		if(ac==0)
 			menu.setFood();
+		menu.printMenu();
 		System.out.println("Enter The Item Number You Need To Edit");
 		iNum = in.nextInt();
 		in.nextLine();
@@ -119,7 +123,41 @@ public class Admin
 		
 	}
 	
+	void deleteItem(int ac)
+	{
+		String str;	
+		Scanner in = new Scanner(System.in);
+		int iNum,r=100;
+		if(ac==0)
+			menu.setFood();
+		menu.printMenu();
+		System.out.println("Enter The Item Number You Need To Delete");
+		iNum = in.nextInt();
+		in.nextLine();
+		
+		for(int i=0;(menu.item[i+1].itemName)!=null;i++)
+		{
+			if((i+1)==iNum)
+			{
+				System.out.println("Do you sure(yes/no)");
+				str=in.nextLine();
+				if(str.equals("yes"))
+				{
+					for(int j=(iNum-1);(menu.item[j+1].itemName)!=null;j++)
+					{
+						menu.item[j].itemName=menu.item[j+1].itemName;
+						menu.item[j].itemPrice=menu.item[j+1].itemPrice;
+						r=j;
+					}
+					
+					menu.item[r+1].itemName=null;
+					menu.printMenu();
+					break;
+				
+				}
+				
+			}
+		}
 	
-	
-	
+	}
 }
