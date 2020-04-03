@@ -16,27 +16,38 @@ public class Menu
 			item[i] = new Item();
 			
 		}		
-		item[0].setItem("Porotta   ",8);
-		item[1].setItem("Ghee Roast",45);
-		item[2].setItem("Coffee    ",15);
-		item[3].setItem("Biriyani  ",120);
-		item[4].setItem("Fried Rice",80);
+		item[0].setItem("Porotta   ",8,10);
+		item[1].setItem("Ghee Roast",45,10);
+		item[2].setItem("Coffee    ",15,10);
+		item[3].setItem("Biriyani  ",120,10);
+		item[4].setItem("Fried Rice",80,10);
 		ind=4;
 		
 	}
-	void printMenu()
+	void printMenu(int ad)
 	{
 		
 		Scanner in = new Scanner(System.in);
 		System.out.println("\t\t Menu \t");
 		System.out.println("----------------------------------------");
+		if(ad==0)
+		{
 		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
 			System.out.println("  "+(i+1)+"\t\t"+this.item[i].itemName +"\t\t" +this.item[i].itemPrice);
 		}
 		System.out.println("----------------------------------------\n");
-		
+		}
+		else if(ad==1)
+		{
+			System.out.println("Item Number \tItem Name \t\t Price(Rs)\t Quantity Left");
+			for(int i=0;this.item[i].itemName!=null;i++)
+			{
+			System.out.println("  "+(i+1)+"\t\t"+this.item[i].itemName +"\t\t" +this.item[i].itemPrice+"\t\t "+ this.item[i].totalAvailable);
+			}
+			System.out.println("---------------------------------------------------\n");
+		}
 
 	}
 	
@@ -84,11 +95,16 @@ public class Menu
 	void selectOrder(int itemNumber)
 	{
 		Scanner in = new Scanner(System.in);
-		this.ord.order[index].itemName=this.item[itemNumber].itemName;
-		this.ord.order[index].itemPrice=this.item[itemNumber].itemPrice;
-		System.out.println("Enter the quantity of " + this.ord.order[index].itemName + " Required \n");
+		System.out.println("Enter the quantity Required \n");
 		this.ord.order[index].itemQuantity = in.nextInt();
-		index++;
+		int ch = item[itemNumber].checkQuantity(this.ord.order[index].itemQuantity);
+		if(ch==1)
+		{
+			this.ord.order[index].itemName=this.item[itemNumber].itemName;
+			this.ord.order[index].itemPrice=this.item[itemNumber].itemPrice;
+			index++;
+		}
+		
 	}
 	
 }

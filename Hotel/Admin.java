@@ -6,22 +6,25 @@ public class Admin
 	User usr = new User();
 	String iName,ch;
 	int price,p=1;
-	int var=0;
+	int var=0,quantity;
 	int totalAmount=0;
 	public void passToUser(int uc,int ac)
 	{
 		
 		if((uc==0)&&(ac==0))
 		{
-			
 			menu.setFood();
+		}
+		if(uc==0)
+		{
 			for(int i=0;i<10;i++)
 			{
 				od[i]= new OrderDetails();
 			}
 		}
+			
 		usr.userDetails();
-		menu.printMenu();
+		menu.printMenu(0);
 		menu.ordering(menu.ind);
 		od[var].name=usr.userName;
 		od[var].total=menu.ord.total;
@@ -103,10 +106,12 @@ public class Admin
 					iName = in.nextLine();
 					System.out.println("Enter the item Price");
 					price = in.nextInt();
+					System.out.println("Enter the item Quantity");
+					quantity = in.nextInt();
 					in.nextLine();
-					menu.item[i].setItem(iName,price);
+					menu.item[i].setItem(iName,price,quantity);
 					menu.ind=i;
-					menu.printMenu();
+					menu.printMenu(1);
 				}
 				else
 					
@@ -122,7 +127,7 @@ public class Admin
 		int iNum;
 		if(ac==0)
 			menu.setFood();
-		menu.printMenu();
+		menu.printMenu(1);
 		System.out.println("Enter The Item Number You Need To Edit");
 		iNum = in.nextInt();
 		in.nextLine();
@@ -134,8 +139,10 @@ public class Admin
 				menu.item[i].itemName = in.nextLine();
 				System.out.println("Enter the item Price");
 				menu.item[i].itemPrice = in.nextInt();
+				System.out.println("Enter the item Quantity");
+				menu.item[i].totalAvailable = in.nextInt();
 				in.nextLine();
-				menu.printMenu();
+				menu.printMenu(1);
 			}
 		}
 		
@@ -148,7 +155,7 @@ public class Admin
 		int iNum,r=100;
 		if(ac==0)
 			menu.setFood();
-		menu.printMenu();
+		menu.printMenu(1);
 		System.out.println("Enter The Item Number You Need To Delete");
 		iNum = in.nextInt();
 		in.nextLine();
@@ -169,7 +176,7 @@ public class Admin
 					}
 					
 					menu.item[r+1].itemName=null;
-					menu.printMenu();
+					menu.printMenu(1);
 					break;
 				
 				}
@@ -187,7 +194,7 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		String ch;
-		System.out.println("Do you need to add more food items (yes/no)");
+		System.out.println(" More Details (yes/no)");
 		ch=in.nextLine();
 		if(ch.equals("yes"))
 		{
