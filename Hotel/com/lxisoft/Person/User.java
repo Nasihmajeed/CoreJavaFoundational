@@ -1,8 +1,9 @@
+package com.lxisoft.Person;
 import java.util.*;
 public class User
 {
-	String userName;
-	void userDetails()
+	public String userName;
+	public void userDetails()
 	{
 		Scanner in = new Scanner(System.in);
 		System.out.println("Eneter Your Name");

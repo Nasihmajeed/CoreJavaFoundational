@@ -1,13 +1,16 @@
+package com.lxisoft.Hotel;
+import com.lxisoft.Person.*;
+
 import java.util.*;
 public class Hotel
 {
-	int ch;
-	String hotelName=" A2B ";
-	int ac=0,uc=0;
-	String str="open";
-	Admin ad = new Admin();
+	public int ch;
+	public String hotelName=" A2B ";
+	public int ac=0,uc=0;
+	public String str="open";
+	public Admin ad = new Admin();
 	
-	void checkPerson()
+	public void checkPerson()
 	{
 		Scanner in = new Scanner(System.in);
 		do
@@ -33,7 +36,7 @@ public class Hotel
 		
 	}
 	
-	void printDetails()
+	public void printDetails()
 	{
 		System.out.println("\n\t"+hotelName+"\n");
 		

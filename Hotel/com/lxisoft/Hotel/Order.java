@@ -1,7 +1,11 @@
+package com.lxisoft.Hotel;
+import com.lxisoft.Hotel.*;
+
+
 public class Order
 {
-	int total=0;
-	Item[] order = new Item[20];
+	public int total=0;
+	public Item[] order = new Item[20];
 	void setOrder()
 	{
 		for(int i=0;i<20;i++)
@@ -11,7 +15,7 @@ public class Order
 	}
 	
 	
-	void setTotal(int index)
+	public void setTotal(int index)
 	{
 		this.total=0;
 		for(int i=0;i<index;i++)
@@ -21,7 +25,7 @@ public class Order
 		}
 	}
 	
-	void printOrderDetails(int index)
+	public void printOrderDetails(int index)
 	{
 		
 		System.out.println("---------------------Bill----------------");

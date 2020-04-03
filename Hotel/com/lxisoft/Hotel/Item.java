@@ -1,8 +1,10 @@
+package com.lxisoft.Hotel;
+
 public class Item
 {
-	String itemName;
-	int itemPrice,itemTotAmount=0;
-	int itemQuantity,totalAvailable;
+	public String itemName;
+	public int itemPrice,itemTotAmount=0;
+	public int itemQuantity,totalAvailable;
 	public void setItem(String iName,int iPrice,int totalAva)
 	{
 		this.itemName=iName;

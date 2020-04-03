@@ -1,13 +1,19 @@
+package com.lxisoft.Person;
+import com.lxisoft.Hotel.*;
+import com.lxisoft.Person.*;
+
+
+
 import java.util.*;
 public class Admin
 {
 	OrderDetails[] od = new OrderDetails[10];
 	Menu menu = new Menu();
 	User usr = new User();
-	String iName,ch;
-	int price,p=1;
-	int var=0,quantity;
-	int totalAmount=0;
+	public String iName,ch;
+	public int price,p=1;
+	public int var=0,quantity;
+	public int totalAmount=0;
 	public void passToUser(int uc,int ac)
 	{
 		
@@ -58,11 +64,11 @@ public class Admin
 		}
 	}
 	
-	void adminActions(int ac)
+	public void adminActions(int ac)
 	{
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println("1.Add Food Item \n 2. Edit Food Item \n 3. Delete Food Item \n 4. Total Gain");
+		System.out.println(" 1.Add Food Item \n 2. Edit Food Item \n 3. Delete Food Item \n 4. Total Gain\n 5.Search");
 		System.out.println("\nEnter your choice ");
 		c=in.nextInt();
 		
@@ -93,7 +99,7 @@ public class Admin
 		}
 	}
 	
-	void addItem(int ac)
+	public void addItem(int ac)
 	{
 		Scanner in = new Scanner(System.in);
 		if (ac==0)
@@ -126,7 +132,7 @@ public class Admin
 		
 	}
 	
-	void editItem(int ac)
+	public void editItem(int ac)
 	{
 		Scanner in = new Scanner(System.in);
 		int iNum;
@@ -153,7 +159,7 @@ public class Admin
 		
 	}
 	
-	void deleteItem(int ac)
+	public void deleteItem(int ac)
 	{
 		String str;	
 		Scanner in = new Scanner(System.in);
@@ -191,11 +197,11 @@ public class Admin
 	
 	}
 	
-	void setTotalAmount(int total)
+	public void setTotalAmount(int total)
 	{
 		this.totalAmount=this.totalAmount+total;
 	}
-	void printStatus()
+	public void printStatus()
 	{
 		Scanner in = new Scanner(System.in);
 		String ch;
@@ -212,7 +218,7 @@ public class Admin
 	
 	}
 	
-	void searchItem(String str,int ac)
+	public void searchItem(String str,int ac)
 	{
 		if(ac==0)
 			menu.setFood();

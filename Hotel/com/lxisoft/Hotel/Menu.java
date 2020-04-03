@@ -1,13 +1,16 @@
+package com.lxisoft.Hotel;
+import com.lxisoft.Hotel.*;
+
 import java.util.*;
 public class Menu
 {
-	Item[] item;
-	int iNum=-1,index=0;
-	String iName;
-	int price,ind;
-	Order ord = new Order();
-	String ch;
-	void setFood()
+	public Item[] item;
+	public int iNum=-1,index=0;
+	public String iName;
+	public int price,ind;
+	public Order ord = new Order();
+	public String ch;
+	public void setFood()
 	{
 		
 		item = new Item[20];
@@ -24,7 +27,7 @@ public class Menu
 		ind=4;
 		
 	}
-	void printMenu(int ad)
+	public void printMenu(int ad)
 	{
 		
 		Scanner in = new Scanner(System.in);
@@ -51,7 +54,7 @@ public class Menu
 
 	}
 	
-	void ordering(int ind)
+	public void ordering(int ind)
 	{
 		//************************
 		this.index=0;
@@ -92,7 +95,7 @@ public class Menu
 }
 
 
-	void selectOrder(int itemNumber)
+	public void selectOrder(int itemNumber)
 	{
 		Scanner in = new Scanner(System.in);
 		System.out.println("Enter the quantity Required \n");
