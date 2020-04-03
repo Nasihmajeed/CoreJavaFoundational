@@ -16,10 +16,10 @@ public class Menu
 			item[i] = new Item();
 			
 		}		
-		item[0].setItem("Porotta   ",8,10);
+		item[0].setItem("Porotta",8,10);
 		item[1].setItem("Ghee Roast",45,10);
-		item[2].setItem("Coffee    ",15,10);
-		item[3].setItem("Biriyani  ",120,10);
+		item[2].setItem("Coffee",15,10);
+		item[3].setItem("Biriyani",120,10);
 		item[4].setItem("Fried Rice",80,10);
 		ind=4;
 		

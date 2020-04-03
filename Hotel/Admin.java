@@ -81,6 +81,11 @@ public class Admin
 			case 4:System.out.println("Total Gain = "+totalAmount);
 				   printStatus();
 				   break;
+			case 5 :System.out.println("\nEnter the item Name");
+					String nameToSearch;in.nextLine();
+					nameToSearch=in.nextLine();
+					searchItem(nameToSearch,ac);
+					break;
 
 			default:System.out.println("ERROR");
 					break;
@@ -205,5 +210,65 @@ public class Admin
 			}
 		}
 	
+	}
+	
+	void searchItem(String str,int ac)
+	{
+		if(ac==0)
+			menu.setFood();
+		Scanner in = new Scanner(System.in);
+		int ch,j;
+		
+		for(int i=0;menu.item[i].itemName!=null;i++)
+		{
+			if(str.equals(menu.item[i].itemName))
+			{
+				System.out.println("1.Delete item " + menu.item[i].itemName);
+				System.out.println("2.Edit item " + menu.item[i].itemName);
+				System.out.println("Choose an option");
+				ch=in.nextInt();
+				in.nextLine();
+				switch(ch)
+				{
+					case 1 :System.out.println("1.Delete item " + menu.item[i].itemName);
+							System.out.println("Do you sure(yes/no)");
+							String ip=in.nextLine();
+							if(ip.equals("yes"))
+							{
+								for(j=i;(menu.item[j+1].itemName)!=null;j++)
+								{
+									menu.item[j].itemName=menu.item[j+1].itemName;
+									menu.item[j].itemPrice=menu.item[j+1].itemPrice;
+								}
+								
+								menu.item[j].itemName=null;
+								menu.printMenu(1);
+								break;
+							
+							}
+							break;
+							
+					case 2: System.out.println("2.Edit item " + menu.item[i].itemName);
+							System.out.println("Do you sure want to edit(yes/no)");
+							ip=in.nextLine();
+							if(ip.equals("yes"))
+							{
+								System.out.println("Enter the item Name");
+								menu.item[i].itemName = in.nextLine();
+								System.out.println("Enter the item Price");
+								menu.item[i].itemPrice = in.nextInt();
+								System.out.println("Enter the item Quantity");
+								menu.item[i].totalAvailable = in.nextInt();
+								in.nextLine();
+								menu.printMenu(1);
+							}
+							break;
+								
+							
+							
+							
+				}
+			}
+		}
 	}
 }
