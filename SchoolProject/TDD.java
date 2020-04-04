@@ -15,17 +15,17 @@ public class TDD
 		{
 			again = 'n' ;
 
-			System.out.println("\n ____________________________________ \n \n Welcome To The Directory of Schools \n ____________________________________ \n \n (1) Register a New School \n \n (2) Login \n \n -------------------------- \n ") ;
+			System.out.println("\n ________________________________________________________ \n \n Welcome To The Directory of Higher Secondary Schools \n ________________________________________________________ \n \n (1) Register a New School \n \n (2) Login \n \n -------------------------------------------------------- \n ") ;
 			char op = input.next().charAt(0);
 
 			switch(op)
 			{
 				case '1' :
-					RegisterSchool() ;
+					RegisterSchool nSchool = new RegisterSchool() ;
+					nSchool.NewSchool() ;
 					break ;
 				
 				case '2' :
-					Login() ;
 					break ;
 				
 				default :
