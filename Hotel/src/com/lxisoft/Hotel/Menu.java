@@ -27,13 +27,13 @@ public class Menu
 		ind=4;
 		
 	}
-	public void printMenu(int ad)
+	public void printMenu(int admin)
 	{
 		
 		Scanner in = new Scanner(System.in);
 		System.out.println("\t\t Menu \t");
 		System.out.println("----------------------------------------");
-		if(ad==0)
+		if(admin==0)
 		{
 		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
 		for(int i=0;this.item[i].itemName!=null;i++)
@@ -43,7 +43,7 @@ public class Menu
 		dr.printItem(i);
 		System.out.println("----------------------------------------\n");
 		}
-		else if(ad==1)
+		else if(admin==1)
 		{
 			System.out.println("Item Number \tItem Name \t\t Price(Rs)\t Quantity Left");
 			for(int i=0;this.item[i].itemName!=null;i++)
@@ -58,9 +58,7 @@ public class Menu
 	public void ordering(int ind)
 	{
 		String ch;
-		//************************
 		this.index=0;
-		//***********************
 		this.ord.setOrder();
 		Scanner in = new Scanner(System.in);
 		do

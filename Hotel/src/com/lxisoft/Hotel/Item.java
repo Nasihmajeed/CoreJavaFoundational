@@ -33,6 +33,9 @@ public class Item
 	{
 		System.out.println("  "+(i+1)+"\t\t"+itemName +"\t\t" +itemPrice);
 	}
-	
-
+	public void printItemToUser()
+	{
+		System.out.println(itemName +"\t--->    "+ itemPrice+ "\t           " +itemQuantity);
+	}
 }
+

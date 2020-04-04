@@ -34,7 +34,7 @@ public class Order
 		for(int i=0;i<index;i++)
 		{
 			
-			System.out.println(this.order[i].itemName +"\t--->    "+ this.order[i].itemPrice+ "\t           " +this.order[i].itemQuantity);
+			order[i].printItemToUser();
 		}
 		System.out.println("-----------------------------------------");
 		System.out.println("TOTAL = "+this.total);
