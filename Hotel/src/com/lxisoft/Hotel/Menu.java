@@ -48,7 +48,7 @@ public class Menu
 			System.out.println("Item Number \tItem Name \t\t Price(Rs)\t Quantity Left");
 			for(int i=0;this.item[i].itemName!=null;i++)
 			{
-			System.out.println("  "+(i+1)+"\t\t"+this.item[i].itemName +"\t\t" +this.item[i].itemPrice+"\t\t "+ this.item[i].totalAvailable);
+			item[i].printToAdmin(i);
 			}
 			System.out.println("---------------------------------------------------\n");
 		}

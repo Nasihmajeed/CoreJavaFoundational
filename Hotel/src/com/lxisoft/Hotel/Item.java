@@ -37,5 +37,9 @@ public class Item
 	{
 		System.out.println(itemName +"\t--->    "+ itemPrice+ "\t           " +itemQuantity);
 	}
+	public void printToAdmin(int i)
+	{
+		System.out.println("  "+(i+1)+"\t\t"+itemName +"\t\t" +itemPrice+"\t\t "+ totalAvailable);
+	}
 }
 

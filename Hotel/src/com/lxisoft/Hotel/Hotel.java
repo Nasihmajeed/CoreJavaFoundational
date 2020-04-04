@@ -21,13 +21,13 @@ public class Hotel
 			switch(ch)
 			{
 				case 1: ad.checkAdmin(adminCount);
-						adminCount=adminCount+1;
+						adminCount++;
 						break;
 				case 2: ad.passToUser(userCount,adminCount);
-						userCount=userCount+1;
+						userCount++;
 						break;
-				default: System.out.println("Invalid Choice"); 
-						 break;
+				default:System.out.println("Invalid Choice"); 
+						break;
 			}
 			System.out.println("GO Back to Main Menu(yes/no)");
 			in.nextLine();
