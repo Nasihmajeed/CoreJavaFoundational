@@ -29,6 +29,10 @@ public class Item
 		else
 			return 1;
 	}
+	public void printItem(int i)
+	{
+		System.out.println("  "+(i+1)+"\t\t"+itemName +"\t\t" +itemPrice);
+	}
 	
 
 }

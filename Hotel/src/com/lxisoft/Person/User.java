@@ -11,4 +11,8 @@ public class User
 		System.out.println("\nWelcome  to A2B  " + userName );
 		
 	}
+	void printUser()
+	{
+		System.out.println("Thank you "+ userName);
+	}
 }

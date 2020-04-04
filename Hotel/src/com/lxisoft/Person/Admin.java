@@ -7,6 +7,7 @@ import com.lxisoft.Person.*;
 import java.util.*;
 public class Admin
 {
+	Drinks d= new Drinks();
 	OrderDetails[] od = new OrderDetails[10];
 	Menu menu = new Menu();
 	User usr = new User();
@@ -34,7 +35,7 @@ public class Admin
 		od[var].name=usr.userName;
 		od[var].total=menu.ord.total;
 		setTotalAmount(od[var].total);
-		System.out.println("Thank you "+usr.userName);
+		usr.printUser();
 		var=var+1;
 		
 	}

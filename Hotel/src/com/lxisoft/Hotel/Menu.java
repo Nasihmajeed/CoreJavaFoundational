@@ -4,9 +4,11 @@ import com.lxisoft.Hotel.*;
 import java.util.*;
 public class Menu
 {
+	Drinks dr = new Drinks();
 	public Item[] item;
 	public int iNum=-1,index=0;
 	public int ind;
+	int i;
 	public Order ord = new Order();
 	public void setFood()
 	{
@@ -36,8 +38,9 @@ public class Menu
 		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
-			System.out.println("  "+(i+1)+"\t\t"+this.item[i].itemName +"\t\t" +this.item[i].itemPrice);
+			item[i].printItem(i);
 		}
+		dr.printItem(i);
 		System.out.println("----------------------------------------\n");
 		}
 		else if(ad==1)
