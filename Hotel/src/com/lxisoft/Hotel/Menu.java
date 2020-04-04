@@ -6,10 +6,8 @@ public class Menu
 {
 	public Item[] item;
 	public int iNum=-1,index=0;
-	public String iName;
-	public int price,ind;
+	public int ind;
 	public Order ord = new Order();
-	public String ch;
 	public void setFood()
 	{
 		
@@ -56,6 +54,7 @@ public class Menu
 	
 	public void ordering(int ind)
 	{
+		String ch;
 		//************************
 		this.index=0;
 		//***********************

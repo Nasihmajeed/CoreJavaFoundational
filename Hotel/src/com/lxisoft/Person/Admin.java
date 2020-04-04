@@ -10,10 +10,9 @@ public class Admin
 	OrderDetails[] od = new OrderDetails[10];
 	Menu menu = new Menu();
 	User usr = new User();
-	public String iName,ch;
-	public int price,p=1;
-	public int var=0,quantity;
+	int var=0;
 	public int totalAmount=0;
+	
 	public void passToUser(int uc,int ac)
 	{
 		
@@ -101,6 +100,9 @@ public class Admin
 	
 	public void addItem(int ac)
 	{
+		String iName,ch;
+		int price,quantity;
+		
 		Scanner in = new Scanner(System.in);
 		if (ac==0)
 			menu.setFood();

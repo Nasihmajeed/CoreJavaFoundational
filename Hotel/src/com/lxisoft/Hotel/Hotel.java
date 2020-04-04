@@ -4,14 +4,15 @@ import com.lxisoft.Person.*;
 import java.util.*;
 public class Hotel
 {
-	public int ch;
-	public String hotelName=" A2B ";
-	public int ac=0,uc=0;
-	public String str="open";
+	 
+	String hotelName=" A2B ";
+	public int adminCount=0,userCount=0; 
 	public Admin ad = new Admin();
 	
 	public void checkPerson()
 	{
+		int ch;
+		String str="open";
 		Scanner in = new Scanner(System.in);
 		do
 		{
@@ -19,11 +20,11 @@ public class Hotel
 			ch=in.nextInt();
 			switch(ch)
 			{
-				case 1: ad.checkAdmin(ac);
-						ac=ac+1;
+				case 1: ad.checkAdmin(adminCount);
+						adminCount=adminCount+1;
 						break;
-				case 2: ad.passToUser(uc,ac);
-						uc=uc+1;
+				case 2: ad.passToUser(userCount,adminCount);
+						userCount=userCount+1;
 						break;
 				default: System.out.println("Invalid Choice"); 
 						 break;
