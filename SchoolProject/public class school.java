@@ -1,6 +1,6 @@
 public class School
 {
-	String Marks;
+	int Marks;
 	String Subjects;
 
 	Students
