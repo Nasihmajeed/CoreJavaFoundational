@@ -4,6 +4,6 @@ public class OrderDetails
 {
 	public String name;
 	public int total;
-	public int totalAmount;
+	public int totalAmount, ratings;
 	
 }

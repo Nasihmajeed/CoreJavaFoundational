@@ -35,6 +35,7 @@ public class Admin
 		od[var].name=usr.userName;
 		od[var].total=menu.ord.total;
 		setTotalAmount(od[var].total);
+		od[var].ratings=usr.rating();
 		usr.printUser();
 		var=var+1;
 		
@@ -215,8 +216,12 @@ public class Admin
 		{
 			for(int i=0;od[i].name!=null;i++)
 			{
-				System.out.println("\nCustomer Name : "+od[i].name + "\n \t Bill Amount = " + od[i].total);
-				System.out.println("---------------------------------------------------------");
+				System.out.println("\nCustomer Name : "+od[i].name + "\n \tBill Amount = " + od[i].total);
+				System.out.print("\tCustomer Rating : ");
+				for(int j=0;j<od[i].ratings;j++)
+					System.out.print("* ");
+				System.out.print(" ( "+od[i].ratings+" out of 5 )");
+				System.out.println("\n---------------------------------------------------------");
 			}
 		}
 	
