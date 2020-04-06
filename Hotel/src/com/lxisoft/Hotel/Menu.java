@@ -40,7 +40,6 @@ public class Menu
 		{
 			item[i].printItem(i);
 		}
-		dr.printItem(i);
 		System.out.println("----------------------------------------\n");
 		}
 		else if(admin==1)

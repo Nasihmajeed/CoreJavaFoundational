@@ -99,14 +99,15 @@ public class Admin
 		}
 	}
 	
-	public void addItem(int ac)
+	public void addItem(int adminCount)
 	{
 		String iName,ch;
 		int price,quantity;
 		
 		Scanner in = new Scanner(System.in);
-		if (ac==0)
+		if (adminCount==0)
 			menu.setFood();
+		menu.printMenu(1);
 		for(int i=0;i<menu.item.length;i++)
 		{
 			
