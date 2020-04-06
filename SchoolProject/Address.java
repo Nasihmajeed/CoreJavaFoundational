@@ -9,21 +9,25 @@ public class Address
 	{
 		Scanner in = new Scanner(System.in) ;
 
-		System.out.print("Input Name of the New School : ") ;
+		C.cls() ;	
+
+		System.out.print("\n ------------------- \n  NEW SCHOOL DETAILS \n ------------------- \n") ;
+
+		System.out.print("\n \n Name : ") ;
 		this.sName = in.nextLine() ;
 
-		System.out.print(" Street : ") ;
+		System.out.print("\n Street : ") ;
 		this.street = in.nextLine() ;
 
-		System.out.print(" City : ") ;
+		System.out.print("\n City : ") ;
 		this.city = in.nextLine() ;
 
-		System.out.print(" State : ") ;
+		System.out.print("\n State : ") ;
 		this.state = in.nextLine() ;
 
-		System.out.print(" Pin Code : ") ;
+		System.out.print("\n Pin Code : ") ;
 		this.pinCode = in.nextInt() ;
-		in.nextLine() ;			
+		in.nextLine() ;		
 	}
 
 	public void DisplayAddress()

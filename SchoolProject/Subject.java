@@ -3,13 +3,12 @@ import java.util.* ;
 public class Subject 
 {
 	String subName ;
-	int sMark ;
-
-	public void NewSubject()
+	
+	public void NewSubject(int i)
 	{
 		Scanner in = new Scanner(System.in); 
 		
-		System.out.print(" Input Name of Subject : ") ;
+		System.out.print("\n Name of Subject " + i + " : ") ;
 		subName = in.nextLine();
 	}
 

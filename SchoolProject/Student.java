@@ -4,50 +4,48 @@ public class Student
 {
 
 	String stName ;
-	int rNo,total=0,no ;
+	int rNo,no ; // no : Total number of subjects
 	float per=0 ;
-	int[] subMark ;
+	int[] subMark,total ;
 	
 	char result ;
 
-	public void AdmitNewStudent()
+	public void AdmitNewStudent(int i)
 	{
 
 		Scanner in = new Scanner(System.in) ;
 
-		System.out.print("Name : ") ;
+		System.out.print("\n Details of Student " + i + " : ") ;
+		
+		System.out.print("\n \n Name : ") ;
 		this.stName = in.nextLine() ;
 
-		System.out.print("Roll Number : ") ;
+		System.out.print("\n Roll Number : ") ;
 		this.rNo = in.nextInt() ;
-		in.nextLine() ;		
+		in.nextLine() ;	
+		
+		System.out.print("\n ----------------------------------- \n" ) ;			
 	}
 
-	public void MarkEntry(Subject[] s, int n)
+	public void MarkEntry(int n)
 	{
-		for(int i=0 ; i<n ; i++)
-		{
+		
 			Scanner in = new Scanner(System.in) ;
 
-			System.out.print(s[i].subName + " : ") ;
-			s[i].sMark = in.nextInt() ;
+			System.out.print("\n "+ this.stName + " : ") ;
+			this.subMark[n] = in.nextInt() ;
 			in.nextLine() ;
-
-			this.subMark[i] = s[i].sMark ;
-			no = n ;
-
-		}
 
 	}
 
 	public void TotalMark()
 	{
 
-		for(int i =0 ; i<n ;i++)
+		for(int i =0 ; i<no ;i++)
 		{
 
-			this.total += this.subMark[i] ;
-			this.per = this.total/n ;
+			this.total[i] += this.subMark[i] ;
+			this.per = this.total[i]/no ;
 		}
 	}
 
