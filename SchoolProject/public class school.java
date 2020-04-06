@@ -1,11 +1,10 @@
 public class School
 {
-	int Marks;
-	String Subjects;
 
-	Students
-	Teacher
-	Classroom
+
+	Students s;
+	Teacher t;
+	Classroom c;
 	
 	
 	
