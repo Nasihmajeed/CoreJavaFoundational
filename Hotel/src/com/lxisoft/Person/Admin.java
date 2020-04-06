@@ -222,27 +222,27 @@ public class Admin
 	
 	}
 	
-	public void searchItem(String str,int ac)
+	public void searchItem(String str,int adminCount)
 	{
-		if(ac==0)
+		int ch,j;
+		String ip;
+		if(adminCount==0)
 			menu.setFood();
 		Scanner in = new Scanner(System.in);
-		int ch,j;
-		
 		for(int i=0;menu.item[i].itemName!=null;i++)
 		{
 			if(str.equals(menu.item[i].itemName))
 			{
-				System.out.println("1.Delete item " + menu.item[i].itemName);
-				System.out.println("2.Edit item " + menu.item[i].itemName);
+				System.out.println(" => 1. Delete item " + menu.item[i].itemName);
+				System.out.println(" => 2. Edit item " + menu.item[i].itemName);
 				System.out.println("Choose an option");
 				ch=in.nextInt();
 				in.nextLine();
 				switch(ch)
 				{
-					case 1 :System.out.println("1.Delete item " + menu.item[i].itemName);
-							System.out.println("Do you sure(yes/no)");
-							String ip=in.nextLine();
+					case 1 :System.out.println(" => Delete item : " + menu.item[i].itemName);
+							System.out.println("Do you sure (yes/no)");
+							ip=in.nextLine();
 							if(ip.equals("yes"))
 							{
 								for(j=i;(menu.item[j+1].itemName)!=null;j++)
@@ -258,8 +258,8 @@ public class Admin
 							}
 							break;
 							
-					case 2: System.out.println("2.Edit item " + menu.item[i].itemName);
-							System.out.println("Do you sure want to edit(yes/no)");
+					case 2: System.out.println(" => Edit item : " + menu.item[i].itemName);
+							System.out.println("Do you sure want to edit (yes/no)");
 							ip=in.nextLine();
 							if(ip.equals("yes"))
 							{
