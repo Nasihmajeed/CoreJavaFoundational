@@ -80,19 +80,22 @@ public class TDD
 
 				   						nSchool.EditClass(cl-1) ;
 
-				   					   	break ;
+				   						System.out.print("\n \n \n Return to Main? (Y/N) : ") ;
+				   						again = input.next().charAt(0) ;
+				   						break ;
 
 				   					default :
 
-				   						System.out.print("\n \n \nInvalid Choice. Return to Main? (Y/N) : ") ;
+				   						System.out.print("\n \n \nInvalid Choice. Try Again? (Y/N) : ") ;
 				   						again = input.next().charAt(0) ;
 
 								}
 
 							}while(again == 'y' || again == 'Y') ;	
 
-
-					break ;
+					System.out.print("\n \n \n Return to Main? (Y/N) : ") ;
+				   	again = input.next().charAt(0) ;
+				   	break ;
 				
 				default :
 					System.out.println("\n \n Invalid Option Chosen. Try Again? (Y/N) : ") ;
