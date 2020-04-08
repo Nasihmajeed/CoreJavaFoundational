@@ -35,7 +35,8 @@ public class Menu
 		System.out.println("----------------------------------------");
 		if(admin==0)
 		{
-		System.out.println("Item Number \tItem Name \t\t Price(Rs)\t\n");
+		System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t\n");
+		System.out.println("---------------------------------------------------\n---------------------------------------------------");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
 			item[i].printItem(i);
@@ -44,7 +45,8 @@ public class Menu
 		}
 		else if(admin==1)
 		{
-			System.out.println("Item Number \tItem Name \t\t Price(Rs)\t Quantity Left");
+			System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t QUANTITY LEFT");
+			System.out.println("---------------------------------------------------\n---------------------------------------------------");
 			for(int i=0;this.item[i].itemName!=null;i++)
 			{
 			item[i].printToAdmin(i);
@@ -75,7 +77,7 @@ public class Menu
 				ch=in.nextLine();
 				if(ch.equals("yes"))
 				{
-					System.out.println("\n\tThank you : Order placed\t");
+					System.out.println("\n\t THANK YOU : ORDER PLACED \t");
 				}
 				else
 				{
@@ -97,7 +99,7 @@ public class Menu
 	public void selectOrder(int itemNumber)
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter the quantity Required \n");
+		System.out.println("Enter the quantity Required");
 		this.ord.order[index].itemQuantity = in.nextInt();
 		int ch = item[itemNumber].checkQuantity(this.ord.order[index].itemQuantity);
 		if(ch==1)
