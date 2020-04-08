@@ -10,7 +10,7 @@ public class Student
 	
 	char result ;
 
-	public void AdmitNewStudent(int i,int n)
+	public void admitNewStudent(int i,int n)
 	{
 
 		Scanner in = new Scanner(System.in) ;
@@ -28,7 +28,7 @@ public class Student
 		System.out.print("\n ----------------------------------- \n" ) ;			
 	}
 
-	public void MarkEntry(int n)
+	public void markEntry(int n)
 	{
 		
 			Scanner in = new Scanner(System.in) ;
@@ -39,7 +39,7 @@ public class Student
 
 	}
 
-	public void MarkDisplay(int n)
+	public void markDisplay(int n)
 	{
 		System.out.print("\n "+ this.stName + " : " + this.subMark[n]) ;
 
@@ -56,7 +56,7 @@ public class Student
 
 	}
 
-	public void TotalMark()
+	public void totalMark()
 	{
 
 		for(int i =0 ; i<no ;i++)

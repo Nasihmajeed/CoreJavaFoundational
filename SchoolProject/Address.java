@@ -5,7 +5,7 @@ public class Address
 	String sName,street,city,state ; //sNAme : Name of School
 	int pinCode ;
 
-	public void InputAddress()
+	public void inputAddress()
 	{
 		Scanner in = new Scanner(System.in) ;
 
@@ -30,7 +30,7 @@ public class Address
 		in.nextLine() ;		
 	}
 
-	public void DisplayAddress()
+	public void displayAddress()
 	{
 		System.out.print("\n \n School Name : "+ this.sName + "\n Street : " + this.street + "\n City : " + this.city + "\n State : " + this.state + "\n Pin Code : " + this.pinCode) ;
 	}

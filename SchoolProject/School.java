@@ -8,12 +8,12 @@ public class School
 
 	int nCr ; //nCR : No of Classroom
 
-	public void NewSchool()
+	Scanner in = new Scanner(System.in) ;
+
+	public void newSchool()
 	{
 		
-		sAd.InputAddress() ;
-
-		Scanner in = new Scanner(System.in) ;
+		sAd.inputAddress() ;
 
 		System.out.print("\n \n Number of Classrooms in " + sAd.sName + " School : ") ; //Taking input of the total number of CLassrooms present in the School
 		this.nCr = in.nextInt() ; 
@@ -26,13 +26,13 @@ public class School
 			for(int i=0 ; i<nCr ; i++)
 			{
 				cR[i] = new ClassRoom() ; // Making the individual blocks into an object of ClassRoom  class
-				cR[i].CreateClassRoom(i+1) ; // Feeding data of ClassROom information
+				cR[i].createClassRoom(i+1) ; // Feeding data of ClassROom information
 			}
 
 		
 	}
 
-	public void DisplayInfo()
+	public void displayInfo()
 	{
 
 		C.cls() ;
@@ -40,27 +40,27 @@ public class School
 		System.out.print("\n ------------------ \n SCHOOL DETAILS \n ------------------ \n") ;
 
 		System.out.print("\n \n ADDRESS \n _________ \n") ;
-		sAd.DisplayAddress() ;
+		sAd.displayAddress() ;
 
 		System.out.print("\n \n CLASSROOMS \n _________ \n") ;
 		
 		for(int i=0 ; i<nCr ; i++ )
-			cR[i].DisplayClass() ;
+			cR[i].displayClass() ;
 	}
 
-	public void SelectClass()
+	public void selectClass()
 	{
 
 		for(int i=0 ; i<nCr ; i++)
 			{
 				System.out.print("(") ;
 				System.out.print(i+1 + ") ") ;
-				cR[i].ClassName() ;
+				cR[i].className() ;
 			}
 	}
 
-	public void EditClass(int c)
+	public void editClass(int c)
 	{
-		cR[c].Manage() ;
+		cR[c].manage() ;
 	}
 }

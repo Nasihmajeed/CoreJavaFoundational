@@ -5,7 +5,7 @@ public class Subject
 	String subName ;
 	int subAvg = 0;
 	
-	public void NewSubject(int i)
+	public void newSubject(int i)
 	{
 		Scanner in = new Scanner(System.in); 
 		
