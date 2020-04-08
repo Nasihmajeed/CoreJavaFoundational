@@ -7,6 +7,7 @@ public class Classroom
 	Classroom student=new Student();
 	Classroom Teacher=new Teacher();
 	
+	
 	public String printDetail()
 		{
 			return "\n \t \t Class number : "+c_class number+";
