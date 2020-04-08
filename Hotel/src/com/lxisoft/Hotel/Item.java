@@ -1,6 +1,6 @@
 package com.lxisoft.Hotel;
 
-public class Item
+public class Item implements inter
 {
 	public String itemName;
 	public int itemPrice,itemTotAmount=0;
@@ -35,7 +35,7 @@ public class Item
 	}
 	public void printItemToUser()
 	{
-		System.out.println(itemName +"\t--->    "+ itemPrice+ "\t           " +itemQuantity);
+		System.out.println(itemName +" \t --->    "+ itemPrice+ "\t           " +itemQuantity);
 	}
 	public void printToAdmin(int i)
 	{
