@@ -21,7 +21,7 @@ public class Menu
 		}		
 		item[0].setItem("Porotta",8,10);
 		item[1].setItem("Ghee Roast",45,10);
-		item[2].setItem("Coffee",15,10);
+		item[2].setItem("Masaala Dosa",40,10);
 		item[3].setItem("Biriyani",120,10);
 		item[4].setItem("Fried Rice",80,10);
 		ind=4;
@@ -36,7 +36,7 @@ public class Menu
 		System.out.println("-----------------------------------------------------------------------");                                      
 		if(admin==0)
 		{
-		System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t");
+		System.out.println("ITEM NUMBER \t ITEM NAME \t   PRICE(Rs)\t");
 		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
@@ -46,7 +46,7 @@ public class Menu
 		}
 		else if(admin==1)
 		{
-			System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t QUANTITY LEFT");
+			System.out.println("ITEM NUMBER \t ITEM NAME \t       PRICE(Rs)         QUANTITY LEFT");
 			System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 			for(int i=0;this.item[i].itemName!=null;i++)
 			{

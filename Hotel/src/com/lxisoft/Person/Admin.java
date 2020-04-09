@@ -9,10 +9,11 @@ public class Admin
 {
 	Drinks d= new Drinks();
 	OrderDetails[] od = new OrderDetails[10];
-	Menu menu = new Menu();
+	public Menu menu = new Menu();
 	User usr = new User();
-	int var=0;
+	//int var=0;
 	public int totalAmount=0;
+
 	
 	public void passToUser(int uc,int ac)
 	{
@@ -30,14 +31,11 @@ public class Admin
 		}
 			
 		usr.userDetails();
-		menu.printMenu(0);
-		menu.ordering(menu.ind);
-		od[var].name=usr.userName;
-		od[var].total=menu.ord.total;
-		setTotalAmount(od[var].total);
-		od[var].ratings=usr.rating();
-		usr.printUser();
-		var=var+1;
+		usr.userAction(menu,od);		
+		// setTotalAmount(od[var].total);
+		// od[var].ratings=usr.rating();
+		//usr.printUser();
+		// var=var+1;
 		
 	}
 	public void checkAdmin(int ac)
@@ -85,7 +83,7 @@ public class Admin
 			case 3:System.out.println("DELETE AN FOOD ITEM");
 				   deleteItem(ac);
 				   break;
-			case 4:System.out.println("TOTAL GAIN = "+totalAmount);
+			case 4:System.out.println("TOTAL GAIN = "+usr.totalAmount);
 				   printStatus();
 				   break;
 			case 5 :System.out.println("\nEnter the item Name");
@@ -202,10 +200,10 @@ public class Admin
 	
 	}
 	
-	public void setTotalAmount(int total)
-	{
-		this.totalAmount=this.totalAmount+total;
-	}
+	// public void setTotalAmount(int total)
+	// {
+	// 	this.totalAmount=this.totalAmount+total;
+	// }
 	public void printStatus()
 	{
 		Scanner in = new Scanner(System.in);
@@ -230,6 +228,7 @@ public class Admin
 	public void searchItem(String str,int adminCount)
 	{
 		int ch,j;
+		int flag=1;
 		String ip;
 		if(adminCount==0)
 			menu.setFood();
@@ -238,6 +237,7 @@ public class Admin
 		{
 			if(str.equals(menu.item[i].itemName))
 			{
+				flag=0;
 				System.out.println(" => 1. DELETE ITEM " + menu.item[i].itemName);
 				System.out.println(" => 2. EDIT ITEM " + menu.item[i].itemName);
 				System.out.println("Choose an option");
@@ -285,5 +285,11 @@ public class Admin
 				}
 			}
 		}
+		if(flag==1)
+		{
+			System.out.println("Sorry Check the item name");
+			adminActions(adminCount);
+		}
+			
 	}
 }

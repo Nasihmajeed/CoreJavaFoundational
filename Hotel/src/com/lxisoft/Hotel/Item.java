@@ -31,7 +31,7 @@ public class Item implements inter
 	}
 	public void printItem(int i)
 	{
-		System.out.println("  "+(i+1)+"\t\t"+itemName +"\t\t" +itemPrice);
+		System.out.println("  "+(i+1)+"\t\t"+itemName +" \t --->    " +itemPrice);
 	}
 	public void printItemToUser()
 	{
@@ -39,7 +39,7 @@ public class Item implements inter
 	}
 	public void printToAdmin(int i)
 	{
-		System.out.println("  "+(i+1)+"\t\t"+itemName +"\t\t" +itemPrice+"\t\t "+ totalAvailable);
+		System.out.println("  "+(i+1)+"\t\t"+itemName +" \t --->    " +itemPrice+" \t --->     "+ totalAvailable);
 	}
 }
 
