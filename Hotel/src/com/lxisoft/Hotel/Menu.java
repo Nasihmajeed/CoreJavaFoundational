@@ -31,29 +31,29 @@ public class Menu
 	{
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("\t\t Menu \t");
-		System.out.println("----------------------------------------");
+		System.out.println("-----------------------------------------------------------------------"); 
+		System.out.println("\t\t \t Menu \t");
+		System.out.println("-----------------------------------------------------------------------");                                      
 		if(admin==0)
 		{
-		System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t\n");
-		System.out.println("---------------------------------------------------\n---------------------------------------------------");
+		System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t");
+		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
 			item[i].printItem(i);
 		}
-		System.out.println("----------------------------------------\n");
+		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		}
 		else if(admin==1)
 		{
 			System.out.println("ITEM NUMBER \t ITEM NAME \t\t PRICE(Rs)\t QUANTITY LEFT");
-			System.out.println("---------------------------------------------------\n---------------------------------------------------");
+			System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 			for(int i=0;this.item[i].itemName!=null;i++)
 			{
 			item[i].printToAdmin(i);
 			}
-			System.out.println("---------------------------------------------------\n");
+			System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		}
-
 	}
 	
 	public void ordering(int ind)
@@ -64,7 +64,7 @@ public class Menu
 		Scanner in = new Scanner(System.in);
 		do
 		{
-			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) ->");
+			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
 			iNum=in.nextInt();
 			if(iNum<=(ind+1) && iNum >0)
 			{
@@ -93,13 +93,13 @@ public class Menu
 		}while(iNum!=0);
 		ord.setTotal(index);
 		ord.printOrderDetails(index);
-}
+	}	
 
 
 	public void selectOrder(int itemNumber)
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter the quantity Required");
+		System.out.println("Enter the quantity Required\n\t");
 		this.ord.order[index].itemQuantity = in.nextInt();
 		int ch = item[itemNumber].checkQuantity(this.ord.order[index].itemQuantity);
 		if(ch==1)
