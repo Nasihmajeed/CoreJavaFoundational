@@ -15,14 +15,14 @@ public class Admin
 	public int totalAmount=0;
 
 	
-	public void passToUser(int uc,int ac)
+	public void passToUser(int userCount,int adminCount)
 	{
 		
-		if((uc==0)&&(ac==0))
+		if((userCount==0)&&(adminCount==0))
 		{
 			menu.setFood();
 		}
-		if(uc==0)
+		if(userCount==0)
 		{
 			for(int i=0;i<10;i++)
 			{
@@ -32,14 +32,12 @@ public class Admin
 			
 		usr.userDetails();
 		usr.userAction(menu,od);		
-		// setTotalAmount(od[var].total);
-		// od[var].ratings=usr.rating();
-		//usr.printUser();
-		// var=var+1;
 		
 	}
-	public void checkAdmin(int ac)
+	public void checkAdmin(int adminCount)
 	{
+
+		// check the password 
 		Scanner in = new Scanner(System.in);
 		String pass="a2b",password="asd";
 		while(!(password.equals("0")))
@@ -49,7 +47,7 @@ public class Admin
 			if(password.equals(pass))
 			{
 				System.out.println("\nWelcome Admin");
-				adminActions(ac);
+				adminActions(adminCount);
 				break;
 				
 			}
@@ -63,36 +61,36 @@ public class Admin
 		}
 	}
 	
-	public void adminActions(int ac)
+	public void adminActions(int adminCount)
 	{
+		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
 		System.out.println(" => 1. ADD FOOD ITEM \n => 2. EDIT FOOD ITEM \n => 3. DELETE FOOD ITEM \n => 4. TOTAL GAIN\n => 5. SEARCH");
-		System.out.println("\nEnter your choice ");
+		System.out.println("\nEnter your choice --> ");
 		c=in.nextInt();
-		
 		switch(c)
 		{
-			case 1:System.out.println("ADD FOOD ITEM");
-					addItem(ac);
+			case 1:System.out.println(" --> ADD FOOD ITEM");
+					addItem(adminCount);
 					break;
 			
-			case 2:System.out.println("EDIT AN FOOD ITEM");
-				   editItem(ac);
+			case 2:System.out.println(" --> EDIT AN FOOD ITEM");
+				   editItem(adminCountadminCount);
 				   break;
-			case 3:System.out.println("DELETE AN FOOD ITEM");
-				   deleteItem(ac);
+			case 3:System.out.println(" --> DELETE AN FOOD ITEM");
+				   deleteItem(adminCount);
 				   break;
-			case 4:System.out.println("TOTAL GAIN = "+usr.totalAmount);
+			case 4:System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
 				   printStatus();
 				   break;
 			case 5 :System.out.println("\nEnter the item Name");
 					String nameToSearch;in.nextLine();
 					nameToSearch=in.nextLine();
-					searchItem(nameToSearch,ac);
+					searchItem(nameToSearch,adminCount);
 					break;
 
-			default:System.out.println("ERROR");
+			default:System.out.println(" --> ***ERROR*** <--");
 					break;
 
 		}
@@ -100,6 +98,7 @@ public class Admin
 	
 	public void addItem(int adminCount)
 	{
+		// Add a new item
 		String iName,ch;
 		int price,quantity;
 		
@@ -135,11 +134,12 @@ public class Admin
 		
 	}
 	
-	public void editItem(int ac)
+	public void editItem(int adminCount)
 	{
+		//Edit an existingitem
 		Scanner in = new Scanner(System.in);
 		int iNum;
-		if(ac==0)
+		if(adminCount==0)
 			menu.setFood();
 		menu.printMenu(1);
 		System.out.println("ENTER THE ITEM NUMBER YOU NEED TO EDIT");
@@ -162,12 +162,13 @@ public class Admin
 		
 	}
 	
-	public void deleteItem(int ac)
+	public void deleteItem(int adminCount)
 	{
+		// Delete an exsisting item
 		String str;	
 		Scanner in = new Scanner(System.in);
 		int iNum,r=100;
-		if(ac==0)
+		if(adminCount==0)
 			menu.setFood();
 		menu.printMenu(1);
 		System.out.println("ENTER THE ITEM NUMBER YOU NEED TO DELETE");
@@ -200,12 +201,9 @@ public class Admin
 	
 	}
 	
-	// public void setTotalAmount(int total)
-	// {
-	// 	this.totalAmount=this.totalAmount+total;
-	// }
 	public void printStatus()
 	{
+		// print the total customer details
 		Scanner in = new Scanner(System.in);
 		String ch;
 		System.out.println(" MORE DETAILS (yes/no)");
