@@ -66,8 +66,8 @@ public class Admin
 		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println(" => 1. ADD FOOD ITEM \n => 2. EDIT FOOD ITEM \n => 3. DELETE FOOD ITEM \n => 4. TOTAL GAIN\n => 5. SEARCH");
-		System.out.println("\nEnter your choice --> ");
+		System.out.println(" =:> 1. ADD FOOD ITEM \n =:> 2. EDIT FOOD ITEM \n =:> 3. DELETE FOOD ITEM \n =:> 4. TOTAL GAIN\n =:> 5. SEARCH");
+		System.out.println("\n =:> Enter your choice --> ");
 		c=in.nextInt();
 		switch(c)
 		{
@@ -76,7 +76,7 @@ public class Admin
 					break;
 			
 			case 2:System.out.println(" --> EDIT AN FOOD ITEM");
-				   editItem(adminCountadminCount);
+				   editItem(adminCount);
 				   break;
 			case 3:System.out.println(" --> DELETE AN FOOD ITEM");
 				   deleteItem(adminCount);
@@ -111,15 +111,15 @@ public class Admin
 			
 			if(menu.item[i].itemName==null)
 			{
-				System.out.println("DO YOU NEED TO ADD MORE FOOD ITEMS (yes/no)");
+				System.out.println(" =:> DO YOU NEED TO ADD MORE FOOD ITEMS (yes/no)");
 				ch=in.nextLine();
 				if(ch.equals("yes"))
 				{
-					System.out.println("ENTER THE ITEM NAME");
+					System.out.println(" =:> ENTER THE ITEM NAME");
 					iName = in.nextLine();
-					System.out.println("ENTER THE ITEM PRICE");
+					System.out.println(" =:> ENTER THE ITEM PRICE");
 					price = in.nextInt();
-					System.out.println("ENTER THE ITEM QUANTITY");
+					System.out.println(" =:> ENTER THE ITEM QUANTITY");
 					quantity = in.nextInt();
 					in.nextLine();
 					menu.item[i].setItem(iName,price,quantity);
@@ -142,18 +142,18 @@ public class Admin
 		if(adminCount==0)
 			menu.setFood();
 		menu.printMenu(1);
-		System.out.println("ENTER THE ITEM NUMBER YOU NEED TO EDIT");
+		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO EDIT");
 		iNum = in.nextInt();
 		in.nextLine();
 		for(int i=0;i<menu.item.length;i++)
 		{
 			if((i+1)==iNum)
 			{
-				System.out.println("ENTER THE ITEM NAME");
+				System.out.println(" =:> ENTER THE ITEM NAME");
 				menu.item[i].itemName = in.nextLine();
-				System.out.println("ENTER THE ITEM PRICE");
+				System.out.println(" =:> ENTER THE ITEM PRICE");
 				menu.item[i].itemPrice = in.nextInt();
-				System.out.println("ENTER THE ITEM QUANTITY");
+				System.out.println(" =:> ENTER THE ITEM QUANTITY");
 				menu.item[i].totalAvailable = in.nextInt();
 				in.nextLine();
 				menu.printMenu(1);
@@ -171,7 +171,7 @@ public class Admin
 		if(adminCount==0)
 			menu.setFood();
 		menu.printMenu(1);
-		System.out.println("ENTER THE ITEM NUMBER YOU NEED TO DELETE");
+		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
 		iNum = in.nextInt();
 		in.nextLine();
 		
@@ -179,7 +179,7 @@ public class Admin
 		{
 			if((i+1)==iNum)
 			{
-				System.out.println("Do you sure(yes/no)");
+				System.out.println(" =:> Do you sure(yes/no)");
 				str=in.nextLine();
 				if(str.equals("yes"))
 				{
@@ -206,14 +206,14 @@ public class Admin
 		// print the total customer details
 		Scanner in = new Scanner(System.in);
 		String ch;
-		System.out.println(" MORE DETAILS (yes/no)");
+		System.out.println(" =:> MORE DETAILS (yes/no)");
 		ch=in.nextLine();
 		if(ch.equals("yes"))
 		{
 			for(int i=0;od[i].name!=null;i++)
 			{
-				System.out.println("\nCUSTOMER NAME : "+od[i].name + "\n \tBILL AMOUNT = " + od[i].total);
-				System.out.print("\tCUSTOMER RATING : ");
+				System.out.println("\n  =:> CUSTOMER NAME : "+od[i].name + "\n \t  =:> BILL AMOUNT = " + od[i].total);
+				System.out.print("\t-->CUSTOMER RATING : ");
 				for(int j=0;j<od[i].ratings;j++)
 					System.out.print("* ");
 				System.out.print(" ( "+od[i].ratings+" out of 5 )");
@@ -266,11 +266,11 @@ public class Admin
 							ip=in.nextLine();
 							if(ip.equals("yes"))
 							{
-								System.out.println("Enter the item Name");
+								System.out.println(" =:> Enter the item Name");
 								menu.item[i].itemName = in.nextLine();
-								System.out.println("Enter the item Price");
+								System.out.println(" =:> Enter the item Price");
 								menu.item[i].itemPrice = in.nextInt();
-								System.out.println("Enter the item Quantity");
+								System.out.println(" =:> Enter the item Quantity");
 								menu.item[i].totalAvailable = in.nextInt();
 								in.nextLine();
 								menu.printMenu(1);

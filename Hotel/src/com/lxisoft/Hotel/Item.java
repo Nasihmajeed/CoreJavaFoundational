@@ -11,7 +11,7 @@ public class Item implements inter
 		this.itemPrice=iPrice;
 		this.totalAvailable=totalAva;
 	}
-	public void setItemAmount()
+	public void setItemPrice()
 	{
 		this.itemTotAmount=(this.itemPrice * this.itemQuantity);
 	}
@@ -22,18 +22,18 @@ public class Item implements inter
 		this.totalAvailable=this.totalAvailable-quantity;
 		if(this.totalAvailable<0)
 		{
-			System.out.println("Sorry only " + avail +" Left");
+			System.out.println("Sorry only : " + avail +" : Left");
 			this.totalAvailable=avail;
 			return 0;
 		}
 		else
 			return 1;
 	}
-	public void printItem(int i)
+	public void dispItem(int i)
 	{
 		System.out.println("  "+(i+1)+"\t\t"+itemName +" \t --->    " +itemPrice);
 	}
-	public void printItemToUser()
+	public void dispItem()
 	{
 		System.out.println(itemName +" \t --->    "+ itemPrice+ "\t           " +itemQuantity);
 	}

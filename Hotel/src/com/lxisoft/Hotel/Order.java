@@ -20,7 +20,7 @@ public class Order
 		this.total=0;
 		for(int i=0;i<index;i++)
 		{
-			order[i].setItemAmount();
+			order[i].setItemPrice();
 			this.total=this.total+(order[i].itemTotAmount);
 		}
 	}
@@ -34,7 +34,7 @@ public class Order
 		for(int i=0;i<index;i++)
 		{
 			
-			order[i].printItemToUser();
+			order[i].dispItem();
 		}
 		System.out.println("-----------------------------------------");
 		System.out.println("TOTAL = "+this.total);

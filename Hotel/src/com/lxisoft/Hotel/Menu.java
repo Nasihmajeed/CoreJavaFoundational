@@ -40,7 +40,7 @@ public class Menu
 		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		for(int i=0;this.item[i].itemName!=null;i++)
 		{
-			item[i].printItem(i);
+			item[i].dispItem(i);
 		}
 		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
 		}
@@ -64,7 +64,7 @@ public class Menu
 		Scanner in = new Scanner(System.in);
 		do
 		{
-			System.out.println("Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
+			System.out.println(" =:> Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
 			iNum=in.nextInt();
 			if(iNum<=(ind+1) && iNum >0)
 			{
@@ -72,7 +72,7 @@ public class Menu
 			}
 			else if(iNum==0)
 			{
-				System.out.println("Do you Placed your orders Completely (yes/no)");
+				System.out.println(" =:> Do you Placed your orders Completely (yes/no)");
 				in.nextLine();
 				ch=in.nextLine();
 				if(ch.equals("yes"))
