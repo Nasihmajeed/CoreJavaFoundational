@@ -5,8 +5,13 @@ public class Teacher
 	char subject;
 	int mark;
 
+
+		Teacher t1=new t1;
+		Teacher t2=new t2;
+
+
 	public String printDetail()
 		{
-			return "\n \t \t Teacher Name : "+t_name+"\n \t \t Mark : "+mark;
+			System.out println()
 		}
 }

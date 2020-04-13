@@ -1,17 +1,21 @@
 
 public class Classroom
 {
-	int c_class number;
+	
 
 
-	Classroom student=new Student();
-	Classroom Teacher=new Teacher();
+	int classno;
+
+
+	Classroom c1=new c1();
+	Classroom c2=new c2();
+	Classroom c3=new c3();
+	Classroom c4=new c4();
 	
 	
 	public String printDetail()
 		{
-			return "\n \t \t Class number : "+c_class number+";
-			System.out.println("\n \t \t Student name :"+s_name.printDetail());
-
+			
+			
+			System.out.println("\n \n Class Number : "+classno);
 		}
-}
