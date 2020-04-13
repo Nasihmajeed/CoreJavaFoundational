@@ -66,7 +66,7 @@ public class Admin
 		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
-		System.out.println(" =:> 1. ADD FOOD ITEM \n =:> 2. EDIT FOOD ITEM \n =:> 3. DELETE FOOD ITEM \n =:> 4. TOTAL GAIN\n =:> 5. SEARCH");
+		System.out.println(" =:> 1. ADD FOOD ITEM \n =:> 2. EDIT FOOD ITEM \n =:> 3. DELETE FOOD ITEM \n =:> 4. TOTAL GAIN\n =:> 5. SEARCH \n =:> 6. STAFF DETAILS ");
 		System.out.println("\n =:> Enter your choice --> ");
 		c=in.nextInt();
 		switch(c)
@@ -88,6 +88,9 @@ public class Admin
 					String nameToSearch;in.nextLine();
 					nameToSearch=in.nextLine();
 					searchItem(nameToSearch,adminCount);
+					break;
+			case 6 :System.out.println("\tPrinting staff details");
+					initializeStaff(adminCount);
 					break;
 
 			default:System.out.println(" --> ***ERROR*** <--");
@@ -289,5 +292,28 @@ public class Admin
 			adminActions(adminCount);
 		}
 			
+	}
+	public void initializeStaff(int adminCount)
+	{
+		if(adminCount==0)
+			menu.setFood();
+		Scanner in = new Scanner(System.in);
+		int a;
+		Staff[] staff = new Staff[5];
+		staff[0]= new Staff("Pranav","Kitchen");
+		staff[1]= new Staff("Manu","Cleaning");
+		staff[2]= new Staff("Krishnan","counter");
+		staff[3]= new Staff("Binu","Kitchen");
+		staff[4]= new Staff("Sudeep","counter");
+
+		System.out.println("\n =:> 1. Diplay All Staff \n  =:> 2. Display Staff in each section");
+		a=in.nextInt();
+		switch(a)
+		{
+			case 1 : System.out.println("Displaying all staff Details\n");
+					 for(int j=0;j<5;j++)				
+					 	staff[j].printStaff();
+
+		}
 	}
 }
