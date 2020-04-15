@@ -9,7 +9,7 @@ public class Address
 	{
 		Scanner in = new Scanner(System.in) ;
 
-		C.cls() ;	
+		//C.cls() ;	
 		
 		System.out.print("\n Street : ") ;
 		this.street = in.nextLine() ;

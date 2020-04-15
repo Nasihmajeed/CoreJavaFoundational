@@ -9,8 +9,6 @@ public class TDD
 	
 		HotelMain hm = new HotelMain() ;
 
-		hm.menu() ;
-
-
+		  hm.mainMenu() ;
 	}
 }

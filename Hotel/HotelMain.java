@@ -1,5 +1,5 @@
 
-import java.util.*
+import java.util.* ;
 
 public class HotelMain
 {
@@ -7,9 +7,16 @@ public class HotelMain
 
 	char again ;
 
-	Scanner in = new Scanner() ;
+	Scanner in = new Scanner(System.in) ;
 
-	void menu()
+	Address hAd = new Address() ;
+
+	Inventory inv = new Inventory() ;
+
+	Customer[] cus = new Customer[50] ;
+
+
+	void mainMenu()
 	{
 		System.out.print("\n ----------------- \n HOTEL MENU \n ----------------- \n") ;
 		System.out.print("\n (1) ADMIN ACCESS \n \n (2) CUSTOMER ACCESS \n \n : ") ;
@@ -32,6 +39,8 @@ public class HotelMain
 			}
 	}
 
+/* -------------------------------------------------------- ADMIN SIDE ----------------------------------------------------------------- */
+
 	void admin()
 	{
 		
@@ -40,6 +49,8 @@ public class HotelMain
 				System.out.print("\n ----------------- \n ADMIN PANEL \n ----------------- \n") ;
 				System.out.print("\n (1) EDIT HOTEL INFO \n \n (2) MANAGE INVENTORY \n \n : ") ;
 				char op = in.next().charAt(0) ;
+				in.nextLine() ;
+
 
 			switch (op)
 			{
@@ -55,7 +66,15 @@ public class HotelMain
 				default :
 					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
 					again = in.next().charAt(0) ;
+					in.nextLine() ;
 			}
+
+			if(again == 'n' || again == 'N')
+				break ;
+
+			System.out.print("\n \n GO BACK? (Y/N) : ") ;
+			again = in.next().charAt(0) ;
+			in.nextLine() ;
 
 		}while(again == 'y' || again == 'Y') ;
 	}
@@ -69,8 +88,7 @@ public class HotelMain
 		System.out.print("\n \n Name : ") ;
 		this.hName = in.nextLine() ;
 
-		Address hAd = new Address() ;
-		System.out.print("\n \n Address : \n______________\n ") ;
+		System.out.print("\n \n Address : \n ---------\n ") ;
 		hAd.inputAddress() ;
 	}
 
@@ -79,30 +97,118 @@ public class HotelMain
 		do
 		{
 				System.out.print("\n ----------------- \n MANAGE INVENTORY \n ----------------- \n") ;
-				System.out.print("\n (1) ADD ITEM \n \n (2) REMOVE ITEM \n \n (3) CHANGE PRICE \n \n (4) VIEW ALL \n \n : ") ;
+				System.out.print("\n (1) ADD ITEM \n \n (2) REMOVE ITEM \n \n (3) CHANGE PRICE \n \n (4) CHANGE STOCK \n \n (5) VIEW ALL \n \n : ") ;
 				char op = in.next().charAt(0) ;
+				in.nextLine() ;
 
 			switch (op)
 			{
 
 				case '1' :
-					this.hotelInfo() ;
+					
+					do
+					{
+						inv.addItem() ;
+						this.again() ;
+					}while(again=='y' || again=='Y') ;
+
 					break ;
 
 				case '2' :
-					this.manageInventory() ;
+					
+					do
+					{
+						inv.removeItem() ;
+						this.again() ;
+					}while(again=='y' || again=='Y') ;
+					break ;
+
+				case '3' :
+					do
+					{
+						inv.changePrice() ;
+						this.again() ;
+					}while(again=='y' || again=='Y') ;
+					break ;
+
+				case '4' :
+					do
+					{
+						inv.changeStock() ;
+						this.again() ;
+					}while(again=='y' || again=='Y') ;
+					break ;
+					
+				case '5' :
+					inv.viewAll() ;
+					break ;
+
+
+				default :
+					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
+					again = in.next().charAt(0) ;
+					in.nextLine() ;
+			}
+
+			System.out.print("\n \n GO BACK? (Y/N) : ") ;
+			again = in.next().charAt(0) ;
+			in.nextLine() ;
+
+		}while(again == 'y' || again == 'Y') ;
+	}
+
+	void again()
+	{
+		System.out.print("\n \n AGAIN? (Y/N) : ") ;
+		again = in.next().charAt(0) ;
+		in.nextLine() ;
+	}
+
+
+/* -------------------------------------------------------- CUSTOMER SIDE ----------------------------------------------------------------- */
+
+	 void customer()
+ 	 {
+		
+		do
+		{
+				System.out.print("\n ----------------- \n CUSTOMER PANEL \n ----------------- \n") ;
+				System.out.print("\n (1) VIEW MENU \n \n (2) ORDER MEAL \n \n (3) GENERATE BILL \n \n : ") ;
+				char op = in.next().charAt(0) ;
+				in.nextLine() ;
+
+
+			switch (op)
+			{
+ 
+				case '1' :
+					inv.viewMenu() ;
+					break ;
+
+				case '2' :
+					inv.orderMeal() ;
+					break ;
+
+				case '3' :
+					inv.generateBill() ;
 					break ;
 
 				default :
 					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
 					again = in.next().charAt(0) ;
+					in.nextLine() ;
 			}
 
+			if(again == 'n' || again == 'N')
+				break ;
+
+			System.out.print("\n \n GO BACK? (Y/N) : ") ;
+			again = in.next().charAt(0) ;
+			in.nextLine() ;
+
 		}while(again == 'y' || again == 'Y') ;
-	}
 
+	 }
 
-
-	
 
 }
