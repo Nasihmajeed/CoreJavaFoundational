@@ -46,6 +46,7 @@ public class Admin
 			password=in.nextLine();
 			if(password.equals(pass))
 			{
+				Clear.cls();
 				System.out.println("\nWelcome Admin");
 				adminActions(adminCount);
 				break;
@@ -66,22 +67,23 @@ public class Admin
 		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
+		Clear.cls();
 		System.out.println(" =:> 1. ADD FOOD ITEM \n =:> 2. EDIT FOOD ITEM \n =:> 3. DELETE FOOD ITEM \n =:> 4. TOTAL GAIN\n =:> 5. SEARCH \n =:> 6. STAFF DETAILS ");
 		System.out.println("\n =:> Enter your choice --> ");
 		c=in.nextInt();
 		switch(c)
 		{
-			case 1:System.out.println(" --> ADD FOOD ITEM");
+			case 1:Clear.cls();System.out.println(" --> ADD FOOD ITEM");
 					addItem(adminCount);
 					break;
 			
-			case 2:System.out.println(" --> EDIT AN FOOD ITEM");
+			case 2:Clear.cls();System.out.println(" --> EDIT AN FOOD ITEM");
 				   editItem(adminCount);
 				   break;
-			case 3:System.out.println(" --> DELETE AN FOOD ITEM");
+			case 3:Clear.cls();Clear.cls();System.out.println(" --> DELETE AN FOOD ITEM");
 				   deleteItem(adminCount);
 				   break;
-			case 4:System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
+			case 4:Clear.cls();System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
 				   printStatus();
 				   break;
 			case 5 :System.out.println("\nEnter the item Name");
@@ -89,11 +91,11 @@ public class Admin
 					nameToSearch=in.nextLine();
 					searchItem(nameToSearch,adminCount);
 					break;
-			case 6 :System.out.println("\tPrinting staff details");
+			case 6 :Clear.cls();System.out.println("\tPrinting staff details");
 					initializeStaff(adminCount);
 					break;
 
-			default:System.out.println(" --> ***ERROR*** <--");
+			default:Clear.cls();System.out.println(" --> ***ERROR*** <--");
 					break;
 
 		}
@@ -127,6 +129,7 @@ public class Admin
 					in.nextLine();
 					menu.item[i].setItem(iName,price,quantity);
 					menu.ind=i;
+					Clear.cls();
 					menu.printMenu(1);
 				}
 				else
@@ -159,6 +162,7 @@ public class Admin
 				System.out.println(" =:> ENTER THE ITEM QUANTITY");
 				menu.item[i].totalAvailable = in.nextInt();
 				in.nextLine();
+				Clear.cls();
 				menu.printMenu(1);
 			}
 		}
@@ -194,6 +198,7 @@ public class Admin
 					}
 					
 					menu.item[r+1].itemName=null;
+					Clear.cls();
 					menu.printMenu(1);
 					break;
 				
@@ -238,6 +243,7 @@ public class Admin
 		{
 			if(str.equals(menu.item[i].itemName))
 			{
+				Clear.cls();
 				flag=0;
 				System.out.println(" => 1. DELETE ITEM " + menu.item[i].itemName);
 				System.out.println(" => 2. EDIT ITEM " + menu.item[i].itemName);
@@ -246,7 +252,7 @@ public class Admin
 				in.nextLine();
 				switch(ch)
 				{
-					case 1 :System.out.println(" => DELETE ITEM : " + menu.item[i].itemName);
+					case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].itemName);
 							System.out.println("Do you sure (yes/no)");
 							ip=in.nextLine();
 							if(ip.equals("yes"))
@@ -264,7 +270,7 @@ public class Admin
 							}
 							break;
 							
-					case 2: System.out.println(" => EDIT ITEM : " + menu.item[i].itemName);
+					case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].itemName);
 							System.out.println("DO YOU SURE WANT TO EDIT (yes/no)");
 							ip=in.nextLine();
 							if(ip.equals("yes"))
@@ -289,6 +295,7 @@ public class Admin
 		if(flag==1)
 		{
 			System.out.println("Sorry Check the item name");
+			Clear.cls();
 			adminActions(adminCount);
 		}
 			
@@ -305,12 +312,14 @@ public class Admin
 		staff[2]= new Staff("Krishnan","counter");
 		staff[3]= new Staff("Binu","Kitchen");
 		staff[4]= new Staff("Sudeep","counter");
+		Clear.cls();
 
 		System.out.println("\n =:> 1. Diplay All Staff \n  =:> 2. Display Staff in each section");
 		a=in.nextInt();
 		switch(a)
 		{
-			case 1 : System.out.println("Displaying all staff Details\n");
+			case 1 : Clear.cls();
+					System.out.println("Displaying all staff Details\n");
 					 for(int j=0;j<5;j++)				
 					 	staff[j].printStaff();
 
