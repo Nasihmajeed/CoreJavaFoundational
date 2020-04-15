@@ -4,7 +4,7 @@ public class Test{
 
 
 		School s1=new School();
-		s1.Printdetail();
+		s1.Printdetail()
 
 		
 		
