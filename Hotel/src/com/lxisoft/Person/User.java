@@ -27,7 +27,6 @@ public class User
 		System.out.println("PLEASE RATE OUR SERVICES (Choose a value between 0 and 5)");
 		rat=in.nextInt();
 		return rat;
-		Clear.cls();
 	}
 	public void userAction(Menu menu,OrderDetails od[])
 	{

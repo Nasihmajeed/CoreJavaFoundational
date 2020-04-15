@@ -67,33 +67,53 @@ public class Admin
 		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
-		Clear.cls();
-		System.out.println(" =:> 1. ADD FOOD ITEM \n =:> 2. EDIT FOOD ITEM \n =:> 3. DELETE FOOD ITEM \n =:> 4. TOTAL GAIN\n =:> 5. SEARCH \n =:> 6. STAFF DETAILS ");
+	System.out.println("\t\t ADMIN MENU");
+		System.out.println("\t -----------------------------------------");
+		System.out.println("\n\n =:> 1. ADD FOOD ITEM \n\n =:> 2. EDIT FOOD ITEM \n\n =:> 3. DELETE FOOD ITEM \n\n =:> 4. TOTAL GAIN\n\n =:> 5. SEARCH \n\n =:> 6. STAFF DETAILS\n\n =:> 7. GO BACK ");
 		System.out.println("\n =:> Enter your choice --> ");
 		c=in.nextInt();
 		switch(c)
 		{
-			case 1:Clear.cls();System.out.println(" --> ADD FOOD ITEM");
+			case 1:Clear.cls();System.out.println("\t\t ADD FOOD ITEM");
+				   System.out.println("\t -----------------------------------------");
 					addItem(adminCount);
+					adminCount++;
+					System.out.println(adminCount);
+					adminActions(adminCount++);
 					break;
 			
-			case 2:Clear.cls();System.out.println(" --> EDIT AN FOOD ITEM");
+			case 2:Clear.cls();System.out.println("\t\tEDIT AN FOOD ITEM");
+				   System.out.println("\t -----------------------------------------");
 				   editItem(adminCount);
+				   adminActions(adminCount++);
 				   break;
-			case 3:Clear.cls();Clear.cls();System.out.println(" --> DELETE AN FOOD ITEM");
+			case 3:Clear.cls();Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
+				   System.out.println("\t -----------------------------------------");
 				   deleteItem(adminCount);
+				   adminActions(adminCount++);
 				   break;
-			case 4:Clear.cls();System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
+			case 4:Clear.cls();
+				   System.out.println("\t\t TOTAL INCOME DETAILS");
+				   System.out.println("\t -----------------------------------------");
+				   System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
 				   printStatus();
+				   adminActions(adminCount++);
 				   break;
-			case 5 :System.out.println("\nEnter the item Name");
+			case 5 :Clear.cls();
+					System.out.println("\t\tSEARCH ITEM");
+					System.out.println("\t -----------------------------------------");
+					System.out.println("\nEnter the item Name");
 					String nameToSearch;in.nextLine();
 					nameToSearch=in.nextLine();
 					searchItem(nameToSearch,adminCount);
+					adminActions(adminCount++);
 					break;
-			case 6 :Clear.cls();System.out.println("\tPrinting staff details");
+			case 6 :Clear.cls();System.out.println("\tPRINTING STAFF DETAILS");
+					System.out.println("\t -----------------------------------------");
 					initializeStaff(adminCount);
+					adminActions(adminCount);
 					break;
+			case 7 :Clear.cls();break;
 
 			default:Clear.cls();System.out.println(" --> ***ERROR*** <--");
 					break;
@@ -151,6 +171,7 @@ public class Admin
 		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO EDIT");
 		iNum = in.nextInt();
 		in.nextLine();
+		Clear.cls();
 		for(int i=0;i<menu.item.length;i++)
 		{
 			if((i+1)==iNum)
@@ -306,15 +327,16 @@ public class Admin
 			menu.setFood();
 		Scanner in = new Scanner(System.in);
 		int a;
+		int opt;
 		Staff[] staff = new Staff[5];
 		staff[0]= new Staff("Pranav","Kitchen");
-		staff[1]= new Staff("Manu","Cleaning");
+		staff[1]= new Staff("Manu","cleaning");
 		staff[2]= new Staff("Krishnan","counter");
 		staff[3]= new Staff("Binu","Kitchen");
 		staff[4]= new Staff("Sudeep","counter");
 		Clear.cls();
 
-		System.out.println("\n =:> 1. Diplay All Staff \n  =:> 2. Display Staff in each section");
+		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Go Back");
 		a=in.nextInt();
 		switch(a)
 		{
@@ -322,6 +344,16 @@ public class Admin
 					System.out.println("Displaying all staff Details\n");
 					 for(int j=0;j<5;j++)				
 					 	staff[j].printStaff();
+					 break;
+			case 2 :Clear.cls();
+					System.out.println("=> 1. Kitchen \n=> 2. Counter \n=> 3. Cleaning ");
+					opt=in.nextInt();
+					for(int j=0;j<5;j++)				
+					 	staff[j].staffSectionwise(opt);
+					break;
+			case 3 : adminActions(adminCount);
+					 break;
+					 
 
 		}
 	}

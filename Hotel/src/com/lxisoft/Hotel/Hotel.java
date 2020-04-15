@@ -16,6 +16,7 @@ public class Hotel
 		Scanner in = new Scanner(System.in);
 		do
 		{
+			Clear.cls();
 			System.out.println(" =:> Select an option \n =:> 1. ADMIN \n =:> 2. USER \n");
 			ch=in.nextInt();
 			switch(ch)

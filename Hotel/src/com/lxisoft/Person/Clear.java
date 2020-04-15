@@ -9,7 +9,7 @@ public class Clear
         }
         catch (Exception e)
         {
-            System.out.print(e);
+           
         }
 
     }
