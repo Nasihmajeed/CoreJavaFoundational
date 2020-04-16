@@ -4,14 +4,18 @@ public class Staff
 {
 	String staffName,job;
 	int index=0;
-	public Staff(String n, String j)
+	// 
+
+	public void setStaff(String sName,String sJob)
 	{
-		this.staffName= n;
-		this.job = j;
+		this.staffName=sName;
+		this.job=sJob;
 	}
+
 	public void printStaff()
 	{
-		System.out.println("  " + staffName +" ----> "+ job);
+		if(this.staffName!=null)
+			System.out.println("  " + staffName +" ----> "+ job);
 	}
 	public void staffSectionwise(int opt)
 	{		
