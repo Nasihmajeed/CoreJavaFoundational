@@ -8,6 +8,7 @@ import java.util.*;
 public class Admin
 {
 	boolean staffInitialize=false;
+	int staffIndex;
 	Drinks d= new Drinks();
 	OrderDetails[] od = new OrderDetails[10];
 	public Menu menu = new Menu();
@@ -325,7 +326,7 @@ public class Admin
 	public void initializeStaff(int adminCount)
 	{
 		Scanner in = new Scanner(System.in);
-		int staffIndex=0;
+		
 		int a;
 		int opt;
 		
@@ -334,39 +335,59 @@ public class Admin
 
 		if(!(staffInitialize))
 			{
+				staffIndex=0;
 				for(int i=0;i<10;i++)
 				{
 					staff[i]=new Staff();
 				}
 				
 				staff[0].setStaff("Pranav","Kitchen");
-				staff[1].setStaff("Manu","cleaning");
-				staff[2].setStaff("Krishnan","counter");
+				staff[1].setStaff("Manu","Cleaning");
+				staff[2].setStaff("vishnu","Counter");
 				staff[3].setStaff("Binu","Kitchen");
-				staff[4].setStaff("Sudeep","counter");
+				staff[4].setStaff("Sudeep","Counter");
 				staffIndex=5;	
 				staffInitialize=true;
 			}		
 		Clear.cls();
-		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
+		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n 4. Search Staff \n=:> 5. Go Back");
 		a=in.nextInt();
 		switch(a)
 		{
 			case 1 : Clear.cls();
 					System.out.println("Displaying all staff Details\n");
+					System.out.println("Staff Number - Staff Name - Staff section");
 					 for(int j=0;j<staff.length;j++)				
-					 	staff[j].printStaff();
+					 	staff[j].printStaff(j);
 					 break;
 			case 2 :Clear.cls();
 					System.out.println("=> 1. Kitchen \n=> 2. Counter \n=> 3. Cleaning ");
 					opt=in.nextInt();
+					switch(opt)
+					{
+						case 1:Clear.cls();
+							   System.out.println("\t\tKitchen Duty");
+							   System.out.println("\t-----------------------------------");
+							   break;
+						case 2:Clear.cls();
+							   System.out.println("\t\tCounter Duty");
+							   System.out.println("\t-----------------------------------");
+							   break;
+      					case 3:Clear.cls();
+							   System.out.println("\t\tCleaning Duty");
+							   System.out.println("\t-----------------------------------");
+							   break;
+					}
+					
 					for(int j=0;j<staff.length;j++)				
 					 	staff[j].staffSectionwise(opt);
 					break;
-			case 3 : addStaff(staffIndex);
+			case 3 : addStaff(staffIndex++);
 					 break;
-			case 4 : adminActions(adminCount);
+			case 4: break;
+			case 5 : adminActions(adminCount);
 					 break;
+			default:System.out.println("Sorry error");
 					 
 
 		}
@@ -375,22 +396,26 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		String sName,sJob,str;
+		System.out.println("Staff Number - Staff Name - Staff section");
 		for(int i=0;i<staff.length;i++)
 			{
-				staff[i].printStaff();
+				staff[i].printStaff(i);
 			}
 		System.out.println("Do you need to add more staff(yes/no)");
 		str=in.nextLine();
+		System.out.println(index);
 		if(str.equals("yes"))
 		{
 			System.out.println("\n\nStaff Name : \n \t");
 			sName=in.nextLine();
 			System.out.println("\n\nJob Section : \n \t");
 			sJob=in.nextLine();
-			staff[(staff.length)-1].setStaff(sName,sJob);
+			staff[index].setStaff(sName,sJob);
+			index++;
+			System.out.println("Staff Number - Staff Name - Staff section");
 			for(int i=0;i<staff.length;i++)
 			{
-				staff[i].printStaff();
+				staff[i].printStaff(i);
 			}
 
 		}
