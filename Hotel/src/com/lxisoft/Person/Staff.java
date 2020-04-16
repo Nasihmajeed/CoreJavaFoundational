@@ -15,7 +15,10 @@ public class Staff
 	public void printStaff(int i)
 	{
 		if(this.staffName!=null)
-			System.out.println("  "+(i+101)+"           " + staffName +"\t ---> "+ job);
+		{
+			//System.out.println("  "+(i+101)+"           " + staffName +"\t ---> "+ job);
+			System.out.format("%5d %15s %20s \n" ,(i+100),staffName,job);
+		}
 	}
 	public void staffSectionwise(int opt)
 	{
@@ -28,20 +31,20 @@ public class Staff
 			if(job.equals("Kitchen"))
 			{
 
-				System.out.println("  " + staffName);
+				System.out.format("%25s \n",staffName);
 			}
 		}
 		else if(opt==2)
 		{
 			
 			if(job.equals("Counter"))
-				System.out.println("  " + staffName);
+				System.out.format("%25s \n",staffName);
 		}
 		else if(opt==3)
 		{
 			
 			if(job.equals("Cleaning"))
-				System.out.println("  " + staffName);
+				System.out.format("%25s \n",staffName);
 		}
 		else
 			System.out.println("Invalid option");

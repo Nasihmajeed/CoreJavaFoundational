@@ -69,7 +69,7 @@ public class Admin
 		// prints out the admin operation
 		int c;
 		Scanner in=new Scanner(System.in);
-	System.out.println("\t\t ADMIN MENU");
+	System.out.println("\t\t     ADMIN MENU");
 		System.out.println("\t -----------------------------------------");
 		System.out.println("\n\n =:> 1. ADD FOOD ITEM \n\n =:> 2. EDIT FOOD ITEM \n\n =:> 3. DELETE FOOD ITEM \n\n =:> 4. TOTAL GAIN\n\n =:> 5. SEARCH \n\n =:> 6. STAFF DETAILS\n\n =:> 7. GO BACK ");
 		System.out.println("\n =:> Enter your choice --> ");
@@ -355,10 +355,13 @@ public class Admin
 		switch(a)
 		{
 			case 1 : Clear.cls();
-					System.out.println("Displaying all staff Details\n");
+					System.out.println("\tDisplaying all staff Details");
+					System.out.println("------------------------------------------");
 					System.out.println("Staff Number - Staff Name - Staff section");
+					System.out.println("------------------------------------------");
 					 for(int j=0;j<staff.length;j++)				
 					 	staff[j].printStaff(j);
+					 System.out.println("------------------------------------------");
 					 break;
 			case 2 :Clear.cls();
 					System.out.println("=> 1. Kitchen \n=> 2. Counter \n=> 3. Cleaning ");
@@ -366,21 +369,26 @@ public class Admin
 					switch(opt)
 					{
 						case 1:Clear.cls();
+							   System.out.println("\t-----------------------------------");
 							   System.out.println("\t\tKitchen Duty");
 							   System.out.println("\t-----------------------------------");
 							   break;
 						case 2:Clear.cls();
+							   System.out.println("\t-----------------------------------");
 							   System.out.println("\t\tCounter Duty");
 							   System.out.println("\t-----------------------------------");
 							   break;
       					case 3:Clear.cls();
+							   System.out.println("\t-----------------------------------");
 							   System.out.println("\t\tCleaning Duty");
 							   System.out.println("\t-----------------------------------");
 							   break;
 					}
-					
+
+
 					for(int j=0;j<staff.length;j++)				
 					 	staff[j].staffSectionwise(opt);
+					 System.out.println("\t-----------------------------------\n");
 					break;
 			case 3 : addStaff(staffIndex++);
 					 break;
@@ -396,11 +404,14 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		String sName,sJob,str;
+		System.out.println("\n\n------------------------------------------");
 		System.out.println("Staff Number - Staff Name - Staff section");
+		System.out.println("------------------------------------------");
 		for(int i=0;i<staff.length;i++)
 			{
 				staff[i].printStaff(i);
 			}
+		System.out.println("------------------------------------------\n\n");
 		System.out.println("Do you need to add more staff(yes/no)");
 		str=in.nextLine();
 		System.out.println(index);
@@ -413,10 +424,12 @@ public class Admin
 			staff[index].setStaff(sName,sJob);
 			index++;
 			System.out.println("Staff Number - Staff Name - Staff section");
+			System.out.println("------------------------------------------");
 			for(int i=0;i<staff.length;i++)
 			{
 				staff[i].printStaff(i);
 			}
+			System.out.println("------------------------------------------\n\n");
 
 		}
 	}
