@@ -18,9 +18,13 @@ public class HotelMain
 
 	void mainMenu()
 	{
-		System.out.print("\n ----------------- \n HOTEL MENU \n ----------------- \n") ;
-		System.out.print("\n (1) ADMIN ACCESS \n \n (2) CUSTOMER ACCESS \n \n : ") ;
-		char op = in.next().charAt(0) ;
+		inv.setMenu() ;
+		
+		do
+		{
+			System.out.print("\n ----------------- \n HOTEL MENU \n ----------------- \n") ;
+			System.out.print("\n (1) ADMIN ACCESS \n \n (2) CUSTOMER ACCESS \n \n : ") ;
+			char op = in.next().charAt(0) ;
 
 			switch (op)
 			{
@@ -37,6 +41,12 @@ public class HotelMain
 					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
 					again = in.next().charAt(0) ;
 			}
+
+			System.out.print("\n \n BACK TO MAIN MENU? (Y/N) : ") ;
+			again = in.next().charAt(0) ;
+			in.nextLine() ;
+
+		}while (again == 'y' || again == 'Y') ;
 	}
 
 /* -------------------------------------------------------- ADMIN SIDE ----------------------------------------------------------------- */
@@ -68,9 +78,6 @@ public class HotelMain
 					again = in.next().charAt(0) ;
 					in.nextLine() ;
 			}
-
-			if(again == 'n' || again == 'N')
-				break ;
 
 			System.out.print("\n \n GO BACK? (Y/N) : ") ;
 			again = in.next().charAt(0) ;
@@ -190,7 +197,7 @@ public class HotelMain
 					break ;
 
 				case '3' :
-					inv.generateBill() ;
+					inv.printBill() ;
 					break ;
 
 				default :

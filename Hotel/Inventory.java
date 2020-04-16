@@ -7,8 +7,63 @@ public class Inventory
 
  Item[] it = new Item[50] ;
 
- int numOfItems = 0 ;
+ int numOfItems = 8 ;
 
+ Bill b = new Bill() ;
+
+ 	/* Preset Food Items */
+
+ 	void setMenu()
+ 	{
+ 		it[0] = new Item() ;
+		it[1] = new Item() ;
+		it[2] = new Item() ;
+		it[3] = new Item() ;
+		it[4] = new Item() ;
+		it[5] = new Item() ;
+		it[6] = new Item() ;
+		it[7] = new Item() ;
+
+		it[0].itemNo = 0 ;
+		it[0].itemName = "Chapathi" ;
+		it[0].itemPrice = 10 ;
+		it[0].stock = 70 ;
+
+		it[1].itemNo = 1 ;
+		it[1].itemName = "Porotta" ;
+		it[1].itemPrice = 12 ;
+		it[1].stock = 70 ;
+
+		it[2].itemNo = 2 ;
+		it[2].itemName = "Dosa" ;
+		it[2].itemPrice = 8 ;
+		it[2].stock = 70 ;
+
+		it[3].itemNo = 3 ;
+		it[3].itemName = "Appam" ;
+		it[3].itemPrice = 8 ;
+		it[3].stock = 70 ;
+
+		it[4].itemNo = 4 ;
+		it[4].itemName = "Chicken Curry" ;
+		it[4].itemPrice = 120 ;
+		it[4].stock =  70 ;
+
+		it[5].itemNo = 5 ;
+		it[5].itemName = "Beef Fry" ;
+		it[5].itemPrice = 140 ;
+		it[5].stock = 70 ;
+
+		it[6].itemNo = 6 ;
+		it[6].itemName = "Veg. Kuruma" ;
+		it[6].itemPrice = 60 ;
+		it[6].stock = 70 ;
+
+		it[7].itemNo = 7 ;
+		it[7].itemName = "Egg Curry" ;
+		it[7].itemPrice = 35 ;
+		it[7].stock = 70 ;
+	}
 
  	void addItem()
 	{
@@ -138,6 +193,8 @@ public class Inventory
 		}
 	}
 
+ /* ---------------------------------------------------------  CUSTOMER  --------------------------------------------------------------*/
+
 	void viewMenu()
 	{
 		
@@ -154,21 +211,55 @@ public class Inventory
 	{
 		int itNo,qty ;
 		this.viewMenu() ;
+		char again ;
 
 		System.out.print("\n --------------------------------------------------------------------- \n") ;
 
-		System.out.print("\n ITEM NO : ") ;
-		itNo = in.nextInt() ;
-		in.nextLine() ;
+		do
+		{
+		
+			System.out.print("\n ITEM NO : ") ;
+			itNo = in.nextInt() ;
+			in.nextLine() ;
 
-		System.out.print("\n QUANTITY : ") ;
-		qty = in.nextInt() ;
-		in.nextLine() ;
+			System.out.print("\n QUANTITY : ") ;
+			qty = in.nextInt() ;
+			in.nextLine() ;
 
+			int flag = this.checkQty(itNo,qty) ;
 
+				if(flag==1)
+				{
+					System.out.print("\n Not Enough in Stock. Order less than " + it[itNo].stock + ".") ;
+					System.out.print("\n QUANTITY : ") ;
+					qty = in.nextInt() ;
+					in.nextLine() ;
+				}
 
+			b.fetchItems(it[itNo],qty) ;
 
+			it[itNo].stock -= qty ;
 
+			System.out.print("\n Order Another Dish? (Y/N) : ") ;
+			again = in.next().charAt(0) ;
+			in.nextLine() ;
+
+		}while(again=='y' || again=='Y') ;
+
+		b.generateBill() ;
 	}
-	
+
+	void printBill()
+	{
+		b.printBill() ;
+	}
+
+	int checkQty(int no,int q)
+	{
+		if(it[no].stock-q <=0)
+			return 1 ; 
+		return 0 ;
+	}
 }
+
+	
