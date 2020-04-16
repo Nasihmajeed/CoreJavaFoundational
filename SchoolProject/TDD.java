@@ -1,13 +1,23 @@
-public class Test{
+public class TDD
+{
 	public static void main(String args[])
 	{
-
-
-		School s1=new School();
-		s1.Printdetail();
-
+		
+		School h = new School();
+		h.schoolname = "Donbosco ";
 		
 		
-			
+		h.s1 = new Student();
+		h.s1.s_name = "Akil";
+		h.s1.regno = 1;
+		
+		
+		
+		
+		
+		
+		
+		h.Printdetail();
 	}
 }
+		

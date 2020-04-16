@@ -1,15 +1,10 @@
 public class Teacher
 {
-	String t_name;
-	int class;
-	char subject;
-	int mark;
-
-
-		
-
+	String tname;
+	int classno;
+	String subject;
 	public String printDetail()
 		{
-			System.out println()
+			return "\n \t \t Teacher Name : "+tname+"\n \t \t Classnumber : "+classno+"\n \t \t Subject :"+subject;
 		}
 }
