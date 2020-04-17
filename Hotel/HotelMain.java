@@ -3,97 +3,147 @@ import java.util.* ;
 
 public class HotelMain
 {
-	String hName ;
 
 	char again ;
 
 	Scanner in = new Scanner(System.in) ;
 
-	Address hAd = new Address() ;
+	HotelDetails hAd = new HotelDetails() ;
 
 	Inventory inv = new Inventory() ;
 
 	Customer[] cus = new Customer[50] ;
 
 
-	void mainMenu()
+	public void mainMenu()
 	{
 		inv.setMenu() ;
 		
 		do
 		{
-			System.out.print("\n ----------------- \n HOTEL MENU \n ----------------- \n") ;
-			System.out.print("\n (1) ADMIN ACCESS \n \n (2) CUSTOMER ACCESS \n \n : ") ;
+			C.cls() ;
+
+			this.titleMenu() ;
+
+			System.out.print("\n |=============================================================|") ;
+			System.out.print("\n\n |------------------------- MAIN MENU -------------------------| \n") ;
+
+			System.out.print("\n\n\n     [1] ADMIN ACCESS \n\n\n     [2] CUSTOMER ACCESS \n\n\n     : ") ;
 			char op = in.next().charAt(0) ;
 
 			switch (op)
 			{
 
 				case '1' :
-					this.admin() ;
+					this.adminCheck() ;
+					this.retunToMainPrompt() ;
 					break ;
 
 				case '2' :
 					this.customer() ;
+					this.retunToMainPrompt() ;
 					break ;
 
 				default :
-					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
+					System.out.print("\n\n\t INVALID CHOICE. Try Again? (Y/N) : ") ;
 					again = in.next().charAt(0) ;
-			}
-
-			System.out.print("\n \n BACK TO MAIN MENU? (Y/N) : ") ;
-			again = in.next().charAt(0) ;
-			in.nextLine() ;
+			}			
 
 		}while (again == 'y' || again == 'Y') ;
 	}
 
+	
+	public void titleMenu()
+	{
+		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hAd.hName + "\n\n") ;
+                              
+		hAd.displayAddressBanner() ;
+
+	}
+
+	public void retunToMainPrompt()
+	{
+		System.out.print("\n\n\t RETURN TO MAIN MENU? (Y/N) : ") ;
+		this.promptInput() ;
+	}
+
+	public void invalidPrompt()
+	{
+		System.out.print("\n\n\t INVALID CHOICE. Try Again? (Y/N) : ") ;
+		this.promptInput() ;
+	}
+
+	public void promptInput()
+	{
+		again = in.next().charAt(0) ;
+		in.nextLine() ;
+	}
+
+
 /* -------------------------------------------------------- ADMIN SIDE ----------------------------------------------------------------- */
+
+	public void adminCheck()
+	{
+		C.cls() ;
+
+		this.titleMenu() ;
+		System.out.print("\n |=============================================================|") ;
+		System.out.print("\n\n |------------------------ ADMIN PANEL ------------------------| \n") ;
+
+		int fl = hAd.checkIfAdmin() ;
+
+			if(fl == 1)
+				this.admin() ;
+	}
 
 	void admin()
 	{
 		
 		do
 		{
-				System.out.print("\n ----------------- \n ADMIN PANEL \n ----------------- \n") ;
-				System.out.print("\n (1) EDIT HOTEL INFO \n \n (2) MANAGE INVENTORY \n \n : ") ;
+				C.cls() ;
+
+				this.titleMenu() ;
+				System.out.print("\n |=============================================================|") ;
+				System.out.print("\n\n |------------------------ ADMIN PANEL ------------------------| \n") ;
+
+				System.out.print("\n\n\n     [1] EDIT HOTEL INFO \n\n\n     [2] MANAGE INVENTORY \n\n\n     : ") ;
 				char op = in.next().charAt(0) ;
 				in.nextLine() ;
 
 
 			switch (op)
 			{
-
+				
 				case '1' :
-					this.hotelInfo() ;
+					this.hotelInfoEdit() ;
+					this.goBackPrompt() ;
 					break ;
 
 				case '2' :
 					this.manageInventory() ;
+					this.goBackPrompt() ;
 					break ;
 
 				default :
-					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
-					again = in.next().charAt(0) ;
-					in.nextLine() ;
+					this.invalidPrompt() ;
+					
 			}
-
-			System.out.print("\n \n GO BACK? (Y/N) : ") ;
-			again = in.next().charAt(0) ;
-			in.nextLine() ;
 
 		}while(again == 'y' || again == 'Y') ;
 	}
 
-
-	void hotelInfo()
+	public void goBackPrompt()
 	{
+		System.out.print("\n\n\t GO BACK? (Y/N) : ") ;
+		this.promptInput() ;
+	} 
+
+	void hotelInfoEdit()
+	{
+		C.cls() ;
 
 		System.out.print("\n ------------------- \n  HOTEL DETAILS \n ------------------- \n") ;
-
-		System.out.print("\n \n Name : ") ;
-		this.hName = in.nextLine() ;
 
 		System.out.print("\n \n Address : \n ---------\n ") ;
 		hAd.inputAddress() ;
@@ -103,8 +153,10 @@ public class HotelMain
 	{
 		do
 		{
+				C.cls() ;
+
 				System.out.print("\n ----------------- \n MANAGE INVENTORY \n ----------------- \n") ;
-				System.out.print("\n (1) ADD ITEM \n \n (2) REMOVE ITEM \n \n (3) CHANGE PRICE \n \n (4) CHANGE STOCK \n \n (5) VIEW ALL \n \n : ") ;
+				System.out.print("\n [1] ADD ITEM \n \n [2] REMOVE ITEM \n \n [3] CHANGE PRICE \n \n [4] CHANGE STOCK \n \n [5] VIEW ALL \n \n : ") ;
 				char op = in.next().charAt(0) ;
 				in.nextLine() ;
 
@@ -116,7 +168,7 @@ public class HotelMain
 					do
 					{
 						inv.addItem() ;
-						this.again() ;
+						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
 
 					break ;
@@ -126,7 +178,7 @@ public class HotelMain
 					do
 					{
 						inv.removeItem() ;
-						this.again() ;
+						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
 					break ;
 
@@ -134,7 +186,7 @@ public class HotelMain
 					do
 					{
 						inv.changePrice() ;
-						this.again() ;
+						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
 					break ;
 
@@ -142,7 +194,7 @@ public class HotelMain
 					do
 					{
 						inv.changeStock() ;
-						this.again() ;
+						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
 					break ;
 					
@@ -164,11 +216,10 @@ public class HotelMain
 		}while(again == 'y' || again == 'Y') ;
 	}
 
-	void again()
+	public void againPrompt()
 	{
-		System.out.print("\n \n AGAIN? (Y/N) : ") ;
-		again = in.next().charAt(0) ;
-		in.nextLine() ;
+		System.out.print("\n\n\t AGAIN? (Y/N) : ") ;
+		this.promptInput() ;
 	}
 
 
@@ -179,6 +230,8 @@ public class HotelMain
 		
 		do
 		{
+				C.cls() ;
+
 				System.out.print("\n ----------------- \n CUSTOMER PANEL \n ----------------- \n") ;
 				System.out.print("\n (1) VIEW MENU \n \n (2) ORDER MEAL \n \n (3) GENERATE BILL \n \n : ") ;
 				char op = in.next().charAt(0) ;
@@ -197,6 +250,8 @@ public class HotelMain
 					break ;
 
 				case '3' :
+					C.cls() ;
+					this.titleMenu() ;
 					inv.printBill() ;
 					break ;
 

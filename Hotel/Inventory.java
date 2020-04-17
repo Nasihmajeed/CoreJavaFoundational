@@ -30,17 +30,17 @@ public class Inventory
 		it[0].stock = 70 ;
 
 		it[1].itemNo = 1 ;
-		it[1].itemName = "Porotta" ;
+		it[1].itemName = "Porotta  " ;
 		it[1].itemPrice = 12 ;
 		it[1].stock = 70 ;
 
 		it[2].itemNo = 2 ;
-		it[2].itemName = "Dosa" ;
+		it[2].itemName = "Dosa    " ;
 		it[2].itemPrice = 8 ;
 		it[2].stock = 70 ;
 
 		it[3].itemNo = 3 ;
-		it[3].itemName = "Appam" ;
+		it[3].itemName = "Appam    " ;
 		it[3].itemPrice = 8 ;
 		it[3].stock = 70 ;
 
@@ -184,7 +184,7 @@ public class Inventory
 	void viewAll()
 	{
 		
-		System.out.print("\n   ITEM NO   	DISH		PRICE 	STOCK\n   -------   	----		-----	-----") ;
+		System.out.print("\n   ITEM NO   	DISH		\t PRICE 	STOCK\n   -------   	----		\t -----	-----") ;
 
 
 		for(int i=0 ; i<numOfItems ; i++)
@@ -197,8 +197,9 @@ public class Inventory
 
 	void viewMenu()
 	{
+		C.cls() ;
 		
-		System.out.print("\n   ITEM NO   	DISH		PRICE\n   -------   	----		-----") ;
+		System.out.print("\n   ITEM NO   	DISH		\t PRICE\n   -------   	----		\t -----") ;
 
 
 		for(int i=0 ; i<numOfItems ; i++)
@@ -221,6 +222,12 @@ public class Inventory
 			System.out.print("\n ITEM NO : ") ;
 			itNo = in.nextInt() ;
 			in.nextLine() ;
+
+				if(itNo>= numOfItems)
+				{
+					System.out.print("Invalid Item No.") ;
+					break ;
+				}	
 
 			System.out.print("\n QUANTITY : ") ;
 			qty = in.nextInt() ;
@@ -247,10 +254,13 @@ public class Inventory
 		}while(again=='y' || again=='Y') ;
 
 		b.generateBill() ;
+
+
 	}
 
 	void printBill()
 	{
+		
 		b.printBill() ;
 	}
 
