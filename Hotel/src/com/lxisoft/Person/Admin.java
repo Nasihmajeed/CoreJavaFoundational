@@ -23,6 +23,7 @@ public class Admin
 		if((userCount==0)&&(adminCount==0))
 		{
 			menu.setFood();
+			adminCount++;
 		}
 		if(userCount==0)
 		{
@@ -92,6 +93,7 @@ public class Admin
 			case 3:Clear.cls();Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
 				   System.out.println("\t -----------------------------------------");
 				   deleteItem(adminCount);
+				   adminCount++;
 				   adminActions(adminCount++);
 				   break;
 			case 4:Clear.cls();
@@ -108,6 +110,7 @@ public class Admin
 					String nameToSearch;in.nextLine();
 					nameToSearch=in.nextLine();
 					searchItem(nameToSearch,adminCount);
+					adminCount++;
 					adminActions(adminCount++);
 					break;
 			case 6 :Clear.cls();System.out.println("\tPRINTING STAFF DETAILS");
@@ -200,20 +203,23 @@ public class Admin
 		int iNum,r=100;
 		if(adminCount==0)
 			menu.setFood();
+		adminCount++;
 		menu.printMenu(1);
 		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
 		iNum = in.nextInt();
 		in.nextLine();
 		
-		for(int i=0;(menu.item[i+1].itemName)!=null;i++)
+		for(int i=0;(menu.item[i].itemName)!=null;i++)
 		{
+			//System.out.println(i+1);
 			if((i+1)==iNum)
 			{
-				System.out.println(" =:> Do you sure(yes/no)");
+				r=iNum-1;
+				System.out.println(" =:> Do you sure(yes/no) "+r);
 				str=in.nextLine();
 				if(str.equals("yes"))
 				{
-					for(int j=(iNum-1);(menu.item[j+1].itemName)!=null;j++)
+					for(int j=(iNum-1);(menu.item[j].itemName)!=null;j++)
 					{
 						menu.item[j].itemName=menu.item[j+1].itemName;
 						menu.item[j].itemPrice=menu.item[j+1].itemPrice;
@@ -341,16 +347,16 @@ public class Admin
 					staff[i]=new Staff();
 				}
 				
-				staff[0].setStaff("Pranav","Kitchen");
-				staff[1].setStaff("Manu","Cleaning");
-				staff[2].setStaff("vishnu","Counter");
-				staff[3].setStaff("Binu","Kitchen");
-				staff[4].setStaff("Sudeep","Counter");
+				staff[0].setStaff(100,"Pranav","Kitchen");
+				staff[1].setStaff(101,"Manu","Cleaning");
+				staff[2].setStaff(102,"vishnu","Counter");
+				staff[3].setStaff(103,"Binu","Kitchen");
+				staff[4].setStaff(104,"Sudeep","Counter");
 				staffIndex=5;	
 				staffInitialize=true;
 			}		
 		Clear.cls();
-		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n 4. Search Staff \n=:> 5. Go Back");
+		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
 		a=in.nextInt();
 		switch(a)
 		{
@@ -392,8 +398,7 @@ public class Admin
 					break;
 			case 3 : addStaff(staffIndex++);
 					 break;
-			case 4: break;
-			case 5 : adminActions(adminCount);
+			case 4 : adminActions(adminCount);
 					 break;
 			default:System.out.println("Sorry error");
 					 
@@ -404,6 +409,7 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		String sName,sJob,str;
+		int sNum;
 		System.out.println("\n\n------------------------------------------");
 		System.out.println("Staff Number - Staff Name - Staff section");
 		System.out.println("------------------------------------------");
@@ -414,14 +420,17 @@ public class Admin
 		System.out.println("------------------------------------------\n\n");
 		System.out.println("Do you need to add more staff(yes/no)");
 		str=in.nextLine();
-		System.out.println(index);
+		//System.out.println(index);
 		if(str.equals("yes"))
 		{
+			System.out.println("Staff Number: \n\t");
+			sNum=((staff[index-1].staffNum)+1);
+			System.out.println(sNum);
 			System.out.println("\n\nStaff Name : \n \t");
 			sName=in.nextLine();
 			System.out.println("\n\nJob Section : \n \t");
 			sJob=in.nextLine();
-			staff[index].setStaff(sName,sJob);
+			staff[index].setStaff(sNum,sName,sJob);
 			index++;
 			System.out.println("Staff Number - Staff Name - Staff section");
 			System.out.println("------------------------------------------");
