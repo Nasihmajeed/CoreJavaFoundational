@@ -34,20 +34,10 @@ public class Menu
 		System.out.println("-----------------------------------------------------------------------"); 
 		System.out.println("\t\t \t Menu \t");
 		System.out.println("-----------------------------------------------------------------------");                                      
-		if(admin==0)
-		{
-		System.out.println("ITEM NUMBER \t ITEM NAME \t   PRICE(Rs)\t");
-		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
-		for(int i=0;this.item[i].itemName!=null;i++)
-		{
-			item[i].dispItem(i);
-		}
-		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
-		}
-		else if(admin==1)
+		if(admin==1)
 		{
 			System.out.println("ITEM NUMBER \t ITEM NAME \t       PRICE(Rs)         QUANTITY LEFT");
-			System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
+			System.out.println("-----------------------------------------------------------------------");
 			for(int i=0;this.item[i].itemName!=null;i++)
 			{
 			item[i].printToAdmin(i);

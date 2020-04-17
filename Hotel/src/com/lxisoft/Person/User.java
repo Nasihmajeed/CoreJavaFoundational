@@ -30,7 +30,7 @@ public class User
 	}
 	public void userAction(Menu menu,OrderDetails od[])
 	{
-		menu.printMenu(0);
+		menu.printMenu(1);
 		menu.ordering(menu.ind);
 		od[var].name=this.userName;
 		od[var].total=menu.ord.total;

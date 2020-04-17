@@ -29,7 +29,7 @@ public class Order
 	{
 		
 		System.out.println("---------------------Bill----------------");
-		System.out.println("Item Name \t\t Price\t\t Quantity");
+		System.out.println("\tItem Name \t Price\t\t Quantity");
 		System.out.println("-----------------------------------------");
 		for(int i=0;i<index;i++)
 		{

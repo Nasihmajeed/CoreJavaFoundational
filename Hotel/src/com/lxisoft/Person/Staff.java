@@ -1,5 +1,6 @@
 package com.lxisoft.Person;
 import com.lxisoft.Person.*;
+import java.util.*;
 public class Staff
 {
 	String staffName,job;
@@ -22,38 +23,46 @@ public class Staff
 			System.out.format("%5d %15s %20s \n" ,staffNum,staffName,job);
 		}
 	}
+
+
+
 	public void staffSectionwise(int opt)
 	{
-	if(staffName!=null)		
-	{
-
-		if(opt==1)
+		if(staffName!=null)		
 		{
-			
-			if(job.equals("Kitchen"))
+
+			if(opt==1)
 			{
-
-				//System.out.format("%25s \n",staffName);
-				System.out.format("%10d %25s \n",staffNum,staffName);
+				
+				if(job.equals("Kitchen"))
+				{
+					System.out.format("%10d %25s \n",staffNum,staffName);
+				}
 			}
+			else if(opt==2)
+			{
+				if(job.equals("Counter"))
+					System.out.format("%10d %25s \n",staffNum,staffName);
+			}
+			else if(opt==3)
+			{
+				if(job.equals("Cleaning"))
+					System.out.format("%10d %25s \n",staffNum,staffName);
+			}
+			else
+				System.out.println("Invalid option");
 		}
-		else if(opt==2)
-		{
-			
-			if(job.equals("Counter"))
-				System.out.format("%10d %25s \n",staffNum,staffName);
-		}
-		else if(opt==3)
-		{
-			
-			if(job.equals("Cleaning"))
-				System.out.format("%10d %25s \n",staffNum,staffName);
-		}
-		else
-			System.out.println("Invalid option");
 	}
 
-
+	public void staffAdd(int sNum)
+	{
+		Scanner in = new Scanner(System.in);
+		String sName,sJob;
+		System.out.println("\n\nStaff Name : \n \t");
+		sName=in.nextLine();
+		System.out.println("\n\nJob Section : \n \t");
+		sJob=in.nextLine();
+		this.setStaff(sNum,sName,sJob);
 
 	}
 
