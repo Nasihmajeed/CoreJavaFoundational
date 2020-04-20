@@ -88,7 +88,7 @@ public class Admin
 			case 2:Clear.cls();System.out.println("\t\tEDIT AN FOOD ITEM");
 				   System.out.println(adminCount);
 				   System.out.println("\t -----------------------------------------");
-				   menu.printMenu(1);
+				   menu.printMenu();
 				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO EDIT");
 				   int	iNum = in.nextInt();
 				   in.nextLine();
@@ -99,7 +99,7 @@ public class Admin
 
 			case 3:Clear.cls();Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
 				   System.out.println("\t -----------------------------------------");
-				   menu.printMenu(1);
+				   menu.printMenu();
 				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
 				   iNum = in.nextInt();
 				   deleteItem(adminCount,iNum);
@@ -145,7 +145,7 @@ public class Admin
 		// Add a new item
 		String ch;	
 		Scanner in = new Scanner(System.in);
-		menu.printMenu(1);
+		menu.printMenu();
 		for(int i=0;i<menu.item.length;i++)
 		{
 			if(menu.item[i].itemName==null)
@@ -157,7 +157,7 @@ public class Admin
 					menu.item[i].itemAdd();
 					menu.ind=i;
 					Clear.cls();
-					menu.printMenu(1);
+					menu.printMenu();
 				}
 				else
 					
@@ -181,7 +181,7 @@ public class Admin
 				menu.item[i].itemAdd();
 				in.nextLine();
 				Clear.cls();
-				menu.printMenu(1);
+				menu.printMenu();
 			}
 		}
 		
@@ -199,7 +199,7 @@ public class Admin
 			if((i+1)==iNum)
 			{
 				r=iNum-1;
-				System.out.println(" =:> Do you sure(yes/no) "+r);
+				System.out.println(" =:> Do you sure(yes/no) ");
 				str=in.nextLine();
 				if(str.equals("yes"))
 				{
@@ -211,7 +211,7 @@ public class Admin
 					}
 					menu.item[r+1].itemName=null;
 					Clear.cls();
-					menu.printMenu(1);
+					menu.printMenu();
 					break;
 				
 				}
@@ -232,7 +232,7 @@ public class Admin
 		{
 			for(int i=0;od[i].name!=null;i++)
 			{
-				System.out.println("\n  =:> CUSTOMER NAME : "+od[i].name + "\n \t  =:> BILL AMOUNT = " + od[i].total);
+				System.out.println("\n  =:> CUSTOMER NAME : "+od[i].name + "\n  =:> BILL AMOUNT = " + od[i].total);
 				System.out.print("\t-->CUSTOMER RATING : ");
 				for(int j=0;j<od[i].ratings;j++)
 					System.out.print("* ");

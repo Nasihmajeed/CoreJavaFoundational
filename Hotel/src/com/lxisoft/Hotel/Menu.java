@@ -27,23 +27,19 @@ public class Menu
 		ind=4;
 		
 	}
-	public void printMenu(int admin)
+	public void printMenu()
 	{
-		
-		Scanner in = new Scanner(System.in);
 		System.out.println("-----------------------------------------------------------------------"); 
 		System.out.println("\t\t \t Menu \t");
 		System.out.println("-----------------------------------------------------------------------");                                      
-		if(admin==1)
+		System.out.println("ITEM NUMBER \t ITEM NAME \t       PRICE(Rs)         QUANTITY LEFT");
+		System.out.println("-----------------------------------------------------------------------");
+		for(int i=0;this.item[i].itemName!=null;i++)
 		{
-			System.out.println("ITEM NUMBER \t ITEM NAME \t       PRICE(Rs)         QUANTITY LEFT");
-			System.out.println("-----------------------------------------------------------------------");
-			for(int i=0;this.item[i].itemName!=null;i++)
-			{
-			item[i].printToAdmin(i);
-			}
-			System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
+		item[i].printToAdmin(i);
 		}
+		System.out.println("-----------------------------------------------------------------------\n-----------------------------------------------------------------------");
+		
 	}
 	
 	public void ordering(int ind)

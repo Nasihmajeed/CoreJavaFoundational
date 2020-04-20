@@ -28,15 +28,15 @@ public class Order
 	public void printOrderDetails(int index)
 	{
 		
-		System.out.println("---------------------Bill----------------");
+		System.out.println("---------------------Bill---------------------");
 		System.out.println("\tItem Name \t Price\t\t Quantity");
-		System.out.println("-----------------------------------------");
+		System.out.println("----------------------------------------------");
 		for(int i=0;i<index;i++)
 		{
 			
 			order[i].dispItem();
 		}
-		System.out.println("-----------------------------------------");
+		System.out.println("----------------------------------------------");
 		System.out.println("TOTAL = "+this.total);
 	}
 	
