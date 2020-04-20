@@ -8,24 +8,17 @@ public class HotelMain
 
 	Scanner in = new Scanner(System.in) ;
 
-	HotelDetails hAd = new HotelDetails() ;
-
-	Inventory inv = new Inventory() ;
-
-	Customer[] cus = new Customer[50] ;
-
+	HotelDetails hDetail = new HotelDetails() ;
 
 	public void mainMenu()
 	{
-		inv.setMenu() ;
+		hDetail.inv.setMenu() ;
 		
 		do
 		{
 			C.cls() ;
 
-			this.titleMenu() ;
-
-			System.out.print("\n |=============================================================|") ;
+			this.topBanner() ;
 			System.out.print("\n\n |------------------------- MAIN MENU -------------------------| \n") ;
 
 			System.out.print("\n\n\n     [1] ADMIN ACCESS \n\n\n     [2] CUSTOMER ACCESS \n\n\n     : ") ;
@@ -45,8 +38,7 @@ public class HotelMain
 					break ;
 
 				default :
-					System.out.print("\n\n\t INVALID CHOICE. Try Again? (Y/N) : ") ;
-					again = in.next().charAt(0) ;
+					this.invalidPrompt() ;
 			}			
 
 		}while (again == 'y' || again == 'Y') ;
@@ -55,15 +47,22 @@ public class HotelMain
 	
 	public void titleMenu()
 	{
-		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hAd.hName + "\n\n") ;
+		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hDetail.hName + "\n\n") ;
                               
-		hAd.displayAddressBanner() ;
+		hDetail.displayAddressBanner() ;
 
+	}
+
+	public void topBanner()
+	{
+		this.titleMenu() ;
+		System.out.print("\n |=============================================================|") ;
 	}
 
 	public void retunToMainPrompt()
 	{
-		System.out.print("\n\n\t RETURN TO MAIN MENU? (Y/N) : ") ;
+	
+		System.out.print("\n\n\n\t RETURN TO MAIN MENU? (Y/N) : ") ;
 		this.promptInput() ;
 	}
 
@@ -80,23 +79,22 @@ public class HotelMain
 	}
 
 
-/* -------------------------------------------------------- ADMIN SIDE ----------------------------------------------------------------- */
+ /* -------------------------------------------------------- ADMIN SIDE ----------------------------------------------------------------- */
 
 	public void adminCheck()
 	{
 		C.cls() ;
 
-		this.titleMenu() ;
-		System.out.print("\n |=============================================================|") ;
+		this.topBanner() ;
 		System.out.print("\n\n |------------------------ ADMIN PANEL ------------------------| \n") ;
 
-		int fl = hAd.checkIfAdmin() ;
+		int fl = hDetail.checkIfAdmin() ;
 
 			if(fl == 1)
 				this.admin() ;
 	}
 
-	void admin()
+	public void admin()
 	{
 		
 		do
@@ -107,14 +105,13 @@ public class HotelMain
 				System.out.print("\n |=============================================================|") ;
 				System.out.print("\n\n |------------------------ ADMIN PANEL ------------------------| \n") ;
 
-				System.out.print("\n\n\n     [1] EDIT HOTEL INFO \n\n\n     [2] MANAGE INVENTORY \n\n\n     : ") ;
+				System.out.print("\n\n\n     [1] EDIT HOTEL INFO \n\n\n     [2] MANAGE INVENTORY \n\n\n     [3] GO BACK \n\n\n     : ") ;
 				char op = in.next().charAt(0) ;
 				in.nextLine() ;
 
 
 			switch (op)
-			{
-				
+			{ 				
 				case '1' :
 					this.hotelInfoEdit() ;
 					this.goBackPrompt() ;
@@ -125,9 +122,12 @@ public class HotelMain
 					this.goBackPrompt() ;
 					break ;
 
+				case '3' :
+					again = 'n' ;
+					break ;
+
 				default :
-					this.invalidPrompt() ;
-					
+					this.invalidPrompt() ;					
 			}
 
 		}while(again == 'y' || again == 'Y') ;
@@ -139,14 +139,28 @@ public class HotelMain
 		this.promptInput() ;
 	} 
 
-	void hotelInfoEdit()
+	public void hotelInfoEdit()
 	{
 		C.cls() ;
 
-		System.out.print("\n ------------------- \n  HOTEL DETAILS \n ------------------- \n") ;
+		this.topBanner() ;
+		System.out.print("\n\n |----------------------- HOTEL DETAILS -----------------------| \n") ;
 
-		System.out.print("\n \n Address : \n ---------\n ") ;
-		hAd.inputAddress() ;
+		System.out.print("\n\n\n     [1] EDIT HOTEL ADDRESS \n\n\n     [2] EDIT DISCOUNT RATES  \n\n\n     [3] RESET ADMIN PIN  \n\n\n     : ") ;
+		char op = in.next().charAt(0) ;
+		in.nextLine() ;
+
+			switch(op)
+			{
+				case '1' :
+					
+					hDetail.editAddress() ;
+					break ;
+
+				case '2' :
+					//hDetail.setDiscount() ;
+					break ;
+			}
 	}
 
 	void manageInventory()
@@ -155,8 +169,10 @@ public class HotelMain
 		{
 				C.cls() ;
 
-				System.out.print("\n ----------------- \n MANAGE INVENTORY \n ----------------- \n") ;
-				System.out.print("\n [1] ADD ITEM \n \n [2] REMOVE ITEM \n \n [3] CHANGE PRICE \n \n [4] CHANGE STOCK \n \n [5] VIEW ALL \n \n : ") ;
+				this.topBanner() ;
+				System.out.print("\n\n |------------------------- INVENTORY -------------------------| \n") ;
+
+				System.out.print("\n\n\n     [1] ADD ITEM \n\n\n     [2] REMOVE ITEM \n\n\n     [3] CHANGE PRICE \n\n\n     [4] CHANGE STOCK \n\n\n     [5] VIEW ALL \n\n\n : ") ;
 				char op = in.next().charAt(0) ;
 				in.nextLine() ;
 
@@ -167,51 +183,53 @@ public class HotelMain
 					
 					do
 					{
-						inv.addItem() ;
+						hDetail.inv.addItem() ;
 						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
-
+					
+					this.goBackPrompt() ;
 					break ;
 
 				case '2' :
 					
 					do
 					{
-						inv.removeItem() ;
+						hDetail.inv.removeItem() ;
 						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
+					
+					this.goBackPrompt() ;
 					break ;
 
 				case '3' :
 					do
 					{
-						inv.changePrice() ;
+						hDetail.inv.changePrice() ;
 						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
+					
+					this.goBackPrompt() ;
 					break ;
 
 				case '4' :
 					do
 					{
-						inv.changeStock() ;
+						hDetail.inv.changeStock() ;
 						this.againPrompt() ;
 					}while(again=='y' || again=='Y') ;
+					
+					this.goBackPrompt() ;
 					break ;
 					
 				case '5' :
-					inv.viewAll() ;
+					hDetail.inv.viewAll() ;
+					
+					this.goBackPrompt() ;
 					break ;
 
-
 				default :
-					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
-					again = in.next().charAt(0) ;
-					in.nextLine() ;
+					this.invalidPrompt() ; 
 			}
-
-			System.out.print("\n \n GO BACK? (Y/N) : ") ;
-			again = in.next().charAt(0) ;
-			in.nextLine() ;
 
 		}while(again == 'y' || again == 'Y') ;
 	}
@@ -228,49 +246,25 @@ public class HotelMain
 	 void customer()
  	 {
 		
-		do
-		{
 				C.cls() ;
 
-				System.out.print("\n ----------------- \n CUSTOMER PANEL \n ----------------- \n") ;
-				System.out.print("\n (1) VIEW MENU \n \n (2) ORDER MEAL \n \n (3) GENERATE BILL \n \n : ") ;
-				char op = in.next().charAt(0) ;
-				in.nextLine() ;
+				this.titleMenu() ;
+				System.out.print("\n |=============================================================|") ;
+							
+				hDetail.newCustomer() ;
 
-
-			switch (op)
-			{
- 
-				case '1' :
-					inv.viewMenu() ;
-					break ;
-
-				case '2' :
-					inv.orderMeal() ;
-					break ;
-
-				case '3' :
-					C.cls() ;
-					this.titleMenu() ;
-					inv.printBill() ;
-					break ;
-
-				default :
-					System.out.print("\n \n INVALID CHOICE. Try Again? (Y/N) : ") ;
-					again = in.next().charAt(0) ;
-					in.nextLine() ;
-			}
-
-			if(again == 'n' || again == 'N')
-				break ;
-
-			System.out.print("\n \n GO BACK? (Y/N) : ") ;
-			again = in.next().charAt(0) ;
-			in.nextLine() ;
-
-		}while(again == 'y' || again == 'Y') ;
-
+				this.bill() ;
 	 }
 
+	 public void bill()
+	 {
+	 	C.cls() ;
+
+	 	this.topBanner() ;
+
+	 	hDetail.customerBill() ;
+
+	 	hDetail.displayBillFooter() ;
+	 }
 
 }

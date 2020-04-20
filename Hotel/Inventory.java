@@ -70,7 +70,7 @@ public class Inventory
 		
 		it[numOfItems] = new Item() ;
 
-		System.out.print("\n Name of Dish : ") ;
+		System.out.print("\n Name of  New Dish : ") ;
 		it[numOfItems].itemName = in.nextLine() ;
 
 		System.out.print("\n Price : ") ;
@@ -195,76 +195,22 @@ public class Inventory
 
  /* ---------------------------------------------------------  CUSTOMER  --------------------------------------------------------------*/
 
-	void viewMenu()
+	public void viewMenu()
 	{
-		C.cls() ;
+		System.out.print("\n\n |---------------------------- MENU ---------------------------| \n") ;
 		
-		System.out.print("\n   ITEM NO   	DISH		\t PRICE\n   -------   	----		\t -----") ;
+		System.out.print("\n       No. \t   PARTICULARS             RATE    REM.STOCK \n     |----||----------------------------||------||-----------|\n") ;
 
 
 		for(int i=0 ; i<numOfItems ; i++)
 		{
-			System.out.print("\n     " + it[i].itemNo + "    	" + it[i].itemName + "		 " + it[i].itemPrice ) ;
+			System.out.print("\n       " + it[i].itemNo + "    	" + it[i].itemName + "		    " + it[i].itemPrice + "	     " + it[i].stock) ;
 		}
+
+		System.out.print("\n\n |-------------------------------------------------------------| \n") ;
 	}
 
-	void orderMeal()
-	{
-		int itNo,qty ;
-		this.viewMenu() ;
-		char again ;
-
-		System.out.print("\n --------------------------------------------------------------------- \n") ;
-
-		do
-		{
-		
-			System.out.print("\n ITEM NO : ") ;
-			itNo = in.nextInt() ;
-			in.nextLine() ;
-
-				if(itNo>= numOfItems)
-				{
-					System.out.print("Invalid Item No.") ;
-					break ;
-				}	
-
-			System.out.print("\n QUANTITY : ") ;
-			qty = in.nextInt() ;
-			in.nextLine() ;
-
-			int flag = this.checkQty(itNo,qty) ;
-
-				if(flag==1)
-				{
-					System.out.print("\n Not Enough in Stock. Order less than " + it[itNo].stock + ".") ;
-					System.out.print("\n QUANTITY : ") ;
-					qty = in.nextInt() ;
-					in.nextLine() ;
-				}
-
-			b.fetchItems(it[itNo],qty) ;
-
-			it[itNo].stock -= qty ;
-
-			System.out.print("\n Order Another Dish? (Y/N) : ") ;
-			again = in.next().charAt(0) ;
-			in.nextLine() ;
-
-		}while(again=='y' || again=='Y') ;
-
-		b.generateBill() ;
-
-
-	}
-
-	void printBill()
-	{
-		
-		b.printBill() ;
-	}
-
-	int checkQty(int no,int q)
+	public int checkQty(int no,int q)
 	{
 		if(it[no].stock-q <=0)
 			return 1 ; 

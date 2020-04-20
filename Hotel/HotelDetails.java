@@ -5,7 +5,13 @@ public class HotelDetails
 	Scanner in = new Scanner(System.in) ;
 
 	String hName = "BADUSHA",type = "NON-VEG",lMark = "Near Greens Avenue", street = "Desamangalam" ,city = "Thrissur" ,state = "Kerala", phNo = "9072331122",gstNo = "27AADFH5037M1Z6" ; 
-	int pinCode = 675232, adminPin=420 ;
+	int pinCode = 675232, adminPin=420,billNo = 419 ;
+
+	Inventory inv = new Inventory() ;
+
+	Customer[] cus = new Customer[50] ;
+
+	int cusNo = 0 ;
 
 	public int checkIfAdmin()
 	{
@@ -21,32 +27,48 @@ public class HotelDetails
 				System.out.print("\n\n\n     INVALID PIN. ACCESS DENIED! ") ;
 
 		return 0 ;
-	}
+	} 
 
 
-	public void inputAddress()
+	public void editAddress()
 	{
-		Scanner in = new Scanner(System.in) ;
-
-		System.out.print("\n Hotel Type : ") ;
+		
+		System.out.print("\n\n\n     Hotel Type : ") ;
 		this.type = in.nextLine() ;
 		
-		System.out.print("\n Street : ") ;
+		System.out.print("\n\n\n     Street : ") ;
 		this.street = in.nextLine() ;
 
-		System.out.print("\n City : ") ;
+		System.out.print("\n\n\n     City : ") ;
 		this.city = in.nextLine() ;
 
-		System.out.print("\n State : ") ;
+		System.out.print("\n\n\n     State : ") ;
 		this.state = in.nextLine() ;
 
-		System.out.print("\n Pin Code : ") ;
+		System.out.print("\n\n\n     Pin Code : ") ;
 		this.pinCode = in.nextInt() ;
 		in.nextLine() ;	
 
-		System.out.print("\n Phone Number : ") ;
+		System.out.print("\n\n\n     Phone Number : ") ;
 		this.phNo = in.nextLine() ;
 			
+	}
+
+	public void newCustomer()
+	{
+		cus[cusNo] = new Customer() ;
+
+		cus[cusNo].transferInventory(inv) ;
+
+		inv.viewMenu() ;
+
+		cus[cusNo].placeOrder() ;
+
+	}
+
+	public void customerBill()
+	{
+		cus[cusNo].b.printBill() ;
 	}
 
 	public void displayAddressBanner()
