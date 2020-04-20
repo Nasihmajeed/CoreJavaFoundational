@@ -4,7 +4,7 @@ import com.lxisoft.Person.*;
 import java.util.*;
 public class User
 {
-	public int rat;
+	public int rat=-1;
 	public String userName;
 	public int totalAmount,var=0;
 	public void userDetails()
@@ -24,9 +24,22 @@ public class User
 	public int rating()
 	{
 		Scanner  in = new Scanner(System.in);
-		System.out.println("PLEASE RATE OUR SERVICES (Choose a value between 0 and 5)");
-		rat=in.nextInt();
+		do
+		{
+			System.out.println("PLEASE RATE OUR SERVICES (Choose a value between 0 and 5)");
+			try
+			{
+				rat=in.nextInt();	
+			}
+			catch(Exception e)
+			{
+				in.nextLine();
+				System.out.println("Error");
+				rat=-1;
+			}
+		}while(rat==-1);
 		return rat;
+
 	}
 	public void userAction(Menu menu,OrderDetails od[])
 	{

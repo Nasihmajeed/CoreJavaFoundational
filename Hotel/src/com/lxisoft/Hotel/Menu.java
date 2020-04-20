@@ -51,7 +51,20 @@ public class Menu
 		do
 		{
 			System.out.println(" =:> Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
-			iNum=in.nextInt();
+			try
+			{
+				iNum=in.nextInt();
+
+			}
+			catch(Exception e)
+			{
+				in.nextLine();
+				System.err.println("Please Enter an item NUmber");
+				// ordering(ind);
+				iNum=-10;
+
+
+			}
 			if(iNum<=(ind+1) && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
@@ -69,6 +82,10 @@ public class Menu
 				{
 					iNum=1;
 				}
+			}
+			else if(iNum==-10)
+			{
+				System.out.println("Sorry Retry");
 			}
 			else
 			{

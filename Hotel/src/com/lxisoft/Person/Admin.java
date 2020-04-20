@@ -66,7 +66,7 @@ public class Admin
 	public void adminActions(int adminCount)
 	{
 		// prints out the admin operation
-		int c;
+		int c=0;
 		Scanner in=new Scanner(System.in);
 		if (adminCount==0)
 			menu.setFood();
@@ -74,7 +74,16 @@ public class Admin
 		System.out.println("\t -----------------------------------------");
 		System.out.println("\n\n =:> 1. ADD FOOD ITEM \n\n =:> 2. EDIT FOOD ITEM \n\n =:> 3. DELETE FOOD ITEM \n\n =:> 4. TOTAL GAIN\n\n =:> 5. SEARCH \n\n =:> 6. STAFF DETAILS\n\n =:> 7. GO BACK ");
 		System.out.println("\n =:> Enter your choice --> ");
-		c=in.nextInt();
+		try
+		{
+			c=in.nextInt();
+		}
+		catch(Exception e)
+			{
+				System.err.println("Entered Number is not an option");
+
+			}
+		
 		switch(c)
 		{
 			case 1: Clear.cls();
@@ -134,7 +143,7 @@ public class Admin
 
 			case 7 :Clear.cls();break;
 
-			default:Clear.cls();System.out.println(" --> ***ERROR*** <--");
+			default:System.out.println("...Retry...");
 					break;
 
 		}
@@ -296,7 +305,7 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		
-		int a,opt;
+		int a=0,opt;
 		if(!(staffInitialize))
 			{
 				staffIndex=0;
@@ -317,7 +326,15 @@ public class Admin
 
 		Clear.cls();
 		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
-		a=in.nextInt();
+		try
+		{
+			a=in.nextInt();	
+		}
+		catch(Exception e)
+		{
+			System.err.println("Entered Number is not an option");
+		}
+		
 		switch(a)
 		{
 			case 1 : Clear.cls();
@@ -354,7 +371,7 @@ public class Admin
 					 break;
 			case 4 : adminActions(adminCount);
 					 break;
-			default:System.out.println("Sorry error");
+			default:System.out.println("Retry");
 					 
 
 		}

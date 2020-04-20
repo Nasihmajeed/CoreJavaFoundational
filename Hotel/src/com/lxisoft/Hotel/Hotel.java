@@ -11,14 +11,23 @@ public class Hotel
 	
 	public void checkPerson()
 	{
-		int ch;
+		int ch=10;
 		String str="open";
 		Scanner in = new Scanner(System.in);
 		do
 		{
 			Clear.cls();
 			System.out.println(" =:> Select an option \n =:> 1. ADMIN \n =:> 2. USER \n");
-			ch=in.nextInt();
+			try
+			{
+				ch=in.nextInt();	
+			}
+			catch(Exception e)
+			{
+				System.err.println("Entered Number is not an option");
+
+			}
+			
 			switch(ch)
 			{
 				case 1: ad.checkAdmin(adminCount);
@@ -27,7 +36,7 @@ public class Hotel
 				case 2: ad.passToUser(userCount,adminCount);
 						userCount++;
 						break;
-				default:System.out.println(" =:> Invalid Choice"); 
+				default:System.out.println(" =:> Invalid Choice \n Please Retry"); 
 						break;
 			}
 			System.out.println(" =:> GO Back to Main Menu(yes/no)");
