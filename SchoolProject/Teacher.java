@@ -1,10 +1,35 @@
-public class Teacher
+
+
+public class Teacher extends Students
 {
-	String tname;
-	int classno;
-	String subject;
-	public String printDetail()
+	String teacher1, teacher2;
+	String subject1,subject2;
+	public String teacherDetail1()
 		{
-			return "\n \t \t Teacher Name : "+tname+"\n \t \t Classnumber : "+classno+"\n \t \t Subject :"+subject;
+			return teacher1;
+			
 		}
+
+
+
+		public String subject1Detail()
+		{
+			return subject1;
+		}
+
+
+
+	
+	public String teacherDetail2()
+	{
+		return teacher2;
+		
+	}
+
+
+
+	public String subject2Deatail()
+	{
+		return subject2;
+	}
 }

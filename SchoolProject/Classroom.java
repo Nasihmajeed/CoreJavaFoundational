@@ -1,9 +1,18 @@
-public class Classroom
+
+
+public class Classroom extends Teacher
 {
-	int classno;
-		public String printDetail()
+	String class1, class2;
+		public String classDetail1()
 		{
-			return "\n \t \t  Class number : "+classno;
+			return class1;
 		}
+		
+		public String classDetail12()
+		{
+			return class2;
+		}
+		
+		
 }
 
