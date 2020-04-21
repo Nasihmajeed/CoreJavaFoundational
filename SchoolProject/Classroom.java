@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class Classroom extends Teacher
 {
