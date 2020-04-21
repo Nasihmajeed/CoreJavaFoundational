@@ -1,5 +1,8 @@
+package com.lxisoft.Hotel ;
 
 import java.util.* ;
+import com.lxisoft.Customer.* ;
+import com.lxisoft.Console.* ;
 
 public class HotelMain
 {
@@ -254,6 +257,8 @@ public class HotelMain
 				hDetail.newCustomer() ;
 
 				this.bill() ;
+
+				hDetail.cusNo++ ;
 	 }
 
 	 public void bill()

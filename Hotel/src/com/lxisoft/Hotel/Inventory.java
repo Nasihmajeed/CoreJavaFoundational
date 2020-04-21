@@ -1,19 +1,20 @@
+package com.lxisoft.Hotel ;
+
 import java.util.* ;
+import com.lxisoft.Console.* ;
 
 public class Inventory
 {
 
  Scanner in = new Scanner(System.in) ;
 
- Item[] it = new Item[50] ;
+ public Item[] it = new Item[50] ;
 
- int numOfItems = 8 ;
-
- Bill b = new Bill() ;
+ public int numOfItems = 8 ;
 
  	/* Preset Food Items */
 
- 	void setMenu()
+ 	public void setMenu()
  	{
  		it[0] = new Item() ;
 		it[1] = new Item() ;
@@ -65,7 +66,7 @@ public class Inventory
 		it[7].stock = 70 ;
 	}
 
- 	void addItem()
+ 	public void addItem()
 	{
 		
 		it[numOfItems] = new Item() ;
@@ -86,7 +87,7 @@ public class Inventory
 
 	}
 
-	void removeItem()
+	public void removeItem()
 	{
 		int itRem ;
 	
@@ -119,7 +120,7 @@ public class Inventory
 
 	}
 
-	void changePrice()
+	public void changePrice()
 	{
 		int itPr,newPrice ;
 	
@@ -149,7 +150,7 @@ public class Inventory
 		this.viewMenu() ; 
 	}
 
-	void changeStock()
+	public void changeStock()
 	{
 		int itSt,newStock ;
 	
@@ -181,7 +182,7 @@ public class Inventory
 	}
 
 
-	void viewAll()
+	public void viewAll()
 	{
 		
 		System.out.print("\n   ITEM NO   	DISH		\t PRICE 	STOCK\n   -------   	----		\t -----	-----") ;
@@ -210,12 +211,59 @@ public class Inventory
 		System.out.print("\n\n |-------------------------------------------------------------| \n") ;
 	}
 
+	
+	public int checkItemNo(int no)
+	{
+		int validItem=no,chkNo ;
+
+		if(no>= this.numOfItems)
+				{
+					System.out.print("\n\n     ENTER A VALID ITEM NO.") ;
+					validItem = this.inputValidItemNo() ;
+				}		
+		return validItem ;
+	}
+
+	public int inputValidItemNo()
+	{
+		int chk ;
+
+		System.out.print("\n\n     ITEM NO : ") ;
+		chk = in.nextInt() ;
+		in.nextLine() ;
+
+		this.checkItemNo(chk) ;
+
+		return chk ;
+
+	}
+
 	public int checkQty(int no,int q)
 	{
-		if(it[no].stock-q <=0)
-			return 1 ; 
-		return 0 ;
+		int validQ=no ;
+
+		if(it[no].stock-q <0)
+			{
+				System.out.print("\n\n     ENTER A VALID QUANTITY. ONLY "+ it[no].stock + "NOS LEFT!") ;
+				validQ = this.inputValidQty(no) ; 
+			}
+		return validQ ;
 	}
+
+	public int inputValidQty(int n)
+	{
+		int chk ;
+
+		System.out.print("\n\n     QTY : ") ;
+		chk = in.nextInt() ;
+		in.nextLine() ;
+
+		this.checkQty(n,chk) ;
+
+		return chk ;
+
+	}
+
 }
 
 	

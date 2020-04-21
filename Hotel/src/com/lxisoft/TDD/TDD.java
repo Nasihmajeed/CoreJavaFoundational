@@ -1,3 +1,6 @@
+package com.lxisoft.TDD ;
+
+import com.lxisoft.Hotel.* ;
 
 public class TDD 
 {

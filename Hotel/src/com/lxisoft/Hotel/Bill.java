@@ -1,4 +1,7 @@
+package com.lxisoft.Hotel ;
+
 import java.util.* ;
+import com.lxisoft.Console.* ;
 
 public class Bill
 {
@@ -13,7 +16,7 @@ public class Bill
 
 	String cName ;
 
-	void fetchItems(Item i,int q)
+	public void fetchItems(Item i,int q)
 	{
 		
 		bill[itemCount] = i ;
@@ -22,10 +25,8 @@ public class Bill
 		itemCount++ ;
 	}
 
-	void generateBill(String cusName)
+	public void generateBill(String cusName)
 	{
-		billNo++ ;
-
 		cName = cusName ;
 
 		for(int i=0 ; i<itemCount ; i++)
@@ -43,8 +44,9 @@ public class Bill
 
 	}
 
-	public void printBill()
+	public void printBill(int bNo)
 	{
+		billNo += bNo ;
 				
 		System.out.print("\n |======================== TAX INVOICE ========================| \n") ;
 							  

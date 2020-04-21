@@ -1,4 +1,8 @@
+package com.lxisoft.Hotel ;
+
 import java.util.* ;
+import com.lxisoft.Customer.* ;
+import com.lxisoft.Console.* ;
 
 public class HotelDetails
 {
@@ -68,7 +72,8 @@ public class HotelDetails
 
 	public void customerBill()
 	{
-		cus[cusNo].b.printBill() ;
+		cus[cusNo].b.printBill(cusNo) ;
+
 	}
 
 	public void displayAddressBanner()

@@ -1,11 +1,16 @@
+package com.lxisoft.Customer ;
+
+import com.lxisoft.Hotel.* ;
+import com.lxisoft.Console.* ;
 import java.util.* ;
 
 public class Customer
 {
-  String cName ;
+  String cName,review ; 
   int rat ; 		// Customer Rating.
 
-  Bill b = new Bill() ;
+
+  public Bill b = new Bill() ;
 
   Inventory inven = new Inventory() ;
 
@@ -26,37 +31,23 @@ public class Customer
 		do
 		{
 		
-			System.out.print("\n\n     ITEM NO : ") ;
+			System.out.print("\n     ITEM NO : ") ;
 			itNo = in.nextInt() ;
 			in.nextLine() ;
+		
+			itNo = inven.checkItemNo(itNo) ;
 
-				if(itNo>= inven.numOfItems)
-				{
-					System.out.print("Invalid Item No.") ;
-					again = 'y' ;
-					break ;
-				}	
-
-			System.out.print("\n    QUANTITY : ") ;
+			System.out.print("    QUANTITY : ") ;
 			qty = in.nextInt() ;
 			in.nextLine() ;
 
-
-			int flag = inven.checkQty(itNo,qty) ;
-
-				if(flag==1)
-				{
-					System.out.print("\n Not Enough in Stock. Order less than " + inven.it[itNo].stock + ".") ;
-					System.out.print("\n     QUANTITY : ") ;
-					qty = in.nextInt() ;
-					in.nextLine() ;
-				}
+			qty = inven.checkQty(itNo,qty) ;
 
 			b.fetchItems(inven.it[itNo],qty) ;
 
 			inven.it[itNo].stock -= qty ;
 
-			System.out.print("\n\n     Order Another Dish? (Y/N) : ") ;
+			System.out.print("\n     Order Another Dish? (Y/N) : ") ;
 			again = in.next().charAt(0) ;
 			in.nextLine() ;
 
@@ -75,6 +66,12 @@ public class Customer
 
 	public void rating()
 	{
+		System.out.print("\n\n     How would you rate your experience (1-10) : ") ;
+		rat = in.nextInt() ;
+		in.nextLine() ;
 
+		System.out.print("\n\n     Any Suggestions? : ") ;
+		review = in.nextLine() ;
+		
 	}
 }

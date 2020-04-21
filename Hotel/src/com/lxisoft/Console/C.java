@@ -1,5 +1,7 @@
 // code for clear function
 
+package com.lxisoft.Console ;
+
 public class C
 {
 	public static void cls()
