@@ -343,29 +343,7 @@ public class Admin
 					 System.out.println("------------------------------------------");
 					 break;
 			case 2 :Clear.cls();
-					System.out.println("=> 1. Kitchen \n=> 2. Counter \n=> 3. Cleaning ");
-					opt=in.nextInt();
-					switch(opt)
-					{
-						case 1:Clear.cls();
-							   System.out.println("\t-----------------------------------");
-							   System.out.println("\t\tKitchen Duty");
-							   System.out.println("\t-----------------------------------");
-							   break;
-						case 2:Clear.cls();
-							   System.out.println("\t-----------------------------------");
-							   System.out.println("\t\tCounter Duty");
-							   System.out.println("\t-----------------------------------");
-							   break;
-      					case 3:Clear.cls();
-							   System.out.println("\t-----------------------------------");
-							   System.out.println("\t\tCleaning Duty");
-							   System.out.println("\t-----------------------------------");
-							   break;
-					}
-					for(int j=0;j<staff.length;j++)				
-					 	staff[j].staffSectionwise(opt);
-					System.out.println("\t-----------------------------------\n");
+					Staff.staffSectionwise(staff);
 					break;
 			case 3 : addStaff(staffIndex++);
 					 break;
@@ -402,7 +380,7 @@ public class Admin
 		System.out.println("------------------------------------------");
 		for(int i=0;i<staff.length;i++)
 			{
-				staff[i].printStaff(i);
+				staff[i].printStaff();
 			}
 		System.out.println("------------------------------------------\n");
 	}

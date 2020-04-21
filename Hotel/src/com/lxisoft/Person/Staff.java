@@ -15,43 +15,47 @@ public class Staff
 		this.job=sJob;
 	}
 
-	public void printStaff(int i)
+	public void printStaff()
 	{
 		if(this.staffName!=null)
 		{
-			//System.out.println("  "+(i+101)+"           " + staffName +"\t ---> "+ job);
 			System.out.format("%5d %15s %20s \n" ,staffNum,staffName,job);
 		}
 	}
 
 
 
-	public void staffSectionwise(int opt)
+	public static void staffSectionwise(Staff staff[])
 	{
-		if(staffName!=null)		
+		String j;
+		Scanner in = new Scanner(System.in);
+		System.out.println(" 1. Kitchen Duty \n 2. Cleaning Duty \n 3. Counter Duty \n");
+		int opt = in.nextInt();
+		Clear.cls();
+		System.out.println("\tPrinting Staff in each section");
+		System.out.println("-----------------------------------------------");
+		for(int i=0;staff[i].staffName!=null;i++)
 		{
+			j = staff[i].job;
+			switch(opt)
+			{
+				case 1: if(j.equals("Kitchen"))
+							staff[i].printStaff();
+						break;
+				case 2:
+						if(j.equals("Cleaning"))
+							staff[i].printStaff();
+						break;
+				case 3: 
+						if(j.equals("Counter"))
+							staff[i].printStaff();
+						break;
+					
 
-			if(opt==1)
-			{
-				
-				if(job.equals("Kitchen"))
-				{
-					System.out.format("%10d %25s \n",staffNum,staffName);
-				}
 			}
-			else if(opt==2)
-			{
-				if(job.equals("Counter"))
-					System.out.format("%10d %25s \n",staffNum,staffName);
-			}
-			else if(opt==3)
-			{
-				if(job.equals("Cleaning"))
-					System.out.format("%10d %25s \n",staffNum,staffName);
-			}
-			else
-				System.out.println("Invalid option");
 		}
+		System.out.println("\n\n");
+		
 	}
 
 	public void staffAdd(int sNum)
