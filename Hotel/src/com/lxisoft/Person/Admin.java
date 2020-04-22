@@ -106,7 +106,7 @@ public class Admin
 				   adminActions(adminCount);
 				   break;
 
-			case 3:Clear.cls();Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
+			case 3:Clear.cls()System.out.println("\t\tDELETE AN FOOD ITEM");
 				   System.out.println("\t -----------------------------------------");
 				   menu.printMenu();
 				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
@@ -159,9 +159,7 @@ public class Admin
 		{
 			if(menu.item[i].itemName==null)
 			{
-				System.out.println(" =:> DO YOU NEED TO ADD MORE FOOD ITEMS (yes/no)");
-				ch=in.nextLine();
-				if(ch.equals("yes"))
+				if(yesOrNo("need to add item"))
 				{
 					menu.item[i].itemAdd();
 					menu.ind=i;
@@ -188,7 +186,6 @@ public class Admin
 			{
 				
 				menu.item[i].itemAdd();
-				in.nextLine();
 				Clear.cls();
 				menu.printMenu();
 			}
@@ -208,9 +205,7 @@ public class Admin
 			if((i+1)==iNum)
 			{
 				r=iNum-1;
-				System.out.println(" =:> Do you sure(yes/no) ");
-				str=in.nextLine();
-				if(str.equals("yes"))
+				if(yesOrNo("Need to delete item"))
 				{
 					for(int j=(iNum-1);(menu.item[j].itemName)!=null;j++)
 					{
@@ -273,9 +268,7 @@ public class Admin
 				switch(ch)
 				{
 					case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].itemName);
-							System.out.println("Do you sure (yes/no)");
-							ip=in.nextLine();
-							if(ip.equals("yes"))
+							if(yesOrNo(" "))
 							{
 								deleteItem(adminCount,(i+1));
 							
@@ -283,9 +276,7 @@ public class Admin
 							break;
 							
 					case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].itemName);
-							System.out.println("DO YOU SURE WANT TO EDIT (yes/no)");
-							ip=in.nextLine();
-							if(ip.equals("yes"))
+							if(yesOrNo("( Edit item or not ) "))
 							{
 								editItem(adminCount,(i+1));
 							}
@@ -304,26 +295,8 @@ public class Admin
 	public void initializeStaff(int adminCount)
 	{
 		Scanner in = new Scanner(System.in);
-		
 		int a=0,opt;
-		if(!(staffInitialize))
-			{
-				staffIndex=0;
-				for(int i=0;i<10;i++)
-				{
-					staff[i]=new Staff();
-				}
-				
-				staff[0].setStaff(100,"Pranav","Kitchen");
-				staff[1].setStaff(101,"Manu","Cleaning");
-				staff[2].setStaff(102,"vishnu","Counter");
-				staff[3].setStaff(103,"Binu","Kitchen");
-				staff[4].setStaff(104,"Sudeep","Counter");
-				staffIndex=5;	
-				staffInitialize=true;
-			}	
-
-
+		staffSet(staffInitialize);
 		Clear.cls();
 		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
 		try
@@ -360,9 +333,7 @@ public class Admin
 		String sName,sJob,str;
 		int sNum;
 		this.getStaffDetails();
-		System.out.println("Do you need to add more staff(yes/no)");
-		str=in.nextLine();
-		if(str.equals("yes"))
+		if(yesOrNo(" Need to add Staff or not"))
 		{
 			System.out.println("Staff Number: \n\t");
 			sNum=((staff[index-1].staffNum)+1);
@@ -384,5 +355,40 @@ public class Admin
 			}
 		System.out.println("------------------------------------------\n");
 	}
+
+	void staffSet(boolean s)
+	{
+	if(!(staffInitialize))
+			{
+				staffIndex=0;
+				for(int i=0;i<10;i++)
+				{
+					staff[i]=new Staff();
+				}
+				
+				staff[0].setStaff(100,"Pranav","Kitchen");
+				staff[1].setStaff(101,"Manu","Cleaning");
+				staff[2].setStaff(102,"vishnu","Counter");
+				staff[3].setStaff(103,"Binu","Kitchen");
+				staff[4].setStaff(104,"Sudeep","Counter");
+				staffIndex=5;	
+				staffInitialize=true;
+			}	
+
+	}
+
+	boolean yesOrNo(String a)
+	{
+		Scanner in = new Scanner(System.in);
+		String ip;
+		System.out.println("Do you sure "+a+" (yes/no)");
+		ip=in.nextLine();
+		if(ip.equals("yes"))
+			return true;
+		else
+			return false;
+	}
 }
+
+
 
