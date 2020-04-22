@@ -10,60 +10,60 @@ public class Inventory
 
  public Item[] it = new Item[50] ;
 
- public int numOfItems = 8 ;
+ public int numOfItems = 9 ;
 
  	/* Preset Food Items */
 
  	public void setMenu()
  	{
- 		it[0] = new Item() ;
-		it[1] = new Item() ;
+ 		it[1] = new Item() ;
 		it[2] = new Item() ;
 		it[3] = new Item() ;
 		it[4] = new Item() ;
 		it[5] = new Item() ;
 		it[6] = new Item() ;
 		it[7] = new Item() ;
-
-		it[0].itemNo = 0 ;
-		it[0].itemName = "Chapathi" ;
-		it[0].itemPrice = 10 ;
-		it[0].stock = 70 ;
+		it[8] = new Item() ;
 
 		it[1].itemNo = 1 ;
-		it[1].itemName = "Porotta  " ;
-		it[1].itemPrice = 12 ;
-		it[1].stock = 70 ;
+		it[1].itemName = "Chapathi" ;
+		it[1].itemPrice = 10 ;
+		it[1].stock = 50 ;
 
 		it[2].itemNo = 2 ;
-		it[2].itemName = "Dosa    " ;
-		it[2].itemPrice = 8 ;
-		it[2].stock = 70 ;
+		it[2].itemName = "Porotta  " ;
+		it[2].itemPrice = 12 ;
+		it[2].stock = 60 ;
 
 		it[3].itemNo = 3 ;
-		it[3].itemName = "Appam    " ;
+		it[3].itemName = "Dosa    " ;
 		it[3].itemPrice = 8 ;
-		it[3].stock = 70 ;
+		it[3].stock = 25 ;
 
 		it[4].itemNo = 4 ;
-		it[4].itemName = "Chicken Curry" ;
-		it[4].itemPrice = 120 ;
-		it[4].stock =  70 ;
+		it[4].itemName = "Appam    " ;
+		it[4].itemPrice = 8 ;
+		it[4].stock = 35 ;
 
 		it[5].itemNo = 5 ;
-		it[5].itemName = "Beef Fry" ;
-		it[5].itemPrice = 140 ;
-		it[5].stock = 70 ;
+		it[5].itemName = "Chicken Curry" ;
+		it[5].itemPrice = 120 ;
+		it[5].stock =  30 ;
 
 		it[6].itemNo = 6 ;
-		it[6].itemName = "Veg. Kuruma" ;
-		it[6].itemPrice = 60 ;
-		it[6].stock = 70 ;
+		it[6].itemName = "Beef Fry" ;
+		it[6].itemPrice = 140 ;
+		it[6].stock = 25 ;
 
 		it[7].itemNo = 7 ;
-		it[7].itemName = "Egg Curry" ;
-		it[7].itemPrice = 35 ;
-		it[7].stock = 70 ;
+		it[7].itemName = "Veg. Kuruma" ;
+		it[7].itemPrice = 60 ;
+		it[7].stock = 15 ;
+
+		it[8].itemNo = 8 ;
+		it[8].itemName = "Egg Curry" ;
+		it[8].itemPrice = 35 ;
+		it[8].stock = 50 ;
 	}
 
  	public void addItem()
@@ -71,18 +71,20 @@ public class Inventory
 		
 		it[numOfItems] = new Item() ;
 
-		System.out.print("\n Name of  New Dish : ") ;
+		System.out.print("\n\n     NEW DISH NAME : ") ;
 		it[numOfItems].itemName = in.nextLine() ;
 
-		System.out.print("\n Price : ") ;
+		System.out.print("\n     PRICE : ") ;
 		it[numOfItems].itemPrice = in.nextInt() ;
 		in.nextLine() ;
 		it[numOfItems].itemNo = numOfItems ;
 
-		System.out.print("\n Total Stock : ") ;
+		System.out.print("\n     REMAINING STOCK : ") ;
 		it[numOfItems].stock = in.nextInt() ;
 		in.nextLine() ;
 		
+		System.out.print("\n\n     NEW DISH SUCCESSFULLY ADDED. ") ;
+
 		++numOfItems ;
 
 	}
@@ -91,20 +93,17 @@ public class Inventory
 	{
 		int itRem ;
 	
-		System.out.print("---------- \n MENU \n --------\n") ;
-		this.viewMenu() ;
-
-		System.out.print("\n\n Input Item Number of Dish to be removed : ") ;
+		System.out.print("\n\n     ITEM NO : ") ;
 		itRem = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n \n Remove Item No." + itRem + " " + it[itRem].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     REMOVE ITEM NO." + itRem + " " + it[itRem].itemName + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
 			if(conf=='y' || conf=='Y')
 			{
-				System.out.print("\n \n " + itRem + " " + it[itRem].itemName + "REMOVED.\n \n" ) ;
+				System.out.print("\n \n " + itRem + " " + it[itRem].itemName + "SUCCESFULLY REMOVED.\n \n" ) ;
 
 				it[itRem].itemName = it[numOfItems-1].itemName ;
 				it[itRem].itemPrice = it[numOfItems-1].itemPrice ;
@@ -113,85 +112,56 @@ public class Inventory
 				--numOfItems ;
 
 			}
-		System.out.print("\n UPDATED INVENTORY : \n ") ;
-		
-		this.viewMenu() ; 
-
-
 	}
 
 	public void changePrice()
 	{
 		int itPr,newPrice ;
 	
-		System.out.print("---------- \n MENU \n --------\n") ;
-		this.viewMenu() ;
-
-		System.out.print("\n\n Input Item Number of Dish to Change Price : ") ;
+		
+		System.out.print("\n\n     ITEM NO : ") ;
 		itPr = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n \n Change Price of" + itPr + " " + it[itPr].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     CHANGE PRICE OF ITEM NO." + itPr + " " + it[itPr].itemName + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
 			if(conf=='y' || conf=='Y')
 			{
-				System.out.print("\n \n New Price : " ) ;
+				System.out.print("\n\n    NEW PRICE : " ) ;
 				newPrice = in.nextInt() ;
 				in.nextLine() ;
 
-				System.out.print("\n PRICE OF " + itPr + " " + it[itPr].itemName + " CHANGED FROM " + it[itPr].itemPrice + " TO " + newPrice + " ." ) ;
+				System.out.print("\n PRICE OF ITEM NO." + itPr + " " + it[itPr].itemName + " SUCCESSFULLY CHANGED FROM " + it[itPr].itemPrice + " TO " + newPrice + " ." ) ;
 
 				it[itPr].itemPrice = newPrice ;
 			}
-		System.out.print("\n UPDATED INVENTORY : \n ") ;
-		
-		this.viewMenu() ; 
 	}
 
 	public void changeStock()
 	{
 		int itSt,newStock ;
 	
-		System.out.print("---------- \n MENU \n --------\n") ;
-		this.viewMenu() ;
-
-		System.out.print("\n\n Input Item Number of Dish to Change Stock : ") ;
+		System.out.print("\n\n    ITEM NO : ") ;
 		itSt = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n \n Change Stock of" + itSt + " " + it[itSt].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     UPDATE STOCK OF ITEM NO." + itSt + " " + it[itSt].itemName + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
 			if(conf=='y' || conf=='Y')
 			{
-				System.out.print("\n \n New Stock : " ) ;
+				System.out.print("\n\n     UPDATED STOCK : " ) ;
 				newStock = in.nextInt() ;
 				in.nextLine() ;
 
-				System.out.print("\n STOCK OF " + itSt + " " + it[itSt].itemName + "CHANGED FROM " + it[itSt].stock + " TO " + newStock + " ." ) ;
+				System.out.print("\n      STOCK OF ITEM NO." + itSt + " " + it[itSt].itemName + " SUCCESSFULLY CHANGED FROM " + it[itSt].stock + " TO " + newStock + " ." ) ;
 
 				it[itSt].stock = newStock ;
 			}
-
-		System.out.print("\n UPDATED INVENTORY : \n ") ;
-
-		this.viewMenu() ; 
-	}
-
-
-	public void viewAll()
-	{
-		
-		System.out.print("\n   ITEM NO   	DISH		\t PRICE 	STOCK\n   -------   	----		\t -----	-----") ;
-
-
-		for(int i=0 ; i<numOfItems ; i++)
-		{
-			System.out.print("\n     " + it[i].itemNo + "    	" + it[i].itemName + "		 " + it[i].itemPrice + "	" + it[i].stock) ;
-		}
+	
 	}
 
  /* ---------------------------------------------------------  CUSTOMER  --------------------------------------------------------------*/
@@ -203,7 +173,7 @@ public class Inventory
 		System.out.print("\n       No. \t   PARTICULARS             RATE    REM.STOCK \n     |----||----------------------------||------||-----------|\n") ;
 
 
-		for(int i=0 ; i<numOfItems ; i++)
+		for(int i=1 ; i<numOfItems ; i++)
 		{
 			System.out.print("\n       " + it[i].itemNo + "    	" + it[i].itemName + "		    " + it[i].itemPrice + "	     " + it[i].stock) ;
 		}

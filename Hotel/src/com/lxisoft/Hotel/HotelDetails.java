@@ -8,8 +8,10 @@ public class HotelDetails
 {
 	Scanner in = new Scanner(System.in) ;
 
+	Bill mainBill = new Bill() ;
+
 	String hName = "BADUSHA",type = "NON-VEG",lMark = "Near Greens Avenue", street = "Desamangalam" ,city = "Thrissur" ,state = "Kerala", phNo = "9072331122",gstNo = "27AADFH5037M1Z6" ; 
-	int pinCode = 675232, adminPin=420,billNo = 419 ;
+	int pinCode = 675232, adminPin=420 ;
 
 	Inventory inv = new Inventory() ;
 
@@ -37,9 +39,7 @@ public class HotelDetails
 	public void editAddress()
 	{
 		
-		System.out.print("\n\n\n     Hotel Type : ") ;
-		this.type = in.nextLine() ;
-		
+	
 		System.out.print("\n\n\n     Street : ") ;
 		this.street = in.nextLine() ;
 
@@ -58,11 +58,24 @@ public class HotelDetails
 			
 	}
 
+	public void setDiscount()
+	{
+		System.out.print("\n\n\n     CURRENT DISCOUNT RATES : " + this.mainBill.discPer +"%") ;
+		System.out.print("\n\n     NEW DISCOUNT RATE : ") ;
+
+		int newDisc = in.nextInt() ;
+		in.nextLine() ;
+
+		System.out.print("\n\n     DISCOUNT RATES UPDATED FROM " + this.mainBill.discPer + "% TO " + newDisc + "% .") ;
+
+		this.mainBill.discPer = newDisc ;
+	}
+
 	public void newCustomer()
 	{
 		cus[cusNo] = new Customer() ;
 
-		cus[cusNo].transferInventory(inv) ;
+		cus[cusNo].transferInventoryandBill(inv,mainBill) ;
 
 		inv.viewMenu() ;
 
@@ -88,5 +101,36 @@ public class HotelDetails
 		
 
 		System.out.print("\n |_____________________________________________________________| \n") ;
+	}
+
+	public void adminPinReset()
+	{
+		System.out.print("\n\n\n     OLD PIN : ") ;
+		int oPin = in.nextInt() ;
+		in.nextLine() ;
+
+			if(oPin == adminPin)
+			{
+				System.out.print("\n\n     NEW PIN : ") ;
+				adminPin = in.nextInt() ;
+				in.nextLine() ;
+
+				System.out.print("\n\n\n     ADMIN PIN SUCCESSFULLY CHANGED.") ;
+			}
+			else
+			{
+				System.out.print("\n\n     INCORRECT PIN. TRY AGAIN. ") ;
+				this.adminPinReset() ;
+			}
+	} 
+
+	public void ratingsAndReviews()
+	{
+
+	}
+
+	public void purAndSal()
+	{
+		
 	}
 }

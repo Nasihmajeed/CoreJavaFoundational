@@ -16,9 +16,11 @@ public class Customer
 
   Scanner in = new Scanner(System.in) ;
 
-  	public void transferInventory(Inventory i)
+  	public void transferInventoryandBill(Inventory i, Bill bill)
   	{
   		inven = i ;
+
+  		b = bill ;
   	}
 	
 	public void placeOrder()
@@ -72,6 +74,6 @@ public class Customer
 
 		System.out.print("\n\n     Any Suggestions? : ") ;
 		review = in.nextLine() ;
-		
+
 	}
 }
