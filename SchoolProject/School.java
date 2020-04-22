@@ -4,7 +4,7 @@ public class School extends Classroom
 {
 	
 	String schoolname;
-	School h;
+	School h;;
 	
 	public void Printdetail()
 	{
