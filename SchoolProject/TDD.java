@@ -3,6 +3,11 @@ public class TDD
 {
 	public static void main(String args[])
 	{
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER THE STUDENT NAME");
+		String str=sc.nextLine();
+		
 		
 		School h = new School();
 		h.schoolname = "Donbosco";
