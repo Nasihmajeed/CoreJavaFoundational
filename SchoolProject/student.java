@@ -1,7 +1,6 @@
 public class student
 {
-	string name;
-	int rollnummber;
+	String name;
+	int rollnumber;
 	
-
 }

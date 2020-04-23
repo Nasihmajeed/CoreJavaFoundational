@@ -1,13 +1,11 @@
 public class TDD
 {
-public static void main (String args[])
+public static void main (String array[])
 {
-	school S1=newSchool();
-	
-	S1.t1.name="GOHSS PTB";
-	S1.t1.upto="12th";
-	
-	System.out.println("Print success");
-} 
+	School school=new School();
+	System.out.println("Print ");
+	school.printstudent();
+
+	} 
 
 }
