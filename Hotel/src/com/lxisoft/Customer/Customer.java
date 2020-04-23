@@ -7,7 +7,7 @@ import java.util.* ;
 public class Customer
 {
   String cName,review ; 
-  int rat ; 		// Customer Rating.
+  int rat ; 		// Customer Ratings.
 
 
   public Bill b = new Bill() ;
