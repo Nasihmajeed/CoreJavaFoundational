@@ -106,7 +106,7 @@ public class Admin
 				   adminActions(adminCount);
 				   break;
 
-			case 3:Clear.cls()System.out.println("\t\tDELETE AN FOOD ITEM");
+			case 3:Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
 				   System.out.println("\t -----------------------------------------");
 				   menu.printMenu();
 				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
