@@ -1,24 +1,32 @@
-import java.util.Scanner;
-
 public class Students
 {
-	String student1,student2;
-	int m1,m2,m3;
-	int n1,n2,n3;
-	int l1,l2,l3;
-	int p1,p2,p3;
-	int t1,t2,t3,t4;
+	String s_name;
+	int class;
+	int regno;
+	int total;
+	int m1,m2,m3,m4,m5;
 
-	public String studentDetail1()
+
+	
+
+
+
+
+
+
+	public String printDetail()
 		{
-			return student1;
+			return "\n \t \t  Name : "+s_name+"\n \t \t Class :"+class+"\n Register number :"+regno;
+
+			
+
 
 		}
-	
-	public String studentDetail2()
-	{
-		return student2;
 
-	}
-		
+		public Total()
+		{
+				total=m1+m2+m3+m4+m5;
+				System.out.println("total :"+total);
+		}
+	
 }

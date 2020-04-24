@@ -1,35 +1,15 @@
-import java.util.Scanner;
-
-public class Teacher extends Students
+public class Teacher
 {
-	String teacher1, teacher2;
-	String subject1,subject2;
-	public String teacherDetail1()
-		{
-			return teacher1;
-			
-		}
+	String t_name;
+	int class;
+	char subject;
+	int mark;
 
 
-
-		public String subject1Detail()
-		{
-			return subject1;
-		}
-
-
-
-	
-	public String teacherDetail2()
-	{
-		return teacher2;
 		
-	}
 
-
-
-	public String subject2Deatail()
-	{
-		return subject2;
-	}
+	public String printDetail()
+		{
+			System.out println()
+		}
 }
