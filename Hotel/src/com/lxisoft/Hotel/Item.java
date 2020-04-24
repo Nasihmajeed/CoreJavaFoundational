@@ -1,5 +1,7 @@
 package com.lxisoft.Hotel;
 import java.util.*;
+import java.io.*;
+
 public class Item implements inter
 {
 	public String itemName;
@@ -64,6 +66,27 @@ public class Item implements inter
 		System.out.println(" =:> ENTER THE ITEM QUANTITY");
 		quantity = in.nextInt();
 		this.setItem(iName,price,quantity);
+		this.addToFile(iName,price,quantity);
+	}
+	public void addToFile(String n,int p, int q)
+	{
+		try
+			{
+				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(n);
+				bw.write(',');
+				bw.write(Integer.toString(p));
+				bw.write(',');
+				bw.write(Integer.toString(q));
+				bw.newLine();
+				bw.close();
+				
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 }
 

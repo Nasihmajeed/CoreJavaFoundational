@@ -25,21 +25,20 @@ public class Menu
 		item[2].setItem("Masaala Dosa",40,10);
 		item[3].setItem("Biriyani",120,10);
 		item[4].setItem("Fried Rice",80,10);
-		ind=4;
-		this.addToFile();
-		
+		ind=4;	
+		this.addToFile()	;
 	}
 	public void addToFile()
 	{
 		
-		for(int i=0;i<ind;i++)
+		for(int i=0;i<=ind;i++)
 		{
 			String n = item[i].itemName;
 			int p = item[i].itemPrice;
 			int q = item[i].totalAvailable;
 			try
 			{
-				FileWriter fw = new FileWriter("C:\\Users\\MOORTHY\\Documents\\LXI- PRograms\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",true);
+				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				bw.write(n);
 				bw.write(',');
@@ -144,5 +143,6 @@ public class Menu
 		}
 		
 	}
+
 	
 }

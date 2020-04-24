@@ -70,7 +70,7 @@ public class Admin
 		Scanner in=new Scanner(System.in);
 		if (adminCount==0)
 			menu.setFood();
-	System.out.println("\t\t     ADMIN MENU");
+		System.out.println("\t\t     ADMIN MENU");
 		System.out.println("\t -----------------------------------------");
 		System.out.println("\n\n =:> 1. ADD FOOD ITEM \n\n =:> 2. EDIT FOOD ITEM \n\n =:> 3. DELETE FOOD ITEM \n\n =:> 4. TOTAL GAIN\n\n =:> 5. SEARCH \n\n =:> 6. STAFF DETAILS\n\n =:> 7. GO BACK ");
 		System.out.println("\n =:> Enter your choice --> ");
