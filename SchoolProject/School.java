@@ -3,10 +3,13 @@ public class School
 	Classroom classroom=new Classroom();
 	public void printstudent()
 	{
-		classroom.set1student();
-		classroom.set1student();
-		classroom.set1student();
-		classroom.printdetail();
+		classroom.setStudent1();
+		classroom.set1Student2();
+		classroom.set1Student3();
+		classroom.set1Student4();
+		
+
+		
 	}
 	
 
