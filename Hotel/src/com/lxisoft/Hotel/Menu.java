@@ -19,28 +19,63 @@ public class Menu
 		{
 			item[i] = new Item();
 			
-		}		
-		item[0].setItem("Porotta",8,10);
-		item[1].setItem("Ghee Roast",45,10);
-		item[2].setItem("Masaala Dosa",40,10);
-		item[3].setItem("Biriyani",120,10);
-		item[4].setItem("Fried Rice",80,10);
-		ind=4;	
-		this.addToFile()	;
+		}	
+		readFromFile(item);
+		// item[0].setItem("Porotta",8,10);
+		// item[1].setItem("Ghee Roast",45,10);
+		// item[2].setItem("Masaala Dosa",40,10);
+		// item[3].setItem("Biriyani",120,10);
+		// item[4].setItem("Fried Rice",80,10);
+		// ind=4;	
+		// this.addToFile()	;
 	}
-	public void addToFile()
+	public void readFromFile(Item[] item)
 	{
-		
-		for(int i=0;i<=ind;i++)
+		String details;
+		try
 		{
-			String n = item[i].itemName;
+			FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv");
+			BufferedReader br = new BufferedReader(fr);
+			i=0;
+			while((details=br.readLine())!=null)
+			{
+				
+				String[] st =details.split(",");
+				item[i].setItem(st[0],(Integer.parseInt(st[1])),(Integer.parseInt(st[2])));
+				i++;
+				ind=i;
+			}
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();	
+		}
+
+	}
+	public void updateFile()
+	{
+		//System.out.println("ind = " +ind);
+		try
+		{
+			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",false);
+			BufferedWriter bw = new BufferedWriter(fw);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		for(int i=0;i<ind;i++)
+		{
+			String na = item[i].itemName;
+			System.out.println("na["+i+"] = " + na);
 			int p = item[i].itemPrice;
 			int q = item[i].totalAvailable;
 			try
 			{
 				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
-				bw.write(n);
+				bw.write(na);
 				bw.write(',');
 				bw.write(Integer.toString(p));
 				bw.write(',');
@@ -48,11 +83,12 @@ public class Menu
 				bw.newLine();
 				bw.close();
 				
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();			
+			}
+
 		}
 		
 	}
@@ -95,7 +131,7 @@ public class Menu
 
 
 			}
-			if(iNum<=(ind+1) && iNum >0)
+			if(iNum<=(item.length) && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
 			}
@@ -107,6 +143,7 @@ public class Menu
 				if(ch.equals("yes"))
 				{
 					System.out.println("\n\t THANK YOU : ORDER PLACED \t");
+					this.updateFile();
 				}
 				else
 				{
