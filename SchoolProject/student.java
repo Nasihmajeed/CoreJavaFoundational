@@ -1,6 +1,10 @@
 public class student
 {
 	String name;
-	int rollnumber;
+	int rno;
+	int phno;
+	int class;
+	String div;
+	
 	
 }
