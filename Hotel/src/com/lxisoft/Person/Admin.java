@@ -161,8 +161,9 @@ public class Admin
 			{
 				if(yesOrNo("need to add item"))
 				{
+					menu.ind=(i+1);
+					System.out.println("menu.ind = " +menu.ind);
 					menu.item[i].itemAdd();
-					menu.ind=i;
 					Clear.cls();
 					menu.printMenu();
 				}
@@ -187,6 +188,7 @@ public class Admin
 				
 				menu.item[i].itemAdd();
 				Clear.cls();
+				menu.updateFile();
 				menu.printMenu();
 			}
 		}
@@ -215,6 +217,7 @@ public class Admin
 					}
 					menu.item[r+1].itemName=null;
 					Clear.cls();
+					menu.updateFile();
 					menu.printMenu();
 					break;
 				

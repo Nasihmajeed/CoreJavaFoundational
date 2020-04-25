@@ -55,7 +55,6 @@ public class Menu
 	}
 	public void updateFile()
 	{
-		//System.out.println("ind = " +ind);
 		try
 		{
 			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",false);
@@ -68,7 +67,6 @@ public class Menu
 		for(int i=0;i<ind;i++)
 		{
 			String na = item[i].itemName;
-			System.out.println("na["+i+"] = " + na);
 			int p = item[i].itemPrice;
 			int q = item[i].totalAvailable;
 			try
@@ -114,6 +112,7 @@ public class Menu
 		this.index=0;
 		this.ord.setOrder();
 		Scanner in = new Scanner(System.in);
+		System.out.println("ind = "+ind);
 		do
 		{
 			System.out.println(" =:> Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
@@ -131,7 +130,7 @@ public class Menu
 
 
 			}
-			if(iNum<=(item.length) && iNum >0)
+			if(iNum<=(ind) && iNum >0)
 			{
 				this.selectOrder((iNum-1));			
 			}
