@@ -1,15 +1,17 @@
 package com.lxisoft.Hotel;
 import com.lxisoft.Hotel.*;
+import com.lxisoft.File.*;
 import java.io.*;
 
 import java.util.*;
 public class Menu
 {
 	Drinks dr = new Drinks();
+	public FileManager file = new FileManager();
 	public Item[] item;
 	public int iNum=-1,index=0;
 	public int ind;
-	int i;
+	//int i;
 	public Order ord = new Order();
 	public void setFood()
 	{
@@ -20,76 +22,9 @@ public class Menu
 			item[i] = new Item();
 			
 		}	
-		readFromFile(item);
-		// item[0].setItem("Porotta",8,10);
-		// item[1].setItem("Ghee Roast",45,10);
-		// item[2].setItem("Masaala Dosa",40,10);
-		// item[3].setItem("Biriyani",120,10);
-		// item[4].setItem("Fried Rice",80,10);
-		// ind=4;	
-		// this.addToFile()	;
+		ind=file.readFromFile(item,ind);
 	}
-	public void readFromFile(Item[] item)
-	{
-		String details;
-		try
-		{
-			FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv");
-			BufferedReader br = new BufferedReader(fr);
-			i=0;
-			while((details=br.readLine())!=null)
-			{
-				
-				String[] st =details.split(",");
-				item[i].setItem(st[0],(Integer.parseInt(st[1])),(Integer.parseInt(st[2])));
-				i++;
-				ind=i;
-			}
-
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();	
-		}
-
-	}
-	public void updateFile()
-	{
-		try
-		{
-			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",false);
-			BufferedWriter bw = new BufferedWriter(fw);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		for(int i=0;i<ind;i++)
-		{
-			String na = item[i].itemName;
-			int p = item[i].itemPrice;
-			int q = item[i].totalAvailable;
-			try
-			{
-				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\file\\eg.csv",true);
-				BufferedWriter bw = new BufferedWriter(fw);
-				bw.write(na);
-				bw.write(',');
-				bw.write(Integer.toString(p));
-				bw.write(',');
-				bw.write(Integer.toString(q));
-				bw.newLine();
-				bw.close();
-				
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();			
-			}
-
-		}
-		
-	}
+	
 
 	public void printMenu()
 	{
@@ -112,7 +47,7 @@ public class Menu
 		this.index=0;
 		this.ord.setOrder();
 		Scanner in = new Scanner(System.in);
-		System.out.println("ind = "+ind);
+		//System.out.println("ind = "+ind);
 		do
 		{
 			System.out.println(" =:> Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");
@@ -142,7 +77,7 @@ public class Menu
 				if(ch.equals("yes"))
 				{
 					System.out.println("\n\t THANK YOU : ORDER PLACED \t");
-					this.updateFile();
+					file.updateFile(item,ind);
 				}
 				else
 				{
