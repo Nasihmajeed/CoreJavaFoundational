@@ -3,9 +3,9 @@ import com.lxisoft.Person.*;
 import java.util.*;
 public class Staff
 {
-	String staffName,job;
+	public String staffName,job;
 	int index=0;
-	int staffNum;
+	public int staffNum;
 	// 
 
 	public void setStaff(int sNum , String sName,String sJob)
@@ -67,6 +67,7 @@ public class Staff
 		System.out.println("\n\nJob Section : \n \t");
 		sJob=in.nextLine();
 		this.setStaff(sNum,sName,sJob);
+
 
 	}
 

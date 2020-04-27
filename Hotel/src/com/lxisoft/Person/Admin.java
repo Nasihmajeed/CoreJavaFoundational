@@ -163,6 +163,7 @@ public class Admin
 					menu.ind=(i+1);
 					//System.out.println("menu.ind = " +menu.ind);
 					menu.item[i].itemAdd();
+					menu.file.updateFile(menu.item,menu.ind);
 					Clear.cls();
 					menu.printMenu();
 				}
@@ -322,7 +323,9 @@ public class Admin
 			case 2 :Clear.cls();
 					Staff.staffSectionwise(staff);
 					break;
-			case 3 : addStaff(staffIndex++);
+			case 3 : System.out.println("staff index before = "+staffIndex);
+					 addStaff(staffIndex++);
+					 System.out.println("staff index after = "+staffIndex);
 					 break;
 			case 4 : adminActions(adminCount);
 					 break;
@@ -344,6 +347,7 @@ public class Admin
 			System.out.println(sNum);
 			staff[index].staffAdd(sNum);
 			index++;
+			menu.file.staffToFile(staff,staffIndex);
 			this.getStaffDetails();
 
 		}
@@ -370,12 +374,13 @@ public class Admin
 					staff[i]=new Staff();
 				}
 				
-				staff[0].setStaff(100,"Pranav","Kitchen");
-				staff[1].setStaff(101,"Manu","Cleaning");
-				staff[2].setStaff(102,"vishnu","Counter");
-				staff[3].setStaff(103,"Binu","Kitchen");
-				staff[4].setStaff(104,"Sudeep","Counter");
-				staffIndex=5;	
+				// staff[0].setStaff(100,"Pranav","Kitchen");
+				// staff[1].setStaff(101,"Manu","Cleaning");
+				// staff[2].setStaff(102,"vishnu","Counter");
+				// staff[3].setStaff(103,"Binu","Kitchen");
+				// staff[4].setStaff(104,"Sudeep","Counter");
+				staffIndex=menu.file.readStaff(staff,staffIndex);
+				//menu.file.staffToFile(staff,staffIndex);
 				staffInitialize=true;
 			}	
 

@@ -1,4 +1,5 @@
 package com.lxisoft.Person;
+import java.text.SimpleDateFormat;
 import com.lxisoft.File.*;
 import com.lxisoft.Hotel.*;
 import com.lxisoft.Person.*;
@@ -45,10 +46,14 @@ public class User
 	}
 	public void userAction(Menu menu,OrderDetails od[])
 	{
+		Date date = new Date();  
+    	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+    	String strDate= formatter.format(date);  
 		menu.printMenu();
 		menu.ordering(menu.ind);
 		od[var].name=this.userName;
 		od[var].total=menu.ord.total;
+		od[var].date=strDate;
 		setTotalAmount(od[var].total);
 		od[var].ratings=this.rating();
 		fm.storeToFile(od,var);
