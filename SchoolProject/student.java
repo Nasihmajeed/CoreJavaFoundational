@@ -3,8 +3,8 @@ public class student
 	String name;
 	int rno;
 	int phno;
-	int class;
+	int clss;
 	String div;
-	
-	
+	int admno;	
 }
+
