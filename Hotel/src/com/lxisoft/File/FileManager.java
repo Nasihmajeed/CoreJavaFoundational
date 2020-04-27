@@ -68,5 +68,29 @@ public class FileManager
 
 		}
 		
-	} 
+	}
+	public void storeToFile(OrderDetails[] od,int ind)
+	{
+	
+			String na = od[ind].name;
+			int p = od[ind].total;
+			try
+			{
+				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\OrderDetails.csv",true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(na);
+				bw.write(',');
+				bw.write(Integer.toString(p));
+				bw.newLine();
+				bw.close();
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();			
+			}
+
+		
+		
+	}  
 }

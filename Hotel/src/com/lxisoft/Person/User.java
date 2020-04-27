@@ -1,9 +1,11 @@
 package com.lxisoft.Person;
+import com.lxisoft.File.*;
 import com.lxisoft.Hotel.*;
 import com.lxisoft.Person.*;
 import java.util.*;
 public class User
 {
+	FileManager fm = new FileManager();
 	public int rat=-1;
 	public String userName;
 	public int totalAmount,var=0;
@@ -49,12 +51,15 @@ public class User
 		od[var].total=menu.ord.total;
 		setTotalAmount(od[var].total);
 		od[var].ratings=this.rating();
+		fm.storeToFile(od,var);
 		this.printUser();
 		var=var+1;
 
 	}
 	public void setTotalAmount(int total)
 	{
+	
 		this.totalAmount=this.totalAmount+total;
+	
 	}
 }
