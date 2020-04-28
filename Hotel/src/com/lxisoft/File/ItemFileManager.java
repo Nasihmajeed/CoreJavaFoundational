@@ -1,8 +1,9 @@
 package com.lxisoft.File;
 import com.lxisoft.Hotel.*;
 import com.lxisoft.Person.*;
-
+import java.text.SimpleDateFormat;
 import java.io.*;
+import java.util.Date;
 public class ItemFileManager
 {
 	int rowCount=1;
@@ -83,16 +84,17 @@ public class ItemFileManager
 			String date = od[ind].date;
 			String na = od[ind].name;
 			int p = od[ind].total;
+			int rat = od[ind].ratings;
 			try
 			{
 				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\OrderDetails.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
-				if(rowCount==1)
-				{
-					bw.write("Date");bw.write(',');bw.write("Item Name");bw.write(',');bw.write("Total");bw.newLine();
-					rowCount++;
-				}
-				bw.write(date);bw.write(',');bw.write(na);bw.write(',');bw.write(Integer.toString(p));bw.newLine();	bw.close();
+				// if(rowCount==1)
+				// {
+				// 	bw.write("Date");bw.write(',');bw.write("Item Name");bw.write(',');bw.write("Total");bw.newLine();
+				// 	rowCount++;
+				// }
+				bw.write(date);bw.write(',');bw.write(na);bw.write(',');bw.write(Integer.toString(p));bw.write(',');bw.write(Integer.toString(rat));bw.newLine();bw.close();
 				
 			}
 			catch(Exception e)
@@ -103,48 +105,47 @@ public class ItemFileManager
 		
 		
 	}  
-	
-	// 	catch(Exception e)
-	// 	{
-	// 		e.printStackTrace();
-	// 	}
-	// 	for(int i=0;i<ind;i++)
-	// 	{
-	// 		int sNum= staff[i].staffNum;
-	// 		String name = staff[i].staffName;
-	// 		String job = staff[i].job;
-	// 		try
-	// 		{
-	// 			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv",true);
-	// 			BufferedWriter bw = new BufferedWriter(fw);
-	// 			if(counter==1)
-	// 			{
-	// 				bw.write("Staff Number");bw.write(',');bw.write("Staff Name");bw.write(',');bw.write("Job Section");bw.newLine();counter++;
-	// 			}
-	// 			bw.write(Integer.toString(sNum));bw.write(',');bw.write(name);bw.write(',');bw.write(job);bw.newLine();bw.close();
+	public int readOrderDetails(OrderDetails[] od,int ind)
+	{
+		int rowCount=1,i;
+		Date date = new Date();  
+    	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+    	String today= formatter.format(date);
+    	String details;
+    	try
+    	{
+    		FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\OrderDetails.csv");
+			BufferedReader br = new BufferedReader(fr);
+			i=0;
+			while(( details= br.readLine())!=null)
+			{
+
+				if(rowCount==1)
+				{
+					details=br.readLine();
+					rowCount++;
+				}
+				String[] st =details.split(",");
+				if(st[0].equals(today))
+				{
+					//System.out.println(st[0]+"     "+ st[1]+"         " + st[2]+"    "+st[3]);
+					od[i].date=st[0];
+					od[i].name=st[1];
+					od[i].total=Integer.parseInt(st[2]);
+					od[i].ratings=Integer.parseInt(st[3]);
+					i++;
+				}
+
 				
-	// 		}
-	// 		catch(Exception e)
-	// 		{
-	// 			e.printStackTrace();			
-	// 		}
+				ind=i;
+			}
 
-	// 	}
-		
-		
-	// } 
-	
-	// 			if(rowCount==1)
-	
-
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		e.printStackTrace();	
-	// 	}
-	// 	return ind;
-
-	// }
-
-
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();			
+		}
+		return ind;
+    	
+	}
 }

@@ -47,7 +47,6 @@ public class Menu
 		this.index=0;
 		this.ord.setOrder();
 		Scanner in = new Scanner(System.in);
-		//System.out.println("ind = "+ind);
 		do
 		{
 			System.out.println(" =:> Select your Dish(Please enter the Item Number And press 0 to Submit) -> \n\t");

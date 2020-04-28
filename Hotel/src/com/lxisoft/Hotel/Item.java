@@ -36,21 +36,18 @@ public class Item implements inter
 	public void dispItem(int i)
 	{
 		System.out.format("%5d %15s %12d \n",(i+1),itemName,itemPrice);
-		//System.out.println("  "+(i+1)+"\t\t"+itemName +" \t --->    " +itemPrice);
 	}
 
 
 	public void dispItem()
 	{
 		System.out.format("%15s %12d %18d \n",itemName,itemPrice,itemQuantity);
-		//System.out.println(itemName +" \t --->    "+ itemPrice+ "\t           " +itemQuantity);
 	}
 
 
 	public void printToAdmin(int i)
 	{
 		System.out.format("%6d %18s %20d %15d\n",(i+1),itemName,itemPrice,totalAvailable);
-		//System.out.println("  "+(i+1)+"\t\t"+itemName +" \t --->    " +itemPrice+" \t --->     "+ totalAvailable);
 	}
 
 

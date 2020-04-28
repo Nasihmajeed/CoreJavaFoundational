@@ -54,17 +54,21 @@ public class User
 		od[var].name=this.userName;
 		od[var].total=menu.ord.total;
 		od[var].date=strDate;
-		setTotalAmount(od[var].total);
+		setTotalAmount(od);
 		od[var].ratings=this.rating();
 		fm.storeToFile(od,var);
 		this.printUser();
 		var=var+1;
 
 	}
-	public void setTotalAmount(int total)
+	public void setTotalAmount(OrderDetails[] od)
 	{
-	
-		this.totalAmount=this.totalAmount+total;
+		this.totalAmount=0;
+		for(int i=0;od[i].name!=null;i++)
+		{	
+			this.totalAmount=od[i].total+this.totalAmount;
+		}
+		
 	
 	}
 }

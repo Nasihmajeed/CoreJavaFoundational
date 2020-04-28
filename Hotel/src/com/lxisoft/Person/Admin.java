@@ -68,7 +68,13 @@ public class Admin
 		int c=0;
 		Scanner in=new Scanner(System.in);
 		if (adminCount==0)
+		{
 			menu.setFood();
+			for(int i=0;i<10;i++)
+			{
+				od[i]= new OrderDetails();
+			}
+		}
 		System.out.println("\t\t     ADMIN MENU");
 		System.out.println("\t -----------------------------------------");
 		System.out.println("\n\n =:> 1. ADD FOOD ITEM \n\n =:> 2. EDIT FOOD ITEM \n\n =:> 3. DELETE FOOD ITEM \n\n =:> 4. TOTAL GAIN\n\n =:> 5. SEARCH \n\n =:> 6. STAFF DETAILS\n\n =:> 7. GO BACK ");
@@ -116,6 +122,8 @@ public class Admin
 				   break;
 
 			case 4:Clear.cls();
+				   menu.file.readOrderDetails(od,usr.var);
+				   usr.setTotalAmount(od);
 				   System.out.println("\t\t TOTAL INCOME DETAILS");
 				   System.out.println("\t -----------------------------------------");
 				   System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
@@ -161,7 +169,6 @@ public class Admin
 				if(yesOrNo("need to add item"))
 				{
 					menu.ind=(i+1);
-					//System.out.println("menu.ind = " +menu.ind);
 					menu.item[i].itemAdd();
 					menu.file.updateFile(menu.item,menu.ind);
 					Clear.cls();
@@ -323,9 +330,7 @@ public class Admin
 			case 2 :Clear.cls();
 					Staff.staffSectionwise(staff);
 					break;
-			case 3 : System.out.println("staff index before = "+staffIndex);
-					 addStaff(staffIndex++);
-					 System.out.println("staff index after = "+staffIndex);
+			case 3 :addStaff(staffIndex++);
 					 break;
 			case 4 : adminActions(adminCount);
 					 break;
