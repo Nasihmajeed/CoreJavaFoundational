@@ -7,7 +7,7 @@ import java.util.*;
 public class Menu
 {
 	Drinks dr = new Drinks();
-	public FileManager file = new FileManager();
+	public ItemFileManager file = new ItemFileManager();
 	public Item[] item;
 	public int iNum=-1,index=0;
 	public int ind;

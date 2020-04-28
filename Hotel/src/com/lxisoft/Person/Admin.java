@@ -336,6 +336,7 @@ public class Admin
 	}
 	public void addStaff(int index)
 	{
+		StaffFileManager staffFile = new StaffFileManager();
 		Scanner in = new Scanner(System.in);
 		String sName,sJob,str;
 		int sNum;
@@ -347,13 +348,14 @@ public class Admin
 			System.out.println(sNum);
 			staff[index].staffAdd(sNum);
 			index++;
-			menu.file.staffToFile(staff,staffIndex);
+			staffFile.staffToFile(staff,staffIndex);
 			this.getStaffDetails();
 
 		}
 	}
 	public void getStaffDetails()
 	{
+
 		System.out.println("------------------------------------------");
 		System.out.println("Staff Number - Staff Name - Staff section");
 		System.out.println("------------------------------------------");
@@ -366,6 +368,7 @@ public class Admin
 
 	void staffSet(boolean s)
 	{
+	StaffFileManager staffFile = new StaffFileManager();
 	if(!(staffInitialize))
 			{
 				staffIndex=0;
@@ -379,7 +382,7 @@ public class Admin
 				// staff[2].setStaff(102,"vishnu","Counter");
 				// staff[3].setStaff(103,"Binu","Kitchen");
 				// staff[4].setStaff(104,"Sudeep","Counter");
-				staffIndex=menu.file.readStaff(staff,staffIndex);
+				staffIndex=staffFile.readStaff(staff,staffIndex);
 				//menu.file.staffToFile(staff,staffIndex);
 				staffInitialize=true;
 			}	

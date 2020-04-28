@@ -6,7 +6,7 @@ import com.lxisoft.Person.*;
 import java.util.*;
 public class User
 {
-	FileManager fm = new FileManager();
+	ItemFileManager fm = new ItemFileManager();
 	public int rat=-1;
 	public String userName;
 	public int totalAmount,var=0;
