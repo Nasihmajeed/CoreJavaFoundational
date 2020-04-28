@@ -5,6 +5,8 @@ public class student
 	int phno;
 	int clss;
 	String div;
-	int admno;	
+	int admno;
+	
+		
 }
 

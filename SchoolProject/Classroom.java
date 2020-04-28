@@ -7,23 +7,23 @@ public class Classroom
 	{
 
 		System.out.println( "Enter Name" );
-		student.nextLine();
+		String name = student.nextLine();
 
 		System.out.println( "Roll Number" );
-		student.nextLine();		
+		int rno = student.nextInt();		
 
 		System.out.println( "class" );
-		student.nextLine();	
+		int clss = student.nextInt();	
 		
 		System.out.println( "Division" );
-		student.nextLine();
+		String div = student.nextLine();
 
 		System.out.println( "Parents Contact Number" );
-		student.nextLine();		
+		int phno = student.nextInt();		
 
 		System.out.println( "Admission Number " );
-		student.nextLine();
-	}
+		int admno = student.nextInt();
+		}
 
 	public void setStudent2()
 	{
