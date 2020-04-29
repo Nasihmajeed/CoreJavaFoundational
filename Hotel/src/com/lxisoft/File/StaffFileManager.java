@@ -4,12 +4,37 @@ import com.lxisoft.Person.*;
 import java.io.*;
 public class StaffFileManager
 {
-	public void staffToFile(Staff[] staff,int ind)
+	public File loadFile()
 	{
-		// int counter=1;	
+		Hotel hotel = new Hotel();
+		File file = new File("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv");
 		try
 		{
-			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv",false);
+			Boolean tf = file.exists();
+			if(!tf)
+			{	
+				file.createNewFile();
+				throw new StafffileNotFound();
+
+			}
+		}
+		catch(StafffileNotFound e)
+		{
+			System.out.println("\tFile Created\n\n \t No Staffs found\n");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return file;
+	}
+
+	public void staffToFile(Staff[] staff,int ind)
+	{
+		File file = loadFile();	
+		try
+		{
+			FileWriter fw = new FileWriter(file,false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.close();
 		}
@@ -24,7 +49,7 @@ public class StaffFileManager
 			String job = staff[i].getStaffjob();
 			try
 			{
-				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv",true);
+				FileWriter fw = new FileWriter(file,true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				
 				bw.write(Integer.toString(sNum));bw.write(',');bw.write(name);bw.write(',');bw.write(job);bw.newLine();bw.close();
@@ -41,11 +66,12 @@ public class StaffFileManager
 	} 
 	public int readStaff(Staff[] staff,int ind) 
 	{
+		File file = loadFile();
 		int rowCount=1,i=0;
 		String details;
 		try
 		{
-			FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv");
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			i=0;
 			while((details=br.readLine())!=null)
@@ -70,4 +96,11 @@ public class StaffFileManager
 
 	}
 
+}
+class StafffileNotFound extends Exception
+{
+	public StafffileNotFound()
+	{
+		System.out.println("Please initialize the Staffs first - file missing");
+	}
 }

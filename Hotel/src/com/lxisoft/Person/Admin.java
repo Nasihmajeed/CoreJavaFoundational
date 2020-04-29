@@ -309,7 +309,7 @@ public class Admin
 		Scanner in = new Scanner(System.in);
 		int a=0,opt;
 		staffSet(staffInitialize);
-		Clear.cls();
+		//Clear.cls();
 		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
 		try
 		{
@@ -322,7 +322,7 @@ public class Admin
 		
 		switch(a)
 		{
-			case 1 : Clear.cls();
+			case 1 :Clear.cls();
 					System.out.println("\tDisplaying all staff Details");
 					this.getStaffDetails();
 					 System.out.println("------------------------------------------");
