@@ -10,14 +10,25 @@ public class HotelDetails
 
 	Bill mainBill = new Bill() ;
 
-	String hName = "BADUSHA",type = "NON-VEG",lMark = "Near Greens Avenue", street = "Desamangalam" ,city = "Thrissur" ,state = "Kerala", phNo = "9072331122",gstNo = "27AADFH5037M1Z6" ; 
-	int pinCode = 675232, adminPin=420 ;
+	private String hName = "BADUSHA",type = "NON-VEG",lMark = "Near Greens Avenue", street = "Desamangalam" ,city = "Thrissur" ,state = "Kerala", phNo = "9072331122",gstNo = "27AADFH5037M1Z6" ; 
+	private int pinCode = 675232, adminPin=420 ;
+	private int cusNo = 0 ; 
 
 	Inventory inv = new Inventory() ;
 
 	Customer[] cus = new Customer[50] ;
 
-	int cusNo = 0 ;
+	public String getHName()
+	{
+		return hName ;
+	}
+
+	public void incCustNo()
+	{
+		cusNo++ ;
+	}
+
+	
 
 	public int checkIfAdmin()
 	{
@@ -60,15 +71,15 @@ public class HotelDetails
 
 	public void setDiscount()
 	{
-		System.out.print("\n\n\n     CURRENT DISCOUNT RATES : " + this.mainBill.discPer +"%") ;
+		System.out.print("\n\n\n     CURRENT DISCOUNT RATES : " + this.mainBill.getDiscPer() +"%") ;
 		System.out.print("\n\n     NEW DISCOUNT RATE : ") ;
 
 		int newDisc = in.nextInt() ;
 		in.nextLine() ;
 
-		System.out.print("\n\n     DISCOUNT RATES UPDATED FROM " + this.mainBill.discPer + "% TO " + newDisc + "% .") ;
+		System.out.print("\n\n     DISCOUNT RATES UPDATED FROM " + this.mainBill.getDiscPer() + "% TO " + newDisc + "% .") ;
 
-		this.mainBill.discPer = newDisc ;
+		this.mainBill.setDiscPer(newDisc) ;
 	}
 
 	public void newCustomer()

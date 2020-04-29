@@ -10,7 +10,7 @@ public class Inventory
 
  public Item[] it = new Item[50] ;
 
- public int numOfItems = 9 ;
+ private int numOfItems = 9 ;
 
  	/* Preset Food Items */
 
@@ -25,45 +25,45 @@ public class Inventory
 		it[7] = new Item() ;
 		it[8] = new Item() ;
 
-		it[1].itemNo = 1 ;
-		it[1].itemName = "Chapathi" ;
-		it[1].itemPrice = 10 ;
-		it[1].stock = 50 ;
+		it[1].setItemNo(1) ;
+		it[1].setItemName("Chapathi") ;
+		it[1].setItemPrice(10) ;
+		it[1].setStock(50) ;
 
-		it[2].itemNo = 2 ;
-		it[2].itemName = "Porotta  " ;
-		it[2].itemPrice = 12 ;
-		it[2].stock = 60 ;
+		it[2].setItemNo(2) ;
+		it[2].setItemName("Porotta  ") ;
+		it[2].setItemPrice(12) ;
+		it[2].setStock(60) ;
 
-		it[3].itemNo = 3 ;
-		it[3].itemName = "Dosa    " ;
-		it[3].itemPrice = 8 ;
-		it[3].stock = 25 ;
+		it[3].setItemNo(3) ;
+		it[3].setItemName("Dosa    ") ;
+		it[3].setItemPrice(8) ;
+		it[3].setStock(25) ;
 
-		it[4].itemNo = 4 ;
-		it[4].itemName = "Appam    " ;
-		it[4].itemPrice = 8 ;
-		it[4].stock = 35 ;
+		it[4].setItemNo(4) ;
+		it[4].setItemName("Appam    ") ;
+		it[4].setItemPrice(8) ;
+		it[4].setStock(35) ;
 
-		it[5].itemNo = 5 ;
-		it[5].itemName = "Chicken Curry" ;
-		it[5].itemPrice = 120 ;
-		it[5].stock =  30 ;
+		it[5].setItemNo(5) ;
+		it[5].setItemName("Chicken Curry") ;
+		it[5].setItemPrice(120) ;
+		it[5].setStock(30) ;
 
-		it[6].itemNo = 6 ;
-		it[6].itemName = "Beef Fry" ;
-		it[6].itemPrice = 140 ;
-		it[6].stock = 25 ;
+		it[6].setItemNo(6) ;
+		it[6].setItemName("Beef Fry") ;
+		it[6].setItemPrice(140) ;
+		it[6].setStock(25) ;
 
-		it[7].itemNo = 7 ;
-		it[7].itemName = "Veg. Kuruma" ;
-		it[7].itemPrice = 60 ;
-		it[7].stock = 15 ;
+		it[7].setItemNo(7) ;
+		it[7].setItemName("Veg. Kuruma") ;
+		it[7].setItemPrice(60) ;
+		it[7].setStock(15) ;
 
-		it[8].itemNo = 8 ;
-		it[8].itemName = "Egg Curry" ;
-		it[8].itemPrice = 35 ;
-		it[8].stock = 50 ;
+		it[8].setItemNo(8) ;
+		it[8].setItemName("Egg Curry") ;
+		it[8].setItemPrice(35) ;
+		it[8].setStock(50) ;
 	}
 
  	public void addItem()
@@ -72,16 +72,20 @@ public class Inventory
 		it[numOfItems] = new Item() ;
 
 		System.out.print("\n\n     NEW DISH NAME : ") ;
-		it[numOfItems].itemName = in.nextLine() ;
+		String itemName = in.nextLine() ;
+		it[numOfItems].setItemName(itemName) ;
 
 		System.out.print("\n     PRICE : ") ;
-		it[numOfItems].itemPrice = in.nextInt() ;
+		int itemPrice = in.nextInt() ;
 		in.nextLine() ;
-		it[numOfItems].itemNo = numOfItems ;
+		it[numOfItems].setItemPrice(itemPrice) ;
+
+		it[numOfItems].setItemNo(numOfItems) ;
 
 		System.out.print("\n     REMAINING STOCK : ") ;
-		it[numOfItems].stock = in.nextInt() ;
+		int stock = in.nextInt() ;
 		in.nextLine() ;
+		it[numOfItems].setStock(stock) ;
 		
 		System.out.print("\n\n     NEW DISH SUCCESSFULLY ADDED. ") ;
 
@@ -97,17 +101,17 @@ public class Inventory
 		itRem = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n\n     REMOVE ITEM NO." + itRem + " " + it[itRem].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     REMOVE ITEM NO." + itRem + " " + it[itRem].getItemName() + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
 			if(conf=='y' || conf=='Y')
 			{
-				System.out.print("\n \n " + itRem + " " + it[itRem].itemName + "SUCCESFULLY REMOVED.\n \n" ) ;
+				System.out.print("\n \n " + itRem + " " + it[itRem].getItemName() + "SUCCESFULLY REMOVED.\n \n" ) ;
 
-				it[itRem].itemName = it[numOfItems-1].itemName ;
-				it[itRem].itemPrice = it[numOfItems-1].itemPrice ;
-				it[itRem].stock = it[numOfItems-1].stock ;
+				it[itRem].setItemName(it[numOfItems-1].getItemName()) ;
+				it[itRem].setItemPrice(it[numOfItems-1].getItemPrice()) ;
+				it[itRem].setStock(it[numOfItems-1].getStock()) ;
 
 				--numOfItems ;
 
@@ -123,7 +127,7 @@ public class Inventory
 		itPr = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n\n     CHANGE PRICE OF ITEM NO." + itPr + " " + it[itPr].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     CHANGE PRICE OF ITEM NO." + itPr + " " + it[itPr].getItemName() + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
@@ -133,9 +137,9 @@ public class Inventory
 				newPrice = in.nextInt() ;
 				in.nextLine() ;
 
-				System.out.print("\n PRICE OF ITEM NO." + itPr + " " + it[itPr].itemName + " SUCCESSFULLY CHANGED FROM " + it[itPr].itemPrice + " TO " + newPrice + " ." ) ;
+				System.out.print("\n PRICE OF ITEM NO." + itPr + " " + it[itPr].getItemName() + " SUCCESSFULLY CHANGED FROM " + it[itPr].getItemPrice() + " TO " + newPrice + " ." ) ;
 
-				it[itPr].itemPrice = newPrice ;
+				it[itPr].setItemPrice(newPrice) ;
 			}
 	}
 
@@ -147,7 +151,7 @@ public class Inventory
 		itSt = in.nextInt() ;
 		in.nextLine() ; 
 
-		System.out.print("\n\n     UPDATE STOCK OF ITEM NO." + itSt + " " + it[itSt].itemName + " ? (Y/N) : " ) ;
+		System.out.print("\n\n     UPDATE STOCK OF ITEM NO." + itSt + " " + it[itSt].getItemName() + " ? (Y/N) : " ) ;
 		char conf = in.next().charAt(0) ;
 		in.nextLine() ;
 
@@ -157,9 +161,9 @@ public class Inventory
 				newStock = in.nextInt() ;
 				in.nextLine() ;
 
-				System.out.print("\n      STOCK OF ITEM NO." + itSt + " " + it[itSt].itemName + " SUCCESSFULLY CHANGED FROM " + it[itSt].stock + " TO " + newStock + " ." ) ;
+				System.out.print("\n      STOCK OF ITEM NO." + itSt + " " + it[itSt].getItemName() + " SUCCESSFULLY CHANGED FROM " + it[itSt].getStock() + " TO " + newStock + " ." ) ;
 
-				it[itSt].stock = newStock ;
+				it[itSt].setStock(newStock) ;
 			}
 	
 	}
@@ -175,7 +179,7 @@ public class Inventory
 
 		for(int i=1 ; i<numOfItems ; i++)
 		{
-			System.out.print("\n       " + it[i].itemNo + "    	" + it[i].itemName + "		    " + it[i].itemPrice + "	     " + it[i].stock) ;
+			System.out.print("\n       " + it[i].getItemNo() + "    	" + it[i].getItemName() + "		    " + it[i].getItemPrice() + "	     " + it[i].getStock()) ;
 		}
 
 		System.out.print("\n\n |-------------------------------------------------------------| \n") ;
@@ -212,9 +216,9 @@ public class Inventory
 	{
 		int validQ=no ;
 
-		if(it[no].stock-q <0)
+		if(it[no].getStock()-q <0)
 			{
-				System.out.print("\n\n     ENTER A VALID QUANTITY. ONLY "+ it[no].stock + "NOS LEFT!") ;
+				System.out.print("\n\n     ENTER A VALID QUANTITY. ONLY "+ it[no].getStock() + "NOS LEFT!") ;
 				validQ = this.inputValidQty(no) ; 
 			}
 		return validQ ;

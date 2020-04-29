@@ -8,13 +8,23 @@ public class Bill
 
 	Item[] bill = new Item[25] ;
 
-	int itemCount = 0,subTotal = 0,billNo=1232,discPer = 10,discAmt,netTotal,cgst,sgst,grandTotal;
+	private int itemCount = 0,subTotal = 0,billNo=1232,discPer = 10,discAmt,netTotal,cgst,sgst,grandTotal;
 
-	int[] qty = new int[25] ;
+	private int[] qty = new int[25] ;
 
-	int[] itemTotal = new int[25] ;
+	private int[] itemTotal = new int[25] ;
 
-	String cName ;
+	private String cName ;
+
+	public int getDiscPer()
+	{
+		return discPer ;
+	}
+
+	public void setDiscPer(int disc)
+	{
+		discPer = disc ;
+	}
 
 	public void fetchItems(Item i,int q)
 	{
@@ -31,7 +41,7 @@ public class Bill
 
 		for(int i=0 ; i<itemCount ; i++)
 		{
-			itemTotal[i] = bill[i].itemPrice * qty[i] ;	
+			itemTotal[i] = bill[i].getItemPrice() * qty[i] ;	
 			subTotal += itemTotal[i] ;
 		}
 
@@ -61,7 +71,7 @@ public class Bill
 			for(int i=0 ; i<itemCount ; i++)
 			{
 				System.out.print("\n    ") ;
-				System.out.print(i+1 + "\t  " + bill[i].itemName + " \t\t\t " + qty[i] + " \t" + bill[i].itemPrice + " \t " + itemTotal[i]) ;
+				System.out.print(i+1 + "\t  " + bill[i].getItemName() + " \t\t\t " + qty[i] + " \t" + bill[i].getItemPrice() + " \t " + itemTotal[i]) ;
 			}
 		System.out.print("\n\n\t\t\t\t\t\t      --------") ;
 

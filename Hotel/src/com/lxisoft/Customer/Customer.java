@@ -6,8 +6,8 @@ import java.util.* ;
 
 public class Customer
 {
-  String cName,review ; 
-  int rat ; 		// Customer Ratings.
+  private String cName,review ; 
+  private int rat ; 		// Customer Ratings.
 
 
   public Bill b = new Bill() ;
@@ -47,7 +47,7 @@ public class Customer
 
 			b.fetchItems(inven.it[itNo],qty) ;
 
-			inven.it[itNo].stock -= qty ;
+			inven.it[itNo].setStock(inven.it[itNo].getStock()-qty) ;
 
 			System.out.print("\n     Order Another Dish? (Y/N) : ") ;
 			again = in.next().charAt(0) ;

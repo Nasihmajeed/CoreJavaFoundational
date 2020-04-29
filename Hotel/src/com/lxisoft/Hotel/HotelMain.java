@@ -7,7 +7,7 @@ import com.lxisoft.Console.* ;
 public class HotelMain
 {
 
-	char again ;
+	private char again ;
 
 	Scanner in = new Scanner(System.in) ;
 
@@ -54,7 +54,7 @@ public class HotelMain
 	
 	public void titleMenu()
 	{
-		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hDetail.hName + "\n\n") ;
+		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hDetail.getHName() + "\n\n") ;
                               
 		hDetail.displayAddressBanner() ;
 
@@ -333,7 +333,7 @@ public class HotelMain
 
 				this.bill() ;
 
-				hDetail.cusNo++ ;
+				hDetail.incCustNo() ;
 	 }
 
 	 public void bill()
