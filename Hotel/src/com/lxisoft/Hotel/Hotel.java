@@ -16,7 +16,6 @@ public class Hotel
 		Scanner in = new Scanner(System.in);
 		do
 		{
-			Clear.cls();
 			System.out.println(" =:> Select an option \n =:> 1. ADMIN \n =:> 2. USER \n");
 			try
 			{
@@ -42,6 +41,10 @@ public class Hotel
 			System.out.println(" =:> GO Back to Main Menu(yes/no)");
 			in.nextLine();
 			str=in.nextLine();
+			//System.out.println(str);
+			Clear.cls();
+			// ch=0;
+		
 		}while((str.equals("yes")));
 		
 		

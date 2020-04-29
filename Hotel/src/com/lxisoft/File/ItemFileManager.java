@@ -6,15 +6,46 @@ import java.io.*;
 import java.util.Date;
 public class ItemFileManager
 {
+
+	public File loadFile()
+	{
+		Hotel hotel = new Hotel();
+		File file = new File("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\itemlist.csv");
+		try
+		{
+			Boolean tf = file.exists();
+			if(!tf)
+			{	
+				file.createNewFile();
+				throw new fileNotFound();
+
+			}
+		}
+		catch(fileNotFound e)
+		{
+			
+			System.out.println("File created - Now add new items \n Enter admin password and log on to admin password");
+			hotel.ad.checkAdmin(hotel.adminCount);
+			hotel.adminCount++;
+			System.out.println("Now enter the Customer details Sorry for the wait\n\n");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return file;
+	}
+
 	int rowCount=1;
 	int i;
 	public int readFromFile(Item[] item,int ind)
 	{
+		File file = loadFile();
 		int rowCount=1;
 		String details;
 		try
 		{
-			FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\itemlist.csv");
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			i=0;
 			while((details=br.readLine())!=null)
@@ -41,10 +72,11 @@ public class ItemFileManager
 
 	public void updateFile(Item[] item,int ind)
 	{
+		File file = loadFile();
 		int counter=1;
 		try
 		{
-			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\itemlist.csv",false);
+			FileWriter fw = new FileWriter(file,false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.flush();
 			bw.close();
@@ -61,7 +93,7 @@ public class ItemFileManager
 			int q = item[i].totalAvailable;
 			try
 			{
-				FileWriter f = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\itemlist.csv",true);
+				FileWriter f = new FileWriter(file,true);
 				BufferedWriter b = new BufferedWriter(f);
 				if(counter==1)
 				{
@@ -141,5 +173,12 @@ public class ItemFileManager
 		}
 		return ind;
     	
+	}
+}
+class fileNotFound extends Exception
+{
+	public fileNotFound()
+	{
+		System.out.println("Please initialize the Menu first - file missing");
 	}
 }
