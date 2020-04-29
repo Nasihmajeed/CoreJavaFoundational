@@ -11,7 +11,6 @@ public class Menu
 	public Item[] item;
 	public int iNum=-1,index=0;
 	public int ind;
-	//int i;
 	public Order ord = new Order();
 	public void setFood()
 	{
@@ -59,7 +58,6 @@ public class Menu
 			{
 				in.nextLine();
 				System.err.println("Please Enter an item NUmber");
-				// ordering(ind);
 				iNum=-10;
 
 

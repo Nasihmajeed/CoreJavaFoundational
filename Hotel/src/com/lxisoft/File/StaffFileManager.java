@@ -6,7 +6,7 @@ public class StaffFileManager
 {
 	public void staffToFile(Staff[] staff,int ind)
 	{
-		int counter=1;	
+		// int counter=1;	
 		try
 		{
 			FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv",false);
@@ -19,17 +19,14 @@ public class StaffFileManager
 		}
 		for(int i=0;i<ind;i++)
 		{
-			int sNum= staff[i].staffNum;
-			String name = staff[i].staffName;
-			String job = staff[i].job;
+			int sNum= staff[i].getStaffNum();
+			String name = staff[i].getStaffName();
+			String job = staff[i].getStaffjob();
 			try
 			{
 				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\StaffDetails.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
-				if(counter==1)
-				{
-					bw.write("Staff Number");bw.write(',');bw.write("Staff Name");bw.write(',');bw.write("Job Section");bw.newLine();counter++;
-				}
+				
 				bw.write(Integer.toString(sNum));bw.write(',');bw.write(name);bw.write(',');bw.write(job);bw.newLine();bw.close();
 				
 			}

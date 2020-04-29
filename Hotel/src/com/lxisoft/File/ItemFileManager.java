@@ -89,11 +89,6 @@ public class ItemFileManager
 			{
 				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\OrderDetails.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
-				// if(rowCount==1)
-				// {
-				// 	bw.write("Date");bw.write(',');bw.write("Item Name");bw.write(',');bw.write("Total");bw.newLine();
-				// 	rowCount++;
-				// }
 				bw.write(date);bw.write(',');bw.write(na);bw.write(',');bw.write(Integer.toString(p));bw.write(',');bw.write(Integer.toString(rat));bw.newLine();bw.close();
 				
 			}
@@ -128,7 +123,6 @@ public class ItemFileManager
 				String[] st =details.split(",");
 				if(st[0].equals(today))
 				{
-					//System.out.println(st[0]+"     "+ st[1]+"         " + st[2]+"    "+st[3]);
 					od[i].date=st[0];
 					od[i].name=st[1];
 					od[i].total=Integer.parseInt(st[2]);

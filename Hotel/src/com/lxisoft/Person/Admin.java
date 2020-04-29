@@ -349,7 +349,7 @@ public class Admin
 		if(yesOrNo(" Need to add Staff or not"))
 		{
 			System.out.println("Staff Number: \n\t");
-			sNum=((staff[index-1].staffNum)+1);
+			sNum=((staff[index-1].getStaffNum())+1);
 			System.out.println(sNum);
 			staff[index].staffAdd(sNum);
 			index++;
@@ -382,13 +382,7 @@ public class Admin
 					staff[i]=new Staff();
 				}
 				
-				// staff[0].setStaff(100,"Pranav","Kitchen");
-				// staff[1].setStaff(101,"Manu","Cleaning");
-				// staff[2].setStaff(102,"vishnu","Counter");
-				// staff[3].setStaff(103,"Binu","Kitchen");
-				// staff[4].setStaff(104,"Sudeep","Counter");
 				staffIndex=staffFile.readStaff(staff,staffIndex);
-				//menu.file.staffToFile(staff,staffIndex);
 				staffInitialize=true;
 			}	
 
