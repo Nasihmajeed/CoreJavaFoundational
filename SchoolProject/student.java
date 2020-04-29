@@ -6,6 +6,9 @@ public class student
 	int clss;
 	String div;
 	int admno;
+	int mark;
+	String tutor;
+	
 	
 		
 }
