@@ -174,6 +174,49 @@ public class ItemFileManager
 		return ind;
     	
 	}
+
+public int readOrderDetails(OrderDetails[] od,int ind,String date)
+	{
+		int rowCount=1,i;
+		// Date date = new Date();  
+  //   	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+  //   	String today= formatter.format(date);
+    	String details;
+    	try
+    	{
+    		FileReader fr = new FileReader("E:\\prgmfiles\\CoreJavaFoundational\\Hotel\\src\\com\\lxisoft\\File\\OrderDetails.csv");
+			BufferedReader br = new BufferedReader(fr);
+			i=0;
+			while(( details= br.readLine())!=null)
+			{
+
+				if(rowCount==1)
+				{
+					details=br.readLine();
+					rowCount++;
+				}
+				String[] st =details.split(",");
+				if(st[0].equals(date))
+				{
+					od[i].date=st[0];
+					od[i].name=st[1];
+					od[i].total=Integer.parseInt(st[2]);
+					od[i].ratings=Integer.parseInt(st[3]);
+					i++;
+				}
+
+				
+				ind=i;
+			}
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();			
+		}
+		return ind;
+    	
+	}
 }
 class fileNotFound extends Exception
 {
