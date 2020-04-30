@@ -21,7 +21,7 @@ public class Order
 		for(int i=0;i<index;i++)
 		{
 			order[i].setItemPrice();
-			this.total=this.total+(order[i].itemTotAmount);
+			this.total=this.total+(order[i].getitemTotAmount());
 		}
 	}
 	

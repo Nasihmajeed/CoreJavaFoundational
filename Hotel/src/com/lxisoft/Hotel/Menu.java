@@ -9,8 +9,8 @@ public class Menu
 	Drinks dr = new Drinks();
 	public ItemFileManager file = new ItemFileManager();
 	public Item[] item;
-	public int iNum=-1,index=0;
-	public int ind;
+	private int iNum=-1,index=0;
+	private int ind;
 	public Order ord = new Order();
 	public void setFood()
 	{
@@ -32,7 +32,7 @@ public class Menu
 		System.out.println("-----------------------------------------------------------------------");                                      
 		System.out.println("ITEM NUMBER \t ITEM NAME \t       PRICE(Rs)         QUANTITY LEFT");
 		System.out.println("-----------------------------------------------------------------------");
-		for(int i=0;this.item[i].itemName!=null;i++)
+		for(int i=0;this.item[i].getItemName()!=null;i++)
 		{
 		item[i].printToAdmin(i);
 		}
@@ -101,15 +101,24 @@ public class Menu
 	{
 		Scanner in = new Scanner(System.in);
 		System.out.println("Enter the quantity Required\n\t");
-		this.ord.order[index].itemQuantity = in.nextInt();
-		int ch = item[itemNumber].checkQuantity(this.ord.order[index].itemQuantity);
+		int q= in.nextInt();
+		this.ord.order[index].setItemQuantity(q);
+		int ch = item[itemNumber].checkQuantity(this.ord.order[index].getItemQuantity());
 		if(ch==1)
 		{
-			this.ord.order[index].itemName=this.item[itemNumber].itemName;
-			this.ord.order[index].itemPrice=this.item[itemNumber].itemPrice;
+			this.ord.order[index].setItemName(this.item[itemNumber].getItemName());
+			this.ord.order[index].setItemPrice(this.item[itemNumber].getItemPrice());
 			index++;
 		}
 		
+	}
+	public void setIndex(int index)
+	{
+		ind = index;
+	}
+	public int getIndex()
+	{
+		return ind;
 	}
 
 	

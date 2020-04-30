@@ -88,9 +88,9 @@ public class ItemFileManager
 		for(int i=0;i<ind;i++)
 		{
 			
-			String na = item[i].itemName;
-			int p = item[i].itemPrice;
-			int q = item[i].totalAvailable;
+			String na = item[i].getItemName();
+			int p = item[i].getItemPrice();
+			int q = item[i].getTotalAvailable();
 			try
 			{
 				FileWriter f = new FileWriter(file,true);

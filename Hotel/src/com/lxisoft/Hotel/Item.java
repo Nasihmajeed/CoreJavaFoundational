@@ -4,9 +4,9 @@ import java.io.*;
 
 public class Item implements inter
 {
-	public String itemName;
-	public int itemPrice,itemTotAmount=0;
-	public int itemQuantity,totalAvailable;
+	private String itemName;
+	private int itemPrice,itemTotAmount=0;
+	private int itemQuantity,totalAvailable;
 	public void setItem(String iName,int iPrice,int totalAva)
 	{
 		this.itemName=iName;
@@ -65,6 +65,39 @@ public class Item implements inter
 		this.setItem(iName,price,quantity);
 		
 	}
+	public String getItemName()
+	{
+		return itemName;
+	}
 	
+	public int getItemPrice()
+	{
+		return itemPrice;
+	}
+	public int getitemTotAmount()
+	{
+		return itemTotAmount;
+	}
+	public int getTotalAvailable()
+	{
+		return totalAvailable;
+	}
+	public void setItemName(String name)
+	{
+		this.itemName=name;
+	}
+	public void setItemPrice(int price)
+	{
+		this.itemPrice=price;
+	}
+	public void setItemQuantity(int quantity)
+	{
+		this.itemQuantity=quantity;
+	}
+	public int getItemQuantity()
+	{
+		return itemQuantity;
+	}
+
 }
 

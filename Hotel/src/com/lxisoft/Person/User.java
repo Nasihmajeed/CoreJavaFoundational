@@ -50,7 +50,7 @@ public class User
     	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
     	String strDate= formatter.format(date);  
 		menu.printMenu();
-		menu.ordering(menu.ind);
+		menu.ordering(menu.getIndex());
 		od[var].name=this.userName;
 		od[var].total=menu.ord.total;
 		od[var].date=strDate;

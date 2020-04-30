@@ -41,10 +41,7 @@ public class Hotel
 			System.out.println(" =:> GO Back to Main Menu(yes/no)");
 			in.nextLine();
 			str=in.nextLine();
-			//System.out.println(str);
-			Clear.cls();
-			// ch=0;
-		
+			Clear.cls();		
 		}while((str.equals("yes")));
 		
 		

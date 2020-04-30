@@ -164,13 +164,14 @@ public class Admin
 		menu.printMenu();
 		for(int i=0;i<menu.item.length;i++)
 		{
-			if(menu.item[i].itemName==null)
+			if(menu.item[i].getItemName()==null)
 			{
 				if(yesOrNo("need to add item"))
 				{
-					menu.ind=(i+1);
+					//menu.ind=(i+1);
+					menu.setIndex((i+1));
 					menu.item[i].itemAdd();
-					menu.file.updateFile(menu.item,menu.ind);
+					menu.file.updateFile(menu.item,menu.getIndex());
 					Clear.cls();
 					menu.printMenu();
 				}
@@ -195,7 +196,7 @@ public class Admin
 				
 				menu.item[i].itemAdd();
 				Clear.cls();
-				menu.file.updateFile(menu.item,menu.ind);
+				menu.file.updateFile(menu.item,menu.getIndex());
 				menu.printMenu();
 			}
 		}
@@ -209,24 +210,24 @@ public class Admin
 		Scanner in = new Scanner(System.in);
 		int r=100;
 		adminCount++;
-		for(int i=0;(menu.item[i].itemName)!=null;i++)
+		for(int i=0;(menu.item[i].getItemName())!=null;i++)
 		{
 			if((i+1)==iNum)
 			{
 				r=iNum-1;
 				if(yesOrNo("Need to delete item"))
 				{
-					for(int j=(iNum-1);(menu.item[j].itemName)!=null;j++)
+					for(int j=(iNum-1);(menu.item[j].getItemName())!=null;j++)
 					{
-						menu.item[j].itemName=menu.item[j+1].itemName;
-						menu.item[j].itemPrice=menu.item[j+1].itemPrice;
+						menu.item[j].setItemName(menu.item[j+1].getItemName());
+						menu.item[j].setItemPrice(menu.item[j+1].getItemPrice());
 						r=j;
 					}
-					menu.item[r+1].itemName=null;
+					menu.item[r+1].setItemName(null);
 					Clear.cls();
-					menu.ind--;
-					menu.file.updateFile(menu.item,menu.ind);
-					System.out.println("menu.ind = " + menu.ind);
+					int ind= menu.getIndex();
+					menu.setIndex(ind-1);
+					menu.file.updateFile(menu.item,menu.getIndex());
 					menu.printMenu();
 					break;
 				
@@ -266,20 +267,20 @@ public class Admin
 		int ch,j,flag=1;
 		String ip;
 
-		for(int i=0;menu.item[i].itemName!=null;i++)
+		for(int i=0;menu.item[i].getItemName()!=null;i++)
 		{
-			if(str.equals(menu.item[i].itemName))
+			if(str.equals(menu.item[i].getItemName()))
 			{
 				Clear.cls();
 				flag=0;
-				System.out.println(" => 1. DELETE ITEM " + menu.item[i].itemName);
-				System.out.println(" => 2. EDIT ITEM " + menu.item[i].itemName);
+				System.out.println(" => 1. DELETE ITEM " + menu.item[i].getItemName());
+				System.out.println(" => 2. EDIT ITEM " + menu.item[i].getItemName());
 				System.out.println("Choose an option");
 				ch=in.nextInt();
 				in.nextLine();
 				switch(ch)
 				{
-					case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].itemName);
+					case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].getItemName());
 							if(yesOrNo(" "))
 							{
 								deleteItem(adminCount,(i+1));
@@ -287,7 +288,7 @@ public class Admin
 							}
 							break;
 							
-					case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].itemName);
+					case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].getItemName());
 							if(yesOrNo("( Edit item or not ) "))
 							{
 								editItem(adminCount,(i+1));
