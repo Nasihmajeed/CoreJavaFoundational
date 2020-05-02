@@ -92,31 +92,18 @@ public class Admin
 		switch(c)
 		{
 			case 1: Clear.cls();
-					System.out.println("\t\t ADD FOOD ITEM");
-				    System.out.println("\t -----------------------------------------");
-					addItem(adminCount);
+					addItemMenu(adminCount);
 					adminCount++;
-					adminActions(adminCount);
 					break;
 			
-			case 2:Clear.cls();System.out.println("\t\tEDIT AN FOOD ITEM");
-				   System.out.println(adminCount);
-				   System.out.println("\t -----------------------------------------");
-				   menu.printMenu();
-				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO EDIT");
-				   int	iNum = in.nextInt();
-				   in.nextLine();
-				   editItem(adminCount,iNum);
-				   adminCount++;
+			case 2:Clear.cls()
+				   editMenu(adminCount);
 				   adminActions(adminCount);
+				   adminCount++;
 				   break;
 
-			case 3:Clear.cls();System.out.println("\t\tDELETE AN FOOD ITEM");
-				   System.out.println("\t -----------------------------------------");
-				   menu.printMenu();
-				   System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
-				   iNum = in.nextInt();
-				   deleteItem(adminCount,iNum);
+			case 3:Clear.cls();
+					deleteMenu(adminCount);
 				   adminCount++;
 				   adminActions(adminCount);
 				   break;
@@ -129,12 +116,7 @@ public class Admin
 				   break;
 
 			case 5 :Clear.cls();
-					System.out.println("\t\tSEARCH ITEM");
-					System.out.println("\t -----------------------------------------");
-					System.out.println("\nEnter the item Name");
-					String nameToSearch;in.nextLine();
-					nameToSearch=in.nextLine();
-					searchItem(nameToSearch,adminCount);
+					searchMenu(adminCount);
 					adminCount++;
 					adminActions(adminCount);
 					break;
@@ -151,6 +133,44 @@ public class Admin
 					break;
 
 		}
+	}
+	public addItemMenu(int adminCount)
+	{
+		System.out.println("\t\t ADD FOOD ITEM");
+	    System.out.println("\t -----------------------------------------");
+		addItem(adminCount);
+		adminCount++;
+		adminActions(adminCount);
+	}
+	public editMenu(int adminCount)
+	{
+		System.out.println("\t\tEDIT AN FOOD ITEM");
+		System.out.println(adminCount);
+		System.out.println("\t -----------------------------------------");
+		menu.printMenu();
+		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO EDIT");
+		int	iNum = in.nextInt();
+		in.nextLine();
+		editItem(adminCount,iNum);
+		
+	}
+	public deleteMenu(int adminCount)
+	{
+		System.out.println("\t\tDELETE AN FOOD ITEM");
+		System.out.println("\t -----------------------------------------");
+		menu.printMenu();
+		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
+		iNum = in.nextInt();
+		deleteItem(adminCount,iNum);
+	}
+	public void searchMenu(int adminCount)
+	{
+		System.out.println("\t\tSEARCH ITEM");
+		System.out.println("\t -----------------------------------------");
+		System.out.println("\nEnter the item Name");
+		String nameToSearch;in.nextLine();
+		nameToSearch=in.nextLine();
+		searchItem(nameToSearch,adminCount);
 	}
 	
 	public void addItem(int adminCount)
