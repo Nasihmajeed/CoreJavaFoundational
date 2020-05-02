@@ -412,7 +412,42 @@ public class Admin
 
 	public void changeDate(String date)
 	{
-		
+		int var=0,totalAmount=0;
+		OrderDetails[] od1 = new OrderDetails[10];
+		for(int i=0;i<10;i++)
+		{
+			od1[i]=new OrderDetails();
+		}
+		menu.file.readOrderDetails(od1,var,date);
+		if(od.length == 0)
+			System.out.println("\n\n \t Sorry no Records Found");	
+		else
+		{
+			for(int i=0;od1[i].name!=null;i++)
+				{	
+					totalAmount=od1[i].total+totalAmount;
+				}
+			Clear.cls();
+			System.out.println("\t\t TOTAL INCOME DETAILS");
+			System.out.println("\t -----------------------------------------");
+			System.out.println(" --> TOTAL GAIN = "+ totalAmount);
+			Scanner in = new Scanner(System.in);
+			String ch;
+			System.out.println(" =:> MORE DETAILS (yes/no)");
+			ch=in.nextLine();
+			if(ch.equals("yes"))
+			{
+				for(int i=0;od1[i].name!=null;i++)
+				{
+					System.out.println("\n  =:> CUSTOMER NAME : "+od1[i].name + "\n  =:> BILL AMOUNT = " + od1[i].total);
+					System.out.print("\t-->CUSTOMER RATING : ");
+					for(int j=0;j<od1[i].ratings;j++)
+						System.out.print("* ");
+					System.out.print(" ( "+od1[i].ratings+" out of 5 )");
+					System.out.println("\n---------------------------------------------------------");
+				}
+			}
+		}
 
 
 	}
