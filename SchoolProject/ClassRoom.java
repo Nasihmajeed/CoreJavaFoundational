@@ -7,7 +7,9 @@ public class ClassRoom
 	n=s.nextInt();
     Student std=new Student();
     Student std=new Student[50];
-     for (std i=1; i<=n; i++)
+    std(i)=new Student()
+    
+     for (int i=1; i<=n; i++)
      {
         System.out.println("enter 1st student details: ");
         System.out.println("enter name of the student: ");
