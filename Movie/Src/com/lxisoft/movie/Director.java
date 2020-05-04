@@ -37,7 +37,7 @@ public class Director
 			a.add(comedian);
 			a.add(villain);
 			a.add(heroin);
-			castActor[i]=a.get(--num);
+			castActor[i]=a.get(num-1);
 		}
 		
 	}	

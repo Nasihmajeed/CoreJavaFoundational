@@ -45,6 +45,7 @@ public class Movie
 		for (int j=1;j<=randscenes;j++) 
 		{
 			Script script=new Script();
+			ArrayList<String>scenes=script.getScenes();
 			director.setDirectionControl(script);
 			System.out.println("Scene "+j+" : "+director.getDirectionControl());
 			int randdialogue=(int)(Math.random()*randscenes)+1;

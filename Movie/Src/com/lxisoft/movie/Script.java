@@ -4,16 +4,20 @@ import java.util.*;
 public class Script
 {	
 	
-	
-	public String scenes(int randscenenum)
+	ArrayList<String> scenes=new ArrayList<String>();
+	public void setScenes(int randscenenum)
 	{
-		ArrayList<String> scenes=new ArrayList<String>();
+		
 		scenes.add("on the bridge");
 		scenes.add("center of meetingroom");
 		scenes.add("In the car");
 		scenes.add("Ship basement");
 		scenes.add("The company");
-		return scenes.get(randscenenum);
+		
+	}
+	public ArrayList<String> getScenes()
+	{
+		return scenes;
 	}
 	
 
