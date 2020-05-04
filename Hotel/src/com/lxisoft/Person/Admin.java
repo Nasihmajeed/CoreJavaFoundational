@@ -96,7 +96,7 @@ public class Admin
 					adminCount++;
 					break;
 			
-			case 2:Clear.cls()
+			case 2:Clear.cls();
 				   editMenu(adminCount);
 				   adminActions(adminCount);
 				   adminCount++;
@@ -134,7 +134,7 @@ public class Admin
 
 		}
 	}
-	public addItemMenu(int adminCount)
+	public void addItemMenu(int adminCount)
 	{
 		System.out.println("\t\t ADD FOOD ITEM");
 	    System.out.println("\t -----------------------------------------");
@@ -142,8 +142,9 @@ public class Admin
 		adminCount++;
 		adminActions(adminCount);
 	}
-	public editMenu(int adminCount)
+	public void editMenu(int adminCount)
 	{
+		Scanner in=new Scanner(System.in);
 		System.out.println("\t\tEDIT AN FOOD ITEM");
 		System.out.println(adminCount);
 		System.out.println("\t -----------------------------------------");
@@ -154,21 +155,23 @@ public class Admin
 		editItem(adminCount,iNum);
 		
 	}
-	public deleteMenu(int adminCount)
+	public void deleteMenu(int adminCount)
 	{
+		Scanner in=new Scanner(System.in);
 		System.out.println("\t\tDELETE AN FOOD ITEM");
 		System.out.println("\t -----------------------------------------");
 		menu.printMenu();
 		System.out.println(" =:> ENTER THE ITEM NUMBER YOU NEED TO DELETE");
-		iNum = in.nextInt();
+		int iNum = in.nextInt();
 		deleteItem(adminCount,iNum);
 	}
 	public void searchMenu(int adminCount)
 	{
+		Scanner in=new Scanner(System.in);
 		System.out.println("\t\tSEARCH ITEM");
 		System.out.println("\t -----------------------------------------");
 		System.out.println("\nEnter the item Name");
-		String nameToSearch;in.nextLine();
+		String nameToSearch;
 		nameToSearch=in.nextLine();
 		searchItem(nameToSearch,adminCount);
 	}
@@ -267,15 +270,7 @@ public class Admin
 		ch=in.nextLine();
 		if(ch.equals("yes"))
 		{
-			for(int i=0;od[i].name!=null;i++)
-			{
-				System.out.println("\n  =:> CUSTOMER NAME : "+od[i].name + "\n  =:> BILL AMOUNT = " + od[i].total);
-				System.out.print("\t-->CUSTOMER RATING : ");
-				for(int j=0;j<od[i].ratings;j++)
-					System.out.print("* ");
-				System.out.print(" ( "+od[i].ratings+" out of 5 )");
-				System.out.println("\n---------------------------------------------------------");
-			}
+			printOrderDetails(od);
 		}
 		System.out.println("1. Change the date :");
 		int choice=in.nextInt();
@@ -289,6 +284,18 @@ public class Admin
 			System.out.println("Thak you : ");
 	}
 
+	public void printOrderDetails(OrderDetails[] od)
+	{
+		for(int i=0;od[i].name!=null;i++)
+			{
+				System.out.println("\n  =:> CUSTOMER NAME : "+od[i].name + "\n  =:> BILL AMOUNT = " + od[i].total);
+				System.out.print("\t-->CUSTOMER RATING : ");
+				for(int j=0;j<od[i].ratings;j++)
+					System.out.print("* ");
+				System.out.print(" ( "+od[i].ratings+" out of 5 )");
+				System.out.println("\n---------------------------------------------------------");
+			}
+	}
 	
 	public void searchItem(String str,int adminCount)
 	{
@@ -307,23 +314,8 @@ public class Admin
 				System.out.println("Choose an option");
 				ch=in.nextInt();
 				in.nextLine();
-				switch(ch)
-				{
-					case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].getItemName());
-							if(yesOrNo(" "))
-							{
-								deleteItem(adminCount,(i+1));
-							
-							}
-							break;
-							
-					case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].getItemName());
-							if(yesOrNo("( Edit item or not ) "))
-							{
-								editItem(adminCount,(i+1));
-							}
-							break;							
-				}
+				printOption(ch,adminCount,i);
+				
 			}
 		}
 		if(flag==1)
@@ -334,12 +326,32 @@ public class Admin
 		}
 			
 	}
+
+	public void printOption(int ch,int adminCount,int i)
+	{
+		switch(ch)
+		{
+		case 1 :Clear.cls();System.out.println(" => DELETE ITEM : " + menu.item[i].getItemName());
+				if(yesOrNo(" "))
+				{
+					deleteItem(adminCount,(i+1));
+				
+				}
+				break;
+				
+		case 2: Clear.cls();System.out.println(" => EDIT ITEM : " + menu.item[i].getItemName());
+				if(yesOrNo("( Edit item or not ) "))
+				{
+					editItem(adminCount,(i+1));
+				}
+				break;							
+		}
+	}
 	public void initializeStaff(int adminCount)
 	{
 		Scanner in = new Scanner(System.in);
 		int a=0,opt;
 		staffSet(staffInitialize);
-		//Clear.cls();
 		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
 		try
 		{
@@ -457,15 +469,7 @@ public class Admin
 			ch=in.nextLine();
 			if(ch.equals("yes"))
 			{
-				for(int i=0;od1[i].name!=null;i++)
-				{
-					System.out.println("\n  =:> CUSTOMER NAME : "+od1[i].name + "\n  =:> BILL AMOUNT = " + od1[i].total);
-					System.out.print("\t-->CUSTOMER RATING : ");
-					for(int j=0;j<od1[i].ratings;j++)
-						System.out.print("* ");
-					System.out.print(" ( "+od1[i].ratings+" out of 5 )");
-					System.out.println("\n---------------------------------------------------------");
-				}
+				printOrderDetails(od1);
 			}
 		}
 
