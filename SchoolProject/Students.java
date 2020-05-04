@@ -1,5 +1,3 @@
-
-import java.util.Scanner;
 public class Students
 {
 	String s_name;
@@ -16,16 +14,14 @@ public class Students
 
 
 
+	public String printDetail()
+		{
+			return "\n \t \t  Name : "+s_name+"\n \t \t Class :"+class+"\n Register number :"+regno;
+
+			
 
 
-
-	public class 
-	Scanner stud=new Scanner(System.in);
-	System.out.println("Enter the student name");
-	String studentname=in.nextLine();
-	System.out.println("Student name is"+ studentname);
-	}
-
+		}
 
 		public Total()
 		{

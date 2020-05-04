@@ -1,21 +1,23 @@
-import java.util.Scanner;
 
-public class Classroom extends Teacher
+public class Classroom
 {
-	String class1, class2;
-	Student s1,s2;
-	Teacher t1,t2;
-	char [] student;
-		public String classDetail1()
-		{
-			return class1;
-		}
-		
-		public String classDetail12()
-		{
-			return class2;
-		}
-		
-		
-}
+	
 
+
+	Student s1=new s1;
+	Student s2=new s2;
+	Student s3=new s3;
+	Student s4=new s4;
+
+
+	Teacher t1=new t1;
+	Teacher t2=new t2;
+
+	
+	
+	public String printDetail()
+		{
+			
+			
+			System.out.println("\n \n Class Number : "+classno);
+		}
