@@ -41,7 +41,7 @@ public void setDetails()
 	actors.get(1).setmovieRoll("Comadian"); 
 }
 
-public int MovieControl()
+public int movieControl()
 {
 	System.out.print("\nPress 1 Play Movie\nPress 0 to Exit\n\n Enter Your Choise :");
 	int choise=input.nextInt();
