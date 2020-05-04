@@ -64,7 +64,6 @@ public class Admin
 	
 	public void adminActions(int adminCount)
 	{
-		// prints out the admin operation
 		int c=0;
 		Scanner in=new Scanner(System.in);
 		if (adminCount==0)
@@ -127,9 +126,10 @@ public class Admin
 					adminActions(adminCount);
 					break;
 
-			case 7 :Clear.cls();break;
+			case 7 :Clear.cls();
+				    break;
 
-			default:System.out.println("...Retry...");
+			default:System.out.println("...Retry...Wrong Code");
 					break;
 
 		}
@@ -178,7 +178,6 @@ public class Admin
 	
 	public void addItem(int adminCount)
 	{
-		// Add a new item
 		String ch;	
 		Scanner in = new Scanner(System.in);
 		menu.printMenu();
@@ -188,7 +187,6 @@ public class Admin
 			{
 				if(yesOrNo("need to add item"))
 				{
-					//menu.ind=(i+1);
 					menu.setIndex((i+1));
 					menu.item[i].itemAdd();
 					menu.file.updateFile(menu.item,menu.getIndex());
@@ -205,7 +203,6 @@ public class Admin
 	
 	public void editItem(int adminCount, int iNum)
 	{
-		//Edit an existingitem
 		Scanner in = new Scanner(System.in);
 		System.out.println(adminCount);
 		Clear.cls();
@@ -225,7 +222,6 @@ public class Admin
 	
 	public void deleteItem(int adminCount , int iNum)
 	{
-		// Delete an exsisting item
 		String str;	
 		Scanner in = new Scanner(System.in);
 		int r=100;
@@ -237,13 +233,7 @@ public class Admin
 				r=iNum-1;
 				if(yesOrNo("Need to delete item"))
 				{
-					for(int j=(iNum-1);(menu.item[j].getItemName())!=null;j++)
-					{
-						menu.item[j].setItemName(menu.item[j+1].getItemName());
-						menu.item[j].setItemPrice(menu.item[j+1].getItemPrice());
-						r=j;
-					}
-					menu.item[r+1].setItemName(null);
+					menu.swapItem(iNum);
 					Clear.cls();
 					int ind= menu.getIndex();
 					menu.setIndex(ind-1);
@@ -360,11 +350,11 @@ public class Admin
 		{
 			System.err.println("Entered Number is not an option");
 		}
-		staffMenu(a);
+		staffMenu(a,adminCount);
 		
 		
 	}
-	public void staffMenu(int a)
+	public void staffMenu(int a,int adminCount)
 	{
 		switch(a)
 		{
@@ -438,7 +428,7 @@ public class Admin
 	{
 		Scanner in = new Scanner(System.in);
 		String ip;
-		System.out.println("Do you sure "+a+" (yes/no)");
+		System.out.println("Do you sure "+ a +" (yes/no)");
 		ip=in.nextLine();
 		if(ip.equals("yes"))
 			return true;
@@ -448,6 +438,7 @@ public class Admin
 
 	public void changeDate(String date)
 	{
+		Scanner in = new Scanner(System.in);
 		int var=0,totalAmount=0;
 		OrderDetails[] od1 = new OrderDetails[10];
 		for(int i=0;i<10;i++)
@@ -467,7 +458,6 @@ public class Admin
 			System.out.println("\t\t TOTAL INCOME DETAILS");
 			System.out.println("\t -----------------------------------------");
 			System.out.println(" --> TOTAL GAIN = "+ totalAmount);
-			Scanner in = new Scanner(System.in);
 			String ch;
 			System.out.println(" =:> MORE DETAILS (yes/no)");
 			ch=in.nextLine();
