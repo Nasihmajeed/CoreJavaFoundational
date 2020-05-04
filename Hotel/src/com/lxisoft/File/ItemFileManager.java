@@ -178,9 +178,6 @@ public class ItemFileManager
 public int readOrderDetails(OrderDetails[] od,int ind,String date)
 	{
 		int rowCount=1,i;
-		// Date date = new Date();  
-  //   	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
-  //   	String today= formatter.format(date);
     	String details;
     	try
     	{

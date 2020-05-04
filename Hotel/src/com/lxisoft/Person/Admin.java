@@ -260,7 +260,6 @@ public class Admin
 	
 	public void printStatus()
 	{
-		// print the total customer details
 		System.out.println("\t\t TOTAL INCOME DETAILS");
 		System.out.println("\t -----------------------------------------");
 		System.out.println(" --> TOTAL GAIN = "+usr.totalAmount);
@@ -361,7 +360,12 @@ public class Admin
 		{
 			System.err.println("Entered Number is not an option");
 		}
+		staffMenu(a);
 		
+		
+	}
+	public void staffMenu(int a)
+	{
 		switch(a)
 		{
 			case 1 :Clear.cls();
