@@ -1,15 +1,18 @@
-public class student
+public class Student
 {
 	String name;
-	int rno;
-	int phno;
 	int clss;
 	String div;
-	int admno;
-	int mark;
-	String tutor;
-	
-	
-		
+    int rNo;
+    int parentNo;
+    int admno;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int total;
+	int percentage;
+	 
 }
 
