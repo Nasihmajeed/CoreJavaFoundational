@@ -121,19 +121,7 @@ public class Menu
 		return ind;
 	}
 	public void swapItem(int iNum)
-	{
-		int r=1111;
-		for(int j=(iNum-1);(item[j].getItemName())!=null;j++)
-		{
-			item[j].setItemName(item[j+1].getItemName());
-			item[j].setItemPrice(item[j+1].getItemPrice());
-			item[j].setItemQuantity(item[j+1].getItemQuantity());
-			System.out.println(item[j+1].getItemQuantity());
-			r=j;
-		}
-		item[r+1].setItemName(null);
-		
-	}
+	
 
 	
 }
