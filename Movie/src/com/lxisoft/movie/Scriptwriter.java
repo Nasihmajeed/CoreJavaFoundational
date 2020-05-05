@@ -14,32 +14,32 @@ public class Scriptwriter
 		{
 						
 			script=new Script();
-			String actordia;
+			int actordia;
 			Fileoperation fo=new Fileoperation();
 			//int actordia=(int)(Math.random()*4);	
 			if(actorlist[i] instanceof Hero)
 			{
-				actordia="Hero";
+				actordia=0;
 			}
 			else if(actorlist[i] instanceof Comedian)
 			{
-				actordia="Comedian";
+				actordia=1;
 			}
 			else if(actorlist[i] instanceof Villain)
 			{
-				actordia="Villain";
+				actordia=2;
 			}
 			else if(actorlist[i] instanceof Heroin)
 			{
-				actordia="Heroin";
+				actordia=3;
 			}
 			else
 			{
-				actordia="Dialouge";
+				actordia=4;
 			}
 			String s=fo.operation(actordia);
-			String sam=fo.operation(actordia);
-			test.add(sam);
+			
+			test.add(s);
 			for(int j=0;j<test.size();j++)
 			{
 				if(!s.equals(test.get(j)))

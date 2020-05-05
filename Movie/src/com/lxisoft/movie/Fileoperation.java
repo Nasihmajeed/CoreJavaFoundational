@@ -5,26 +5,29 @@ import java.util.*;
 
 public class Fileoperation
 {
-
-	public String operation(String actordia)
+    String[] datas;
+	public String operation(int actordia)
 	{
 		String[] data=new String[10];
         String line = "";
        try{
-	       	   String csvFile = "../version..2/com/lxisoft/movie/Dialogue.csv";
-    	       BufferedReader br = new BufferedReader(new FileReader(csvFile));
-    	       int i=0;
+	       	   //String csvFile = "../version..2/com/lxisoft/movie/Dialogue.csv";
+               String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv"};
+            for (int i=0;i<csvFile.length;i++) 
+            {
+    	       BufferedReader br = new BufferedReader(new FileReader(csvFile[actordia]));
+    	       
 	           while ((line = br.readLine()) != null)
 	           {
 
                  
-    	           String[] datas= line.split(","); 
-                   if(actordia.equals(datas[0]))
-                   {
-    	               data[i++]=datas[1];
-                   }
+    	         datas = line.split(","); 
+                  
+    	               /*data[i++]=datas[1];*/
+                   
 	           }
-           }
+            }
+          }
     		catch (FileNotFoundException e)
           	{
             	e.printStackTrace();
@@ -33,21 +36,9 @@ public class Fileoperation
         {
             e.printStackTrace();
         } 
-       
-
         
-       /* for (int i=0;i<randVariable.size();i++) 
-        {
-            int randVar=(int)(Math.random()*4);
-                 if(randVariable.get(i)!=randVar);
-            {
-                randVariable.add(randVar);
-                data[i]=randVariable.get(i);
-            }
-        }*/
-       
         int randVar=(int)(Math.random()*4);
-        return data[randVar];     
+        return datas[randVar];     
 	}
 	public void writeIntoFile()
     {

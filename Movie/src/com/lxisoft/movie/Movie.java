@@ -45,7 +45,7 @@ public class Movie
 		for (int j=1;j<=randscenes;j++) 
 		{
 			Script script=new Script();
-			ArrayList<String>scenes=script.getScenes();
+//			ArrayList<String>scenes=script.getScenes();
 			director.setDirectionControl(script);
 			System.out.println("Scene "+j+" : "+director.getDirectionControl());
 			int randdialogue=(int)(Math.random()*randscenes)+1;
@@ -53,7 +53,7 @@ public class Movie
 				
 			for (int i=0;i<randdialogue;i++)  
 			{
-				int a=i;
+				
 				scriptwriter.setScript(actorlist,test);
 				actorlist=scriptwriter.getScript();
 				int randindex=(int)(Math.random()*actorlist.length);

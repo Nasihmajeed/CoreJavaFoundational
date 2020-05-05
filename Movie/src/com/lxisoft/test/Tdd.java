@@ -18,18 +18,18 @@ public class Tdd
 			switch(num)
 			{
 				case 1:
-						try
-						{
+						/*try
+						{*/
 							Movie movie=new Movie();						
 							movie.playScene();						
 							
-						}
+						/*}
 						catch(ArrayIndexOutOfBoundsException e)
 						{
 							System.out.println("invalid number");
 							
 							
-						}
+						}*/
 						System.out.println("\n");
 						break;
 						
@@ -50,6 +50,7 @@ public class Tdd
 
 
 			}
+
 						
 		}while(flag);
 				
