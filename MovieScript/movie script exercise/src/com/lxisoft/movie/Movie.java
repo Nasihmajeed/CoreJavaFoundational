@@ -36,8 +36,18 @@ public class Movie {
 		File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char1.txt");
 		File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
 		displayHead(head);
-		//conversation(head,char1,char2);	
+		conversation(head,char1,char2);	
 		 	
+	}
+	public void conversation(File head,File char1,File char2)
+	{
+		ArrayList<Dialogue> c1=read(char1);
+		ArrayList<Dialogue> c2=read(char2);
+		for(int i=0,j=0;i<c1.size()&&j<c2.size();i++,j++)
+			{
+				System.out.println("charecter 1: "+c1.get(i).dialogue);
+				System.out.println("charecter 2: "+c2.get(j).dialogue);
+		}
 	}
 	public void displayHead(File file)
 	{
@@ -46,10 +56,10 @@ public class Movie {
 		System.out.println("----------------------------------");
 		System.out.println("MOVIE NAME : "+head.get(0).dialogue);
 		System.out.println("SCRIPT WRITER : "+head.get(1).dialogue);
-		System.out.println("MOVIE GENRE : "+head.get(3).dialogue);
+		System.out.println("MOVIE GENRE : "+head.get(2).dialogue);
 	}
 	public void newScript()
-	{	
+	{
 		heading();
 		choice1();
 		
@@ -76,9 +86,20 @@ public class Movie {
 	public void	choiceChar1()
 	{
 		int a=0;
- 		do{
-			try{
- 				File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char1.txt");	
+		try {
+				File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
+				PrintWriter w = new PrintWriter(char1);
+				w.print("");
+				w.close();
+		}
+		catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+				do{
+					try{
+						File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char1.txt");
+			 	
    			 	FileWriter fw =new FileWriter(char1,true);
 				BufferedWriter bw =new BufferedWriter(fw);
 				System.out.println("enter the dialogue : ");
@@ -97,13 +118,34 @@ public class Movie {
 				System.out.println("press 1 if you want to add dialogue");
 				 a=sc.nextInt();
  	}while(a==1);
+ 		System.out.println("1.back to previous menu");
+ 		System.out.println("2.back to main menu");
+ 		int b=sc.nextInt();
+ 		switch(b)
+ 		{
+ 		case 1:choice1();
+ 				break;
+ 		case 2: head();
+ 				break;
+ 		default:System.out.println("enter a valid choice");
+ 		}
 	}
 	public void choiceChar2()
 	{
 		int a=0;
- 		do{
-			try{
- 				File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");	
+ 		try {
+ 				File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
+ 				PrintWriter w = new PrintWriter(char2);
+ 				w.print("");
+ 				w.close();
+ 		}
+ 		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+ 				do{
+ 					try{
+ 						File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
    			 	FileWriter fw =new FileWriter(char2,true);
 				BufferedWriter bw =new BufferedWriter(fw);
 				System.out.println("enter the dialogue : ");
@@ -122,12 +164,27 @@ public class Movie {
 				System.out.println("press 1 if you want to add dialogue");
 				 a=sc.nextInt();
  	}while(a==1);
+ 		System.out.println("1.back to previous menu");
+ 		System.out.println("2.back to main menu");
+ 		int b=sc.nextInt();
+ 		switch(b)
+ 		{
+ 		case 1:choice1();
+ 				break;
+ 		case 2: head();
+ 				break;
+ 		default:System.out.println("enter a valid choice");
+ 		}
 	}
 
 	public void heading()
 	{
+		
 		try {
 		File head=new File("D:\\lxi\\eclips\\movieScript\\src\\com\\lxisoft\\file\\head.txt");
+		PrintWriter w = new PrintWriter(head);
+		w.print("");
+		w.close();
 		FileWriter fw =new FileWriter(head,true);
 		BufferedWriter bw =new BufferedWriter(fw);
 		System.out.println("\n movie : ");
