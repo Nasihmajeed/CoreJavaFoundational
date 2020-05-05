@@ -13,39 +13,38 @@ public class Script
  		{
 			vdiaQuest [i]=new Dialogue();
 		}	
-		vdiaQuest[0].dialogueType="q1";
-		vdiaQuest[1].dialogueType="q2";
-		vdiaQuest[2].dialogueType="q3";
+		vdiaQuest[0].dialogueType="there is no other option";
+		vdiaQuest[1].dialogueType="you should punish for it";
+		vdiaQuest[2].dialogueType="i will kill you";
 
 		vdiaAns=new Dialogue[3];
 		for(int j=0;j<vdiaAns.length;j++)
 		{
 			vdiaAns [j]=new Dialogue();
 		}
-		vdiaAns[0].dialogueType="a1";
-		vdiaAns[1].dialogueType="a2";
-		vdiaAns[2].dialogueType="a3";
+		vdiaAns[0].dialogueType="you should wait for a punish";
+		vdiaAns[1].dialogueType="it is imposible";
+		vdiaAns[2].dialogueType="i dont want any explanation";
 
 		cdiaQuest=new Dialogue[3];
 		for(int k=0;k<cdiaQuest.length;k++)
 		{
 			cdiaQuest[k]=new Dialogue();
 		}
-		cdiaQuest[0].dialogueType="cq1";
-		cdiaQuest[1].dialogueType="cq2";
-		cdiaQuest[2].dialogueType="cq3";
+		cdiaQuest[0].dialogueType="please leave her";
+		cdiaQuest[1].dialogueType="she is mine";
+		cdiaQuest[2].dialogueType="i want to see her";
 
 		cdiaAns=new Dialogue[3];
 		for(int h=0;h<cdiaAns.length;h++)
 		{
 			cdiaAns[h]=new Dialogue();
 		}
-		cdiaAns[0].dialogueType="ca1";
-		cdiaAns[1].dialogueType="ca2";
-		cdiaAns[2].dialogueType="ca3";
+		cdiaAns[0].dialogueType="no";
+		cdiaAns[1].dialogueType="i dont  have enough time";
+		cdiaAns[2].dialogueType="i need her";
 			
-		
- 	}
+		 	}
  
 }
 		

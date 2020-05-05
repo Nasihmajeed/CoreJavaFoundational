@@ -6,8 +6,8 @@ public class TDD
 	{
 		Movie movie=new Movie();
 		movie.doAct();
-
-						}
+					
+	}
 }
 
 						

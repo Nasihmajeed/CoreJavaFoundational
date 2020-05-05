@@ -10,12 +10,32 @@ public class Movie
 	static Scanner sc=new Scanner(System.in);				
 	public void doAct()
 	{
-		Scanner sc=new Scanner(System.in);
-		script=new Script();
+		List<String> summary=new ArrayList<String>();  
+		summary.add("Movie Begins");  
+		summary.add("\n--Ramayana--\n");  
+		summary.add("A Film By Valmeeki"); 	 
+		for(String su:summary){  
+	 	System.out.println(su); 
+	 	}
+	 	script=new Script();
 		script.addDialogues();
-		System.out.println("Movie Begins");
-		System.out.println("\n--Actors meet--\n");
-		System.out.println("Which type actor you want");
+		System.out.println("Availables are");
+		System.out.println("\n1.Scenes \n2.Actors");
+		int s=sc.nextInt();
+		switch(s)
+		{
+			case 1:System.out.println("Avalable scenes are");
+			doScene();
+			break;
+			case 2:System.out.println("Actors are");
+			doActt();
+			default:
+			
+		}
+	
+	}	
+	public void doActt()
+	{
 		System.out.println("\n 1.Comedy \n 2.Villain");
 		int act=sc.nextInt();		
 		switch(act)
@@ -23,8 +43,8 @@ public class Movie
 			case 1: doComedy(script); break;
 			case 2: doVillanic(script); break;
 			default:				
-		}			
-	}	
+		}
+	}
 	public void doComedy(Script script)
 	{
 
@@ -51,6 +71,14 @@ public class Movie
 		{
 			int	x=(int) (Math.random()*3);			
 			System.out.println(script.vdiaQuest[x].dialogueType + "  =Vs=  " + script.cdiaAns[x].dialogueType);
+		}
+	}
+	public void doScene()
+	{
+		System.out.println("Scene");
+		List<Dialogue> dialogue= new List<Dialogue>();
+		{
+			
 		}
 	}
 	
