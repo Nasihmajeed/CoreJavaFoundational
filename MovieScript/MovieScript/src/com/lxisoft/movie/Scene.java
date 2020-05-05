@@ -1,13 +1,16 @@
 package com.lxisoft.movie;
-public class Scene 
-{
-	private int noOfScenes;
-	public void setNoOfScenes(int no)
+
+public class Scene {
+	
+	public String createScenes(int randScene)
 	{
-		this.noOfScenes = no;
+		String[] scenes = new String[20];
+		scenes[0] = "on the bridge";
+		scenes[1] = "in the bus";
+		scenes[2] = "in the Street";
+		scenes[3] = "in Home";
+		return scenes[randScene];
+		
 	}
-	public int getNoOfScenes()
-	{
-		return noOfScenes;
-	}
+
 }

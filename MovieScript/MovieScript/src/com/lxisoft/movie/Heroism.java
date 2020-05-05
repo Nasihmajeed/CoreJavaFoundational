@@ -1,4 +1,6 @@
-public interface Heroism
-{
-	
+package com.lxisoft.movie;
+
+public interface Heroism {
+
+	public void behaviour();
 }

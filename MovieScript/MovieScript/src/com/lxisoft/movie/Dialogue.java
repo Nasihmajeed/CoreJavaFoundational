@@ -1,23 +1,29 @@
-package com.lxisoft.movie
-public class Dialogue
-{
-	private String dialogue;
-	private boolean status;
+package com.lxisoft.movie;
 
-	public void setDialogue(String dialogue)
-	{
-		this.dialogue = dialogue;
-	}
-	public String getDialogue()
-	{
+public class Dialogue {
+	private String dialogue;
+	private boolean diaStatus;
+	
+	public String getDialogue() {
 		return dialogue;
 	}
-	public void setStatus(String status)
-	{
-		this.status = status;
+	
+	public void setDialogue(String dialogue) {
+		this.dialogue = dialogue;
 	}
-	public String getStatus()
-	{
-		return status;
+	
+	public boolean isDiaStatus() {
+		return diaStatus;
 	}
+	
+	public void setDiaStatus(boolean diaStatus) {
+		this.diaStatus = diaStatus;
+	}
+
+	@Override
+	public String toString() {
+	
+		return dialogue.toString();
+	}
+
 }

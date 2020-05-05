@@ -1,30 +1,32 @@
 package com.lxisoft.movie;
-public class Actor implements Comparable<Actor>
-{
-	private String name;
-	private String rolename;
+
+public class Actor implements Comparable<Actor>{
+	private String actorName;
+	private String actorRoleName;
+		public String getActorName() {
+		return actorName;
+	}
+
+	public void setActorName(String actorName) {
+		this.actorName = actorName;
+	}
 	
-	public void setName(String name)
-	{
-		this.name = name;
+	public String getActorRoleName() {
+		return actorRoleName;
 	}
-	public String getName()
-	{
-		return name;
+	
+	public void setActorRoleName(String actorRoleName) {
+		this.actorRoleName = actorRoleName;
 	}
-
-	public void setRoleName(String rolename)
-	{
-		this.rolename = rolename;
+	@Override
+	public int compareTo(Actor actor) {
+		return this.actorName.compareTo(actor.actorName);
+		
 	}
-	public String getRoleName()
+	
+	public String toString()
 	{
-		return rolename;
+		return actorName.toString()+" As "+actorRoleName.toString() ;
 	}
-
-
-	public String compareTo(Actor actor)
-	{
-		return this.name.equals(actor.getName());
-	}
+	
 }
