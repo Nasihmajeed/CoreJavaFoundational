@@ -6,7 +6,7 @@ public final class Tdd {
 
 	public static void main(String[] args)
 	{
-		Movie movie = new Movie("Christion Brothers","20/05/2020");
+		Movie movie = new Movie();
 		movie.selectOption();
 	}
 }

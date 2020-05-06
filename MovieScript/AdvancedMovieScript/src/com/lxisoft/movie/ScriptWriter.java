@@ -25,5 +25,11 @@ public class ScriptWriter {
 		Script script = new Script();
 		return script.getScript(movieCode);
 	}
+	
+	public void editScript(int movieCode)
+	{
+		Script script = new Script();
+		script.editScript(movieCode);
+	}
 
 }

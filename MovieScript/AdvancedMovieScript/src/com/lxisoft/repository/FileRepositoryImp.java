@@ -27,8 +27,32 @@ public class FileRepositoryImp implements FileRepository {
 	}
 	
 	@Override
-	public void writeToFile(List<Dialouge> dialouge)
+	public void writeToFile(List<Dialouge> dialouge,File file)
 	{
+		try
+		{
+			FileWriter fileWriter = new FileWriter(file,false);
+			BufferedWriter bw = new BufferedWriter(fileWriter);
+			for(Dialouge dia : dialouge)
+			{
+				bw.write(dia.getDialougeCode());
+				bw.write(",");
+				bw.write(dia.getId());
+				bw.write(",");
+				bw.write(dia.getCharacterName());
+				bw.write(",");
+				bw.write(dia.getQuestionOrAnswer());
+				bw.write(",");
+				bw.write(dia.getDialouge());
+				bw.newLine();
+			    bw.flush();
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -36,6 +60,7 @@ public class FileRepositoryImp implements FileRepository {
 	{
 		try
 		{
+			dialouge.clear();
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String dia;
@@ -47,10 +72,11 @@ public class FileRepositoryImp implements FileRepository {
 				{
 					if(dialouge.get(i).getDialouge() == null)
 					{
-						dialouge.get(i).setDialougeCode(Integer.parseInt(diaSplit[0]));
-						dialouge.get(i).setCharacterName(diaSplit[1]);
-						dialouge.get(i).setQuestionOrAnswer(diaSplit[2]);
-						dialouge.get(i).setDialouge(diaSplit[3]);
+						dialouge.get(i).setDialougeCode(diaSplit[0]);
+						dialouge.get(i).setId(diaSplit[1]);
+						dialouge.get(i).setCharacterName(diaSplit[2]);
+						dialouge.get(i).setQuestionOrAnswer(diaSplit[3]);
+						dialouge.get(i).setDialouge(diaSplit[4]);
 					}
 				}
 				

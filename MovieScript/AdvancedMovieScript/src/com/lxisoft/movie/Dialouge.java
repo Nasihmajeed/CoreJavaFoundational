@@ -1,11 +1,31 @@
 package com.lxisoft.movie;
 
-public class Dialouge {
+import java.util.Collections;
+
+public class Dialouge implements Comparable<Dialouge>{
 	
+	private String id;
 	private String characterName;
 	private String dialouge;
-	private int dialougeCode;
+	private String dialougeCode;
 	private String questionOrAnswer;
+	public boolean isTrue = true;
+	
+	@Override
+	public int compareTo(Dialouge dialouge) {
+		
+	  return this.id.compareTo(dialouge.getId());
+	}
+	
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+	
+	public String getId()
+	{
+		return id;
+	}
 	
 	public void setCharacterName(String characterName)
 	{
@@ -26,12 +46,12 @@ public class Dialouge {
 		return dialouge;
 	}
 	
-	public void setDialougeCode(int dialougeCode)
+	public void setDialougeCode(String dialougeCode)
 	{
 		this.dialougeCode = dialougeCode;
 	}
 	
-	public int getDialougeCode()
+	public String getDialougeCode()
 	{
 		return dialougeCode;
 	}
