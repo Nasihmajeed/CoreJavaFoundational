@@ -19,20 +19,31 @@ public class Movie
 	 	}
 	 	script=new Script();
 		script.addDialogues();
-		System.out.println("Availables are");
-		System.out.println("\n1.Scenes \n2.Actors");
-		int s=sc.nextInt();
-		switch(s)
+		
+		try
 		{
-			case 1:System.out.println("Avalable scenes are");
-			doScene();
-			break;
-			case 2:System.out.println("Actors are");
-			doActt();
-			default:
-			
+			System.out.println("Availables are");
+			System.out.println("\n1.Scenes \n2.Actors");
+			boolean isTest=false;
+			do
+			{
+				isTest=false;
+				int m=sc.nextInt();
+				switch (m)
+				{
+					case 1:	System.out.println("Avalable scenes are");
+					doScene();isTest=true;break;
+					case 2:System.out.println("Actors are");
+					doActt();isTest=true;break;								
+					case 3: System.exit(0); break;	
+					default: break;
+				}
+			}while(isTest);
 		}
-	
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}			
 	}	
 	public void doActt()
 	{
@@ -75,12 +86,43 @@ public class Movie
 	}
 	public void doScene()
 	{
-		System.out.println("Scene");
-		List<Dialogue> dialogue= new List<Dialogue>();
+		try
 		{
-			
-		}
+		File file = new File("D:\\scene.txt");
+               
+                FileWriter fileWriter = new FileWriter(file);
+                BufferedWriter writer = new BufferedWriter(fileWriter);
+                
+                String message = "Here is the  place the peoples are waiting for the mariage of RamaSeetha ";
+ 
+                writer.write(message);                
+                writer.close();
+                displayAll();
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+		
 	}
+	public void displayAll()
+	{	
+		File file=new File("D:\\scene.txt");
+		try(BufferedReader br=new BufferedReader(new FileReader(file)))
+		{
+
+			String line;
+			while((line=br.readLine())!=null)
+			{	
+				System.out.println(line);		
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+			e.printStackTrace();
+	 	}
+	}		
 	
 }	
 
