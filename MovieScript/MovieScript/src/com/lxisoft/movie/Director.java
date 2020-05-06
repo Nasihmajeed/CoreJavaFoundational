@@ -24,7 +24,7 @@ public class Director {
 
 	
 	public void setDirectionalControl() {
-		int sceneNo = r.nextInt(4);
+		int sceneNo = r.nextInt(3-1+1)+1;
 		directionalControl = scene.createScenes(sceneNo);
 	}
 

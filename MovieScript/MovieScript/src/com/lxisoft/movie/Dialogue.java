@@ -20,7 +20,7 @@ public class Dialogue {
 		this.diaStatus = diaStatus;
 	}
 
-	@Override
+	
 	public String toString() {
 	
 		return dialogue.toString();

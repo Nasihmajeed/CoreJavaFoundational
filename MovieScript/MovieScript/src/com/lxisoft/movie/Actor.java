@@ -18,7 +18,7 @@ public class Actor implements Comparable<Actor>{
 	public void setActorRoleName(String actorRoleName) {
 		this.actorRoleName = actorRoleName;
 	}
-	@Override
+	
 	public int compareTo(Actor actor) {
 		return this.actorName.compareTo(actor.actorName);
 		
