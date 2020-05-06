@@ -3,12 +3,13 @@ public class ClassRoom
 {
 	Scanner s=new Scanner(System.in);
 	int n,i,total=0,Std;
+	Student[] std=new Student[10];
 	public void setStudent()
 	{
 	System.out.println (" \n Enter number of students ");
 	n=s.nextInt();
     s.nextLine();
-    Student[] std=new Student[10];
+    
     for (int i=1; i<=n; i++)
      {
      	std[i]=new Student();
@@ -28,14 +29,18 @@ public class ClassRoom
 		System.out.println("enter parent's contact number: ");
 		std[i].parentNo=s.nextInt();
 		s.nextLine();
-		System.out.println("\t \t  Vimalambika Public SChool & Junior College Pampady");
-        System.out.println("\t \t \t \t \t Aff.to CBSE 68616");
+		}
+	}
+	    public void printStudents()
+	    { 
+		for (int i=1; i<=n; i++)
+		{
 		System.out.println("\n student " +i+ " details are: ");
 		System.out.println(" \n name : "+std[i].name);
 		System.out.println("Roll no: "+std[i].rNo);
 		System.out.println("total marks= "+std[i].total);
 		System.out.println("Parent's contact number= "+std[i].parentNo);
-	  }
+}
+}
+}
 
-}
-}
