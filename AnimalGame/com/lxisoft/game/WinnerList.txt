@@ -1,0 +1,68 @@
+Tiger-->2 Wins 
+Tiger-->2 Wins 
+Tiger-->1 Wins 
+Tiger-->4 Wins 
+Tiger-->3 Wins 
+Tiger-->2 Wins 
+Tiger-->4 Wins 
+Tiger-->4 Wins 
+Lion-->2 Wins 
+Tiger-->4 Wins 
+Elephant-->2 Wins 
+Tiger-->2 Wins 
+Lion-->2 Wins 
+Tiger-->3 Wins 
+Lion-->1 Wins 
+Tiger-->2 Wins 
+Lion-->1 Wins 
+Tiger-->4 Wins 
+Lion-->2 Wins 
+Lion-->2 Wins 
+Tiger-->1 Wins 
+Tiger-->2 Wins 
+No Animal  Survived Wins 
+Fox-->1 Wins 
+Tiger-->4 Wins 
+Lion-->1 Wins 
+Fox-->2 Wins 
+Tiger-->3 Wins 
+No Animal   Wins 
+Tiger-->3 Wins 
+No Animal   Wins 
+No Animal   Wins 
+Lion-->2 Wins 
+No Animal   Wins 
+Elephant-->1 Wins 
+Tiger-->1 Wins 
+Tiger-->2 Wins 
+No Animal   Wins 
+Tiger-->1 Wins 
+Lion-->1 Wins 
+No Animal   Wins 
+Fox-->2 Wins 
+Lion-->1 Wins 
+Tiger-->3 Wins 
+Tiger-->2 Wins 
+Lion-->2 Wins 
+Tiger-->4 Wins 
+No Animal   Wins 
+Tiger-->4 Wins 
+No Animal   Wins 
+Tiger-->4 Wins 
+Tiger-->4 Wins 
+No Animal   Wins 
+Lion-->1 Wins 
+No Animal   Wins 
+Lion-->1 Wins 
+Lion-->1 Wins 
+Fox-->2 Wins 
+Elephant-->1 Wins 
+No Animal   Wins 
+Lion-->2 Wins 
+Tiger-->1 Wins 
+Lion-->1 Wins 
+Fox-->2 Wins 
+No Animal   Wins 
+No Animal   Wins 
+Lion-->1 Wins 
+Lion-->1 Wins 
