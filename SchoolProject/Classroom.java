@@ -50,7 +50,7 @@ public class ClassRoom
 		student[i].total=student[i].t1+student[i].t2+student[i].t3+student[i].t4+student[i].t5;
 		s.nextLine();
 		student[i].percentage=(student[i].total*100)/500;
-
+	}
 		System.out.println("\n student " +i+ " details are: ");
 		System.out.println(" \n name : "+student[i].name);
 		System.out.println("Class: "+student[i].clss);
@@ -60,7 +60,7 @@ public class ClassRoom
 		System.out.println("Parent's contact number= "+student[i].parentNo);
 		System.out.println("total marks= "+student[i].total);
 		System.out.println("total Percentage= "+student[i].percentage);
-	  }
+	  
 
 }
 }
