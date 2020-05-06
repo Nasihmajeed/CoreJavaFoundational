@@ -1,6 +1,5 @@
 package com.lxisoft.moviescript;
-import java.util.Scanner;
-public class Villan
+public class Villan extends Actors implements Villanic
 {
 	private String name;
 	public void setName(String name)

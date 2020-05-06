@@ -1,6 +1,5 @@
 package com.lxisoft.moviescript;
-import java.util.Scanner;
-public class Comedian
+public class Comedian extends Actors implements Comic
 {
 	private String name;
 	public void setName(String name)
@@ -11,4 +10,5 @@ public class Comedian
 	{
 		return name;
 	}
+	
 }
