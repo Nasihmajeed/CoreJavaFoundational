@@ -4,16 +4,17 @@ import java.util.Scanner;
 import java.util.*;
 public class Scriptwriter
 {
-	String name;
-	Script script;
-	Actor[] dialoguelist;
+	 String name;
+	private Script script;
+	private Actor[] dialoguelist;
+
 	public void setScript(Actor[] actorlist,ArrayList<String>test)
 	{
 		ArrayList<Integer>randVariable=new ArrayList<Integer>();
 		for (int i=0;i<actorlist.length;i++) 
 		{
 						
-			script=new Script();
+			this.script=new Script();
 			int actordia;
 			Fileoperation fo=new Fileoperation();
 			//int actordia=(int)(Math.random()*4);	
@@ -37,22 +38,26 @@ public class Scriptwriter
 			{
 				actordia=4;
 			}
-			String s=fo.operation(actordia);
+			String[] s=fo.operation(actordia);
 			
-			test.add(s);
-			for(int j=0;j<test.size();j++)
+			
+			for(int j=0;j<s.length;j++)
 			{
-				if(!s.equals(test.get(j)))
+				if(actorlist[i].getDialogues()==null)
 				{
-					actorlist[j].setDialogues(s);
+					actorlist[i].setDialogues(s[j]);
+				}
+				else if(!s[j].equals(actorlist[i].getDialogues()))
+				{
+					actorlist[i].setDialogues(s[j]);
 				}
 			}
 			
 		}
-		dialoguelist=actorlist;
+		this.dialoguelist=actorlist;
 	}
 	public Actor[] getScript()
 	{
-		return dialoguelist;
+		return this.dialoguelist;
 	}
 }	

@@ -5,16 +5,16 @@ import java.util.*;
 public class Director
 {
 	String name;
-	String directionControl;
-	Actor[] castActor;
+	private String directionControl;
+	private Actor[] castActor;
 	public void setDirectionControl(Script script)
 	{
 		int randscenenum=(int)(Math.random()*4);	
-		directionControl=script.scenes(randscenenum);
+		this.directionControl=script.scenes(randscenenum);
 	}
 	public String getDirectionControl()
 	{
-		return directionControl;
+		return this.directionControl;
 	}
 	
 	public void setCastActor()throws ArrayIndexOutOfBoundsException
@@ -22,7 +22,7 @@ public class Director
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter number of Actor :");
 		int number=scr.nextInt();
-		castActor=new Actor[number];		
+		this.castActor=new Actor[number];		
 		
 		for (int i=0;i<number;i++) 
 		{
@@ -37,14 +37,14 @@ public class Director
 			a.add(comedian);
 			a.add(villain);
 			a.add(heroin);
-			castActor[i]=a.get(num-1);
+			this.castActor[i]=a.get(num-1);
 		}
 		
 	}	
 	public Actor[] getCastActor()
 
 	{
-		return castActor;
+		return this.castActor;
 	}
 	public Hero castHero()
 	{
@@ -57,6 +57,7 @@ public class Director
 		actorname.add("Tony");
 		actorname.add("miles morales");
 		actorname.add("peter parker");
+
 		hero.setActorName(actorname.get(randhero));
 		ArrayList<String>character=new ArrayList<String>();
 		character.add("(police)");

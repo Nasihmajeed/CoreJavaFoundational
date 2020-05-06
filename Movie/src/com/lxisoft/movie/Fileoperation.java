@@ -6,7 +6,7 @@ import java.util.*;
 public class Fileoperation
 {
     String[] datas;
-	public String operation(int actordia)
+	public String[] operation(int actordia)
 	{
 		String[] data=new String[10];
         String line = "";
@@ -37,13 +37,13 @@ public class Fileoperation
             e.printStackTrace();
         } 
         
-        int randVar=(int)(Math.random()*4);
-        return datas[randVar];     
+        
+        return datas;     
 	}
 	public void writeIntoFile()
     {
        
-        String csvFile="../version..2/com/lxisoft/movie/Dialogue.csv";
+        String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv"};
         String line = "";   
         FileWriter fr = null;
         BufferedWriter br = null;
@@ -61,7 +61,7 @@ public class Fileoperation
         System.out.println("No of dialogue");
         int noOfLines=scr.nextInt();
 
-        String[] dialogues=new String[noOfLines+1];
+        String[] dialogues=new String[noOfLines];
         String[] data=new String[10];
         for (int i=0;i<noOfLines;i++) 
         {
@@ -70,12 +70,12 @@ public class Fileoperation
             
         }
         try{
-            fr = new FileWriter(csvFile,true);
+            fr = new FileWriter(csvFile[number-1],true);
             br = new BufferedWriter(fr);
                 
             for (int i=0;i<noOfLines ;i++) 
             {     
-                br.write(actordia.get(--number)+","+dialogues[i]+"\n");    
+                br.write(dialogues[i]+"\n");    
             }
         } catch (IOException e) 
         {
@@ -111,8 +111,8 @@ public class Fileoperation
         String[] data=new String[10];
         String line = "";
        try{
-               String csvFile = "../version..2/com/lxisoft/movie/Dialogue.csv";
-               BufferedReader br = new BufferedReader(new FileReader(csvFile));
+               String[] csvFile ={"../version..2/com/lxisoft/movie/Hero.csv","../version..2/com/lxisoft/movie/Comedian.csv","../version..2/com/lxisoft/movie/Villain.csv","../version..2/com/lxisoft/movie/Heroin.csv"};
+               BufferedReader br = new BufferedReader(new FileReader(csvFile[number-1]));
                int i=0;
                while ((line = br.readLine()) != null)
                { 

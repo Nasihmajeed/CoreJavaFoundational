@@ -18,7 +18,7 @@ public class Movie
 		scriptwriter.name="P.A.Renjith";
 
 		System.out.println("    ----------------------");
-		System.out.println("      . . .THE HOUR. . .");
+		System.out.println("      . . .life OF HUMANS. . .");
 		System.out.println("    ----------------------");
 		System.out.println("\n");
 		System.out.println("__________________________");
