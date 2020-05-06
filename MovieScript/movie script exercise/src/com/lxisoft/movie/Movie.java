@@ -2,11 +2,14 @@ package com.lxisoft.movie;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Movie {
+public final class Movie extends FileRepo {
 	
 	public Scanner sc=new Scanner(System.in);
+	public Romantic r=new Romantic();
+	public Comedy c=new Comedy();
 	
 	public void head()
 	{int x=0;
@@ -21,7 +24,7 @@ public class Movie {
 		{
 			case 1: newScript();
 					break;
-			case 2: openScript();
+			case 2: openScriptMenu();
 					break;
 			default: System.out.println("please enter the right choice ");
 		}
@@ -29,6 +32,86 @@ public class Movie {
 		 x=sc.nextInt();
 	}while(x==1);
 		}
+	
+	public void openScriptMenu()
+	{
+		int x=0;
+		do {
+		System.out.println("\n1.open current script");
+		System.out.println("\n2.romantic");
+		System.out.println("\n3.comedy");
+		System.out.println("\n4.Back");
+		System.out.println("\nEnter your choice : ");
+		int a=sc.nextInt();
+		switch(a)
+		{
+			case 1: currentScript();
+					break;
+			case 2: if(r instanceof Romantic)
+					romantic();
+					break;
+			case 3: if(c instanceof Comic)
+					comedy();
+					break;
+			case 4: head();
+					break;
+			
+			default: System.out.println("please enter the right choice ");
+		}
+		System.out.println("enter 1 if you want to continue : ");
+		 x=sc.nextInt();
+	}while(x==1);
+	}
+	
+	
+	public void romantic()
+	{
+		Dialogue[]rom=new Dialogue[5];
+		System.out.println("MOVIE : "+r.movie);
+		System.out.println("WRITER : "+r.writer);
+		rom=r.romantic();
+		System.out.println("\n"+rom[0].dialogue);
+		System.out.println(rom[1].dialogue);
+		System.out.println(rom[2].dialogue);
+		System.out.println(rom[3].dialogue);
+	}
+	
+	public void comedy()
+	{
+		Dialogue[]com=new Dialogue[5];
+		System.out.println("MOVIE : "+c.movie);
+		System.out.println("WRITER : "+c.writer);
+		com=c.comedy();
+		System.out.println("\n"+com[0].dialogue);
+		System.out.println(com[1].dialogue);
+		System.out.println(com[2].dialogue);
+		System.out.println(com[3].dialogue);
+	}
+	
+	public void currentScript()
+	{
+		int x=0;
+		do {
+		System.out.println("\n1.display current script");
+		System.out.println("\n2.Edit current script");
+		System.out.println("\n3.Back");
+		System.out.println("\nEnter your choice : ");
+		int a=sc.nextInt();
+		switch(a)
+		{
+			case 1: openScript();
+					break;
+			case 2: editScript();
+					break;
+			case 3: openScriptMenu();
+					break;
+			
+			default: System.out.println("please enter the right choice ");
+		}
+		System.out.println("enter 1 if you want to continue : ");
+		 x=sc.nextInt();
+	}while(x==1);
+	}
 	
 	public void openScript()
 	{
@@ -41,8 +124,8 @@ public class Movie {
 	}
 	public void conversation(File head,File char1,File char2)
 	{
-		ArrayList<Dialogue> c1=read(char1);
-		ArrayList<Dialogue> c2=read(char2);
+		List<Dialogue> c1=read(char1);
+		List<Dialogue> c2=read(char2);
 		for(int i=0,j=0;i<c1.size()&&j<c2.size();i++,j++)
 			{
 				System.out.println("charecter 1: "+c1.get(i).dialogue);
@@ -58,6 +141,34 @@ public class Movie {
 		System.out.println("SCRIPT WRITER : "+head.get(1).dialogue);
 		System.out.println("MOVIE GENRE : "+head.get(2).dialogue);
 	}
+	
+	
+	public void editScript()
+	{
+		int x=0;
+		do {
+		System.out.println("\n1.delete current script");
+		System.out.println("\n2.Edit current script");
+		System.out.println("\n3.Back");
+		System.out.println("\nEnter your choice : ");
+		int a=sc.nextInt();
+		switch(a)
+		{
+			case 1: clearChar1();
+					clearChar2();
+					break;
+			case 2: choice1();
+					break;
+			case 3: currentScript();
+					break;
+			
+			default: System.out.println("please enter the right choice ");
+		}
+		System.out.println("enter 1 if you want to continue : ");
+		 x=sc.nextInt();
+	}while(x==1);
+	}
+	
 	public void newScript()
 	{
 		heading();
@@ -70,7 +181,8 @@ public class Movie {
 			System.out.println("select the charector whose dialogue needs to be added");
 				System.out.println("1. charector 1.");
 				System.out.println("2. charector 2.");
-				System.out.println("3. back.");
+				System.out.println("3. display Script.");
+				System.out.println("4. back.");
 				int a=sc.nextInt();
 				switch(a)
 				{
@@ -78,17 +190,33 @@ public class Movie {
 							break;
 					case 2: choiceChar2();
 							break;
-					case 3: head();
+					case 3: openScript();
+							break;
+					case 4: head();
 							break;
 				}
 		
 	}
-	public void	choiceChar1()
+	
+	public void clearChar1()
 	{
-		int a=0;
 		try {
-				File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
-				PrintWriter w = new PrintWriter(char1);
+			File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char1.txt");
+			PrintWriter w = new PrintWriter(char1);
+			w.print("");
+			w.close();
+	}
+	catch(Exception e)
+{
+	e.printStackTrace();
+}
+	}
+	
+	public void clearChar2()
+	{
+		try {
+				File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
+				PrintWriter w = new PrintWriter(char2);
 				w.print("");
 				w.close();
 		}
@@ -96,6 +224,12 @@ public class Movie {
 	{
 		e.printStackTrace();
 	}
+	}
+	
+	public void	choiceChar1()
+	{
+		int a=0;
+		clearChar1();
 				do{
 					try{
 						File char1=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char1.txt");
@@ -133,16 +267,7 @@ public class Movie {
 	public void choiceChar2()
 	{
 		int a=0;
- 		try {
- 				File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
- 				PrintWriter w = new PrintWriter(char2);
- 				w.print("");
- 				w.close();
- 		}
- 		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		clearChar2();
  				do{
  					try{
  						File char2=new File("D:\\\\lxi\\\\eclips\\\\movieScript\\\\src\\\\com\\\\lxisoft\\\\file\\\\char2.txt");
