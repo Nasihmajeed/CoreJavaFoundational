@@ -56,7 +56,8 @@ public void playDialoge(Actor a1,Actor a2,ArrayList<Dialogue> d1,ArrayList<Dialo
 	                                   
 }
 public void movieDetails(ArrayList<Actor> actors)
-{	System.out.println("\nScript Writer  : UNKNOWN");
+{	System.out.println("\nDirection  : Name OF Director");	
+	System.out.println("\nScript Writer  : UNKNOWN");
 	System.out.println("\n\nActors");
 	System.out.println(actors.get(0).getName()+" : "+actors.get(0).getmovieRoll());
 	System.out.println(actors.get(1).getName()+" : "+actors.get(1).getmovieRoll());
@@ -69,7 +70,7 @@ public int editScript(Actor a1,Actor a2,String file1,String file2,FileReppo scri
 	try{
 	if(option==1)
 	{
-		System.out.println("Whose Dialogue you Want to Add \n1.Jhon \n2.Araya");
+		System.out.println("Whose Dialogue you Want to Add \n1.Actor 1 \n2.Actor 2");
 		int choise=input.nextInt();
 		if((choise-1)==0)
 		{
@@ -92,8 +93,7 @@ public int editScript(Actor a1,Actor a2,String file1,String file2,FileReppo scri
 	{	deleteDialouge(a2,a1,script,comicdialogue,villandialogue);	}	
 	else if(option==0)
 	{		System.out.println("EXited");	}
-	// else if(option==3)
-	// { updateDialouge(a2,a1,script,comicdialogue,villandialogue);}
+	
 	else
 	{	System.out.println("You Entered A wrong Choise");}}
 catch(Exception ex)

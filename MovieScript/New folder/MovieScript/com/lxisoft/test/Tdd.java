@@ -6,7 +6,7 @@ class Tdd
 public static void main(String args[])
 	{
 		Movie movie=new Movie();
-		movie.createMovie();
+		movie.startMovie();
 	}
  
 }

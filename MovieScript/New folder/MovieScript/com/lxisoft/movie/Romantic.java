@@ -1,6 +1,6 @@
 package com.lxisoft.movie;
 import java.util.*;
-public interface Villanisum
+public interface Romantic
 {
 	public void behaviour();
 

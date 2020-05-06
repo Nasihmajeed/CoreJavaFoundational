@@ -1,5 +1,6 @@
 package com.lxisoft.movie;
-import java.io.*;  
+import java.io.*; 
+
 import java.util.*;  
 public class Movie
 { 
@@ -12,8 +13,27 @@ File file2=new File("VillanScript.csv");
 ArrayList<Dialogue> comicdialogue =new ArrayList<Dialogue>(); 
 ArrayList<Dialogue> villandialogue =new ArrayList<Dialogue>();
 PlayMovie plymovie;
-
+String filea="ComicScript.csv";                               
+String fileb="VillanScript.csv";
 static Scanner input =new Scanner(System.in);
+public void startMovie()
+{
+	int option = movieControl();
+	createMovie();
+
+	switch(option)
+		{
+		case 1:movieChoise();break;
+		case 2:
+		plymovie =new PlayMovie();
+		int opt=plymovie.editScript(actors.get(0),actors.get(1),filea,fileb,script,comicdialogue,villandialogue);
+		;break;
+		case 3:
+		break;
+		}
+
+
+}
 public void createMovie()
 { if(file1.exists()==true&&file2.exists()==true)
 	{
@@ -28,8 +48,8 @@ public void createMovie()
 	System.out.println("\n\t"+name);
 		setDialogues();
 		setDetails();
-		plymovie =new PlayMovie();
-		plymovie.play(actors,script,comicdialogue,villandialogue);
+		// plymovie =new PlayMovie();
+		// plymovie.play(actors,script,comicdialogue,villandialogue);
 }
 
 public void setDetails()
@@ -43,7 +63,7 @@ public void setDetails()
 
 public int movieControl()
 {
-	System.out.print("\nPress 1 Play Movie\nPress 0 to Exit\n\n Enter Your Choise :");
+	System.out.print("\n 1. Play Movie\n2.Enter in to Script Writer Option\n3.Enter in to Diractors Option\nPress 0 to Exit\n\n Enter Your Choise :");
 	int choise=input.nextInt();
 	return choise;
 }
@@ -64,6 +84,23 @@ script.writeTofile("ComicScript.csv",s1);
 script.writeTofile("VillanScript.csv",s2);      
 }
 }
+
+public void movieChoise()
+{
+	System.out.print("\n 1.Romandic movie \n2.Comic movie \nPress 0 to Exit\n\n Enter Your Choise :");
+	int choise=input.nextInt();
+	switch(choise)
+		{
+		case 1:
+		 plymovie =new PlayMovie();
+		 plymovie.play(actors,script,comicdialogue,villandialogue);
+		break;
+		case 2:
+		break;
+		
+		}
+}
+
 public void setVillan()
 {
 villandialogue.get(0).setId(1);
