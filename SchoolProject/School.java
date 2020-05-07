@@ -5,7 +5,7 @@ public class School
      public void printSchool()
      {
       
-    System.out.println("       **************************************************************");
+    System.out.println("       ************************************************************************");
     System.out.println("       *                                                                      *");
     System.out.println("       *                 VIMALAMBIKA PUBLIC SCHOOL                            *");   
     System.out.println("       *                  Pampady Kottayam Kerala                             *");
@@ -17,7 +17,7 @@ public class School
     System.out.println("       *                  STUDENTS DATABASE                                   *");
     System.out.println("       *                                                                      *");
     System.out.println("       *                                                                      *");
-    System.out.println("       **************************************************************");
+    System.out.println("       ************************************************************************");
       }
   
 
@@ -25,8 +25,10 @@ public class School
   
      public void printStudent()
     {
+        classroom.setTeacher();
         classroom.setStudent();
        classroom.printStudents();
+
      }
  
  }

@@ -42,5 +42,12 @@ public class ClassRoom
 		System.out.println("Parent's contact number= "+std[i].parentNo);
 }
 }
+        Teacher ts=new Teacher();
+        public void setTeacher()
+        {
+        	System.out.println("Enter faculty name: ");
+        	String tname=s.nextLine();
+        	System.out.println("faculty is : "+tname);
+        }
 }
 
