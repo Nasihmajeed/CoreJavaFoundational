@@ -1,4 +1,5 @@
 package com.lxisoft.moviescript;
+import com.lxisoft.moviescript.*;
 import java.util.*;
 import java.io.*;
 public class Movie
@@ -30,14 +31,13 @@ public class Movie
 				{
 				case 1:
 				   movieDetails();
-				   director.selectActor();
 				   isTrue = false;
 				   break;
 				case 2:
 				   director.addDialogue(scanner);
 				   break;
 				default :
-				   System.out.println("!!! select any Options From Above");
+				   System.out.println("You have entered the Wrong option\nPlease enter the Correct option");
 				   break;
 				}
 		    }while(isTrue);

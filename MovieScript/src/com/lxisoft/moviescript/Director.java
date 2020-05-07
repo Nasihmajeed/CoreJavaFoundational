@@ -5,6 +5,7 @@ public class Director
 {
 	private String name;
 	ScriptWriter scriptWriter = new ScriptWriter();
+	Script script = new Script();
 	public void setName(String name)
 	{
 		this.name = name;
@@ -22,51 +23,7 @@ public class Director
 		((Comedian)actors.get(1)).setName("Comedian");
 		return actors;
 	}
-	public void selectActor()
-	{
-		try
-		{
-			Script script = new Script();
-			boolean fileExists = script.fileExist(scriptWriter,scriptWriter.villanQuesFile,scriptWriter.comedianQuesFile,scriptWriter.villanAnsFile,scriptWriter.comedianAnsFile);
-			ArrayList<Actors> actors = creatingActors();
-			int[] c = script.limitOfDialogue(scriptWriter.villanQuestion.size(),scriptWriter.comedianQuestion.size(),scriptWriter.villanAnswer.size(),scriptWriter.comedianAnswer.size(),fileExists);
-			boolean exists = false;
-			while(c[0]>=0)
-			{
-			 int x = (int)(Math.random()*actors.size());
-				if(actors.get(x) instanceof Comic)
-				{
-					if(fileExists)
-					{
-						scriptWriter.selectDialogue(c[1],actors.get(x),actors);
-						c[0]=c[0]-2;
-					}
-					else if(!fileExists)
-					{
-						scriptWriter.commonDialogue(actors.get(x),actors);
-						break;
-					}
-				}
-				else if(actors.get(x) instanceof Villanic)
-				{
-					if(fileExists)
-					{
-						scriptWriter.selectDialogue(c[1],actors.get(x),actors);
-						c[0]=c[0]-2;
-					}
-					else if(!fileExists)
-					{
-						scriptWriter.commonDialogue(actors.get(x),actors);
-						break;
-					}
-				}
-		    }
-	   }
-	   catch(Exception e)
-	   {
-	   	e.printStackTrace();
-	   }
-	}
+	
 	public void addDialogue(Scanner scanner)
 	{
 		try
@@ -74,25 +31,66 @@ public class Director
 			boolean isTrue = true;
 			do 
 			{
-		        System.out.println("press ==> 1.Add to villian File 2.Add to Comedian File 3.Back");
+		        System.out.println("1.Add to villian File\n2.Add to Comedian File\n3.Back\n");
 			    int x = scanner.nextInt();
 				isTrue = true;
 				switch(x)
 				{
 				case 1:
-				   scriptWriter.questionOrAnswer(scanner,scriptWriter.villanQuesFile,scriptWriter.villanAnsFile,scriptWriter.villanQuestion,scriptWriter.villanAnswer);
+				   questionOrAnswer(scanner,scriptWriter.villanQuesFile,scriptWriter.villanAnsFile,scriptWriter.villanQuestion,scriptWriter.villanAnswer);
 				   break;
 				case 2:
-				   scriptWriter.questionOrAnswer(scanner,scriptWriter.comedianQuesFile,scriptWriter.comedianAnsFile,scriptWriter.comedianQuestion,scriptWriter.comedianAnswer);
+				   questionOrAnswer(scanner,scriptWriter.comedianQuesFile,scriptWriter.comedianAnsFile,scriptWriter.comedianQuestion,scriptWriter.comedianAnswer);
 				   break;
 				case 3:
 					isTrue = false;
+					System.exit(0);
 					break;
 				default :
-				   System.out.println("!!! Select Options From Above !!!");
+				   System.out.println("You have entered the Wrong option\nPlease enter the Correct option");
 				   break;
 				}
 		    }while(isTrue);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+
+	public void questionOrAnswer(Scanner sc,File quesFile,File ansFile,ArrayList<Dialogue> questionArray,ArrayList<Dialogue> answerArray)
+	{
+		try
+		{
+			boolean isTrue = false,fileExists = false;
+			do
+			{
+				isTrue = false;
+				fileExists = false;
+				System.out.println("1.Question\n 2.Answer\n 3.Back\n");
+				int x = sc.nextInt();
+				switch(x)
+				{
+					case 1:
+				   		quesFile = script.createFile(fileExists,quesFile);
+				   		script.writeFile(quesFile,sc,questionArray);
+						isTrue = true;
+						break;
+					case 2:
+				   		ansFile = script.createFile(fileExists,ansFile);
+				   		script.writeFile(ansFile,sc,answerArray);
+						isTrue = true;
+						break;
+					case 3:
+						System.exit(0);
+						break;
+					default :
+						System.out.println("You have entered the Wrong option\nPlease enter the Correct option\n");
+						break;
+				}
+
+			}while(isTrue);
 		}
 		catch(Exception e)
 		{
