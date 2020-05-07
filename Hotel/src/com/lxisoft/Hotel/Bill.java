@@ -2,6 +2,7 @@ package com.lxisoft.Hotel ;
 
 import java.util.* ;
 import com.lxisoft.Console.* ;
+import com.lxisoft.Item.* ;
 
 public class Bill
 {

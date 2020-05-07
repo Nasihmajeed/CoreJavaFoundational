@@ -2,75 +2,37 @@ package com.lxisoft.Hotel ;
 
 import java.util.* ;
 import com.lxisoft.Console.* ;
+import com.lxisoft.Item.* ;
+import com.lxisoft.FileOperations.*; 
 
 public class Inventory
 {
 
  Scanner in = new Scanner(System.in) ;
 
- public Item[] it = new Item[50] ;
+ public Item[] it = new Item[30] ;
 
- private int numOfItems = 9 ;
+ public InventoryManager im = new InventoryManager() ; // <-- Pass item array to the file manager
 
- 	/* Preset Food Items */
+ private int numOfItems ;
 
- 	public void setMenu()
- 	{
- 		it[1] = new Item() ;
-		it[2] = new Item() ;
-		it[3] = new Item() ;
-		it[4] = new Item() ;
-		it[5] = new Item() ;
-		it[6] = new Item() ;
-		it[7] = new Item() ;
-		it[8] = new Item() ;
-
-		it[1].setItemNo(1) ;
-		it[1].setItemName("Chapathi") ;
-		it[1].setItemPrice(10) ;
-		it[1].setStock(50) ;
-
-		it[2].setItemNo(2) ;
-		it[2].setItemName("Porotta  ") ;
-		it[2].setItemPrice(12) ;
-		it[2].setStock(60) ;
-
-		it[3].setItemNo(3) ;
-		it[3].setItemName("Dosa    ") ;
-		it[3].setItemPrice(8) ;
-		it[3].setStock(25) ;
-
-		it[4].setItemNo(4) ;
-		it[4].setItemName("Appam    ") ;
-		it[4].setItemPrice(8) ;
-		it[4].setStock(35) ;
-
-		it[5].setItemNo(5) ;
-		it[5].setItemName("Chicken Curry") ;
-		it[5].setItemPrice(120) ;
-		it[5].setStock(30) ;
-
-		it[6].setItemNo(6) ;
-		it[6].setItemName("Beef Fry") ;
-		it[6].setItemPrice(140) ;
-		it[6].setStock(25) ;
-
-		it[7].setItemNo(7) ;
-		it[7].setItemName("Veg. Kuruma") ;
-		it[7].setItemPrice(60) ;
-		it[7].setStock(15) ;
-
-		it[8].setItemNo(8) ;
-		it[8].setItemName("Egg Curry") ;
-		it[8].setItemPrice(35) ;
-		it[8].setStock(50) ;
+ 	
+	public void setMenu()
+	{
+		for(int i=0;i<30;i++)
+		{
+			it[i] = new Item() ;
+		}
+		numOfItems = im.fetchDataFromFile(it) ;
 	}
+
+
 
  	public void addItem()
 	{
-		
-		it[numOfItems] = new Item() ;
-
+				
+		numOfItems++ ;
+				
 		System.out.print("\n\n     NEW DISH NAME : ") ;
 		String itemName = in.nextLine() ;
 		it[numOfItems].setItemName(itemName) ;
@@ -80,16 +42,17 @@ public class Inventory
 		in.nextLine() ;
 		it[numOfItems].setItemPrice(itemPrice) ;
 
-		it[numOfItems].setItemNo(numOfItems) ;
+		it[numOfItems].setItemNo(numOfItems+1) ;
 
 		System.out.print("\n     REMAINING STOCK : ") ;
 		int stock = in.nextInt() ;
 		in.nextLine() ;
-		it[numOfItems].setStock(stock) ;
+		it[numOfItems].setItemStock(stock) ;
 		
 		System.out.print("\n\n     NEW DISH SUCCESSFULLY ADDED. ") ;
 
-		++numOfItems ;
+
+		im.syncFileData(it,numOfItems) ;
 
 	}
 
@@ -109,11 +72,13 @@ public class Inventory
 			{
 				System.out.print("\n \n " + itRem + " " + it[itRem].getItemName() + "SUCCESFULLY REMOVED.\n \n" ) ;
 
-				it[itRem].setItemName(it[numOfItems-1].getItemName()) ;
-				it[itRem].setItemPrice(it[numOfItems-1].getItemPrice()) ;
-				it[itRem].setStock(it[numOfItems-1].getStock()) ;
+				it[itRem].setItemName(it[numOfItems].getItemName()) ;
+				it[itRem].setItemPrice(it[numOfItems].getItemPrice()) ;
+				it[itRem].setItemStock(it[numOfItems].getItemStock()) ;
 
 				--numOfItems ;
+
+				im.syncFileData(it,numOfItems) ;
 
 			}
 	}
@@ -140,6 +105,8 @@ public class Inventory
 				System.out.print("\n PRICE OF ITEM NO." + itPr + " " + it[itPr].getItemName() + " SUCCESSFULLY CHANGED FROM " + it[itPr].getItemPrice() + " TO " + newPrice + " ." ) ;
 
 				it[itPr].setItemPrice(newPrice) ;
+
+				im.syncFileData(it,numOfItems) ;
 			}
 	}
 
@@ -161,9 +128,11 @@ public class Inventory
 				newStock = in.nextInt() ;
 				in.nextLine() ;
 
-				System.out.print("\n      STOCK OF ITEM NO." + itSt + " " + it[itSt].getItemName() + " SUCCESSFULLY CHANGED FROM " + it[itSt].getStock() + " TO " + newStock + " ." ) ;
+				System.out.print("\n      STOCK OF ITEM NO." + itSt + " " + it[itSt].getItemName() + " SUCCESSFULLY CHANGED FROM " + it[itSt].getItemStock() + " TO " + newStock + " ." ) ;
 
-				it[itSt].setStock(newStock) ;
+				it[itSt].setItemStock(newStock) ;
+
+				im.syncFileData(it,numOfItems) ;
 			}
 	
 	}
@@ -172,14 +141,17 @@ public class Inventory
 
 	public void viewMenu()
 	{
+		im.syncFileData(it,numOfItems) ;
+
 		System.out.print("\n\n |---------------------------- MENU ---------------------------| \n") ;
 		
 		System.out.print("\n       No. \t   PARTICULARS             RATE    REM.STOCK \n     |----||----------------------------||------||-----------|\n") ;
 
 
-		for(int i=1 ; i<numOfItems ; i++)
+		for(int i=0 ; i<=numOfItems ; i++)
 		{
-			System.out.print("\n       " + it[i].getItemNo() + "    	" + it[i].getItemName() + "		    " + it[i].getItemPrice() + "	     " + it[i].getStock()) ;
+			//System.out.print("\n       " + it[i].getItemNo() + "    	" + it[i].getItemName() + "		    " + it[i].getItemPrice() + "	     " + it[i].getItemStock()) ;
+			System.out.format("\n %8d      %-25s %5d %10d",it[i].getItemNo(),it[i].getItemName(),it[i].getItemPrice(),it[i].getItemStock()) ;
 		}
 
 		System.out.print("\n\n |-------------------------------------------------------------| \n") ;
@@ -190,7 +162,7 @@ public class Inventory
 	{
 		int validItem=no,chkNo ;
 
-		if(no>= this.numOfItems)
+		if(no>(numOfItems+1))
 				{
 					System.out.print("\n\n     ENTER A VALID ITEM NO.") ;
 					validItem = this.inputValidItemNo() ;
@@ -216,9 +188,9 @@ public class Inventory
 	{
 		int validQ=no ;
 
-		if(it[no].getStock()-q <0)
+		if(it[no].getItemStock()-q <0)
 			{
-				System.out.print("\n\n     ENTER A VALID QUANTITY. ONLY "+ it[no].getStock() + "NOS LEFT!") ;
+				System.out.print("\n\n     ENTER A VALID QUANTITY. ONLY "+ it[no].getItemStock() + "NOS LEFT!") ;
 				validQ = this.inputValidQty(no) ; 
 			}
 		return validQ ;

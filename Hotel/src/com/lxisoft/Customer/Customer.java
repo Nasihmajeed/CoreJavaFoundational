@@ -37,7 +37,7 @@ public class Customer
 			itNo = in.nextInt() ;
 			in.nextLine() ;
 		
-			itNo = inven.checkItemNo(itNo) ;
+			itNo = inven.checkItemNo(itNo) -1 ;
 
 			System.out.print("    QUANTITY : ") ;
 			qty = in.nextInt() ;
@@ -47,7 +47,7 @@ public class Customer
 
 			b.fetchItems(inven.it[itNo],qty) ;
 
-			inven.it[itNo].setStock(inven.it[itNo].getStock()-qty) ;
+			inven.it[itNo].setItemStock(inven.it[itNo].getItemStock()-qty) ;
 
 			System.out.print("\n     Order Another Dish? (Y/N) : ") ;
 			again = in.next().charAt(0) ;

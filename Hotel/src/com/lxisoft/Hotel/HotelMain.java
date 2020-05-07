@@ -16,6 +16,7 @@ public class HotelMain
 	public void mainMenu()
 	{
 		hDetail.inv.setMenu() ;
+		hDetail.setStaff() ;
 		
 		do
 		{
@@ -32,7 +33,7 @@ public class HotelMain
 
 				case '1' :
 					this.adminCheck() ;
-					this.retunToMainPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '2' :
@@ -54,7 +55,7 @@ public class HotelMain
 	
 	public void titleMenu()
 	{
-		System.out.print("\n |=============================================================|	\n\n \t\t\t HOTEL " + hDetail.getHName() + "\n\n") ;
+		System.out.print("\n |=============================================================|") ;
                               
 		hDetail.displayAddressBanner() ;
 
@@ -66,12 +67,14 @@ public class HotelMain
 		System.out.print("\n |=============================================================|") ;
 	}
 
+	
 	public void retunToMainPrompt()
 	{
 	
 		System.out.print("\n\n\n\t RETURN TO MAIN MENU? (Y/N) : ") ;
 		this.promptInput() ;
 	}
+
 
 	public void invalidPrompt()
 	{
@@ -111,7 +114,7 @@ public class HotelMain
 				this.topBanner() ;
 				System.out.print("\n\n |------------------------ ADMIN PANEL ------------------------| \n") ;
 
-				System.out.print("\n\n\n     [1] EDIT HOTEL INFO \n\n\n     [2] MANAGE INVENTORY \n\n\n     [3] RATINGS & REVIEWS \n\n\n     [4] PURCHASE & SALES \n\n\n     [5] GO BACK \n\n\n     : ") ;
+				System.out.print("\n\n\n     [1] EDIT HOTEL INFO \n\n\n     [2] MANAGE INVENTORY \n\n\n     [3] MANAGE STAFF \n\n\n     [4] RATINGS & REVIEWS \n\n\n     [5] PURCHASE & SALES \n\n\n     [6] GO BACK \n\n\n     : ") ;
 				char op = in.next().charAt(0) ;
 				in.nextLine() ;
 
@@ -120,25 +123,30 @@ public class HotelMain
 			{ 				
 				case '1' :
 					this.hotelInfoEdit() ;
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '2' :
 					this.manageInventory() ;
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '3' :
-					this.ratings() ;
-					this.goBackPrompt() ;
+					this.manageStaff() ;
+					again = 'y' ;
 					break ;
 
 				case '4' :
-					this.purchaseAndSales() ;
-					this.goBackPrompt() ;
+					this.ratings() ;
+					goBackPrompt() ;
 					break ;
 
 				case '5' :
+					this.purchaseAndSales() ;
+					again = 'y' ;
+					break ;
+
+				case '6' :
 					again = 'n' ;
 					break ;
 
@@ -154,6 +162,8 @@ public class HotelMain
 		System.out.print("\n\n\t GO BACK? (Y/N) : ") ;
 		this.promptInput() ;
 	} 
+
+	//------------------------------------------------------- HOTEL INFO ---------------------------------------------------
 
 	public void hotelInfoMenu()
 	{
@@ -199,6 +209,8 @@ public class HotelMain
 			}
 	}
 
+	// -------------------------------------------------- INVENTORY ------------------------------------------------------------
+
 	public void inventoryMenu()
 	{
 		C.cls() ;
@@ -231,7 +243,7 @@ public class HotelMain
 
 					}while(again=='y' || again=='Y') ;
 					
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '2' :
@@ -245,7 +257,7 @@ public class HotelMain
 
 					}while(again=='y' || again=='Y') ;
 					
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '3' :
@@ -258,7 +270,7 @@ public class HotelMain
 
 					}while(again=='y' || again=='Y') ;
 					
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 
 				case '4' :
@@ -271,7 +283,7 @@ public class HotelMain
 
 					}while(again=='y' || again=='Y') ;
 					
-					this.goBackPrompt() ;
+					again = 'y' ;
 					break ;
 					
 				case '5' :
@@ -303,12 +315,18 @@ public class HotelMain
 		this.promptInput() ;
 	}
 
+	// -------------------------------------------- RATINGS & REVIEWS ----------------------------------------------------------
+
 	public void ratings()
 	{
+		C.cls() ;
+
 		this.topBanner() ;
 		System.out.print("\n\n |-------------------- RATINGS & REVIEWS -----------------| \n\n") ;
 		hDetail.ratingsAndReviews() ;
 	}
+
+	// ------------------------------------------ PURCHASE & SALES --------------------------------------------------------------
 
 	public void purchaseAndSales()
 	{
@@ -325,6 +343,9 @@ public class HotelMain
  	 {
 		
 				C.cls() ;
+
+				
+				hDetail.inv.setMenu() ; // <----- File Operation
 
 				this.titleMenu() ;
 				System.out.print("\n |=============================================================|") ;
@@ -346,5 +367,66 @@ public class HotelMain
 
 	 	hDetail.displayBillFooter() ;
 	 }
+
+	 //--------------------------------------  STAFF SIDE -------------------------------------------------
+
+	 public void manageStaff()
+	 {
+	 	
+
+	 	do
+		{
+			this.staffMenu() ;
+
+	 		System.out.print("\n\n\n     [1] VIEW ALL STAFF \n\n\n     [2] EMPLOY NEW STAFF \n\n\n     [3] RELIEVE STAFF  \n\n\n     [4] GO BACK  \n\n\n     : ") ;
+			char op = in.next().charAt(0) ;
+			in.nextLine() ;
+		
+		
+			switch (op)
+			{
+
+				case '1' :
+					this.staffMenu() ;
+					hDetail.viewStaff() ;
+					goBackPrompt() ;
+					break ;
+
+				case '2' :
+					this.staffMenu() ;
+					hDetail.viewStaff() ;
+					hDetail.employStaff() ;
+
+					again='y' ;
+					break ;
+
+				case '3' :
+					this.staffMenu() ;
+					hDetail.viewStaff() ;
+					hDetail.relieveStaff() ;
+
+					goBackPrompt() ;
+					break ;
+
+				case '4' :
+					again = 'n' ;
+					break ;
+
+				default :
+					invalidPrompt() ;
+			}
+
+		}while(again == 'y' || again == 'Y') ;
+
+	 }
+
+	 public void staffMenu()
+	{
+		C.cls() ;
+
+		this.topBanner() ;
+		System.out.print("\n\n |--------------------------- STAFF ---------------------------| \n") ;
+
+	}
 
 }
