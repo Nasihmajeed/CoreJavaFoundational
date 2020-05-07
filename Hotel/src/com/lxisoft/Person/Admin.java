@@ -341,7 +341,7 @@ public class Admin
 		Scanner in = new Scanner(System.in);
 		int a=0,opt;
 		staffSet(staffInitialize);
-		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Go Back");
+		System.out.println("\n=:> 1. Diplay All Staff \n=:> 2. Display Staff in each section\n=:> 3. Add Staff \n=:> 4. Release Staff\n=:> 5. Go Back");
 		try
 		{
 			a=in.nextInt();	
@@ -368,7 +368,10 @@ public class Admin
 					break;
 			case 3 :addStaff(staffIndex++);
 					 break;
-			case 4 : adminActions(adminCount);
+			
+			case 4: releaseStaff();
+					break;
+			case 5 : adminActions(adminCount);
 					 break;
 			default:System.out.println("Retry");
 					 
@@ -393,6 +396,10 @@ public class Admin
 			this.getStaffDetails();
 
 		}
+	}
+	public void releaseStaff()
+	{
+
 	}
 	public void getStaffDetails()
 	{
@@ -424,11 +431,11 @@ public class Admin
 
 	}
 
-	boolean yesOrNo(String a)
+	boolean yesOrNo(String toprint)
 	{
 		Scanner in = new Scanner(System.in);
 		String ip;
-		System.out.println("Do you sure "+ a +" (yes/no)");
+		System.out.println("Do you sure "+ toprint +" (yes/no)");
 		ip=in.nextLine();
 		if(ip.equals("yes"))
 			return true;
