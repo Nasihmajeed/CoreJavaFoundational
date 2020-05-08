@@ -7,14 +7,11 @@ public class School
       
     System.out.println("       ************************************************************************");
     System.out.println("       *                                                                      *");
-    System.out.println("       *                 VIMALAMBIKA PUBLIC SCHOOL                            *");   
+    System.out.println("       *         VIMALAMBIKA PUBLIC SCHOOL & JUNIOR COLLEGE                   *");   
     System.out.println("       *                  Pampady Kottayam Kerala                             *");
     System.out.println("       *               (aff.to CBSE Delhi No.930655)                          *");
     System.out.println("       *                                                                      *");
-    System.out.println("       *                                                                      *");
-    System.out.println("       *                                                                      *");
-    System.out.println("       *                                                                      *");
-    System.out.println("       *                  STUDENTS DATABASE                                   *");
+    System.out.println("       *                      STUDENTS DATABASE                               *");
     System.out.println("       *                                                                      *");
     System.out.println("       *                                                                      *");
     System.out.println("       ************************************************************************");

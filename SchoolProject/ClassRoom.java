@@ -2,6 +2,15 @@ import java.util.Scanner;
 public class ClassRoom
 {
 	Scanner s=new Scanner(System.in);
+
+        Teacher ts=new Teacher();
+        public void setTeacher()
+        {
+        	System.out.println("Enter faculty name: ");
+        	String tname=s.nextLine();
+        	System.out.println("faculty is : "+tname);
+        }
+        
 	int n,i,total=0,Std;
 	Student[] std=new Student[10];
 	public void setStudent()
@@ -19,13 +28,22 @@ public class ClassRoom
 		System.out.println("enter roll no: ");
 		std[i].rNo=s.nextInt();	
 		s.nextLine();
-		System.out.println("enter  semester one  mark: ");
+		System.out.println("enter  mark for subject 1: ");
 		std[i].t1=s.nextInt();
 		s.nextLine();
-		System.out.println("enter  semester two  mark: ");
+		System.out.println("enter  mark for subject 2: ");
 		std[i].t2=s.nextInt();
 		s.nextLine();
-		std[i].total=std[i].t1+std[i].t2;
+		System.out.println("enter  mark for subject 3: ");
+		std[i].t3=s.nextInt();
+		s.nextLine();
+		System.out.println("enter  mark for subject 4: ");
+		std[i].t4=s.nextInt();
+		s.nextLine();
+		System.out.println("enter mark for subject 5: ");
+		std[i].t5=s.nextInt();
+		s.nextLine();
+		std[i].total=std[i].t1+std[i].t2+std[i].t3+std[i].t4+std[i].t5;
 		System.out.println("enter parent's contact number: ");
 		std[i].parentNo=s.nextInt();
 		s.nextLine();
@@ -39,15 +57,9 @@ public class ClassRoom
 		System.out.println(" \n name : "+std[i].name);
 		System.out.println("Roll no: "+std[i].rNo);
 		System.out.println("total marks= "+std[i].total);
+		System.out.println("Percentage= "+std[i].total/5);
 		System.out.println("Parent's contact number= "+std[i].parentNo);
 }
 }
-        Teacher ts=new Teacher();
-        public void setTeacher()
-        {
-        	System.out.println("Enter faculty name: ");
-        	String tname=s.nextLine();
-        	System.out.println("faculty is : "+tname);
-        }
 }
 

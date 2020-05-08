@@ -4,6 +4,9 @@ public class Student
     int rNo;
     int t1;
     int t2;
+    int t3;
+    int t4;
+    int t5;
     int total;
     int parentNo;
 }
