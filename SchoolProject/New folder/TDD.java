@@ -6,5 +6,8 @@ public class TDD
 	{
 		School h=new School();
 		h.schoolDetail();
+		h.printDetails();
+		
+
 	}
 }
