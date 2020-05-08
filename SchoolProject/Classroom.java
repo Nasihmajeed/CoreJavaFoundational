@@ -65,13 +65,19 @@ public class ClassRoom
 
 	}
 	public void setTeacher()
+	int n,i,total=0,Std;
 	{
 	System.out.println (" \n Enter Name of Teacher  ");
-	name=s.nextInt();
+	n=s.nextInt();
     s.nextLine();
     Teacher[] tr=new Teacher[5];
     for (int i=1; i<=n; i++)	
 	{
+		tr[i]=new Teacher();
+        System.out.println("\n enter Teacher " +i+  " details");
+        System.out.println("\n Enter name of the Subject: ");
+		student[i].name=s.nextLine();
+		
 		
 	}
 	}
