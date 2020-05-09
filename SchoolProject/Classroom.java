@@ -76,9 +76,29 @@ public class ClassRoom
 		tr[i]=new Teacher();
         System.out.println("\n enter Teacher " +i+  " details");
         System.out.println("\n Enter name of the Subject: ");
-		student[i].name=s.nextLine();
+		tr[i].name=s.nextLine();
 		
 		
+	}
+
+	}
+	public void feestructure()
+	int n,i,total=0,Std;
+	{
+	System.out.println (" \n Enter Name of students  ");
+	n=s.nextInt();
+    s.nextLine();
+    Studentfee[] fee=new Studentfee[10];
+    for (int i=1; i<=n; i++)	
+	{
+		tr[i]=new Teacher();
+        System.out.println("\n enter Fee Structure and details of " +i+  );
+        System.out.println("\n Enter the class: ");
+		fee[i].total=s.nextLine();
+		System.out.println("\n Amount paid ");
+		fee[i].paid=s.nextLine();
+		System.out.println("\n Amount Remain ");
+		fee[i].ramain=s.nextLine();
 	}
 	}
 }
