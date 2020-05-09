@@ -3,6 +3,7 @@ public class Subject
 {
 	String subjectName;
 	Integer mark;
+	
 
 	public void subjectDetails()
 	{
