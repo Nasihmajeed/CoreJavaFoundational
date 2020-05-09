@@ -16,5 +16,10 @@ public class Animal
 	{
 		return animalName;
 	}
+	public void setAnimalDetail(String name,int energy)
+	{
+		animalName=name;
+		animalEnergy=energy;
+	}
 
 }
