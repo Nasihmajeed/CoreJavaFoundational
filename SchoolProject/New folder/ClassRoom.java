@@ -3,39 +3,53 @@ import java.util.Scanner;
 public class ClassRoom
 {
 	Student[] students;
-	Teacher[] teachers;
+	Teacher teacher;
 	String classNo;
+	
+
+
+	Scanner myObj=new Scanner(System.in);
 	
 
 	public void classRoomDetalis()
 	{
-		students=new Student[2];
-		teachers=new Teacher[1];
 
-		students[0]=new Student();
-		students[1]=new Student();
-
-		teachers[0]=new Teacher();
 		
-		 
 
+		System.out.println("Enter count of students");
+		int studentscount=Integer.parseInt(myObj.nextLine());
+
+		students=new Student[studentscount];
+		
 		
 		
 
-		Scanner myObj=new Scanner(System.in);
+		for(int i=0;i<students.length;i++)
+		{
+			students[i]=new Student();
+		}
+
+
+		teacher=new Teacher();
+		
+		
 		System.out.println("Enter classno");
 		classNo=myObj.nextLine();
 		
 
-		teachers[0].teacherDeatails();
+		teacher.teacherDeatails();
 		
+		for(int i=0;i<students.length;i++)
+		{
+			students[i].studentDetails();
+		}
 
-		students[0].studentDetails();
-		students[1].studentDetails();
 
-		students[0].readTotalMarks();
-		students[1].readTotalMarks();
-
+		for(int i=0;i<students.length;i++)
+		{
+			students[i].printTotalMarks();
+		}
+		
 		
 	}
 
@@ -45,19 +59,52 @@ public class ClassRoom
 
 
 
+		for(int i=0;i<students.length;i++)
+		{
+
+			students[i].printStudentDetails();
+		}
+
+		for(int i=0;i<students.length;i++)
+		{
+			System.out.println("***************");
+			students[i].printTotalMarks();
+		}
+
+			teacher.printTeacherDetails();
+		}
+
+
+		public void printRankDetails()
+	{
+			for(int i=0;i<students.length;i++)
+			{
+				for(int j=i+1;j<students.length;j++)
+				{
+					
+
+					if(students[i].total<students[j].total)
+					{
+							Student temp=students[i];
+							students[i]=students[j];
+							students[j]=temp;
+					}
+				}
+			}
+
+			for(int i=0;i<students.length;i++)
+			{
+				System.out.println(students[i].name + " :"+students[i].total);
+			}
+
+
+
+
+
 		
-
-		students[0].printStudentDetails();
-		students[1].printStudentDetails();
-
-		students[0].readTotalMarks();
-		students[1].readTotalMarks();
-
-		teachers[0].printTeacherDetails();
-		
-
-
 	}
+
+	
 
 	
 }

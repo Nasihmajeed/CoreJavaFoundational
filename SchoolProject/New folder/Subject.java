@@ -12,9 +12,9 @@ public class Subject
 		subjectName=scanner.nextLine();
 		
 
-		Scanner scanner1=new Scanner(System.in);
+		
 		System.out.println("Enter subject mark ");
-		mark=scanner1.nextInt();
+		mark=scanner.nextInt();
 	}
 
 	public void printSubjectDetails()

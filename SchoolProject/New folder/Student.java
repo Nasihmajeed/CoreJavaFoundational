@@ -6,46 +6,40 @@ public class Student
 	
 	Integer total;
 
+
 	Subject[] subjects;
+	
 
 	public void studentDetails()
 	{
-
-		subjects=new Subject[2];
-
 		Scanner mystud=new Scanner(System.in);
+		System.out.println("Enter Subjectcount");
+		int subjectscount=Integer.parseInt(mystud.nextLine());
+
+		subjects=new Subject[subjectscount];
+
+		
 		System.out.println("Enter student name");
 		name=mystud.nextLine();
 		
-		Scanner regnum=new Scanner(System.in);
+		
 		System.out.println("Enter register number ");
-		regNo=regnum.nextLine();
-		
-		subjects[0]=new Subject();
-		subjects[1]=new Subject();
-		
+		regNo=mystud.nextLine();
+
+		for(int i=0;i<subjects.length;i++)
+		{
+			subjects[i]=new Subject();
+		}
 
 
-
-		subjects[0].subjectDetails();
-		subjects[1].subjectDetails();
-		
-
-
-
-
+		for(int i=0;i<subjects.length;i++)
+		{
+			subjects[i].subjectDetails();
+		}
 
 	}
-
 
 	
-
-		
-
-	public void  readTotalMarks()
-	{
-		total=subjects[0].mark+subjects[1].mark;
-	}
 	public void printStudentDetails()
 	{
 		System.out.println("The student name is"+name);
@@ -53,18 +47,29 @@ public class Student
 		System.out.println("The register number is"+regNo);
 
 
-
-		subjects[0].printSubjectDetails();
-		subjects[1].printSubjectDetails();
-		
-
-		
-		
-		
-
-
-
-		
+		for(int i=0;i<subjects.length;i++)
+		{
+			subjects[i].printSubjectDetails();
+		}
 
 	}
+
+	public void  printTotalMarks()
+	{
+		System.out.println("***************");
+
+		total=0;
+		for(int i=0;i<subjects.length;i++)
+		{
+
+		System.out.println("TEST"+subjects[i]);
+		total=total+subjects[i].mark;
+		}
+		System.out.println(" "+total);
+	}
+
+	
+
+
+
 }

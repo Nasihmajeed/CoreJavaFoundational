@@ -7,44 +7,43 @@ public class School
 
 		String schoolName;
 
+
+
 	public void schoolDetail()
 	{
-
-
-		classRooms=new ClassRoom[2];
-
-
-		classRooms[0]=new ClassRoom();
-		classRooms[1]=new ClassRoom();
-
-		
-
-
 		Scanner myObj3=new Scanner(System.in);
 		System.out.println("Enter schoolName");
 		schoolName=myObj3.nextLine();
-		
-		
 
-		classRooms[0].classRoomDetalis();
-		classRooms[1].classRoomDetalis();
+		
+		System.out.println("Classroom count");
+		int count=myObj3.nextInt();
 
+		classRooms=new ClassRoom[count];
+
+
+		for(int i=0;i<classRooms.length;i++)
+		{
+
+		classRooms[i]=new ClassRoom();
+		
+		}
+		
+		for(int i=0;i<classRooms.length;i++)
+		{
+		classRooms[i].classRoomDetalis();
+		}
 	} 
 
 	public void printDetails()
 	{
-
-
-		
-
 		System.out.println("The school name is"+schoolName);
-		classRooms[0].printClassnumber();
-		classRooms[1].printClassnumber();
 
-			
-
-
-
+		for(int i=0;i<classRooms.length;i++)
+		{
+			classRooms[i].printClassnumber();
+			classRooms[i].printRankDetails();
+		}
 		
 	}
 
