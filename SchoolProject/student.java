@@ -13,6 +13,8 @@ public class Student
     int t5;
     int total;
 	int percentage;
+    int avg;
+    
 	 
 }
 

@@ -50,55 +50,41 @@ public class ClassRoom
 		student[i].total=student[i].t1+student[i].t2+student[i].t3+student[i].t4+student[i].t5;
 		s.nextLine();
 		student[i].percentage=(student[i].total*100)/500;
-
-		System.out.println("\n student " +i+ " details are: ");
-		System.out.println(" \n name : "+student[i].name);
-		System.out.println("Class: "+student[i].clss);
-		System.out.println("Division: "+student[i].div);
-		System.out.println("Roll no: "+student[i].rNo);
-		System.out.println("Admission Number= "+student[i].admno);
-		System.out.println("Parent's contact number= "+student[i].parentNo);
-		System.out.println("total marks= "+student[i].total);
-		System.out.println("total Percentage= "+student[i].percentage);
-	  }
-
-
-	}
-	public void setTeacher()
-	int n,i,total=0,Std;
-	{
-	System.out.println (" \n Enter Name of Teacher  ");
-	n=s.nextInt();
-    s.nextLine();
-    Teacher[] tr=new Teacher[5];
-    for (int i=1; i<=n; i++)	
-	{
-		tr[i]=new Teacher();
-        System.out.println("\n enter Teacher " +i+  " details");
-        System.out.println("\n Enter name of the Subject: ");
-		tr[i].name=s.nextLine();
-		
-		
-	}
-
-	}
-	public void feestructure()
-	int n,i,total=0,Std;
-	{
-	System.out.println (" \n Enter Name of students  ");
-	n=s.nextInt();
-    s.nextLine();
-    Studentfee[] fee=new Studentfee[10];
-    for (int i=1; i<=n; i++)	
-	{
-		tr[i]=new Teacher();
-        System.out.println("\n enter Fee Structure and details of " +i+  );
-        System.out.println("\n Enter the class: ");
-		fee[i].total=s.nextLine();
-		System.out.println("\n Amount paid ");
-		fee[i].paid=s.nextLine();
-		System.out.println("\n Amount Remain ");
-		fee[i].ramain=s.nextLine();
-	}
+	 	student[i].avg = total/5;
+        
+		}
 	}
 }
+		public void printStudents()
+		{ 
+		for (int i=1; i<=n; i++)
+			{
+			System.out.println("\n student " +i+ " details are: ");
+			System.out.println(" \n name : "+student[i].name);
+			System.out.println("Class: "+student[i].clss);
+			System.out.println("Division: "+student[i].div);
+			System.out.println("Roll no: "+student[i].rNo);
+			System.out.println("Admission Number= "+student[i].admno);
+			System.out.println("Parent's contact number= "+student[i].parentNo);
+			System.out.println("total marks= "+student[i].total);
+			System.out.println("total Percentage= "+student[i].percentage);
+	  		System.out.println("The student Grade is: "+student[i].avg);
+        if(student[i].avg>=80)
+        {
+            System.out.print("A");
+        }
+        else if(student[i].avg>=60 && student[i].avg<80)
+        {
+           System.out.print("B");
+        } 
+        else if(student[i].avg>=40 && student[i].avg<60)
+        {
+            System.out.print("C");
+        }
+        else
+        {
+            System.out.print("Failed");
+        }
+		}
+	}
+	
