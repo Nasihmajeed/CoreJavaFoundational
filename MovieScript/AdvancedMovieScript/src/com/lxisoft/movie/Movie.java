@@ -29,13 +29,13 @@ public class Movie {
 			return scanner;
 		}
 	}
-	public void setMovie(String movieName,String releaseDate,String productionCompany)
+	private void setMovie(String movieName,String releaseDate,String productionCompany)
 	{
 		this.movieName = movieName;
 		this.releaseDate = releaseDate;
 		this.productionCompany = productionCompany;
 	}
-	public void printMovie()
+	private void printMovie()
 	{
 		System.out.println("Movie Name : "+movieName);
 		System.out.println("Release Date : "+releaseDate);
@@ -55,7 +55,6 @@ public class Movie {
 		Movie movie = (Movie)obj;
 		if(this.movieName.equals(movie.movieName)) return false;
 		return true;
-		
 	}
 	
 	public void selectOption()
@@ -88,9 +87,9 @@ public class Movie {
 		
 	}
 	
-	public void startMovie()
+	private void startMovie()
 	{
-		scanner = this.getScanner();
+		//scanner = this.getScanner();
 		boolean isTrue = false;
 		do
 		{
@@ -122,9 +121,9 @@ public class Movie {
 		}while(isTrue);
 	}
 	
-	public void editMovie()
+	private void editMovie()
 	{
-		scanner = this.getScanner();
+		//scanner = this.getScanner();
 		boolean isTrue = false;
 		do
 		{
@@ -156,26 +155,27 @@ public class Movie {
 		}while(isTrue);
 	}
 	
-	public void printAllCharecters()
+	private void printAllCharecters()
 	{
-		Map map = new HashMap();
+		Map<Integer,String> map = new HashMap<Integer, String>();
 		
 		map.put(1,"Comedian");
 		map.put(3, "Heroin");
 		map.put(2, "Villan");
 		map.put(4,"Hero");
 		
-		Set set = map.entrySet();
-		Iterator itr = set.iterator();
+		Set<?> set = map.entrySet();
+		Iterator<?> itr = set.iterator();
 		
 		while(itr.hasNext())
 		{
+			@SuppressWarnings("rawtypes")
 			Map.Entry entry = (Map.Entry)itr.next();
 			System.out.println(entry.getKey()+"."+entry.getValue());
 		}
 	}
 	
-	public void playMovie(int movieCode)
+	private void playMovie(int movieCode)
 	{
 		System.out.println("****Movie Started****");
 		System.out.println(" ");
@@ -185,7 +185,7 @@ public class Movie {
 		System.out.println("****Movie End****");
 	}
 	
-	public void editMovie(int movieCode)
+	private void editMovie(int movieCode)
 	{
 		Director director = new Director();
 		director.editMovie(movieCode);

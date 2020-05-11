@@ -27,7 +27,7 @@ public class Director {
 		this.startConversation(dialouge, actors);
 	}
 	
-	public ArrayList<Actor> createActor()
+	private ArrayList<Actor> createActor()
 	{
 		ArrayList<Actor> actor = new ArrayList<>();
 		
@@ -51,7 +51,7 @@ public class Director {
 		}
 	}
 	
-	public void startConversation(List<Dialouge> dialouge,ArrayList<Actor> actors)
+	private void startConversation(List<Dialouge> dialouge,ArrayList<Actor> actors)
 	{
 		try
 		{
@@ -76,7 +76,7 @@ public class Director {
 			e.printStackTrace();
 		}
 	}
-	public void printDialouge(List<Dialouge> dialouge,Actor actor,String questionOrAnswer,int y)
+	private void printDialouge(List<Dialouge> dialouge,Actor actor,String questionOrAnswer,int y)
 	{	
 		for(int k=0;k<dialouge.size();k++)
 		{

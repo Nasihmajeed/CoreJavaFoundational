@@ -9,34 +9,19 @@ public class Script {
 	
  private List<Dialouge> dialouge = new ArrayList<>();
  private FileRepositoryImp fileReppo = FileRepositoryImp.getInstance();
- private File comediFilmFile = new File("/home/adarsh/TestProject/MovieScript/src/com/lxisoft/file/comediFilmFile.csv");
- private File romanticFilmFile = new File("/home/adarsh/TestProject/MovieScript/src/com/lxisoft/file/romanticFilmFile.csv");
+ private File comediFilmFile = new File("/home/adarsh/TestProject/MovieScript/resources/comediFilmFile.csv");
+ private File romanticFilmFile = new File("/home/adarsh/TestProject/MovieScript/resources/romanticFilmFile.csv");
  private Scanner scanner;
-	public void setDialouge()
-	{
-		
-		for(int i =0;i<10;i++)
-		{
-			dialouge.add(new Dialouge());
-			System.out.println("Object Name : "+dialouge.get(i));
-		}
-	}
-	public void getDialouge()
-	{
-		//dialouge = fileReppo.readFromFile(dialouge);
-	}
 	
 	public List<Dialouge> getScript(int scriptCode)
 	{
 		if(scriptCode == 1)
 		{
-			//dialouge.clear();
 			dialouge = fileReppo.readFromFile(dialouge,comediFilmFile);
 			return dialouge;
 		}
 		else
 		{
-			//dialouge.clear();
 			dialouge = fileReppo.readFromFile(dialouge,romanticFilmFile);
 			return dialouge;
 		}
@@ -95,7 +80,7 @@ public class Script {
 		
 	}
 	//overLoad
-	public void editScript(List<Dialouge> dialouge,File file)
+	private void editScript(List<Dialouge> dialouge,File file)
 	{
 		scanner = Movie.getScanner();
 		System.out.println("Enter the ID  for Update");
@@ -112,7 +97,7 @@ public class Script {
 		this.editDialouge(dialouge, id, dialougeCode, characterName, quesOrAns, dia, file);
 				
 	}
-	public void editDialouge(List<Dialouge> dialouge,String id,String dialougeCode,String characterName,String quesOrAns,String dia,File file)
+	private void editDialouge(List<Dialouge> dialouge,String id,String dialougeCode,String characterName,String quesOrAns,String dia,File file)
 	{
 		for(int i = 0;i<dialouge.size();i++)
 		{
@@ -123,7 +108,7 @@ public class Script {
 				dialouge.get(i).setCharacterName(characterName);
 				dialouge.get(i).setQuestionOrAnswer(quesOrAns);
 				dialouge.get(i).setDialouge(dia);
-				fileReppo.writeToFile(dialouge,file);
+				this.fileReppo.writeToFile(dialouge,file);
 			}
 		}
 	}
