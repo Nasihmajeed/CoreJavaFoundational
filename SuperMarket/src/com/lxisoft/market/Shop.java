@@ -1,0 +1,107 @@
+package com.lxisoft.market;
+import com.lxisoft.market.*;
+import java.util.*;
+import java.io.*; 
+public class Shop
+{
+	static Scanner sc=new Scanner(System.in);
+	public ArrayList<Item> items;
+	public FileRepository fr=new FileRepository();	
+	public void addStock()
+	{
+		try
+		{
+			boolean check=false;
+			do	
+			{
+				check=false;
+				System.out.println("Choose Items");
+				System.out.println("\n 1.Stationary \n 2.Toys \n 3.Fancy  \n");
+				int i=sc.nextInt();
+				switch (i)
+				{
+		 			case 1: addStationary(); check=true; break;
+					case 2: addToy(); check=true; break;
+					case 3: addFancy();check=true; break;			
+					default:
+				}				
+			}while(check);
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Error in input value");
+			e.printStackTrace();
+		}		
+	}
+	public void addStationary()
+	{
+		System.out.println("Name of Item");
+		Item stationary=new Stationary();
+		stationary.setName(sc.next());
+		System.out.println("ID");
+		stationary.setId(sc.nextInt());	
+		System.out.println("Price of item");
+		stationary.setPrice(sc.nextInt());
+		System.out.println("Quantity of item");
+		stationary.setQuantity(sc.nextInt());	
+		items.add(stationary);
+		fr.writeToFile(items);
+		fr.readFile();
+
+	} 
+	public void addToy()
+	{
+		System.out.println("Name of Toy");
+		Item toy=new Toy();
+		toy.setName(sc.next());
+		System.out.println("ID");
+		toy.setId(sc.nextInt());	
+		System.out.println("Price of Toy");
+		toy.setPrice(sc.nextInt());
+		System.out.println("Quantity of Toy");
+		toy.setQuantity(sc.nextInt());	
+		items.add(toy);
+		fr.writeToFile(items);
+		fr.readFile();
+
+	}
+	public void addFancy()
+	{
+		System.out.println("Name of Fancy");
+		Item fancy=new Fancy();
+		fancy.setName(sc.next());
+		System.out.println("ID");
+		fancy.setId(sc.nextInt());	
+		System.out.println("Price of item");
+		fancy.setPrice(sc.nextInt());
+		System.out.println("Quantity of item");
+		fancy.setQuantity(sc.nextInt());	
+		items.add(fancy);
+		fr.writeToFile(items);
+		fr.readFile();
+
+	}
+	public void displayAll()
+	{
+		System.out.println("\nDisplay the details");
+		System.out.println(items.size());
+		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
+		for(int i=0;i<items.size();i++)
+		{			
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
+		}
+		
+	}
+}	
+					
+	
+	
+
+
+
+
+
+
+
+
+	
