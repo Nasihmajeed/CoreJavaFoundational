@@ -1,11 +1,12 @@
-package com.lxisoft.market;
+package com.lxisoft.repository;
+import com.lxisoft.repository.*;
 import com.lxisoft.market.*;
 import java.util.*; 
 import java.io.*; 
 public class FileRepository
 {
 	File market=new File("D:\\Stationary.csv");
-	public void writeToFile(ArrayList<Item> items)
+	public void writeFile(List<Item> items)
 	{
 		try
 		{					

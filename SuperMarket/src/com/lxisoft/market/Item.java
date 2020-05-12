@@ -7,9 +7,6 @@ public class Item
 	private String itemType;
 	private int itemPrice;	
 	private  int itemQuantity;
-	Stationary stationary;
-	Toy toy;
-	Fancy fancy;
 	public void setId(int id)
 	{
 		this.id=id;
