@@ -5,7 +5,7 @@ public class Student
 	String regNo;
 	
 	Integer total;
-	float percentage;
+	double percentage;
 
 
 	Subject[] subjects;
@@ -60,16 +60,24 @@ public class Student
 		System.out.println("***************");
 
 		total=0;
+		percentage=0.0;
 		for(int i=0;i<subjects.length;i++)
 		{
 
-		System.out.println("TEST"+subjects[i]);
+		
 		total=total+subjects[i].mark;
-		}
-		System.out.println(" "+total);
+		percentage=((total/(subjects.length*100.0)*100.0));
 
+		}
 
 	}
+
+	public void printPercentage()
+		{
+			System.out.println("The total marks "+total);
+		System.out.println("The percentage is"+percentage);
+		}
+		
 
 	public void printResultOfStudents()
 	{

@@ -32,12 +32,6 @@ public class ClassRoom
 
 		teacher=new Teacher();
 		
-		 
-
-		
-		
-
-		
 		System.out.println("Enter classno");
 		classNo=myObj.nextLine();
 		
@@ -60,6 +54,8 @@ public class ClassRoom
 
 	public void printClassnumber()
 	{
+		System.out.println(".............................");
+		System.out.println(".............................");
 		System.out.println("The class number is"+classNo);
 
 
@@ -68,21 +64,19 @@ public class ClassRoom
 		{
 
 			students[i].printStudentDetails();
-		}
-
-		for(int i=0;i<students.length;i++)
-		{
-			System.out.println("***************");
-			students[i].printTotalMarks();
+			students[i].printPercentage();
 			students[i].printResultOfStudents();
 		}
 
-			teacher.printTeacherDetails();
+		
+
+			
 		}
 
 
 		public void printRankDetails()
 	{
+		System.out.println("THE RANKLIST");
 			for(int i=0;i<students.length;i++)
 			{
 				for(int j=i+1;j<students.length;j++)
@@ -101,6 +95,7 @@ public class ClassRoom
 			for(int i=0;i<students.length;i++)
 			{
 				System.out.println(students[i].name + " :"+students[i].total);
+
 			}
 
 
