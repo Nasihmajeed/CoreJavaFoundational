@@ -8,11 +8,11 @@ public class ImportProduct
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter product Name : ");
 		String proName=scr.next();
-		item.setName(proName);
+		item.setItemName(proName);
 
 		System.out.println("Enter product catogery : ");
 		String proCatogery=scr.next();
-		item.setName(proCatogery);
+		item.setCatogery(proCatogery);
 		
 	}
 }

@@ -1,17 +1,17 @@
 package com.lxisoft.OnlineShoping;
-public class Item extends Product
+public class Item 
 {
-	String name;
+	String itemName;
 	String catogey;
 	int price;
 	int productNo;
-	public void setName(String proName)
+	public void setItemName(String proName)
 	{
-		this.name=proName;
+		this.itemName=proName;
 	}
-	public String getName()
+	public String getItemName()
 	{
-		return this.name;
+		return this.itemName;
 	}
 	public void setCatogery(String proCatogery)
 	{
