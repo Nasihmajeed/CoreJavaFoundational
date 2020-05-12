@@ -5,6 +5,7 @@ public class Student
 	String regNo;
 	
 	Integer total;
+	float percentage;
 
 
 	Subject[] subjects;
@@ -66,10 +67,31 @@ public class Student
 		total=total+subjects[i].mark;
 		}
 		System.out.println(" "+total);
+
+
+	}
+
+	public void printResultOfStudents()
+	{
+		System.out.println("RESULTS");
+		
+			for(int i=0;i<subjects.length;i++)
+			{
+				if(subjects[i].mark>45)
+				{
+					System.out.println("Passed in "+subjects[i].subjectName);
+				}
+				else
+				{
+					System.out.println("Failed in"+subjects[i].subjectName);	
+				}
+			}
+		}
+
+
 	}
 
 	
 
 
 
-}

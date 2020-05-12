@@ -32,6 +32,11 @@ public class ClassRoom
 
 		teacher=new Teacher();
 		
+		 
+
+		
+		
+
 		
 		System.out.println("Enter classno");
 		classNo=myObj.nextLine();
@@ -69,6 +74,7 @@ public class ClassRoom
 		{
 			System.out.println("***************");
 			students[i].printTotalMarks();
+			students[i].printResultOfStudents();
 		}
 
 			teacher.printTeacherDetails();
