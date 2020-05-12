@@ -11,7 +11,9 @@ public class ClassRoom
         	System.out.println("faculty is : "+tname);
         }
         
-	int n,i,total=0,Std;
+	int n,i,Std;
+	
+	
 	Student[] std=new Student[10];
 	public void setStudent()
 	{
@@ -44,6 +46,7 @@ public class ClassRoom
 		std[i].t5=s.nextInt();
 		s.nextLine();
 		std[i].total=std[i].t1+std[i].t2+std[i].t3+std[i].t4+std[i].t5;
+		std[i].percentage=((float)std[i].total/500)*100;
 		System.out.println("enter parent's contact number: ");
 		std[i].parentNo=s.nextInt();
 		s.nextLine();
@@ -57,65 +60,10 @@ public class ClassRoom
 		System.out.println(" \n name : "+std[i].name);
 		System.out.println("Roll no: "+std[i].rNo);
 		System.out.println("total marks= "+std[i].total);
-		System.out.println("Percentage= "+std[i].total/5);
+		System.out.println("Average= "+std[i].total/5);
+		System.out.println("Percentage= "+std[i].percentage);
 		System.out.println("Parent's contact number= "+std[i].parentNo);
 	}
 }
-		 public void set1Teacher()
-        {
-        	System.out.println("Enter faculty name: ");
-        	String tname=s.nextLine();
-        	System.out.println("faculty is : "+tname);
-        }
-
-	Student[] std1=new Student[10];
-
-	public void set1Student()
-	{
-	System.out.println (" \n Enter number of students ");
-	n=s.nextInt();
-    s.nextLine();
-    
-    for (int i=1; i<=n; i++)
-     {
-     	std1[i]=new Student();
-        System.out.println("\n enter student " +i+  " details");
-        System.out.println("\n enter name of the student: ");
-		std1[i].name=s.nextLine();
-		System.out.println("enter roll no: ");
-		std1[i].rNo=s.nextInt();	
-		s.nextLine();
-		System.out.println("enter  mark for subject 1: ");
-		std1[i].t1=s.nextInt();
-		s.nextLine();
-		System.out.println("enter  mark for subject 2: ");
-		std1[i].t2=s.nextInt();
-		s.nextLine();
-		System.out.println("enter  mark for subject 3: ");
-		std1[i].t3=s.nextInt();
-		s.nextLine();
-		System.out.println("enter  mark for subject 4: ");
-		std1[i].t4=s.nextInt();
-		s.nextLine();
-		System.out.println("enter mark for subject 5: ");
-		std1[i].t5=s.nextInt();
-		s.nextLine();
-		std1[i].total=std1[i].t1+std1[i].t2+std1[i].t3+std1[i].t4+std1[i].t5;
-		System.out.println("enter parent's contact number: ");
-		std1[i].parentNo=s.nextInt();
-		s.nextLine();
-		}
-	}
-	    public void print1Students()
-	    { 
-		for (int i=1; i<=n; i++)
-		{
-		System.out.println("\n student " +i+ " details are: ");
-		System.out.println(" \n name : "+std1[i].name);
-		System.out.println("Roll no: "+std1[i].rNo);
-		System.out.println("total marks= "+std1[i].total);
-		System.out.println("Percentage= "+std1[i].total/5);
-		System.out.println("Parent's contact number= "+std1[i].parentNo);
-}
-}
+		
 }

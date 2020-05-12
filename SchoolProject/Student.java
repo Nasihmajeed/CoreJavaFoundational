@@ -7,7 +7,8 @@ public class Student
     int t3;
     int t4;
     int t5;
-    int total;
+    int total=0;
+    float percentage;
     int parentNo;
 }
 
