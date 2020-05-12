@@ -18,11 +18,7 @@ public class School
     System.out.println("           *                                                                                                                                             *");
     System.out.println("           **************************************************************");
       }
-  
-     public void printStudent()
-    {
-        classroom.setStudent();
-      
-     }
+
  }
+ 
  

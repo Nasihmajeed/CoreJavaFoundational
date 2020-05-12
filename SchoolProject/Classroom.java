@@ -1,12 +1,13 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 public class ClassRoom
 {
-	Scanner s=new Scanner(System.in);
+	
+	private class print
+	{
 	int n,i,total=0,Std;
 	public void setStudent()
 	{
+	Scanner s=new Scanner(System.in);
 	System.out.println (" \n Enter number of students ");
 	n=s.nextInt();
     s.nextLine();
@@ -53,11 +54,10 @@ public class ClassRoom
 	 	student[i].avg = total/5;
         
 		}
-	}
-}
-		public void printStudents()
-		{ 
+	
+	     
 		for (int i=1; i<=n; i++)
+		{
 			{
 			System.out.println("\n student " +i+ " details are: ");
 			System.out.println(" \n name : "+student[i].name);
@@ -69,22 +69,22 @@ public class ClassRoom
 			System.out.println("total marks= "+student[i].total);
 			System.out.println("total Percentage= "+student[i].percentage);
 	  		System.out.println("The student Grade is: "+student[i].avg);
-        if(student[i].avg>=80)
-        {
-            System.out.print("A");
-        }
-        else if(student[i].avg>=60 && student[i].avg<80)
-        {
-           System.out.print("B");
-        } 
-        else if(student[i].avg>=40 && student[i].avg<60)
-        {
-            System.out.print("C");
-        }
-        else
-        {
-            System.out.print("Failed");
-        }
-		}
-	}
-	
+        	if(student[i].avg>=80)
+        	{
+            	System.out.print("A");
+        	}
+        	else if(student[i].avg>=60 && student[i].avg<80)
+        	{
+           		System.out.print("B");
+        	} 
+        	else if(student[i].avg>=40 && student[i].avg<60)
+        	{
+            	System.out.print("C");
+        	}
+        	else
+        	{
+            	System.out.print("Failed");
+        	}
+    	}
+   	}
+}
