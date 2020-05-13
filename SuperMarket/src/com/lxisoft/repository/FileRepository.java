@@ -14,7 +14,7 @@ public class FileRepository
 			BufferedWriter bw=new BufferedWriter(fw);
 			for(int i=0;i<items.size();i++)
 			{
-				bw.write(items.get(i).getId()+","+items.get(i).getName()+","+items.get(i).getPrice()+"\n");  
+				bw.write(items.get(i).getName()+","+items.get(i).getId()+","+items.get(i).getPrice()+","+items.get(i).getQuantity()+"\n");  
 				
 			}	
 			bw.flush();
@@ -37,10 +37,10 @@ public class FileRepository
 			{	
 				String[] dt=data.split(",",4);
 				Item item=new Item();
-				item.setId(Integer.parseInt(dt[0]));
-				item.setName(dt[1]);
-				item.setQuantity(Integer.parseInt(dt[2]));
-				item.setPrice(Integer.parseInt(dt[3]));
+				item.setName(dt[0]);
+				item.setId(Integer.parseInt(dt[1]));
+				item.setPrice(Integer.parseInt(dt[2]));
+				item.setQuantity(Integer.parseInt(dt[3]));
 				System.out.println(dt[0] + (dt[1]) + (dt[2]) + (dt[3]));
 			}
 		}

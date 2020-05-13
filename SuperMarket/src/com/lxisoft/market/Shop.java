@@ -2,7 +2,8 @@ package com.lxisoft.market;
 import com.lxisoft.market.*;
 import com.lxisoft.repository.FileRepository;
 import java.util.*;
-import java.io.*; 
+import java.io.*;
+import java.util.Comparator; 
 public class Shop
 {
 	static Scanner sc=new Scanner(System.in);
@@ -71,7 +72,7 @@ public class Shop
 		System.out.println("Name of Item");
 		Item stationary=new Stationary();
 		stationary.setName(sc.next());
-		System.out.println("ID");
+		System.out.println("Item ID");
 		stationary.setId(sc.nextInt());	
 		System.out.println("Price of item");
 		stationary.setPrice(sc.nextInt());
@@ -116,12 +117,14 @@ public class Shop
 	public void displayAll()
 	{
 		System.out.println("\nDisplay the details");
-		System.out.println(items.size());
 		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
-		for(int i=0;i<items.size();i++)
-		{			
-			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
-		}
+		// for(int i=0;i<items.size();i++)
+		// {			
+		// 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
+		// }
+
+		Collections.sort(items);
+        System.out.println(items);
 		
 	}
 }	
