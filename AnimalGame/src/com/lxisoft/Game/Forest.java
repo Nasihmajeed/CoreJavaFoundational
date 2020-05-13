@@ -42,14 +42,25 @@ public class Forest
 		animals.add(new Fox());
 		animals.add(new Wolf());
 		animals.add(new Rabbit());
-		animals.add(new Deer());
+		animals.add(new Tiger());
+		animals.add(new Lion());
+		animals.add(new Fox());
+		animals.add(new Wolf());
+		animals.add(new Rabbit());
 
-		animals.get(0).setAnimalDetail("Tiger",8);
-		animals.get(1).setAnimalDetail("Lion",10);
-		animals.get(2).setAnimalDetail("Fox",6);
-		animals.get(3).setAnimalDetail("Wolf",5);
-		animals.get(4).setAnimalDetail("Rabbit",2);
-		animals.get(5).setAnimalDetail("Deer",3);
+
+		animals.get(0).setAnimalDetail("Tiger_1",80);
+		animals.get(1).setAnimalDetail("Lion_1",100);
+		animals.get(2).setAnimalDetail("Fox_1",60);
+		animals.get(3).setAnimalDetail("Wolf_1",50);
+		animals.get(4).setAnimalDetail("Rabbit_1",20);
+		
+		animals.get(5).setAnimalDetail("Tiger_2",80);
+		animals.get(6).setAnimalDetail("Lion_2",100);
+		animals.get(7).setAnimalDetail("Fox_2",60);
+		animals.get(8).setAnimalDetail("Wolf_2",50);
+		animals.get(9).setAnimalDetail("Rabbit_2",20);
+		
 		animalMeet();
 	}
 
@@ -112,6 +123,12 @@ public class Forest
 	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
 			System.out.println("---------------------------------------------");
 			animals.remove(r1);
+	 	}
+	 	else
+	 	{
+	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
+			System.out.println("---------------------------------------------");
+			animals.remove(r2);
 	 	}
 	 }
 }
