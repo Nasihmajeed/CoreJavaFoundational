@@ -1,10 +1,12 @@
 package com.lxisoft.OnlineShoping;
+import java.util.*;
 public class Item 
 {
 	String itemName;
 	String catogey;
 	int price;
 	int productNo;
+	String feature;
 	public void setItemName(String proName)
 	{
 		this.itemName=proName;
@@ -17,8 +19,16 @@ public class Item
 	{
 		this.catogey=proCatogery;
 	}
-	public String setCatogery()
+	public String getCatogery()
 	{
 		return this.catogey;
+	}
+	public void setFeature(String proFeature)
+	{
+		this.feature=proFeature;
+	}
+	public String getFeature()
+	{
+		return this.feature;
 	}
 }

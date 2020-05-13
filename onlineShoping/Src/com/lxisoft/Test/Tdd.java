@@ -7,13 +7,13 @@ public class Tdd
 	{
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Yellow.coM");
-		System.out.println("1 : Login \n2 : View products");		
+		System.out.println("1 : Purchase item \n2 : View products");		
 		int num=scr.nextInt();
 		DisplayPage dp=new DisplayPage();
 		switch(num)
 		{
 			case 1:
-					dp.login();
+					dp.viewItem();
 
 			case 2:
 					

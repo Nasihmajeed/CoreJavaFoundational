@@ -3,6 +3,8 @@ public class User
 {
 	private String name;
 	private String password;
+	private String address;
+	private int pincode;
 	public void setName(String name)
 	{
 		this.name=name;
@@ -20,4 +22,21 @@ public class User
 	{
 		return this.password;
 	}
+	public void setAddress(String address)
+	{
+		this.address=address;
+	}
+	public String getAddress()
+	{
+		return this.address;
+	}
+	public void setPincode(int pincode)
+	{
+		this.pincode=pincode;
+	}
+	public int getPincode()
+	{
+		return this.pincode;
+	}
+
 }
