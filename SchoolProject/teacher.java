@@ -1,8 +1,4 @@
-public class Teacher;
+public class Teacher
 {
-	String name ;
-	String subject;
-	int pasp;
-	
-	
+	String tname;
 }

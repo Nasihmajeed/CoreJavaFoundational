@@ -1,9 +1,11 @@
 public class School
 {
     ClassRoom classroom=new ClassRoom();
+
      public void printSchool()
      {
-       System.out.println();
+      
+    System.out.println();
     System.out.println("           **************************************************************");
     System.out.println("           *                                                                                                                                             *");
     System.out.println("           *                 MOUNT HIRA ENGLISH SCHOOL                                                                                                   *");   
@@ -18,7 +20,17 @@ public class School
     System.out.println("           *                                                                                                                                             *");
     System.out.println("           **************************************************************");
       }
+      
+  
 
+     
+  
+     public void printStudent()
+    {
+        classroom.setTeacher();
+        classroom.setStudent();
+       classroom.printStudents();
+      
+     }
+ 
  }
- 
- 

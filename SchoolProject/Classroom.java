@@ -1,17 +1,24 @@
 import java.util.Scanner;
 public class ClassRoom
 {
-	
-	private class print
-	{
+	Scanner s=new Scanner(System.in);
+
+        Teacher tr=new Teacher();
+        public void setTeacher()
+        {
+        	System.out.println("Enter Teacher name: ");
+        	String tname=s.nextLine();
+        	System.out.println("Teacher is : "+tname);
+        }
+        
 	int n,i,total=0,Std;
+	Student[] student=new Student[10];
 	public void setStudent()
 	{
-	Scanner s=new Scanner(System.in);
 	System.out.println (" \n Enter number of students ");
 	n=s.nextInt();
     s.nextLine();
-    Student[] student=new Student[10];
+    
     for (int i=1; i<=n; i++)
      {
      	student[i]=new Student();
@@ -51,14 +58,12 @@ public class ClassRoom
 		student[i].total=student[i].t1+student[i].t2+student[i].t3+student[i].t4+student[i].t5;
 		s.nextLine();
 		student[i].percentage=(student[i].total*100)/500;
-	 	student[i].avg = total/5;
-        
 		}
-	
-	     
+	}
+	    public void printStudents()
+	    { 
 		for (int i=1; i<=n; i++)
 		{
-			{
 			System.out.println("\n student " +i+ " details are: ");
 			System.out.println(" \n name : "+student[i].name);
 			System.out.println("Class: "+student[i].clss);
@@ -68,16 +73,16 @@ public class ClassRoom
 			System.out.println("Parent's contact number= "+student[i].parentNo);
 			System.out.println("total marks= "+student[i].total);
 			System.out.println("total Percentage= "+student[i].percentage);
-	  		System.out.println("The student Grade is: "+student[i].avg);
-        	if(student[i].avg>=80)
+	  		System.out.println("The student Grade is: ");
+			if(student[i].percentage>=80)
         	{
             	System.out.print("A");
         	}
-        	else if(student[i].avg>=60 && student[i].avg<80)
+        	else if(student[i].percentage>=60 && student[i].percentage<80)
         	{
            		System.out.print("B");
         	} 
-        	else if(student[i].avg>=40 && student[i].avg<60)
+        	else if(student[i].percentage>=40 && student[i].percentage<60)
         	{
             	System.out.print("C");
         	}
@@ -85,6 +90,16 @@ public class ClassRoom
         	{
             	System.out.print("Failed");
         	}
-    	}
-   	}
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("N.B: A>=80% , B>=60-79%  , C>=40-59% , Failed<40%");
+		}
+
+	}
+	
+
 }
