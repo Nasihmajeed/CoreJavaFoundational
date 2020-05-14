@@ -1,3 +1,5 @@
+package com.lxisoft.schoolproject;
+
 import java.util.Scanner;
 public class Student
 {

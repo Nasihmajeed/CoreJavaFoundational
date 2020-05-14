@@ -1,3 +1,5 @@
+package com.lxisoft.schoolproject;
+
 import java.util.Scanner;
 
 public class ClassRoom
@@ -5,6 +7,7 @@ public class ClassRoom
 	Student[] students;
 	Teacher teacher;
 	String classNo;
+	int studentslength;
 	
 
 
@@ -77,10 +80,16 @@ public class ClassRoom
 		public void printRankDetails()
 	{
 		System.out.println("THE RANKLIST");
+		System.out.println("###############");
+		System.out.println("student length"+students.length);
 			for(int i=0;i<students.length;i++)
 			{
+				
 				for(int j=i+1;j<students.length;j++)
 				{
+
+					System.out.println("i ="+i);
+					System.out.println("j ="+j);
 					
 
 					if(students[i].total<students[j].total)
@@ -90,6 +99,8 @@ public class ClassRoom
 							students[j]=temp;
 					}
 				}
+
+
 			}
 
 			for(int i=0;i<students.length;i++)
@@ -97,13 +108,20 @@ public class ClassRoom
 				System.out.println(students[i].name + " :"+students[i].total);
 
 			}
-
-
-
-
-
-		
 	}
+
+
+		public void setNewStudentNo()
+		{
+			for(int i=0;i<students.length;i++)
+			{
+				int studentslength=students.length;
+				System.out.println("NO OF STUDENTS ARE"+studentslength);
+			}
+		}
+
+
+
 
 	
 
