@@ -127,7 +127,7 @@ public void deleteDialouge(Actor a1,Actor a2,FileReppo script,ArrayList<Dialogue
 {
 	System.out.println("Whose Dialogue you Want to Delete \n1.villan \n2.Comic");
 		int choise=input.nextInt();
-		if((choise-1)==0)
+		if((choise-1).equals(0))
 		{ int z=1;
 			for(int i=0;i<villandialogue.size();i++)
 			{
