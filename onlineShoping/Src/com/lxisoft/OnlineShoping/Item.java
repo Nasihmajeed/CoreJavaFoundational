@@ -2,11 +2,11 @@ package com.lxisoft.OnlineShoping;
 import java.util.*;
 public class Item 
 {
-	String itemName;
-	String catogey;
-	int price;
-	int productNo;
-	String feature;
+	private String itemName;
+	private String catogey;
+	private int price;
+	private int productNo;
+	private String feature;
 	public void setItemName(String proName)
 	{
 		this.itemName=proName;

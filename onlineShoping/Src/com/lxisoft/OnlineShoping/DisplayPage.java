@@ -4,12 +4,44 @@ import com.lxisoft.OnlineShoping.Item;
 import com.lxisoft.OnlineShoping.User;
 import com.lxisoft.OnlineShoping.Stock;
 import com.lxisoft.OnlineShoping.Cart;
+import com.lxisoft.OnlineShoping.BillCounter;
 import java.util.Scanner;
 public class DisplayPage
 {
 	Scanner scr=new Scanner(System.in);
 	User user;
 	Stock stock=new Stock();
+	Login userLogin=new Login();
+	ArrayList<User> usrers=new ArrayList<User>();
+	public void login()
+	{
+		ArrayList<String>log=new ArrayList<String>();
+		ArrayList<String> logDet=userLogin.getUserLogin();
+		usrers=userLogin.getUserSignup();
+		userLogin.setUserLogin(log);
+		for(int i=0;i<usrers.size();i++)
+		{
+			if (logDet.get(0).equals(usrers.get(i).getName())) 
+			{
+				System.out.println("Login done");
+				viewItem();
+			}
+			else if (!logDet.get(0).equals(usrers.get(i).getName())) 
+			{
+				System.out.println("Login faild");
+				userLogin.setUserSignup();
+			}
+			
+		}
+		
+		
+	}
+	public void signup()
+	{
+		userLogin.setUserSignup();
+		login();
+	}
+
 	public void viewItem()
 	{
 		ArrayList<Item>product=stock.itemDetail();
@@ -50,6 +82,9 @@ public class DisplayPage
 	}
 	public void buyItem(Item product)
 	{
-		
+		BillCounter billcounter=new BillCounter();
+
+
+		billcounter.buyItem(product);
 	}
 }
