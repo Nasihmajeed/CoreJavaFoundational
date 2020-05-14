@@ -6,8 +6,9 @@ public class TDD
 {
 	public static void main(String[] arg)
 	{
-		Scanner sc=new Scanner(System.in);
-		Shop shop = new Shop();
+		Shop.shop("EVERGREEN ENTERPRISES");  
+        System.out.println(Shop.shopName);     
+       	Shop shop = new Shop();
 		shop.shopDetails();
 			
 	}	

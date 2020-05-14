@@ -1,6 +1,9 @@
 package com.lxisoft.market;
 import com.lxisoft.market.*;
-import java.util.Objects; 
+import java.util.Objects;
+import java.util.*; 
+import java.lang.*; 
+import java.io.*;  
 public class Item implements Comparable<Item>
 {	
 	private int id;
@@ -39,7 +42,16 @@ public class Item implements Comparable<Item>
 	{
 		return this.itemQuantity;
 	}
-	//@Override
+	
+	public Item(int id, String itemType,int itemPrice,int itemQuantity) 
+    { 
+        this.id = id; 
+      	this.itemType=itemType;
+		this.itemPrice=itemPrice;
+		this.itemQuantity=itemQuantity;
+    } 
+
+
     public int compareTo(Item item) {
         return this.getId() - item.getId();
     }
@@ -56,7 +68,7 @@ public class Item implements Comparable<Item>
         return Objects.hash(id);
     }*/
 
-    @Override
+    //@Override
     public String toString() {
         return "Item{" +
                 "id=" + id +

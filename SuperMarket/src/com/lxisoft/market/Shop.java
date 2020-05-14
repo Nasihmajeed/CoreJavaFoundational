@@ -9,10 +9,16 @@ public class Shop
 	static Scanner sc=new Scanner(System.in);
 	public List<Item> items=new ArrayList<Item>();
 	FileRepository fr=new FileRepository();
+	public static String shopName = ""; 
+      
+    public static void shop(String name){ 
+          
+        shopName = name; 
+    } 
 	public void shopDetails()
 	{	
 		ArrayList<String> details=new ArrayList<String>();  
-		details.add("Evergreen Enterprices");  
+		details.add("Supermarket,Textiles,Fancy");  
 		details.add("Pookotukavu");  
 		details.add("Kadambur (PO),Pin: 679514,Palakkad"); 	 
 		for(String d:details){  
@@ -127,6 +133,11 @@ public class Shop
         System.out.println(items);
 		
 	}
+	public void guarantiProduct()
+	{
+		System.out.println("Products");
+	}
+
 }	
 					
 	
