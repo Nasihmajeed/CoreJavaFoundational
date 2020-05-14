@@ -1,5 +1,7 @@
 package com.lxisoft.repository;
 import com.lxisoft.librarymanagement.*;
+import java.util.*;
+import java.io.*;
 public class FileRepo
 {
 	File file=new File("D:\\git_core\\CoreJavaFoundational\\LibraryManagement\\src\\com\\lxisoft\\repository\\Text.csv");
@@ -10,13 +12,12 @@ public class FileRepo
 	List<Book>bookList=new ArrayList<Book>();
 
 
-	public List<Book> create(Book b)
+		public List<Book> create(Book b)
 		{
 			try
 			{
 				fw=new FileWriter(file,true);
-				count();
-				fw.write(id+","+b.getName()+","+b.getAuthor()+","b.getPublisher()+"\n");
+				fw.write(id+","+b.getName()+","+b.getAuther()+","+b.getPublisher()+"\n");
 				fw.flush();
 			}
 			catch(IOException e)
@@ -24,5 +25,33 @@ public class FileRepo
 				System.out.println("an error occured");
 			}
 			return bookList;	
+		}
+
+
+		public List<Book> read()
+		{
+			Set<Book> ts=new TreeSet<Book>();
+			try
+			{
+				bookList.clear();
+				FileReader fr=new FileReader(file);
+				BufferedReader br=new BufferedReader(fr);
+				String read;       
+				while((read=br.readLine())!=null)
+				{
+					String[] str=read.split(",",3);
+					Book b=new Book();
+					b.setId(str[0]);
+					b.setName(str[1]);
+					b.setAuther(str[2]);
+					bookList.add(b);
+
+				}
+			}
+			catch(IOException e)
+			{
+				System.out.println("Book list empty!!!!");
+			}	
+			return bookList;
 		}
 }
