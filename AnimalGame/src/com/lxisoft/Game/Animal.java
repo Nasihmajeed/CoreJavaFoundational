@@ -22,4 +22,9 @@ public class Animal
 		animalEnergy=energy;
 	}
 
+	public void setAnimalEnergy(int ener)
+	{
+		animalEnergy=ener;
+	}
+
 }

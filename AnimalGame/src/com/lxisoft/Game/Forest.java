@@ -18,14 +18,33 @@ public class Forest
 		yn=in.nextLine();
 		if(yn.equals("yes"))
 		{
+			chooseMenu();
 			Clear.cls();
-			System.out.println("\nGame Begin");
-			System.out.println("---------------------------------------------\n\n");
-			setAnimals();
-			//printAnimalList();
+			
 		}
 	}
+	public void chooseMenu()
+	{
 
+		Scanner in = new Scanner(System.in);
+		System.out.println("\n \t 1:] View Animal List \n \t 2:] Start Game\n \t 3:] Exit");
+			int ch;
+			ch=in.nextInt();
+			switch(ch)
+			{
+				case 1: setAnimals();
+						printAnimalList();
+						chooseMenu();
+						break;
+				case 2: System.out.println("\nGame Begin");
+					    System.out.println("---------------------------------------------\n\n");
+						setAnimals();
+						animalMeet();
+						chooseMenu();
+						break;
+				case 3 : break;
+			}
+	}
 
 	public void printAnimalList()
 	{
@@ -65,7 +84,7 @@ public class Forest
 		animals.get(8).setAnimalDetail("Wolf_2",50);
 		animals.get(9).setAnimalDetail("Gorilla_2",20);
 		
-		animalMeet();
+		
 	}
 
 	public int randomNumber(int x)
@@ -129,19 +148,49 @@ public class Forest
 
 		if(energy1>energy2)
 		{
-			animals.get(r1).animalEnergy = animals.get(r1).animalEnergy/10;
+			changeEnergy(r1);
 			return 1;
 		}
 		else if(energy2>energy1)
 		{
-			animals.get(r2).animalEnergy = animals.get(r2).animalEnergy/10;
+			changeEnergy(r2);
 			return 2;
 		}
 		else
 		{
-			animals.get(r1).animalEnergy = animals.get(r1).animalEnergy/10;
+			changeEnergy(r1);
 			return 0;
 		}
+	}
+
+
+	public void animalFight()
+	{
+		
+
+		if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Carnivorus"))
+		{
+
+		}
+		else if(typeOfR1.equals("Carnivorus") && typeOfR2.equals("Carnivorus"))
+		{
+
+		}
+		 else if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Herbivorus"))
+		{
+
+		}
+		else
+		{
+
+		}		
+	
+	}
+
+
+	public void changeEnergy(int r)
+	{
+		animals.get(r).animalEnergy = animals.get(r).animalEnergy/10;
 	}
 
 
