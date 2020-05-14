@@ -1,4 +1,5 @@
-public class Student
+package com.lxisoft.School;
+public class student
 {
 	String name;
 	int clss;

@@ -1,6 +1,7 @@
+package com.lxisoft.School;
 public class School
 {
-    ClassRoom classroom=new ClassRoom();
+    Classroom classroom=new Classroom();
 
      public void printSchool()
      {

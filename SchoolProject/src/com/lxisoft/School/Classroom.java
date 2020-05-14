@@ -1,9 +1,10 @@
+package com.lxisoft.School;
 import java.util.Scanner;
-public class ClassRoom
+public class Classroom
 {
 	Scanner s=new Scanner(System.in);
 
-        Teacher tr=new Teacher();
+        teacher tr=new teacher();
         public void setTeacher()
         {
         	System.out.println("Enter Teacher name: ");
@@ -12,7 +13,7 @@ public class ClassRoom
         }
         
 	int n,i,total=0,Std;
-	Student[] student=new Student[10];
+	student[] student=new student[10];
 	public void setStudent()
 	{
 	System.out.println (" \n Enter number of students ");
@@ -21,7 +22,7 @@ public class ClassRoom
     
     for (int i=1; i<=n; i++)
      {
-     	student[i]=new Student();
+     	student[i]=new student();
         System.out.println("\n enter student " +i+  " details");
         System.out.println("\n enter name of the student: ");
 		student[i].name=s.nextLine();
