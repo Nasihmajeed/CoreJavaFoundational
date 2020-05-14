@@ -1,3 +1,4 @@
+package com.LxiSoft.School;
 public class Student
 {
 	String name;

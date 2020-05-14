@@ -1,3 +1,4 @@
+package com.LxiSoft.School;
 public class School
 {
     ClassRoom classroom=new ClassRoom();
@@ -25,9 +26,7 @@ public class School
         classroom.setTeacher();
         classroom.setStudent();
        classroom.printStudents();
-       classroom.set1Teacher();
-        classroom.set1Student();
-       classroom.print1Students();
+       
       
 
      }
