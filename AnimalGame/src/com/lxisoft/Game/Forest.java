@@ -5,6 +5,7 @@ public class Forest
 {
 	String typeOfR1,typeOfR2;
 	int round=1;
+	int noTiger,noLion,noFox,noWolf,noGorilla;
 	public ArrayList<Animal> animals = new ArrayList<Animal>();
 	
 
@@ -170,21 +171,40 @@ public class Forest
 
 		if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Carnivorus"))
 		{
-
+			herbVsCar()
 		}
 		else if(typeOfR1.equals("Carnivorus") && typeOfR2.equals("Carnivorus"))
 		{
-
+			carVsCar()
 		}
 		 else if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Herbivorus"))
 		{
-
+			herbVsHerb()
 		}
 		else
-		{
+		{	
+			carVsGerb()
 
 		}		
 	
+	}
+
+	public void carVsGerb()
+	{
+
+	}
+
+	public void herbVsCar()
+	{
+
+	}
+	public void carVsCar()
+	{
+
+	}
+	public void herbVsHerb()
+	{
+
 	}
 
 

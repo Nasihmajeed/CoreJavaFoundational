@@ -6,5 +6,9 @@ public class Fox extends Animal implements Carnivorus
 	{
 		
 	}
+	public void kill()
+	{
+		
+	}
 	
 }

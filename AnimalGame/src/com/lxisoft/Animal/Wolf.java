@@ -6,4 +6,9 @@ public class Wolf extends Animal implements Carnivorus
 	{
 		
 	}
+	public void kill()
+	{
+		
+	}
+	
 }

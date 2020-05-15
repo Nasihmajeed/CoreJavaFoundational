@@ -6,5 +6,10 @@ public class Tiger extends Animal implements Carnivorus
 	{
 		
 	}
+	public void kill()
+	{
+		
+	}
+	
 	
 }

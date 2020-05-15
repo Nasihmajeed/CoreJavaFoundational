@@ -6,5 +6,10 @@ public class Lion extends Animal implements Carnivorus
 	{
 		
 	}
+	public void kill()
+	{
+		
+	}
+	
 	
 }
