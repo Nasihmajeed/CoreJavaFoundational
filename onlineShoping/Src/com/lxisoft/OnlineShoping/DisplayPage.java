@@ -13,6 +13,7 @@ public class DisplayPage
 	Stock stock=new Stock();
 	Login userLogin=new Login();
 	ArrayList<User> usrers=new ArrayList<User>();
+	ArrayList<Item>products=new ArrayList<Item>();
 	public void login()
 	{
 		ArrayList<String>log=new ArrayList<String>();
@@ -24,7 +25,7 @@ public class DisplayPage
 			if (logDet.get(0).equals(usrers.get(i).getName())) 
 			{
 				System.out.println("Login done");
-				viewItem();
+				this.viewItem();
 			}
 			else if (!logDet.get(0).equals(usrers.get(i).getName())) 
 			{
@@ -39,52 +40,52 @@ public class DisplayPage
 	public void signup()
 	{
 		userLogin.setUserSignup();
-		login();
+		this.login();
 	}
 
 	public void viewItem()
 	{
-		ArrayList<Item>product=stock.itemDetail();
+		products=stock.itemDetail();
 		int j=1;
-		for (int i=0;i<product.size();i++) 
+		for (int i=0;i<products.size();i++) 
 		{
-			System.out.println("product"+j+" : "+product.get(i).getItemName());
+			System.out.println("products"+j+" : "+products.get(i).getItemName());
 			j++;
 		}
 		System.out.println("Select number pick Product");
 		int num=scr.nextInt();
 		System.out.println("\n");
-		System.out.println(product.get(num-1).getItemName());
+		System.out.println(products.get(num-1).getItemName());
 		System.out.println("--------------");
-		System.out.println(product.get(num-1).getCatogery());
-		System.out.println(product.get(num-1).getFeature());
+		System.out.println(products.get(num-1).getCatogery());
+		System.out.println(products.get(num-1).getFeature());
 
 		System.out.println("Cart : 1 or Buy : 2");
 		int select=scr.nextInt();
 		switch(select)
 		{
 			case 1:
-					cartItem(product.get(num-1));
+					cartItem(products.get(num-1));
 
 					break;
 			case 2:
-					buyItem(product.get(num-1));
+					buyItem(products.get(num-1));
 					break;
 		}
 		
 		
 	}
-	public void cartItem(Item product)
+	public void cartItem(Item products)
 	{
 		Cart cart=new Cart();
-		cart.cartItem(product);
+		cart.cartItem(products);
 		
 	}
-	public void buyItem(Item product)
+	public void buyItem(Item products)
 	{
 		BillCounter billcounter=new BillCounter();
 
 
-		billcounter.buyItem(product);
+		billcounter.buyItem(products);
 	}
 }

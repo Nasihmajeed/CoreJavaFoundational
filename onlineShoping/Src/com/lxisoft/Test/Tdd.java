@@ -7,7 +7,7 @@ public class Tdd
 	{
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Yellow.coM");
-		System.out.println("1 : Login \n2 : View products \n3 : Signup");		
+		System.out.println("1 : Login \n2 : Signup");		
 		int num=scr.nextInt();
 		DisplayPage dp=new DisplayPage();
 		switch(num)
@@ -17,11 +17,9 @@ public class Tdd
 					break;
 
 			case 2:
-					dp.viewItem();
-					break;
-			case 3:
 					dp.signup();
 					break;
+			
 
 		}
 	}
