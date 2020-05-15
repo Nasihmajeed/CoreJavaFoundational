@@ -1,5 +1,7 @@
 package com.LxiSoft.School;
+public class Encapsulate;
 public class Teacher
+
 {
-	String tname;
+	private String tname;
 }
