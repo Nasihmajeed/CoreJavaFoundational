@@ -17,6 +17,7 @@ public class FileRepo
 			try
 			{
 				fw=new FileWriter(file,true);
+				count();
 				fw.write(id+","+b.getName()+","+b.getAuther()+","+b.getPublisher()+"\n");
 				fw.flush();
 			}
@@ -54,4 +55,31 @@ public class FileRepo
 			}	
 			return bookList;
 		}
+
+		public void count()
+		{
+			try
+			{
+				id=0;
+				
+				Book b=new Book();
+				FileReader fr=new FileReader(file);
+				BufferedReader br=new BufferedReader(fr);
+				String read;
+				while((read=br.readLine())!=null)
+				id++;
+			}
+
+			catch(IOException e)
+			{
+				System.out.println("an error occured ");
+			}	
+		}
+
+		public List<Book> idSort()
+  	{
+  		bookList=read();
+  		Collections.sort(bookList,new IdComparator());
+		return bookList;
+  	}
 }
