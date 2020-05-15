@@ -1,5 +1,6 @@
 package com.lxisoft.School;
 import java.util.Scanner;
+public class encapsulation;
 public class Classroom
 {
 	Scanner s=new Scanner(System.in);

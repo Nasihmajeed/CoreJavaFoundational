@@ -1,5 +1,7 @@
 package com.lxisoft.School;
+public class encapsulation;
 public class School
+
 {
     Classroom classroom=new Classroom();
 
