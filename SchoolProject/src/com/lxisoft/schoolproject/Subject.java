@@ -1,14 +1,12 @@
 package com.lxisoft.schoolproject;
 
 import java.util.Scanner;
-public class Subject
-{
+public class Subject{
 	String subjectName;
 	Integer mark;
 	
 
-	public void subjectDetails()
-	{
+	public void subjectDetails(){
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter subject name");
 		subjectName=scanner.nextLine();
@@ -19,8 +17,7 @@ public class Subject
 		mark=scanner.nextInt();
 	}
 
-	public void printSubjectDetails()
-	{
+	public void printSubjectDetails(){
 		System.out.println("The subject name is"+subjectName);
 
 		System.out.println(" "+ mark);
