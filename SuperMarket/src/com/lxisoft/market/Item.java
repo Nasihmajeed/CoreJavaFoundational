@@ -42,17 +42,7 @@ public class Item implements Comparable<Item>
 	{
 		return this.itemQuantity;
 	}
-	
-	public Item(int id, String itemType,int itemPrice,int itemQuantity) 
-    { 
-        this.id = id; 
-      	this.itemType=itemType;
-		this.itemPrice=itemPrice;
-		this.itemQuantity=itemQuantity;
-    } 
-
-
-    public int compareTo(Item item) {
+	public int compareTo(Item item) {
         return this.getId() - item.getId();
     }
 
@@ -62,13 +52,11 @@ public class Item implements Comparable<Item>
         Item item = (Item) o;
         return id == item.getId();
     }
-
-	 @Override
+	 
     public int hashCode() {
         return Objects.hash(id);
     }*/
 
-    //@Override
     public String toString() {
         return "Item{" +
                 "id=" + id +

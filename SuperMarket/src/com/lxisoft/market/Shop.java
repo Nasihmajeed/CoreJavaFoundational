@@ -122,8 +122,9 @@ public class Shop
 	}
 	public void displayAll()
 	{
-		System.out.println("\nDisplay the details");
-		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
+		System.out.println("\n\nDisplay the details");
+		guarantiProduct();
+		//System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
 		// for(int i=0;i<items.size();i++)
 		// {			
 		// 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
@@ -135,7 +136,23 @@ public class Shop
 	}
 	public void guarantiProduct()
 	{
-		System.out.println("Products");
+		System.out.println("Guarrantyy Products");
+
+		
+		Map<Integer,String> map = new HashMap<Integer, String>();
+		
+		map.put(1,"Eveready Products 10 Month Warranty");
+		map.put(3, "Bajaj Products 4yr Warranty");
+		map.put(2, "Cello Products 2yr Warranty");
+				
+		Set<?> set = map.entrySet();
+		Iterator<?> itr = set.iterator();
+		
+		while(itr.hasNext())
+		{			
+			Map.Entry entry = (Map.Entry)itr.next();
+			System.out.println(entry.getKey()+"."+entry.getValue());
+		}
 	}
 
 }	
