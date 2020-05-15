@@ -1,7 +1,7 @@
-package co.lxisoft.area;
+package com.lxisoft.area;
 import java.util.*;
 
-public abstract class Player
+public class Player
 {
 	private String name;
 	private int position;
@@ -37,5 +37,8 @@ public abstract class Player
   	return status;
   }
 
+ public String toString() { 
+        return "Player" + "Name=" + name + ", Position=" + position + '}'; 
+    } 
 
 }

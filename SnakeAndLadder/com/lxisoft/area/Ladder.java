@@ -1,7 +1,7 @@
 package com.lxisoft.area;
 import java.util.*;
 
- class Ladder implements Control
+public class Ladder implements Control
  {
  		private int start,end;
 

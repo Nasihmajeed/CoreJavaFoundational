@@ -22,25 +22,49 @@ public void createBoard()
 
 public void creatPlayers()
 	{
+		boolean flag=false;
+		int i=0;
 		System.out.print("\nHow Many Playes You Want to add :");
 		int choise=input.nextInt();
 
-		for(int i=0;i<choise;i++)
+		do
 		{
-			System.out.print("\nEnter the Name Of "i+1" Player : ");
+			System.out.print("\nEnter the Name Of "+ (i+1) +" Player : ");
 			String name=input.next();
-			players.add(new Player);
-			players.get(i).setPlayerName(name);
-			players.get(i).getPlayerPosition(0);
+			for(int j=0;j<players.size();j++)
+			{
+				if(name.equals(players.get(j).getPlayerName()))
+				{
+					flag=true;
+				}
+				else
+				{
+					flag=false;
+				}
+			}
+		  if(flag==true)
+		  {
+		  	System.out.print("\nThe Enterd Name is Already used \n Please Choose Another one ");
+		  }	
+		  else
+		  {
+		  	players.add(new Player());
+		  	players.get(i).setPlayerName(name);
+		  	players.get(i).setPlayerPosition(0);
+		  	players.get(i).setPlayerStatus(false)
+		  	i++;
+		  }
+
 		}
+		while(i<choise);
 	}
 
 	public void creatSnakeAndLadder()
 	{
-	for(int i=0;i<6;i++)
+	for(int i=0;i<7;i++)
 	{	
-	snakes.add(new Snake);
-	ladder.add(new Ladder);		
+	snakes.add(new Snake());
+	ladders.add(new Ladder());		
 	}
 	setSnakePositions();
 	setLadderPositions();
@@ -60,6 +84,8 @@ public void creatPlayers()
 		snakes.get(4).setTail(53);
 		snakes.get(5).setHead(56);
 		snakes.get(5).setTail(31);
+		snakes.get(6).setHead(70);
+		snakes.get(6).setTail(33);
 	}
 
 	public void setLadderPositions()
@@ -76,5 +102,7 @@ public void creatPlayers()
 		ladders.get(4).setEnd(67);
 		ladders.get(5).setStart(74);
 		ladders.get(5).setEnd(92);
+		ladders.get(6).setStart(32);
+		ladders.get(6).setEnd(54);
 	}
 }

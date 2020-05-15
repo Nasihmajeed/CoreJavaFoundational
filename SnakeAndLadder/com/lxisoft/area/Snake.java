@@ -1,7 +1,7 @@
 package com.lxisoft.area;
 import java.util.*;
 
- class Snake  implements Control
+public class Snake  implements Control
  {
  	private int head,tail;
 

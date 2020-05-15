@@ -1,5 +1,5 @@
 package com.lxisoft.test;
-import com.lxisoft.game.*;
+import com.lxisoft.area.*;
 class Tdd
 {
 public static void main(String args[])
