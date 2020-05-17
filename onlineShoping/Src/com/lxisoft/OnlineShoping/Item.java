@@ -4,9 +4,9 @@ public class Item
 {
 	private String itemName;
 	private String catogey;
-	private int price;
 	private int productNo;
 	private String feature;
+	private int price;
 	public void setItemName(String proName)
 	{
 		this.itemName=proName;
@@ -30,5 +30,13 @@ public class Item
 	public String getFeature()
 	{
 		return this.feature;
+	}
+	public void setPrice(int price)
+	{
+		this.price=price;
+	}
+	public int getPrice()
+	{
+		return this.price;
 	}
 }

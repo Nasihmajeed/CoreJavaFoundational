@@ -8,24 +8,24 @@ public class Login
 	User user;
 	ArrayList<User>userDet=new ArrayList<User>();
 	Scanner scr=new Scanner(System.in);
-	ArrayList<String>log=new ArrayList<String>();
+	ArrayList<String>logdet=new ArrayList<String>();
 
-	final void setUserLogin(ArrayList<String> log)
+	final void setUserLogin()
 	{
 		System.out.println("Name : ");
 		String name=scr.next();
-		log.add(name);
+		logdet.add(name);
 		System.out.println("Password : ");
 		String password=scr.next();
-		log.add(password);
-		this.log=log;
+		logdet.add(password);
+		
 
 	
 	}
 
 	final ArrayList<String> getUserLogin()
 	{
-		return log;
+		return logdet;
 
 	}
 
