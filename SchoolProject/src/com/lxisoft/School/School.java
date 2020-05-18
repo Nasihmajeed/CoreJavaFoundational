@@ -3,6 +3,11 @@ public class encapsulation;
 public class School
 
 {
+    Classroom[] classrooms;
+    private String schoolname;
+    public void setschoolname(String a)
+    this.schoolname=a;
+}
     Classroom classroom=new Classroom();
 
      public void printSchool()
