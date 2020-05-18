@@ -15,6 +15,7 @@ public class Shop
           
         shopName = name; 
     } 
+
 	public void shopDetails()
 	{	
 		ArrayList<String> details=new ArrayList<String>();  
@@ -134,7 +135,7 @@ public class Shop
         System.out.println(items);
 		
 	}
-	public void guarantiProduct()
+	final void guarantiProduct()
 	{
 		System.out.println("Guarrantyy Products");
 
