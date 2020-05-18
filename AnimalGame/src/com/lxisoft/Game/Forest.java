@@ -118,17 +118,16 @@ public class Forest
 		{
 			r1=randomNumber(n);
 			r2=randomNumber(n);
-			if((r1==r2))
+			if((r1==r2) || animals.get(r1).animalEnergy==0 || animals.get(r2).animalEnergy==0 )
 			{
+				r1=randomNumber(n);
 				r2=randomNumber(n);
 			}
 			else
 			{
 				setType(r1,r2);
-				// System.out.println("\t---------------------------------------------");
 				System.out.println("\n\t\tRound - " + round);
 				System.out.println("\t---------------------------------------------");
-				// System.out.println("r1 = "+ r1 + "r2 = "+ r2);
 				round++;
 				 String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
@@ -238,19 +237,19 @@ public class Forest
 	 	if(won==1)
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			// (animals.get(r2)).dead();
+			(animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
 	 	else if(won==2)
 	 	{
 	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
-			// (animals.get(r1)).dead();
+			(animals.get(r1)).dead();
 			animals.remove(r1);
 	 	}
 	 	else
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			// (animals.get(r2)).dead();
+			(animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
 	 }

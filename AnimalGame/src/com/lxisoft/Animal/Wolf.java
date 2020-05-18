@@ -10,8 +10,5 @@ public class Wolf extends Animal implements Carnivorus
 	{
 		
 	}
-	public void dead()
-	{
-		this.animalEnergy=0;
-	}
+	
 }

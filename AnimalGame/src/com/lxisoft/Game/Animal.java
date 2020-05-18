@@ -26,5 +26,9 @@ public class Animal
 	{
 		animalEnergy=ener;
 	}
+	public void dead()
+	{
+		this.animalEnergy=0;
+	}
 
 }

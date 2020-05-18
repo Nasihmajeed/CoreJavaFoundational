@@ -6,8 +6,5 @@ public class Elephant extends Animal implements Herbivorus
 	{
 		
 	}
-	public void dead()
-	{
-		this.animalEnergy=0;
-	}
+	
 }

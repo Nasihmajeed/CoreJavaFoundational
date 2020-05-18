@@ -10,8 +10,5 @@ public class Fox extends Animal implements Carnivorus
 	{
 		
 	}
-	public void dead()
-	{
-		this.animalEnergy=0;
-	}
+	
 }
