@@ -5,7 +5,7 @@ public class FileOperation
 {
 	ArrayList<Item> product=new ArrayList<Item>();
 	ArrayList<User> userDetail=new ArrayList<User>();
-
+	String[] cartItems;
 	public ArrayList<Item> readProductDetails(Item item)throws Exception 
 	{
 
@@ -48,9 +48,10 @@ public class FileOperation
 		}
 		return userDetail;
 	}
-	public void cartProduct(Item product,String name)
+	public void cartProduct(Item product,User user)
 	{
 		String csvFile="../Src/com/lxisoft/OnlineShoping/Cart.csv";
+		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;
 		
@@ -59,26 +60,38 @@ public class FileOperation
 			fw=new FileWriter(csvFile,true);
 			bw=new BufferedWriter(fw);
 
-			bw.write(name+","+product.getItemName()+"\n");
+			
 
+			bw.write(user.getName()+","+product.getItemName());
+			bw.newLine();
+
+
+
+				bw.close();
+				fw.close();
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
-		finally
+		
+	}
+	public String[] viewCartProduct(Item product)
+	{
+		String csvFile="../Src/com/lxisoft/OnlineShoping/Cart.csv";
+		FileReader fr=new FileReader();
+		BufferedReader br=new BufferedReader(fr);
+		String s;
+		while(s=br.readLine()!=null)
 		{
-			try
+			String[] cartItem=s.split(",");
+			if(cartItem[0].equals(product.getName()))
 			{
-				bw.close();
-				fw.close();
+				String[] item=cartItem
 			}
 			
-		
-			catch(IOException e)
-			{
-				e.printStackTrace();
-			}
+			
 		}
+		return cartItems;
 	}
 }

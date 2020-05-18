@@ -15,6 +15,8 @@ public class DisplayPage
 	Login userLogin=new Login();
 	FileOperation fo=new FileOperation();
 	ArrayList<Item>products=new ArrayList<Item>();
+	Cart cart=new Cart();
+	
 	public void login()throws Exception 
 	{
 		ArrayList<User> usrers=fo.readUserDetails(user);
@@ -31,17 +33,12 @@ public class DisplayPage
 			if (logDet.get(0).equals(usrers.get(i).getName())) 
 			{
 				System.out.println("       Login done");
-				this.viewItem(usrers.get(i).getName());
+				
+				this.viewItem(usrers.get(i));
 				ur=i;
 
 			}
-			/*else 
-			{
-				System.out.println("       Login faild");
-				userLogin.setUserSignup();
-			}*/
-			
-			
+						
 		}
 		if(!logDet.get(0).equals(usrers.get(ur).getName()))
 		{
@@ -56,7 +53,7 @@ public class DisplayPage
 		this.login();
 	}
 
-	public void viewItem(String name)throws Exception 
+	public void viewItem(User user)throws Exception 
 	{
 		products=stock.itemDetail();
 		int j=1;
@@ -65,19 +62,23 @@ public class DisplayPage
 			System.out.println("       products"+j+" : "+products.get(i).getItemName());
 			j++;
 		}
-		selectItem(products,name);
+		selectItem(products,user);
 	}
-	public void selectItem(ArrayList<Item>products,String name)
+	public void selectItem(ArrayList<Item>products,User user)throws Exception
 	{
+		//ArrayList<User> usrers=fo.readUserDetails(user);
+		System.out.println("\n");
 		System.out.println("          Select number pick Product");
+		System.out.println("      	------------------------------");
 		int num=scr.nextInt();
 		System.out.println("\n");
 		System.out.println("       "+products.get(num-1).getItemName());
-		System.out.println("          --------------");
+		System.out.println("      --------------");
 		System.out.println(       products.get(num-1).getCatogery());
 		System.out.println(       products.get(num-1).getFeature());
 		System.out.println("       Price ₹ : "+products.get(num-1).getPrice());
 		int s=0;
+
 		for (int k=0;k<products.size();k++) 
 		{
 			if(products.get(num-1).getCatogery().equals(products.get(k).getCatogery()) && !products.get(num-1).getItemName().equals(products.get(k).getItemName()))
@@ -93,26 +94,32 @@ public class DisplayPage
 			}
 		}
 		//System.out.println();
-		System.out.println("Cart : 1  Buy : 2 ");
+		//String name= usrers.get(ur).getName();
+		System.out.println("\n");
+		System.out.println("Cart : 1  Buy : 2  View Cart : 3  Exit : 4");
 		int select=scr.nextInt();
 		switch(select)
 		{
 			case 1:
-					cartItem(products.get(num-1),name);
-
+					cartItem(products.get(num-1),user);
+					viewItem(user);
 					break;
 			case 2:
 					buyItem(products.get(num-1));
 					break;
-			
+			case 3:
+					cart.viewCartItem(products.get(num-1));
+					break;
+			case 4: 
+					System.out.println("--- Thank you ---");
 		}
 		
 		
 	}
-	public void cartItem(Item products,String name)
+	public void cartItem(Item products,User user)throws Exception
 	{
-		Cart cart=new Cart();
-		cart.cartItem(products,name);
+		
+		cart.cartItem(products,user);
 		
 	}
 	public void buyItem(Item products)
