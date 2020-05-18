@@ -38,7 +38,7 @@ public class Player
   }
 
  public String toString() { 
-        return "Player" + "Name=" + name + ", Position=" + position + '}'; 
+        return "Player" + "Name=" + name + ", Position=" + position + ' '; 
     } 
 
 }

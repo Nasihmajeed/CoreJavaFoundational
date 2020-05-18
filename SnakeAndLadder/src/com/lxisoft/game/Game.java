@@ -24,9 +24,9 @@ public void playerDetails(ArrayList<Player> players)
 	{
 		Collections.sort(players, new Sortbyname());
 
-		 System.out.println("\n\nPlayers name:\n"); 
+		System.out.println("\n\nPlayers Names :"); 
         for (Player player : players) { 
-            System.out.println(player); 
+            System.out.println("*"+player); 
         }  
 	}
 
@@ -42,13 +42,13 @@ public void selectlevel(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{		
 		case 1:
 		level = Level.NORMAL; 
-        System.out.println("You Selected "+level+"Level"); 
+        System.out.println("\nYou Selected "+level+" Level"); 
     	snakes.remove(4);
     	snakes.remove(5);
 		break;
 		case 2:
 		level = Level.HARD; 
-        System.out.println("You Selected "+level+"Level"); 
+        System.out.println("\nYou Selected "+level+"Level"); 
         ladders.remove(4);
         ladders.remove(5);
 		break;
@@ -64,12 +64,14 @@ public void selectlevel(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
 		int temp=1;
-		
-		for(int i=0;i<players.size();i++)
+		boolean flag=false;
+	  do
+	  {
+	  	for(int i=0;i<players.size();i++)
 		{	
 			do
 			{
-		 		System.out.println(" Turn is :"+players.get(i).getPlayerName());
+		 		System.out.println("\n\n\n Turn is :"+players.get(i).getPlayerName());
 		 		System.out.println("Press 0 to roll the Dice");
 				temp=input.nextInt();
 		 		if(temp==0)
@@ -82,42 +84,85 @@ public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<
 		  			}	
 			}
 			while(temp>0);
-		}	
+		}
+		flag=checkWinner(players);	
+	  }while(flag==false);	
 	}
+
+public boolean checkWinner(ArrayList<Player> players)
+	{
+		boolean flag=false;
+		int index=0;
+		for (int i=0;i<players.size();i++)
+		{
+			if(players.get(i).getPlayerStatus()== true)
+			{
+				flag=true;
+				index=index+i;
+			}	
+		}
+
+	  if(flag==true)
+	  {
+	  	System.out.println(players.get(index).getPlayerName()+" Winned in this Game");
+	  	players.remove(index);
+	  	if(players.size()>1)
+	  	{
+	  		System.out.print("\nDo You Want To Continue \nPress Y/N =");
+	  	}
+	  }
+	 return flag; 	
+	}
+
 
 public void move(Player player)
 	{
 		dice=new Dice();
 		int value=dice.roll();
+		System.out.println("\n\nYou Got = "+value);		
 		if(value==6)
 		{
+			System.out.println(" Congratulations "+player.getPlayerName()+" You Are In The Game");
 			player.setPlayerPosition(1);
 		}
-	  System.out.println(player.getPlayerName()+"Corrent Position is = "+player.getPlayerPosition());		
+	  System.out.println("Current Position is = "+player.getPlayerPosition());		
 	}			
 
 public void move(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
 		dice=new Dice();
 		int value=dice.roll();
+		System.out.println("\n\nYou Got "+value);
 		int temp=value+player.getPlayerPosition();			
 		player.setPlayerPosition(temp);
 		checkforPositionmoves(player,snakes,ladders);
-		System.out.println(player.getPlayerName()+"Corrent Position is = "+player.getPlayerPosition());
+		setWinner(player,temp);
+		System.out.println(player.getPlayerName()+"'s  Current Position is = "+player.getPlayerPosition());
 	}
 
+public void setWinner(Player player,int temp)
+	{
+		if(temp>99)
+		{
+			player.setPlayerStatus(true);
+		}
+		if(temp>100)
+		{
+			player.setPlayerPosition(100);
+		}
+	}
 
 public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
 		int flag=0;
-		int position;
-		int temp=value+player.getPlayerPosition();
+		int position=0;
+		int temp=player.getPlayerPosition();
 		for(int i=0;i<snakes.size();i++)
 		{
-			if(snakes.get(i)getHead()==temp)
+			if(snakes.get(i).getHead()==temp)
 			{
 				flag=flag+1;
-				position=snakes.get(i)getTail();
+				position=snakes.get(i).getTail();
 			}
 		}
 
@@ -126,24 +171,24 @@ public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList
 			if(ladders.get(i).getStart()==temp)
 			{
 				flag=flag+2;
-				position=ladders.get(i)getEnd();
+				position=ladders.get(i).getEnd();
 			}
 		}
-	  changePosition(player,flag,index);
+	  changePosition(player,flag,position);
 	}
 
-public void changePosition(Payer player,int flag,int position)
+public void changePosition(Player player,int flag,int position)
 	{
 		if(flag==1)
 		{
-			System.out.println("Ther is a Snake At that Position");
+			System.out.println("\nThere is a Snake At that Position");
 			snake=new Snake();
 			snake.behaviour();
 			player.setPlayerPosition(position);
 		}
 		if(flag==2)
 		{
-			System.out.println("There is a Ladder At that Position");
+			System.out.println("\nThere is a Ladder At that Position\n");
 			ladder=new Ladder();
 			ladder.behaviour();
 			player.setPlayerPosition(position);

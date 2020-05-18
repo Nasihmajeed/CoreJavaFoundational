@@ -25,7 +25,7 @@ public class Ladder implements Control
   	this.end=end;
   }
 
-  public int getend()
+  public int getEnd()
   {
   	return end;
   }

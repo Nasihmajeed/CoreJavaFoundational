@@ -51,7 +51,7 @@ public void creatPlayers()
 		  	players.add(new Player());
 		  	players.get(i).setPlayerName(name);
 		  	players.get(i).setPlayerPosition(0);
-		  	players.get(i).setPlayerStatus(false)
+		  	players.get(i).setPlayerStatus(false);
 		  	i++;
 		  }
 
