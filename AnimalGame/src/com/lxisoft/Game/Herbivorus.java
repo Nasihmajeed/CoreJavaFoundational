@@ -1,9 +1,8 @@
 package com.lxisoft.Game;
 public interface Herbivorus
 {
-	public void Beat()
-	{
-		
-	}
+	public void Beat();
+	void dead();
+	
 	
 }

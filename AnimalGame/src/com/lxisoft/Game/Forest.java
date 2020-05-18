@@ -14,15 +14,25 @@ public class Forest
 		Scanner in = new Scanner(System.in);
 		String yn;
 		Clear.cls();
-		System.out.println("\t\tAnimal Game");
-		System.out.println("\t\tStart Game(yes/no)");
+		System.out.println("\t\t ANIMAL GAME ");
+		System.out.println("\t --------------------------------------");
+		System.out.println("\t => Start Game (yes/no) \n\t => ");
 		yn=in.nextLine();
 		if(yn.equals("yes"))
 		{
+			Clear.cls();
+			System.out.println("\t\t ANIMAL GAME ");
+			System.out.println("\t --------------------------------------");
+			
+			setAnimals();
 			chooseMenu();
 			Clear.cls();
 			
 		}
+		else
+			{
+				Clear.cls();
+				System.out.println("Thank You..!");}
 	}
 	public void chooseMenu()
 	{
@@ -33,13 +43,15 @@ public class Forest
 			ch=in.nextInt();
 			switch(ch)
 			{
-				case 1: setAnimals();
+				case 1: //setAnimals();
+						Clear.cls();
 						printAnimalList();
 						chooseMenu();
 						break;
-				case 2: System.out.println("\nGame Begin");
+				case 2:Clear.cls();
+						System.out.println("\nGame Begin");
 					    System.out.println("---------------------------------------------\n\n");
-						setAnimals();
+						//setAnimals();
 						animalMeet();
 						chooseMenu();
 						break;
@@ -49,13 +61,15 @@ public class Forest
 
 	public void printAnimalList()
 	{
-		System.out.println("-----------Animal List-------------");
+		System.out.println("-----------------Animal List--------------------");
+		System.out.println("       Animal Name \t\t  Animal Energy");
+		System.out.println("------------------------------------------------");
 		int n=animals.size();
 		for(int i=0;i<n;i++)
 			{
-				System.out.println((animals.get(i)).getAnimalName()+" \t "+(animals.get(i)).animalEnergy + "\n" );
+				System.out.format("%15s %25d \n" ,animals.get(i).getAnimalName() ,animals.get(i).animalEnergy);
 			}
-		System.out.println("-----------------------------------");
+		System.out.println("------------------------------------------------");
 	}
 
 
@@ -65,25 +79,25 @@ public class Forest
 		animals.add(new Lion());
 		animals.add(new Fox());
 		animals.add(new Wolf());
-		animals.add(new Gorilla());
+		animals.add(new Elephant());
 		animals.add(new Tiger());
 		animals.add(new Lion());
 		animals.add(new Fox());
 		animals.add(new Wolf());
-		animals.add(new Gorilla());
+		animals.add(new Elephant());
 
 
-		animals.get(0).setAnimalDetail("Tiger_1",80);
-		animals.get(1).setAnimalDetail("Lion_1",100);
-		animals.get(2).setAnimalDetail("Fox_1",60);
-		animals.get(3).setAnimalDetail("Wolf_1",50);
-		animals.get(4).setAnimalDetail("Gorillat_1",20);
+		animals.get(0).setAnimalDetail("Tiger-1",80);
+		animals.get(1).setAnimalDetail("Lion-1",100);
+		animals.get(2).setAnimalDetail("Fox-1",60);
+		animals.get(3).setAnimalDetail("Wolf-1",50);
+		animals.get(4).setAnimalDetail("Elephant-1",58);
 		
-		animals.get(5).setAnimalDetail("Tiger_2",80);
-		animals.get(6).setAnimalDetail("Lion_2",100);
-		animals.get(7).setAnimalDetail("Fox_2",60);
-		animals.get(8).setAnimalDetail("Wolf_2",50);
-		animals.get(9).setAnimalDetail("Gorilla_2",20);
+		animals.get(5).setAnimalDetail("Tiger-2",80);
+		animals.get(6).setAnimalDetail("Lion-2",100);
+		animals.get(7).setAnimalDetail("Fox-2",60);
+		animals.get(8).setAnimalDetail("Wolf-2",50);
+		animals.get(9).setAnimalDetail("Elephant-2",58);
 		
 		
 	}
@@ -97,8 +111,10 @@ public class Forest
 
 	public void animalMeet()
 	{
+
 		int r1,r2,n;
-		for(n=animals.size();n>1;)
+		n=animals.size();
+		while(n>1)
 		{
 			r1=randomNumber(n);
 			r2=randomNumber(n);
@@ -109,21 +125,24 @@ public class Forest
 			else
 			{
 				setType(r1,r2);
+				// System.out.println("\t---------------------------------------------");
+				System.out.println("\n\t\tRound - " + round);
 				System.out.println("\t---------------------------------------------");
-				System.out.println("\t\tRound - " + round);
-				System.out.println("\t---------------------------------------------");
+				// System.out.println("r1 = "+ r1 + "r2 = "+ r2);
 				round++;
-				String animal1=animals.get(r1).getAnimalName();
+				 String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
 				System.out.println(animal1+" Meets "+animal2);
+				animalFight();
 				int won = checkEnergy(r1,r2);
 				System.out.println(animal1 + " Is a " + typeOfR1);
-				System.out.println(animal2 + " Is a " + typeOfR2);
+				System.out.println(animal2 + " Is a " + typeOfR2+"\n");
 				printResult(won,r1,r2);
 			}
 			n=animals.size();
 		}
-		System.out.println("Winner is " + animals.get(0).getAnimalName());
+		System.out.println("\n\n Winner is " + animals.get(0).getAnimalName());
+		// System.out.println("Animals.size = "+animals.size());
 	}
 
 
@@ -145,7 +164,7 @@ public class Forest
 	{
 		int energy1 = animals.get(r1).animalEnergy;
 		int energy2 = animals.get(r2).animalEnergy;
-		System.out.println("Energy => "+energy1 + "   " + energy2);
+		System.out.println("  "+energy1 + "\t\t" + energy2 +"  (Energy)\n");
 
 		if(energy1>energy2)
 		{
@@ -171,25 +190,25 @@ public class Forest
 
 		if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Carnivorus"))
 		{
-			herbVsCar()
+			herbVsCar();
 		}
 		else if(typeOfR1.equals("Carnivorus") && typeOfR2.equals("Carnivorus"))
 		{
-			carVsCar()
+			carVsCar();
 		}
 		 else if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Herbivorus"))
 		{
-			herbVsHerb()
+			herbVsHerb();
 		}
 		else
 		{	
-			carVsGerb()
+			carVsHerb();
 
 		}		
 	
 	}
 
-	public void carVsGerb()
+	public void carVsHerb()
 	{
 
 	}
@@ -210,7 +229,7 @@ public class Forest
 
 	public void changeEnergy(int r)
 	{
-		animals.get(r).animalEnergy = animals.get(r).animalEnergy/10;
+		animals.get(r).animalEnergy = animals.get(r).animalEnergy - animals.get(r).animalEnergy/10;
 	}
 
 
@@ -219,19 +238,19 @@ public class Forest
 	 	if(won==1)
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			System.out.println("---------------------------------------------\n\n");
+			// (animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
 	 	else if(won==2)
 	 	{
 	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
-			System.out.println("---------------------------------------------\n\n");
+			// (animals.get(r1)).dead();
 			animals.remove(r1);
 	 	}
 	 	else
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			System.out.println("---------------------------------------------\n\n");
+			// (animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
 	 }
