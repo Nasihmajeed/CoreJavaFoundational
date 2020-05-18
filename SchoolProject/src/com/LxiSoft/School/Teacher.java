@@ -1,7 +1,15 @@
 package com.LxiSoft.School;
-public class Encapsulate;
+
 public class Teacher
 
 {
-	private String tname;
+	private String tname;   //faculty name
+	public void settname(String a )
+	{
+		this.Tname=a;
+	}
+	public String gettname()
+	{
+		return   tname;
+	}
 }

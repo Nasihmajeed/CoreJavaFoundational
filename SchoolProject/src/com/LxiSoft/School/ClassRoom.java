@@ -9,7 +9,10 @@ public class ClassRoom
         {
         	System.out.println("Enter faculty name: ");
         	String tname=s.nextLine();
-        	System.out.println("faculty is : "+tname);
+
+        	h.settname(sname);
+        	h.gettname();
+        	
         }
         
 	
