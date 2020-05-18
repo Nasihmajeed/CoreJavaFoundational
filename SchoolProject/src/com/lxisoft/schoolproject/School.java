@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class School{
 
 	ClassRoom[] classRooms; 
+	String clsno;//encapsulation
 
 	private String schoolName;
 	public void setSchoolName(String a){
@@ -19,10 +20,10 @@ public class School{
 
 		
 	public void schoolDetail(){
-		Scanner myObj3=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);
 		
 		System.out.println("Classroom count");
-		int count=myObj3.nextInt();
+		int count=scanner.nextInt();
 
 		classRooms=new ClassRoom[count];
 
@@ -30,6 +31,17 @@ public class School{
 		for(int i=0;i<classRooms.length;i++){
 
 			classRooms[i]=new ClassRoom();
+
+			
+			
+			System.out.println("Enter classno");//***
+			clsno=scanner.nextLine();
+			classRooms[i].setClassNo(clsno);
+
+			classRooms[i].getClassNo();
+
+
+
 		
 		}
 		
@@ -42,7 +54,10 @@ public class School{
 		System.out.println("The school name is"+schoolName);
 
 		for(int i=0;i<classRooms.length;i++){
+			classRooms[i].setClassNo(clsno);
+			classRooms[i].getClassNo();
 			classRooms[i].printClassnumber();
+			//confused one
 			classRooms[i].setNewStudentNo();
 			classRooms[i].printRankDetails();
 		}

@@ -5,14 +5,24 @@ import java.util.Scanner;
 public class ClassRoom{
 	Student[] students;
 	Teacher teacher;
-	String classNo;
 	int studentslength;
+	String name;//name of student in student class
+
+	private String classNo;//encapsulated
+	public void setClassNo(String a){
+		this.classNo=a;
+	}
+
+	public String getClassNo(){
+		return classNo;
+	}
 	
 	
 
 	public void classRoomDetalis(){
 		System.out.println("Enter count of students");
-		int studentscount=Integer.parseInt(myObj.nextLine());
+		Scanner scanner=new Scanner(System.in);
+		int studentscount=Integer.parseInt(scanner.nextLine());
 		students=new Student[studentscount];
 		
 		for(int i=0;i<students.length;i++){
@@ -21,19 +31,27 @@ public class ClassRoom{
 
 
 		teacher=new Teacher();
-		Scanner myObj=new Scanner(System.in);
-		System.out.println("Enter classno");
-		classNo=myObj.nextLine();
+		
 		
 
 		teacher.teacherDeatails();
 		
 		for(int i=0;i<students.length;i++){
+			
+			System.out.println("Enter student name");//encap student
+			name=scanner.nextLine();
+			students[i].setStudentName(name);
+			students[i].getStudentName();
+
+		
+		
 			students[i].studentDetails();
 		}
 
 
 		for(int i=0;i<students.length;i++){
+			students[i].setStudentName(name);//**
+			students[i].getStudentName();
 			students[i].printTotalMarks();
 		}
 		
@@ -49,6 +67,8 @@ public class ClassRoom{
 
 		for(int i=0;i<students.length;i++){
 
+			students[i].setStudentName(name);
+			students[i].getStudentName();//**
 			students[i].printStudentDetails();
 			students[i].printPercentage();
 			students[i].printResultOfStudents();
@@ -70,8 +90,8 @@ public class ClassRoom{
 
 				System.out.println("i ="+i);
 				System.out.println("j ="+j);
-					
-
+				students[i].setStudentName(name);
+				students[i].getStudentName();//**
 				if(students[i].total<students[j].total){
 					Student temp=students[i];
 					students[i]=students[j];
@@ -83,7 +103,11 @@ public class ClassRoom{
 		}
 
 		for(int i=0;i<students.length;i++){
-			System.out.println(students[i].name + " :"+students[i].total);
+
+			//students[i].setStudentName(name);
+			//students[i].getStudentName();
+
+			//System.out.println(students[i].name + " :"+students[i].total);
 		}
 	}
 
@@ -94,7 +118,6 @@ public class ClassRoom{
 			System.out.println("NO OF STUDENTS ARE"+studentslength);
 		}
 	}
-
 
 	
 }

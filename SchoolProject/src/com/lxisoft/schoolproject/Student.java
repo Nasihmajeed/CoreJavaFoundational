@@ -3,8 +3,17 @@ package com.lxisoft.schoolproject;
 import java.util.Scanner;
 public class Student
 {
-	String name;
-	String regNo;
+	private String name;
+	public void setStudentName(String a){
+		this.name=a;
+	}
+	public String getStudentName(){
+		return name;
+	}
+
+
+
+	private String regNo;
 	
 	Integer total;
 	double percentage;
@@ -14,19 +23,19 @@ public class Student
 	
 
 	public void studentDetails(){
-		Scanner mystud=new Scanner(System.in);
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter Subjectcount");
-		int subjectscount=Integer.parseInt(mystud.nextLine());
+		int subjectscount=Integer.parseInt(scanner.nextLine());
 
 		subjects=new Subject[subjectscount];
 
 		
-		System.out.println("Enter student name");
-		name=mystud.nextLine();
+		//System.out.println("Enter student name");//encap
+		//name=mystud.nextLine();
 		
 		
 		System.out.println("Enter register number ");
-		regNo=mystud.nextLine();
+		regNo=scanner.nextLine();
 
 		for(int i=0;i<subjects.length;i++){
 			subjects[i]=new Subject();
