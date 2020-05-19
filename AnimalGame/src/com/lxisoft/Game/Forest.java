@@ -105,7 +105,7 @@ public class Forest
 	public int randomNumber(int x)
 	{
 		Random rand = new Random();
-		int n = rand.nextInt(x);
+		int n = rand.nextInt(10);
 		return n;
 	}
 
@@ -113,8 +113,9 @@ public class Forest
 	{
 
 		int r1,r2,n;
+		int index=10;
 		n=animals.size();
-		while(n>1)
+		while(index>1)
 		{
 			r1=randomNumber(n);
 			r2=randomNumber(n);
@@ -132,14 +133,15 @@ public class Forest
 				String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
 				System.out.println(animal1+" Meets "+animal2);
-				System.out.println("  "+animals.get(r1).animalEnergy + "\t\t" + animals.get(r2).animalEnergy +"  (Energy)\n");
-				System.out.println(animal1 + " Is a " + typeOfR1);
-				System.out.println(animal2 + " Is a " + typeOfR2+"\n");
+				System.out.println(animal1+" <=> "+animal2);
+				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
 				checkType(r1,r2);
+				index=index-1;
 			}
 			n=animals.size();
 		}
-		System.out.println("\n\n Winner is " + animals.get(0).getAnimalName());
+		checkGameWinner();
+		
 	}
 
 
@@ -299,21 +301,21 @@ public class Forest
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
 	 		System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
 			(animals.get(r2)).dead();
-			animals.remove(r2);
+			
 	 	}
 	 	else if(won==2)
 	 	{
 	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
 	 		System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
 			(animals.get(r1)).dead();
-			animals.remove(r1);
+			
 	 	}
 	 	else
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
 	 		System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
 			(animals.get(r2)).dead();
-			animals.remove(r2);
+			
 	 	}
 	 }
 
@@ -322,5 +324,14 @@ public class Forest
 	 	Random rand = new Random();
 		int n = rand.nextInt(2);
 		return n;
+	 }
+	 public void checkGameWinner()
+	 {
+	 	for(int i=0;i<10;i++)
+	 	{
+	 		if((animals.get(i).animalEnergy)!=0)
+	 			System.out.println("\n\n WINNER IS " + animals.get(i).getAnimalName());
+	 		
+	 	}
 	 }
 }
