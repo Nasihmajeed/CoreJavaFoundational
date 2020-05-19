@@ -43,7 +43,7 @@ public class Forest
 			ch=in.nextInt();
 			switch(ch)
 			{
-				case 1: //setAnimals();
+				case 1: 
 						Clear.cls();
 						printAnimalList();
 						chooseMenu();
@@ -51,7 +51,7 @@ public class Forest
 				case 2:Clear.cls();
 						System.out.println("\nGame Begin");
 					    System.out.println("---------------------------------------------\n\n");
-						//setAnimals();
+						
 						animalMeet();
 						chooseMenu();
 						break;
@@ -118,7 +118,6 @@ public class Forest
 		{
 			r1=randomNumber(n);
 			r2=randomNumber(n);
-			System.out.println("R1 = "+r1 + "R2 = "+ r2);
 			if((r1==r2) || animals.get(r1).animalEnergy==0 || animals.get(r2).animalEnergy==0 )
 			{
 				r1=randomNumber(n);
@@ -130,9 +129,10 @@ public class Forest
 				System.out.println("\n\t\tRound - " + round);
 				System.out.println("\t---------------------------------------------");
 				round++;
-				 String animal1=animals.get(r1).getAnimalName();
+				String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
 				System.out.println(animal1+" Meets "+animal2);
+				System.out.println("  "+animals.get(r1).animalEnergy + "\t\t" + animals.get(r2).animalEnergy +"  (Energy)\n");
 				System.out.println(animal1 + " Is a " + typeOfR1);
 				System.out.println(animal2 + " Is a " + typeOfR2+"\n");
 				checkType(r1,r2);
@@ -140,7 +140,6 @@ public class Forest
 			n=animals.size();
 		}
 		System.out.println("\n\n Winner is " + animals.get(0).getAnimalName());
-		System.out.println("Animals.size = "+animals.size());
 	}
 
 
@@ -162,7 +161,7 @@ public class Forest
 	{
 		int energy1 = animals.get(r1).animalEnergy;
 		int energy2 = animals.get(r2).animalEnergy;
-		System.out.println("  "+energy1 + "\t\t" + energy2 +"  (Energy)\n");
+		
 
 		if(energy1>energy2)
 		{
@@ -176,8 +175,22 @@ public class Forest
 		}
 		else
 		{
-			changeEnergy(r1);
-			return 0;
+			int luckOf1=luckFactor();
+			if(luckOf1==1)
+			{
+				System.out.println("==> Both Have Same Energy");
+				System.out.println("==> " + animals.get(r1).getAnimalName()+ " have MORE LUCK");
+				changeEnergy(r1);
+				return 1;
+			}
+			else
+			{
+				System.out.println("==> Both Have Same Energy");
+				System.out.println("==> " + animals.get(r2).getAnimalName()+ " have MORE LUCK");
+				changeEnergy(r2);
+				return 2;
+			}
+			
 		}
 	}
 
@@ -208,40 +221,59 @@ public class Forest
 
 	public void carVsHerb(int r1,int r2)
 	{
-		int won = checkEnergy(r1,r2);
-		
-		if(won==1)
+		int luckOfHerb = luckFactor();
+		if (luckOfHerb==1)
 		{
-			animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
-			System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
+			System.out.println((animals.get(r2)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r1)).getAnimalName());
 		}
-		printResult(won,r1,r2);
+		else
+		{
+			int won = checkEnergy(r1,r2);
+			
+			if(won==1)
+			{
+				animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+				
+			}
+			printResult(won,r1,r2);
+		}
 	}
 
 	public void herbVsCar(int r1,int r2)
 	{
-		int won = checkEnergy(r1,r2);
-	
-		if(won==2)
+
+		int luckOfHerb = luckFactor();
+		if (luckOfHerb==1)
 		{
-			animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
-			System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
+			System.out.println((animals.get(r1)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r2)).getAnimalName());
 		}
-		printResult(won,r1,r2);
+		else
+		{
+			System.out.println( animals.get(r1).getAnimalName()+" have NO LUCK :) ");
+			int won = checkEnergy(r1,r2);
+		
+			if(won==2)
+			{
+				animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+				
+			}
+			printResult(won,r1,r2);
+		}
 	}
 	public void carVsCar(int r1,int r2)
 	{
+
 		int won = checkEnergy(r1,r2);
 		
 		if(won==1)
 		{
 			animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
-			System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
+			
 		}
 		if(won==2)
 		{
 			animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
-			System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
+			
 		}
 		printResult(won,r1,r2);
 
@@ -265,20 +297,30 @@ public class Forest
 	 	if(won==1)
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
+	 		System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
 			(animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
 	 	else if(won==2)
 	 	{
 	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
+	 		System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
 			(animals.get(r1)).dead();
 			animals.remove(r1);
 	 	}
 	 	else
 	 	{
 	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
+	 		System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
 			(animals.get(r2)).dead();
 			animals.remove(r2);
 	 	}
+	 }
+
+	 public int luckFactor()
+	 {
+	 	Random rand = new Random();
+		int n = rand.nextInt(2);
+		return n;
 	 }
 }
