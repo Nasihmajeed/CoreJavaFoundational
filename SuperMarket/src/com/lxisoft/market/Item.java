@@ -46,7 +46,7 @@ public class Item implements Comparable<Item>
         return this.getId() - item.getId();
     }
 
-    /*public boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
@@ -55,7 +55,7 @@ public class Item implements Comparable<Item>
 	 
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 
     public String toString() {
         return "Item{" +
