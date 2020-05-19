@@ -46,7 +46,10 @@ public class Book
 		return publisher;
 	}	
 
-
+public String toString()
+		{
+			return String.format(name+","+auther+","+publisher) ;
+		}
 	
 	
 }
