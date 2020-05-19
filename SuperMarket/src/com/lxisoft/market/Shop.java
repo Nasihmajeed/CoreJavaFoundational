@@ -18,9 +18,9 @@ public class Shop
 	public void shopDetails()
 	{	
 		ArrayList<String> details=new ArrayList<String>();  
-		details.add("Supermarket,Textiles,Fancy");  
-		details.add("Pookotukavu");  
-		details.add("Kadambur (PO),Pin: 679514,Palakkad"); 	 
+		details.add("   Supermarket,Textiles,Fancy");  
+		details.add("   Pookotukavu");  
+		details.add("   Kadambur (PO),Pin: 679514,Palakkad"); 	 
 		for(String d:details){  
 		System.out.println(d); 
 		}
@@ -30,13 +30,14 @@ public class Shop
 			do
 			{
 				isTest=false;
-				System.out.println("\n1.Add Stock \n2.Display All \n3.Exit");
+				System.out.println("\n1.Add Stock \n2.Display All \n3.Bill \n4.Exit");
 				int m=sc.nextInt();
 				switch (m)
 				{
 					case 1:	addStock(); isTest=true;break;				
 					case 2: displayDetails(); isTest=true;  break;
-					case 3: System.exit(0); break;	
+					case 3:break;
+					case 4: System.exit(0); break;	
 					
 				}
 			}while(isTest);
@@ -165,9 +166,9 @@ public class Shop
 		
 		Map<Integer,String> map = new HashMap<Integer, String>();
 		
-		map.put(1,"Eveready Products 10 Month Warranty");
-		map.put(3, "Bajaj Products 4yr Warranty");
-		map.put(2, "Cello Products 2yr Warranty");
+		map.put(1,"\nEveready Products 10 Month Warranty");
+		map.put(3, "\nBajaj Products 4yr Warranty");
+		map.put(2, "\nCello Products 2yr Warranty");
 				
 		Set<?> set = map.entrySet();
 		Iterator<?> itr = set.iterator();

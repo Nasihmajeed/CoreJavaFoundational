@@ -6,11 +6,12 @@ public class TDD
 {
 	public static void main(String[] arg)
 	{
-		Shop.shop("EVERGREEN ENTERPRISES");  
+		Shop.shop("\n\t         EVERGREEN ENTERPRISES");  
         System.out.println(Shop.shopName);     
-       	Shop shop = new Shop();
-       	System.out.println(shop instanceof Shop);
-		shop.shopDetails();
+       	Shop shop = new Shop();  	
+		if(shop instanceof Shop){
+			shop.shopDetails(); 
+		}  
 
 	}
 }
