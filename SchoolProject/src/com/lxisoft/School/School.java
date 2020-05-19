@@ -1,34 +1,23 @@
-package com.lxisoft.School;
-public class encapsulation;
-public class School
+package com.LxiSoft.School;
 
+public class School
 {
-    Classroom[] classrooms;
-    private String schoolname;
-    public void setschoolname(String a)
-    this.schoolname=a;
-}
-    Classroom classroom=new Classroom();
+    ClassRoom classroom=new ClassRoom();
 
      public void printSchool()
      {
       
-    System.out.println();
-    System.out.println("           **************************************************************");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                 MOUNT HIRA ENGLISH SCHOOL                                                                                                   *");   
-    System.out.println("           *                        Pattambi                                                                                                             *");
-    System.out.println("           *         Kondoorkara PO. Palakkad Kerala pin 679303                                                                                          *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                  STUDENTS DATABASE                                                                                                         *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           *                                                                                                                                             *");
-    System.out.println("           **************************************************************");
+    System.out.println("       ************************************************************************");
+    System.out.println("       *                                                                      *");
+    System.out.println("       *         VIMALAMBIKA PUBLIC SCHOOL & JUNIOR COLLEGE                   *");   
+    System.out.println("       *                  Pampady Kottayam Kerala                             *");
+    System.out.println("       *               (aff.to CBSE Delhi No.930655)                          *");
+    System.out.println("       *                                                                      *");
+    System.out.println("       *                      STUDENTS DATABASE                               *");
+    System.out.println("       *                                                                      *");
+    System.out.println("       *                                                                      *");
+    System.out.println("       ************************************************************************");
       }
-      
   
 
      
@@ -38,7 +27,9 @@ public class School
         classroom.setTeacher();
         classroom.setStudent();
        classroom.printStudents();
+       classroom.studentRank();
       
+
      }
  
  }
