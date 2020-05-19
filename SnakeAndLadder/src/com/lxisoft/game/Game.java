@@ -7,16 +7,20 @@ public class Game
 {
 	
 	
-	//FileReppo gameResult =new FileReppo();
+	FileReppo gameResult =new FileReppo();
 	static Scanner input =new Scanner(System.in);
 	Dice dice;
 	Snake snake;
 	Ladder ladder;
+
  public void startGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
 		playerDetails(players);	
 		selectlevel(snakes,ladders);
 		playGame(players,snakes,ladders);
+		System.out.println("\n\n\tWinner List Of The Games \n");
+		System.out.println("*******************************************\n");
+		gameResult.readResult();
 
 	}
 
@@ -81,10 +85,12 @@ public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<
 					 else
 					 {move(players.get(i),snakes,ladders);}	
 
-		  			}	
+		  			}
+		  		System.out.println("_____________________________\n");		
 			}
 			while(temp>0);
 		}
+
 		flag=checkWinner(players);	
 	  }while(flag==false);	
 	}
@@ -105,6 +111,7 @@ public boolean checkWinner(ArrayList<Player> players)
 	  if(flag==true)
 	  {
 	  	System.out.println(players.get(index).getPlayerName()+" Winned in this Game");
+	  	gameResult.writeTofile(players.get(index).getPlayerName());
 	  	players.remove(index);
 	  	if(players.size()>1)
 	  	{
@@ -133,23 +140,33 @@ public void move(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 		dice=new Dice();
 		int value=dice.roll();
 		System.out.println("\n\nYou Got "+value);
-		int temp=value+player.getPlayerPosition();			
+		int temp=value+player.getPlayerPosition();
+
 		player.setPlayerPosition(temp);
 		checkforPositionmoves(player,snakes,ladders);
-		setWinner(player,temp);
+		setWinner(player,value);
 		System.out.println(player.getPlayerName()+"'s  Current Position is = "+player.getPlayerPosition());
 	}
 
-public void setWinner(Player player,int temp)
+public void setWinner(Player player,int value)
 	{
-		if(temp>99)
+		int temp=player.getPlayerPosition();
+		int position=(temp-value);
+		int distance=(100-position);
+		if(distance<value)
+		{
+			System.out.println("\n* You Need To Get less than "+distance);
+			player.setPlayerPosition(position);	
+		}
+		else
+		{
+			player.setPlayerPosition(temp);	
+		}
+		if(temp==100)
 		{
 			player.setPlayerStatus(true);
 		}
-		if(temp>100)
-		{
-			player.setPlayerPosition(100);
-		}
+		
 	}
 
 public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
