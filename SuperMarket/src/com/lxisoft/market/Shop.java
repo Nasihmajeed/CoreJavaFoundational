@@ -10,7 +10,6 @@ public class Shop
 	public List<Item> items=new ArrayList<Item>();
 	FileRepository fr=new FileRepository();
 	public static String shopName = ""; 
-      
     public static void shop(String name){ 
           
         shopName = name; 
@@ -36,7 +35,7 @@ public class Shop
 				switch (m)
 				{
 					case 1:	addStock(); isTest=true;break;				
-					case 2: displayAll(); isTest=true;  break;
+					case 2: displayDetails(); isTest=true;  break;
 					case 3: System.exit(0); break;	
 					
 				}
@@ -87,7 +86,7 @@ public class Shop
 		stationary.setQuantity(sc.nextInt());	
 		items.add(stationary);
 		fr.writeFile(items);
-		fr.readFile();
+		//fr.readFile();
 	} 
 	public void addToy()
 	{
@@ -101,8 +100,8 @@ public class Shop
 		System.out.println("Quantity of Toy");
 		toy.setQuantity(sc.nextInt());	
 		items.add(toy);
-		// fr.writeToFile(items);
-		// fr.readFile();
+		fr.writeToFile(items);
+		// fr.readToFile();
 
 	}
 	public void addFancy()
@@ -117,27 +116,51 @@ public class Shop
 		System.out.println("Quantity of item");
 		fancy.setQuantity(sc.nextInt());	
 		items.add(fancy);
-		// fr.writeToFile(items);
-		// fr.readFile();
+		fr.writeToFileFancy(items);
+		// fr.readToFileFancy();
 
 	}
 	public void displayAll()
-	{
-		System.out.println("\n\nDisplay the details");
-		guarantiProduct();
-		//System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
-		// for(int i=0;i<items.size();i++)
-		// {			
-		// 	System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
-		// }
-
+	{		
 		Collections.sort(items);
         System.out.println(items);
-		
+	}
+	public void displayDetails()
+	{
+		System.out.println("\n\n\t   Display the details");
+		guarantiProduct();
+		try
+		{
+			boolean test=false;
+			do	
+			{
+				test=false;
+				System.out.println("Select your option");
+				System.out.println("\n 1.Display all \n 2.Curent added \n");
+				int i=sc.nextInt();
+				switch (i)
+				{
+		 			case 1: displayFile(); break;
+					case 2: displayAll(); break;							
+					default:
+				}				
+			}while(test);
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Error in input value");
+			e.printStackTrace();
+		}		
+	}
+	public void displayFile()
+	{
+		fr.readFile();
+		fr.readToFile();
+		fr.readToFileFancy();
 	}
 	final void guarantiProduct()
 	{
-		System.out.println("Guarrantyy Products");
+		System.out.println("\n\n\n      Guarranty Products ");
 
 		
 		Map<Integer,String> map = new HashMap<Integer, String>();

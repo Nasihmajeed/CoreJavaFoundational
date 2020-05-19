@@ -9,9 +9,10 @@ public class TDD
 		Shop.shop("EVERGREEN ENTERPRISES");  
         System.out.println(Shop.shopName);     
        	Shop shop = new Shop();
+       	System.out.println(shop instanceof Shop);
 		shop.shopDetails();
-			
-	}	
+
+	}
 }
 					
 
