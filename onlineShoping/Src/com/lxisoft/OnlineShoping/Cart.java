@@ -4,27 +4,41 @@ import com.lxisoft.OnlineShoping.Cart;
 import com.lxisoft.OnlineShoping.FileOperation;
 import java.util.*;
 import com.lxisoft.OnlineShoping.DisplayPage;
+import com.lxisoft.OnlineShoping.CartDetail;
 public class Cart
 {
 	ArrayList<Item>cartProduct=new ArrayList<Item>();
 	FileOperation fo=new FileOperation();
 	DisplayPage dp;
+	CartDetail cd;
 	//String name;
+	User userDetail;
+	Item product;
 	final void cartItem(Item product,User user)throws Exception
 	{
 		dp=new DisplayPage();
 		fo.cartProduct(product,user);
 		//dp.viewItem();
+		userDetail=user;
+		this.product=product;
 	}
-	final void viewCartItem(Item product)
+	final void viewCartItem(User user)throws Exception 
 	{
-		String[] cartItem= fo.viewCartProduct(product);
-		for (int i=0;i<cartItem.length;i++) 
+		System.out.println("\n");
+		ArrayList<CartDetail> cartItem= fo.viewCartProduct(user,cd);
+		//System.out.println(cartItem.get(0).getCustomer());
+		System.out.println("   CART products");
+		System.out.println(" =================");
+		
+		for (int i=0;i<cartItem.size();i++) 
 		{
-			if(cartItem[0].equals(user.getName()))
+			if (user.getName().equals(cartItem.get(i).getCustomer())) 
 			{
-				System.out.println()
+				System.out.println("Customer : "+cartItem.get(i).getCustomer());
+				System.out.println("Item : "+cartItem.get(i).getCartItem());	
 			}
+				
+			System.out.println("\n");
 		}
 		
 	}

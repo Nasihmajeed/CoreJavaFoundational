@@ -1,11 +1,8 @@
 package com.lxisoft.OnlineShoping;
-public class Product
+public abstract class Detail
 {
-	String productName;
-	String productCatogery;
-	String customerName;
-	String customerAddress;
-	int customerPincode;
-
-	/*public void */
+	int productID;
+	public abstract void buyProduct(Item product,User user);
+	public abstract void buyDetails(Item product,User user);
+	
 }

@@ -5,7 +5,8 @@ import com.lxisoft.OnlineShoping.FileOperation;
 import com.lxisoft.OnlineShoping.User;
 import com.lxisoft.OnlineShoping.Stock;
 import com.lxisoft.OnlineShoping.Cart;
-import com.lxisoft.OnlineShoping.BillCounter;
+import com.lxisoft.OnlineShoping.BillDetail;
+import java.lang.Math;
 import java.util.Scanner;
 public class DisplayPage
 {
@@ -16,7 +17,7 @@ public class DisplayPage
 	FileOperation fo=new FileOperation();
 	ArrayList<Item>products=new ArrayList<Item>();
 	Cart cart=new Cart();
-	
+	BillDetail billDetail;
 	public void login()throws Exception 
 	{
 		ArrayList<User> usrers=fo.readUserDetails(user);
@@ -33,8 +34,8 @@ public class DisplayPage
 			if (logDet.get(0).equals(usrers.get(i).getName())) 
 			{
 				System.out.println("       Login done");
-				
-				this.viewItem(usrers.get(i));
+				products=stock.itemDetail();
+				this.viewItem(usrers.get(i),products);
 				ur=i;
 
 			}
@@ -43,29 +44,52 @@ public class DisplayPage
 		if(!logDet.get(0).equals(usrers.get(ur).getName()))
 		{
 				System.out.println("       Login faild");
-				userLogin.setUserSignup();
+				userLogin.userSignup();
 		}
 		
 	}
 	public void signup()throws Exception 
 	{
-		userLogin.setUserSignup();
+		userLogin.userSignup();
 		this.login();
 	}
 
-	public void viewItem(User user)throws Exception 
+	public void viewItem(User user,ArrayList<Item> products)throws Exception 
 	{
-		products=stock.itemDetail();
+		
 		int j=1;
+		Collections.sort(products);  
 		for (int i=0;i<products.size();i++) 
 		{
-			System.out.println("       products"+j+" : "+products.get(i).getItemName());
+			System.out.println("       products"+j+" : "+products.get(i).getItemName()+"\n       Price ₹ : "+products.get(i).getPrice());
 			j++;
 		}
-		selectItem(products,user);
+		System.out.println("Select Item : 1  View Cart : 2  View purchasedItem : 3   Exit : 4");
+		int select=scr.nextInt();
+		switch(select)
+		{
+			case 1:
+					selectItem(products,user);
+					viewItem(user,products);
+					break;
+			case 2:
+					cart.viewCartItem(user);
+					viewItem(user,products);
+					break;
+			case 3:
+					billDetail.vewBuyDetail(user);
+					viewItem(user,products);
+					break;
+			case 4:
+					System.out.println("==== Thank you ====");
+					break;
+			
+		}
+		
 	}
 	public void selectItem(ArrayList<Item>products,User user)throws Exception
 	{
+		billDetail=new BillDetail();
 		//ArrayList<User> usrers=fo.readUserDetails(user);
 		System.out.println("\n");
 		System.out.println("          Select number pick Product");
@@ -96,37 +120,34 @@ public class DisplayPage
 		//System.out.println();
 		//String name= usrers.get(ur).getName();
 		System.out.println("\n");
-		System.out.println("Cart : 1  Buy : 2  View Cart : 3  Exit : 4");
+		System.out.println("Cart : 1  Buy : 2 ");
 		int select=scr.nextInt();
 		switch(select)
 		{
 			case 1:
 					cartItem(products.get(num-1),user);
-					viewItem(user);
+					viewItem(user,products);
 					break;
 			case 2:
-					buyItem(products.get(num-1));
+					buyItem(products.get(num-1),user);
+					viewItem(user,products);
 					break;
-			case 3:
-					cart.viewCartItem(products.get(num-1));
-					break;
-			case 4: 
-					System.out.println("--- Thank you ---");
 		}
 		
 		
 	}
 	public void cartItem(Item products,User user)throws Exception
-	{
+	{ 
 		
 		cart.cartItem(products,user);
 		
 	}
-	public void buyItem(Item products)
+	public void buyItem(Item products,User user)throws Exception 
 	{
-		BillCounter billcounter=new BillCounter();
-
-
-		billcounter.buyItem(products);
+		
+		billDetail=new BillDetail();
+		billDetail.buyProduct(products,user);
+		billDetail.buyDetails(products,user);
+		
 	}
 }

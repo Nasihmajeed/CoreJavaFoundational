@@ -1,11 +1,14 @@
 package com.lxisoft.OnlineShoping;
 import com.lxisoft.OnlineShoping.DisplayPage;
 import com.lxisoft.OnlineShoping.User;
+import com.lxisoft.OnlineShoping.FileOperation;
+
 public class SignUp
 {
+	FileOperation fo;
 	User user;
 	ArrayList<User>userDet=new ArrayList<User>();
-	final void setUserSignup()
+	final void userSignup()
 	{
 		user=new User();
 		Scanner scr=new Scanner(System.in);
@@ -25,12 +28,9 @@ public class SignUp
 		int pincode=scr.nextInt();
 		user.setPincode(pincode);
 
-		
+		fo.addUserId(user);
 
 		
 	}
-	final User getUserSignup()
-	{
-		return userDet.add(user);
-	}
+	
 }

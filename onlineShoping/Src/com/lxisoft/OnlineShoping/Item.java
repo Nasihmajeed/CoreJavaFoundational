@@ -1,6 +1,6 @@
 package com.lxisoft.OnlineShoping;
 import java.util.*;
-public class Item 
+public class Item implements Comparable<Item>
 {
 	private String itemName;
 	private String catogey;
@@ -38,5 +38,18 @@ public class Item
 	public int getPrice()
 	{
 		return this.price;
+	}
+
+
+	public int compareTo(Item itm)
+	{
+		if (this.price==itm.price)
+		{
+			return 0;	
+		}
+		else
+		{
+			return this.price > itm.price ? 1 : -1;
+		}
 	}
 }

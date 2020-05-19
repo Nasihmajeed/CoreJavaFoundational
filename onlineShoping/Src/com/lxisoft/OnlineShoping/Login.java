@@ -1,5 +1,6 @@
 package com.lxisoft.OnlineShoping;
 import com.lxisoft.OnlineShoping.User;
+import com.lxisoft.OnlineShoping.FileOperation;
 import java.util.Scanner;
 import java.util.*;
 public class Login
@@ -9,7 +10,7 @@ public class Login
 	ArrayList<User>userDet=new ArrayList<User>();
 	Scanner scr=new Scanner(System.in);
 	ArrayList<String>logdet=new ArrayList<String>();
-
+	FileOperation fo;
 	final void setUserLogin()
 	{
 		System.out.println("Name : ");
@@ -30,8 +31,9 @@ public class Login
 	}
 
 	
-	final void setUserSignup()
+	final void userSignup()
 	{
+		fo=new FileOperation();	
 		user=new User();
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter User Name : ");
@@ -50,13 +52,9 @@ public class Login
 		int pincode=scr.nextInt();
 		user.setPincode(pincode);
 
-		userDet.add(user);
+		fo.addUserId(user);
 
 		
-	}
-	final ArrayList<User> getUserSignup()
-	{
-		return userDet;
 	}
 	
 }
