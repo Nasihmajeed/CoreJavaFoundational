@@ -27,7 +27,7 @@ public class School
         classroom.setTeacher();
         classroom.setStudent();
        classroom.printStudents();
-       
+       classroom.studentRank();
       
 
      }

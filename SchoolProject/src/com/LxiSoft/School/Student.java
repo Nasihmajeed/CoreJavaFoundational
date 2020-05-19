@@ -1,9 +1,27 @@
 package com.LxiSoft.School;
-public class Encapsulate;
+
 public class Student
 {
-	String name;
-    int rNo;
+	
+    private String name;   //Student name
+    public void settname(String a )
+    {
+        this.name=a;
+    }
+    public String getname()
+    {
+        return name;
+    }
+    
+    private int rNo;   //student roll no.
+    public void setrNo(String a )
+    {
+        this.rNo=a;
+    }
+    public int getrNo()
+    {
+        return   rNo;
+    }
     int t1;
     int t2;
     int t3;
