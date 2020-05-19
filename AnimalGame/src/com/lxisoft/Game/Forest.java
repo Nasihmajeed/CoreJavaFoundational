@@ -118,6 +118,7 @@ public class Forest
 		{
 			r1=randomNumber(n);
 			r2=randomNumber(n);
+			System.out.println("R1 = "+r1 + "R2 = "+ r2);
 			if((r1==r2) || animals.get(r1).animalEnergy==0 || animals.get(r2).animalEnergy==0 )
 			{
 				r1=randomNumber(n);
@@ -132,16 +133,14 @@ public class Forest
 				 String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
 				System.out.println(animal1+" Meets "+animal2);
-				animalFight();
-				int won = checkEnergy(r1,r2);
 				System.out.println(animal1 + " Is a " + typeOfR1);
 				System.out.println(animal2 + " Is a " + typeOfR2+"\n");
-				printResult(won,r1,r2);
+				checkType(r1,r2);
 			}
 			n=animals.size();
 		}
 		System.out.println("\n\n Winner is " + animals.get(0).getAnimalName());
-		// System.out.println("Animals.size = "+animals.size());
+		System.out.println("Animals.size = "+animals.size());
 	}
 
 
@@ -183,46 +182,75 @@ public class Forest
 	}
 
 
-	public void animalFight()
+	public void checkType(int r1,int r2)
 	{
 		
 
 		if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Carnivorus"))
 		{
-			herbVsCar();
+			herbVsCar(r1,r2);
 		}
 		else if(typeOfR1.equals("Carnivorus") && typeOfR2.equals("Carnivorus"))
 		{
-			carVsCar();
+			carVsCar(r1,r2);
 		}
 		 else if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Herbivorus"))
 		{
-			herbVsHerb();
+			herbVsHerb(r1,r2);
 		}
 		else
 		{	
-			carVsHerb();
+			carVsHerb(r1,r2);
 
 		}		
 	
 	}
 
-	public void carVsHerb()
+	public void carVsHerb(int r1,int r2)
 	{
+		int won = checkEnergy(r1,r2);
+		
+		if(won==1)
+		{
+			animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+			System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
+		}
+		printResult(won,r1,r2);
+	}
+
+	public void herbVsCar(int r1,int r2)
+	{
+		int won = checkEnergy(r1,r2);
+	
+		if(won==2)
+		{
+			animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+			System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
+		}
+		printResult(won,r1,r2);
+	}
+	public void carVsCar(int r1,int r2)
+	{
+		int won = checkEnergy(r1,r2);
+		
+		if(won==1)
+		{
+			animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+			System.out.println(animals.get(r1).getAnimalName() + "'s Energy increased to " + animals.get(r1).animalEnergy);
+		}
+		if(won==2)
+		{
+			animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+			System.out.println(animals.get(r2).getAnimalName() + "'s Energy increased to " + animals.get(r2).animalEnergy);
+		}
+		printResult(won,r1,r2);
 
 	}
 
-	public void herbVsCar()
-	{
 
-	}
-	public void carVsCar()
+	public void herbVsHerb(int r1,int r2)
 	{
-
-	}
-	public void herbVsHerb()
-	{
-
+		System.out.println("Both are Herbivorus Currently No Fight Happens ");
 	}
 
 

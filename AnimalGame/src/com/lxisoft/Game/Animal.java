@@ -26,6 +26,14 @@ public class Animal
 	{
 		animalEnergy=ener;
 	}
+	public void updateAnimalEnergy(int otherEnergy)
+	{
+		this.animalEnergy=this.animalEnergy+(int)(otherEnergy/0.5);
+		if(animalEnergy>100)
+		{
+			this.setAnimalEnergy(100);
+		}
+	}
 	public void dead()
 	{
 		this.animalEnergy=0;
