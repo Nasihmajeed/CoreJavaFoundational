@@ -14,10 +14,28 @@ public class Student
 
 
 	private String regNo;
-	
-	Integer total;
-	double percentage;
+	public void setRegNo(String a){
+		this.regNo=a;
+	}
+	public String getRegNo(){
+		return regNo;
+	}
 
+	
+	private Integer total;
+	public void setStudentTotal(Integer a){
+		this.total=a;
+	}
+	public Integer getStudentTotal(){
+		return total;
+	}
+	private double percentage;
+	public void setPercentage(double a){
+		this.percentage=a;
+	}
+	public double getPercentage(){
+		return percentage;
+	}
 
 	Subject[] subjects;
 	
@@ -34,8 +52,8 @@ public class Student
 		//name=mystud.nextLine();
 		
 		
-		System.out.println("Enter register number ");
-		regNo=scanner.nextLine();
+		//System.out.println("Enter register number ");//encap
+		//regNo=scanner.nextLine();
 
 		for(int i=0;i<subjects.length;i++){
 			subjects[i]=new Subject();

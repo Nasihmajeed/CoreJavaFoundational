@@ -67,9 +67,16 @@ public class School{
 	public void printSchoolRankDetails(){
 		System.out.println("SCHOOL RANK DETAILS");
 
+			String name;
+
+			
+
+
 		int arraylength=0;
 		
 		for(int i=0;i<classRooms.length;i++){
+
+
 				
 		 		arraylength=arraylength+classRooms[i].students.length;	
 	
@@ -84,6 +91,7 @@ public class School{
 		for(int i=0;i<classRooms.length;i++){
 			System.out.println(" i ="+i);
 			for(int j=0;j<classRooms[i].students.length;j++){
+				
 				System.out.println(" j ="+j);
 				newstudents[k]=classRooms[i].students[j];
 				k++;
@@ -97,7 +105,7 @@ public class School{
 				System.out.println(" i ="+i);
 				System.out.println(" j ="+j);
 
-				if(newstudents[i].total<newstudents[j].total){
+				if(newstudents[i].getStudentTotal()<newstudents[j].getStudentTotal()){
 					Student temp=newstudents[i];
 					newstudents[i]=newstudents[j];
 					newstudents[j]=temp;
@@ -106,7 +114,8 @@ public class School{
 		}
 
 		for(int i=0;i<newstudents.length;i++){
-			System.out.println(newstudents[i].name + " :"+newstudents[i].total);
+		
+			System.out.println(newstudents[i].getStudentName() + " :"+newstudents[i].getStudentTotal());//pending work
 		}
 					
 	}	

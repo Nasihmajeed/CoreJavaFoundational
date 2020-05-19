@@ -7,6 +7,7 @@ public class ClassRoom{
 	Teacher teacher;
 	int studentslength;
 	String name;//name of student in student class
+	String regNo;//reg no of the student in student class
 
 	private String classNo;//encapsulated
 	public void setClassNo(String a){
@@ -32,7 +33,6 @@ public class ClassRoom{
 
 		teacher=new Teacher();
 		
-		
 
 		teacher.teacherDeatails();
 		
@@ -42,6 +42,11 @@ public class ClassRoom{
 			name=scanner.nextLine();
 			students[i].setStudentName(name);
 			students[i].getStudentName();
+
+			System.out.println("Enter register number ");//encap
+			regNo=scanner.nextLine();
+			students[i].setRegNo(regNo);
+			students[i].getRegNo();
 
 		
 		
@@ -92,7 +97,7 @@ public class ClassRoom{
 				System.out.println("j ="+j);
 				students[i].setStudentName(name);
 				students[i].getStudentName();//**
-				if(students[i].total<students[j].total){
+				if(students[i].getStudentTotal()<students[j].getStudentTotal()){//** total encap
 					Student temp=students[i];
 					students[i]=students[j];
 					students[j]=temp;
@@ -104,10 +109,10 @@ public class ClassRoom{
 
 		for(int i=0;i<students.length;i++){
 
-			//students[i].setStudentName(name);
-			//students[i].getStudentName();
+			students[i].setStudentName(name);
+			students[i].getStudentName();
 
-			//System.out.println(students[i].name + " :"+students[i].total);
+			System.out.println(students[i].getStudentName() + " :"+students[i].getStudentTotal());
 		}
 	}
 
