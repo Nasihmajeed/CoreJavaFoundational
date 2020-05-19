@@ -14,7 +14,7 @@ public class Forest
 	{
 		for(int i=0 ; i<10 ; i++)
 		{
-			int n = rNo(6) ;
+			int n = randomNumberGenerator(6) ;
 			createRandomAnimalObject(n) ;
 		}
 	}
@@ -47,7 +47,7 @@ public class Forest
 		}
 	}
 
-	public int rNo(int x) // <---- Function to generate a random integer from 0 to (x-1)
+	public int randomNumberGenerator(int x) // <---- Function to generate a random integer from 0 to (x-1)
 	{
 		Random r = new Random();
 		int n = r.nextInt(x);
@@ -82,8 +82,8 @@ public class Forest
 
 		while(!animalList.isEmpty() && !allPrey && (animalList.size()!=1))
 		{
-			a1 = rNo(numOfAnimals) ; // Index of a random animal from the list.
-			a2 = rNo(numOfAnimals) ;
+			a1 = randomNumberGenerator(numOfAnimals) ; // Index of a random animal from the list.
+			a2 = randomNumberGenerator(numOfAnimals) ;
 
 				if(a1!=a2)
 				{
@@ -188,13 +188,13 @@ public class Forest
 
 			if(s1>s2)
 			{
-				reducedStrength = animalList.get(a1).getAnimalStrength() - rNo(100) ;
+				reducedStrength = animalList.get(a1).getAnimalStrength() - randomNumberGenerator(100) ;
 				animalList.get(a1).setAnimalStrength(reducedStrength) ;
 				return 0 ;
 			}
 			else if(s2>s1)
 			{
-				reducedStrength = animalList.get(a2).getAnimalStrength() - rNo(100) ;
+				reducedStrength = animalList.get(a2).getAnimalStrength() - randomNumberGenerator(100) ;
 				animalList.get(a2).setAnimalStrength(reducedStrength) ;
 				return 1 ;
 			}
