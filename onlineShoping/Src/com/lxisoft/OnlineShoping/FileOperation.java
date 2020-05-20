@@ -111,7 +111,6 @@ public class FileOperation
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
 
 		String s;
-		//detail=new ArrayList<String>();
 
 		while((s=br.readLine())!=null)
 		{

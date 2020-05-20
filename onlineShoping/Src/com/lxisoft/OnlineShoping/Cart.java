@@ -11,14 +11,13 @@ public class Cart
 	FileOperation fo=new FileOperation();
 	DisplayPage dp;
 	CartDetail cd;
-	//String name;
+
 	User userDetail;
 	Item product;
 	final void cartItem(Item product,User user)throws Exception
 	{
 		dp=new DisplayPage();
 		fo.cartProduct(product,user);
-		//dp.viewItem();
 		userDetail=user;
 		this.product=product;
 	}
@@ -26,7 +25,6 @@ public class Cart
 	{
 		System.out.println("\n");
 		ArrayList<CartDetail> cartItem= fo.viewCartProduct(user,cd);
-		//System.out.println(cartItem.get(0).getCustomer());
 		System.out.println("   CART products");
 		System.out.println(" =================");
 		

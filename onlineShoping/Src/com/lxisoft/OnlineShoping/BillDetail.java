@@ -14,8 +14,6 @@ public class BillDetail extends Detail
 	BuyDetail bd;
 	public void buyProduct(Item product,User user)
 	{
-		/*System.out.println("name :"+product.getItemName());
-		System.out.println("name :"+user.getName());*/
 		
 		fo.purchasedItemDetail(product,user);
 	}
@@ -40,7 +38,7 @@ public class BillDetail extends Detail
 		ArrayList<BuyDetail> purchasedItem= fo.viewBuyDetail(user,bd);
 
 		System.out.println("Customer : "+purchasedItem.get(0).getCustomer());
-		//System.out.println(cartItem.get(0).getCustomer());
+		
 		for (int i=0;i<purchasedItem.size();i++) 
 		{
 			

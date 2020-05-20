@@ -30,7 +30,7 @@ public class DisplayPage
 		int ur=0;
 		for(int i=0;i<usrers.size();i++)
 		{
-			//System.out.println("       Name : "+usrers.get(i).getName());
+			
 			if (logDet.get(0).equals(usrers.get(i).getName())) 
 			{
 				System.out.println("       Login done");
@@ -90,7 +90,7 @@ public class DisplayPage
 	public void selectItem(ArrayList<Item>products,User user)throws Exception
 	{
 		billDetail=new BillDetail();
-		//ArrayList<User> usrers=fo.readUserDetails(user);
+		
 		System.out.println("\n");
 		System.out.println("          Select number pick Product");
 		System.out.println("      	------------------------------");
@@ -117,8 +117,7 @@ public class DisplayPage
 				s=k;
 			}
 		}
-		//System.out.println();
-		//String name= usrers.get(ur).getName();
+		
 		System.out.println("\n");
 		System.out.println("Cart : 1  Buy : 2 ");
 		int select=scr.nextInt();
