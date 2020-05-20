@@ -11,70 +11,67 @@ public class FileRepo
 	static int id=0;
 	List<Book>bookList=new ArrayList<Book>();
 
-
-		public List<Book> create(Book b)
+	public List<Book> create(Book b)
+	{
+		try
 		{
-			try
-			{
-				fw=new FileWriter(file,true);
-				count();
-				fw.write(id+","+b.getName()+","+b.getAuther()+","+b.getPublisher()+"\n");
-				fw.flush();
-			}
-			catch(IOException e)
-			{
-				System.out.println("an error occured");
-			}
-			return bookList;	
+			fw=new FileWriter(file,true);
+			count();
+			fw.write(id+","+b.getName()+","+b.getAuther()+","+b.getPublisher()+"\n");
+			fw.flush();
 		}
-
-		public List<Book> read()
+		catch(IOException e)
 		{
-			Set<Book> ts=new TreeSet<Book>();
-			try
-			{
-			    bookList.clear();
-			    fw=new FileWriter(file,true);
-				FileReader fr=new FileReader(file);
-				BufferedReader br=new BufferedReader(fr);
-				String read;       
-				while((read=br.readLine())!=null)
-				{
-					String[] str=read.split(",",4);
-					Book b=new Book();
-					b.setId(str[0]);
-					b.setName(str[1]);
-					b.setAuther(str[2]);
-					b.setPublisher(str[3]);
-					// System.out.println(Arrays.toString(str));
-					// System.out.println("Book=="+b.toString()+"\n");
-					// ts.add(b);
-					bookList.add(b);
+			System.out.println("an error occured");
+		}
+		return bookList;	
+	}
 
-				}
-				// bookList.addAll(ts);
+	public List<Book> read()
+	{
+		Set<Book> ts=new TreeSet<Book>();
+		try
+		{
+		    bookList.clear();
+		    fw=new FileWriter(file,true);
+			FileReader fr=new FileReader(file);
+			BufferedReader br=new BufferedReader(fr);
+			String read;       
+			while((read=br.readLine())!=null)
+			{
+				String[] str=read.split(",",4);
+				Book b=new Book();
+				b.setId(str[0]);
+				b.setName(str[1]);
+				b.setAuther(str[2]);
+				b.setPublisher(str[3]);
+				// System.out.println(Arrays.toString(str));
+				// System.out.println("Book=="+b.toString()+"\n");
+				// ts.add(b);
+				bookList.add(b);
 			}
-			catch(IOException e)
-			{
-				System.out.println("Book list empty!!!!");
-				e.printStackTrace();
-			}	
-			return bookList;
+			// bookList.addAll(ts);
 		}
-
-		@Override
-		public String toString()
+		catch(IOException e)
 		{
-			Book b=new Book();
-			return String.format(id+""+b.getName()+","+b.getAuther()+","+b.getPublisher()) ;
-		}
+			System.out.println("Book list empty!!!!");
+			e.printStackTrace();
+		}	
+		return bookList;
+	}
 
-		public final void count()
-		{
+	@Override
+	public String toString()
+	{
+		Book b=new Book();
+		return String.format(id+""+b.getName()+","+b.getAuther()+","+b.getPublisher()) ;
+	}
+
+	public final void count()
+	{
 		try
 		{
 			id=0;
-			
 			Book b=new Book();
 			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
@@ -82,14 +79,13 @@ public class FileRepo
 			while((read=br.readLine())!=null)
 			id++;
 		}
-
 		catch(IOException e)
 		{
 			System.out.println("an error ");
 		}	
 	}
 
-		public List<Book> idSort()
+	public List<Book> idSort()
   	{
   		bookList=read();
   		Collections.sort(bookList,new IdComparator());

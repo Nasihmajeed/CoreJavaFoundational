@@ -27,7 +27,7 @@ public class Library
 
 	public void display(int ch)
     {
-
+		List<Book>bookList=new ArrayList<Book>();
         do
         {
             ch=display();
@@ -35,11 +35,10 @@ public class Library
             {
                 case 1:addBook();break;
                 case 2:getAllBooks();break; 
-                case 3:sorted();    
+                case 3:sorted(bookList);    
                 case 4:System.exit(0);break;
             } 
         }while(ch!=5);
-       
     }
 
 
@@ -60,10 +59,8 @@ public class Library
 	    return b;
 	}
 
-
 	public void getAllBooks()
 	{
-
 		List<Book>bookList=repo.read();
 		if((bookList.size()!=0))
 		{
@@ -78,8 +75,23 @@ public class Library
 		 
 	}
 
-	public void sortBook(List<Book>bookList)
+	// public void sortBook(List<Book>bookList)
+	// {
+	// 	for(int i=0;i<bookList.size();i++)
+	// 	{
+	// 		System.out.println("Id="+bookList.get(i).getId());
+ //     		System.out.println("Name="+bookList.get(i).getName());
+ //     		System.out.println("Auther="+bookList.get(i).getAuther());
+ //     		System.out.println("Publisher="+bookList.get(i).getPublisher());
+ //     	}
+	// }
+
+    public int sort(List<Book>bookList)
 	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("             Enter your choice:");
+		System.out.println("             1-Sorted Id\n             2-Sorted Name\n             3-Exit");
+		int a=sc.nextInt();
 		for(int i=0;i<bookList.size();i++)
 		{
 			System.out.println("Id="+bookList.get(i).getId());
@@ -87,32 +99,23 @@ public class Library
      		System.out.println("Auther="+bookList.get(i).getAuther());
      		System.out.println("Publisher="+bookList.get(i).getPublisher());
      	}
+		return a;
 	}
 
-    public int sort()
+	public void sorted(List<Book>bookList)
 	{
-			Scanner sc=new Scanner(System.in);
-			System.out.println("             Enter your choice:");
-			System.out.println("             1-Sorted Id\n             2-Sorted Name\n             3-Exit");
-			int a=sc.nextInt();
-			return a;
+		int a=0;
+		// List<Book>bookList=null;
+		do
+		{
+			a=sort(bookList);
+			switch(a)
+			{
+				case 1:bookList=repo.idSort();break;
+				case 2:bookList=repo.nameSort();break;
+				case 3:System.exit(0);break;
+			}
+			// sortBook(bookList);
+		}while(a!=4);
 	}
-
-	 public void sorted()
-	    {
-	    	int a=0;
-	        List<Book>bookList=null;
-	        do
-	        {
-	            a=sort();
-	            switch(a)
-	            {
-	                case 1:bookList=repo.idSort();break;
-	                case 2:bookList=repo.nameSort();break;
-	                case 3:System.exit(0);break;
-	            }
-	            sortBook(bookList);
-	        }while(a!=4);
-	        
-	    }
 }
