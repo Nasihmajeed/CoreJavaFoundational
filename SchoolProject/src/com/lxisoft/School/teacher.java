@@ -1,6 +1,15 @@
-package com.lxisoft.School;
-public class encapsulation;
-public class teacher
+package com.LxiSoft.School;
+
+public class Teacher
+
 {
-	String tname;
+	private String tname;   //Teacher name
+	public void settname(String a )
+	{
+		this.tname=a;
+	}
+	public String gettname()
+	{
+		return   tname;
+	}
 }
