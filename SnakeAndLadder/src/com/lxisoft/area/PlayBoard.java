@@ -6,58 +6,19 @@ import com.lxisoft.area.*;
 public class PlayBoard
 {
    static Scanner input =new Scanner(System.in);
-   ArrayList<Player> players = new ArrayList<Player>();
+   
    ArrayList<Snake>snakes = new ArrayList<Snake>();
    ArrayList<Ladder>ladders = new ArrayList<Ladder>();
    Game game;
 
 public void createBoard()
 	{
-		creatPlayers();
 		creatSnakeAndLadder();
 		game=new Game();
-		game.startGame(players,snakes,ladders);
+		game.startGame(snakes,ladders);
 
 	}
 
-public void creatPlayers()
-	{
-		boolean flag=false;
-		int i=0;
-		System.out.print("\nHow Many Playes You Want to add :");
-		int choise=input.nextInt();
-
-		do
-		{
-			System.out.print("\nEnter the Name Of "+ (i+1) +" Player : ");
-			String name=input.next();
-			for(int j=0;j<players.size();j++)
-			{
-				if(name.equals(players.get(j).getPlayerName()))
-				{
-					flag=true;
-				}
-				else
-				{
-					flag=false;
-				}
-			}
-		  if(flag==true)
-		  {
-		  	System.out.print("\nThe Enterd Name is Already used \n Please Choose Another one ");
-		  }	
-		  else
-		  {
-		  	players.add(new Player());
-		  	players.get(i).setPlayerName(name);
-		  	players.get(i).setPlayerPosition(0);
-		  	players.get(i).setPlayerStatus(false);
-		  	i++;
-		  }
-
-		}
-		while(i<choise);
-	}
 
 	public void creatSnakeAndLadder()
 	{

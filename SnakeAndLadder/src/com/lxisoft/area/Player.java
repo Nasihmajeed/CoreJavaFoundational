@@ -1,4 +1,4 @@
-package com.lxisoft.area;
+ package com.lxisoft.area;
 import java.util.*;
 
 public class Player

@@ -9,20 +9,63 @@ public class Game
 	
 	FileReppo gameResult =new FileReppo();
 	static Scanner input =new Scanner(System.in);
-	Dice dice;
-	Snake snake;
+	ArrayList<Player> players = new ArrayList<Player>();
+	PlayBoard playBoard;
 	Ladder ladder;
-
- public void startGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+	Snake snake;
+	Dice dice;
+public void creatGame()
 	{
+		creatPlayers();
+		playBoard=new PlayBoard();
+		playBoard.createBoard();
+	}
+ public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+	{
+		
 		playerDetails(players);	
 		selectlevel(snakes,ladders);
-		playGame(players,snakes,ladders);
+		playGame(snakes,ladders);
 		System.out.println("\n\n\tWinner List Of The Games \n");
 		System.out.println("*******************************************\n");
 		gameResult.readResult();
 
 	}
+
+public void creatPlayers()
+	{
+		boolean flag=false;
+		int i=0;
+		System.out.print("\nHow Many Playes You Want to add :");
+		int choise=input.nextInt();
+
+		do
+		{
+			System.out.print("\nEnter the Name Of "+ (i+1) +" Player : ");
+			String name=input.next();
+			for(int j=0;j<players.size();j++)
+			{
+				if(name.equals(players.get(j).getPlayerName()))
+				{	flag=true;	}
+				else
+				{	flag=false;	}
+			}
+		  if(flag==true)
+		  {	System.out.print("\nThe Enterd Name is Already used \n Please Choose Another one ");  }	
+
+		  else
+		  {
+		  	players.add(new Player());
+		  	players.get(i).setPlayerName(name);
+		  	players.get(i).setPlayerPosition(0);
+		  	players.get(i).setPlayerStatus(false);
+		  	i++;
+		  }
+
+		}
+		while(i<choise);
+	}
+
 
 public void playerDetails(ArrayList<Player> players)
 	{
@@ -65,7 +108,7 @@ public void selectlevel(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 
 	}
 
-public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+public void playGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
 		int temp=1;
 		boolean flag=false;
@@ -81,9 +124,9 @@ public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<
 		 		if(temp==0)
 		  			{
 					 if(players.get(i).getPlayerPosition()==0)
-					 {move(players.get(i));}
+					 { move(players.get(i)); }
 					 else
-					 {move(players.get(i),snakes,ladders);}	
+					 { move(players.get(i),snakes,ladders); }	
 
 		  			}
 		  		System.out.println("_____________________________\n");		
@@ -91,21 +134,19 @@ public void playGame(ArrayList<Player> players,ArrayList<Snake>snakes,ArrayList<
 			while(temp>0);
 		}
 
-		flag=checkWinner(players);	
+		flag=checkWinner();	
 	  }while(flag==false);	
 	}
 
-public boolean checkWinner(ArrayList<Player> players)
+public boolean checkWinner()
 	{
 		boolean flag=false;
 		int index=0;
 		for (int i=0;i<players.size();i++)
 		{
 			if(players.get(i).getPlayerStatus()== true)
-			{
-				flag=true;
-				index=index+i;
-			}	
+			{	flag=true;
+				index=index+i;	}	
 		}
 
 	  if(flag==true)
@@ -154,18 +195,14 @@ public void setWinner(Player player,int value)
 		int position=(temp-value);
 		int distance=(100-position);
 		if(distance<value)
-		{
-			System.out.println("\n* You Need To Get less than "+distance);
-			player.setPlayerPosition(position);	
-		}
+		{	System.out.println("\n* You Need To Get less than "+distance);
+			player.setPlayerPosition(position);	 }
+
 		else
-		{
-			player.setPlayerPosition(temp);	
-		}
+		{	player.setPlayerPosition(temp);	 }
+
 		if(temp==100)
-		{
-			player.setPlayerStatus(true);
-		}
+		{	player.setPlayerStatus(true);    }
 		
 	}
 
@@ -177,8 +214,7 @@ public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList
 		for(int i=0;i<snakes.size();i++)
 		{
 			if(snakes.get(i).getHead()==temp)
-			{
-				flag=flag+1;
+			{	flag=flag+1;
 				position=snakes.get(i).getTail();
 			}
 		}
@@ -186,8 +222,7 @@ public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList
 		for(int i=0;i<ladders.size();i++)
 		{
 			if(ladders.get(i).getStart()==temp)
-			{
-				flag=flag+2;
+			{	flag=flag+2;
 				position=ladders.get(i).getEnd();
 			}
 		}

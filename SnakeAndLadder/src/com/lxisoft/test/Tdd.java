@@ -4,7 +4,7 @@ class Tdd
 {
 public static void main(String args[])
 	{
-		PlayBoard board=new PlayBoard();
-		board.createBoard() ;
+		Game game=new Game();
+		game.creatGame();
 	}
 } 
