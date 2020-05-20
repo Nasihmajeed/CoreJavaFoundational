@@ -30,14 +30,15 @@ public class Shop
 			do
 			{
 				isTest=false;
-				System.out.println("\n1.Add Stock \n2.Display All \n3.Bill \n4.Exit");
+				System.out.println("\n1.Add Stock \n2.Display All \n3.Bill \n4.Employee \n5.Exit");
 				int m=sc.nextInt();
 				switch (m)
 				{
 					case 1:	addStock(); isTest=true;break;				
 					case 2: displayDetails(); isTest=true;  break;
-					case 3:break;
-					case 4: System.exit(0); break;	
+					case 3: break;
+					case 4: employeeDetails(); isTest=true; break;
+					case 5: System.exit(0); break;	
 					
 				}
 			}while(isTest);
@@ -180,7 +181,38 @@ public class Shop
 		}
 	}
 
-}	
+    public void employeeDetails() 
+    { 
+        ArrayList<Employee> employee = new ArrayList<Employee>(); 
+        employee.add(new Employee(101, "Sheeja", "Cleaning")); 
+        employee.add(new Employee(102, "Neethu", "Superwiser")); 
+        employee.add(new Employee(103, "Sheeba", "Billing")); 
+        employee.add(new Employee(104, "Remya", "Manager")); 
+        employee.add(new Employee(105, "Priya", "Sales")); 
+        employee.add(new Employee(106, "Suneera", "StockClearng"));
+        employee.add(new Employee(107, "Raihanath", "Sales"));
+        employee.add(new Employee(108, "Suhara", "Sales"));
+        employee.add(new Employee(109, "Rajesh", "ManagingDirector"));  
+  
+       /* System.out.println("Unsorted"); 
+        for (int i=0; i<employee.size(); i++) 
+            System.out.println(employee.get(i)); */
+  
+        Collections.sort(employee, new SortbyNo()); 
+  
+        System.out.println("\nSorted by empNo"); 
+        for (int i=0; i<employee.size(); i++) 
+            System.out.println(employee.get(i)); 
+  
+        Collections.sort(employee, new SortbyName()); 
+  
+        System.out.println("\nSorted by name"); 
+        for (int i=0; i<employee.size(); i++) 
+            System.out.println(employee.get(i)); 
+    } 
+} 
+
+	
 					
 	
 	
