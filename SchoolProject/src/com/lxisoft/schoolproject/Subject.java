@@ -2,19 +2,29 @@ package com.lxisoft.schoolproject;
 
 import java.util.Scanner;
 public class Subject{
-	String subjectName;
-	Integer mark;
-	
+	private String subjectName;
+	public void setSubjectName(String a){
+		this.subjectName=a;
+	}
+	public String getSubjectName(){
+		return subjectName;	
+	}
+	private Integer mark;
+	public void setSubjectMark(Integer a){
+		this.mark=a;
+	}
+	public Integer getSubjectMark(){
+		return mark;
+	}
 
 	public void subjectDetails(){
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter subject name");
-		subjectName=scanner.nextLine();
+
+		
 		
 
 		
-		System.out.println("Enter subject mark ");
-		mark=scanner.nextInt();
+		//System.out.println("Enter subject mark ");
+		//mark=scanner.nextInt();
 	}
 
 	public void printSubjectDetails(){

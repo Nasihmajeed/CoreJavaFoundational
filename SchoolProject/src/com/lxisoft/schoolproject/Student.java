@@ -48,21 +48,33 @@ public class Student
 		subjects=new Subject[subjectscount];
 
 		
-		//System.out.println("Enter student name");//encap
-		//name=mystud.nextLine();
-		
-		
-		//System.out.println("Enter register number ");//encap
-		//regNo=scanner.nextLine();
+		for(int i=0;i<subjects.length;i++){//encap of subjects
+			
+			
 
-		for(int i=0;i<subjects.length;i++){
 			subjects[i]=new Subject();
+
+			System.out.println("Enter subject name");
+			String subjectName=scanner.nextLine();
+			subjects[i].setSubjectName(subjectName);
+			subjects[i].getSubjectName();
+
+			System.out.println("Enter the mark");
+			Integer mark=Integer.parseInt(scanner.nextLine());
+			subjects[i].setSubjectMark(mark);
+			subjects[i].getSubjectMark();
+
+
+
+		
 		}
 
 
-		for(int i=0;i<subjects.length;i++){
-			subjects[i].subjectDetails();
-		}
+		//for(int i=0;i<subjects.length;i++){
+
+
+		//	subjects[i].subjectDetails();
+		//}
 
 	}
 
@@ -87,7 +99,7 @@ public class Student
 		for(int i=0;i<subjects.length;i++){
 
 		
-			total=total+subjects[i].mark;
+			total=total+subjects[i].getSubjectMark();
 			percentage=((total/(subjects.length*100.0)*100.0));
 
 		}
@@ -104,11 +116,11 @@ public class Student
 		System.out.println("RESULTS");
 		
 		for(int i=0;i<subjects.length;i++){
-			if(subjects[i].mark>45){
-				System.out.println("Passed in "+subjects[i].subjectName);
+			if(subjects[i].getSubjectMark()>45){
+				System.out.println("Passed in "+subjects[i].getSubjectName());
 			}
 			else{
-				System.out.println("Failed in"+subjects[i].subjectName);	
+				System.out.println("Failed in"+subjects[i].getSubjectName());	
 			}
 		}
 	}

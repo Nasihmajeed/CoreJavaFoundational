@@ -8,6 +8,8 @@ public class ClassRoom{
 	int studentslength;
 	String name;//name of student in student class
 	String regNo;//reg no of the student in student class
+	String teacherName;
+	String subject;//subject of teacher encap
 
 	private String classNo;//encapsulated
 	public void setClassNo(String a){
@@ -32,9 +34,24 @@ public class ClassRoom{
 
 
 		teacher=new Teacher();
+
+	
+		System.out.println("Enter teacher name");
+		teacherName=scanner.nextLine();
+		teacher.setTeacherName(teacherName);//encap teacher
+		teacher.getTeacherName();
+		
+		
+		
+		System.out.println("Enter subject name");
+		subject=scanner.nextLine();
+		teacher.setTeacherSubject(subject);//encap teacher subject
+		teacher.getTeacherSubject();
+		
+		
 		
 
-		teacher.teacherDeatails();
+		teacher.teacherDeatails();//
 		
 		for(int i=0;i<students.length;i++){
 			
@@ -113,7 +130,7 @@ public class ClassRoom{
 			students[i].getStudentName();
 
 			System.out.println(students[i].getStudentName() + " :"+students[i].getStudentTotal());
-		}
+		} 
 	}
 
 
