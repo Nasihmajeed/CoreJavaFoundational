@@ -22,13 +22,69 @@ public class Student
     {
         return   rNo;
     }
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
+
+    private int t1;   //student mark for subject 1
+    public void sett1(String a )
+    {
+        this.t1=a;
+    }
+    public int gett1()
+    {
+        return   t1;
+    }
+
+    private int t2;   //student mark for subject 2
+    public void sett2(String a )
+    {
+        this.t2=a;
+    }
+    public int gett2()
+    {
+        return   t2;
+    }
+
+    private int t3;   //student mark for subject 3
+    public void sett3(String a )
+    {
+        this.t3=a;
+    }
+    public int gett3()
+    {
+        return   t3;
+    }
+
+    private int t4;   //student mark for subject 4
+    public void sett4(String a )
+    {
+        this.t4=a;
+    }
+    public int gett4()
+    {
+        return   t4;
+    }
+
+    private int t5;   //student mark for subject 5
+    public void sett5(String a )
+    {
+        this.t5=a;
+    }
+    public int gett5()
+    {
+        return   t5;
+    }
+
     int total=0;
     float percentage;
-    int parentNo;
+   
+
+    private int parentNo;   //parent's contacts no
+    public void setparentNo(String a )
+    {
+        this.parentNo=a;
+    }
+    public int getparentNo()
+    {
+        return   parentNo;
+    }
 }
 
