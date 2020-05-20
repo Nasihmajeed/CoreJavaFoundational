@@ -50,6 +50,7 @@ public class Forest
 						break;
 				case 2:Clear.cls();
 						System.out.println("\nGame Begin");
+						//setAnimals();
 					    System.out.println("---------------------------------------------\n\n");
 						
 						animalMeet();
@@ -113,36 +114,44 @@ public class Forest
 	{
 
 		int r1,r2,n;
-		int index=10;
 		n=animals.size();
-		while(index>1)
+		int finished=10;
+
+		while(finished>1)
 		{
+			//System.out.println("Finished =" + finished);
 			r1=randomNumber(n);
 			r2=randomNumber(n);
 			if((r1==r2) || animals.get(r1).animalEnergy==0 || animals.get(r2).animalEnergy==0 )
 			{
 				r1=randomNumber(n);
 				r2=randomNumber(n);
+
 			}
 			else
 			{
-				setType(r1,r2);
 				System.out.println("\n\t\tRound - " + round);
 				System.out.println("\t---------------------------------------------");
 				round++;
 				String animal1=animals.get(r1).getAnimalName();
 				String animal2=animals.get(r2).getAnimalName();
+
 				System.out.println(animal1+" Meets "+animal2);
 				System.out.println(animal1+" <=> "+animal2);
+
 				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
+				setType(r1,r2);
 				checkType(r1,r2);
-				index=index-1;
+				
+				
 			}
-			n=animals.size();
+
+			finished=gameCompleteOrNot();
 		}
 		checkGameWinner();
-		
 	}
+
+
 
 
 	public void setType(int r1 , int r2)
@@ -159,64 +168,36 @@ public class Forest
 	}
 
 
-	public int checkEnergy(int r1, int r2)
-	{
-		int energy1 = animals.get(r1).animalEnergy;
-		int energy2 = animals.get(r2).animalEnergy;
-		
-
-		if(energy1>energy2)
-		{
-			changeEnergy(r1);
-			return 1;
-		}
-		else if(energy2>energy1)
-		{
-			changeEnergy(r2);
-			return 2;
-		}
-		else
-		{
-			int luckOf1=luckFactor();
-			if(luckOf1==1)
-			{
-				System.out.println("==> Both Have Same Energy");
-				System.out.println("==> " + animals.get(r1).getAnimalName()+ " have MORE LUCK");
-				changeEnergy(r1);
-				return 1;
-			}
-			else
-			{
-				System.out.println("==> Both Have Same Energy");
-				System.out.println("==> " + animals.get(r2).getAnimalName()+ " have MORE LUCK");
-				changeEnergy(r2);
-				return 2;
-			}
-			
-		}
-	}
-
-
 	public void checkType(int r1,int r2)
 	{
 		
 
 		if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Carnivorus"))
 		{
+			
+			((Herbivorus)animals.get(r1)).fight();
+			((Carnivorus)animals.get(r2)).fight();
 			herbVsCar(r1,r2);
 		}
 		else if(typeOfR1.equals("Carnivorus") && typeOfR2.equals("Carnivorus"))
 		{
+			
+			((Carnivorus)animals.get(r1)).fight();
+			((Carnivorus)animals.get(r2)).fight();
 			carVsCar(r1,r2);
 		}
 		 else if(typeOfR1.equals("Herbivorus") && typeOfR2.equals("Herbivorus"))
 		{
+			((Herbivorus)animals.get(r1)).fight();
+			((Herbivorus)animals.get(r2)).fight();
 			herbVsHerb(r1,r2);
 		}
 		else
 		{	
+			
+			((Carnivorus)animals.get(r1)).fight();
+			((Herbivorus)animals.get(r2)).fight();
 			carVsHerb(r1,r2);
-
 		}		
 	
 	}
@@ -234,7 +215,8 @@ public class Forest
 			
 			if(won==1)
 			{
-				animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+				((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
+				// animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
 				
 			}
 			printResult(won,r1,r2);
@@ -256,7 +238,8 @@ public class Forest
 		
 			if(won==2)
 			{
-				animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+				((Carnivorus)animals.get(r2)).eat(animals.get(r1).animalEnergy);
+				// animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
 				
 			}
 			printResult(won,r1,r2);
@@ -269,12 +252,14 @@ public class Forest
 		
 		if(won==1)
 		{
-			animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+			// animals.get(r1).updateAnimalEnergy(animals.get(r2).animalEnergy);
+			((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
 			
 		}
 		if(won==2)
 		{
-			animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+			// animals.get(r2).updateAnimalEnergy(animals.get(r1).animalEnergy);
+			((Carnivorus)animals.get(r2)).eat(animals.get(r1).animalEnergy);
 			
 		}
 		printResult(won,r1,r2);
@@ -288,10 +273,59 @@ public class Forest
 	}
 
 
-	public void changeEnergy(int r)
+	public int checkEnergy(int r1, int r2)
 	{
-		animals.get(r).animalEnergy = animals.get(r).animalEnergy - animals.get(r).animalEnergy/10;
+		int energy1 = animals.get(r1).animalEnergy;
+		int energy2 = animals.get(r2).animalEnergy;
+		
+
+		if(energy1>energy2)
+		{
+			// changeEnergy(r1);
+			System.out.println("\tAfter Fight");
+			System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
+			return 1;
+		}
+		else if(energy2>energy1)
+		{
+			// changeEnergy(r2);
+			return 2;
+		}
+		else
+		{
+			int luckOf1=luckFactor();
+			if(luckOf1==1)
+			{
+				System.out.println("==> Both Have Same Energy");
+				System.out.println("==> " + animals.get(r1).getAnimalName()+ " have MORE LUCK");
+				// changeEnergy(r1);
+				System.out.println("\tAfter Fight");
+				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
+				return 1;
+			}
+			else
+			{
+				System.out.println("==> Both Have Same Energy");
+				System.out.println("==> " + animals.get(r2).getAnimalName()+ " have MORE LUCK");
+				// changeEnergy(r2);
+				System.out.println("\tAfter Fight");
+				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
+				return 2;
+			}
+			
+		}
 	}
+
+
+	
+
+	
+
+
+	// public void changeEnergy(int r)
+	// {
+	// 	animals.get(r).animalEnergy = animals.get(r).animalEnergy - animals.get(r).animalEnergy/10;
+	// }
 
 
 	public void printResult(int won,int r1,int r2)
@@ -333,5 +367,17 @@ public class Forest
 	 			System.out.println("\n\n WINNER IS " + animals.get(i).getAnimalName());
 	 		
 	 	}
+	 }
+
+	 public int gameCompleteOrNot()
+	 {
+	 	int finished=0;
+	 	for(int k=0;k<10;k++)
+	 	{
+	 		if(animals.get(k).isAlive==true)
+	 			finished++;
+	 		
+	 	}
+	 	return finished;
 	 }
 }

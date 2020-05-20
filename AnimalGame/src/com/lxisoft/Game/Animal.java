@@ -3,12 +3,14 @@ public class Animal
 {
 	private String animalName;
 	public int animalEnergy;
+	boolean isAlive;
 
 
 
 	public void setAnimalName(String name)
 	{
 		animalName=name;
+		isAlive=true;
 	}
 
 	
@@ -18,6 +20,7 @@ public class Animal
 	}
 	public void setAnimalDetail(String name,int energy)
 	{
+		isAlive=true;
 		animalName=name;
 		animalEnergy=energy;
 	}
@@ -41,6 +44,7 @@ public class Animal
 	public void dead()
 	{
 		this.animalEnergy=0;
+		isAlive=false;
 	}
 
 }

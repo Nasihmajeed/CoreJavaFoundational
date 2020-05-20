@@ -6,5 +6,9 @@ public class Elephant extends Animal implements Herbivorus
 	{
 		
 	}
+	public void fight()
+	{
+		animalEnergy=animalEnergy-(int)(animalEnergy*.2);
+	}
 	
 }
