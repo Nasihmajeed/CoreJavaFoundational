@@ -9,8 +9,8 @@ public class ClassRoom
         {
         	System.out.println("Enter faculty name: ");
         	String tname=s.nextLine();
-        	h.settname(tname);
-        	String tname=h.gettname();
+        	ts.settname(tname);
+        	String tname=ts.gettname();
         }
 	Student[] std=new Student[10];
 	public void setStudent()
@@ -26,46 +26,46 @@ public class ClassRoom
 
         System.out.println("\n enter name of the student: ");
 		String name=s.nextLine();
-        h.setname(name);
+        std[i].setname(name);
         s.nextLine();
 
 		System.out.println("enter roll no: ");
-		Int rNo=s.nextInt();
-        h.setrNo(rNo);
+		int rNo=s.nextInt();
+        std[i].setrNo(rNo);
         s.nextLine();
 
 		System.out.println("enter  mark for subject 1: ");
-	    Int t1=s.nextInt();
-        h.sett1(t1);
+	    int t1=s.nextInt();
+      std[i].sett1(t1);
 		s.nextLine();
 
 		System.out.println("enter  mark for subject 2: ");
-		Int t2=s.nextInt();
-        h.sett2(t2);
+		int t2=s.nextInt();
+       std[i].sett2(t2);
 		s.nextLine();
 
 		System.out.println("enter  mark for subject 3: ");
-		Int t3=s.nextInt();
-        h.sett3(t3);
+		int t3=s.nextInt();
+        std[i].sett3(t3);
 		s.nextLine();
 
 		System.out.println("enter  mark for subject 4: ");
-		Int t4=s.nextInt();
-        h.sett4(t4);
+		int t4=s.nextInt();
+       std[i].sett4(t4);
 		s.nextLine();
 
 		System.out.println("enter mark for subject 5: ");
-		Int t5=s.nextInt();
-        h.sett5(t5);
+		int t5=s.nextInt();
+        std[i].sett5(t5);
 		s.nextLine();
 
-		std[i].total=(Int t1=h.gett1())+(Int t2=h.gett2())+(Int t3=h.gett3())+(Int t4=h.gett4())+(Int t5=h.gett5());
+		std[i].total=t1+t2+t3+t4+t5;
 
 		std[i].percentage=((float)std[i].total/500)*100;
 
 		System.out.println("enter parent's contact number: ");
-		Int parentNo=s.nextInt();
-        h.setparentNo(parentNo);
+		int parentNo=s.nextInt();
+        std[i].setparentNo(parentNo);
 		s.nextLine();
 		}
 	}
@@ -74,12 +74,14 @@ public class ClassRoom
 		for (int i=1; i<=n; i++)
 		{
 		System.out.println("\n student " +i+ " details are: ");
-	    String name=h.getname();
-		Int rNo=h.getrNo();
+	    String name=std[i].getname();
+		int rNo=std[i].getrNo();
 		System.out.println("total marks= "+std[i].total);
 		System.out.println("Percentage= "+std[i].percentage);
 		System.out.println("The student Grade is: ");
-		Int parentNo=h.getparentNo();
+		int parentNo=std[i]
+		.getparentNo();
+		
 	}
 }
 	public void studentRank()

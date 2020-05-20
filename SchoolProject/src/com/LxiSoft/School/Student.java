@@ -13,18 +13,18 @@ public class Student
         return name;
     }
     
-    private int rNo;   //student roll no.
-    public void setrNo(String a )
-    {
-        this.rNo=a;
-    }
-    public int getrNo()
-    {
-        return   rNo;
-    }
+      private int rNo;   //student roll no.
+      public void setrNo(int a )
+      {
+       this.rNo=a;
+      }
+      public int getrNo()
+      {
+       return   rNo;
+      }
 
     private int t1;   //student mark for subject 1
-    public void sett1(String a )
+    public void sett1(int  a )
     {
         this.t1=a;
     }
@@ -33,18 +33,18 @@ public class Student
         return   t1;
     }
 
-    private int t2;   //student mark for subject 2
-    public void sett2(String a )
-    {
-        this.t2=a;
-    }
-    public int gett2()
-    {
-        return   t2;
-    }
+        private int t2;   //student mark for subject 2
+        public void sett2(int a )
+        {
+            this.t2=a;
+        }
+        public int gett2()
+        {
+            return   t2;
+        }
 
     private int t3;   //student mark for subject 3
-    public void sett3(String a )
+    public void sett3(int  a )
     {
         this.t3=a;
     }
@@ -53,18 +53,18 @@ public class Student
         return   t3;
     }
 
-    private int t4;   //student mark for subject 4
-    public void sett4(String a )
-    {
-        this.t4=a;
-    }
-    public int gett4()
-    {
-        return   t4;
-    }
+        private int t4;   //student mark for subject 4
+        public void sett4(int  a )
+        {
+            this.t4=a;
+        }
+        public int gett4()
+        {
+            return   t4;
+        }
 
     private int t5;   //student mark for subject 5
-    public void sett5(String a )
+    public void sett5(int  a )
     {
         this.t5=a;
     }
@@ -78,7 +78,7 @@ public class Student
    
 
     private int parentNo;   //parent's contacts no
-    public void setparentNo(String a )
+    public void setparentNo(int  a )
     {
         this.parentNo=a;
     }
