@@ -3,15 +3,18 @@ import com.lxisoft.OnlineShoping.DisplayPage;
 import com.lxisoft.OnlineShoping.Item;
 import com.lxisoft.OnlineShoping.FileOperation;
 import com.lxisoft.OnlineShoping.BuyDetail;
+import com.lxisoft.OnlineShoping.PaymentDetail;
 import java.lang.Math;
+import java.util.Scanner;
 import java.util.*;
-public class BillDetail extends Detail
+public class BillDetail extends Detail implements PaymentDetail
 {
 	int productID;
 	ArrayList<Item> purchasedItems=new ArrayList<Item>();
 	Item item;
 	FileOperation fo=new FileOperation();
 	BuyDetail bd;
+	Scanner scr=new Scanner(System.in);
 	public void buyProduct(Item product,User user)
 	{
 		
@@ -49,5 +52,31 @@ public class BillDetail extends Detail
 			
 		}
 		
+	}
+	public void cashOnDelivery()
+	{
+		System.out.println("Done it will be deliver");
+	}
+	public void payOnline()
+	{
+		System.out.println("select Bank : ");
+		System.out.println("south indian bank : 1 , indian bank: 2 , canara bank : 3 ");
+		int slct=scr.nextInt();
+
+		switch(slct)
+		{
+			case 1:
+					System.out.println("South INDIAN Bank");
+			case 2:
+					System.out.println("INDIAN Bank");
+			case 3:
+					System.out.println("Canara Bank");
+		}
+
+		System.out.println("Bank Id : ");
+		String id=scr.next();
+
+		System.out.println("Bank pasword : ");
+		String password=scr.next();
 	}
 }

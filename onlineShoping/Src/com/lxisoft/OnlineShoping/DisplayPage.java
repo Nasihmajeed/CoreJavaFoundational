@@ -24,7 +24,7 @@ public class DisplayPage
 		ArrayList<String>log=new ArrayList<String>();
 		ArrayList<String> logDet=userLogin.getUserLogin();
 		System.out.println("       Yellow.coM");
-		System.out.println("      ------------");
+		System.out.println("      ============");
 		userLogin.setUserLogin();
 		System.out.println(" Name : "+logDet.get(0));
 		int ur=0;
@@ -128,8 +128,28 @@ public class DisplayPage
 					viewItem(user,products);
 					break;
 			case 2:
+
+					System.out.println("Payment option CashOnDelivery : 1  PayOnline : 2 ");
+					int slct=scr.nextInt();
+					switch(sict)
+					{
+						case 1:
+								if(billDetail instanceof PaymentDetail)
+								{
+									billDetail. cashOnDelivery();
+								}
+
+						case 2:
+								if(billDetail instanceof PaymentDetail)
+								{
+									billDetail. payOnline();
+								}
+
+					}
+					
 					buyItem(products.get(num-1),user);
 					viewItem(user,products);
+					
 					break;
 		}
 		
