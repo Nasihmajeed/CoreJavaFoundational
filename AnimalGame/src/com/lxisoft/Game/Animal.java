@@ -4,6 +4,8 @@ public class Animal
 	private String animalName;
 	public int animalEnergy;
 	boolean isAlive;
+	private String type;
+	int luck;
 
 
 
@@ -23,6 +25,15 @@ public class Animal
 		isAlive=true;
 		animalName=name;
 		animalEnergy=energy;
+	}
+	public void setType(String s)
+	{
+		type= s;
+	}
+
+	public String getType()
+	{
+		return type;
 	}
 
 	public void setAnimalEnergy(int ener)
@@ -47,17 +58,6 @@ public class Animal
 		isAlive=false;
 	}
 
-	public void getType(int r1 , int r2,ArrayList<Animal> animals)
-	{
-		if(animals.get(r1) instanceof Herbivorus)
-			typeOfR1="Herbivorus";
-		else 
-			typeOfR1="Carnivorus";
-
-		if(animals.get(r2) instanceof Herbivorus)
-			typeOfR2="Herbivorus";
-		else 
-			typeOfR2="Carnivorus";
-	}
+	
 
 }
