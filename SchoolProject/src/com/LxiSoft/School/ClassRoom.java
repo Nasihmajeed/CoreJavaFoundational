@@ -5,14 +5,16 @@ public class ClassRoom
 	Scanner s=new Scanner(System.in);
    int n,i,Std;
         Teacher ts=new Teacher();
+        Student[] std=new Student[10];
         public void setTeacher()
         {
         	System.out.println("Enter faculty name: ");
         	String tname=s.nextLine();
         	ts.settname(tname);
-        	String tname=ts.gettname();
+        	System.out.println("Faculty is : "+ts.gettname());
+
         }
-	Student[] std=new Student[10];
+	
 	public void setStudent()
 	{
 	System.out.println (" \n Enter number of students ");
@@ -26,8 +28,8 @@ public class ClassRoom
 
         System.out.println("\n enter name of the student: ");
 		String name=s.nextLine();
-        std[i].setname(name);
-        s.nextLine();
+        std[i].setName(name);
+        
 
 		System.out.println("enter roll no: ");
 		int rNo=s.nextInt();
@@ -74,13 +76,13 @@ public class ClassRoom
 		for (int i=1; i<=n; i++)
 		{
 		System.out.println("\n student " +i+ " details are: ");
-	    String name=std[i].getname();
-		int rNo=std[i].getrNo();
+	    System.out.println("Student name:- "+std[i].getName());
+		System.out.println("Roll No."+std[i].getrNo());
 		System.out.println("total marks= "+std[i].total);
 		System.out.println("Percentage= "+std[i].percentage);
+	    System.out.println("Parent No. is: "+std[i].getparentNo());
 		System.out.println("The student Grade is: ");
-		int parentNo=std[i]
-		.getparentNo();
+		
 		
 	}
 }
