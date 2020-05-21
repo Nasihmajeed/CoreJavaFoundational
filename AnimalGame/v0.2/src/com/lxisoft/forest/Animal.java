@@ -4,19 +4,20 @@ package com.lxisoft.forest ;
 import com.lxisoft.behaviours.animalbehaviour.* ;
 import com.lxisoft.behaviours.eatbehaviour.* ;
 
-abstract class Animal
+public abstract class Animal
 {
 
 	private String name ;
 	private int health,energy,strength ;
 	private AnimalBehaviour animalBehaviour ;
 	private EatBehaviour eatBehaviour ;
+	private boolean isAlive ;
 
 	public String getName()
 	{
 		return name ;
 	}
-	public setName(String n)
+	public void setName(String n)
 	{
 		name = n ;
 	}
@@ -65,10 +66,19 @@ abstract class Animal
 
 	public EatBehaviour getEatBehaviour()
 	{
-		return animalBehaviour ;
+		return eatBehaviour ;
 	}
 	public void setEatBehaviour(EatBehaviour eb)
 	{
 		eatBehaviour = eb ;
+	}
+
+	public boolean getIsAlive()
+	{
+		return isAlive ;
+	}
+	public void setIsAlive(boolean isAl)
+	{
+		isAlive = isAl ;
 	}
 }

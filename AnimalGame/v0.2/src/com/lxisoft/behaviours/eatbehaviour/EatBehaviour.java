@@ -1,6 +1,6 @@
 
 
-package com.lxisoft.behaviours.animalbehaviour ;
+package com.lxisoft.behaviours.eatbehaviour ;
 
 public interface EatBehaviour
 {

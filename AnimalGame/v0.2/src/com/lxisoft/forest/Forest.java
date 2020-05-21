@@ -1,15 +1,17 @@
 
 package com.lxisoft.forest ;
 
-public class forest
-{
-	private Arraylist<Animal> animalList = new ArrayList() ;
+import java.util.* ;
 
-	public Arraylist<Animal> getAnimalList()
+public class Forest
+{
+	private ArrayList<Animal> animalList = new ArrayList<Animal>() ;
+
+	public ArrayList<Animal> getAnimalList()
 	{
 		return animalList ;
 	}
-	public void setAnimalList(Arraylist<Animal> aL)
+	public void setAnimalList(ArrayList<Animal> aL)
 	{
 		animalList = aL ;
 	}

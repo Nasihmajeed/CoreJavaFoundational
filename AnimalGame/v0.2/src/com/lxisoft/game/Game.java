@@ -3,11 +3,13 @@ package com.lxisoft.game ;
 
 import java.util.* ;
 import com.lxisoft.ui_elements.* ;
+import com.lxisoft.forest.* ;
+import com.lxisoft.animals.* ;
 
 public class Game
 {
 	private Scanner in = new Scanner(System.in) ;
-	private Forest forest = new Forest ;
+	private Forest forest = new Forest() ;
 
 	public char displayStartGamePrompt()
 	{
