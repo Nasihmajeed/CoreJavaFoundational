@@ -10,22 +10,20 @@ public class Game
 	FileReppo gameResult =new FileReppo();
 	static Scanner input =new Scanner(System.in);
 	ArrayList<Player> players = new ArrayList<Player>();
-	PlayBoard playBoard;
+	PlayBoard playBoard = new PlayBoard();
 	Ladder ladder;
 	Snake snake;
 	Dice dice;
 public void creatGame()
 	{
-		creatPlayers();
-		playBoard=new PlayBoard();
 		playBoard.createBoard();
 	}
- public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+ public void playGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<Cell>cells)
 	{
-		
+		creatPlayers();
 		playerDetails(players);	
 		selectlevel(snakes,ladders);
-		playGame(snakes,ladders);
+		startGame(snakes,ladders,cells);
 		System.out.println("\n\n\tWinner List Of The Games \n");
 		System.out.println("*******************************************\n");
 		gameResult.readResult();
@@ -43,6 +41,8 @@ public void creatPlayers()
 		{
 			System.out.print("\nEnter the Name Of "+ (i+1) +" Player : ");
 			String name=input.next();
+			System.out.print("\nEnter the Coin Symbol Of "+ (i+1) +" Player : ");
+			String coin=input.next();
 			for(int j=0;j<players.size();j++)
 			{
 				if(name.equals(players.get(j).getPlayerName()))
@@ -57,8 +57,11 @@ public void creatPlayers()
 		  {
 		  	players.add(new Player());
 		  	players.get(i).setPlayerName(name);
+		  	players.get(i).setCoin(coin);
 		  	players.get(i).setPlayerPosition(0);
 		  	players.get(i).setPlayerStatus(false);
+		  	// System.out.print("\n Player Added ");
+		  	// System.out.print(players.size());
 		  	i++;
 		  }
 
@@ -79,6 +82,7 @@ public void playerDetails(ArrayList<Player> players)
 
 
 public void selectlevel(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+
 	{
 		int choise=0;
 	do{
@@ -106,18 +110,20 @@ public void selectlevel(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{ System.out.println("**"+ex);}	
 	}while(choise>2);
 
-	}
+    }
 
-public void playGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<Cell>cells)
 	{
 		int temp=1;
 		boolean flag=false;
 	  do
 	  {
+	  	//System.out.println(players.size());
 	  	for(int i=0;i<players.size();i++)
-		{	
-			do
-			{
+		{	do
+			{	
+				playBoard.setPlayersPosition(players,cells);
+				playBoard.showPlayBoard(cells,snakes,ladders);	
 		 		System.out.println("\n\n\n Turn is :"+players.get(i).getPlayerName());
 		 		System.out.println("Press 0 to roll the Dice");
 				temp=input.nextInt();
@@ -129,7 +135,7 @@ public void playGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 					 { move(players.get(i),snakes,ladders); }	
 
 		  			}
-		  		System.out.println("_____________________________\n");		
+		  		//System.out.println("_____________________________\n");		
 			}
 			while(temp>0);
 		}
@@ -195,7 +201,7 @@ public void setWinner(Player player,int value)
 		int position=(temp-value);
 		int distance=(100-position);
 		if(distance<value)
-		{	System.out.println("\n* You Need To Get less than "+distance);
+ 		{	System.out.println("\n* You Need To Get less than "+distance);
 			player.setPlayerPosition(position);	 }
 
 		else
@@ -226,24 +232,9 @@ public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList
 				position=ladders.get(i).getEnd();
 			}
 		}
-	  changePosition(player,flag,position);
+
+		playBoard.changePosition(player,flag,position);
 	}
 
-public void changePosition(Player player,int flag,int position)
-	{
-		if(flag==1)
-		{
-			System.out.println("\nThere is a Snake At that Position");
-			snake=new Snake();
-			snake.behaviour();
-			player.setPlayerPosition(position);
-		}
-		if(flag==2)
-		{
-			System.out.println("\nThere is a Ladder At that Position\n");
-			ladder=new Ladder();
-			ladder.behaviour();
-			player.setPlayerPosition(position);
-		}	
-	}
+
 }	

@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Player
 {
-	private String name;
+	private String name,coin;
 	private int position;
 	private boolean status;
 
@@ -37,8 +37,18 @@ public class Player
   	return status;
   }
 
+public void setCoin(String coin)
+  {
+    this.coin=coin;
+  }
+
+  public String getCoin()
+  {
+    return coin;
+  }
+
  public String toString() { 
-        return "Player" + "Name=" + name + ", Position=" + position + ' '; 
+        return "Player" + "Name=" + name + ", Coin =" + coin+ ' '; 
     } 
 
 }

@@ -9,13 +9,18 @@ public class PlayBoard
    
    ArrayList<Snake>snakes = new ArrayList<Snake>();
    ArrayList<Ladder>ladders = new ArrayList<Ladder>();
+   ArrayList<Cell>cells = new ArrayList<Cell>();
+   
    Game game;
-
+   Snake snake;
+   Ladder ladder;
 public void createBoard()
 	{
-		creatSnakeAndLadder();
 		game=new Game();
-		game.startGame(snakes,ladders);
+		creatCells();
+		creatSnakeAndLadder();
+		game.playGame(snakes,ladders,cells);
+		//showPlayBoard();
 
 	}
 
@@ -66,4 +71,99 @@ public void createBoard()
 		ladders.get(6).setStart(32);
 		ladders.get(6).setEnd(54);
 	}
+
+public void creatCells()
+	{
+		int counter=100,iteration=-1,i=0;
+		 while (counter >0)
+		{
+			cells.add(new Cell());
+            if (counter%10 == 0 && counter != 100){
+                if(iteration==-1)
+                {   counter-=9;
+                    iteration=1;
+                }
+                else
+                {  // System.out.print(counter+"\t");
+            		cells.get(i).setPosition(counter);
+            		cells.get(i).setCoinPlace(" ");
+            		i++;
+                    counter-=10;
+                    iteration=-1;
+                }
+                if(counter!=0)	
+                {   cells.add(new Cell());
+                	cells.get(i).setPosition(counter);
+                	cells.get(i).setCoinPlace(" ");
+                	i++;
+                	//System.out.print("\n" + counter + "\t");
+                }
+            }
+            else
+            { cells.get(i).setPosition(counter);
+              cells.get(i).setCoinPlace(" "); 
+              i++;
+           // System.out.print(counter + "\t");
+            }
+            counter+=iteration; 
+        }
+	}	
+
+
+public void changePosition(Player player,int flag,int position)
+	{
+		if(flag==1)
+		{
+			System.out.println("\nThere is a Snake At that Position");
+			snake=new Snake();
+			snake.behaviour();
+			player.setPlayerPosition(position);
+		}
+		if(flag==2)
+		{
+			System.out.println("\nThere is a Ladder At that Position\n");
+			ladder=new Ladder();
+			ladder.behaviour();
+			player.setPlayerPosition(position);
+		}	
+	}
+
+public void showPlayBoard(ArrayList<Cell>cells,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+	{
+		System.out.println("____________________________________Board________________________________________\n\n");
+		for (int j=1;j<=100;j++)
+		{			
+		System.out.print(cells.get(j-1).getPosition()+" ");
+		System.out.print(cells.get(j-1).getCoinPlace()+"\t");
+		if(j%10==0)
+			{
+				System.out.println("\n");
+			}				
+		}
+
+		// for(int x=0;x<ladders.size();x++)
+		// { System.out.println("Ladder "+x+1+"From "+ladders.get(x).getStart()+" To "+ladders.get(x).getEnd());	}
+		// for(int y=0;y<snakes.size();y++)
+		// { System.out.println("Snake "+y+1+"From "+snakes.get(y).getHead()+" To "+snakes.get(y).getTail());	}
+	System.out.println("________________________________________________________________________________________");
+	}	
+
+public void setPlayersPosition(ArrayList<Player> players,ArrayList<Cell>cells)
+	{
+		for (int x=0;x<cells.size();x++)
+		{
+			for (int j=0;j<players.size();j++)
+			{
+				if(cells.get(x).getPosition()==players.get(j).getPlayerPosition())
+				{
+					cells.get(x).setCoinPlace(players.get(j).getCoin());
+				}
+				else
+				{
+					cells.get(x).setCoinPlace(" ");
+				}	
+			}
+		}
+	}		
 }
+ 
