@@ -171,7 +171,6 @@ public class Forest
 	{
 		int status = compareStrength(a1,a2) ;
 		return status ;
-
 	}
 
 	public int predatorVsPredator(int a1,int a2)
