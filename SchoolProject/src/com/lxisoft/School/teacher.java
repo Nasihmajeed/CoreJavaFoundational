@@ -3,7 +3,7 @@ package com.LxiSoft.School;
 public class Teacher
 
 {
-	private String tname;   //Teacher name
+	private String tname;   //faculty name
 	public void settname(String a )
 	{
 		this.tname=a;
