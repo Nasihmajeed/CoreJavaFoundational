@@ -90,7 +90,7 @@ public class Library
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("             Enter your choice:");
-		System.out.println("             1-Sorted Id\n             2-Sorted Name\n             3-Exit");
+		System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Sorted by Auther\n             4-Exit");
 		int a=sc.nextInt();
 		for(int i=0;i<bookList.size();i++)
 		{
@@ -113,9 +113,10 @@ public class Library
 			{
 				case 1:bookList=repo.idSort();break;
 				case 2:bookList=repo.nameSort();break;
-				case 3:System.exit(0);break;
+				case 3:bookList=repo.autherSort();break;
+				case 4:System.exit(0);break;
 			}
 			// sortBook(bookList);
-		}while(a!=4);
+		}while(a!=5);
 	}
 }

@@ -98,4 +98,11 @@ public class FileRepo
   		Collections.sort(bookList,new NameComparator());
 		return bookList;
   	}
+
+  	public List<Book> autherSort()
+  	{
+  		bookList=read();
+  		Collections.sort(bookList,new AutherComparator());
+		return bookList;
+  	}
 }
