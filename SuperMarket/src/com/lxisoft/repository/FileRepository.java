@@ -6,7 +6,7 @@ import java.io.*;
 public class FileRepository
 {
 	public File toy = new File("D:\\Toy.csv");
-	public  File fancy = new File("D:\\Fancy.csv");
+	public File fancy = new File("D:\\Fancy.csv");
 	public File market = new File("D:\\Stationary.csv");
 	public boolean fileExist(File file)
 	{

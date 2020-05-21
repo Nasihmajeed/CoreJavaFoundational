@@ -194,9 +194,6 @@ public class Shop
         employee.add(new Employee(108, "Suhara", "Sales"));
         employee.add(new Employee(109, "Rajesh", "ManagingDirector"));  
   
-       /* System.out.println("Unsorted"); 
-        for (int i=0; i<employee.size(); i++) 
-            System.out.println(employee.get(i)); */
   
         Collections.sort(employee, new SortbyNo()); 
   
@@ -208,17 +205,20 @@ public class Shop
   
         System.out.println("\nSorted by name"); 
         for (int i=0; i<employee.size(); i++) 
-            System.out.println(employee.get(i)); 
+            System.out.println(employee.get(i));
+
+            empOverload(); 
+
+       
     } 
-} 
-
-	
-					
-	
-	
-
-
-
+    public void empOverload()
+    {
+    	    	
+        Overloading o = new Overloading();
+        o.displayShift('a');
+        o.displayShift(9);
+    }
+}
 
 
 
