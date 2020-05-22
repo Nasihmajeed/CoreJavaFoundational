@@ -7,6 +7,7 @@ public class Fox extends Animal implements Carnivorus
 		this.animalEnergy=this.animalEnergy+(int)(energy*.15);
 		if(this.animalEnergy>100)
 			animalEnergy=100;
+		
 		System.out.println(this.getAnimalName()+"'s Energy raised to " + animalEnergy);
 	}
 	public void kill()

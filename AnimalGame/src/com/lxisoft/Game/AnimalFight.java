@@ -17,7 +17,7 @@ public class AnimalFight
 			animals.get(r2).setType("Carnivorus");
 	}
 
-	public void checkType(int r1,int r2,ArrayList<Animal> animals)
+	public void checkFightType(int r1,int r2,ArrayList<Animal> animals)
 	{
 		
 		String type1,type2;
@@ -57,17 +57,12 @@ public class AnimalFight
 		int luckOfHerb = luckFactor();
 		if (luckOfHerb==1)
 		{
-			System.out.println((animals.get(r2)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r1)).getAnimalName());
+			System.out.println("\n"+(animals.get(r2)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r1)).getAnimalName());
 		}
 		else
 		{
+			System.out.println( "\n"+animals.get(r2).getAnimalName()+" have NO LUCK :) ");
 			int won = checkEnergy(r1,r2,animals);
-			
-			if(won==1)
-			{
-				((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
-				
-			}
 			printResult(won,r1,r2,animals);
 		}
 	}
@@ -78,19 +73,12 @@ public class AnimalFight
 		int luckOfHerb = luckFactor();
 		if (luckOfHerb==1)
 		{
-			System.out.println((animals.get(r1)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r2)).getAnimalName());
+			System.out.println("\n"+(animals.get(r1)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r2)).getAnimalName());
 		}
 		else
 		{
-			System.out.println( animals.get(r1).getAnimalName()+" have NO LUCK :) ");
+			System.out.println( "\n"+animals.get(r1).getAnimalName()+" have NO LUCK :) ");
 			int won = checkEnergy(r1,r2,animals);
-		
-			if(won==2)
-			{
-				((Carnivorus)animals.get(r2)).eat(animals.get(r1).animalEnergy);
-				
-				
-			}
 			printResult(won,r1,r2,animals);
 		}
 	}
@@ -98,19 +86,6 @@ public class AnimalFight
 	{
 
 		int won = checkEnergy(r1,r2,animals);
-		
-		if(won==1)
-		{
-			
-			((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
-			
-		}
-		if(won==2)
-		{
-			
-			((Carnivorus)animals.get(r2)).eat(animals.get(r1).animalEnergy);
-			
-		}
 		printResult(won,r1,r2,animals);
 
 	}
@@ -123,43 +98,37 @@ public class AnimalFight
 
 	public int checkEnergy(int r1, int r2, ArrayList<Animal> animals)
 	{
+		
 		int energy1 = animals.get(r1).animalEnergy;
 		int energy2 = animals.get(r2).animalEnergy;
+		// System.out.print("\nAnimal Energy -->");
+		// System.out.println(" After Fight");
+		// System.out.println("\t\t  ***********");
+		// System.out.println("\t\t"+animal1+" <=> "+animal2);
+		// System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
 		
 
 		if(energy1>energy2)
 		{
-			
-			System.out.println("\tAfter Fight");
-			System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
 			return 1;
 		}
 		else if(energy2>energy1)
 		{
-			
-			System.out.println("\tAfter Fight");
-			System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
-			return 2;
+			 return 2;
 		}
 		else
 		{
 			int luckOf1=luckFactor();
 			if(luckOf1==1)
 			{
-				System.out.println("==> Both Have Same Energy");
+				System.out.println("\n==> Both Have Same Energy");
 				System.out.println("==> " + animals.get(r1).getAnimalName()+ " have MORE LUCK");
-				
-				System.out.println("\tAfter Fight");
-				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
 				return 1;
 			}
 			else
 			{
-				System.out.println("==> Both Have Same Energy");
+				System.out.println("\n==> Both Have Same Energy");
 				System.out.println("==> " + animals.get(r2).getAnimalName()+ " have MORE LUCK");
-				
-				System.out.println("\tAfter Fight");
-				System.out.println("  "+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy +"  (Energy)\n");
 				return 2;
 			}
 			
@@ -168,24 +137,69 @@ public class AnimalFight
 
 	public void printResult(int won,int r1,int r2 ,  ArrayList<Animal> animals)
 	 {
+	 	String animal1,animal2;
+		animal1=animals.get(r1).getAnimalName();
+		animal2=animals.get(r2).getAnimalName();
 	 	if(won==1)
 	 	{
-	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			(animals.get(r2)).dead();
+	 		System.out.println("\n"+animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
+	 		(animals.get(r2)).dead();
+	 		System.out.print("\nAnimal Energy -->");
+			System.out.println(" After Fight");
+			System.out.println("\t\t  ***********");
+			System.out.println("\t\t"+animal1+" <=> "+animal2);
+			System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
+	 		if(animals.get(r1) instanceof Carnivorus )
+	 		{
+	 			System.out.print(animals.get(r1).getAnimalName() + " eat " +animals.get(r2).getAnimalName() +" => " );
+		 		((Carnivorus)animals.get(r1)).eat((animals.get(r1)).animalEnergy);
+	 		}
+		 	(animals.get(r2)).killedBy=animals.get(r1).getAnimalName();
+			
 			
 	 	}
 	 	else if(won==2)
 	 	{
-	 		System.out.println(animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
+	 		System.out.println("\n"+animals.get(r2).getAnimalName() +" killed "+animals.get(r1).getAnimalName());
+	 		(animals.get(r1)).dead();
+
+	 		System.out.print("\nAnimal Energy -->");
+			System.out.println(" After Fight");
+			System.out.println("\t\t  ***********");
+			System.out.println("\t\t"+animal1+" <=> "+animal2);
+			System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
+
+	 		if(animals.get(r2) instanceof Carnivorus )
+	 		{
+		 		System.out.print(animals.get(r2).getAnimalName() + " eat " +animals.get(r1).getAnimalName() +" => " );
+		 		((Carnivorus)animals.get(r2)).eat(animals.get(r2).animalEnergy);
+
+	 		}
+		 	(animals.get(r1)).killedBy=animals.get(r2).getAnimalName();
 			(animals.get(r1)).dead();
 			
 	 	}
-	 	else
-	 	{
-	 		System.out.println(animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-			(animals.get(r2)).dead();
+	 	// else
+	 	// {
+	 	// 	(animals.get(r2)).dead();
+	 		
+	 	// 	System.out.print("\nAnimal Energy -->");
+			// System.out.println(" After Fight");
+			// System.out.println("\t\t  ***********");
+			// System.out.println("\t\t"+animal1+" <=> "+animal2);
+			// System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
+
+
+	 	// 	System.out.println("\n"+animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
+	 	// 	if(animals.get(r1) instanceof Carnivorus )
+	 	// 	{
+	 	// 		System.out.print(animals.get(r1).getAnimalName() + " eat " +animals.get(r2).getAnimalName() +" => " );
+		 // 		((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
+	 	// 	}
+		 // 	(animals.get(r2)).killedBy=animals.get(r1).getAnimalName();
 			
-	 	}
+			
+	 	// }
 	 }
 	 private int luckFactor()
 	 {

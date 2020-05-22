@@ -6,6 +6,7 @@ public class Animal
 	boolean isAlive;
 	private String type;
 	int luck;
+	String killedBy;
 
 
 
@@ -25,6 +26,7 @@ public class Animal
 		isAlive=true;
 		animalName=name;
 		animalEnergy=energy;
+		killedBy="----------";
 	}
 	public void setType(String s)
 	{
@@ -56,6 +58,13 @@ public class Animal
 	{
 		this.animalEnergy=0;
 		isAlive=false;
+	}
+	public String getIsAlive()
+	{
+		if(isAlive==true)
+			return "Alive";
+		else
+			return "Dead";
 	}
 
 	

@@ -4,10 +4,11 @@ public class Lion extends Animal implements Carnivorus
 {
 	public void eat(int energy)
 	{
-		this.animalEnergy=this.animalEnergy+(int)(energy*.15);
+		this.animalEnergy=this.animalEnergy+(int)(energy*0.15);
 		if(this.animalEnergy>100)
 			animalEnergy=100;
-		System.out.println(this.getAnimalName()+"'s Energy raised to " + animalEnergy);
+		
+		System.out.print(this.getAnimalName()+"'s Energy raised to " + animalEnergy);
 	}
 	public void kill()
 	{
