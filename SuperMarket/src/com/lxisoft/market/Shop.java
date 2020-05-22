@@ -208,6 +208,7 @@ public class Shop
             System.out.println(employee.get(i));
 
             empOverload(); 
+            shiftDetails();
 
        
     } 
@@ -218,6 +219,17 @@ public class Shop
         o.displayShift('a');
         o.displayShift(9);
     }
+    public void shiftDetails()
+    {
+   		 HashMap<String, Integer> time = new HashMap<String, Integer>();
+	    time.put("Sheeja", 9);
+	    time.put("Neethu", 9);
+	    time.put("Sheeba", 9);
+
+    for (String i : time.keySet()) {
+      System.out.println("key: " + i + " value: " + time.get(i));
+    }
+  }
 }
 
 
