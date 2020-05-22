@@ -123,6 +123,7 @@ public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<
 		{	do
 			{	
 				playBoard.setPlayersPosition(players,cells);
+				playerDetails(players);	
 				playBoard.showPlayBoard(cells,snakes,ladders);	
 		 		System.out.println("\n\n\n Turn is :"+players.get(i).getPlayerName());
 		 		System.out.println("Press 0 to roll the Dice");
@@ -135,7 +136,14 @@ public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<
 					 { move(players.get(i),snakes,ladders); }	
 
 		  			}
-		  		//System.out.println("_____________________________\n");		
+		  		System.out.println("_____________________________\n");		
+		  		System.out.print("Press [ENTER] to continue...");
+        try
+        {
+          System.in.read();
+          System.in.skip(System.in.available());
+        }
+        catch(Exception e){e.printStackTrace();}	
 			}
 			while(temp>0);
 		}

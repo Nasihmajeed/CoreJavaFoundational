@@ -5,7 +5,7 @@ public class Cell
  {
  	private int position;
   private String coin;
- 	 	
+ 	private boolean space; 	
   public void setPosition(int position)
   {
   	this.position=position;
@@ -26,4 +26,12 @@ public class Cell
   	return coin;
   }
 
+  public void setSpace(Boolean space)
+  {
+    this.space=space;
+  }
+public boolean getSpace()
+{
+  return space;
+}
 }

@@ -48,7 +48,7 @@ public void setCoin(String coin)
   }
 
  public String toString() { 
-        return "Player" + "Name=" + name + ", Coin =" + coin+ ' '; 
+        return " Player " + "Name = " + name + ", Coin = " + coin+ ' '; 
     } 
 
 }

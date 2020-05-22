@@ -87,6 +87,7 @@ public void creatCells()
                 {  // System.out.print(counter+"\t");
             		cells.get(i).setPosition(counter);
             		cells.get(i).setCoinPlace(" ");
+            		//cells.get(i).set(true);
             		i++;
                     counter-=10;
                     iteration=-1;
@@ -95,6 +96,7 @@ public void creatCells()
                 {   cells.add(new Cell());
                 	cells.get(i).setPosition(counter);
                 	cells.get(i).setCoinPlace(" ");
+                	//cells.get(i).setPlace(true);
                 	i++;
                 	//System.out.print("\n" + counter + "\t");
                 }
@@ -102,6 +104,7 @@ public void creatCells()
             else
             { cells.get(i).setPosition(counter);
               cells.get(i).setCoinPlace(" "); 
+              //cells.get(i).setPlace(true);
               i++;
            // System.out.print(counter + "\t");
             }
@@ -130,7 +133,7 @@ public void changePosition(Player player,int flag,int position)
 
 public void showPlayBoard(ArrayList<Cell>cells,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
-		System.out.println("____________________________________Board________________________________________\n\n");
+		System.out.println("____________________________________Board______________________________________\n\n");
 		for (int j=1;j<=100;j++)
 		{			
 		System.out.print(cells.get(j-1).getPosition()+" ");
@@ -141,11 +144,16 @@ public void showPlayBoard(ArrayList<Cell>cells,ArrayList<Snake>snakes,ArrayList<
 			}				
 		}
 
+		for (int x=0;x<cells.size();x++)
+		{
+			cells.get(x).setSpace(true);
+		}
+
 		// for(int x=0;x<ladders.size();x++)
 		// { System.out.println("Ladder "+x+1+"From "+ladders.get(x).getStart()+" To "+ladders.get(x).getEnd());	}
 		// for(int y=0;y<snakes.size();y++)
 		// { System.out.println("Snake "+y+1+"From "+snakes.get(y).getHead()+" To "+snakes.get(y).getTail());	}
-	System.out.println("________________________________________________________________________________________");
+	System.out.println("________________________________________________________________________________");
 	}	
 
 public void setPlayersPosition(ArrayList<Player> players,ArrayList<Cell>cells)
@@ -157,13 +165,27 @@ public void setPlayersPosition(ArrayList<Player> players,ArrayList<Cell>cells)
 				if(cells.get(x).getPosition()==players.get(j).getPlayerPosition())
 				{
 					cells.get(x).setCoinPlace(players.get(j).getCoin());
+					cells.get(x).setSpace(false);
 				}
-				else
+				if(cells.get(x).getSpace()==true)
 				{
 					cells.get(x).setCoinPlace(" ");
 				}	
 			}
 		}
+	cls();		
 	}		
+
+public static void cls()
+{
+	try
+	{	
+		new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+	}catch(Exception E)
+		{
+			System.out.println(E);
+		}
+}
+
 }
  
