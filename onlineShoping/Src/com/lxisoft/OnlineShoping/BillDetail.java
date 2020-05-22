@@ -41,7 +41,7 @@ public class BillDetail extends Detail implements PaymentDetail
 		ArrayList<BuyDetail> purchasedItem= fo.viewBuyDetail(user,bd);
 
 		System.out.println("Customer : "+purchasedItem.get(0).getCustomer());
-		
+		int j=1;
 		for (int i=0;i<purchasedItem.size();i++) 
 		{
 			
@@ -49,7 +49,7 @@ public class BillDetail extends Detail implements PaymentDetail
 				System.out.println("product "+j+" : "+purchasedItem.get(i).getPurchasedItem());
 				System.out.println("Catogery : "+purchasedItem.get(i).getCatogery());
 				System.out.println("Price : "+purchasedItem.get(i).getPrice());
-			
+			j++;
 		}
 		
 	}

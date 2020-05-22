@@ -131,7 +131,7 @@ public class DisplayPage
 
 					System.out.println("Payment option CashOnDelivery : 1  PayOnline : 2 ");
 					int slct=scr.nextInt();
-					switch(sict)
+					switch(slct)
 					{
 						case 1:
 								if(billDetail instanceof PaymentDetail)
