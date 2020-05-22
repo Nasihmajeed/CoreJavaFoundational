@@ -1,4 +1,5 @@
-package com.LxiSoft.School;
+package com.lxisoft.schoolapp;
+import com.lxisoft.schoolapp.ClassRoom;
 
 public class School
 {

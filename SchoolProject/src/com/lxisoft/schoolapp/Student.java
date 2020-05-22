@@ -1,27 +1,39 @@
-package com.LxiSoft.School;
+package com.lxisoft.schoolapp;
 
 public class Student
 {
 	
     private String name;   //Student name
-    private int rNo;   //student roll no.
-    private int t1;   //student mark for subject 1
-    private int t2;   //student mark for subject 2
-    private int t3;   //student mark for subject 3
-    private int t4;   //student mark for subject 4
-    private int t5;   //student mark for subject 5
-
-
-    public void setName(String name)
+    public void settname(String a )
     {
-        this.name=name;
+        this.name=a;
     }
-    public String getName()
+    public String getname()
     {
         return name;
     }
     
-      
+    private int clss;   //student Class.no
+      public void setclss(int a )
+      {
+       this.clss=a;
+      }
+      public int getclss()
+      {
+       return   clss;
+      }
+
+      private String div;   //student division.
+      public void setdiv(int a )
+      {
+       this.div=a;
+      }
+      public int getdiv()
+      {
+       return   div;
+      }
+
+      private int rNo;   //student roll no.
       public void setrNo(int a )
       {
        this.rNo=a;
@@ -31,7 +43,7 @@ public class Student
        return   rNo;
       }
 
-   
+    private int t1;   //student mark for English
     public void sett1(int  a )
     {
         this.t1=a;
@@ -41,6 +53,7 @@ public class Student
         return   t1;
     }
 
+        private int t2;   //student mark for Malayalam
         public void sett2(int a )
         {
             this.t2=a;
@@ -50,6 +63,7 @@ public class Student
             return   t2;
         }
 
+    private int t3;   //student mark for Maths
     public void sett3(int  a )
     {
         this.t3=a;
@@ -59,6 +73,7 @@ public class Student
         return   t3;
     }
 
+        private int t4;   //student mark for Science
         public void sett4(int  a )
         {
             this.t4=a;
@@ -68,6 +83,7 @@ public class Student
             return   t4;
         }
 
+    private int t5;   //student mark for Social Science
     public void sett5(int  a )
     {
         this.t5=a;

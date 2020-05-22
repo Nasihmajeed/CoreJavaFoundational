@@ -1,4 +1,4 @@
-package com.LxiSoft.School;
+package com.lxisoft.schoolapp;
 
 public class Teacher
 
