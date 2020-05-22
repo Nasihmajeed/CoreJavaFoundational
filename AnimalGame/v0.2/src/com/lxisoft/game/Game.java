@@ -24,9 +24,9 @@ public class Game
 		return startGame ;
 	}
 
-	public void initialiseGame(char s)
+	public void initialiseGame(char startGame)
 	{
-		while (s == 'y' || s == 'Y')
+		while (startGame == 'y' || startGame == 'Y')
 		{
 			int numberOfAnimals = getNumberOfAnimals() ;
 			this.generateAnimals(numberOfAnimals) ;
