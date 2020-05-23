@@ -9,16 +9,16 @@ public class Login
 	User user;
 	ArrayList<User>userDet=new ArrayList<User>();
 	Scanner scr=new Scanner(System.in);
-	ArrayList<String>logdet=new ArrayList<String>();
+	ArrayList<String>logdets=new ArrayList<String>();
 	FileOperation fo;
 	final void setUserLogin()
 	{
 		System.out.println("Name : ");
 		String name=scr.next();
-		logdet.add(name);
+		logdets.add(name);
 		System.out.println("Password : ");
 		String password=scr.next();
-		logdet.add(password);
+		logdets.add(password);
 		
 
 	
@@ -26,7 +26,7 @@ public class Login
 
 	final ArrayList<String> getUserLogin()
 	{
-		return logdet;
+		return logdets;
 
 	}
 

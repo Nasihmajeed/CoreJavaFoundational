@@ -3,12 +3,12 @@ import java.util.*;
 import java.io.*;
 public class FileOperation
 {
-	ArrayList<Item> product=new ArrayList<Item>();
-	ArrayList<User> userDetail=new ArrayList<User>();
+	ArrayList<Item> items=new ArrayList<Item>();
+	ArrayList<User> userDetails=new ArrayList<User>();
 	String[] data;
-	ArrayList<CartDetail>detail=new ArrayList<CartDetail>();
+	ArrayList<CartDetail>details=new ArrayList<CartDetail>();
 	ArrayList<BuyDetail>details=new ArrayList<BuyDetail>();
-	public ArrayList<Item> readProductDetails(Item item)throws Exception 
+	public ArrayList<Item> readProductDetails()throws Exception 
 	{
 
 		String csvFile="../Src/com/lxisoft/OnlineShoping/Products.csv";
@@ -17,16 +17,16 @@ public class FileOperation
 		String s;
 		while((s=br.readLine())!=null)
 		{
-			item=new Item();
+			Item item=new Item();
 			String[] data=s.split(",");
 			item.setItemName(data[0]);
 			item.setCatogery(data[1]);
 			item.setFeature(data[2]);
 			int price=Integer.parseInt(data[3]);
 			item.setPrice(price);
-			product.add(item);
+			items.add(item);
 		}
-		return product;
+		return items;
 
 	}
 

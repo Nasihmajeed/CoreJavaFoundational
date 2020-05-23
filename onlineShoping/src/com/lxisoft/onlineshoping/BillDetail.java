@@ -7,7 +7,7 @@ import com.lxisoft.OnlineShoping.PaymentDetail;
 import java.lang.Math;
 import java.util.Scanner;
 import java.util.*;
-public class BillDetail extends Detail implements PaymentDetail
+public class BillDetail extends Detail implements PaymentMethod
 {
 	int productID;
 	ArrayList<Item> purchasedItems=new ArrayList<Item>();
@@ -15,6 +15,7 @@ public class BillDetail extends Detail implements PaymentDetail
 	FileOperation fo=new FileOperation();
 	BuyDetail bd;
 	Scanner scr=new Scanner(System.in);
+	ArrayList<BuyDetail> purchasedItems;
 	public void buyProduct(Item product,User user)
 	{
 		
@@ -38,17 +39,17 @@ public class BillDetail extends Detail implements PaymentDetail
 	{
 		
 
-		ArrayList<BuyDetail> purchasedItem= fo.viewBuyDetail(user,bd);
+		purchasedItems= fo.viewBuyDetail(user,bd);
 
-		System.out.println("Customer : "+purchasedItem.get(0).getCustomer());
+		System.out.println("Customer : "+purchasedItems.get(0).getCustomer());
 		int j=1;
-		for (int i=0;i<purchasedItem.size();i++) 
+		for (int i=0;i<purchasedItems.size();i++) 
 		{
 			
-				System.out.println("Customer : "+purchasedItem.get(i).getCustomer());
-				System.out.println("product "+j+" : "+purchasedItem.get(i).getPurchasedItem());
-				System.out.println("Catogery : "+purchasedItem.get(i).getCatogery());
-				System.out.println("Price : "+purchasedItem.get(i).getPrice());
+				System.out.println("Customer : "+purchasedItems.get(i).getCustomer());
+				System.out.println("product "+j+" : "+purchasedItems.get(i).getPurchasedItem());
+				System.out.println("Catogery : "+purchasedItems.get(i).getCatogery());
+				System.out.println("Price : "+purchasedItems.get(i).getPrice());
 			j++;
 		}
 		

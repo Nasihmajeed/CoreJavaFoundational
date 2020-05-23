@@ -4,14 +4,14 @@ import java.util.*;
 import com.lxisoft.OnlineShoping.FileOperation;
 public class Stock
 {
-	ArrayList<Item> product=new ArrayList<Item>();
-	Item item;
+	ArrayList<Item> items=new ArrayList<Item>();
+	
 	FileOperation fileOperation=new FileOperation();
 	final ArrayList<Item> itemDetail()throws Exception 
 	{
 
-		product=fileOperation.readProductDetails(item);
+		items=fileOperation.readProductDetails();
 		
-		return product;
+		return items;
 	}
 }

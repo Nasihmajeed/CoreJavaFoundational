@@ -1,11 +1,11 @@
 package com.lxisoft.OnlineShoping;
 public class BuyDetail
 {
-	String name;
-	String product;
-	String catogery;
-	String feature;
-	int price;
+	private String name;
+	private String product;
+	private String catogery;
+	private String feature;
+	private int price;
 	public void setCustomer(String name)
 	{
 		this.name=name;
