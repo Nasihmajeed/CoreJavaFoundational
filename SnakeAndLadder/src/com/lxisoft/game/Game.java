@@ -4,9 +4,7 @@ import java.lang.*;
 import com.lxisoft.area.*;
 
 public class Game
-{
-	
-	
+{	
 	FileReppo gameResult =new FileReppo();
 	static Scanner input =new Scanner(System.in);
 	ArrayList<Player> players = new ArrayList<Player>();
@@ -14,6 +12,7 @@ public class Game
 	Ladder ladder;
 	Snake snake;
 	Dice dice;
+
 public void creatGame()
 	{
 		playBoard.createBoard();
@@ -60,9 +59,7 @@ public void creatPlayers()
 		  	players.get(i).setCoin(coin);
 		  	players.get(i).setPlayerPosition(0);
 		  	players.get(i).setPlayerStatus(false);
-		  	// System.out.print("\n Player Added ");
-		  	// System.out.print(players.size());
-		  	i++;
+		 	i++;
 		  }
 
 		}
@@ -118,8 +115,7 @@ public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<
 		boolean flag=false;
 	  do
 	  {
-	  	//System.out.println(players.size());
-	  	for(int i=0;i<players.size();i++)
+	   	for(int i=0;i<players.size();i++)
 		{	do
 			{	
 				playBoard.setPlayersPosition(players,cells);
@@ -152,29 +148,31 @@ public void startGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<
 	  }while(flag==false);	
 	}
 
-public boolean checkWinner()
+
+public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 	{
-		boolean flag=false;
-		int index=0;
-		for (int i=0;i<players.size();i++)
+		int flag=0;
+		int position=0;
+		int temp=player.getPlayerPosition();
+		for(int i=0;i<snakes.size();i++)
 		{
-			if(players.get(i).getPlayerStatus()== true)
-			{	flag=true;
-				index=index+i;	}	
+			if(snakes.get(i).getHead()==temp)
+			{	flag=flag+1;
+				position=snakes.get(i).getTail();
+			}
 		}
 
-	  if(flag==true)
-	  {
-	  	System.out.println(players.get(index).getPlayerName()+" Winned in this Game");
-	  	gameResult.writeTofile(players.get(index).getPlayerName());
-	  	players.remove(index);
-	  	if(players.size()>1)
-	  	{
-	  		System.out.print("\nDo You Want To Continue \nPress Y/N =");
-	  	}
-	  }
-	 return flag; 	
+		for(int i=0;i<ladders.size();i++)
+		{
+			if(ladders.get(i).getStart()==temp)
+			{	flag=flag+2;
+				position=ladders.get(i).getEnd();
+			}
+		}
+
+		playBoard.changePosition(player,flag,position);
 	}
+
 
 
 public void move(Player player)
@@ -203,13 +201,38 @@ public void move(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
 		System.out.println(player.getPlayerName()+"'s  Current Position is = "+player.getPlayerPosition());
 	}
 
+public boolean checkWinner()
+	{
+		boolean flag=false;
+		int index=0;
+		for (int i=0;i<players.size();i++)
+		{
+			if(players.get(i).getPlayerStatus()== true)
+			{	flag=true;
+				index=index+i;	}	
+		}
+
+	  if(flag==true)
+	  {
+	  	System.out.println(players.get(index).getPlayerName()+" Winned in this Game");
+	  	gameResult.writeTofile(players.get(index).getPlayerName());
+	  	players.remove(index);
+	  	if(players.size()>1)
+	  	{
+	  		System.out.print("\nDo You Want To Continue \nPress Y/N =");
+	  	}
+	  }
+	 return flag; 	
+	}
+
+
 public void setWinner(Player player,int value)
 	{
 		int temp=player.getPlayerPosition();
 		int position=(temp-value);
 		int distance=(100-position);
 		if(distance<value)
- 		{	System.out.println("\n* You Need To Get less than "+distance);
+ 		{	System.out.println("\n* You Need To Get Less Than Or "+distance);
 			player.setPlayerPosition(position);	 }
 
 		else
@@ -218,30 +241,6 @@ public void setWinner(Player player,int value)
 		if(temp==100)
 		{	player.setPlayerStatus(true);    }
 		
-	}
-
-public void checkforPositionmoves(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
-	{
-		int flag=0;
-		int position=0;
-		int temp=player.getPlayerPosition();
-		for(int i=0;i<snakes.size();i++)
-		{
-			if(snakes.get(i).getHead()==temp)
-			{	flag=flag+1;
-				position=snakes.get(i).getTail();
-			}
-		}
-
-		for(int i=0;i<ladders.size();i++)
-		{
-			if(ladders.get(i).getStart()==temp)
-			{	flag=flag+2;
-				position=ladders.get(i).getEnd();
-			}
-		}
-
-		playBoard.changePosition(player,flag,position);
 	}
 
 

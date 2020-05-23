@@ -1,6 +1,6 @@
 package com.lxisoft.area;
 import java.util.*;
-public interface Control
+public interface MovementControl
 
 {
 	public void behaviour();

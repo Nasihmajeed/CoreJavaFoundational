@@ -20,8 +20,6 @@ public void createBoard()
 		creatCells();
 		creatSnakeAndLadder();
 		game.playGame(snakes,ladders,cells);
-		//showPlayBoard();
-
 	}
 
 
@@ -84,10 +82,8 @@ public void creatCells()
                     iteration=1;
                 }
                 else
-                {  // System.out.print(counter+"\t");
-            		cells.get(i).setPosition(counter);
+                { 	cells.get(i).setPosition(counter);
             		cells.get(i).setCoinPlace(" ");
-            		//cells.get(i).set(true);
             		i++;
                     counter-=10;
                     iteration=-1;
@@ -96,17 +92,13 @@ public void creatCells()
                 {   cells.add(new Cell());
                 	cells.get(i).setPosition(counter);
                 	cells.get(i).setCoinPlace(" ");
-                	//cells.get(i).setPlace(true);
-                	i++;
-                	//System.out.print("\n" + counter + "\t");
+               		i++;
                 }
             }
             else
             { cells.get(i).setPosition(counter);
               cells.get(i).setCoinPlace(" "); 
-              //cells.get(i).setPlace(true);
               i++;
-           // System.out.print(counter + "\t");
             }
             counter+=iteration; 
         }
@@ -149,10 +141,6 @@ public void showPlayBoard(ArrayList<Cell>cells,ArrayList<Snake>snakes,ArrayList<
 			cells.get(x).setSpace(true);
 		}
 
-		// for(int x=0;x<ladders.size();x++)
-		// { System.out.println("Ladder "+x+1+"From "+ladders.get(x).getStart()+" To "+ladders.get(x).getEnd());	}
-		// for(int y=0;y<snakes.size();y++)
-		// { System.out.println("Snake "+y+1+"From "+snakes.get(y).getHead()+" To "+snakes.get(y).getTail());	}
 	System.out.println("________________________________________________________________________________");
 	}	
 
@@ -177,15 +165,39 @@ public void setPlayersPosition(ArrayList<Player> players,ArrayList<Cell>cells)
 	}		
 
 public static void cls()
-{
+ {
 	try
-	{	
-		new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
-	}catch(Exception E)
-		{
-			System.out.println(E);
-		}
-}
+	{ new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor(); }
+	catch(Exception E)
+		{ System.out.println(E); }
+ }
+
+// public void move(Player player)
+// 	{
+// 		dice=new Dice();
+// 		int value=dice.roll();
+// 		System.out.println("\n\nYou Got = "+value);		
+// 		if(value==6)
+// 		{
+// 			System.out.println(" Congratulations "+player.getPlayerName()+" You Are In The Game");
+// 			player.setPlayerPosition(1);
+// 		}
+// 	  System.out.println("Current Position is = "+player.getPlayerPosition());		
+// 	}			
+
+// public void move(Player player,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
+// 	{
+// 		dice=new Dice();
+// 		int value=dice.roll();
+// 		System.out.println("\n\nYou Got "+value);
+// 		int temp=value+player.getPlayerPosition();
+
+// 		player.setPlayerPosition(temp);
+// 		checkforPositionmoves(player,snakes,ladders);
+// 		setWinner(player,value);
+// 		System.out.println(player.getPlayerName()+"'s  Current Position is = "+player.getPlayerPosition());
+// 	}
+
 
 }
  
