@@ -76,25 +76,25 @@ public class Forest
 		animals.add(new Tiger());
 		animals.add(new Lion());
 		animals.add(new Fox());
-		animals.add(new Wolf());
+		animals.add(new Elephant());
 		animals.add(new Rabbit());
 		animals.add(new Tiger());
 		animals.add(new Lion());
 		animals.add(new Fox());
-		animals.add(new Wolf());
+		animals.add(new Elephant());
 		animals.add(new Rabbit());
 
 
 		animals.get(0).setAnimalDetail("Tiger-1",80);
 		animals.get(1).setAnimalDetail("Lion-1",100);
 		animals.get(2).setAnimalDetail("Fox-1",60);
-		animals.get(3).setAnimalDetail("Wolf-1",50);
+		animals.get(3).setAnimalDetail("Elephant-1",50);
 		animals.get(4).setAnimalDetail("Rabbit-1",18);
 		
 		animals.get(5).setAnimalDetail("Tiger-2",80);
 		animals.get(6).setAnimalDetail("Lion-2",100);
 		animals.get(7).setAnimalDetail("Fox-2",60);
-		animals.get(8).setAnimalDetail("Wolf-2",50);
+		animals.get(8).setAnimalDetail("Elephant-2",50);
 		animals.get(9).setAnimalDetail("Rabbit-2",18);
 		
 		

@@ -7,6 +7,8 @@ public class Tiger extends Animal implements Carnivorus
 		this.animalEnergy=this.animalEnergy+(int)(energy*.15);
 		if(this.animalEnergy>100)
 			animalEnergy=100;
+		else if(this.animalEnergy<0)
+			animalEnergy=0;
 
 
 		System.out.println(this.getAnimalName()+"'s Energy raised to " + animalEnergy);

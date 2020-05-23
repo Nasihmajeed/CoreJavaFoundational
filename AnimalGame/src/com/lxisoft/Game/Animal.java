@@ -7,6 +7,7 @@ public class Animal
 	private String type;
 	int luck;
 	String killedBy;
+	int strength;
 
 
 
@@ -14,6 +15,17 @@ public class Animal
 	{
 		animalName=name;
 		isAlive=true;
+	}
+
+
+	public void setStrength(int str)
+	{
+		strength=str;
+	}
+
+	public int getStrength()
+	{
+		return strength;
 	}
 
 	
