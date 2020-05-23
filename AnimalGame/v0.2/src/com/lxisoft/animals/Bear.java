@@ -9,9 +9,8 @@ public class Bear extends Animal
 {
 	public Bear()
 	{
-		setName("Bear") ;
+		setName(getName() + "BEAR") ;
 		setHealth(250) ;
-		setEnergy(100) ;
 		setStrength(200) ;
 		setAnimalBehaviour(new AggressivePredator()) ;
 		setEatBehaviour(new Omnivorus()) ;

@@ -9,9 +9,9 @@ public class Wolf extends Animal
 {
 	public Wolf()
 	{
-		setName("Wolf") ;
+		setName(getName() + "WOLF") ;
 		setHealth(110) ;
-		setEnergy(200) ;
+	
 		setStrength(120) ;
 		setAnimalBehaviour(new PassivePredator()) ;
 		setEatBehaviour(new Carnivorus()) ;

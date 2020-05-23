@@ -9,9 +9,9 @@ public class Rabbit extends Animal
 {
 	public Rabbit()
 	{
-		setName("Rabbit") ;
+		setName(getName() + "RABBIT") ;
 		setHealth(30) ;
-		setEnergy(120) ;
+	
 		setStrength(15) ;
 		setAnimalBehaviour(new PassivePrey()) ;
 		setEatBehaviour(new Herbivorus()) ;

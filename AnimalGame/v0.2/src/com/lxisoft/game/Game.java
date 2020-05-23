@@ -13,11 +13,10 @@ public class Game
 
 	public char displayStartGamePrompt()
 	{
-		ConsoleElements.clearScreen() ;
-
+	
 		DisplayElements.showMainMenu() ;
 
-		System.out.print("\n\n Press 'Y' to Start. : ") ;
+		System.out.print("\n\n\t Press 'Y' to Start. : ") ;
 		char startGame = in.next().charAt(0) ;
 		in.nextLine() ;
 
@@ -26,17 +25,42 @@ public class Game
 
 	public void initialiseGame(char startGame)
 	{
-		while (startGame == 'y' || startGame == 'Y')
+		if (startGame == 'y' || startGame == 'Y')
 		{
 			int numberOfAnimals = getNumberOfAnimals() ;
 			this.generateAnimals(numberOfAnimals) ;
 			forest.displayExistingAnimals() ;
+
+			forest.meetAnimals() ;
 		}
+		else
+		{
+			System.out.print("\n\n\t\t\t THANK YOU FOR PLAYING.\n") ;
+		}
+	}
+
+	public void finaliseGame()
+	{
+
+			DisplayElements.displayAnimalListInTableForm(forest.getAnimalList()) ;		
+
+			GameHelper.checkWinner(forest.getAnimalList()) ;
+
+			forest.getAnimalList().clear() ;
+
+			System.out.print("\n\n\t\t\t PLAY AGAIN? (Y/N) : ") ;
+			char playAgain = in.next().charAt(0) ;
+			in.nextLine() ;
+
+			if(playAgain == 'y' || playAgain == 'Y')
+				displayStartGamePrompt() ;
+			else
+				System.out.print("\n\n\t\t\t THANK YOU FOR PLAYING.") ;
 	}
 
 	public int getNumberOfAnimals()
 	{
-		System.out.print("\n\n Input no of animals to be spawned : ") ;
+		System.out.print("\n\n\t\t NUMBER OF ANIMALS TO BE SPAWNED : ") ;
 		int numberOfAnimals = in.nextInt() ;
 		in.nextLine() ;
 

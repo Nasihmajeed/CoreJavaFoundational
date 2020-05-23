@@ -1,5 +1,5 @@
 
-package com.lxisoft.behaviours.eatbehaviour ;
+package com.lxisoft.behaviours.eatbehaviour ; 
 
 public class Herbivorus implements EatBehaviour
 {

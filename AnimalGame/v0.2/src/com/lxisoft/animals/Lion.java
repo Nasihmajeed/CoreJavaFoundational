@@ -9,9 +9,9 @@ public class Lion extends Animal
 {
 	public Lion()
 	{
-		setName("Lion") ;
+		setName(getName() + "LION") ;
 		setHealth(250) ;
-		setEnergy(150) ;
+	
 		setStrength(250) ;
 		setAnimalBehaviour(new AggressivePredator()) ;
 		setEatBehaviour(new Carnivorus()) ;

@@ -9,9 +9,9 @@ public class Zebra extends Animal
 {
 	public Zebra()
 	{
-		setName("Zebra") ;
+		setName(getName() + "ZEBRA") ;
 		setHealth(150) ;
-		setEnergy(100) ;
+		
 		setStrength(40) ;
 		setAnimalBehaviour(new PassivePrey()) ;
 		setEatBehaviour(new Herbivorus()) ;

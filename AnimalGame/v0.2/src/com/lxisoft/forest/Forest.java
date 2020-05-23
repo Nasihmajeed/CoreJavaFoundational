@@ -2,6 +2,8 @@
 package com.lxisoft.forest ;
 
 import java.util.* ;
+import com.lxisoft.game.GameHelper ;
+import com.lxisoft.ui_elements.* ;
 
 public class Forest
 {
@@ -18,17 +20,57 @@ public class Forest
 
 	public void displayExistingAnimals()
 	{
-		int i=0 ;
+		DisplayElements.displayAnimalListInTableForm(animalList) ;
+	}
 
-		System.out.print("\n\n --------------------------- \n\t ANIMALS \n ---------------------------\n" ) ;
+	public void meetAnimals()
+	{
+		Animal animal1,animal2 ;
+		boolean bothAnimalsNotPrey ;
 
-		for(Animal animal : animalList)
+		int numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(animalList) ;
+		
+		while(numberOfAnimalsAlive>1)
 		{
-			i++ ;
-			System.out.print("\n   [" + i + "] " + animal.getName()) ;
-		}
 
-		System.out.print("\n\n---------------------------") ;
+			animal1 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
+			animal2 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
+
+				if(animal1 == animal2 || !animal1.getIsAlive())
+				{
+					animal1 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
+				}
+				else if(!animal2.getIsAlive())
+				{
+					animal2 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
+				}
+				else
+				{
+					DisplayElements.displayAnimalStats(animal1,animal2) ;
+
+					bothAnimalsNotPrey = GameHelper.checkIfBothPrey(animal1,animal2) ;
+
+					if(bothAnimalsNotPrey)
+					{
+						GameHelper.compareStrengthofBothAnimalsAndFight(animal1,animal2) ;
+						System.out.print("\n\n\t\t\t\t FINAL ANIMAL STATS\n") ;
+						DisplayElements.displayFinalAnimalStats(animal1,animal2) ;
+						System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+") ;
+					}
+					else if(GameHelper.checkIfAllAnimalsArePrey(animalList))
+					{
+						System.out.print("\n\n\t\t\t *** ALL PREDATORS ARE DEAD. THE PREYS LIVE HAPPILY EVER AFTER. ***") ;
+						return ;
+					}
+				}
+
+				ConsoleElements.delayPrintTime(300) ;
+
+
+			numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(animalList) ;
+
+		} 
+
 	}
 
 }

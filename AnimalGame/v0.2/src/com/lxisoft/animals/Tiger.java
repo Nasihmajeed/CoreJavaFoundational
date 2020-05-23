@@ -9,9 +9,9 @@ public class Tiger extends Animal
 {
 	public Tiger()
 	{
-		setName("Tiger") ;
+		setName(getName() + "TIGER") ;
 		setHealth(180) ;
-		setEnergy(190) ;
+		
 		setStrength(250) ;
 		setAnimalBehaviour(new AggressivePredator()) ;
 		setEatBehaviour(new Carnivorus()) ;

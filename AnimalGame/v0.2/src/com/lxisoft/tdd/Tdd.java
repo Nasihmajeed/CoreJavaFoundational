@@ -11,5 +11,6 @@ public class Tdd
 
 		char s = game.displayStartGamePrompt() ;
 		game.initialiseGame(s) ;
+		game.finaliseGame() ;
 	}
 }
