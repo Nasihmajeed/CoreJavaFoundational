@@ -43,9 +43,7 @@ public class Game
 	{
 
 			DisplayElements.displayAnimalListInTableForm(forest.getAnimalList()) ;		
-
-			GameHelper.checkWinner(forest.getAnimalList()) ;
-
+			
 			forest.getAnimalList().clear() ;
 
 			System.out.print("\n\n\t\t\t PLAY AGAIN? (Y/N) : ") ;

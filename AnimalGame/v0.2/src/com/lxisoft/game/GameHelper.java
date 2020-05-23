@@ -129,7 +129,7 @@ public class GameHelper
 	{
 		for(Animal animal : animalList)
 		{
-			if(animal.getAnimalBehaviour() instanceof AggressivePredator || animal.getAnimalBehaviour() instanceof PassivePredator)
+			if(animal.getIsAlive() && (animal.getAnimalBehaviour() instanceof AggressivePredator || animal.getAnimalBehaviour() instanceof PassivePredator))
 				return false ;
 		}
 		return true ;

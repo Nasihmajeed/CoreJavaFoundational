@@ -44,6 +44,11 @@ public class Forest
 				{
 					animal2 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
 				}
+				else if(GameHelper.checkIfAllAnimalsArePrey(animalList))
+				{
+					System.out.print("\n\n\t\t\t *** ALL PREDATORS ARE DEAD. THE PREYS LIVE HAPPILY EVER AFTER. ***") ;
+					return ;
+				}
 				else
 				{
 					DisplayElements.displayAnimalStats(animal1,animal2) ;
@@ -51,25 +56,22 @@ public class Forest
 					bothAnimalsNotPrey = GameHelper.checkIfBothPrey(animal1,animal2) ;
 
 					if(bothAnimalsNotPrey)
-					{
+					{	
+						ConsoleElements.delayPrintTime(1000) ;
+
 						GameHelper.compareStrengthofBothAnimalsAndFight(animal1,animal2) ;
 						System.out.print("\n\n\t\t\t\t FINAL ANIMAL STATS\n") ;
 						DisplayElements.displayFinalAnimalStats(animal1,animal2) ;
 						System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+") ;
 					}
-					else if(GameHelper.checkIfAllAnimalsArePrey(animalList))
-					{
-						System.out.print("\n\n\t\t\t *** ALL PREDATORS ARE DEAD. THE PREYS LIVE HAPPILY EVER AFTER. ***") ;
-						return ;
-					}
+					
 				}
-
-				ConsoleElements.delayPrintTime(300) ;
-
 
 			numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(animalList) ;
 
 		} 
+
+		GameHelper.checkWinner(animalList) ;
 
 	}
 
