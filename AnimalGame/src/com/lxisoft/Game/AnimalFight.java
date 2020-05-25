@@ -26,8 +26,8 @@ public class AnimalFight
 		if(type1.equals("Herbivorus") && type2.equals("Carnivorus"))
 		{
 			
-			((Herbivorus)animals.get(r1)).fight();
-			((Carnivorus)animals.get(r2)).fight();
+			// ((Herbivorus)animals.get(r1)).fight();
+			// ((Carnivorus)animals.get(r2)).fight();
 			herbVsCar(r1,r2,animals);
 		}
 		else if(type1.equals("Carnivorus") && type2.equals("Carnivorus"))
@@ -39,15 +39,15 @@ public class AnimalFight
 		}
 		 else if(type1.equals("Herbivorus") && type2.equals("Herbivorus"))
 		{
-			((Herbivorus)animals.get(r1)).fight();
-			((Herbivorus)animals.get(r2)).fight();
+			// ((Herbivorus)animals.get(r1)).fight();
+			// ((Herbivorus)animals.get(r2)).fight();
 			herbVsHerb(r1,r2,animals);
 		}
 		else
 		{	
 			
-			((Carnivorus)animals.get(r1)).fight();
-			((Herbivorus)animals.get(r2)).fight();
+			// ((Carnivorus)animals.get(r1)).fight();
+			// ((Herbivorus)animals.get(r2)).fight();
 			carVsHerb(r1,r2,animals);
 		}		
 	
@@ -62,31 +62,47 @@ public class AnimalFight
 		else
 		{
 			System.out.println( "\n"+animals.get(r2).getAnimalName()+" have NO LUCK :) ");
-			int won = checkEnergy(r1,r2,animals);
+			int won = checkStrength(r1,r2,animals);
 			printResult(won,r1,r2,animals);
 		}
 	}
 
 	public void herbVsCar(int r1,int r2, ArrayList<Animal> animals)
 	{
-
 		int luckOfHerb = luckFactor();
-		if (luckOfHerb==1)
+		if(animals.get(r1) instanceof WeakAnimal)
 		{
-			System.out.println("\n"+(animals.get(r1)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r2)).getAnimalName());
+				if (luckOfHerb==1)
+				{
+					System.out.println("=> " + animals.get(r1).getAnimalName() + " is a  WEAK ANIMAL ");
+					System.out.println("=>"+(animals.get(r1)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r2)).getAnimalName());
+				}
+				else
+				{
+					System.out.println("=> " + animals.get(r1).getAnimalName() + " is a  WEAK ANIMAL ");
+					System.out.println(" =>"+animals.get(r1).getAnimalName()+" have NO LUCK :) ");
+					int won = checkStrength(r1,r2,animals);
+					printResult(won,r1,r2,animals);
+					((Herbivorus)animals.get(r1)).fight();
+					((Carnivorus)animals.get(r2)).fight();
+				}
 		}
 		else
 		{
-			System.out.println( "\n"+animals.get(r1).getAnimalName()+" have NO LUCK :) ");
-			int won = checkEnergy(r1,r2,animals);
+
+			int won = checkStrength(r1,r2,animals);
 			printResult(won,r1,r2,animals);
+			((Herbivorus)animals.get(r1)).fight();
+			((Carnivorus)animals.get(r2)).fight();
 		}
 	}
 	public void carVsCar(int r1,int r2, ArrayList<Animal> animals)
 	{
 
-		int won = checkEnergy(r1,r2,animals);
+		int won = checkStrength(r1,r2,animals);
 		printResult(won,r1,r2,animals);
+		((Carnivorus)animals.get(r1)).fight();
+		((Herbivorus)animals.get(r2)).fight();
 
 	}
 
@@ -101,13 +117,6 @@ public class AnimalFight
 		
 		int energy1 = animals.get(r1).animalEnergy;
 		int energy2 = animals.get(r2).animalEnergy;
-		// System.out.print("\nAnimal Energy -->");
-		// System.out.println(" After Fight");
-		// System.out.println("\t\t  ***********");
-		// System.out.println("\t\t"+animal1+" <=> "+animal2);
-		// System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
-		
-
 		if(energy1>energy2)
 		{
 			return 1;
@@ -133,6 +142,46 @@ public class AnimalFight
 			}
 			
 		}
+
+	}
+	public int checkStrength(int r1,int r2,ArrayList<Animal> animals)
+	{
+		int strength1,strength2;
+		int ret = checkEnergy(r1,r2,animals);
+		strength1=animals.get(r1).strength;
+		strength2=animals.get(r2).strength;
+		if(ret==1 && strength1>strength2 )
+			return 1;
+		else if(ret==2 && strength2>strength1)
+			return 2;
+		else if(ret==1 && strength2>strength1)
+		{
+			if(animals.get(r2).animalEnergy<45)
+			{
+				System.out.println("\n => animals.get(r2).animalEnergy = " + animals.get(r2).animalEnergy);
+				System.out.println(animals.get(r2).getAnimalName() + " Have less Energy ");
+				return 1;
+			}
+			else
+			{
+				return 2;
+			}
+		}
+		else if(ret==2 && strength1>strength2)
+		{
+			if(animals.get(r1).animalEnergy<45)
+			{
+				System.out.println("\n => animals.get(r2).animalEnergy = " + animals.get(r1).animalEnergy);
+				System.out.println(animals.get(r1).getAnimalName() + " Have less Energy ");
+				return 2;
+			}
+			else
+				return 1;
+		}
+		else
+			return ret;
+		
+
 	}
 
 	public void printResult(int won,int r1,int r2 ,  ArrayList<Animal> animals)

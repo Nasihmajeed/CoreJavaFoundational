@@ -39,6 +39,7 @@ public class Animal
 		animalName=name;
 		animalEnergy=energy;
 		killedBy="----------";
+		int strength;
 	}
 	public void setType(String s)
 	{

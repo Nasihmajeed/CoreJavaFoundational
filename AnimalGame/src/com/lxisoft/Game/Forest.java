@@ -96,6 +96,18 @@ public class Forest
 		animals.get(7).setAnimalDetail("Fox-2",60);
 		animals.get(8).setAnimalDetail("Elephant-2",50);
 		animals.get(9).setAnimalDetail("Rabbit-2",18);
+
+		animals.get(0).strength=70;
+		animals.get(1).strength=80;
+		animals.get(2).strength=40;
+		animals.get(3).strength=90;
+		animals.get(4).strength=20;
+		
+		animals.get(5).strength=70;
+		animals.get(6).strength=80;
+		animals.get(7).strength=40;
+		animals.get(8).strength=90;
+		animals.get(9).strength=20;
 		
 		
 	}
