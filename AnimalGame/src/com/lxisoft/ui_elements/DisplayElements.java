@@ -84,35 +84,7 @@ public class DisplayElements
 		System.out.print("\n\n\n\t\t\t*** "+ animal1.getName() + " KILLS " + animal2.getName()+" ***\n") ;
 	}
 
-	public static void printGameTitle()
-	{
-		System.out.println("\t\t    *****          ***     ***       *********             *****") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t    *****          ***     ***       **********          *********") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t    *****          ***     ***       ***********        **********") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t   *** ***         ***     ***       ***     ***        ***    ****") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t   *** ***         ***     ***       ***     ***       ***      **") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t   *** ***         ***     ***       **********        ***") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t  ***   ***        ***     ***       *********         ***   ******") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t  *********        ***     ***       **********        ***   ******") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t  *********        ***     ***       ***     ***       ***   ******") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t ***********       ****   ****       ***     ***        ***     ***") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t ***     ***  ***   *********   ***  ***********  ***   ***********") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t ***     ***  ***   *********   ***  **********   ***    *********") ;
-		ConsoleElements.delayPrintTime(130) ;
-		System.out.println("\t\t***       *** ***     *****     ***  *********    ***      *****") ;
-		ConsoleElements.delayPrintTime(130) ;
-	}
+	
 
 	public static void printTitleImage()
 	{

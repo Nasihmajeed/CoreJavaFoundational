@@ -10,9 +10,9 @@ public class Elephant extends Animal
 	public Elephant()
 	{
 		setName(getName() + "ELEPHANT") ;
-		setHealth(500) ;
+		setHealth(400) ;
 		
-		setStrength(450) ;
+		setStrength(350) ;
 		setAnimalBehaviour(new AggressivePrey()) ;
 		setEatBehaviour(new Herbivorus()) ;
 		setIsAlive(true) ;
