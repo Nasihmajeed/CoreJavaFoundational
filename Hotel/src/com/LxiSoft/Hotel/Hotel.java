@@ -1,6 +1,7 @@
 package com.LxiSoft.Hotel;
 public class Hotel
 {
+	Menu menu=new Menu();
 public void printHotel()
      {
       
@@ -11,5 +12,6 @@ public void printHotel()
     System.out.println("       ************************************************************************");
 
 }
+
 }
    
