@@ -6,38 +6,51 @@ import java.io.*;
 import java.util.Comparator; 
 public class Shop
 {
-	static Scanner sc=new Scanner(System.in);
-	public List<Item> items=new ArrayList<Item>();
-	FileRepository fr=new FileRepository();
-	public static String shopName = ""; 
-    public static void shop(String name){ 
-          
-        shopName = name; 
-    } 
-
-	public void shopDetails()
-	{	
-		ArrayList<String> details=new ArrayList<String>();  
-		details.add("   Supermarket,Textiles,Fancy");  
-		details.add("   Pookotukavu");  
-		details.add("   Kadambur (PO),Pin: 679514,Palakkad"); 	 
-		for(String d:details){  
-		System.out.println(d); 
+	private String shopName="EVERGREEN ENTERPRISES";
+	private String address="Pookotukavu";
+	private String place="Kadambur";
+	private final int pinCode = 679514;
+	private static Scanner sc;	
+	private List<Item> items = new ArrayList<Item>();
+	private List<Stock> stock=new ArrayList<Stock>();
+	public static Scanner getScanner()
+	{
+		if(sc == null)
+		{
+			sc = new Scanner(System.in);
+			return sc;
 		}
+		else
+		{
+			return sc;
+		}
+	}
+	
+	public void printShopDetails()
+	{
+		System.out.println("Shop Name : "+shopName);
+		System.out.println("Address: "+address);
+		System.out.println("Place : "+place);
+		System.out.println("Pin : "+pinCode);
+		selectOption();
+	}			
+	public void selectOption()
+	{
+		sc = this.getScanner();
 		try
 		{
 			boolean isTest=false;
 			do
 			{
 				isTest=false;
-				System.out.println("\n1.Add Stock \n2.Display All \n3.Bill \n4.Employee \n5.Exit");
+				System.out.println("\n1.Add Item \n2.Add Stock \n3.Display Item \n4.Display Stock \n5.Employee \n5.Exit");
 				int m=sc.nextInt();
 				switch (m)
 				{
-					case 1:	addStock(); isTest=true;break;				
-					case 2: displayDetails(); isTest=true;  break;
-					case 3: break;
-					case 4: employeeDetails(); isTest=true; break;
+					case 1:	setItem(); isTest=true;break;				
+					case 2: setStock(); isTest=true;  break;
+					case 3: getItem(); isTest=true; break;
+					case 4: getCurrentStock(); isTest=true; break;
 					case 5: System.exit(0); break;	
 					
 				}
@@ -49,80 +62,55 @@ public class Shop
 			e.printStackTrace();
 		}	
 	}
-	public void addStock()
-	{
-		try
-		{
-			boolean check=false;
-			do	
-			{
-				check=false;
-				System.out.println("Choose Items");
-				System.out.println("\n 1.Stationary \n 2.Toys \n 3.Fancy  \n");
-				int i=sc.nextInt();
-				switch (i)
-				{
-		 			case 1: addStationary(); break;
-					case 2: addToy(); break;
-					case 3: addFancy(); break;			
-					default:
-				}				
-			}while(check);
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Error in input value");
-			e.printStackTrace();
-		}		
-	}
-	public void addStationary()
+	public void setItem()
 	{
 		System.out.println("Name of Item");
-		Item stationary=new Stationary();
-		stationary.setName(sc.next());
+		Item item=new Item();
+		item.setName(sc.next());
 		System.out.println("Item ID");
-		stationary.setId(sc.nextInt());	
+		item.setId(sc.nextInt());	
 		System.out.println("Price of item");
-		stationary.setPrice(sc.nextInt());
-		System.out.println("Quantity of item");
-		stationary.setQuantity(sc.nextInt());	
-		items.add(stationary);
-		fr.writeFile(items);
-		//fr.readFile();
-	} 
-	public void addToy()
-	{
-		System.out.println("Name of Toy");
-		Item toy=new Toy();
-		toy.setName(sc.next());
-		System.out.println("ID");
-		toy.setId(sc.nextInt());	
-		System.out.println("Price of Toy");
-		toy.setPrice(sc.nextInt());
-		System.out.println("Quantity of Toy");
-		toy.setQuantity(sc.nextInt());	
-		items.add(toy);
-		fr.writeToFile(items);
-		// fr.readToFile();
-
+		item.setPrice(sc.nextInt());
+		items.add(item);		
 	}
-	public void addFancy()
+	public List<Item> getItem()
 	{
-		System.out.println("Name of Fancy");
-		Item fancy=new Fancy();
-		fancy.setName(sc.next());
-		System.out.println("ID");
-		fancy.setId(sc.nextInt());	
-		System.out.println("Price of item");
-		fancy.setPrice(sc.nextInt());
-		System.out.println("Quantity of item");
-		fancy.setQuantity(sc.nextInt());	
-		items.add(fancy);
-		fr.writeToFileFancy(items);
-		// fr.readToFileFancy();
-
+		System.out.println("\nDisplay the details of Item");
+		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
+		for(int i=0;i<items.size();i++)
+		{			
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
+		}
+		return items;
+	}	
+	public List<Stock> setStock()
+	{   
+		getItem();
+		System.out.println("\nIn which Item you want add quantity");
+		String s=sc.next();
+		for(int i=0;i<items.size();i++)
+		{
+			if((items.get(i).getName()).equals(s))
+		 	{
+		 		System.out.println("How much item you want to add");
+		 		stock.add(new Stock());
+		 		stock.get(i).setQuantity(sc.nextInt());		 	 	
+		 	}
+		 	
+		 }
+		 return stock;
 	}
-	public void displayAll()
+	public void getCurrentStock()
+	{	
+		System.out.println("\nDisplay stock details");
+		System.out.printf("%-20.30s %-20.30s %-20.30s%n","Item ID","Name","Quantity");
+		for(int k=0;k<stock.size();k++)
+		{			
+
+			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(k).getId(),items.get(k).getName(),stock.get(k).getQuantity());	
+		}	 		      	                                          	
+	}
+/*	public void displayAll()
 	{		
 		Collections.sort(items);
         System.out.println(items);
@@ -164,12 +152,11 @@ public class Shop
 	{
 		System.out.println("\n\n\n      Guarranty Products ");
 
-		
 		Map<Integer,String> map = new HashMap<Integer, String>();
 		
-		map.put(1,"\nEveready Products 10 Month Warranty");
-		map.put(3, "\nBajaj Products 4yr Warranty");
-		map.put(2, "\nCello Products 2yr Warranty");
+		map.put(1,"\nEveready Items 10 Month Warranty");
+		map.put(3, "\nBajaj Items 4yr Warranty");
+		map.put(2, "\nCello Items 2yr Warranty");
 				
 		Set<?> set = map.entrySet();
 		Iterator<?> itr = set.iterator();
@@ -221,7 +208,7 @@ public class Shop
     }
     public void shiftDetails()
     {
-   		 HashMap<String, Integer> time = new HashMap<String, Integer>();
+   		HashMap<String, Integer> time = new HashMap<String, Integer>();
 	    time.put("Sheeja", 9);
 	    time.put("Neethu", 9);
 	    time.put("Sheeba", 9);
@@ -229,7 +216,7 @@ public class Shop
     for (String i : time.keySet()) {
       System.out.println("key: " + i + " value: " + time.get(i));
     }
-  }
+  }*/
 }
 
 

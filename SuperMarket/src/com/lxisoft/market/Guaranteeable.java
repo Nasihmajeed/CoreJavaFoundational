@@ -2,5 +2,5 @@ package com.lxisoft.market;
 import com.lxisoft.market.*;
 public interface Guaranteeable
 {
-	public abstract guarantiProduct();		
+	public abstract guarantiItem();		
 } 

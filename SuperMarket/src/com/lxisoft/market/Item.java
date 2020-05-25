@@ -7,9 +7,8 @@ import java.io.*;
 public class Item implements Comparable<Item>
 {	
 	private int id;
-	private String itemType;
-	private int itemPrice;	
-	private  int itemQuantity;
+	private String name;
+	private int price;	
 	public void setId(int id)
 	{
 		this.id=id;
@@ -18,29 +17,21 @@ public class Item implements Comparable<Item>
 	{
 		return this.id;
 	}
-	public void setName(String itemType)
+	public void setName(String name)
 	{
-		this.itemType=itemType;
+		this.name=name;
 	}
 	public String getName()
 	{
-		return this.itemType;
+		return this.name;
 	}
-	public void setPrice(int itemPrice)
+	public void setPrice(int price)
 	{
-		this.itemPrice=itemPrice;
+		this.price=price;
 	}
 	public int getPrice()
 	{
-		return this.itemPrice;
-	}
-	public void setQuantity(int itemQuantity)
-	{
-		this.itemQuantity=itemQuantity;
-	}
-	public int getQuantity()
-	{
-		return this.itemQuantity;
+		return this.price;
 	}
 	public int compareTo(Item item) {
         return this.getId() - item.getId();
@@ -60,9 +51,8 @@ public class Item implements Comparable<Item>
     public String toString() {
         return "Item{" +
                 "id=" + id +
-                ", name='" + itemType + '\'' +
-                ", price=" + itemPrice +
-                ", quantity=" + itemQuantity +
+                ", name='" + name + '\'' +
+                ", price=" + price +
                 '}';
     }
 
