@@ -6,7 +6,7 @@ public class Hotel{
 	Menu[] menu;
 	String hotelName;
 
-	printHotelDetails(){
+	public void printHotelDetails(){
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter the hotel name");
 		String hotelName=scanner.nextLine();
