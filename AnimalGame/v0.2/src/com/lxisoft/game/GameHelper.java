@@ -52,8 +52,8 @@ public class GameHelper
 	{
 		if( (animal1.getAnimalBehaviour() instanceof AggressivePrey && animal2.getAnimalBehaviour() instanceof AggressivePrey) || (animal1.getAnimalBehaviour() instanceof PassivePrey && animal2.getAnimalBehaviour() instanceof PassivePrey) || (animal1.getAnimalBehaviour() instanceof AggressivePrey && animal2.getAnimalBehaviour() instanceof PassivePrey) || (animal1.getAnimalBehaviour() instanceof PassivePrey && animal2.getAnimalBehaviour() instanceof AggressivePrey) )
 		{
-			System.out.print("\n\n\t\t\t THESE ANIMALS DON'T FIGHT. THEY MOVE ON PEACEFULLY.") ;
-					System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+			System.out.print("\n\n\t\t\t THESE ANIMALS DON'T FIGHT. THEY MOVE ON PEACEFULLY.\n") ;
+					System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n") ;
 
 			return false ;
 		}

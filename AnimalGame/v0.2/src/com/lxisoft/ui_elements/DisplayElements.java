@@ -40,19 +40,19 @@ public class DisplayElements
 	public static void displayAnimalStats(Animal a1,Animal a2)
 	{
 	
-		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a1.getName(),"[",a1.getHealth(),"HP",a1.getStrength(),"STR",a1.getEnergy(),"EN ]") ;
+		System.out.format("\n\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a1.getName(),"[",a1.getHealth(),"HP",a1.getStrength(),"STR",a1.getEnergy(),"EN ]") ;
 		
 		System.out.print("\n\n\t\t\t\t\tCONFRONTS\n") ;
 		
-		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a2.getName(),"[",a2.getHealth(),"HP",a2.getStrength(),"STR",a2.getEnergy(),"EN ]") ;
+		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s\n",a2.getName(),"[",a2.getHealth(),"HP",a2.getStrength(),"STR",a2.getEnergy(),"EN ]\n") ;
 	}
 
 	public static void displayFinalAnimalStats(Animal a1,Animal a2)
 	{
 	
-		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a1.getName(),"[",a1.getHealth(),"HP",a1.getStrength(),"STR",a1.getEnergy(),"EN ]") ;
+		System.out.format("\n\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a1.getName(),"[",a1.getHealth(),"HP",a1.getStrength(),"STR",a1.getEnergy(),"EN ]") ;
 		
-		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a2.getName(),"[",a2.getHealth(),"HP",a2.getStrength(),"STR",a2.getEnergy(),"EN ]") ;
+		System.out.format("\n\t\t\t%-22s%s%4d%3s%4d%4s%4d%4s",a2.getName(),"[",a2.getHealth(),"HP",a2.getStrength(),"STR",a2.getEnergy(),"EN ]\n") ;
 	}
 
 	public static void displayAnimalListInTableForm(ArrayList<Animal> animalList)
