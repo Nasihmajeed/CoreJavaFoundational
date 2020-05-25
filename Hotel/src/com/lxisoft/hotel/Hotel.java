@@ -3,13 +3,45 @@ import java.util.Scanner;
 public class Hotel{
 
 	Admin[] admin;
-	Menu[] menu;
-	String hotelName;
-
+	
+	
 	public void printHotelDetails(){
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter the hotel name");
-		String hotelName=scanner.nextLine();
+		System.out.println("**************************************************************************************************");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("**************************************************************************************************");
+
+	System.out.println(" **************************HOTEL NOORJAHAN**************************************");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+
+	System.out.println("*******************VEG  AND NONVEG**************************************");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+
+
+			System.out.println("*********************PALAKKAD****************************************");
+		Menu menu=new Menu();
+		menu.printMenuDetails();
+
+		Order order=new Order();
+		order.getOrderDetails();
+
+
+
+		
 	}
 
 	
