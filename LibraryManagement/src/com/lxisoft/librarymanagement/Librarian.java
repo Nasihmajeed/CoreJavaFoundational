@@ -4,33 +4,26 @@ import java.util.*;
 public class Librarian
 {
 	FileRepo repo=new FileRepo();
-	// public int display()
-	// {
-	// 	Scanner sc=new Scanner(System.in);
-	// 	System.out.println("\n             Enter your choice:");
-	// 	System.out.println("             1-Add\n             2-View\n             3-Sort\n             4-Exit");
-	// 	int ch=sc.nextInt();
-	// 	return ch;
-	// }	
+	Book b=new Book();
 
 	public void display()
     {
     	Scanner sc=new Scanner(System.in);
 		System.out.println("\n             Enter your choice:");
-		System.out.println("             1-Add\n             2-View\n             3-Sort\n             4-Exit");
+		System.out.println("             1-Add\n             2-View\n             3-Search\n             4-Sort\n             5-Exit");
 		List<Book>bookList=new ArrayList<Book>();
 		int ch=sc.nextInt();
         do
         {
-            // ch=display();
 			switch(ch)
             {
                 case 1:addBook();break;
                 case 2:getAllBooks();break; 
-                case 3:sorted(bookList);    
-                case 4:System.exit(0);break;
+                case 3:searchDetails();break;
+                case 4:sorted(bookList);    
+                case 5:System.exit(0);break;
             } 
-        }while(ch!=5);
+        }while(ch!=6);
     }
 
 
@@ -67,17 +60,6 @@ public class Librarian
 		 
 	}
 
-	// public void sortBook(List<Book>bookList)
-	// {
-	// 	for(int i=0;i<bookList.size();i++)
-	// 	{
-	// 		System.out.println("Id="+bookList.get(i).getId());
- //     		System.out.println("Name="+bookList.get(i).getName());
- //     		System.out.println("Auther="+bookList.get(i).getAuther());
- //     		System.out.println("Publisher="+bookList.get(i).getPublisher());
- //     	}
-	// }
-
     public int sort(List<Book>bookList)
 	{
 		Scanner sc=new Scanner(System.in);
@@ -97,7 +79,6 @@ public class Librarian
 	public void sorted(List<Book>bookList)
 	{
 		int a=0;
-		// List<Book>bookList=null;
 		do
 		{
 			a=sort(bookList);
@@ -108,7 +89,38 @@ public class Librarian
 				case 3:bookList=repo.autherSort();break;
 				case 4:System.exit(0);break;
 			}
-			// sortBook(bookList);
 		}while(a!=5);
 	}
+
+	public void searchBook(List<String> s)
+	{
+		if(s.size()!=0)
+		{
+			for(int i=0;i<s.size();i++)
+			{
+				System.out.println(s.get(i));
+			}
+		}
+		else
+		{
+			System.out.println("Not Found Search Results");
+		}
+	}
+
+	public void searchDetails()
+    {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Search name");
+		String n=sc.next();
+        List<String>s=new ArrayList<String>();
+        List<Book>bookList=repo.read();
+        for(int i=0;i<bookList.size();i++)
+        {
+            if(bookList.get(i).getName().contains(n))
+            {
+                s.add(bookList.get(i).getName());
+            }
+        }
+        searchBook(s);
+    }
 }
