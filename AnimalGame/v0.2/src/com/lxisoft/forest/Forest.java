@@ -46,7 +46,7 @@ public class Forest
 				}
 				else if(GameHelper.checkIfAllAnimalsArePrey(animalList))
 				{
-					System.out.print("\n\n\t\t\t *** ALL PREDATORS ARE DEAD. THE PREYS LIVE HAPPILY EVER AFTER. ***") ;
+					System.out.print("\n\n\t\t\t *** ALL PREDATORS ARE DEAD. THE REMAINING PREYS LIVE HAPPILY EVER AFTER. ***") ;
 					return ;
 				}
 				else

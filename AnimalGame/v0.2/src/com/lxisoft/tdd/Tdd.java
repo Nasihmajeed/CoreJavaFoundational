@@ -9,8 +9,6 @@ public class Tdd
 	{
 		Game game = new Game() ;
 
-		char s = game.displayStartGamePrompt() ;
-		game.initialiseGame(s) ;
-		game.finaliseGame() ;
+		game.displayStartGamePrompt() ;
 	}
 }

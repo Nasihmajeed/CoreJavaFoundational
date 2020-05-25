@@ -107,8 +107,8 @@ public class GameHelper
 
 	public static void reduceAnimalStats(Animal animal1,Animal animal2)
 	{
-		int damageDone1 = generateRandomNumber(animal1.getStrength())+1;
-		int damageDone2 = generateRandomNumber(animal2.getStrength())+1;
+		int damageDone1 = generateRandomNumber(animal1.getStrength()+1)+1;
+		int damageDone2 = generateRandomNumber(animal2.getStrength()+1)+1;
 
 		System.out.print("\n\n\t\t\t " + animal1.getName() + " DID " + damageDone1 + " DAMAGE TO " + animal2.getName()) ;
 		animal2.setHealth(animal2.getHealth() - damageDone1) ;
@@ -135,14 +135,6 @@ public class GameHelper
 		return true ;
 	}
 
-	public static boolean checkIfAnimalIsDead(Animal animal)
-	{
-		if(animal.getIsAlive())
-			return false ;
-		else
-			return true ;
-	}
-
 	public static void checkWinner(ArrayList<Animal> animalList)
 	{
 		for(Animal animal : animalList)
@@ -153,5 +145,7 @@ public class GameHelper
 				return;
 			}
 		}
+
+		System.out.print("\n\n\t\t\t\t\t*** THERE IS NO WINNER! ALL ANIMALS KILLED EACH OTHER ***") ;
 	}
 }

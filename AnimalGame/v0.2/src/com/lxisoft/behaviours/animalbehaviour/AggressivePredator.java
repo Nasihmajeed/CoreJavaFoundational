@@ -23,10 +23,11 @@ public class AggressivePredator implements AnimalBehaviour
 		else
 		{
 			GameHelper.reduceAnimalStats(animal1,animal2) ;
-			boolean opponentIsDead = GameHelper.checkIfAnimalIsDead(animal2) ;
-			
-			if(opponentIsDead)
+			GameHelper.reduceAnimalStats(animal1,animal2) ;
+			if(!animal2.getIsAlive())
 				DisplayElements.printKillMessage(animal1,animal2) ;
+			else if(!animal1.getIsAlive())
+				DisplayElements.printKillMessage(animal2,animal1) ;
 		}
 	}
 }

@@ -11,16 +11,16 @@ public class Game
 	private Scanner in = new Scanner(System.in) ;
 	private Forest forest = new Forest() ;
 
-	public char displayStartGamePrompt()
+	public void displayStartGamePrompt()
 	{
 	
 		DisplayElements.showMainMenu() ;
 
-		System.out.print("\n\n\t Press 'Y' to Start. : ") ;
+		System.out.print("\n\n\t\t\t Press 'Y' to Start. : ") ;
 		char startGame = in.next().charAt(0) ;
 		in.nextLine() ;
 
-		return startGame ;
+		initialiseGame(startGame) ;
 	}
 
 	public void initialiseGame(char startGame)
@@ -32,6 +32,8 @@ public class Game
 			forest.displayExistingAnimals() ;
 
 			forest.meetAnimals() ;
+
+			finaliseGame() ;
 		}
 		else
 		{
