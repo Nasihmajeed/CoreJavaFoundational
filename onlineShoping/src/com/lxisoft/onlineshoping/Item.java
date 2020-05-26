@@ -2,18 +2,18 @@ package com.lxisoft.OnlineShoping;
 import java.util.*;
 public class Item implements Comparable<Item>
 {
-	private String itemName;
+	private String name;
 	private String catogey;
 	private int productNo;
 	private String feature;
 	private int price;
 	public void setItemName(String proName)
 	{
-		this.itemName=proName;
+		this.name=proName;
 	}
 	public String getItemName()
 	{
-		return this.itemName;
+		return this.name;
 	}
 	public void setCatogery(String proCatogery)
 	{

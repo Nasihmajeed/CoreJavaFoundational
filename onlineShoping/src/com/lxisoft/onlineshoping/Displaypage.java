@@ -1,10 +1,10 @@
 package com.lxisoft.OnlineShoping;
 import java.util.*;
 import com.lxisoft.OnlineShoping.Item;
-import com.lxisoft.OnlineShoping.FileOperation;
+import com.lxisoft.repository.FileOperation;
 import com.lxisoft.OnlineShoping.User;
 import com.lxisoft.OnlineShoping.Stock;
-import com.lxisoft.OnlineShoping.Cart;
+import com.lxisoft.properties.Cart;
 import com.lxisoft.OnlineShoping.BillDetail;
 import java.lang.Math;
 import java.util.Scanner;

@@ -1,8 +1,8 @@
 package com.lxisoft.OnlineShoping;
-public class CartDetail
+public class Carted_item
 {
-	String name;
-	String product;
+	private String name;
+	private String product;
 	public void setCustomer(String name)
 	{
 		this.name=name;
