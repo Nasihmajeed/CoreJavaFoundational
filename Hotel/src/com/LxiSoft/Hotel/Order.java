@@ -1,5 +1,2 @@
-package com.LxiSoft.Hotel;
-public class Orders;
-{
-	089
-}
+package com.LxiSoft.Hotel
+public class Order

@@ -1,37 +1,53 @@
 package com.LxiSoft.Hotel;
-public class Menu;
-{
+import java.util.Scanner;
+public class Menu
+{	
+	
+	public void getOrderDetails()
+	{
+		
+		
+		System.out.println("enter your no. of orders");
+		Scanner sc=new Scanner(System.in);
+		int itemNumber=sc.nextInt();
+		
+		  
 
-	Scanner sc=new Scanner();
-	Order order=new Order();
-	Employee employee=new Employee();
-	public void setMenu()
-{
-	System.out.println("Welcome");
-	System.out.println("*****MENU*****");
-        int meal1 = 15 ;
-        int meal2 = 17 ;
-        int meal3 = 13 ;
-        int choice ;
+        for ( int i = 1; i <= itemNumber ; i ++ )
+         {
+System.out.println("\n choose your item by pressing the corespondiong no.");
+       System.out.println("Enter 1 for coffee");
+       System.out.println("Enter 2 for TeA");
+       System.out.println("Enter 3 for lIME");
 
-        for ( int i = 1; i <= 5 ; i ++ ) {
+         
+				int choice;          
+           
+				System.out.println("ENTER YOUR CHOICE");
 
-         switch (choice)
+				choice=sc.nextInt();
+		
+           
 
-          {
-           case 1:
+        	String food;
 
-        System.out.println(" 1- Chicken Meal –  " + meal1 );
+        
+        switch (choice) {
+            case 1:
+                food = " coffee";
+                break;
+            case 2:
+                food = "tea";
+                break;
+            case 3:
+                food = "fresh lime";
+                break;
 
-        System.out.println(" 2- Beef Meal –   " + meal2 );
-
-        System.out.println(" 3- Vegetarian Meal - " + meal3 );
-
-         System.out.println(" 4- Done " );
-
-          System.out.println(" 5- Cancel " );
-
-                    break ;
-
--}
+            default:
+                food = "NO SUCH item";
+                break;
+        }
+        System.out.println("The choice is " + food);
+    }
+}
 }
