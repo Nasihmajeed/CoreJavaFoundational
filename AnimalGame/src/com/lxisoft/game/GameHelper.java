@@ -78,7 +78,7 @@ public class GameHelper
 	public static void reduceAnimalEnergy(Animal animal,int reduceFactor)
 	{
 		animal.setEnergy(animal.getEnergy() - (generateRandomNumber(reduceFactor)+1)) ;
-		System.out.print("\\\n\t\t\t " + animal.getName() +"'S ENERGY REDUCED TO "+ animal.getEnergy()) ;
+		System.out.print("\n\t\t\t " + animal.getName() +"'S ENERGY REDUCED TO "+ animal.getEnergy()) ;
 	}
 
 	public static void reduceAnimalStrength(Animal animal,int reduceFactor)
@@ -141,7 +141,7 @@ public class GameHelper
 		{
 			if(animal.getIsAlive())
 			{
-				System.out.print("\n\n\t\t\t*** WINNER IS "+ animal.getName() + " ! ***") ;
+				System.out.print("\n\n\t\t\t\t***THE WINNER IS "+ animal.getName() + " ! ***") ;
 				return;
 			}
 		}
