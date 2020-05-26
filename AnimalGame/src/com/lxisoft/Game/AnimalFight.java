@@ -160,8 +160,8 @@ public class AnimalFight
 	{
 		int strength1,strength2;
 		int ret = checkEnergy(r1,r2,animals);
-		strength1=animals.get(r1).strength;
-		strength2=animals.get(r2).strength;
+		strength1=animals.get(r1).getStrength();
+		strength2=animals.get(r2).getStrength();
 		if(ret==1 && strength1>strength2 )
 			return 1;
 		else if(ret==2 && strength2>strength1)
@@ -215,7 +215,7 @@ public class AnimalFight
 	 			System.out.print(animals.get(r1).getAnimalName() + " eat " +animals.get(r2).getAnimalName() +" => " );
 		 		((Carnivorus)animals.get(r1)).eat((animals.get(r1)).animalEnergy);
 	 		}
-		 	(animals.get(r2)).killedBy=animals.get(r1).getAnimalName();
+		 	(animals.get(r2)).setKilledBy(animals.get(r1).getAnimalName());
 			
 			
 	 	}
@@ -236,7 +236,7 @@ public class AnimalFight
 		 		((Carnivorus)animals.get(r2)).eat(animals.get(r2).animalEnergy);
 
 	 		}
-		 	(animals.get(r1)).killedBy=animals.get(r2).getAnimalName();
+		 	(animals.get(r1)).setKilledBy(animals.get(r2).getAnimalName());
 			(animals.get(r1)).dead();
 			
 	 	}
@@ -260,7 +260,7 @@ public class AnimalFight
 		System.out.println("\nAnimal 2 => \t( "+animal2X+", " +animal2Y+")" );
 
 		int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
-		int rad = ((animals.get(r1).range)+(animals.get(r2).range));
+		int rad = ((animals.get(r1).getRange())+(animals.get(r2).getRange()));
 
 		System.out.println("dist = "+ dist);
 		System.out.println("rad = "+ rad );

@@ -65,7 +65,7 @@ public class Forest
 		int n=animals.size();
 		for(int i=0;i<n;i++)
 			{
-				System.out.format("%15s %25d %30s %25s  \n" ,animals.get(i).getAnimalName() ,animals.get(i).animalEnergy,animals.get(i).getIsAlive(),animals.get(i).killedBy );
+				System.out.format("%15s %25d %30s %25s  \n" ,animals.get(i).getAnimalName() ,animals.get(i).animalEnergy,animals.get(i).getIsAlive(),animals.get(i). getKilledBy() );
 			}
 		System.out.println("+--------------------------------------------------------------------------------------------------+");
 	}
@@ -97,28 +97,28 @@ public class Forest
 		animals.get(8).setAnimalDetail("Elephant-2",50);
 		animals.get(9).setAnimalDetail("Rabbit-2",18);
 
-		animals.get(0).strength=70;
-		animals.get(1).strength=80;
-		animals.get(2).strength=40;
-		animals.get(3).strength=90;
-		animals.get(4).strength=20;
+		animals.get(0).setStrength(70);
+		animals.get(1).setStrength(80);
+		animals.get(2).setStrength(40);
+		animals.get(3).setStrength(90);
+		animals.get(4).setStrength(20);
 		
-		animals.get(5).strength=70;
-		animals.get(6).strength=80;
-		animals.get(7).strength=40;
-		animals.get(8).strength=90;
-		animals.get(9).strength=20;
+		animals.get(5).setStrength(70);
+		animals.get(6).setStrength(80);
+		animals.get(7).setStrength(40);
+		animals.get(8).setStrength(90);
+		animals.get(9).setStrength(20);
 		
-		animals.get(0).range=16;
-		animals.get(2).range=12;
-		animals.get(3).range=10;
-		animals.get(4).range=8;
+		animals.get(0).setRange(16);
+		animals.get(2).setRange(12);
+		animals.get(3).setRange(10);
+		animals.get(4).setRange(8);
 		
-		animals.get(5).range=16;
-		animals.get(6).range=14;
-		animals.get(7).range=12;
-		animals.get(8).range=10;
-		animals.get(9).range=8;
+		animals.get(5).setRange(16);
+		animals.get(6).setRange(14);
+		animals.get(7).setRange(12);
+		animals.get(8).setRange(10);
+		animals.get(9).setRange(8);
 	}
 
 	private int randomNumber()
@@ -181,7 +181,7 @@ public class Forest
 	 		{
 	 			System.out.println("\n**************************************************");
 	 			System.out.println("=> WINNER IS " + animals.get(i).getAnimalName());
-	 			animals.get(i).killedBy="WINNER";
+	 			animals.get(i).setKilledBy("WINNER");
 	 			System.out.println("**************************************************");
 	 		}
 	 		

@@ -9,6 +9,24 @@ public class Animal
 	String killedBy;
 	int strength, range;
 
+public void setKilledBy(String by)
+{
+	killedBy=by;
+}
+
+public String getKilledBy()
+{
+	return killedBy;
+}
+
+public int getRange()
+{
+	return range;
+}
+public void setRange(int r)
+{
+	range = r;
+}
 
 
 	public void setAnimalName(String name)
