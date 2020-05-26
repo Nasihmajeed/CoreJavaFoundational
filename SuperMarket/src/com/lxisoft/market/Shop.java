@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.Comparator; 
 public class Shop
 {
+	int numbers;
 	private String shopName="EVERGREEN ENTERPRISES";
 	private String address="Pookotukavu";
 	private String place="Kadambur";
@@ -43,7 +44,7 @@ public class Shop
 			do
 			{
 				isTest=false;
-				System.out.println("\n1.Add Item \n2.Add Stock \n3.Display Item \n4.Display Stock \n5.Employee \n5.Exit");
+				System.out.println("\n1.Add Item \n2.Add Stock \n3.Display Item \n4.Display Stock \n5.Bill \n5.Exit");
 				int m=sc.nextInt();
 				switch (m)
 				{
@@ -51,7 +52,8 @@ public class Shop
 					case 2: setStock(); isTest=true;  break;
 					case 3: getItem(); isTest=true; break;
 					case 4: getCurrentStock(); isTest=true; break;
-					case 5: System.exit(0); break;	
+					case 5: printBill(); isTest=true; break;
+					case 6: System.exit(0); break;	
 					
 				}
 			}while(isTest);
@@ -109,6 +111,56 @@ public class Shop
 
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(k).getId(),items.get(k).getName(),stock.get(k).getQuantity());	
 		}	 		      	                                          	
+	}
+	public void printBill()
+	{	
+		boolean sample=false;	
+		do{
+			sample=false;
+			
+			System.out.println("\nSelect Your item");
+			curentStock();
+			System.out.println("Do you want More 1.No 2.Yes");
+			int n=sc.nextInt();
+			if (n==1)
+			{
+				break;
+			}
+			else
+			{
+				continue;
+			}	
+		}
+		while(sample);		
+	}	
+	public void curentStock()
+	{
+		for(int q=0;q<items.size();q++)
+		{
+			String d=sc.next();
+			if((items.get(q).getName()).equals(d))				
+			{
+				System.out.println("How much items do you want");
+				int qty=sc.nextInt();	
+                int val=(stock.get(q).getQuantity()-numbers);
+                stock.get(q).setQuantity(val);
+                System.out.println("Current stock"+(stock.get(q).getQuantity()));				
+				if(stock.get(q).getQuantity()>=numbers)
+				{
+					
+					System.out.println("\nAvailable Stocks");
+					System.out.printf("%-20.30s %-20.30s %-20.30s%n","items Type","items Price","Quantity");
+					System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(q).getName(),items.get(q).getPrice(),numbers);
+					System.out.println("Total Bill Amount="+((items.get(q).getPrice())*(numbers)));
+				}			
+				else if(stock.get(q).getQuantity()<numbers)
+				{	
+					System.out.println("- Stock");
+					break;
+				}					
+			}		
+		}			
+						
 	}
 /*	public void displayAll()
 	{		

@@ -6,6 +6,7 @@ import java.lang.*;
 import java.io.*;  
 public class Item implements Comparable<Item>
 {	
+	int numbers;
 	private int id;
 	private String name;
 	private int price;	
@@ -55,6 +56,7 @@ public class Item implements Comparable<Item>
                 ", price=" + price +
                 '}';
     }
+    
 
 	
 }
