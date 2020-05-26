@@ -1,6 +1,10 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.repository;
 import java.util.*;
 import java.io.*;
+import com.lxisoft.property.Cart;
+import com.lxisoft.property.Products;
+import com.lxisoft.property.User;
+import com.lxisoft.property.Purchasedproducts;
 public class FileOperation
 {
 	ArrayList<Item> items=new ArrayList<Item>();
@@ -72,10 +76,10 @@ public class FileOperation
 			user.setAddress(data[2]);
 			int pincode = Integer.parseInt(data[3]);
 			user.setPincode(pincode);
-			userDetail.add(user);
+			userDetails.add(user);
 			
 		}
-		return userDetail;
+		return userDetails;
 	}
 	public void cartProduct(Item product,User user)
 	{

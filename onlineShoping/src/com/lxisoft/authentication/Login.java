@@ -1,4 +1,4 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.authentication;
 import com.lxisoft.OnlineShoping.User;
 import com.lxisoft.OnlineShoping.FileOperation;
 import java.util.Scanner;

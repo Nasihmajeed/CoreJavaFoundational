@@ -54,10 +54,7 @@ public class BillDetail extends Detail implements PaymentMethod
 		}
 		
 	}
-	public void cashOnDelivery()
-	{
-		System.out.println("Done it will be deliver");
-	}
+	
 	public void payOnline()
 	{
 		System.out.println("select Bank : ");
