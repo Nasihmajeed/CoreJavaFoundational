@@ -109,7 +109,16 @@ public class Forest
 		animals.get(8).strength=90;
 		animals.get(9).strength=20;
 		
+		animals.get(0).range=16;
+		animals.get(2).range=12;
+		animals.get(3).range=10;
+		animals.get(4).range=8;
 		
+		animals.get(5).range=16;
+		animals.get(6).range=14;
+		animals.get(7).range=12;
+		animals.get(8).range=10;
+		animals.get(9).range=8;
 	}
 
 	private int randomNumber()
@@ -143,14 +152,18 @@ public class Forest
 				System.out.println("\n---------------------------------------------------------------------------");
 				System.out.println("\t\t => Round - " + round+ " \t => " + animal1+" Meets "+animal2);
 				System.out.println("---------------------------------------------------------------------------");
-				round++;
-				System.out.print("Animal Energy -->");
-				System.out.print(" Before  Fight \n");
-				System.out.println("\t\t  **************");
-				System.out.println("\t\t"+animal1+" <=> "+animal2);
-				System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy );
-				fight.assignAnimalType(r1,r2,animals);
-				fight.checkFightType(r1,r2,animals);
+				if(fight.checkArea(r1,r2,animals))
+				{	
+								
+								round++;
+								System.out.print("Animal Energy -->");
+								System.out.print(" Before  Fight \n");
+								System.out.println("\t\t  **************");
+								System.out.println("\t\t"+animal1+" <=> "+animal2);
+								System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy );
+								fight.assignAnimalType(r1,r2,animals);
+								fight.checkFightType(r1,r2,animals);
+				}
 				
 				
 			}

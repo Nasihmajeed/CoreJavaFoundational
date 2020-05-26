@@ -46,24 +46,38 @@ public class AnimalFight
 		else
 		{	
 			
+			
+			carVsHerb(r1,r2,animals);
 			// ((Carnivorus)animals.get(r1)).fight();
 			// ((Herbivorus)animals.get(r2)).fight();
-			carVsHerb(r1,r2,animals);
 		}		
 	
 	}
 	public void carVsHerb(int r1,int r2, ArrayList<Animal> animals)
 	{
 		int luckOfHerb = luckFactor();
-		if (luckOfHerb==1)
+		if(animals.get(r2) instanceof WeakAnimal)
 		{
-			System.out.println("\n"+(animals.get(r2)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r1)).getAnimalName());
+			if (luckOfHerb==1)
+			{
+				System.out.println("\n"+(animals.get(r2)).getAnimalName() +" have Luck -- It escaped from " + (animals.get(r1)).getAnimalName());
+			}
+			else
+			{
+				System.out.println("=> " + animals.get(r2).getAnimalName() + " is a  WEAK ANIMAL ");
+				System.out.println( "\n"+animals.get(r2).getAnimalName()+" have NO LUCK :) ");
+				int won = checkStrength(r1,r2,animals);
+				printResult(won,r1,r2,animals);
+				((Carnivorus)animals.get(r1)).fight();
+				((Herbivorus)animals.get(r2)).fight();
+			}
 		}
 		else
 		{
-			System.out.println( "\n"+animals.get(r2).getAnimalName()+" have NO LUCK :) ");
 			int won = checkStrength(r1,r2,animals);
 			printResult(won,r1,r2,animals);
+			((Carnivorus)animals.get(r1)).fight();
+			((Herbivorus)animals.get(r2)).fight();
 		}
 	}
 
@@ -101,8 +115,6 @@ public class AnimalFight
 
 		int won = checkStrength(r1,r2,animals);
 		printResult(won,r1,r2,animals);
-		((Carnivorus)animals.get(r1)).fight();
-		((Herbivorus)animals.get(r2)).fight();
 
 	}
 
@@ -228,27 +240,6 @@ public class AnimalFight
 			(animals.get(r1)).dead();
 			
 	 	}
-	 	// else
-	 	// {
-	 	// 	(animals.get(r2)).dead();
-	 		
-	 	// 	System.out.print("\nAnimal Energy -->");
-			// System.out.println(" After Fight");
-			// System.out.println("\t\t  ***********");
-			// System.out.println("\t\t"+animal1+" <=> "+animal2);
-			// System.out.println("\t\t"+animals.get(r1).animalEnergy + "\t     " + animals.get(r2).animalEnergy+"\n" );
-
-
-	 	// 	System.out.println("\n"+animals.get(r1).getAnimalName() +" killed "+animals.get(r2).getAnimalName());
-	 	// 	if(animals.get(r1) instanceof Carnivorus )
-	 	// 	{
-	 	// 		System.out.print(animals.get(r1).getAnimalName() + " eat " +animals.get(r2).getAnimalName() +" => " );
-		 // 		((Carnivorus)animals.get(r1)).eat(animals.get(r2).animalEnergy);
-	 	// 	}
-		 // 	(animals.get(r2)).killedBy=animals.get(r1).getAnimalName();
-			
-			
-	 	// }
 	 }
 	 private int luckFactor()
 	 {
@@ -256,7 +247,36 @@ public class AnimalFight
 		int n = rand.nextInt(2);
 		return n;
 	 }
+	public boolean checkArea(int r1, int r2, ArrayList<Animal> animals)
+	{
+		int animal1X,animal1Y,animal2X,animal2Y;
 
+		animal1X= 10 + (int) (Math.random()*50);
+		animal1Y= 10 + (int) (Math.random()*50);
+		animal2X= 10 + (int) (Math.random()*50);
+		animal2Y= 10 + (int) (Math.random()*50);
+
+		System.out.println("\nAnimal 1 => \t( "+animal1X+", " +animal1Y+")" );
+		System.out.println("\nAnimal 2 => \t( "+animal2X+", " +animal2Y+")" );
+
+		int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
+		int rad = ((animals.get(r1).range)+(animals.get(r2).range));
+
+		System.out.println("dist = "+ dist);
+		System.out.println("rad = "+ rad );
+		if(dist<= rad)
+		{
+			System.out.println(animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in SAME TERRITORY \n");
+			return true;
+		}
+		else
+		{
+			System.out.println(animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n => No FIGHT TAKES PLACE");
+			return false;
+
+		}
+
+	}
 
 
 }

@@ -7,7 +7,7 @@ public class Animal
 	private String type;
 	int luck;
 	String killedBy;
-	int strength;
+	int strength, range;
 
 
 
