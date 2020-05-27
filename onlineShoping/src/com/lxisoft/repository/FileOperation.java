@@ -3,15 +3,15 @@ import java.util.*;
 import java.io.*;
 import com.lxisoft.property.Cart;
 import com.lxisoft.property.Products;
-import com.lxisoft.property.User;
+import com.lxisoft.property.Customer;
 import com.lxisoft.property.Purchasedproducts;
 public class FileOperation
 {
-	ArrayList<Item> items=new ArrayList<Item>();
-	ArrayList<User> userDetails=new ArrayList<User>();
-	String[] data;
-	ArrayList<CartDetail>details=new ArrayList<CartDetail>();
-	ArrayList<BuyDetail>details=new ArrayList<BuyDetail>();
+	private ArrayList<Item> items=new ArrayList<Item>();
+	private ArrayList<Customer> customerDetails=new ArrayList<Customer>();
+	private String[] data;
+	private ArrayList<CartDetail>details=new ArrayList<CartDetail>();
+	private ArrayList<BuyDetail>details=new ArrayList<BuyDetail>();
 	public ArrayList<Item> readProductDetails()throws Exception 
 	{
 
@@ -62,21 +62,21 @@ public class FileOperation
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<User> readUserDetails(User user)throws Exception 
+	public ArrayList<Customer> readCustomerDetails(Customer customer)throws Exception 
 	{
-		String csvFile="../Src/com/lxisoft/OnlineShoping/User.csv";
+		String csvFile="../Src/com/lxisoft/OnlineShoping/Customer.csv";
 		BufferedReader br=new BufferedReader(new FileReader(csvFile));
 		String s;
 		while((s=br.readLine())!=null)
 		{
-			user=new User();
+			customer=new Customer();
 			String[] data=s.split(",");
-			user.setName(data[0]);
-			user.setPassword(data[1]);
-			user.setAddress(data[2]);
+			customer.setName(data[0]);
+			customer.setPassword(data[1]);
+			customer.setAddress(data[2]);
 			int pincode = Integer.parseInt(data[3]);
-			user.setPincode(pincode);
-			userDetails.add(user);
+			customer.setPincode(pincode);
+			customerDetails.add(customer);
 			
 		}
 		return userDetails;

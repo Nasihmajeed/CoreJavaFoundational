@@ -1,4 +1,4 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.onlineshoping;
 import java.util.*;
 public class Item implements Comparable<Item>
 {

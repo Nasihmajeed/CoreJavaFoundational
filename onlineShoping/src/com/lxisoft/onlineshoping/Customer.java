@@ -1,5 +1,5 @@
-package com.lxisoft.OnlineShoping;
-public class User
+package com.lxisoft.onlineshoping;
+public class Customer
 {
 	private String name;
 	private String password;

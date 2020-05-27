@@ -2,9 +2,9 @@ package com.lxisoft.onlineshoping;
 import com.lxisoft.FileOperation;
 public class Sale
 {
-	FileOperation fo=new FileOperation();
-	ArrayList<BuyDetail> purchasedItems;
-	Purchase_Item item
+	private FileOperation fo=new FileOperation();
+	private ArrayList<BuyDetail> purchasedItems;
+	private Purchase_Item item
 	public void buyProduct(Item product,User user)
 	{
 		

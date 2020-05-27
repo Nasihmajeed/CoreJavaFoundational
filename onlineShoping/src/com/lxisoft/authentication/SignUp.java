@@ -6,11 +6,11 @@ import com.lxisoft.OnlineShoping.FileOperation;
 public class SignUp
 {
 	FileOperation fo;
-	User user;
-	ArrayList<User>userDet=new ArrayList<User>();
+	Customer customer;
+	ArrayList<Customer>userDet=new ArrayList<Customer>();
 	final void userSignup()
 	{
-		user=new User();
+		customer=new Customer();
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter User Name : ");
 		String name=scr.next();

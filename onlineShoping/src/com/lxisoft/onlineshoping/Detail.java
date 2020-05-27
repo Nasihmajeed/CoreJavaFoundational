@@ -1,7 +1,7 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.onlineshoping;
 public abstract class Detail
 {
-	int productID;
+	private int productID;
 	public abstract void buyProduct(Item product,User user);
 	public abstract void buyDetails(Item product,User user);
 	

@@ -1,23 +1,18 @@
-package com.lxisoft.OnlineShoping;
-import com.lxisoft.OnlineShoping.DisplayPage;
-import com.lxisoft.OnlineShoping.Item;
-import com.lxisoft.OnlineShoping.FileOperation;
-import com.lxisoft.OnlineShoping.BuyDetail;
-import com.lxisoft.OnlineShoping.PaymentDetail;
+package com.lxisoft.onlineshoping;
+import com.lxisoft.onlineshoping.DisplayPage;
+import com.lxisoft.onlineshoping.Item;
+import com.lxisoft.onlineshoping.FileOperation;
+import com.lxisoft.onlineshoping.BuyDetail;
+import com.lxisoft.onlineshoping.PaymentDetail;
 import java.lang.Math;
 import java.util.Scanner;
 import java.util.*;
 public class BillDetail extends Detail implements PaymentMethod
 {
-	int productID;
-	ArrayList<Item> purchasedItems=new ArrayList<Item>();
-	Item item;
-	
-	
-	Scanner scr=new Scanner(System.in);
-	
-	
-	public void billDetail(Item product,User user)
+	private int productID;
+	private ArrayList<Item> purchasedItems=new ArrayList<Item>();
+	private Scanner scr=new Scanner(System.in);
+	public void purchasedBillDetail(Item product,User user)
 	{
 		int date=(int)(Math.random()*30)+1;
 		int month=(int)(Math.random()*11)+1;

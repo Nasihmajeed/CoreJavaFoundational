@@ -1,19 +1,19 @@
-package com.lxisoft.OnlineShoping;
-import com.lxisoft.OnlineShoping.Item;
-import com.lxisoft.OnlineShoping.Cart;
-import com.lxisoft.OnlineShoping.FileOperation;
+package com.lxisoft.onlineshoping;
+import com.lxisoft.onlineshoping.Item;
+import com.lxisoft.onlineshoping.Cart;
+import com.lxisoft.onlineshoping.FileOperation;
 import java.util.*;
-import com.lxisoft.OnlineShoping.DisplayPage;
-import com.lxisoft.OnlineShoping.CartDetail;
+import com.lxisoft.onlineshoping.DisplayPage;
+import com.lxisoft.onlineshoping.CartDetail;
 public class Cart
 {
-	ArrayList<Item>cartProduct=new ArrayList<Item>();
-	FileOperation fo=new FileOperation();
-	DisplayPage dp;
-	CartDetail cd;
+	private ArrayList<Item>cartProduct=new ArrayList<Item>();
+	private FileOperation fo=new FileOperation();
+	private DisplayPage dp;
+	private CartDetail cd;
 
-	User userDetail;
-	Item product;
+	private User userDetail;
+	private Item product;
 	final void cartItem(Item product,User user)throws Exception
 	{
 		dp=new DisplayPage();

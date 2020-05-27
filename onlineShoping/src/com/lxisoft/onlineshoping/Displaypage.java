@@ -1,26 +1,26 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.onlineshoping;
 import java.util.*;
-import com.lxisoft.OnlineShoping.Item;
+import com.lxisoft.onlineshoping.Item;
 import com.lxisoft.repository.FileOperation;
-import com.lxisoft.OnlineShoping.User;
-import com.lxisoft.OnlineShoping.Stock;
+import com.lxisoft.onlineshoping.Customer;
+import com.lxisoft.onlineshoping.Stock;
 import com.lxisoft.properties.Cart;
-import com.lxisoft.OnlineShoping.BillDetail;
+import com.lxisoft.onlineshoping.BillDetail;
 import java.lang.Math;
 import java.util.Scanner;
 public class DisplayPage
 {
-	Scanner scr=new Scanner(System.in);
-	User user;
-	Stock stock=new Stock();
-	Login userLogin=new Login();
-	FileOperation fo=new FileOperation();
-	ArrayList<Item>products=new ArrayList<Item>();
-	Cart cart=new Cart();
-	BillDetail billDetail;
+	private	Scanner scr=new Scanner(System.in);
+	private Customer customer;
+	private Stock stock=new Stock();
+	private Login userLogin=new Login();
+	private FileOperation fo=new FileOperation();
+	private ArrayList<Item>products=new ArrayList<Item>();
+	private Cart cart=new Cart();
+	private BillDetail billDetail;
 	public void login()throws Exception 
 	{
-		ArrayList<User> usrers=fo.readUserDetails(user);
+		ArrayList<Customer> customers=fo.readCustomerDetails(customer);
 		ArrayList<String>log=new ArrayList<String>();
 		ArrayList<String> logDet=userLogin.getUserLogin();
 		System.out.println("       Yellow.coM");

@@ -1,4 +1,4 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.onlineshoping;
 public class Purchase_item
 {
 	private String name;

@@ -1,4 +1,4 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.onlineshoping;
 public class Carted_item
 {
 	private String name;
