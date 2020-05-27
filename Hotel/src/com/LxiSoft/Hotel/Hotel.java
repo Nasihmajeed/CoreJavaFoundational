@@ -16,7 +16,7 @@ public void printHotel()
 
 public void printDetail()
 {
-	menu.getOrderDetails();
+	menu.printMenu();
 }
 }
    
