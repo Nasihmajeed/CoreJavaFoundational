@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-import com.lxisoft.Game.*;
+package com.lxisoft.animal;
+import com.lxisoft.game.*;
 public class Fox extends Animal implements Carnivorus,WeakAnimal
 {
 	public void eat(int energy)

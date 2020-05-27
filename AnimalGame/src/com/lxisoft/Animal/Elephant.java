@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-import com.lxisoft.Game.*;
+package com.lxisoft.animal;
+import com.lxisoft.game.*;
 public class Elephant extends Animal implements Herbivorus,StrongAnimal
 {
 	public void Beat()

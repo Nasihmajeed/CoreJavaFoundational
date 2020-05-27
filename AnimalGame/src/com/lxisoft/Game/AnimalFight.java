@@ -1,4 +1,4 @@
-package com.lxisoft.Game;
+package com.lxisoft.game;
 import java.util.*;
 public class AnimalFight
 {
@@ -23,34 +23,19 @@ public class AnimalFight
 		String type1,type2;
 		type1=animals.get(r1).getType();
 		type2 = animals.get(r2).getType();
+
 		if(type1.equals("Herbivorus") && type2.equals("Carnivorus"))
-		{
-			
-			// ((Herbivorus)animals.get(r1)).fight();
-			// ((Carnivorus)animals.get(r2)).fight();
 			herbVsCar(r1,r2,animals);
-		}
 		else if(type1.equals("Carnivorus") && type2.equals("Carnivorus"))
 		{
-			
 			((Carnivorus)animals.get(r1)).fight();
 			((Carnivorus)animals.get(r2)).fight();
 			carVsCar(r1,r2,animals);
 		}
 		 else if(type1.equals("Herbivorus") && type2.equals("Herbivorus"))
-		{
-			// ((Herbivorus)animals.get(r1)).fight();
-			// ((Herbivorus)animals.get(r2)).fight();
 			herbVsHerb(r1,r2,animals);
-		}
 		else
-		{	
-			
-			
-			carVsHerb(r1,r2,animals);
-			// ((Carnivorus)animals.get(r1)).fight();
-			// ((Herbivorus)animals.get(r2)).fight();
-		}		
+			carVsHerb(r1,r2,animals);		
 	
 	}
 	public void carVsHerb(int r1,int r2, ArrayList<Animal> animals)
@@ -170,7 +155,6 @@ public class AnimalFight
 		{
 			if(animals.get(r2).animalEnergy<45)
 			{
-				System.out.println("\n => animals.get(r2).animalEnergy = " + animals.get(r2).animalEnergy);
 				System.out.println(animals.get(r2).getAnimalName() + " Have less Energy ");
 				return 1;
 			}
@@ -255,23 +239,27 @@ public class AnimalFight
 		animal1Y= 10 + (int) (Math.random()*50);
 		animal2X= 10 + (int) (Math.random()*50);
 		animal2Y= 10 + (int) (Math.random()*50);
-
-		System.out.println("\nAnimal 1 => \t( "+animal1X+", " +animal1Y+")" );
-		System.out.println("\nAnimal 2 => \t( "+animal2X+", " +animal2Y+")" );
+		System.out.println("\t TERRITORY DETAILS ");
+		System.out.println("   **************************");
+		System.out.println("\n"+animals.get(r1).getAnimalName() +"=> \t( "+animal1X+", " +animal1Y+")" + "\t Range =  " +animals.get(r1).range );
+		System.out.println("\n"+animals.get(r2).getAnimalName()+" => \t( "+animal2X+", " +animal2Y+")" + "\t Range =  " +animals.get(r2).range);
 
 		int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
 		int rad = ((animals.get(r1).getRange())+(animals.get(r2).getRange()));
 
-		System.out.println("dist = "+ dist);
-		System.out.println("rad = "+ rad );
+		// System.out.println("dist = "+ dist);
+		// System.out.println("rad = "+ rad );
 		if(dist<= rad)
 		{
-			System.out.println(animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in SAME TERRITORY \n");
+
+			System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in SAME TERRITORY \n");
 			return true;
 		}
 		else
 		{
-			System.out.println(animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n => No FIGHT TAKES PLACE");
+			if(((animals.get(r1)) instanceof Herbivorus) && ((animals.get(r2)) instanceof Herbivorus))
+				System.out.println("\n\t\t=> "+" Both Are Herbivorus => No Fight Happens");
+			System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n\t\t=> No FIGHT TAKES PLACE");
 			return false;
 
 		}

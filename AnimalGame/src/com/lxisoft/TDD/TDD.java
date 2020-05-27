@@ -1,5 +1,5 @@
-package com.lxisoft.TDD;
-import com.lxisoft.Game.*;
+package com.lxisoft.tdd;
+import com.lxisoft.game.*;
 
 public class TDD
 {

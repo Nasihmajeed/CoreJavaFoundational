@@ -1,4 +1,4 @@
-package com.lxisoft.Game;
+package com.lxisoft.game;
 public class Clear
 {
 	public static void cls()

@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-import com.lxisoft.Game.*;
+package com.lxisoft.animal;
+import com.lxisoft.game.*;
 public class Rabbit extends Animal implements Herbivorus,WeakAnimal
 {
 	public void Beat()

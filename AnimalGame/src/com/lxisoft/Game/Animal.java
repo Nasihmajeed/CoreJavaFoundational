@@ -1,4 +1,4 @@
-package com.lxisoft.Game;
+package com.lxisoft.game;
 public class Animal
 {
 	private String animalName;
@@ -8,6 +8,7 @@ public class Animal
 	int luck;
 	String killedBy;
 	int strength, range;
+	int[] location = new int[2];
 
 public void setKilledBy(String by)
 {
@@ -97,7 +98,15 @@ public void setRange(int r)
 		else
 			return "Dead";
 	}
+	public void setLocation(int x , int y)
+	{
+		location[0]=x;
+		location[1]=y;
+	}
 
-	
+	public int[] getLocation()
+	{
+		return location;
+	}
 
 }

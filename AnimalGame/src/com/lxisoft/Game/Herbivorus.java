@@ -1,4 +1,4 @@
-package com.lxisoft.Game;
+package com.lxisoft.game;
 public interface Herbivorus
 {
 	void Beat();

@@ -1,11 +1,12 @@
-package com.lxisoft.Game;
+package com.lxisoft.game;
 import java.util.*;
-import com.lxisoft.Animal.*;
+import com.lxisoft.animal.*;
 public class Forest
 {
 	int round=1;
 	ArrayList<Animal> animals = new ArrayList<Animal>();
 	AnimalFight fight = new AnimalFight();
+	int numberOfHerbi=4,numberOfCarni=6;
 	
 
 	public void gameStart()
@@ -110,18 +111,26 @@ public class Forest
 		animals.get(9).setStrength(20);
 		
 		animals.get(0).setRange(16);
-		animals.get(2).setRange(12);
-		animals.get(3).setRange(10);
-		animals.get(4).setRange(8);
+		animals.get(1).setRange(20);
+		animals.get(2).setRange(8);
+		animals.get(3).setRange(12);
+		animals.get(4).setRange(5);
 		
 		animals.get(5).setRange(16);
-		animals.get(6).setRange(14);
-		animals.get(7).setRange(12);
-		animals.get(8).setRange(10);
-		animals.get(9).setRange(8);
+		animals.get(6).setRange(20);
+		animals.get(7).setRange(8);
+		animals.get(8).setRange(12);
+		animals.get(9).setRange(5);
 	}
+	// private void initializeLocation()
+	// {
 
-	private int randomNumber()
+	// 	int n1 =  10 + (int) (Math.random()*50);
+	// 	int n2 =  10 + (int) (Math.random()*50);
+	// }
+
+
+	private int getRandomNumber()
 	{
 		Random rand = new Random();
 		int n = rand.nextInt(10);
@@ -131,18 +140,19 @@ public class Forest
 	public void animalMeet()
 	{
 
+
 		int r1,r2,n;
 		n=animals.size();
 		int finished=10;
 
-		while(finished>1)
+		while((finished>1) || (numberOfHerbi<=4 && numberOfCarni==0))
 		{
-			r1=randomNumber();
-			r2=randomNumber();
+			r1=getRandomNumber();
+			r2=getRandomNumber();
 			if((r1==r2) || animals.get(r1).animalEnergy==0 || animals.get(r2).animalEnergy==0 )
 			{
-				r1=randomNumber();
-				r2=randomNumber();
+				r1=getRandomNumber();
+				r2=getRandomNumber();
 
 			}
 			else
@@ -194,8 +204,16 @@ public class Forest
 	 	for(int k=0;k<10;k++)
 	 	{
 	 		if(animals.get(k).isAlive==true)
-	 			finished++;
-	 		
+	 		{
+	 			if(animals.get(k) instanceof Herbivorus)
+	 				numberOfHerbi--;
+	 			else
+	 				numberOfCarni--;		
+
+	 		finished++;
+	 		// System.out.println("herbi => "+numberOfHerbi);
+	 		// System.out.println("carni => "+numberOfCarni);
+	 		}
 	 	}
 	 	return finished;
 	 }
