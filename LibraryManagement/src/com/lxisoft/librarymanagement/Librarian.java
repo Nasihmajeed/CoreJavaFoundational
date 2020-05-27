@@ -35,31 +35,6 @@ public int display()
         }while(ch!=6);
     }
 
-	
-
-	// public void displayOptions()
- //    {
- //    	Scanner sc=new Scanner(System.in);
- //    	int ch=sc.nextInt();
- //        do
- //        {
-	        
-	// 		System.out.println("\n             Enter your choice:");
-	// 		System.out.println("             1-Add\n             2-View\n             3-Search\n             4-Sort\n             5-Exit");
-	// 		List<Book>bookList=new ArrayList<Book>();
-			
-	// 		switch(ch)
- //            {
- //                case 1:addBook();break;
- //                case 2:getAllBooks();break; 
- //                case 3:searchDetails();break;
- //                case 4:sorted(bookList);    
- //                case 5:System.exit(0);break;
- //            } 
- //        }while(ch!=6);
- //    }
-
-
     public Book addBook()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -88,9 +63,7 @@ public int display()
 			{
 				System.out.println("\t  "+bookList.get(i).getId()+"\t"+bookList.get(i).getName()+"\t"+bookList.get(i).getAuther()+"\t"+bookList.get(i).getPublisher());
 			}
-			
-		}
-		 
+		} 
 	}
 
     public int sort(List<Book>bookList)
@@ -111,17 +84,6 @@ public int display()
 
 	public void sorted(List<Book>bookList)
 	{
-		// Scanner sc=new Scanner(System.in);
-		// System.out.println("             Enter your choice:");
-		// System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Sorted by Auther\n             4-Exit");
-		// int a=sc.nextInt();
-		// for(int i=0;i<bookList.size();i++)
-		// {
-		// 	System.out.println("Id="+bookList.get(i).getId());
-  //    		System.out.println("Name="+bookList.get(i).getName());
-  //    		System.out.println("Auther="+bookList.get(i).getAuther());
-  //    		System.out.println("Publisher="+bookList.get(i).getPublisher());
-  //    	}
 		int a=0;
 		do
 		{
