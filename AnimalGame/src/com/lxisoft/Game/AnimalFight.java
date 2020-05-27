@@ -246,9 +246,6 @@ public class AnimalFight
 
 		int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
 		int rad = ((animals.get(r1).getRange())+(animals.get(r2).getRange()));
-
-		// System.out.println("dist = "+ dist);
-		// System.out.println("rad = "+ rad );
 		if(dist<= rad)
 		{
 

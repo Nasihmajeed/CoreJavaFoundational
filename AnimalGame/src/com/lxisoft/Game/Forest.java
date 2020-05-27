@@ -6,7 +6,6 @@ public class Forest
 	int round=1;
 	ArrayList<Animal> animals = new ArrayList<Animal>();
 	AnimalFight fight = new AnimalFight();
-	int numberOfHerbi=4,numberOfCarni=6;
 	
 
 	public void gameStart()
@@ -122,13 +121,6 @@ public class Forest
 		animals.get(8).setRange(12);
 		animals.get(9).setRange(5);
 	}
-	// private void initializeLocation()
-	// {
-
-	// 	int n1 =  10 + (int) (Math.random()*50);
-	// 	int n2 =  10 + (int) (Math.random()*50);
-	// }
-
 
 	private int getRandomNumber()
 	{
@@ -145,7 +137,7 @@ public class Forest
 		n=animals.size();
 		int finished=10;
 
-		while((finished>1) || (numberOfHerbi<=4 && numberOfCarni==0))
+		while((finished>1) )
 		{
 			r1=getRandomNumber();
 			r2=getRandomNumber();
@@ -211,8 +203,6 @@ public class Forest
 	 				numberOfCarni--;		
 
 	 		finished++;
-	 		// System.out.println("herbi => "+numberOfHerbi);
-	 		// System.out.println("carni => "+numberOfCarni);
 	 		}
 	 	}
 	 	return finished;
