@@ -15,6 +15,9 @@ public class Hotel{
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
+		System.out.println("                                                                                                 ");
 		System.out.println("**************************************************************************************************");
 
 	System.out.println(" **************************HOTEL NOORJAHAN**************************************");

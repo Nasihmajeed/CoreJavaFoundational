@@ -6,6 +6,7 @@ public class Order{
 	Chickenbiriyani[] cb;
 	Vegbiriyani[] vb;
 	Regularmeals[] rm;
+	int total;
 
 		public void setFoodItemDetails(){
 
