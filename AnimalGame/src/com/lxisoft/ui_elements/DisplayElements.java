@@ -37,7 +37,7 @@ public class DisplayElements
 	    ConsoleElements.delayPrintTime(700) ;
 		System.out.print(" \n\n\t\t  POPULATING THE FOREST WITH WILD ANIMALS... \n") ;
 		ConsoleElements.delayPrintTime(800) ;
-        System.out.print(" \n\n\t\t  RANDOMIZING ALL EVENTS... \n\n\t\t\t\t\t\t\t\t\t\t v0.2\n\t +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+  \n  ") ;
+        System.out.print(" \n\n\t\t  RANDOMIZING ALL EVENTS... \n\n\t\t\t\t\t\t\t\t\t\t v0.3\n\t +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+  \n  ") ;
 		ConsoleElements.delayPrintTime(700) ;
 
 		showProgressBar() ;

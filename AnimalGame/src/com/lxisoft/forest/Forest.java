@@ -8,6 +8,7 @@ import com.lxisoft.ui_elements.* ;
 public class Forest
 {
 	private ArrayList<Animal> animalList = new ArrayList<Animal>() ;
+	private Animal[][] forestArea = new Animal[10][10] ;
 
 	public ArrayList<Animal> getAnimalList()
 	{
@@ -18,61 +19,76 @@ public class Forest
 		animalList = aL ;
 	}
 
+	public Animal[][] getForestArea()
+	{
+		return forestArea ;
+	}
+	private void setForestArea(Animal[][] fArea)
+	{
+		forestArea = fArea ;
+	}
+
 	public void displayExistingAnimals()
 	{
 		DisplayElements.displayAnimalListInTableForm(animalList) ;
 	}
 
-	public void meetAnimals()
+	public void checkIfAnimalsAreNearby()
 	{
-		Animal animal1,animal2 ;
-		boolean bothAnimalsNotPrey ;
+		int x,y ;
 
-		int numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(animalList) ;
-		
-		while(numberOfAnimalsAlive>1)
+		for(Animal animal:animalList)
 		{
+			x = animal.animalLocation.getLocationRow() ;
+			y = animal.animalLocation.getLocationColoumn() ;
 
-			animal1 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
-			animal2 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
+				if(animal.getIsAlive())
+				{	
+					for(int nearbyRow=x-1 ; nearbyRow<=x+1 ; nearbyRow++)
+					{
+						for(int nearbyColoumn=y-1 ; nearbyColoumn<=y+1 ; nearbyColoumn++)
+						{
 
-				if(animal1 == animal2 || !animal1.getIsAlive())
-				{
-					animal1 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
-				}
-				else if(!animal2.getIsAlive())
-				{
-					animal2 = animalList.get(GameHelper.generateRandomNumber(animalList.size())) ;
-				}
-				else if(GameHelper.checkIfAllAnimalsArePrey(animalList))
-				{
-					System.out.print("\n\n\t *** ALL PREDATORS ARE DEAD. THE REMAINING PREYS LIVE HAPPILY EVER AFTER. ***") ;
-					return ;
-				}
-				else
-				{
-					DisplayElements.displayAnimalStats(animal1,animal2) ;
-
-					bothAnimalsNotPrey = GameHelper.checkIfBothPrey(animal1,animal2) ;
-
-					if(bothAnimalsNotPrey)
-					{	
-						ConsoleElements.delayPrintTime(1000) ;
-
-						GameHelper.compareStrengthofBothAnimalsAndFight(animal1,animal2) ;
-						System.out.print("\n\n\t\t\t\t FINAL ANIMAL STATS\n") ;
-						DisplayElements.displayFinalAnimalStats(animal1,animal2) ;
-						System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+") ;
+							if(nearbyRow==x && nearbyColoumn==y)
+							{
+								continue ;
+							}
+							else if(forestArea[nearbyRow][nearbyColoumn]!=null)
+							{
+								if(forestArea[nearbyRow][nearbyColoumn].getIsAlive())
+								{
+									meetAnimals(animal,forestArea[nearbyRow][nearbyColoumn]) ;
+								}
+							}
+						}
 					}
-					
 				}
-
-			numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(animalList) ;
-
-		} 
-
-		GameHelper.checkWinner(animalList) ;
-
+		}
 	}
 
+	public void meetAnimals(Animal animal1,Animal animal2)
+	{
+
+		boolean bothAnimalsNotPrey ;
+				
+		DisplayElements.displayAnimalStats(animal1,animal2) ;
+
+		bothAnimalsNotPrey = GameHelper.checkIfBothPrey(animal1,animal2) ;
+
+		if(bothAnimalsNotPrey)
+		{	
+			ConsoleElements.delayPrintTime(1000) ;
+
+			GameHelper.compareStrengthofBothAnimalsAndFight(animal1,animal2) ;
+			System.out.print("\n\n\t\t\t\t FINAL ANIMAL STATS\n") ;
+			DisplayElements.displayFinalAnimalStats(animal1,animal2) ;
+			System.out.print("\n +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+") ;
+		}		 
+	}
+
+	public void moveAnimals()
+	{
+		forestArea= new Animal[10][10] ;
+		GameHelper.placeAnimalsInRandomLocations(animalList,forestArea) ;
+	}
 }

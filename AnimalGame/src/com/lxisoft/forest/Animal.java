@@ -3,17 +3,18 @@ package com.lxisoft.forest ;
 
 import com.lxisoft.behaviours.animalbehaviour.* ;
 import com.lxisoft.behaviours.eatbehaviour.* ;
-import com.lxisoft.game.GameHelper ;
+import com.lxisoft.game.* ;
 import com.lxisoft.ui_elements.* ;
 
 public abstract class Animal
 {
 
 	private String name=GameHelper.getRandomAnimalName() ;
-	private int health,strength,energy=100 ;  
+	private int health,strength,energy=100,luckFactor ;  
 	private AnimalBehaviour animalBehaviour ;
 	private EatBehaviour eatBehaviour ;
 	private boolean isAlive ;
+	public Location animalLocation = new Location() ;
 
 	public String getName()
 	{
@@ -72,6 +73,15 @@ public abstract class Animal
 		strength = s ;
 	}
 
+	public int getLuckFactor()
+	{
+		return luckFactor ;
+	}
+	public void setLuckFactor(int lF)
+	{
+		luckFactor = lF ;
+	}
+
 	public AnimalBehaviour getAnimalBehaviour()
 	{
 		return animalBehaviour ;
@@ -99,15 +109,32 @@ public abstract class Animal
 		isAlive = isAl ;
 	}
 
+	public void setLocation(int r,int c)
+	{
+		animalLocation.setLocationRow(r) ;
+		animalLocation.setLocationColoumn(c) ;
+	}
+
 	public void fightAnimal(Animal opponent)
 	{
-		DisplayElements.displayFightMessage(this,opponent) ;
-
-			animalBehaviour.fight(this,opponent) ;
+		
 			if(energy<30)
 			{
-			System.out.print("\n\t\t\t THE ANIMALS ARE EXHAUSTED. THEY BACK OFF FROM THE FIGHT.") ;
-			return ;
-			}		
+				GameHelper.reduceAnimalEnergy(opponent,15) ;
+				GameHelper.reduceAnimalEnergy(this,20) ;
+				System.out.print("\n\n\t\t*** " + name + " IS EXHAUSTED. IT BACKS OFF FROM THE FIGHT. ***") ;
+				return ;
+			}	
+			if(opponent.getLuckFactor()>5 && GameHelper.giveLuck())
+			{
+				GameHelper.reduceAnimalEnergy(opponent,15) ;
+				GameHelper.reduceAnimalEnergy(this,5) ;
+				System.out.print("\n\t\t*** " + opponent.getName() + " WAS VERY LUCKY. IT CUNNINGLY ESCAPES FROM THE FIGHT. ***") ;
+				return ;
+			}
+
+			DisplayElements.displayFightMessage(this,opponent) ;
+			animalBehaviour.fight(this,opponent) ;
+				
 	}
 }

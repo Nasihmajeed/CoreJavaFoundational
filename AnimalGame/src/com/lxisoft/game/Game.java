@@ -28,12 +28,33 @@ public class Game
 		if (startGame == 'y' || startGame == 'Y')
 		{
 			int numberOfAnimals = getNumberOfAnimals() ;
-			this.generateAnimals(numberOfAnimals) ;
+			generateAnimals(numberOfAnimals) ;
+			GameHelper.placeAnimalsInRandomLocations(forest.getAnimalList(),forest.getForestArea()) ;
+			
 			forest.displayExistingAnimals() ;
+			
+			if(GameHelper.checkIfAllAnimalsArePrey(forest.getAnimalList()))
+				{
+					System.out.print("\n\n\t *** ALL PREDATORS ARE DEAD. THE REMAINING PREYS LIVE HAPPILY EVER AFTER. ***") ;
+					finaliseGame(0) ;
+					return ;					 
+				}
 
-			forest.meetAnimals() ;
+			int numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(forest.getAnimalList()) ;
+			while(numberOfAnimalsAlive>1)
+			{
+				forest.checkIfAnimalsAreNearby() ;
+				forest.moveAnimals() ;
+				if(GameHelper.checkIfAllAnimalsArePrey(forest.getAnimalList()))
+				{
+					System.out.print("\n\n\t *** ALL PREDATORS ARE DEAD. THE REMAINING PREYS LIVE HAPPILY EVER AFTER. ***") ;
+					finaliseGame(0) ;
+					return ;					 
+				}
+				numberOfAnimalsAlive = GameHelper.getNumberOfAnimalsAlive(forest.getAnimalList()) ;
+			}
 
-			finaliseGame() ;
+			finaliseGame(1) ;
 		}
 		else
 		{
@@ -41,10 +62,13 @@ public class Game
 		}
 	}
 
-	public void finaliseGame()
+	public void finaliseGame(int flag)
 	{
 
-			DisplayElements.displayAnimalListInTableForm(forest.getAnimalList()) ;		
+			DisplayElements.displayAnimalListInTableForm(forest.getAnimalList()) ;
+
+			if(flag==1)
+				GameHelper.checkWinner(forest.getAnimalList()) ;		
 			
 			forest.getAnimalList().clear() ;
 

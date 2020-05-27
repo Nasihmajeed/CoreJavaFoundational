@@ -11,7 +11,7 @@ public class AggressivePredator implements AnimalBehaviour
 	{
 		if(animal2.getEnergy() == 0 || !animal2.getIsAlive() || animal2.getStrength() == 0 )
 		{
-			System.out.print("\n\n\t\t\t*** " + animal1.getName() + " EASILY KILLS " + animal2.getName()+" ***") ;
+			System.out.print("\n\n\t\t\t*** " + animal1.getName() + " EASILY KILLS " + animal2.getName()+" *** \n") ;
 
 			animal2.setHealth(0) ;
 			animal2.setStrength(0) ;

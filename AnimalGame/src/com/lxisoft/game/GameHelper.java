@@ -86,25 +86,7 @@ public class GameHelper
 		animal.setStrength(animal.getStrength() - (generateRandomNumber(reduceFactor)+1)) ;
 		System.out.print("\n\t\t\t " + animal.getName() +"'S STRENGTH REDUCED TO "+ animal.getStrength()) ;		
 	}
-
-	public static void reduceAnimalEnergy(Animal animal1,Animal animal2,int reduceFactorForAnimal1,int reduceFactorForAnimal2)
-	{
-		animal2.setEnergy(animal2.getEnergy() - (generateRandomNumber(reduceFactorForAnimal2)+1)) ;
-		System.out.print("\n\n\t\t\t " + animal2.getName() +"'S ENERGY REDUCED TO "+ animal2.getEnergy()) ;
-
-		animal1.setEnergy(animal1.getEnergy() - (generateRandomNumber(reduceFactorForAnimal1)+1)) ;
-		System.out.print("\n\t\t\t " + animal1.getName() +"'S ENERGY REDUCED TO "+ animal1.getEnergy()) ;
-	}
-
-	public static void reduceAnimalStrength(Animal animal1,Animal animal2,int reduceFactorForAnimal1,int reduceFactorForAnimal2)
-	{
-		animal2.setStrength(animal2.getStrength() - (generateRandomNumber(reduceFactorForAnimal2)+1)) ;
-		System.out.print("\n\n\t\t\t " + animal2.getName() +"'S STRENGTH REDUCED TO "+ animal2.getStrength()) ;
-
-		animal1.setStrength(animal1.getStrength() - (generateRandomNumber(reduceFactorForAnimal1)+1)) ;
-		System.out.print("\n\t\t\t " + animal1.getName() +"'S STRENGTH REDUCED TO "+ animal1.getStrength()) ;		
-	}
-
+	
 	public static void reduceAnimalStats(Animal animal1,Animal animal2)
 	{
 		int damageDone1 = generateRandomNumber(animal1.getStrength()+1)+1;
@@ -147,5 +129,35 @@ public class GameHelper
 		}
 
 		System.out.print("\n\n\t\t\t\t\t*** THERE IS NO WINNER! ALL ANIMALS KILLED EACH OTHER ***") ;
+	}
+
+	public static boolean giveLuck()
+	{
+		int luckChance = generateRandomNumber(80) ;
+
+		if(luckChance>50)
+			return true ;
+		else
+			return false ;
+	}
+
+	public static void placeAnimalsInRandomLocations(ArrayList<Animal> animalList,Animal[][] forestArea)
+	{
+		int row,coloumn ;
+		
+		for(Animal animal : animalList)
+		{
+			while(true)
+			{
+				row = generateRandomNumber(8)+1 ;
+				coloumn = generateRandomNumber(8)+1 ;
+
+				 	if(forestArea[row][coloumn]==null)
+				 		break ;
+			}
+
+			animal.setLocation(row,coloumn) ;
+			forestArea[row][coloumn] = animal ; 
+		}
 	}
 }
