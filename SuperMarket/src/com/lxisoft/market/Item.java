@@ -6,7 +6,6 @@ import java.lang.*;
 import java.io.*;  
 public class Item implements Comparable<Item>
 {	
-	int numbers;
 	private int id;
 	private String name;
 	private int price;	
@@ -56,6 +55,25 @@ public class Item implements Comparable<Item>
                 ", price=" + price +
                 '}';
     }
+    public void guarantiItem()
+	{
+		System.out.println("\n\n\n      Guarranty Products ");
+
+		Map<Integer,String> map = new HashMap<Integer, String>();
+		
+		map.put(1,"Eveready Items 10 Month Warranty");
+		map.put(3, "Bajaj Items 4yr Warranty");
+		map.put(2, "Cello Items 2yr Warranty");
+				
+		Set<?> set = map.entrySet();
+		Iterator<?> itr = set.iterator();
+		
+		while(itr.hasNext())
+		{			
+			Map.Entry entry = (Map.Entry)itr.next();
+			System.out.println(entry.getKey()+"."+entry.getValue());
+		}
+	}
     
 
 	

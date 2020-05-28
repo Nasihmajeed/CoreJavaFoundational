@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.*; 
 import java.lang.*; 
 import java.io.*;
-class SortbyNo implements Comparator<Employee> 
+class SortbyNoComparator implements Comparator<Employee> 
 { 
     public int compare(Employee a, Employee b) 
     { 
