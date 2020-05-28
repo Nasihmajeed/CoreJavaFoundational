@@ -8,7 +8,7 @@ public class Signup
 {
 	Fileoperation fo;
 	Customer customer;
-	ArrayList<Customer>userDet=new ArrayList<Customer>();
+	List<Customer>userDet=new ArrayList<Customer>();
 	public void userSignup()
 	{
 		fo=new Fileoperation();	
@@ -32,7 +32,7 @@ public class Signup
 
 		fo.addCustomerId(customer);
 
-		
+		System.out.println("Signup Successfully Completed ");
 	}
 	
 }

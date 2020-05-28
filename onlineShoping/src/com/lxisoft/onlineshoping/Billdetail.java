@@ -10,7 +10,7 @@ import java.util.*;
 public class Billdetail 
 {
 	private int productID;
-	private ArrayList<Item> purchasedItems=new ArrayList<Item>();
+	private List<Item> purchasedItems=new ArrayList<Item>();
 	private Scanner scr=new Scanner(System.in);
 	public void purchasedBillDetail(Item item,Customer customer)
 	{

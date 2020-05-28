@@ -39,4 +39,21 @@ public class Customer
 		return this.pincode;
 	}
 
+	public boolean equals(Object obj)
+	{
+		if((((Customer)obj).name==this.name) && (((Customer)obj).password==this.password) && (((Customer)obj).address==this.address) && (((Customer)obj).pincode==this.pincode))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public int hashCode() 
+    { 
+		return Object;
+	}
+
 }

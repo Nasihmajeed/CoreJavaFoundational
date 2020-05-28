@@ -5,7 +5,7 @@ import com.lxisoft.onlineshoping.Purchase_item;
 public class Sale
 {
 	private Fileoperation fo=new Fileoperation();
-	private ArrayList<Purchase_item> purchasedItems;
+	private List<Purchase_item> purchasedItems;
 	private Purchase_item purItem;
 	private int num;
 	public void buyProduct(Item item,Customer customer)

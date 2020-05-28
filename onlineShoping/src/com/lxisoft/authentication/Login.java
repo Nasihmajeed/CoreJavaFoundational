@@ -6,13 +6,14 @@ import java.util.*;
 public class Login
 {
 	
-	Customer user;
-	ArrayList<Customer>userDet=new ArrayList<Customer>();
-	Scanner scr=new Scanner(System.in);
-	ArrayList<String>logdets=new ArrayList<String>();
-	Fileoperation fo;
+	private Customer user;
+	private List<Customer>userDet=new ArrayList<Customer>(); 
+	private List<String>logdets=new ArrayList<String>();
+	private Fileoperation fo;
+	
 	public void setUserLogin()
 	{
+		Scanner scr=new Scanner(System.in);
 		System.out.println("Name : ");
 		String name=scr.next();
 		logdets.add(name);
@@ -24,7 +25,7 @@ public class Login
 	
 	}
 
-	public ArrayList<String> getUserLogin()
+	public List<String> getUserLogin()
 	{
 		return logdets;
 

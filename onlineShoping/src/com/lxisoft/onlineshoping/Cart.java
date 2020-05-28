@@ -8,11 +8,10 @@ import com.lxisoft.onlineshoping.Displaypage;
 import com.lxisoft.onlineshoping.Carted_item;
 public class Cart
 {
-	private ArrayList<Item>cartProduct=new ArrayList<Item>();
+	private List<Item>cartProduct=new ArrayList<Item>();
 	private Fileoperation fo=new Fileoperation();
 	private Displaypage dp;
 	private Carted_item cd;
-
 	private Customer customerDetail;
 	private Item product;
 	final void cartItem(Item product,Customer customer)throws Exception
@@ -25,21 +24,51 @@ public class Cart
 	final void viewCartItem(Customer customer)throws Exception 
 	{
 		System.out.println("\n");
-		ArrayList<Carted_item> cartItem= fo.viewCartProduct(customer,cd);
+		Map cartItem= fo.viewCartProduct(customer,cd);
 		System.out.println("   CART products");
 		System.out.println(" =================");
-		
+		System.out.println("Customer : "+customer.getName());
 		for (int i=0;i<cartItem.size();i++) 
 		{
-			if (customer.getName().equals(cartItem.get(i).getCustomer())) 
-			{
-				System.out.println("Customer : "+cartItem.get(i).getCustomer());
-				System.out.println("Item : "+cartItem.get(i).getCartItem());	
+
+				System.out.println("Item : "+cartItem.get(customer.getName()));	
 				System.out.println("   Successfully Carted Item ");
-			}
 				
 			System.out.println("\n");
 		}
 		
+	}
+	public void checkCustomer()
+	{
+		Customer g1 = new Customer(); 
+        Customer g2 = new Customer(); 
+          
+        // comparing above created Objects. 
+        if(g1.hashCode() == g2.hashCode()) 
+        { 
+  
+            if(g1.equals(g2))
+            {
+            	System.out.println("Both Objects are equal. "); 
+	            System.out.println("g1 hashCode : "+g1.hashCode()); 
+	            System.out.println("g2 hashCode : "+g2.hashCode()); 
+            } 
+                
+            else
+            {
+                System.out.println("Both Objects are not equal. "); 
+                   System.out.println("g1 hashCode : "+g1.hashCode()); 
+	            System.out.println("g2 hashCode : "+g2.hashCode()); 
+            }
+      
+        } 
+        else
+        {
+        	System.out.println("Both Objects are not equal. ");  
+        	   System.out.println("g1 hashCode : "+g1.hashCode()); 
+	            System.out.println("g2 hashCode : "+g2.hashCode()); 
+        }
+        
+    
 	}
 }

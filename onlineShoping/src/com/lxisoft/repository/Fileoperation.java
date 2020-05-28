@@ -13,15 +13,16 @@ import com.lxisoft.onlineshoping.Customer;
 //import com.lxisoft.properties.Purchasedproducts;
 public class Fileoperation
 {
-	private ArrayList<Item> items=new ArrayList<Item>();
-	private ArrayList<Customer> customerDetails=new ArrayList<Customer>();
+	private List<Item> items=new ArrayList<Item>();
+	private List<Customer> customerDetails=new ArrayList<Customer>();
 	private String[] data;
 	private Item item;
-	private ArrayList<Carted_item>carteddetails=new ArrayList<Carted_item>();
-	private ArrayList<Purchase_item>purchaseddetails=new ArrayList<Purchase_item>();
+	private Map<String,String> carteddetails=new HashMap<String,String>();
+	//private List<Carted_item>carteddetails=new ArrayList<Carted_item>();
+	private List<Purchase_item>purchaseddetails=new ArrayList<Purchase_item>();
 
 
-	public ArrayList<Item> readProductDetails(Item item)throws Exception 
+	public List<Item> readProductDetails(Item item)throws Exception 
 	{
 
 		String csvFile="../src/com/lxisoft/properties/Products.csv";
@@ -71,7 +72,7 @@ public class Fileoperation
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<Customer> readCustomerDetails(Customer customer)throws Exception 
+	public List<Customer> readCustomerDetails(Customer customer)throws Exception 
 	{
 		String csvFile="../src/com/lxisoft/properties/Customer.csv";
 		BufferedReader br=new BufferedReader(new FileReader(csvFile));
@@ -118,7 +119,10 @@ public class Fileoperation
 		}
 		
 	}
-	public ArrayList<Carted_item> viewCartProduct(Customer customer,Carted_item cd)throws Exception 
+
+
+
+	public Map viewCartProduct(Customer customer,Carted_item cd)throws Exception 
 	{
 		String csvFile="../src/com/lxisoft/properties/Cart.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
@@ -129,16 +133,24 @@ public class Fileoperation
 		{
 			cd=new Carted_item();
 			String[] cartItem=s.split(",");
-			if(cartItem[0].equals(customer.getName()))
+
+
+			carteddetails.put(cartItem[0],cartItem[1]);
+
+
+			/*if(cartItem[0].equals(customer.getName()))
 			{
 				cd.setCustomer(cartItem[0]);
 				cd.setCartItem(cartItem[1]);
 			}
-			carteddetails.add(cd);
+			carteddetails.add(cd);*/
 		}
 		return carteddetails;
 	}
-	public ArrayList<Purchase_item> viewPurchaseDetails(Customer customer,Purchase_item purItem)throws Exception 
+
+
+
+	public List<Purchase_item> viewPurchaseDetails(Customer customer,Purchase_item purItem)throws Exception 
 	{
 		String csvFile="../src/com/lxisoft/properties/PurchasedProduct.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));

@@ -22,20 +22,20 @@ public class Displaypage
 	private Login userLogin=new Login();
 	private Signup userSignup=new Signup();
 	private Fileoperation fo=new Fileoperation();
-	private ArrayList<Item>products=new ArrayList<Item>();
+	private List<Item>products=new ArrayList<Item>();
 	private Cart cart=new Cart();
 	private Billdetail billDetail;
 	private Sale sale=new Sale();
 	public void login()throws Exception 
 	{
-		ArrayList<Customer> customers=fo.readCustomerDetails(customer);
-		ArrayList<String>log=new ArrayList<String>();
+		List<Customer> customers=fo.readCustomerDetails(customer);
+		
 		
 		System.out.println("       Yellow.coM");
 		System.out.println("      ============");
 		userLogin.setUserLogin();
-		ArrayList<String> logDet=userLogin.getUserLogin();
-		System.out.println(" Name : "+logDet.get(0));
+		List<String> logDet=userLogin.getUserLogin();
+		
 		int ur=0;
 		for(int i=0;i<customers.size();i++)
 		{
@@ -66,7 +66,7 @@ public class Displaypage
 		this.login();
 	}
 
-	public void viewItem(Customer customer,ArrayList<Item> products)throws Exception 
+	public void viewItem(Customer customer,List<Item> products)throws Exception 
 	{
 		
 		//System.out.println("Customer : "+ customer.getName());
@@ -78,7 +78,7 @@ public class Displaypage
 			j++;
 		}
 		System.out.println("\n");
-		System.out.println("Select Item : 1  View Cart Items : 2  View purchasedItems : 3   Exit : 4");
+		System.out.println("Select Item : 1  View Cart Items : 2  View purchasedItems : 3   Exit : 4    Check   :  5");
 		int select=scr.nextInt();
 		System.out.println("\n");
 		switch(select)
@@ -98,11 +98,15 @@ public class Displaypage
 			case 4:
 					System.out.println("==== Thank you ====");
 					break;
+
+			case 5:
+					cart.checkCustomer();
+					break;
 			
 		}
 		
 	}
-	public void selectItem(ArrayList<Item>products,Customer customer)throws Exception
+	public void selectItem(List<Item>products,Customer customer)throws Exception
 	{
 		billDetail=new Billdetail();
 		
