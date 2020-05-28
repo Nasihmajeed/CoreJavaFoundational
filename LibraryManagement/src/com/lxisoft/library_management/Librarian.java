@@ -1,4 +1,5 @@
-package com.lxisoft.librarymanagement;
+package com.lxisoft.library_management;
+import com.lxisoft.library_management.*;
 import com.lxisoft.repository.*;
 import java.util.*;
 public class Librarian
@@ -7,7 +8,7 @@ public class Librarian
 	Book b=new Book();
 
 
-public int display()
+	public int displayOptions()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\n             Enter your choice:");
@@ -17,13 +18,13 @@ public int display()
 	}
 
 
-	public void displayOptions()
+	public void options()
     {
     	int ch=0;
 		List<Book>bookList=new ArrayList<Book>();
         do
         {
-            ch=display();
+            ch=displayOptions();
 			switch(ch)
             {
                 case 1:addBook();break;
@@ -66,7 +67,7 @@ public int display()
 		} 
 	}
 
-    public int sort(List<Book>bookList)
+    public int sortBooks(List<Book>bookList)
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("             Enter your choice:");
@@ -87,7 +88,7 @@ public int display()
 		int a=0;
 		do
 		{
-			a=sort(bookList);
+			a=sortBooks(bookList);
 			switch(a)
 			{
 				case 1:bookList=repo.idSort();break;
@@ -128,5 +129,21 @@ public int display()
             }
         }
         searchBook(s);
+
+    }
+
+    public Book issueBook()
+	{
+    	switch(b.issue)
+    	{
+			case HIGH:
+			{
+				b.issue=Issue.LOW;
+				System.out.println("Return Book With Fine");
+				break;
+			}
+			default:System.out.println("Return Book");
+    	}
+    	return b;
     }
 }

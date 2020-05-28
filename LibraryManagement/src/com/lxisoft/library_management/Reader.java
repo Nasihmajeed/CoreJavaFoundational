@@ -1,4 +1,4 @@
-package com.lxisoft.librarymanagement;
+package com.lxisoft.library_management;
 import com.lxisoft.repository.*;
 import java.util.*;
 public class Reader

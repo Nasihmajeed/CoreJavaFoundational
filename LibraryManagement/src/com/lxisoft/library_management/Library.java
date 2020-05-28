@@ -1,9 +1,8 @@
-package com.lxisoft.librarymanagement;
+package com.lxisoft.library_management;
 import com.lxisoft.repository.*;
 import java.util.*;
 public class Library
 {
-	FileRepo repo=new FileRepo();
 	private String book;
 	
 	public void setBook(String book)

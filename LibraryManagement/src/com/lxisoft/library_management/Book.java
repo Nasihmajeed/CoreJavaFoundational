@@ -1,10 +1,12 @@
-package com.lxisoft.librarymanagement;
+package com.lxisoft.library_management;
+import com.lxisoft.library_management.*;
 public class Book
 {
 	private String id;
 	private String name;
 	private String auther;
 	private String publisher;
+	public Issue issue;
 	
 
 	public void setId(String id)
