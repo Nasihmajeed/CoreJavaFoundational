@@ -30,13 +30,13 @@ public class Order
         
         switch (choice) {
             case 1:
-                food = " coffee";
+                food = " coffee-----------Rs.10";
                 break;
             case 2:
-                food = "tea";
+                food = "tea---------------Rs.10";
                 break;
             case 3:
-                food = "fresh lime";
+                food = "fresh lime--------Rs.10";
                 break;
 
             default:
@@ -45,5 +45,9 @@ public class Order
         }
         System.out.println("The choice is " + food);
     }
+}
+public void printOrderDetails()
+{
+
 }
 }
