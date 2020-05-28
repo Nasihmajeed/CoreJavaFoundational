@@ -30,7 +30,7 @@ public class Order{
         
         switch (choice) {
             case 1:
-                food = " 1 - Chicken Mandi ";
+                food = "  Chicken Mandi ";
                 break;
             case 2:
                 food = "Alfahm";
@@ -52,7 +52,8 @@ public class Order{
     }
     
 }
- }
+}
+}
 
 
 
