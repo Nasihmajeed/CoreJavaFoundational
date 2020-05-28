@@ -1,5 +1,5 @@
-package com.lxisoft.Test;
-import com.lxisoft.OnlineShoping.DisplayPage;
+package com.lxisoft.test;
+import com.lxisoft.onlineshoping.Displaypage;
 import java.util.Scanner;
 public class Tdd
 {
@@ -9,7 +9,7 @@ public class Tdd
 		System.out.println("       Yellow.coM");
 		System.out.println("       1 : Login \n       2 : Signup \n       3 : view");		
 		int num=scr.nextInt();
-		DisplayPage dp=new DisplayPage();
+		Displaypage dp=new Displaypage();
 		switch(num)
 		{
 			case 1:

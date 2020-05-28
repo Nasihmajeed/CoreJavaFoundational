@@ -1,18 +1,18 @@
 package com.lxisoft.onlineshoping;
-import com.lxisoft.onlineshoping.DisplayPage;
+import com.lxisoft.onlineshoping.Displaypage;
 import com.lxisoft.onlineshoping.Item;
-import com.lxisoft.onlineshoping.FileOperation;
-import com.lxisoft.onlineshoping.BuyDetail;
-import com.lxisoft.onlineshoping.PaymentDetail;
+import com.lxisoft.repository.Fileoperation;
+
+
 import java.lang.Math;
 import java.util.Scanner;
 import java.util.*;
-public class BillDetail extends Detail implements PaymentMethod
+public class Billdetail 
 {
 	private int productID;
 	private ArrayList<Item> purchasedItems=new ArrayList<Item>();
 	private Scanner scr=new Scanner(System.in);
-	public void purchasedBillDetail(Item product,User user)
+	public void purchasedBillDetail(Item item,Customer customer)
 	{
 		int date=(int)(Math.random()*30)+1;
 		int month=(int)(Math.random()*11)+1;
@@ -21,10 +21,10 @@ public class BillDetail extends Detail implements PaymentMethod
 		System.out.println("\n");
 		System.out.println("Product will Deliver : "+date+" / "+month+" / 2020\nTime : "+time+".00");
 		System.out.println("Estimate address");
-		System.out.println("Customer Name : "+user.getName());
-		System.out.println("address 	  : "+user.getAddress());
-		System.out.println("Product 	  : "+product.getItemName()+" , "+product.getCatogery());
-		System.out.println("price 	  : "+product.getPrice());
+		System.out.println("Customer Name : "+customer.getName());
+		System.out.println("address 	  : "+customer.getAddress());
+		System.out.println("Product 	  : "+item.getItemName()+" , "+item.getCatogery());
+		System.out.println("price 	  : "+item.getPrice());
 	}
 	
 	

@@ -6,6 +6,8 @@ public class Purchase_item
 	private String catogery;
 	private String feature;
 	private int price;
+	private int itemNumber;
+
 	public void setCustomer(String name)
 	{
 		this.name=name;
@@ -49,5 +51,13 @@ public class Purchase_item
 	public int getPrice()
 	{
 		return this.price;
+	}
+	public void setItemNumber(int itemNumber)
+	{
+		this.itemNumber=itemNumber;
+	}
+	public int getItemNumber()
+	{
+		return this.itemNumber;
 	}
 }

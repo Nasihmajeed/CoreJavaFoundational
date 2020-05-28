@@ -1,5 +1,5 @@
 package com.lxisoft.payment;
-public class Cash_on_delivery extends Paymentmanager
+public class Cash_on_delivery implements Paymentmanager
 {
 	public void payCash()
 	{

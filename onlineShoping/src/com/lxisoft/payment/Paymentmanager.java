@@ -1,4 +1,4 @@
-package com.lxisoft.OnlineShoping;
+package com.lxisoft.payment;
 public interface Paymentmanager
 {
 	public void payCash();

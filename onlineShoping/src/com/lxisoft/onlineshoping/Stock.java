@@ -1,18 +1,21 @@
 package com.lxisoft.onlineshoping;
 import com.lxisoft.onlineshoping.Item;
 import java.util.*;
-import com.lxisoft.onlineshoping.FileOperation;
+import com.lxisoft.repository.Fileoperation;
 public class Stock
 {
 	private ArrayList<Item> items=new ArrayList<Item>();
 	
-	private FileOperation fileOperation=new FileOperation();
-	final ArrayList<Item> setItemDetail()throws Exception 
+	private Fileoperation fileoperation=new Fileoperation();
+	public void setItemDetail(Item item)throws Exception 
 	{
 
-		items=fileOperation.readProductDetails();
+		this.items=fileoperation.readProductDetails(item);
 		
-		return items;
+	}
+	public ArrayList<Item> getItemDetail()throws Exception 
+	{
+		return this.items;
 	}
 	
 }

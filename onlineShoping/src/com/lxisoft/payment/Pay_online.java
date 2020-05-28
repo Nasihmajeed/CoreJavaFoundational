@@ -1,8 +1,10 @@
 package com.lxisoft.payment;
-public class Pay_online extends Paymentmanager
+import java.util.*;
+public class Pay_online implements Paymentmanager
 {
 	public void payCash()
 		{
+			Scanner scr=new Scanner(System.in);
 			System.out.println("select Bank : ");
 			System.out.println("south indian bank : 1 , indian bank: 2 , canara bank : 3 ");
 			int slct=scr.nextInt();
