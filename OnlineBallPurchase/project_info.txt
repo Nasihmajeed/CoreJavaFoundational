@@ -1,3 +1,11 @@
 ## Online Ball Purcahse ##
 
 1. Show case all the available balls that the site has got. it should include currently remaining pieces and price.
+
+2. The List should include cricket ball, base ball , hockey ball , tennis ball , football , basket ball . more if you want.
+
+3. After the purchase give an air filling pubmp as free for airfillable balls.
+
+4. If the customer purchase more than two balls that cannot be filled with air , give 20% discount.
+
+5. If the customer purchase one air fillable and one that cannot be filled with air then give 5% discount.
