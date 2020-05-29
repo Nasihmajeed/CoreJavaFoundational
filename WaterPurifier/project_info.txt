@@ -1,0 +1,14 @@
+## Water Purifier Website ##
+
+1. It must have two options in the front page 
+   
+   * Online Purchase.
+   * Service Booking.
+
+2. In online purchase customers should enter their pH value, depending on their pH value showcase the available models that can they can purchase.
+   give sutable discounts depending on the product cost. After the purchase give reciept.
+
+3. in service booking ask for service number. depending upon the service number get their details(where they are located in entire map).
+   Check for your service agents (you should have a number of staffs) if the agents are nearby send a message saying agent no: x will reach you   within x time depending on the distance from the customer. If the agents are not availabe send message saying try after sometime. 
+
+
