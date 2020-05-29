@@ -14,10 +14,10 @@ public class Cart
 	private Carted_item cd;
 	private Customer customerDetail;
 	private Item product;
-	final void cartItem(Item product,Customer customer)throws Exception
+	final void cartItem(Item product,Customer customer,int id)throws Exception
 	{
 		dp=new Displaypage();
-		fo.cartProduct(product,customer);
+		fo.cartProduct(product,customer,id);
 		customerDetail=customer;
 		this.product=product;
 	}
@@ -38,37 +38,5 @@ public class Cart
 		}
 		
 	}
-	public void checkCustomer()
-	{
-		Customer g1 = new Customer(); 
-        Customer g2 = new Customer(); 
-          
-        // comparing above created Objects. 
-        if(g1.hashCode() == g2.hashCode()) 
-        { 
-  
-            if(g1.equals(g2))
-            {
-            	System.out.println("Both Objects are equal. "); 
-	            System.out.println("g1 hashCode : "+g1.hashCode()); 
-	            System.out.println("g2 hashCode : "+g2.hashCode()); 
-            } 
-                
-            else
-            {
-                System.out.println("Both Objects are not equal. "); 
-                   System.out.println("g1 hashCode : "+g1.hashCode()); 
-	            System.out.println("g2 hashCode : "+g2.hashCode()); 
-            }
-      
-        } 
-        else
-        {
-        	System.out.println("Both Objects are not equal. ");  
-        	   System.out.println("g1 hashCode : "+g1.hashCode()); 
-	            System.out.println("g2 hashCode : "+g2.hashCode()); 
-        }
-        
-    
-	}
+	
 }

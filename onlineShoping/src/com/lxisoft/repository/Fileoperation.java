@@ -38,6 +38,8 @@ public class Fileoperation
 			item.setFeature(data[2]);
 			int price=Integer.parseInt(data[3]);
 			item.setPrice(price);
+			int id=Integer.parseInt(data[4]);
+			item.setId(id);
 			items.add(item);
 		}
 		return items;
@@ -91,7 +93,7 @@ public class Fileoperation
 		}
 		return customerDetails;
 	}
-	public void cartProduct(Item product,Customer customer)
+	public void cartProduct(Item product,Customer customer,int id)
 	{
 		String csvFile="../src/com/lxisoft/properties/Cart.csv";
 		String line="";
@@ -105,7 +107,7 @@ public class Fileoperation
 
 			
 
-			bw.write(customer.getName()+","+product.getItemName());
+			bw.write(id+","+customer.getName()+","+product.getItemName());
 			bw.newLine();
 
 

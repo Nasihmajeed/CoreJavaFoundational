@@ -78,7 +78,7 @@ public class Displaypage
 			j++;
 		}
 		System.out.println("\n");
-		System.out.println("Select Item : 1  View Cart Items : 2  View purchasedItems : 3   Exit : 4    Check   :  5");
+		System.out.println("Select Item : 1  View Cart Items : 2  View purchasedItems : 3   Exit : 4  ");
 		int select=scr.nextInt();
 		System.out.println("\n");
 		switch(select)
@@ -99,9 +99,9 @@ public class Displaypage
 					System.out.println("==== Thank you ====");
 					break;
 
-			case 5:
-					cart.checkCustomer();
-					break;
+			/*case 5:
+					cart.checkCart(customer);
+					break;*/
 			
 		}
 		
@@ -138,7 +138,7 @@ public class Displaypage
 				s=k;
 			}
 		}
-		
+		int id=1;
 		System.out.println("\n");
 		System.out.println("Cart : 1  Buy : 2 ");
 		int select=scr.nextInt();
@@ -146,8 +146,9 @@ public class Displaypage
 		switch(select)
 		{
 			case 1:
-					cartItem(products.get(num-1),customer);
+					cartItem(products.get(num-1),customer,id);
 					viewItem(customer,products);
+					id++;
 					break;
 			case 2:
 
@@ -177,10 +178,10 @@ public class Displaypage
 		
 		
 	}
-	public void cartItem(Item products,Customer customer)throws Exception
+	public void cartItem(Item products,Customer customer,int id)throws Exception
 	{ 
 		
-		cart.cartItem(products,customer);
+		cart.cartItem(products,customer,id);
 		
 	}
 	public void buyItem(Item products,Customer customer)throws Exception 
