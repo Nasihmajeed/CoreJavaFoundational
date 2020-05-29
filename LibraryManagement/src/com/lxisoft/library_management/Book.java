@@ -6,7 +6,7 @@ public class Book
 	private String name;
 	private String auther;
 	private String publisher;
-	public Issue issue;
+	// public Issue issue;
 	
 
 	public void setId(String id)

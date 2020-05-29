@@ -12,7 +12,7 @@ public class Librarian
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\n             Enter your choice:");
-		System.out.println("             1-Add\n             2-View\n             3-Search\n             4-Sort\n             5-Exit");
+		System.out.println("             1-Add\n             2-View\n             3-Search\n             4-ReturnBook\n             5-Sort\n             6-Exit");
 		int ch=sc.nextInt();
 		return ch;
 	}
@@ -20,6 +20,7 @@ public class Librarian
 
 	public void options()
     {
+    	Reader r=new Reader();
     	int ch=0;
 		List<Book>bookList=new ArrayList<Book>();
         do
@@ -30,10 +31,11 @@ public class Librarian
                 case 1:addBook();break;
                 case 2:getAllBooks();break; 
                 case 3:searchDetails();break;
-                case 4:sorted(bookList);    
-                case 5:System.exit(0);break;
+                case 4:r.returnBook();break;
+                case 5:sorted(bookList);break;    
+                case 6:System.exit(0);break;
             } 
-        }while(ch!=6);
+        }while(ch!=7);
     }
 
     public Book addBook()
@@ -130,20 +132,5 @@ public class Librarian
         }
         searchBook(s);
 
-    }
-
-    public Book issueBook()
-	{
-    	switch(b.issue)
-    	{
-			case HIGH:
-			{
-				b.issue=Issue.LOW;
-				System.out.println("Return Book With Fine");
-				break;
-			}
-			default:System.out.println("Return Book");
-    	}
-    	return b;
     }
 }
