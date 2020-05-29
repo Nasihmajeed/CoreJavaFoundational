@@ -88,12 +88,16 @@ public class Administrator
     }
     public void getAttendence()
     {
-        System.out.println("Attendence");         
+        sc = this.getScanner();
+        System.out.println("Attendence"); 
+        System.out.println("\nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");        
         String str = "Suneera Sheeba Sheeja Neethu Priya Rajesh Remya Raihanath Suhara "; 
-       if(str.contains("Suneera")) {  
+        System.out.println("\nSearch a name");
+        String s=sc.next();
+        if(str.contains(s)) {  
             System.out.println("Present today");  
         }else  
-            System.out.println("She is leave");       
+            System.out.println("Is leave today");       
     }       
     public void getShiftDetails()
     {

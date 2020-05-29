@@ -86,14 +86,13 @@ public class StoreKeeper
 		System.out.println("\nIn which Item you want add quantity");
 		String s=sc.next();
 		for(int i=0;i<items.size();i++)
-		{
+		{			
 			if((items.get(i).getName()).equals(s))
 		 	{
 		 		System.out.println("How much item you want to add");
 		 		stock.add(new Stock());
 		 		stock.get(i).setQuantity(sc.nextInt());		 	 	
-		 	}
-		 	
+		 	}		 	
 		 }
 		 return stock;
 	}
@@ -129,7 +128,7 @@ public class StoreKeeper
 		}
 		while(sample);		
 	}	
-	public void curentStock()
+	public List<Stock> curentStock()
 	{
 		for(int q=0;q<items.size();q++)
 		{
@@ -142,11 +141,10 @@ public class StoreKeeper
                 stock.get(q).setQuantity(val);
                 System.out.println("Current stock"+(stock.get(q).getQuantity()));				
 				if(stock.get(q).getQuantity()>=numbers)
-				{
-					
-					System.out.println("\nAvailable Stocks");
-					System.out.printf("%-20.30s %-20.30s %-20.30s%n","items Type","items Price","Quantity");
-					System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(q).getName(),items.get(q).getPrice(),numbers);
+				{					
+					// System.out.println("\nAvailable Stocks");
+					// System.out.printf("%-20.30s %-20.30s %-20.30s%n","items Type","items Price","Quantity");
+					// System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(q).getName(),items.get(q).getPrice(),numbers);
 					System.out.println("Total Bill Amount="+((items.get(q).getPrice())*(numbers)));
 				}			
 				else if(stock.get(q).getQuantity()<numbers)
@@ -156,7 +154,7 @@ public class StoreKeeper
 				}					
 			}		
 		}			
-						
+		return stock;				
 	}
 	public void printSortedItems()
 	{		
