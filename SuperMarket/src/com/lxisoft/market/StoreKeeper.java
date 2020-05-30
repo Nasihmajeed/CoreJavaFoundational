@@ -9,7 +9,6 @@ public class StoreKeeper
 	private static Scanner sc;	
 	private List<Item> items = new ArrayList<Item>();
 	private List<Stock> stock=new ArrayList<Stock>();
-	int numbers;
 	FileRepository fr=new FileRepository();
 	public static Scanner getScanner()
 	{
@@ -32,7 +31,7 @@ public class StoreKeeper
 			do
 			{
 				isTest=false;
-				System.out.println("\n1.Add Item \n2.Add Stock \n3.Display Item \n4.Display Stock \n5.Bill \n6.Exit");
+				System.out.println("\n1.Add Item \n2.Add Stock \n3.Display Item \n4.Display Stock \n5.Bill \n6.Back");
 				int m=sc.nextInt();
 				switch (m)
 				{
@@ -41,7 +40,7 @@ public class StoreKeeper
 					case 3: getItem(); isTest=true; break;
 					case 4: getCurrentStock(); isTest=true; break;
 					case 5: printBill(); isTest=true; break;
-					case 6: System.exit(0);break;
+					case 6: break;
 				}
 			}while(isTest);
 		}
@@ -111,25 +110,25 @@ public class StoreKeeper
 		getCurrentStock();
 		boolean sample=false;	
 		do{
-			sample=false;
-			
+			sample=false;			
 			System.out.println("\nSelect Your item");
 			curentStock();
 			System.out.println("Do you want More 1.No 2.Yes");
 			int n=sc.nextInt();
 			if (n==1)
 			{
-				break;
+				sample = true;	
 			}
-			else
+			else (n==2)
 			{
-				continue;
+				sample = false;	
 			}	
 		}
 		while(sample);		
 	}	
 	public List<Stock> curentStock()
 	{
+		int numbers;
 		for(int q=0;q<items.size();q++)
 		{
 			String d=sc.next();

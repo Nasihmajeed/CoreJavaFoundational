@@ -5,17 +5,17 @@ import java.util.*;
 import java.io.*; 
 public class FileRepository
 {
-	public File supermarket = new File("D:\\EverGreen.csv");
+	public File file = new File("D:\\EverGreen.csv");
 	public boolean fileExist(File file)
 	{
-		boolean isCheck=supermarket.exists();
+		boolean isCheck=file.exists();
 		return isCheck;
 	}
 	public void writeToFile(List<Item> items)
 	{
 		try
 		{					
-			FileWriter fw=new FileWriter(supermarket,true);
+			FileWriter fw=new FileWriter(file,true);
 			BufferedWriter bw=new BufferedWriter(fw);
 			for(int i=0;i<items.size();i++)
 			{
@@ -34,7 +34,7 @@ public class FileRepository
 	{	
 		try
 		{
-			FileReader fr=new FileReader(supermarket);
+			FileReader fr=new FileReader(file);
 			BufferedReader br=new BufferedReader(fr);
 			String data=br.readLine();
 			while((data=br.readLine())!=null)

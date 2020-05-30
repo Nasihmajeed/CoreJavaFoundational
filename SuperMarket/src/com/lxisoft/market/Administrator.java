@@ -29,7 +29,7 @@ public class Administrator
             do
             {
                 isTest=false;
-                System.out.println("\n1.Display Employee \n2.Add Employee\n3.Shift Time \n4.Attendence \n5.Exit");
+                System.out.println("\n1.Display Employee \n2.Add Employee\n3.Shift Time \n4.Attendence \n5.Back");
                 int m=sc.nextInt();
                 switch (m)
                 {
@@ -37,7 +37,7 @@ public class Administrator
                     case 2: setEmployee(); isTest=true;  break;
                     case 3: getShiftDetails(); isTest=true; break;
                     case 4: getAttendence(); isTest=true; break;
-                    case 5: System.exit(0);break;
+                    case 5: break;
                 }
             }while(isTest);
         }
@@ -55,8 +55,7 @@ public class Administrator
         System.out.println("Employee Name");
         String name = sc.next(); 
         System.out.println("Post");
-        String post = sc.next();        
-                              
+        String post = sc.next();                                
     
     }
     public void getEmployee() 
