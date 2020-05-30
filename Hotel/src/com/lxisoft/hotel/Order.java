@@ -6,7 +6,7 @@ public class Order{
 	Chickenbiriyani[] cb;
 	Vegbiriyani[] vb;
 	Regularmeals[] rm;
-	int total;
+	Bill[] bill;
 
 		public void setFoodItemDetails(){
 
@@ -14,6 +14,7 @@ public class Order{
 				cb[i]=new Chickenbiriyani();
 				vb[i]=new Vegbiriyani();
 				rm[i]=new Regularmeals();
+				bill[]=new Bill();
 			}
 		}
 
