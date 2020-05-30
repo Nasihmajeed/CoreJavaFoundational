@@ -21,14 +21,14 @@ public class Displaypage
 	private Stock stock=new Stock();
 	private Login userLogin=new Login();
 	private Signup userSignup=new Signup();
-	private Fileoperation fo=new Fileoperation();
+	private Fileoperation fileoperation=new Fileoperation();
 	private List<Item>products=new ArrayList<Item>();
 	private Cart cart=new Cart();
 	private Billdetail billDetail;
 	private Sale sale=new Sale();
 	public void login()throws Exception 
 	{
-		List<Customer> customers=fo.readCustomerDetails(customer);
+		List<Customer> customers=fileoperation.readCustomerDetails(customer);
 		
 		
 		System.out.println("       Yellow.coM");

@@ -4,14 +4,14 @@ import java.util.*;
 import com.lxisoft.onlineshoping.Purchase_item;
 public class Sale
 {
-	private Fileoperation fo=new Fileoperation();
+	private Fileoperation fileoperation=new Fileoperation();
 	private List<Purchase_item> purchasedItems;
 	private Purchase_item purItem;
 	private int num;
 	public void buyProduct(Item item,Customer customer)
 	{
 		
-		fo.purchasedItemDetail(item,customer,num+1);
+		fileoperation.purchasedItemDetail(item,customer,num+1);
 		num++;
 	}
 
@@ -19,7 +19,7 @@ public class Sale
 	{
 		
 
-		purchasedItems= fo.viewPurchaseDetails(customer,purItem);
+		purchasedItems= fileoperation.viewPurchaseDetails(customer,purItem);
 
 		System.out.println("Customer : "+purchasedItems.get(0).getCustomer());
 		int j=1;

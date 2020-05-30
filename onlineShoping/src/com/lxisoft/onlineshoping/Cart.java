@@ -9,7 +9,7 @@ import com.lxisoft.onlineshoping.Carted_item;
 public class Cart
 {
 	private List<Item>cartProduct=new ArrayList<Item>();
-	private Fileoperation fo=new Fileoperation();
+	private Fileoperation fileoperation=new Fileoperation();
 	private Displaypage dp;
 	private Carted_item cd;
 	private Customer customerDetail;
@@ -17,14 +17,14 @@ public class Cart
 	final void cartItem(Item product,Customer customer,int id)throws Exception
 	{
 		dp=new Displaypage();
-		fo.cartProduct(product,customer,id);
+		fileoperation.cartProduct(product,customer,id);
 		customerDetail=customer;
 		this.product=product;
 	}
 	final void viewCartItem(Customer customer)throws Exception 
 	{
 		System.out.println("\n");
-		Map cartItem= fo.viewCartProduct(customer,cd);
+		Map cartItem= fileoperation.viewCartProduct(customer,cd);
 		System.out.println("   CART products");
 		System.out.println(" =================");
 		System.out.println("Customer : "+customer.getName());

@@ -6,12 +6,12 @@ import java.util.*;
 
 public class Signup
 {
-	Fileoperation fo;
+	Fileoperation fileoperation;
 	Customer customer;
 	List<Customer>userDet=new ArrayList<Customer>();
 	public void userSignup()
 	{
-		fo=new Fileoperation();	
+		fileoperation=new Fileoperation();	
 		customer=new Customer();
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter customer Name : ");
@@ -30,7 +30,7 @@ public class Signup
 		int pincode=scr.nextInt();
 		customer.setPincode(pincode);
 
-		fo.addCustomerId(customer);
+		fileoperation.addCustomerId(customer);
 
 		System.out.println("Signup Successfully Completed ");
 	}
