@@ -4,12 +4,12 @@ import java.util.*;
 import java.io.*;
 public class FileRepo
 {
-	File file=new File("D:\\git_core\\CoreJavaFoundational\\LibraryManagement\\src\\com\\lxisoft\\repository\\Text.csv");
+	File file=new File("D:\\git_core\\CoreJavaFoundational\\LibraryManagement\\src\\com\\lxisoft\\resources\\Text.csv");
 	FileWriter fw=null;
 	FileWriter f=null;
 	BufferedWriter bw=null;
 	static int id=0;
-	List<Book>bookList=new ArrayList<Book>();
+	// List<Book>bookList=new ArrayList<Book>();
 
 	public List<Book> create(Book b)
 	{
