@@ -10,18 +10,18 @@ public class Shop
 	private List<Item> items = new ArrayList<Item>();
 	private List<Stock> stock=new ArrayList<Stock>();
 	FileRepository fr=new FileRepository();
-	private String name="EVERGREEN ENTERPRISES";
-	private String address="Pookotukavu";
-	private String place="Kadambur";
-	private final int pinCode = 679514;
+	private String name="\t\t\tEVERGREEN ENTERPRISES";
 	public void printShopDetails()
 	{
-		System.out.println("Shop Name : "+name);
-		System.out.println("Address: "+address);
-		System.out.println("Place : "+place);
-		System.out.println("Pin : "+pinCode);
+		System.out.println(name);
+		printShopAddress();
 		displayMainMenu();
 	}
+	public void printShopAddress()
+	{ 
+    	Address address = new Address("Pookotukavu", "Kadambur", 679514);
+    	System.out.println("\nAddress: "+address.address+"\nPlace : "+address.place+"\nPin :"+address.pinCode);
+ 	}	
 	public static Scanner getScanner()
 	{
 		if(sc == null)
@@ -98,7 +98,7 @@ public class Shop
 	{
 		System.out.println("\nDisplay the details of Item");
 		getItemGuaranty();
-		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Type","Price");
+		System.out.printf("%-20.30s %-20.30s %-20.30s%n","ID","Name","Price");
 		for(int i=0;i<items.size();i++)
 		{			
 			System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(i).getId(),items.get(i).getName(),items.get(i).getPrice());
@@ -143,11 +143,11 @@ public class Shop
 			int n=sc.nextInt();
 			if (n==1)
 			{
-				sample = true;	
+				sample = false;	
 			}
 			else if(n==2)
 			{
-				sample = false;	
+				sample = true;	
 			}	
 		}
 		while(sample);		
@@ -249,12 +249,13 @@ public class Shop
     {
         sc = this.getScanner();
         System.out.println("Attendence"); 
-        System.out.println("\nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");        
+      //  System.out.println("\nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");        
         String str = "Suneera Sheeba Sheeja Neethu Priya Rajesh Remya Raihanath Suhara "; 
         System.out.println("\nSearch a name");
         String s=sc.next();
         if(str.contains(s)) {  
-            System.out.println("Present today");  
+            System.out.println("Present today"); 
+            System.out.println("\nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");
         }else System.out.println("Is leave today");       
     }       
     public void getShiftDetails()
