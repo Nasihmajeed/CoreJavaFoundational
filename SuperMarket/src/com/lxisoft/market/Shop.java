@@ -21,7 +21,7 @@ public class Shop
 		System.out.println("Address: "+address);
 		System.out.println("Place : "+place);
 		System.out.println("Pin : "+pinCode);
-		mainOption();		
+		displayMainMenu();
 	}
 	public static Scanner getScanner()
 	{
@@ -33,6 +33,21 @@ public class Shop
 		else
 		{
 			return sc;
+		}
+	}
+	public void displayMainMenu()
+	{
+		System.out.println("\nSelect one");
+		System.out.println("\n1.Items 2.Employee 3.Exit");
+		sc = this.getScanner();
+		int s=sc.nextInt();
+		switch(s)
+		{
+			case 1:selectOption();break;
+			case 2: getEmployeeDetails();break;
+			case 3: System.exit(0);break;
+			default:System.out.println("Invalid option");
+			
 		}
 	}			
 	public void selectOption()
@@ -53,7 +68,7 @@ public class Shop
 					case 3: getItem(); isTest=true; break;
 					case 4: getCurrentStock(); isTest=true; break;
 					case 5: printBill(); isTest=true; break;
-					case 6: break;
+					default:
 				}
 			}while(isTest);
 		}
@@ -74,7 +89,6 @@ public class Shop
 		item.setPrice(sc.nextInt());
 		items.add(item);
 		fr.writeToFile(items);
-			
 	}
 	public void getItemGuaranty()
 	{
@@ -132,7 +146,7 @@ public class Shop
 			{
 				sample = true;	
 			}
-			else (n==2)
+			else if(n==2)
 			{
 				sample = false;	
 			}	
@@ -141,7 +155,7 @@ public class Shop
 	}	
 	public List<Stock> curentStock()
 	{
-		int numbers;
+		int numbers=0;
 		for(int q=0;q<items.size();q++)
 		{
 			String d=sc.next();
@@ -177,7 +191,7 @@ public class Shop
 	{
 		fr.readFromFile();
 	}
-	public void findEmployeeDetails()
+	public void getEmployeeDetails()
     {
         sc = this.getScanner();
         try
@@ -194,7 +208,7 @@ public class Shop
                     case 2: setEmployee(); isTest=true;  break;
                     case 3: getShiftDetails(); isTest=true; break;
                     case 4: getAttendence(); isTest=true; break;
-                    case 5: break;
+                    default:
                 }
             }while(isTest);
         }
