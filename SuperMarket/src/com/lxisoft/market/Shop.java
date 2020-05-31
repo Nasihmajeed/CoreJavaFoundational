@@ -5,8 +5,7 @@ import java.util.*;
 import java.io.*;
 import java.util.Comparator; 
 public class Shop
-{
-	
+{	
 	private static Scanner sc;	
 	private List<Item> items = new ArrayList<Item>();
 	private List<Stock> stock=new ArrayList<Stock>();
@@ -46,8 +45,7 @@ public class Shop
 			case 1:selectOption();break;
 			case 2: getEmployeeDetails();break;
 			case 3: System.exit(0);break;
-			default:System.out.println("Invalid option");
-			
+			default:System.out.println("Invalid option");			
 		}
 	}			
 	public void selectOption()
@@ -68,6 +66,7 @@ public class Shop
 					case 3: getItem(); isTest=true; break;
 					case 4: getCurrentStock(); isTest=true; break;
 					case 5: printBill(); isTest=true; break;
+					case 6:displayMainMenu();isTest=true; break;
 					default:
 				}
 			}while(isTest);
@@ -119,8 +118,8 @@ public class Shop
 		 		stock.add(new Stock());
 		 		stock.get(i).setQuantity(sc.nextInt());		 	 	
 		 	}		 	
-		 }
-		 return stock;
+		}
+		return stock;
 	}
 	public void getCurrentStock()
 	{	
@@ -168,9 +167,6 @@ public class Shop
                 System.out.println("Current stock"+(stock.get(q).getQuantity()));				
 				if(stock.get(q).getQuantity()>=numbers)
 				{					
-					// System.out.println("\nAvailable Stocks");
-					// System.out.printf("%-20.30s %-20.30s %-20.30s%n","items Type","items Price","Quantity");
-					// System.out.printf("%-20.30s %-20.30s %-20.30s%n",items.get(q).getName(),items.get(q).getPrice(),numbers);
 					System.out.println("Total Bill Amount="+((items.get(q).getPrice())*(numbers)));
 				}			
 				else if(stock.get(q).getQuantity()<numbers)
@@ -208,7 +204,7 @@ public class Shop
                     case 2: setEmployee(); isTest=true;  break;
                     case 3: getShiftDetails(); isTest=true; break;
                     case 4: getAttendence(); isTest=true; break;
-                    default:
+                    case 5:displayMainMenu();isTest=true; break;
                 }
             }while(isTest);
         }
@@ -226,8 +222,7 @@ public class Shop
         System.out.println("Employee Name");
         String name = sc.next(); 
         System.out.println("Post");
-        String post = sc.next();                                
-    
+        String post = sc.next();                         
     }
     public void getEmployee() 
     { 
@@ -240,21 +235,15 @@ public class Shop
         employee.add(new Employee(106, "Suneera", "StockClearng"));
         employee.add(new Employee(107, "Raihanath", "Sees"));
         employee.add(new Employee(108, "Suhara", "Sees"));
-        employee.add(new Employee(109, "Rajesh", "ManagingDirector"));  
-  
-  
+        employee.add(new Employee(109, "Rajesh", "ManagingDirector")); 
         Collections.sort(employee, new SortbyNoComparator()); 
-  
         System.out.println("\nSorted by empNo"); 
         for (int i=0; i<employee.size(); i++) 
             System.out.println(employee.get(i)); 
-  
         Collections.sort(employee, new SortbyNameComparator()); 
-  
         System.out.println("\nSorted by name"); 
         for (int i=0; i<employee.size(); i++) 
-            System.out.println(employee.get(i));
-                       
+        System.out.println(employee.get(i));             
     }
     public void getAttendence()
     {
@@ -266,8 +255,7 @@ public class Shop
         String s=sc.next();
         if(str.contains(s)) {  
             System.out.println("Present today");  
-        }else  
-            System.out.println("Is leave today");       
+        }else System.out.println("Is leave today");       
     }       
     public void getShiftDetails()
     {
@@ -275,9 +263,7 @@ public class Shop
         HashMap<String, Integer> afternoonTime = new HashMap<>();
         afternoonTime.put("Morning", 9);
         afternoonTime.put("Evening", 5);
-        System.out.println("Fisrt Shift " + afternoonTime);
-
-        
+        System.out.println("Fisrt Shift " + afternoonTime);    
         HashMap<String, Integer> fornoonTime = new HashMap<>(afternoonTime);
         fornoonTime.put("Evening", 1);
         fornoonTime.put("Night",8);
@@ -290,3 +276,21 @@ public class Shop
 
 
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
