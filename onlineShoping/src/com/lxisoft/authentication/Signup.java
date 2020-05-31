@@ -1,17 +1,17 @@
 package com.lxisoft.authentication;
 import com.lxisoft.onlineshoping.Displaypage;
 import com.lxisoft.onlineshoping.Customer;
-import com.lxisoft.repository.Fileoperation;
+import com.lxisoft.repository.FileRepository;
 import java.util.*;
 
 public class Signup
 {
-	Fileoperation fileoperation;
-	Customer customer;
-	List<Customer>userDet=new ArrayList<Customer>();
+	private FileRepository fileRepository;
+	private	Customer customer;
 	public void userSignup()
 	{
-		fileoperation=new Fileoperation();	
+		
+		fileRepository=new FileRepository();	
 		customer=new Customer();
 		Scanner scr=new Scanner(System.in);
 		System.out.println("Enter customer Name : ");
@@ -30,7 +30,7 @@ public class Signup
 		int pincode=scr.nextInt();
 		customer.setPincode(pincode);
 
-		fileoperation.addCustomerId(customer);
+		fileRepository.addCustomerId(customer);
 
 		System.out.println("Signup Successfully Completed ");
 	}

@@ -2,39 +2,39 @@ package com.lxisoft.onlineshoping;
 import com.lxisoft.onlineshoping.Item;
 import com.lxisoft.onlineshoping.Cart;
 import com.lxisoft.onlineshoping.Customer;
-import com.lxisoft.repository.Fileoperation;
+import com.lxisoft.onlineshoping.CartedItem;
+import com.lxisoft.repository.FileRepository;
 import java.util.*;
-import com.lxisoft.onlineshoping.Displaypage;
-import com.lxisoft.onlineshoping.Carted_item;
+
 public class Cart
 {
-	private List<Item>cartProduct=new ArrayList<Item>();
-	private Fileoperation fileoperation=new Fileoperation();
-	private Displaypage dp;
-	private Carted_item cd;
-	private Customer customerDetail;
-	private Item product;
-	final void cartItem(Item product,Customer customer,int id)throws Exception
+	
+	private FileRepository fileRepository;
+	private CartedItem carteditem;
+	
+	final void cartItem(Item item,Customer customer,int id)throws Exception
 	{
-		dp=new Displaypage();
-		fileoperation.cartProduct(product,customer,id);
-		customerDetail=customer;
-		this.product=product;
+		
+		fileRepository=new FileRepository();
+		fileRepository.cartProduct(item,customer,id);
+		System.out.println("   Product Carted");
+		System.out.println(" =================");
 	}
 	final void viewCartItem(Customer customer)throws Exception 
-	{
+	{ 
+		fileRepository=new FileRepository();
 		System.out.println("\n");
-		Map cartItem= fileoperation.viewCartProduct(customer,cd);
+		List<CartedItem> carteditems= fileRepository.viewCartProduct(customer,carteditem);
 		System.out.println("   CART products");
 		System.out.println(" =================");
 		System.out.println("Customer : "+customer.getName());
-		for (int i=0;i<cartItem.size();i++) 
+		for (int i=0;i<carteditems.size();i++) 
 		{
-
-				System.out.println("Item : "+cartItem.get(customer.getName()));	
-				System.out.println("   Successfully Carted Item ");
-				
-			System.out.println("\n");
+			if (carteditems.get(i).getCustomer().equals(customer.getName())) 
+			{
+				System.out.println("Item : "+carteditems.get(i).getCartItem());
+			}
+					
 		}
 		
 	}

@@ -1,5 +1,5 @@
 package com.lxisoft.onlineshoping;
-public class Purchase_item
+public class PurchasedItem
 {
 	private String name;
 	private String product;

@@ -3,29 +3,27 @@ import java.util.*;
 import java.io.*;
 import com.lxisoft.onlineshoping.Cart;
 import com.lxisoft.onlineshoping.Item;
-import com.lxisoft.onlineshoping.Carted_item;
-import com.lxisoft.onlineshoping.Purchase_item;
-
-/*import com.lxisoft.properties.Products;
-import com.lxisoft.properties.Products;
-import com.lxisoft.properties.cart;*/
+import com.lxisoft.onlineshoping.CartedItem;
+import com.lxisoft.onlineshoping.PurchasedItem;
 import com.lxisoft.onlineshoping.Customer;
-//import com.lxisoft.properties.Purchasedproducts;
-public class Fileoperation
+
+public class FileRepository
 {
-	private List<Item> items=new ArrayList<Item>();
-	private List<Customer> customerDetails=new ArrayList<Customer>();
+	private List<Item> items;
+	private List<Customer> customerDetails;
 	private String[] data;
 	private Item item;
-	private Map<String,String> carteddetails=new HashMap<String,String>();
-	//private List<Carted_item>carteddetails=new ArrayList<Carted_item>();
-	private List<Purchase_item>purchaseddetails=new ArrayList<Purchase_item>();
+	private List<CartedItem> carteddetails;
+	private Map<String,String> logindetails;
+	//private Map<String,String> carteddetails;
+	private List<PurchasedItem>purchaseddetails;
 
 
 	public List<Item> readProductDetails(Item item)throws Exception 
 	{
 
-		String csvFile="../src/com/lxisoft/properties/Products.csv";
+		items=new ArrayList<Item>();
+		String csvFile="../properties/Products.csv";
 		
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
 		String s;
@@ -49,7 +47,7 @@ public class Fileoperation
 	public void addCustomerId(Customer customer) 
 	{
 		
-		String csvFile="../src/com/lxisoft/properties/Customer.csv";
+		String csvFile="../properties/Customer.csv";
 		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;
@@ -76,7 +74,9 @@ public class Fileoperation
 	}
 	public List<Customer> readCustomerDetails(Customer customer)throws Exception 
 	{
-		String csvFile="../src/com/lxisoft/properties/Customer.csv";
+		
+		customerDetails=new ArrayList<Customer>();
+		String csvFile="../properties/Customer.csv";
 		BufferedReader br=new BufferedReader(new FileReader(csvFile));
 		String s;
 		while((s=br.readLine())!=null)
@@ -84,18 +84,36 @@ public class Fileoperation
 			customer=new Customer();
 			String[] data=s.split(",");
 			customer.setName(data[0]);
-			customer.setPassword(data[1]);
 			customer.setAddress(data[2]);
 			int pincode = Integer.parseInt(data[3]);
 			customer.setPincode(pincode);
 			customerDetails.add(customer);
 			
+			
+
 		}
 		return customerDetails;
 	}
+	public Map readLoginDetails(Customer customer)throws Exception 
+	{
+		logindetails=new HashMap<String,String>();
+		String csvFile="../properties/Customer.csv";
+		BufferedReader br=new BufferedReader(new FileReader(csvFile));
+		String s;
+		while((s=br.readLine())!=null)
+		{
+			
+			String[] data=s.split(",");	
+			logindetails.put(data[0],data[1]);
+			
+
+		}
+		
+		return logindetails;
+	}
 	public void cartProduct(Item product,Customer customer,int id)
 	{
-		String csvFile="../src/com/lxisoft/properties/Cart.csv";
+		String csvFile="../properties/Cart.csv";
 		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;
@@ -124,44 +142,58 @@ public class Fileoperation
 
 
 
-	public Map viewCartProduct(Customer customer,Carted_item cd)throws Exception 
+	/*public Map viewCartProduct(Customer customer,CartedItem cd)throws Exception 
 	{
-		String csvFile="../src/com/lxisoft/properties/Cart.csv";
+		carteddetails=new HashMap<String,String>();
+		String csvFile="../properties/Cart.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
 
 		String s;
 
 		while((s=br.readLine())!=null)
 		{
-			cd=new Carted_item();
+			cd=new CartedItem();
 			String[] cartItem=s.split(",");
 
 
-			carteddetails.put(cartItem[0],cartItem[1]);
+			carteddetails.put(cartItem[1],cartItem[2]);
+		}
+		return carteddetails;
+	}*/
 
+	public List<CartedItem> viewCartProduct(Customer customer,CartedItem cd)throws Exception 
+	{
+		carteddetails=new ArrayList<CartedItem>();
+		String csvFile="../properties/Cart.csv";
+		BufferedReader br = new BufferedReader(new FileReader(csvFile));
 
-			/*if(cartItem[0].equals(customer.getName()))
+		String s;
+
+		while((s=br.readLine())!=null)
+		{
+			cd=new CartedItem();
+			String[] cartItem=s.split(",");
+			if(cartItem[1].equals(customer.getName()))
 			{
-				cd.setCustomer(cartItem[0]);
-				cd.setCartItem(cartItem[1]);
+				cd.setCustomer(cartItem[1]);
+				cd.setCartItem(cartItem[2]);
 			}
-			carteddetails.add(cd);*/
+			carteddetails.add(cd);
 		}
 		return carteddetails;
 	}
 
-
-
-	public List<Purchase_item> viewPurchaseDetails(Customer customer,Purchase_item purItem)throws Exception 
+	public List<PurchasedItem> viewPurchaseDetails(Customer customer,PurchasedItem purItem)throws Exception 
 	{
-		String csvFile="../src/com/lxisoft/properties/PurchasedProduct.csv";
+		purchaseddetails=new ArrayList<PurchasedItem>();
+		String csvFile="../properties/PurchasedProduct.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
 
 		String s;
 		
 		while((s=br.readLine())!=null)
 		{
-			purItem=new Purchase_item();
+			purItem=new PurchasedItem();
 			String[] buyItem=s.split(",");
 			if(buyItem[0].equals(customer.getName()))
 			{
@@ -182,7 +214,7 @@ public class Fileoperation
 	public void purchasedItemDetail(Item item,Customer customer,int num) 
 	{
 		
-		String csvFile="../src/com/lxisoft/properties/PurchasedProduct.csv";
+		String csvFile="../properties/PurchasedProduct.csv";
 		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;

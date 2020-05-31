@@ -1,26 +1,26 @@
 package com.lxisoft.authentication;
 import com.lxisoft.onlineshoping.Customer;
-import com.lxisoft.repository.Fileoperation;
 import java.util.Scanner;
 import java.util.*;
 public class Login
 {
 	
 	private Customer user;
-	private List<Customer>userDet=new ArrayList<Customer>(); 
-	private List<String>logdets=new ArrayList<String>();
-	private Fileoperation fo;
+	private List<Customer>userDet; 
+	private List<String>logdets;
 	
 	public void setUserLogin()
 	{
+		userDet=new ArrayList<Customer>();
+		logdets=new ArrayList<String>();
 		Scanner scr=new Scanner(System.in);
-		System.out.println("Name : ");
+		System.out.println("       Name : ");
 		String name=scr.next();
 		logdets.add(name);
-		System.out.println("Password : ");
+		System.out.println("       Password : ");
 		String password=scr.next();
 		logdets.add(password);
-		
+		System.out.println("\n");
 
 	
 	}

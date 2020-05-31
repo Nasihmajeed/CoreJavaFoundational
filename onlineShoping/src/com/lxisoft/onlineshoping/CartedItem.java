@@ -1,7 +1,7 @@
 package com.lxisoft.onlineshoping;
 import java.util.Objects;
 
-public class Carted_item
+public class CartedItem
 {
 	private int id;
 	private String name;
@@ -32,7 +32,7 @@ public class Carted_item
 	}
 	public boolean equals(Object obj)
 	{
-		if((((Carted_item)obj).name==this.name) && (((Carted_item)obj).product==this.product))
+		if((((CartedItem)obj).name==this.name) && (((CartedItem)obj).product==this.product))
 		{
 			return true;
 		}

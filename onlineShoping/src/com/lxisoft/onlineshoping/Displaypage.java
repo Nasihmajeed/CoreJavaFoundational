@@ -1,35 +1,40 @@
 package com.lxisoft.onlineshoping;
 import java.util.*;
+import java.lang.Math;
+import java.util.Scanner;
 import com.lxisoft.onlineshoping.Item;
-import com.lxisoft.repository.Fileoperation;
-import com.lxisoft.onlineshoping.Customer;
-import com.lxisoft.authentication.Login;
-import com.lxisoft.authentication.Signup;
 import com.lxisoft.onlineshoping.Sale;
 import com.lxisoft.onlineshoping.Stock;
 import com.lxisoft.onlineshoping.Cart;
+import com.lxisoft.onlineshoping.Customer;
 import com.lxisoft.onlineshoping.Billdetail;
-import com.lxisoft.payment.Cash_on_delivery;
+import com.lxisoft.repository.FileRepository;
+import com.lxisoft.authentication.Login;
+import com.lxisoft.authentication.Signup;
+import com.lxisoft.payment.CashOnDelivery;
 import com.lxisoft.payment.Paymentmanager;
-import com.lxisoft.payment.Pay_online;
-import java.lang.Math;
-import java.util.Scanner;
+import com.lxisoft.payment.PayOnline;
+
 public class Displaypage
 {
-	private	Scanner scr=new Scanner(System.in);
 	private Customer customer;
-	private Stock stock=new Stock();
-	private Login userLogin=new Login();
-	private Signup userSignup=new Signup();
-	private Fileoperation fileoperation=new Fileoperation();
-	private List<Item>products=new ArrayList<Item>();
-	private Cart cart=new Cart();
+	private Stock stock;
+	private Login userLogin;
+	private Signup userSignup;
+	private FileRepository fileRepository;
+	private List<Item>items;
+	private Cart cart;
 	private Billdetail billDetail;
-	private Sale sale=new Sale();
+	private Sale sale;
 	public void login()throws Exception 
-	{
-		List<Customer> customers=fileoperation.readCustomerDetails(customer);
-		
+	{	
+		userLogin=new Login();
+		items=new ArrayList<Item>();
+		fileRepository=new FileRepository();
+		stock=new Stock();
+		Scanner scr=new Scanner(System.in);	
+		List<Customer> customers1=fileRepository.readCustomerDetails(customer);
+		Map customers2=fileRepository.readLoginDetails(customer);
 		
 		System.out.println("       Yellow.coM");
 		System.out.println("      ============");
@@ -37,77 +42,82 @@ public class Displaypage
 		List<String> logDet=userLogin.getUserLogin();
 		
 		int ur=0;
-		for(int i=0;i<customers.size();i++)
+		for(int i=0;i<customers1.size();i++)
 		{
 			
-			if (logDet.get(0).equals(customers.get(i).getName()) && logDet.get(1).equals(customers.get(i).getPassword())) 
+			if (logDet.get(0).equals(customers1.get(i).getName()) /*&& logDet.get(1).equals(customers2.get(logDet.get(1)))*/) 
 			{
 				Item item=new Item();
 				stock.setItemDetail(item);
-				System.out.println("       Login done");
-				products=stock.getItemDetail();
-				this.viewItem(customers.get(i),products);
-				ur=i;
+				System.out.println("       -------Login done-------");
+				items=stock.getItemDetail();
+				this.viewItem(customers1.get(i),items);
+				
+
 				break;
 
 			}
-						
+				ur=i;		
 		}
-		if(!logDet.get(0).equals(customers.get(ur).getName()))
+		if(!logDet.get(0).equals(customers1.get(ur).getName()))
 		{
-				System.out.println("       Login faild");
+				userSignup=new Signup();
+				System.out.println("       -------Login faild-------");
 				userSignup.userSignup();
 		}
 		
 	}
 	public void signup()throws Exception 
 	{
+		userSignup=new Signup();
 		userSignup.userSignup();
 		this.login();
 	}
 
-	public void viewItem(Customer customer,List<Item> products)throws Exception 
+	public void viewItem(Customer customer,List<Item> items)throws Exception 
 	{
-		
-		//System.out.println("Customer : "+ customer.getName());
+
+		cart=new Cart();
+		sale=new Sale();
+		Scanner scr=new Scanner(System.in);
 		int j=1;
-		Collections.sort(products);  
-		for (int i=0;i<products.size();i++) 
+		Collections.sort(items);  
+		System.out.println("\n");
+		System.out.println("       Items");
+		System.out.println("       ============");
+		for (int i=0;i<items.size();i++) 
 		{
-			System.out.println("       products"+j+" : "+products.get(i).getItemName()+"\n       Price ₹ : "+products.get(i).getPrice());
+			System.out.println("       items"+j+" : "+items.get(i).getItemName()+"\n       Price ₹ : "+items.get(i).getPrice());
 			j++;
 		}
 		System.out.println("\n");
-		System.out.println("Select Item : 1  View Cart Items : 2  View purchasedItems : 3   Exit : 4  ");
+		System.out.println("Select Item : 1 || View Cart Items : 2 || View purchasedItems : 3 || Exit : 4  ");
 		int select=scr.nextInt();
 		System.out.println("\n");
 		switch(select)
 		{
 			case 1:
-					selectItem(products,customer);
-					viewItem(customer,products);
+					selectItem(items,customer);
+					viewItem(customer,items);
 					break;
 			case 2:
 					cart.viewCartItem(customer);
-					viewItem(customer,products);
+					viewItem(customer,items);
 					break;
 			case 3:
 					sale.vewPurchasedDetail(customer);
-					viewItem(customer,products);
+					viewItem(customer,items);
 					break;
 			case 4:
 					System.out.println("==== Thank you ====");
 					break;
-
-			/*case 5:
-					cart.checkCart(customer);
-					break;*/
 			
 		}
 		
 	}
-	public void selectItem(List<Item>products,Customer customer)throws Exception
+	public void selectItem(List<Item>items,Customer customer)throws Exception
 	{
+		Scanner scr=new Scanner(System.in);
 		billDetail=new Billdetail();
 		
 		System.out.println("\n");
@@ -115,25 +125,25 @@ public class Displaypage
 		System.out.println("      	------------------------------");
 		int num=scr.nextInt();
 		System.out.println("\n");
-		System.out.println("       "+products.get(num-1).getItemName());
+		System.out.println("       "+items.get(num-1).getItemName());
 		System.out.println("      --------------");
-		System.out.println(       products.get(num-1).getCatogery());
-		System.out.println(       products.get(num-1).getFeature());
-		System.out.println("       Price ₹ : "+products.get(num-1).getPrice());
+		System.out.println(       items.get(num-1).getCatogery());
+		System.out.println(       items.get(num-1).getFeature());
+		System.out.println("       Price ₹ : "+items.get(num-1).getPrice());
 		System.out.println("\n");
 		int s=0;
 
-		for (int k=0;k<products.size();k++) 
+		for (int k=0;k<items.size();k++) 
 		{
-			if(products.get(num-1).getCatogery().equals(products.get(k).getCatogery()) && !products.get(num-1).getItemName().equals(products.get(k).getItemName()))
+			if(items.get(num-1).getCatogery().equals(items.get(k).getCatogery()) && !items.get(num-1).getItemName().equals(items.get(k).getItemName()))
 			{
 				System.out.println("\n");
-				System.out.println("Relative Products");
+				System.out.println("Relative Items");
 				System.out.println("------------------");
-				System.out.println(products.get(k).getItemName());
-				System.out.println(products.get(k).getCatogery());
-				int discount=products.get(k).getPrice()-products.get(k).getPrice()*20/100;
-				System.out.println("Price ₹"+products.get(k).getPrice()+"  20% Discount : ₹ "+discount);
+				System.out.println(items.get(k).getItemName());
+				System.out.println(items.get(k).getCatogery());
+				int discount=items.get(k).getPrice()-items.get(k).getPrice()*20/100;
+				System.out.println("Price ₹"+items.get(k).getPrice()+"  20% Discount : ₹ "+discount);
 				System.out.println("\n");
 				s=k;
 			}
@@ -146,8 +156,8 @@ public class Displaypage
 		switch(select)
 		{
 			case 1:
-					cartItem(products.get(num-1),customer,id);
-					viewItem(customer,products);
+					cartItem(items.get(num-1),customer,id);
+					viewItem(customer,items);
 					id++;
 					break;
 			case 2:
@@ -158,38 +168,39 @@ public class Displaypage
 					switch(slct)
 					{
 						case 1:
-									Paymentmanager cash_on_delivery = new Cash_on_delivery();
-									cash_on_delivery. payCash();
+									Paymentmanager cashOnDelivery = new CashOnDelivery();
+									cashOnDelivery. payCash();
 								
 									break;
 						case 2:
-									Paymentmanager pay_online = new Pay_online();
-									pay_online. payCash();
+									Paymentmanager payOnline = new PayOnline();
+									payOnline. payCash();
 									break;
 							
 
 					}
 					
-					buyItem(products.get(num-1),customer);
-					viewItem(customer,products);
+					buyItem(items.get(num-1),customer);
+					viewItem(customer,items);
 					
 					break;
 		}
 		
 		
 	}
-	public void cartItem(Item products,Customer customer,int id)throws Exception
+	public void cartItem(Item items,Customer customer,int id)throws Exception
 	{ 
-		
-		cart.cartItem(products,customer,id);
+		cart=new Cart();
+		Scanner scr=new Scanner(System.in);
+		cart.cartItem(items,customer,id);
 		
 	}
-	public void buyItem(Item products,Customer customer)throws Exception 
+	public void buyItem(Item items,Customer customer)throws Exception 
 	{
-		
+		sale=new Sale();
 		billDetail=new Billdetail();
-		sale.buyProduct(products,customer);
-		billDetail.purchasedBillDetail(products,customer);
+		sale.buyProduct(items,customer);
+		billDetail.purchasedBillDetail(items,customer);
 		
 	}
 }
