@@ -20,14 +20,14 @@ public class Hotel{
 		System.out.println("                                                                                                 ");
 		System.out.println("**************************************************************************************************");
 
-	System.out.println(" **************************HOTEL NOORJAHAN**************************************");
+		System.out.println(" **************************HOTEL NOORJAHAN**************************************");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 
-	System.out.println("*******************VEG  AND NONVEG**************************************");
+		System.out.println("*******************VEG  AND NONVEG**************************************");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");
 		System.out.println("                                                                                                 ");

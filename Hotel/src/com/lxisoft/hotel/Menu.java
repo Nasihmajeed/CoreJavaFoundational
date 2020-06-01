@@ -11,6 +11,14 @@ public class Menu{
 
         System.out.println(" 3- Regular meals   " + "70" );
 
+         System.out.println(" 4- Quit" );
+
+
+         System.out.println("WHAT WOULD YOU LIKE TO HAVE");
+
+
+
+
         
 		}
 
