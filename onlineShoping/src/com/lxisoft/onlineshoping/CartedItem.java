@@ -1,6 +1,5 @@
 package com.lxisoft.onlineshoping;
 import java.util.Objects;
-
 public class CartedItem
 {
 	private int id;

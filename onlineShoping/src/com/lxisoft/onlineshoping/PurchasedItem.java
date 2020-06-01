@@ -7,7 +7,6 @@ public class PurchasedItem
 	private String feature;
 	private int price;
 	private int itemNumber;
-
 	public void setCustomer(String name)
 	{
 		this.name=name;
@@ -16,7 +15,6 @@ public class PurchasedItem
 	{
 		return this.name;
 	}
-
 	public void setPurchasedItem(String product)
 	{
 		this.product=product;
@@ -25,7 +23,6 @@ public class PurchasedItem
 	{
 		return this.product;
 	}
-
 	public void setCatogery(String catogery)
 	{
 		this.catogery=catogery;
@@ -34,7 +31,6 @@ public class PurchasedItem
 	{
 		return this.catogery;
 	}
-
 	public void setFeature(String feature)
 	{
 		this.feature=feature;
@@ -43,7 +39,6 @@ public class PurchasedItem
 	{
 		return this.feature;
 	}
-
 	public void setPrice(int price)
 	{
 		this.price=price;

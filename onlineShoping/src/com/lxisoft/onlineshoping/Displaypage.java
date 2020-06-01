@@ -14,7 +14,6 @@ import com.lxisoft.authentication.Signup;
 import com.lxisoft.payment.CashOnDelivery;
 import com.lxisoft.payment.Paymentmanager;
 import com.lxisoft.payment.PayOnline;
-
 public class Displaypage
 {
 	private Customer customer;
@@ -35,27 +34,21 @@ public class Displaypage
 		Scanner scr=new Scanner(System.in);	
 		List<Customer> customers1=fileRepository.readCustomerDetails(customer);
 		Map customers2=fileRepository.readLoginDetails(customer);
-		
 		System.out.println("       Yellow.coM");
 		System.out.println("      ============");
 		userLogin.setUserLogin();
 		List<String> logDet=userLogin.getUserLogin();
-		
 		int ur=0;
 		for(int i=0;i<customers1.size();i++)
-		{
-			
-			if (logDet.get(0).equals(customers1.get(i).getName()) /*&& logDet.get(1).equals(customers2.get(logDet.get(1)))*/) 
+		{	
+			if (logDet.get(0).equals(customers1.get(i).getName()) && logDet.get(1).equals(customers2.get(logDet.get(0)))) 
 			{
 				Item item=new Item();
 				stock.setItemDetail(item);
 				System.out.println("       -------Login done-------");
 				items=stock.getItemDetail();
 				this.viewItem(customers1.get(i),items);
-				
-
 				break;
-
 			}
 				ur=i;		
 		}
@@ -65,7 +58,6 @@ public class Displaypage
 				System.out.println("       -------Login faild-------");
 				userSignup.userSignup();
 		}
-		
 	}
 	public void signup()throws Exception 
 	{
@@ -73,10 +65,8 @@ public class Displaypage
 		userSignup.userSignup();
 		this.login();
 	}
-
 	public void viewItem(Customer customer,List<Item> items)throws Exception 
 	{
-
 		cart=new Cart();
 		sale=new Sale();
 		Scanner scr=new Scanner(System.in);
@@ -113,14 +103,11 @@ public class Displaypage
 					break;
 			
 		}
-		
 	}
 	public void selectItem(List<Item>items,Customer customer)throws Exception
 	{
 		Scanner scr=new Scanner(System.in);
 		billDetail=new Billdetail();
-		
-		System.out.println("\n");
 		System.out.println("          Select number pick Product");
 		System.out.println("      	------------------------------");
 		int num=scr.nextInt();
@@ -132,7 +119,6 @@ public class Displaypage
 		System.out.println("       Price ₹ : "+items.get(num-1).getPrice());
 		System.out.println("\n");
 		int s=0;
-
 		for (int k=0;k<items.size();k++) 
 		{
 			if(items.get(num-1).getCatogery().equals(items.get(k).getCatogery()) && !items.get(num-1).getItemName().equals(items.get(k).getItemName()))
@@ -150,7 +136,8 @@ public class Displaypage
 		}
 		int id=1;
 		System.out.println("\n");
-		System.out.println("Cart : 1  Buy : 2 ");
+		System.out.println("       Cart : 1  Buy : 2 ");
+		System.out.println("       ==================");
 		int select=scr.nextInt();
 		System.out.println("\n");
 		switch(select)
@@ -161,7 +148,6 @@ public class Displaypage
 					id++;
 					break;
 			case 2:
-
 					System.out.println("Payment option CashOnDelivery : 1  PayOnline : 2 ");
 					int slct=scr.nextInt();
 					System.out.println("\n");
@@ -176,31 +162,23 @@ public class Displaypage
 									Paymentmanager payOnline = new PayOnline();
 									payOnline. payCash();
 									break;
-							
-
 					}
-					
 					buyItem(items.get(num-1),customer);
 					viewItem(customer,items);
-					
 					break;
 		}
-		
-		
 	}
 	public void cartItem(Item items,Customer customer,int id)throws Exception
 	{ 
 		cart=new Cart();
 		Scanner scr=new Scanner(System.in);
-		cart.cartItem(items,customer,id);
-		
+		cart.cartItem(items,customer,id);	
 	}
 	public void buyItem(Item items,Customer customer)throws Exception 
 	{
 		sale=new Sale();
 		billDetail=new Billdetail();
 		sale.buyProduct(items,customer);
-		billDetail.purchasedBillDetail(items,customer);
-		
+		billDetail.purchasedBillDetail(items,customer);	
 	}
 }

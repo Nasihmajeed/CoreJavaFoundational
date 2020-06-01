@@ -12,7 +12,6 @@ public class PayOnline implements Paymentmanager
 			System.out.println(" =================");
 			System.out.println("south indian bank : 1 , indian bank: 2 , canara bank : 3 ");
 			int slct=scr.nextInt();
-
 			switch(slct)
 			{
 				case 1:
@@ -22,13 +21,10 @@ public class PayOnline implements Paymentmanager
 				case 3:
 						System.out.println("Canara Bank");
 			}
-
 			System.out.println("   Bank Details");
 			System.out.println(" =================");
-
 			System.out.println("Bank Id : ");
 			String id=scr.next();
-
 			System.out.println("Bank pasword : ");
 			String password=scr.next();
 		}

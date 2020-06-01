@@ -5,7 +5,6 @@ import com.lxisoft.repository.FileRepository;
 public class Stock
 {
 	private List<Item> items=new ArrayList<Item>();
-	
 	private FileRepository fileRepository;
 	public void setItemDetail(Item item)throws Exception 
 	{
@@ -17,5 +16,4 @@ public class Stock
 	{
 		return this.items;
 	}
-	
 }

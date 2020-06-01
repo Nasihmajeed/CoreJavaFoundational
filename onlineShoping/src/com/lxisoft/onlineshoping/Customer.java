@@ -13,7 +13,6 @@ public class Customer
 	{
 		return this.name;
 	}
-
 	public void setPassword(String password)
 	{
 		this.password=password;
@@ -38,7 +37,4 @@ public class Customer
 	{
 		return this.pincode;
 	}
-
-	
-
 }

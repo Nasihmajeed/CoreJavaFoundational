@@ -15,7 +15,6 @@ public class FileRepository
 	private Item item;
 	private List<CartedItem> carteddetails;
 	private Map<String,String> logindetails;
-	//private Map<String,String> carteddetails;
 	private List<PurchasedItem>purchaseddetails;
 
 
@@ -46,24 +45,16 @@ public class FileRepository
 
 	public void addCustomerId(Customer customer) 
 	{
-		
 		String csvFile="../properties/Customer.csv";
 		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;
-		
 		try
 		{
 			fw=new FileWriter(csvFile,true);
 			bw=new BufferedWriter(fw);
-
-			
-
 			bw.write(customer.getName()+","+customer.getPassword()+","+customer.getAddress()+","+customer.getPincode());
 			bw.newLine();
-
-
-
 				bw.close();
 				fw.close();
 		}
@@ -88,9 +79,6 @@ public class FileRepository
 			int pincode = Integer.parseInt(data[3]);
 			customer.setPincode(pincode);
 			customerDetails.add(customer);
-			
-			
-
 		}
 		return customerDetails;
 	}
@@ -102,11 +90,8 @@ public class FileRepository
 		String s;
 		while((s=br.readLine())!=null)
 		{
-			
 			String[] data=s.split(",");	
 			logindetails.put(data[0],data[1]);
-			
-
 		}
 		
 		return logindetails;
@@ -117,58 +102,26 @@ public class FileRepository
 		String line="";
 		BufferedWriter bw=null;
 		FileWriter fw=null;
-		
 		try
 		{
 			fw=new FileWriter(csvFile,true);
 			bw=new BufferedWriter(fw);
-
-			
-
 			bw.write(id+","+customer.getName()+","+product.getItemName());
 			bw.newLine();
-
-
-
 				bw.close();
 				fw.close();
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
-
-
-	/*public Map viewCartProduct(Customer customer,CartedItem cd)throws Exception 
-	{
-		carteddetails=new HashMap<String,String>();
-		String csvFile="../properties/Cart.csv";
-		BufferedReader br = new BufferedReader(new FileReader(csvFile));
-
-		String s;
-
-		while((s=br.readLine())!=null)
-		{
-			cd=new CartedItem();
-			String[] cartItem=s.split(",");
-
-
-			carteddetails.put(cartItem[1],cartItem[2]);
-		}
-		return carteddetails;
-	}*/
-
 	public List<CartedItem> viewCartProduct(Customer customer,CartedItem cd)throws Exception 
 	{
 		carteddetails=new ArrayList<CartedItem>();
 		String csvFile="../properties/Cart.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
-
 		String s;
-
 		while((s=br.readLine())!=null)
 		{
 			cd=new CartedItem();
@@ -182,15 +135,12 @@ public class FileRepository
 		}
 		return carteddetails;
 	}
-
 	public List<PurchasedItem> viewPurchaseDetails(Customer customer,PurchasedItem purItem)throws Exception 
 	{
 		purchaseddetails=new ArrayList<PurchasedItem>();
 		String csvFile="../properties/PurchasedProduct.csv";
 		BufferedReader br = new BufferedReader(new FileReader(csvFile));
-
 		String s;
-		
 		while((s=br.readLine())!=null)
 		{
 			purItem=new PurchasedItem();

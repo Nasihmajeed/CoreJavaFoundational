@@ -8,10 +8,8 @@ import java.util.*;
 
 public class Cart
 {
-	
 	private FileRepository fileRepository;
 	private CartedItem carteditem;
-	
 	final void cartItem(Item item,Customer customer,int id)throws Exception
 	{
 		
