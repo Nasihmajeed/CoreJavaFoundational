@@ -9,7 +9,7 @@ public class FileRepo
 	FileWriter f=null;
 	BufferedWriter bw=null;
 	static int id=0;
-	// List<Book>bookList=new ArrayList<Book>();
+	List<Book>bookList=new ArrayList<Book>();
 
 	public List<Book> create(Book b)
 	{
@@ -99,10 +99,10 @@ public class FileRepo
 		return bookList;
   	}
 
-  	public List<Book> autherSort()
-  	{
-  		bookList=read();
-  		Collections.sort(bookList,new AutherComparator());
-		return bookList;
-  	}
+  // 	public List<Book> autherSort()
+  // 	{
+  // 		bookList=read();
+  // 		Collections.sort(bookList,new AutherComparator());
+		// return bookList;
+  // 	}
 }

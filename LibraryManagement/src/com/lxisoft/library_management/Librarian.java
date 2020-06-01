@@ -5,10 +5,8 @@ import java.util.*;
 public class Librarian
 {
 	FileRepo repo=new FileRepo();
-	Book b=new Book();
-
-
-	public int displayOptions()
+	
+	public int selectOptions()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\n             Enter your choice:");
@@ -18,21 +16,21 @@ public class Librarian
 	}
 
 
-	public void options()
+	public void displayOptions()
     {
     	Reader r=new Reader();
     	int ch=0;
 		List<Book>bookList=new ArrayList<Book>();
         do
         {
-            ch=displayOptions();
+            ch=selectOptions();
 			switch(ch)
             {
                 case 1:addBook();break;
                 case 2:getAllBooks();break; 
                 case 3:searchDetails();break;
                 case 4:r.returnBook();break;
-                case 5:sorted(bookList);break;    
+                case 5:sortBooks(bookList);break;    
                 case 6:System.exit(0);break;
             } 
         }while(ch!=7);
@@ -69,11 +67,11 @@ public class Librarian
 		} 
 	}
 
-    public int sortBooks(List<Book>bookList)
+    public int sortDetails(List<Book>bookList)
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("             Enter your choice:");
-		System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Sorted by Auther\n             4-Exit");
+	    System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Exit");
 		int a=sc.nextInt();
 		for(int i=0;i<bookList.size();i++)
 		{
@@ -85,20 +83,20 @@ public class Librarian
 		return a;
 	}
 
-	public void sorted(List<Book>bookList)
+	public void sortBooks(List<Book>bookList)
 	{
 		int a=0;
 		do
 		{
-			a=sortBooks(bookList);
+			a=sortDetails(bookList);
 			switch(a)
 			{
 				case 1:bookList=repo.idSort();break;
 				case 2:bookList=repo.nameSort();break;
-				case 3:bookList=repo.autherSort();break;
-				case 4:System.exit(0);break;
+				// case 3:bookList=repo.autherSort();break;
+				case 3:System.exit(0);break;
 			}
-		}while(a!=5);
+		}while(a!=4);
 	}
 
 	public void searchBook(List<String> s)

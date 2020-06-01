@@ -20,17 +20,17 @@ public class Reader
 
 	public void returnBook()
 	{
+		int day=5;
 		Scanner sc=new Scanner(System.in);
 		System.out.println("\n           Enter How many days before you take book:");
 		int a=sc.nextInt();
-		int day=5;
 		if(day>10)
 		{
-			System.out.println("Pay Fine!!!!!!\nFine is 10 Rupees");
+			System.out.println("           !!!Pay Fine!!!\tFine is 10 Rupees!!!");
 		}
 		else
 		{
-			System.out.println("Thanks For Return the Book!!!!!!!!!!!!!");	
+			System.out.println("           !!!Thanks For Return the Book!!!");	
 		}
 	}
 }
