@@ -33,35 +33,29 @@ public class Vehicle
 		String type=s.nextLine();
         car[i].setType(type);
 		s.nextLine();
-	}
-	}
-	Owner[] owner=new Owner[10];
-	public void getOwnerDetails()
-	{
-	for (int i=1; i<=n; i++)
-	{
-		owner[i]=new Owner();
-        
-
-        System.out.println("\n Enter Name of RC Owner : ");
+		
+		System.out.println("\n Enter Name of RC Owner : ");
 		String rcowner=s.nextLine();
-        owner[i].setRCOwner(rcowner);
+        car[i].setRCOwner(rcowner);
 
         System.out.println("\n Enter RC Owner Adress : ");
 		String rcadress=s.nextLine();
-        owner[i].setRCAdress(rcadress);
+        car[i].setRCAdress(rcadress);
 
         System.out.println("Enter Registration number :");
 		String regNo=s.nextLine();
-        owner[i].setRegNo(regNo);
+        car[i].setRegNo(regNo);
         s.nextLine();
 		
 		System.out.println("\n Enter Regional Transport Office: ");
 		String rto=s.nextLine();
-        owner[i].setRTO(rto);
+        car[i].setRTO(rto);
 		s.nextLine();
+
 	}
-}
+	}
+	
+
 	public void printCarDetails()
 	{
 	   
@@ -72,11 +66,10 @@ public class Vehicle
 	    System.out.println("Car Company name:- "+car[i].getCompanyName());
 		System.out.println("Model :-"+car[i].getModel());
  	    System.out.println("Vehicle Type: "+car[i].getType());
-		
-	    System.out.println("RC Owner name:- "+owner[i].getRCOwner());
-	    System.out.println("RC Owner Adress:- "+owner[i].getRCAdress());
-		System.out.println("Registrion Number :-"+owner[i].getRegNo());
- 		System.out.println("Regional Transport Office :-"+owner[i].getRTO());	    
+	    System.out.println("RC Owner name:- "+car[i].getRCOwner());
+	    System.out.println("RC Owner Adress:- "+car[i].getRCAdress());
+		System.out.println("Registrion Number :-"+car[i].getRegNo());
+ 		System.out.println("Regional Transport Office :-"+car[i].getRTO());	    
 		}
 	}
 }

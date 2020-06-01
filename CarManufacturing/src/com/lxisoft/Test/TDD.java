@@ -7,7 +7,6 @@ public class TDD
  		Vehicle car=new Vehicle();
  		car.getCarDetails();
  		car.printCarDetails();
-		Vehicle owner=new Vehicle();
-		owner.getOwnerDetails();
+		
 	}
 }
