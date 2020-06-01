@@ -13,10 +13,10 @@ public class Order
         do
         {
             System.out.println("\n ITEM"+"\t\tPrice");
-            System.out.println("1.tea"+"\t\t"+"10");
-            System.out.println("2.coffee"+"\t"+"15");
-            System.out.println("3.lime"+"\t\t"+"20");
-            System.out.println("4.juice"+"\t\t"+"30");
+            System.out.println("1.Tea"+"\t\t"+"10");
+            System.out.println("2.Coffee"+"\t"+"15");
+            System.out.println("3.Lime"+"\t\t"+"20");
+            System.out.println("4.Juice"+"\t\t"+"30");
             System.out.println("5.Quit");
             
             int choice=scnr.nextInt();
