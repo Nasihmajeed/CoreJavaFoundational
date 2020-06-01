@@ -2,6 +2,7 @@ package com.LxiSoft.Hotel;
 public class Hotel
 {
 	Menu menu=new Menu();
+    Order order=new Order();
 public void printHotel()
      {
       
@@ -17,6 +18,7 @@ public void printHotel()
 public void printDetail()
 {
 	menu.printMenu();
+    order.setMenu();        
 }
 }
    
