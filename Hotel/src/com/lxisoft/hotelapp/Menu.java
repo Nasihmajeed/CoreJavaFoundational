@@ -67,7 +67,7 @@ public class Menu
        
         System.out.println("Your Orders are:\n"+order);        
         System.out.println("Your total bill="+sum);
-        
+        System.out.println("")
         System.out.println("Enjoy Your Meals");
         System.out.println("Thank You Visit Again ");
     
