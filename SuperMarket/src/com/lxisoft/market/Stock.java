@@ -6,6 +6,8 @@ import java.lang.*;
 import java.io.*;  
 public class Stock
 {
+public class Stock{
+
 	private  int quantity;
 	public void setQuantity(int quantity)
 	{

@@ -1,0 +1,36 @@
+package com.lxisoft.Model;
+import com.lxisoft.Model.*;
+import java.util.*;
+public class HotelModel 
+{	
+	String hotelName;
+	private int itemQuantity;
+	private ArrayList<FoodModel> foodList=new ArrayList<FoodModel>();
+	private ArrayList<StockModel> stockList=new ArrayList<StockModel>();
+	public void setItemQuantity(int itemQuantity)
+	{
+		this.itemQuantity=itemQuantity;
+	}
+	public int getItemQuantity()
+	{
+		return this.itemQuantity;
+	}
+	public void setFoodList(FoodModel food)
+	{
+		this.foodList.add(food);
+	}
+	public ArrayList<FoodModel> getFoodList()
+	{
+		return this.foodList;
+	}	
+	public void setStockList(StockModel stock)
+	{
+		this.stockList.add(stock);
+	}
+	public ArrayList<StockModel> getStockList()
+	{
+		return this.stockList;
+	}
+}	
+
+ 

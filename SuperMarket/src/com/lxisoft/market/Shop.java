@@ -248,13 +248,14 @@ public class Shop
     public void getAttendence()
     {
         sc = this.getScanner();
-        System.out.println("Attendence");    
-        String str = "Suneera Sheeba Sheeja Neethu Priya Rajesh Remya Raihanath Suhara "; 
+       System.out.println("Attendence");    
+       System.out.println("Attendence"); 
+       String str = "Suneera Sheeba Sheeja Neethu Priya Rajesh Remya Raihanath Suhara "; 
         System.out.println("\nSearch a name");
         String s=sc.next();
         if(str.contains(s)) {  
-            System.out.println("\nPresent today  \nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");
-        }else System.out.println("Is leave today");       
+		 System.out.println("\nPresent today  \nSuneera \nSheeba \nSheeja \nNeethu \nPriya \nRajesh \nRemya \nRaihanath \nSuhara");
+             }else System.out.println("Is leave today");       
     }       
     public void getShiftDetails()
     {
