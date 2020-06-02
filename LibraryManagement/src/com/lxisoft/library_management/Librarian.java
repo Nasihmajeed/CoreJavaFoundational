@@ -18,7 +18,7 @@ public class Librarian
 
 	public void displayOptions()
     {
-    	Reader r=new Reader();
+    	User user=new User();
     	int ch=0;
 		List<Book>bookList=new ArrayList<Book>();
         do
@@ -29,9 +29,10 @@ public class Librarian
                 case 1:addBook();break;
                 case 2:getAllBooks();break; 
                 case 3:searchDetails();break;
-                case 4:r.returnBook();break;
+                case 4:user.returnBook();break;
                 case 5:sortBooks(bookList);break;    
                 case 6:System.exit(0);break;
+                default:System.out.println("             \nEnter correct choice");
             } 
         }while(ch!=7);
     }
@@ -67,12 +68,12 @@ public class Librarian
 		} 
 	}
 
-    public int sortDetails(List<Book>bookList)
+    public void sortDetails(List<Book>bookList)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("             Enter your choice:");
-	    System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Exit");
-		int a=sc.nextInt();
+		// Scanner sc=new Scanner(System.in);
+		// System.out.println("             Enter your choice:");
+	 //    System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Exit");
+		// int a=sc.nextInt();
 		for(int i=0;i<bookList.size();i++)
 		{
 			System.out.println("Id="+bookList.get(i).getId());
@@ -80,7 +81,7 @@ public class Librarian
      		System.out.println("Auther="+bookList.get(i).getAuther());
      		System.out.println("Publisher="+bookList.get(i).getPublisher());
      	}
-		return a;
+		// return a;
 	}
 
 	public void sortBooks(List<Book>bookList)
@@ -88,15 +89,23 @@ public class Librarian
 		int a=0;
 		do
 		{
-			a=sortDetails(bookList);
+			Scanner sc=new Scanner(System.in);
+			System.out.println("             Enter your choice:");
+	    	System.out.println("             1-Sorted by Id\n             2-Sorted by Name\n             3-Exit");
+			a=sc.nextInt();
+			// a=sortDetails(bookList);
 			switch(a)
 			{
 				case 1:bookList=repo.idSort();break;
 				case 2:bookList=repo.nameSort();break;
 				// case 3:bookList=repo.autherSort();break;
 				case 3:System.exit(0);break;
+				default:System.out.println("             \nEnter correct choice");
 			}
-		}while(a!=4);
+			sortDetails(bookList);
+		}
+		while(a!=4);
+		
 	}
 
 	public void searchBook(List<String> s)
