@@ -75,6 +75,18 @@ public class Item implements Comparable<Item>
         Item item = (Item) o;
         return id == item.getId();
     }
+    public boolean equals(Object obj)
+	{
+		if((((Item)obj).name==this.name) && (((Item)obj).catogey==this.catogey) && (((Item)obj).productNo==this.productNo) && (((Item)obj).feature==this.feature)&& (((Item)obj).price==this.price)&& (((Item)obj).id==this.id))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	 
     public int hashCode() {
         return Objects.hash(id);

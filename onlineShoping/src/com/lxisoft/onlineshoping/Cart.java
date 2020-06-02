@@ -5,7 +5,6 @@ import com.lxisoft.onlineshoping.Customer;
 import com.lxisoft.onlineshoping.CartedItem;
 import com.lxisoft.repository.FileRepository;
 import java.util.*;
-
 public class Cart
 {
 	private FileRepository fileRepository;
@@ -31,10 +30,7 @@ public class Cart
 			if (carteditems.get(i).getCustomer().equals(customer.getName())) 
 			{
 				System.out.println("Item : "+carteditems.get(i).getCartItem());
-			}
-					
+			}	
 		}
-		
 	}
-	
 }

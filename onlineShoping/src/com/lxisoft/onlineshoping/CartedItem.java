@@ -40,7 +40,6 @@ public class CartedItem
 			return false;
 		}
 	}
-
 	public int hashCode() 
     { 
 		return Objects.hash(id);
