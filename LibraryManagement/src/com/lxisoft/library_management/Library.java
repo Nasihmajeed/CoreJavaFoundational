@@ -5,6 +5,7 @@ public class Library
 {
 	private List<Book>bookList=new ArrayList<Book>();
 	private Librarian librarian;
+	private User user;
 
 	public void setBookList(List<Book>bookList)
 	{
@@ -19,9 +20,18 @@ public class Library
 	{
 		this.librarian = librarian;
 	}
-	public String getLibrarian()
+	public Librarian getLibrarian()
 	{
 		return librarian;
+	}
+
+	public void setUser(User librarian)
+	{
+		this.user = user;
+	}
+	public User getUser()
+	{
+		return user;
 	}
 
 }

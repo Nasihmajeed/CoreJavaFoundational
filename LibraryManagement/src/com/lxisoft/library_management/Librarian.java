@@ -23,7 +23,11 @@ public class Librarian
 		List<Book>bookList=new ArrayList<Book>();
         do
         {
-            ch=selectOptions();
+        	Scanner sc=new Scanner(System.in);
+			System.out.println("\n             Enter your choice:");
+			System.out.println("             1-Add\n             2-View\n             3-Search\n             4-ReturnBook\n             5-Sort\n             6-Exit");
+			ch=sc.nextInt();
+            // ch=selectOptions();
 			switch(ch)
             {
                 case 1:addBook();break;
