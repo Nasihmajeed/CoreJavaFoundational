@@ -13,6 +13,7 @@ public void printHotel()
     System.out.println("       *                                                                      *");
     System.out.println("       ************************************************************************");
     System.out.println("")
+    System.out.println("")
 }
 
 public void printDetail()
