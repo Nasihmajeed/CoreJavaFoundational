@@ -2,7 +2,7 @@ package com.lxisoft.hotel;
 import java.util.Scanner;
 public class Hotel{
 
-	Admin[] admin;
+	
 	
 	
 	public void printHotelDetails(){
@@ -42,7 +42,7 @@ public class Hotel{
 		Order order=new Order();
 		order.getOrderDetails();
 
-
+		Admin admin=new Admin();
 
 		
 	}
