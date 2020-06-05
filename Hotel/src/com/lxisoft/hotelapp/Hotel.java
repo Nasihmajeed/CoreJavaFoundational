@@ -12,8 +12,7 @@ public void printHotel()
     System.out.println("       *         Mele Pattambi, Palakkad Road, Near juma Masjid               *");
     System.out.println("       *                                                                      *");
     System.out.println("       ************************************************************************");
-    System.out.println("")
-    System.out.println("")
+
 }
 
 public void printDetail()
