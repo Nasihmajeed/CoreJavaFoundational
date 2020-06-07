@@ -61,8 +61,8 @@ public class Hotel{
         }
        if(choice==3)
         {
-          admin.showOperations();
-          admin.
+          admin.editMenuDetails();
+          
         }
         else if(choice==0)
         {

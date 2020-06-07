@@ -9,11 +9,10 @@ public class Admin{
 	Order order=new Order();
 	Food food=new Food();
 
-	public void showOperations(){
-		System.out.println(" \n\n1. Create \n\n2.Update \n\n3.Delete \n\n3.Rename");
+
 
 	}
-	public void editOrderDetails(){
+	public void editMenuDetails(){
 	 System.out.println(" \n\n1. Create \n\n2.Update \n\n3.Delete \n\n3.Rename");
   
 	 int choice=0;
@@ -23,23 +22,31 @@ public class Admin{
        
         choice=scanner.nextInt();
       
-       /* if(choice==1)
+        if(choice==1)
         {
-           item.editMenu();
+           food.createMenu();
         }
          if(choice==2)
         {
-            item.editMenu();
+            //code to edit
         }
-        else if (choice==0)
+        if (choice==3)
         {
-        	 System.out.println(" ");
-        }*/
+        	 //code to delete
+        }
+        if (choice==4)
+        {
+        	//code to rename
+        }
+        else if(choice==0)
+        {
+        	System.out.println(" ");
+        }
     }
     while(choice>0);
       
 }
 
-}
+
 		
 	
