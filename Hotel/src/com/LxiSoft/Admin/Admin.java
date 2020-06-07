@@ -14,17 +14,14 @@ public class Admin
     do
     {
       System.out.println("\n________________________");
-        System.out.println("\n\n1.  Menu \n\n2. Add Item \n\n3.Delete Item \n\n Press 0 for Exit \n");
+        System.out.println(" \n\n1. Add Item \n\n2.Delete Item \n\n Press 0 for Exit \n");
         choice=scnr.nextInt();
+      
         if(choice==1)
-        {
-           order.setMenu();
-        }
-        if(choice==2)
         {
            item.editMenu();
         }
-         if(choice==03)
+         if(choice==2)
         {
             item.editMenu();
         }
@@ -38,4 +35,5 @@ public class Admin
 }
 
 }
+
 

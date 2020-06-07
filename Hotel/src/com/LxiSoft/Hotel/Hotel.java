@@ -3,7 +3,7 @@ import com.LxiSoft.Admin.Admin;
 import java.util.Scanner;
 public class Hotel
 {
-	Menu menu=new Menu();
+	Item item=new Item();
     Admin admin=new Admin();
     Order order=new Order();
     Scanner scnr = new Scanner(System.in);
@@ -30,7 +30,7 @@ public void printDetail()
         choice=scnr.nextInt();
         if(choice==1)
         {
-           order.setMenu();
+           item.setMenu();
         }
         if(choice==2)
         {
