@@ -3,6 +3,6 @@ import java.util.Scanner;
 
 public class Admin{
 
-	Bill bill[]=new Bill();
+	
 	String adminName;
 }

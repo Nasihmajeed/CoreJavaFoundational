@@ -1,44 +1,77 @@
 package com.lxisoft.hotel;
 import java.util.Scanner;
-public class Hotel
-{
-	Menu menu=new Menu();
-    Order order=new Order();
-    String[] food =new String[10];
-Scanner input = new Scanner(System.in);
-public void printHotel()
-     {
-      
-    System.out.println("       ************************************************************************");
-    System.out.println("       *                                                                      *");
-    System.out.println("       *                          NOOR JAHAN                              *");   
-    System.out.println("       *                                            *");
-    System.out.println("       *                          PALAKKAD          *");
-    System.out.println("       *                          VEG AND NON VEG                                            *");
-    System.out.println("       ************************************************************************");
-    System.out.println("");
-    System.out.println("");
+public class Hotel{
 
-}
-public void printDetail()
-{   int choi=0;
-    do{
-      System.out.println("\n________________________");
-        System.out.println("\n\n1. User Menu \n\n2. Manager \n\n Press 0 for Exit \n");
-        choi=input.nextInt();
-        if(choi==1)
+     Menu menu=new Menu();
+       // menu.printMenuDetails();
+
+        Order order=new Order();
+        //order.getOrderDetails();
+
+        Admin admin=new Admin();
+
+        Food food=new Food();
+
+    
+    
+    
+    public void setHotelDetails(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("*******************************************************************");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                        HOTEL NOORJAHAN                                                          ");
+        System.out.println("                        VEG AND NON VEG                                                          ");
+        System.out.println("                           PALAKKAD                                                              ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("                                                                                                 ");
+        System.out.println("*******************************************************************");
+
+      
+
+        
+    }
+
+    public void printHotelDetail()
+{  
+ int choice=0;
+    do
+    {
+        System.out.println("\n________________________");
+        System.out.println("\n\n1.Menu \n\n2.Order \n\n3 Admin \n\n4.Press 0 to Quit \n");
+        Scanner scanner=new Scanner(System.in);
+        choice=scanner.nextInt();
+        if(choice==1)
         {
-	       menu.printMenu(food);
+           menu.printMenuDetails();
+           
         }
-        if(choi==2)
+        if(choice==2)
         {
-           order.viewOrder(food);
+            order.getOrderDetails();
         }
-        else if(choi==0)
+       if(choice==3)
+        {
+          admin.editOrder();
+        }
+        else if(choice==0)
         {
             System.out.println(" ");
         }
-    }while(choi>0);
+    }
+    while(choice>0);
+      
 }
+
 }
-   
+
+    
