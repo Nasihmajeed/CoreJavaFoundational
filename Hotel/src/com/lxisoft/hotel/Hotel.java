@@ -5,12 +5,12 @@ public class Hotel{
      Menu menu=new Menu();
        // menu.printMenuDetails();
 
-        Order order=new Order();
+        
         //order.getOrderDetails();
 
         Admin admin=new Admin();
 
-        Food food=new Food();
+        
 
     
     
@@ -61,7 +61,8 @@ public class Hotel{
         }
        if(choice==3)
         {
-          admin.editOrder();
+          admin.showOperations();
+          admin.
         }
         else if(choice==0)
         {
