@@ -34,7 +34,7 @@ public void printDetail()
         }
         if(choice==2)
         {
-           admin.editOrder();
+           admin.getMenu();
         }
         else if(choice==0)
         {
