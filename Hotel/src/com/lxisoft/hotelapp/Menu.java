@@ -24,6 +24,7 @@ public class Menu
             System.out.print("Enter the Choice \t:");
             int choice=scnr.nextInt();
             order.createOrder(food,choice,i);
+            i++;
             }
             while(i==0);
             
