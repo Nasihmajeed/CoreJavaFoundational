@@ -21,9 +21,9 @@ public class Food{
 	 Food limejuice=new Food("LIME JUICE",20);
      ArrayList<Food> mylist = new ArrayList<Food>();
 
-     mylist.add(tea);
-     mylist.add(coffee);
-     mylist.add(limejuice);
+    // mylist.add(tea);
+     //mylist.add(coffee);
+     //mylist.add(limejuice);
 
      public void setMenuDetails(){
      	//foodList.add(tea);
