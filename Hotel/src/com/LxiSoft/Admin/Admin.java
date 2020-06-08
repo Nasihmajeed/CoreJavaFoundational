@@ -1,12 +1,11 @@
 package com.LxiSoft.Admin;
 import com.LxiSoft.Hotel.Hotel;
-import com.LxiSoft.Hotel.Order;
+import com.LxiSoft.Hotel.Item;
 import java.util.Scanner;
 
 public class Admin
 {
 	Scanner scnr=new Scanner(System.in);
-	    Order order=new Order();
 	    Item item=new Item();
 	public void getMenu( )
 	{  
