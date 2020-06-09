@@ -1,11 +1,12 @@
 package com.LxiSoft.Admin;
 import com.LxiSoft.Hotel.Hotel;
-import com.LxiSoft.Hotel.Item;
+import com.LxiSoft.Hotel.Menu;
 import java.util.Scanner;
 
 public class Admin
 {
 	Scanner scnr=new Scanner(System.in);
+	  Menu menu=new Menu();
 	    Item item=new Item();
 	public void getMenu( )
 	{  
@@ -18,7 +19,7 @@ public class Admin
       
         if(choice==1)
         {
-           item.editMenu();
+           menu.addItem();
         }
          if(choice==2)
         {

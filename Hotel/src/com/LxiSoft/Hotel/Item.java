@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Item
 {
 	private String name; //item name
-	private int pize; //item prize
+	private int prize; //item prize
 
 	public void setName(String name)
 	{
 		this.name=name;
 	}
-	public string getName()
+	public String getName()
 	{
 		return name;
 	}
@@ -19,7 +19,8 @@ public class Item
 	{
 		this.prize=prize;
 	}
-	public void getprize()
+	public int getPrize()
 	{
 		return prize;
 	}
+}

@@ -3,6 +3,7 @@ import com.LxiSoft.Admin.Admin;
 import java.util.Scanner;
 public class Hotel
 {
+    Menu menu=new Menu();
 	Item item=new Item();
     Admin admin=new Admin();
     Order order=new Order();
@@ -30,7 +31,7 @@ public void printDetail()
         choice=scnr.nextInt();
         if(choice==1)
         {
-           item.setMenu();
+           menu.myMenu();
         }
         if(choice==2)
         {
