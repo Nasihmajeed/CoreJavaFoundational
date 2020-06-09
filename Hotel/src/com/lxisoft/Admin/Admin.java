@@ -28,6 +28,7 @@ public class Admin
         else if (choice==0)
         {
         	 System.out.println(" ");
+             System.out.println(" ");
         }
     }
     while(choice>0);
