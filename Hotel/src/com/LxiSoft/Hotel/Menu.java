@@ -22,13 +22,14 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
      	theMenu.get(3).setPrize(30);
      	for (int i=0; i<theMenu.size(); i++)
      	{
-     		System.out.println(theMenu.get(i).getName()   + /t theMenu.get(i).getPrize());
+     		System.out.println(theMenu.get(i).getName()+""+theMenu.get(i).getPrize());
      	}
        	
   
   }
       public void addItem()
       {
+     
      
    }
 }
