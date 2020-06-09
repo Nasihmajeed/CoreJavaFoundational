@@ -2,11 +2,6 @@ package com.lxisoft.hotel;
 import java.util.Scanner;
 public class Hotel{
 
-     Menu menu=new Menu();
-       // menu.printMenuDetails();
-
-        
-        //order.getOrderDetails();
 
         Admin admin=new Admin();
 
@@ -49,10 +44,10 @@ public class Hotel{
         System.out.println("\n________________________");
         System.out.println("\n\n1.Menu \n\n2.Order \n\n3 Admin \n\n4.Press 0 to Quit \n");
         Scanner scanner=new Scanner(System.in);
-        choice=scanner.nextInt();
+       choice=scanner.nextInt();
         if(choice==1)
         {
-           menu.printMenuDetails();
+            menu.printMenuDetails();
            
         }
         if(choice==2)
@@ -61,7 +56,7 @@ public class Hotel{
         }
        if(choice==3)
         {
-          admin.editMenuDetails();
+          //admin method
           
         }
         else if(choice==0)

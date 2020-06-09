@@ -2,17 +2,10 @@ package com.lxisoft.hotel;
 import java.util.Scanner;
 public class Menu{
 
+	Order order=new Order();
+
     public void printMenuDetails(){
-        System.out.println("**** MENU ****");
-         
-        System.out.println(" 1- Chicken Biriyani   " + "100" );
-
-        System.out.println(" 2- Veg biriyani    " + "80" );
-
-        System.out.println(" 3- Regular meals   " + "70" );
-
-         System.out.println(" 4- Quit" );
-
+       //print items in arraylist
 
          System.out.println("WHAT WOULD YOU LIKE TO HAVE");
 

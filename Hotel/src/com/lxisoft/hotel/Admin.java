@@ -3,14 +3,12 @@ import java.util.Scanner;
 
 public class Admin{
 
+	Menu menu=new Menu();
+
 	
 	String adminName;
 	Scanner scanner=new Scanner(System.in);
-	Order order=new Order();
-	Food food=new Food();
-
-
-
+	
 	}
 	public void editMenuDetails(){
 	 System.out.println(" \n\n1. Create \n\n2.Update \n\n3.Delete \n\n3.Rename");
@@ -24,7 +22,7 @@ public class Admin{
       
         if(choice==1)
         {
-           food.createMenu();
+           
         }
          if(choice==2)
         {
