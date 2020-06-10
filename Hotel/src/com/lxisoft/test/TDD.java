@@ -1,5 +1,5 @@
 package com.lxisoft.test;
-import com.lxisoft.hotelapp.Hotel;
+import com.Lxisoft.Hotelapp.Hotel;
 
  public class TDD{
 

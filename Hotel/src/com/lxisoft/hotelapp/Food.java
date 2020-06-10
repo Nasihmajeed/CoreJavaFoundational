@@ -1,4 +1,5 @@
 package com.Lxisoft.Hotelapp;
+import com.Lxisoft.Admin.Admin;
 import java.util.java;
 public class Food
 {

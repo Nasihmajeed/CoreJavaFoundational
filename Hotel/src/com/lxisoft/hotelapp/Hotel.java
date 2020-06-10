@@ -1,8 +1,12 @@
 package com.Lxisoft.Hotelapp;
+import com.Lxisoft.Admin.Admin;
 import java.util.Scanner;
-public class hotel
+public class Hotel
 {
 	Menu menu=new Menu();
+	Food item=new Food();
+    Admin admin=new Admin();
+    Order order=new Order();
 	Scanner s=new Scanner(System.in);
 	public void printHotel()
 	{
@@ -39,8 +43,7 @@ public class hotel
 			 	System.out.println(" ");
 			 }
 
-		while(choice>0);
+		}while(choice>0);
 
 		}
 	}
-}
