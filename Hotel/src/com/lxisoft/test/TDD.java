@@ -5,7 +5,7 @@ import com.lxisoft.hotel.Hotel;
  	public static void main(String[] args){
  		Hotel hotel=new Hotel();
  		hotel.setHotelDetails();
- 		hotel.printHotelDetail();
+ 		
  		
  	}
  }

@@ -8,6 +8,15 @@ public class Menu{
        //print items in arraylist
 
          System.out.println("WHAT WOULD YOU LIKE TO HAVE");
+         Scanner Scanner=new scanner();
+         ArrayList<Food> theMenu = new ArrayList<Food>();
+
+         
+
+
+
+
+
 
 
 

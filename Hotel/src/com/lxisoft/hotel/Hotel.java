@@ -34,40 +34,6 @@ public class Hotel{
       
 
         
-    }
+    }// give a switch case so that user can select the admin/ meu/ order
 
-    public void printHotelDetail()
-{  
- int choice=0;
-    do
-    {
-        System.out.println("\n________________________");
-        System.out.println("\n\n1.Menu \n\n2.Order \n\n3 Admin \n\n4.Press 0 to Quit \n");
-        Scanner scanner=new Scanner(System.in);
-       choice=scanner.nextInt();
-        if(choice==1)
-        {
-            menu.printMenuDetails();
-           
-        }
-        if(choice==2)
-        {
-            order.getOrderDetails();
-        }
-       if(choice==3)
-        {
-          //admin method
-          
-        }
-        else if(choice==0)
-        {
-            System.out.println(" ");
-        }
-    }
-    while(choice>0);
-      
-}
-
-}
-
-    
+  }
