@@ -16,6 +16,24 @@ public class Menu{
      menuList.add(new Food());
      menuList.get(0).setFoodName("Regular Meals");
      menuList.get(0).setFoodPrice(80);
+        menuList.add(new Food());
+     menuList.get(1).setFoodName("Chicken Biriyani");
+     menuList.get(1).setFoodPrice(120);
+        menuList.add(new Food());
+     menuList.get(2).setFoodName("Veg Biriyani");
+     menuList.get(2).setFoodPrice(100);
+        menuList.add(new Food());
+     menuList.get(3).setFoodName("Tea");
+     menuList.get(3).setFoodPrice(10);
+        menuList.add(new Food());
+     menuList.get(4).setFoodName("Coffee");
+     menuList.get(4).setFoodPrice(15);
+        menuList.add(new Food());
+     menuList.get(5).setFoodName("Lime juice");
+     menuList.get(5).setFoodPrice(20);
+     
+
+
      	
 
 
