@@ -12,10 +12,10 @@ public class Food{
 	}
 
 	private Integer foodPrice;
-	public void setIntegerPrice(Integer a){
+	public void setFoodPrice(Integer a){
 		this.foodPrice=a;
 	}
-	public Integer getIntegerPrice(){
+	public Integer getFoodPrice(){
 		return foodPrice;
 	}
 }
