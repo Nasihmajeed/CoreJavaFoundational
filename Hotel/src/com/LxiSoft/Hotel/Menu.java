@@ -41,7 +41,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
     {
     	    	   	theMenu.add(new Item());
 
-    	if(theMenu.get(i).getName()==null)
+    	if(theMenu.get(i).getName()=4)
 
     	{
         System.out.println("\n enter item name");
@@ -56,6 +56,11 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
          
         }
      }
+    // public void deleteMenu()
+   /// {
+    ///	System.out.println("Enter index no. of item to be deleted");
+     //	theMenu.get(i).getName=scnr.nextInt()
+//     }
 
 		
 }
