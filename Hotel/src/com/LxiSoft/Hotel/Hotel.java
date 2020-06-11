@@ -31,7 +31,8 @@ public void printDetail()
         choice=scnr.nextInt();
         if(choice==1)
         {
-           menu.myMenu();
+            menu.myMenu();
+           menu.printMenu();
         }
         if(choice==2)
         {

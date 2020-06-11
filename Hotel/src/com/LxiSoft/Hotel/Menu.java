@@ -21,6 +21,11 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
      	theMenu.add(new Item());
      	theMenu.get(3).setName("Juice");
      	theMenu.get(3).setPrize(30);
+     	
+     }
+     
+     public void printMenu()
+     {
      	System.out.println("MENU    \t prize");
      	for (int i=0; i<theMenu.size(); i++)
      	{	
@@ -31,36 +36,39 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
       public void addItem()
       {
+	       	theMenu.add(new Item());
 
       	System.out.println (" \n Enter number of items to be added ");
 	      n=scnr.nextInt();
          scnr.nextLine();
-    
-    for (int i=0; i<=n; i++)
 
+       for (int i=1; i<=n; i++)
     {
-    	    	   	theMenu.add(new Item());
 
-    	if(theMenu.get(i).getName()=4)
+		if(theMenu.get(i).getName()==null)
 
     	{
-        System.out.println("\n enter item name");
-       String name=scnr.nextLine();
+
+    	 System.out.println("\n enter item name");
+			String name=scnr.nextLine();
        theMenu.get(i).setName(name);
        scnr.nextLine();
       
        System.out.println("\n enter item prize");
-       int prize=scnr.nextInt();
+      int prize=scnr.nextInt();
        theMenu.get(i).setPrize(prize);
          }
          
         }
+
      }
-    // public void deleteMenu()
-   /// {
-    ///	System.out.println("Enter index no. of item to be deleted");
-     //	theMenu.get(i).getName=scnr.nextInt()
-//     }
+    public void deleteItem()
+   {
+  /* 	theMenu.remove(new Item());
+  	System.out.println("Enter index no. of item to be deleted");
+
+   	theMenu.get(i).getName(i)=scnr.nextInt()  ;             */
+    } 
 
 		
 }
