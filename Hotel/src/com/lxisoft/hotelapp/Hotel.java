@@ -29,14 +29,13 @@ public class Hotel
 			 choice=s.nextInt();
 			 if(choice==1)
 			 {
-			 	menu.printMenu();
+			 	menu.hotelMenu();
 			 }
 			 if(choice==2)
 			 {
 			 	admin.getMenu();
 			 }
-			 
-			 
+			
 			 else if(choice==0)
 			 {
 			 	System.out.println(" ");
