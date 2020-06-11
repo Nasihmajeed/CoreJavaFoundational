@@ -1,7 +1,8 @@
-package com.Lxisoft.Hotelapp;
-import com.lxisoft.Admin.Admin
+package com.lxisoft.hotelapp;
+import com.lxisoft.admin.Admin;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Menu
 {
 	int n;
@@ -32,7 +33,7 @@ public class Menu
 
 		for (int i=0; i<theMenu.size(); i++)
 		{
-			System.out.println("\n" +myMenu.get(i).getName()+"\t \t"+myMenu.get(i).getPrize() "\t\t"+myMenu.get(i).getCode());
+			System.out.println("\n" +myMenu.get(i).getName()+"\t \t"+myMenu.get(i).getPrice()+"\t\t"+myMenu.get(i).getCode());
 		}
 
 	}
@@ -43,7 +44,7 @@ public class Menu
 		 s.nextLine();
 	for (int i=0; i<=n; i++)
 
-		myMenu.add(new Item());
+		myMenu.add(new.Item());
 
 		if(theMenu.get(i).getName()=4)
 

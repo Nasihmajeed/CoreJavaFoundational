@@ -1,5 +1,5 @@
-package com.Lxisoft.Hotelapp;
-import com.Lxisoft.Admin.Admin;
+package com.lxisoft.hotelapp;
+import com.lxisoft.admin.Admin;
 import java.util.Scanner;
 public class Hotel
 {
@@ -21,23 +21,22 @@ public class Hotel
 	}
 	public void printDetails()
 	{
+		int choice=0;
 		do
 		{
 			 System.out.println("\n________________________");
 			 System.out.println("\n\n1. Customer Menu \n\n2. Admin \n\n3. Employees \n\n Press 0 for Exit \n");
-			 choice=input.nextInt();
+			 choice=s.nextInt();
 			 if(choice==1)
 			 {
 			 	menu.printMenu();
 			 }
 			 if(choice==2)
 			 {
-			 	admin.printAdmin();
+			 	admin.getMenu();
 			 }
-			 if(choice==3)
-			 {
-			 	employee.printDetails();
-			 }
+			 
+			 
 			 else if(choice==0)
 			 {
 			 	System.out.println(" ");
@@ -45,5 +44,5 @@ public class Hotel
 
 		}while(choice>0);
 
-		}
 	}
+}

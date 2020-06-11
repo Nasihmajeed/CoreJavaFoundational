@@ -1,12 +1,11 @@
-package com.lxisoft.Admin;
-import com.Lxisoft.Hotelapp.Hotel;
-import com.Lxisoft.Hotelapp.Order;
+package com.lxisoft.admin;
+
 import java.util.Scanner;
 
 public class Admin
 {
 	Scanner s=new Scanner(System.in);
-	    Order order=new Order();
+	    
 	    Item item=new Item();
 	public void getMenu( )
 	{  
@@ -15,7 +14,7 @@ public class Admin
     {
       System.out.println("\n________________________");
         System.out.println(" \n\n1. Add Item \n\n2.Delete Item \n\n Press 0 for Exit \n");
-        choice=scnr.nextInt();
+        choice=s.nextInt();
       
         if(choice==1)
         {

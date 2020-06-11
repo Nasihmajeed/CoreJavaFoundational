@@ -1,6 +1,7 @@
-package com.Lxisoft.Hotelapp;
+package com.lxisoft.hotelapp;
+import com.lxisoft.admin.Admin;
 import java.util.Scanner;
-import com.Lxisoft.Admin.Admin;
+
 public class Order
 {
          Scanner s = new Scanner(System.in);

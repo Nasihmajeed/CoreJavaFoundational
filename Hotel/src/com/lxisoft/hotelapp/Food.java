@@ -1,6 +1,6 @@
-package com.Lxisoft.Hotelapp;
-import com.Lxisoft.Admin.Admin;
-import java.util.java;
+package com.lxisoft.hotelapp;
+import com.lxisoft.admin.Admin;
+import java.util.Scanner;
 public class Food
 {
 	private String name;
@@ -19,11 +19,11 @@ public class Food
 
 	public void setPrice(int price)
 	{
-		this.price=price
+		this.price=price;
 	}
 	public int getPrice()
 	{
-		return price 
+		return price; 
 	}
 
 
