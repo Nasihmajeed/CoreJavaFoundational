@@ -1,5 +1,6 @@
 package com.lxisoft.admin;
-
+import com.lxisoft.hotelapp.Hotel;
+import com.lxisoft.hotelapp.Order;
 import java.util.Scanner;
 
 public class Admin

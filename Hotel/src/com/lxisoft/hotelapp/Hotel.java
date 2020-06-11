@@ -42,6 +42,7 @@ public class Hotel
 			 }
 
 		}while(choice>0);
-
+		System.out.println(" ");
 	}
+
 }

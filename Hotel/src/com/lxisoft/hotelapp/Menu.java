@@ -10,26 +10,28 @@ public class Menu
 	ArrayList<Food> myMenu=new ArrayList<Food>();
 	public void hotelMenu()
 	{
-		System.out.println("MENU    \t prize");
+		System.out.println(" ");
+		System.out.println(" ");
+		System.out.println("MENU   \t\t\t\t price \t\t\t Code");
 		myMenu.add(new Food());
-		myMenu.get(0).setName("Chicken Mandhi");
+		myMenu.get(0).setName("Chicken Mandhi\t");
 		myMenu.get(0).setPrice(550);
-		myMenu.get(0).setCode("CM");
+		myMenu.get(0).setCode("\tCM");
 
 		myMenu.add(new Food());
 		myMenu.get(1).setName("Chicken Biriyani");
 		myMenu.get(1).setPrice(120);
-		myMenu.get(1).setCode("CB");
+		myMenu.get(1).setCode("\tCB");
 
 		myMenu.add(new Food());
-		myMenu.get(2).setName("Alfahhm");
+		myMenu.get(2).setName("Alfahhm\t\t");
 		myMenu.get(2).setPrice(430);
-		myMenu.get(2).setCode("AL");
+		myMenu.get(2).setCode("\tAL");
 
 		myMenu.add(new Food());
-		myMenu.get(3).setName("Shavayi");
+		myMenu.get(3).setName("Shavayi\t\t");
 		myMenu.get(3).setPrice(480);
-		myMenu.get(3).setCode("SH");
+		myMenu.get(3).setCode("\tSH");
 
 		for (int i=0; i<myMenu.size(); i++)
 		{
