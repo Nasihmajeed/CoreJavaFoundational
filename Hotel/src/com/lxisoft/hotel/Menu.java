@@ -31,6 +31,11 @@ public class Menu{
         menuList.add(new Food());
      menuList.get(5).setFoodName("Lime juice");
      menuList.get(5).setFoodPrice(20);
+
+     System.out.println("THE MENU ");
+     	for (int i=0; i<menuList.size(); i++){
+            
+        }
      
 
 
