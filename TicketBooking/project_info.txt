@@ -1,0 +1,9 @@
+## Cinema Ticket Booking ##
+
+* Create a project that can be used to book tickets in a cinema theater. It must include how many tickets needed,balcony or fast class.
+
+* After the booking print the receipt details.
+
+* If there is no tickets availabe in the respective category(balcony/first class) then print "no tickets available".
+
+* Use while loop for comparison or checking wether seats are available or not.
