@@ -124,11 +124,12 @@ public class Horrorscopeaw{
 			brides[i].printBrideDate();
 			brides[i].printBrideMonth();
 			brides[i].printBrideYear();
+		}
 			
 		}
 
-		public void printGroomDetails(){
-				for(int i=0;i<brides.length;i++){
+		/*public void printGroomDetails(){
+				//for(int i=0;i<brides.length;i++){
 
 
 			System.out.println("								");
@@ -139,16 +140,16 @@ public class Horrorscopeaw{
 			grooms[i].printBrideMonth();
 			grooms[i].printBrideYear();
 			
-		}
+		}*/
 
 
 
 
-		}
-
-
-
+		
 
 }
+
+
+
 
 	

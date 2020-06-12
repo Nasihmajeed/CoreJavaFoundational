@@ -60,7 +60,7 @@ public class Brideaw{
 	 public void brideZodiacSign() 
     { 
 
-    	for(int i=0;i<brides.length;i++){
+    	//for(int i=0;i<brides.length;i++){
         String zodiacSign=" "; //optional
           
        
@@ -149,7 +149,7 @@ public class Brideaw{
         } 
               
         System.out.println("The Zodiac sign of the bride is"+zodiacSign); 
-    } 
+     
 }
 
 	/*public void printBrideDetails(){
