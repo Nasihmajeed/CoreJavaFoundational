@@ -23,7 +23,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
      	theMenu.get(3).setPrize(30);
      	
      }
-     
+
      public void printMenu()
      {
      	System.out.println("MENU    \t prize");
@@ -36,7 +36,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
       public void addItem()
       {
-	       	theMenu.add(new Item());
+	     /*  	theMenu.add(new Item());
 
       	System.out.println (" \n Enter number of items to be added ");
 	      n=scnr.nextInt();
@@ -59,15 +59,15 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
        theMenu.get(i).setPrize(prize);
          }
          
-        }
+        }*/
 
      }
     public void deleteItem()
    {
-  /* 	theMenu.remove(new Item());
+  	theMenu.remove(new Item());
   	System.out.println("Enter index no. of item to be deleted");
 
-   	theMenu.get(i).getName(i)=scnr.nextInt()  ;             */
+   	theMenu.get(i).getName()=scnr.nextInt()  ;             
     } 
 
 		
