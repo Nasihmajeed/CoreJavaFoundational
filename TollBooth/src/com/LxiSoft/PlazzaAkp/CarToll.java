@@ -13,7 +13,6 @@ public class CarToll
 		   {
 		   			 System.out.println("Amount to be paid=Rs 75");
 
-		   
-}
+		   }
 
 }
