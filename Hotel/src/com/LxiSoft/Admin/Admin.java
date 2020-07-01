@@ -8,6 +8,7 @@ public class Admin
 	Scanner scnr=new Scanner(System.in);
 	  Menu menu=new Menu();
 	    Item item=new Item();
+        Employee employee=new Employee();
 	public void getMenu( )
 	{  
  int choice=0;
@@ -29,6 +30,10 @@ public class Admin
          if(choice==3)
         {
             menu.deleteItem();
+        }
+          if(choice==4)
+        {
+            employee.employDetails();
         }
         else if (choice==0)
         {
