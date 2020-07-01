@@ -41,7 +41,8 @@ public class Hotel
 			 	System.out.println(" ");
 			 }
 
-		}while(choice>0);
+		}
+		while(choice>0);
 		System.out.println(" ");
 	}
 

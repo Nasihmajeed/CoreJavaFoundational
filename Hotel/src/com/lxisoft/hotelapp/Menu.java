@@ -7,7 +7,7 @@ public class Menu
 {
 	int n;
 	Scanner s=new Scanner(System.in);
-	ArrayList<Food> myMenu=new ArrayList<Food>();
+	ArrayList<String> myMenu=new ArrayList<String>();
 	public void hotelMenu()
 	{
 		System.out.println(" ");
