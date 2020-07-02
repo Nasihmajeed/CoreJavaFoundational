@@ -33,6 +33,7 @@ public class Hotel{
         System.out.println("*******************************************************************");
 
         menu.printMenuDetails();
+        menu.addDynamically();
 
       
 

@@ -40,7 +40,28 @@ public class Menu{
         public void addDynamically(){
 
             System.out.println("Enter the food items to be added");
-            String element=menuList.get(4).setFoodName();
+            String itemname=scanner.nextLine();
+
+
+            System.out.println("Enter the food prize to be added");
+            int itemprice=scanner.nextInt();
+
+            menuList.add(new Food());
+            menuList.get(4).setFoodName(itemname);
+            menuList.get(4).setFoodPrice(itemprice);
+
+             for(int i=0;i<menuList.size();i++){
+            System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
+            }
+
+
+        public void removeDynamically(){
+            
+        }
+
+
+
+
         }
     }
       
