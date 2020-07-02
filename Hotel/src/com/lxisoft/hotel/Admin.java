@@ -9,7 +9,13 @@ public class Admin{
 	String adminName;
 	Scanner scanner=new Scanner(System.in);
 	
+	
+
+	public void adminFunctions(){
+		
+		menu.printMenuDetails();
 	}
+}
 	
       
 

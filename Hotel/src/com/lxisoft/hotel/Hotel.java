@@ -4,6 +4,7 @@ public class Hotel{
 
 
         Admin admin=new Admin();
+        Menu menu=new Menu();
 
         
 
@@ -31,9 +32,11 @@ public class Hotel{
         System.out.println("                                                                                                 ");
         System.out.println("*******************************************************************");
 
+        menu.printMenuDetails();
+
       
 
         
-    }// give a switch case so that user can select the admin/ meu/ order
+    }
 
   }
