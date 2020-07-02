@@ -36,7 +36,9 @@ public void printDetail()
         }
         if(choice==2)
         {
+             menu.myMenu();
            admin.getMenu();
+            menu.printMenu();
         }
         else if(choice==0)
         {

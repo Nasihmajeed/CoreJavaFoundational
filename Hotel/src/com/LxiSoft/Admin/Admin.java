@@ -25,7 +25,9 @@ public class Admin
         }
          if(choice==2)
         {
+            menu.myMenu();
             menu.addItem();
+            menu.printMenu();
         }
          if(choice==3)
         {

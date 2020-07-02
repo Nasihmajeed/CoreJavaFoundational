@@ -36,28 +36,25 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
       public void addItem()
       {
-	      	theMenu.add(new Item());
+	      
 
       	System.out.println (" \n Enter number of items to be added ");
 	      n=scnr.nextInt();
          scnr.nextLine();
 
-       for (int i=1; i<=n; i++)
+       for (int i=4; i<=(n+3); i++)
     {
 
-		if(theMenu.get(i).getName()==null)
-
-    	{
+    		theMenu.add(new Item());
 
     	 System.out.println("\n enter item name");
 			String name=scnr.nextLine();
        theMenu.get(i).setName(name);
-       scnr.nextLine();
       
        System.out.println("\n enter item prize");
       int prize=scnr.nextInt();
        theMenu.get(i).setPrize(prize);
-         }
+
          
         }
 
