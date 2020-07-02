@@ -1,0 +1,10 @@
+## Horoscope Matrimony Matcher ##
+
+* Create a project that ask for date of birth of both " bride to be " and " groom to be " as input and prints both horoscope detais and check wether 
+  the horoscopes are mathing or not.
+
+* Print " Matching " if the two of them matches else print " No match ".
+
+* Create proper class and objects needed.
+
+* Compare the two horoscopes with certain criteria and use switch cases for comparison.
