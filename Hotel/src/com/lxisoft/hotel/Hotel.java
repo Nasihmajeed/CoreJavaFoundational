@@ -34,6 +34,7 @@ public class Hotel{
 
         menu.printMenuDetails();
         menu.addDynamically();
+        menu.removeDynamically();
 
       
 

@@ -53,17 +53,28 @@ public class Menu{
              for(int i=0;i<menuList.size();i++){
             System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
             }
+        }
 
 
         public void removeDynamically(){
-            
+            System.out.println("Enter the index Number of item to be deleted");
+            int indexnumber=scanner.nextInt();
+
+            menuList.remove(indexnumber);
+            System.out.println("The menu after deletion is ");
+
+
+             for(int i=0;i<menuList.size();i++){
+            System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
+            }
+
         }
 
 
 
 
         }
-    }
+    
       
      
 
