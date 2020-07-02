@@ -45,22 +45,5 @@ public class Menu
 		  n=s.nextInt();
 		 s.nextLine();
 
-	for (int i=myMenu.size(); i<=n+myMenu.size(); i++)
-	{
-
-		myMenu.add(new Food());
-			System.out.println("\n enter item name");
-			String name=s.nextLine();
-			myMenu.get(i).setName(name);
-			s.nextLine();
-	  
-			System.out.println("\n enter item prize");
-			int price=s.nextInt();
-			myMenu.get(i).setPrice(price);
-
-			System.out.println("\n enter item prize");
-			String code=s.nextLine();
-			myMenu.get(i).setCode(code);
-		}
-	}
+	
 }
