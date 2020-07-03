@@ -11,6 +11,7 @@ public class Admin
         Employee employee=new Employee();
 	public void getMenu( )
 	{  
+         menu.myMenu();
  int choice=0;
     do
     {
@@ -20,12 +21,12 @@ public class Admin
       
         if(choice==1)
         {
-        	menu.myMenu();
+        //	menu.myMenu();
            menu.printMenu();
         }
          if(choice==2)
         {
-            menu.myMenu();
+          //menu.myMenu();
             menu.addItem();
             menu.printMenu();
         }

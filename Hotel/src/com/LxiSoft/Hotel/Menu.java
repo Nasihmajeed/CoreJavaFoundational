@@ -1,6 +1,7 @@
 package com.LxiSoft.Hotel;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 import com.LxiSoft.Admin.Admin;
 public class Menu
 {	
@@ -26,10 +27,10 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
      public void printMenu()
      {
-     	System.out.println("MENU    \t prize");
+     	System.out.println("\t MENU    \t prize");
      	for (int i=0; i<theMenu.size(); i++)
      	{	
-     		System.out.println("\n" +theMenu.get(i).getName()+"\t \t"+theMenu.get(i).getPrize());
+     		System.out.println("\n"+theMenu.size()+"\t"+theMenu.get(i).getName()+"\t \t"+theMenu.get(i).getPrize());
      	}
      }
        	
@@ -38,35 +39,45 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
       {
 	      
 
-      	System.out.println (" \n Enter number of items to be added ");
+      /*	System.out.println (" \n Enter number of items to be added ");
 	      n=scnr.nextInt();
-         scnr.nextLine();
+         scnr.nextLine();*/
+       //  int size=theMenu.size();
 
-       for (int i=4; i<=(n+3); i++)
-    {
+       //for (int i=theMenu.size(); i<=(n+3); i++)
+    //{
+         // if(theMenu.size().getname()==null)
+          //{
 
     		theMenu.add(new Item());
 
     	 System.out.println("\n enter item name");
 			String name=scnr.nextLine();
-       theMenu.get(i).setName(name);
-      
+      scnr.nextLine();
+
        System.out.println("\n enter item prize");
       int prize=scnr.nextInt();
-       theMenu.get(i).setPrize(prize);
+      
+
+       theMenu.get(4).setName(name);
+       theMenu.get(4).setPrize(prize);
 
          
-        }
-
+      //  }
      }
+     //}
   public void deleteItem()
-   { /* 
-  	theMenu.remove(new Item());
-  	System.out.println("Enter index no. of item to be deleted");
+   { 
 
-   	theMenu.get(i)=scnr.nextInt()  ;  */    
-   	       
-    } 
+   
+  	
+  	/*System.out.println("Enter index no. of item to be deleted");
+
+
+   	theMenu.size()=scnr.nextInt()  ;
+    theMenu.remove(new Item());
+    System.out.println(remove.theMenu.size())  	;       
+    */} 
 
 		
 }
