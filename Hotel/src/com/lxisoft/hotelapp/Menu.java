@@ -39,11 +39,29 @@ public class Menu
 		}
 
 	}
-	public void addItem()
-	{
-		System.out.println (" \n Enter number of items to be added in the Menu ");
-		  n=s.nextInt();
-		 s.nextLine();
+	
+      public void addItem()
+     
+     {
+
+    		myMenu.add(new Item());
+
+    	 System.out.println("\n enter item name");
+			String name=scnr.nextLine();
+      scnr.nextLine();
+
+       System.out.println("\n enter item prize");
+      int prize=scnr.nextInt();
+      
+
+       myMenu.get(4).setName(name);
+       myMenu.get(4).setPrize(prize);
+
+         
+      //  }
+     }
+     //}
+ 
 
 	
 }
