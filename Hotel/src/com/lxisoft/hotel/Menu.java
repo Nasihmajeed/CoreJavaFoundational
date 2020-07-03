@@ -35,9 +35,92 @@ public class Menu{
         for(int i=0;i<menuList.size();i++){
             System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
             }
-        }
 
-        public void addDynamically(){
+
+
+
+
+
+
+
+
+
+    
+        
+            System.out.println("SELECT THE OPERATIONS");
+            System.out.println("1. ADD");
+            System.out.println("2. DELETE");
+        
+            
+
+            int choice=scanner.nextInt();
+
+
+            switch(choice){
+                case 1:System.out.println("ADD IN MENULIST");
+                 System.out.println("Enter the food items to be added");
+
+
+                 String itemname=scanner.nextLine();
+                  menuList.add(new Food());
+                menuList.get(4).setFoodName(itemname);
+
+                System.out.println("Enter the food prize to be added");
+                int itemprice=scanner.nextInt();
+
+               
+                menuList.get(4).setFoodPrice(itemprice);
+
+                for(int i=0;i<menuList.size();i++){
+                System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice()); 
+                }
+                break;
+
+
+                
+                case 2:System.out.println("Enter the index Number of item to be deleted");
+                int indexnumber=scanner.nextInt();
+
+                menuList.remove(indexnumber);
+                System.out.println("The menu after deletion is ");
+
+
+                for(int i=0;i<menuList.size();i++){
+                System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
+                }
+                break;
+                default:
+                System.out.println("Wrong input");
+
+
+               
+
+
+
+
+
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*  public void addDynamically(){
 
             System.out.println("Enter the food items to be added");
             String itemname=scanner.nextLine();
@@ -70,10 +153,17 @@ public class Menu{
 
         }
 
+        public void modifyDynamically(){
+            System.out.println("Enter the index of the array to be modified");
+            int indexnumber=scanner.nextInt();
 
-
-
+            menuList//code to modify
         }
+
+
+
+
+        }*/
     
       
      
