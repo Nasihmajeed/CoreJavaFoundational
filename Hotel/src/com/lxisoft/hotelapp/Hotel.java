@@ -1,11 +1,11 @@
 package com.lxisoft.hotelapp;
-import com.lxisoft.admin.Admin;
 import java.util.Scanner;
+import com.lxisoft.Admin.Admin;
 public class Hotel
 {
 	Menu menu=new Menu();
-	Food item=new Food();
-    Admin admin=new Admin();
+	Food food=new Food();
+  	Admin admin=new Admin();
     Order order=new Order();
 	Scanner s=new Scanner(System.in);
 	public void printHotel()
@@ -29,7 +29,7 @@ public class Hotel
 			 choice=s.nextInt();
 			 if(choice==1)
 			 {
-			 	menu.hotelMenu();
+			 	menu.createMenu();
 			 }
 			 if(choice==2)
 			 {

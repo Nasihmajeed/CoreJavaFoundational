@@ -1,13 +1,14 @@
-package com.lxisoft.admin;
+package com.lxisoft.Admin;
 import com.lxisoft.hotelapp.Hotel;
-import com.lxisoft.hotelapp.Order;
+import com.lxisoft.hotelapp.Menu;
 import java.util.Scanner;
 
 public class Admin
 {
-	Scanner s=new Scanner(System.in);
+	Menu menu=new Menu();
+    Scanner s=new Scanner(System.in);
 	    
-	    Item item=new Item();
+
 	public void getMenu( )
 	{  
  int choice=0;
@@ -19,11 +20,11 @@ public class Admin
       
         if(choice==1)
         {
-           item.editMenu();
+           menu.addFood();
         }
          if(choice==2)
         {
-            item.editMenu();
+            menu.deleteFood();
         }
         else if (choice==0)
         {
