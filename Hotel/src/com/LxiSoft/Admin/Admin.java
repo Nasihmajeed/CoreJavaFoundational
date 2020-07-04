@@ -27,12 +27,15 @@ public class Admin
          if(choice==2)
         {
           //menu.myMenu();
+               menu.printMenu();
             menu.addItem();
             menu.printMenu();
         }
          if(choice==3)
         {
+             menu.printMenu();
             menu.deleteItem();
+              menu.printMenu();
         }
           if(choice==4)
         {

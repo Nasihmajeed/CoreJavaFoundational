@@ -1,7 +1,7 @@
 package com.LxiSoft.Hotel;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.List;
 import com.LxiSoft.Admin.Admin;
 public class Menu
 {	
@@ -30,7 +30,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
      	System.out.println("\t MENU    \t prize");
      	for (int i=0; i<theMenu.size(); i++)
      	{	
-     		System.out.println("\n"+theMenu.size()+"\t"+theMenu.get(i).getName()+"\t \t"+theMenu.get(i).getPrize());
+     		System.out.println("\n"+(i+1)+"\t"+theMenu.get(i).getName()+"\t \t"+theMenu.get(i).getPrize());
      	}
      }
        	
@@ -71,13 +71,13 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
    
   	
-  	/*System.out.println("Enter index no. of item to be deleted");
+  	System.out.println("Enter index no. of item to be deleted");
 
 
-   	theMenu.size()=scnr.nextInt()  ;
-    theMenu.remove(new Item());
-    System.out.println(remove.theMenu.size())  	;       
-    */} 
+   	int n=scnr.nextInt()  ;
+    theMenu.remove(n-1);
+    } 
+}
 
 		
-}
+
