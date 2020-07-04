@@ -130,14 +130,16 @@ public class Menu{
             }
         }
 
-            public void  modifyDynamically(){
+          /*  public void  modifyDynamically(){
                 System.out.println("Enter the index number to be modified");
                 int indexnumber=scanner.nextInt();
                 System.out.println("Enter the new name");
                 String newName=scanner.nextLine();
+                System.out.println("Enter the new price");
+                int newPrice=scanner.nextInt();
+                menuList.set(indexnumber,"newName");
 
-
-            }
+            }*/
         }
 
 

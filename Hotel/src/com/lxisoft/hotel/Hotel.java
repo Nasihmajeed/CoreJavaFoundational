@@ -37,7 +37,7 @@ public class Hotel{
         
         menu.getOrderDetails();
         menu.removeDynamically();
-        menu.modifyDynamically();
+       // menu.modifyDynamically();
 
       
 
