@@ -71,7 +71,7 @@ public class Menu
 		public void deleteFood()
 		{
 			System.out.println("Enter the number of item to be deleted");
-		   	int n=scnr.nextInt()  ;
+		   	int n=s.nextInt()  ;
     		foodMenu.remove(n-1);
 		}
 }
