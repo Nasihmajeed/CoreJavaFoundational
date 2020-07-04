@@ -16,7 +16,7 @@ public class Admin
     do
     {
       System.out.println("\n________________________");
-        System.out.println(" \n\n1. View Menu \n\n2.Add Item  \n\n3. Delete Item  \n\n Press 0 for Exit \n");
+        System.out.println(" \n\n1. View Menu \n\n2.Add Item  \n\n3. Delete Item \n\n4. Update Menu \n\n Press 0 for Exit \n");
         choice=scnr.nextInt();
       
         if(choice==1)
@@ -39,7 +39,9 @@ public class Admin
         }
           if(choice==4)
         {
-            employee.employDetails();
+              menu.printMenu();
+            menu.updateMenu();
+             menu.printMenu();
         }
         else if (choice==0)
         {

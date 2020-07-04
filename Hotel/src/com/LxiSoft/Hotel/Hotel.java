@@ -33,6 +33,7 @@ public void printDetail()
         {
             menu.myMenu();
            menu.printMenu();
+           order.getOrder();
         }
         if(choice==2)
         {
