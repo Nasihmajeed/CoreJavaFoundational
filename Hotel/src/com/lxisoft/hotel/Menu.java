@@ -130,16 +130,30 @@ public class Menu{
             }
         }
 
-          /*  public void  modifyDynamically(){
+            public void  modifyNameDynamically(){
                 System.out.println("Enter the index number to be modified");
                 int indexnumber=scanner.nextInt();
                 System.out.println("Enter the new name");
-                String newName=scanner.nextLine();
+                String newName=scanner.next();
+                menuList.get(indexnumber).setFoodName(newName);
+                for(int i=0;i<menuList.size();i++){
+            System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
+
+            }
+               
+            }
+
+            public void modifyPriceDynamically(){
+                System.out.println("Enter the index number where price is to be modified");
+                int indexNumber=scanner.nextInt();
                 System.out.println("Enter the new price");
                 int newPrice=scanner.nextInt();
-                menuList.set(indexnumber,"newName");
+                 menuList.get(indexNumber).setFoodPrice(newPrice);
+                   for(int i=0;i<menuList.size();i++){
+            System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
 
-            }*/
+            }
+            }
         }
 
 
