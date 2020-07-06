@@ -3,10 +3,12 @@ import com.lxisoft.Admin.Admin;
 import java.util.Scanner;
 public class Food
 {
+	
 	private String name;
 	private int price;
 	private String code;
-
+	Food food=new Food();
+	
 	public void setName(String name)
 	{
 		this.name=name;
@@ -23,7 +25,7 @@ public class Food
 	}
 	public int getPrice()
 	{
-		return price; 
+		return price;
 	}
 
 
