@@ -6,7 +6,7 @@ import com.LxiSoft.Admin.Admin;
 public class Menu
 {	
 	int n;
-     Scanner scnr = new Scanner(System.in);
+  Scanner scnr = new Scanner(System.in);
 ArrayList<Item> theMenu = new ArrayList<Item>();
      public void myMenu()
      {
@@ -77,6 +77,8 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
    	int n=scnr.nextInt()  ;
     theMenu.remove(n-1);
     } 
+
+
     public void updateMenu()
     {
      
@@ -89,8 +91,48 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
          System.out.println("Enter updated item prize");
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
+
     }
-}
+
+
+  public void getOrder()
+         {
+                System.out.println("GIVE YOUR ORDER PLEASE");
+                System.out.println("PRESS 0 TO QUIT");
+                boolean quit= false;
+                int sum=0;
+                String order="\n ";
+                
+                do
+             {
+
+            int n=scnr.nextInt();
+                switch(n)
+                {
+                    case n:
+                    System.out.println(theMenu.get(i).getName());
+                    sum=sum+theMenu.get(i).getPrize();
+                    order=order.concat(theMenu.get(i).getName());
+                    break;
+
+                    case 0:
+                    quit=true;
+                    default:
+                    System.out.println("Wrong input");
+
+                }  
+            
+           }while(!quit);
+             System.out.println("-----------------------------------------------");
+        System.out.println("-Your Orders are:\n-"+order);
+        System.out.println("-----------------------------------------------");
+        System.out.println("Your total bill="+sum);
+        System.out.println("Thank you");
+    
+        }
+     }
+      
+
 
 		
 
