@@ -95,7 +95,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
     }
 
 
-  public void getOrder()
+ /* public void getOrder()
          {
                 System.out.println("GIVE YOUR ORDER PLEASE");
                 System.out.println("PRESS 0 TO QUIT");
@@ -106,13 +106,31 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
                 do
              {
 
-            int n=scnr.nextInt();
-                switch(n)
+            int indexnumber=scnr.nextInt();
+                switch(indexnumber)
                 {
-                    case n:
-                    System.out.println(theMenu.get(i).getName());
-                    sum=sum+theMenu.get(i).getPrize();
-                    order=order.concat(theMenu.get(i).getName());
+                    case 1:
+                    System.out.println(theMenu.get(0).getName());
+                    sum=sum+theMenu.get(0).getPrize();
+                    order=order.concat(theMenu.get(0).getName());
+                    break;
+
+                    case 2:
+                    System.out.println(theMenu.get(1).getName());
+                    sum=sum+theMenu.get(1).getPrize();
+                    order=order.concat(theMenu.get(1).getName());
+                    break;
+
+                    case 3:
+                    System.out.println(theMenu.get(2).getName());
+                    sum=sum+theMenu.get(2).getPrize();
+                    order=order.concat(theMenu.get(2).getName());
+                    break;
+
+                    case 4:
+                    System.out.println(theMenu.get(3).getName());
+                    sum=sum+theMenu.get(3).getPrize();
+                    order=order.concat(theMenu.get(3).getName());
                     break;
 
                     case 0:
@@ -129,7 +147,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
         System.out.println("Your total bill="+sum);
         System.out.println("Thank you");
     
-        }
+        }*/
      }
       
 
