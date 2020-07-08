@@ -38,6 +38,8 @@ public class Menu
      public void addFood()
     	{
       		foodMenu.add(new Food());
+          for (int i=foodMenu.size(); i<foodMenu.size(); i++ )
+          {
 
     		System.out.println("\n Enter Food name");
 			String name=s.nextLine();
@@ -47,9 +49,10 @@ public class Menu
        		int prize=s.nextInt();
       
 
-       		foodMenu.get(4).setName(name);
-       		foodMenu.get(4).setPrice(price);
+       		foodMenu.get(i).setName(name);
+       		
     	}
+    }
     public void deleteFood()
    		{ 
 

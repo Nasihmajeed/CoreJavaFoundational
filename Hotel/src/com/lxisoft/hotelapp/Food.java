@@ -4,11 +4,9 @@ import java.util.Scanner;
 public class Food
 {
 	
-	private String name;
-	private int price;
-	private String code;
-	Food food=new Food();
-	
+	private String name; //item name
+	private int price; //item price
+
 	public void setName(String name)
 	{
 		this.name=name;
@@ -18,7 +16,6 @@ public class Food
 		return name;
 	}
 
-
 	public void setPrice(int price)
 	{
 		this.price=price;
@@ -27,17 +24,4 @@ public class Food
 	{
 		return price;
 	}
-
-
-
-	public void setCode(String code)
-	{
-		this.code=code;
-	}
-	public String getCode()
-	{
-		return code;
-	}
-
-	
 }
