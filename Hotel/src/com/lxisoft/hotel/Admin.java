@@ -8,6 +8,7 @@ public class Admin{
 	
 	String adminName;
 	Scanner scanner=new Scanner(System.in);
+	int x;
 	
 	
 
@@ -17,7 +18,10 @@ public class Admin{
 		menu.printMenuDetails();
 		boolean quit=false;
 
-		do{
+		
+
+			for(int i=0;i<5;i++)
+			{
 
 			System.out.println("\n \n ***ENTER YOUR DESIRED OPERATION TO PERFORM***");
 			System.out.println("1.	ADD");
@@ -27,6 +31,9 @@ public class Admin{
 
 			System.out.println("Enter your choice");
 			int choice=scanner.nextInt();
+
+
+			
 			
 		
 			switch(choice){
@@ -41,13 +48,15 @@ public class Admin{
 				break;
 				case 4:
 				System.out.println("Wrong input");
-				default:
+				break;
 			
 
-		
+			
 			}
 		}
-		 System.out.println("Exited from admin option");
+		
+		//}
+		 //System.out.println("Exited from admin option");
 
 
 		
