@@ -95,59 +95,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
     }
 
 
- public void getOrder()
-         {
-                System.out.println("GIVE YOUR ORDER PLEASE");
-                System.out.println("PRESS 0 TO QUIT");
-                boolean quit= false;
-                int sum=0;
-                String order="\n ";
-                
-                do
-             {
 
-            int indexnumber=scnr.nextInt();
-                switch(indexnumber)
-                {
-                    case 1:
-                    System.out.println(theMenu.get(0).getName());
-                    sum=sum+theMenu.get(0).getPrize();
-                    order=order.concat(theMenu.get(0).getName());
-                    break;
-
-                    case 2:
-                    System.out.println(theMenu.get(1).getName());
-                    sum=sum+theMenu.get(1).getPrize();
-                    order=order.concat(theMenu.get(1).getName());
-                    break;
-
-                    case 3:
-                    System.out.println(theMenu.get(2).getName());
-                    sum=sum+theMenu.get(2).getPrize();
-                    order=order.concat(theMenu.get(2).getName());
-                    break;
-
-                    case 4:
-                    System.out.println(theMenu.get(3).getName());
-                    sum=sum+theMenu.get(3).getPrize();
-                    order=order.concat(theMenu.get(3).getName());
-                    break;
-
-                    case 0:
-                    quit=true;
-                    default:
-                    System.out.println("Wrong input");
-
-                }  
-            
-           }while(!quit);
-             System.out.println("-----------------------------------------------");
-        System.out.println("-Your Orders are:\n-"+order);
-        System.out.println("-----------------------------------------------");
-        System.out.println("Your total bill="+sum);
-        System.out.println("Thank you");
-    
-        }
      /* 
           public void getOrder()
          {
