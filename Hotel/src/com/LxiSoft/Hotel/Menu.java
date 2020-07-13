@@ -96,27 +96,27 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
 
 
-     /* 
+      
           public void getOrder()
          {
-          public int total=0;
-  public Item[] order = new Item[20];
-  void setOrder()
+          int total=0;
+ Arraylist<theMenu>billPrint = new Arraylist<theMenu>();
+   setTheMenu();
   {
     for(int i=0;i<20;i++)
     {
-      order[i]=new Item();
+      theMenu()=new Item();
     }
   }
-  
+  }
   
   public void setTotal(int index)
   {
     this.total=0;
     for(int i=0;i<index;i++)
     {
-      order[i].setItemPrice();
-      this.total=this.total+(order[i].getitemTotAmount());
+      theMenu().setPrize();
+      this.total=this.total+(theMenu().getItemTotAmount());
     }
   }
   
@@ -129,15 +129,15 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
     for(int i=0;i<index;i++)
     {
       
-      order[i].dispItem();
+      theMenu().printMenu();
     }
     System.out.println("----------------------------------------------");
     System.out.println("TOTAL = "+this.total);
   }
   
   
-}*/
-         } 
+
+         }
       
 
 

@@ -4,9 +4,7 @@ import java.util.Scanner;
 public class Hotel
 {
     Menu menu=new Menu();
-	Item item=new Item();
     Admin admin=new Admin();
-    Order order=new Order();
     Scanner scnr = new Scanner(System.in);
 
 public void printHotel()
@@ -33,7 +31,7 @@ public void printDetail()
         {
             menu.myMenu();
            menu.printMenu();
-           menu.getOrder();
+           //menu.getOrder();
         }
         if(choice==2)
         {

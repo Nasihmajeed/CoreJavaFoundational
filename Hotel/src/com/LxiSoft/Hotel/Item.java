@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Item
 {
 	private String name; //item name
-	private int prize; //item prize
+	private int prize,itemTotAmount=0;
 
 	public void setName(String name)
 	{
@@ -23,4 +23,13 @@ public class Item
 	{
 		return prize;
 	}
+	public void setItemTotAmount(int itemTotAmount)
+	{
+		this.itemTotAmount=itemTotAmount;
+	}
+	public int getItemTotAmount()
+	{
+		return itemTotAmount;
+	}
 }
+

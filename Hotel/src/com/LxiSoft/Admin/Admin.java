@@ -1,15 +1,13 @@
 package com.LxiSoft.Admin;
 import com.LxiSoft.Hotel.Hotel;
 import com.LxiSoft.Hotel.Menu;
-import com.LxiSoft.Hotel;
+
 import java.util.Scanner;
 
 public class Admin
 {
 	Scanner scnr=new Scanner(System.in);
 	  Menu menu=new Menu();
-	    Item item=new Item();
-        Employee employee=new Employee();
 	public void getMenu( )
 	{  
          menu.myMenu();
