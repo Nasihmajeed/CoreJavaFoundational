@@ -59,13 +59,6 @@ public class Hotel{
 
 
 
-       /* menu.printMenuDetails();
-        menu.addDynamically();
-        
-        menu.getOrderDetails();
-        menu.removeDynamically();
-        menu.modifyNameDynamically();
-        menu.modifyPriceDynamically();*/
 
       
 
