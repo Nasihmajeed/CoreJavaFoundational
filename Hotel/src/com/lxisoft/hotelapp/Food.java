@@ -24,4 +24,14 @@ public class Food
 	{
 		return price;
 	}
+
+	public void veg()
+	{
+		menu.veg();
+
+	}
+	public void nonveg()
+	{
+		menu.nonveg();
+	}
 }
