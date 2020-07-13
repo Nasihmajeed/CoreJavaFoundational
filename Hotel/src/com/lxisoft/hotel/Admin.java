@@ -19,15 +19,16 @@ public class Admin{
 		boolean quit=false;
 
 		
-
-			for(int i=0;i<5;i++)
+			for(int i=0;i<=5;i++)
 			{
+			
 
 			System.out.println("\n \n ***ENTER YOUR DESIRED OPERATION TO PERFORM***");
 			System.out.println("1.	ADD");
 			System.out.println("2.	DELETE");
 			System.out.println("3.	UPDATE");
-			System.out.println("4.	TO EXIT");
+			System.out.println("4.  	PRINT BILL");
+			System.out.println("5.	TO EXIT");
 
 			System.out.println("Enter your choice");
 			int choice=scanner.nextInt();
@@ -47,13 +48,18 @@ public class Admin{
 				menu.modifyNameDynamically();
 				break;
 				case 4:
+				menu.getOrderDetails();
+				case 5:
 				System.out.println("Wrong input");
 				break;
 			
 
 			
 			}
+		
+	}
 		}
+
 		
 		//}
 		 //System.out.println("Exited from admin option");
@@ -62,7 +68,7 @@ public class Admin{
 		
 		
 	}
-}
+
 	
       
 

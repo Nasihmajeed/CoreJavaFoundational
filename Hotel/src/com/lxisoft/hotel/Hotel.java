@@ -32,6 +32,10 @@ public class Hotel{
         System.out.println("*******************************************************************");
 
      //   menu.printMenuDetails();
+
+        for(int i=0;i<=5;i++);
+        {
+
         System.out.println("    1.  Admin");
         System.out.println("    2.  Menu");
         System.out.println("    3.  Quit");
@@ -42,8 +46,14 @@ public class Hotel{
           switch(choice){
             case 1:
             admin.adminFunctions();
-          }
-
+            break;
+            case 2:
+            admin.menu.printMenuDetails();
+            break;
+            case 3:
+            System.out.println("WRONG OUTPUT");
+              }
+            }
 
 
 
