@@ -15,20 +15,20 @@ public class Menu{
        
 
         menuList.add(new Food());
-        menuList.get(0).setFoodName("IDLI");
-        menuList.get(0).setFoodPrice(20);
+        menuList.get(0).setFoodName("TEA");
+        menuList.get(0).setFoodPrice(10);
 
         menuList.add(new Food());
-        menuList.get(1).setFoodName("DOSA");
-        menuList.get(1).setFoodPrice(25);
+        menuList.get(1).setFoodName("COFFEE");
+        menuList.get(1).setFoodPrice(15);
 
         menuList.add(new Food());
-        menuList.get(2).setFoodName("VEG BIRIYANI");
+        menuList.get(2).setFoodName("SANDWICH");
         menuList.get(2).setFoodPrice(100);
 
         menuList.add(new Food());
-        menuList.get(3).setFoodName("CHICKEN BIRIYANI");
-        menuList.get(3).setFoodPrice(150);
+        menuList.get(3).setFoodName("BURGER");
+        menuList.get(3).setFoodPrice(200);
 
 
 

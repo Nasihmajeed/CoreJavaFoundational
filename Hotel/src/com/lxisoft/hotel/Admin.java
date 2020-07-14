@@ -18,55 +18,60 @@ public class Admin{
 		menu.printMenuDetails();
 		boolean quit=false;
 
-		
-			for(int i=0;i<=5;i++)
-			{
-			
+		 int choice=0;
+    	do
+    	{
 
 			System.out.println("\n \n ***ENTER YOUR DESIRED OPERATION TO PERFORM***");
 			System.out.println("1.	ADD");
 			System.out.println("2.	DELETE");
 			System.out.println("3.	UPDATE");
-			System.out.println("4.  	PRINT BILL");
-			System.out.println("5.	TO EXIT");
+			
+			System.out.println("0.	TO EXIT");
 
 			System.out.println("Enter your choice");
-			int choice=scanner.nextInt();
+			 choice=scanner.nextInt();
 
 
 			
 			
 		
-			switch(choice){
-				case 1:
+				if(choice==1)
+				{
 				menu.addDynamically();
-				break;
-				case 2:
+				}
+				if(choice==2)
+				{
 				menu.removeDynamically();
-				break;
-				case 3:
+				}
+				if(choice==3)
+				{
 				menu.modifyNameDynamically();
-				break;
-				case 4:
-				menu.getOrderDetails();
-				case 5:
-				System.out.println("Wrong input");
-				break;
+				}
+				
+				else if (choice==0)
+        		{
+        	 	System.out.println(" ");
+        		}
+    		}
+    		while(choice>0);
+      
+				
 			
 
 			
 			}
 		
 	}
-		}
+		
+
+		
+		
+
 
 		
 		
-
-
-		
-		
-	}
+	
 
 	
       

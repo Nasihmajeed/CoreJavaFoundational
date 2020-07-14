@@ -3,11 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Food{
 
-	Drinks d=new Drinks();
-	Breakfast b=new Breakfast();
-	Lunch l=new Lunch();
 	
-	private String foodName;
+	
+	protected String foodName;
 	public void setFoodName(String a){
 		this.foodName=a;
 	}
@@ -15,7 +13,7 @@ public class Food{
 		return foodName;
 	}
 
-	private Integer foodPrice;
+	protected Integer foodPrice;
 	public void setFoodPrice(Integer a){
 		this.foodPrice=a;
 	}

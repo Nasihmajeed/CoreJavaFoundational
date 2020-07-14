@@ -33,36 +33,34 @@ public class Hotel{
 
      //   menu.printMenuDetails();
 
-        for(int i=0;i<=5;i++);
-        {
-
+     int choice=0;
+    do
+    {
         System.out.println("    1.  Admin");
         System.out.println("    2.  Menu");
-        System.out.println("    3.  Quit");
+        System.out.println("    0.  Quit");
 
       
         System.out.println("Enter your choice");
-          int choice=scanner.nextInt();
-          switch(choice){
-            case 1:
-            admin.adminFunctions();
-            break;
-            case 2:
-            admin.menu.printMenuDetails();
-            break;
-            case 3:
-            System.out.println("WRONG OUTPUT");
-              }
-            }
-
-
-
-
-
-
-      
-
-        
+          choice=scanner.nextInt();
+          if(choice==1)
+        {
+             admin.adminFunctions(); 
+        }
+        if(choice==2)
+        {
+             
+           admin.menu.printMenuDetails();
+           admin.menu.getOrderDetails();
+         
+        }
+        else if(choice==0)
+        {
+            System.out.println(" ");
+        }
     }
+    while(choice>0);
+      
+}
 
-  }
+}
