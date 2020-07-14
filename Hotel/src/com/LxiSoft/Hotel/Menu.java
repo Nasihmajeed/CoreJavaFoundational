@@ -97,16 +97,14 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
           public void getOrder()
          {
     
- ArrayList<Item>billPrint = new ArrayList<Item>();
  
     System.out.println("GIVE YOUR ORDER PLEASE");
-    System.out.println("Enter 0 to exit");
+
        int sum=0;
      String order=" ";
  for(int i=0;i<theMenu.size();i++)
 {
        int indexnumber=scnr.nextInt();
-  billPrint.add(theMenu.get(i));
 }
    System.out.println("-----------------------------------------------");
         System.out.println("-Your Orders are:\n-"+order);
