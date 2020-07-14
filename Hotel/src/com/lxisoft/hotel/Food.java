@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Food{
 
-	
+	Drinks drinks=new Drinks();
 	
 	protected String foodName;
 	public void setFoodName(String a){
@@ -19,5 +19,9 @@ public class Food{
 	}
 	public Integer getFoodPrice(){
 		return foodPrice;
+	}
+
+	public void print(){
+		System.out.println("ENJOY YOUR FOOD");
 	}
 }

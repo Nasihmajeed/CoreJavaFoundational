@@ -57,6 +57,8 @@ public class Menu{
         }
 
 
+
+
       
 
         
@@ -154,42 +156,11 @@ public class Menu{
 
             }
             }
+
+
+            public void addingTOArrayList(){
+                menuList.get(5).setFoodName(food.drinks("mangoshake"));
+            }
+
+           
         }
-
-
-
-
-
-                
-            
-
-
-
-
-        
-    
-      
-     
-
-
-     
-
-
-     	
-
-
-
-
-         
-
-
-
-
-
-
-
-
-
-        
-        
-
