@@ -23,13 +23,6 @@ public class Item
 	{
 		return prize;
 	}
-	public void setItemTotAmount(int itemTotAmount)
-	{
-		this.itemTotAmount=itemTotAmount;
-	}
-	public int getItemTotAmount()
-	{
-		return itemTotAmount;
-	}
+
 }
 

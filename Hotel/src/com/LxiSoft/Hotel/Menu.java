@@ -94,52 +94,29 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
     }
 
-
-
-      
           public void getOrder()
          {
-          int total=0;
- Arraylist<theMenu>billPrint = new Arraylist<theMenu>();
-   setTheMenu();
-  {
-    for(int i=0;i<20;i++)
-    {
-      theMenu()=new Item();
-    }
-  }
-  }
-  
-  public void setTotal(int index)
-  {
-    this.total=0;
-    for(int i=0;i<index;i++)
-    {
-      theMenu().setPrize();
-      this.total=this.total+(theMenu().getItemTotAmount());
-    }
-  }
-  
-  public void printOrderDetails(int index)
-  {
     
-    System.out.println("---------------------Bill---------------------");
-    System.out.println("\tItem Name \t Price\t\t Quantity");
-    System.out.println("----------------------------------------------");
-    for(int i=0;i<index;i++)
-    {
-      
-      theMenu().printMenu();
-    }
-    System.out.println("----------------------------------------------");
-    System.out.println("TOTAL = "+this.total);
-  }
-  
-  
+ ArrayList<Item>billPrint = new ArrayList<Item>();
+ 
+    System.out.println("GIVE YOUR ORDER PLEASE");
+    System.out.println("Enter 0 to exit");
+       int sum=0;
+     String order=" ";
+ for(int i=0;i<theMenu.size();i++)
+{
+       int indexnumber=scnr.nextInt();
+  billPrint.add(theMenu.get(i));
+}
+   System.out.println("-----------------------------------------------");
+        System.out.println("-Your Orders are:\n-"+order);
+        System.out.println("-----------------------------------------------");
+        System.out.println("Your total bill="+sum);
+        System.out.println("Thank you");
 
-         }
-      
+}
+}
 
 
-		
+
 
