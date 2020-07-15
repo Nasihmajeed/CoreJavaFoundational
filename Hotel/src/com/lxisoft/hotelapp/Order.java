@@ -1,12 +1,16 @@
-package com.lxisoft.hotelapp;
-import com.lxisoft.Admin.Admin;
-import com.lxisoft.hotelapp.Menu;
+package com.lxisoft.Hotel;
 import java.util.Scanner;
-
+import com.lxisoft.Admin.Admin;
 public class Order
 {
-    Scanner s = new Scanner(System.in);
-   
-}
-
-   
+         Scanner scnr = new Scanner(System.in);
+           Menu menu=new Menu();
+           int n;
+         public void getOrder()
+         {
+         	System.out.println("Enter Index number to get the order: ");
+            n=scnr.nextInt();
+         	System.out.println("your order is:  "+n);
+         }
+     }
+      

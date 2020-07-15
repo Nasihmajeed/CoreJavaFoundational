@@ -1,11 +1,10 @@
-package com.lxisoft.hotelapp;
+package com.lxisoft.Hotel;
 import com.lxisoft.Admin.Admin;
 import java.util.Scanner;
-public class Food
+public class Item
 {
-	
 	private String name; //item name
-	private int price; //item price
+	private int prize; //item prize
 
 	public void setName(String name)
 	{
@@ -16,12 +15,12 @@ public class Food
 		return name;
 	}
 
-	public void setPrice(int price)
+	public void setPrize(int prize)
 	{
-		this.price=price;
+		this.prize=prize;
 	}
-	public int getPrice()
+	public int getPrize()
 	{
-		return price;
+		return prize;
 	}
 }
