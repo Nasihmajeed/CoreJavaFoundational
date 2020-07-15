@@ -88,6 +88,7 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
        String name=scnr.nextLine();
        theMenu.get(n-1).setName(name);
         scnr.nextLine();
+       
          System.out.println("Enter updated item prize");
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
@@ -98,22 +99,32 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
          {
     
  
-    System.out.println("GIVE YOUR ORDER PLEASE");
+    System.out.println("GIVE YOUR indexNO. of ORDER PLEASE");
+    n=scnr.nextInt();
 
-       int sum=0;
-     String order=" ";
- for(int i=0;i<theMenu.size();i++)
-{
-       int indexnumber=scnr.nextInt();
+  //  if (n>0)
+   // {
+    ArrayList<Item>billPrint=new ArrayList<Item>();
+    billPrint.add(new Item());
+     billPrint.get(n).getName();
+   billPrint.get(n).getPrize();
+      System.out.println(billPrint);  
+
+ // }
 }
+  public void printOrder()
+  {
+
+
    System.out.println("-----------------------------------------------");
-        System.out.println("-Your Orders are:\n-"+order);
+        /*System.out.println("-Your Orders are:\n"+billPrint.get(i));
         System.out.println("-----------------------------------------------");
         System.out.println("Your total bill="+sum);
         System.out.println("Thank you");
+  */
+}
+}
 
-}
-}
 
 
 
