@@ -15,25 +15,33 @@ public class Admin
     do
     {
       System.out.println("\n________________________");
-        System.out.println(" \n\n1. Add Item \n\n2.Delete Item \n\n Press 0 for Exit \n");
+        System.out.println(" \n\n1. View Menu \n\n2. Add Item  \n\n3. Delete Item \n\n Press 0 for Exit \n");
         choice=s.nextInt();
       
-        if(choice==1)
-        {
-           menu.addFood();
-        }
          if(choice==2)
         {
-            menu.deleteFood();
+          
+               menu.printMenu();
+            menu.addItem();
+            menu.printMenu();
+        }
+         if(choice==3)
+        {
+             menu.printMenu();
+            menu.deleteItem();
+              menu.printMenu();
+        }
+          if(choice==4)
+        {
+              menu.printMenu();
+            menu.updateMenu();
+             menu.printMenu();
         }
         else if (choice==0)
         {
-        	 System.out.println(" ");
              System.out.println(" ");
         }
     }
     while(choice>0);
       
-}
-
 }
