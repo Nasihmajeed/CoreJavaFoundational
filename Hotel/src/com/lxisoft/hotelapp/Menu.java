@@ -93,6 +93,13 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
     }
+    public void getOrder()
+         {
+                System.out.println("GIVE YOUR ORDER PLEASE");
+                System.out.println("PRESS 0 TO QUIT");
+                boolean quit= false;
+                int sum=0;
+                String order="\n ";
     
 
 }
