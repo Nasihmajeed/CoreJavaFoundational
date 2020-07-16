@@ -30,6 +30,10 @@ public class Menu{
         menuList.get(3).setFoodName("BURGER");
         menuList.get(3).setFoodPrice(200);
 
+        menuList.add(new Drinks());
+        menuList.get(4).setFoodName("MANGO SHAKE");
+        menuList.get(4).setFoodPrice(120);
+
 
 
 
@@ -48,8 +52,8 @@ public class Menu{
             int itemprice=scanner.nextInt();
 
             menuList.add(new Food());
-            menuList.get(4).setFoodName(itemname);
-            menuList.get(4).setFoodPrice(itemprice);
+            menuList.get(5).setFoodName(itemname);
+            menuList.get(5).setFoodPrice(itemprice);
 
              for(int i=0;i<menuList.size();i++){
             System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
@@ -158,9 +162,6 @@ public class Menu{
             }
 
 
-            public void addingTOArrayList(){
-                menuList.get(5).setFoodName(food.drinks("mangoshake"));
-            }
+          
 
-           
         }

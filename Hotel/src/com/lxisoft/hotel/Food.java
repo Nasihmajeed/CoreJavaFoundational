@@ -3,9 +3,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Food{
 
-	Drinks drinks=new Drinks();
-	
-	protected String foodName;
+
+	private String foodName;
 	public void setFoodName(String a){
 		this.foodName=a;
 	}
@@ -13,7 +12,7 @@ public class Food{
 		return foodName;
 	}
 
-	protected Integer foodPrice;
+	private Integer foodPrice;
 	public void setFoodPrice(Integer a){
 		this.foodPrice=a;
 	}
@@ -21,7 +20,5 @@ public class Food{
 		return foodPrice;
 	}
 
-	public void print(){
-		System.out.println("ENJOY YOUR FOOD");
-	}
+	
 }
