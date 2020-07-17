@@ -30,7 +30,7 @@ public class Menu{
         menuList.get(3).setFoodName("BURGER");
         menuList.get(3).setFoodPrice(200);
 
-        menuList.add(new Drinks());
+        menuList.add(new Food());
         menuList.get(4).setFoodName("MANGO SHAKE");
         menuList.get(4).setFoodPrice(120);
 
@@ -107,7 +107,7 @@ public class Menu{
                     order=order.concat(menuList.get(3).getFoodName());
                     break;
 
-                    case 5:
+                    case 0:
                     quit=true;
                     default:
                     System.out.println("Wrong input");
