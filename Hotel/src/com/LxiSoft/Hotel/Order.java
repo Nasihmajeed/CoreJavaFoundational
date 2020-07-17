@@ -22,5 +22,16 @@ public class Order
 
  // }
 }
+ public void printOrder()
+  {
+
+
+   System.out.println("-----------------------------------------------");
+        /*System.out.println("-Your Orders are:\n"+billPrint.get(i));
+        System.out.println("-----------------------------------------------");
+        System.out.println("Your total bill="+sum);
+        System.out.println("Thank you");
+  */
+}
         }
     
