@@ -86,10 +86,10 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
        int n=scnr.nextInt();
        System.out.println("Enter  item name to update");
        String name=scnr.nextLine();
-            scnr.nextLine();
+       scnr.nextLine();
        theMenu.get(n-1).setName(name);
    
-       
+         
          System.out.println("Enter updated item prize");
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
