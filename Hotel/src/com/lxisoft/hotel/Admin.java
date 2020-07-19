@@ -1,7 +1,7 @@
 package com.lxisoft.hotel;
 import java.util.Scanner;
 
-public class Admin{
+public class Admin implements Interface{
 
 	Menu menu=new Menu();
 
@@ -9,6 +9,11 @@ public class Admin{
 	String adminName;
 	Scanner scanner=new Scanner(System.in);
 	int x;
+
+
+	public void details(){
+		System.out.println("ADMIN DETAILS");
+	}
 	
 	
 

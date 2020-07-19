@@ -70,41 +70,55 @@ public class Menu{
         
             public void getOrderDetails(){
                 System.out.println("GIVE YOUR ORDER PLEASE");
-                System.out.println("PRESS 5 TO QUIT");
-                boolean quit= false;
+                System.out.println("ZERO TO QUIT");
+               
                 int sum=0;
                 String order=" ";
+                boolean quit=false;
+
+                 int choice=scanner.nextInt();
+               
                 
                 do{
              for(int i=0;i<menuList.size();i++){
             System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
 
             }
-
-            int indexnumber=scanner.nextInt();
+             int indexnumber=scanner.nextInt();
                 switch(indexnumber){
                     case 1:
                     System.out.println(menuList.get(0).getFoodName());
                     sum=sum+menuList.get(0).getFoodPrice();
                     order=order.concat(menuList.get(0).getFoodName());
+                    food.print();
                     break;
 
                     case 2:
                     System.out.println(menuList.get(1).getFoodName());
                     sum=sum+menuList.get(1).getFoodPrice();
                     order=order.concat(menuList.get(1).getFoodName());
+                      food.print();
                     break;
 
                     case 3:
                     System.out.println(menuList.get(2).getFoodName());
                     sum=sum+menuList.get(2).getFoodPrice();
                     order=order.concat(menuList.get(2).getFoodName());
+                      food.print();
                     break;
 
                     case 4:
                     System.out.println(menuList.get(3).getFoodName());
                     sum=sum+menuList.get(3).getFoodPrice();
                     order=order.concat(menuList.get(3).getFoodName());
+                      food.print();
+                    break;
+
+                    case 5:
+                    System.out.println(menuList.get(4).getFoodName());
+                    sum=sum+menuList.get(4).getFoodPrice();
+                    order=order.concat(menuList.get(4).getFoodName());
+                      food.print();
                     break;
 
                     case 0:
@@ -114,6 +128,12 @@ public class Menu{
 
                 }  
             
+                 
+           
+                    
+                    
+
+
            }while(!quit);
              System.out.println("-----------------------------------------------");
         System.out.println("-Your Orders are:\n-"+order);

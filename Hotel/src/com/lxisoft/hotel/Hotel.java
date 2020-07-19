@@ -45,6 +45,7 @@ public class Hotel{
           choice=scanner.nextInt();
           if(choice==1)
         {
+            admin.details();
              admin.adminFunctions(); 
         }
         if(choice==2)
