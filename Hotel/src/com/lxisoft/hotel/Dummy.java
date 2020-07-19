@@ -1,7 +1,7 @@
 package com.lxisoft.hotel;
 
 import java.util.Scanner;
-public abstract class Dummy {
+public  class Dummy {
 
 
 	private String foodName;
@@ -20,7 +20,7 @@ public abstract class Dummy {
 		return foodPrice;
 	}
 
-	public abstract void print();
+	//public abstract void print();
 
 	
 }

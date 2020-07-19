@@ -5,6 +5,7 @@ public class Menu{
 
 	//Order order=new Order();
 	Food food=new Food();
+    Dummy dummy=new Dummy();
 
    
     Scanner scanner=new Scanner(System.in);
@@ -69,79 +70,63 @@ public class Menu{
 
         
             public void getOrderDetails(){
-                System.out.println("GIVE YOUR ORDER PLEASE");
-                System.out.println("ZERO TO QUIT");
-               
+                System.out.println("How many items do you wish to have");
+                int itemNumber=scanner.nextInt();
                 int sum=0;
-                String order=" ";
-                boolean quit=false;
+                int total=0;
+                int grantTotal=0;
+                  ArrayList<Food> orderList = new ArrayList<Food>();
 
-                 int choice=scanner.nextInt();
+                    for(int i=0;i<=itemNumber;i++){
+
+                        System.out.println("Enter the index number of  items which you want");
+                        int indexNumber=scanner.nextInt();
+                        System.out.println("How much quantity do you want");
+                        int quantity=scanner.nextInt();
+                        total=menuList.get(indexNumber).getFoodPrice()*quantity;
+                       System.out.println("Your order and price is"+menuList.get(indexNumber).getFoodName() +"      "+total);
+                       orderList.add(new Food());
+                       orderList.get(i).setFoodPrice(total);
+                       grantTotal=grantTotal+orderList.get(i).getFoodPrice();
+                       System.out.println("Your total bill is"+grantTotal);
+
+
+
+
+        
+            //total=total+subjects[i].getSubjectMark();
+            //percentage=((total/(subjects.length*100.0)*100.0));
+
+        
+
+
+                       /* menuList.add(new Food());
+                        menuList.get(indexNumber).setFoodPrice(total);
+
+                        System.out.println("The total ");
+                        
+
+
+                           /* for(int j=0;j<itemNumber;i++){
+                                sum=0;
+                                total=0;
+                                sum=total+total;
+                            }
+                       
+                        /*orderList.add(new  Food());
+                       orderList.get(indexNumber).getFoodName();
+                       orderList.get(indexNumber).getFoodPrice();*/
+                                           }
+
+
+
                
-                
-                do{
-             for(int i=0;i<menuList.size();i++){
-            System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
-
-            }
-             int indexnumber=scanner.nextInt();
-                switch(indexnumber){
-                    case 1:
-                    System.out.println(menuList.get(0).getFoodName());
-                    sum=sum+menuList.get(0).getFoodPrice();
-                    order=order.concat(menuList.get(0).getFoodName());
-                    food.print();
-                    break;
-
-                    case 2:
-                    System.out.println(menuList.get(1).getFoodName());
-                    sum=sum+menuList.get(1).getFoodPrice();
-                    order=order.concat(menuList.get(1).getFoodName());
-                      food.print();
-                    break;
-
-                    case 3:
-                    System.out.println(menuList.get(2).getFoodName());
-                    sum=sum+menuList.get(2).getFoodPrice();
-                    order=order.concat(menuList.get(2).getFoodName());
-                      food.print();
-                    break;
-
-                    case 4:
-                    System.out.println(menuList.get(3).getFoodName());
-                    sum=sum+menuList.get(3).getFoodPrice();
-                    order=order.concat(menuList.get(3).getFoodName());
-                      food.print();
-                    break;
-
-                    case 5:
-                    System.out.println(menuList.get(4).getFoodName());
-                    sum=sum+menuList.get(4).getFoodPrice();
-                    order=order.concat(menuList.get(4).getFoodName());
-                      food.print();
-                    break;
-
-                    case 0:
-                    quit=true;
-                    default:
-                    System.out.println("Wrong input");
-
-                }  
-            
-                 
-           
-                    
-                    
 
 
-           }while(!quit);
-             System.out.println("-----------------------------------------------");
-        System.out.println("-Your Orders are:\n-"+order);
-        System.out.println("-----------------------------------------------");
-        System.out.println("Your total bill="+sum);
-        System.out.println("Thank you");
-    
-        }
+
+                }
+               
+             
 
              public void removeDynamically(){
             System.out.println("Enter the index Number of item to be deleted");
