@@ -12,7 +12,7 @@ public class Admin implements Interface{
 
 
 	public void details(){
-		System.out.println("ADMIN DETAILS");
+		System.out.println(" ph no=944567871");
 	}
 	
 	

@@ -5,7 +5,7 @@ public class Menu{
 
 	//Order order=new Order();
 	Food food=new Food();
-    Dummy dummy=new Dummy();
+  //  Dummy dummy=new Dummy();
 
    
     Scanner scanner=new Scanner(System.in);
@@ -34,6 +34,9 @@ public class Menu{
         menuList.add(new Food());
         menuList.get(4).setFoodName("MANGO SHAKE");
         menuList.get(4).setFoodPrice(120);
+
+
+        food.print();
 
 
 

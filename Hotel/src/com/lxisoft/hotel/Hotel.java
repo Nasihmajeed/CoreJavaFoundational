@@ -30,6 +30,7 @@ public class Hotel{
         System.out.println("                                                                                                 ");
         System.out.println("                                                                                                 ");
         System.out.println("*******************************************************************");
+        admin.details();
 
      //   menu.printMenuDetails();
 
