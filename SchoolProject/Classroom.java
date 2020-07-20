@@ -4,36 +4,26 @@ public class Classroom
 {
 	int division;
 	String dept;
-	Student student1 = new Student();
-	Student student2 = new Student();
-	Student student3 = new Student();
+	Student[] student = new Student[3];
 	Scanner scanner;
 	
 
 	public void setStudents()
 	{
-	  scanner = new Scanner(System.in);
+      scanner = new Scanner(System.in);
+	  for(int i=0;i<2;i++)
+		{
       System.out.println("enter the register number: ");
-      student1.regNo = scanner.nextInt();
+      student[i].regNo = scanner.nextInt();
       System.out.println("enter the name of the student: ");
-      student1.name = scanner.next();
-      System.out.println("enter the register number: ");
-      student2.regNo = scanner.nextInt();
-      System.out.println("enter the name of the student: ");
-      student2.name = scanner.next();
-      System.out.println("enter the register number: ");
-      student3.regNo = scanner.nextInt();
-      System.out.println("enter the name of the student: ");
-      student3.name = scanner.next();
+      student[i].name = scanner.next(); 
+        }
     }
       
      public void getStudents()
      {
-        System.out.println("register number: "+student1.regNo);
-        System.out.println("name: "+student1.name);
-        System.out.println("register number: "+student2.regNo);
-        System.out.println("name: "+student2.name);
-        System.out.println("register number: "+student3.regNo);
-        System.out.println("name: "+student3.name);
+        System.out.println("register number: "+student[i].regNo);
+        System.out.println("name: "+student[i].name);
+        
      }
 }
