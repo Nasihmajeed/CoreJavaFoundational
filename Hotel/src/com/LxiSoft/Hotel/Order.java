@@ -27,7 +27,7 @@ public class Order
 
                         sum=theMenu.get(n-1).getPrize();
                         	     	System.out.println("\t MENU    \t prize");
-                       System.out.println("\n      " +theMenu.get(n-1).getName() +"      "+sum);
+                       System.out.println("\n \t " +theMenu.get(n-1).getName() +"      "+sum);
                        billPrint.add(new Item());
 
                        billPrint.get(i).setPrize(sum);
