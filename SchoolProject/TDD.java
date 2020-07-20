@@ -1,8 +1,11 @@
 public class TDD
 {
-	public static void main(string[] args)
+	public static void main(String[] args)
 	{
-	School school = new school();
-	school.setSchool();
+	School school = new School();
+	school.printName();
+	school.setClassroom();
+	school.getClassroom();
+	school.getSchool();
 	}
 }

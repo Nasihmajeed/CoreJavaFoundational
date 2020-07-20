@@ -5,31 +5,35 @@ public class Classroom
 	int division;
 	String dept;
 	Student student1 = new Student();
-	Scanner scanner = new Scanner();
+	Student student2 = new Student();
+	Student student3 = new Student();
+	Scanner scanner;
+	
 
-	public void printName()
+	public void setStudents()
 	{
-		System.out.println("KANNADI HIGHER SECONDARY SCHOOL");
-		
-	}
-
-	public void setClassroom()
-	{
-	  System.out.println("enter the division: ");
-	  classroom.division = scanner.nextInt();
-	  System.out.println("enter the department: ");
-	  classroom.dept = scanner.next();
-      System.out.println("enter the name of the student: ");
+	  scanner = new Scanner(System.in);
+      System.out.println("enter the name of the student1: ");
       student1.name = scanner.next();
       System.out.println("enter the register number: ");
       student1.regNo = scanner.nextInt();
+      System.out.println("enter the name of the student2: ");
+      student2.name = scanner.next();
+      System.out.println("enter the register number: ");
+      student2.regNo = scanner.nextInt();
+      System.out.println("enter the name of the student3: ");
+      student3.name = scanner.next();
+      System.out.println("enter the register number: ");
+      student3.regNo = scanner.nextInt();
     }
       
-     public void getClassroom()
+     public void getStudents()
      {
-     	System.out.println("division: "+classroom.division);
-    	System.out.println("department: "+classroom.dept);
         System.out.println("name: "+student1.name);
-        System.out.println("department: "+student1.dept);
+        System.out.println("register number: "+student1.regNo);
+        System.out.println("name: "+student2.name);
+        System.out.println("register number: "+student2.regNo);
+        System.out.println("name: "+student3.name);
+        System.out.println("register number: "+student3.regNo);
      }
 }
