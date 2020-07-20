@@ -7,43 +7,33 @@ public class Order
          Scanner scnr = new Scanner(System.in);
         Menu menu=new Menu();
 
-         public void getOrder(ArrayList<Item> theMenu)
-         {
-         ArrayList<Item>billPrint=new ArrayList<Item>();
+        
+            public void getOrder(ArrayList<Item> theMenu)
+            {
+                System.out.println("How many items do you wish to have");
+                int number=scnr.nextInt();
+                
+                int sum=0;
+                int grantSum=0;
+                  ArrayList<Item> billPrint = new ArrayList<Item>();
 
+                    for(int i=0;i<number;i++)
+			{
 
- System.out.println("How many items do you wish to have");
- int number=scnr.nextInt();
+                        System.out.println("Enter the index number of  items which you want");
+                        int n=scnr.nextInt();
 
- for (int i=0; i<number; i++)
-{   
-System.out.println("GIVE YOUR indexNO. of ORDER PLEASE");
-  //  System.out.println("Enter 0 to exit");
-    int n=scnr.nextInt();
-if (n>0)
-{  
-  
-  billPrint.add(new Item());
-   billPrint.get(i).setName(theMenu.get(n-1).getName());
- billPrint.get(i).setPrize(theMenu.get(n-1).getPrize());
+                        
+
+                        sum=theMenu.get(n-1).getPrize();
+                        	     	System.out.println("\t MENU    \t prize");
+                       System.out.println("\n      " +theMenu.get(n-1).getName() +"      "+sum);
+                       billPrint.add(new Item());
+
+                       billPrint.get(i).setPrize(sum);
+
+                       grantSum=grantSum+billPrint.get(i).getPrize();
+                       System.out.println("\n \n Your total bill is "+grantSum);
 }
-  }
 }
- public void printOrder()
-  {
-
-
-   System.out.println("-----------your order are------------------------------------");
-        //System.out.println("-YourbillPrint are:\n"+billPrint.get(i));
-        /*System.out.println("-----------------------------------------------");
-        System.out.println("Your total bill="+sum);
-       
-              for(int i=0;i<billPrint.size();i++)
-      {
-            System.out.println("\n"+billPrint.get(i).getName()+"\t \t"+billPrint.get(i).getPrize());  
-            }
-
-  */
 }
-        }
-    

@@ -8,7 +8,6 @@ public class Hotel
     Admin admin=new Admin();
     Order order=new Order();
     Scanner scnr = new Scanner(System.in);
-ArrayList<Item> theMenu=new ArrayList();
 public void printHotel()
      {
       
@@ -33,8 +32,8 @@ public void printDetail()
         {
             menu.myMenu();
            menu.printMenu();
-         order.getOrder(theMenu);
-        order.printOrder();
+         order.getOrder(menu.theMenu);
+        //order.printOrder();
         }
         if(choice==2)
         {
