@@ -1,4 +1,4 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotelapp;
 import com.lxisoft.Admin.Admin;
 import java.util.Scanner;
 public class Hotel
@@ -22,7 +22,7 @@ public void printHotel()
         System.out.println("");
 }
 
-public void printDetail()
+public void printDetails()
 {  
  int choice=0;
     do

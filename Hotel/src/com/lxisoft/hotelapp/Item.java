@@ -1,4 +1,4 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotelapp;
 import com.lxisoft.Admin.Admin;
 import java.util.Scanner;
 public class Item

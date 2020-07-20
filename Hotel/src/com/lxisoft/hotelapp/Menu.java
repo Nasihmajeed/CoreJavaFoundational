@@ -1,4 +1,4 @@
-package com.LxiSoft.Hotel;
+package com.lxisoft.hotelapp;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ public class Menu
 {	
 	int n;
      Scanner scnr = new Scanner(System.in);
-ArrayList<Item> theMenu = new ArrayList<Item>();
+     ArrayList<Item> theMenu = new ArrayList<Item>();
      public void myMenu()
      {
      	
@@ -37,19 +37,12 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
        	
 
       public void addItem()
-      {
-	      
-        for(int i=theMenu.size(); i<theMenu.size()+n; i++)
-        {
-      /*	System.out.println (" \n Enter number of items to be added ");
-	      n=scnr.nextInt();
-         scnr.nextLine();*/
-       //  int size=theMenu.size();
+      { 
 
-       //for (int i=theMenu.size(); i<=(n+3); i++)
-    //{
-         // if(theMenu.size().getname()==null)
-          //{
+	    /*  System.out.println("Enter the number of items to be Added");
+        int n=scnr.nextInt();
+        for( n=theMenu.size(); i<theMenu.size(); i++)
+        {
 
     		theMenu.add(new Item());
 
@@ -64,11 +57,10 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
        theMenu.get(i).setName(name);
        theMenu.get(i).setPrize(prize);
 
-         
-      //  }
      }
    }
-     //}
+   */}
+    
   public void deleteItem()
    { 
 
@@ -93,16 +85,5 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
     }
-    public void getOrder()
-         {
-                System.out.println("GIVE YOUR ORDER PLEASE");
-                System.out.println("PRESS 0 TO QUIT");
-                boolean quit= false;
-                int sum=0;
-                String order="\n ";
-    
-
-}
-
 		
-
+}
