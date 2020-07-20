@@ -1,5 +1,6 @@
 package com.LxiSoft.Hotel;
 import com.LxiSoft.Admin.Admin;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Hotel
 {
@@ -7,7 +8,7 @@ public class Hotel
     Admin admin=new Admin();
     Order order=new Order();
     Scanner scnr = new Scanner(System.in);
-
+ArrayList<Item> theMenu=new ArrayList();
 public void printHotel()
      {
       
@@ -32,7 +33,8 @@ public void printDetail()
         {
             menu.myMenu();
            menu.printMenu();
-          order.getOrder();
+         order.getOrder(theMenu);
+        order.printOrder();
         }
         if(choice==2)
         {

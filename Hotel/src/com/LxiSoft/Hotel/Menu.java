@@ -5,7 +5,7 @@ import java.util.List;
 import com.LxiSoft.Admin.Admin;
 public class Menu
 {	
-	int n;
+	
   Scanner scnr = new Scanner(System.in);
 ArrayList<Item> theMenu = new ArrayList<Item>();
      public void myMenu()
@@ -41,13 +41,13 @@ ArrayList<Item> theMenu = new ArrayList<Item>();
 
       /*	System.out.println (" \n Enter number of items to be added ");
 	      n=scnr.nextInt();
-         scnr.nextLine();*/
-       //  int size=theMenu.size();
+         scnr.nextLine();
+         int size=theMenu.size();
 
-       //for (int i=theMenu.size(); i<=(n+3); i++)
-    //{
-         // if(theMenu.size().getname()==null)
-          //{
+       for (int i=theMenu.size(); i<=(n+3); i++)
+    {
+     if(theMenu.size().getname()==null)
+    {*/
 
     		theMenu.add(new Item());
 
