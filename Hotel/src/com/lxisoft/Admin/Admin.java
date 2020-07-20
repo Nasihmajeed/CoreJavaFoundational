@@ -20,7 +20,9 @@ public class Admin
       
          if(choice==1)
          {
+          menu.myMenu();
           menu.printMenu();
+
          }
 
          if(choice==2)

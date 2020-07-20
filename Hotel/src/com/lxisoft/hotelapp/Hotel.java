@@ -34,7 +34,7 @@ public void printDetails()
         {
             menu.myMenu();
            menu.printMenu();
-           order.getOrder();
+           menu.getOrder();
         }
         if(choice==2)
         {

@@ -37,8 +37,14 @@ public class Menu
        	
 
       public void addItem()
-      {
-        theMenu.add(new Item());
+      { 
+
+	    /*  System.out.println("Enter the number of items to be Added");
+        int n=scnr.nextInt();
+        for( n=theMenu.size(); i<theMenu.size(); i++)
+        {
+
+    		theMenu.add(new Item());
 
     	 System.out.println("\n enter item name");
 			String name=scnr.nextLine();
@@ -48,11 +54,13 @@ public class Menu
       int prize=scnr.nextInt();
       
 
-       theMenu.get(4).setName(name);
-       theMenu.get(4).setPrize(prize);
+       theMenu.get(i).setName(name);
+       theMenu.get(i).setPrize(prize);
 
-    
+     }
    }
+   */}
+    
   public void deleteItem()
    { 
 
@@ -77,34 +85,5 @@ public class Menu
            int prize=scnr.nextInt();
        theMenu.get(n-1).setPrize(prize);
     }
-    
-    public void getOrder()
-    {
-      System.out.println("Your No.Of Orders Please : ");
-      int ordernumber=scnr.nextInt();
-      int sum=0;
-      int total=0;
-      int grantTotal=0;
-      ArrayList<Item> bill = new ArrayList<Item>();
-
-      for(int i=0;i<=ordernumber;i++)
-      {
-
-        System.out.println("Your Order Please : ");
-        ordernumber=scnr.nextInt();
-        System.out.println("Quantity you need :");
-        int quantity=scnr.nextInt();
-        total=theMenu.get(ordernumber).getPrize()*quantity;
-        System.out.println("Your order and price is"+theMenu.get(ordernumber).getName() +"      "+total);
-        bill.add(new Item());
-        bill.get(i).setPrize(total);
-        grantTotal=grantTotal+bill.get(i).getPrize();   
-        System.out.println("Your total bill is"+grantTotal);
-
-      }
-    }
-  }
-
-
 		
-
+}
