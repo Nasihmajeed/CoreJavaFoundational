@@ -19,6 +19,7 @@ public class Classroom
       student[i].regNo = scanner.nextInt();
       System.out.println("enter the name of the student: ");
       student[i].name = scanner.next(); 
+      System.out.println(" \n ");
         }
     }
       
@@ -28,6 +29,7 @@ public class Classroom
      	{
         System.out.println("register number: "+student[i].regNo);
         System.out.println("name: "+student[i].name);
+        System.out.println(" \n ");
         }
      }
 }

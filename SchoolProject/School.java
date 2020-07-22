@@ -7,8 +7,8 @@ public class School
 	
 	public void printName()
 	{
-		System.out.println("KANNADI HIGHER SECONDARY SCHOOL");
-		
+		System.out.println(" \n KANNADI HIGHER SECONDARY SCHOOL");
+		System.out.println(" \n ");
 	}
 
 	public void setClassroom()
@@ -18,12 +18,14 @@ public class School
 	  classroom.division = scanner.nextInt();
 	  System.out.println("enter the department: ");
 	  classroom.dept = scanner.next();
+	  System.out.println(" \n ");
 	}
 
 	 public void getClassroom()
      {
      	System.out.println("division: "+classroom.division);
     	System.out.println("department: "+classroom.dept);
+    	System.out.println(" \n ");
     }
 		
 	public void getSchool()
