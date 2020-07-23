@@ -1,5 +1,7 @@
 package com.lxisoft.forest;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
 public class Forest{
 
 	//Animal animals=new Animal();
@@ -25,5 +27,15 @@ public class Forest{
             }
         
 	}
+
+
+     // and return an element 
+    public Animal getRandomAnimal(ArrayList<Animal> animalList) 
+    { 
+        Random random = new Random(); 
+        return animalList.get(random.nextInt(animalList.size())); 
+         System.out.println(this.getRandomAnimal(animalList)); 
+    } 
+
 	
 }
