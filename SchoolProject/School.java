@@ -18,6 +18,8 @@ public class School
 	  classroom.division = scanner.nextInt();
 	  System.out.println("enter the department: ");
 	  classroom.dept = scanner.next();
+	  System.out.println("enter the name of class teacher: ");
+	  classroom.teacher = scanner.next();
 	  System.out.println(" \n ");
 	}
 
@@ -25,6 +27,7 @@ public class School
      {
      	System.out.println("division: "+classroom.division);
     	System.out.println("department: "+classroom.dept);
+    	System.out.println("class teacher: "+classroom.teacher);
     	System.out.println(" \n ");
     }
 		
