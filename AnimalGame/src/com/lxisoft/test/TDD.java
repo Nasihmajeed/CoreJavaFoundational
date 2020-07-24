@@ -6,7 +6,11 @@ public class TDD{
 
 		Forest forest = new Forest();
 		forest.forestDetails();
-		  System.out.println(forest.getRandomElement(animalList)); 
-	}
+		System.out.println(forest.getRandomElement(forest.animalList)); 
+
+
+		}
+
+		
 	
 }
