@@ -59,18 +59,21 @@ public class Forest{
        
         System.out.println("                                 PARTICIPANTS OF GAME ARE                                       ");  
               
-		animalList.add(new Animal());
+		animalList.add(new Tiger());
         animalList.get(0).setAnimalName("Tiger");
+        animalList.get(0).setAnimalStrength(90);
 
-        animalList.add(new Animal());
+        animalList.add(new Lion());
         animalList.get(1).setAnimalName("Lion");
+        animalList.get(0).setAnimalStrength(100);
 
-        animalList.add(new Animal());
+        animalList.add(new Rabbit());
         animalList.get(2).setAnimalName("Rabbit");
+         animalList.get(0).setAnimalStrength(10);
 
-        animalList.add(new Animal());
+        animalList.add(new Deer());
         animalList.get(3).setAnimalName("Deer");    
-
+         animalList.get(0).setAnimalStrength(20);
 
         for(int i=0;i<animalList.size();i++){
 
@@ -97,9 +100,9 @@ public class Forest{
             int choice=scanner.nextInt();
             if(choice==1){
 
-            //nt randomNumber = random.nextInt(4);   
+           int randomNumber = random.nextInt(4);   
              int randomItem= random.nextInt(4);
-              int randomNumber = random.nextInt(4);   
+             //nt randomNumber = random.nextInt(4);   
              
         
             for(int i=0;i<1;i++){
@@ -109,19 +112,101 @@ public class Forest{
 
                 
                 if(randomNumber!=randomItem){
-                 System.out.println(animalList.get(randomNumber).getAnimalName());
-                 System.out.println(animalList.get(randomItem).getAnimalName());
+                System.out.println("                                                                                                 ");
+                System.out.println("                                                                                                 ");
+                System.out.println("    ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER1      *");
+                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"        *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+               
+               
+               System.out.println(" ");
+                System.out.println(" ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER2      *");
+                System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+
+
+
+
+
+
+
+              
                 }
                 else{
                     for(int j=0;j<animalList.size();j++){
-                        randomNumber=random.nextInt(4);
-                         System.out.println(animalList.get(randomNumber).getAnimalName());
-                         System.out.println(animalList.get(randomItem).getAnimalName());
+                         randomItem= random.nextInt(4);
 
+                         System.out.println("    ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER1      *");
+                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"        *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+               
+               
+               System.out.println(" ");
+                System.out.println(" ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER2      *");
+                System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"        *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+                 
+                     System.out.println(" ");
+                System.out.println(" ");
+
+
+                        
 
                     }
                 }
-                }        
+                }  
+
+                if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
+
+
+                     System.out.println(" ");
+                System.out.println(" ");
+                     System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       Winner         *");
+                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"       *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+               
+
+
+
+                   
+                }
+
+                else{
+                   //ystem.out.println("    "+animalList.get(randomItem).getAnimalName());
+                     System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       Winner     *");
+                     System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+
+
+                }
+
+
+
+
+
+
             }
 
             else{

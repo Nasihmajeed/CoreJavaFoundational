@@ -14,5 +14,13 @@ public class Animal{
 		return animalName;
 	}
 
+	private int animalStrength;
+	public void setAnimalStrength(int a){
+		this.animalStrength=a;
+	}
+	public int getAnimalStrength(){
+		return animalStrength;
+	}
+
 	
 }

@@ -1,4 +1,4 @@
 package com.lxisoft.forest;
-public class Rabbit{
+public class Rabbit extends Animal{
 	
 }
