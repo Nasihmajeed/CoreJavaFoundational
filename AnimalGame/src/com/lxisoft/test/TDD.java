@@ -5,8 +5,10 @@ public class TDD{
 	public static void main(String[] args){
 
 		Forest forest = new Forest();
+		forest.printDetails();
 		forest.forestDetails();
-		System.out.println(forest.getRandomElement(forest.animalList)); 
+		forest.randomSelection();
+		forest.randomSelection1();
 
 
 		}
