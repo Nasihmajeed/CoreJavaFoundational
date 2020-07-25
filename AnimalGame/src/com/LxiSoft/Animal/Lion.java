@@ -1,6 +1,6 @@
-package com.LxiSoft.Forest;
+package com.LxiSoft.Animal;
 import com.LxiSoft.Forest.*;
-public class Lion  extends Animal
+public class Lion extends Animal
 {
 
 }
