@@ -37,13 +37,76 @@ public class Game
     	}
 	}
 	
-	public void randomSelection()
-	{
-		int select = random.nextInt(5); 
-        System.out.println(" "+select);
-        System.out.println(gameList.get(select).getAnimalName());
-         
-    }
+	public void randomSelection(){
+
+
+            System.out.println("Press 1 to Start the Game");
+            int choice=select.nextInt();
+            if(choice==1){
+
+           int randomNumber = random.nextInt(5);   
+             int randomItem= random.nextInt(5);
+               
+             
+        
+            for(int i=0;i<1;i++)
+            {
+
+                 System.out.println(" "+randomNumber);
+               System.out.println(" "+randomItem);
+
+                
+                if(randomNumber!=randomItem)
+                {
+               		System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------------------Player 1-------------------------------- ");
+                	System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------"+gameList.get(randomNumber).getAnimalName()+"-----");
+             		System.out.println(" -----------------------------------------------------------");
+             		System.out.println("----------------------------------------------------------- ");
+               
+					
+
+					System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------------------Player 1-------------------------------- ");
+                	System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------"+gameList.get(randomItem).getAnimalName()+"-----");
+             		System.out.println(" -----------------------------------------------------------");
+             		System.out.println("----------------------------------------------------------- ");                           
+
+
+              
+                }
+                else{
+                    for(int j=0;j<gameList.size();j++){
+                         randomItem= random.nextInt(4);
+
+                 	System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------------------Player 1-------------------------------- ");
+                	System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------"+gameList.get(randomNumber).getAnimalName()+"-----");
+             		System.out.println(" -----------------------------------------------------------");
+             		System.out.println("----------------------------------------------------------- ");
+
+               
+               		System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------------------Player 1-------------------------------- ");
+                	System.out.println("----------------------------------------------------------- ");
+                	System.out.println("-------"+gameList.get(randomItem).getAnimalName()+"-----");
+             		System.out.println(" -----------------------------------------------------------");
+             		System.out.println("----------------------------------------------------------- ");
+
+                    System.out.println(" ");
+                	System.out.println(" ");
+
+
+                        
+
+                    }
+                }
+                }  
+
+                
     
     public void resumeGame()
     {
