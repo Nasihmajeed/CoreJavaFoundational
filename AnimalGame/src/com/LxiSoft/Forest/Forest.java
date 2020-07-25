@@ -55,7 +55,7 @@ public class Forest
 	public void printRandom()
 	{		Random random = new Random();
 
-			System.out.println("\t \n Random Animals in the game");
+			System.out.println("\t \n Random Animals in the game  ");
 			int r=random.nextInt(5);
 	for (int i=r; i<animal.size(); i++)
      	{	
