@@ -63,13 +63,16 @@ public class Classroom
      public void topper()
      {
      	float max = subject[0].percentage;
+     	String name = null; 
      	for(i=0;i<3;i++)
      	{
      		if(subject[i].percentage > max)
      		{
      			max = subject[i].percentage;
-     		System.out.println("topper: "+max + " " +student[i].name);
-     	    }
+     			name = student[i].name;
+     		}
+
      	}
+     		System.out.println("topper: "+name+"\n"+"percentage:"+max);
      }
 }
