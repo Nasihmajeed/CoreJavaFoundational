@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Collections;
 public class Forest{
 
 	//Animal animals=new Animal();
@@ -65,15 +66,15 @@ public class Forest{
 
         animalList.add(new Lion());
         animalList.get(1).setAnimalName("Lion");
-        animalList.get(0).setAnimalStrength(100);
+        animalList.get(1).setAnimalStrength(100);
 
         animalList.add(new Rabbit());
         animalList.get(2).setAnimalName("Rabbit");
-         animalList.get(0).setAnimalStrength(10);
+         animalList.get(2).setAnimalStrength(10);
 
         animalList.add(new Deer());
         animalList.get(3).setAnimalName("Deer");    
-         animalList.get(0).setAnimalStrength(20);
+         animalList.get(3).setAnimalStrength(20);
 
         for(int i=0;i<animalList.size();i++){
 
@@ -99,6 +100,94 @@ public class Forest{
             System.out.println("PRESS 1 TO START THE GAME");
             int choice=scanner.nextInt();
          
+              if(choice==1){
+                 int randomNumber = random.nextInt(4);   
+             int randomItem= random.nextInt(4);
+             //nt randomNumber = random.nextInt(4);   
+             
+        
+            for(int i=0;i<1;i++){
+
+                 System.out.println(" "+randomNumber);
+               System.out.println(" "+randomItem);
+
+                
+                if(randomNumber==randomItem){
+                    randomItem=random.nextInt(4);
+                }
+
+                System.out.println("                                                                                                 ");
+                System.out.println("                                                                                                 ");
+                System.out.println("    ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER1      *");
+                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"        *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+               
+               
+               System.out.println(" ");
+                System.out.println(" ");
+                 System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       PLAYER2      *");
+                System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+
+
+
+
+
+
+
+              
+                }
+               
+
+                if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
+
+
+                     System.out.println(" ");
+                System.out.println(" ");
+                     System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       Winner         *");
+                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"       *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+               
+
+
+
+                   
+                }
+
+                else{
+                   //ystem.out.println("    "+animalList.get(randomItem).getAnimalName());
+                     System.out.println("**********************");
+                 System.out.println("**********************");
+                 System.out.println("*       Winner     *");
+                     System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                System.out.println("**********************");
+                 System.out.println("**********************");
+
+
+                }
+
+
+
+
+
+
+            }
+
+            else{
+                System.out.println("EXITED FROM ANIMAL GAME");
+            }
+        }
+
        
    
 }
