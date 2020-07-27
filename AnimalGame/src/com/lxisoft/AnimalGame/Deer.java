@@ -1,5 +1,5 @@
 package com.lxisoft.AnimalGame;
-public class Animal extends Deer
+public class Deer extends Animal
 {
 	Deer deer1 =new Animal();	 
 }
