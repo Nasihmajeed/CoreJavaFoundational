@@ -107,7 +107,8 @@ public class Game
                 }  
 
                 
-    
+    }
+}
     public void resumeGame()
     {
     	System.out.println("Currently you have no paused Game . Please Start a New Game. ");
