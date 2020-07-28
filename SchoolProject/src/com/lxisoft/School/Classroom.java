@@ -19,9 +19,11 @@ public class Classroom
 			subject[i] = new Subject();
 			
       System.out.println("enter the register number: ");
-      student[i].setRegNo = scanner.nextInt();
+      int regNo = scanner.nextInt();
+      student[i].setRegNo(regNo);
       System.out.println("enter the name of the student: ");
-      student[i].setName = scanner.next();
+      String name = scanner.next();
+      student[i].setName(name);
       System.out.println("enter the mark of physics: ");
       subject[i].sub1 = scanner.nextInt();
       System.out.println("enter the mark of chemistry: ");
@@ -69,7 +71,7 @@ public class Classroom
      		if(subject[i].percentage > max)
      		{
      			max = subject[i].percentage;
-     			name = student[i].name;
+     			name = student[i].getName();
      		}
 
      	}
