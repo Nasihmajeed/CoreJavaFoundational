@@ -1,7 +1,7 @@
 package com.lxisoft.forest;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Animal{
+public abstract  class Animal implements Type{
 
 	Scanner scanner=new Scanner(System.in);
 
@@ -21,6 +21,10 @@ public class Animal{
 	public int getAnimalStrength(){
 		return animalStrength;
 	}
+
+
+	 public abstract void type();
+
 
 	
 }

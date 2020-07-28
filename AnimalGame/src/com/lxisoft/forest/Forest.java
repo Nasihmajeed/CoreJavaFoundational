@@ -8,6 +8,7 @@ public class Forest{
 
 	//Animal animals=new Animal();
 	public ArrayList<Animal> animalList = new ArrayList<Animal>();
+   // Animal animal=new Animal();
     Scanner scanner=new Scanner(System.in);
     Random random=new Random();
     int choice=1;
@@ -63,6 +64,8 @@ public class Forest{
 		animalList.add(new Tiger());
         animalList.get(0).setAnimalName("Tiger");
         animalList.get(0).setAnimalStrength(90);
+
+
 
         animalList.add(new Lion());
         animalList.get(1).setAnimalName("Lion");
@@ -123,7 +126,7 @@ public class Forest{
                  System.out.println("**********************");
                  System.out.println("            PLAYER1      ");
                 System.out.println("          "+animalList.get(randomNumber).getAnimalName()+"      ");
-                 System.out.println("        "+animalList.get(randomNumber).getAnimalStrength()+"      ");
+                 System.out.println("STRENGTH        "+animalList.get(randomNumber).getAnimalStrength()+"      ");
 
                 System.out.println("**********************");
                  System.out.println("**********************");
@@ -135,6 +138,7 @@ public class Forest{
                  System.out.println("**********************");
                  System.out.println("         PLAYER2      ");
                 System.out.println("       "+animalList.get(randomItem).getAnimalName()+"         ");
+                  System.out.println("STRENGTH        "+animalList.get(randomItem).getAnimalStrength()+"      ");
                 System.out.println("**********************");
                  System.out.println("**********************");
 
@@ -157,6 +161,8 @@ public class Forest{
                  System.out.println("**********************");
                  System.out.println("       Winner         ");
                 System.out.println("       "+animalList.get(randomNumber).getAnimalName()+"     ");
+                int newStrength=(animalList.get(randomNumber).getAnimalStrength()-10);
+                System.out.println("STRENGTH      " +newStrength);
                 System.out.println("**********************");
                  System.out.println("**********************");
                
@@ -174,6 +180,8 @@ public class Forest{
                  System.out.println("**********************");
                  System.out.println("    Winner          ");
                      System.out.println("     "+animalList.get(randomItem).getAnimalName()+"         ");
+                      int newStrength=(animalList.get(randomItem).getAnimalStrength()-10);
+                System.out.println("STRENGTH     "+newStrength);
                 System.out.println("**********************");
                  System.out.println("**********************");
 
