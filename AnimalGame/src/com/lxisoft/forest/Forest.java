@@ -121,8 +121,10 @@ public class Forest{
                 System.out.println("    ");
                  System.out.println("**********************");
                  System.out.println("**********************");
-                 System.out.println("*       PLAYER1      *");
-                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"        *");
+                 System.out.println("            PLAYER1      ");
+                System.out.println("          "+animalList.get(randomNumber).getAnimalName()+"      ");
+                 System.out.println("        "+animalList.get(randomNumber).getAnimalStrength()+"      ");
+
                 System.out.println("**********************");
                  System.out.println("**********************");
                
@@ -131,8 +133,8 @@ public class Forest{
                 System.out.println(" ");
                  System.out.println("**********************");
                  System.out.println("**********************");
-                 System.out.println("*       PLAYER2      *");
-                System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                 System.out.println("         PLAYER2      ");
+                System.out.println("       "+animalList.get(randomItem).getAnimalName()+"         ");
                 System.out.println("**********************");
                  System.out.println("**********************");
 
@@ -153,8 +155,8 @@ public class Forest{
                 System.out.println(" ");
                      System.out.println("**********************");
                  System.out.println("**********************");
-                 System.out.println("*       Winner         *");
-                System.out.println("*        "+animalList.get(randomNumber).getAnimalName()+"       *");
+                 System.out.println("       Winner         ");
+                System.out.println("       "+animalList.get(randomNumber).getAnimalName()+"     ");
                 System.out.println("**********************");
                  System.out.println("**********************");
                
@@ -166,10 +168,12 @@ public class Forest{
 
                 else{
                    //ystem.out.println("    "+animalList.get(randomItem).getAnimalName());
+                    System.out.println("    ");
+                    System.out.println("    ");
                      System.out.println("**********************");
                  System.out.println("**********************");
-                 System.out.println("*       Winner     *");
-                     System.out.println("*       "+animalList.get(randomItem).getAnimalName()+"         *");
+                 System.out.println("    Winner          ");
+                     System.out.println("     "+animalList.get(randomItem).getAnimalName()+"         ");
                 System.out.println("**********************");
                  System.out.println("**********************");
 
