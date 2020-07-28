@@ -1,7 +1,7 @@
 package com.lxisoft.forest;
 import java.util.Scanner;
 import java.util.ArrayList;
-public abstract  class Animal implements Type{
+public  class Animal {
 
 	Scanner scanner=new Scanner(System.in);
 
@@ -23,7 +23,13 @@ public abstract  class Animal implements Type{
 	}
 
 
-	 public abstract void type();
+	 public String animalType;
+	 private void setAnimalNameTpe(String a){
+	 	this.animalType=a;
+	 }
+	 public String getAnimalType(){
+	 	return animalType;
+	 }
 
 
 	
