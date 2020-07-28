@@ -1,7 +1,7 @@
 package com.lxisoft.Forest;
-public interface Omnivorus
+public interface Omnivorus extends Eat 
 {
 	
-	void eat();
+	
 	
 }

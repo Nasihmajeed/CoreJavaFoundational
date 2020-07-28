@@ -1,5 +1,5 @@
 package com.lxisoft.Forest;
-public interface Herbivorus
+public interface Herbivorus extends Eat
 {
 	
 
