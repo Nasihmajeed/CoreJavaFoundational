@@ -4,8 +4,8 @@ public class Designs
 	public void gameRun()
 	{
 		 System.out.println("\t --------------------------------------");
-			System.out.println("\t\t \t ANIMAL GAME ");
-			System.out.println("\t --------------------------------------");
+			System.out.println("\t\t \t  ANIMAL GAME ");
+			System.out.println("\t ---------------------------------------");
 	}
     public void pattern()
 {
