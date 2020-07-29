@@ -110,7 +110,7 @@ public class Forest{
              //nt randomNumber = random.nextInt(4);   
              
         
-            for(int i=0;i<2;i++){
+            for(int i=0;i<1;i++){
 
                  System.out.println(" "+randomNumber);
                System.out.println(" "+randomItem);
@@ -157,7 +157,7 @@ public class Forest{
             
                 }//for loop
 
-                 if(animalList.get(randomNumber).getAnimalName() instanceof Carnivoros || animalList.get(randomItem).getAnimalName() instanceof Carnivoros ){
+                 if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros ){
                     //2
                
 
@@ -199,7 +199,7 @@ public class Forest{
             }//instanceof
 
 
-               if(animalList.get(randomNumber).getAnimalName() instanceof Herbivoros && animalList.get(randomItem).getAnimalName() instanceof Herbivoros ){
+               if(animalList.get(randomNumber) instanceof Herbivoros && animalList.get(randomItem) instanceof Herbivoros ){
                 System.out.println("DONOT FIGHT");
 
                }
@@ -211,10 +211,12 @@ public class Forest{
 
             
 
-            else{//choice
+         
+        }//method
+
+           else{//choice
                 System.out.println("EXITED FROM ANIMAL GAME");
             }
-        }//method
 
        
    
