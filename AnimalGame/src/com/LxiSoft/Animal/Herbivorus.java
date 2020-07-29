@@ -1,4 +1,4 @@
-package com.lxisoft.Forest;
+package com.lxisoft.Animal;
 public interface Herbivorus extends Eat
 {
 	

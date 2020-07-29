@@ -1,34 +1,28 @@
 package com.LxiSoft.Forest;
 import com.LxiSoft.Animal.*;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Collections;
 public class Forest
 {
 	ArrayList<Animal> animal=new ArrayList<Animal>();
+	Scanner s=new Scanner(System.in);
+		Random random = new Random();
+          int choice=1;
+          Designs d=new Designs();
 
 	public void gameStart()
 	{
-		Scanner s=new Scanner(System.in);
-		String y;
-		System.out.println("\t \t_________________________________");
+		
+				System.out.println("\t \t_________________________________");
 		System.out.println("\n\t \t-----------Animal Game-----------");
 		System.out.println("\t \t_________________________________");
-		System.out.println("\nPress y to start the game");
-		y=s.nextLine();
-		if(y.equals("y"))
-		{
-			System.out.println("\t --------------------------------------");
-			System.out.println("\t\t \t ANIMAL GAME ");
-			System.out.println("\t --------------------------------------");
+	
+		
 			this.animalList();
 			this.printRandom();
-		}
-		else
-			{
-				
-				System.out.println(" You are exited. Thank You..!");}
 	
 	}
 
@@ -39,11 +33,20 @@ public class Forest
 		animal.add(new Elephant());
 		animal.add(new Bears());
 		animal.add(new Lion());
-		animal.get(0).setName("tiger");
+		animal.get(0).setName("Tiger");
+        animal.get(0).setAnimalStrength(85);
+
 		animal.get(1).setName("Deer");
+        animal.get(1).setAnimalStrength(40);
+
 		animal.get(2).setName("Elephant");
+       animal.get(2).setAnimalStrength(75);
+
 		animal.get(3).setName("Bear");
+        animal.get(3).setAnimalStrength(65);
+
 		animal.get(4).setName("Lion");
+        animal.get(4).setAnimalStrength(95);
 
 		System.out.println("\t Animals in the forest are ");
      	for (int i=0; i<animal.size(); i++)
@@ -52,14 +55,99 @@ public class Forest
      	}
      
 	}
-	public void printRandom()
-	{		Random random = new Random();
 
-			System.out.println("\t \n Random Animals in the game  ");
-			int r=random.nextInt(5);
-	for (int i=r; i<animal.size(); i++)
-     	{	
-     		System.out.println( animal.get(i).getName());
-     	}
-	}
+	public void printRandom()
+	{	
+		
+	
+            System.out.println("\n PRESS 1 TO START THE GAME");
+            d.pattern();
+           
+            int choice=s.nextInt();
+            d.gameRun();
+         
+              if(choice==1)
+              {
+                 int randomNo = random.nextInt(5);   
+             int randomFile= random.nextInt(5);
+     
+             
+        
+            for(int i=0;i<1;i++)
+            {
+
+                 System.out.println(" "+randomNo);
+               System.out.println(" "+randomFile);
+
+                
+                if(randomNo==randomFile)
+                {
+                    randomFile=random.nextInt(5);
+                }
+
+           
+                 System.out.println("               ");
+                System.out.println(" Animal 1    "+animal.get(randomNo).getName()+"      ");
+                 System.out.println("\nSTRENGTH        "+animal.get(randomNo).getAnimalStrength()+"      ");
+
+               
+               
+               
+               
+                 System.out.println("             ");
+                System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
+                  System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
+               
+
+             
+                }
+               
+
+                if(animal.get(randomNo).getAnimalStrength()>animal.get(randomFile).getAnimalStrength())
+                {
+
+
+                
+                 System.out.println("       Winner         ");
+                System.out.println("       "+animal.get(randomNo).getAnimalName()+"     ");
+                int newStrength=(animal.get(randomNo).getAnimalStrength()-10);
+                   d.pyramidPattern();
+                System.out.println("Decreased Strength     " +newStrength);
+              
+
+
+                   
+                }
+
+                else
+                {
+                   
+                
+                 System.out.println("    Winner          ");
+                     System.out.println("     "+animal.get(randomFile).getAnimalName()+"         ");
+                      int newStrength=(animal.get(randomFile).getAnimalStrength()-10);
+                         d.pyramidPattern();
+                System.out.println("Decreased Strength of Winner "+newStrength);
+                
+                }
+             
+
+
+
+
+
+            }
+
+            else{
+                System.out.println("EXITED FROM ANIMAL GAME");
+            }
+        }
+
+  
+
+       
+   
 }
+
+	
+
