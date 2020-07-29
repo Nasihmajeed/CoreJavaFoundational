@@ -1,3 +1,4 @@
+package com.lxisoft.School;
 public class Subject
 {
 	int sub1;
