@@ -107,8 +107,11 @@ public class Forest{
               if(choice==1){//1
                  int randomNumber = random.nextInt(4);   
              int randomItem= random.nextInt(4);
-             //nt randomNumber = random.nextInt(4);   
-             
+             //nt randomNumber = random.nextInt(4); 
+
+
+             for(int j=0;j<animalList.size();j++)
+             {
         
             for(int i=0;i<1;i++){
 
@@ -213,10 +216,12 @@ public class Forest{
 
          
         }//method
+    }
 
            else{//choice
                 System.out.println("EXITED FROM ANIMAL GAME");
             }
+
 
        
    
