@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-public interface Herbivorus extends Eat
+package com.LxiSoft.Animal;
+interface Herbivorus //extends Eat
 {
 	
 

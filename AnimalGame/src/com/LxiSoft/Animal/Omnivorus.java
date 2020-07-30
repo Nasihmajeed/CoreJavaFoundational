@@ -1,7 +1,7 @@
-package com.lxisoft.Animal;
-public interface Omnivorus extends Eat 
+package com.LxiSoft.Animal;
+interface Omnivorus 
 {
 	
-	
+
 	
 }

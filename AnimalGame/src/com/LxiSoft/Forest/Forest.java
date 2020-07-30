@@ -70,7 +70,7 @@ public class Forest
               {
                  int randomNo = random.nextInt(5);   
              int randomFile= random.nextInt(5);
-     
+     int randomA1=random.nextInt(5);
              
         
             for(int i=0;i<1;i++)

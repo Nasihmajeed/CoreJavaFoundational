@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-public interface Carnivorous
+package com.LxiSoft.Animal;
+ interface Carnivorous
 {
 	
 	

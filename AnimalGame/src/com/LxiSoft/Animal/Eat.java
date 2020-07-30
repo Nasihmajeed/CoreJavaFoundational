@@ -1,5 +1,5 @@
-package com.lxisoft.Animal;
-public interface Eat
+package com.LxiSoft.Animal;
+interface Eat
 {
 
 }
