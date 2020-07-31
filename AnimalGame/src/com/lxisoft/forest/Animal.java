@@ -31,6 +31,14 @@ public  class Animal {
 	 	return animalType;
 	 }
 
+	 public boolean animalAlive;
+	 public void setAnimalAlive(boolean a){
+	 	this.animalAlive=a;
+	 }
+	 public boolean getAnimalAlive(){
+	 	return animalAlive;
+	 }
+
 
 	
 }
