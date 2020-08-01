@@ -228,7 +228,7 @@ public class Game
 	{
 
 
-            System.out.println("Press F to Start the Final round");
+            System.out.println("Press 3 to Start the Final round");
             int choice=select.nextInt();
             if(choice==3)
             {
@@ -279,10 +279,10 @@ public class Game
                  {
                 	int newStrength=(gameList.get(randomItem).getAnimalStrength()-10);
                 	System.out.println("           ----------------------------------------------------------- ");
-                	System.out.println("           ---------------------- Champion ----------------------------- ");
+                	System.out.println("           ---------------------- Winner ----------------------------- ");
                 	System.out.println("           ----------------------------------------------------------- ");
-                	System.out.println("           ------- Lion ---------------------------------------------- ");
-					System.out.println("           ------- POWER 80--------------------------------------------- ");                             	
+                	System.out.println("           -------"+gameList.get(randomItem).getAnimalName()+"---------------------------------------------- ");
+					System.out.println("           ------- POWER "+newStrength+"--------------------------------------------- ");                             	
              		System.out.println("           -----------------------------------------------------------");
              		System.out.println("           ----------------------------------------------------------- ");                           
 
@@ -293,10 +293,10 @@ public class Game
                    
                     int newStrength=(gameList.get(randomItem).getAnimalStrength()-10);
                 	System.out.println("           ----------------------------------------------------------- ");
-                	System.out.println("           ---------------------- Champion ----------------------------- ");
+                	System.out.println("           ---------------------- Winner ----------------------------- ");
                 	System.out.println("           ----------------------------------------------------------- ");
-                	System.out.println("           ------- LION --------------------------------------------------- ");
-					System.out.println("           ------- POWER 80 ------------------------------------------------- ");                             	
+                	System.out.println("           -------"+gameList.get(randomItem).getAnimalName()+"--------------------------------------------------- ");
+					System.out.println("           -------POWER"+newStrength+"------------------------------------------------- ");                             	
              		System.out.println("           -----------------------------------------------------------");
              		System.out.println("           ----------------------------------------------------------- ");                           
 
