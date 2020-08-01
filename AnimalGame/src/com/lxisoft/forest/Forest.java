@@ -157,7 +157,7 @@ public class Forest{
                                                 System.out.println(" ");
                                                 System.out.println("**********************");
                                                 System.out.println("**********************");
-                                                System.out.println("    DIED"+animalList.get(randomItem).getAnimalName());
+                                                System.out.println("    DIED    "+animalList.get(randomItem).getAnimalName());
                                                 System.out.println("       Winner         ");
                                                 System.out.println("       "+animalList.get(randomNumber).getAnimalName()+"     ");
                                                 int newStrength=(animalList.get(randomNumber).getAnimalStrength()-10);
@@ -174,7 +174,7 @@ public class Forest{
                                                     System.out.println("**********************");
                                                     System.out.println("**********************");
                                                     System.out.println("    Winner          ");
-                                                    System.out.println("    DIED"+animalList.get(randomNumber).getAnimalName());
+                                                    System.out.println("    DIED    "+animalList.get(randomNumber).getAnimalName());
                                                     System.out.println("     "+animalList.get(randomItem).getAnimalName()+"         ");
                                                     int newStrength=(animalList.get(randomItem).getAnimalStrength()-10);
                                                     System.out.println("STRENGTH     "+newStrength);
