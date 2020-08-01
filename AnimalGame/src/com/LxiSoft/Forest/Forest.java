@@ -33,6 +33,11 @@ public class Forest
 		animal.add(new Elephant());
 		animal.add(new Bears());
 		animal.add(new Lion());
+        animal.add(new Tiger());
+        animal.add(new Deer());
+        animal.add(new Elephant());
+        animal.add(new Bears());
+        animal.add(new Lion());
 
 		animal.get(0).setName("Tiger");
         animal.get(0).setAnimalStrength(85);
@@ -48,6 +53,21 @@ public class Forest
 
 		animal.get(4).setName("Lion");
         animal.get(4).setAnimalStrength(95);
+
+            animal.get(5).setName("Tiger");
+        animal.get(5).setAnimalStrength(85);
+
+        animal.get(6).setName("Deer");
+        animal.get(6).setAnimalStrength(40);
+
+        animal.get(7).setName("Elephant");
+       animal.get(7).setAnimalStrength(75);
+
+        animal.get(8).setName("Bear");
+        animal.get(8).setAnimalStrength(65);
+
+        animal.get(9).setName("Lion");
+        animal.get(9).setAnimalStrength(95);
 
 		System.out.println("\t Animals in the forest are ");
      	for (int i=0; i<animal.size(); i++)
@@ -69,24 +89,23 @@ public class Forest
          
               if(choice==1)
               {
-                 int randomNo = random.nextInt(5);   
-             int randomFile= random.nextInt(5);
+                 int randomNo = random.nextInt(10);   
+             int randomFile= random.nextInt(10);
              
              
         
-             for(int j=0;j<animal.size();j++)
-             {
-
+             
             for(int i=0;i<1;i++)
             {
 
                  System.out.println(" "+randomNo);
                System.out.println(" "+randomFile);
 
-                
+             
+
                 if(randomNo==randomFile)
                 {
-                    randomFile=random.nextInt(5);
+                    randomFile=random.nextInt(10);
                 }
 
            
@@ -157,15 +176,14 @@ public class Forest
 
                }
         d.pyramidPattern3();
-
-}
-            }
-
-            else
+ 
+            } else
             {
                 System.out.println("EXITED FROM ANIMAL GAME");
-            }
-        }
+            }}
+
+          
+        
 
   
 
