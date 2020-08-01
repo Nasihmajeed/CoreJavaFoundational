@@ -2,8 +2,7 @@ package com.lxisoft.AnimalGame;
 
 interface Omnivorous
 {
- 	public void printOmnivorous();
- 	{
- 		System.out.println("");
- 	}
+ 	void eat(int energy);
+	void kill();
+	void fight();
 }

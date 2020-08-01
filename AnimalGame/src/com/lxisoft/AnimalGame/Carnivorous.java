@@ -2,5 +2,7 @@ package com.lxisoft.AnimalGame;
 
 interface Carnivorous
 {
- 	public void printCarnivores();
+ 	void eat(int energy);
+	void kill();
+	void fight();
 }

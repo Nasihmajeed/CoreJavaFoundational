@@ -39,6 +39,8 @@ public class Forest
          {
         	game.forestInGame();
         	game.randomSelection();
+        	game.round2();
+        	game.finalround();
 
          }
 
