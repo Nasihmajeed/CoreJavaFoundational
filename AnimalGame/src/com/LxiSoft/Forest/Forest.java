@@ -33,6 +33,7 @@ public class Forest
 		animal.add(new Elephant());
 		animal.add(new Bears());
 		animal.add(new Lion());
+
 		animal.get(0).setName("Tiger");
         animal.get(0).setAnimalStrength(85);
 
@@ -70,9 +71,12 @@ public class Forest
               {
                  int randomNo = random.nextInt(5);   
              int randomFile= random.nextInt(5);
-     int randomA1=random.nextInt(5);
+             
              
         
+             for(int j=0;j<animal.size();j++)
+             {
+
             for(int i=0;i<1;i++)
             {
 
@@ -100,20 +104,27 @@ public class Forest
                
 
              
-                }
+                
+            }
                
+                 if(animal.get(randomNo) instanceof Carnivorous|| animal.get(randomFile) instanceof Carnivorous )
+                 {
 
                 if(animal.get(randomNo).getAnimalStrength()>animal.get(randomFile).getAnimalStrength())
                 {
 
 
-                
+                d.pyramidPattern1();
                  System.out.println("       Winner         ");
                 System.out.println("       "+animal.get(randomNo).getAnimalName()+"     ");
                 int newStrength=(animal.get(randomNo).getAnimalStrength()-10);
-                   d.pyramidPattern();
+                   
                 System.out.println("Decreased Strength     " +newStrength);
-              
+                d.pyramidPattern2();
+                 System.out.println("    Looser         ");
+                System.out .println("        "+animal.get(randomFile).getAnimalName()+"         ");
+                int newStrength1=(animal.get(randomFile).getAnimalStrength()-35);
+              System.out.println("Decreased Strength     " +newStrength1);
 
 
                    
@@ -122,23 +133,36 @@ public class Forest
                 else
                 {
                    
-                
+                d.pyramidPattern1();
                  System.out.println("    Winner          ");
                      System.out.println("     "+animal.get(randomFile).getAnimalName()+"         ");
                       int newStrength=(animal.get(randomFile).getAnimalStrength()-10);
-                         d.pyramidPattern();
+                         
                 System.out.println("Decreased Strength of Winner "+newStrength);
+                d.pyramidPattern2();
+                 System.out.println("    Looser          ");
+                 System.out .println("        "+animal.get(randomNo).getAnimalName()+"         ");
+                int newStrength1=(animal.get(randomNo).getAnimalStrength()-35);
+              System.out.println("Decreased Strength     " +newStrength1);
+
+
                 
                 }
-             
+             }
 
 
 
+             if(animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Herbivorus ){
+                System.out.println("DONOT FIGHT");
 
+               }
+        d.pyramidPattern3();
 
+}
             }
 
-            else{
+            else
+            {
                 System.out.println("EXITED FROM ANIMAL GAME");
             }
         }
