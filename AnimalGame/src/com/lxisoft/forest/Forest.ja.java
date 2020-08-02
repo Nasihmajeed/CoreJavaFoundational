@@ -15,9 +15,6 @@ public class Forest{
     Animal winner;
     Animal temp;
 
-    int randomNumber;
-    int randomItem;
-
 
     public void printDetails(){
         System.out.println("************************************************************************************************");
@@ -69,7 +66,7 @@ public class Forest{
         animalList.add(new Tiger());
         animalList.get(0).setAnimalName("Tiger");
         animalList.get(0).setAnimalStrength(90);
-        animalList.get(0).setAnimalAlive(true);
+          animalList.get(0).setAnimalAlive(true);
 
 
 
@@ -77,17 +74,17 @@ public class Forest{
         animalList.add(new Lion());
         animalList.get(1).setAnimalName("Lion");
         animalList.get(1).setAnimalStrength(100);
-        animalList.get(1).setAnimalAlive(true);
+          animalList.get(1).setAnimalAlive(true);
 
         animalList.add(new Rabbit());
         animalList.get(2).setAnimalName("Rabbit");
-        animalList.get(2).setAnimalStrength(10);
-        animalList.get(2).setAnimalAlive(true);
+         animalList.get(2).setAnimalStrength(10);
+  animalList.get(2).setAnimalAlive(true);
 
         animalList.add(new Deer());
         animalList.get(3).setAnimalName("Deer");    
-        animalList.get(3).setAnimalStrength(20);
-        animalList.get(3).setAnimalAlive(true);
+         animalList.get(3).setAnimalStrength(20);
+           animalList.get(3).setAnimalAlive(true);
 
         for(int i=0;i<animalList.size();i++){
 
@@ -114,109 +111,21 @@ public class Forest{
          int choice=scanner.nextInt();
          
         if(choice==1){
-
-           
-                randomNumber=random.nextInt(4);
-                randomItem=random.nextInt(4);
-                
-                while(randomNumber==randomItem){
-                    randomNumber=random.nextInt(4);
-                    randomItem=random.nextInt(4);
-                }//while
-
-                System.out.println(" "+randomNumber);
-                System.out.println(" "+randomItem);
-                System.out.println("    \n  PLAYER 1"+"    "+animalList.get(randomNumber).getAnimalName());
-                System.out.println("    \n  PLAYER 2"+"    "+animalList.get(randomItem).getAnimalName());
-                checkFight();
-
-          
-        }//choice 1
-    }//methoid
-
-
-    public void checkFight(){
-        if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros){
-            if(animalList.get(randomNumber).getAnimalStrength() > animalList.get(randomItem).getAnimalStrength()){
-                System.out.println("        WINNER");
-                System.out.println("\n    PLAYER1"+"    "+animalList.get(randomNumber).getAnimalName()
-                    +"    "+" STRENGTH"+" "+animalList.get(randomNumber).getAnimalStrength());
-                randomNumber=randomNumber;
-                System.out.println("PRINT RANDOM NUMBER"+randomNumber);
-                animalList.remove(randomItem);
-
-                //System.out.println("NEW PARTICIPANTS LIST"+animalList.getAnimalName());
-
-
-            }
-            else{
-                System.out.println("        WINNER");
-                System.out.println("\n    PLAYER2"+"    "+animalList.get(randomItem).getAnimalName()
-                    +"    "+" STRENGTH"+" "+animalList.get(randomItem).getAnimalStrength());
-                randomNumber=randomItem;
-                System.out.println("PRINT RANDOM NUMBER"+randomNumber);
-                animalList.remove(randomNumber);
-                //System.out.println("NEW PARTICIPANTS LIST"+animalList.getAnimalName());
+            randomNumberPick();
+            while(randomNumber==randomItem){
+                randomNumberPick();
             }
 
-        }
-        else{
-            System.out.println("DONT FIGHT");
+            System.out.println(" "+randomNumber);
+            System.out.println("    "+randomItem);
+
         }
     }
 
-    public void findUltimateWinner(){
-        System.out.println("ULTIMATE WINNER");
-        if(animalList.isEmpty()==false){
-            randomItem=random.nextInt(animalList.size());
-            System.out.println("RANDOM ITEM INDEX   "+randomItem);
-            while(randomNumber==randomItem){
-                randomItem=random.nextInt(animalList.size());
-            }
-            System.out.println("RANDOM ITEM IN After"+randomItem);
-            if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros){
-                System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
-                System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
-                System.out.println("    ");
-                System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
-                System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());    
-                if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
-                    System.out.println("\n      WINNER IS"+animalList.get(randomNumber).getAnimalName());
-                    randomNumber=randomNumber;
-                    animalList.remove(randomItem);
-                }
-                else{
-                    System.out.println("\n      WINNER IS"+animalList.get(randomItem).getAnimalName());
-                    animalList.remove(randomNumber);
-                    randomNumber=randomItem;
+           public void randomNumberPick(){
 
-                }
-            }
-            if(animalList.get(randomNumber) instanceof Herbivoros && animalList.get(randomItem) instanceof Herbivoros){
-                System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
-                System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
-                System.out.println("    ");
-                System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
-                System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());  
-                System.out.println("DONT FIGHT");
-            }  
+               int randomNumber=random.nextInt(4);
+               int randomItem=random.nextInt(4);
 
-
-
-
-            
-
-
-        }//false
-          
-            
-            
-
-    
-        
-
-    
-
-           
-    }//method
-}//class
+           }
+}
