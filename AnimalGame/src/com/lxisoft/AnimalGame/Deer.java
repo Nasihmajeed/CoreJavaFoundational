@@ -1,5 +1,13 @@
 package com.lxisoft.AnimalGame;
-public class Deer extends Animal
+public class Deer extends Animal implements Herbivorous
 {
-	Deer deer1 =new Animal();	 
+	public void beat()
+	{
+
+	}
+
+	public void fight()
+	{
+		
+	}
 }
