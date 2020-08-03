@@ -56,6 +56,9 @@ public class Hotel
 
     public void printAdmin()
 	{
+		int c=0;
+		do
+		{
 		System.out.println("\n 1.Add Food \n 2.Delete Food \n 3.Update \n 4.Display All");
 		System.out.println("\n Enter your choice:");
 		int ch = scanner.nextInt();
@@ -64,7 +67,14 @@ public class Hotel
         	case 1:addFood();
         	       break;
 
-       }
+        	default:System.out.println("invalid choice");
+        }
+
+        System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
+        c = scanner.nextInt();
+        }
+        while(c==1);
+
    }
 
 
