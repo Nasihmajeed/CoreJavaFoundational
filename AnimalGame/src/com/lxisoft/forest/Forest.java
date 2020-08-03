@@ -143,9 +143,9 @@ public class Forest{
                     +"    "+" STRENGTH"+" "+animalList.get(randomNumber).getAnimalStrength());
                 randomNumber=randomNumber;
                 System.out.println("PRINT RANDOM NUMBER"+randomNumber);
-                animalList.remove(randomItem);
-
-                //System.out.println("NEW PARTICIPANTS LIST"+animalList.getAnimalName());
+                animalList.get(randomItem).setAnimalAlive(false);
+                
+               
 
 
             }
@@ -156,7 +156,7 @@ public class Forest{
                 randomNumber=randomItem;
                 System.out.println("PRINT RANDOM NUMBER"+randomNumber);
                 animalList.remove(randomNumber);
-                //System.out.println("NEW PARTICIPANTS LIST"+animalList.getAnimalName());
+                animalList.get(randomNumber).setAnimalAlive(false);
             }
 
         }
@@ -167,42 +167,45 @@ public class Forest{
 
     public void findUltimateWinner(){
         System.out.println("ULTIMATE WINNER");
-        if(animalList.isEmpty()==false){
+            for(int i=0;i<=3;i++){
             randomItem=random.nextInt(animalList.size());
             System.out.println("RANDOM ITEM INDEX   "+randomItem);
             while(randomNumber==randomItem){
                 randomItem=random.nextInt(animalList.size());
             }
             System.out.println("RANDOM ITEM IN After"+randomItem);
-            if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros){
-                System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
-                System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
-                System.out.println("    ");
-                System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
-                System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());    
-                if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
-                    System.out.println("\n      WINNER IS"+animalList.get(randomNumber).getAnimalName());
-                    randomNumber=randomNumber;
-                    animalList.remove(randomItem);
+            if(animalList.get(randomNumber).getAnimalAlive() == true && animalList.get(randomItem).getAnimalAlive() == true){
+                if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros){
+                    System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
+                    System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
+                    System.out.println("    ");
+                    System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
+                    System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());    
+                    if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
+                        System.out.println("\n      WINNER IS"+animalList.get(randomNumber).getAnimalName());
+                        randomNumber=randomNumber;
+                        animalList.get(randomItem).setAnimalAlive(false);
+                    }
+                    else{
+                        System.out.println("\n      WINNER IS"+animalList.get(randomItem).getAnimalName());
+                        animalList.get(randomItem).setAnimalAlive(false);
+                       
+                        randomNumber=randomItem;
+
+                    }
                 }
-                else{
-                    System.out.println("\n      WINNER IS"+animalList.get(randomItem).getAnimalName());
-                    animalList.remove(randomNumber);
-                    randomNumber=randomItem;
 
-                }
-            }
-            if(animalList.get(randomNumber) instanceof Herbivoros && animalList.get(randomItem) instanceof Herbivoros){
-                System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
-                System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
-                System.out.println("    ");
-                System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
-                System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());  
-                System.out.println("DONT FIGHT");
-            }  
+                if(animalList.get(randomNumber) instanceof Herbivoros && animalList.get(randomItem) instanceof Herbivoros){
+                    System.out.println("\n PLAYER1     "+animalList.get(randomNumber).getAnimalName());
+                    System.out.println("\n  STRENGTH   "+animalList.get(randomNumber).getAnimalStrength());
+                    System.out.println("    ");
+                    System.out.println("\n PLAYER2  "+animalList.get(randomItem).getAnimalName());
+                    System.out.println("\n STRENGTH    "+animalList.get(randomItem).getAnimalStrength());  
+                    System.out.println("DONT FIGHT");
+                }  
 
 
-
+            }//true checking
 
             
 
