@@ -146,12 +146,12 @@ public class Forest{
         if(choice==1){
 
            
-                randomNumber=random.nextInt(4);
-                randomItem=random.nextInt(4);
+                randomNumber=random.nextInt(10);
+                randomItem=random.nextInt(10);
                 
                 while(randomNumber==randomItem){
-                    randomNumber=random.nextInt(4);
-                    randomItem=random.nextInt(4);
+                    randomNumber=random.nextInt(10);
+                    randomItem=random.nextInt(10);
                 }//while
 
                 System.out.println(" "+randomNumber);
