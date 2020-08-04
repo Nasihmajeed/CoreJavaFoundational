@@ -54,6 +54,39 @@ public class Hotel
          }  
     }
 
+    public void deleteFood()
+    {
+    	System.out.println("Enter the index to delete: ");
+    	int index = scanner.nextInt(); 
+    	menu.remove(index);
+    	System.out.println("\n");
+    	for(int i=0;i<menu.size();i++)
+         {
+           System.out.println(menu.get(i).getName()+" "+menu.get(i).getRate());
+         }  
+    }
+
+    public void updateFood()
+    {
+    	System.out.println("Enter the index to update: ");
+    	int index = scanner.nextInt();
+    	System.out.println("Enter the food name to update: ");
+        menu.get(index).setName(scanner.next());
+    	System.out.println("Enter the food rate to update: ");
+    	menu.get(index).setRate(scanner.nextInt());
+    	System.out.println("\n");
+    	System.out.println(menu.get(index).getName()+" "+menu.get(index).getRate());
+    }
+    
+    public void displayFood()
+    {
+    	System.out.println("\n");
+    	for(int i=0;i<menu.size();i++)
+         {
+           System.out.println(menu.get(i).getName()+" "+menu.get(i).getRate());
+         }  
+    }
+
     public void printAdmin()
 	{
 		int c=0;
@@ -67,7 +100,16 @@ public class Hotel
         	case 1:addFood();
         	       break;
 
-        	default:System.out.println("invalid choice");
+        	case 2:deleteFood();
+        	       break;
+
+        	case 3:updateFood();
+        	       break; 
+
+        	case 4:displayFood();
+        	       break;     
+
+        	default:System.out.println("Invalid choice");
         }
 
         System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
