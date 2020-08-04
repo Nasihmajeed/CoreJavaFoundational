@@ -171,7 +171,7 @@ public class Forest{
 
     public void checkFight(){
         if(animalList.get(randomNumber) instanceof Carnivoros || animalList.get(randomItem) instanceof Carnivoros){
-            if(animalList.get(randomNumber).getAnimalStrength() > animalList.get(randomItem).getAnimalStrength()){
+            if(animalList.get(randomNumber).getAnimalStrength() >= animalList.get(randomItem).getAnimalStrength()){
                 //System.out.println("        WINNER");
                 System.out.println("\n WINNER  IS  PLAYER1"+"    "+animalList.get(randomNumber).getAnimalName());
                 animalList.get(randomNumber).setAnimalStrength(animalList.get(randomNumber).getAnimalStrength()-20);
