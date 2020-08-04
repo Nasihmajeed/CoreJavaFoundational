@@ -144,6 +144,7 @@ public class Forest{
                 randomNumber=randomNumber;
                 System.out.println("PRINT RANDOM NUMBER"+randomNumber);
                 animalList.get(randomItem).setAnimalAlive(false);
+                animalList.remove(randomItem);
                 
                
 
@@ -155,19 +156,21 @@ public class Forest{
                     +"    "+" STRENGTH"+" "+animalList.get(randomItem).getAnimalStrength());
                 randomNumber=randomItem;
                 System.out.println("PRINT RANDOM NUMBER"+randomNumber);
-                animalList.remove(randomNumber);
+              
                 animalList.get(randomNumber).setAnimalAlive(false);
+                animalList.remove(randomNumber);
             }
 
         }
         else{
             System.out.println("DONT FIGHT");
+            randomNumber=randomNumber;
         }
     }
 
     public void findUltimateWinner(){
         System.out.println("ULTIMATE WINNER");
-            for(int i=0;i<=3;i++){
+            for(int i=0;i<animalList.size();i++){
             randomItem=random.nextInt(animalList.size());
             System.out.println("RANDOM ITEM INDEX   "+randomItem);
             while(randomNumber==randomItem){
@@ -185,12 +188,14 @@ public class Forest{
                         System.out.println("\n      WINNER IS"+animalList.get(randomNumber).getAnimalName());
                         randomNumber=randomNumber;
                         animalList.get(randomItem).setAnimalAlive(false);
+                        animalList.remove(randomItem);
                     }
                     else{
                         System.out.println("\n      WINNER IS"+animalList.get(randomItem).getAnimalName());
-                        animalList.get(randomItem).setAnimalAlive(false);
-                       
                         randomNumber=randomItem;
+                        animalList.get(randomItem).setAnimalAlive(false);
+                        animalList.remove(randomNumber);
+                      
 
                     }
                 }
