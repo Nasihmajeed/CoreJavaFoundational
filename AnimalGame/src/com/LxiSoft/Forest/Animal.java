@@ -1,9 +1,18 @@
 package com.LxiSoft.Forest;
-public class Animal
+import com.LxiSoft.Animal.*;
+
+public /*abstract*/ class Animal
 {
+	/*public abstract void setName();
+	public abstract  String getName();
+	public abstract void setAnimalStrength();
+	public abstract int getAnimalStrength();*/
+	
+private boolean animalLife;
 	private String name;
 	private int animalStrength;
-	private Boolean animalLife;
+	
+
 	public void setName(String name)
 	{
 		this.name=name;
@@ -25,13 +34,13 @@ public class Animal
 		return animalStrength;
 	}
 
-	
-	public void getAnimalLife(boolean life)
+	public void setAnimalLife(boolean life)
 
 	{
 		this.animalLife=life;
 	}
-	public void setAnimalLife()
+
+	public boolean getAnimalLife()
 	{
 		return animalLife;
 	}
