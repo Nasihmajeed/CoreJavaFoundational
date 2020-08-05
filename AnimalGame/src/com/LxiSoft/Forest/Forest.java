@@ -229,7 +229,7 @@ this.finalWinner();
                         animal.remove(randomNo);
                       
 
-                    }
+                    }   d.pyramidPattern3();
                 }
 
                 if(animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Herbivorus)
