@@ -35,22 +35,27 @@ public class Hotel
      for(int i=0;i<menu.size();i++)
      {
      System.out.println(menu.get(i).getName()+" "+menu.get(i).getRate());
-     }  
+     }
     }
 
     public void addFood()
     {
-        Food food = new Food(); 
+       
+        System.out.println("How many food items did you want to add: ");
+        int index = scanner.nextInt();
+        for(int i=1;i<=index;i++)
+        {
         menu.add(new Food());
         System.out.println("Enter the name of the food: ");
-        menu.get(5).setName(scanner.next());        	     
+        menu.get(i).setName(scanner.next());
         System.out.println("Enter the rate of the food: ");
-        menu.get(5).setRate(scanner.nextInt());
-        System.out.println("\n"); 
+        menu.get(i).setRate(scanner.nextInt());
+        }
+        System.out.println("\n");
         
-        for(int i=0;i<menu.size();i++)
+        for(int j=0;j<menu.size();j++)
          {
-           System.out.println(menu.get(i).getName()+" "+menu.get(i).getRate());
+           System.out.println(menu.get(j).getName()+" "+menu.get(j).getRate());
          }  
     }
 
