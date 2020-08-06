@@ -43,7 +43,8 @@ public class Hotel
        
         System.out.println("How many food items did you want to add: ");
         int index = scanner.nextInt();
-        for(int i=1;i<=index;i++)
+        index = index+menu.size();
+        for(int i=menu.size();i<=index-1;i++)
         {
         menu.add(new Food());
         System.out.println("Enter the name of the food: ");
