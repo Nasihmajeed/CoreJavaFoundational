@@ -14,9 +14,22 @@ public class Forest{
     int choice=1;
     Animal winner;
     Animal temp;
+    private int randomNumber;
+    public void setRandomNumber(int a){
+        this.randomNumber=a;
 
-    int randomNumber;
-    int randomItem;
+    }
+    public int getRandomNumber(){
+        return randomNumber;
+    }
+
+    private int randomItem;
+    public void setRandomItem(int a){
+        this.randomItem=a;
+    }
+    public int getRandomItem(){
+        return randomItem;
+    }
 
 
     public void printDetails(){
@@ -146,12 +159,12 @@ public class Forest{
         if(choice==1){
 
            
-                randomNumber=random.nextInt(10);
-                randomItem=random.nextInt(10);
+                setRandomNumber(random.nextInt(10));
+                setRandomItem(random.nextInt(10));
                 
                 while(randomNumber==randomItem){
-                    randomNumber=random.nextInt(10);
-                    randomItem=random.nextInt(10);
+                    setRandomNumber(random.nextInt(10));
+                    setRandomItem(random.nextInt(10));   
                 }//while
 
                 System.out.println(" "+randomNumber);
@@ -178,33 +191,32 @@ public class Forest{
                  System.out.println(" \n NEW  STRENGTH     "+animalList.get(randomNumber).getAnimalStrength());
                  System.out.println(" \n  LOOSER  "+animalList.get(randomItem).getAnimalName());
                   System.out.println("**************************************");
-                randomNumber=randomNumber;
-               // System.out.println("PRINT RANDOM NUMBER"+randomNumber);
+                setRandomNumber(randomNumber);
+              // System.out.println("PRINT RANDOM NUMBER"+randomNumber);
                 animalList.get(randomItem).setAnimalAlive(false);
-                animalList.remove(randomItem);
+               //animalList.remove(randomItem);
                 
                
 
 
             }
-            else{
+                if(animalList.get(randomNumber).getAnimalStrength() < animalList.get(randomItem).getAnimalStrength()){
                // System.out.println("        WINNER");
                 System.out.println("\n WINNER  IS  PLAYER2"+"    "+animalList.get(randomItem).getAnimalName());
                   animalList.get(randomItem).setAnimalStrength(animalList.get(randomItem).getAnimalStrength()-20);
                  System.out.println("STRENGTH  "+animalList.get(randomItem).getAnimalStrength());
                  System.out.println("\n LOOSER   "+animalList.get(randomNumber).getAnimalName());
                   System.out.println("**************************************");
-                 randomNumber=randomItem;
-                // System.out.println("PRINT RANDOM NUMBER"+randomNumber);
+                 setRandomNumber(randomItem);                // System.out.println("PRINT RANDOM NUMBER"+randomNumber);
               
                 animalList.get(randomNumber).setAnimalAlive(false);
-                animalList.remove(randomNumber);
+               // animalList.remove(randomNumber);
             }
 
         }
         else{
             if(animalList.get(randomNumber).getAnimalStrength()>animalList.get(randomItem).getAnimalStrength()){
-                randomNumber=randomNumber;
+                setRandomNumber(randomNumber);  
                  System.out.println("DONT FIGHT");
                   System.out.println("**************************************");
             }
@@ -245,20 +257,19 @@ public class Forest{
                         System.out.println(" \n NEW  STRENGTH     "+animalList.get(randomNumber).getAnimalStrength());
                         System.out.println("\n LOOSER "+animalList.get(randomItem).getAnimalName());
                           System.out.println("**************************************");
-                        randomNumber=randomNumber;
+                         setRandomNumber(randomNumber);  
                         animalList.get(randomItem).setAnimalAlive(false);
-                        animalList.remove(randomItem);
+                       // animalList.remove(randomItem);
                     }
                     else{
                         System.out.println("\n    WINNER IS PLAYER2"+animalList.get(randomItem).getAnimalName());
                         animalList.get(randomItem).setAnimalStrength(animalList.get(randomItem).getAnimalStrength()-20);
                         System.out.println(" \n NEW  STRENGTH     "+animalList.get(randomItem).getAnimalStrength());
                           System.out.println("**************************************");
-                        int a=randomItem;
-                        randomNumber=a;
+                         setRandomNumber(randomItem);  
                         //System.out.println("Checking the wheather the value is moved to randomnumber    "+randomNumber);
                         animalList.get(randomItem).setAnimalAlive(false);
-                        animalList.remove(randomNumber);
+                      //  animalList.remove(randomNumber);
                       
 
                     }
@@ -304,4 +315,6 @@ public class Forest{
         System.out.println("                ANIMAL STRENGTH "+animalList.get(randomNumber).getAnimalStrength());
         System.out.println("\n **************************************");
     }
+
+
 }//class
