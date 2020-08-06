@@ -1,6 +1,5 @@
 package com.lxisoft.AnimalGame;
-public interface Carnivorous
+public interface Eat
 {
-	
-	
+
 }

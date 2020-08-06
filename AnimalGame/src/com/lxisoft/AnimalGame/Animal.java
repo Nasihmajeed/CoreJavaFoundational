@@ -1,30 +1,46 @@
 package com.lxisoft.AnimalGame;
-import com.lxisoft.AnimalGame.Game;
-import java.util.Scanner;
-import java.util.ArrayList;
-public class Animal
+import com.LxiSoft.Animal.*;
+
+public /*abstract*/ class Animal
 {
-	Scanner s =new Scanner(System.in);
 
-	private String animalName;
-	public void setAnimalName(String a)
-	{
-		this.animalName=a;
-	}
-
-	public String getAnimalName()
-	{
-		return animalName;
-	}
-
+	
+private boolean animalLife;
+	private String name;
 	private int animalStrength;
-	public void setAnimalStrength(int a){
+	
+
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+		public String getAnimalName(){
+		return name;
+	}
+
+
+	public void setAnimalStrength(int a)
+	{
 		this.animalStrength=a;
 	}
 	public int getAnimalStrength(){
 		return animalStrength;
 	}
-	
+
+	public void setAnimalLife(boolean life)
+
+	{
+		this.animalLife=life;
+	}
+
+	public boolean getAnimalLife()
+	{
+		return animalLife;
+	}
+
+
 }
-
-
