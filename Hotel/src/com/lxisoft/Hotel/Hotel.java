@@ -34,6 +34,7 @@ public class Hotel
      menu.get(4).setRate(100);
      for(int i=0;i<menu.size();i++)
      {
+     	System.out.println("i");
      System.out.println(menu.get(i).getName()+" "+menu.get(i).getRate());
      }
     }
