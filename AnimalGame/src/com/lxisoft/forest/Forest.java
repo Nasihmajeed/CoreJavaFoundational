@@ -278,7 +278,7 @@ public class Forest{
                           System.out.println("**************************************");
 
                         setRandomNumber(getRandomItem());
-                        //System.out.println("Checking the wheather the value is moved to randomnumber    "+randomNumber);
+                        //System.out.println("Checking the wheather the value is moved to randomnumber    "+randomNumber);//
                         animalList.get(randomItem).setAnimalAlive(false);
                         animalList.remove(randomNumber);
                       
@@ -296,7 +296,7 @@ public class Forest{
                         System.out.println("\n PLAYER2  "+animalList.get(getRandomItem()).getAnimalName());
                         System.out.println("\n STRENGTH    "+animalList.get(getRandomItem()).getAnimalStrength());  
                         System.out.println("DONT FIGHT");
-                          System.out.println("**************************************");
+                          System.out.println("**************************************");//
                         }
                     }
                 }
