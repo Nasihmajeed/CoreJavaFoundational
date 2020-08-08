@@ -132,10 +132,14 @@ public class Forest
                  System.out.println("             ");
                 System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
                   System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
-               
+       try{        
 this.printRandom();
-             }
-
+        this.finalWinner();   
+}
+catch(IndexOutOfBoundsException m)
+{
+    System.out.println("Game ends due to some factors");
+}}
                 
      }
 public void printRandom()
@@ -190,7 +194,7 @@ public void printRandom()
         d.pyramidPattern3();
  
  
-this.finalWinner();
+
 
 }
 
