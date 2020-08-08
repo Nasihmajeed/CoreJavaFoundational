@@ -86,6 +86,26 @@ public class Forest
         animal.get(9).setAnimalStrength(95);
     animal.get(9).setAnimalLife(true);
 
+      animal.get(0).setName("Tiger 3");
+        animal.get(0).setAnimalStrength(85);
+        animal.get(0).setAnimalLife(true);
+
+    animal.get(1).setName("Deer 3");
+        animal.get(1).setAnimalStrength(40);
+        animal.get(1).setAnimalLife(true);
+
+    animal.get(2).setName("Rabbit 3");
+       animal.get(2).setAnimalStrength(35);
+           animal.get(2).setAnimalLife(true);
+
+    animal.get(3).setName("Bear 3");
+        animal.get(3).setAnimalStrength(65);
+    animal.get(3).setAnimalLife(true);
+
+    animal.get(4).setName("Lion 3");
+        animal.get(4).setAnimalStrength(95);
+    animal.get(4).setAnimalLife(true);
+
 		System.out.println("\t Participants are \n");
      	for (int i=0; i<animal.size(); i++)
      	{	
