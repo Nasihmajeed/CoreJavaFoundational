@@ -6,7 +6,7 @@ public class TDD
  {
  Hotel hotel = new Hotel();
  hotel.printName();
- hotel.setFood();
- hotel.printAdmin();
+ hotel.user();
+ hotel.bill();
  }	
 }
