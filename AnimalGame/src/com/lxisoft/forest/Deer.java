@@ -5,5 +5,8 @@ public class Deer extends Animal implements Herbivoros {
 	System.out.println(" HERBIVOROS ");
 	
 }
+public void eat(){
+	System.out.println("Dont hunt and eat");
+}
 }
 

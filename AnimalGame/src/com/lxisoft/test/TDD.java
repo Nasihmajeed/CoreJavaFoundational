@@ -8,7 +8,7 @@ public class TDD{
 		forest.printDetails();
 		forest.forestDetails();
 		forest.randomSelection();
-		forest.fightMethod();
+		forest.ultimateWinner();
 		
 
 

@@ -1,7 +1,7 @@
 package com.lxisoft.forest;
 import java.util.Scanner;
 import java.util.ArrayList;
-public  class Animal {
+public abstract  class Animal {
 
 	Scanner scanner=new Scanner(System.in);
 
@@ -39,6 +39,8 @@ public  class Animal {
 	public boolean getAnimalAlive(){
 		return animalAlive;
 	}
+
+	public abstract void eat();
 
 
 	
