@@ -156,10 +156,16 @@ public class Forest
                  System.out.println("             ");
                 System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
                   System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
-               
-this.printRandom();
-             }
-
+       
+       try
+       {        
+        this.printRandom();
+        this.finalWinner();   
+      }
+      catch(IndexOutOfBoundsException m)
+          {
+            System.out.println("Game ends due to some Exceptions");
+            }
                 
      }
 public void printRandom()
