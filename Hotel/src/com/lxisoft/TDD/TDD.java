@@ -7,6 +7,5 @@ public class TDD
  Hotel hotel = new Hotel();
  hotel.printName();
  hotel.user();
- hotel.bill();
  }	
 }

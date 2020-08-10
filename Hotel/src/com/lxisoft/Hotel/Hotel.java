@@ -35,10 +35,9 @@ public class Hotel
      System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
      }
     }
-
+     
     public void addFood()
     {
-       
         System.out.println("How many food items did you want to add: ");
         int index = scanner.nextInt();
         index = index+menu.size();
@@ -94,9 +93,9 @@ public class Hotel
          }  
     }
 
-    public void order()
+   public void orderFood()
     {
-    	System.out.println("\nHow many food items did you want order: ");
+    	System.out.println("\nHow many food items did you want to order: ");
     	int a = scanner.nextInt();
     	for(int i=1;i<=a;i++)
     	{
@@ -106,6 +105,17 @@ public class Hotel
     	}
     }
 
+     public void bill()
+    {
+    	System.out.println("\n HOTEL NMR");
+		System.out.println("Veg and Non-Veg");
+		System.out.println(" Palakkad");
+        System.out.println("\n Bill");
+        System.out.println("food:"+order.menu.get(b-1).getName());
+
+
+    }
+    
     public void printAdmin()
 	{
 		int c=0;
@@ -137,43 +147,7 @@ public class Hotel
         while(c==1);
 
    }
-
-
-    public void setBill()
-    {
-    	System.out.println("\n HOTEL NMR");
-		System.out.println("Veg and Non-Veg");
-		System.out.println(" Palakkad");
-
-		
-    }
-    
-    public void bill()
-    {
-    	int c=0;
-    	do
-    	{
-    	  System.out.println("\n 1.Bill \n 2.Order more food");
-    	  System.out.println("Enter your choice: ");
-    	  int ch = scanner.nextInt();
-    	  switch(ch)
-    	  {
-    	  	case 1:setBill();
-    	  	       break;
-
-    	  	case 2:System.out.println("\n MENU");
-        	       setFood();
-        	       order();
-    			   break;
-
-    	    default:System.out.println("Invalid choice");
-
-    	  }
-        System.out.println("\n Do you want to continue (yes = press 1 | no = press 0): ");
-        c = scanner.nextInt();
-        }
-        while(c==1); 
-    }
+   
 
     public void user()
     {
@@ -187,16 +161,19 @@ public class Hotel
     		{
     			case 1:System.out.println("\n MENU");
         	           setFood();
-        	           order();
+        	           orderFood();
+        	           bill();
     			       break;
 
-    			case 2:printAdmin();
+    			case 2:setFood();
+    			       System.out.println(" "); 
+    			       printAdmin();
     			       break;
 
     			default:System.out.println("Invalid choice");
     		}
     	
-        System.out.println("\n Do you want to continue (yes = press 1 | no = press 0): ");
+        System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
         s = scanner.nextInt();
         }
         while(s==1);
