@@ -115,33 +115,27 @@ public class Forest
                 System.out.println(" "+randomNo);
                System.out.println(" "+randomFile);
 
-             
-
-              
-                
-
-           
                  System.out.println("               ");
                 System.out.println(" Animal 1    "+animal.get(randomNo).getName()+"      ");
                  System.out.println("\nSTRENGTH        "+animal.get(randomNo).getAnimalStrength()+"      ");
-
-               
-               
-               
                
                  System.out.println("             ");
                 System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
-                  System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
-       try{        
-this.printRandom();
+                System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
+    
+             try{        
+
+        this.printRandom();
         this.finalWinner();   
 }
+
 catch(IndexOutOfBoundsException m)
 {
     System.out.println("Game ends due to some factors");
-}}
-                
-     }
+}
+}
+}
+
 public void printRandom()
 {
                
@@ -201,15 +195,19 @@ public void printRandom()
  public void finalWinner()
  {
         System.out.println("Final WINNER");
+
             for(int i=0;i<animal.size();i++)
             {
             randomFile=random.nextInt(animal.size());
             System.out.println("RANDOM ITEM INDEX   "+randomFile);
+
             while(randomNo==randomFile)
             {
                 randomFile=random.nextInt(animal.size());
             }
+
             System.out.println("RANDOM ITEM IN After"+randomFile);
+
             if(animal.get(randomNo).getAnimalLife() == true && animal.get(randomFile).getAnimalLife() == true)
             {
                 if(animal.get(randomNo) instanceof Carnivorous || animal.get(randomFile) instanceof Carnivorous)
@@ -219,6 +217,7 @@ public void printRandom()
                     System.out.println("    ");
                     System.out.println("\n PLAYER2  "+animal.get(randomFile).getAnimalName());
                     System.out.println("\n STRENGTH    "+animal.get(randomFile).getAnimalStrength());    
+
                     if(animal.get(randomNo).getAnimalStrength()>animal.get(randomFile).getAnimalStrength())
                     {
                         System.out.println("\n      WINNER IS"+animal.get(randomNo).getAnimalName());
@@ -245,7 +244,7 @@ public void printRandom()
                     System.out.println("\n STRENGTH    "+animal.get(randomFile).getAnimalStrength());  
                     System.out.println("DONT FIGHT");
                 }  
-
+d.pyramidPattern3();
 
             }
             

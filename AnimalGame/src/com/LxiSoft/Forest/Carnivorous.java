@@ -1,5 +1,5 @@
 package com.LxiSoft.Forest;
-public interface Carnivorous
+public interface Carnivorous extends Eat
 {
 	
 	
