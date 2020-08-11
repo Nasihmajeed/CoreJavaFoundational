@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Hotel
 {
 	ArrayList<Food> menu = new ArrayList<Food>();
+	ArrayList<Order> order = new ArrayList<Order>();
 	Scanner scanner = new Scanner(System.in);
 
 	public void printName()
@@ -95,25 +96,43 @@ public class Hotel
 
    public void orderFood()
     {
+    	int b = 0;
     	System.out.println("\nHow many food items did you want to order: ");
     	int a = scanner.nextInt();
-    	for(int i=1;i<=a;i++)
+    	
+    	for(int i=0;i<a;i++)
     	{
     	   System.out.println("Please select your food ");
-    	   int b = scanner.nextInt(); 
-    	   System.out.println(menu.get(b-1).getName());   
-    	}
+    	   b = scanner.nextInt();
+    	   order.add(new Order());
+    	   String name = menu.get(b-1).getName();
+    	   order.get(i).setName(name);
+    	   int rate = menu.get(b-1).getRate();
+    	   order.get(i).setRate(rate);
+    	}  
+    	System.out.println("\nYour ordered food are"); 
+    	   for(int j=0;j<order.size();j++)
+    	   {
+    	     System.out.println(j+1+" "+order.get(j).getName()+" "+order.get(j).getRate());   
+    	   }  
+        System.out.println("\n Your food is getting ready");   
     }
 
      public void bill()
     {
+    	int total = 0;
     	System.out.println("\n HOTEL NMR");
 		System.out.println("Veg and Non-Veg");
 		System.out.println(" Palakkad");
         System.out.println("\n Bill");
-        System.out.println("food:"+order.menu.get(b-1).getName());
-
-
+        for(int j=0;j<order.size();j++)
+    	   {
+    	     System.out.println(j+1+" "+order.get(j).getName()+" "+order.get(j).getRate());
+             total = total + order.get(j).getRate();
+           }
+             System.out.println("Total amount: "+total);  
+             System.out.println("\n Thank You for coming");
+             System.out.println("\n Have a nice day");
     }
     
     public void printAdmin()
