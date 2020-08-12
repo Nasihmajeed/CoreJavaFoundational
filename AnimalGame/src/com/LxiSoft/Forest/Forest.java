@@ -103,6 +103,9 @@ public class Forest
             d.gameRun();
          
               if(choice==1)
+            //{
+              //  if(animal.getAnimalLife(true)) 
+              
               {
                   randomNo = random.nextInt(10);   
               randomFile= random.nextInt(10);
@@ -135,6 +138,7 @@ catch(IndexOutOfBoundsException m)
 }
 }
 }
+//}
 
 public void printRandom()
 {
@@ -199,7 +203,7 @@ public void printRandom()
             for(int i=0;i<animal.size();i++)
             {
             randomFile=random.nextInt(animal.size());
-            System.out.println("RANDOM ITEM INDEX   "+randomFile);
+            System.out.println("RANDOM ITEM INDEX "+randomFile);
 
             while(randomNo==randomFile)
             {
