@@ -30,13 +30,22 @@ public class Hotel
      menu.get(3).setRate(60);
      menu.add(new Food());
      menu.get(4).setName("Biriyani");
-     menu.get(4).setRate(100);
+     menu.get(4).setRate(140);
+
      for(int i=0;i<menu.size();i++)
      {
      System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
      }
     }
-     
+    
+    public void getFood()
+    {
+    	for(int i=0;i<menu.size();i++)
+          {
+            System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
+          }
+    } 
+    
     public void addFood()
     {
         System.out.println("How many food items did you want to add: ");
@@ -52,6 +61,7 @@ public class Hotel
         }
         System.out.println("\n");
         
+        
         for(int j=0;j<menu.size();j++)
          {
            System.out.println(j+1+" "+menu.get(j).getName()+" "+menu.get(j).getRate());
@@ -64,10 +74,7 @@ public class Hotel
     	int i = scanner.nextInt(); 
     	menu.remove(i-1);
     	System.out.println("\n");
-    	for(i=0;i<menu.size();i++)
-         {
-           System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
-         }  
+    	getFood();
     }
 
     public void updateFood()
@@ -79,19 +86,13 @@ public class Hotel
     	System.out.println("Enter the food rate to update: ");
     	menu.get(i-1).setRate(scanner.nextInt());
     	System.out.println("\n");
-    	for(i=0;i<menu.size();i++)
-    	{
-    	System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
-        }
+    	getFood();
     }
     
     public void displayFood()
     {
     	System.out.println("\n");
-    	for(int i=0;i<menu.size();i++)
-         {
-           System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
-         }  
+    	getFood();
     }
 
    public void orderFood()
@@ -179,12 +180,12 @@ public class Hotel
     		switch(ch)
     		{
     			case 1:System.out.println("\n MENU");
-        	           setFood();
+        	           getFood();
         	           orderFood();
         	           bill();
     			       break;
 
-    			case 2:setFood();
+    			case 2:getFood();
     			       System.out.println(" "); 
     			       printAdmin();
     			       break;
