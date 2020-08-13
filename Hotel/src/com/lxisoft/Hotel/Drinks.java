@@ -1,8 +1,11 @@
 package com.lxisoft.Hotel;
-public class OrderFood
+
+public class Drinks
 {
 	private String name;
 	private int rate;
+
+	
 
 	public void setName(String n)
 	{

@@ -1,5 +1,6 @@
 package com.lxisoft.Hotel;
-public class OrderFood
+
+public class OrderDrink
 {
 	private String name;
 	private int rate;
