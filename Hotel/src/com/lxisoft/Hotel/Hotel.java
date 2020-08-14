@@ -89,7 +89,7 @@ public class Hotel
         menu.add(new Food());
         System.out.println("Enter the name of the food: ");
         menu.get(i).setName(scanner.next());
-        System.out.println("Enter the rate of the food: ");
+        System.out.println("Enter the rate of the food: ");  
         menu.get(i).setRate(scanner.nextInt());
         }
         System.out.println("\n");
@@ -98,6 +98,28 @@ public class Hotel
         for(int j=0;j<menu.size();j++)
          {
            System.out.println(j+1+" "+menu.get(j).getName()+" "+menu.get(j).getRate());
+         }  
+    }
+
+    public void addDrink()
+    {
+        System.out.println("How many drinks items did you want to add: ");
+        int index = scanner.nextInt();
+        index = index+drinks.size();
+        for(int i=drinks.size();i<=index-1;i++)
+        {
+        drinks.add(new Drinks());
+        System.out.println("Enter the name of the drink: ");
+        drinks.get(i).setName(scanner.next());
+        System.out.println("Enter the rate of the drink: ");  
+        drinks.get(i).setRate(scanner.nextInt());
+        }
+        System.out.println("\n");
+        
+        
+        for(int j=0;j<drinks.size();j++)
+         {
+           System.out.println(j+1+" "+drinks.get(j).getName()+" "+drinks.get(j).getRate());
          }  
     }
 
@@ -110,7 +132,28 @@ public class Hotel
     	getFood();
     }
 
-    public void updateFood()
+    public void deleteDrink()
+    {
+    	System.out.println("Enter the number to delete: ");
+    	int i = scanner.nextInt(); 
+    	drinks.remove(i-1);
+    	System.out.println("\n");
+    	getDrinks();
+    }
+
+    public void updateDrink()
+    {
+    	System.out.println("Enter the number to update: ");
+    	int i = scanner.nextInt();
+    	System.out.println("Enter the drink name to update: ");
+        drinks.get(i-1).setName(scanner.next());
+    	System.out.println("Enter the drink rate to update: ");
+    	drinks.get(i-1).setRate(scanner.nextInt());
+    	System.out.println("\n");
+    	getDrinks();
+    }
+    
+     public void updateFood()
     {
     	System.out.println("Enter the number to update: ");
     	int i = scanner.nextInt();
@@ -121,11 +164,17 @@ public class Hotel
     	System.out.println("\n");
     	getFood();
     }
-    
+
     public void displayFood()
     {
     	System.out.println("\n");
     	getFood();
+    }
+
+     public void displayDrink()
+    {
+    	System.out.println("\n");
+    	getDrinks();
     }
 
    public void orderFoods()
@@ -203,7 +252,7 @@ public class Hotel
              System.out.println("\n Have a nice day");
     }
     
-    public void printAdmin()
+    public void editFood()
 	{
 		int c=0;
 		do
@@ -235,6 +284,37 @@ public class Hotel
 
    }
    
+    public void editDrink()
+	{
+		int c=0;
+		do
+		{
+		System.out.println("\n 1.Add Drink \n 2.Delete Drink \n 3.Update \n 4.Display All");
+		System.out.println("\n Enter your choice:");
+		int ch = scanner.nextInt();
+        switch(ch)
+        {
+        	case 1:addDrink();
+        	       break;
+
+        	case 2:deleteDrink();
+        	       break;
+
+        	case 3:updateDrink();
+        	       break; 
+
+        	case 4:displayDrink();
+        	       break;     
+
+        	default:System.out.println("Invalid choice");
+        }
+
+        System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
+        c = scanner.nextInt();
+        }
+        while(c==1);
+
+   }
 
     public void user()
     {
@@ -253,7 +333,7 @@ public class Hotel
     			case 2:getDrinks();
     			       getFood();
     			       System.out.println(" "); 
-    			       printAdmin();
+    			       mainEdit();
     			       break;
 
     			default:System.out.println("Invalid choice");
@@ -282,7 +362,32 @@ public class Hotel
     		       break;
 
     		default:System.out.println("Invalid choice");
-    		}
+    	}
+    	
+        System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
+        s = scanner.nextInt();
+        }
+        while(s==1);
+    	}
+
+  	public void mainEdit()
+        {
+    	int s=0;
+    	do
+    	{
+    	System.out.println("\n 1.Drinks Section \n 2.Food Section");
+    	System.out.println("Please select your option:");
+    	int ch = scanner.nextInt();
+    	switch(ch)
+    	{
+    		case 1:editDrink();
+    		       break;
+
+    		case 2:editFood();
+    		       break;
+
+    		default:System.out.println("Invalid choice");
+    	}
     	
         System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
         s = scanner.nextInt();
