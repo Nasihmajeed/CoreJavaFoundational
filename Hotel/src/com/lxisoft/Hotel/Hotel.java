@@ -60,6 +60,12 @@ public class Hotel
            System.out.println(i+1+" "+drinks.get(i).getName()+" "+drinks.get(i).getRate());
         }
     }
+     
+    public void setMenu()
+    {
+    	setDrinks();
+    	setFood();
+    }
 
     public void getDrinks()
     {
@@ -89,11 +95,10 @@ public class Hotel
         menu.add(new Food());
         System.out.println("Enter the name of the food: ");
         menu.get(i).setName(scanner.next());
-        System.out.println("Enter the rate of the food: ");  
+        System.out.println("Enter the rate of the food: ");
         menu.get(i).setRate(scanner.nextInt());
         }
         System.out.println("\n");
-        
         
         for(int j=0;j<menu.size();j++)
          {
@@ -111,7 +116,7 @@ public class Hotel
         drinks.add(new Drinks());
         System.out.println("Enter the name of the drink: ");
         drinks.get(i).setName(scanner.next());
-        System.out.println("Enter the rate of the drink: ");  
+        System.out.println("Enter the rate of the drink: ");
         drinks.get(i).setRate(scanner.nextInt());
         }
         System.out.println("\n");
@@ -198,7 +203,7 @@ public class Hotel
     	   {
     	     System.out.println(j+1+" "+orderFood.get(j).getName()+" "+orderFood.get(j).getRate());   
     	   }  
-        System.out.println("\n Your food is getting ready");   
+        System.out.println("\n Your food is getting ready");
     }
 
      public void orderDrinks()
@@ -216,7 +221,7 @@ public class Hotel
     	   orderDrink.get(i).setName(name);
     	   int rate = drinks.get(b-1).getRate();
            orderDrink.get(i).setRate(rate);
-    	}  
+    	}
     	System.out.println("\nYour ordered drinks are"); 
     	   for(int j=0;j<orderDrink.size();j++)
     	   {
@@ -247,9 +252,9 @@ public class Hotel
              total1 = total1 + orderFood.get(j).getRate();
            }
             total2 = total + total1;
-             System.out.println("Total amount: "+total2);  
-             System.out.println("\n Thank You for coming");
-             System.out.println("\n Have a nice day");
+            System.out.println("Total amount: "+total2);
+            System.out.println("\n Thank You for coming");
+            System.out.println("\n Have a nice day");
     }
     
     public void editFood()
