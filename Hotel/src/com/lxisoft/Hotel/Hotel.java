@@ -198,7 +198,7 @@ public class Hotel
     	   int rate = menu.get(b-1).getRate();
     	   orderFood.get(i).setRate(rate);
     	}  
-    	System.out.println("\nYour ordered food are"); 
+    	System.out.println("\nYour ordered food are");
     	   for(int j=0;j<orderFood.size();j++)
     	   {
     	     System.out.println(j+1+" "+orderFood.get(j).getName()+" "+orderFood.get(j).getRate());   
@@ -306,10 +306,10 @@ public class Hotel
         	       break;
 
         	case 3:updateDrink();
-        	       break; 
+        	       break;
 
         	case 4:displayDrink();
-        	       break;     
+        	       break;
 
         	default:System.out.println("Invalid choice");
         }
