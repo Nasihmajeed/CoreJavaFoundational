@@ -7,9 +7,10 @@ import java.util.Random;
 import java.util.Collections;
 public class Forest
 {
-	ArrayList<Animal> animal=new ArrayList<Animal>();
+	ArrayList<Animal> animal=new ArrayList<Animal> ();
 	Scanner s=new Scanner(System.in);
 		Random random = new Random();
+  
           int choice=1;
           int randomNo;
           int randomFile;
@@ -19,7 +20,9 @@ public class Forest
 	{
 		
 				System.out.println("\t \t_________________________________");
+
 		System.out.println("\n\t \t-----------Animal Game-----------");
+
 		System.out.println("\t \t_________________________________");
 	
 		
@@ -29,54 +32,57 @@ public class Forest
 	}
 
 	public void animalList()
-	{
+	
+  {
+
 		animal.add(new Tiger());
 		animal.add(new Deer());
 		animal.add(new Rabbit());
 		animal.add(new Bears());
 		animal.add(new Lion());
+
         animal.add(new Tiger());
         animal.add(new Deer());
         animal.add(new Rabbit());
         animal.add(new Bears());
         animal.add(new Lion());
 
-		animal.get(0).setName("Tiger1");
+		    animal.get(0).setName("Tiger1");
         animal.get(0).setAnimalStrength(85);
         animal.get(0).setAnimalLife(true);
 
-		animal.get(1).setName("Deer1");
+		    animal.get(1).setName("Deer1");
         animal.get(1).setAnimalStrength(40);
         animal.get(1).setAnimalLife(true);
 
-		animal.get(2).setName("Rabbit1");
-       animal.get(2).setAnimalStrength(35);
+		       animal.get(2).setName("Rabbit1");
+           animal.get(2).setAnimalStrength(35);
            animal.get(2).setAnimalLife(true);
 
-		animal.get(3).setName("Bear1");
+		    animal.get(3).setName("Bear1");
         animal.get(3).setAnimalStrength(65);
-    animal.get(3).setAnimalLife(true);
+        animal.get(3).setAnimalLife(true);
 
-		animal.get(4).setName("Lion1");
+		    animal.get(4).setName("Lion1");
         animal.get(4).setAnimalStrength(95);
-    animal.get(4).setAnimalLife(true);
+        animal.get(4).setAnimalLife(true);
 
-  animal.get(5).setName("Tiger2");
+        animal.get(5).setName("Tiger2");
         animal.get(5).setAnimalStrength(85);
-    animal.get(5).setAnimalLife(true);
+        animal.get(5).setAnimalLife(true);
 
 
         animal.get(6).setName("Deer2");
         animal.get(6).setAnimalStrength(40);
-    animal.get(6).setAnimalLife(true);
+        animal.get(6).setAnimalLife(true);
 
         animal.get(7).setName("Rabbit2");
-       animal.get(7).setAnimalStrength(35);
-    animal.get(7).setAnimalLife(true);
+        animal.get(7).setAnimalStrength(35);
+        animal.get(7).setAnimalLife(true);
 
         animal.get(8).setName("Bear2");
         animal.get(8).setAnimalStrength(65);
-    animal.get(8).setAnimalLife(true);
+        animal.get(8).setAnimalLife(true);
 
         animal.get(9).setName("Lion2");
         animal.get(9).setAnimalStrength(95);
@@ -191,10 +197,7 @@ public void printRandom()
            
         d.pyramidPattern3();
  
- 
-
-
-}
+ }
 
  public void finalWinner()
  {
@@ -245,10 +248,11 @@ public void printRandom()
                     System.out.println("\n  STRENGTH   "+animal.get(randomNo).getAnimalStrength());
                     System.out.println("    ");
                     System.out.println("\n PLAYER2  "+animal.get(randomFile).getAnimalName());
-                    System.out.println("\n STRENGTH    "+animal.get(randomFile).getAnimalStrength());  
+                    System.out.println("\n STRENGTH  "+animal.get(randomFile).getAnimalStrength());  
                     System.out.println("DONT FIGHT");
                 }  
-d.pyramidPattern3();
+
+          d.pyramidPattern3();
 
             }
             
