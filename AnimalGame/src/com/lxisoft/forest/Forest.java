@@ -323,21 +323,7 @@ public class Forest{
            
     }//method
 
-    public void ultimateWinner(){
-        System.out.println("\n **************************************");
-        System.out.println("               FINAL WINNER");
-        try{
-        System.out.println("\n             "+animalList.get(getRandomNumber()).getAnimalName());
-          System.out.println("                ANIMAL STRENGTH "+animalList.get(getRandomNumber()).getAnimalStrength());
-        }
-        catch(IndexOutOfBoundsException e){
-            System.out.println("FAILED TO PRINT ULTIMATE WINNER");
-                    }
-      
-        System.out.println("\n **************************************");
-	System.out.println("\n **************************************");
-    }
-
+   
     
 
 }//class
