@@ -1,16 +1,13 @@
 package com.lxisoft.Test;
-import com.lxisoft.AnimalGame.Forest;
+import com.lxisoft.Design.Design;
+
 public class TDD
 {
 	public static void main (String [] args)
 	{
-	Forest forest=new Forest();
-	forest.welcomeScreen();
-	forest.selectionMenu();
+		Design design = new Design();
 
-
+		design.welcomeScreen();
+		design.gameMenu();
 	}
-
-
 }
-	
