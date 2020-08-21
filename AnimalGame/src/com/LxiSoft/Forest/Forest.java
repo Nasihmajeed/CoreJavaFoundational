@@ -8,6 +8,8 @@ import java.util.Collections;
 public class Forest
 {
 	ArrayList<Animal> animal=new ArrayList<Animal> ();
+
+ArrayList<String>Random=new ArrayList<String>();
 	Scanner s=new Scanner(System.in);
 		Random random = new Random();
   
@@ -174,7 +176,9 @@ public void printRandom()
                    
                 d.pyramidPattern1();
                  System.out.println("    Winner          ");
+
                      System.out.println("     "+animal.get(randomFile).getName()+"         ");
+
                       int newStrength=(animal.get(randomFile).getAnimalStrength()-10);
                          
                 System.out.println("Decreased Strength of Winner "+newStrength);
@@ -189,7 +193,7 @@ public void printRandom()
 
 
 
-             if(animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Herbivorus )
+             if(animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
              {
                 System.out.println("DONOT FIGHT");
 
@@ -201,6 +205,7 @@ public void printRandom()
 
  public void finalWinner()
  {
+  
         System.out.println("Final WINNER");
 
             for(int i=0;i<animal.size();i++)
@@ -252,7 +257,7 @@ public void printRandom()
                     System.out.println("DONT FIGHT");
                 }  
 
-          d.pyramidPattern3();
+                   d.pyramidPattern3();
 
             }
             
