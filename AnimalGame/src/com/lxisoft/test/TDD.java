@@ -7,8 +7,8 @@ public class TDD{
 		Forest forest = new Forest();
 		forest.printDetails();
 		forest.forestDetails();
-		forest.randomSelection();
-		forest.ultimateWinner();
+		//forest.randomSelection();
+		//forest.ultimateWinner();
 		
 
 
