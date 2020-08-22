@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Collections;
 public class GamePlay
 {
-	ArrayList<String>Random=new ArrayList<String>();
+	ArrayList<String>RandomList=new ArrayList<String>();
 	Designs d=new Designs();
 	Scanner s=new Scanner(System.in);
 	Random random = new Random();
@@ -15,6 +15,7 @@ public class GamePlay
           int choice=1;
           int randomNo;
           int randomFile;
+          
 
  public void selectRandom(ArrayList<Animal> animal)
   
@@ -37,6 +38,8 @@ public class GamePlay
                 {   
               randomFile= random.nextInt(10);
                  }
+                // randomList.add(randomNo);
+      //           randomList.add(randomFile);
 
                 System.out.println(" "+randomNo);
                System.out.println(" "+randomFile);
