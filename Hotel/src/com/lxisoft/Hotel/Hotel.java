@@ -211,17 +211,20 @@ public class Hotel
     	int b = 0;
     	System.out.println("\nHow many drinks did you want to order: ");
     	int a = scanner.nextInt();
-    	
+
     	for(int i=0;i<a;i++)
     	{
     	   System.out.println("Please select your drink ");
     	   b = scanner.nextInt();
     	   orderDrink.add(new OrderDrink());
+    	   if(orderDrink.get(i).getname == null)
+    	   {
     	   String name = drinks.get(b-1).getName();
     	   orderDrink.get(i).setName(name);
     	   int rate = drinks.get(b-1).getRate();
            orderDrink.get(i).setRate(rate);
     	}
+    }
     	System.out.println("\nYour ordered drinks are"); 
     	   for(int j=0;j<orderDrink.size();j++)
     	   {
