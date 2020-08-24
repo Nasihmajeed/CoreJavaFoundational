@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Collections;
 public class GamePlay
 {
-	ArrayList<String>RandomList=new ArrayList<String>();
+	
 	Designs d=new Designs();
 	Scanner s=new Scanner(System.in);
 	Random random = new Random();
