@@ -217,7 +217,7 @@ public class Hotel
     	   System.out.println("Please select your drink ");
     	   b = scanner.nextInt();
     	   orderDrink.add(new OrderDrink());
-    	   if(orderDrink.get(i).getname == null)
+    	   if(orderDrink.get(i).getName() == null)
     	   {
     	   String name = drinks.get(b-1).getName();
     	   orderDrink.get(i).setName(name);
@@ -225,7 +225,7 @@ public class Hotel
            orderDrink.get(i).setRate(rate);
     	}
     }
-    	System.out.println("\nYour ordered drinks are"); 
+    	System.out.println("\nYour ordered drinks are");
     	   for(int j=0;j<orderDrink.size();j++)
     	   {
     	     System.out.println(j+1+" "+orderDrink.get(j).getName()+" "+orderDrink.get(j).getRate());   
