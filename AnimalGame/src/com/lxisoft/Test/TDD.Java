@@ -1,10 +1,13 @@
-package com.LxiSoft.Test;
-import com.LxiSoft.Forest.Forest;
-public class Tdd
+package com.lxisoft.Test;
+import com.lxisoft.Design.Design;
+
+public class TDD
 {
-public static void main(String [] arg)
-{
-	Forest f = new Forest();
-	f.gameStart();
-}
+	public static void main (String [] args)
+	{
+		Design design = new Design();
+
+		design.welcomeScreen();
+		design.gameMenu();
+	}
 }
