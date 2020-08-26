@@ -9,7 +9,13 @@ public class Forest
 
 {
 	ArrayList<Animal> animal=new ArrayList<Animal>();
-
+  Scanner s=new Scanner(System.in);
+  Random random = new Random();
+  
+          int choice=1;
+          int randomNo;
+          int randomFile;
+          Designs d=new Designs();
 
 
          
@@ -27,7 +33,7 @@ public class Forest
 		
 			this.animalList();
       this.printAnimalList();
-		
+		this.selectRandom();
 	
 	}
 
@@ -88,6 +94,7 @@ public class Forest
         animal.get(9).setAnimalStrength(95);
     animal.get(9).setAnimalLife(true);
 }
+
 public void printAnimalList()
 {
 		System.out.println("\t Animals in the forest are ");
@@ -95,11 +102,70 @@ public void printAnimalList()
      	{	
      		System.out.println("\n   "+(i+1)+"   "+animal.get(i).getName());
      	}
-    g.selectRandom(animal);
-
+  
 	}
+public void selectRandom()
+  
+    {   
+            System.out.println("\n PRESS 1 TO START THE GAME");
+            d.pattern();
+           
+            int choice=s.nextInt();
+            d.gameRun();
+         
+              if(choice==1)
+          {
+            //for(int i=0; i<animal.size(); i++)
+            //{
+                         
+            //}
+              randomNo = random.nextInt(10);   
+              randomFile= random.nextInt(10);
+              
+              if(randomNo==randomFile)
+                {   
+              randomFile= random.nextInt(10);
+                 }
+                 else//(randomNumber!=random)
+    {
+      if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
+      {   
+        System.out.println(animal.get(randomNo).getAnimalName());  
+        System.out.println(animal.get(randomFile).getAnimalName());
+               
 
-       
+               
+                 System.out.println("               ");
+                System.out.println(" Animal 1    "+animal.get(randomNo).getName()+"      ");
+                 System.out.println("\nSTRENGTH        "+animal.get(randomNo).getAnimalStrength()+"      ");
+               
+                 System.out.println("             ");
+                System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
+                System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
+    }}}}
+public void gameConditions()
+{
+ if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instanceof Carnivorous )
+  {
+ System.out.println("DONOT FIGHT");
+   }
+
+ else if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
+ {
+ System.out.println("DONOT FIGHT");
+  }
+
+ else if (animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Carnivorous)
+  {
+  System.out.println(" FIGHT");
+   }
+
+  else if ((animal.get(randomNo) instanceof Carnivorous) && ( animal.get(randomFile) instanceof Herbivorus))
+  {
+   System.out.println(" FIGHT");  
+   }
+
+}
 
    
 }

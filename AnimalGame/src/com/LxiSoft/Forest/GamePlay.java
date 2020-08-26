@@ -8,7 +8,7 @@ import java.util.Collections;
 public class GamePlay
 {
 	
-	Designs d=new Designs();
+	/*Designs d=new Designs();
 	Scanner s=new Scanner(System.in);
 	Random random = new Random();
   
@@ -27,10 +27,16 @@ public class GamePlay
             d.gameRun();
          
               if(choice==1)
-            //{
-              //  if(animal.getAnimalLife(true)) 
-              
+            {
+               
+              for(int i=0; i<animal.size(); i++)
               {
+              	int count=0;
+              	if (animal.getAnimalLife(i)=true)
+              	{
+              		count++;
+              	}
+              
                   randomNo = random.nextInt(10);   
               randomFile= random.nextInt(10);
               
@@ -38,8 +44,7 @@ public class GamePlay
                 {   
               randomFile= random.nextInt(10);
                  }
-                // randomList.add(randomNo);
-      //           randomList.add(randomFile);
+               
 
                 System.out.println(" "+randomNo);
                System.out.println(" "+randomFile);
@@ -61,36 +66,35 @@ public class GamePlay
 catch(IndexOutOfBoundsException m)
 {
     System.out.println("Game ends due to some factors");
-}*/
 }
 }
-//}
+}
+}
 
 public void gameConditions(ArrayList<Animal> animal)
 {
                
-                 if(animal.get(randomNo) instanceof Carnivorous&& animal.get(randomFile) instanceof Carnivorous )
+                 if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instanceof Carnivorous )
                  {
                  	System.out.println("DONOT FIGHT");
 
                  }
                 
-                else(animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
+                else if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
              {
                 System.out.println("DONOT FIGHT");
 
                }
-              
-        else(animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Carnivorous)
+                      else if (animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Carnivorous)
         {
         	//this.
         }
-        else (animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instance of Herbivorus)
+        else if (animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instance of Herbivorus)
         {
         	//this.
         }
- 
+*/ 
  }
 
  
-}
+
