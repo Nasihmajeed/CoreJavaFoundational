@@ -210,6 +210,7 @@ public class Hotel
     {
     	int b = 0;
     	System.out.println("\nHow many drinks did you want to order: ");
+    	
     	int a = scanner.nextInt();
 
     	for(int i=0;i<a;i++)
