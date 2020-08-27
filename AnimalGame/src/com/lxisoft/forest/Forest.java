@@ -15,6 +15,7 @@ public class Forest{
     Animal winner;
     Animal temp;
     int count;
+   
     private int randomNumber;
     public void setRandomNumber(int a){
         this.randomNumber=a;
@@ -158,8 +159,10 @@ public class Forest{
          int choice=scanner.nextInt();
          
         if(choice==1){
+            count=this.workingOfLoop();
 
-            do{
+            while(count>1){
+                count=this.workingOfLoop();
                 setRandomNumber(random.nextInt(10));
                 setRandomItem(random.nextInt(10));
                 //System.out.println(getRandomNumber());
@@ -168,6 +171,7 @@ public class Forest{
                    setRandomItem(random.nextInt(10));
                     System.out.println("NEW RANDOM ITEM=    "+getRandomItem());
                     this.checkFight();
+                  
                    
                    
                 }
@@ -183,7 +187,7 @@ public class Forest{
                        
                     }
                 }
-            }while(count>=1);
+            }
             this.ultimateWinner();
 
         }    
@@ -205,8 +209,9 @@ public class Forest{
                     System.out.println("**************************************");
 
                     animalList.get(getRandomItem()).setAnimalAlive(false);
-                     this.workingOfLoop();
+                   
                     count=this.workingOfLoop();
+                    this.Winner();
                 }
 
                 else{
@@ -217,8 +222,9 @@ public class Forest{
                     System.out.println(" \n  LOOSER IS PLAYER1 "+animalList.get(getRandomNumber()).getAnimalName());
                     System.out.println("**************************************");
                     animalList.get(getRandomNumber()).setAnimalAlive(false);
-                     this.workingOfLoop();
+                   
                       count=this.workingOfLoop();
+                       this.Winner();
 
                 }
                 
@@ -240,8 +246,9 @@ public class Forest{
 
                 System.out.println("\n DONT FIGHT");
                   System.out.println("**************************************");
-                 this.workingOfLoop();
-                  count=this.workingOfLoop();
+                
+                   count=this.workingOfLoop();
+                   this.Winner();
              } 
 
              else  if(animalList.get(getRandomNumber()) instanceof Carnivoros && animalList.get(getRandomItem()) instanceof Herbivoros){
@@ -259,8 +266,9 @@ public class Forest{
                 System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
                   System.out.println("**************************************");
                 animalList.get(getRandomItem()).setAnimalAlive(false);
-                 this.workingOfLoop();
+               
                   count=this.workingOfLoop();
+                   this.Winner();
 
 
 
@@ -272,7 +280,8 @@ public class Forest{
 
               
 
-
+                System.out.println("PLAYER 1 -HERBIVOROS");
+                System.out.println("\nPLAYER 2 -CARNIVOROS");
                 System.out.println("    \n  PLAYER 1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
                 System.out.println("    \n  STRENGTH    "+animalList.get(getRandomNumber()).getAnimalStrength());
                 System.out.println("    \n  PLAYER 2"+"    "+animalList.get(getRandomItem()).getAnimalName());
@@ -284,8 +293,9 @@ public class Forest{
                 System.out.println("\n LOOSER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
                 animalList.get(getRandomNumber()).setAnimalAlive(false);
                   System.out.println("**************************************");
-                 this.workingOfLoop();
+             
                   count=this.workingOfLoop();
+                   this.Winner();
 
              } 
     }//checkfight
@@ -293,8 +303,9 @@ public class Forest{
    
 
     private int workingOfLoop(){
+         count=0;
         for(int i=0;i<animalList.size();i++){
-            count=0;
+           
             if(animalList.get(i).getAnimalAlive()==true){
             count++;
             // System.out.println("    "+count);
@@ -316,6 +327,21 @@ public class Forest{
                 {
                     System.out.println("\n\n");
                     System.out.println("=> THE ULTIMATE WINNER IS    " + animalList.get(i).getAnimalName());
+                    System.out.println("\n \n");
+                }
+            }
+    }
+
+      public void Winner()
+    {
+        System.out.println("\n\n *** THE  WINNER LIST ***");
+        System.out.println("    *********************");
+             for(int i=0;i<animalList.size();i++)
+            {
+                if(animalList.get(i).getAnimalAlive()==true)
+                {
+                    System.out.println("\n\n");
+                    System.out.println("=> THE  WINNER IS    " + animalList.get(i).getAnimalName());
                     System.out.println("\n \n");
                 }
             }
