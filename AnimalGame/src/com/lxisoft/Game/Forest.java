@@ -15,8 +15,8 @@ public class Forest
         
           int count;
           int choice=1;
-          int randomNo;
-          int randomFile;
+          int rdmNo;
+          int rdmFile;
           
 
 
@@ -100,7 +100,7 @@ public void animalList()
      	}
 }
 
-private int randomIterate()
+private int random()
 {
  for(int i=0;i<animal.size();i++)
   {
@@ -122,28 +122,28 @@ public void startGame()
     { 
       do
        {
-         count=this.randomIterate();
-        randomNo = random.nextInt(12);   
-        randomFile= random.nextInt(12);
+         count=this.random();
+        rdmNo = random.nextInt(12);   
+        rdmFile= random.nextInt(12);
 
-          if(randomNo==randomFile)
+          if(rdmNo==rdmFile)
           {   
-           randomFile= random.nextInt(12);
+           rdmFile= random.nextInt(12);
           }
            else//(randomNo!=random)
            {
-            if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
+            if(animal.get(rdmNo).getAnimalLife()==true&&animal.get(rdmFile).getAnimalLife()==true)
             {   
                 // System.out.println(animal.get(randomNo).getAnimalName());  
              //    System.out.println(animal.get(randomFile).getAnimalName());
              }
            }
-             g.gameConditions(randomNo,randomFile,animal);
+             g.gameSpecs(rdmNo,rdmFile,animal);
          }while(count>=1);
-        this.finalWinner();
+        this.Winner();
     }
 }
-public void finalWinner()
+public void Winner()
 {
   for(int i=0;i<animal.size();i++)
   {

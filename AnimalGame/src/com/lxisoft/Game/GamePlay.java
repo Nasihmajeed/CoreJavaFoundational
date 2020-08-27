@@ -8,91 +8,91 @@ import java.util.Collections;
 public class GamePlay
 
 {
-public void gameConditions(int randomNo,int randomFile,	ArrayList<Animal> animal)
+public void gameSpecs(int rdmNo,int rdmFile,	ArrayList<Animal> animal)
 
 {
- if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
+ if (animal.get(rdmNo) instanceof Herbivorus && animal.get (rdmFile) instanceof Herbivorus )
  {
  System.out.println("CAN'T FIGHT");
  System.out.println("-----------------------------------");
   }
 
-else if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instanceof Carnivorous )
+else if(animal.get(rdmNo) instanceof Carnivorous && animal.get(rdmFile) instanceof Carnivorous )
   {
- this.carVsCar(randomNo,randomFile,animal);
+ this.carVsCar(rdmNo,rdmFile,animal);
    }
 
- else if (animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Carnivorous)
+ else if (animal.get(rdmNo) instanceof Herbivorus && animal.get(rdmFile) instanceof Carnivorous)
   {
-  this.carVsHerb(randomNo,randomFile,animal);
+  this.carVsHerb(rdmNo,rdmFile,animal);
    }
 
-  else if ((animal.get(randomNo) instanceof Carnivorous) && ( animal.get(randomFile) instanceof Herbivorus))
+  else if ((animal.get(rdmNo) instanceof Carnivorous) && ( animal.get(rdmFile) instanceof Herbivorus))
   {
- this.herbVsCar(randomNo,randomFile,animal);
+ this.herbVsCar(rdmNo,rdmFile,animal);
    }
 
 }
 
 public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
 {
-    System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+    System.out.println("    \n  PLAYER 1"+"    "+animal.get(rdmNo).getName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmNo).getAnimalStrength());
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(rdmFile).getAnimalName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmFile).getAnimalStrength());
 
-            if(animal.get(randomNo).getAnimalStrength() >= animal.get(randomFile).getAnimalStrength())
+            if(animal.get(rdmNo).getAnimalStrength() >= animal.get(rdmFile).getAnimalStrength())
             {
-                System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(randomNo).getAnimalName());
-                animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()-20);
-                System.out.println(" \n NEW  STRENGTH     "+animal.get(randomNo).getAnimalStrength());
-                System.out.println(" \n  LOOSER  "+animal.get(randomFile).getAnimalName());
+                System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(rdmNo).getAnimalName());
+                animal.get(rdmNo).setAnimalStrength(animal.get(rdmNo).getAnimalStrength()-20);
+                System.out.println(" \n NEW  STRENGTH     "+animal.get(rdmNo).getAnimalStrength());
+                System.out.println(" \n  LOOSER  "+animal.get(rdmFile).getAnimalName());
                 System.out.println("-------------------------------------------------");
-                animal.get(randomFile).setAnimalLife(false);
+                animal.get(rdmFile).setAnimalLife(false);
             }
 
             else{
 
-                System.out.println("\n WINNER  IS  PLAYER2"+"    "+animal.get(randomFile).getAnimalName());
-                animal.get(randomNo).setAnimalStrength(animal.get(randomFile).getAnimalStrength()-20);
-                System.out.println(" \n NEW  STRENGTH     "+animal.get(randomFile).getAnimalStrength());
-                System.out.println(" \n  LOOSER IS PLAYER1 "+animal.get(randomNo).getAnimalName());
+                System.out.println("\n WINNER  IS  PLAYER2"+"    "+animal.get(rdmFile).getAnimalName());
+                animal.get(rdmNo).setAnimalStrength(animal.get(rdmFile).getAnimalStrength()-20);
+                System.out.println(" \n NEW  STRENGTH     "+animal.get(rdmFile).getAnimalStrength());
+                System.out.println(" \n  LOOSER IS PLAYER1 "+animal.get(rdmNo).getAnimalName());
                 System.out.println("----------------------------------------------");
-                animal.get(randomNo).setAnimalLife(false);
+                animal.get(rdmNo).setAnimalLife(false);
 
             }
 }
 
-   public void herbVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
+   public void herbVsCar(int rdmNo,int rdmFile,	ArrayList<Animal> animal)
    {
-            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println("    \n  PLAYER 1"+"    "+animal.get(rdmNo).getAnimalName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmNo).getAnimalStrength());
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(rdmFile).getAnimalName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmFile).getAnimalStrength());
 
-            System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(randomNo).getAnimalName());
-            animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()+20);
-            System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animal.get(randomFile).getAnimalName());
+            System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(rdmNo).getAnimalName());
+            animal.get(randomNo).setAnimalStrength(animal.get(rdmNo).getAnimalStrength()+20);
+            System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(rdmNo).getAnimalStrength());
+            System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animal.get(rdmFile).getAnimalName());
             System.out.println("---------------------------------------------");
-            animal.get(randomFile).setAnimalLife(false);
+            animal.get(rdmFile).setAnimalLife(false);
 
        
    }
 
-   public void carVsHerb(int randomNo,int randomFile,	ArrayList<Animal> animal)
+   public void carVsHerb(int rdmNo,int rdmFile,	ArrayList<Animal> animal)
    {
-       System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+       System.out.println("    \n  PLAYER 1"+"    "+animal.get(rdmNo).getAnimalName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmNo).getAnimalStrength());
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(rdmFile).getAnimalName());
+            System.out.println("    \n  STRENGTH    "+animal.get(rdmFile).getAnimalStrength());
 
-            System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(randomNo).getAnimalName());
-            animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()+20);
-            System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animal.get(randomFile).getAnimalName());
+            System.out.println("\n WINNER  IS  PLAYER1"+"    "+animal.get(rdmNo).getAnimalName());
+            animal.get(rdmNo).setAnimalStrength(animal.get(rdmNo).getAnimalStrength()+20);
+            System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(rdmNo).getAnimalStrength());
+            System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animal.get(rdmFile).getAnimalName());
             System.out.println("-------------------------------------------");
-            animal.get(randomFile).setAnimalLife(false);
+            animal.get(rdmile).setAnimalLife(false);
    }
  }
 
