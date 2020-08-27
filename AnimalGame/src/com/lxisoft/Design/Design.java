@@ -54,12 +54,16 @@ public class Design
 
         if(choice==1)
         {
+          this.participants();
+          forest.animal();
+          forest.animalList();
           forest.startGame();
         }
         if(choice==2)
         {
              
           this.participants();
+          forest.animal();
           forest.animalList(); 
         }
         if(choice==3)

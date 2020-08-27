@@ -1,6 +1,6 @@
 package com.lxisoft.Animals;
-
-public class Elephant extends Animal 
+import com.lxisoft.Game.*;
+public class Elephant extends Animal
 {
 	
 }
