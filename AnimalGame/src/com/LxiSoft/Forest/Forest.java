@@ -107,9 +107,10 @@ public void printanimal()
 
 private int iterateRandom()
 {
+  count=0;
  for(int i=0;i<animal.size();i++)
   {
-    count=0;
+    
     if(animal.get(i).getAnimalLife()==true)
      {
       count++;
@@ -139,11 +140,11 @@ public void selectRandom()
            {
             if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
             {   
-                // System.out.println(animal.get(randomNo).getAnimalName());  
-             //    System.out.println(animal.get(randomFile).getAnimalName());
+              g.gameConditions(randomNo,randomFile,animal);
              }
+
            }
-             g.gameConditions(randomNo,randomFile,animal);
+             
          }while(count>=1);
         this.finalWinner();
     }
