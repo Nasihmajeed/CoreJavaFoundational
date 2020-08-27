@@ -193,11 +193,17 @@ public class Hotel
     	   System.out.println("Please select your food ");
     	   b = scanner.nextInt();
     	   orderFood.add(new OrderFood());
+    	   for(int j=0;j<orderFood.size();j++)
+    	   {
+    	   	if(orderFood.get(j).getName() == null)
+             {  
     	   String name = menu.get(b-1).getName();
-    	   orderFood.get(i).setName(name);
+    	   orderFood.get(j).setName(name);
     	   int rate = menu.get(b-1).getRate();
-    	   orderFood.get(i).setRate(rate);
-    	}  
+    	   orderFood.get(j).setRate(rate);
+    	} 
+     }
+    } 
     	System.out.println("\nYour ordered food are");
     	   for(int j=0;j<orderFood.size();j++)
     	   {
@@ -218,13 +224,16 @@ public class Hotel
     	   System.out.println("Please select your drink ");
     	   b = scanner.nextInt();
     	   orderDrink.add(new OrderDrink());
-    	   if(orderDrink.get(i).getName() == null)
+    	   for(int j=0;j<orderDrink.size();j++)
+    	   {
+    	   if(orderDrink.get(j).getName() == null)
     	   {
     	   String name = drinks.get(b-1).getName();
-    	   orderDrink.get(i).setName(name);
+    	   orderDrink.get(j).setName(name);
     	   int rate = drinks.get(b-1).getRate();
-           orderDrink.get(i).setRate(rate);
+           orderDrink.get(j).setRate(rate);
     	}
+      }
     }
     	System.out.println("\nYour ordered drinks are");
     	   for(int j=0;j<orderDrink.size();j++)
