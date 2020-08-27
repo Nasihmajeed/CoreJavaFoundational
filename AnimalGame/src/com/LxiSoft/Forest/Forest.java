@@ -11,7 +11,8 @@ public class Forest
 	ArrayList<Animal> animal=new ArrayList<Animal>();
   Scanner s=new Scanner(System.in);
   Random random = new Random();
-  
+        
+          int count;
           int choice=1;
           int randomNo;
           int randomFile;
@@ -31,13 +32,13 @@ public class Forest
 		System.out.println("\t \t_________________________________");
 	
 		
-			this.animalList();
-      this.printAnimalList();
-		this.selectRandom();
-	
+			this.animal();
+      this.printanimal();
+     this.selectRandom();
+	 
 	}
 
-	public void animalList()
+	public void animal()
 	
   {
 
@@ -95,77 +96,68 @@ public class Forest
     animal.get(9).setAnimalLife(true);
 }
 
-public void printAnimalList()
+public void printanimal()
 {
 		System.out.println("\t Animals in the forest are ");
      	for (int i=0; i<animal.size(); i++)
      	{	
      		System.out.println("\n   "+(i+1)+"   "+animal.get(i).getName());
      	}
-  
-	}
-public void selectRandom()
-  
-    {   
-            System.out.println("\n PRESS 1 TO START THE GAME");
-            d.pattern();
-           
-            int choice=s.nextInt();
-            d.gameRun();
-         
-              if(choice==1)
-          {
-            //for(int i=0; i<animal.size(); i++)
-            //{
-                         
-            //}
-              randomNo = random.nextInt(10);   
-              randomFile= random.nextInt(10);
-              
-              if(randomNo==randomFile)
-                {   
-              randomFile= random.nextInt(10);
-                 }
-                 else//(randomNumber!=random)
-    {
-      if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
-      {   
-        System.out.println(animal.get(randomNo).getAnimalName());  
-        System.out.println(animal.get(randomFile).getAnimalName());
-               
-
-               
-                 System.out.println("               ");
-                System.out.println(" Animal 1    "+animal.get(randomNo).getName()+"      ");
-                 System.out.println("\nSTRENGTH        "+animal.get(randomNo).getAnimalStrength()+"      ");
-               
-                 System.out.println("             ");
-                System.out.println("  Animal 2   "+animal.get(randomFile).getName()+"         ");
-                System.out.println("\n STRENGTH        "+animal.get(randomFile).getAnimalStrength()+"      ");
-    }}}}
-public void gameConditions()
-{
- if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instanceof Carnivorous )
-  {
- System.out.println("DONOT FIGHT");
-   }
-
- else if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
- {
- System.out.println("DONOT FIGHT");
-  }
-
- else if (animal.get(randomNo) instanceof Herbivorus && animal.get(randomFile) instanceof Carnivorous)
-  {
-  System.out.println(" FIGHT");
-   }
-
-  else if ((animal.get(randomNo) instanceof Carnivorous) && ( animal.get(randomFile) instanceof Herbivorus))
-  {
-   System.out.println(" FIGHT");  
-   }
-
 }
 
-   
+private int iterateRandom()
+{
+ for(int i=0;i<animal.size();i++)
+  {
+    count=0;
+    if(animal.get(i).getAnimalLife()==true)
+     {
+      count++;
+      }
+   }
+    return count;
+}
+public void selectRandom()
+{   
+   System.out.println("\n PRESS 1 TO START THE GAME");
+   int choice=s.nextInt();
+   d.gameRun();
+    if(choice==1)
+
+    { 
+      do
+       {
+         count=this.iterateRandom();
+        randomNo = random.nextInt(10);   
+        randomFile= random.nextInt(10);
+
+          if(randomNo==randomFile)
+          {   
+           randomFile= random.nextInt(10);
+          }
+           else//(randomNo!=random)
+           {
+            if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
+            {   
+                // System.out.println(animal.get(randomNo).getAnimalName());  
+             //    System.out.println(animal.get(randomFile).getAnimalName());
+             }
+           }
+             g.gameConditions(randomNo,randomFile,animal);
+         }while(count>=1);
+        this.finalWinner();
+    }
+}
+public void finalWinner()
+{
+  for(int i=0;i<animal.size();i++)
+  {
+    if(animal.get(i).getAnimalLife()==true)
+    {
+        System.out.println("\n**************************************************");
+       System.out.println("=> WINNER IS " + animal.get(i).getName());
+        System.out.println("**************************************************");
+      }
+}
+}
 }
