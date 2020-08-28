@@ -149,9 +149,11 @@ public void Winner()
   {
     if(animal.get(i).getAnimalLife()==true)
     {
+       System.out.println("");
         System.out.println("__________________________________________________\n");
        System.out.println("=> WINNER IS " + animal.get(i).getName());
         System.out.println("____________________________________________________");
+        System.out.println("");
       }
 }
 }
