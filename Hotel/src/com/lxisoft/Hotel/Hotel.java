@@ -202,7 +202,7 @@ public class Hotel
     	   int rate = menu.get(b-1).getRate();
     	   orderFood.get(j).setRate(rate);
     	} 
-     }
+      }
     } 
     	System.out.println("\nYour ordered food are");
     	   for(int j=0;j<orderFood.size();j++)
