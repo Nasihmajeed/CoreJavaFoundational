@@ -119,33 +119,35 @@ private int iterateRandom()
     return count;
 }
 public void selectRandom()
-{   
+{ 
+ count=this.iterateRandom();
    System.out.println("\n PRESS 1 TO START THE GAME");
    int choice=s.nextInt();
    d.gameRun();
+    System.out.println(count);
     if(choice==1)
 
     { 
-      do
+      
+      while(count>1)
        {
-         count=this.iterateRandom();
+        count=this.iterateRandom();
         randomNo = random.nextInt(10);   
         randomFile= random.nextInt(10);
-
           if(randomNo==randomFile)
           {   
            randomFile= random.nextInt(10);
           }
-           else//(randomNo!=random)
+           else
            {
-            if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
+            if((animal.get(randomNo).getAnimalLife()==true)&&(animal.get(randomFile).getAnimalLife()==true))
             {   
+             
               g.gameConditions(randomNo,randomFile,animal);
              }
-
-           }
-             
-         }while(count>=1);
+           }  
+         }
+        
         this.finalWinner();
     }
 }

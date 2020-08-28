@@ -8,6 +8,8 @@ import java.util.Collections;
 public class GamePlay
 
 {
+		 Random random = new Random();
+
 public void gameConditions(int randomNo,int randomFile,	ArrayList<Animal> animal)
 
 {
@@ -100,6 +102,10 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             animal.get(randomFile).setAnimalLife(false);
             System.out.println(animal.get(randomFile).getAnimalLife());
             System.out.println("**************************************");
+   }
+     private int luckFactor()
+   {
+int randomLuck=random.nextInt(5);
    }
  }
 
