@@ -15,6 +15,7 @@ public class Forest{
     Animal winner;
     Animal temp;
     int count;
+    int input;
    
     private int randomNumber;
     public void setRandomNumber(int a){
@@ -168,7 +169,7 @@ public class Forest{
                 //System.out.println(getRandomNumber());
                 //System.out.println(getRandomItem());
                 if(getRandomNumber()==getRandomItem()){
-                   setRandomItem(random.nextInt(10));
+                   setRandomItem(random.nextInt(inputToChangeRandom()));//
                     System.out.println("NEW RANDOM ITEM=    "+getRandomItem());
                     this.checkFight();
                   
@@ -194,7 +195,10 @@ public class Forest{
     }
 
         public void checkFight(){
-             if(animalList.get(getRandomNumber()) instanceof Carnivoros && animalList.get(getRandomItem()) instanceof Carnivoros){
+              if(animalList.get(getRandomNumber()).getAnimalAlive() == true && animalList.get(getRandomItem()).getAnimalAlive() == true){
+
+
+                if(animalList.get(getRandomNumber()) instanceof Carnivoros && animalList.get(getRandomItem()) instanceof Carnivoros){
                 System.out.println("BOTH ARE CARNIVOROS");
                 System.out.println("    \n  PLAYER 1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
                 System.out.println("    \n  STRENGTH    "+animalList.get(getRandomNumber()).getAnimalStrength());
@@ -298,6 +302,7 @@ public class Forest{
                    this.Winner();
 
              } 
+        }
     }//checkfight
 
    
@@ -345,6 +350,20 @@ public class Forest{
                     System.out.println("\n \n");
                 }
             }
+    }
+
+     private int inputToChangeRandom()
+    {
+
+            input=0;        
+             for(int i=0;i<animalList.size();i++)
+            {
+                if(animalList.get(i).getAnimalAlive()==true)
+                {
+                   input++;
+                }
+            }
+        return input;
     }
 }
             
