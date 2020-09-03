@@ -1,5 +1,5 @@
 package com.lxisoft.forest;
-public class Deer extends Animal implements Herbivoros {
+public class Deer extends Animal implements Herbivoros,WeakAnimal {
 
 	public void  printHerbivores(){
 	System.out.println(" HERBIVOROS ");

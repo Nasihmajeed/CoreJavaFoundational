@@ -82,9 +82,9 @@ public class Forest{
        
         System.out.println("                                 PARTICIPANTS OF GAME ARE                                       ");  
               
-        animalList.add(new Tiger());
-        animalList.get(0).setAnimalName("Tiger");
-        animalList.get(0).setAnimalStrength(90);
+        animalList.add(new Deer());
+        animalList.get(0).setAnimalName("Deer");
+        animalList.get(0).setAnimalStrength(20);
         animalList.get(0).setAnimalAlive(true);
 
 
@@ -100,9 +100,9 @@ public class Forest{
         animalList.get(2).setAnimalStrength(10);
         animalList.get(2).setAnimalAlive(true);
 
-        animalList.add(new Deer());
-        animalList.get(3).setAnimalName("Deer");    
-        animalList.get(3).setAnimalStrength(20);
+        animalList.add(new Tiger());
+        animalList.get(3).setAnimalName("Tiger");    
+        animalList.get(3).setAnimalStrength(90);
         animalList.get(3).setAnimalAlive(true);
 
         animalList.add(new Goat());
@@ -255,9 +255,13 @@ public class Forest{
                    this.Winner();
              } 
 
+             // *** LUCKFACTOR IMPLEMENTATION SETUP STARTS *** //
+
              else  if(animalList.get(getRandomNumber()) instanceof Carnivoros && animalList.get(getRandomItem()) instanceof Herbivoros){
 
                 int luckyAnimal=determineLuckyAnimal();
+                System.out.println(luckyAnimal);
+
 
                 System.out.println("PLAYER 1 - CARNIVOROS");
                 System.out.println("\nPLAYER 2 -HERBIVOROS");
@@ -266,16 +270,36 @@ public class Forest{
                 System.out.println("    \n  PLAYER 2"+"    "+animalList.get(getRandomItem()).getAnimalName());
                 System.out.println("    \n  STRENGTH    "+animalList.get(getRandomItem()).getAnimalStrength());
 
-                System.out.println("\n WINNER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
-                animalList.get(randomNumber).setAnimalStrength(animalList.get(getRandomNumber()).getAnimalStrength()+20);
-                System.out.println("\n WINNER S NEW STRENGTH"+"    "+animalList.get(getRandomNumber()).getAnimalStrength());
-                System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
-                  System.out.println("**************************************");
-                animalList.get(getRandomItem()).setAnimalAlive(false);
-               
-                  count=this.workingOfLoop();
-                   this.Winner();
+                if(animalList.get(getRandomItem()) instanceof WeakAnimal){//luckFactor implementation
+                    //if(luckyAnimal!=1)
+                    //{
 
+                        System.out.println("\n "+animalList.get(getRandomNumber()).getAnimalName()+"  cant hunt the"+animalList.get(getRandomItem()).getAnimalName());
+                        System.out.println("\n "+animalList.get(getRandomItem()).getAnimalName()+" runs away");
+                        animalList.get(randomNumber).setAnimalStrength(animalList.get(getRandomNumber()).getAnimalStrength()-20);
+                        System.out.println( "\n NEW STRENGTH OF"+animalList.get(getRandomNumber()).getAnimalName()+"    "+animalList.get(getRandomNumber()).getAnimalStrength());
+                          this.Winner();
+
+
+
+
+
+
+
+                }
+                    else{
+
+                         System.out.println("\n WINNER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
+                            animalList.get(randomNumber).setAnimalStrength(animalList.get(getRandomNumber()).getAnimalStrength()+20);
+                            System.out.println("\n WINNER S NEW STRENGTH"+"    "+animalList.get(getRandomNumber()).getAnimalStrength());
+                            System.out.println("\n LOOSER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
+                              System.out.println("**************************************");
+                            animalList.get(getRandomItem()).setAnimalAlive(false);
+                           
+                              count=this.workingOfLoop();
+                                this.Winner();
+                        
+                        }
 
 
 
@@ -283,6 +307,8 @@ public class Forest{
              }  
 
              else if(animalList.get(getRandomNumber()) instanceof Herbivoros && animalList.get(getRandomItem()) instanceof Carnivoros){
+
+               
 
               
 
@@ -293,18 +319,28 @@ public class Forest{
                 System.out.println("    \n  PLAYER 2"+"    "+animalList.get(getRandomItem()).getAnimalName());
                 System.out.println("    \n  STRENGTH    "+animalList.get(getRandomItem()).getAnimalStrength());
 
-                System.out.println("\n WINNER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
-                animalList.get(randomItem).setAnimalStrength(animalList.get(getRandomItem()).getAnimalStrength()+20);
-                System.out.println("\n WINNER S NEW STRENGTH"+"    "+animalList.get(getRandomItem()).getAnimalStrength());
-                System.out.println("\n LOOSER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
-                animalList.get(getRandomNumber()).setAnimalAlive(false);
-                  System.out.println("**************************************");
-             
-                  count=this.workingOfLoop();
-                   this.Winner();
+                 
+                    
 
-             } 
-        }
+
+
+                        System.out.println("\n WINNER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
+                        animalList.get(randomItem).setAnimalStrength(animalList.get(getRandomItem()).getAnimalStrength()+20);
+                        System.out.println("\n WINNER S NEW STRENGTH"+"    "+animalList.get(getRandomItem()).getAnimalStrength());
+                        System.out.println("\n LOOSER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
+                        animalList.get(getRandomNumber()).setAnimalAlive(false);
+                        System.out.println("**************************************");
+                     
+                          count=this.workingOfLoop();
+                          this.Winner();
+
+                    
+                    
+            }
+
+
+        }      
+        
     }//checkfight
 
    
@@ -369,7 +405,8 @@ public class Forest{
     }
 
     private int determineLuckyAnimal(){
-        int randomLuckyAnimal=random.nextInt(3);
+        Random random=new Random();
+        int randomLuckyAnimal=random.nextInt(1);
         return randomLuckyAnimal;
 
     }
