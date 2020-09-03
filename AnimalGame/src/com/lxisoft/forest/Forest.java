@@ -257,6 +257,8 @@ public class Forest{
 
              else  if(animalList.get(getRandomNumber()) instanceof Carnivoros && animalList.get(getRandomItem()) instanceof Herbivoros){
 
+                int luckyAnimal=determineLuckyAnimal();
+
                 System.out.println("PLAYER 1 - CARNIVOROS");
                 System.out.println("\nPLAYER 2 -HERBIVOROS");
                 System.out.println("    \n  PLAYER 1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
@@ -364,6 +366,12 @@ public class Forest{
                 }
             }
         return input;
+    }
+
+    private int determineLuckyAnimal(){
+        int randomLuckyAnimal=random.nextInt(3);
+        return randomLuckyAnimal;
+
     }
 }
             
