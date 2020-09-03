@@ -86,9 +86,7 @@ public class Forest
         animal.get(10).setAnimalStrength(95);
         animal.get(10).setAnimalLife(true);
 
-        animal.get(11).setName("Elephant 2");
-        animal.get(11).setAnimalStrength(94);
-        animal.get(11).setAnimalLife(true);
+
 }
 
 public void animalList()
