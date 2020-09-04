@@ -42,11 +42,7 @@ public class Forest
 	
   {
 
-		animal.add(new Tiger());
-		animal.add(new Deer());
-		animal.add(new Rabbit());
-		animal.add(new Bears());
-		animal.add(new Lion());
+		  
 
         animal.add(new Tiger());
         animal.add(new Deer());
