@@ -192,6 +192,8 @@ public class Hotel
     	{
     	   System.out.println("Please select your food ");
     	   b = scanner.nextInt();
+    	   if(b == menu.orderFood)
+    	   {
     	   orderFood.add(new OrderFood());
     	   for(int j=0;j<orderFood.size();j++)
     	   {
@@ -203,7 +205,15 @@ public class Hotel
     	   orderFood.get(j).setRate(rate);
     	} 
       }
+      break;
+    }
+       else
+       {
+       	System.out.println("Please select valid option");
+        orderFoods();
+       }	
     } 
+
     	System.out.println("\nYour ordered food are");
     	   for(int j=0;j<orderFood.size();j++)
     	   {
