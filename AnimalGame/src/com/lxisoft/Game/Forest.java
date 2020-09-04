@@ -136,9 +136,10 @@ public void startGame()
             {   
                 // System.out.println(animal.get(randomNo).getAnimalName());  
              //    System.out.println(animal.get(randomFile).getAnimalName());
+             g.gameSpecs(randomNo,randomFile,animal);
              }
            }
-             g.gameSpecs(randomNo,randomFile,animal);
+             
          }while(count>=1);
         this.Winner();
     }
@@ -149,9 +150,9 @@ public void Winner()
   {
     if(animal.get(i).getAnimalLife()==true)
     {
-       System.out.println("");
+        System.out.println("");
         System.out.println("__________________________________________________\n");
-       System.out.println("=> WINNER IS " + animal.get(i).getName());
+        System.out.println("=> WINNER IS " + animal.get(i).getName());
         System.out.println("____________________________________________________");
         System.out.println("");
       }
