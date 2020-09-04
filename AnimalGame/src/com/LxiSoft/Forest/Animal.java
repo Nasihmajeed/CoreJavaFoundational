@@ -1,13 +1,13 @@
 package com.LxiSoft.Forest;
 import com.LxiSoft.Animal.*;
-
 public abstract class Animal
 {
 	
-private boolean animalLife;
+	private boolean animalLife;
 	private String name;
 	private int animalStrength;
-	
+	int range;
+
 
 	public void setName(String name)
 	{
@@ -41,6 +41,15 @@ private boolean animalLife;
 	public boolean getAnimalLife()
 	{
 		return animalLife;
+	}
+
+	public void setRange(int r)
+	{
+		range=r;
+	}
+	public int getRange()
+	{
+		return range;
 	}
 
 

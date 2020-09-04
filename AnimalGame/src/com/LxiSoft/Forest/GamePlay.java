@@ -38,15 +38,16 @@ public void herbVsHerb(int randomNo,int randomFile,	ArrayList<Animal> animal)
 {
 	System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getName());
     System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
+    System.out.println("\n BOTH ARE HERBIVOROUS");
     System.out.println("\t \n DONOT FIGHT");
     System.out.println("**************************************");
 }
 public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
 {
-    System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getName()+ "   \t STRENGTH    "+animal.get(randomNo).getAnimalStrength());
+           //System.out.println();
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName()+"    \t STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println();
 
             if(animal.get(randomNo).getAnimalStrength() >= animal.get(randomFile).getAnimalStrength())
             {
@@ -54,7 +55,6 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
                 animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()-20);
                 System.out.println(" \n NEW  STRENGTH     "+animal.get(randomNo).getAnimalStrength());
                 animal.get(randomFile).setAnimalLife(false);
-                System.out.println(animal.get(randomFile).getAnimalLife());
                 System.out.println("**************************************");
             }
 
@@ -64,9 +64,7 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
                 System.out.println("\n WINNER  IS  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
                 animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()-20);
                 System.out.println(" \n NEW  STRENGTH     "+animal.get(randomFile).getAnimalStrength());
-                  System.out.println(animal.get(randomNo).getAnimalLife());
                 animal.get(randomNo).setAnimalLife(false);
-                System.out.println(animal.get(randomNo).getAnimalLife());
                 System.out.println("**************************************");
 
             }
@@ -75,10 +73,10 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
    public void herbVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
    {
           int luckyHerb=luckFactor();
-            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName()+"    \t  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
+            System.out.println();
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName()+"    \t STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println();
 
            if (animal.get(randomNo) instanceof WeakAnimal)
            {
@@ -88,7 +86,6 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()+20);
             System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomFile).getAnimalStrength());
             animal.get(randomNo).setAnimalLife(false);
-            System.out.println(animal.get(randomNo).getAnimalLife());
             System.out.println("**************************************");
             }
             else
@@ -106,7 +103,6 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()+20);
             System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomFile).getAnimalStrength());
             animal.get(randomNo).setAnimalLife(false);
-            System.out.println(animal.get(randomNo).getAnimalLife());
             System.out.println("**************************************");
           }
    }
@@ -115,10 +111,10 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
    { 
              int luckyHerb=luckFactor();
 
-            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
-            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-            System.out.println("    \n  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName()+"    \t  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
+            System.out.println();
+            System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName()+"    \t  STRENGTH    "+animal.get(randomFile).getAnimalStrength());
+            System.out.println();
 
             if ( animal.get(randomFile) instanceof WeakAnimal)
             {
@@ -128,7 +124,6 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()+10);
             System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomNo).getAnimalStrength());
             animal.get(randomFile).setAnimalLife(false);
-            System.out.println(animal.get(randomFile).getAnimalLife());
             System.out.println("**************************************");
           }
           else
@@ -146,7 +141,6 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()+20);
             System.out.println("\n WINNER S NEW STRENGTH"+"    "+animal.get(randomNo).getAnimalStrength());
             animal.get(randomFile).setAnimalLife(false);
-            System.out.println(animal.get(randomFile).getAnimalLife());
             System.out.println("**************************************");
         }
    }

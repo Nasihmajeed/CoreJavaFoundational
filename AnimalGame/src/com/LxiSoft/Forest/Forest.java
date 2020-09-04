@@ -11,7 +11,7 @@ public class Forest
 	ArrayList<Animal> animal=new ArrayList<Animal>();
   Scanner s=new Scanner(System.in);
   Random random = new Random();
-        
+         
           int count;
           int choice=1;
           int randomNo;
@@ -57,48 +57,58 @@ public class Forest
 		    animal.get(0).setName("Tiger1");
         animal.get(0).setAnimalStrength(85);
         animal.get(0).setAnimalLife(true);
+        animal.get(0).setRange(15);
 
 		    animal.get(1).setName("Deer1");
         animal.get(1).setAnimalStrength(40);
         animal.get(1).setAnimalLife(true);
+        animal.get(1).setRange(10);
 
-		       animal.get(2).setName("Rabbit1");
-           animal.get(2).setAnimalStrength(35);
-           animal.get(2).setAnimalLife(true);
+		    animal.get(2).setName("Rabbit1");
+        animal.get(2).setAnimalStrength(35);
+        animal.get(2).setAnimalLife(true);
+        animal.get(2).setRange(8);
 
 		    animal.get(3).setName("Bear1");
         animal.get(3).setAnimalStrength(65);
         animal.get(3).setAnimalLife(true);
+        animal.get(3).setRange(13);
 
 		    animal.get(4).setName("Lion1");
         animal.get(4).setAnimalStrength(95);
         animal.get(4).setAnimalLife(true);
+        animal.get(4).setRange(18);
 
         animal.get(5).setName("Tiger2");
         animal.get(5).setAnimalStrength(85);
         animal.get(5).setAnimalLife(true);
+        animal.get(5).setRange(15);
 
 
         animal.get(6).setName("Deer2");
         animal.get(6).setAnimalStrength(40);
         animal.get(6).setAnimalLife(true);
+        animal.get(6).setRange(10);
 
         animal.get(7).setName("Rabbit2");
         animal.get(7).setAnimalStrength(35);
         animal.get(7).setAnimalLife(true);
+        animal.get(7).setRange(8);
 
         animal.get(8).setName("Bear2");
         animal.get(8).setAnimalStrength(65);
         animal.get(8).setAnimalLife(true);
+        animal.get(8).setRange(13);
 
         animal.get(9).setName("Lion2");
         animal.get(9).setAnimalStrength(95);
-    animal.get(9).setAnimalLife(true);
+        animal.get(9).setAnimalLife(true);
+        animal.get(9).setRange(18);
 }
 
 public void printanimal()
 {
-		System.out.println("\t Animals in the forest are ");
+		System.out.println("\t \n Animals in the forest are ");
      	for (int i=0; i<animal.size(); i++)
      	{	
      		System.out.println("\n   "+(i+1)+"   "+animal.get(i).getName());
@@ -124,7 +134,7 @@ public void selectRandom()
    System.out.println("\n PRESS 1 TO START THE GAME");
    int choice=s.nextInt();
    d.gameRun();
-    System.out.println(count);
+   
     if(choice==1)
 
     { 
@@ -157,10 +167,13 @@ public void finalWinner()
   {
     if(animal.get(i).getAnimalLife()==true)
     {
-        System.out.println("\n**************************************************");
-       System.out.println("=> WINNER IS " + animal.get(i).getName());
-        System.out.println("**************************************************");
+       d.pattern();
+    
+       System.out.println("\n =>THE ULTIMATE WINNER IS " + animal.get(i).getName());
+      
+      d.pyramidPattern3(); 
       }
+
 }
 }
 }
