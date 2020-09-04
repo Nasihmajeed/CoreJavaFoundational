@@ -15,8 +15,8 @@ public class Forest
         
           int count;
           int choice=1;
-          int rdmNo;
-          int rdmFile;
+          int randomNo;
+          int randomFile;
           
 
 
@@ -86,7 +86,9 @@ public class Forest
         animal.get(10).setAnimalStrength(95);
         animal.get(10).setAnimalLife(true);
 
-
+        animal.get(11).setName("Elephant 2");
+        animal.get(11).setAnimalStrength(94);
+        animal.get(11).setAnimalLife(true);
 }
 
 public void animalList()
@@ -121,22 +123,22 @@ public void startGame()
       do
        {
          count=this.random();
-        rdmNo = random.nextInt(12);   
-        rdmFile= random.nextInt(12);
+        randomNo = random.nextInt(12);   
+        randomFile= random.nextInt(12);
 
-          if(rdmNo==rdmFile)
+          if(randomNo==randomFile)
           {   
-           rdmFile= random.nextInt(12);
+           randomFile= random.nextInt(12);
           }
            else//(randomNo!=random)
            {
-            if(animal.get(rdmNo).getAnimalLife()==true&&animal.get(rdmFile).getAnimalLife()==true)
+            if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
             {   
                 // System.out.println(animal.get(randomNo).getAnimalName());  
              //    System.out.println(animal.get(randomFile).getAnimalName());
              }
            }
-             g.gameSpecs(rdmNo,rdmFile,animal);
+             g.gameSpecs(randomNo,randomFile,animal);
          }while(count>=1);
         this.Winner();
     }
