@@ -9,9 +9,12 @@ public class GamePlay
 
 {
 		 Random random = new Random();
+     Forest forest=new Forest();
 
 public void gameConditions(int randomNo,int randomFile,	ArrayList<Animal> animal)
 
+{
+  if(forest.checkArea()==true)
 {
  if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
  {
@@ -32,6 +35,11 @@ else if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) in
   {
  this.carVsHerb(randomNo,randomFile,animal);
    }
+ }
+ else
+ {
+  System.out.println("Animal is not in area");
+ }
 
 }
 public void herbVsHerb(int randomNo,int randomFile,	ArrayList<Animal> animal)
@@ -73,6 +81,7 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
    public void herbVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
    {
           int luckyHerb=luckFactor();
+
             System.out.println("    \n  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName()+"    \t  STRENGTH    "+animal.get(randomNo).getAnimalStrength());
             System.out.println();
             System.out.println("    \n  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName()+"    \t STRENGTH    "+animal.get(randomFile).getAnimalStrength());
