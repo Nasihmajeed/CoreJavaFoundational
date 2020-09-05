@@ -130,13 +130,11 @@ public void startGame()
           {   
            randomFile= random.nextInt(12);
           }
-           else//(randomNo!=random)
+           else
            {
             if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
             {   
-                // System.out.println(animal.get(randomNo).getAnimalName());  
-             //    System.out.println(animal.get(randomFile).getAnimalName());
-             g.gameSpecs(randomNo,randomFile,animal);
+               g.gameSpecs(randomNo,randomFile,animal);
              }
            }
              
