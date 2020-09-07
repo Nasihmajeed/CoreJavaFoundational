@@ -413,33 +413,7 @@ public class Forest{
 
     public boolean checkArea(int r1, int r2, ArrayList<Animal> animals)
     {
-        int animal1X,animal1Y,animal2X,animal2Y;
-
-        animal1X= 10 + (int) (Math.random()*50);
-        animal1Y= 10 + (int) (Math.random()*50);
-        animal2X= 10 + (int) (Math.random()*50);
-        animal2Y= 10 + (int) (Math.random()*50);
-        System.out.println("\t TERRITORY DETAILS ");
-        System.out.println("   **************************");
-        System.out.println("\n"+animals.get(r1).getAnimalName() +"=> \t( "+animal1X+", " +animal1Y+")" + "\t Range =  " +animals.get(r1).range );
-        System.out.println("\n"+animals.get(r2).getAnimalName()+" => \t( "+animal2X+", " +animal2Y+")" + "\t Range =  " +animals.get(r2).range);
-
-        int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
-        int rad = ((animals.get(r1).getRange())+(animals.get(r2).getRange()));
-        if(dist<= rad)
-        {
-
-            System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in SAME TERRITORY \n");
-            return true;
-        }
-        else
-        {
-            if(((animals.get(r1)) instanceof Herbivorus) && ((animals.get(r2)) instanceof Herbivorus))
-                System.out.println("\n\t\t=> "+" Both Are Herbivorus => No Fight Happens");
-            System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n\t\t=> No FIGHT TAKES PLACE");
-            return false;
-
-        }
+        
 
     }
 }
