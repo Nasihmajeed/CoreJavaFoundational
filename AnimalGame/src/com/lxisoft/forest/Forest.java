@@ -202,8 +202,12 @@ public class Forest{
                 else//(animalList.get(getRandomNumber())!=animalList.get(getRandomItem()))
                 {
                     if(animalList.get(getRandomNumber()).getAnimalAlive() == true && animalList.get(getRandomItem()).getAnimalAlive() == true){
-                        this.checkFight();
-                       
+                        if(checkArea()==true){
+                            this.checkFight();
+                        }
+                        else{
+                            System.out.println("******************** DIFFERENT AREA");
+                        }
                     }
                 }
             }
@@ -437,9 +441,47 @@ public class Forest{
         aX2= 10 + (int) (Math.random()*50);
         aY2= 10 + (int) (Math.random()*50);
 
-    }
-}
+        System.out.println("\t DISTANCE DETAILS ");
+        System.out.println("   **************************");
+
+        System.out.println("\n"+animalList.get(randomNumber).getAnimalName() +"=> \t( "+aX+", " +aY+")" + 
+            "\t DISTANCE =  " +animalList.get(randomNumber).getDistance());
+       System.out.println("\n"+animalList.get(randomItem).getAnimalName()+" => \t( "+aX+", " +aY+")" + 
+        "\t DISTANCE =  " +animalList.get(randomItem).getDistance());
+
+        int distanceCalculation = (int) (Math.sqrt(((aX - aX2)*(aX - aX2))+((aY - aY2)*(aY - aY2))));
+        int radius = ((animalList.get(randomNumber).getDistance())+(animalList.get(randomItem).getDistance()));
+        if(distanceCalculation<= radius)
+        {
+
+            System.out.println("\n\t\t=> "+animalList.get(randomNumber).getAnimalName() + " AND " +  animalList.get(randomItem).getAnimalName() +
+             "  CAN FIGHT \n");
+             return true;
+
+           
+        }
+        
+        else
+        {
+            if(((animalList.get(randomNumber)) instanceof Herbivoros) && ((animalList.get(randomItem)) instanceof Herbivoros))
             
+                // System.out.println("\n\t\t=> "+" Both Are Herbivorus => No Fight Happens");
+            
+            //System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n\t\t=> No FIGHT TAKES PLACE");
+            System.out.println("DIFFERENT TERRITORY");
+             return false; 
+
+        }
+        
+   
+            
+     
+
+    }
+
+
+}
+
 
 
 
