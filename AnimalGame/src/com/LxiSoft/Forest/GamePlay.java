@@ -14,12 +14,12 @@ public class GamePlay
 public void gameConditions(int randomNo,int randomFile,	ArrayList<Animal> animal)
 
 {
-  if(forest.checkArea()==true)
-{
- if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
+  if(this.checkArea(randomNo,randomFile,animal) == true)
  {
- 	this.herbVsHerb(randomNo,randomFile,animal);
-  }
+   if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
+    {
+   	this.herbVsHerb(randomNo,randomFile,animal);
+     }
 
 else if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) instanceof Carnivorous )
   {
@@ -160,6 +160,37 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
     int randomLuck = rand.nextInt(3);
     return randomLuck;
    }
- }
+   public boolean checkArea(int randomNo,int randomFile,  ArrayList<Animal> animal)
+  {
+    int animal1X,animal1Y,animal2X,animal2Y;
+
+    animal1X= 10 + (int) (Math.random()*50);
+    animal1Y= 10 + (int) (Math.random()*50);
+    animal2X= 10 + (int) (Math.random()*50);
+    animal2Y= 10 + (int) (Math.random()*50);
+    System.out.println("\t TERRITORY DETAILS ");
+    System.out.println("   **************************");
+    System.out.println("\n"+animal.get(randomNo).getAnimalName() +"=> \t( "+animal1X+", " +animal1Y+")" + "\t Range =  " +animal.get(randomNo).range );
+    System.out.println("\n"+animal.get(randomFile).getAnimalName()+" => \t( "+animal2X+", " +animal2Y+")" + "\t Range =  " +animal.get(randomFile).range);
+
+    int dist = (int) (Math.sqrt(((animal1X - animal2X)*(animal1X - animal2X))+((animal1Y - animal2Y)*(animal1Y - animal2Y))));
+    int rad = ((animal.get(randomNo).getRange())+(animal.get(randomFile).getRange()));
+    if(dist<= rad)
+    {
+
+      System.out.println("\n\t\t=> "+animal.get(randomNo).getAnimalName() + " AND " +  animal.get(randomFile).getAnimalName() + " are in SAME TERRITORY \n");
+      return true;
+    }
+    else
+    {
+      if(((animal.get(randomNo)) instanceof Herbivorus) && ((animal.get(randomFile)) instanceof Herbivorus))
+        System.out.println("\n\t\t=> "+" Both Are Herbivorus => No Fight Happens");
+      System.out.println("\n\t\t=> "+animal.get(randomNo).getAnimalName() + " AND " +  animal.get(randomFile).getAnimalName() + " are in DIFFERENT TERRITORY \n\t\t=> No FIGHT TAKES PLACE");
+      return false;
+
+    }
+
+  }
+}
  
 

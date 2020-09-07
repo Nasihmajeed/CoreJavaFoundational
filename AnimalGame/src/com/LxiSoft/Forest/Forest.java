@@ -148,7 +148,7 @@ public void selectRandom()
            {
             if((animal.get(randomNo).getAnimalLife()==true)&&(animal.get(randomFile).getAnimalLife()==true))
             {   
-             this.checkArea();
+             
               g.gameConditions(randomNo,randomFile,animal);
              }
            }  
@@ -169,10 +169,9 @@ public void finalWinner()
       
       d.pyramidPattern3(); 
       }
-
-}
-}
-public boolean checkArea()
+    }
+  }
+  public boolean checkArea()
   {
     int animal1X,animal1Y,animal2X,animal2Y;
 
