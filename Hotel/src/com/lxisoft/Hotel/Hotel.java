@@ -141,6 +141,7 @@ public class Hotel
     else
     {
     	System.out.println("Please select valid option");
+    	System.out.println("\n");
     	deleteFood();
     }	
   }
@@ -158,6 +159,7 @@ public class Hotel
     else
     {
     	System.out.println("Please select valid option");
+    	System.out.println("\n");
     	deleteDrink();
     }
 }
@@ -178,6 +180,7 @@ public class Hotel
     else
     {
     	System.out.println("Please select valid option");
+    	System.out.println("\n");
     	updateDrink();
     }
 }
@@ -198,6 +201,7 @@ public class Hotel
     else
     {
     	System.out.println("Please select valid option");
+    	System.out.println("\n");
     	updateFood();
     }
  }
@@ -241,6 +245,7 @@ public class Hotel
        else
        {
        	System.out.println("Please select valid option");
+       	System.out.println("\n");
         orderFoods();
        }	
     } 
@@ -257,7 +262,6 @@ public class Hotel
     {
     	int b = 0;
     	System.out.println("\nHow many drinks did you want to order: ");
-    	
     	int a = scanner.nextInt();
 
     	for(int i=0;i<a;i++)
@@ -281,7 +285,9 @@ public class Hotel
         else
         {
         	System.out.println("Please select valid option");
+        	System.out.println("\n");
         	orderDrinks();
+        	break;
         }
     }
     	System.out.println("\nYour ordered drinks are");
@@ -291,7 +297,7 @@ public class Hotel
     	   }  
         System.out.println("\n Your drink is getting ready");   
     }
-
+    
      public void bill()
     {
     	int total = 0;
