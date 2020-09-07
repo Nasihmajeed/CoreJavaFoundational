@@ -34,6 +34,8 @@ public class Forest{
         return randomItem;
     }
 
+   
+
 
     public void printDetails(){
         System.out.println("************************************************************************************************");
@@ -86,6 +88,7 @@ public class Forest{
         animalList.get(0).setAnimalName("Deer");
         animalList.get(0).setAnimalStrength(20);
         animalList.get(0).setAnimalAlive(true);
+        animalList.get(0).setDistance(10);
 
 
 
@@ -94,46 +97,61 @@ public class Forest{
         animalList.get(1).setAnimalName("Lion");
         animalList.get(1).setAnimalStrength(100);
         animalList.get(1).setAnimalAlive(true);
+         animalList.get(1).setDistance(15);
 
         animalList.add(new Rabbit());
         animalList.get(2).setAnimalName("Rabbit");
         animalList.get(2).setAnimalStrength(10);
         animalList.get(2).setAnimalAlive(true);
+         animalList.get(2).setDistance(12);
 
         animalList.add(new Tiger());
         animalList.get(3).setAnimalName("Tiger");    
         animalList.get(3).setAnimalStrength(90);
         animalList.get(3).setAnimalAlive(true);
+         animalList.get(3).setDistance(17);
 
         animalList.add(new Goat());
         animalList.get(4).setAnimalName("Goat");    
         animalList.get(4).setAnimalStrength(30);
         animalList.get(4).setAnimalAlive(true);
+         animalList.get(4).setDistance(5);
+
+
 
         animalList.add(new Heyna());
         animalList.get(5).setAnimalName("Heyna");    
         animalList.get(5).setAnimalStrength(40);
         animalList.get(5).setAnimalAlive(true);
+         animalList.get(5).setDistance(11);
+
 
         animalList.add(new Bear());
         animalList.get(6).setAnimalName("Bear");    
         animalList.get(6).setAnimalStrength(60);
         animalList.get(6).setAnimalAlive(true);
+         animalList.get(6).setDistance(7);
+
 
         animalList.add(new Cheetha());
         animalList.get(7).setAnimalName("Cheetha");    
         animalList.get(7).setAnimalStrength(85);
         animalList.get(7).setAnimalAlive(true);
+         animalList.get(7).setDistance(13);
 
         animalList.add(new Fox());
         animalList.get(8).setAnimalName("Fox");    
         animalList.get(8).setAnimalStrength(45);
         animalList.get(8).setAnimalAlive(true);
+         animalList.get(8).setDistance(8);
+
 
         animalList.add(new Racoon());
         animalList.get(9).setAnimalName("Racoon");    
         animalList.get(9).setAnimalStrength(35);
         animalList.get(9).setAnimalAlive(true);
+         animalList.get(9).setDistance(14);
+
 
         for(int i=0;i<animalList.size();i++){
 
@@ -411,9 +429,13 @@ public class Forest{
 
     }
 
-    public boolean checkArea(int r1, int r2, ArrayList<Animal> animals)
+    public boolean checkArea()
     {
-        
+        int aX,aY,aX2,aY2;
+        aX= 10 + (int) (Math.random()*50);
+        aY= 10 + (int) (Math.random()*50);
+        aX2= 10 + (int) (Math.random()*50);
+        aY2= 10 + (int) (Math.random()*50);
 
     }
 }

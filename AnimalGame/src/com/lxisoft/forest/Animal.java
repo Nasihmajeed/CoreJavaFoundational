@@ -42,6 +42,17 @@ public abstract  class Animal {
 
 	public abstract void eat();
 
+	 private int distance;
+    public void setDistance(int d)
+    {
+        distance=d;
+    }
+    public int getDistance()
+    {
+        return distance;
+    }
+
+
 
 	
 }
