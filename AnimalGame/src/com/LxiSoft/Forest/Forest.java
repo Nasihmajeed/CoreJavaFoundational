@@ -17,10 +17,7 @@ public class Forest
           int randomNo;
           int randomFile;
           Designs d=new Designs();
-
-
-         
-          GamePlay g=new GamePlay();
+         GamePlay g=new GamePlay();
 
 	public void gameStart()
 	{
@@ -70,7 +67,7 @@ public class Forest
         animal.get(2).setAnimalLife(true);
         animal.get(2).setRange(10);
 
-		    animal.get(3).setName("Bear1");
+		    animal.get(3).setName("Bear");
         animal.get(3).setAnimalStrength(65);
         animal.get(3).setAnimalLife(true);
        animal.get(3).setRange(15);
@@ -109,7 +106,11 @@ public class Forest
 
 public void printanimal()
 {
-		System.out.println("\t \n animal in the forest are ");
+		System.out.println("                ---------------------------------------------------");
+    System.out.println("                ---------------------------------------------------");
+    System.out.println("                -------------------participants--------------------");
+    System.out.println("                ---------------------------------------------------");
+    System.out.println("                ---------------------------------------------------");
      	for (int i=0; i<animal.size(); i++)
      	{	
      		System.out.println("\n   "+(i+1)+"   "+animal.get(i).getName());
