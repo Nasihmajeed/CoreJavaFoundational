@@ -205,9 +205,7 @@ public class Forest{
                         if(checkArea()==true){
                             this.checkFight();
                         }
-                        else{
-                            System.out.println("******************** DIFFERENT AREA");
-                        }
+                       
                     }
                 }
             }
@@ -230,12 +228,37 @@ public class Forest{
                 if(animalList.get(getRandomNumber()).getAnimalStrength() >= animalList.get(getRandomItem()).getAnimalStrength()){
                     System.out.println("\n \nWINNER  IS  PLAYER1"+"    "+animalList.get(getRandomNumber()).getAnimalName());
                     animalList.get(randomNumber).setAnimalStrength(animalList.get(getRandomNumber()).getAnimalStrength()-20);
+                    animalList.get(randomItem).setAnimalStrength(animalList.get(getRandomItem()).getAnimalStrength()-30);
                     System.out.println(" \n NEW  STRENGTH     "+animalList.get(getRandomNumber()).getAnimalStrength());
                     System.out.println(" \n  LOOSER  "+animalList.get(getRandomItem()).getAnimalName());
+                     System.out.println(" \n NEW  STRENGTH  OF LOOSER ANIMAL   "+animalList.get(getRandomItem()).getAnimalStrength());
                     System.out.println("**************************************");
+                        if(animalList.get(getRandomItem()).getAnimalStrength() <= 5) {
 
-                    animalList.get(getRandomItem()).setAnimalAlive(false);
-                   
+                            animalList.get(getRandomItem()).setAnimalAlive(false);
+
+                            System.out.println(" ANIMAL  "+animalList.get(getRandomItem()).getAnimalName() +" IS DEAD DUE TO ENERGY LESS THAN FIVE");
+                        }
+
+                        else{
+                            animalList.get(getRandomItem()).setAnimalAlive(true);
+                        }
+                         /* for removing negative values*/
+
+                        if(animalList.get(getRandomNumber()).getAnimalStrength() <= 5) {
+
+                            animalList.get(getRandomNumber()).setAnimalAlive(false);
+
+                            System.out.println("  EVENTHOUGH ANIMAL  "+animalList.get(getRandomNumber()).getAnimalName() +" WINS IT GRADUALLY DIES  DUE TO ENERGY LESS THAN FIVE");
+                        }
+
+                        else{
+                            animalList.get(getRandomNumber()).setAnimalAlive(true);
+                        }
+
+
+
+
                     count=this.workingOfLoop();
                     this.Winner();
                 }
@@ -244,10 +267,37 @@ public class Forest{
 
                     System.out.println("\n \n WINNER  IS  PLAYER2"+"    "+animalList.get(getRandomItem()).getAnimalName());
                     animalList.get(randomItem).setAnimalStrength(animalList.get(getRandomItem()).getAnimalStrength()-20);
+                    animalList.get(randomNumber).setAnimalStrength(animalList.get(getRandomNumber()).getAnimalStrength()-30);
                     System.out.println(" \n NEW  STRENGTH     "+animalList.get(getRandomItem()).getAnimalStrength());
                     System.out.println(" \n  LOOSER IS PLAYER1 "+animalList.get(getRandomNumber()).getAnimalName());
+                     System.out.println(" \n NEW  STRENGTH  OF LOOSER ANIMAL   "+animalList.get(getRandomNumber()).getAnimalStrength());
                     System.out.println("**************************************");
-                    animalList.get(getRandomNumber()).setAnimalAlive(false);
+
+                        if(animalList.get(getRandomNumber()).getAnimalStrength() <= 5  ) {
+
+                            animalList.get(getRandomNumber()).setAnimalAlive(false);
+                            System.out.println(" ANIMAL  "+animalList.get(getRandomNumber()).getAnimalName() +" IS DEAD DUE TO ENERGY LESS THAN FIVE");
+                        }
+
+                        else{
+                            animalList.get(getRandomNumber()).setAnimalAlive(true);
+                        }
+
+                        //to remove negative values
+
+                        if(animalList.get(getRandomItem()).getAnimalStrength() <= 5) {
+
+                            animalList.get(getRandomItem()).setAnimalAlive(false);
+
+                            System.out.println("EVEN THOUGH ANIMAL  "+animalList.get(getRandomItem()).getAnimalName() +" WINS IT GRADUALLY DIES DUE TO ENERGY LESS THAN FIVE");
+                        }
+
+                        else{
+                            animalList.get(getRandomItem()).setAnimalAlive(true);
+                        }
+
+
+                    
                    
                       count=this.workingOfLoop();
                        this.Winner();
@@ -463,12 +513,13 @@ public class Forest{
         
         else
         {
-            if(((animalList.get(randomNumber)) instanceof Herbivoros) && ((animalList.get(randomItem)) instanceof Herbivoros))
+           // if(((animalList.get(randomNumber)) instanceof Herbivoros) && ((animalList.get(randomItem)) instanceof Herbivoros))
             
                 // System.out.println("\n\t\t=> "+" Both Are Herbivorus => No Fight Happens");
             
             //System.out.println("\n\t\t=> "+animals.get(r1).getAnimalName() + " AND " +  animals.get(r2).getAnimalName() + " are in DIFFERENT TERRITORY \n\t\t=> No FIGHT TAKES PLACE");
-            System.out.println("DIFFERENT TERRITORY");
+            System.out.println("\n\t\t=> "+animalList.get(randomNumber).getAnimalName() + " AND " +  animalList.get(randomItem).getAnimalName() +
+             "  CANNOT  ***FIGHT*** \n");
              return false; 
 
         }
