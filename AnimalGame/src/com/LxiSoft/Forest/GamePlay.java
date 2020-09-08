@@ -10,13 +10,13 @@ public class GamePlay
 
 {
 		 Random random = new Random();
-     Forest forest=new Forest();
-
+    
 public void gameConditions(int randomNo,int randomFile,	ArrayList<Animal> animal)
 
 {
- // if(this.checkArea(randomNo,randomFile,animal) == true)
- //{
+  boolean result=this.checkArea(randomNo,randomFile,animal);
+  if(result == true)
+ {
    if (animal.get(randomNo) instanceof Herbivorus && animal.get (randomFile) instanceof Herbivorus )
     {
    	this.herbVsHerb(randomNo,randomFile,animal);
@@ -36,11 +36,11 @@ else if(animal.get(randomNo) instanceof Carnivorous && animal.get(randomFile) in
   {
  this.carVsHerb(randomNo,randomFile,animal);
    }
- //}
- //else
- //{
-  //System.out.println("Animal is not in area");
- //}
+ }
+ else
+ {
+  System.out.println("Animal is not in area");
+ }
 
 }
 public void herbVsHerb(int randomNo,int randomFile,	ArrayList<Animal> animal)
@@ -161,14 +161,14 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
     int randomLuck = rand.nextInt(3);
     return randomLuck;
    }
-  /* public boolean checkArea(int randomNo,int randomFile,  ArrayList<Animal> animal)
+   public boolean checkArea(int randomNo,int randomFile,  ArrayList<Animal> animal)
   {
     int animal1X,animal1Y,animal2X,animal2Y;
 
-    animal1X= 06 + (int) (Math.random()*50);
-    animal1Y= 06 + (int) (Math.random()*50);
-    animal2X= 06 + (int) (Math.random()*50);
-    animal2Y= 06 + (int) (Math.random()*50);
+    animal1X= 10 + (int) (Math.random()*50);
+    animal1Y= 10 + (int) (Math.random()*50);
+    animal2X= 10 + (int) (Math.random()*50);
+    animal2Y= 10 + (int) (Math.random()*50);
     System.out.println("\t TERRITORY DETAILS ");
     System.out.println("   **************************");
     System.out.println("\n"+animal.get(randomNo).getAnimalName() +"=> \t( "+animal1X+", " +animal1Y+")" + "\t Range =  " +animal.get(randomNo).range );
@@ -191,7 +191,7 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
 
     }
 
-  }*/
+  }
 }
  
 

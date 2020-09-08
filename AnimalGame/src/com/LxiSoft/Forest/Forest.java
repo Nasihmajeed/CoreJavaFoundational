@@ -49,57 +49,62 @@ public class Forest
         animal.add(new Rabbit());
         animal.add(new Bears());
         animal.add(new Lion());
+        animal.add(new Tiger());
+        animal.add(new Deer());
+        animal.add(new Rabbit());
+        animal.add(new Bears());
+        animal.add(new Lion());
 
-		    animal.get(0).setName("TigerandomNo");
+		    animal.get(0).setName("Tiger1");
         animal.get(0).setAnimalStrength(85);
         animal.get(0).setAnimalLife(true);
         animal.get(0).setRange(18);
 
-		    animal.get(1).setName("DeerandomNo");
+		    animal.get(1).setName("Deer1");
         animal.get(1).setAnimalStrength(40);
         animal.get(1).setAnimalLife(true);
-        animal.get(1).setRange(13);
+       animal.get(1).setRange(13);
 
 		    animal.get(2).setName("Rabbit1");
         animal.get(2).setAnimalStrength(35);
         animal.get(2).setAnimalLife(true);
         animal.get(2).setRange(10);
 
-		    animal.get(3).setName("BearandomNo");
+		    animal.get(3).setName("Bear1");
         animal.get(3).setAnimalStrength(65);
         animal.get(3).setAnimalLife(true);
-        animal.get(3).setRange(15);
+       animal.get(3).setRange(15);
 
 		    animal.get(4).setName("Lion1");
         animal.get(4).setAnimalStrength(95);
         animal.get(4).setAnimalLife(true);
-        animal.get(4).setRange(20);
+       animal.get(4).setRange(20);
 
-        animal.get(5).setName("TigerandomFile");
+        animal.get(5).setName("Tiger2");
         animal.get(5).setAnimalStrength(85);
         animal.get(5).setAnimalLife(true);
-        animal.get(5).setRange(19);
+       animal.get(5).setRange(19);
 
 
-        animal.get(6).setName("DeerandomFile");
+        animal.get(6).setName("Deer2");
         animal.get(6).setAnimalStrength(40);
         animal.get(6).setAnimalLife(true);
-        animal.get(6).setRange(12);
+       animal.get(6).setRange(12);
 
         animal.get(7).setName("Rabbit2");
         animal.get(7).setAnimalStrength(35);
         animal.get(7).setAnimalLife(true);
-        animal.get(7).setRange(11);
+       animal.get(7).setRange(11);
 
-        animal.get(8).setName("BearandomFile");
+        animal.get(8).setName("BeaR2");
         animal.get(8).setAnimalStrength(65);
         animal.get(8).setAnimalLife(true);
-        animal.get(8).setRange(14);
+   animal.get(8).setRange(14);
 
         animal.get(9).setName("Lion2");
         animal.get(9).setAnimalStrength(95);
         animal.get(9).setAnimalLife(true);
-        animal.get(9).setRange(19);
+      animal.get(9).setRange(19);
 }
 
 public void printanimal()
