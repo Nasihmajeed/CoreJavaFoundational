@@ -3,6 +3,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Hotel
 {
+	class Drinks extends Food
+	{
+
+	}
+	class OrderFood extends Food
+	{
+
+	}
+	class OrderDrink extends Food
+	{
+		
+	}
 	ArrayList<Food> menu = new ArrayList<Food>();
 	ArrayList<OrderFood> orderFood = new ArrayList<OrderFood>();
 	ArrayList<OrderDrink> orderDrink = new ArrayList<OrderDrink>();
