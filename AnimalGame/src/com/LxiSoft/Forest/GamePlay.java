@@ -61,9 +61,16 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             if(animal.get(randomNo).getAnimalStrength() >= animal.get(randomFile).getAnimalStrength())
             {
                 System.out.println("\n WINNER  IS  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
-                animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()-20);
-                System.out.println(" \n NEW  STRENGTH     "+animal.get(randomNo).getAnimalStrength());
-                animal.get(randomFile).setAnimalLife(false);
+                animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()-10);
+                System.out.println(" \n NEW  STRENGTH of Winner       "+animal.get(randomNo).getAnimalStrength());
+                 System.out.println("\n Looser IS  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
+                animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()-30);
+                System.out.println("\n new strength of Looser   "+animal.get(randomFile).getAnimalStrength());
+                if(animal.get(randomFile).getAnimalStrength()<=30)
+                {
+                   animal.get(randomFile).setAnimalLife(false);
+                   System.out.println("\n Died animal:  "+animal.get(randomFile).getAnimalName());
+                }
                 System.out.println("**************************************");
             }
 
@@ -71,9 +78,16 @@ public void carVsCar(int randomNo,int randomFile,	ArrayList<Animal> animal)
             {
 
                 System.out.println("\n WINNER  IS  PLAYER 2"+"    "+animal.get(randomFile).getAnimalName());
-                animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()-20);
-                System.out.println(" \n NEW  STRENGTH     "+animal.get(randomFile).getAnimalStrength());
-                animal.get(randomNo).setAnimalLife(false);
+                animal.get(randomFile).setAnimalStrength(animal.get(randomFile).getAnimalStrength()-10);
+                System.out.println(" \n NEW  STRENGTH of Winner       "+animal.get(randomFile).getAnimalStrength());
+                 System.out.println("\n Looser  IS  PLAYER 1"+"    "+animal.get(randomNo).getAnimalName());
+                animal.get(randomNo).setAnimalStrength(animal.get(randomNo).getAnimalStrength()-30);
+                System.out.println("\n new strength of Looser   "+animal.get(randomNo).getAnimalStrength());
+                if(animal.get(randomNo).getAnimalStrength()<=30)
+                {
+                    animal.get(randomNo).setAnimalLife(false);
+                     System.out.println("\n Died animal:-  "+animal.get(randomNo).getName());
+                }
                 System.out.println("**************************************");
 
             }

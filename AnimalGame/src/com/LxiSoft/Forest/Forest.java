@@ -67,7 +67,7 @@ public class Forest
         animal.get(2).setAnimalLife(true);
         animal.get(2).setRange(10);
 
-		    animal.get(3).setName("Bear");
+		    animal.get(3).setName("Bear1");
         animal.get(3).setAnimalStrength(65);
         animal.get(3).setAnimalLife(true);
        animal.get(3).setRange(15);
@@ -132,11 +132,12 @@ private int iterateRandom()
 }
 public void selectRandom()
 { 
- count=this.iterateRandom();
+  
+  count=this.iterateRandom();
    System.out.println("\n PRESS 1 TO START THE GAME");
    int choice=s.nextInt();
-   d.gameRun();
-   
+ // d.gameRun();
+   this.gameRules();
     if(choice==1)
 
     { 
@@ -177,6 +178,10 @@ public void finalWinner()
       }
 
 }
+}
+public void gameRules()
+{System.out.println("\t \t \n GAME RULES");
+  System.out.println("\n 1: Carnivorus only dies if its strength goes less than 30 \n 2: Rabbit can be a Lucky Animal if it runs away \n 3: Animals take a fight if and only if they are in the same area \n 4: Herbivorus donot fight each other \n 5: The whole game is purely based on Random selection \n");
 }
 
 }
