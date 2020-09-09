@@ -181,7 +181,8 @@ public void finalWinner()
 }
 public void gameRules()
 {System.out.println("\t \t \n GAME RULES");
-  System.out.println("\n 1: Carnivorus only dies if its strength goes less than 30 \n 2: Rabbit can be a Lucky Animal if it runs away \n 3: Animals take a fight if and only if they are in the same area \n 4: Herbivorus donot fight each other \n 5: The whole game is purely based on Random selection \n");
+  System.out.println("\n 1: Carnivorus only dies if its strength goes less than 30 \n 2: Rabbit can be a Lucky Animal if it runs away ");
+System.out.println("\n 3: Animals take a fight if and only if they are in the same area \n 4: Herbivorus donot fight each other \n 5: The whole game is purely based on Random selection \n")
 }
 
 }
