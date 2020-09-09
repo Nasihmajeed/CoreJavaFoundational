@@ -117,9 +117,10 @@ public void animalList()
 
 private int random()
 {
+  count=0;
  for(int i=0;i<animal.size();i++)
   {
-    count=0;
+    
     if(animal.get(i).getAnimalLife()==true)
      {
       count++;
@@ -128,35 +129,38 @@ private int random()
     return count;
 }
 public void startGame()
-{   
+{  
+    count = this.random(); 
    System.out.println("\n PRESS 1 TO START THE GAME");
    int choice=s.nextInt();
    
-    if(choice==1)
+ if(choice==1)
 
     { 
+       
       while(count>1)
        {
         count=this.random();
         randomNo = random.nextInt(12);   
         randomFile= random.nextInt(12);
-
           if(randomNo==randomFile)
           {   
-           randomFile= random.nextInt(12);
+           randomFile= random.nextInt(10);
           }
            else
            {
-            if(animal.get(randomNo).getAnimalLife()==true&&animal.get(randomFile).getAnimalLife()==true)
+            if((animal.get(randomNo).getAnimalLife()==true)&&(animal.get(randomFile).getAnimalLife()==true))
             {   
-               g.gameSpecs(randomNo,randomFile,animal);
-            }
-           }
              
+              g.gameSpecs(randomNo,randomFile,animal);
+             }
+           }  
          }
+        
         this.Winner();
     }
 }
+
 public void Winner()
 {
   for(int i=0;i<animal.size();i++)

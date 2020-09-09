@@ -3,11 +3,11 @@ import com.lxisoft.Animals.*;
 
 public abstract class Animal
 {
-	
 	private boolean animalLife;
 	private String name;
 	private int animalStrength;
 	int range;
+
 
 	public void setName(String name)
 	{
@@ -51,5 +51,6 @@ public abstract class Animal
 	{
 		return range;
 	}
+
 
 }
