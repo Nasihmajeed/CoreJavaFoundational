@@ -1,0 +1,6 @@
+## Fast-Tag Checker ##
+
+* Create a project to check wether the vehicle has got Fast-Tag or not. If the vehicle has got the tag then print "You Can Go Now".
+* If it does not have a Fast-Tag then ask for one direction or two. Depending on the direction print the reciept showing the amount that to be paid.
+* You should also have a number of objects pre-stored to compare with the new entry.
+* Use for loop for Comparison.
