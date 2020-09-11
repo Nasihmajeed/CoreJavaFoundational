@@ -130,6 +130,9 @@ public class Hotel
 
     public void deleteFood()
     {
+    	int c = 0;
+    	do
+    	{
     	System.out.println("Enter the number to delete: ");
     	int i = scanner.nextInt(); 
     	if(i <= menu.size())
@@ -142,12 +145,19 @@ public class Hotel
     {
     	System.out.println("Please select valid option");
     	System.out.println("\n");
-    	deleteFood();
     }	
+
+  System.out.println("please press 1 to re enter | press 0 to exit : ");
+  c = scanner.nextInt();
   }
+  while(c == 1);
+}
 
     public void deleteDrink()
     {
+    	int c = 0;
+    	do
+    	{ 
     	System.out.println("Enter the number to delete: ");
     	int i = scanner.nextInt(); 
     	if(i <= drinks.size())
@@ -159,13 +169,19 @@ public class Hotel
     else
     {
     	System.out.println("Please select valid option");
-    	System.out.println("\n");
-    	deleteDrink();
+    	System.out.println("\n");    	
     }
+     System.out.println("please press 1 to re enter | press 0 to exit : ");
+  c = scanner.nextInt();
+  }
+  while(c == 1);
 }
 
     public void updateDrink()
     {
+    	int c = 0;
+    	do
+    	{
     	System.out.println("Enter the number to update: ");
     	int i = scanner.nextInt();
     	if(i <= drinks.size())
@@ -181,12 +197,18 @@ public class Hotel
     {
     	System.out.println("Please select valid option");
     	System.out.println("\n");
-    	updateDrink();
     }
+     System.out.println("please press 1 to re enter | press 0 to exit : ");
+     c = scanner.nextInt();
+     }
+     while(c == 1);
 }
     
      public void updateFood()
     {
+    	int c = 0;
+    	do
+    	{
     	System.out.println("Enter the number to update: ");
     	int i = scanner.nextInt();
     	if(i <= menu.size())
@@ -202,8 +224,11 @@ public class Hotel
     {
     	System.out.println("Please select valid option");
     	System.out.println("\n");
-    	updateFood();
     }
+     System.out.println("please press 1 to re enter | press 0 to exit : ");
+     c = scanner.nextInt();
+     }
+     while(c == 1); 
  }
 
     public void displayFood()
@@ -221,6 +246,9 @@ public class Hotel
    public void orderFoods()
     {
     	int b = 0;
+    	int c = 0;
+    	do
+    	{
     	System.out.println("\nHow many food items did you want to order: ");
     	int a = scanner.nextInt();
     	
@@ -246,9 +274,13 @@ public class Hotel
        {
        	System.out.println("Please select valid option");
        	System.out.println("\n");
-        orderFoods();
-       }	
-    } 
+       	break;
+       }
+   }
+       System.out.println("For re-order press 1 | For ordered menu press 0 : ");
+       c = scanner.nextInt();
+       }
+       while(c == 1); 
 
     	System.out.println("\nYour ordered food are");
     	   for(int j=0;j<orderFood.size();j++)
@@ -261,6 +293,9 @@ public class Hotel
      public void orderDrinks()
     {
     	int b = 0;
+    	int c = 0;
+    	do
+    	{
     	System.out.println("\nHow many drinks did you want to order: ");
     	int a = scanner.nextInt();
 
@@ -286,10 +321,14 @@ public class Hotel
         {
         	System.out.println("Please select valid option");
         	System.out.println("\n");
-        	orderDrinks();
         	break;
         }
     }
+    System.out.println("For re-order press 1 | For ordered menu press 0 : ");
+    c = scanner.nextInt();
+    }
+    while(c == 1);
+
     	System.out.println("\nYour ordered drinks are");
     	   for(int j=0;j<orderDrink.size();j++)
     	   {
