@@ -3,10 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Hotel
 {
-	ArrayList<Food> menu = new ArrayList<Food>();
+	ArrayList<Item> menuList = new ArrayList<Item>();
 	ArrayList<OrderFood> orderFood = new ArrayList<OrderFood>();
 	ArrayList<OrderDrink> orderDrink = new ArrayList<OrderDrink>();
-	ArrayList<Drinks> drinks = new ArrayList<Drinks>();
 	Scanner scanner = new Scanner(System.in);
 
 	public void printName()
@@ -16,128 +15,116 @@ public class Hotel
 		System.out.println(" Palakkad");
 	}
 
-	public void setFood()
+	public void setMenu()
 	{	
-	 System.out.println("\nMain Course");
-	 menu.add(new Food());	
-     menu.get(0).setName("Appam");
-     menu.get(0).setRate(10);
-     menu.add(new Food());	
-     menu.get(1).setName("EggCurry");
-     menu.get(1).setRate(35);
-     menu.add(new Food());
-     menu.get(2).setName("Dosa");
-     menu.get(2).setRate(45);
-     menu.add(new Food());
-     menu.get(3).setName("Meals");
-     menu.get(3).setRate(60);
-     menu.add(new Food());
-     menu.get(4).setName("Biriyani");
-     menu.get(4).setRate(140);
 
-     for(int i=0;i<menu.size();i++)
+     System.out.println("\nMenu");
+     menuList.add(new Drinks());
+     menuList.get(0).setName("Tea");
+     menuList.get(0).setRate(10);
+     menuList.add(new Drinks());
+     menuList.get(1).setName("Coffee");
+     menuList.get(1).setRate(15);
+     menuList.add(new Drinks());
+     menuList.get(2).setName("LimeJuice");
+     menuList.get(2).setRate(12);
+	 menuList.add(new Food());	
+     menuList.get(3).setName("Appam");
+     menuList.get(3).setRate(10);
+     menuList.add(new Food());	
+     menuList.get(4).setName("EggCurry");
+     menuList.get(4).setRate(35);
+     menuList.add(new Food());
+     menuList.get(5).setName("Dosa");
+     menuList.get(5).setRate(45);
+     menuList.add(new Food());
+     menuList.get(6).setName("Meals");
+     menuList.get(6).setRate(60);
+     menuList.add(new Food());
+     menuList.get(7).setName("Biriyani");
+     menuList.get(7).setRate(140);
+
+     for(int i=0;i<menuList.size();i++)
      {
-        System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
+        System.out.println(i+1+" "+menuList.get(i).getName()+" "+menuList.get(i).getRate());
      }
 
     }
-    
-    public void setDrinks()
-    {
-    	System.out.println("\nDrinks");
-        drinks.add(new Drinks());
-        drinks.get(0).setName("Tea");
-        drinks.get(0).setRate(10);
-        drinks.add(new Drinks());
-        drinks.get(1).setName("Coffee");
-        drinks.get(1).setRate(15);
-        drinks.add(new Drinks());
-        drinks.get(2).setName("LimeJuice");
-        drinks.get(2).setRate(12);
-
-        for(int i=0;i<drinks.size();i++)
-        {
-           System.out.println(i+1+" "+drinks.get(i).getName()+" "+drinks.get(i).getRate());
-        }
-    }
      
-    public void setMenu()
-    {
-    	setDrinks();
-    	setFood();
-    }
-
     public void getDrinks()
     {
     	System.out.println("\nDrinks");
-    	for(int i=0;i<drinks.size();i++)
+    	for(int i=0;i<menuList.size();i++)
           {
-            System.out.println(i+1+" "+drinks.get(i).getName()+" "+drinks.get(i).getRate());
+            System.out.println(i+1+" "+menuList.get(i).getName()+" "+menuList.get(i).getRate());
           }
     } 
 
     public void getFood()
     {
     	System.out.println("\nMain Course");
-    	for(int i=0;i<menu.size();i++)
+    	for(int i=0;i<menuList.size();i++)
           {
-            System.out.println(i+1+" "+menu.get(i).getName()+" "+menu.get(i).getRate());
+            System.out.println(i+1+" "+menuList.get(i).getName()+" "+menuList.get(i).getRate());
           }
     } 
     
-    public void addFood()
-    {
-        System.out.println("How many food items did you want to add: ");
-        int index = scanner.nextInt();
-        index = index+menu.size();
-        for(int i=menu.size();i<=index-1;i++)
-        {
-        menu.add(new Food());
-        System.out.println("Enter the name of the food: ");
-        menu.get(i).setName(scanner.next());
-        System.out.println("Enter the rate of the food: ");
-        menu.get(i).setRate(scanner.nextInt());
-        }
-        System.out.println("\n");
-        
-        for(int j=0;j<menu.size();j++)
-         {
-           System.out.println(j+1+" "+menu.get(j).getName()+" "+menu.get(j).getRate());
-         }  
-    }
-
-    public void addDrink()
-    {
-        System.out.println("How many drinks items did you want to add: ");
-        int index = scanner.nextInt();
-        index = index+drinks.size();
-        for(int i=drinks.size();i<=index-1;i++)
-        {
-        drinks.add(new Drinks());
-        System.out.println("Enter the name of the drink: ");
-        drinks.get(i).setName(scanner.next());
-        System.out.println("Enter the rate of the drink: ");
-        drinks.get(i).setRate(scanner.nextInt());
-        }
-        System.out.println("\n");
-        
-        
-        for(int j=0;j<drinks.size();j++)
-         {
-           System.out.println(j+1+" "+drinks.get(j).getName()+" "+drinks.get(j).getRate());
-         }  
-    }
-
-    public void deleteFood()
+    public void addItem()
     {
     	int c = 0;
+    	System.out.println("Which item did you want to add (Food = press 0 | Drink = press 1): ");
+        c = scanner.nextInt();
+        if(c == 0)
+        { 
+        System.out.println("How many food items did you want to add: ");
+        int index = scanner.nextInt();
+        index = index+menuList.size();
+        for(int i=menuList.size();i<=index-1;i++)
+        {
+        menuList.add(new Food());
+        System.out.println("Enter the name of the food: ");
+        menuList.get(i).setName(scanner.next());
+        System.out.println("Enter the rate of the food: ");
+        menuList.get(i).setRate(scanner.nextInt());
+        }
+    }
+    else
+    {
+     System.out.println("How many drinks items did you want to add: ");
+        int index = scanner.nextInt();
+        index = index+menuList.size();
+        for(int i=menuList.size();i<=index-1;i++)
+        {
+        menuList.add(new Drinks());
+        System.out.println("Enter the name of the drink: ");
+        menuList.get(i).setName(scanner.next());
+        System.out.println("Enter the rate of the drink: ");
+        menuList.get(i).setRate(scanner.nextInt());
+        }	
+    }
+        System.out.println("\n");
+        
+        for(int j=0;j<menuList.size();j++)
+         {
+           System.out.println(j+1+" "+menuList.get(j).getName()+" "+menuList.get(j).getRate());
+         }  
+    }
+
+    public void deleteItem()
+    {
+    	int c = 0;
+    	int s = 0;
+    	System.out.println("Which item did you want to delete (Food = press 0 | Drink = press 1): ");
+        s = scanner.nextInt();
+        if(s == 0)
+        {
     	do
     	{
     	System.out.println("Enter the number to delete: ");
     	int i = scanner.nextInt(); 
-    	if(i <= menu.size())
+    	if(i <= menuList.size())
     	{
-    	menu.remove(i-1);
+    	menuList.remove(i-1);
     	System.out.println("\n");
     	getFood();
     }
@@ -153,16 +140,15 @@ public class Hotel
   while(c == 1);
 }
 
-    public void deleteDrink()
-    {
-    	int c = 0;
+    else
+     {
     	do
     	{ 
     	System.out.println("Enter the number to delete: ");
     	int i = scanner.nextInt(); 
-    	if(i <= drinks.size())
+    	if(i <= menuList.size())
     	{
-    	drinks.remove(i-1);
+    	menuList.remove(i-1);
     	System.out.println("\n");
     	getDrinks();
     }
@@ -175,21 +161,22 @@ public class Hotel
   c = scanner.nextInt();
   }
   while(c == 1);
+ }
 }
 
-    public void updateDrink()
+    public void updateItem()
     {
     	int c = 0;
     	do
     	{
     	System.out.println("Enter the number to update: ");
     	int i = scanner.nextInt();
-    	if(i <= drinks.size())
+    	if(i <= menuList.size())
     	{
     	System.out.println("Enter the drink name to update: ");
-        drinks.get(i-1).setName(scanner.next());
+        menuList.get(i-1).setName(scanner.next());
     	System.out.println("Enter the drink rate to update: ");
-    	drinks.get(i-1).setRate(scanner.nextInt());
+    	menuList.get(i-1).setRate(scanner.nextInt());
     	System.out.println("\n");
     	getDrinks();
     }
@@ -211,12 +198,12 @@ public class Hotel
     	{
     	System.out.println("Enter the number to update: ");
     	int i = scanner.nextInt();
-    	if(i <= menu.size())
+    	if(i <= menuList.size())
     	{
     	System.out.println("Enter the food name to update: ");
-        menu.get(i-1).setName(scanner.next());
+        menuList.get(i-1).setName(scanner.next());
     	System.out.println("Enter the food rate to update: ");
-    	menu.get(i-1).setRate(scanner.nextInt());
+    	menuList.get(i-1).setRate(scanner.nextInt());
     	System.out.println("\n");
     	getFood();
     }
@@ -231,7 +218,7 @@ public class Hotel
      while(c == 1); 
  }
 
-    public void displayFood()
+    public void displayItem()
     {
     	System.out.println("\n");
     	getFood();
@@ -256,16 +243,16 @@ public class Hotel
     	{
     	   System.out.println("Please select your food ");
     	   b = scanner.nextInt();
-    	   if(b <= menu.size())
+    	   if(b <= menuList.size())
     	   {
     	   orderFood.add(new OrderFood());
     	   for(int j=0;j<orderFood.size();j++)
     	   {
     	   	if(orderFood.get(j).getName() == null)
              {  
-    	   String name = menu.get(b-1).getName();
+    	   String name = menuList.get(b-1).getName();
     	   orderFood.get(j).setName(name);
-    	   int rate = menu.get(b-1).getRate();
+    	   int rate = menuList.get(b-1).getRate();
     	   orderFood.get(j).setRate(rate);
        } 
       }   
@@ -303,16 +290,16 @@ public class Hotel
     	{
     	   System.out.println("Please select your drink ");
     	   b = scanner.nextInt();
-    	   if(b <= drinks.size())
+    	   if(b <= menuList.size())
     	   {
     	   orderDrink.add(new OrderDrink());
     	   for(int j=0;j<orderDrink.size();j++)
     	   {
     	   if(orderDrink.get(j).getName() == null)
     	   {
-    	   String name = drinks.get(b-1).getName();
+    	   String name = menuList.get(b-1).getName();
     	   orderDrink.get(j).setName(name);
-    	   int rate = drinks.get(b-1).getRate();
+    	   int rate = menuList.get(b-1).getRate();
            orderDrink.get(j).setRate(rate);
     	}
       }
@@ -364,59 +351,27 @@ public class Hotel
             System.out.println("\n Have a nice day");
     }
     
-    public void editFood()
+    public void editItem()
 	{
-		int c=0;
+		int c = 0;
 		do
 		{
-		System.out.println("\n 1.Add Food \n 2.Delete Food \n 3.Update \n 4.Display All");
+		System.out.println("\n 1.Add Item \n 2.Delete Item \n 3.Update \n 4.Display All");
 		System.out.println("\n Enter your choice:");
 		int ch = scanner.nextInt();
         switch(ch)
         {
-        	case 1:addFood();
+        	case 1:addItem();
         	       break;
 
-        	case 2:deleteFood();
+        	case 2:deleteItem();
         	       break;
 
-        	case 3:updateFood();
+        	case 3:updateItem();
         	       break; 
 
-        	case 4:displayFood();
+        	case 4:displayItem();
         	       break;     
-
-        	default:System.out.println("Invalid choice");
-        }
-
-        System.out.println("\nDo you want to continue (yes = press 1 | no = press 0): ");
-        c = scanner.nextInt();
-        }
-        while(c==1);
-
-   }
-   
-    public void editDrink()
-	{
-		int c=0;
-		do
-		{
-		System.out.println("\n 1.Add Drink \n 2.Delete Drink \n 3.Update \n 4.Display All");
-		System.out.println("\n Enter your choice:");
-		int ch = scanner.nextInt();
-        switch(ch)
-        {
-        	case 1:addDrink();
-        	       break;
-
-        	case 2:deleteDrink();
-        	       break;
-
-        	case 3:updateDrink();
-        	       break;
-
-        	case 4:displayDrink();
-        	       break;
 
         	default:System.out.println("Invalid choice");
         }
@@ -445,7 +400,7 @@ public class Hotel
     			case 2:getDrinks();
     			       getFood();
     			       System.out.println(" "); 
-    			       mainEdit();
+    			       editItem();
     			       break;
 
     			default:System.out.println("Invalid choice");
@@ -482,7 +437,7 @@ public class Hotel
         while(s==1);
     	}
 
-  	public void mainEdit()
+  	/*public void mainEdit()
         {
     	int s=0;
     	do
@@ -505,6 +460,6 @@ public class Hotel
         s = scanner.nextInt();
         }
         while(s==1);
-    	}
+    	}*/
                 
 }

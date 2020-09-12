@@ -1,6 +1,6 @@
 package com.lxisoft.Hotel;
 
-public class Menu
+public class Item
 {
 	private String name;
 	private int rate;

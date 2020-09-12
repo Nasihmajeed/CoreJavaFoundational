@@ -1,6 +1,6 @@
 package com.lxisoft.Hotel;
 
-public class Drinks extends Menu
+public class Drinks extends Item
 {
 
 }
