@@ -1,4 +1,5 @@
-public class Player extends Board
+package com.LxiSoft.Game;
+public class Player 
 {
 	private String name;
 	
