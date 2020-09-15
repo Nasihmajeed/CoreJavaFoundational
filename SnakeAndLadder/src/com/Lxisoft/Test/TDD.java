@@ -1,11 +1,13 @@
 package com.Lxisoft.Test;
-import com.Lxisfot.Game.*;
+import com.Lxisoft.Game.*;
 public class TDD
 {
-	public static void main()
+	public static void main (String [] args)
 	{
-		Game = new Game();
-		//g.gameMenu();
-		//g.game Start();
+		Ui ui=new Ui();
+		ui.gameIntro();
+		ui.gameDescription();
+		ui.gameStarts();
+
 	}
 }
