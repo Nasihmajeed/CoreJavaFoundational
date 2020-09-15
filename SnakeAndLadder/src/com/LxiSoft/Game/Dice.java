@@ -15,7 +15,7 @@ this.gameStart();
 public void gameStart()
 {
  int starter = randomNo.nextInt(6);
- 
+
  while (starter!=1)
  {
   System.out.println("you have rolled" +starter+".");
@@ -34,5 +34,7 @@ public void gameStart()
 public void gameRun()
 {
  System.out.println("lets start");
+int gameRoll=randomRoll.nextInt(6);
+
   }
 }
