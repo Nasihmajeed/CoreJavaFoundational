@@ -20,6 +20,7 @@ public class Game
 		this.createPlayer();
 		this.playerDetails();
 		board.startGame();
+		//board.creatSnakeAndLadder();
 	}
 	public void createPlayer()
 	{
@@ -30,10 +31,11 @@ public class Game
 		do
 		{
 	
+		  	players.add(new Player());
+
 			System.out.print("\nEnter the Name Of "+ (i+1) +" Player : ");
 			String name=scnr.next();
 			
-		  	players.add(new Player());
 		  	players.get(i).setPlayerName(name);
 		  	i++;
 		  }
@@ -49,4 +51,5 @@ public void playerDetails()
      		System.out.println("\n   "+(i+1)+"   "+players.get(i).getPlayerName());
      	} 
 	}
+
 }

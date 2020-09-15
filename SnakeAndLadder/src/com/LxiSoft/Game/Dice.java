@@ -3,51 +3,36 @@ import java.util.*;
 import java.util.Scanner;
 public class Dice 
 {	
+	Scanner scnr=new Scanner(System.in);
 	 Random randomNo = new Random();
 	int value;
 
-	public void diceConditions()
-	{
+public void diceConditions()
+{
 this.gameStart();
-	} 
+} 
 
-
-  public void gameStart()
+public void gameStart()
+{
+ int starter = randomNo.nextInt(6);
+ 
+ while (starter!=1)
+ {
+  System.out.println("you have rolled" +starter+".");
+	String sGame = "y"; 
+  System.out.println("Do you want to play? Y or N     >  "); 
+  sGame = scnr.nextLine ();
+  if (sGame.equals ("y") || sGame.equals ("Y"))
    {
-    int starter = randomNo.nextInt(6);
- 	
- 	if(starter==1)
- 	{
- 		System.out.println("Entered to the game");
-	}
-		else if(starter==0)
-		{
-			System.out.println("You Rolled 0 : Cannot enter to the game");
-		}
-			else if(starter==2)
-		{
-			System.out.println("You Rolled 2 : Cannot enter to the game");
-		}
-			else if(starter==3)
-		{
-			System.out.println("You Rolled 3 : Cannot enter to the game");
-		}
-		else if(starter==4)
-		{
-			System.out.println("You Rolled 4 : Cannot enter to the game");
-		}
-		else if(starter==5)
-		{
-			System.out.println("You Rolled 5 : Cannot enter to the game");
-		}
-		else if(starter==6)
-		{
-			System.out.println("You Rolled 6: Cannot enter to the game");
-		}
-		while (starter==1)
-		{
-			System.out.println("u hav entered to game");
-		}
+   	starter = randomNo.nextInt(6);
+ 	  }
+  }
+  	System.out.println("Yiu have rolled 1");
+ 	 this.gameRun();
+}
 
-   }
+public void gameRun()
+{
+ System.out.println("lets start");
+  }
 }
