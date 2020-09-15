@@ -12,7 +12,7 @@ public class Ui
 		System.out.println("\t\t______________________AND____________________________");
 		System.out.println("\t\t_________________________LADDER______________________");
 		System.out.println("\t\t_____________________________________________________");
-		System.out.println("\t\t_____________________________________________________");
+		System.out.println("\t\t_____________________________________________________\n\n");
 	}
 
 
@@ -28,5 +28,6 @@ public class Ui
 	public void gameStarts()
 	{
 		g.gameStart();
+
 	}
 }
