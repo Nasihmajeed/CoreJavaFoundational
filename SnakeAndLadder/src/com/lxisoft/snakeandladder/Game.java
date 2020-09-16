@@ -48,10 +48,16 @@ public class Game{
 			System.out.println("\n THE PALYERS ARE");
 
 			System.out.println("\n "+players[i].getPlayerName());
+			this.dieRolling();
 		}
 
 
 
+	}
+
+	public void dieRolling(){
+		System.out.println("	");
+		die. randomGeneration();
 	}
 
 	
