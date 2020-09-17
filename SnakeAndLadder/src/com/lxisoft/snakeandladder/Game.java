@@ -48,7 +48,7 @@ public class Game{
 			System.out.println("\n THE PALYERS ARE");
 
 			System.out.println("\n "+players[i].getPlayerName());
-			this.dieRolling();
+			
 		}
 
 
@@ -56,8 +56,18 @@ public class Game{
 	}
 
 	public void dieRolling(){
-		System.out.println("	");
-		die. randomGeneration();
+		System.out.println("\nDIE ROLLING FOR PLAYER1	");
+		players[0].die. randomGeneration();
+		if(players[0].die. randomGeneration()==1){
+			System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+		}
+
+		System.out.println("DIE ROLLING FOR PLAYER2");
+		players[1].die.randomGeneration();
+		if(players[1].die.randomGeneration()==1){
+			System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");	
+		}
+
 	}
 
 	

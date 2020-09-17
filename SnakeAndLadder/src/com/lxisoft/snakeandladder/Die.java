@@ -14,9 +14,11 @@ public class Die{
     public int getRandomNumber(){
         return randomNumber;
     }
-	public void randomGeneration(){
+	public int randomGeneration(){
 		Random random=new Random();
 		setRandomNumber(random.nextInt(6));
+		
+		return getRandomNumber();
 		System.out.println(getRandomNumber());
 
 
