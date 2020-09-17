@@ -15,11 +15,13 @@ public class Die{
         return randomNumber;
     }
 	public int randomGeneration(){
-		Random random=new Random();
-		setRandomNumber(random.nextInt(6));
 		
-		return getRandomNumber();
-		System.out.println(getRandomNumber());
+		
+	setRandomNumber(inputDie[new Random().nextInt(inputDie.length)]);//to get random numbers from input die array
+	//System.out.println(getRandomNumber());
+		
+	return getRandomNumber();
+
 
 
 	} 
