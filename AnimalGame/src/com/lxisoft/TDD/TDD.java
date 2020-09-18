@@ -7,5 +7,6 @@ public class TDD
 		Forest forest = new Forest();
 		forest.printName();
 		forest.setName();
+		forest.setPage();
 	}
 } 

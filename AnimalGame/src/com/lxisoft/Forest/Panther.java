@@ -1,5 +1,5 @@
 package com.lxisoft.Forest;
-public class Panther extends Animal
+public class Panther extends Animal implements Carnivorous
 {
 	
 }
