@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Board
  {
+  int cells;
+  ArrayList<Board>board=new ArrayList<Board>;
  	Dice diceRoll = new Dice();
  Scanner scnr=new Scanner(System.in);
    ArrayList<Snake>snakes = new ArrayList<Snake>();
@@ -28,11 +30,8 @@ public class Board
 
   public void creatSnakeAndLadder()
   {
-  System.out.println("\n\n Ladder& Snake positions :"); 
-       for (int i=0; i<snakes.size(); i++)
-      { 
-        System.out.println("\n      "+snakes.get(i).getHead());
-      }
+  System.out.println("\n\n Ladder& Snake positions :");
+      for (Snake snake : snakes) System.out.println("\n      " + snake.getHead());
 
 
   }

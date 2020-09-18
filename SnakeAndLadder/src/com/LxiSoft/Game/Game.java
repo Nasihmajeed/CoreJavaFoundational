@@ -1,7 +1,8 @@
 package com.LxiSoft.Game;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Game
+public class
+Game
 {
 	 Scanner scnr=new Scanner(System.in);
 	ArrayList<Player> players = new ArrayList<Player>();
