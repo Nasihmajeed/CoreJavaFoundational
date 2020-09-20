@@ -6,6 +6,7 @@ public class Game{
 	int[] Board = new int[100];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
+	int a,b,a1,b1;
 
 	Player[] players;
 
@@ -81,12 +82,45 @@ public class Game{
 	}
 
 	public void dieRolling(){
-	for(int k=0;k<5;k++){
+	
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\nDIE ROLLING FOR PLAYER1	");
-		System.out.println(players[0].die.randomGeneration());
 		
+		a=players[0].die.randomGeneration();
+		System.out.println(a);
+		if(a==1){
+				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+				Board[1]=i;
+				System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
+				a1=players[0].die.randomGeneration();
+
+				System.out.println("\n"+a1);
+				int increment=0+a1;
+				Board[increment]=i;
+				System.out.println("\n NOW PLAYER1 IS IN "+increment);
+
+
+		}
+		System.out.println("\n PLAYER ONE CANT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
+		System.out.println("\nDIE ROLLING FOR PLAYER2	");
+		b=players[1].die.randomGeneration();
+		System.out.println(b);
+
+		if(b==1){
+				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
+				System.out.println("\n NEXT CHANCE"+players[1].die.randomGeneration());
+			}
+		else{
+			System.out.println("\n PLAYER TWO CANT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
+		}
+	}
+
+	
+
+
+	public void gameMechanism(){
+
 			if(players[0].die.randomGeneration()==1){
 				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
 				Board[1]=i;
@@ -113,7 +147,7 @@ public class Game{
 				}
 			}
 
-	}
+	
 
 	}
 
