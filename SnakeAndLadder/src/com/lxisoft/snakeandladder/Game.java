@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Game{
 
 	String playerName;
-	int[] Board = new int[100];
+	int[][] Board = new int[100][100];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
 	int a,b,a1,b1;
@@ -91,66 +91,40 @@ public class Game{
 		System.out.println(a);
 		if(a==1){
 				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-				Board[1]=i;
+				Board[0][0]=i;
 				System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
 				a1=players[0].die.randomGeneration();
 
 				System.out.println("\n"+a1);
-				int increment=0+a1;
-				Board[increment]=i;
-				System.out.println("\n NOW PLAYER1 IS IN "+increment);
+				int incrementi=0+a1;
+				Board[incrementi][0]=i;
+				System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
 
 
 		}
-		System.out.println("\n PLAYER ONE CANT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
-		System.out.println("\nDIE ROLLING FOR PLAYER2	");
-		b=players[1].die.randomGeneration();
-		System.out.println(b);
-
+		else{
+			System.out.println("\n PLAYER ONE CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
+			System.out.println("\nDIE ROLLING FOR PLAYER2	");
+			b=players[1].die.randomGeneration();
+			System.out.println(b);
+		}
 		if(b==1){
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
-				System.out.println("\n NEXT CHANCE"+players[1].die.randomGeneration());
+				Board[0][1]=j;
+				System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
+				b1=players[1].die.randomGeneration();
+
+				System.out.println("\n"+b1);
+				int incrementj=0+b1;
+				Board[incrementj][0]=j;
+				System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
+
+
+
 			}
 		else{
-			System.out.println("\n PLAYER TWO CANT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
+			System.out.println("\n PLAYER TWO CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
 		}
 	}
-
-	
-
-
-	public void gameMechanism(){
-
-			if(players[0].die.randomGeneration()==1){
-				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-				Board[1]=i;
-				System.out.println("\n"+players[0].die.randomGeneration());
-				int increment=0+players[0].die.randomGeneration();
-				Board[increment]=i;
-				System.out.println("\n NOW PLAYER1 IS IN "+increment);
-
-			}
-			else{
-
-				System.out.println("\nDIE ROLLING FOR PLAYER2");
-				System.out.println(players[1].die.randomGeneration());
-				
-				if(players[1].die.randomGeneration()==1){
-					System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
-					Board[1]=j;
-					System.out.println("\n"+players[1].die. randomGeneration());
-					int increment=0+players[1].die.randomGeneration();
-					Board[increment]=j;
-					System.out.println("\n NOW PLAYER2 IS IN "+increment);
-			
-
-				}
-			}
-
-	
-
-	}
-
-	
 	
 }
