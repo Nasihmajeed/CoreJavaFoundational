@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Board
  {
   int cells;
-  ArrayList<Board>board=new ArrayList<Board>;
+  ArrayList<Board>board=new ArrayList<Board>();
  	Dice diceRoll = new Dice();
  Scanner scnr=new Scanner(System.in);
    ArrayList<Snake>snakes = new ArrayList<Snake>();
    ArrayList<Ladder>ladders = new ArrayList<Ladder>();
+
   public void startGame()
   {
   		
@@ -28,13 +29,19 @@ public class Board
    }
   
 
-  public void creatSnakeAndLadder()
+  private int iterateBoard()
+{
+  count=0;
+ for(int i=0;i<board.size(101);i++)
   {
-  System.out.println("\n\n Ladder& Snake positions :");
-      for (Snake snake : snakes) System.out.println("\n      " + snake.getHead());
-
-
-  }
+    
+    if(board.get(i).getAnimalLife()==true)
+     {
+      count++;
+      }
+   }
+    return count;
+}
 
   public void setSnakePositions()
   {
