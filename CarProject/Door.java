@@ -1,5 +1,5 @@
 public class Door {
-int weight;
+int price;
 String color;
 int size;
 }
