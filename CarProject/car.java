@@ -1,69 +1,26 @@
- public class Car
+ class Car
 {
-	 public string name;
-	 public String color;
-	 public float size;
-
-	public Car(string na,String c,float s)
+	String name;
+	public void carname()
 	{
-		this.name = na;
-		this.color = c;
-		this.size = s;
+	System.out.println("audi");
 	}
-
-	public int getsize()
+	public void display()
 	{
-		return this.size;
+	Engg e = new Engg();
+	Door d = new Door();
+	Tyre t = new Tyre();
+	e.ename=(1234);
+	d.d1=("door 1");
+	d.d2=("door 2");
+    d.d3=("door 3");
+    d.d4=("door 4");
+    t.t1=("tyre 1");
+    t.t2=("tyre 2");
+    t.t3=("tyre 3");
+    t.t4=("tyre 4");
+    e.edisplay();
+    d.ddisplay();
+    t.tdisplay();
 	}
-	public String getname()
-	{
-		return this.name;
-	}
-	public string getcolor()
-	{
-		return this.color;
-	}
-}
-class Fourwheeler extends car
-{
-    int noofleaf;
-    Fourwheeler(String na,string c,float s,int n)
-    {
-        tair(na,c,s);
-        noofleaf=n;
-    }
-    void display()
-    {
-        System.out.println("Four wheeler car");
-        tair.display();
-        System.out.println("No. of leaf:" +noofleaf);
-    }
-}
- 
-class door car
-{
-    int noofdoors;
-    doorofcar(String na,string c,float s,int n)
-    {
-        door(na,c,s);
-        noofdoors=n;
-    }
-    void display()
-    {
-        System.out.println("car's door");
-        door.display();
-        System.out.println("No. of leaf:" +noofdoors);
-    }
-}
-class carDemo
-{
-    public static void main(String arg[])
-    {
-        Fourwheeler f1;
-		door d1;
-        f1=new Fourwheeler("audi","black",4.70 m);
-		d1=new door("audi","black",4.70 m);
-        f1.display();
-		d1.display();
-    }
 }
