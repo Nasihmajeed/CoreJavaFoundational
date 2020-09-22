@@ -85,12 +85,15 @@ public class Game{
 	
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\n--------------------------------------------------------------------------------------");
-		System.out.println("\nDIE ROLLING FOR PLAYER1	");
+		System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
 		
 		a=players[0].die.randomGeneration();
 		System.out.println(a);
 		if(a==1){
 				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+				if(char x==y){
+
+
 				Board[0][0]=i;
 				System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
 				a1=players[0].die.randomGeneration();
