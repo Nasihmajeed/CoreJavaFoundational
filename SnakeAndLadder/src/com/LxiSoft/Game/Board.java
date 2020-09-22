@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Board
  {
   int cells;
-  ArrayList<Board>board=new ArrayList<Board>();
+  ArrayList<Board>cells =new ArrayList<Board>();
  	Dice diceRoll = new Dice();
  Scanner scnr=new Scanner(System.in);
    ArrayList<Snake>snakes = new ArrayList<Snake>();
