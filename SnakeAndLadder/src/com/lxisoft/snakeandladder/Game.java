@@ -89,8 +89,9 @@ public class Game{
 		System.out.println("\n PRESS Y TO CONTINUE");//game start cheyumbo chodikan
 		char x= scanner.next().charAt(0);// chodich chodich kalikan
 		if(x=='Y'){//game start cheyumbo chodikan
+			this.player1();
 			while(i==Board[99][0]||j== Board[99][0]){
-				this.player1();
+				
 				this.player2();
 			
 					
@@ -129,27 +130,43 @@ public class Game{
 	}
 	public void player2(){
 
-						System.out.println("\n PLAYER ONE CAN NOT,GAME CHANCE GOES TO PLAYER TWO");
-						System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
-						char c = scanner.next().charAt(0);
-						if(c=='Y'){//player2 nte die roll cheyan
-							System.out.println("\nDIE ROLLING FOR PLAYER2	");
-							b=players[1].die.randomGeneration();
-							System.out.println(b);
-							if(b==1){//player2 nte one vannal
-								System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
-								Board[0][1]=j;
-								System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
-								b1=players[1].die.randomGeneration();
-								System.out.println("\n"+b1);
-								int incrementj=0+b1+1;
-								Board[incrementj][0]=j;
-								System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
-							}//player2 nte one vannal
-							else if(b!=1){
-								System.out.println("\n PLAYER TWO CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
-							}
-						}
+		System.out.println("\n--------------------------------------------------------------------------------------");
+		System.out.println("\n PLAYER ONE CAN NOT,GAME CHANCE GOES TO PLAYER TWO");
+		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
+		char c = scanner.next().charAt(0);
+		if(c=='Y'){//player2 nte die roll cheyan
+			System.out.println("\nDIE ROLLING FOR PLAYER2	");
+			b=players[1].die.randomGeneration();
+			System.out.println(b);
+			if(b==1){//player2 nte one vannal
+				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
+				Board[0][1]=j;
+				System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
+				b1=players[1].die.randomGeneration();
+				System.out.println("\n"+b1);
+				int incrementj=0+b1+1;
+				Board[incrementj][0]=j;
+				System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
+				System.out.println("\n--------------------------------------------------------------------------------------");
+				System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER1");
+				char x= scanner.next().charAt(0);
+				if(x=='Y'){
+				this.player1();
+				}
+			}
+						
+				if(b!=1){
+					System.out.println("\n PLAYER TWO CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
+					System.out.println("\n--------------------------------------------------------------------------------------");
+					System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER1");
+					char y= scanner.next().charAt(0);
+					if(y=='Y'){
+					this.player1();
+					}
+		
+				}
+		}
+	
 							
 							
 				
