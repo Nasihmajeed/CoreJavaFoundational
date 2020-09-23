@@ -43,39 +43,25 @@ public class Forest
 
 	public void setPage()
 	{
+		int i = 0,j;
 		int z = 0;
+		j = i+1;
+		String y = null;
 		int c = 0;
 		do
 		{
-			for(int i=0;i<animal.size();i++)
+			for(i=0;i<animal.size();i++)
 			{
-				if(animal.get(i).getStrength() > animal.get(0).getStrength())
+				if(animal.get(i).getStrength() >= animal.get(j).getStrength())
 				{
-					z = animal.get(i).getStrength();	
-				}
-				
-         		/*if(a <= animal.size() && b <= animal.size())
-		        {
-		 	    System.out.println("Winner is:");
-			    if(animal.get(a-1).getStrength() > animal.get(b-1).getStrength())
-			    {
-				    System.out.println(animal.get(a-1).getName());
-			    }
-			    else
-			    {
-				    System.out.println(animal.get(b-1).getName());
-			    }
-		        }
-
-		        else
-		        {
-			        System.out.println("Please select valid choice");
-		        }*/
+					z = animal.get(i).getStrength();
+                    y = animal.get(i).getName();
+                    System.out.println(z+" "+y);
+				}				
 		    }
-		    System.out.println(z);
-
-		System.out.println("Press 1 to Re-enter | press 0 to Continue: ");
-		c = scanner.nextInt();
+		    System.out.println("\nWinner is: "+y);
+		    System.out.println("\nPress 1 to Re-enter | press 0 to Continue: ");
+		    c = scanner.nextInt();
 	    }
 	    while(c == 1); 
 	}
