@@ -86,73 +86,74 @@ public class Game{
 	
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\n--------------------------------------------------------------------------------------");
-
-		while(i==Board[99][0]||j== Board[99][0]){
-
-			System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
-			a=players[0].die.randomGeneration();
-			System.out.println(a);
-			if(a==1){//player1 nte die one vannal cheyandathu
-					System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-					Board[0][0]=i;
-					System.out.println("\n PRESS Y TO CONTINUE");
-					char c = scanner.next().charAt(0);// chodich chodich kalikan
-
-					if(c== 'Y'){
-
-					System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
-					a1=players[0].die.randomGeneration();
-
-					System.out.println("\n"+a1);
-					int incrementi=0+a1;
-					Board[incrementi][0]=i;
-					System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						System.out.println("\n--------------------------------------------------------------------------------------");
-					}
-
-
-			}
-			else{//player1 nte one vannilengil player2 roll die
-				System.out.println("\n PLAYER ONE CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
-				System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
-				char c = scanner.next().charAt(0);
-				if(c=='Y'){//player2 nte die roll cheyan
-
+		System.out.println("\n PRESS Y TO CONTINUE");//game start cheyumbo chodikan
+		char x= scanner.next().charAt(0);// chodich chodich kalikan
+		if(x=='Y'){//game start cheyumbo chodikan
+			while(i==Board[99][0]||j== Board[99][0]){
+				this.player1();
+				this.player2();
+			
 					
-					System.out.println("\nDIE ROLLING FOR PLAYER2	");
-					b=players[1].die.randomGeneration();
-					System.out.println(b);
 
-					
-					System.out.println("\n--------------------------------------------------------------------------------------");
-					System.out.println("\n--------------------------------------------------------------------------------------");
+							
+								
 
+			}//while nte
+		}//game start cheyumbo chodikan
+		
 
-				}
-			}
-			if(b==1){//player2 nte one vannal
-					System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
-					Board[0][1]=j;
-					System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
-					b1=players[1].die.randomGeneration();
+	}//method
 
-					System.out.println("\n"+b1);
-					int incrementj=0+b1;
-					Board[incrementj][0]=j;
-					System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
-					System.out.println("\n--------------------------------------------------------------------------------------");
-					System.out.println("\n--------------------------------------------------------------------------------------");
+	public void player1(){
 
+					System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
+					a=players[0].die.randomGeneration();
+					System.out.println(a);
+					if(a==1){//player1 nte die one vannal cheyandathu
+						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+						Board[0][0]=i;
+						System.out.println("\n PRESS Y TO CONTINUE");
+						char c = scanner.next().charAt(0);// chodich chodich kalikan
+						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+							System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
+							a1=players[0].die.randomGeneration();
+							System.out.println("\n"+a1);
+							int incrementi=0+a1+1;
+							Board[incrementi][0]=i;
+							System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+					}//player1 nte die one vannal cheyandathu
 
-
-				}
-			else{//player2 nte one vannilengil
-				System.out.println("\n PLAYER TWO CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
-				System.out.println("\n--------------------------------------------------------------------------------------");
-				System.out.println("\n--------------------------------------------------------------------------------------");
-			}
-		}//while nte
 	}
-	
+	public void player2(){
+
+						System.out.println("\n PLAYER ONE CAN NOT,GAME CHANCE GOES TO PLAYER TWO");
+						System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
+						char c = scanner.next().charAt(0);
+						if(c=='Y'){//player2 nte die roll cheyan
+							System.out.println("\nDIE ROLLING FOR PLAYER2	");
+							b=players[1].die.randomGeneration();
+							System.out.println(b);
+							if(b==1){//player2 nte one vannal
+								System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
+								Board[0][1]=j;
+								System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
+								b1=players[1].die.randomGeneration();
+								System.out.println("\n"+b1);
+								int incrementj=0+b1+1;
+								Board[incrementj][0]=j;
+								System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
+							}//player2 nte one vannal
+							else if(b!=1){
+								System.out.println("\n PLAYER TWO CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER ONE");
+							}
+						}
+							
+							
+				
+
+
+	}
 }
