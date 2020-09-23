@@ -82,19 +82,23 @@ public class Game{
 	}
 
 	public void dieRolling(){
+		for(int i=0;i<100;i++){
 	
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\n--------------------------------------------------------------------------------------");
 		System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
+
 		
 		a=players[0].die.randomGeneration();
 		System.out.println(a);
 		if(a==1){
 				System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-				if(char x==y){
-
-
 				Board[0][0]=i;
+				System.out.println("\n PRESS Y TO CONTINUE");
+				char c = scanner.next().charAt(0);// chodich chodich kalikan
+
+				if(c== 'Y'){
+
 				System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
 				a1=players[0].die.randomGeneration();
 
@@ -102,14 +106,19 @@ public class Game{
 				int incrementi=0+a1;
 				Board[incrementi][0]=i;
 				System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
-
+				}
 
 		}
 		else{
-			System.out.println("\n PLAYER ONE CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
-			System.out.println("\nDIE ROLLING FOR PLAYER2	");
-			b=players[1].die.randomGeneration();
-			System.out.println(b);
+			System.out.println("PRESS Y TO ROLL THE DIE");
+			char c = scanner.next().charAt(0);
+			if(c=='Y'){//player2 nte die roll cheyan
+
+				System.out.println("\n PLAYER ONE CAN NOT ENTER THE GAME CHANCE GOES TO PLAYER TWO");
+				System.out.println("\nDIE ROLLING FOR PLAYER2	");
+				b=players[1].die.randomGeneration();
+				System.out.println(b);
+			}
 		}
 		if(b==1){
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
