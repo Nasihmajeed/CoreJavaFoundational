@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Board
  {
-  int cells;
-  ArrayList<Board>cells =new ArrayList<Board>();
+  
+  ArrayList<Board>cells =new ArrayList<Board>(100);
  	Dice diceRoll = new Dice();
  Scanner scnr=new Scanner(System.in);
    ArrayList<Snake>snakes = new ArrayList<Snake>();
@@ -29,18 +29,15 @@ public class Board
    }
   
 
-  private int iterateBoard()
+  private void iterateBoard()
 {
-  count=0;
- for(int i=0;i<board.size(101);i++)
+  
+ for(int i=0;i<cells.size(101);i++)
   {
     
-    if(board.get(i).getAnimalLife()==true)
-     {
-      count++;
-      }
+   
    }
-    return count;
+   
 }
 
   public void setSnakePositions()

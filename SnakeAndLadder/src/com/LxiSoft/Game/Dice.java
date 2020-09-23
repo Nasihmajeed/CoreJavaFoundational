@@ -33,6 +33,7 @@ public void gameStart()
 
 public void gameRun()
 {
+  int randomRoll;
  System.out.println("lets start");
 int gameRoll=randomRoll.nextInt(6);
 
