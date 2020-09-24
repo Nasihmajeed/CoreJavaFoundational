@@ -21,7 +21,7 @@ public class Game
       	System.out.println("      \t          ---------------------------------------------------");
      	  System.out.println("   \t             --------------------SNAKE & LADDER ------------------");
       	System.out.println("     \t           ---------------------------------------------------");
-       	System.out.println("     \t           ---------------------------------------------------\n\n");
+       	System.out.println("     \t           --------------------------.-------------------------\n\n");
         design.gameBoard();
         this.startGame();
 		this.diceRolling();
@@ -30,7 +30,7 @@ public class Game
 	public void startGame()
 	   {
 		String sGame = "y"; 
-        System.out.println(" press Y to start the game     >  "); 
+        System.out.println(" press Y to start the game   >  "); 
         sGame = scanner.nextLine ();
               
        if (sGame.equals ("y") || sGame.equals ("Y"))
