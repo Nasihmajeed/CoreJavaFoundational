@@ -2,7 +2,9 @@ package com.LxiSoft.Game;
 public class Designs
 {
 	public void gameBoard()
-	{
+	{  
+
+         System.out.println ("\t\t\t\t\t\tWelcome To Snakes And Ladders\n\n");
 		    int counter= 100;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
@@ -32,7 +34,20 @@ public class Designs
         }
         System.out.println();
         System.out.println ("----------------------------------------------------------------------------------------------------------------------------------");
+       this.gameRule();
+        }
+
+        public void gameRule() 
+	{
+        System.out.println ("\t\t\t\t\t\t\tInstructions:");
+        System.out.println(" \t\t\t\t  There will be 2 players in the game");
+          System.out.println(" \t\t\tEach player enter the game if and only if he rolls 1 on the dice:");
+            System.out.println ("\t\t\t there will be preset squares which will be the snakes or ladders.");
+        System.out.println ("\t\tOnce you land on top of a snake you go down a few squares, and move up if you land on the bottom of a ladder. ");
+             
         
-        
-	}
+            System.out.println(" \t\t\t\t  player who reaches at 100th position 1st wins yhe game");
+               System.out.println ("\t\t\t\t\t\t Good Luck and Have FUN!!!");
+
+    }
 }

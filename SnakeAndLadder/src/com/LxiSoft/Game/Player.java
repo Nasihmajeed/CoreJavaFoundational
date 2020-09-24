@@ -1,15 +1,18 @@
 package com.LxiSoft.Game;
-public class Player 
-{
-	private String name;
-	
-public void setPlayerName(String name)
-  {
-  	this.name=name;
-  }
+import java.util.Scanner;
+public class Player{
+	Dice dice=new Dice();
 
-  public String getPlayerName()
-  {
-  	return name;
-  }
+	private String playerName;
+	public void setPlayerName(String a){
+		this.playerName=a;
+	}
+	public String getPlayerName(){
+		return playerName;
+	}
+	public void playGame(){
+	dice.randomGeneration();
+	}
+	
+
 }

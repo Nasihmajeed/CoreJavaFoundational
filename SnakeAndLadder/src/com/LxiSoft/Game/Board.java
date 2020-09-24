@@ -11,7 +11,7 @@ public class Board
    ArrayList<Snake>snakes = new ArrayList<Snake>();
    ArrayList<Ladder>ladders = new ArrayList<Ladder>();
 
-  public void startGame()
+ /* public void startGame()
   {
   		
 
@@ -26,10 +26,10 @@ public class Board
         }
         System.out.println ("\n\n\t\t\t\t\t\t");
     
-   }
+   }*/
   
 
-  private void iterateBoard()
+/*  private void iterateBoard()
 {
   
  for(int i=0;i<cells.size(101);i++)
@@ -72,4 +72,5 @@ public class Board
     ladders.get(6).setStart(87);
     ladders.get(6).setEnd(93);
   }
+*/
 }
