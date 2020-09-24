@@ -15,10 +15,18 @@ public class Game
         start = scnr.nextLine ();
         System.out.println ("\n\n\n");
         
-        while (start.equals ("y") || start.equals ("Y"))
-        {
-            dice.diceRoll(); 
-        }
-        System.out.println ("\n\n\t\tLets Start");
+        //while (start.equals ("y") || start.equals ("Y"))
+        //{
+            //dice.diceRoll(); 
+        //}
+        //System.out.println ("\n\n\t\tLets Start");
    }	
+   public void Board()
+ {
+  
+  ArrayList<Board>cells =new ArrayList<Board>(100);
+ 	Dice diceRoll = new Dice();
+ Scanner scnr=new Scanner(System.in);
+   ArrayList<Snake>snakes = new ArrayList<Snake>();
+   ArrayList<Ladder>ladders = new ArrayList<Ladder>();
 }
