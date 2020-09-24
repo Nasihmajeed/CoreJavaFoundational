@@ -1,15 +1,29 @@
 package com.lxisoft.Forest;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 public class Forest
 {
 	ArrayList<Animal> animal = new ArrayList<Animal>();
 	Scanner scanner = new Scanner(System.in);
+	Random r = new Random();
+	int random1 = r.nextInt(5);
+	int random2 = r.nextInt(5);
 
 	public void printName()
 	{
+		
 		System.out.println("\n WELCOME TO ANIMAL GAME");
-
+		/*System.out.println("\n press 1 to Start GAME:");
+		c = scanner.nextInt();
+		if(c==1)
+		{
+			setPage();
+		}
+		else
+		{
+			System.out.println("Invalid choice");
+		}*/
 	}
 
 	public void setName()
@@ -42,28 +56,34 @@ public class Forest
 	}
 
 	public void setPage()
-	{
-		int i = 0,j;
-		int z = 0;
-		j = i+1;
-		String y = null;
-		int c = 0;
-		do
+	{		
+		int a=0,y=0,c;
+		String z=null,b=null;
+		System.out.println("\n press 1 to Start GAME:");
+		c = scanner.nextInt();
+		if(c==1)
+		{	
+        System.out.println("\nAnimal 1: "+animal.get(random1).getName()+" "+"Strength: "+animal.get(random1).getStrength());
+        System.out.println("Animal 2: "+animal.get(random2).getName()+" "+"Strength: "+animal.get(random2).getStrength());
+		if(animal.get(random1).getStrength() >= animal.get(random2).getStrength())
 		{
-			for(i=0;i<animal.size();i++)
-			{
-				if(animal.get(i).getStrength() >= animal.get(j).getStrength())
-				{
-					z = animal.get(i).getStrength();
-                    y = animal.get(i).getName();
-                    System.out.println(z+" "+y);
-				}				
-		    }
-		    System.out.println("\nWinner is: "+y);
-		    System.out.println("\nPress 1 to Re-enter | press 0 to Continue: ");
-		    c = scanner.nextInt();
+			a = animal.get(random1).getStrength();
+            b = animal.get(random1).getName();
+            System.out.println("\nWinner:"+b);
 	    }
-	    while(c == 1); 
+	    else
+	    {
+		  	y = animal.get(random2).getStrength();
+            z = animal.get(random2).getName();
+            System.out.println("\nWinner:"+z);
+	    }
+	    System.out.println("\nGame Over");
+        }
+	    else
+		{
+			System.out.println("Invalid choice");
+		}
+		   
 	}
 
 }
