@@ -1,16 +1,16 @@
 public class Student
 {
-int division;
-String name;
-int regno;
 
-}
+String name,nam;
+int regNo;
 
-public void setRegno(int r)
+
+
+public void setRegNo(int r)
 {
 regNo = r;
 }
-public int getRegno()
+public int getRegNo()
 {
 return regNo;
 }
@@ -22,4 +22,11 @@ public String getName()
 {
 return name;
 }
+//public void setNam(String n)
+//{
+//this.nam = n;
+//}
+//public String getNam()
+//{
+//return nam;
 }
