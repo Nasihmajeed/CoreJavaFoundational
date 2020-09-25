@@ -1,35 +1,36 @@
 package com.Lxisoft.Game;
+import java.io.*;
 import java.util.*;
-import java.util.Scanner;
+import java.util.Random;
 
 public class Dice
 {
-	Random diceRolling = new Random();
-	int value;
-	Scanner scnr=new Scanner(System.in);
 
-	public void diceRoll()
-	{
-		int starter = diceRolling.nextInt(6);
- 
- 		while (starter!=1)
- 		{
-  			System.out.println("you have rolled" +starter+".");
-			String start = "y"; 
-  			System.out.println("TRY AGAIN TO GET ONE ? Y or N     >  "); 
-  			start = scnr.nextLine ();
-  			if (start.equals ("y") || start.equals ("Y"))
-   		{
-   			starter = diceRolling.nextInt(6);
- 	  	}
-  	}
-  	System.out.println("You have rolled 1");
- 	System.out.println("");
- 	this.gameRun();
+	int[] inputDie = new int[]{ 1,2,3,4,5,6}; 
+
+
+    private int randomNumber;
+    public void setRandomNumber(int a){
+        this.randomNumber=a;
+
+    }
+    public int getRandomNumber(){
+        return randomNumber;
+    }
+	public int randomGeneration(){
+		
+		
+	setRandomNumber(inputDie[new Random().nextInt(inputDie.length)]);//to get random numbers from input die array
+	
+		
+	return getRandomNumber();
 	}
-
-	public void gameRun()	
-	{
- 		System.out.println("Game Starts Now!!");
-  	}
+	public void getDice()
+    {
+        int diceRoll;
+        diceRoll = (int)(Math.random()*6 )+1 ; 
+        int move = diceRoll;
+        //return move; 
+    }
+	 
 }
