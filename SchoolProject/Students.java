@@ -1,19 +1,40 @@
 public class Students
-{   
-    String st1;
-    String st2;
-    String st3;
+{
 
-    public void stdisplay1()
- {
-	System.out.println("1st std student name is "+st1);
-    System.out.println("1st std student name is "+st2);
-    System.out.println("1st std student name is "+st3);
- }
-    public void stdisplay2()
- {
- 	System.out.println("2nd std student name is "+st1);
- 	System.out.println("2nd std student name is "+st2);
- 	System.out.println("2nd std student name is "+st3);
- }
+   String name;
+   int regno,i;
+   
+     public void setName(String n)
+     {  
+      for(i=0;i<=3;i++)
+       {
+       	name=n;
+       }
+       
+     }
+     public String getName()
+     {
+      for(i=0;i<=3;i++)
+      {
+      	System.out.println(" Name of the Student is  :"+name);
+      }
+      return name; 
+     }
+
+      public void setRegisternumber(int r)
+      {
+      	for(i=0;i<=3;i++)
+  		{
+         regno = r;
+  		}
+      }
+
+      public int getRegisternumber()
+      {
+      	for(i=0;i<=3;i++)
+      	{
+      		System.out.println(" Register number of the Student is  :"+regno);
+      	}
+      	return regno; 
+      }        
 }

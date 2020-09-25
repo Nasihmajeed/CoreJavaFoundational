@@ -1,53 +1,39 @@
+import java.util.Scanner;
 public class School
 {
 	String Name,Principal,Address,Teacher,Students;
-	public void SchoolName1()
+	int division;
+	public void Schooldetails()
 	{
-		System.out.println(" School name is vyasa vidya peetham");
-	}
-	public void Address1()
-	{
-		System.out.println(" vyasa vidya peetham \n Near District Police camp  \n kallekkad (po) ,palakkad \n pincode :678006");
-	}
-    public void PrincipalName1()
-    {
-    	System.out.println(" Principal of vyasa vidya peetham is ABCD");
-    }
-    public void Display1()
-    {
-    	ClassTeacher t = new ClassTeacher();
-    	Students st = new Students();
-    	t.tName = (" balu , he is 1st std Students Class Teacher");
-    	st.st1=("Rohit");
-    	st.st2=("Anwer");
-    	st.st3=("sreejith");
-    	t.tTeacher1();
-    	st.stdisplay1();
+		System.out.println("                SCHOOL NAME IS VYASA VIDYA PEETHAM               ");
+
+
+
+
+		System.out.println(" vyasa vidya peetham \n Near District Police camp \n kallekkad (po) ,palakkad \n pincode :678006");
+
+    	System.out.println(" Principal of vyasa vidya peetham is       : ABCD");
+
+    	System.out.println(" Contact number :   160057");
     }
 
 
-    public void SchoolName2()
-	{
-		System.out.println(" School name is Puliyamparamb Higher Secondary School");
-	}
-	public void Address2()
-	{
-		System.out.println(" Puliyamparamb Higher Secondary School \n Near Pirayiri  \n kodumthirapully (po) ,palakkad \n pincode :678004");
-	}
-    public void PrincipalName2()
+
+
+
+
+    public void Display()
     {
-    	System.out.println(" Principal of Puliyamparamb Higher Secondary School is EFGH");
-    }
-    public void Display2()
-    {
-    	ClassTeacher t = new ClassTeacher();
-    	Students st = new Students();
-    	t.tName = (" robin , he is 2nd std Students Class Teacher");
-    	st.st1=("Akhil");
-    	st.st2=("Manu");
-    	st.st3=("Rahul");
-    	t.tTeacher2();
-    	st.stdisplay2();
+    	Classroom cr = new Classroom();
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("          ENTER THE DETAILS OF CLASS          ");
+
+
+        System.out.println(" Enter the name of the teacher : ");
+        cr.teacher=scanner.next();
+        System.out.println(" Enter the division : ");
+        cr.division=scanner.nextInt();
+    	cr.studentdetails();
     }
 
 }
