@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Game{
 
 	String playerName;
+	Board board=new Board();
 	int[][] Board = new int[100][2];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
