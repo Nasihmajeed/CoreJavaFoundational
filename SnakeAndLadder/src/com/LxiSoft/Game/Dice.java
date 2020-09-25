@@ -5,13 +5,22 @@ public class Dice
 {	
 	Scanner scnr=new Scanner(System.in);
 	 Random randomNo = new Random();
+    private int randomNumber;
 	int value;
 
+public void setRandomNumber(int a)
+{
+        this.randomNumber=a;
+
+    }
+    public int getRandomNumber(){
+        return randomNumber;
+    }
 /*public void diceConditions()
 {
 this.gameStart();
 } 
-
+*/
 public void gameStart()
 {
  int starter = randomNo.nextInt(6);
@@ -37,9 +46,9 @@ public void gameRun()
  System.out.println("lets start");
 int gameRoll=randomRoll.nextInt(6);
 
-  }*/
+  }
 
-  int[] inputDice = new int[]{ 1,2,3,4,5,6}; 
+ /* int[] inputDice = new int[]{ 1,2,3,4,5,6}; 
 
 
     private int randomNumber;
@@ -60,7 +69,7 @@ int gameRoll=randomRoll.nextInt(6);
 
 
 
-  } 
+  } */
   
 
 }

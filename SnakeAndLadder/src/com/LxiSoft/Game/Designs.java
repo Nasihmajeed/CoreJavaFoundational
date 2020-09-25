@@ -4,7 +4,7 @@ public class Designs
 	public void gameBoard()
 	{  
 
-         System.out.println ("\t\t\t\t\t\tWelcome To Snakes And Ladders\n\n");
+     //    System.out.println ("\t\t\t\t\t\tWelcome To Snakes And Ladders\n\n");
 		    int counter= 100;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
