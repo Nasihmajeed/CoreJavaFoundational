@@ -18,18 +18,22 @@ System.out.println("Enter the Class details"+"\n");
 
 
 
-System.out.println("Enter the teacher name		:");
-classroom.teacher= scanner.next();
-System.out.println("\n"+"Enter the division		:");
-classroom.division=scanner.nextInt();
-System.out.println("\n"+"Enter the Student Details	:"+"\n");
+//System.out.println("Enter the teacher name		:");
+//classroom.teacher= scanner.next();
+//System.out.println("\n"+"Enter the division		:");
+//classroom.division=scanner.nextInt();
+//System.out.println("\n"+"Enter the Student Details	:"+"\n");
 
 }
 public void printd()
 {
 classroom.setPrint1();
+classroom.setPrint2();
 classroom.getPrint2();
-classroom.topper();
+classroom.getPrint3();
+classroom.topper1();
+classroom.topper2();
+classroom.topper3();
 classroom.teacher(classroom.teacher);
 }
 }

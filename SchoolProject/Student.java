@@ -2,9 +2,7 @@ public class Student
 {
 
 String name,nam;
-int regNo;
-
-
+int regNo,regN;
 
 public void setRegNo(int r)
 {
@@ -22,11 +20,20 @@ public String getName()
 {
 return name;
 }
-//public void setNam(String n)
-//{
-//this.nam = n;
-//}
-//public String getNam()
-//{
-//return nam;
+public void setRegN(int r)
+{
+regN = r;
+}
+public int getRegN()
+{
+return regN;
+}
+public void setNam(String n)
+{
+nam = n;
+}
+public String getNam()
+{
+return nam;
+}
 }
