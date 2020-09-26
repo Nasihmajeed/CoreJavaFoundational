@@ -4,6 +4,8 @@ public class Animal
 	private String name;
 	private int strength;
 
+	
+
 	public void setName(String n)
 	{
 		name = n;
@@ -23,5 +25,8 @@ public class Animal
 	{
 		return strength;
 	}
+
+	
+
 
 }
