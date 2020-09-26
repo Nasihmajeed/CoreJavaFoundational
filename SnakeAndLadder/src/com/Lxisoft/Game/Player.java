@@ -3,6 +3,7 @@ import java.util.*;
 public class Player
 {
 	Dice dice=new Dice();
+	private 
 
 	private String playerName;
 	public void setPlayerName(String a){
