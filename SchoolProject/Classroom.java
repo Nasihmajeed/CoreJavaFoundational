@@ -8,10 +8,11 @@ Subject[] sub1=new Subject[4];
 Subject[] sub2=new Subject[4];
 
 int i,division1,division2,n;
+float top=0,topper=0;
 
 public void setPrint1()
 {
-System.out.println("-------------Enter the first class details-------------"+"\n");
+System.out.println("-------------Enter the first class detailsss-------------"+"\n");
 Scanner scanner = new Scanner(System.in);
 System.out.println("\n"+"Enter the teacher name		:");
 teacher= scanner.next();
@@ -64,7 +65,7 @@ sub2[i].sub3=scanner.nextInt();
 public void getPrint2()
 {
 System.out.println("---------------------ASSISI Public School---------------------"+"\n");
-System.out.println("\n"+"Enter the first class details");
+System.out.println("\n"+"The first class details");
 System.out.println("Student Details"+"\n");
 for(i=0;i<4;i++)
 {
@@ -91,7 +92,7 @@ System.out.println("----------------------------------------------");
 public void getPrint3()
 {
 System.out.println("---------------------ASSISI Public School---------------------"+"\n");
-System.out.println("\n"+"Enter the Second class details");
+System.out.println("\n"+"The Second class details");
 System.out.println("Student Details"+"\n");
 for(i=0;i<4;i++)
 {
@@ -115,10 +116,8 @@ System.out.println("The result is               :PASS"+"\n");
 System.out.println("----------------------------------------------");
 }
 }
-
 public void topper1()
 {
-//float top = sub1[0].percentage;
 float top = 0;
 String name=null;
 
@@ -135,10 +134,7 @@ System.out.println("The Percentage		:"+top);
 }
 public void topper2()
 {
-//float top = sub2[0].percentage;
-float top = 0;
 String nam=null;
-
 for(i=0;i<4;i++)
 {
 if(sub2[i].percentage >= top)
@@ -152,25 +148,18 @@ System.out.println("The Percentage		:"+top);
 }
 public void topper3()
 {
-//float top = sub2[0].percentage;
-float top = 0;
-String nam=null;
-
-for(i=0;i<4;i++)
-{
-if(sub2[i].percentage >= top)
-{
-top = sub2[i].percentage;
-nam = stud2[i].getNam();
-}
-}
 System.out.println("----------------------------------------------");
-System.out.println("\n"+"Topper of the School is :"+nam);
-System.out.println("The Percentage		:"+top);
+if (topper>top)
+{
+System.out.println("The topper is from first class");
+}
+else if(top>topper)
+{
+System.out.println("The topper is from second class");
+}
 }
 public void teacher(String name)
 {
-
 System.out.println("Class Teacher is:"+name);
 }
 }
