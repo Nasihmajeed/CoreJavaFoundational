@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Board
  {
   
-  ArrayList<Board>cells =new ArrayList<Board>(100);
+ /* ArrayList<Board>cells =new ArrayList<Board>(100);
  	Dice diceRoll = new Dice();
- Scanner scnr=new Scanner(System.in);
-   ArrayList<Snake>snakes = new ArrayList<Snake>();
-   ArrayList<Ladder>ladders = new ArrayList<Ladder>();
 
+   ArrayList<Snake>snakes = new ArrayList<Snake>();
+   ArrayList<Ladder>ladders = new ArrayList<Ladder>();*/
+ Scanner scnr=new Scanner(System.in);
  /* public void startGame()
   {
   		
@@ -73,4 +73,70 @@ public class Board
     ladders.get(6).setEnd(93);
   }
 */
+
+  BoardElements[] be = new BoardElements[100];
+
+  public void createSnakes();
+  {
+    be[39]= new BoardElements();
+    be[39].setSnakeHead(SnakeHead);
+    be[3]=new BoardElements();
+    be[3].setSnakeTail(snakeTail);
+
+    be[35]= new BoardElements();
+    be[35].setSnakeHead(snakeHead);
+    be[5]=new BoardElements();
+    be[5].setSnakeTail(snakeTail);
+
+   be[50]= new BoardElements();
+    be[50].setSnakeHead(snakeHead);
+    be[34]=new BoardElements();
+    be[34].setSnakeTail(snakeTail);
+
+   be[89]= new BoardElements();
+    be[89].setSnakeHead(snakeHead);
+    be[68]=new BoardElements();
+    be[68].setSnakeTail(snakeTail);
+
+   be[99]= new BoardElements();
+    be[99].setSnakeHead(snakeHead);
+    be[26]=new BoardElements();
+    be[26].setSnakeTail(snakeTail);
+
+  } 
+  public void createLadder();
+  {
+    be[2]= new BoardElements();
+    be[2].setLadderStart(ladderStart);
+    be[23]=new BoardElements();
+    be[23].setLadderEnd(ladderEnd);
+
+    be[7]= new BoardElements();
+    be[7].setLadderStart(ladderStart);
+    be[29]=new BoardElements();
+    be[29].setLadderEnd(ladderEnd);
+
+
+    be[28]= new BoardElements();
+    be[28].setLadderStart(ladderStart);
+    be[77]=new BoardElements();
+    be[77].setLadderEnd(ladderEnd);
+
+
+    be[70]= new BoardElements();
+    be[70].setLadderStart(ladderStart);
+    be[90]=new BoardElements();
+    be[90].setLadderEnd(ladderEnd);
+
+
+    be[87]= new BoardElements();
+    be[87].setLadderStart(ladderStart);
+    be[93]=new BoardElements();
+    be[93].setLadderEnd(ladderEnd);
+
+  }
+  public void printSnakeAndLadder()
+  {
+    
+  }
 }
