@@ -5,6 +5,7 @@ public class Display{
 	int iteration=-1; 
 
 	public void boardPrinting(){
+		System.out.println(" ");
 		 while (counter > 0)
         {
                 if (counter%10 == 0 && counter != 100)
