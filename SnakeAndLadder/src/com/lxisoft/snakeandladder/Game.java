@@ -5,12 +5,11 @@ public class Game{
 	String playerName;
 	Board board=new Board();//no need for board this is done in diaplay class
 	Display display=new Display();
-	int[][] BoardArray = new int[100][2];
+	int[][] BoardArray = new int[101][2];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
-	int a,b,a1,b1;
-	int counter= 100;
-	int iteration=-1; 
+	int incrementi,incrementj;
+	int a,b,a1,b1,a2,b2,p1,p2;
 	Player[] players;
 
 
@@ -41,14 +40,13 @@ public class Game{
         this.playerInformation();
         this.permissionAsking();
         display.boardPrinting();
-        while(i==BoardArray[99][0]||j== BoardArray[99][0]){
-        this.player1();
-        this.player2();
-       	}
+
+        
+    }
 
        
 		
-	}//method1
+	
 
 
 public void startGame(){
@@ -98,10 +96,14 @@ public void startGame(){
 		else{
 			System.out.println("\nEXITED FROM GAME");
 		}
+		BoardArray[0][0]=i;
+		BoardArray[0][1]=j;
 	}
 
 	public void player1(){
+					
 
+			
 					System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
 					a=players[0].die.randomGeneration();
 					System.out.println(a);
@@ -110,7 +112,7 @@ public void startGame(){
 						display.boardPrinting();
 						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
 						System.out.println("\n--------------------------------------------------------------------------------------");
-						BoardArray[0][0]=i;
+						BoardArray[1][0]=i;
 						System.out.println("\n PRESS Y TO CONTINUE");
 						char c = scanner.next().charAt(0);// chodich chodich kalikan
 						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
@@ -128,7 +130,7 @@ public void startGame(){
 							
 							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
 					}//player1 nte die one vannal cheyandathu
-					else{
+					else if(a!=1){
 						System.out.println("\n--------------------------------------------------------------------------------------");
 						System.out.println("\n PLAYER1 *CAN NOT* ENTER THE GAME");
 						System.out.println("\n--------------------------------------------------------------------------------------");
@@ -136,7 +138,25 @@ public void startGame(){
 
 	}
 
+	public void player1Board(){
+		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
+		char c = scanner.next().charAt(0);
+		if(c=='Y'){
+			System.out.println("\n--------------------------------------------------------------------------------------");
+			System.out.println("\nDIE ROLLING FOR PLAYER2	");
+			System.out.println("\n--------------------------------------------------------------------------------------");
+			p1=players[0].die.randomGeneration();
+			System.out.println(p1+"pi ");
+
+
+
+		}
+	}
+
+
 	public void player2(){
+
+
 		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
 		char c = scanner.next().charAt(0);
 		if(c=='Y'){//player2 nte die roll cheyan
@@ -150,26 +170,95 @@ public void startGame(){
 				display.boardPrinting();
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
 				System.out.println("\n--------------------------------------------------------------------------------------");
-				BoardArray[0][1]=j;
-				System.out.println("\n--------------------------------------------------------------------------------------");
-				System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
-				b1=players[1].die.randomGeneration();
-				System.out.println("\n"+b1);
-				int incrementj=0+b1+1;
-				BoardArray[incrementj][0]=j;
-				display.boardPrinting();
-				System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
-				System.out.println("\n--------------------------------------------------------------------------------------");
+				BoardArray[1][1]=j;
+				System.out.println("\n PRESS Y TO CONTINUE");
+				char q = scanner.next().charAt(0);// chodich chodich kalikan
+				if(q== 'Y'){
+
+					System.out.println("\n--------------------------------------------------------------------------------------");
+					System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
+					b1=players[1].die.randomGeneration();
+					System.out.println("\n"+b1);
+					int incrementj=0+b1+1;
+					BoardArray[incrementj][0]=j;
+					display.boardPrinting();
+					System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
+					System.out.println("\n--------------------------------------------------------------------------------------");
+				}
 			}
-			else{
+			else if(b!=1){
 				System.out.println("\n--------------------------------------------------------------------------------------");
 				System.out.println("\n PLAYER2 *CAN NOT* ENTER THE GAME CHANCE GOES TO PLAYER1");
 				System.out.println("\n--------------------------------------------------------------------------------------");
 
 			}
+			
 
 		}
-	}
+		System.out.println("\n PRESS Y TO ROLL FOR PLAYER1");
+				char k = scanner.next().charAt(0);// chodich chodich kalikan
+				if(k== 'Y'){
+					
+				}
 
+	}//method
+
+	
+
+	
+
+
+	/*elseif(i=1){
+						System.out.println("\n--------------------------------------------------------------------------------------");
+						System.out.println("\nDIE ROLLING FOR PLAYER1	");
+						a2=players[0].die.randomGeneration();
+						System.out.println("\n"+a2);
+						int storage=i+a2;
+						BoardArray[storage][0]=i;//to store the value of i
+						System.out.println("\n NOW PLAYER1 IS IN"+storage);
+						System.out.println("\n--------------------------------------------------------------------------------------");
+			else if(b>BoardArray[0][1]){
+				System.out.println("\n--------------------------------------------------------------------------------------");
+				System.out.println("\nDIE ROLLING FOR PLAYER2	");
+						b2=players[0].die.randomGeneration();
+						System.out.println("\n"+a2);
+						int storage2=j+b2;
+						BoardArray[storage2][0]=j;//to store the value of i
+						System.out.println("\n NOW PLAYER2 IS IN"+storage2);
+
+
+				System.out.println("\n--------------------------------------------------------------------------------------");
+
+
+			}
+
+
+
+
+
+
+					}*/
+
+					public void trickMethod(){//to play the game efectively
+						if(i==BoardArray[0][0] && j==BoardArray[0][1]){
+							this.player1();
+							this.player2();
+						}
+
+						if(i>BoardArray[0][0] && j==BoardArray[0][1]){
+							//player1 matram keriyathinte code ezhutham
+						}
+
+						if(i==BoardArray[0][0] && j>BoardArray[0][1]){
+							//write code PLayer2 matram keriyal
+						}
+						if(i>BoardArray[0][0] && j>BoardArray[0][1]){
+							//randum keriyal
+						}
+
+
+
+					}
 
 }//class
+
