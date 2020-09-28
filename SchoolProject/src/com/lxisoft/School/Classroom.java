@@ -1,9 +1,13 @@
+package com.lxisoft.School;
 import java.util.Scanner;
+import com.lxisoft.School.Students;
+import com.lxisoft.School.Subjects;
 public class Classroom
+
 {
-	String teacher;
-	int n,i,division1,division2;
-	float top=0,topper=0;
+	public String teacher;
+	public int n,i,division1,division2;
+	public float top=0,topper=0;
 
     	Students[] st1 = new Students[3];
     	Students[] st2 = new Students[3];
@@ -118,8 +122,8 @@ public class Classroom
         }
             public void topper1()
             {
-            	float top=0;
-            	String name=null;
+            	 float top=0;
+            	 String name=null;
             	System.out.println("           TOPPER OF 1ST CLASS          ");
             	for(i=0;i<=3;i++)
             	{
@@ -134,8 +138,8 @@ public class Classroom
             }
              public void topper2()
             {
-            	float top=0;
-            	String name=null;
+            	 float top=0;
+            	 String name=null;
             	System.out.println("   \n        TOPPER OF 2ST CLASS          ");
             	for(i=0;i<=3;i++)
             	{

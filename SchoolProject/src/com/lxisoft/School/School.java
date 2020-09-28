@@ -1,9 +1,10 @@
+package com.lxisoft.School;
+import com.lxisoft.School.Classroom;
 import java.util.Scanner;
 public class School
-{
-	String Name,Principal,Address,Teacher,Students;
-	int division;
-	public void Schooldetails()
+{    
+	public String Name,Principal,Address,Teacher,Students;
+	public void schoolDetails()
 	{
 		System.out.println("                SCHOOL NAME IS VYASA VIDYA PEETHAM               ");
 
@@ -22,7 +23,7 @@ public class School
 
 
 
-    public void Display()
+    public void display()
     {
     	Classroom cr = new Classroom();
         cr.setstudentdetails1();

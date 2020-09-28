@@ -1,8 +1,9 @@
+ package com.lxisoft.School;
 public class Students
 {
 
-   String name,nam;
-   int regno;
+   public String name,nam;
+   public int regno;
   
    
      public void setName1(String n)
