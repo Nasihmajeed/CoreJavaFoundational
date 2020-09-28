@@ -1,14 +1,21 @@
+package com.lxisoft.Classroom;
 import java.util.Scanner;
+import com.lxisoft.Student.Student;
+import com.lxisoft.Subject.Subject;
 public class Classroom
 {
-String teacher,p;
+public String teacher;
 Student[] stud1=new Student[4];
 Student[] stud2=new Student[4];
 Subject[] sub1=new Subject[4];
 Subject[] sub2=new Subject[4];
 
-int i,division1,division2,n;
-float top=0,topper=0;
+public	int i;
+public int division1;
+public int division2;
+public int n;
+public	float top=0;
+public float topper=0;
 
 public void setPrint1()
 {

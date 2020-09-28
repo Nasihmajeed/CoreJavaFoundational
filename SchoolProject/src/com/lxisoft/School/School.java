@@ -1,4 +1,6 @@
+package com.lxisoft.School;
 import java.util.Scanner;
+import com.lxisoft.Classroom.Classroom;
 public class School
 {
 

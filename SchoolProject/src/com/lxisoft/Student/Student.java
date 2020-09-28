@@ -1,8 +1,11 @@
+package com.lxisoft.Student;
 public class Student
 {
 
-String name,nam;
-int regNo,regN;
+public String name;
+public String nam;
+public int regNo;
+public int regN;
 
 public void setRegNo(int r)
 {
