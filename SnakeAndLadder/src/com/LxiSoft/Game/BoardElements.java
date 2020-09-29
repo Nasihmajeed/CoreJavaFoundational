@@ -8,6 +8,8 @@ public class BoardElements
 	 int snakeTail;
 	 int ladderStart;
 	 int ladderEnd;
+	 int position;
+	 String coin;
 
 	 public void setSnakeHead(int snakeHead)
     {
@@ -45,7 +47,16 @@ public class BoardElements
     {
         return ladderEnd;
     }
-    
-    
+
+    public void setPosition(int position)
+  {
+  	this.position=position;
+  }
+  public int getPosition()
+  {
+  	return position;
+  }
+
+   
 
 }

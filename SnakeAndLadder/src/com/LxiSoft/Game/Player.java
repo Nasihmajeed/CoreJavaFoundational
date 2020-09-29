@@ -1,7 +1,10 @@
 package com.LxiSoft.Game;
+import java.util.*;
 import java.util.Scanner;
-public class Player{
-	Dice dice=new Dice();
+import java.util.Random;
+import java.util.ArrayList;
+public class Player
+{
 
 	private String playerName;
 	public void setPlayerName(String a){
@@ -10,9 +13,6 @@ public class Player{
 	public String getPlayerName(){
 		return playerName;
 	}
-	public void playGame(){
-	dice.randomGeneration();
+	
 	}
 	
-
-}

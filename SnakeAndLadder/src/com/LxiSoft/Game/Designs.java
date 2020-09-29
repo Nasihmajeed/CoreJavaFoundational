@@ -1,10 +1,12 @@
 package com.LxiSoft.Game;
+import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
 public class Designs
 {
 	public void gameBoard()
-	{  
-
-     //    System.out.println ("\t\t\t\t\t\tWelcome To Snakes And Ladders\n\n");
+	{
 		    int counter= 100;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
@@ -34,11 +36,11 @@ public class Designs
         }
         System.out.println();
         System.out.println ("----------------------------------------------------------------------------------------------------------------------------------");
-       this.gameRule();
-        }
-
-        public void gameRule() 
-	{
+        
+        
+	}
+    public void gameRule() 
+    {
         System.out.println ("\t\t\t\t\t\t\tInstructions:");
         System.out.println(" \t\t\t\t  There will be 2 players in the game");
           System.out.println(" \t\t\tEach player enter the game if and only if he rolls 1 on the dice:");
@@ -50,4 +52,5 @@ public class Designs
                System.out.println ("\t\t\t\t\t\t Good Luck and Have FUN!!!");
 
     }
+
 }
