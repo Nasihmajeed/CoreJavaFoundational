@@ -9,8 +9,8 @@ public class Game
 	Scanner scnr=new Scanner(System.in);
 	Designs d = new Designs();
 	Board b=new Board();
-	Dice die=new Dice();
-	//Rules r=new Rules();
+	//Dice die=new Dice();
+	Rules r=new Rules();
 	public void startGame()
 {
 	d.gameBoard();
@@ -25,8 +25,8 @@ public class Game
             //diceRoll.diceConditions(); 
             b.printSnakeAndLadder();
             this.playerDetails();
-            die.gameStart();
-        	//r.snakesAndladders(be);
+            //die.gameStart();
+        	r.snakesAndladders(be);
         }
         System.out.println ("\n\t\t");
     
