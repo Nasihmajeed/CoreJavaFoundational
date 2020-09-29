@@ -1,9 +1,8 @@
 package com.Lxisoft.Game;
-import java.util.*;
+import java.util.Scanner;
 public class Player
 {
-	Dice dice=new Dice();
-	private 
+	Dice die=new Dice();
 
 	private String playerName;
 	public void setPlayerName(String a){
@@ -13,7 +12,7 @@ public class Player
 		return playerName;
 	}
 	public void playGame(){
-	dice.randomGeneration();
+	die.randomGeneration();
 	}
 	
 

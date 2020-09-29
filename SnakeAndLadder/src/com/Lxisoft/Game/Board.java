@@ -3,11 +3,11 @@ import java.io.*;
 
 public class Board
 {
-    Game g = new Game();
+   Game g =new Game();
 
     public void startScreen()
     {
-        System.out.println ("\t\t\tWelcome To Snakes And Ladders\n\n");
+        System.out.println ("\n\t\t\tWelcome To Snakes And Ladders\n\n");
         System.out.println ("\t\t\t\tInstructions:");
         System.out.println ("\tThis game or program is running with rules in ordinary snake and ladder");
         System.out.println ("\tgame. The player who got one will be entered to the game and the first");
@@ -47,6 +47,17 @@ public class Board
         System.out.println();
         System.out.println ("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-        g.start();
+        //g.start();
+    }
+
+    public void rules()
+    {
+        System.out.println("\t Ladders \t\t Snakes\n");
+        System.out.println("\t 3 - 44  \t\t 70 - 8 ");
+        System.out.println("\t 6 - 24  \t\t 22 - 2 ");
+        System.out.println("\t 15 - 38  \t\t 55 - 19 ");
+        System.out.println("\t 24 - 95  \t\t 90 - 5 ");
+        System.out.println("\t 60 - 91  \t\t 66 - 33 ");
+        g.startGame();
     }
 }
