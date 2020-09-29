@@ -9,6 +9,7 @@ public class Game{
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
 	int incrementi,incrementj;
+	int newIncrementi,newIncrementj;
 	int a,b,a1,b1,a2,b2,p1,p2;
 	Player[] players;
 
@@ -40,6 +41,7 @@ public class Game{
         this.playerInformation();
         this.permissionAsking();
         display.boardPrinting();
+        this.trickMethod();
 
         
     }
@@ -139,17 +141,18 @@ public void startGame(){
 	}
 
 	public void player1Board(){
-		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
+		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER1");
 		char c = scanner.next().charAt(0);
 		if(c=='Y'){
 			System.out.println("\n--------------------------------------------------------------------------------------");
-			System.out.println("\nDIE ROLLING FOR PLAYER2	");
+			System.out.println("\nDIE ROLLING FOR PLAYER1	");
 			System.out.println("\n--------------------------------------------------------------------------------------");
 			p1=players[0].die.randomGeneration();
 			System.out.println(p1+"pi ");
-
-
-
+			newIncrementi=incrementi+p1;
+			BoardArray[newIncrementi][0]=i;
+			System.out.println("PLAYER1 IS IN"+newIncrementi);
+			System.out.println("\n--------------------------------------------------------------------------------------");
 		}
 	}
 
@@ -201,62 +204,69 @@ public void startGame(){
 					
 				}
 
-	}//method
+	}
 
-	
-
-	
-
-
-	/*elseif(i=1){
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						System.out.println("\nDIE ROLLING FOR PLAYER1	");
-						a2=players[0].die.randomGeneration();
-						System.out.println("\n"+a2);
-						int storage=i+a2;
-						BoardArray[storage][0]=i;//to store the value of i
-						System.out.println("\n NOW PLAYER1 IS IN"+storage);
-						System.out.println("\n--------------------------------------------------------------------------------------");
-			else if(b>BoardArray[0][1]){
-				System.out.println("\n--------------------------------------------------------------------------------------");
-				System.out.println("\nDIE ROLLING FOR PLAYER2	");
-						b2=players[0].die.randomGeneration();
-						System.out.println("\n"+a2);
-						int storage2=j+b2;
-						BoardArray[storage2][0]=j;//to store the value of i
-						System.out.println("\n NOW PLAYER2 IS IN"+storage2);
-
-
-				System.out.println("\n--------------------------------------------------------------------------------------");
-
-
-			}
+	public void player2Board(){
+		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER2");
+		char c = scanner.next().charAt(0);
+		if(c=='Y'){
+			System.out.println("\n--------------------------------------------------------------------------------------");
+			System.out.println("\nDIE ROLLING FOR PLAYER2	");
+			System.out.println("\n--------------------------------------------------------------------------------------");
+			p2=players[1].die.randomGeneration();
+			System.out.println(p2+"p2 ");
+			newIncrementj=incrementj+p2;
+			BoardArray[newIncrementi][1]=j;
+			System.out.println("PLAYER2 IS IN"+newIncrementj);
+			System.out.println("\n--------------------------------------------------------------------------------------");
 
 
 
 
 
+		}
 
-					}*/
+	}
 
 					public void trickMethod(){//to play the game efectively
-						if(i==BoardArray[0][0] && j==BoardArray[0][1]){
-							this.player1();
-							this.player2();
+
+					while(i==BoardArray[100][0] || j==BoardArray[100][1])
+						//display.boardPrinting();
+						{
+							if(i==BoardArray[0][0] && j==BoardArray[0][1]){
+								display.boardPrinting();
+								this.player1();
+								this.player2();
+							}
+
+							if(i>BoardArray[0][0] && j==BoardArray[0][1]){
+								display.boardPrinting();
+								this.player1Board();
+								this.player2();
+							}
+
+							if(i==BoardArray[0][0] && j>BoardArray[0][1]){
+								display.boardPrinting();
+								this.player1();
+								this.player2Board();
+							}
+							if(i>BoardArray[0][0] && j>BoardArray[0][1]){
+								display.boardPrinting();
+								this.player1Board();
+								this.player2Board();
+							}
+
 						}
 
-						if(i>BoardArray[0][0] && j==BoardArray[0][1]){
-							//player1 matram keriyathinte code ezhutham
-						}
-
-						if(i==BoardArray[0][0] && j>BoardArray[0][1]){
-							//write code PLayer2 matram keriyal
-						}
-						if(i>BoardArray[0][0] && j>BoardArray[0][1]){
-							//randum keriyal
-						}
 
 
+					}
+
+					public void snakeMethod(){
+
+					}
+
+					public void ladderMethod(){
 
 					}
 
