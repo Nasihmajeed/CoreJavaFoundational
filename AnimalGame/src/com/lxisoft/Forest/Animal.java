@@ -3,6 +3,7 @@ public class Animal
 {
 	private String name;
 	private int strength;
+	private boolean alive;
 
 	
 
@@ -26,7 +27,14 @@ public class Animal
 		return strength;
 	}
 
-	
+	public void setAlive(boolean b)
+	{
+		alive = b;
+	}
 
+    public boolean getAlive()
+    {
+    	return alive;
+    }
 
 }
