@@ -148,20 +148,176 @@ public class Game
 				}
 
 	}
-	/*public void snakesAndladders()
-	{
-		do
+	public void snakeandladder()
+	{do
 		{
-			System.out.print("Player 1 :- ");
-			a = scan.nextInt();
-
-			if(player1 == 1)
+			try
+			{
+				System.out.print("Player 1 :- ");
+				player1 = scan.nextInt();
+				
+				if(player1 == 1)
 				{
 					dice.auto.nextInt(6) + 1;
 					System.out.println("Dice :- " + dice);
 					position1 += dice;
 					checkInput = 0;
+					
+					if (position == 3)
+					{
+						postion1 = 44;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position1);
+						checkInput=0;
+					}
+					else if (position== 6 )
+					{
+						postion1 = 22;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+
+					else if (position== 15 )
+					{
+						postion1 = 38;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else if (position== 24 )
+					{
+						postion1 = 96;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else if (position== 12 )
+					{
+						postion1 = 1;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else if (position== 28 )
+					{
+						postion1 = 10;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else if (position== 90 )
+					{
+						postion1 = 56;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else if (position== 72 )
+					{
+						postion1 = 58;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position1);
+						checkInput=0;
+					
+					}
+					else 
+					{
+						System.out.println("Your current position is  "+ position1);
+						System.out.println("");			
+					}
+
+				}
+
+
+			}
+			
 		}
-	}*/
+		while(checkInput ==1);
+
+		do
+		{
+			try
+			{
+				System.out.print("Player 2 :- ");
+				player2 = scan.nextInt();
+				
+				if(player2 == 1)
+				{
+					dice.auto.nextInt(6) + 1;
+					System.out.println("Dice :- " + dice);
+					position2 += dice;
+					checkInput = 0;
+					
+					if (position == 3)
+					{
+						postion2 = 44;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position2);
+						checkInput=0;
+					}
+					else if (position== 6 )
+					{
+						postion2 = 22;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+
+					else if (position== 15 )
+					{
+						postion2 = 38;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else if (position== 24 )
+					{
+						postion2 = 96;
+						System.out.println("It's A ladder! go up! \nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else if (position== 12 )
+					{
+						postion2 = 1;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else if (position== 28 )
+					{
+						postion2 = 10;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else if (position== 90 )
+					{
+						postion2 = 56;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else if (position== 72 )
+					{
+						postion2 = 58;
+						System.out.println("You bit by a snake! Go Down!\nYour Position is " + position2);
+						checkInput=0;
+					
+					}
+					else 
+					{
+						System.out.println("Your current position is  "+ position2);
+						System.out.println("");			
+					}
+
+				}
+
+
+			}
+			
+		}
+		while(checkInput ==1);
+
+	}
+
 
 }
