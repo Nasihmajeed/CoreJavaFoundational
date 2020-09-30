@@ -6,8 +6,6 @@ public class Tdd
   {
   	Hotel h = new Hotel();
   	h.hotelDetails();
-  	h.hotelMenu();
-  	h.order();
-  	h.
+  	h.hotelMenu1();
   }
 }
