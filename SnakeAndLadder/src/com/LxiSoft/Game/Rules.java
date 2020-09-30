@@ -5,12 +5,18 @@ import java.util.Random;
 
 public class SnakesAndLadders
 {
-	
+	/*
 	int player1=0;
 	int player2=0;
 	int dice=0;
 	int position1=0;
 	int position 2=0;
+
+	    public int roll()
+	     {
+        return new Random().nextInt(6) + 1; 
+         }
+
 
 	public void snakesAndladders(ArrayList be)
 	{
@@ -206,6 +212,6 @@ public class SnakesAndLadders
 		while(checkInput ==1);
 
 	}
-
+*/
 
 }
