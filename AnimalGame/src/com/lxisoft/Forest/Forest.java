@@ -42,27 +42,27 @@ public class Forest
 
 		animal.add(new Deer());
 		animal.get(5).setName("Deer1");
-		animal.get(5).setStrength(20);
+		animal.get(5).setStrength(25);
 		animal.get(5).setAlive(true);
 
 		animal.add(new Elephant());
 		animal.get(6).setName("Elephant1");
-		animal.get(6).setStrength(60);
+		animal.get(6).setStrength(65);
 		animal.get(6).setAlive(true);
 
 		animal.add(new Goat());
 		animal.get(7).setName("Goat1");
-		animal.get(7).setStrength(10);
+		animal.get(7).setStrength(16);
 		animal.get(7).setAlive(true);
 
 		animal.add(new Lion());
 		animal.get(8).setName("Lion1");
-		animal.get(8).setStrength(100);
+		animal.get(8).setStrength(95);
 		animal.get(8).setAlive(true);
         
         animal.add(new Panther());
 		animal.get(9).setName("Panther1");
-		animal.get(9).setStrength(80);
+		animal.get(9).setStrength(85);
 		animal.get(9).setAlive(true);
         
 		for(int i=0;i<animal.size();i++)
@@ -71,7 +71,7 @@ public class Forest
 		}
 	}
 
-	public void fight()
+	public void fight(int random1, int random2)
 	{
 		int a=0,y=0;
 		String z=null,b=null;
@@ -103,9 +103,8 @@ public class Forest
 
 	public void setPage()
 	{		
-		int c;
 		System.out.println("\n press 1 to Start GAME:");
-		c = scanner.nextInt();
+		int c = scanner.nextInt();
 		if(c==1)
 		{	
 		    for (int i=0;i<animal.size();i++)
@@ -123,26 +122,26 @@ public class Forest
 	            	{
 	            	    if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Herbivorous)
 	            		{
-	            			System.out.println("Animal 1: Carnivorous"+"\n"+"Animal 2: Herbivorous");
-                            fight();
+	            			System.out.println("\nAnimal 1: Carnivorous"+"\n"+"Animal 2: Herbivorous");
+                            fight(random1,random2);
 	                    }
 	                    
 	                    else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Carnivorous)
 	            		{
-	            			System.out.println("Animal 1: Herbivorous"+"\n"+"Animal 2: Carnivorous");
-                            fight();
+	            			System.out.println("\nAnimal 1: Herbivorous"+"\n"+"Animal 2: Carnivorous");
+                            fight(random1,random2);
 	                    }
 	                   
 	                    else if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Carnivorous)
 	            		{
-	            			System.out.println("Both Animals are Carnivorous");
-                            fight();
+	            			System.out.println("\nBoth Animals are Carnivorous");
+                            fight(random1,random2);
 	                    }
 	                   
 	                     else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Herbivorous)
 	            		{
-	            			System.out.println("Both Animals are Herbivorous");
-                            System.out.println("No fight");
+	            			System.out.println("\nBoth Animals are Herbivorous");
+                            System.out.println("Just meet and no fight");
 	                    }
 	                }    
 	            }
