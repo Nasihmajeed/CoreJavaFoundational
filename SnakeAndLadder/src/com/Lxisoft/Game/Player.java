@@ -1,8 +1,7 @@
 package com.Lxisoft.Game;
 import java.util.Scanner;
-public class Player
-{
-	Dice die=new Dice();
+public class Player{
+	Die die=new Die();
 
 	private String playerName;
 	public void setPlayerName(String a){

@@ -1,11 +1,10 @@
 package com.Lxisoft.Game;
-import java.io.*;
+import java.util.*;
 
 public class Board
 {
-   Game g =new Game();
-
-    public void startScreen()
+	Game g = new Game();
+	public void startScreen()
     {
         System.out.println ("\n\t\t\tWelcome To Snakes And Ladders\n\n");
         System.out.println ("\t\t\t\tInstructions:");
