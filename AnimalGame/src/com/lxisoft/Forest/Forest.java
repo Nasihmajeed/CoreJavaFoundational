@@ -102,12 +102,13 @@ public class Forest
 	}
 
 	public void setPage()
-	{		
+	{	
+	    int i=0;	
 		System.out.println("\n press 1 to Start GAME:");
 		int c = scanner.nextInt();
 		if(c==1)
 		{	
-		    for (int i=0;i<animal.size();i++)
+		    while(i>=0)
 		    {
 		        Random r = new Random();
 	            int random1 = r.nextInt(10);
@@ -145,12 +146,26 @@ public class Forest
 	                    }
 	                }    
 	            }
+	        System.out.println("********");
+	        i++;
 	        }
 	    System.out.println("\nGame Over");
+	    ultimateWinner(); 
         }
 	    else
 		{
 			System.out.println("Invalid choice");
+		}
+	}
+
+	public void ultimateWinner()
+	{
+		for(int i=0;i<animal.size();i++)
+		{
+			if(animal.get(i).getAlive() == true)
+			{
+				System.out.println("\n Ultimate Winner is: "+animal.get(i).getName());
+			}
 		}
 	}
 }
