@@ -7,6 +7,7 @@ public class Hotel
 	Food[] food = new Food[10];
 	public String name;
 	public int i,price; 
+
 	public void hotelDetails()
 	{
 		System.out.println("                HOTEL NAME IS MARC MARQUEZ               ");
@@ -42,7 +43,11 @@ public class Hotel
 		 for(i=0;i<10;i++)
 	    {
 	    	food[i].hotelMenu2();
-	    }
+	    }  
+	}
+	public void user()
+	{
+	food[i].order(); 
 	}
 }
 

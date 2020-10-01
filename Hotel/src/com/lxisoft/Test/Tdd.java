@@ -7,5 +7,6 @@ public class Tdd
   	Hotel h = new Hotel();
   	h.hotelDetails();
   	h.hotelMenu1();
+  	h.user();
   }
 }
