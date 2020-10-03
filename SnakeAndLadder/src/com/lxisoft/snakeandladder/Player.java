@@ -13,6 +13,14 @@ public class Player{
 	public void playGame(){
 	die.randomGeneration();
 	}
-	
 
+	private int position;
+	public void setPosition(Integer a){
+		this.position=a;
+	}
+	public int getPostion(){
+		return position;
+	}
+	
+	//position vayku.
 }

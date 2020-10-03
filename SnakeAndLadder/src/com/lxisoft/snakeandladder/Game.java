@@ -114,7 +114,8 @@ public void startGame(){
 						display.boardPrinting();
 						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
 						System.out.println("\n--------------------------------------------------------------------------------------");
-						BoardArray[1][0]=i;
+						players[0].setPosition(1);
+						BoardArray[1][0]=players[0].setPosition();
 						System.out.println("\n PRESS Y TO CONTINUE");
 						char c = scanner.next().charAt(0);// chodich chodich kalikan
 						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
@@ -150,6 +151,7 @@ public void startGame(){
 			p1=players[0].die.randomGeneration();
 			System.out.println(p1+"pi ");
 			newIncrementi=incrementi+p1;
+			System.out.println(newIncrementi);
 			BoardArray[newIncrementi][0]=i;
 			System.out.println("PLAYER1 IS IN"+newIncrementi);
 			System.out.println("\n--------------------------------------------------------------------------------------");
@@ -216,6 +218,7 @@ public void startGame(){
 			p2=players[1].die.randomGeneration();
 			System.out.println(p2+"p2 ");
 			newIncrementj=incrementj+p2;
+			System.out.println(newIncrementj);
 			BoardArray[newIncrementi][1]=j;
 			System.out.println("PLAYER2 IS IN"+newIncrementj);
 			System.out.println("\n--------------------------------------------------------------------------------------");
