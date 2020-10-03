@@ -1,7 +1,8 @@
+package com.lxisoft.Item;
 public class Item
 {
-String name;
-int price;
+public String name;
+public int price;
 public void setName(String a)
 {
 this.name=a;
