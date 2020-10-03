@@ -6,10 +6,14 @@ public class Forest
 {
 	ArrayList<Animal> animal = new ArrayList<Animal>();
 	Scanner scanner = new Scanner(System.in);
+	int count;
 
 	public void printName()
-	{		
-		System.out.println("\n WELCOME TO ANIMAL GAME");
+	{	
+	    System.out.println("\n");	
+		System.out.println("*****************************************************");
+		System.out.println("*               WELCOME TO ANIMAL GAME              *");
+		System.out.println("*****************************************************");
 	}
 
 	public void setName()
@@ -67,6 +71,7 @@ public class Forest
         
 		for(int i=0;i<animal.size();i++)
 		{
+			System.out.println("\n");
 			System.out.println(i+1+" "+animal.get(i).getName());
 		}
 	}
@@ -86,6 +91,8 @@ public class Forest
             {
                 animal.get(random2).setAlive(false);
                 System.out.println("Looser: "+animal.get(random2).getName());
+                System.out.println("******************************************");
+                count--;
             }
 	    }
 	    else
@@ -97,6 +104,8 @@ public class Forest
             {
                 animal.get(random1).setAlive(false);
                 System.out.println("Looser: "+animal.get(random1).getName());
+                System.out.println("******************************************");
+                count--;
             } 
         }
 	}
@@ -108,7 +117,8 @@ public class Forest
 		int c = scanner.nextInt();
 		if(c==1)
 		{	
-		    while(i>=0)
+			count = animal.size();
+		    while(count > 1)
 		    {
 		        Random r = new Random();
 	            int random1 = r.nextInt(10);
@@ -118,39 +128,39 @@ public class Forest
 	            	random2 = r.nextInt();
 	            }
 	            else
-	            {
+	            {	            	
 	            	if(animal.get(random1).getAlive() && animal.get(random2).getAlive() == true)
 	            	{
 	            	    if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Herbivorous)
 	            		{
 	            			System.out.println("\nAnimal 1: Carnivorous"+"\n"+"Animal 2: Herbivorous");
-                            fight(random1,random2);
+                            this.fight(random1,random2);
 	                    }
 	                    
 	                    else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Carnivorous)
 	            		{
 	            			System.out.println("\nAnimal 1: Herbivorous"+"\n"+"Animal 2: Carnivorous");
-                            fight(random1,random2);
+                            this.fight(random1,random2);
 	                    }
 	                   
 	                    else if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Carnivorous)
 	            		{
 	            			System.out.println("\nBoth Animals are Carnivorous");
-                            fight(random1,random2);
+                            this.fight(random1,random2);
 	                    }
 	                   
 	                     else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Herbivorous)
 	            		{
 	            			System.out.println("\nBoth Animals are Herbivorous");
                             System.out.println("Just meet and no fight");
+                            System.out.println("******************************************");
 	                    }
 	                }    
 	            }
-	        System.out.println("********");
 	        i++;
 	        }
-	    System.out.println("\nGame Over");
-	    ultimateWinner(); 
+	    System.out.println("\n Game Over");
+	    this.ultimateWinner(); 
         }
 	    else
 		{
@@ -164,7 +174,9 @@ public class Forest
 		{
 			if(animal.get(i).getAlive() == true)
 			{
+				System.out.println("\n==========================================");
 				System.out.println("\n Ultimate Winner is: "+animal.get(i).getName());
+				System.out.println("\n==========================================");
 			}
 		}
 	}

@@ -9,7 +9,7 @@ public class Animal
 
 	public void setName(String n)
 	{
-		name = n;
+		this.name = n;
 	}
 
 	public String getName()
@@ -19,7 +19,7 @@ public class Animal
 
 	public void setStrength(int s)
 	{
-		strength = s;
+		this.strength = s;
 	}
 
 	public int getStrength()
@@ -29,7 +29,7 @@ public class Animal
 
 	public void setAlive(boolean b)
 	{
-		alive = b;
+		this.alive = b;
 	}
 
     public boolean getAlive()
