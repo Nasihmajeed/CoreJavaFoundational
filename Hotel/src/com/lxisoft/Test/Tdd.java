@@ -6,7 +6,9 @@ public class Tdd
   {
   	Hotel h = new Hotel();
   	h.hotelDetails();
-  	h.hotelMenu1();
-  	h.user();
+  	h.setHotelMenu();
+  	h.admin();
+  	h.orderFood();
+  	h.bill();
   }
 }

@@ -1,27 +1,26 @@
 package com.lxisoft.Hotel;
-import com.lxisoft.Hotel.OrderFood;
-import java.util.Scanner;
 public  class Food
 
 {
-	int i;
-	String name;
-	int price;
-	public void hotelMenu2()
+	String name,n;
+	int price,p;	
+	public void setName(String n)
 	{
-	   Scanner scanner = new Scanner(System.in);
-	   System.out.print(name+"\n"+"$"+price);
-       System.out.print("\n");
-       System.out.println(" -----------------------##############----------------------- ");
-       System.out.print("\n"); 
+		name = n;
 	}
-	public void order()
+
+	public String getName()
 	{
-		OrderFood[] order= new OrderFood[10];
-	    for(i=0;i<10;i++)
-	    {
-	    order[i]=new OrderFood();
-        order[i].orderItem(); 
-	    } 
-	}	
+		return name;
+	}
+
+	public void setPrice(int p)
+	{
+		price = p;
+	}
+
+	public int getPrice()
+	{
+		return price;
+	}		
 }
