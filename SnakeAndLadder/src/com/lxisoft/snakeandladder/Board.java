@@ -26,21 +26,7 @@ public class Board{
 		return cellNumber;
 	}
 
-	private int i;//coin of player1
-	public void setI(Integer a){
-		this.i=a;
-	}
-	public int getI(){
-		return i;
-	}
-
-	private int j;//coin of player2
-	public void setJ(Integer a){
-		this.j=a;
-	}
-	public int getJ(){
-		return j;
-	}
+	
 
 
 }

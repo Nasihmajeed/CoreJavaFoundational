@@ -28,5 +28,19 @@ public class Display{
             System.out.print(counter + "\t"); 
             counter+=iteration; 
         }
+
+
+
 	}
+
+    public void display(){
+        System.out.println("\n\t Ladders \t\t Snakes\n");
+        System.out.println("\t 3 - 44  \t\t 70 - 8 ");
+        System.out.println("\t 6 - 24  \t\t 22 - 2 ");
+        System.out.println("\t 15 - 38  \t\t 55 - 19 ");
+        System.out.println("\t 24 - 95  \t\t 90 - 5 ");
+        System.out.println("\t 60 - 91  \t\t 66 - 33 ");
+    }
+
+
 }

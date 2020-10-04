@@ -5,7 +5,7 @@ public class Game{
 	String playerName;
 	Board board=new Board();//no need for board this is done in diaplay class
 	Display display=new Display();
-	int[][] BoardArray = new int[101][2];
+	int[] BoardArray = new int[101];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
 	int incrementi,incrementj;
@@ -41,6 +41,7 @@ public class Game{
         this.playerInformation();
         this.permissionAsking();
         display.boardPrinting();
+        display.display();
         this.trickMethod();
 
         
@@ -98,8 +99,8 @@ public void startGame(){
 		else{
 			System.out.println("\nEXITED FROM GAME");
 		}
-		BoardArray[0][0]=i;
-		BoardArray[0][1]=j;
+		//BoardArray[0][0]=i;
+		//BoardArray[0][1]=j;
 	}
 
 	public void player1(){
@@ -114,8 +115,8 @@ public void startGame(){
 						display.boardPrinting();
 						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
 						System.out.println("\n--------------------------------------------------------------------------------------");
-						players[0].setPosition(1);
-						BoardArray[1][0]=players[0].setPosition();
+						
+						BoardArray[1]=i;
 						System.out.println("\n PRESS Y TO CONTINUE");
 						char c = scanner.next().charAt(0);// chodich chodich kalikan
 						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
@@ -125,7 +126,7 @@ public void startGame(){
 							a1=players[0].die.randomGeneration();
 							System.out.println("\n"+a1);
 							int incrementi=0+a1+1;
-							BoardArray[incrementi][0]=i;
+							BoardArray[incrementi]=i;
 							System.out.println("\n--------------------------------------------------------------------------------------");
 							display.boardPrinting();//THIS IS NOT WOEKING CHEK
 							System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
@@ -152,7 +153,7 @@ public void startGame(){
 			System.out.println(p1+"pi ");
 			newIncrementi=incrementi+p1;
 			System.out.println(newIncrementi);
-			BoardArray[newIncrementi][0]=i;
+			BoardArray[newIncrementi]=i;
 			System.out.println("PLAYER1 IS IN"+newIncrementi);
 			System.out.println("\n--------------------------------------------------------------------------------------");
 		}
@@ -175,7 +176,7 @@ public void startGame(){
 				display.boardPrinting();
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
 				System.out.println("\n--------------------------------------------------------------------------------------");
-				BoardArray[1][1]=j;
+				BoardArray[1]=j;
 				System.out.println("\n PRESS Y TO CONTINUE");
 				char q = scanner.next().charAt(0);// chodich chodich kalikan
 				if(q== 'Y'){
@@ -185,7 +186,7 @@ public void startGame(){
 					b1=players[1].die.randomGeneration();
 					System.out.println("\n"+b1);
 					int incrementj=0+b1+1;
-					BoardArray[incrementj][0]=j;
+					BoardArray[incrementj]=j;
 					display.boardPrinting();
 					System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
 					System.out.println("\n--------------------------------------------------------------------------------------");
@@ -219,7 +220,7 @@ public void startGame(){
 			System.out.println(p2+"p2 ");
 			newIncrementj=incrementj+p2;
 			System.out.println(newIncrementj);
-			BoardArray[newIncrementi][1]=j;
+			BoardArray[newIncrementi]=j;
 			System.out.println("PLAYER2 IS IN"+newIncrementj);
 			System.out.println("\n--------------------------------------------------------------------------------------");
 
@@ -233,27 +234,27 @@ public void startGame(){
 
 					public void trickMethod(){//to play the game efectively
 
-					while(i==BoardArray[100][0] || j==BoardArray[100][1])
+					while(i==BoardArray[100] || j==BoardArray[100])
 						//display.boardPrinting();
 						{
-							if(i==BoardArray[0][0] && j==BoardArray[0][1]){
+							if(i==BoardArray[0] && j==BoardArray[0]){
 								display.boardPrinting();
 								this.player1();
 								this.player2();
 							}
 
-							if(i>BoardArray[0][0] && j==BoardArray[0][1]){
+							if(i>BoardArray[0] && j==BoardArray[0]){
 								display.boardPrinting();
 								this.player1Board();
 								this.player2();
 							}
 
-							if(i==BoardArray[0][0] && j>BoardArray[0][1]){
+							if(i==BoardArray[0] && j>BoardArray[0]){
 								display.boardPrinting();
 								this.player1();
 								this.player2Board();
 							}
-							if(i>BoardArray[0][0] && j>BoardArray[0][1]){
+							if(i>BoardArray[0] && j>BoardArray[0]){
 								display.boardPrinting();
 								this.player1Board();
 								this.player2Board();
