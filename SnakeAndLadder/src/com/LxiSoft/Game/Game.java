@@ -257,7 +257,7 @@ public class Game
 			}
 			}
 
-	/*public void rollDieAtLast()
+	public void rollDieAtLast()
 	{
 			do{
 				if (position1 <=93)
@@ -270,7 +270,7 @@ public class Game
 				}
 
 			}
-			}*/
+			}
 
 
 				public void boardArray()
