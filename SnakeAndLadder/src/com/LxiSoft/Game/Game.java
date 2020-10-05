@@ -30,10 +30,21 @@ public class Game
 	{	
 		
 		this.boardArray();
+	/*	for(int i=0;i<board.length[2];i++)
+		{
+		System.out.println("\nEnter the name of the player");
+	   String playerName=scan.nextLine();	
+		board[i].setPlayerName(name);
+		}
+		for(int i=0;i<board.length[2];i++)
+		{
+			System.out.println("\n THE PALYERS ARE");
+        	System.out.println("         	"     +board[i].getPlayerName()+"                ");*/
+
 		do
 		{
-			int counter1=1;
-			int counter2=1;
+			int counter1=0;
+			int counter2=0;
 
 			for (int row =0; row < 10; row++);
 			{
@@ -41,7 +52,7 @@ public class Game
 				{
 					if (counter1 == position1)
 					{	
-						System.out.println("---P1---\t"+position1);
+						//System.out.println("\n---P1---\t"+position1);
 						counter1++;
 						
 						position1++;
@@ -49,9 +60,9 @@ public class Game
 					}
 					else if (counter2 == position2)
 					{
-						System.out.println("---P2---\t"+position2);
+					//	System.out.println("\n---P2---\t"+position2);
 						counter2++;
-						position1++;
+						position2++;
 					}
 					else
 					{
@@ -68,8 +79,8 @@ public class Game
 			{
 				try
 				{
-					 System.out.println("Press 1 to Roll the Dice: ");
-					System.out.println("Player 1 :- ");
+					 System.out.println("\n \t Press 1 to Roll the Dice: ");
+					System.out.println("\n \tPlayer 1 :- ");
 					player1 = scan.nextInt();
 
 					if (player1 ==1)
@@ -81,76 +92,76 @@ public class Game
 						if (position1 ==3 )
 						{
 							position1 = 44;
-							System.out.println("Its A ladder "+position1);
+							System.out.println("\nIts A ladder "+position1);
 
 						}
 						else if(position1 ==6)
 						{
 							position1=56;
-							System.out.println("Its A ladder "+position1);		
+							System.out.println("\nIts A ladder "+position1);		
 						}
 						else if(position1 ==24)
 						{
 							position1=24;
-							System.out.println("Its A ladder "+position1);		
+							System.out.println("\nIts A ladder "+position1);		
 						}
 						else if(position1 ==15)
 						{
 							position1=38;
-							System.out.println("Its A ladder "+position1);		
+							System.out.println("\nIts A ladder "+position1);		
 						}
 						else if(position1 ==24)
 						{
 							position1=95;
-							System.out.println("Its A ladder "+position1);		
+							System.out.println("\nIts A ladder "+position1);		
 						}
 						else if(position1 ==50)
 						{
 							position1=96;
-							System.out.println("Its A ladder "+position1);		
+							System.out.println("\nIts A ladder "+position1);		
 						}
 						else if (position1==70)
 						{
 							position1=8;
-							System.out.println("Its A snake "+position1);
+							System.out.println("\nIts A snake "+position1);
 						}
 						else if (position1==22)
 						{
 							position1=2;
-							System.out.println("Its A snake "+position1);
+							System.out.println("\nIts A snake "+position1);
 						}
 						else if (position1==55)
 						{
 							position1=19;
-							System.out.println("Its A snake "+position1);
+							System.out.println("\nIts A snake "+position1);
 						}
 						else if (position1==90)
 						{
 							position1=5;
-							System.out.println("Its A snake "+position1);
+							System.out.println("\nIts A snake "+position1);
 						}
 						else if (position1==66)
 						{
 							position1=33;
-							System.out.println("Its A snake "+position1);
+							System.out.println("\nIts A snake "+position1);
 						}						
 					
 						else
 						{
-							System.out.println("your current position is "+position1);
+							System.out.println("\nyour current position is "+position1);
 						}
 					
 					}	
 					else
 					{
-						System.out.println("Your current position is "+ position1);
+						System.out.println("\nYour current position is "+ position1);
 
 					}
 
 				}
 				catch(Exception e )
 				{
-					System.out.println("your current position is "+position1);
+					System.out.println("\nyour current position is "+position1);
 				}
 
 			}while(checkInput==1);
@@ -158,8 +169,8 @@ public class Game
 			do
 			{
 				try
-				{
-					System.out.println("\n Player 2 :- ");
+				{ System.out.println("\n \t Press 1 to Roll the Dice: ");
+					System.out.println("\n \tPlayer 2 :- ");
 					player2 = scan.nextInt();
 
 					if (player2 ==1)
@@ -171,61 +182,61 @@ public class Game
 						if (position2 ==3 )
 						{
 							position2 = 44;
-							System.out.println("Its A ladder "+position2);
+							System.out.println("\nIts A ladder "+position2);
 
 						}
 						else if(position2 ==6)
 						{
 							position2=24;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("\nIts A ladder "+position2);		
 						}
 						else if(position2 ==15)
 						{
 							position2=38;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("\nIts A ladder "+position2);		
 						}
 						else if(position2 ==24)
 						{
 							position2=95;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("\nIts A ladder "+position2);		
 						}
 						else if (position2==70)
 						{
 							position2=8;
-							System.out.println("Its A snake "+position2);
+							System.out.println("\nIts A snake "+position2);
 						}
 						else if (position2==22)
 						{
 							position2=2;
-							System.out.println("Its A snake "+position2);
+							System.out.println("\nIts A snake "+position2);
 						}
 						else if(position2 ==55)
 						{
 							position2=19;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("\nIts A ladder "+position2);		
 						}
 						else if(position2 ==90)
 						{
 							position2=5;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("\nIts A ladder "+position2);		
 						}						
 					
 						else
 						{
-							System.out.println("your current position is "+position2);
+							System.out.println("\nyour current position is "+position2);
 						}
 					
 					}	
 					else
 					{
-						System.out.println("Your current position is "+ position2);
+						System.out.println("\nYour current position is "+ position2);
 
 					}
 
 				}
 				catch(Exception e )
 				{
-					System.out.println("your current position is "+position2);
+					System.out.println("\nyour current position is "+position2);
 				}
 
 			}while(checkInput==1);
@@ -236,15 +247,31 @@ public class Game
 			{
 				if (position1 <=99)
 				{
-					System.out.println("player2 wins!");
+					System.out.println("player 1 wins!");
 				}
 				else if (position2 <=99)
 				{
-					System.out.println("player1 wins!");
+					System.out.println("player 2 wins!");
 				}
 
 			}
 			}
+
+	/*public void rollDieAtLast()
+	{
+			do{
+				if (position1 <=93)
+				{
+					System.out.println("player 1 wins!");
+				}
+				else if (position2 <=99)
+				{
+					System.out.println("player 2 wins!");
+				}
+
+			}
+			}*/
+
 
 				public void boardArray()
 
