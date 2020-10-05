@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class BoardElements
 {
-	 int snakeHead;
+	/* int snakeHead;
 	 int snakeTail;
 	 int ladderStart;
 	 int ladderEnd;
@@ -56,7 +56,7 @@ public class BoardElements
   {
   	return position;
   }
-
+*/
    
 
 }

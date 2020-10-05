@@ -3,34 +3,15 @@ import java.util.*;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
-public class Dice
-{
-	Scanner scnr=new Scanner(System.in);
-	 Random randomNo = new Random();
-	public void gameStart()
-{
- int starter = randomNo.nextInt(6);
 
- while (starter!=1)
- {
-  System.out.println("you have rolled" +starter+".");
-	String sGame = "y"; 
-  System.out.println("Do you want to play? Y or N     >  "); 
-  sGame = scnr.nextLine ();
-  if (sGame.equals ("y") || sGame.equals ("Y"))
-   {
-   	starter = randomNo.nextInt(6);
- 	  }
-  }
-  	System.out.println("You have rolled 1");
- 	// this.gameRun();
-}
-
-/*public void gameRun()
-{
-  int randomRoll;
- System.out.println("lets start");
-int gameRoll=randomRoll.nextInt(6);
-
-  }*/
+public class Dice 
+{	
+	/*int value;
+ 
+ 	public int roll() 
+ 	{	Random objGenerator = new Random();	
+		value = objGenerator.nextInt(5+1)+1;
+		return value; 
+	}*/
+ 
 }

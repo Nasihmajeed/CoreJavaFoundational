@@ -1,10 +1,17 @@
 package com.LxiSoft.Test;
-import com.LxiSoft.Game.Game;
+import com.LxiSoft.Game.*;
 public class Tdd
 {
-	public static void main(String[] args)
+public static void main( String [] args)
 	{
-Game g=new Game();
-	g.startGame();
-}
+		Board b =new Board();
+
+		b.startScreen();
+		b.boardLayout();
+		b.rules();
+
+		Game g=new Game();
+		g.startGame();
+
+	}
 }
