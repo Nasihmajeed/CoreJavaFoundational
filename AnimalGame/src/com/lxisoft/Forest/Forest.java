@@ -19,6 +19,7 @@ public class Forest
 	public void setName()
 	{
 		System.out.println("\nAnimals");
+		System.out.println("\n");
 		animal.add(new Deer());
 		animal.get(0).setName("Deer");
 		animal.get(0).setStrength(20);
@@ -31,7 +32,7 @@ public class Forest
 
 		animal.add(new Goat());
 		animal.get(2).setName("Goat");
-		animal.get(2).setStrength(10);
+		animal.get(2).setStrength(20);
 		animal.get(2).setAlive(true);
 
 		animal.add(new Lion());
@@ -46,7 +47,7 @@ public class Forest
 
 		animal.add(new Deer());
 		animal.get(5).setName("Deer1");
-		animal.get(5).setStrength(25);
+		animal.get(5).setStrength(20);
 		animal.get(5).setAlive(true);
 
 		animal.add(new Elephant());
@@ -56,7 +57,7 @@ public class Forest
 
 		animal.add(new Goat());
 		animal.get(7).setName("Goat1");
-		animal.get(7).setStrength(16);
+		animal.get(7).setStrength(20);
 		animal.get(7).setAlive(true);
 
 		animal.add(new Lion());
@@ -71,7 +72,6 @@ public class Forest
         
 		for(int i=0;i<animal.size();i++)
 		{
-			System.out.println("\n");
 			System.out.println(i+1+" "+animal.get(i).getName());
 		}
 	}
@@ -87,10 +87,17 @@ public class Forest
 	        a = animal.get(random1).getStrength();
             b = animal.get(random1).getName();
             System.out.println("\nWinner:"+b);
-            if(animal.get(random2).getStrength() < animal.get(random1).getStrength())
+            if(animal.get(random2).getStrength() <= animal.get(random1).getStrength())
             {
-                animal.get(random2).setAlive(false);
-                System.out.println("Looser: "+animal.get(random2).getName());
+                animal.get(random1).setStrength(animal.get(random1).getStrength()-15);
+                animal.get(random2).setStrength(animal.get(random2).getStrength()-30);
+                System.out.println("New strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
+                System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
+                if(animal.get(random2).getStrength() <= 0)
+                {
+                	animal.get(random2).setAlive(false);
+                	System.out.println("Dead: "+animal.get(random2).getName());
+                }
                 System.out.println("******************************************");
                 count--;
             }
@@ -102,8 +109,15 @@ public class Forest
             System.out.println("\nWinner:"+z);
             if(animal.get(random1).getStrength() < animal.get(random2).getStrength())
             {
-                animal.get(random1).setAlive(false);
-                System.out.println("Looser: "+animal.get(random1).getName());
+                animal.get(random2).setStrength(animal.get(random2).getStrength()-15);
+                animal.get(random1).setStrength(animal.get(random1).getStrength()-30);
+                System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
+                System.out.println("New Strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
+                if(animal.get(random1).getStrength() <= 0)
+                {
+                	animal.get(random1).setAlive(false);
+                	System.out.println("Dead: "+animal.get(random1).getName());
+                }
                 System.out.println("******************************************");
                 count--;
             } 
