@@ -8,7 +8,7 @@ public class Tdd
   	h.hotelDetails();
   	h.setHotelMenu();
   	h.admin();
-  	h.orderFood();
+  	h.orderItem();
   	h.bill();
   }
 }
