@@ -103,44 +103,7 @@ public void startGame(){
 		//BoardArray[0][1]=j;
 	}
 
-	public void player1(){
-					
-
-			
-					System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
-					a=players[0].die.randomGeneration();
-					System.out.println(a);
-					if(a==1){//player1 nte die one vannal cheyandathu
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						display.boardPrinting();
-						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						
-						BoardArray[1]=i;
-						System.out.println("\n PRESS Y TO CONTINUE");
-						char c = scanner.next().charAt(0);// chodich chodich kalikan
-						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							a1=players[0].die.randomGeneration();
-							System.out.println("\n"+a1);
-							int incrementi=0+a1+1;
-							BoardArray[incrementi]=i;
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							display.boardPrinting();//THIS IS NOT WOEKING CHEK
-							System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							
-							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
-					}//player1 nte die one vannal cheyandathu
-					else if(a!=1){
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						System.out.println("\n PLAYER1 *CAN NOT* ENTER THE GAME");
-						System.out.println("\n--------------------------------------------------------------------------------------");
-					}
-
-	}
+	
 
 	public void player1Board(){
 		System.out.println("\n PRESS Y TO ROLL THE DIE FOR PLAYER1");
