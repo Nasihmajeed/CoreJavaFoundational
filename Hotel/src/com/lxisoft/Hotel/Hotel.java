@@ -5,21 +5,21 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Hotel
+public class Hotel 
 {
 private int n;
 public Admin admin=new Admin();
 public Menu menu=new Menu();
-	public void interFacePrint()
+	public void interFaceprint()
 	{
-	int n;
+	int choice;
 		do
 		{
 		Scanner scn=new Scanner(System.in);
 		System.out.println("Please enter your preferred choice"+"\n");
 		System.out.println("Press 1.Menu\t 2.Admin-Console\t "+"\t 3.Exit");
-		n=scn.nextInt();
-			if(n==1)
+		choice=scn.nextInt();
+			if(choice==1)
 			{
 				menu.addMenu();
 				System.out.println("|---------------------------------------|");
@@ -27,9 +27,9 @@ public Menu menu=new Menu();
 				System.out.println("|---------------------------------------|");
 				System.out.println("|----------------MENU-------------------|");
 				menu.menuPrint();
-				menu.orderFood();
+				//menu.orderFood();
 			}
-			if(n==2)
+			if(choice==2)
 			{
 				menu.addMenu();
 				System.out.println("|---------------------------------------|");
@@ -41,7 +41,7 @@ public Menu menu=new Menu();
 				admin.adminConsole();
 			}
 		}
-		while(n>3);
+		while(choice>3);
 	}
 }
 

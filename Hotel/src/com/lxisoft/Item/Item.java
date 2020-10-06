@@ -1,20 +1,20 @@
 package com.lxisoft.Item;
 
-public class Item
+public class Item 
 {
 private String name;
 private int price;
-	public void setName(String a)
+	public void setName(String food)
 	{
-		this.name=a;
+		this.name=food;
 	}
 	public String getName()
 	{
 		return name;
 	}
-	public void setRate(int n)
+	public void setRate(int rate)
 	{	
-		this.price=n;
+		this.price=rate;
 	}
 	public int getRate()
 	{

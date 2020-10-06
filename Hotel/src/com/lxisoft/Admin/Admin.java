@@ -10,20 +10,21 @@ public class Admin
 public Menu menu=new Menu();
 	public void adminConsole()
 	{
+	int choicee=0;
 	System.out.println("\nPress \n1.Add a food Item\n2.Remove a food Item\n3.Update a food Item\n4.EXit");
 	Scanner scn=new Scanner(System.in);
-	int k=scn.nextInt();
-		if(k==1)
+	choicee=scn.nextInt();
+		if(choicee==1)
 		{	
 			menu.addMenu();
 			this.addFood(menu.itm);
 		}
-		if(k==2)
+		if(choicee==2)
 		{
 			menu.addMenu();
 			this.deleteFood(menu.itm);
 		}
-		else if(k==3)
+		else if(choicee==3)
 		{
 			menu.addMenu();
 			this.updateFood(menu.itm);
@@ -32,8 +33,8 @@ public Menu menu=new Menu();
 	public void addFood(ArrayList<Item> itm)
 	{
 	int i;
-	int l=itm.size();
-	int u=l+1;
+	int size=itm.size();
+	int u=size+1;
 	Scanner scnr=new Scanner(System.in);
 	System.out.println("Enter name of the food:");
 	String name=scnr.next();
@@ -58,7 +59,7 @@ public Menu menu=new Menu();
 	public void deleteFood(ArrayList<Item> itm)
 	{
 	int i;
-	int l=itm.size();
+	int size=itm.size();
 	itm.add(new Item());
 	System.out.println("Enter the index value of the food item you want to remove:");
 	Scanner scnr=new Scanner(System.in);
@@ -72,7 +73,7 @@ public Menu menu=new Menu();
 	System.out.println("|            The Sky Lounge             |");
 	System.out.println("|---------------------------------------|");
 	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
-		for(i=0;i<l-1;i++)
+		for(i=0;i<size-1;i++)
 		{
 		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
 		}
@@ -82,7 +83,7 @@ public Menu menu=new Menu();
 	{
 	int i;
 	int o;
-	o=itm.size();
+	int sizee=itm.size();
 	itm.add(new Item());
 	System.out.println("Enter the index value of the food item you want to update:");
 	Scanner scnr=new Scanner(System.in);
@@ -102,11 +103,12 @@ public Menu menu=new Menu();
 	System.out.println("|            The Sky Lounge             |");
 	System.out.println("|---------------------------------------|");
 	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
-		for(i=0;i<o;i++)
+		for(i=0;i<sizee;i++)
 		{
 		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
 		}
 		System.out.println("|---------------------------------------|");
+		
 	}
 }
 
