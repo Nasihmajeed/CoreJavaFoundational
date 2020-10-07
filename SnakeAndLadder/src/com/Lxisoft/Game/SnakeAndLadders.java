@@ -23,3 +23,31 @@ public class SnakesAndLadders
 	}
 
 }
+
+if (player1 ==2)
+					{
+						dice = auto.nextInt(6)+1;
+						System.out.println("Dice : " +dice);
+						position1+=0;
+
+						if (position1 ==55 )
+						{
+							position1 = 44;
+							System.out.println("Its A ladder "+position1);
+	}
+
+}
+
+//if (player1 ==1)
+					{
+						dice = auto.nextInt(6)+1;
+						System.out.println("Dice : " +dice);
+						position1+=0;
+
+						if (position1 ==3 )
+						{
+							position1 = 44;
+							System.out.println("Its A ladder "+position1);
+	}
+
+}
