@@ -30,8 +30,8 @@ public class Forest
 		animal.get(1).setStrength(60);
 		animal.get(1).setAlive(true);
 
-		animal.add(new Goat());
-		animal.get(2).setName("Goat");
+		animal.add(new Rabit());
+		animal.get(2).setName("Rabit");
 		animal.get(2).setStrength(20);
 		animal.get(2).setAlive(true);
 
@@ -55,8 +55,8 @@ public class Forest
 		animal.get(6).setStrength(65);
 		animal.get(6).setAlive(true);
 
-		animal.add(new Goat());
-		animal.get(7).setName("Goat1");
+		animal.add(new Rabit());
+		animal.get(7).setName("Rabit1");
 		animal.get(7).setStrength(20);
 		animal.get(7).setAlive(true);
 
@@ -69,11 +69,6 @@ public class Forest
 		animal.get(9).setName("Panther1");
 		animal.get(9).setStrength(85);
 		animal.get(9).setAlive(true);
-
-		animal.add(new Rabit());
-		animal.get(10).setName("Rabit");
-		animal.get(10).setStrength(20);
-		animal.get(10).setAlive(true);
         
 		for(int i=0;i<animal.size();i++)
 		{
@@ -94,7 +89,7 @@ public class Forest
             System.out.println("\nWinner:"+b);
             if(animal.get(random2).getStrength() <= animal.get(random1).getStrength())
             {
-                animal.get(random1).setStrength(animal.get(random1).getStrength()-15);
+                animal.get(random1).setStrength(animal.get(random1).getStrength()-10);
                 animal.get(random2).setStrength(animal.get(random2).getStrength()-30);
                 System.out.println("New strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
                 System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
@@ -117,7 +112,7 @@ public class Forest
             System.out.println("\nWinner:"+z);
             if(animal.get(random1).getStrength() <= animal.get(random2).getStrength())
             {
-                animal.get(random2).setStrength(animal.get(random2).getStrength()-15);
+                animal.get(random2).setStrength(animal.get(random2).getStrength()-10);
                 animal.get(random1).setStrength(animal.get(random1).getStrength()-30);
                 System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
                 System.out.println("New Strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
@@ -145,9 +140,10 @@ public class Forest
 			count = animal.size();
 		    while(count > 1)
 		    {
+		    	count=this.random();
 		        Random r = new Random();
-	            int random1 = r.nextInt(11);
-	            int random2 = r.nextInt(11);
+	            int random1 = r.nextInt(10);
+	            int random2 = r.nextInt(10);
 	            if(animal.get(random1).getName() == animal.get(random2).getName())
 	            {
 	            	random2 = r.nextInt();
@@ -158,32 +154,54 @@ public class Forest
 	            	{
 	            	    if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Herbivorous)
 	            		{
-	            			if(animal.get(random2).getName() == "Rabit")
-	            			{
-	            				System.out.println("\nAnimal 1: "+animal.get(random1).getName()+"\n"+"Animal 2: "+animal.get(random2).getName());
-	            				System.out.println("\nRabit run away and hide in the forest");
-	            			}
-	            			else
+	            			int lucky = luckFactor();
+	            			if(lucky!=2)
 	            			{
 	            			    System.out.println("\nAnimal 1: Carnivorous"+"\n"+"Animal 2: Herbivorous");
                                 this.fight(random1,random2);
+                                System.out.println("******************************************");
                             }
-                            System.out.println("******************************************");
+                            else
+                            {
+                                if(animal.get(random2) instanceof WeakAnimal)
+	            			    {
+	            			    	System.out.println("\nAnimal 1: "+animal.get(random1).getName()+"\n"+"Strength: "+animal.get(random1).getStrength());
+                                    System.out.println("\nAnimal 2: "+animal.get(random2).getName()+"\n"+"Strength: "+animal.get(random2).getStrength());
+                                	System.out.println("\n"+animal.get(random2).getName()+" run away from "+animal.get(random1).getName()+" and hide in the forest");
+                                	animal.get(random1).setStrength(animal.get(random1).getStrength()-5);
+                                    animal.get(random2).setStrength(animal.get(random2).getStrength()-5);
+                                    System.out.println("\nLuck Factor: "+animal.get(random2).getName());
+                                    System.out.println("\nNew strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
+                                    System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
+                                    System.out.println("******************************************");
+                                }
+	            			}
 	                    }
 	                    
 	                    else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Carnivorous)
 	            		{
-	            			if(animal.get(random1).getName() == "Rabit")
+	            			int lucky = luckFactor();
+	            			if(lucky!=2)
 	            			{
-	            				System.out.println("\nAnimal 1: "+animal.get(random1).getName()+"\n"+"Animal 2: "+animal.get(random2).getName());
-	            				System.out.println("\nRabit run away and hide in the forest");
-	            			}
-	            			else
-	            			{
-	            			    System.out.println("\nAnimal 1: Herbivorous"+"\n"+"Animal 2: Carnivorous");
+	            	            System.out.println("\nAnimal 1: Herbivorous"+"\n"+"Animal 2: Carnivorous");
                                 this.fight(random1,random2);
-                            }
-                            System.out.println("******************************************");
+                                System.out.println("******************************************");
+                            }  
+                            else
+                            {
+                                if(animal.get(random1) instanceof WeakAnimal)
+	            			    {
+                                	System.out.println("\nAnimal 1: "+animal.get(random1).getName()+"\n"+"Strength: "+animal.get(random1).getStrength());
+                                    System.out.println("\nAnimal 2: "+animal.get(random2).getName()+"\n"+"Strength: "+animal.get(random2).getStrength());
+                                    System.out.println("\n"+animal.get(random1).getName()+" run away from "+animal.get(random2).getName()+" and hide in the forest");
+                                    animal.get(random1).setStrength(animal.get(random1).getStrength()-5);
+                                    animal.get(random2).setStrength(animal.get(random2).getStrength()-5);
+                                    System.out.println("\nLuck Factor: "+animal.get(random1).getName());
+                                    System.out.println("\nNew strength of "+animal.get(random1).getName()+": "+animal.get(random1).getStrength());
+                                    System.out.println("New Strength of "+animal.get(random2).getName()+": "+animal.get(random2).getStrength());
+                                    System.out.println("******************************************");
+                                } 
+                            }  
 	                    }
 	                   
 	                    else if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Carnivorous)
@@ -212,10 +230,24 @@ public class Forest
 		}
 	}
 
-	public void luckFactor()
+	private int random()
 	{
-		Random random = new Random();
-		int random3 = random.nextInt(11);  
+		count=0;
+		for(int i=0;i<animal.size();i++)
+		{
+			if(animal.get(i).getAlive()==true)
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+
+	private int luckFactor()
+	{
+	    Random random = new Random();
+		int random3 = random.nextInt(3);
+		return random3;
 	}
 
 	public void ultimateWinner()

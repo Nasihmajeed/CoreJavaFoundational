@@ -1,5 +1,5 @@
 package com.lxisoft.Forest;
-public class Goat extends Animal implements Herbivorous
+public class Rabit extends Animal implements Herbivorous
 {
 	
 }
