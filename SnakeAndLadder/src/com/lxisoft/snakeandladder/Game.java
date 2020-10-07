@@ -5,7 +5,7 @@ public class Game{
 	String playerName;
 	Board board=new Board();//no need for board this is done in diaplay class
 	Display display=new Display();
-	int[] BoardArray = new int[101];
+	Integer[] BoardArray = new Integer[101];
 	Scanner scanner=new Scanner(System.in);
 	int i,j;
 	int incrementi,incrementj;
@@ -42,7 +42,7 @@ public class Game{
         this.permissionAsking();
         display.boardPrinting();
         display.display();
-        this.trickMethod();
+       // this.trickMethod();
 
         
     }
@@ -101,6 +101,44 @@ public void startGame(){
 		}
 		//BoardArray[0][0]=i;
 		//BoardArray[0][1]=j;
+	}
+
+	public void player1(){
+					
+
+			
+					System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
+					a=players[0].die.randomGeneration();
+					System.out.println(a);
+					if(a==1){//player1 nte die one vannal cheyandathu
+						System.out.println("\n--------------------------------------------------------------------------------------");
+						display.boardPrinting();
+						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+						System.out.println("\n--------------------------------------------------------------------------------------");
+						players[0].setPosition(BoardArray[1]);//
+						System.out.println("\n PRESS Y TO CONTINUE");
+						char c = scanner.next().charAt(0);// chodich chodich kalikan
+						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							a1=players[0].die.randomGeneration();
+							System.out.println("\n"+a1);
+							int incrementi=0+a1+1;
+							players[0].setPosition(BoardArray[incrementi]);
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							display.boardPrinting();//THIS IS NOT WOEKING CHEK
+							System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
+							System.out.println("\n--------------------------------------------------------------------------------------");
+							
+							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+					}//player1 nte die one vannal cheyandathu
+					else if(a!=1){
+						System.out.println("\n--------------------------------------------------------------------------------------");
+						System.out.println("\n PLAYER1 *CAN NOT* ENTER THE GAME");
+						System.out.println("\n--------------------------------------------------------------------------------------");
+					}
+
 	}
 
 	
@@ -195,9 +233,9 @@ public void startGame(){
 
 	}
 
-					public void trickMethod(){//to play the game efectively
+					/*public void trickMethod(){//to play the game efectively
 
-					while(i==BoardArray[100] || j==BoardArray[100])
+					while(players[0].setPosition()==players[0].setPosition(BoardArray[100]) || players[1].setPosition()==players[1].setPosition(BoardArray[100]))
 						//display.boardPrinting();
 						{
 							if(i==BoardArray[0] && j==BoardArray[0]){
@@ -235,7 +273,7 @@ public void startGame(){
 
 					public void ladderMethod(){
 
-					}
+					}*/
 
 }//class
 
