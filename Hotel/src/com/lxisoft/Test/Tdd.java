@@ -7,6 +7,7 @@ public class Tdd
   	Hotel h = new Hotel();
   	h.hotelDetails();
   	h.setHotelMenu();
+  	h.searchItems();
   	h.admin();
   	h.orderItem();
   	h.bill();

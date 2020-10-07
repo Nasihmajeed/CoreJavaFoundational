@@ -93,9 +93,29 @@ public class Hotel
 			}
 		}
 	}
-	public void admin()
+	public void searchItems()
 	{
-		Scanner scanner = new Scanner(System.in);
+		String name;
+		int num=0;
+		Scanner scanner = new Scanner(System.in); 
+   		System.out.println("ENTER THE NAME OF THE FOOD ITEM YOU WANT TO SEARCH :");
+         name = scanner.next();
+        for(i=0;i<menu.size();i++)
+        {
+
+        	if( name.equals(menu.get(i).getName()))
+        	{
+        		num = i;
+        		System.out.println("THE LOCATION OF THE FOOD IS :"+num);
+        	}
+        }
+        System.out.print("\n");
+
+	}
+
+	public void admin()
+	{ 
+        Scanner scanner = new Scanner(System.in); 
 	    System.out.println(" IF YOU WANT TO ADD FOOD PRESS 0 AND IF YOU WANT TO ADD DRINKS THEN PRESS 1 ");
 	    c = scanner.nextInt();
     	System.out.println(" ----------------------------------------------------------------------------- ");
