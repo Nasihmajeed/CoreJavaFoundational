@@ -50,4 +50,24 @@ if (player1 ==2)
 							System.out.println("Its A ladder "+position1);
 	}
 
+					{
+						dice = auto.nextInt(6)+1;
+						System.out.println("Dice : " +dice);
+						position1+=0;
+
+						if (position1 ==3 )
+						{
+							position1 = 44;
+							System.out.println("Its A ladder "+position1);
+	}				{
+						dice = auto.nextInt(6)+1;
+						System.out.println("Dice : " +dice);
+						position1+=0;
+
+						if (position1 ==3 )
+						{
+							position1 = 44;
+							System.out.println("Its A ladder "+position1);
+	}
+
 }
