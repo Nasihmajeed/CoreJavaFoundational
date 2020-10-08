@@ -7,6 +7,8 @@ import com.lxisoft.Food.Food;
 import com.lxisoft.Drinks.Drinks;
 
 
+
+
 public class Menu
 {
 public ArrayList<Item> itm=new ArrayList<Item>();
@@ -33,6 +35,7 @@ public ArrayList<Item> total=new ArrayList<Item>();
 		itm.add(new Drinks());
 		itm.get(5).setName("Wine");
 		itm.get(5).setRate(500);
+		
 	}
 	public void menuPrint()
 	{
@@ -138,12 +141,12 @@ public ArrayList<Item> total=new ArrayList<Item>();
 			sum=sum+itm.get(quant-1).getRate();
 			int ratee=itm.get(quant-1).getRate();
 			String namee=itm.get(quant-1).getName();
-			bill.add(new Item());
+			bill.add(new Food());
 			bill.get(quant-1).setName(namee);
 			bill.get(quant-1).setRate(ratee);
-			qty.add(new Item());
+			qty.add(new Food());
 			qty.get(quant-1).setRate(ratee);
-			total.add(new Item());
+			total.add(new Food());
 			total.get(quant-1).setRate(quantity);
 		}
 				System.out.println("The amount is"+"\n");
@@ -155,7 +158,10 @@ public ArrayList<Item> total=new ArrayList<Item>();
 				System.out.println("|---SlNo:---|----Item---|--Qty--|-"+"-----Rate-----|");
 		for(i=0;i<itemNo;i++)
 		{
+		if(itm.get(i) instanceof Food)
+          	{
 			System.out.println("|"+"\t"+(i+1)+"   |"+"\t"+bill.get(i).getName()+"\t"+"|"+qty.get(i).getRate()+"\t"+"|"+"\t"+total.get(i).getRate()+"\t"+"|");
+		}
 		}
 				System.out.println("|-----------------------------------------------|");
 				System.out.println("|The grand total is"+"\t"+"\t"+"\t"+sum+"\t"+"|");
@@ -163,16 +169,95 @@ public ArrayList<Item> total=new ArrayList<Item>();
 				System.out.println("|          *Thank you do visit us again*        |");
 				System.out.println("|-----------------------------------------------|");
 	}
-}
-
-
-
-
-
-
-
-
-
+	public void searchFood()
+	{
+	int i,m=0,number=1;
+	int size=itm.size();
+	System.out.println("Enter the foods name\n");
+	Scanner scnr=new Scanner(System.in);
+	String name=scnr.next();
+	for(i=0;i<itm.size();i++)
+	{
+        if(name.equals(itm.get(i).getName()))
+        {
+        m=i;
+	System.out.println("\n"+name+" is present at "+i+"\n");
+	//System.out.println(m);
+	}
+	}
+	System.out.println("Press 1 to Remove \t Press 2 to Add\n");
+	int n=scnr.nextInt();
+	//itm.remove(m);
+	//System.out.println(i);
+	if(n==1)
+	{
+	itm.remove(m);
+	System.out.println("The updated Menu is");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|                Menu                   |");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|            The Sky Lounge             |");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
+		for(i=0;i<itm.size();i++)
+		{
+		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
+		}
+		System.out.println("|---------------------------------------|");
+	}
+	//public void searchFoodU()
+	//{
+	if(n==2)
+	{
+	//int i,m=0,number=1;
+	//int size=itm.size();
+	System.out.println("Enter the foods name\n");
+	//Scanner scnr=new Scanner(System.in);
+	name=scnr.next();
+	for(i=0;i<itm.size();i++)
+	{
+        if(name.equals(itm.get(i).getName()))
+        {
+        m=i;
+	System.out.println("\n"+name+" is present at "+i+"\n");
+	//System.out.println(m);
+	}
+	}
+	System.out.println("SlNo:"+"\t"+"Item"+"\t"+"Rate");
+	System.out.println("\n"+(m)+"\t"+itm.get(m).getName()+"\t"+itm.get(m).getRate());
+	System.out.println("Enter the name of the new item");
+	String nam=scnr.next();
+	itm.get(m).setName(nam);
+	System.out.println("Enter the rate of the new item");
+	int rat=scnr.nextInt();
+	itm.get(m).setRate(rat);
+	System.out.println("The updated Menu is");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|                Menu                   |");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|            The Sky Lounge             |");
+	System.out.println("|---------------------------------------|");
+	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
+		for(i=0;i<itm.size();i++)
+		{
+		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
+		}
+		System.out.println("|---------------------------------------|");
+		
+	}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
 
 
 
