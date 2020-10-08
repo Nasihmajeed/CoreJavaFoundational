@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import com.lxisoft.Food.Food;
 import com.lxisoft.Drinks.Drinks;
 
-
-
-
 public class Menu
 {
 public ArrayList<Item> itm=new ArrayList<Item>();
@@ -59,6 +56,17 @@ public ArrayList<Item> total=new ArrayList<Item>();
 			getFood();
 			}
 	}
+	public void adminPrint()
+	{
+	int i;
+		System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
+		for(i=0;i<itm.size();i++)
+		{
+			System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
+		}
+			System.out.println("|---------------------------------------|");
+			}
+			
 	public void getDrinks()
     {
     	
@@ -136,18 +144,16 @@ public ArrayList<Item> total=new ArrayList<Item>();
 			System.out.println("\n"+"Please place your order by the corresponding food's index value :");
 			int n=scn.nextInt();
 			System.out.println("Enter the quantity :");
-			int quant=scn.nextInt();
-			quantity=quantity*itm.get(i).getRate();
-			sum=sum+itm.get(quant-1).getRate();
-			int ratee=itm.get(quant-1).getRate();
-			String namee=itm.get(quant-1).getName();
+			int qtity=scn.nextInt();
+			quantity=qtity*itm.get(n-1).getRate();
+			sum=sum+quantity;
+			int ratee=itm.get(n-1).getRate();
+			String namee=itm.get(n-1).getName();
 			bill.add(new Food());
-			bill.get(quant-1).setName(namee);
-			bill.get(quant-1).setRate(ratee);
-			qty.add(new Food());
-			qty.get(quant-1).setRate(ratee);
+			bill.get(n-1).setName(namee);
+			bill.get(n-1).setRate(qtity);
 			total.add(new Food());
-			total.get(quant-1).setRate(quantity);
+			total.get(n-1).setRate(quantity);
 		}
 				System.out.println("The amount is"+"\n");
 				System.out.println("|-----------------------------------------------|");
@@ -160,7 +166,7 @@ public ArrayList<Item> total=new ArrayList<Item>();
 		{
 		if(itm.get(i) instanceof Food)
           	{
-			System.out.println("|"+"\t"+(i+1)+"   |"+"\t"+bill.get(i).getName()+"\t"+"|"+qty.get(i).getRate()+"\t"+"|"+"\t"+total.get(i).getRate()+"\t"+"|");
+ 	 	System.out.println("|"+"\t"+(i+1)+"   |"+"\t"+bill.get(i).getName()+"\t"+"|"+bill.get(i).getRate()+"\t"+"|"+"\t"+total.get(i).getRate()+"\t"+"|");
 		}
 		}
 				System.out.println("|-----------------------------------------------|");
@@ -182,13 +188,10 @@ public ArrayList<Item> total=new ArrayList<Item>();
         {
         m=i;
 	System.out.println("\n"+name+" is present at "+i+"\n");
-	//System.out.println(m);
 	}
 	}
 	System.out.println("Press 1 to Remove \t Press 2 to Add\n");
 	int n=scnr.nextInt();
-	//itm.remove(m);
-	//System.out.println(i);
 	if(n==1)
 	{
 	itm.remove(m);
@@ -205,14 +208,9 @@ public ArrayList<Item> total=new ArrayList<Item>();
 		}
 		System.out.println("|---------------------------------------|");
 	}
-	//public void searchFoodU()
-	//{
 	if(n==2)
 	{
-	//int i,m=0,number=1;
-	//int size=itm.size();
 	System.out.println("Enter the foods name\n");
-	//Scanner scnr=new Scanner(System.in);
 	name=scnr.next();
 	for(i=0;i<itm.size();i++)
 	{
@@ -220,7 +218,6 @@ public ArrayList<Item> total=new ArrayList<Item>();
         {
         m=i;
 	System.out.println("\n"+name+" is present at "+i+"\n");
-	//System.out.println(m);
 	}
 	}
 	System.out.println("SlNo:"+"\t"+"Item"+"\t"+"Rate");
@@ -243,19 +240,9 @@ public ArrayList<Item> total=new ArrayList<Item>();
 		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
 		}
 		System.out.println("|---------------------------------------|");
-		
 	}
-	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	}
+		}
 	
 	
 
