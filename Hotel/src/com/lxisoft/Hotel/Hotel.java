@@ -8,7 +8,7 @@ public class Hotel
     ArrayList<OrderItem> order = new ArrayList<OrderItem>();
     Scanner scanner = new Scanner(System.in);
 	public String name;
-	public int i,price,a,b=0,c=0,j,total=0,total1=0,total2=0,index;
+	public int price,a,b=0,c=0,total=0,total1=0,total2=0,index;
 
 	public void hotelDetails()
 	{
@@ -28,46 +28,57 @@ public class Hotel
         System.out.print("\n");
 		
         menu.add(new Food());
-		menu.get(0).setName(" Stuffed Paratha ");
+		menu.get(0).setName("StuffedParatha");
 		menu.get(0).setPrice(  40  );
 		menu.add(new Food());
-		menu.get(1).setName(" Paalak Panner ");
+		menu.get(1).setName("PaalakPanner");
 		menu.get(1).setPrice( 120  );
 		menu.add(new Food());
-		menu.get(2).setName(" Chicken Biriyani ");
+		menu.get(2).setName("ChickenBiriyani");
 		menu.get(2).setPrice( 140  );
 		menu.add(new Food());
-		menu.get(3).setName(" Panner Butter Masala ");
+		menu.get(3).setName("PannerButterMasala");
 		menu.get(3).setPrice( 130  );
 		menu.add(new Food());
-		menu.get(4).setName(" Masala Dosa ");
+		menu.get(4).setName("MasalaDosa");
 		menu.get(4).setPrice( 45  );
 		menu.add(new Drinks());
-		menu.get(5).setName(" Lime Juice ");
+		menu.get(5).setName("LimeJuice");
         menu.get(5).setPrice( 25  );
 		menu.add(new Drinks());
-        menu.get(6).setName(" Orange Juice ");
+        menu.get(6).setName("OrangeJuice");
 		menu.get(6).setPrice( 35 );
 		menu.add(new Drinks());
-        menu.get(7).setName(" Apple Juice ");
+        menu.get(7).setName("AppleJuice");
 		menu.get(7).setPrice( 35  );
 		menu.add(new Drinks());
-		menu.get(8).setName(" Mango Juice ");
+		menu.get(8).setName("MangoJuice");
 		menu.get(8).setPrice( 35  );
-		 for(i=0;i<menu.size();i++)
+		 for(int i=0;i<menu.size();i++)
 	    {
 	    	System.out.print("\n"+(i+1)+" "+menu.get(i).getName()+"\n"+"$"+menu.get(i).getPrice());
 	    	System.out.print("\n");
             System.out.println(" -----------------------##############----------------------- ");
-            System.out.print("\n"); 
+              System.out.print("\n"); 
 
-	    }  
+	    }
+	}
+	public void getMenu()
+	{
+		 for(int i=0;i<menu.size();i++)
+	    {
+	    	System.out.print("\n"+(i+1)+" "+menu.get(i).getName()+"\n"+"$"+menu.get(i).getPrice());
+	    	System.out.print("\n");
+            System.out.println(" -----------------------##############----------------------- ");
+              System.out.print("\n"); 
+	    }
+
 	}
 	public void getAddedFood()
 	{
 		System.out.print("\n           EDITED MENU OF MAR MARQUEZ           ");
 		System.out.print("\n");
-		for(i=0;i<menu.size();i++)
+		for(int i=0;i<menu.size();i++)
 		{
 			if(menu.get(i) instanceof Food)
 			{
@@ -82,7 +93,7 @@ public class Hotel
 	{
 		System.out.print("\n           EDITED MENU OF MAR MARQUEZ           ");
 		System.out.print("\n");
-		for(i=0;i<menu.size();i++)
+		for(int i=0;i<menu.size();i++)
 		{
 			if(menu.get(i) instanceof Drinks)
 			{
@@ -96,17 +107,36 @@ public class Hotel
 	public void searchItems()
 	{
 		String name;
-		int num=0;
+		int o=0,k=0;
 		Scanner scanner = new Scanner(System.in); 
+		System.out.println("           SEARCH OPTION           ");
+		System.out.println(" --------------------------------- ");
    		System.out.println("ENTER THE NAME OF THE FOOD ITEM YOU WANT TO SEARCH :");
-         name = scanner.next();
-        for(i=0;i<menu.size();i++)
+        name = scanner.next();
+        for(int i=0;i<menu.size();i++)
         {
-
-        	if( name.equals(menu.get(i).getName()))
+        	if(name.equals(menu.get(i).getName()))
         	{
-        		num = i;
-        		System.out.println("THE LOCATION OF THE FOOD IS :"+num);
+        		o=i;
+        		System.out.println("THE LOCATION OF THE FOOD IS :"+(i+1));
+        		System.out.print("\n");
+        		System.out.println("           UPDATE OPTION          ");
+        		System.out.println(" --------------------------------- ");
+        		System.out.println(" IF YOU WANT TO UPDATE PRESS 1 IF NOT THEN PRESS 0 ");
+                k = scanner.nextInt();
+        		if(k==1)
+        		{
+        			System.out.println(" ENTER THE PRICE OF THE FOOD :");
+        			int price = scanner.nextInt();
+        			menu.get(o).setPrice(price);
+        		 for(int j=0;j<menu.size();j++)
+	             {
+	    	        System.out.print("\n"+(j+1)+" "+menu.get(j).getName()+"\n"+"$"+menu.get(j).getPrice());
+	    	        System.out.print("\n");
+                    System.out.println(" -----------------------##############----------------------- ");
+                    System.out.print("\n"); 
+	             }
+        		}
         	}
         }
         System.out.print("\n");
@@ -114,8 +144,7 @@ public class Hotel
 	}
 
 	public void admin()
-	{ 
-        Scanner scanner = new Scanner(System.in); 
+	{  
 	    System.out.println(" IF YOU WANT TO ADD FOOD PRESS 0 AND IF YOU WANT TO ADD DRINKS THEN PRESS 1 ");
 	    c = scanner.nextInt();
     	System.out.println(" ----------------------------------------------------------------------------- ");
@@ -124,7 +153,7 @@ public class Hotel
     		System.out.print(" HOW MANY FOOD YOU WANT ADD: ");
 		    index = scanner.nextInt();
 		    index = index + menu.size();
-		 for(i=menu.size();i<index;i++)
+		 for(int i=menu.size();i<index;i++)
 		 {
 			menu.add(new Food());
 			System.out.print("\n Enter the Name of the Food : Name :");
@@ -140,7 +169,7 @@ public class Hotel
 				System.out.print(" HOW MANY DRINKS YOU WANT ADD: ");
 		    index = scanner.nextInt();
 		    index = index + menu.size();
-		 for(i=menu.size();i<index;i++)
+		 for(int i=menu.size();i<index;i++)
 		 {
 			menu.add(new Drinks());
 			System.out.print("\n Enter the Name of the Drinks : Name :");
@@ -163,14 +192,14 @@ public class Hotel
 	 {
 		 	System.out.println(" HOW MANY FOOD ITEM DID YOU WANT TO HAVE : ");
 		    a=scanner.nextInt();
-		  for(i=0;i<a;i++)
+		  for(int i=0;i<a;i++)
 		 {
 			System.out.println(" PLEASE ENTER YOU FOOD : ");
 			b=scanner.nextInt();
 			if(b <= menu.size())
 			{
 				order.add(new OrderFood());
-				for(j=0;j<order.size();j++)
+				for(int j=0;j<order.size();j++)
 				{ 
 					if(order.get(j).getName() == null)
 					{
@@ -189,7 +218,7 @@ public class Hotel
 			}
 		 }
 			System.out.println(" \n YOUR ORDERED FOOD IS/ARE : ");
-			for(j=0;j<order.size();j++)
+			for(int j=0;j<order.size();j++)
 			{
 				System.out.println("\n"+(j+1)+" "+order.get(j).getName()+"\n"+"$"+order.get(j).getPrice());
 			}
@@ -201,14 +230,14 @@ public class Hotel
 	 {
 	 	System.out.println(" HOW MANY DRINKS DID YOU WANT TO HAVE : ");
 		    a=scanner.nextInt();
-		  for(i=0;i<a;i++)
+		  for(int i=0;i<a;i++)
 		 {
 			System.out.println(" PLEASE ENTER YOU DRINKS : ");
 			d=scanner.nextInt();
 			if(d <= menu.size())
 			{
 				order.add(new OrderDrinks());
-				for(j=0;j<order.size();j++)
+				for(int j=0;j<order.size();j++)
 				{ 
 					if(order.get(j).getName() == null)
 					{
@@ -227,7 +256,7 @@ public class Hotel
 			}
 		 }
 			System.out.println(" \n YOUR ORDERED DRINKS IS/ARE : ");
-			for(j=0;j<order.size();j++)
+			for(int j=0;j<order.size();j++)
 			{
 				System.out.println("\n"+(j+1)+" "+order.get(j).getName()+"\n"+"$"+order.get(j).getPrice());
 			}
@@ -247,7 +276,7 @@ public class Hotel
 		System.out.println(" CONTACT NUMBER :   160004");
 
     	
-    	for(i=0;i<order.size();i++)
+    	for(int i=0;i<order.size();i++)
     	{
     	System.out.println("\n"+(i+1)+" "+order.get(i).getName()+"\n"+"$"+order.get(i).getPrice());
     	total = total + order.get(i).getPrice();
