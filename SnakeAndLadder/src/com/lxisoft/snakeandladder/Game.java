@@ -42,6 +42,11 @@ public class Game{
         this.permissionAsking();
         display.boardPrinting();
         display.display();
+        this.player1();
+         this.player1Board();
+        this.player2();
+       
+        this.player2Board();
        // this.trickMethod();
 
         
@@ -125,10 +130,10 @@ public void startGame(){
 							a1=players[0].die.randomGeneration();
 							System.out.println("\n"+a1);
 							int incrementi=0+a1+1;
-							players[0].setPosition(BoardArray[incrementi]);
+						players[0].setPosition(BoardArray[incrementi]);
 							System.out.println("\n--------------------------------------------------------------------------------------");
 							display.boardPrinting();//THIS IS NOT WOEKING CHEK
-							System.out.println("\n NOW PLAYER1 IS IN "+incrementi);//incremeti to store value of i in new position
+							System.out.println("\n NOW PLAYER1 IS IN "+players[0].getPosition());//incremeti to store value of i in new position
 							System.out.println("\n--------------------------------------------------------------------------------------");
 							
 							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
@@ -151,11 +156,13 @@ public void startGame(){
 			System.out.println("\nDIE ROLLING FOR PLAYER1	");
 			System.out.println("\n--------------------------------------------------------------------------------------");
 			p1=players[0].die.randomGeneration();
-			System.out.println(p1+"pi ");
-			newIncrementi=incrementi+p1;
-			System.out.println(newIncrementi);
-			BoardArray[newIncrementi]=i;
-			System.out.println("PLAYER1 IS IN"+newIncrementi);
+			System.out.println(p1);
+		players[0].setPosition(players[0].getPosition()+p1);
+			System.out.println(players[0].getPosition());
+			//BoardArray[newIncrementi]=i
+			players[0].setPosition(BoardArray[players[0].getPosition()]);
+
+		System.out.println("PLAYER1 IS IN"+players[0].getPosition());
 			System.out.println("\n--------------------------------------------------------------------------------------");
 		}
 	}
@@ -177,7 +184,8 @@ public void startGame(){
 				display.boardPrinting();
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
 				System.out.println("\n--------------------------------------------------------------------------------------");
-				BoardArray[1]=j;
+				//BoardArray[1]=j;
+				players[1].setPosition(BoardArray[1]);
 				System.out.println("\n PRESS Y TO CONTINUE");
 				char q = scanner.next().charAt(0);// chodich chodich kalikan
 				if(q== 'Y'){
@@ -186,10 +194,13 @@ public void startGame(){
 					System.out.println("\n NEXT CHANCE"+"\n DIE ROLLING FOR PLAYER2");
 					b1=players[1].die.randomGeneration();
 					System.out.println("\n"+b1);
-					int incrementj=0+b1+1;
-					BoardArray[incrementj]=j;
+					//int incrementj=0+b1+1;
+				players[1].setPosition(players[1].getPosition()+b1);
+				players[1].setPosition(BoardArray[players[1].getPosition()]);
+
+					//BoardArray[incrementj]=j;
 					display.boardPrinting();
-					System.out.println("\n NOW PLAYER2 IS IN "+incrementj);
+					System.out.println("\n NOW PLAYER2 IS IN "+players[1].getPosition());
 					System.out.println("\n--------------------------------------------------------------------------------------");
 				}
 			}

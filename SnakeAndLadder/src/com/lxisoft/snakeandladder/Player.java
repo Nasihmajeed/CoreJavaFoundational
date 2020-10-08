@@ -18,7 +18,7 @@ public class Player{
 	public void setPosition(Integer a){
 		this.position=a;
 	}
-	public int getPostion(){
+	public int getPosition(){
 		return position;
 	}
 	
