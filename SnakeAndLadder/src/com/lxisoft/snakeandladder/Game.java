@@ -42,12 +42,15 @@ public class Game{
         this.permissionAsking();
         display.boardPrinting();
         display.display();
+
+        players[0].setPosition(0);
+        players[1].setPosition(0);
+        
         this.player1();
-         this.player1Board();
         this.player2();
+    
        
-        this.player2Board();
-       // this.trickMethod();
+       this.trickMethod();
 
         
     }
@@ -120,7 +123,7 @@ public void startGame(){
 						display.boardPrinting();
 						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
 						System.out.println("\n--------------------------------------------------------------------------------------");
-						players[0].setPosition(BoardArray[1]);//
+					players[0].setPosition(1);//
 						System.out.println("\n PRESS Y TO CONTINUE");
 						char c = scanner.next().charAt(0);// chodich chodich kalikan
 						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
@@ -129,8 +132,8 @@ public void startGame(){
 							System.out.println("\n--------------------------------------------------------------------------------------");
 							a1=players[0].die.randomGeneration();
 							System.out.println("\n"+a1);
-							int incrementi=0+a1+1;
-						players[0].setPosition(BoardArray[incrementi]);
+						players[0].setPosition(players[0].getPosition()+a1);
+						BoardArray[i]=players[0].getPosition();
 							System.out.println("\n--------------------------------------------------------------------------------------");
 							display.boardPrinting();//THIS IS NOT WOEKING CHEK
 							System.out.println("\n NOW PLAYER1 IS IN "+players[0].getPosition());//incremeti to store value of i in new position
@@ -158,10 +161,9 @@ public void startGame(){
 			p1=players[0].die.randomGeneration();
 			System.out.println(p1);
 		players[0].setPosition(players[0].getPosition()+p1);
-			System.out.println(players[0].getPosition());
-			//BoardArray[newIncrementi]=i
-			players[0].setPosition(BoardArray[players[0].getPosition()]);
-
+		BoardArray[i]=players[0].getPosition();
+			
+		
 		System.out.println("PLAYER1 IS IN"+players[0].getPosition());
 			System.out.println("\n--------------------------------------------------------------------------------------");
 		}
@@ -185,7 +187,7 @@ public void startGame(){
 				System.out.println("\nPLAYER TWO ENTERS THE GAME AND IS IN FIRST POSITION");
 				System.out.println("\n--------------------------------------------------------------------------------------");
 				//BoardArray[1]=j;
-				players[1].setPosition(BoardArray[1]);
+			players[1].setPosition(1);
 				System.out.println("\n PRESS Y TO CONTINUE");
 				char q = scanner.next().charAt(0);// chodich chodich kalikan
 				if(q== 'Y'){
@@ -196,7 +198,7 @@ public void startGame(){
 					System.out.println("\n"+b1);
 					//int incrementj=0+b1+1;
 				players[1].setPosition(players[1].getPosition()+b1);
-				players[1].setPosition(BoardArray[players[1].getPosition()]);
+				BoardArray[j]=players[1].getPosition();
 
 					//BoardArray[incrementj]=j;
 					display.boardPrinting();
@@ -229,11 +231,14 @@ public void startGame(){
 			System.out.println("\nDIE ROLLING FOR PLAYER2	");
 			System.out.println("\n--------------------------------------------------------------------------------------");
 			p2=players[1].die.randomGeneration();
-			System.out.println(p2+"p2 ");
-			newIncrementj=incrementj+p2;
-			System.out.println(newIncrementj);
-			BoardArray[newIncrementi]=j;
-			System.out.println("PLAYER2 IS IN"+newIncrementj);
+		System.out.println(p2);
+			//newIncrementj=incrementj+p2;
+		players[1].setPosition(players[1].getPosition()+p2);
+	
+		
+			
+			BoardArray[j]=players[1].getPosition();
+			System.out.println("PLAYER2 IS IN"+players[1].getPosition());
 			System.out.println("\n--------------------------------------------------------------------------------------");
 
 
@@ -244,29 +249,31 @@ public void startGame(){
 
 	}
 
-					/*public void trickMethod(){//to play the game efectively
+					public void trickMethod(){//to play the game efectively
 
-					while(players[0].setPosition()==players[0].setPosition(BoardArray[100]) || players[1].setPosition()==players[1].setPosition(BoardArray[100]))
+					//while(players[0].setPosition()==players[0].setPosition(BoardArray[100]) || players[1].setPosition()==players[1].setPosition(BoardArray[100]))
 						//display.boardPrinting();
+
+					while(players[0].getPosition()<=100 || players[1].getPosition()<=100)
 						{
-							if(i==BoardArray[0] && j==BoardArray[0]){
+							if(players[0].getPosition()==0 && players[1].getPosition()==1){
 								display.boardPrinting();
 								this.player1();
 								this.player2();
 							}
 
-							if(i>BoardArray[0] && j==BoardArray[0]){
+							if(players[0].getPosition()>0 &&  players[1].getPosition()==1){
 								display.boardPrinting();
 								this.player1Board();
 								this.player2();
 							}
 
-							if(i==BoardArray[0] && j>BoardArray[0]){
+							if(players[0].getPosition()==0 &&  players[1].getPosition()>1){
 								display.boardPrinting();
 								this.player1();
 								this.player2Board();
 							}
-							if(i>BoardArray[0] && j>BoardArray[0]){
+							if(players[0].getPosition()>0 &&  players[1].getPosition()>0){
 								display.boardPrinting();
 								this.player1Board();
 								this.player2Board();
@@ -284,7 +291,7 @@ public void startGame(){
 
 					public void ladderMethod(){
 
-					}*/
+					}
 
 }//class
 
