@@ -176,11 +176,12 @@ public class Game
 					else
 					{
 						System.out.println("----"+board[row][col]+"----");
-						counter1++;
-						counter2++;
+					}	
 						position1++;
 						position2++;
-				}
+				
+				counter1++;
+						counter2++;
 				}
 			}
 			do
@@ -317,15 +318,15 @@ public class Game
 							position2=2;
 							System.out.println("Its A snake "+position2);
 						}
-						else if(position2 ==55)
+						else if(position2 ==50)
 						{
 							position2=19;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("Its A Snake "+position2);		
 						}
 						else if(position2 ==90)
 						{
 							position2=5;
-							System.out.println("Its A ladder "+position2);		
+							System.out.println("Its A Snake "+position2);		
 						}						
 					
 						else
@@ -349,14 +350,14 @@ public class Game
 			}while(checkInput==1);
 
 
-			}while (position1 <=100 && position2 <=100);
+			}while (position1 <=99 && position2 <=99);
 
 			{
-				if (position1 <=100)
+				if (position1 <=99)
 				{
-					System.out.println("player2 wins!");
+					System.out.println("Player1 wins!");
 				}
-				else if (position2 <=100)
+				else if (position2 <=99)
 				{
 					System.out.println("player1 wins!");
 				}
@@ -364,4 +365,4 @@ public class Game
 			}
 			}
 		}
-			
+	
