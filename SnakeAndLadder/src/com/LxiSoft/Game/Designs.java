@@ -38,6 +38,7 @@ public class Designs
         System.out.println();
         System.out.println ("----------------------------------------------------------------------------------------------------------------------------------");
         this.gameRule();
+        this.snakeAndLadderPosition();
         
 	}
     public void gameRule() 
@@ -52,6 +53,16 @@ public class Designs
             System.out.println(" \t\t\t\t  player who reaches at 100th position 1st wins yhe game");
                System.out.println ("\t\t\t\t\t\t Good Luck and Have FUN!!!");
 
+    }
+    public void snakeAndLadderPosition()
+    {
+
+        System.out.println("\t Ladders \t\t Snakes\n");
+        System.out.println("\t 2 - 38  \t\t 25 - 4 ");
+        System.out.println("\t 6- 14  \t\t 36 - 15 ");
+        System.out.println("\t 17 - 47  \t\t 62 - 57 ");
+        System.out.println("\t 33 - 85  \t\t 92 - 53 ");
+        System.out.println("\t 52 - 88  \t\t 98 -8 ");
     }
 
 }

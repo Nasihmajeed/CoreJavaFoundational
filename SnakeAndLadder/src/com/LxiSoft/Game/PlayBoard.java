@@ -13,11 +13,12 @@ public class PlayBoard
    ArrayList<Cell>cells = new ArrayList<Cell>();
    
    Game game;
-   Snake snake;
-   Ladder ladder;
+   Snake  snake=new Snake();
+   Ladder   ladder=new Ladder();
+
 public void createBoard()
     {
-        game=new Game();
+       game =new Game();//created like this for avoiding stack overflow exception
         this.creatCells();
         this.creatSnakeAndLadder();
         game.playGame(snakes,ladders,cells);
@@ -26,43 +27,52 @@ public void createBoard()
 
     public void creatSnakeAndLadder()
     {
-    for(int i=0;i<7;i++)
-    {   
-    snakes.add(new Snake());
-    ladders.add(new Ladder());      
-    }
+        snakes.add(new Snake());
+        snakes.get(0).setHead(98);
+        snakes.get(0).setTail(8);
+
+         snakes.add(new Snake());
+        snakes.get(1).setHead(92);
+        snakes.get(1).setTail(53);
+   
+        snakes.add(new Snake());
+        snakes.get(2).setHead(62);
+        snakes.get(2).setTail(57);
+
+         snakes.add(new Snake());
+        snakes.get(3).setHead(36);
+        snakes.get(3).setTail(15);
+   
+        snakes.add(new Snake());
+        snakes.get(4).setHead(25);
+        snakes.get(4).setTail(4);
+
     
-        snakes.get(0).setHead(48);
-        snakes.get(0).setTail(26);
-        snakes.get(1).setHead(36);
-        snakes.get(1).setTail(28);
-        snakes.get(3).setHead(98);
-        snakes.get(3).setTail(41);
-        snakes.get(4).setHead(87);
-        snakes.get(4).setTail(53);
-        snakes.get(5).setHead(56);
-        snakes.get(5).setTail(31);
-        snakes.get(6).setHead(70);
-        snakes.get(6).setTail(33);
-    
-        ladders.get(0).setStart(4);
-        ladders.get(0).setEnd(21);
-        ladders.get(1).setStart(13);
-        ladders.get(1).setEnd(44);
-        ladders.get(2).setStart(28);
-        ladders.get(2).setEnd(35);
-        ladders.get(3).setStart(42);
-        ladders.get(3).setEnd(63);
-        ladders.get(4).setStart(50);
-        ladders.get(4).setEnd(67);
-        ladders.get(5).setStart(74);
-        ladders.get(5).setEnd(92);
-        ladders.get(6).setStart(32);
-        ladders.get(6).setEnd(54);
-    }
+    //ladder
+        ladders.add(new Ladder());      
+        ladders.get(0).setStart(2);
+        ladders.get(0).setEnd(38);
+       
+         ladders.add(new Ladder());      
+        ladders.get(1).setStart(6);
+        ladders.get(1).setEnd(14);
+
+         ladders.add(new Ladder());      
+        ladders.get(2).setStart(17);
+        ladders.get(2).setEnd(47);
+
+         ladders.add(new Ladder());      
+        ladders.get(3).setStart(33);
+        ladders.get(3).setEnd(85);
+
+         ladders.add(new Ladder());      
+        ladders.get(4).setStart(52);
+        ladders.get(4).setEnd(88);
+
+          }
 
 
-public void creatCells()//for movement in table
+public void creatCells()//for movement of coin in table
     {
         int counter=100,iteration=-1,i=0;
          while (counter >0)
@@ -102,13 +112,12 @@ public void changePosition(Player player,int flag,int position)
         if(flag==1)
         {
             System.out.println("\nSorry there is  Snake At that Position");
-            snake=new Snake();
-            player.setPlayerPosition(position);
+             player.setPlayerPosition(position);
         }
         if(flag==2)
         {
             System.out.println("\ncongrats There is  Ladder At that Position\n");
-            ladder=new Ladder();
+          
             player.setPlayerPosition(position);
         }   
     }

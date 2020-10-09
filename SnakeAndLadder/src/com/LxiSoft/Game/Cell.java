@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Cell
+public class Cell//method for moving coins through board
  {
  	private int position;
   private String coin;
