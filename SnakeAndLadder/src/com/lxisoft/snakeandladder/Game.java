@@ -259,7 +259,9 @@ public void startGame(){
 		}
 
 	}
-	public void trickMethod(){//to play the game efectively
+	
+
+					public void trickMethod(){//to play the game efectively
 			while(players[0].getPosition()<=100 || players[1].getPosition()<=100)
 						{
 
@@ -290,6 +292,7 @@ public void startGame(){
 						}
 
 				}
+
 
 					public void snakeMethod(){
 						if(players[0].getPosition()==35)
