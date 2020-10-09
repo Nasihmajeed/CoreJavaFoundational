@@ -6,32 +6,26 @@ import java.util.ArrayList;
 
 public class Ladder 
  {
- 		private int start,end;
+    private int start,end;
 
- 	public void behaviour() 
- 	{		
-		System.out.println("I am put up your position");
-	}
-
-	public void setStart(int start)
+  public void setStart(int start)
   {
-  	this.start=start;
+    this.start=start;
   }
 
   public int getStart()
   {
-  	return start;
+    return start;
   }
 
   public void setEnd(int end)
   {
-  	this.end=end;
+    this.end=end;
   }
 
   public int getEnd()
   {
-  	return end;
+    return end;
   }
-
  
 }

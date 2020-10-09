@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.ArrayList;
 public class Designs
 {
-	/*public void gameBoard()
+	public void gameBoard()
 	{
+
 		    int counter= 100;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
@@ -36,7 +37,7 @@ public class Designs
         }
         System.out.println();
         System.out.println ("----------------------------------------------------------------------------------------------------------------------------------");
-        
+        this.gameRule();
         
 	}
     public void gameRule() 
@@ -51,6 +52,6 @@ public class Designs
             System.out.println(" \t\t\t\t  player who reaches at 100th position 1st wins yhe game");
                System.out.println ("\t\t\t\t\t\t Good Luck and Have FUN!!!");
 
-    }*/
+    }
 
 }
