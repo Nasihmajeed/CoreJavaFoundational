@@ -45,9 +45,11 @@ public class Game{
 
         players[0].setPosition(0);
         players[1].setPosition(0);
-        
-        this.player1();
+
+       this.player1();
         this.player2();
+        
+       
     
        
        this.trickMethod();
@@ -112,40 +114,46 @@ public void startGame(){
 	}
 
 	public void player1(){
+
 					
 
-			
-					System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
-					a=players[0].die.randomGeneration();
-					System.out.println(a);
-					if(a==1){//player1 nte die one vannal cheyandathu
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						display.boardPrinting();
-						System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
-						System.out.println("\n--------------------------------------------------------------------------------------");
-					players[0].setPosition(1);//
-						System.out.println("\n PRESS Y TO CONTINUE");
-						char c = scanner.next().charAt(0);// chodich chodich kalikan
-						if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							a1=players[0].die.randomGeneration();
-							System.out.println("\n"+a1);
-						players[0].setPosition(players[0].getPosition()+a1);
-						BoardArray[i]=players[0].getPosition();
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							display.boardPrinting();//THIS IS NOT WOEKING CHEK
-							System.out.println("\n NOW PLAYER1 IS IN "+players[0].getPosition());//incremeti to store value of i in new position
-							System.out.println("\n--------------------------------------------------------------------------------------");
-							
-							}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
-					}//player1 nte die one vannal cheyandathu
-					else if(a!=1){
-						System.out.println("\n--------------------------------------------------------------------------------------");
-						System.out.println("\n PLAYER1 *CAN NOT* ENTER THE GAME");
-						System.out.println("\n--------------------------------------------------------------------------------------");
-					}
+					System.out.println("PRESS Y TO CONTINUE");	
+						char l = scanner.next().charAt(0);
+						if(l=='Y'){
+							System.out.println("\nDIE ROLLING FOR PLAYER1	");//implemting loops to run the pgm till end
+							a=players[0].die.randomGeneration();
+
+							System.out.println(a);
+							if(a==1){//player1 nte die one vannal cheyandathu
+								System.out.println("\n--------------------------------------------------------------------------------------");
+								display.boardPrinting();
+								System.out.println("\nPLAYER ONE ENTERS THE GAME AND IS IN FIRST POSITION");
+								System.out.println("\n--------------------------------------------------------------------------------------");
+							players[0].setPosition(1);//
+								System.out.println("\n PRESS Y TO CONTINUE");
+								char c = scanner.next().charAt(0);// chodich chodich kalikan
+								if(c== 'Y'){//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+									System.out.println("\n--------------------------------------------------------------------------------------");
+									System.out.println("\n NEXT CHANCE 	"+"\n  DIE ROLLING");
+									System.out.println("\n--------------------------------------------------------------------------------------");
+									a1=players[0].die.randomGeneration();
+									System.out.println("\n"+a1);
+								players[0].setPosition(players[0].getPosition()+a1);
+								BoardArray[i]=players[0].getPosition();
+									System.out.println("\n--------------------------------------------------------------------------------------");
+									display.boardPrinting();//THIS IS NOT WOEKING CHEK
+									System.out.println("\n NOW PLAYER1 IS IN "+players[0].getPosition());//incremeti to store value of i in new position
+									System.out.println("\n--------------------------------------------------------------------------------------");
+									
+									}	//DIE ONE VANNAL PLAYER1 NU VEENDUM KALIKAN
+							}//player1 nte die one vannal cheyandathu
+							else if(a!=1){
+								System.out.println("\n--------------------------------------------------------------------------------------");
+								System.out.println("\n PLAYER1 *CAN NOT* ENTER THE GAME");
+								System.out.println("\n--------------------------------------------------------------------------------------");
+							}
+						}
+
 
 	}
 
@@ -165,6 +173,9 @@ public void startGame(){
 			
 		
 		System.out.println("PLAYER1 IS IN"+players[0].getPosition());
+		this.snakeMethod();
+		this.ladderMethod();
+			this.finalWinner();
 			System.out.println("\n--------------------------------------------------------------------------------------");
 		}
 	}
@@ -215,11 +226,8 @@ public void startGame(){
 			
 
 		}
-		System.out.println("\n PRESS Y TO ROLL FOR PLAYER1");
-				char k = scanner.next().charAt(0);// chodich chodich kalikan
-				if(k== 'Y'){
-					
-				}
+		
+				
 
 	}
 
@@ -239,6 +247,9 @@ public void startGame(){
 			
 			BoardArray[j]=players[1].getPosition();
 			System.out.println("PLAYER2 IS IN"+players[1].getPosition());
+			this.snakeMethod();
+			this.ladderMethod();
+			this.finalWinner();
 			System.out.println("\n--------------------------------------------------------------------------------------");
 
 
@@ -248,50 +259,134 @@ public void startGame(){
 		}
 
 	}
-
-					public void trickMethod(){//to play the game efectively
-
-					//while(players[0].setPosition()==players[0].setPosition(BoardArray[100]) || players[1].setPosition()==players[1].setPosition(BoardArray[100]))
-						//display.boardPrinting();
-
-					while(players[0].getPosition()<=100 || players[1].getPosition()<=100)
+	public void trickMethod(){//to play the game efectively
+			while(players[0].getPosition()<=100 || players[1].getPosition()<=100)
 						{
+
+
 							if(players[0].getPosition()==0 && players[1].getPosition()==1){
-								display.boardPrinting();
+								
 								this.player1();
 								this.player2();
 							}
 
 							if(players[0].getPosition()>0 &&  players[1].getPosition()==1){
-								display.boardPrinting();
+							
 								this.player1Board();
 								this.player2();
 							}
 
 							if(players[0].getPosition()==0 &&  players[1].getPosition()>1){
-								display.boardPrinting();
+							
 								this.player1();
 								this.player2Board();
 							}
 							if(players[0].getPosition()>0 &&  players[1].getPosition()>0){
-								display.boardPrinting();
+								
 								this.player1Board();
 								this.player2Board();
 							}
 
 						}
 
-
-
-					}
+				}
 
 					public void snakeMethod(){
+						if(players[0].getPosition()==35)
+						{
+							players[0].setPosition(10);
+							BoardArray[i]=players[0].getPosition();
+							System.out.println("\n BITE BY SNAKE NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==35){
+							players[1].setPosition(10);
+								BoardArray[j]=players[1].getPosition();
+									System.out.println("\n BITE BY SNAKE NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
+						else if(players[0].getPosition()==55){
+							players[0].setPosition(25);
+								BoardArray[i]=players[0].getPosition();
+									System.out.println("\n BITE BY SNAKE NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==55){
+							players[1].setPosition(25);
+								BoardArray[j]=players[1].getPosition();
+									System.out.println("\n BITE BY SNAKE NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
+						else if(players[0].getPosition()==85){
+							players[0].setPosition(8);
+								BoardArray[i]=players[0].getPosition();
+									System.out.println("\n BITE BY SNAKE NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==85){
+							players[1].setPosition(8);
+								BoardArray[j]=players[1].getPosition();
+								System.out.println("\n BITE BY SNAKE NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
 
 					}
 
 					public void ladderMethod(){
+						if(players[0].getPosition()==12)
+						{
+							players[0].setPosition(24);
+								BoardArray[i]=players[0].getPosition();
+									System.out.println("\n CLIMBED A LADDER NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==12){
+							players[1].setPosition(24);
+								BoardArray[j]=players[1].getPosition();
+								System.out.println("\n CLIMBED A LADDER NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
+						else if(players[0].getPosition()==30){
+							players[0].setPosition(60);
+								BoardArray[i]=players[0].getPosition();
+										System.out.println("\n CLIMBED A LADDER NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==30){
+							players[1].setPosition(60);
+								BoardArray[j]=players[1].getPosition();
+								System.out.println("\n CLIMBED A LADDER NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
+						else if(players[0].getPosition()==59){
+							players[0].setPosition(95);
+								BoardArray[i]=players[0].getPosition();
+									System.out.println("\n CLIMBED A LADDER NOW PLAYER1 IS IN POSITION"+players[0].getPosition());
+						}
+						else if(players[1].getPosition()==59){
+							players[1].setPosition(95);
+								BoardArray[j]=players[1].getPosition();
+								System.out.println("\n CLIMBED A LADDER NOW PLAYER2 IS IN POSITION"+players[1].getPosition());
+						}
 
 					}
+
+					public void finalWinner(){
+						if(players[0].getPosition()>=100){
+							System.out.println("\n************************************************************************************************");
+        	System.out.println("                                                                                    ");
+        	System.out.println("             				ULTIMATE WINNER IS PLAYER1   				                                  ");
+
+        	System.out.println("                                                                                      ");
+        	System.out.println("\n************************************************************************************************");
+
+						}
+						else if(players[1].getPosition()>=100){
+							System.out.println("\n************************************************************************************************");
+        	System.out.println("                                                                                    ");
+        	System.out.println("             				ULTIMATE WINNER IS PLAYER2				                                  ");
+
+        	System.out.println("                                                                                      ");
+        	System.out.println("\n************************************************************************************************");
+
+						}
+
+					}
+
+
+
+					
+					
 
 }//class
 
