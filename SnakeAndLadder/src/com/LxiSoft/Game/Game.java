@@ -16,17 +16,12 @@ public class Game
 	Dice dice;
 	Designs design=new Designs();
 
-public void creatGame()
-	{
-		playBoard.createBoard();
-	}
 
  public void playGame(ArrayList<Snake>snakes,ArrayList<Ladder>ladders,ArrayList<Cell>cells)
 	{
 		this.creatPlayers();
 		this.playerDetails(players);	
 		this.startGame(snakes,ladders,cells);
-		
 		
 
 	}
@@ -50,7 +45,7 @@ public void creatPlayers()
 		  	players.get(i).setPlayerName(name);
 		  	players.get(i).setCoin(coin);
 		  	players.get(i).setPlayerPosition(0);
-		  	players.get(i).setPlayerStatus(false);
+		  	players.get(i).setPlayerStatus(false);//make True if come to 100th position
 		 	i++;
 		 
 

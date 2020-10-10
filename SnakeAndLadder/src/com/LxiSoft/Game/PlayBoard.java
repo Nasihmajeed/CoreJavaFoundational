@@ -78,27 +78,33 @@ public void creatCells()//for movement of coin in table
          while (counter >0)
         {
             cells.add(new Cell());
-            if (counter%10 == 0 && counter != 100){
+            if (counter%10 == 0 && counter != 100)
+            {
                 if(iteration==-1)
-                {   counter-=9;
+                { 
+                    counter-=9;
                     iteration=1;
                 }
                 else
-                {   cells.get(i).setPosition(counter);
+                {  
+                    cells.get(i).setPosition(counter);
                     cells.get(i).setCoinPlace(" ");
                     i++;
                     counter-=10;
                     iteration=-1;
                 }
+
                 if(counter!=0)  
-                {   cells.add(new Cell());
+                {  
+                    cells.add(new Cell());
                     cells.get(i).setPosition(counter);
                     cells.get(i).setCoinPlace(" ");
                     i++;
                 }
             }
             else
-            { cells.get(i).setPosition(counter);
+            { 
+              cells.get(i).setPosition(counter);
               cells.get(i).setCoinPlace(" "); 
               i++;
             }

@@ -50,8 +50,5 @@ public void setCoin(String coin)
     return coin;
   }
 
- /*public String toString() { 
-        return " Player " + "Name = " + name + ", Coin = " + coin+ ' '; 
-    */ 
-
+ 
 }
