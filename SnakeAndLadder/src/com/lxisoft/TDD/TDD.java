@@ -8,5 +8,6 @@ public class TDD
 		Game game = new Game();
 		game.welcomePage();
 		game.starting();
+		game.printBoard();
 	}
 }

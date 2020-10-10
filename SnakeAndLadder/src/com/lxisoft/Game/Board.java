@@ -18,6 +18,7 @@ public class Board
     		player.get(i).setName(scanner.next()); 
     	}
     	 System.out.println("\nPlayers are: ");
+    	 System.out.println();
     	 for(int j=0;j<player.size();j++)
     	 {
     	 	System.out.println(j+1+" "+player.get(j).getName());
