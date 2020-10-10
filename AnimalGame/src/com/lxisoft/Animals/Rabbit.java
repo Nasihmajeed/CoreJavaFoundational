@@ -1,3 +1,3 @@
-public class Rabbit
+public class Rabbit extends Animal implements herbivorus
 {
 }

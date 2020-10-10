@@ -1,3 +1,3 @@
-public class Bear
+public class Bear extends Animal implements Carnivorus
 {
 }

@@ -1,3 +1,3 @@
-public class Tiger
+public class Tiger extends Animal implements Carnivorus
 {
 }

@@ -1,3 +1,3 @@
-public class Elephant
+public class Elephant extends Animal implements herbivorus
 {
 }
