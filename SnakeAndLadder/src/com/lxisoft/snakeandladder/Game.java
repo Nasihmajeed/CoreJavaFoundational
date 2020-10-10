@@ -264,29 +264,33 @@ public void startGame(){
 					public void trickMethod(){//to play the game efectively
 			while(players[0].getPosition()<=100 || players[1].getPosition()<=100)
 						{
+						
 
-
-							if(players[0].getPosition()==0 && players[1].getPosition()==1){
+							if(players[0].getPosition()==0 && players[1].getPosition()==0){
+								System.out.println("#1");
 								
 								this.player1();
 								this.player2();
 							}
 
-							if(players[0].getPosition()>0 &&  players[1].getPosition()==1){
+							if(players[0].getPosition()>0 &&  players[1].getPosition()==0){
 							
 								this.player1Board();
 								this.player2();
+								System.out.println("2");
 							}
 
-							if(players[0].getPosition()==0 &&  players[1].getPosition()>1){
+							if(players[0].getPosition()==0 &&  players[1].getPosition()>0){
 							
 								this.player1();
 								this.player2Board();
+								System.out.println("3");
 							}
 							if(players[0].getPosition()>0 &&  players[1].getPosition()>0){
 								
 								this.player1Board();
 								this.player2Board();
+								System.out.println("4");
 							}
 
 						}
