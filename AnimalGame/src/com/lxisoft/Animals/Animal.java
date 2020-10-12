@@ -1,11 +1,13 @@
-import java.Util.Scanner
-import java.Util.ArrayList
-import java.Util.List
+package com.lxisoft.Animal;
+import com.lxisoft.Game.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 public class Animal
 {
 public boolean life;
 public String name;
-public int strength
+public int strength;
 
 public void setName(String name)
 	{
@@ -33,39 +35,3 @@ public boolean getlife()
 		return life;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-

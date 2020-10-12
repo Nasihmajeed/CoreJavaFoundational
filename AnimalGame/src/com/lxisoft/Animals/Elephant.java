@@ -1,3 +1,6 @@
-public class Elephant extends Animal implements herbivorus
+package com.lxisoft.Animal;
+import com.lxisoft.Game.*;
+public class Elephant extends Animal implements Herbivorus
 {
+
 }
