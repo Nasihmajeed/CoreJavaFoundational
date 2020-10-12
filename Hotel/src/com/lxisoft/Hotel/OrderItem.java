@@ -1,5 +1,5 @@
 package com.lxisoft.Hotel;
-public class OrderItem extends Hotel
+public class OrderItem 
 {
 	
     String name,n;

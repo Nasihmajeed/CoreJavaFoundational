@@ -1,5 +1,5 @@
 package com.lxisoft.Hotel;
-public  class FoodandDrinksItem extends Hotel
+public class FoodandDrinksItem
 
 {
 	String name,n;
