@@ -1,11 +1,14 @@
 package com.lxisoft.Game;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Game
 {
     Scanner scanner = new Scanner(System.in);
     Board board = new Board();
+    int position1 = 0;
+    int position2 = 0;
 
     public void welcomePage()
     {
@@ -165,4 +168,44 @@ public class Game
         }
     }
 
+    public void dice()
+    {
+        System.out.println("Press 1 to start the game");
+        int c = scanner.nextInt();
+        if(c==1)
+        {
+        	Random r = new Random();
+            int random = r.nextInt(6);
+            int random1 = r.nextInt(6);
+
+            if(board.dice.get(random).getNumber() != 1)
+            {
+                System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random).getNumber());
+                System.out.println("\nPlayer 1 cannot enter the game");
+            }
+            else
+            {
+            	System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random).getNumber());
+            	System.out.println("\nplayer 1 entered the game");
+            }
+
+            if(board.dice.get(random1).getNumber() != 1)
+            {
+            	System.out.println("\nDice rolling for player 2 is: "+board.dice.get(random1).getNumber());
+            	System.out.println("\nPlayer 1 cannot enter the game");
+            }
+            else
+            {
+                System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random1).getNumber());
+            	System.out.println("\nplayer 1 entered the game");	
+            }
+
+        }
+        else
+        {
+        	System.out.println("Invalid choice");
+        }
+    }
+
+    
 }
