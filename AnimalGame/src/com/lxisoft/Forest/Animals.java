@@ -1,29 +1,28 @@
 package com.lxisoft.Forest;
-import com.lxisoft.Forest.Animals;
 public class Animals
 {
-   String name,n;
-   int strength,s;
-   boolean alive,a;
-   public void setName(String n)
+   private String name;
+   private int strength;
+   private boolean alive;
+   public void setName(String name)
    {
-   	name = n;
+   	 this.name = name;
    }
    public String getName()
    {
    	return name;
-   }
-   public void setStrenght(int s)
+   } 
+   public void setStrength(int strength)
    {
-   	strength = s;
+   	 this.strength = strength;
    }
    public int getStrength()
    {
    	return strength;
    }
-   public void setAlive(boolean a)
+   public void setAlive(boolean alive)
    {
-   	alive = a;
+   	 this.alive = alive;
    }
    public boolean getAlive()
    {

@@ -6,7 +6,7 @@ public class Tdd
   {
   	Forest f = new Forest();
   	f.setAnimalDetails();
-  	//f.fight();
-  	//f.finalWinner();
+  	f.setSpace();
+  	f.finalWinner();
   }
 }
