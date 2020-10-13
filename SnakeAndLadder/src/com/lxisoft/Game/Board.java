@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Board
 {
     ArrayList<Player> player = new ArrayList<Player>();
-    ArrayList<Dice> dice = new ArrayList<Dice>();
+    ArrayList<Dice> d = new ArrayList<Dice>();
     Scanner scanner = new Scanner(System.in);
 
     public void playerName()
@@ -28,17 +28,17 @@ public class Board
 
     public void setDice()
     {
-    	dice.add(new Dice());
-        dice.get(0).setNumber(1);
-        dice.add(new Dice());
-        dice.get(1).setNumber(2);
-        dice.add(new Dice());
-        dice.get(2).setNumber(3);
-        dice.add(new Dice());
-        dice.get(3).setNumber(4);
-        dice.add(new Dice());
-        dice.get(4).setNumber(5);
-        dice.add(new Dice());
-        dice.get(5).setNumber(6);        
+    	d.add(new Dice());
+        d.get(0).setNumber(1);
+        d.add(new Dice());
+        d.get(1).setNumber(2);
+        d.add(new Dice());
+        d.get(2).setNumber(3);
+        d.add(new Dice());
+        d.get(3).setNumber(4);
+        d.add(new Dice());
+        d.get(4).setNumber(5);
+        d.add(new Dice());
+        d.get(5).setNumber(6);        
     }
 }

@@ -9,6 +9,7 @@ public class TDD
 		game.welcomePage();
 		game.starting();
 		game.printBoard();
-		game.dice();
+		game.player1();
+		game.player2();
 	}
 }

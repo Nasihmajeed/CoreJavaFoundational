@@ -168,36 +168,23 @@ public class Game
         }
     }
 
-    public void dice()
+    public void player1()
     {
-        System.out.println("Press 1 to start the game");
+        System.out.println("Press 1 to start the game for player1");
         int c = scanner.nextInt();
+       
         if(c==1)
         {
-        	Random r = new Random();
-            int random = r.nextInt(6);
-            int random1 = r.nextInt(6);
+            System.out.println("\nDice rolling for"+board.player.get(0).getName()+" is: ");
+            int a = board.player.get(0).random();
 
-            if(board.dice.get(random).getNumber() != 1)
+            if(a != 1)
             {
-                System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random).getNumber());
-                System.out.println("\nPlayer 1 cannot enter the game");
+                System.out.println("\n"+board.player.get(0).getName()+"cannot enter the game");                 
             }
             else
             {
-            	System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random).getNumber());
-            	System.out.println("\nplayer 1 entered the game");
-            }
-
-            if(board.dice.get(random1).getNumber() != 1)
-            {
-            	System.out.println("\nDice rolling for player 2 is: "+board.dice.get(random1).getNumber());
-            	System.out.println("\nPlayer 1 cannot enter the game");
-            }
-            else
-            {
-                System.out.println("\nDice rolling for player 1 is: "+board.dice.get(random1).getNumber());
-            	System.out.println("\nplayer 1 entered the game");	
+            	System.out.println("\nCONGRATULATIONS YOU ENTERED THE GAME");
             }
 
         }
@@ -207,5 +194,35 @@ public class Game
         }
     }
 
-    
+    public void player2()
+    {	
+        System.out.println("Press 1 to start the game for player2");
+        int c = scanner.nextInt();
+        
+        if(c==1)
+        {	
+        	System.out.println("\nDice rolling for"+board.player.get(1).getName()+" is: ");
+            int b = board.player.get(1).random();
+            System.out.println(b);
+
+            if(b != 1)
+            {
+                System.out.println("\n"+board.player.get(1).getName()+"cannot enter the game");                 
+            }
+            else
+            {
+            	System.out.println("\nCONGRATULATIONS YOU ENTERED THE GAME");
+            }
+        }
+        else
+        {
+        	System.out.println("Invalid choice");
+        }
+    }
+     
+    public int random()
+    {
+    	dice.setNumber(d[new Random().nextInt(d.size())]);
+    	return dice.getNumber();
+    }
 }
