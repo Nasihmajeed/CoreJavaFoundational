@@ -1,8 +1,10 @@
-package com.lxisoft.Animal;
-import com.lxisoft.Game.*;
+package com.lxisoft.Animals;
+import com.lxisoft.Game.Forest;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+
 public class Animal
 {
 public boolean life;
@@ -25,12 +27,12 @@ public int getStrength()
 	{
 		return strength;
 	}
-public void setlife(boolean life)
+public void setLife(boolean life)
 
 	{
 		this.life=life;
 	}
-public boolean getlife()
+public boolean getLife()
 	{
 		return life;
 	}

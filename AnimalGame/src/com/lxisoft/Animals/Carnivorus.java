@@ -1,4 +1,4 @@
-package com.lxisoft.Animal;
+package com.lxisoft.Animals;
 import com.lxisoft.Game.*;
 public interface Carnivorus
 {
