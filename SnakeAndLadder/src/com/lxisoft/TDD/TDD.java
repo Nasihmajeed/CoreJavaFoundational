@@ -9,7 +9,7 @@ public class TDD
 		game.welcomePage();
 		game.starting();
 		game.printBoard();
-		game.player1();
-		game.player2();
+		game.playGame();
+		game.winner();
 	}
 }

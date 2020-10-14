@@ -2,6 +2,7 @@ package com.lxisoft.Game;
 
 public class Player
 {
+	Dice dice = new Dice();
 	private String name;
 	private int position;
 

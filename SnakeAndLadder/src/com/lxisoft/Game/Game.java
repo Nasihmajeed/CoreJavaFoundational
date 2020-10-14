@@ -7,8 +7,6 @@ public class Game
 {
     Scanner scanner = new Scanner(System.in);
     Board board = new Board();
-    int position1 = 0;
-    int position2 = 0;
 
     public void welcomePage()
     {
@@ -170,23 +168,41 @@ public class Game
 
     public void player1()
     {
-        System.out.println("Press 1 to start the game for player1");
+        System.out.println("\nPress 1 to start the game for player1");
         int c = scanner.nextInt();
        
         if(c==1)
         {
-            System.out.println("\nDice rolling for"+board.player.get(0).getName()+" is: ");
-            int a = board.player.get(0).random();
+            System.out.println("\nDice rolling for "+board.player.get(0).getName()+" is ");
+            int a = board.player.get(0).dice.random();
+            System.out.println(a);
 
             if(a != 1)
             {
-                System.out.println("\n"+board.player.get(0).getName()+"cannot enter the game");                 
+                System.out.println("\n"+board.player.get(0).getName()+" cannot enter the game");                 
             }
             else
             {
-            	System.out.println("\nCONGRATULATIONS YOU ENTERED THE GAME");
-            }
+            	System.out.println("\nCONGRATULATIONS PLAYER 1 ENTERED THE GAME");
+            	board.player.get(0).setPosition(1);
+            	System.out.println("Player 1 is in  "+board.player.get(0).getPosition()+" position");
 
+            	System.out.println("\nPress 1 to get one more chance to play");
+            	int d=scanner.nextInt();
+            	if(d==1)
+            	{
+            		System.out.println("\nDice rolling for "+board.player.get(0).getName()+" is ");
+                    int a1 = board.player.get(0).dice.random();
+                    System.out.println(a1);
+
+                    board.player.get(0).setPosition(board.player.get(0).getPosition()+a1);
+                    System.out.println("\nPlayer 1 is in  "+board.player.get(0).getPosition()+" position");
+                }
+                else
+                {
+                	System.out.println("Invalid choice");
+                }
+            }
         }
         else
         {
@@ -196,22 +212,40 @@ public class Game
 
     public void player2()
     {	
-        System.out.println("Press 1 to start the game for player2");
+        System.out.println("\n\nPress 1 to start the game for player2");
         int c = scanner.nextInt();
         
         if(c==1)
         {	
-        	System.out.println("\nDice rolling for"+board.player.get(1).getName()+" is: ");
-            int b = board.player.get(1).random();
+        	System.out.println("\nDice rolling for "+board.player.get(1).getName()+" is ");
+            int b = board.player.get(1).dice.random();
             System.out.println(b);
 
             if(b != 1)
             {
-                System.out.println("\n"+board.player.get(1).getName()+"cannot enter the game");                 
+                System.out.println("\n"+board.player.get(1).getName()+" cannot enter the game");                 
             }
             else
             {
-            	System.out.println("\nCONGRATULATIONS YOU ENTERED THE GAME");
+            	System.out.println("\nCONGRATULATIONS PLAYER 2 ENTERED THE GAME");
+            	board.player.get(1).setPosition(1);
+            	System.out.println("Player 2 is in  "+board.player.get(1).getPosition()+" position");
+
+            	System.out.println("\nPress 1 to get one more chance to play");
+            	int d=scanner.nextInt();
+            	if(d==1)
+            	{
+            		System.out.println("\nDice rolling for "+board.player.get(1).getName()+" is ");
+                    int b1 = board.player.get(1).dice.random();
+                    System.out.println(b1);
+
+                    board.player.get(1).setPosition(board.player.get(1).getPosition()+b1);
+                    System.out.println("\nPlayer 2 is in  "+board.player.get(1).getPosition()+" position");
+            	}
+            	else
+                {
+                	System.out.println("Invalid choice");
+                }
             }
         }
         else
@@ -219,10 +253,32 @@ public class Game
         	System.out.println("Invalid choice");
         }
     }
-     
-    public int random()
+
+    public void playGame()
     {
-    	dice.setNumber(d[new Random().nextInt(d.size())]);
-    	return dice.getNumber();
+    	while(board.player.get(0).getPosition() <= 100 || board.player.get(1).getPosition() <= 100)
+    	{
+    	   this.player1();
+    	   this.player2();
+    	}
+    } 
+
+    public void winner()
+    {
+    	if(board.player.get(0).getPosition() >= 100)
+    	{
+    		System.out.println("\n******************************************");
+    		System.out.println("Winner is : "+board.player.get(0).getName());
+    		System.out.println("******************************************");
+    	}
+
+    	else if(board.player.get(1).getPosition() >= 100)
+    	{
+    		System.out.println("\n******************************************");
+    		System.out.println("Winner is : "+board.player.get(1).getName());
+    		System.out.println("******************************************");
+    	}
     }
+
+
 }
