@@ -183,9 +183,11 @@ public class Game
             }
             else
             {
-            	System.out.println("\nCONGRATULATIONS PLAYER 1 ENTERED THE GAME");
+            	System.out.println("\n----------------------------------------------------------------");
+            	System.out.println("CONGRATULATIONS PLAYER 1 ENTERED THE GAME");
             	board.player.get(0).setPosition(1);
-            	System.out.println("Player 1 is in  "+board.player.get(0).getPosition()+" position");
+            	System.out.println("\nPlayer 1 is in  "+board.player.get(0).getPosition()+" position");
+            	System.out.println("----------------------------------------------------------------");
 
             	System.out.println("\nPress 1 to get one more chance to play");
             	int d=scanner.nextInt();
@@ -210,6 +212,36 @@ public class Game
         }
     }
 
+    public void player1Play()
+    {
+    	System.out.println("\nPress 1 to start the game for player1");
+        int c = scanner.nextInt();
+       
+        if(c==1)
+        {
+            System.out.println("\nDice rolling for "+board.player.get(0).getName()+" is ");
+            int a2 = board.player.get(0).dice.random();
+            System.out.println(a2);
+
+            board.player.get(0).setPosition(board.player.get(0).getPosition()+a2);
+            int d = board.player.get(0).getPosition(); 
+            if(d<=100)
+            {
+            	System.out.println("\nPlayer 1 is in  "+d+" position");
+            }
+            else
+            {
+            	d-=a2;
+                System.out.println("\nPlayer 1 is in  "+d+" position");
+            }
+            System.out.println(d);
+        }
+        else
+        {
+        	System.out.println("Invalide choice");
+        }    
+    }
+
     public void player2()
     {	
         System.out.println("\n\nPress 1 to start the game for player2");
@@ -227,9 +259,11 @@ public class Game
             }
             else
             {
-            	System.out.println("\nCONGRATULATIONS PLAYER 2 ENTERED THE GAME");
+            	System.out.println("\n----------------------------------------------------------------");
+            	System.out.println("CONGRATULATIONS PLAYER 2 ENTERED THE GAME");
             	board.player.get(1).setPosition(1);
-            	System.out.println("Player 2 is in  "+board.player.get(1).getPosition()+" position");
+            	System.out.println("\nPlayer 2 is in  "+board.player.get(1).getPosition()+" position");
+            	System.out.println("----------------------------------------------------------------");
 
             	System.out.println("\nPress 1 to get one more chance to play");
             	int d=scanner.nextInt();
@@ -254,12 +288,60 @@ public class Game
         }
     }
 
+    public void player2Play()
+    {
+    	System.out.println("\nPress 1 to start the game for player2");
+        int c = scanner.nextInt();
+       
+        if(c==1)
+        {
+            System.out.println("\nDice rolling for "+board.player.get(1).getName()+" is ");
+            int b2 = board.player.get(1).dice.random();
+            System.out.println(b2);
+
+            board.player.get(1).setPosition(board.player.get(1).getPosition()+b2);
+            int d = board.player.get(1).getPosition(); 
+            if(d<=100)
+            {
+            	System.out.println("\nPlayer 2 is in  "+d+" position");
+            }
+            else
+            {
+            	d-=b2;
+                System.out.println("\nPlayer 2 is in  "+d+" position");
+            }  
+            System.out.println(d);           
+        }
+        else
+        {
+        	System.out.println("Invalide choice");
+        }    
+    }
+
     public void playGame()
     {
-    	while(board.player.get(0).getPosition() <= 100 || board.player.get(1).getPosition() <= 100)
+    	while(board.player.get(0).getPosition() <= 100 && board.player.get(1).getPosition() <= 100)
     	{
-    	   this.player1();
-    	   this.player2();
+    		if(board.player.get(0).getPosition() == 0 && board.player.get(1).getPosition() == 0)
+    		{
+    	        this.player1();
+    	        this.player2();
+    	    }
+    	    else if(board.player.get(0).getPosition() == 0 && board.player.get(1).getPosition() > 0)
+    	    {
+    	    	this.player1();
+    	    	this.player2Play();
+    	    } 
+    	    else if(board.player.get(0).getPosition() > 0 && board.player.get(1).getPosition() == 0)
+    	    {
+    	    	this.player1Play();
+    	    	this.player2();
+    	    } 
+    	    else if(board.player.get(0).getPosition() > 0 && board.player.get(1).getPosition() > 0)
+    	    {
+    	    	this.player1Play();
+    	    	this.player2Play();
+    	    }
     	}
     } 
 
@@ -270,15 +352,32 @@ public class Game
     		System.out.println("\n******************************************");
     		System.out.println("Winner is : "+board.player.get(0).getName());
     		System.out.println("******************************************");
+    		System.out.println(board.player.get(0).getPosition());
     	}
 
-    	else if(board.player.get(1).getPosition() >= 100)
+    	else if(board.player.get(1).getPosition() >= 100) 
     	{
     		System.out.println("\n******************************************");
     		System.out.println("Winner is : "+board.player.get(1).getName());
     		System.out.println("******************************************");
+    		System.out.println(board.player.get(1).getPosition());
     	}
     }
+
+  /* public void condition()
+    {
+    	if(board.player.get(0).getPosition() == 99 || board.player.get(1).getPosition() == 99)
+    	{
+            if(random = 1)
+            {
+            	winner();
+            }
+            else
+            {
+            	random = r.nextInt(7);
+            }
+    	}
+    }*/
 
 
 }
