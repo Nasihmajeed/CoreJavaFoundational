@@ -7,6 +7,7 @@ public class TDD
 	{
 		Game game = new Game();
 		game.welcomePage();
+		game.instruction();
 		game.starting();
 		game.printBoard();
 		game.playGame();
