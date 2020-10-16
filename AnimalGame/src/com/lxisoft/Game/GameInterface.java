@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//import java.util.Collections;
 public class GameInterface
 {
 public void Game(int playerOne,int playerTwo,ArrayList<Animal> animal)

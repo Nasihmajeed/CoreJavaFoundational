@@ -151,5 +151,7 @@ System.out.println("|"+(i+1)+"\t"+" |"+"\t"+animal.get(i).getName()+"\t"+"\t"+"|
   }
   System.out.println("|---------------------------------------|"+"\n");
   }
+  }
+  }
 
 }
