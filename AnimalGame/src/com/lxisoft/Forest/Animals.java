@@ -1,9 +1,18 @@
 package com.lxisoft.Forest;
-public class Animals
+public abstract class Animals
 {
+   public void habitat()
+   {
+   	System.out.print("-------------------------------------------------------------------------------------------------------");
+    System.out.print("\n");
+   	System.out.println("ALL ANIMALS ARE FOREST ANIMALS NOT ZOO ANIMALS");
+   	 System.out.print("-------------------------------------------------------------------------------------------------------");
+     System.out.print("\n");
+   }
    private String name;
    private int strength;
    private boolean alive;
+   private int distance;
    public void setName(String name)
    {
    	 this.name = name;
@@ -27,5 +36,13 @@ public class Animals
    public boolean getAlive()
    {
    	return alive;
+   }
+   public void setDistance(int distance)
+   {
+   	this.distance = distance;
+   }
+   public int getDistance()
+   {
+   	return distance;
    }
 }

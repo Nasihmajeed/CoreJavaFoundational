@@ -16,51 +16,61 @@ public class Forest
 		animal.add(new Lion());
         animal.get(0).setName("Lion1");
         animal.get(0).setStrength(100);
+        animal.get(0).setDistance(50);
         animal.get(0).setAlive(true);
 
         animal.add(new Tiger());
         animal.get(1).setName("Tiger1");
-        animal.get(1).setStrength(70);
+        animal.get(1).setStrength(65);
+        animal.get(0).setDistance(40);
         animal.get(1).setAlive(true);
 
         animal.add(new Leopard());
         animal.get(2).setName("Leopard1");
         animal.get(2).setStrength(60);
+        animal.get(0).setDistance(20);
         animal.get(2).setAlive(true);
 
         animal.add(new Elephant());
         animal.get(3).setName("Elephant1");
         animal.get(3).setStrength(65);
+        animal.get(0).setDistance(10);
         animal.get(3).setAlive(true);
 
         animal.add(new Deer());
         animal.get(4).setName("Deer1");
         animal.get(4).setStrength(25);
+        animal.get(0).setDistance(5);
         animal.get(4).setAlive(true);
   
         animal.add(new Lion());
         animal.get(5).setName("Lion2");
         animal.get(5).setStrength(90);
+        animal.get(0).setDistance(45);
         animal.get(5).setAlive(true);
 
         animal.add(new Tiger());
         animal.get(6).setName("Tiger2");
         animal.get(6).setStrength(64);
+        animal.get(0).setDistance(35);
         animal.get(6).setAlive(true);
 
         animal.add(new Leopard());
         animal.get(7).setName("Leopard2");
         animal.get(7).setStrength(50);
+        animal.get(0).setDistance(15);
         animal.get(7).setAlive(true);
 
         animal.add(new Elephant());
         animal.get(8).setName("Elephant2");
         animal.get(8).setStrength(55);
+        animal.get(0).setDistance(5);
         animal.get(8).setAlive(true);
         
         animal.add(new Deer());
         animal.get(9).setName("Deer2");
         animal.get(9).setStrength(20);
+        animal.get(0).setDistance(10);
         animal.get(9).setAlive(true);
         for(int i=0;i<animal.size();i++)
         {
@@ -75,31 +85,45 @@ public class Forest
      
       if(animal.get(random1).getStrength() >= animal.get(random2).getStrength())
        {
-      	    c=animal.get(random1).getName();
-      	    a=animal.get(random1).getStrength();
-      	    System.out.println(" THE WINNER IS :"+c);
-      	    System.out.println("\n");
+       	        c=animal.get(random1).getName();
+      	        a=animal.get(random1).getStrength();
+      	        System.out.println(" THE WINNER IS :"+c);
+      	        System.out.println("\n");
       	    if(animal.get(random2).getStrength() <= animal.get(random1).getStrength())
-      	    {
-      	      animal.get(random1).setStrength(animal.get(random1).getStrength()-5);
-      		  animal.get(random2).setStrength(animal.get(random2).getStrength()-35);
-      		  System.out.print("After Fight The Animals Strength Is:"+animal.get(random1).getName()+"\n"+animal.get(random1).getStrength()+"\n"+animal.get(random1).getAlive());
-      		  System.out.println("\n");
-      		  System.out.print("After Fight The Animals Strength Is:"+animal.get(random2).getName()+"\n"+animal.get(random2).getStrength()+"\n"+animal.get(random2).getAlive());
-      		  System.out.println("\n");
-      		 if(animal.get(random2).getStrength()<=15)
-      		 {
-      			animal.get(random2).setAlive(false);
-      			System.out.println("The Animal Is DEAD:"+animal.get(random2).getName());
-      			System.out.println("\n");
-      		 }
-      		 else
-      		 {
-      			animal.get(random2).setAlive(true);
-      		 }
-      		  count--;
-      		 System.out.print("-------------------------------------------------------------------------------------------------------");
-      		 System.out.println("\n");
+      	   {
+      	   	    int distance = (animal.get(random1).getDistance() - animal.get(random2).getDistance());
+       	        int dia = 30;
+      	       if(distance<dia)
+       	       {
+       	  	       System.out.println(animal.get(random1).getName()+" "+"AND"+" "+animal.get(random2).getName()+" "+" ARE IN THE SAME TERRITORY"); 
+       	  	       System.out.println("\n");
+      	           animal.get(random1).setStrength(animal.get(random1).getStrength()-10);
+      		       animal.get(random2).setStrength(animal.get(random2).getStrength()-20);
+      		       System.out.print("After Fight The Animals Strength Is:"+animal.get(random1).getName()+"\n"+animal.get(random1).getStrength());
+      		       System.out.println("\n");
+      		       System.out.print("After Fight The Animals Strength Is:"+animal.get(random2).getName()+"\n"+animal.get(random2).getStrength());
+      		       System.out.println("\n");
+      		      if(animal.get(random2).getStrength()<=15)
+      		        {
+      			      animal.get(random2).setAlive(false);
+      			      System.out.println("The Animal Is DEAD:"+animal.get(random2).getName());
+      			      System.out.println("\n");
+      		        } 
+      		        else
+      		       {
+      			      animal.get(random2).setAlive(true);
+      		        }
+      		         count--;
+      		          System.out.print("-------------------------------------------------------------------------------------------------------");
+      		          System.out.println("\n");
+	      		}
+	      		else
+      	    	{
+                  System.out.println(animal.get(random1).getName()+" "+"AND"+" "+animal.get(random2).getName()+" "+" ARE NOT IN THE SAME TERRITORY");
+                  System.out.println("\n");
+                  System.out.print("-------------------------------------------------------------------------------------------------------");
+      		      System.out.println("\n");
+      	    	}
       	    }
       	}
       else
@@ -108,28 +132,42 @@ public class Forest
       	         b=animal.get(random2).getStrength();
       	         System.out.println(" THE WINNER IS :"+d);
       	         System.out.println("\n");
-      	   if(animal.get(random1).getStrength() <= animal.get(random2).getStrength())
-      	   {      	         
-      		     animal.get(random1).setStrength(animal.get(random1).getStrength()-35);
-      		     animal.get(random2).setStrength(animal.get(random2).getStrength()-5);
+      	    if(animal.get(random1).getStrength() <= animal.get(random2).getStrength())
+      	   {    
+      	           int distance = (animal.get(random2).getDistance() - animal.get(random1).getDistance());
+       	           int dia = 30;
+       	           if(distance<dia)
+       	       {
+                  System.out.println(animal.get(random1).getName()+" "+"AND"+" "+animal.get(random2).getName()+" "+" ARE IN THE SAME TERRITORY"); 
+                  System.out.println("\n"); 	         
+      		      animal.get(random1).setStrength(animal.get(random1).getStrength()-20);
+      		      animal.get(random2).setStrength(animal.get(random2).getStrength()-10);
       		      System.out.print("After Fight The Animals Strength Is:"+animal.get(random1).getName()+"\n"+animal.get(random1).getStrength());
       		      System.out.println("\n");
       		      System.out.print("After Fight The Animals Strength Is:"+animal.get(random2).getName()+"\n"+animal.get(random2).getStrength());
       		      System.out.println("\n");
-      		    if(animal.get(random1).getStrength()<=15)
-      		    {
-      			    animal.get(random1).setAlive(false);
-      			    System.out.println("The Animal Is DEAD:"+animal.get(random1).getName());
-      			    System.out.println("\n");
-      		    }
-      		    else
-      		    {
-      			  animal.get(random1).setAlive(true);
-      		    }
-      		 count--;
-      		 System.out.print("-------------------------------------------------------------------------------------------------------");
-      		 System.out.println("\n");	
-      	    }    
+      		         if(animal.get(random1).getStrength()<=15)
+      		       {
+      			       animal.get(random1).setAlive(false);
+      			       System.out.println("The Animal Is DEAD:"+animal.get(random1).getName());
+      			       System.out.println("\n");
+      		        }
+      		        else
+      		        {
+      			     animal.get(random1).setAlive(true);
+      		        }
+      		        count--;
+      		        System.out.print("-------------------------------------------------------------------------------------------------------");
+      		        System.out.println("\n");	
+      	        } 
+      	        else
+      	       {
+      	    	 System.out.println(animal.get(random1).getName()+" "+"AND"+" "+animal.get(random2).getName()+" "+" ARE NOT IN THE SAME TERRITORY");
+      	    	 System.out.println("\n");
+      	    	 System.out.print("-------------------------------------------------------------------------------------------------------");
+      		     System.out.println("\n");
+      	       }
+      	    }        
       	}
     }
     public void setSpace()
@@ -157,24 +195,65 @@ public class Forest
         				if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Herbivorous)
         				{
         					int luck = LuckFactor();
+        					this.fight(random1,random2);
+        					if(animal.get(random2) instanceof WeakAnimal)
+        					{
+        					 	System.out.print("\n Animal 1 : Carnivorous"+"\n"+" Animal 2 : Herbivorous");
+        						System.out.println("\n");		
         					if(luck!=2)
         					{
-        						System.out.print("\n Animal 1 : Carnivorous"+"\n"+" Animal 2 : Herbivorous");
-        						System.out.println("\n");
-        						this.fight(random1,random2);
-        					}
+    			    		    System.out.print("-------------------------------------------------------------------------------------------------------");
+      		                    System.out.println("\n");
+        		                System.out.print("Animal 1 ="+" "+animal.get(random1).getName()+"\n"+"Strength :"+animal.get(random1).getStrength());
+        		                System.out.println("\n");
+                                System.out.print("Animal 2 ="+" "+animal.get(random2).getName()+"\n"+"Strength :"+animal.get(random2).getStrength());
+                                System.out.println("\n");
+                                System.out.print("\n"+animal.get(random2).getName()+" "+"ESCAPED FROM"+" "+animal.get(random1).getName()+" "+"AND HIDE In THE FOREST");
+                                System.out.println("\n");
+                                animal.get(random1).setStrength(animal.get(random1).getStrength()-5);
+                                animal.get(random2).setStrength(animal.get(random2).getStrength()-5);
+                                System.out.println("\n LUCKY ANIMAL IS : "+animal.get(random2).getName());
+                                System.out.println("\n");
+                                System.out.print("After Fight The Animals Strength Is:"+animal.get(random1).getName()+"\n"+animal.get(random1).getStrength());
+                                System.out.println("\n");
+      		                    System.out.print("After Fight The Animals Strength Is:"+animal.get(random2).getName()+"\n"+animal.get(random2).getStrength());
+      		                    System.out.println("\n");
+      		                    System.out.print("-------------------------------------------------------------------------------------------------------");
+      		                    System.out.println("\n");
+    			    		}
+    			    	  } 	
         				}
                        else if(animal.get(random1) instanceof Herbivorous && animal.get(random2) instanceof Carnivorous)
     			    		{
     			    			int luck = LuckFactor();
-    			    			if(luck!=2)
+    			    			this.fight(random1,random2);
+    			    			if( animal.get(random1) instanceof WeakAnimal)
     			    			{
-                                    System.out.print("\n Animal 1 : Herbivorous"+"\n"+" Animal 2 : Carnivorous");
-                                    System.out.println("\n");
-        						    this.fight(random1,random2);
-                            	}	
+    			    				System.out.print("\n Animal 1 : Herbivorous"+"\n"+" Animal 2 : Carnivorous");
+                                   System.out.println("\n");
+       			    		    if(luck!=2)
+    			    			{
+                                   System.out.print("-------------------------------------------------------------------------------------------------------");
+      		                       System.out.println("\n");
+        					       System.out.print("Animal 1 ="+" "+animal.get(random1).getName()+"\n"+"Strength :"+animal.get(random1).getStrength());
+        					       System.out.println("\n");
+                                   System.out.print("Animal 2 ="+" "+animal.get(random2).getName()+"\n"+"Strength :"+animal.get(random2).getStrength());
+                                   System.out.println("\n");
+                                   System.out.print("\n"+animal.get(random1).getName()+" "+"ESCAPED FROM"+" "+animal.get(random2).getName()+" "+"AND HIDE In THE FOREST");
+                                   System.out.println("\n");
+                                   animal.get(random1).setStrength(animal.get(random1).getStrength()-5);
+                                   animal.get(random2).setStrength(animal.get(random2).getStrength()-5);
+                                   System.out.println("\n LUCKY ANIMAL IS : "+animal.get(random1).getName());
+                                   System.out.println("\n");
+                                   System.out.print("After Fight The Animals Strength Is:"+animal.get(random1).getName()+"\n"+animal.get(random1).getStrength());
+                                   System.out.println("\n");
+      		                       System.out.print("After Fight The Animals Strength Is:"+animal.get(random2).getName()+"\n"+animal.get(random2).getStrength());
+      		                       System.out.println("\n");
+      		                       System.out.print("-------------------------------------------------------------------------------------------------------");
+      		                       System.out.println("\n");
+	                            }
+	                            }
     			    		}
-
     			    	else if(animal.get(random1) instanceof Carnivorous && animal.get(random2) instanceof Carnivorous)
     			    	{
     			    		System.out.print(" \n Animal 1 is Carnivorous \n Animal 2 is Carnivorous");
@@ -191,8 +270,8 @@ public class Forest
     			        } 
     			    }      
         		}
+        		i++;
             }
-            i++;
        
                       System.out.print("                                     GAME OVER                                                ");
                       System.out.println("\n");
@@ -233,4 +312,40 @@ public class Forest
       	}
       }
 	}
+	public void show()
+	{
+		
+			Lion lion = new Lion();
+		    Tiger tiger = new Tiger();
+		    Leopard leopard = new Leopard();
+		    Elephant elephant = new Elephant();
+		    Deer deer = new Deer();
+		    lion.habit();
+		    tiger.habit();
+		    leopard.habit();
+		    elephant.habit();
+		    deer.habit();
+    }
+    public void tryMethod()
+    {
+    	try
+    	{
+    		System.out.print("-------------------------------------------------------------------------------------------------------");
+      		System.out.print("\n");
+			System.err.print("IF YOU WANT TO PLAY AGAIN PRESS ANY NUMBER");
+      		System.out.print("\n");
+			this.setSpace();
+		}
+		catch(Exception e)
+		{
+			System.err.print("YOU CAN ONLY ENTER INTEGER NUMBER");
+      		System.out.print("\n");
+		}
+		finally
+		{
+			System.out.println("BYE");
+			System.out.print("-------------------------------------------------------------------------------------------------------");
+      		System.out.print("\n");
+    	}
+    }
 }

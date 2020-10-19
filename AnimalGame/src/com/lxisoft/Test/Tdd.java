@@ -8,5 +8,7 @@ public class Tdd
   	f.setAnimalDetails();
   	f.setSpace();
   	f.finalWinner();
+  	f.show();
+  	f.tryMethod();
   }
 }
