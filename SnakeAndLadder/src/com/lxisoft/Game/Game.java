@@ -392,25 +392,25 @@ public class Game
     		{
     			System.out.println("\nWow there is a ladder in the position 12");
     			board.player.get(i).setPosition(53);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
     		}
     		else if(board.player.get(i).getPosition() == 40)
     		{
     			System.out.println("\nWow there is a ladder in the position 40");
     			board.player.get(i).setPosition(81);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
     		}
     		else if(board.player.get(i).getPosition() == 66)
     		{
     			System.out.println("\nWow there is a ladder in the position 66");
     			board.player.get(i).setPosition(97);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
     		}
     		else if(board.player.get(i).getPosition() == 71)
     		{
     			System.out.println("\nWow there is a ladder in the position 71");
     			board.player.get(i).setPosition(91);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
     		}
     	}
     }
@@ -423,25 +423,25 @@ public class Game
     		{
     			System.out.println("\nOho there is a snake in the position 98");
     			board.player.get(i).setPosition(8);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
     		}
             else if(board.player.get(i).getPosition() == 86)
             {
             	System.out.println("\noho there is a snake in the position 86");
             	board.player.get(i).setPosition(25);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
             }
             else if(board.player.get(i).getPosition() == 62)
             {
             	System.out.println("\noho there is a snake in the position 62");
             	board.player.get(i).setPosition(19);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());
             }
             else if(board.player.get(i).getPosition() == 31)
             {
                 System.out.println("\noho there is a snake in the position 31");
             	board.player.get(i).setPosition(7);
-    			System.out.println("\nYour current position: "+board.player.get(i).getPosition());	
+    			System.out.println("\nYour current position is: "+board.player.get(i).getPosition());	
             }
     	}
     }
