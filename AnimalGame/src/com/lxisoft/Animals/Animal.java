@@ -5,12 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
-public class Animal
+public abstract class Animal
 {
-public boolean life;
-public String name;
-public int strength;
-public int distance;
+public void eat()
+{
+System.out.println("Eating behaviour");
+}
+public void name()
+{
+System.out.println("*********Animals and their Food habits*********");
+}
+private boolean life;
+private String name;
+private int strength;
+private int distance;
 public void setName(String name)
 	{
 		this.name=name;

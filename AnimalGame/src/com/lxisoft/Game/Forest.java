@@ -16,12 +16,14 @@ public void Start()
 int choice=0;
 do
 {
-this.animal();
 System.out.println("Press\n1.Start\t2.Exit");
 Scanner scn=new Scanner(System.in);
 choice=scn.nextInt();
+
 if (choice==1)
 {
+System.out.println("-----------------Animal Game-----------------");
+this.animal();
 this.animalDisplay();
 System.out.println("--------------The game begins--------------"+"\n");
 this.startGame();
@@ -111,8 +113,10 @@ g.Game(playerOne,playerTwo,animal);
       	}
    }
    }
+this.print();   
 this.diedAnimals();  
 this.lastStanding();  
+
  }
 public void lastStanding() 
 {
@@ -151,7 +155,21 @@ System.out.println("|"+(i+1)+"\t"+" |"+"\t"+animal.get(i).getName()+"\t"+"\t"+"|
   }
   System.out.println("|---------------------------------------|"+"\n");
   }
-  }
+  public void print()
+  {
+  Bear b=new Bear();
+  Lion l=new Lion();
+  Elephant e=new Elephant();
+  Rabbit r=new Rabbit();
+  Tiger t=new Tiger();
+ 
+  b.name();
+  b.eat();
+  l.eat();
+  e.eat();
+  r.eat();
+  t.eat();
+    System.out.println("************************************************");
   }
 
 }

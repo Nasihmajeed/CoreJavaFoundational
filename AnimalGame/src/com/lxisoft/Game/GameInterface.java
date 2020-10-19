@@ -35,7 +35,7 @@ public void Game(int playerOne,int playerTwo,ArrayList<Animal> animal)
              System.out.println(animal.get(playerOne).getName()+"kills"+animal.get(playerTwo).getName());
             System.out.println("Player One Name     :"+"    "+animal.get(playerOne).getName()+"\nPlayer One Strength :"+"\t"+"\t"+animal.get(playerOne).getStrength()+"\n");
             System.out.println("Player Two Name     :"+"    "+animal.get(playerTwo).getName()+"\nPlayer Two Strength :"+"\t"+"\t"+animal.get(playerTwo).getStrength()+"\n");
-            if(animal.get(playerOne).getStrength() > animal.get(playerTwo).getStrength())
+           if(animal.get(playerOne).getStrength() > animal.get(playerTwo).getStrength())
             {
             if ( animal.get(playerTwo) instanceof Weak)
             {
@@ -52,11 +52,14 @@ public void Game(int playerOne,int playerTwo,ArrayList<Animal> animal)
           }
           else
           {
-            System.out.println("\n"+animal.get(playerOne).getName()+"gets exhausted");
-            animal.get(playerOne).setStrength(animal.get(playerOne).getStrength()-10);
-              System.out.println("\nLucky Animal"+"    "+animal.get(playerTwo).getName());
+            System.out.println("\nWinner is Player Two:"+"    "+animal.get(playerTwo).getName());
+            animal.get(playerTwo).setStrength(animal.get(playerTwo).getStrength()-10);
+            System.out.println("\nWinner's New Strength:"+"    "+animal.get(playerTwo).getStrength());
+            animal.get(playerTwo).setLife(false);
+            System.out.println("\nLoser is Player Two:"+animal.get(playerOne).getName());
+            animal.get(playerOne).setStrength(animal.get(playerOne).getStrength()-15);
             System.out.println("**************************************");
-          }}}
+          }}
          else
         {
             System.out.println("\nWinner is Player Two:"+"    "+animal.get(playerTwo).getName());
@@ -88,12 +91,7 @@ public void Game(int playerOne,int playerTwo,ArrayList<Animal> animal)
             System.out.println("\nLoser is Player Two:"+animal.get(playerTwo).getName());
             animal.get(playerTwo).setStrength(animal.get(playerTwo).getStrength()-15);
             System.out.println("**************************************");
-          }
-          else
-          {
-            System.out.println("\n"+animal.get(playerOne).getName()+"gets exhausted");
-            animal.get(playerOne).setStrength(animal.get(playerOne).getStrength()-10);System.out.println("\nLucky Animal"+"    "+animal.get(playerTwo).getName());System.out.println("**************************************");
-          }}}
+          }}
         else
         {
             System.out.println("\nWinner is Player Two:"+"    "+animal.get(playerTwo).getName());
@@ -173,7 +171,10 @@ public void Game(int playerOne,int playerTwo,ArrayList<Animal> animal)
       return true;
      }
      else {System.out.println("\n\t\t=> "+animal.get(playerOne).getName() + " AND " +  animal.get(playerTwo).getName() + " are not in SAME TERRITORY \n");return false; 
-     }}}     
+     }}
+     
+     
+     }     
 			
 			
 		
