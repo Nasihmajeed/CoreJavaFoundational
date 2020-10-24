@@ -1,23 +1,83 @@
 package com.lxisoft.Movies;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public abstract class Script
 {
-	String name;
+	private String name0;
+	private String name1;
+	private String name2;
+	private String name3;
+	private String name4;
+	private String name5;
+	private String name6;
+	private String name7;
 
-	public void scriptDisplay()
+	public abstract void scriptDisplay();
+	
+	public void setDialogue0(String a)
 	{
-		System.out.println("Woody (Tom Hanks), a good-hearted cowboy doll who belongs to a young boy named Andy (John Morris),");
-		System.out.println("sees his position as Andy's favorite toy jeopardized when his parents buy him a Buzz Lightyear (Tim Allen) action figure.");
-		System.out.println("Even worse, the arrogant Buzz thinks he's a real spaceman on a mission to return to his home planet.");
-		System.out.println("When Andy's family moves to a new house, Woody and Buzz must escape the clutches of maladjusted neighbor Sid Phillips (Erik von Detten) and reunite with their boy.");
+		this.name0=a;
 	}
-
-	public void setName(String a)
+	public String getDialogue0()
 	{
-		this.name=a;
+		return name0;
 	}
-	public String getName()
+	public void setDialogue1(String a)
 	{
-		return name;
+		this.name1=a;
+	}
+	public String getDialogue1()
+	{
+		return name1;
+	}
+	public void setDialogue2(String a)
+	{
+		this.name2=a;
+	}
+	public String getDialogue2()
+	{
+		return name2;
+	}
+	public void setDialogue3(String a)
+	{
+		this.name3=a;
+	}
+	public String getDialogue3()
+	{
+		return name3;
+	}
+	public void setDialogue4(String a)
+	{
+		this.name4=a;
+	}
+	public String getDialogue4()
+	{
+		return name4;
+	}
+	public void setDialogue5(String a)
+	{
+		this.name5=a;
+	}
+	public String getDialogue5()
+	{
+		return name5;
+	}
+	public void setDialogue6(String a)
+	{
+		this.name6=a;
+	}
+	public String getDialogue6()
+	{
+		return name6;
+	}
+	public void setDialogue7(String a)
+	{
+		this.name7=a;
+	}
+	public String getDialogue7()
+	{
+		return name7;
 	}
 }
