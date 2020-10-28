@@ -15,7 +15,7 @@ public class Movie
 		scene.scenePrint();
 		do
 		{
-		System.out.println("\n\u001b[35m\033[1mInsert the Index No:\033[0m \n1.Statutary Notice\t2.Start the movie\t3.Character sketch");
+		System.out.println("\n\u001b[35m\033[1mInsert the Index No:\033[0m \n1.Statutary Notice\t2.Start the movie\t3.Character sketch\t4.Actors Info");
 		Scanner scn=new Scanner(System.in);
 		choice=scn.nextInt();
 		if(choice==1)
@@ -71,7 +71,12 @@ public class Movie
 		buzz.scriptDisplay();
 		sid.scriptDisplay();
 		}
-	}while(choice<4);
+		else if (choice==4)
+		{
+			Info info=new Info();
+			info.infoPrint();
+		}
+	}while(choice<5);
 	}
 		public static void slowPrint(String message, long millisPerChar)
     {
