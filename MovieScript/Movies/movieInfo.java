@@ -25,11 +25,11 @@ public String toString()
     } 
 public int compareTo(movieInfo award)
 {
-if(this.getAwards() > award.getAwards())
+	if(this.getAwards() > award.getAwards())
 
-	return 1;
-else
-	return -1;
+		return 1;
+	else
+		return -1;
 }
 
   	public double getAwards()
