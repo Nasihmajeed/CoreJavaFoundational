@@ -9,8 +9,15 @@ public class Tdd{
 		Scanner n = new Scanner(System.in);
 		System.out.println("Enter the number of cars : ");
 		int num = n.nextInt();
-		Cars c = new Cars();
-		c.enter(num);
-		c.display(num);		 
+		Cars car = new Cars();
+		Cars[] c = new Cars[num];
+		for(int i=0; i<num; i++){
+			c[i] = new Cars();
+			c[i].cardetails();
+		}
+		for(int j=0; j<num; j++){
+			c[j] = new Cars();
+			c[j].printcardetails();
+		}
 	}
 }

@@ -1,40 +1,50 @@
 package CarDetails;
 import java.util.*;
 public class Cars{
- 	String brand_name[10];
-	String model_name[10];
-	String owner_name[10];
-	String color[10];
-	Scanner s =new Scanner(System.in);
-	Tyre t = new Tyre();
-	Door d = new Door();
-	Steering s = new Steering();
-	public void enter(int n){
-		System.out.println("Enter the car details : ");
-		for(int i=0; i<n; i++){
-			System.out.println("Enter The brand name : ");
-			brand_name[i] = s.nextLine();
-			System.out.println("Enter the model name : ");
-			model_name[i] = s.nextLine();
-			System.out.println("Enter the owner name : ");
-			owner_name[i] = s.nextLine();
-			System.out.println("Enter the Color : ");
-			color[i] = s.nextLine();
-			t.enter(n);
-			d.enter(n);
-			s.enter(n);
-		}
+ 	String brand_name;
+	String model_name;
+	String owner_name;
+	String color;
+	Scanner s = new Scanner(System.in);
+	
+	public void cardetails(){
+		Cars c = new Cars();
+		System.out.println("Enter the brand of the Car :");
+		c.brand_name = s.nextLine();
+		System.out.println("Enter the model of the Car :");
+		c.model_name = s.nextLine();
+		System.out.println("Enter the owner of the Car :");
+		c.owner_name = s.nextLine();
+		System.out.println("Enter the color of the Car :");
+		c.color = s.nextLine();
+		Tyre t = new Tyre();
+		t.tyredetails();
+	    Doors d = new Doors();
+	    d.doordetails();
+	    Steering steer = new Steering();
+	    steer.steeringdetails();
 	}
-	public void display(int n){
-		for(int i=0; i<n; i++){
-			System.out.println("Brand name : "+brand_name[i]);
-			System.out.println("Model name : "+model_name[i]);
-			System.out.println("Owner name : "+owner_name[i]);
-			System.out.println("Color : "+color[i]);
-			t.display(n);
-			d.display(n);
-			s.display(n);
-		}
+	public void printcardetails(){
+		System.out.println("The Car details : ");
+		System.out.println("\n"+brand_name);
+		System.out.println(model_name);
+		System.out.println(owner_name);
+		System.out.println(color);
 	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
