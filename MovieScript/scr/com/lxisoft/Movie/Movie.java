@@ -135,6 +135,7 @@ public class Movie
 		    System.out.print("\n");
 		    System.out.print("\n");
 			Director  director = new Director();
+			director.creatFilesSceneDialogue1();
             director.sceneDialogue(); 
             this.playList();
 		}

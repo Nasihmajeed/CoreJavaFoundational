@@ -1,8 +1,132 @@
 package com.lxisoft.Movie;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 public class Director
 {
 	ArrayList<Script> script = new ArrayList<Script>();
+	public void creatFilesSceneDialogue1()
+	{
+      try
+      {
+       File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
+       writer.write("Dundumole : ano!,njan dundumole");
+       writer.write("Tintumone : evidayan vide kutiyude");
+       writer.write("Dundumole : vide evide aduth tane ane");
+       writer.write("Tintumone : eth arane ?");
+       writer.write("Dundumole : arayila kore neram ayii enthe penale ane");
+       writer.write("Tintumone : arayile pene enthina kutiye nokunath");
+       writer.write("Dundumole : arayila....... ! ");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+	}
+	public void readFileSceneDialogue1()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a = scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print(a);
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+		public void creatFilesSceneDialogue2()
+	{
+      try
+      {
+      	File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("Tintumone : ninamk enthada vendath");
+       writer.write("Katakadarajan : enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
+       writer.write("Tintumone : edaaaa.........");
+       writer.write("Katakadarajan : enthada vadanaaa..............");
+       writer.write("Dundumole : ayooo vendaa adii onumm undakanda...........");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+	}
+	public void readFileSceneDialogue2()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a=scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print(a);
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public void creatFilesSceneDialogue3()
+	{
+      try
+      {
+      	File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("Tintumone : eni melal evide kandupokaruth ketodaaa");
+       writer.write("Katakadarajan : nine njan pene edutolada..........");
+       writer.write("Dundumole : va pokam vitekee namak pokam tintuuu");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+	}
+	public void readFileSceneDialogue3()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a=scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print(a);
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 	public void sceneDialogue()
 	{
 		script.add(new Tintumone());
