@@ -4,49 +4,35 @@ public class Steering{
 	String type;
 	int rate;
 	Scanner s = new Scanner(System.in);
-	public void steeringdetails(){
-		Steering steer = new Steering();
-		System.out.println("Enter The Type of Steering :");
-		steer.type =  s.nextLine();
-		System.out.println("Enter rate of Steering :");
-		steer.rate = s.nextInt();
+	Steering[] steer;
+	public void steeringdetails(int n){
+		steer = new Steering[n];
+		for(int i=0;i<n; i++){
+			steer[i] = new Steering();
+			System.out.println("\n____Enter the "+(i+1)+" Car Steering details____ ");
+			System.out.println("Enter type of Steering : ");
+		    steer[i].type =  s.nextLine();
+		    System.out.println("Enter rate of Steering :");
+		    steer[i].rate = s.nextInt();
+		    s.nextLine();
+		}
+		
 	}
-}
+	/*public void check(int n){
+		for(int i=0;i<n;i++){
+		    if(steer[i].type==1){
+		    	System.out.println("The car "+(i+1)+" have power steering");
+		    }
+		    else{
+		    	System.out.println("The car "+(i+1)+" does not have a power steering");
+		    }			
+		}
+	}*/
+	public void printsteer(int n){
+		for(int i=0; i<n; i++){
+			System.out.println("\n___The "+(i+1)+" Car Steering details___ ");
+			System.out.println("Rate : "+steer[i].rate);
+		}
+	}
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*Scanner s = new Scanner(System.in);
-	public void enter(int n){
-		String[] type = new String[20];
-		int[] rate = new int[10];
-		//System.out.println("Enter the steering details : ");
-		for(int i=0; i<n; i++){
-			System.out.println("Enter the "+(i+1)+" cars steering details : ");
-			System.out.println("Enter the steering type : ");
-			type[i] = s.nextLine();
-			System.out.println("Enter the rate : ");
-			rate[i] = s.nextInt();
-		}
-	}
-	public void display(int n){
-		for(int i=0; i<n; i++){
-			System.out.println("Steering type : "+type[i]);
-			System.out.println("Steering rate : "+rate[i]);
-		}
-	}
-}*/
+}

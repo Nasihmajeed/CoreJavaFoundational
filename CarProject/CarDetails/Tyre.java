@@ -5,74 +5,32 @@ public class Tyre{
 	String model;
 	int rate;
 	Scanner s = new Scanner(System.in);
-	Tyre t = new Tyre();
-	public void tyredetails(){
+	Tyre[] t;
+	public void tyredetails(int n){
+		t = new Tyre[n];
 		
-		System.out.println("Enter The Type of Tyres :");
-		t.type =  s.nextLine();
-		System.out.println("Enter model of Tyre :");
-		t.model = s.nextLine();
+		for(int i=0; i<n; i++){
+		    System.out.println("______Enter the "+(i+1)+" Car Tyre Details______");
+			t[i] = new Tyre();
+			System.out.println("Enter The Type of Tyres :");
+		    t[i].type =  s.nextLine();
+		    System.out.println("Enter model of Tyre :");
+		    t[i].model = s.nextLine();
+		    System.out.println("Enter rate of Tyre :");
+		    t[i].rate = s.nextInt();
+		    s.nextLine();  
+		}
+		
+		
 	}
-	public void printtyredetails(){
+	public void printtyredetails(int n){
+		
+		for(int i=0; i<n; i++){
+		    System.out.println("\n_____The "+(i+1)+" Car tyre details_____");
+		    System.out.println(t[i].type);
+		    System.out.println(t[i].model);
+		    System.out.println(t[i].rate);	
+		}
 		
 	}
 }
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*//Doors d = new Doors();
-	Scanner s = new Scanner(System.in);
-	public void enter(int n){
-		Tyre[] type = new Tyre[20];
-	    Tyre[] model = new Tyre[50];
-	    Tyre[] rate = new Tyre[10];
-		//System.out.println("Enter the Tyre details : ");
-		//for(int i=0; i<n; i++){
-			Tyre[] type = new Tyre[n];
-	        Tyre[] model = new Tyre[n];
-	        Tyre[] rate = new Tyre[n];
-			System.out.println("Enter the "+(i+1)+" Cars Tyre details : ");
-			System.out.println("Enter the tyre type : ");
-			type[i] = s.nextLine();
-			System.out.println("Enter the tyre model : ");
-			model[i] = s.nextLine();
-			System.out.println("Enter the rate of tyre : ");
-			rate[i] = s.nextInt();
-			//d.enter(n);
-		}
-	}
-	public void display(int n){
-		String[] type = new String[50];
-	    String[] model = new String[50];
-	    int[] rate = new int[10];
-		for(int i=0; i<n; i++){
-			System.out.println("Tyre type : "+type[i]);
-			System.out.println("Tyre Model : "+model[i]);
-			System.out.println("Tyre Rate : "+rate[i]);
-		}
-	}
-}*/
