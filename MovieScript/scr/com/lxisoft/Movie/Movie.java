@@ -105,43 +105,24 @@ public class Movie
 			}
 		else if(num==3)
 		{
-			System.out.print("           ACTORS NAME AND CHARACTER           ");
-			System.out.print("\n");
-		    System.out.print("          ---------------------------          ");
-		    System.out.print("\n");
-		    System.out.print("\n");
-		    System.out.print("\n");
-		    System.out.print("\n");
-			Tintumone tintu = new Tintumone();
-			Dundumole dundu = new Dundumole();
-			Katakadarajan rajan = new Katakadarajan();
-			tintu.scriptPlay();
-			System.out.print("\n");
-			dundu.scriptPlay();
-			System.out.print("\n");
-			rajan.scriptPlay();
-			System.out.print("\n");
-			System.out.print("\n");
-			System.out.print("\n");
-			this.playList(); 
+	      this.actorNameandDetails();
 		}
 		else if(num==4)
 		{
-			System.out.print("           MOVIE STARTS           ");
-			System.out.print("\n");
-		    System.out.print("          --------------          ");
-		    System.out.print("\n");
-		    System.out.print("\n");
-		    System.out.print("\n");
-		    System.out.print("\n");
-			Director  director = new Director();
-			director.creatFilesSceneDialogue1();
-            director.sceneDialogue(); 
-            this.playList();
+	      this.dialoguAndScenes();
 		}
         else if (num==5)
         {
-        	System.out.print("\n");
+           this.regux();
+        }
+	    	else 
+			{
+				System.out.print("invalid choice ");
+			}
+    }
+    public void regux()
+       {
+            System.out.print("\n");
         	System.out.print("\n");
         	System.out.print("\n");
         	System.out.print("\n");
@@ -227,10 +208,43 @@ public class Movie
 				System.out.print("\n");
 			}
 			this.playList();
-	    }
-	    	else 
-			{
-				System.out.print("invalid choice ");
-			}
-    }
+        }
+        public void dialoguAndScenes()
+		{
+			System.out.print("           MOVIE STARTS           ");
+			System.out.print("\n");
+		    System.out.print("          --------------          ");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+			Director  director = new Director();
+			director.creatFilesSceneDialogue1();
+			director.creatFilesSceneDialogue2();
+			director.creatFilesSceneDialogue3();
+            director.sceneDialogue(); 
+            this.playList();
+		}
+		public void actorNameandDetails()
+		{
+			System.out.print("           ACTORS NAME AND CHARACTER           ");
+			System.out.print("\n");
+		    System.out.print("          ---------------------------          ");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+			Tintumone tintu = new Tintumone();
+			Dundumole dundu = new Dundumole();
+			Katakadarajan rajan = new Katakadarajan();
+			tintu.scriptPlay();
+			System.out.print("\n");
+			dundu.scriptPlay();
+			System.out.print("\n");
+			rajan.scriptPlay();
+			System.out.print("\n");
+			System.out.print("\n");
+			System.out.print("\n");
+			this.playList(); 
+		}
 }

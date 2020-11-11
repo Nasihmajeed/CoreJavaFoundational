@@ -17,14 +17,14 @@ public class Director
        File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
-       writer.write("Dundumole : ano!,njan dundumole");
-       writer.write("Tintumone : evidayan vide kutiyude");
-       writer.write("Dundumole : vide evide aduth tane ane");
-       writer.write("Tintumone : eth arane ?");
-       writer.write("Dundumole : arayila kore neram ayii enthe penale ane");
-       writer.write("Tintumone : arayile pene enthina kutiye nokunath");
-       writer.write("Dundumole : arayila....... ! ");
+       writer.write("\n Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
+       writer.write("\n Dundumole : ano!,njan dundumole");
+       writer.write("\n Tintumone : evidayan vide kutiyude");
+       writer.write("\n Dundumole : vide evide aduth tane ane");
+       writer.write("\n Tintumone : eth arane ?");
+       writer.write("\n Dundumole : arayila kore neram ayii enthe penale ane");
+       writer.write("\n Tintumone : arayile pene enthina kutiye nokunath");
+       writer.write("\n Dundumole : arayila....... ! ");
        writer.flush();
        writer.close();
       } 
@@ -32,6 +32,7 @@ public class Director
       {
       	e.printStackTrace();
       }
+      this.readFileSceneDialogue1();
 	}
 	public void readFileSceneDialogue1()
 	{
@@ -42,7 +43,7 @@ public class Director
 			String a = scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
-				System.out.print(a);
+				System.out.print("\n"+a+"\n");
 			} 
 			buffer.close();
 		}
@@ -58,11 +59,11 @@ public class Director
       	File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("Tintumone : ninamk enthada vendath");
-       writer.write("Katakadarajan : enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
-       writer.write("Tintumone : edaaaa.........");
-       writer.write("Katakadarajan : enthada vadanaaa..............");
-       writer.write("Dundumole : ayooo vendaa adii onumm undakanda...........");
+       writer.write("\n Tintumone : ninamk enthada vendath");
+       writer.write("\n Katakadarajan : enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
+       writer.write("\n Tintumone : edaaaa.........");
+       writer.write("\n Katakadarajan : enthada vadanaaa..............");
+       writer.write("\n Dundumole : ayooo vendaa adii onumm undakanda...........");
        writer.flush();
        writer.close();
       } 
@@ -70,6 +71,7 @@ public class Director
       {
       	e.printStackTrace();
       }
+      this.readFileSceneDialogue2();
 	}
 	public void readFileSceneDialogue2()
 	{
@@ -80,7 +82,7 @@ public class Director
 			String a=scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
-				System.out.print(a);
+				System.out.print("\n"+a+"\n");
 			} 
 			buffer.close();
 		}
@@ -97,9 +99,9 @@ public class Director
       	File file = new File("D:\\program\\java\\CoreJavaFoundational\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("Tintumone : eni melal evide kandupokaruth ketodaaa");
-       writer.write("Katakadarajan : nine njan pene edutolada..........");
-       writer.write("Dundumole : va pokam vitekee namak pokam tintuuu");
+       writer.write("\n Tintumone : eni melal evide kandupokaruth ketodaaa");
+       writer.write("\n Katakadarajan : nine njan pene edutolada..........");
+       writer.write("\n Dundumole : va pokam vitekee namak pokam tintuuu");
        writer.flush();
        writer.close();
       } 
@@ -107,6 +109,7 @@ public class Director
       {
       	e.printStackTrace();
       }
+      this.readFileSceneDialogue3();
 	}
 	public void readFileSceneDialogue3()
 	{
@@ -117,7 +120,7 @@ public class Director
 			String a=scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
-				System.out.print(a);
+				System.out.print("\n"+a+"\n");
 			} 
 			buffer.close();
 		}
