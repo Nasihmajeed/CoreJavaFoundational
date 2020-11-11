@@ -1,63 +1,60 @@
-package CarDetails;
+package com.LxiSoft.CarDetails;
 import java.util.*;
 public class Cars{
- 	String brand_name;
-	String model_name;
-	String owner_name;
+ 	String brandName;
+	String modelName;
+	String ownerName;
 	String color;
-	int boo;
-	Scanner s = new Scanner(System.in);
-	
-	
+	int isDriver;
+	Scanner s = new Scanner(System.in);	
 	Doors d = new Doors();
 	Tyre t = new Tyre();
 	Steering steer = new Steering();
 	Cars[] c;    
-	public void cardetails(int n){
+	public void carDetails(int n){
 		c = new Cars[n];
 		for(int i=0; i<n; i++){
 			c[i] = new Cars();
-			System.out.println("_____Entering "+(i+1)+" Car details_____");
-		    
+			System.out.println("_____Entering "+(i+1)+" Car details_____");		    
 		    System.out.println("Enter the brand of the Car :");
-		    c[i].brand_name = s.nextLine();
+		    c[i].brandName = s.nextLine();
 		    System.out.println("Enter the model of the Car :");
-		    c[i].model_name = s.nextLine();
+		    c[i].modelName = s.nextLine();
 		    System.out.println("Enter the owner of the Car :");
-		    c[i].owner_name = s.nextLine();
+		    c[i].ownerName = s.nextLine();
 		    System.out.println("Enter the color of the Car :");
 		    c[i].color = s.nextLine();
-		    System.out.println("Is there any driver for the car : 1:Yes 0:NO");
-		    c[i].boo = s.nextInt();
+		    System.out.println("Is there any driver for the car : \n1:Yes \n0:NO");
+		    c[i].isDriver = s.nextInt();
 		    s.nextLine();		    
 		} 
-		t.tyredetails(n);
-		d.doordetails(n);
-		steer.steeringdetails(n);
+		t.tyreDetails(n);
+		d.doorDetails(n);
+		steer.steeringDetails(n);
 	}
-	public void find(int n){
+	public void findDriver(int n){
 		for(int i=0; i<n; i++){
-			if(c[i].boo==0){
+			if(c[i].isDriver==0){
 				System.out.println("\nThe car "+(i+1)+"s owner itself is the driver");
 			}
 			else{
 				System.out.println("\nThe car "+(i+1)+" has a driver ");
 			}
 		}
+		steer.findSteering(n);
 	}
-	public void printcardetails(int n){
+	public void printCarDetails(int n){
 		for(int i=0; i<n; i++){
 			System.out.println("\n______Display the "+(i+1)+" Car details_____");
 			System.out.println("The "+(i+1)+" Car details : ");
-		    System.out.println("The brand of car : "+c[i].brand_name);
-		    System.out.println("The model of car : "+c[i].model_name);
-		    System.out.println("The owner of the car : "+c[i].owner_name);
+		    System.out.println("The brand of car : "+c[i].brandName);
+		    System.out.println("The model of car : "+c[i].modelName);
+		    System.out.println("The owner of the car : "+c[i].ownerName);
 		    System.out.println("The color of the car : "+c[i].color);
-		    
+		    t.printTyreDetails(i+1);
+		    d.printDoorDetail(i+1);		    
 		}
-		t.printtyredetails(n);
-		d.printdoordetail(n);
-		steer.printsteer(n); 	
+		 	
 	}
 }
 

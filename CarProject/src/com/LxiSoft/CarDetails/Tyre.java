@@ -1,12 +1,11 @@
-package CarDetails;
+package com.LxiSoft.CarDetails;
 import java.util.*;
 public class Tyre{
 	String type;
 	String model;
-	int rate;
 	Scanner s = new Scanner(System.in);
 	Tyre[] t;
-	public void tyredetails(int n){
+	public void tyreDetails(int n){
 		t = new Tyre[n];
 		
 		for(int i=0; i<n; i++){
@@ -16,20 +15,16 @@ public class Tyre{
 		    t[i].type =  s.nextLine();
 		    System.out.println("Enter model of Tyre :");
 		    t[i].model = s.nextLine();
-		    System.out.println("Enter rate of Tyre :");
-		    t[i].rate = s.nextInt();
-		    s.nextLine();  
 		}
 		
 		
 	}
-	public void printtyredetails(int n){
+	public void printTyreDetails(int n){
 		
 		for(int i=0; i<n; i++){
 		    System.out.println("\n_____The "+(i+1)+" Car tyre details_____");
 		    System.out.println(t[i].type);
-		    System.out.println(t[i].model);
-		    System.out.println(t[i].rate);	
+		    System.out.println(t[i].model);	
 		}
 		
 	}
