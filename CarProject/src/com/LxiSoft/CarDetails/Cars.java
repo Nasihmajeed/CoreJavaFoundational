@@ -29,7 +29,7 @@ public class Cars{
 		    s.nextLine();		    
 		} 
 		t.tyreDetails(n);
-		//d.doorDetails(n);
+		d.doorDetails(n);
 		steer.steeringDetails(n);
 	}
 	public void findDriver(int n){
@@ -51,7 +51,7 @@ public class Cars{
 		    System.out.println("The owner of the car : "+c[i].ownerName);
 		    System.out.println("The color of the car : "+c[i].color);
 		    t.printTyreDetails(i);
-		    //d.printDoorDetail(i);		    
+		    d.printDoorDetail(i);		    
 		}
 		 	
 	}
