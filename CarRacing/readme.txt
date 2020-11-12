@@ -6,3 +6,5 @@ Requirements
 Usage of arrays, interface, enums and packages is necessary
 
 Final output will be the rank list with time taken to cover the particular distance.
+
+save the cardetails in file.
