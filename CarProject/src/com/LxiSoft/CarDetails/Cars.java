@@ -46,7 +46,6 @@ public class Cars{
 	public void printCarDetails(int n){
 		for(int i=0; i<n; i++){
 			System.out.println("\n______Display the "+(i+1)+" Car details_____");
-			System.out.println("The "+(i+1)+" Car details : ");
 		    System.out.println("The brand of car : "+c[i].brandName);
 		    System.out.println("The model of car : "+c[i].modelName);
 		    System.out.println("The owner of the car : "+c[i].ownerName);
@@ -57,19 +56,3 @@ public class Cars{
 		 	
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
