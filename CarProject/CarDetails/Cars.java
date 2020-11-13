@@ -56,11 +56,13 @@ public class Cars
     {
         for( int i=0; i<n; i++ )
         {
+            System.out.println("\n\n");
+
             System.out.println(">---------------------<");
             System.out.println(">--Details of car" + (i+1) + "--<");
             System.out.println("\nBrand : " + c[i].brand + "\nModel : " + c[i].model + "\nColor : " + c[i].color);
-		    //System.out.println("number of doors : " + number + "\nNumber of tyres : " + num);
-        
+            // System.out.println("number of doors : " + number + "\nNumber of tyres : " + num);
+            
             if (c[i].steering==1) 
 		    {
 			    System.out.println("Power Steering");
@@ -80,8 +82,12 @@ public class Cars
 		    {
 		    	System.out.println("Driver is the Owner");			
 		    }
-		    else
-		    	System.out.println("invalid");
+		    else{
+                System.out.println("invalid");
+            }
+
+            tyre.printTyreDetails(i);
+            door.printDoorDetail(i);
         
         }
         System.out.println(">---------------------<");
