@@ -1,5 +1,5 @@
 package com.lxisoft.Race;
-public abstract class RacersDetails
+public  class RacersDetails
 {
    public void about()
    {
@@ -50,7 +50,7 @@ public abstract class RacersDetails
    {
    	this.distance = distance;
    }
-   public int setdistanceoftheTrack()
+   public int getdistanceoftheTrack()
    {
    	return distance;
    }
