@@ -1,0 +1,5 @@
+Library Management is a Project which require to manage the details of books in a library.you need to print the details of library,books and its option to add search,view and delete(CRUD operation) the books.the book details contains id,name,author,publisher,price. save the details in file
+
+Requirements
+
+Usage of arrays, interface, inheritance , packages,file is necessary
