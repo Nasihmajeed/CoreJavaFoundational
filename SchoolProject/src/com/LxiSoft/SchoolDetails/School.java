@@ -6,7 +6,7 @@ public class School{
     String board;
     int numOfClass;
     Scanner s = new Scanner(System.in);
-    ClassRoom class = new ClassRoom();
+    ClassRoom clas = new ClassRoom();
     public void getDetails(){
 	    System.out.println("Enter the school name ");
 	    schoolName = s.nextLine();
@@ -17,6 +17,13 @@ public class School{
 	    System.out.println("Enter the number of classes ");
 	    numOfClass = s.nextInt();
 	    s.nextLine();
-	    class.classDetails(numOfClass);
+	    clas.classDetails(numOfClass);
+    }
+    public void printDetails(){
+    	System.out.println("School\t: "+schoolName);
+    	System.out.println("Place \t: "+place);
+    	System.out.println("Board \t:"+board);
+    	clas.printClass(numOfClass);
+
     }
 }
