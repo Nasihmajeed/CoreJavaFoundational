@@ -20,6 +20,7 @@ public class School{
 	    clas.classDetails(numOfClass);
     }
     public void printDetails(){
+    	System.out.println("\t\t---->School Details<----\t\t");
     	System.out.println("School\t: "+schoolName);
     	System.out.println("Place \t: "+place);
     	System.out.println("Board \t:"+board);
