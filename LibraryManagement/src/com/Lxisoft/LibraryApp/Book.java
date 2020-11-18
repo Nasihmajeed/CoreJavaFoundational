@@ -9,7 +9,6 @@ public class Book
 	private int code;
 	private String publishers;
 
-
 	public void setName(String name)
 	{
 		this.name=name;

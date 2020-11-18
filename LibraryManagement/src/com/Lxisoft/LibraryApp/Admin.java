@@ -42,7 +42,41 @@ public class Admin
 	}
 
 	
+	public void bookDetails()
+	{
+		
+		b.add(new Book());
+		b.get(0).setName("Pathummayude Aadu ");
+		b.get(0).setAuthor("Vaikkam Muhammed Basheer");
+		b.get(0).setCode(001);
+		b.get(0).setPublishers("Mathrubhumi publications");
 
+		b.add(new Book());
+		b.get(0).setName("Baalykaala Sakhi ");
+		b.get(0).setAuthor("Vaikkam Muhammed Basheer");
+		b.get(0).setCode(002);
+		b.get(0).setPublishers("Mathrubhumi publications");
+
+		b.add(new Book());
+		b.get(0).setName(" ");
+		b.get(0).setAuthor("");
+		b.get(0).setCode(003);
+		b.get(0).setPublishers("");
+
+		b.add(new Book());
+		b.get(0).setName(" ");
+		b.get(0).setAuthor("");
+		b.get(0).setCode(425);
+		b.get(0).setPublishers("");
+
+		b.add(new Book());
+		b.get(0).setName(" ");
+		b.get(0).setAuthor("");
+		b.get(0).setCode(425);
+		b.get(0).setPublishers("");
+
+
+	}
 	public void addBooks()
 	{
 	System.out.println (" \n Enter Number of books to be added: ");
@@ -56,49 +90,33 @@ public class Admin
 		System.out.println("\n Enter the name of Book: ");
 		String name=scanner.nextLine();
         b.get(i).setName(name);
-		//b.get(i).setAuthor("");
-		//b.get(i).setCode("");
-		//b.get(i).setPublishers("");
-        this.viewBooks();
+        System.out.println("\n Enter the name of Author: ");
+		String author=scanner.nextLine();
+		b.get(i).setAuthor(author);
+		System.out.println("\n Enter the Library Code: ");
+		int code=scanner.nextInt();
+		b.get(i).setCode(code);
+		System.out.println("\n Enter the name of Publisher: ");
+		String pub=scanner.nextLine();
+		b.get(i).setPublishers(pub);
+        
      }
-
+     this.viewBooks();
 	}
 	public void viewBooks()
 	{
-		for (int i=0; i<=b.size(); i++)
+		for (int i=0; i<b.size(); i++)
 		{
-		System.out.println(b.get(i).getName());
+			System.out.println(b.get(i));
 		}
 	}
-	
-
-	/*public void addBooks()
+	public void deleteBooks()
 	{
-	System.out.println (" \n Enter Number of books to be added: ");
-	int n=scanner.nextInt();
-    scanner.nextLine();
-     for (int i=0; i<=n; i++)
-     {
-     std[i]=new Student();
-        System.out.println("\n enter student " +i+  " details");
+		for (int i=0; i<b.size(); i++)
+		{
+		b.remove(b.get(i));
+	}
+}
 
-        System.out.println("\n enter name of the student: ");
-		String name=s.nextLine();
-        std[i].setName(name);
-        
-		System.out.println("Enter Class:");
-		int clss=s.nextInt();
-        std[i].setclss(clss);
-        s.nextLine();
-
-        System.out.println("Enter Division: ");
-		String div=s.nextLine();
-        std[i].setdiv(div);
-        s.nextLine();
-
-		System.out.println("Enter Roll no: ");
-		int rNo=s.nextInt();
-        std[i].setrNo(rNo);
-        s.nextLine();	
-	}*/
+	
 }
