@@ -14,7 +14,7 @@ public class Admin
     do
     {
       System.out.println("\n________________________");
-        System.out.println("\n\n1. AddBooks  \n\n2. DeleteBooks \n\n3. UpdateBooks \n\n Press 0 for Exit \n");
+        System.out.println("\n\n1. AddBooks  \n\n2. DeleteBooks \n\n3. UpdateBooks \n\n4. ViewBooks \n\nPress 0 for Exit \n");
         choice=scanner.nextInt();
         if(choice==1)
         {
@@ -23,13 +23,19 @@ public class Admin
         if(choice==2)
         {
              
-           //this.deleteBooks();
+          this.deleteBooks();
          
         }
         if(choice==3)
         {
              
            //this.updateBooks();
+         
+        }
+        if(choice==4)
+        {
+             
+           this.bookDetails();
          
         }
         else if(choice==0)
@@ -47,42 +53,60 @@ public class Admin
 		
 		b.add(new Book());
 		b.get(0).setName("Pathummayude Aadu ");
-		b.get(0).setAuthor("Vaikkam Muhammed Basheer");
-		b.get(0).setCode(001);
+		b.get(0).setAuthor("\t\tVaikkam Muhammed Basheer");
+		b.get(0).setCode(101);
 		b.get(0).setPublishers("Mathrubhumi publications");
 
 		b.add(new Book());
-		b.get(0).setName("Baalykaala Sakhi ");
-		b.get(0).setAuthor("Vaikkam Muhammed Basheer");
-		b.get(0).setCode(002);
-		b.get(0).setPublishers("Mathrubhumi publications");
+		b.get(1).setName("Baalykaala Sakhi ");
+		b.get(1).setAuthor("\t\tVaikkam Muhammed Basheer");
+		b.get(1).setCode(102);
+		b.get(1).setPublishers("Mathrubhumi publications");
 
 		b.add(new Book());
-		b.get(0).setName(" ");
-		b.get(0).setAuthor("");
-		b.get(0).setCode(003);
-		b.get(0).setPublishers("");
+		b.get(2).setName("Aadu jeevitham");
+		b.get(2).setAuthor("\t\tBenyamin");
+		b.get(2).setCode(103);
+		b.get(2).setPublishers("Green Books");
 
 		b.add(new Book());
-		b.get(0).setName(" ");
-		b.get(0).setAuthor("");
-		b.get(0).setCode(425);
-		b.get(0).setPublishers("");
+		b.get(3).setName("Randaamoozham");
+		b.get(3).setAuthor(" \t\tM.T. Vasudhevan Nair ");
+		b.get(3).setCode(104);
+		b.get(3).setPublishers("Current Books");
 
 		b.add(new Book());
-		b.get(0).setName(" ");
-		b.get(0).setAuthor("");
-		b.get(0).setCode(425);
-		b.get(0).setPublishers("");
+		b.get(4).setName("Kunnolamundallo ...");
+		b.get(4).setAuthor("\tDeepa Nishanth");
+		b.get(4).setCode(105);
+		b.get(4).setPublishers("DC Books");
 
+		b.add(new Book());
+		b.get(5).setName("A Brief History of Time");
+		b.get(5).setAuthor("    Stephan Hawkings");
+		b.get(5).setCode(201);
+		b.get(5).setPublishers("Bantam Books");
 
+		b.add(new Book());
+		b.get(6).setName("On The Origin Of Species");
+		b.get(6).setAuthor("   Charles darvin");
+		b.get(6).setCode(202);
+		b.get(6).setPublishers("Not Available");
+
+		b.add(new Book());
+		b.get(7).setName("The Selfish Gene");
+		b.get(7).setAuthor("\t\tRichard Dawkins");
+		b.get(7).setCode(203);
+		b.get(7).setPublishers("Oxford University Press");
+
+		this.viewBooks();
 	}
 	public void addBooks()
 	{
 	System.out.println (" \n Enter Number of books to be added: ");
 	int n=scanner.nextInt();
     scanner.nextLine();
-     for (int i=0; i<=n; i++)
+     for (int i=b.size(); i<=n; i++)
      {
      	b.add(new Book());
 		System.out.println("\nEnter " +i+  " Book details");
@@ -105,15 +129,23 @@ public class Admin
 	}
 	public void viewBooks()
 	{
+		System.out.println(" ------------------------------------------------------------------------------");
+		System.out.println(" | \t Name  \t\t\t Author \t\t\t Code         |");
+		System.out.println(" |                                                                            |");
+		System.out.println(" ------------------------------------------------------------------------------");
 		for (int i=0; i<b.size(); i++)
 		{
-			System.out.println(b.get(i));
+			
+
+			System.out.println(" | "+i+" "+b.get(i).getName()+""+ b.get(i).getAuthor()+"\t\t"+b.get(i).getCode());
 		}
 	}
 	public void deleteBooks()
 	{
 		for (int i=0; i<b.size(); i++)
 		{
+		System.out.println("\n Enter the Index Number of Book: ");
+		int n =scanner.nextInt();
 		b.remove(b.get(i));
 	}
 }
