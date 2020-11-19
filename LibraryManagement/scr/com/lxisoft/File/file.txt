@@ -1,0 +1,13 @@
+
+ BOOK NAME : CHARLOTTES 
+ AUTHOR NAME : ROBO 
+ PUBLISHER : ADDICTES COMPANY 
+ ID : 1 
+ PRICE : 140 
+ ------------------------------------------------------------ 
+ BOOK NAME : HARRYPOTTER 
+ AUTHOR NAME : RAONE 
+ PUBLISHER : GONE COMPANY 
+ ID : 2 
+ PRICE : 120 
+ ------------------------------------------------------------ 
