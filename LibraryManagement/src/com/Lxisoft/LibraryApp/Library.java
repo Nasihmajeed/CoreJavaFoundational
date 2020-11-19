@@ -6,7 +6,7 @@ public class Library
 {
 	Scanner scanner = new Scanner(System.in);
 	Admin admin = new Admin();
-
+	User user = new User();
 	public void intro()
 	{
 		System.out.println("\n\t\t------------------------------------------\t");
@@ -28,7 +28,7 @@ public class Library
     do
     {
       System.out.println("\n________________________");
-        System.out.println("\n\n1. Admin  \n\n2. Search \n\n3. Books \n\n Press 0 for Exit \n");
+        System.out.println("\n\n1. Admin  \n\n2. User \n\n Press 0 for Exit \n");
         choice=scanner.nextInt();
         if(choice==1)
         {
@@ -37,14 +37,7 @@ public class Library
         if(choice==2)
         {
              
-           //search.();
-         
-        }
-        if(choice==3)
-        {
-             
-           //books.();
-         
+           user.menu();         
         }
         else if(choice==0)
         {

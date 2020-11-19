@@ -8,6 +8,7 @@ public class Book
 	private String author;
 	private int code;
 	private String publishers;
+	private String genere;
 
 	public void setName(String name)
 	{
@@ -49,7 +50,14 @@ public class Book
 	}
 
 
-
+	public void setGenere(String genere)
+	{
+		this.genere=genere;
+	}
+	public String getGenere()
+	{
+		return genere;
+	}
 
 
 
