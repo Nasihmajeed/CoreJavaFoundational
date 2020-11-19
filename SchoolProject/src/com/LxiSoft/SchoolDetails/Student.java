@@ -13,7 +13,6 @@ public class Student{
 		student = new Student[numOfStudents];
 		//name = new String[numOfStudents];
 		//rollNum = new int[numOfStudents];
-		
 		for(int i=0; i<numOfStudents; i++){
 			//student = new Student[numOfStudents];
 			student[i] = new Student();

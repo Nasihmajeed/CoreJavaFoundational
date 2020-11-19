@@ -5,41 +5,35 @@ public class ClassRoom{
 	int standard;
 	Scanner s = new Scanner(System.in);
 	Teacher[] t; // = new Teacher();
-	Student student = new Student();
+	Student[] student; //= new Student();
 	ClassRoom[] c;
+
 	public void classDetails(int n){
 		c = new ClassRoom[n];
 		t = new Teacher[n];
+		student = new Student[n];
 		for(int i=0; i<n; i++){
 			System.out.println("Enter the "+(i+1)+" Class details");
 			c[i] = new ClassRoom();
 			t[i] = new Teacher();
+			student[i] = new Student();
 			System.out.println("Enter the standard ");
 		    c[i].standard = s.nextInt();
 		    s.nextLine();
 		    System.out.println("Enter the division ");
 		    c[i].division = s.nextLine();
-		    System.out.println("Enter the name of teacher ");
-		    t[i].teacherName = s.nextLine();
-		    System.out.println("Enter the subject taken by the teacher ");
-		    t[i].subject = s.nextLine();
-		    System.out.println("Is the this teacher the class incharge ");
-		    t[i].isIncharge = s.nextLine();
-		    //teacher.teacherDetails(i,n);
-		    student.studentDetails();
+		    t[i].teacherDetails();
+		    student[i].studentDetails();
 		}
 	}
 	public void printClass(int n){
 		for(int i=0; i<n; i++){
-			System.out.println("\t---->Class "+(i+1)+" Details<----\t");
-			System.out.println("Standard\t: "+c[i].standard);
-			System.out.println("Division\t: "+c[i].division);
-			System.out.println("\t---->Teacher Details<----\t");
-		    System.out.println("Name    \t: "+t[i].teacherName);
-		    System.out.println("Subject \t: "+t[i].subject);
-		    System.out.println("Incharge\t: "+t[i].isIncharge);
-			//teacher.printTeacher(i);
-			student.printStudent();
+			System.out.println("\n\t---->Class "+(i+1)+" Details<----\t");
+			System.out.println("Standard          \t: "+c[i].standard);
+			System.out.println("Division          \t: "+c[i].division);
+			System.out.println("Number of Students\t: "+student[i].numOfStudents);
+			t[i].printTeacher();
+			student[i].printStudent();
 		}
 	}
 }
