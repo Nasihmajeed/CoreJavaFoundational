@@ -4,11 +4,12 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 public class Library
 {
 	ArrayList<Books>  book = new ArrayList<Books>();
-    Scanner scanner = new Scanner(System.in);
 
  public void libraryDetails()
    {
@@ -93,6 +94,7 @@ public class Library
     }
     public void indexOfLibrary()
     { 
+    	Scanner scanner = new Scanner(System.in);
         System.out.print("\n");   	
     	System.out.print("                    INDEX AND SEARCH ENGIN OF LIBRARY                    ");
     	System.out.print("\n"); 
@@ -100,7 +102,7 @@ public class Library
     	System.out.print("\n"); 
     	System.out.print("\n"); 
     	System.out.print("\n"); 
-    	System.out.print(" 1. BOOK DETAILS \n 2. ABOUT BOOKS \n 3. ADD BOOKS \n 4. SEARCH AND UPDATE THE BOOKS PRICE \n 5. FILE READER ");
+    	System.out.print(" 1. BOOK DETAILS  \n 2. ADD BOOKS \n 3. SEARCH AND UPDATE THE BOOKS PRICE \n 4. FILE READER ");
     	System.out.print("\n"); 
     	int choice = scanner.nextInt();
     	if(choice==1)
@@ -112,37 +114,19 @@ public class Library
     	}
     	else if(choice==2)
     	{
-    		System.out.print(" ABOUT BOOK DETAILS ");
-    		System.out.print("\n");
-    		System.out.print("--------------------");
-    		System.out.print("\n");
-    		System.out.print("\n");
-    		 Charlottes cha = new  Charlottes();
-    		 cha.detailsOftheBook();
-    		 System.out.print("\n");
-    		 System.out.print("\n");
-    		 HarryPotter hp = new HarryPotter();
-    		 hp.detailsOftheBooks();
-    		 System.out.print("\n");
-    		 System.out.print("\n");
-    		 this.indexOfLibrary();
-
-    	}
-    	else if(choice==3)
-    	{
     		System.out.print("\n"); 
            this.adminAddBooks();
            System.out.print("\n"); 
            this.indexOfLibrary();
     	}
-    	else if(choice==4)
+    	else if(choice==3)
     	{
     		System.out.print("\n"); 
     		this.searchBookandUpadtePrice();
     		System.out.print("\n"); 
     		this.indexOfLibrary();
     	}
-    	else if(choice==5)
+    	else if(choice==4)
     	{
            System.out.print("\n"); 
     	   this.creatFileofBooks();
@@ -156,6 +140,7 @@ public class Library
     }
    public void adminAddBooks()
 	{  
+		Scanner scanner = new Scanner(System.in);
 	    System.out.println(" IF YOU WANT TO ADD BOOK PRESS 0 ");
 	    int c = scanner.nextInt();
 	    System.out.print("\n"); 
@@ -200,6 +185,7 @@ public class Library
 	}
  public void searchBookandUpadtePrice()
 	{
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("           SEARCH OPTION           ");
 		System.out.println(" --------------------------------- ");
    		System.out.println("ENTER THE NAME OF THE BOOK YOU WANT TO SEARCH :");
@@ -254,6 +240,19 @@ public class Library
     }
     public void readFileofBooks()
     {
-       this.getAddedBooks();
+		try
+		{
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaFoundational\\LibraryManagement\\scr\\com\\lxisoft\\File\\file.txt"));
+			Scanner scanner = new Scanner(buffer);
+			while(scanner.hasNextLine())
+			{
+				System.out.print("\n"+scanner.nextLine()+"\n");
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
     }     
 }

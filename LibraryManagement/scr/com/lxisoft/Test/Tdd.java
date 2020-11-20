@@ -9,21 +9,5 @@ public class Tdd
 	  Library li = new Library();
 	  li.libraryDetails();
 	  li.indexOfLibrary();
-	  File file = new File("D:\\javaworks\\CoreJavaFoundational\\LibraryManagement\\scr\\com\\lxisoft\\File\\file.txt");
-		try
-		{
-			if(file.createNewFile())
-			{
-				System.out.print("\n file got created ");
-			}
-			else
-			{
-				System.out.print("\n file got created ");
-			}
-		}
-			catch(IOException e)
-			{
-				e.printStackTrace();
-			}
 	}
 }
