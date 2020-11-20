@@ -6,7 +6,7 @@ public class User
 {
 	Scanner scanner = new Scanner(System.in);
 	Admin admin = new Admin();
-	ArrayList<Book> b;
+	Book book =new Book();
 
 public void menu()
 {  
@@ -18,18 +18,19 @@ public void menu()
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	  admin.viewBooks();
-      	  admin.bookDetails();   
+      	  this.viewBooks();
+      	  //this.bookDetails();   
         }
         if(choice==2)
         {
              
-           admin.searchbyGenere();         
+           this.searchbyGenere();         
         }
          if(choice==3)
         {
              
-           admin.searchBook();         
+           
+           this.searchBook();         
         }
 
 
@@ -41,4 +42,21 @@ public void menu()
     while(choice>0);
       
 	}
+
+	public void viewBooks()
+	{
+
+	}
+
+	public void searchBook()
+	{
+
+	}
+
+	public void searchbyGenere()
+	{
+
+	}
 }
+
+

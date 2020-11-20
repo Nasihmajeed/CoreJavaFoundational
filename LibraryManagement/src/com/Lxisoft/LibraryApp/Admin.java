@@ -9,11 +9,11 @@ public class Admin
 	Book book = new Book();
 	//File file = new File();
 	ArrayList<Book> b =new ArrayList<Book>();
-
+	Library library = new Library();
 	public void menu()
 	{
 		int choice=0;
-    	this.bookDetails();
+    	
     do
     {
       System.out.println("\n________________________");
@@ -23,24 +23,24 @@ public class Admin
         if(choice==1)
         {
       	  this.addBooks(); 
-          this.bookDetails();
+          
         }
         if(choice==2)
         {
              
           this.deleteBooks();
-          this.bookDetails();
+         
         }
         if(choice==3)
         {
              
            this.updateBooks();
-           this.bookDetails();
+           
         }
         if(choice==4)
         {
              
-           this.bookDetails();
+           
            this.viewBooks();
         }
         if(choice==5)
@@ -59,7 +59,7 @@ public class Admin
 	}
 
 	
-	public void bookDetails()
+	/*public void bookDetails()
 	{
 		
 		b.add(new Book());
@@ -119,13 +119,13 @@ public class Admin
 		b.get(7).setPublishers("Oxford University Press");
 		b.get(7).setGenere("Science");
 		
-	}
+	}*/
 	public void addBooks()
 	{
 	System.out.println (" \n Enter Number of books to be added: ");
 	int n=scanner.nextInt();
     scanner.nextLine();
-     for (int i=b.size(); i<=n; i++)
+     for (int i=0; i<=b.size(); i++)
      {
      	b.add(new Book());
 		System.out.println("\nEnter " +i+  " Book details");
@@ -150,7 +150,7 @@ public class Admin
      this.viewBooks();
 	}
 	public void viewBooks()
-	{this.bookDetails();
+	{//this.bookDetails();
 		System.out.println(" ------------------------------------------------------------------------------");
 		System.out.println(" | \t Name  \t\t\t Author \t\t\t Code         |");
 		System.out.println(" |                                                                            |");
@@ -166,10 +166,10 @@ public class Admin
 	{
 		System.out.println("\n Enter the Index Number of Book: ");
 		int a =scanner.nextInt();
-		this.bookDetails();
+		//this.bookDetails();
 		b.remove(a);
 		System.out.println("Books after deletion is ");
-		 
+		this.viewBooks(); 
             
 		
 	}
@@ -190,16 +190,17 @@ public class Admin
 		System.out.println("\n Enter the name of Publisher: ");
 		String publisher=scanner.nextLine();
 		b.get(c).setPublishers(publisher);
+		//
+		System.out.println("Sucsfully updated");
 		
-		System.out.println("Sucessfully updated");
-		
+	//this.viewBooks();
 	}
 
 	public void searchbyGenere()
 	{
 		System.out.println("Enter the Genere");
 		String x=scanner.nextLine();
-		this.bookDetails();
+		//this.bookDetails();
 		for (int i=0; i<b.size(); i++)
 		{
 			
@@ -219,7 +220,7 @@ public class Admin
 	{
 		System.out.println("Enter The bOOk Name");
 		String y=scanner.nextLine();
-		this.bookDetails();
+		//this.bookDetails();
 		for (int i=0; i<b.size(); i++)
 		{
 			if(b.get(i).getGenere() .equals(y) )
@@ -233,7 +234,7 @@ public class Admin
 	}
 	public void createFile() 
  	{
- 		this.bookDetails();
+ 		//this.bookDetails();
 	try{
             FileWriter writeData = new FileWriter("Library_Data.txt");
             Writer writeStream = new BufferedWriter(writeData);
@@ -251,7 +252,10 @@ public class Admin
             e.printStackTrace();
         }
 
+
     }
+
+
 }
 
 

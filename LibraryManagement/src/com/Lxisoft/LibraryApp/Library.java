@@ -7,6 +7,8 @@ public class Library
 	Scanner scanner = new Scanner(System.in);
 	Admin admin = new Admin();
 	User user = new User();
+	//ArrayList<Book> b = new ArrayList<Book>();
+	Book book = new Book();
 	public void intro()
 	{
 		System.out.println("\n\t\t------------------------------------------\t");
@@ -47,4 +49,6 @@ public class Library
     while(choice>0);
       
 	}
+
+	
 }

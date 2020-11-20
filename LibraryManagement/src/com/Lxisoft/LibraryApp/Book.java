@@ -2,7 +2,7 @@ package com.Lxisoft.LibraryApp;
 import com.Lxisoft.LibraryApp.*;
 
 
-public class Book
+public class Book 
 {
 	private String name;
 	private String author;
