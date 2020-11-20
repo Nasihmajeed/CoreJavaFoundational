@@ -6,6 +6,7 @@ public class User
 {
 	Scanner scanner = new Scanner(System.in);
 	Admin admin = new Admin();
+	ArrayList<Book> b;
 
 public void menu()
 {  
@@ -17,13 +18,21 @@ public void menu()
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	  admin.viewBooks();   
+      	  admin.viewBooks();
+      	  admin.bookDetails();   
         }
         if(choice==2)
         {
              
            admin.searchbyGenere();         
         }
+         if(choice==3)
+        {
+             
+           admin.searchBook();         
+        }
+
+
         else if(choice==0)
         {
             System.out.println(" ");

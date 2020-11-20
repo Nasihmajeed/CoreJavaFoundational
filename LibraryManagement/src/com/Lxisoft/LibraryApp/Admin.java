@@ -1,6 +1,7 @@
 package com.Lxisoft.LibraryApp;
 import com.Lxisoft.LibraryApp.*;
 import java.util.*;
+import java.io.*;
 
 public class Admin
 {
@@ -12,37 +13,40 @@ public class Admin
 	public void menu()
 	{
 		int choice=0;
+    	this.bookDetails();
     do
     {
       System.out.println("\n________________________");
-        System.out.println("\n\n1. AddBooks  \n\n2. DeleteBooks \n\n3. UpdateBooks \n\n4. ViewBooks \n\nPress 0 for Exit \n");
+        System.out.println("\n\n1. AddBooks  \n\n2. DeleteBooks \n\n3. UpdateBooks \n\n4. ViewBooks \n\n5. Eport to Files\n\n Press 0 for Exit \n");
         choice=scanner.nextInt();
+
         if(choice==1)
         {
       	  this.addBooks(); 
+          this.bookDetails();
         }
         if(choice==2)
         {
              
           this.deleteBooks();
-         
+          this.bookDetails();
         }
         if(choice==3)
         {
              
            this.updateBooks();
-         
+           this.bookDetails();
         }
         if(choice==4)
         {
              
            this.bookDetails();
-         
+           this.viewBooks();
         }
         if(choice==5)
         {
              
-          // file.createFile(b);
+        this.createFile();
          
         }
         else if(choice==0)
@@ -114,7 +118,7 @@ public class Admin
 		b.get(7).setCode(203);
 		b.get(7).setPublishers("Oxford University Press");
 		b.get(7).setGenere("Science");
-		this.viewBooks();
+		
 	}
 	public void addBooks()
 	{
@@ -146,7 +150,7 @@ public class Admin
      this.viewBooks();
 	}
 	public void viewBooks()
-	{
+	{this.bookDetails();
 		System.out.println(" ------------------------------------------------------------------------------");
 		System.out.println(" | \t Name  \t\t\t Author \t\t\t Code         |");
 		System.out.println(" |                                                                            |");
@@ -162,56 +166,94 @@ public class Admin
 	{
 		System.out.println("\n Enter the Index Number of Book: ");
 		int a =scanner.nextInt();
-		b.remove(a-1);
+		this.bookDetails();
+		b.remove(a);
 		System.out.println("Books after deletion is ");
-		 	for(int i=0;i<b.size();i++)
-		 	{
-            this.viewBooks(); 
-            }
+		 
+            
 		
 	}
 	public void updateBooks()
 	{
 		System.out.println("\n Enter the Index Number of Book: ");
 		int c =scanner.nextInt();
-		for (int i=c; i<=b.size(); i++)
-		{
+		
 		System.out.println("\n Enter the name of Book: ");
-		String name=scanner.nextLine();
-        b.get(i).setName(name);
+		String editname=scanner.nextLine();
+        b.get(c).setName(editname);
         System.out.println("\n Enter the name of Author: ");
-		String author=scanner.nextLine();
-		b.get(i).setAuthor(author);
+		String editauthor=scanner.nextLine();
+		b.get(c).setAuthor(editauthor);
 		System.out.println("\n Enter the Library Code: ");
-		int code=scanner.nextInt();
-		b.get(i).setCode(code);
+		int editcode=scanner.nextInt();
+		b.get(c).setCode(editcode);
 		System.out.println("\n Enter the name of Publisher: ");
-		String pub=scanner.nextLine();
-		b.get(i).setPublishers(pub);
-		}
+		String publisher=scanner.nextLine();
+		b.get(c).setPublishers(publisher);
+		
+		System.out.println("Sucessfully updated");
+		
 	}
 
 	public void searchbyGenere()
 	{
 		System.out.println("Enter the Genere");
 		String x=scanner.nextLine();
-		for (int i=0; i<=b.size(); i++)
+		this.bookDetails();
+		for (int i=0; i<b.size(); i++)
 		{
 			
-			System.out.println("hg");
-			String y=b.get(i).getGenere();
-			if(y == x)
+			
+			
+			if(b.get(i).getGenere() .equals(x) )
 			{
 			System.out.println(b.get(i).getName());
 			}
-			else
-			{
-				System.out.println(x+"Book is Not Available");
-			}
+
+
 		}
 
 	}
 
+	public void searchBook()
+	{
+		System.out.println("Enter The bOOk Name");
+		String y=scanner.nextLine();
+		this.bookDetails();
+		for (int i=0; i<b.size(); i++)
+		{
+			if(b.get(i).getGenere() .equals(y) )
+			{
+			System.out.println(b.get(i).getName());
+			}
+
+
+		}
+
+	}
+	public void createFile() 
+ 	{
+ 		this.bookDetails();
+	try{
+            FileWriter writeData = new FileWriter("Library_Data.txt");
+            Writer writeStream = new BufferedWriter(writeData);
+            int sz=b.size();
+            for(int i=0; i<sz; i++)
+            {
+            	writeStream.write(" | "+i+" "+b.get(i).getName()+"\t"+ b.get(i).getAuthor()+"\t\t"+b.get(i).getCode()+"\t"+b.get(i).getGenere()+"\t");
+            }
+            writeStream.flush();
+            writeStream.close();
+            System.out.println("Sucessfully Exported");
+
+        }catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+
+    }
 }
+
+
 
 	
