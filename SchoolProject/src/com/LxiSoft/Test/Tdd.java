@@ -4,8 +4,8 @@ import com.LxiSoft.SchoolDetails.School;
 public class Tdd{
 	public static void main(String[] arg){
 	    School s = new School();
-	    s.getDetails();
-	    s.printDetails();
+	    s.getSchoolDetails();
+	    s.printSchoolDetails();
     } 
 }
 

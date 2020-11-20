@@ -3,37 +3,47 @@ import java.util.*;
 public class ClassRoom{
 	String division;
 	int standard;
-	Scanner s = new Scanner(System.in);
-	Teacher[] t; // = new Teacher();
+	int numOfStudents;
+	//Scanner s = new Scanner(System.in);
+	Teacher t = new Teacher();
 	Student[] student; //= new Student();
-	ClassRoom[] c;
+	//ClassRoom[] c;
 
-	public void classDetails(int n){
-		c = new ClassRoom[n];
-		t = new Teacher[n];
-		student = new Student[n];
-		for(int i=0; i<n; i++){
-			System.out.println("Enter the "+(i+1)+" Class details");
-			c[i] = new ClassRoom();
-			t[i] = new Teacher();
+	public void getClassDetails(){
+		Scanner s = new Scanner(System.in);
+		//c = new ClassRoom[n];
+		//t = new Teacher[n];
+		//student = new Student[n];
+		//for(int i=0; i<n; i++){
+	   // System.out.println("Enter the "+(i+1)+" Class details");
+		    //c[i] = new ClassRoom();
+			//t[i] = new Teacher();
+		//student[i] = new Student();
+		System.out.println("Enter the standard ");
+		this.standard = s.nextInt();
+		s.nextLine();
+		System.out.println("Enter the division ");
+		this.division = s.nextLine();
+		t.teacherDetails();
+		System.out.println("Enter the number of students in the class ");
+		numOfStudents = s.nextInt();
+		s.nextLine();
+		student = new Student[numOfStudents];
+		for(int i=0; i<numOfStudents; i++){    
 			student[i] = new Student();
-			System.out.println("Enter the standard ");
-		    c[i].standard = s.nextInt();
-		    s.nextLine();
-		    System.out.println("Enter the division ");
-		    c[i].division = s.nextLine();
-		    t[i].teacherDetails();
-		    student[i].studentDetails();
+		    student[i].getStudentDetails();
 		}
 	}
-	public void printClass(int n){
-		for(int i=0; i<n; i++){
-			System.out.println("\n\t---->Class "+(i+1)+" Details<----\t");
-			System.out.println("Standard          \t: "+c[i].standard);
-			System.out.println("Division          \t: "+c[i].division);
-			System.out.println("Number of Students\t: "+student[i].numOfStudents);
-			t[i].printTeacher();
-			student[i].printStudent();
+	public void printClassDetails(){
+		//for(int i=0; i<n; i++){
+		
+		System.out.println("Standard          \t: "+this.standard);
+		System.out.println("Division          \t: "+this.division);
+		System.out.println("Number of Students\t: "+this.numOfStudents);
+	    t.printTeacher();
+	    System.out.println("\t---->Student Details<----\t");
+	    for(int i=0; i<numOfStudents; i++){
+		    student[i].printStudentDetails();
 		}
 	}
 }
