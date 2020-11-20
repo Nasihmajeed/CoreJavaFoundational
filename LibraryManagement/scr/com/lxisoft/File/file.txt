@@ -1,13 +1,15 @@
-
- BOOK NAME : CHARLOTTES 
- AUTHOR NAME : ROBO 
- PUBLISHER : ADDICTES COMPANY 
- ID : 1 
- PRICE : 140 
- ------------------------------------------------------------ 
- BOOK NAME : HARRYPOTTER 
- AUTHOR NAME : RAONE 
- PUBLISHER : GONE COMPANY 
- ID : 2 
- PRICE : 120 
- ------------------------------------------------------------ 
+1 BOOK NAME : Charlottes
+  AUTHOR NAME : ROBO
+  PUBLISHER NAME : ADDICTES COMPANY
+  BOOK ID NUMBER : 1
+  PRICE OF THE BOOK : 140
+2 BOOK NAME : HarryPotter
+  AUTHOR NAME : RAONE
+  PUBLISHER NAME : GONE COMPANY
+  BOOK ID NUMBER : 2
+  PRICE OF THE BOOK : 120
+3 BOOK NAME : adarsh
+  AUTHOR NAME : sreejith
+  PUBLISHER NAME : abhi
+  BOOK ID NUMBER : 3
+  PRICE OF THE BOOK : 300

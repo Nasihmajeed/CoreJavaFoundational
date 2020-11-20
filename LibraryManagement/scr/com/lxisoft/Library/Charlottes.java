@@ -1,5 +1,5 @@
 package com.lxisoft.Library;
-public class Charlottes extends Books implements Noval
+public class Charlottes extends Books implements Novel
 {
 	public void detailsOftheBook()
 	{

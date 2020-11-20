@@ -4,8 +4,6 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 public class Library
 {
@@ -206,7 +204,6 @@ public class Library
 		System.out.println(" --------------------------------- ");
    		System.out.println("ENTER THE NAME OF THE BOOK YOU WANT TO SEARCH :");
         String bookName = scanner.next();
-        System.out.print(bookName);
         for(int i=0;i<book.size();i++)
         {
         	if(bookName.equals(book.get(i).getBookName()))
@@ -242,8 +239,10 @@ public class Library
        File file = new File("D:\\javaworks\\CoreJavaFoundational\\LibraryManagement\\scr\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("\n BOOK NAME : CHARLOTTES \n AUTHOR NAME : ROBO \n PUBLISHER : ADDICTES COMPANY \n ID : 1 \n PRICE : 140 \n ------------------------------------------------------------ ");
-       writer.write("\n BOOK NAME : HARRYPOTTER \n AUTHOR NAME : RAONE \n PUBLISHER : GONE COMPANY \n ID : 2 \n PRICE : 120 \n ------------------------------------------------------------ ");   
+       for(int i=0;i<book.size();i++)
+       {
+       	 writer.write((i+1)+" BOOK NAME : "+book.get(i).getBookName()+"\n"+" "+" AUTHOR NAME : "+book.get(i).getAuthorName()+"\n"+" "+" PUBLISHER NAME : "+book.get(i).getPublisher()+"\n"+" "+" BOOK ID NUMBER : "+book.get(i).getId()+"\n"+" "+" PRICE OF THE BOOK : "+book.get(i).getPrice()+"\n");
+       }
        writer.flush();
        writer.close();
       } 
@@ -255,21 +254,6 @@ public class Library
     }
     public void readFileofBooks()
     {
-        try
-        {
-            Scanner scanner = new Scanner(System.in);
-            BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaFoundational\\LibraryManagement\\scr\\com\\lxisoft\\File\\file.txt"));
-            String a = scanner.next();
-            while((a=buffer.readLine()) != null)
-            {
-                System.out.print("\n"+a+"\n");
-            } 
-            buffer.close();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-      
+       this.getAddedBooks();
+    }     
 }
