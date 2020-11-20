@@ -5,12 +5,13 @@ public class ClassRoom{
 	int standard;
 	int numOfStudents;
 	//Scanner s = new Scanner(System.in);
-	Teacher t = new Teacher();
+	Teacher t; // = new Teacher();
 	Student[] student; //= new Student();
 	//ClassRoom[] c;
 
 	public void getClassDetails(){
 		Scanner s = new Scanner(System.in);
+		t = new Teacher();
 		//c = new ClassRoom[n];
 		//t = new Teacher[n];
 		//student = new Student[n];
@@ -24,7 +25,7 @@ public class ClassRoom{
 		s.nextLine();
 		System.out.println("Enter the division ");
 		this.division = s.nextLine();
-		t.teacherDetails();
+		t.getTeacherDetails();
 		System.out.println("Enter the number of students in the class ");
 		numOfStudents = s.nextInt();
 		s.nextLine();
@@ -40,7 +41,7 @@ public class ClassRoom{
 		System.out.println("Standard          \t: "+this.standard);
 		System.out.println("Division          \t: "+this.division);
 		System.out.println("Number of Students\t: "+this.numOfStudents);
-	    t.printTeacher();
+	    t.printTeacherDetails();
 	    System.out.println("\t---->Student Details<----\t");
 	    for(int i=0; i<numOfStudents; i++){
 		    student[i].printStudentDetails();
