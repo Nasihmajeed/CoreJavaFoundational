@@ -5,10 +5,10 @@ import java.util.*;
 public class User
 {
 	Scanner scanner = new Scanner(System.in);
-	Admin admin = new Admin();
 	Book book =new Book();
-
-public void menu()
+    Books bk = new Books();
+  
+public void menu(ArrayList<Book> books)
 {  
  int choice=0;
     do
@@ -18,19 +18,20 @@ public void menu()
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	  this.viewBooks();
-      	  //this.bookDetails();   
+      	bk.viewBooks(books);
+          	   
         }
         if(choice==2)
         {
              
-           this.searchbyGenere();         
+        bk.searchbyGenere(books);
+        
         }
          if(choice==3)
         {
              
-           
-           this.searchBook();         
+        bk.searchBook(books); 
+                
         }
 
 
@@ -42,21 +43,5 @@ public void menu()
     while(choice>0);
       
 	}
-
-	public void viewBooks()
-	{
-
-	}
-
-	public void searchBook()
-	{
-
-	}
-
-	public void searchbyGenere()
-	{
-
-	}
 }
-
-
+ 

@@ -1,68 +1,15 @@
 package com.Lxisoft.LibraryApp;
 import com.Lxisoft.LibraryApp.*;
 import java.util.*;
-
-public class Admin
-{
-	//Library library = new Library();
-	Book book =new Book();
-    Books bk = new Books();
-	//ArrayList<Book> books;
-	public void menu(ArrayList<Book> books)
-	{
-		
-        //books.size();
-		int choice=0;
-    	Scanner scanner = new Scanner(System.in);
-    do
-    {
-      System.out.println("\n________________________");
-        System.out.println("\n\n1. AddBooks  \n\n2. DeleteBooks \n\n3. UpdateBooks \n\n4. ViewBooks \n\n5. Export to Files\n\n6. Read From File\n\n Press 0 for Exit \n");
-        choice=scanner.nextInt();
-
-        if(choice==1)
-        {
-      	  bk.addBooks(books); 
-         bk.viewBooks(books);
-        }
-        if(choice==2)
-        {
-             
-          bk.deleteBooks(books);
-          bk.viewBooks(books);
-        }
-        if(choice==3)
-        {
-             
-          bk.updateBooks(books);
-          bk.viewBooks(books);
-        }
-        if(choice==4)
-        {   
-          
-          bk.viewBooks(books);
-        }
-        if(choice==5)
-        {
-             
-        bk.createFile(books);
-         
-        }
-        if(choice==6)
-        {
-             
-        bk.readFile(books);
-         
-        }
-        else if(choice==0)
-        {
-            System.out.println(" ");
-        }
-    }
-    while(choice>0);
-      
-	}
-    /*public void addBooks(ArrayList<Book> books)
+import java.io.*;
+public class Books
+ {
+    
+    Book book = new Book();
+    Novel novel= new Novel();
+    Magazines magazine= new Magazines();
+    Science science = new Science();
+    public void addBooks(ArrayList<Book> books)
     {
     Scanner addInput = new Scanner(System.in);
     System.out.println (" \n Enter Number of books to be added: ");
@@ -92,11 +39,10 @@ public class Admin
     System.out.println("\n Enter the Genere: ");
     String gen=addInput.nextLine();
     books.get(i).setGenere(gen);
-        this.viewBooks(books);
-	
+        
+     this.createFile(books);
      }
-    }
-    
+  }
   public void viewBooks(ArrayList<Book> books)
   {
     for (int i=0; i<books.size(); i++)
@@ -145,42 +91,64 @@ public class Admin
  
   }
 
- /* public void searchbyGenere(books)
+  public void searchbyGenere(ArrayList<Book> books)
   {
-    books.size();
     Scanner searchgenere = new Scanner(System.in);
     System.out.println("Enter the Genere");
     String x=searchgenere.nextLine();
     for (int i=0; i<books.size(); i++)
     { 
-      if(books.get(i).getGenere() .equals(x) )
+      if(books.get(i).getGenere() .equals("Novel") )
+      {
+      
+      System.out.println(books.get(i).getName());
+      
+      book.displayNovelDetails();
+      }
+      
+      if(books.get(i).getGenere() .equals("magazine") )
       {
       System.out.println(books.get(i).getName());
+      
+      book.displayMagazineDetails();
+
       }
 
+       if(books.get(i).getGenere() .equals("Science") )
+      {
+      System.out.println(books.get(i).getName());
+      
+      book.displayScienceDetails();
+      }
+      else
+        System.out.println("");
 
     }
 
   }
 
-  public void searchBook(books)
+  public void searchBook(ArrayList<Book> books)
   {
     Scanner searchbook = new Scanner(System.in);
     System.out.println("Enter The Book Name");
     String y=searchbook.nextLine();
-    
+
     for (int i=0; i<books.size(); i++)
     {
       if(books.get(i).getName() .equals(y)   )
       {
-      System.out.println(books.get(i).getName());
+      System.out.println("Book "+i);
+      System.out.println("________________________\n");
+      System.out.println("Name : "+books.get(i).getName()+"\nAuthor : "+ books.get(i).getAuthor()+"\nCode : "+books.get(i).getCode());
+      System.out.println("________________________\n");
       }
 
+    
 
-    }*/
-
-  
-  /*public void createFile(ArrayList<Book> books) 
+  }
+    
+  }
+  public void createFile(ArrayList<Book> books) 
   {
     //this.bookDetails();
   try{
@@ -189,7 +157,7 @@ public class Admin
             int sz=books.size();
             for(int i=0; i<sz; i++)
             {
-              writeStream.write("Detals Of Book "+i+" "+books.get(i).getName()+"\n"+ books.get(i).getAuthor()+"\n"+books.get(i).getCode()+"\n"+books.get(i).getGenere()+"\n");
+              writeStream.write("Detals Of Book "+i+"\nName : "+books.get(i).getName()+"\nAuthor : "+ books.get(i).getAuthor()+"\nCode : "+books.get(i).getCode()+"\nGenere : "+books.get(i).getGenere()+"\n\n\n");
             }
             writeStream.flush();
             writeStream.close();
@@ -199,9 +167,26 @@ public class Admin
         {
             e.printStackTrace();
         }
+      }
 
+public void readFile(ArrayList<Book> books) 
+  {
+    
+  try{
+            FileReader readData = new FileReader("Library_Data.txt");
+            Scanner datareader= new Scanner (readData);
+            int sz=books.size();
+            while (datareader.hasNextLine())
+            {
+              String data = datareader.nextLine();
+              System.out.println(data);  
+            }
+            datareader.close();
 
+        }catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
 
-    }*/
-
-}
+    }
+  }

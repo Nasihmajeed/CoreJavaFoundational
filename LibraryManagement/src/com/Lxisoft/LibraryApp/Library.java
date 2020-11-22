@@ -1,14 +1,12 @@
 package com.Lxisoft.LibraryApp;
 import com.Lxisoft.LibraryApp.*;
 import java.util.*;
-
+import java.io.*;
 public class Library
 {
-	Scanner scanner = new Scanner(System.in);
-	Admin admin = new Admin();
 	User user = new User();
-	//ArrayList<Book> b = new ArrayList<Book>();
-	Book book = new Book();
+	Admin admin = new Admin();
+  ArrayList <Book> books = new ArrayList<Book>();
 	public void intro()
 	{
 		System.out.println("\n\t\t------------------------------------------\t");
@@ -22,11 +20,13 @@ public class Library
    		System.out.println("\t\t---------------- Faris --------------------\t");
    		System.out.println("\t\t-------------------------------------------\t");
    		
-   		this.admin();
+   		this.mainMenu();
 	}
-	    public void admin()
+	    public void mainMenu()
 {  
- int choice=0;
+		Scanner scanner = new Scanner(System.in);
+ 		int choice=0;
+
     do
     {
       System.out.println("\n________________________");
@@ -34,12 +34,12 @@ public class Library
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	  admin.menu();   
+      	  admin.menu(books);   
         }
         if(choice==2)
         {
              
-           user.menu();         
+           user.menu(books);         
         }
         else if(choice==0)
         {
@@ -50,5 +50,5 @@ public class Library
       
 	}
 
-	
-}
+
+ }

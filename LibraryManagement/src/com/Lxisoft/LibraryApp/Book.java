@@ -9,7 +9,8 @@ public class Book
 	private int code;
 	private String publishers;
 	private String genere;
-
+	
+	
 	public void setName(String name)
 	{
 		this.name=name;
@@ -58,7 +59,26 @@ public class Book
 	{
 		return genere;
 	}
-
-
-
-}
+	 /*public void dispalyDetails( ArrayList<Book> books)
+	 {	
+	 	
+	 	for(int i=0; i<books.size(); i++)
+	 	{
+	 		if (books.get(i).getGenere(i) .equals("novel") )
+	 		{
+	 			details.displayNovelDetails();
+	 		}
+	 		else if(books.get(i).getGenere(i) .equals("science"))
+	 		{
+	 			details.displayScienceDetails();		
+	 		}
+	 		else if(books.get(i).getGenere(i) .equals("magazine"))
+	 		{
+	 			details.displayMagazineDetails();		
+	 		}
+	 	
+	 	else
+	 	{
+	 		System.out.println("");
+	 	}*/
+	}
