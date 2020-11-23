@@ -6,8 +6,12 @@ public class User
 {
 	Scanner scanner = new Scanner(System.in);
 	Book book =new Book();
-    Books bk = new Books();
-  
+    //Books bk = new Books();
+    Admin admin = new Admin();
+    Novel novel = new Novel();
+    Magazines magazine = new Magazines();
+    Science science = new Science();
+
 public void menu(ArrayList<Book> books)
 {  
  int choice=0;
@@ -18,19 +22,19 @@ public void menu(ArrayList<Book> books)
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	bk.viewBooks(books);
+      	admin.viewBooks(books);
           	   
         }
         if(choice==2)
         {
              
-        bk.searchbyGenere(books);
+        this.searchbyGenere(books);
         
         }
          if(choice==3)
         {
              
-        bk.searchBook(books); 
+        this.searchBook(books); 
                 
         }
 
@@ -43,5 +47,63 @@ public void menu(ArrayList<Book> books)
     while(choice>0);
       
 	}
+
+      public void searchbyGenere(ArrayList<Book> books)
+  {
+    Scanner searchgenere = new Scanner(System.in);
+    System.out.println("Enter the Genere");
+    String x=searchgenere.nextLine();
+    for (int i=0; i<books.size(); i++)
+    { 
+      if(books.get(i).getGenere() .equals("Novel") )
+      {
+      
+      System.out.println(books.get(i).getName());
+      
+      novel.displayNovelDetails();
+      }
+      
+      if(books.get(i).getGenere() .equals("magazine") )
+      {
+      System.out.println(books.get(i).getName());
+      
+      magazine.displayMagazineDetails();
+
+      }
+
+       if(books.get(i).getGenere() .equals("Science") )
+      {
+      System.out.println(books.get(i).getName());
+      
+      science.displayScienceDetails();
+      }
+      else
+        System.out.println("");
+
+    }
+
+  }
+
+  public void searchBook(ArrayList<Book> books)
+  {
+    Scanner searchbook = new Scanner(System.in);
+    System.out.println("Enter The Book Name");
+    String y=searchbook.nextLine();
+
+    for (int i=0; i<books.size(); i++)
+    {
+      if(books.get(i).getName() .equals(y)   )
+      {
+      System.out.println("Book "+i);
+      System.out.println("________________________\n");
+      System.out.println("Name : "+books.get(i).getName()+"\nAuthor : "+ books.get(i).getAuthor()+"\nCode : "+books.get(i).getCode());
+      System.out.println("________________________\n");
+      }
+
+    
+
+  }
+    
+  }
 }
  
