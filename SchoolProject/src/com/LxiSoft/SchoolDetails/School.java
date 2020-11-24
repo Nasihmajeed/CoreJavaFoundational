@@ -35,7 +35,7 @@ public class School{
         
         for(int i=0; i<numOfClass; i++){
             System.out.println("\n\t---->Class Details<----\t");
-            clas[i].printClassDetails();
+            clas[i].printClassDetails(i);
         }
 
     }
