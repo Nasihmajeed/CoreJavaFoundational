@@ -140,34 +140,35 @@ public class Library
     }
    public void adminAddBooks()
 	{  
-		Scanner scanner = new Scanner(System.in);
+		Scanner sca = new Scanner(System.in);
+		this.libraryBookDetails();
 	    System.out.println(" IF YOU WANT TO ADD BOOK PRESS 0 ");
-	    int c = scanner.nextInt();
+	    int c = sca.nextInt();
 	    System.out.print("\n"); 
     	System.out.println(" ----------------------------------------------------------------------------- ");
     	System.out.print("\n"); 
     	if(c==0)
        {
     		System.out.print(" HOW MANY BOOK YOU WANT ADD: ");
-		    int index = scanner.nextInt();
+		    int index = sca.nextInt();
 		    index = index + book.size();
 		 for(int i=book.size();i<index;i++)
 		 {
 			book.add(new Books());
 			System.out.print("\n Enter the Name of the BOOK : Name :");
-			book.get(i).setBookName(scanner.next());
+			book.get(i).setBookName(sca.next());
 			System.out.print("\n Enter the AuthorName of the BOOK : Name :");
-			book.get(i).setAuthorName(scanner.next());
+			book.get(i).setAuthorName(sca.next());
 			System.out.print("\n Enter the PublisherName of the BOOK : Name :");
-			book.get(i).setPublisher(scanner.next());
+			book.get(i).setPublisher(sca.next());
             System.out.print("\n Enter the Id Number of the Book :  ");
-			book.get(i).setId(scanner.nextInt());
+			book.get(i).setId(sca.nextInt());
 			System.out.print("\n Enter the Price of the Book :  ");
-			book.get(i).setPrice(scanner.nextInt());
+			book.get(i).setPrice(sca.nextInt());
 			System.out.print("\n"); 
 		 }
 		    System.out.print("\n");
-		    getAddedBooks();
+		    this.getAddedBooks();
 		}
 	}
  public void getAddedBooks()
