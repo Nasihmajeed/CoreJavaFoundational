@@ -37,13 +37,14 @@ public class ClassRoom{
 	}
 	public void printClassDetails(int i){
 		//for(int i=0; i<n; i++){
-		System.out.println("\t---->"+(i+1)+" Class Details");
+		System.out.println("\t---->"+(i+1)+" Class Details<----\t");
 		System.out.println("Standard          \t: "+this.standard);
 		System.out.println("Division          \t: "+this.division);
 		System.out.println("Number of Students\t: "+this.numOfStudents);
 	    t.printTeacherDetails();
-	    System.out.println("\t---->Student Details<----\t");
+	    
 	    for(int j=0; j<numOfStudents; j++){
+		    System.out.println("\t---->Student Details<----\t");
 		    student[j].printStudentDetails();
 		}
 	}

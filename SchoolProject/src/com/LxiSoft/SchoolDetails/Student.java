@@ -3,12 +3,12 @@ import java.util.*;
 public class Student{
 	String name;
 	int rollNum;
-	Rank[] r;
+	Marks[] m;
 	//Rank r2;
 	//Rank r3;
 	//Scanner s = new Scanner(System.in);
 	//Student[] student; //=  new Student; 
-	void getStudentDetails(int i){
+	public void getStudentDetails(int i){
 		Scanner s = new Scanner(System.in);
 	    System.out.println("Enter the  student details ");
 		System.out.println("Enter the name of "+(i+1)+" student ");
@@ -16,20 +16,31 @@ public class Student{
 		System.out.println("Enter the roll number of "+(i+1)+" student ");
 		this.rollNum = s.nextInt();
 		s.nextLine();
-		r = new Rank[3];
+		m = new Marks[3];
+		System.out.println("\t---->Enter Mark Details<----\t");
 		for(int j=0; j<3; j++){
-			r[j] = new Rank();
-			r[j].getMarks();
+			m[j] = new Marks();
+			m[j].getMarks();
 		}
 	}
-	void printStudentDetails(){
-		
+	public void printStudentDetails(){
+		int i;
+		int t = 0;
+		//int[] tot = new int[5];
 		System.out.println("Name       \t: "+/*student[i]*/this.name);
 		System.out.println("Roll Number\t: "+/*student[i]*/this.rollNum);
-		for(int i=0; i<3; i++){
-			r[i].printMarks();
+		System.out.println("\t---->Mark Details<----\t");
+		for(i=0; i<3; i++){
+			m[i].printMarks();
+			t = t+m[i].mark;
+			//tot[i] = t;
 		}
+		//for(i=2;i<3;i++){
+			//tot[i] = t;
+		System.out.println("Total Marks\t: "+t);
+		//}
 		
 	}
+
 	
 }
