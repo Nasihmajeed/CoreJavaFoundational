@@ -3,7 +3,7 @@ import java.util.*;
 public class Student{
 	String name;
 	int rollNum;
-	Marks[] m;
+	Marks m;
 	//Rank r2;
 	//Rank r3;
 	//Scanner s = new Scanner(System.in);
@@ -16,28 +16,28 @@ public class Student{
 		System.out.println("Enter the roll number of "+(i+1)+" student ");
 		this.rollNum = s.nextInt();
 		s.nextLine();
-		m = new Marks[3];
+		//m = new Marks[3];
 		System.out.println("\t---->Enter Mark Details<----\t");
-		for(int j=0; j<3; j++){
-			m[j] = new Marks();
-			m[j].getMarks();
-		}
+		//for(int j=0; j<3; j++){
+		m = new Marks();
+		m.getMarks();
+		//}
 	}
 	public void printStudentDetails(){
 		int i;
-		int t = 0;
+		//int t = 0;
 		//int[] tot = new int[5];
 		System.out.println("Name       \t: "+/*student[i]*/this.name);
 		System.out.println("Roll Number\t: "+/*student[i]*/this.rollNum);
 		System.out.println("\t---->Mark Details<----\t");
-		for(i=0; i<3; i++){
-			m[i].printMarks();
-			t = t+m[i].mark;
+		//for(i=0; i<3; i++){
+		m.printMarks();
+		//t = t+m[i].mark;
 			//tot[i] = t;
-		}
+		//}
 		//for(i=2;i<3;i++){
 			//tot[i] = t;
-		System.out.println("Total Marks\t: "+t);
+		//System.out.println("Total Marks\t: "+t);
 		//}
 		
 	}
