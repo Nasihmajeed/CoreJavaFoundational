@@ -3,7 +3,10 @@ import java.util.*;
 public class Student{
 	String name;
 	int rollNum;
-	Marks m;
+	int totalMark=0;
+	//int t = 0;
+	//int[] ra
+	Subject[] sub;
 	//Rank r2;
 	//Rank r3;
 	//Scanner s = new Scanner(System.in);
@@ -16,29 +19,29 @@ public class Student{
 		System.out.println("Enter the roll number of "+(i+1)+" student ");
 		this.rollNum = s.nextInt();
 		s.nextLine();
-		//m = new Marks[3];
+		sub = new Subject[3];
 		System.out.println("\t---->Enter Mark Details<----\t");
-		//for(int j=0; j<3; j++){
-		m = new Marks();
-		m.getMarks();
-		//}
+		for(int j=0; j<3; j++){
+		    sub[j] = new Subject();
+		    sub[j].getMarks();
+		}
 	}
 	public void printStudentDetails(){
 		int i;
 		//int t = 0;
-		//int[] tot = new int[5];
+		//totalMark = new int[5];
 		System.out.println("Name       \t: "+/*student[i]*/this.name);
 		System.out.println("Roll Number\t: "+/*student[i]*/this.rollNum);
 		System.out.println("\t---->Mark Details<----\t");
-		//for(i=0; i<3; i++){
-		m.printMarks();
-		//t = t+m[i].mark;
-			//tot[i] = t;
-		//}
-		//for(i=2;i<3;i++){
-			//tot[i] = t;
-		//System.out.println("Total Marks\t: "+t);
-		//}
+		for(i=0; i<3; i++){
+		    sub[i].printMarks();
+		}
+		for (int j=0;j<3;j++){
+		    totalMark = totalMark+sub[j].mark;		    	
+		}
+		/*System.out.println("----------");
+		System.out.println(t);
+		System.out.println("----------");*/
 		
 	}
 

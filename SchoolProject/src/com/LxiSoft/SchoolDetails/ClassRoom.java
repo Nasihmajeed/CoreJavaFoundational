@@ -4,6 +4,7 @@ public class ClassRoom{
 	String division;
 	int standard;
 	int numOfStudents;
+	Rank[] r;
 	//Scanner s = new Scanner(System.in);
 	Teacher t; // = new Teacher();
 	Student[] student; //= new Student();
@@ -37,15 +38,32 @@ public class ClassRoom{
 	}
 	public void printClassDetails(int i){
 		//for(int i=0; i<n; i++){
+		int index;
 		System.out.println("\t---->"+(i+1)+" Class Details<----\t");
 		System.out.println("Standard          \t: "+this.standard);
 		System.out.println("Division          \t: "+this.division);
 		System.out.println("Number of Students\t: "+this.numOfStudents);
 	    t.printTeacherDetails();
-	    
+	    r = new Rank[numOfStudents];
 	    for(int j=0; j<numOfStudents; j++){
 		    System.out.println("\t---->Student Details<----\t");
 		    student[j].printStudentDetails();
+		    //student[j].totalMark[j] = student[j].t;
+		    System.out.println("---------------");
+		    System.out.println("Total Mark  \t: "+student[j].totalMark);
+		    System.out.println("---------------");
+		    /*
+		    r[j] = new Rank();
+		    index = r[j].findRank(student[j].totalMark,numOfStudents);
+		    System.out.println("The Class Top is "+student[index].printStudentDetails()); */
 		}
+		int max = 0;
+		for(int k=0; k<numOfStudents; k++){
+			if(student[k].totalMark > student[max].totalMark){
+				max = k;
+			}
+		}
+		System.out.println("The topper scorer of the class \t \nNAME \t: "+student[max].name);
+		System.out.println("TOTAL\t: "+student[max].totalMark);
 	}
 }
