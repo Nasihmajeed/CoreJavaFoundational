@@ -52,12 +52,56 @@ public class ClassRoom{
 		    System.out.println("---------------");
 		    System.out.println("Total Mark  \t: "+student[j].totalMark);
 		    System.out.println("---------------");
-		    /*
-		    r[j] = new Rank();
-		    index = r[j].findRank(student[j].totalMark,numOfStudents);
-		    System.out.println("The Class Top is "+student[index].printStudentDetails()); */
+		    System.out.println("----------");
+		    System.out.println(student[j].average);
+		    System.out.println("----------");
+		    if(student[j].average > 80){
+		    	System.out.println("Rank 1");
+		    	System.out.println("NAME : "+student[j].name);
+		    	System.out.println("NAME : "+student[j].totalMark);
+
+		    }
+		    else if(student[j].average < 80 && student[j].average > 65){
+		    	System.out.println("Rank 2");
+		    	System.out.println("NAME : "+student[j].name);
+		    	System.out.println("NAME : "+student[j].totalMark);
+		    }
+		    else if(student[j].average < 65 && student[j].average > 50){
+		    	System.out.println("Rank 3");
+		    	System.out.println("NAME : "+student[j].name);
+		    	System.out.println("NAME : "+student[j].totalMark);
+		    }
+		    else if(student[j].average < 65 && student[j].average > 50){
+		    	System.out.println("Rank 4");
+		    	System.out.println("NAME : "+student[j].name);
+		    	System.out.println("NAME : "+student[j].totalMark);
+		    }
+		    else {
+		    	System.out.println("Failed");
+		    	System.out.println("NAME : "+student[j].name);
+		    	System.out.println("NAME : "+student[j].totalMark);
+		    }		    
 		}
-		int max = 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*int max = 0;
 		for(int k=0; k<numOfStudents; k++){
 			if(student[k].totalMark > student[max].totalMark){
 				max = k;
@@ -66,4 +110,4 @@ public class ClassRoom{
 		System.out.println("The topper scorer of the class \t \nNAME \t: "+student[max].name);
 		System.out.println("TOTAL\t: "+student[max].totalMark);
 	}
-}
+}*/
