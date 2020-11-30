@@ -38,6 +38,10 @@ public class School{
             clas[i].printClassDetails(i);
         }
 
+        for(int j=0; j<numOfClass; j++){
+            
+        } 
+
     }
 }
 

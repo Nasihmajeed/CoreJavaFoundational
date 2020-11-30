@@ -25,7 +25,7 @@ public class Subject{
 		System.out.println("Mark    \t: "+this.mark);
 		//total = total+this.mark;
 		//}
-		//System.out.println("Total    \t: "+total);
+		//System.out.println("Total   \t: "+total);
 	}
 }
 	

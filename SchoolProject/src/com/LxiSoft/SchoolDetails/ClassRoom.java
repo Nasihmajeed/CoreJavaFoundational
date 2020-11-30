@@ -4,7 +4,7 @@ public class ClassRoom{
 	String division;
 	int standard;
 	int numOfStudents;
-	Rank[] r;
+	//Rank[] r;
 	//Scanner s = new Scanner(System.in);
 	Teacher t; // = new Teacher();
 	Student[] student; //= new Student();
@@ -55,7 +55,7 @@ public class ClassRoom{
 		    System.out.println("----------");
 		    System.out.println(student[j].average);
 		    System.out.println("----------");
-		    if(student[j].average > 80){
+		    /*if(student[j].average > 80){
 		    	System.out.println("Rank 1");
 		    	System.out.println("NAME : "+student[j].name);
 		    	System.out.println("NAME : "+student[j].totalMark);
@@ -80,11 +80,19 @@ public class ClassRoom{
 		    	System.out.println("Failed");
 		    	System.out.println("NAME : "+student[j].name);
 		    	System.out.println("NAME : "+student[j].totalMark);
-		    }		    
+		    }*/		    
 		}
+		int max = 0;
+		for(int k=0; k<numOfStudents; k++){
+			if(student[k].totalMark > student[max].totalMark){
+				max = k;
+			}
+		}
+		System.out.println("The topper scorer of the class \t \nNAME \t: "+student[max].name);
+		System.out.println("TOTAL\t: "+student[max].totalMark);
+		
 	}
 }
-
 
 
 

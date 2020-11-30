@@ -46,6 +46,7 @@ public class Student{
 		System.out.println(average);
 		System.out.println("----------");
 		*/
+		
 	}
 
 	
