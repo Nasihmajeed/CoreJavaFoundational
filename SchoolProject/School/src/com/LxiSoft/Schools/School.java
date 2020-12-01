@@ -52,7 +52,5 @@ public class School
             System.out.println(">-------Class  Details-------<");
             classroom[i].printClassDetails();
         }
-        
-    }
-        
+    }   
 }
