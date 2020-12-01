@@ -4,7 +4,7 @@ public class ClassRoom{
 	String division;
 	int standard;
 	int numOfStudents;
-	//Rank[] r;
+	int[] rank;
 	//Scanner s = new Scanner(System.in);
 	Teacher t; // = new Teacher();
 	Student[] student; //= new Student();
@@ -36,86 +36,51 @@ public class ClassRoom{
 		    student[i].getStudentDetails(i);
 		}
 	}
-	public void printClassDetails(int i){
+	public void printClassDetails(int i,int n){
 		//for(int i=0; i<n; i++){
-		int index;
+		int temp;
 		System.out.println("\t---->"+(i+1)+" Class Details<----\t");
 		System.out.println("Standard          \t: "+this.standard);
 		System.out.println("Division          \t: "+this.division);
 		System.out.println("Number of Students\t: "+this.numOfStudents);
 	    t.printTeacherDetails();
-	    r = new Rank[numOfStudents];
+	    //r = new Rank[numOfStudents];
+	    rank = new int[20];
 	    for(int j=0; j<numOfStudents; j++){
 		    System.out.println("\t---->Student Details<----\t");
 		    student[j].printStudentDetails();
 		    //student[j].totalMark[j] = student[j].t;
-		    System.out.println("---------------");
-		    System.out.println("Total Mark  \t: "+student[j].totalMark);
+		    /*System.out.println("---------------");
+		    rank[j] = student[j].totalMark;
+		    System.out.println("Total Mark  \t: "+rank[j]);
 		    System.out.println("---------------");
 		    System.out.println("----------");
-		    System.out.println(student[j].average);
-		    System.out.println("----------");
-		    /*if(student[j].average > 80){
-		    	System.out.println("Rank 1");
-		    	System.out.println("NAME : "+student[j].name);
-		    	System.out.println("NAME : "+student[j].totalMark);
-
-		    }
-		    else if(student[j].average < 80 && student[j].average > 65){
-		    	System.out.println("Rank 2");
-		    	System.out.println("NAME : "+student[j].name);
-		    	System.out.println("NAME : "+student[j].totalMark);
-		    }
-		    else if(student[j].average < 65 && student[j].average > 50){
-		    	System.out.println("Rank 3");
-		    	System.out.println("NAME : "+student[j].name);
-		    	System.out.println("NAME : "+student[j].totalMark);
-		    }
-		    else if(student[j].average < 65 && student[j].average > 50){
-		    	System.out.println("Rank 4");
-		    	System.out.println("NAME : "+student[j].name);
-		    	System.out.println("NAME : "+student[j].totalMark);
-		    }
-		    else {
-		    	System.out.println("Failed");
-		    	System.out.println("NAME : "+student[j].name);
-		    	System.out.println("NAME : "+student[j].totalMark);
-		    }*/		    
+		    //System.out.println(student[j].average);
+		    System.out.println("----------");*/
+		    		    
 		}
-		int max = 0;
 		for(int k=0; k<numOfStudents; k++){
-			if(student[k].totalMark > student[max].totalMark){
-				max = k;
+		    rank[k] = student[k].totalMark;
+		}
+		/*for(int m=0; m<rank.length; m++){
+			for(int x=m+1; x<rank.length; x++){
+				if(rank[m]<rank[x]){
+					temp = rank[m];
+					rank[m] = rank[x];
+					rank[x] = temp;
+				}
+			}
+		}*/   
+		int max = 0;
+		for(int l=0; l<numOfStudents; l++){
+			if(student[l].totalMark > student[max].totalMark){
+				max = l;
 			}
 		}
-		System.out.println("The topper scorer of the class \t \nNAME \t: "+student[max].name);
+		System.out.println(">-------------------------------------------<");
+		System.out.println("1st Rank holder of the class \t \nNAME \t: "+student[max].name);
 		System.out.println("TOTAL\t: "+student[max].totalMark);
-		
+		System.out.println(">-------------------------------------------<");
+
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*int max = 0;
-		for(int k=0; k<numOfStudents; k++){
-			if(student[k].totalMark > student[max].totalMark){
-				max = k;
-			}
-		}
-		System.out.println("The topper scorer of the class \t \nNAME \t: "+student[max].name);
-		System.out.println("TOTAL\t: "+student[max].totalMark);
-	}
-}*/

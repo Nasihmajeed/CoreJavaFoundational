@@ -4,7 +4,7 @@ public class Student{
 	String name;
 	int rollNum;
 	int totalMark=0;
-	int average;
+	//int average;
 	//int t = 0;
 	//int[] ra
 	Subject[] sub;
@@ -40,7 +40,7 @@ public class Student{
 		for (int j=0;j<3;j++){
 		    totalMark = totalMark+sub[j].mark;		    	
 		}
-		average = totalMark/3;
+		//average = totalMark/3;
 
 		/*System.out.println("----------");
 		System.out.println(average);

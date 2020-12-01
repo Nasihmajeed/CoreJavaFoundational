@@ -35,13 +35,18 @@ public class School{
         
         for(int i=0; i<numOfClass; i++){
             System.out.println("\n\t---->Class Details<----\t");
-            clas[i].printClassDetails(i);
+            clas[i].printClassDetails(i,numOfClass);
         }
-
+        int max = 0;
         for(int j=0; j<numOfClass; j++){
-            
-        } 
-
+            if(clas[j].rank[j] > clas[max].rank[max]){
+                max = j;
+            }
+        }
+        System.out.println(">-------------------------------------------<");
+        System.out.println("The Rank holder of the School \t \nNAME \t: "+clas[max].student[max].name);
+        System.out.println("TOTAL\t: "+clas[max].student[max].totalMark);
+        System.out.println(">-------------------------------------------<");
     }
 }
 
