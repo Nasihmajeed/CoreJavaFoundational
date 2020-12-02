@@ -39,7 +39,7 @@ public class School{
         }
         int max = 0;
         for(int j=0; j<numOfClass; j++){
-            if(clas[j].rank[j] > clas[max].rank[max]){
+            if(clas[j].total[j] > clas[max].total[max]){
                 max = j;
             }
         }
