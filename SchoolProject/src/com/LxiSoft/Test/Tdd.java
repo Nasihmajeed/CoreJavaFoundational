@@ -6,6 +6,7 @@ public class Tdd{
 	    School s = new School();
 	    s.getSchoolDetails();
 	    s.printSchoolDetails();
+	    //s.schoolRankList();
     } 
 }
 

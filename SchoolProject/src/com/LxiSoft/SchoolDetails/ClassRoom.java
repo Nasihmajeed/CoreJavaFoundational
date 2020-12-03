@@ -15,14 +15,6 @@ public class ClassRoom{
 	public void getClassDetails(){
 		Scanner s = new Scanner(System.in);
 		t = new Teacher();
-		//c = new ClassRoom[n];
-		//t = new Teacher[n];
-		//student = new Student[n];
-		//for(int i=0; i<n; i++){
-	   // System.out.println("Enter the "+(i+1)+" Class details");
-		    //c[i] = new ClassRoom();
-			//t[i] = new Teacher();
-		//student[i] = new Student();
 		System.out.println("Enter the standard ");
 		this.standard = s.nextInt();
 		s.nextLine();
@@ -38,11 +30,8 @@ public class ClassRoom{
 		    student[i].getStudentDetails(i);
 		}
 	}
-	public void printClassDetails(int i,int n){
-		//for(int i=0; i<n; i++){
-		//Student[] name;
-		//Student[] rollno; 
-		//Student[] total;
+	public void printClassDetails(int i){
+		
 		String temp1;
 		int temp2;
 		int temp3;
@@ -69,11 +58,6 @@ public class ClassRoom{
 		    total[k] = student[k].totalMark;
 		}
 		for(int m=0; m<numOfStudents; m++){
-			/*System.out.println(">____________________________<");
-			System.out.println("|\t"+name[m]+"               |");
-			System.out.println("|\t"+rollno[m]+"\t             |");
-			System.out.println("|\t"+total[m]+"              |");
-			System.out.println(">____________________________<");*/
 			for(int x=m+1; x<numOfStudents; x++){
 				if(student[m].totalMark<student[x].totalMark){
 					temp1 = student[m].name;
@@ -91,11 +75,11 @@ public class ClassRoom{
 		}  
 		int max = 0;
 		for(int l=0; l<numOfStudents; l++){
-			System.out.println(">____________________________<");
-			System.out.println(student[l].name);
-			System.out.println(student[l].rollNum);
-			System.out.println(student[l].totalMark);
-			System.out.println(">____________________________<");
+			System.out.println(">_______________________________<");
+			System.out.println("|\tNAME    \t: "+student[l].name+"\t|");
+			System.out.println("|\tRoll Num\t: "+student[l].rollNum+"\t|");
+			System.out.println("|\tTOTAL   \t: "+student[l].totalMark+"\t|");
+			System.out.println(">_______________________________<");
 			//if(student[l].totalMark > student[max].totalMark){
 			//	max = l;
 			//}
