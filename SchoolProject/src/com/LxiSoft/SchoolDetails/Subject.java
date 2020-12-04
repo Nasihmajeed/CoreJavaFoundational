@@ -10,8 +10,8 @@ public class Subject{
 	public void getMarks(){
 		//for(int i=0; i<3; i++){
 		Scanner s = new Scanner(System.in);
-		System.out.println("Enter the  Subject");
-		this.subject = s.nextLine();
+		//System.out.println("Enter the  Subject");
+		//this.subject = s.nextLine();
 		System.out.println("Enter the Mark of  Subject");
 		this.mark = s.nextInt();
 		s.nextLine();

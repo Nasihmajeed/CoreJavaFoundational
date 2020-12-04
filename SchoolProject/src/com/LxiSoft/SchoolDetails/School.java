@@ -45,8 +45,8 @@ public class School{
         System.out.println(totalStudents+"----> \\total students");
         int max = 0;
         for(int j=0; j<numOfClass; j++){
-            /*for(int x=j+1; x<numOfClass; x++){
-                if(clas[j].student[j].totalMark < clas[x].student[x].totalMark){
+            for(int x=j+1; x<numOfClass; x++){
+                /*if(clas[j].student[j].totalMark < clas[x].student[x].totalMark){
                     temp1 = clas[j].student[j].name;
                     temp2 = clas[j].student[j].rollNum;
                     temp3 = clas[j].student[j].totalMark;
@@ -58,17 +58,28 @@ public class School{
                     clas[x].student[x].totalMark = temp3;     
                 }
             }*/
-            if(clas[j].total[j] > clas[max].total[max]){
-                max = j;
+                if(clas[j].total[j] < clas[x].total[x]){
+                    //max = j;
+                    temp1 = clas[j].name[j];
+                    temp2 = clas[j].rollno[j];
+                    temp3 = clas[j].total[j];
+                    clas[j].name[j] = clas[x].name[x];
+                    clas[j].rollno[j] = clas[x].rollno[x];
+                    clas[j].total[j] = clas[x].total[x];
+                    clas[x].name[x] = temp1;
+                    clas[x].rollno[x] = temp2;
+                    clas[x].total[x] = temp3;
+                }
             }
+
         }
-        /*for(int l=0; l<numOfClass;l++){
+        for(int l=0; l<numOfClass;l++){
             System.out.println(">____________________________<");
-            System.out.println("\tNAME        : "+clas[l].student[l].name);
-            System.out.println("\tRoll Number : "clas[l].student[l].rollNum);
-            System.out.println("\tTotal Mark  : "clas[l].student[l].totalMark);
+            System.out.println("\tNAME        : "+clas[l].name[l]);
+            System.out.println("\tRoll Number : "+clas[l].rollno[l]);
+            System.out.println("\tTotal Mark  : "+clas[l].total[l]);
             System.out.println(">____________________________<");
-        }*/
+        }
         System.out.println(">-------------------------------------------<");
         System.out.println("The Rank holder of the School \t \nNAME \t: "+clas[max].student[max].name);
         System.out.println("TOTAL\t: "+clas[max].student[max].totalMark);
