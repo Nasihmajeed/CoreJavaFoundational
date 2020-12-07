@@ -8,9 +8,8 @@ public class ClassRoom{
 	Teacher t; // = new Teacher();
 	Student[] student; //= new Student();
 	Student[] temp;
-	//Student[] rank;
+	Student[] rank;
 	//ClassRoom[] c;
-    int count = 0;
 	public void getClassDetails(){
 		Scanner s = new Scanner(System.in);
 		t = new Teacher();
@@ -53,18 +52,32 @@ public class ClassRoom{
 				}
 			}
 		}
-		System.out.println(">_______________________________<");
+		System.out.println(">-------------------------------<");
 		for(int l=0; l<numOfStudents; l++){
 			System.out.println("|\tRANK    \t: "+(l+1)+"\t|");
 			System.out.println("|\tNAME    \t: "+student[l].name+"\t|");
 			System.out.println("|\tRoll Num\t: "+student[l].rollNum+"\t|");
 			System.out.println("|\tTOTAL   \t: "+student[l].totalMark+"\t|");
-			System.out.println(" -------------------------------");
-			count = count+numOfStudents;
+			System.out.println("  ------------------------------");
+			//rank.add(student[l].name);
+		}       
+		int count =0;
+		count = count+numOfStudents;
+		rank = new Student[count];
+		
+		for(int k=0; k<count;k+=count){
+			
+			for(int x=0; x<numOfStudents; x++){
+				rank[k] = new Student();
+				rank[k] = student[x];
+				k++;
+			}
+			
 		}
-
-        System.out.println("Total Student : "+count);
-        
-
+		
+		for(int a=0;a<count;a++){
+            System.out.println(rank[a].name);
+            System.out.println(rank[a].rollNum);
+        }	
 	}
 }

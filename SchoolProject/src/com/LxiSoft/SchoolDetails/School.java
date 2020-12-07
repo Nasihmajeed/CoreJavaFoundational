@@ -45,42 +45,10 @@ public class School{
             clas[i].printClassRankList();
             totalStudents = totalStudents+clas[i].numOfStudents;
         }
-
-    }
-    public void schoolRankList(){
-        rank = new ClassRoom[totalStudents];
-        int k=0;
-        for( ;k<totalStudents;k++){
-            
-            for(int x=0; x<totalStudents; x++){
-                rank[k] = new ClassRoom();
-                rank[k] = clas[x].student[x];
-            }
-        }
-        k+=totalStudents;
-
-
-
-
-        for(int a=0; a<totalStudents; a++){
-            for(int b=0; b<rank[a].student.length; b++){
-                System.out.println("++++++++++++++++++++++");
-                System.out.println(rank[a].student[b].name);
-                System.out.println(rank[a].student[b].rollNum);
-                System.out.println(rank[a].student[b].totalMark);
-                System.out.println("++++++++++++++++++++++");
-            }
-            
-        }
+        System.out.println("Total students : "+totalStudents);
+        
     }
 }
-
-
-
-
-
-
-
 
 
 
