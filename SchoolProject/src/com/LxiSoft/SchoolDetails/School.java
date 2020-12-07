@@ -6,8 +6,10 @@ public class School{
     String board;
     int numOfClass;
     int totalStudents=0;
+    //int count=0;
     //Scanner s = new Scanner(System.in);
     ClassRoom[] clas; //= new ClassRoom();
+    ClassRoom[] rank;
     public void getSchoolDetails(){
 	    Scanner s = new Scanner(System.in);
         System.out.println("Enter the school name ");
@@ -33,16 +35,105 @@ public class School{
     	System.out.println("Place \t: "+place);
     	System.out.println("Board \t: "+board);
     	//clas.printClass(numOfClass);
-        String temp1;
-        int temp2;
-        int temp3;
+        //String temp1;
+        //int temp2;
+        //int temp3;
         //int totalStudents=0;
         for(int i=0; i<numOfClass; i++){
             System.out.println("\n\t---->Class Details<----\t");
             clas[i].printClassDetails(i);
+            clas[i].printClassRankList();
             totalStudents = totalStudents+clas[i].numOfStudents;
         }
-        System.out.println(totalStudents+"----> \\total students");
+
+    }
+    public void schoolRankList(){
+        rank = new ClassRoom[totalStudents];
+        int k=0;
+        for( ;k<totalStudents;k++){
+            
+            for(int x=0; x<totalStudents; x++){
+                rank[k] = new ClassRoom();
+                rank[k] = clas[x].student[x];
+            }
+        }
+        k+=totalStudents;
+
+
+
+
+        for(int a=0; a<totalStudents; a++){
+            for(int b=0; b<rank[a].student.length; b++){
+                System.out.println("++++++++++++++++++++++");
+                System.out.println(rank[a].student[b].name);
+                System.out.println(rank[a].student[b].rollNum);
+                System.out.println(rank[a].student[b].totalMark);
+                System.out.println("++++++++++++++++++++++");
+            }
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*System.out.println(totalStudents+"----> \\total students");
         int max = 0;
         for(int j=0; j<numOfClass; j++){
             for(int x=j+1; x<numOfClass; x++){
@@ -58,7 +149,7 @@ public class School{
                     clas[x].student[x].totalMark = temp3;     
                 }
             }*/
-                if(clas[j].total[j] < clas[x].total[x]){
+              /*  if(clas[j].total[j] < clas[x].total[x]){
                     //max = j;
                     temp1 = clas[j].name[j];
                     temp2 = clas[j].rollno[j];
@@ -102,5 +193,6 @@ public class School{
             System.out.println("----> "+totMark[x]);
         }
     }*/
-}
+
+//}
 
