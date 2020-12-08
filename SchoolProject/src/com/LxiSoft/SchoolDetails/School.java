@@ -45,8 +45,16 @@ public class School{
             clas[i].printClassRankList();
             totalStudents = totalStudents+clas[i].numOfStudents;
         }
-        System.out.println("Total students : "+totalStudents);
         
+
+    }
+    public void printSchoolRankList(){
+        System.out.println("Total students : "+totalStudents);
+        rank = new ClassRoom[totalStudents];
+        for(int i=0; i<totalStudents; i++){
+            rank[i] = new ClassRoom();
+            rank[i].getStudentList(totalStudents);
+        }
     }
 }
 

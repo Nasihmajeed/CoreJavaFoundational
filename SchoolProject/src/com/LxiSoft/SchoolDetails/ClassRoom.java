@@ -61,23 +61,26 @@ public class ClassRoom{
 			System.out.println("  ------------------------------");
 			//rank.add(student[l].name);
 		}       
-		int count =0;
-		count = count+numOfStudents;
-		rank = new Student[count];
 		
-		for(int k=0; k<count;k+=count){
-			
-			for(int x=0; x<numOfStudents; x++){
-				rank[k] = new Student();
-				rank[k] = student[x];
-				k++;
-			}
-			
+	}
+	public void getStudentList(int n){
+		
+		/*int count =0;
+
+		//count = count+numOfStudents;
+		rank = new Student[n];
+		
+		
+		for(int x=0; x<n; x++){
+			rank[count] = new Student();
+			rank[count] = student[x];
+			count++;
 		}
-		
-		for(int a=0;a<count;a++){
+		count = count+numOfStudents;
+
+		for(int a=0;a<n;a++){
             System.out.println(rank[a].name);
             System.out.println(rank[a].rollNum);
-        }	
+        }*/	
 	}
 }
