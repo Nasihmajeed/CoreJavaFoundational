@@ -22,8 +22,8 @@ public class ClassRoom{
 		System.out.println("Enter the number of students in the class ");
 		numOfStudents = s.nextInt();
 		s.nextLine();
-		student = new Student[numOfStudents];
-		temp = new Student[numOfStudents];
+		student = new Student[50];
+		temp = new Student[50];
 		for(int i=0; i<numOfStudents; i++){    
 			student[i] = new Student();
 			temp[i] = new Student();
@@ -42,7 +42,7 @@ public class ClassRoom{
 		    
 		}
 	}
-	public void printClassRankList(){
+	public void printClassRankList(int n){
 		for(int m=0; m<numOfStudents; m++){
 			for(int x=m+1; x<numOfStudents; x++){
 				if(student[m].totalMark<student[x].totalMark){
@@ -58,29 +58,55 @@ public class ClassRoom{
 			System.out.println("|\tNAME    \t: "+student[l].name+"\t|");
 			System.out.println("|\tRoll Num\t: "+student[l].rollNum+"\t|");
 			System.out.println("|\tTOTAL   \t: "+student[l].totalMark+"\t|");
-			System.out.println("  ------------------------------");
+			System.out.println(" ------------------------------ ");
 			//rank.add(student[l].name);
-		}       
-		
+		}
+		int count = 0;
+		rank = new Student[n];
+		for(int a=0; a<numOfStudents;a++){
+
+			rank[count] = new Student();
+			rank[count] = student[a];
+			count++;
+		}
+
+
+
+		/*rank = new Student[n];     
+		for(int x=0; x<n; x++){
+			rank[x] = new Student();
+			rank[x] = student[x];
+			//count++;
+		}
+		//count = count+numOfStudents;
+
+		for(int a=0;a<n;a++){
+			System.out.println("---------> "+(a+1)+" <--------");
+            System.out.println(rank[a].name);
+            System.out.println(rank[a].rollNum);
+        }*/
 	}
-	public void getStudentList(int n){
+	/*public void getStudentList(int n){
 		
-		/*int count =0;
+		//int count =0;
 
 		//count = count+numOfStudents;
 		rank = new Student[n];
 		
-		
-		for(int x=0; x<n; x++){
-			rank[count] = new Student();
-			rank[count] = student[x];
-			count++;
+		for(int i=0; i<n; i++){
+			for(int x=0; x<n; x++){
+			    rank[i] = new Student();
+			    rank[i] = student[x];
+			//count++;
+		    }
 		}
-		count = count+numOfStudents;
+		
+		//count = count+numOfStudents;
 
 		for(int a=0;a<n;a++){
+			System.out.println("--------> "+(a+1)+" <--------");
             System.out.println(rank[a].name);
             System.out.println(rank[a].rollNum);
-        }*/	
-	}
+        }	
+	}*/
 }

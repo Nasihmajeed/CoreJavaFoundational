@@ -9,7 +9,7 @@ public class School{
     //int count=0;
     //Scanner s = new Scanner(System.in);
     ClassRoom[] clas; //= new ClassRoom();
-    ClassRoom[] rank;
+    ClassRoom[] clasRoom;
     public void getSchoolDetails(){
 	    Scanner s = new Scanner(System.in);
         System.out.println("Enter the school name ");
@@ -42,18 +42,23 @@ public class School{
         for(int i=0; i<numOfClass; i++){
             System.out.println("\n\t---->Class Details<----\t");
             clas[i].printClassDetails(i);
-            clas[i].printClassRankList();
             totalStudents = totalStudents+clas[i].numOfStudents;
+            clas[i].printClassRankList(totalStudents);
         }
         
 
     }
     public void printSchoolRankList(){
         System.out.println("Total students : "+totalStudents);
-        rank = new ClassRoom[totalStudents];
+        clasRoom = new ClassRoom[totalStudents];
+        //clasRoom.getStudentList(totalStudents);
+        
         for(int i=0; i<totalStudents; i++){
-            rank[i] = new ClassRoom();
-            rank[i].getStudentList(totalStudents);
+
+            clasRoom[i] = new ClassRoom();
+            System.out.println(clasRoom[i].rank[i].name);
+            System.out.println(clasRoom[i].rank[i].rollNum);
+            //clasRoom[i].getStudentList(totalStudents);
         }
     }
 }
