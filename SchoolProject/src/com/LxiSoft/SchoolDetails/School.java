@@ -43,25 +43,31 @@ public class School{
             System.out.println("\n\t---->Class Details<----\t");
             clas[i].printClassDetails(i);
             totalStudents = totalStudents+clas[i].numOfStudents;
-            clas[i].printClassRankList(totalStudents);
+            clas[i].printClassRankList();
         }
-        
+        int count=0;
+        clasRoom = new ClassRoom[totalStudents];
+        for(int j=0; j<numOfClass; j++){
+            clasRoom[j] = new ClassRoom();
+            System.out.println(clasRoom[j].rank[j].name);
+        }
 
     }
-    public void printSchoolRankList(){
+}
+    /*public void printSchoolRankList(){
         System.out.println("Total students : "+totalStudents);
         clasRoom = new ClassRoom[totalStudents];
         //clasRoom.getStudentList(totalStudents);
         
-        for(int i=0; i<totalStudents; i++){
+        for(int i=0; i<numOfClass; i++){
 
             clasRoom[i] = new ClassRoom();
             System.out.println(clasRoom[i].rank[i].name);
             System.out.println(clasRoom[i].rank[i].rollNum);
             //clasRoom[i].getStudentList(totalStudents);
         }
-    }
-}
+    }*/
+
 
 
 
