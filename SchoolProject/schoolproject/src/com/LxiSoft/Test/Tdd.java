@@ -11,6 +11,7 @@ public class Tdd
 		
 	    School school = new School();
 	    school.addSchoolDetails();
-	    school.printSchoolDetails();
+		school.printSchoolDetails();
+		school.SchoolRankList();
     } 
 }
