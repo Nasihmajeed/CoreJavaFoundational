@@ -4,13 +4,10 @@ public class ClassRoom{
 	String division;
 	int standard;
 	int numOfStudents;
-	//Scanner s = new Scanner(System.in);
-	Teacher t; // = new Teacher();
-	Student[] student; //= new Student();
-	Student[] temp;
-	Student[] rank;
-	int count = 0;
-	//ClassRoom[] c;
+	
+	Teacher t; 
+	Student[] student; 
+	
 	public void getClassDetails(){
 		Scanner s = new Scanner(System.in);
 		t = new Teacher();
@@ -24,10 +21,9 @@ public class ClassRoom{
 		numOfStudents = s.nextInt();
 		s.nextLine();
 		student = new Student[numOfStudents];
-		temp = new Student[numOfStudents];
+		
 		for(int i=0; i<numOfStudents; i++){    
 			student[i] = new Student();
-			temp[i] = new Student();
 		    student[i].getStudentDetails(i);
 		}
 	}
@@ -44,12 +40,14 @@ public class ClassRoom{
 		}
 	}
 	public void printClassRankList(){
+
 		for(int m=0; m<numOfStudents; m++){
 			for(int x=m+1; x<numOfStudents; x++){
 				if(student[m].totalMark<student[x].totalMark){
-					temp[m] = student[m];
+					Student temp = new Student();
+					temp = student[m];
 					student[m] = student[x];
-					student[x] = temp[m];			
+					student[x] = temp;			
 				}
 			}
 		}
@@ -61,7 +59,6 @@ public class ClassRoom{
 			System.out.println("|\tRoll Num\t: "+student[l].rollNum+"\t|");
 			System.out.println("|\tTOTAL   \t: "+student[l].totalMark+"\t|");
 			System.out.println(" ------------------------------ ");
-			//rank.add(student[l].name);
 		}
 	}
 }

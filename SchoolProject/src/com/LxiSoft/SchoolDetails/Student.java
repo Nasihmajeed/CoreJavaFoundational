@@ -4,14 +4,8 @@ public class Student{
 	String name;
 	int rollNum;
 	int totalMark=0;
-	//int average;
-	//int t = 0;
-	//int[] ra
 	Subject[] sub;
-	//Rank r2;
-	//Rank r3;
-	//Scanner s = new Scanner(System.in);
-	//Student[] student; //=  new Student; 
+ 
 	public void getStudentDetails(int i){
 		Scanner s = new Scanner(System.in);
 	    System.out.println("Enter the  student details ");
@@ -28,26 +22,16 @@ public class Student{
 		}
 	}
 	public void printStudentDetails(){
-		int i;
-		//int t = 0;
-		//totalMark = new int[5];
-		System.out.println("Name       \t: "+/*student[i]*/this.name);
-		System.out.println("Roll Number\t: "+/*student[i]*/this.rollNum);
+	
+		System.out.println("Name       \t: "+this.name);
+		System.out.println("Roll Number\t: "+this.rollNum);
 		System.out.println("\t---->Mark Details<----\t");
-		for(i=0; i<3; i++){
+		for(int i=0; i<3; i++){
 		    sub[i].printMarks();
 		}
 		for (int j=0;j<3;j++){
 		    totalMark = totalMark+sub[j].mark;		    	
 		}
-		//average = totalMark/3;
-
-		/*System.out.println("----------");
-		System.out.println(average);
-		System.out.println("----------");
-		*/
-		
-	}
-
-	
+		System.out.println("Total Mark  \t: "+this.totalMark);
+	}	
 }
