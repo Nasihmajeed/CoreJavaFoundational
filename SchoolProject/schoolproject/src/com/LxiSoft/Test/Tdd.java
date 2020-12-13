@@ -9,8 +9,8 @@ public class Tdd
         System.out.println(">----------------------------<");
 		System.out.println(">----- Enter the Details-----<");
 		
-	    School school = new School();
-	    school.addSchoolDetails();
+	    	School school = new School();
+	    	school.addSchoolDetails();
 		school.printSchoolDetails();
 		school.SchoolRankList();
     } 
