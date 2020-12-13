@@ -9,11 +9,6 @@ public class Classroom
 
 	Teacher teacher;
 	Student[] student;
-	Student[] temp;
-	Student[] rank;
-
-	// int[] total;
-	int count = 0;
 
 
 	public void addClassDetails()
@@ -31,12 +26,11 @@ public class Classroom
 		num = s.nextInt();
 
 		student = new Student[num];
-		temp = new Student[num];
+		
 		for( int i=0; i<num; i++)
 		{    
 			student[i] = new Student();
-			temp[i] = new Student();
-		    student[i].addStudentDetails(i);
+		    	student[i].addStudentDetails(i);
 		}
 
 		
@@ -46,21 +40,15 @@ public class Classroom
 
 	public void printClassDetails(int i)
 	{
-
-		// String temp1;
-		// int temp2;
-		// int temp3;
-
 		System.out.println("Standard : " + this.standard);
-        System.out.println("Division : " + this.division);
+        	System.out.println("Division : " + this.division);
 	
-	    teacher.printTeacherDetails();
+	    	teacher.printTeacherDetails();
 	 
-	    // total = new int[20];
 		for(int j=0; j<num; j++)
 		{
 			System.out.println(">------Student  Details------<");
-		    student[j].printStudentDetails();   
+		   	student[j].printStudentDetails();   
 		}
 	}
 
@@ -72,9 +60,10 @@ public class Classroom
 			{
 				if(student[x].totalMark<student[y].totalMark)
 				{
-					temp[x] = student[x];
+					Student rank = new Student();
+					rank = student[x];
 					student[x] = student[y];
-					student[y] = temp[x];
+					student[y] = rank;
 				}
 			}
 		}

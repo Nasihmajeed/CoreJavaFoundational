@@ -4,13 +4,12 @@ import java.util.*;
 public class School
 {
 	String name;
-    String place;
-    String medium;
-    int number;
+    	String place;
+    	String medium;
+    	int number;
 
     Classroom[] classroom;
-    Student[] s;
-    Student[] temp; 
+    Student[] rank; 
 
     public void addSchoolDetails()
     {
@@ -62,28 +61,27 @@ public class School
     public void SchoolRankList()
     {
         int total =0;
-        s = new Student[100];
+        rank = new Student[100];
         
         for(int j=0; j<number; j++)
         {
             for(int k=0; k<classroom[j].student.length;k++)
             {
-                s[total] = new Student();
-                s[total] = classroom[j].student[k];
+                rank[total] = new Student();
+                rank[total] = classroom[j].student[k];
                 total++;
             }
         }
-        temp = new Student[total];
         for(int x=0; x<total; x++)
         {
             for(int y=x+1; y<total; y++)
             {
-                if(s[x].totalMark<s[y].totalMark)
+                if(rank[x].totalMark < rank[y].totalMark)
                 {
-                    temp[x] = new Student();
-                    temp[x] = s[x];
-                    s[x] = s[y];
-                    s[y] = temp[x];
+                    Student stdnt = new Student();
+                    stdnt = rank[x];
+                    rank[x] = rank[y];
+                    rank[y] = stdnt;
                 }
             }
         }
@@ -94,9 +92,9 @@ public class School
         System.out.println(">----------------------------<");
         for(int x=0; x<total; x++)
         {
-            System.out.println("Name        : "+s[x].name);
-            System.out.println("Roll No.    : "+s[x].roll);
-            System.out.println("Total Mark  : "+s[x].totalMark);
+            System.out.println("Name        : "+ rank[x].name);
+            System.out.println("Roll No.    : "+ rank[x].roll);
+            System.out.println("Total Mark  : "+ rank[x].totalMark);
             System.out.println(">----------------------------<");
         }
     }
