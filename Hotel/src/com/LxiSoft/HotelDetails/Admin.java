@@ -5,8 +5,13 @@ public class Admin{
 	public void viewMenu(){
 		menu.printMenu();
 	}
-	public void editMenu(){
-		menu.getMenu();
+	public void addToMenu(){
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("How many items need to be added");
+		int numOfFood = s.nextInt();
+		s.nextLine();
+		menu.getMenu(numOfFood);
 		menu.printMenu();
 	}
 }

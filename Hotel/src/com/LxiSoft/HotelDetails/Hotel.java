@@ -17,9 +17,9 @@ public class Hotel{
 	}
 	public void setHotelData(){
 		System.out.println("\t ----------------------------- ");
-		System.out.println("\t"+hotelName+"\t");
-		System.out.println("\t"+hotelType+"\t");
-		System.out.println("\t"+place+"\t");
+		System.out.println("\t\t"+hotelName+"\t");
+		System.out.println("\t\t"+hotelType+"\t");
+		System.out.println("\t\t"+place+"\t");
 		System.out.println("\t ----------------------------- ");
 		System.out.println("Log In \n1.Admin \n2.User");
 		int option = s.nextInt();
@@ -31,7 +31,7 @@ public class Hotel{
 				admin.viewMenu();
 				break;
 				case 2:
-				admin.editMenu();
+				admin.addToMenu();
 				break;
 				default:
 				System.out.println("Wrong option");
