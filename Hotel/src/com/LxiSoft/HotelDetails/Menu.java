@@ -2,9 +2,9 @@ package com.LxiSoft.HotelDetails;
 import java.util.*;
 public class Menu{
 	//Menu menu = new Menu();
-
+	Food food = new Food();
 	ArrayList<Food> list = new ArrayList<Food>();
-	public void setMenu(){
+	/*public void setMenu(){
 		list.add(new Food());
 		list.get(0).setName("Poratta");
 		list.get(0).setType("Main Dish");
@@ -21,10 +21,18 @@ public class Menu{
 		list.get(3).setName("Meals");
 		list.get(3).setType("Main Dish");
 		list.get(3).setPrize(70);
-	}
+		System.out.println("Food\t: "+list.get(0).getName());
+		System.out.println("Type\t: "+list.get(0).getType());
+		System.out.println("Rate\t: "+list.get(0).getPrize());
+		System.out.println("Food\t: "+list.get(1).getName());
+		System.out.println("Type\t: "+list.get(1).getType());
+		System.out.println("Rate\t: "+list.get(1).getPrize());
+		System.out.println("Food\t: "+list.get(2).getName());
+		System.out.println("Type\t: "+list.get(2).getType());
+		System.out.println("Rate\t: "+list.get(2).getPrize());
+	}*/
 	public void getMenu(int n){
-		int size = list.size();
-		System.out.println(size);
+	
 		Food food = new Food();
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
@@ -34,21 +42,27 @@ public class Menu{
 		    food.foodType = s.next();
 		    System.out.println("enter the prize of that dish ");
 		    food.prize = s.nextInt();
-		    s.nextLine();
 		    list.add(new Food());
-		    list.get(size+i).setName(food.foodName);
-		    System.out.println(size);
-		    list.get(size+i).setType(food.foodType);
-		    System.out.println(size);
-		    list.get(size+i).setPrize(food.prize);
+		    list.get(i).setName(food.foodName);
+		    list.get(i).setType(food.foodType);
+		    list.get(i).setPrize(food.prize);
 		}
 	}
+	public void editMenu(int index){
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Insert the new amount");
+		food.prize = s.nextInt();
+		list.get(index-1).setPrize(food.prize);
+		this.printMenu();
+	}
 	public void printMenu(){
+		System.out.println("S.No\t| Food    \t| Type    \t| Rate    \t|");
 		for(int i=0; i<list.size(); i++){
-			System.out.println("Food\t: "+list.get(i).getName());
-		    System.out.println("Type\t: "+list.get(i).getType());
-		    System.out.println("Rate\t: "+list.get(i).getPrize());
+			
+		    System.out.println((i+1)+"\t| "+list.get(i).getName()+"    \t|"+list.get(i).getType()+"   \t|"+list.get(i).getPrize()+"    \t|");
 		}
+
 
 	}
 }
