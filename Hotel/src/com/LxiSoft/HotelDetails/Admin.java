@@ -3,8 +3,8 @@ import java.util.*;
 public class Admin{
 	Menu menu = new Menu();
 	public void viewMenu(){
-		System.out.println("Under Construction");
-		//menu.setMenu();
+		//System.out.println("Under Construction");
+		menu.printMenu();
 	}
 	public void addToMenu(){
 		int repeat;
@@ -13,6 +13,7 @@ public class Admin{
 		    System.out.println("How many items need to be added");
 		    int numOfFood = s.nextInt();
 		    menu.getMenu(numOfFood);
+		    System.out.println("The new Menu ");
 		    menu.printMenu();
 		    System.out.println("Do you need to add anything else ?\n1.Yes\n0.No");
 		    repeat = s.nextInt();
@@ -27,6 +28,18 @@ public class Admin{
 			int num = s.nextInt();
 			menu.editMenu(num);
 			System.out.println("Do you need to edit anything else ?\n1.Yes\n0.No");
+			back = s.nextInt();
+		}while(back!=0);
+	}
+	public void deleteTheMenu(){
+		menu.printMenu();
+		int back;
+		do{
+			Scanner s = new Scanner(System.in);
+			System.out.println("Enter the Serial number of the food to be Deleted");
+			int num = s.nextInt();
+			menu.deleteMenu(num);
+			System.out.println("Do you need to delete anything else ?\n1.Yes\n0.No");
 			back = s.nextInt();
 		}while(back!=0);
 	}

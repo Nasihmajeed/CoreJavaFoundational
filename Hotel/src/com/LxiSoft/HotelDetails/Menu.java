@@ -1,10 +1,9 @@
 package com.LxiSoft.HotelDetails;
 import java.util.*;
 public class Menu{
-	//Menu menu = new Menu();
 	Food food = new Food();
 	ArrayList<Food> list = new ArrayList<Food>();
-	/*public void setMenu(){
+	public void setMenu(){
 		list.add(new Food());
 		list.get(0).setName("Poratta");
 		list.get(0).setType("Main Dish");
@@ -30,9 +29,10 @@ public class Menu{
 		System.out.println("Food\t: "+list.get(2).getName());
 		System.out.println("Type\t: "+list.get(2).getType());
 		System.out.println("Rate\t: "+list.get(2).getPrize());
-	}*/
+	}
+	int size=list.size();
 	public void getMenu(int n){
-	
+	    	
 		Food food = new Food();
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
@@ -42,10 +42,11 @@ public class Menu{
 		    food.foodType = s.next();
 		    System.out.println("enter the prize of that dish ");
 		    food.prize = s.nextInt();
-		    list.add(new Food());
-		    list.get(i).setName(food.foodName);
-		    list.get(i).setType(food.foodType);
-		    list.get(i).setPrize(food.prize);
+		    list.add(new Food());		    
+		    list.get(size).setName(food.foodName);
+		    list.get(size).setType(food.foodType);
+		    list.get(size).setPrize(food.prize);
+		    size++;
 		}
 	}
 	public void editMenu(int index){
@@ -54,14 +55,27 @@ public class Menu{
 		System.out.println("Insert the new amount");
 		food.prize = s.nextInt();
 		list.get(index-1).setPrize(food.prize);
+		System.out.println("The updated Menu ");
+		this.printMenu();
+	}
+	public void deleteMenu(int index){
+		Scanner s = new Scanner(System.in);
+		
+		//System.out.println("Insert the new amount");
+		//food.prize = s.nextInt();
+		list.remove(index-1);//.setPrize(food.prize);
+		System.out.println("The updated Menu ");
 		this.printMenu();
 	}
 	public void printMenu(){
-		System.out.println("S.No\t| Food    \t| Type    \t| Rate    \t|");
+		System.out.println("+---------+-------------+-------------+------------+");
+		System.out.println("| S.No\t  | Food    \t| Type     \t| Rate\t|");
+		System.out.println("+---------+-------------+-------------+------------+");
 		for(int i=0; i<list.size(); i++){
 			
-		    System.out.println((i+1)+"\t| "+list.get(i).getName()+"    \t|"+list.get(i).getType()+"   \t|"+list.get(i).getPrize()+"    \t|");
+		    System.out.println("| "+(i+1)+"\t| "+list.get(i).getName()+"    \t| "+list.get(i).getType()+"   \t| "+list.get(i).getPrize()+"    \t|");
 		}
+		System.out.println("+---------+-------------+-------------+------------+");
 
 
 	}
