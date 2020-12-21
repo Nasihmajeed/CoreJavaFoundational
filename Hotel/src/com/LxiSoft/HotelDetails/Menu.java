@@ -30,7 +30,7 @@ public class Menu{
 		System.out.println("Type\t: "+list.get(2).getType());
 		System.out.println("Rate\t: "+list.get(2).getPrize());
 	}
-	int size=list.size();
+	int size = list.size();
 	public void getMenu(int n){
 	    	
 		Food food = new Food();
@@ -60,10 +60,7 @@ public class Menu{
 	}
 	public void deleteMenu(int index){
 		Scanner s = new Scanner(System.in);
-		
-		//System.out.println("Insert the new amount");
-		//food.prize = s.nextInt();
-		list.remove(index-1);//.setPrize(food.prize);
+		list.remove(index-1);
 		System.out.println("The updated Menu ");
 		this.printMenu();
 	}
@@ -76,7 +73,10 @@ public class Menu{
 		    System.out.println("| "+(i+1)+"\t| "+list.get(i).getName()+"    \t| "+list.get(i).getType()+"   \t| "+list.get(i).getPrize()+"    \t|");
 		}
 		System.out.println("+---------+-------------+-------------+------------+");
-
-
+	}
+	int totalPrize=0;
+	public void getOrder(int order, int quantity){
+		int prize = quantity*list.get(order-1).getPrize();
+		totalPrize = totalPrize+prize;
 	}
 }

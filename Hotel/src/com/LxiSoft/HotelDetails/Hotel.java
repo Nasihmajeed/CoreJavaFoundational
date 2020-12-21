@@ -5,6 +5,7 @@ public class Hotel{
 	String place;
 	String hotelType;
 	Admin admin = new Admin();
+	User user = new User();
 	public void getHotelData(){
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter The name of hotel");
@@ -55,7 +56,25 @@ public class Hotel{
 			    }while(opt!=0);
 		    }
 		    else if(option==2){
-			    System.out.println("User part under construction");
+		    	int optt;
+		    	do{
+		    		System.out.println("\n User Page");
+		    		System.out.println("-----------");
+		    		System.out.println("1.Order \nPay Bill");
+		    		int choose = s.nextInt();
+		    		switch(choose){
+		    			case 1:
+		    			user.orderFood();
+		    			break;
+		    			case 2:
+		    			user.payBill();
+		    			default:
+		    			System.out.println("Wrong Option");
+		    		}
+		    		System.out.println("Go to User Page \n1.Yes \n0.No");
+		    		optt = s.nextInt();
+		    	}while(optt!=0);
+			    //System.out.println("User part under construction");
 		    }
 		    System.out.println("Do you need to get back to main page ?\n1.Yes\n0.No");
 		    back = s.nextInt();
