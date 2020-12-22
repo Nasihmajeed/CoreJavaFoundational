@@ -33,7 +33,7 @@ public class Menu{
 	int size = list.size();
 	public void getMenu(int n){
 	    	
-		Food food = new Food();
+		//Food food = new Food();
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
 			System.out.println("Enter the new Dish ");
