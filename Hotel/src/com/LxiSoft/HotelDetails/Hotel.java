@@ -60,7 +60,7 @@ public class Hotel{
 		    	do{
 		    		System.out.println("\n User Page");
 		    		System.out.println("-----------");
-		    		System.out.println("1.Order \nPay Bill");
+		    		System.out.println("1.Order \n2.Pay Bill");
 		    		int choose = s.nextInt();
 		    		switch(choose){
 		    			case 1:
@@ -68,6 +68,7 @@ public class Hotel{
 		    			break;
 		    			case 2:
 		    			user.payBill();
+		    			break;
 		    			default:
 		    			System.out.println("Wrong Option");
 		    		}

@@ -12,7 +12,7 @@ public class User{
 			menu.printMenu();
 		    System.out.println("\nSelect your order with the serial number : ");
 		    order = s.nextInt();
-		    System.out.println("How many plates ?");
+		    System.out.println("number of order ?");
 		    numberOfPlates = s.nextInt();
 		    menu.getOrder(order,numberOfPlates);
 		    System.out.println("Do you like to order anything else ?\n1.Yes\n0.No");
@@ -22,5 +22,6 @@ public class User{
 	public void payBill(){
 		System.out.println("The total amount : ");
 		System.out.println(menu.totalPrize);
+
 	}
 }
