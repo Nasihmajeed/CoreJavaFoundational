@@ -2,16 +2,20 @@ package com.LxiSoft.HotelDetails;
 import java.util.*;
 public class Admin{
 	Menu menu = new Menu();
+	//menu.setMenu();
 	public void viewMenu(){
 		//System.out.println("Under Construction");
+		//menu.setMenu();
 		menu.printMenu();
 	}
 	public void addToMenu(){
+		//menu.setMenu();
 		int repeat;
 		do{
 			Scanner s = new Scanner(System.in);
 		    System.out.println("How many items need to be added");
 		    int numOfFood = s.nextInt();
+
 		    menu.getMenu(numOfFood);
 		    System.out.println("The new Menu ");
 		    menu.printMenu();

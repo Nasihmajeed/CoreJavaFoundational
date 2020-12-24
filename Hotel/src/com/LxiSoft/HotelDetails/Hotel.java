@@ -6,14 +6,12 @@ public class Hotel{
 	String hotelType;
 	Admin admin = new Admin();
 	User user = new User();
+	Menu menu = new Menu();
 	public void getHotelData(){
-		Scanner s = new Scanner(System.in);
-		System.out.println("Enter The name of hotel");
-		this.hotelName = s.next();
-		System.out.println("Enter the place of hotel");
-		this.place = s.next();
-		System.out.println("Enter the type of hotel");
-		this.hotelType = s.next();
+		this.hotelName = "Thattukada";
+		this.place = "Palakkad";
+		this.hotelType = "Veg and Non-Veg";
+		menu.setMenu();
 	}
 	public void setHotelData(){
 		Scanner s = new Scanner(System.in);

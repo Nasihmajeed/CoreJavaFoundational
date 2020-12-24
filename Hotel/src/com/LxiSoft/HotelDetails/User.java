@@ -9,6 +9,7 @@ public class User{
 		Scanner s = new Scanner(System.in);
 		int repeat;
 		do{
+			//menu.setMenu();
 			menu.printMenu();
 		    System.out.println("\nSelect your order with the serial number : ");
 		    order = s.nextInt();
@@ -22,6 +23,5 @@ public class User{
 	public void payBill(){
 		System.out.println("The total amount : ");
 		System.out.println(menu.totalPrize);
-
 	}
 }
