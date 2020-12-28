@@ -11,7 +11,7 @@ public class Hotel{
 		this.hotelName = "Thattukada";
 		this.place = "Palakkad";
 		this.hotelType = "Veg and Non-Veg";
-		menu.setMenu();
+		
 	}
 	public void setHotelData(){
 		Scanner s = new Scanner(System.in);
@@ -35,12 +35,15 @@ public class Hotel{
 			        int choice = s.nextInt();
 			        switch(choice){
 				        case 1:
+				        
 				        admin.viewMenu();
 				        break;
 				        case 2:
+				       
 				        admin.addToMenu();
 				        break;
 				        case 3:
+				       
 				        admin.editTheMenu();
 				        break;
 				        case 4:
@@ -62,6 +65,7 @@ public class Hotel{
 		    		int choose = s.nextInt();
 		    		switch(choose){
 		    			case 1:
+		    			
 		    			user.orderFood();
 		    			break;
 		    			case 2:
