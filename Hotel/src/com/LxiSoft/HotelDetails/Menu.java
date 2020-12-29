@@ -3,9 +3,8 @@ import java.util.*;
 public class Menu{
 	Food food = new Food();
 	ArrayList<Food> list = new ArrayList<Food>();
-
 	public void getMenu(int n){
-	    int size = list.size();	
+	    int j = list.size();	
 		//Food food = new Food();
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
@@ -13,18 +12,17 @@ public class Menu{
 		    food.foodName = s.next();
 		    System.out.println("Enter the type of that dish ");
 		    food.foodType = s.next();
-		    System.out.println("enter the prize of that dish ");
+		    System.out.println("Enter the prize of that dish ");
 		    food.prize = s.nextInt();
 		    list.add(new Food());		    
-		    list.get(size).setName(food.foodName);
-		    list.get(size).setType(food.foodType);
-		    list.get(size).setPrize(food.prize);
-		    size++;
+		    list.get(j).setName(food.foodName);
+		    list.get(j).setType(food.foodType);
+		    list.get(j).setPrize(food.prize);
+		    j++;
 		}
 	}
 	public void editMenu(int index){
-		Scanner s = new Scanner(System.in);
-		
+		Scanner s = new Scanner(System.in);	
 		System.out.println("Insert the new amount");
 		food.prize = s.nextInt();
 		list.get(index-1).setPrize(food.prize);
@@ -37,7 +35,6 @@ public class Menu{
 		System.out.println("The updated Menu ");
 		this.printMenu();
 	}
-	
 	public void setMenu(){
 		list.add(new Food());
 		list.get(0).setName("Poratta");
@@ -64,15 +61,13 @@ public class Menu{
 		System.out.println(list.size());
 		for(int i=0; i<list.size(); i++){
 			
-		    System.out.println("  "+(i+1)+"\t  "+list.get(i).getName()+"    \t  "+list.get(i).getType()+"   \t  "+list.get(i).getPrize()+"    \t");
+		    System.out.println("  "+(i+1)+"\t    "+list.get(i).getName()+"    \t  "+list.get(i).getType()+"   \t  "+list.get(i).getPrize()+"    \t");
 		}
 		System.out.println("+---------+-------------+-------------+------------+");
 	}
-
 	int totalPrize=0;
 	public void getOrder(int order, int quantity){
 		int prize = quantity*list.get(order-1).getPrize();
 		totalPrize = totalPrize+prize;
-	}
-	
+	}	
 }

@@ -4,7 +4,7 @@ public class Admin{
 	Menu menu = new Menu();
 	public void viewMenu(){
 		//System.out.println("Under Construction");
-		menu.setMenu();
+		//menu.setMenu();
 		menu.printMenu();
 	}
 	public void addToMenu(){
@@ -15,8 +15,7 @@ public class Admin{
 		    System.out.println("How many items need to be added");
 		    int numOfFood = s.nextInt();
 		    menu.getMenu(numOfFood);
-		    System.out.println("The new Menu ");
-		    
+		    System.out.println("The new Menu ");		    
 		    menu.printMenu();
 		    System.out.println("Do you need to add anything else ?\n1.Yes\n0.No");
 		    repeat = s.nextInt();

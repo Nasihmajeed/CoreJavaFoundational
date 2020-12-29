@@ -1,4 +1,7 @@
 package com.LxiSoft.HotelDetails;
+import com.LxiSoft.HotelDetails.Menu;
+import com.LxiSoft.HotelDetails.Admin;
+import com.LxiSoft.HotelDetails.User;
 import java.util.*;
 public class Hotel{
 	String hotelName;
@@ -28,22 +31,39 @@ public class Hotel{
 		    int option = s.nextInt();
 		    if(option==1){
 			    int opt;
-			    do{
+			    //do{
 			    	System.out.println(" Admin Page");
 			        System.out.println("------------");
 			    	System.out.println("\n1.View Menu \n2.Add \n3.Edit \n4.Delete");
 			        int choice = s.nextInt();
-			        switch(choice){
-				        case 1:
-				        
+			        if(choice==1){
+			        	menu.setMenu();
+			        	admin.viewMenu();
+			        }
+			        else if(choice==2){
+			        	menu.setMenu();
+			        	admin.addToMenu();
+			        }
+			        else if(choice==3){
+			        	menu.setMenu();
+			        	admin.editTheMenu();
+			        }
+			        else if(choice==4){
+			        	menu.setMenu();
+			        	admin.deleteTheMenu();
+			        }
+			        else {
+			        	System.out.println("Wrong option");
+			        }
+			        /*switch(choice){
+				        case 1:				        
+				        menu.setMenu();
 				        admin.viewMenu();
 				        break;
-				        case 2:
-				       
+				        case 2:				       
 				        admin.addToMenu();
 				        break;
-				        case 3:
-				       
+				        case 3:				       
 				        admin.editTheMenu();
 				        break;
 				        case 4:
@@ -51,21 +71,31 @@ public class Hotel{
 				        break;
 				        default:
 				        System.out.println("Wrong option");
-			        }
-			        System.out.println("Go to Admin Page \n1.Yes\n0.No");
-			        opt = s.nextInt();
-			    }while(opt!=0);
+			        }*/
+			        //System.out.println("Go to Admin Page \n1.Yes\n0.No");
+			      //  opt = s.nextInt();
+			    //}while(opt!=0);
 		    }
 		    else if(option==2){
 		    	int optt;
-		    	do{
+		    	//do{
 		    		System.out.println("\n User Page");
 		    		System.out.println("-----------");
 		    		System.out.println("1.Order \n2.Pay Bill");
 		    		int choose = s.nextInt();
-		    		switch(choose){
+		    		if(choose==1){
+		    			menu.setMenu();
+		    			user.orderFood();
+		    		}
+		    		else if(choose==2){
+		    			user.payBill();
+		    		}
+		    		else {
+		    			System.out.println("Wrong Option");
+		    		}
+		    		/*switch(choose){
 		    			case 1:
-		    			
+		    			menu.setMenu();
 		    			user.orderFood();
 		    			break;
 		    			case 2:
@@ -73,10 +103,10 @@ public class Hotel{
 		    			break;
 		    			default:
 		    			System.out.println("Wrong Option");
-		    		}
-		    		System.out.println("Go to User Page \n1.Yes \n0.No");
-		    		optt = s.nextInt();
-		    	}while(optt!=0);
+		    		}*/
+		    	//	System.out.println("Go to User Page \n1.Yes \n0.No");
+		    	//	optt = s.nextInt();
+		    	//}while(optt!=0);
 			    //System.out.println("User part under construction");
 		    }
 		    System.out.println("Do you need to get back to main page ?\n1.Yes\n0.No");

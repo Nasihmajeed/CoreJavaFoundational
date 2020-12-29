@@ -9,8 +9,7 @@ public class User{
 		Scanner s = new Scanner(System.in);
 		int repeat;
 		menu.setMenu();
-		do{
-			
+		do{			
 			menu.printMenu();
 		    System.out.println("\nSelect your order with the serial number : ");
 		    order = s.nextInt();
