@@ -78,7 +78,8 @@ public class Hotel{
 		    }
 		    else if(option==2){
 		    	int optt;
-		    	//do{
+		    	System.out.println("Under Construction");
+		    	/*do{
 		    		System.out.println("\n User Page");
 		    		System.out.println("-----------");
 		    		System.out.println("1.Order \n2.Pay Bill");
