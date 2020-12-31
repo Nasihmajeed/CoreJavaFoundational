@@ -78,14 +78,14 @@ public class Hotel{
 		    }
 		    else if(option==2){
 		    	int optt;
-		    	System.out.println("Under Construction");
-		    	/*do{
+		    	//System.out.println("Under Construction");
+		    	do{
 		    		System.out.println("\n User Page");
 		    		System.out.println("-----------");
 		    		System.out.println("1.Order \n2.Pay Bill");
 		    		int choose = s.nextInt();
 		    		if(choose==1){
-		    			menu.setMenu();
+		    			//menu.setMenu();
 		    			user.orderFood();
 		    		}
 		    		else if(choose==2){
@@ -105,10 +105,10 @@ public class Hotel{
 		    			default:
 		    			System.out.println("Wrong Option");
 		    		}*/
-		    	//	System.out.println("Go to User Page \n1.Yes \n0.No");
-		    	//	optt = s.nextInt();
-		    	//}while(optt!=0);
-			    //System.out.println("User part under construction");
+		    		System.out.println("Go to User Page \n1.Yes \n0.No");
+		    		optt = s.nextInt();
+		    	}while(optt!=0);
+			    System.out.println("User part under construction");
 		    }
 		    System.out.println("Do you need to get back to main page ?\n1.Yes\n0.No");
 		    back = s.nextInt();

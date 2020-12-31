@@ -14,7 +14,7 @@ public class User{
 			//menu.printMenu();
 		    System.out.println("\nSelect your order with the serial number : ");
 		    order = s.nextInt();
-		    System.out.println("number of order ?");
+		    System.out.println("Number of order ?");
 		    numberOfPlates = s.nextInt();
 		    menu.getOrder(order,numberOfPlates);
 		    System.out.println("Do you like to order anything else ?\n1.Yes\n0.No");
