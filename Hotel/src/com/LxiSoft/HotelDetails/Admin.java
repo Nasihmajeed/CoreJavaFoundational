@@ -38,6 +38,7 @@ public class Admin{
 	}
 	public void editTheMenu(){
 		Scanner s = new Scanner(System.in);
+		//menu.setMenu();
 		menu.printMenu();
 		int back;
 		do{
@@ -65,6 +66,7 @@ public class Admin{
 		}while(back!=0);
 	}
 	public void deleteTheMenu(){
+		//menu.setMenu();
 		menu.printMenu();
 		int back;
 		do{
