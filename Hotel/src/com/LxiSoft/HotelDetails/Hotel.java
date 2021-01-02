@@ -107,7 +107,7 @@ public class Hotel{
 		    		System.out.println("Go to User Page \n1.Yes \n0.No");
 		    		optt = s.nextInt();
 		    	}while(optt!=0);
-			    System.out.println("User part under construction");
+			    //System.out.println("User part under construction");
 		    }
 		    System.out.println("Do you need to get back to main page ?\n1.Yes\n0.No");
 		    back = s.nextInt();

@@ -138,16 +138,7 @@ public class Menu{
 		System.out.println("+---------+-------------+");
 	}
 	int totalPrize=0;
-	int vegTotal=0;
-	int nonTotal=0;
-	public void getVegOrder(int ordr, int num){
-		int vegPrize = num*vegCurry.get(ordr-1).getPrize();
-		vegTotal = vegTotal+vegPrize;
-	}
-	public void getNonOrder(int odr, int no){
-		int nonPrize = no*nonVegCurry.get(odr-1).getPrize();
-		nonTotal = nonTotal+nonPrize;
-	}
+	
 	public void getOrder(int order, int quantity){
 		int prize = (quantity*list.get(order-1).getPrize())+vegTotal+nonTotal;
 		totalPrize = totalPrize+prize;
