@@ -4,6 +4,8 @@ public class Menu{
 	Eatables eat = new Eatables();
 	Drinks drink = new Drinks();
 	ArrayList<Food> list = new ArrayList<Food>();
+	ArrayList<Food> vegCurry = new ArrayList<Food>();
+	ArrayList<Food> nonVegCurry = new ArrayList<Food>();
 	public void setMenu(){
 		list.add(new Eatables());
 		list.get(0).setName("Poratta");
@@ -22,6 +24,22 @@ public class Menu{
 		//list.get(3).setType("Main Dish");
 		list.get(3).setPrize(17);
 	}
+	public void setVegCurryMenu(){
+		vegCurry.add(new Eatables());
+		vegCurry.get(0).setName("Stew");
+		
+		vegCurry.add(new Eatables());
+		vegCurry.get(1).setName("Sambar");
+		
+	}
+	public void setNonVegCurryMenu(){
+		nonVegCurry.add(new Eatables());
+		nonVegCurry.get(0).setName("Chicken");
+
+		nonVegCurry.add(new Eatables());
+		nonVegCurry.get(1).setName("Beef");
+
+	}
 	public void getEatables(int n){
 	    int j = list.size();	
 		//Food food = new Food();
@@ -29,13 +47,12 @@ public class Menu{
 		for(int i=0; i<n; i++){
 			System.out.println("Enter the new Dish ");
 		    eat.foodName = s.next();
-		    //System.out.println("Enter the type of that dish ");
-		    //food.foodType = s.next();
+		    
 		    System.out.println("Enter the prize of that dish ");
 		    eat.prize = s.nextInt();
 		    list.add(new Eatables());		    
 		    list.get(j).setName(eat.foodName);
-		    //list.get(j).setType(food.foodType);
+		    
 		    list.get(j).setPrize(eat.prize);
 		    j++;
 		}
@@ -44,18 +61,17 @@ public class Menu{
 	}
 	public void getDrinks(int n){
 	    int j = list.size();	
-		//Food food = new Food();
+		
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
 			System.out.println("Enter the new Drink ");
 		    drink.foodName = s.next();
-		    //System.out.println("Enter the type of that dish ");
-		    //food.foodType = s.next();
+
 		    System.out.println("Enter the prize of that drink ");
 		    drink.prize = s.nextInt();
 		    list.add(new Drinks());		    
 		    list.get(j).setName(drink.foodName);
-		    //list.get(j).setType(food.foodType);
+
 		    list.get(j).setPrize(drink.prize);
 		    j++;
 		}
@@ -97,9 +113,43 @@ public class Menu{
 		}
 		System.out.println("+---------+-------------+-------------+");
 	}
+	public void printVegCurryMenu(){
+		this.setVegCurryMenu();
+		System.out.println("+---------+-------------+");
+		System.out.println("  S.No\t    Food    ");
+		System.out.println("+---------+-------------+");
+		System.out.println(vegCurry.size());
+		for(int i=0; i<vegCurry.size(); i++){
+			
+		    System.out.println("  "+(i+1)+"\t    "+vegCurry.get(i).getName()+"\t ");
+		}
+		System.out.println("+---------+-------------+");
+	}
+	public void printNonVegCurryMenu(){
+		this.setNonVegCurryMenu();
+		System.out.println("+---------+-------------+");
+		System.out.println("  S.No\t    Food    ");
+		System.out.println("+---------+-------------+");
+		System.out.println(nonVegCurry.size());
+		for(int i=0; i<nonVegCurry.size(); i++){
+			
+		    System.out.println("  "+(i+1)+"\t    "+nonVegCurry.get(i).getName()+"\t");
+		}
+		System.out.println("+---------+-------------+");
+	}
 	int totalPrize=0;
+	int vegTotal=0;
+	int nonTotal=0;
+	public void getVegOrder(int ordr, int num){
+		int vegPrize = num*vegCurry.get(ordr-1).getPrize();
+		vegTotal = vegTotal+vegPrize;
+	}
+	public void getNonOrder(int odr, int no){
+		int nonPrize = no*nonVegCurry.get(odr-1).getPrize();
+		nonTotal = nonTotal+nonPrize;
+	}
 	public void getOrder(int order, int quantity){
-		int prize = quantity*list.get(order-1).getPrize();
+		int prize = (quantity*list.get(order-1).getPrize())+vegTotal+nonTotal;
 		totalPrize = totalPrize+prize;
 	}	
 }

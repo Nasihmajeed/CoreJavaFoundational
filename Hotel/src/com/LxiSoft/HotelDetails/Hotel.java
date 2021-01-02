@@ -13,8 +13,7 @@ public class Hotel{
 	public void getHotelData(){
 		this.hotelName = "Thattukada";
 		this.place = "Palakkad";
-		this.hotelType = "Veg and Non-Veg";
-		
+		this.hotelType = "Veg and Non-Veg";	
 	}
 	public void setHotelData(){
 		Scanner s = new Scanner(System.in);

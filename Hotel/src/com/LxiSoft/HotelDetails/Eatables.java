@@ -1,5 +1,8 @@
 package com.LxiSoft.HotelDetails;
 import java.util.*;
+enum Type{
+	VEG,NONVEG;
+}
 public class Eatables implements Food {
 	String foodName;
 	String foodType;
@@ -21,5 +24,23 @@ public class Eatables implements Food {
 	}
 	public int getPrize(){
 		return prize;
+	}
+	Type type;
+	//public Eatables(Type type){
+	//	this.type = type;
+	//}
+	public void foodType(Type type){
+		Menu menu = new Menu();
+		switch(type){
+			case VEG:
+			menu.printVegCurryMenu();
+			break;
+			case NONVEG:
+			menu.printNonVegCurryMenu();
+			break;
+			default:
+			System.out.println("Wrong Input");
+			break;
+		}
 	}
 }
