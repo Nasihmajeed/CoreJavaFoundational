@@ -9,14 +9,13 @@ public class User{
 		Scanner s = new Scanner(System.in);
 		int repeat;
 		menu.setMenu();
-		menu.printMenu();
 		do{			
-			
+		    menu.printMenu();
 		    System.out.println("\nSelect your order with the serial number : ");
 		    order = s.nextInt();
 		    System.out.println("Number of order ?");
 		    numberOfPlates = s.nextInt();
-		    System.out.println("Do you need anu curry ? \n1.Yes \n 2.No");
+		    System.out.println("Do you need any curry ? \n1.Yes \n 0.No");
 		    int curry = s.nextInt();
 		    if(curry==1){
 		    	System.out.println("1.Veg \n2.Non Veg");
@@ -30,6 +29,9 @@ public class User{
 			            
 		                System.out.println("\nSelect your order with the serial number : ");
 		                int ordr = s.nextInt();
+		                System.out.println("How many plates ");
+		                int num = s.nextInt();
+		                menu.getVegOrder(ordr,num);
 		                System.out.println("Do you need anything else \n1.Yes \n0.No");
 		                more = s.nextInt();
 		            }while(more != 0);
@@ -43,6 +45,9 @@ public class User{
 			            
 		                System.out.println("\nSelect your order with the serial number : ");
 		                int ordr = s.nextInt();
+		                System.out.println("How many plates ");
+		                int num = s.nextInt();
+		                menu.getNonOrder(ordr,num);
 		                System.out.println("Do you need anything else \n1.Yes \n0.No");
 		                more = s.nextInt();
 		            }while(more != 0);	

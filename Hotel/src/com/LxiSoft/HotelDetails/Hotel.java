@@ -77,6 +77,7 @@ public class Hotel{
 		    }
 		    else if(option==2){
 		    	int optt;
+		    	//menu.setMenu();
 		    	//System.out.println("Under Construction");
 		    	do{
 		    		System.out.println("\n User Page");

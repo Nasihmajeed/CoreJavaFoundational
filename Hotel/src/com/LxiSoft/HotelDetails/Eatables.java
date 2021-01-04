@@ -5,7 +5,7 @@ enum Type{
 }
 public class Eatables implements Food {
 	String foodName;
-	String foodType;
+	//String foodType;
 	int prize;
 	public void setName(String food){
 		this.foodName = food;
