@@ -1,14 +1,14 @@
 package com.LxiSoft.HotelDetails;
 import com.LxiSoft.HotelDetails.Menu;
-import com.LxiSoft.HotelDetails.Admin;
-import com.LxiSoft.HotelDetails.User;
+import com.LxiSoft.HotelDetails.Actions;
+
 import java.util.*;
 public class Hotel{
 	String hotelName;
 	String place;
 	String hotelType;
-	Admin admin = new Admin();
-	User user = new User();
+	Actions act = new Actions();
+	//User user = new User();
 	Menu menu = new Menu();
 	public void getHotelData(){
 		this.hotelName = "Thattukada";
@@ -37,19 +37,19 @@ public class Hotel{
 			        int choice = s.nextInt();
 			        if(choice==1){
 			        	menu.setMenu();
-			        	admin.viewMenu();
+			        	act.viewMenu();
 			        }
 			        else if(choice==2){
 			        	menu.setMenu();
-			        	admin.addToMenu();
+			        	act.addToMenu();
 			        }
 			        else if(choice==3){
 			        	menu.setMenu();
-			        	admin.editTheMenu();
+			        	act.editTheMenu();
 			        }
 			        else if(choice==4){
 			        	menu.setMenu();
-			        	admin.deleteTheMenu();
+			        	act.deleteTheMenu();
 			        }
 			        else {
 			        	System.out.println("Wrong option");
@@ -86,10 +86,10 @@ public class Hotel{
 		    		int choose = s.nextInt();
 		    		if(choose==1){
 		    			//menu.setMenu();
-		    			user.orderFood();
+		    			act.orderFood();
 		    		}
 		    		else if(choose==2){
-		    			user.payBill();
+		    			act.payBill();
 		    		}
 		    		else {
 		    			System.out.println("Wrong Option");
@@ -114,4 +114,5 @@ public class Hotel{
 		    back = s.nextInt();
 		}while(back!=0);
 	}
+	
 }

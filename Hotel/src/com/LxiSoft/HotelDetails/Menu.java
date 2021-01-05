@@ -10,39 +10,34 @@ public class Menu{
 	public void setMenu(){
 		list.add(new Eatables());
 		list.get(0).setName("Poratta");
-		//list.get(0).setType("Main Dish");
 		list.get(0).setPrize(30);
+
 		list.add(new Eatables());
 		list.get(1).setName("Pathiri");
-		//list.get(1).setType("Main Dish");
 		list.get(1).setPrize(25);
+		
 		list.add(new Drinks());
 		list.get(2).setName("Lemonide");
-		//list.get(2).setType("Main Dish");
 		list.get(2).setPrize(15);
+
 		list.add(new Drinks());
 		list.get(3).setName("Fresh Juice");
-		//list.get(3).setType("Main Dish");
 		list.get(3).setPrize(17);
 	}
 	public void setVegCurryMenu(){
 		vegCurry.add(new Eatables());
 		vegCurry.get(0).setName("Stew");
-		vegCurry.get(0).setPrize(20);
 		
 		vegCurry.add(new Eatables());
 		vegCurry.get(1).setName("Sambar");
-		vegCurry.get(1).setPrize(25);
 		
 	}
 	public void setNonVegCurryMenu(){
 		nonVegCurry.add(new Eatables());
-		nonVegCurry.get(0).setName("Chicken");
-		nonVegCurry.get(0).setPrize(40);
+		nonVegCurry.get(0).setName("Chicken Gravy");
 
 		nonVegCurry.add(new Eatables());
-		nonVegCurry.get(1).setName("Beef");
-		nonVegCurry.get(1).setPrize(65);
+		nonVegCurry.get(1).setName("Beef Gravy");
 
 	}
 	public void getEatables(int n){
@@ -120,41 +115,33 @@ public class Menu{
 	}
 	public void printVegCurryMenu(){
 		this.setVegCurryMenu();
-		System.out.println("+---------+-------------+-------------+");
-		System.out.println("  S.No\t    Food    \t  Rate\t");
-		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+---------+-------------+");
+		System.out.println("  S.No\t    Food    ");
+		System.out.println("+---------+-------------+");
 		System.out.println(vegCurry.size());
 		for(int i=0; i<vegCurry.size(); i++){
 			
-		    System.out.println("  "+(i+1)+"\t    "+vegCurry.get(i).getName()+"\t "+vegCurry.get(i).getPrize()+"    \t");
+		    System.out.println("  "+(i+1)+"\t    "+vegCurry.get(i).getName()+"\t ");
 		}
-		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+---------+-------------+");
 	}
 	public void printNonVegCurryMenu(){
 		this.setNonVegCurryMenu();
-		System.out.println("+---------+-------------+-------------+");
-		System.out.println("  S.No\t    Food    \t  Rate\t");
-		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+---------+-------------+");
+		System.out.println("  S.No\t    Food    ");
+		System.out.println("+---------+-------------+");
 		System.out.println(nonVegCurry.size());
 		for(int i=0; i<nonVegCurry.size(); i++){
 			
-		    System.out.println("  "+(i+1)+"\t    "+nonVegCurry.get(i).getName()+"\t "+nonVegCurry.get(i).getPrize()+"    \t");
+		    System.out.println("  "+(i+1)+"\t    "+nonVegCurry.get(i).getName()+"\t ");
 		}
-		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+---------+-------------+");
 	}
 	int totalPrize=0;
-	int vegPrice=0;
-	int nonPrice=0;
-	public void getVegOrder(int ordr, int quan){
-		int p = quan*list.get(ordr-1).getPrize();
-		vegPrice = vegPrice+p;
-	}
-	public void getNonOrder(int oder, int quant){
-		int price = quant*list.get(oder-1).getPrize();
-		nonPrice = nonPrice+price;
-	}
+	
 	public void getOrder(int order, int quantity){
 		int prize = (quantity*list.get(order-1).getPrize())+vegPrice+nonPrice;
 		totalPrize = totalPrize+prize;
-	}	
+		
+	}
 }
