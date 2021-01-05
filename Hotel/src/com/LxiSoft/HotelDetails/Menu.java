@@ -140,7 +140,7 @@ public class Menu{
 	int totalPrize=0;
 	
 	public void getOrder(int order, int quantity){
-		int prize = (quantity*list.get(order-1).getPrize())+vegPrice+nonPrice;
+		int prize = quantity*list.get(order-1).getPrize();
 		totalPrize = totalPrize+prize;
 		
 	}
