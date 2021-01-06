@@ -5,7 +5,8 @@ public class Actions{
 	public void viewMenu(){
 		//System.out.println("Under Construction");
 		menu.setMenu();
-		menu.printMenu();
+		menu.printEatMenu();
+		menu.printDrinkMenu();
 	}
 	public void addToMenu(){
 		Scanner s = new Scanner(System.in);
@@ -39,7 +40,8 @@ public class Actions{
 	public void editTheMenu(){
 		Scanner s = new Scanner(System.in);
 		//menu.setMenu();
-		menu.printMenu();
+		menu.printEatMenu();
+		menu.printDrinkMenu();
 		int back;
 		do{
 			System.out.println("Which item need to be editted ?\n1.Eatables \n2.Drinks");
@@ -66,14 +68,25 @@ public class Actions{
 		}while(back!=0);
 	}
 	public void deleteTheMenu(){
+		Scanner s = new Scanner(System.in);
 		//menu.setMenu();
-		menu.printMenu();
+		menu.printEatMenu();
+		menu.printDrinkMenu();
 		int back;
 		do{
-			Scanner s = new Scanner(System.in);
-			System.out.println("Enter the Serial number of the food to be Deleted");
-			int num = s.nextInt();
-			menu.deleteMenu(num);
+			System.out.println("Which item need to be deleted \n1.Eatables \n2.Drinks");
+			int delete = s.nextInt();
+			if(delete == 1){
+				
+			    System.out.println("Enter the Serial number of the food to be Deleted");
+			    int num = s.nextInt();
+			    menu.deleteEatMenu(num);
+			}
+			else if(delete ==2){
+				System.out.println("Enter the Serial number of the food to be Deleted");
+			    int num = s.nextInt();
+			    menu.deleteDrinkMenu(num);
+			}
 			System.out.println("Do you need to delete anything else ?\n1.Yes\n0.No");
 			back = s.nextInt();
 		}while(back!=0);
@@ -85,36 +98,52 @@ public class Actions{
 		int repeat;
 		//menu.setMenu();
 		do{			
-		    menu.printMenu();
-		    System.out.println("\nSelect your order with the serial number : ");
-		    int order = s.nextInt();
-		    System.out.println("Number of order ?");
-		    int numberOfPlates = s.nextInt();
-		    System.out.println("Do you need any curry ? \n1.Yes \n 0.No");
-		    int curry = s.nextInt();
-		    if(curry==1){
-		    	System.out.println("1.Veg \n2.Non Veg");
-		    	int typ = s.nextInt();
-		    	if(typ == 1){
-		    		String type = "VEG";
-		    		Eatables eat = new Eatables();
-		    		eat.foodType(Type.valueOf(type));
+		    //Scanner s =new Scanner(System.in);
+		    System.out.println("What would you like to order \n1.Food \n2.Drinks");
+		    int choose = s.nextInt();
+		    switch(choose){
+		    	case 1:
+		    	menu.printEatMenu();
+		        System.out.println("\nSelect your order with the serial number : ");
+		        int order = s.nextInt();
+		        System.out.println("Number of order ?");
+		        int numberOfPlates = s.nextInt();
+		        System.out.println("Do you need any curry ? \n1.Yes \n 0.No");
+		        int curry = s.nextInt();
+		        if(curry==1){
+		    	    System.out.println("1.Veg \n2.Non Veg");
+		    	    int typ = s.nextInt();
+		    	    if(typ == 1){
+		    		    String type = "VEG";
+		    		    Eatables eat = new Eatables();
+		    		    eat.foodType(Type.valueOf(type));
 		    		
-		    	}
-		    	else if(typ ==2){
-		    		String type = "NONVEG";
-		    		Eatables eat = new Eatables();
-		    		eat.foodType(Type.valueOf(type));
+		    	    }
+		    	    else if(typ ==2){
+		    		    String type = "NONVEG";
+		    		    Eatables eat = new Eatables();
+		    		    eat.foodType(Type.valueOf(type));
 		    			
-		    	}
+		    	    }
+		        }
+		        menu.getFoodOrder(order,numberOfPlates);
+		        break;
+		        case 2:
+		        menu.printDrinkMenu();
+		        System.out.println("\nSelect your order with the serial number : ");
+		        int ordr = s.nextInt();
+		        System.out.println("Number of order ?");
+		        int numberOfOrdr = s.nextInt();
+		        menu.getDrinkOrder(ordr,numberOfOrdr);
+		        break;
+		        default:
+		        System.out.println("Currently unavailable");
 		    }
-		    menu.getOrder(order,numberOfPlates);
 		    System.out.println("Do you like to order anything else ?\n1.Yes\n0.No");
 		    repeat = s.nextInt();
 		}while(repeat!=0);
 	}
 	public void payBill(){
-		System.out.println("The total amount : ");
-		System.out.println(menu.totalPrize);
+		menu.totalAmount();
 	}
 }

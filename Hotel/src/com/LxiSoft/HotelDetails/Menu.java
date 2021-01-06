@@ -4,25 +4,26 @@ public class Menu{
 	Eatables eat = new Eatables();
 	Drinks drink = new Drinks();
 	
-	ArrayList<Food> list = new ArrayList<Food>();
+	ArrayList<Eatables> eatable = new ArrayList<Eatables>();
+	ArrayList<Drinks> drinks = new ArrayList<Drinks>();
 	ArrayList<Food> vegCurry = new ArrayList<Food>();
 	ArrayList<Food> nonVegCurry = new ArrayList<Food>();
 	public void setMenu(){
-		list.add(new Eatables());
-		list.get(0).setName("Poratta");
-		list.get(0).setPrize(30);
+		eatable.add(new Eatables());
+		eatable.get(0).setName("Poratta");
+		eatable.get(0).setPrize(30);
 
-		list.add(new Eatables());
-		list.get(1).setName("Pathiri");
-		list.get(1).setPrize(25);
+		eatable.add(new Eatables());
+		eatable.get(1).setName("Pathiri");
+		eatable.get(1).setPrize(25);
 		
-		list.add(new Drinks());
-		list.get(2).setName("Lemonide");
-		list.get(2).setPrize(15);
+		drinks.add(new Drinks());
+		drinks.get(0).setName("Lemonide");
+		drinks.get(0).setPrize(15);
 
-		list.add(new Drinks());
-		list.get(3).setName("Fresh Juice");
-		list.get(3).setPrize(17);
+		drinks.add(new Drinks());
+		drinks.get(1).setName("Fresh Juice");
+		drinks.get(1).setPrize(17);
 	}
 	public void setVegCurryMenu(){
 		vegCurry.add(new Eatables());
@@ -41,7 +42,7 @@ public class Menu{
 
 	}
 	public void getEatables(int n){
-	    int j = list.size();	
+	    int j = eatable.size();	
 		//Food food = new Food();
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
@@ -50,17 +51,17 @@ public class Menu{
 		    
 		    System.out.println("Enter the prize of that dish ");
 		    int prize = s.nextInt();
-		    list.add(new Eatables());		    
-		    list.get(j).setName(foodName);
+		    eatable.add(new Eatables());		    
+		    eatable.get(j).setName(foodName);
 		    
-		    list.get(j).setPrize(prize);
+		    eatable.get(j).setPrize(prize);
 		    j++;
 		}
 		System.out.println("The new Menu");
-		this.printMenu();
+		this.printEatMenu();
 	}
 	public void getDrinks(int n){
-	    int l = list.size();	
+	    int l = drinks.size();	
 		
 		Scanner s = new Scanner(System.in);
 		for(int i=0; i<n; i++){
@@ -69,50 +70,73 @@ public class Menu{
 
 		    System.out.println("Enter the prize of that drink ");
 		    int prizee = s.nextInt();
-		    list.add(new Drinks());		    
-		    list.get(l).setName(drinkName);
+		    drinks.add(new Drinks());		    
+		    drinks.get(l).setName(drinkName);
 
-		    list.get(l).setPrize(prizee);
+		    drinks.get(l).setPrize(prizee);
 		    l++;
 		}
 		System.out.println("The new Menu");
-		this.printMenu();
+		this.printDrinkMenu();
 	}
 	public void editEatables(int index){
 		Scanner s = new Scanner(System.in);	
 		System.out.println("Insert the new amount");
 		int newPrize = s.nextInt();
-		list.get(index-1).setPrize(newPrize);
+		eatable.get(index-1).setPrize(newPrize);
 		System.out.println("The updated Menu ");
-		this.printMenu();
+		this.printEatMenu();
 	}
 	public void editDrinks(int index){
 		Scanner s = new Scanner(System.in);	
 		System.out.println("Insert the new amount");
 		int nwPrize = s.nextInt();
-		list.get(index-1).setPrize(nwPrize);
+		drinks.get(index-1).setPrize(nwPrize);
 		System.out.println("The updated Menu ");
-		this.printMenu();
+		this.printDrinkMenu();
 	}
-	public void deleteMenu(int index){
+	public void deleteEatMenu(int index){
 		Scanner s = new Scanner(System.in);
-		list.remove(index-1);
+		eatable.remove(index-1);
 		System.out.println("The updated Menu ");
-		this.printMenu();
+		this.printEatMenu();
+	}
+	public void deleteDrinkMenu(int index){
+		Scanner s = new Scanner(System.in);
+		drinks.remove(index-1);
+		System.out.println("The updated Menu ");
+		this.printDrinkMenu();
 	}
 	
-	public void printMenu(){
+	public void printEatMenu(){
 		//this.setMenu();
+		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+=============== FOOD ================+");
 		System.out.println("+---------+-------------+-------------+");
 		System.out.println("  S.No\t    Food    \t  Rate\t");
 		System.out.println("+---------+-------------+-------------+");
-		System.out.println(list.size());
-		for(int i=0; i<list.size(); i++){
+		System.out.println(eatable.size());
+		for(int i=0; i<eatable.size(); i++){
 			
-		    System.out.println("  "+(i+1)+"\t    "+list.get(i).getName()+"\t "+list.get(i).getPrize()+"    \t");
+		    System.out.println("  "+(i+1)+"\t    "+eatable.get(i).getName()+"\t "+eatable.get(i).getPrize()+"    \t");
 		}
 		System.out.println("+---------+-------------+-------------+");
 	}
+	public void printDrinkMenu(){
+		//this.setMenu();
+		System.out.println("+---------+-------------+-------------+");
+		System.out.println("+============== DRINKS ===============+");
+		System.out.println("+---------+-------------+-------------+");
+		System.out.println("  S.No\t    Drinks    \t  Rate\t");
+		System.out.println("+---------+-------------+-------------+");
+		System.out.println(drinks.size());
+		for(int i=0; i<drinks.size(); i++){
+			
+		    System.out.println("  "+(i+1)+"\t    "+drinks.get(i).getName()+"\t "+drinks.get(i).getPrize()+"    \t");
+		}
+		System.out.println("+---------+-------------+-------------+");
+	}
+
 	public void printVegCurryMenu(){
 		this.setVegCurryMenu();
 		System.out.println("+---------+-------------+");
@@ -137,11 +161,22 @@ public class Menu{
 		}
 		System.out.println("+---------+-------------+");
 	}
-	int totalPrize=0;
-	
-	public void getOrder(int order, int quantity){
-		int prize = quantity*list.get(order-1).getPrize();
-		totalPrize = totalPrize+prize;
-		
+	int totalFoodPrize=0;
+	int totalDrinksPrize=0;
+	int total=0;
+	public void getFoodOrder(int order, int quantity){
+		int prize = quantity*eatable.get(order-1).getPrize();
+		totalFoodPrize = totalFoodPrize+prize;	
+	}
+	public void getDrinkOrder(int order, int quantity){
+		int price = quantity*drinks.get(order-1).getPrize();
+		totalDrinksPrize = totalDrinksPrize+price;	
+	}
+	public void totalAmount(){
+		int tot = totalDrinksPrize+totalFoodPrize;
+		total = total+tot;
+		System.out.println("+--------------------------+");
+		System.out.println("  Total\t: "+total);	
+		System.out.println("+--------------------------+");
 	}
 }

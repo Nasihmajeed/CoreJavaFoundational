@@ -30,50 +30,33 @@ public class Hotel{
 		    int option = s.nextInt();
 		    if(option==1){
 			    int opt;
-			    //do{
+			    do{
 			    	System.out.println(" Admin Page");
 			        System.out.println("------------");
 			    	System.out.println("\n1.View Menu \n2.Add \n3.Edit \n4.Delete");
 			        int choice = s.nextInt();
 			        if(choice==1){
-			        	menu.setMenu();
+			        	//menu.setMenu();
 			        	act.viewMenu();
 			        }
 			        else if(choice==2){
-			        	menu.setMenu();
+			        	//menu.setMenu();
 			        	act.addToMenu();
 			        }
 			        else if(choice==3){
-			        	menu.setMenu();
+			        	//menu.setMenu();
 			        	act.editTheMenu();
 			        }
 			        else if(choice==4){
-			        	menu.setMenu();
+			        	//menu.setMenu();
 			        	act.deleteTheMenu();
 			        }
 			        else {
 			        	System.out.println("Wrong option");
 			        }
-			        /*switch(choice){
-				        case 1:				        
-				        menu.setMenu();
-				        admin.viewMenu();
-				        break;
-				        case 2:				       
-				        admin.addToMenu();
-				        break;
-				        case 3:				       
-				        admin.editTheMenu();
-				        break;
-				        case 4:
-				        admin.deleteTheMenu();
-				        break;
-				        default:
-				        System.out.println("Wrong option");
-			        }*/
-			        //System.out.println("Go to Admin Page \n1.Yes\n0.No");
-			      //  opt = s.nextInt();
-			    //}while(opt!=0);
+			        System.out.println("Go to Admin Page \n1.Yes\n0.No");
+			        opt = s.nextInt();
+			    }while(opt!=0);
 		    }
 		    else if(option==2){
 		    	int optt;
@@ -94,17 +77,6 @@ public class Hotel{
 		    		else {
 		    			System.out.println("Wrong Option");
 		    		}
-		    		/*switch(choose){
-		    			case 1:
-		    			menu.setMenu();
-		    			user.orderFood();
-		    			break;
-		    			case 2:
-		    			user.payBill();
-		    			break;
-		    			default:
-		    			System.out.println("Wrong Option");
-		    		}*/
 		    		System.out.println("Go to User Page \n1.Yes \n0.No");
 		    		optt = s.nextInt();
 		    	}while(optt!=0);
