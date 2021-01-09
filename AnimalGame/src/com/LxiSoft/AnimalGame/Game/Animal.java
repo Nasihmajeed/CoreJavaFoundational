@@ -11,7 +11,7 @@ public class Animal{
 	public String getName(){
 		return animalName;
 	} 
-	public void setStength(int strenth){
+	public void setStrength(int strenth){
 		this.strength = strenth;
 	}
 	public int getStrength(){
