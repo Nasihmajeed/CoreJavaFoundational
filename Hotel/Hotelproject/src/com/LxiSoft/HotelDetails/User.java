@@ -3,8 +3,9 @@ import java.util.*;
 
 public class User 
 {
-    public void addMenuDetails()
+    public void viewMenuDetails()
     {
+        Menu menu = new Menu();
         int optt;
                 do
                 {
@@ -13,14 +14,14 @@ public class User
                     System.out.println("-----------------");
                     System.out.println("1.Order \n2.Pay Bill");
                     int choose = s.nextInt();
+                    
                     if(choose==1)
                     {
-                    
-                   
+                        menu.order();
                     }
                     else if(choose==2)
                     {
-                    
+                        menu.payBill();
                     }
                     else 
                     {

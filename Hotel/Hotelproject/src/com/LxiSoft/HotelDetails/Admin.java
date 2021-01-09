@@ -5,7 +5,9 @@ public class Admin
 {
     public void addMenuDetails()
     {
-        Edit edit = new Edit();
+        // Edit edit = new Edit();
+        Menu menu = new Menu();
+        // Action action = new Action();
         int opt;
                 do
                 {
@@ -16,19 +18,19 @@ public class Admin
                     int choice = s.nextInt();
                     if(choice==1)
                     {
-                        edit.viewMenu();
+                        menu.viewMenu();
                     }
                     else if(choice==2)
                     {
-                        edit.addMenu();
+                        menu.addMenu();
                     }
                     else if(choice==3)
                     {
-                        edit.editMenu();
+                        menu.editMenu();
                     }
                     else if(choice==4)
                     {
-                        edit.deleteMenu();
+                        menu.deleteMenu();
                     }
                     else 
                     {

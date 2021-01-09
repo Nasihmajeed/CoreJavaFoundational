@@ -4,7 +4,7 @@ package com.LxiSoft.HotelDetails;
 public class Dessert 
 {
     String foodName;
-	String foodType;
+	  String foodType;
     int price;
     
     public void setName(String food)
