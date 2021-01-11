@@ -1,5 +1,4 @@
-package com.LxiSoft.Test;
-import com.LxiSoft.AnimalGame.Game;
+package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
 public class Animal{
 	String animalName;

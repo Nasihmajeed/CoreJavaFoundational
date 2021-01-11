@@ -1,6 +1,6 @@
-package com.LxiSoft.AnimalGame;
-import com.LxiSoft.AnimalGame.Game;
+package com.LxiSoft.AnimalGame.Game;
+
 import java.util.*;
-public class Herbivores extends Animal{
+public class Herbivore extends Animal{
 	
 }
