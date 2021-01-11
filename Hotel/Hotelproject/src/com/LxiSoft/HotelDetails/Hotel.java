@@ -6,9 +6,11 @@ public class Hotel
     String hotelName;
     String place;
     String hotelType;
-    Scanner s = new Scanner(System.in);
 
-    // Login login = new Login();
+    Actions action = new Actions();
+    Menu menu = new Menu();
+
+    Scanner s = new Scanner(System.in);
 
     public void addHotelDetails()
     {
@@ -30,10 +32,7 @@ public class Hotel
         System.out.println("Type        : " + hotelType);
         System.out.println(">----------------------------<");
 
-        int back;
-        Admin admin = new Admin();
-        User user = new User();
-        
+        int back;        
         do
         {
             Scanner s = new Scanner(System.in);
@@ -43,16 +42,67 @@ public class Hotel
             int option = s.nextInt();
             if(option==1)
             {
-                admin.addMenuDetails();
-            }
+                int opt;
+                do
+                {
+                    System.out.println("\n Admin Activity");
+                    System.out.println("----------------");
+                    System.out.println("1.View Menu \n2.Add \n3.Edit \n4.Delete");
+                    int choice = s.nextInt();
+                    if(choice==1)
+                    {
+                        action.viewMenu();
+                    }
+                    else if(choice==2)
+                    {
+                        action.addMenu();
+                    }
+                    else if(choice==3)
+                    {
+                        action.editMenu();
+                    }
+                    else if(choice==4)
+                    {
+                        action.deleteMenu();
+                    }
+                    else 
+                    {
+                        System.out.println("Invalid option");
+                    }
+                    System.out.println("\nBack to Admin Page? \n1.Yes\n0.No");
+                    opt = s.nextInt();
+                }
+                while(opt!=0);
+            }    
+            
             else if(option==2)
             {
-                user.viewMenuDetails();
+                int optt;
+                do
+                {
+                    System.out.println("\n Customer Activity");
+                    System.out.println("-----------------");
+                    System.out.println("1.Order \n2.Pay Bill");
+                    int choose = s.nextInt();
+                    
+                    if(choose==1)
+                    {
+                        action.order();
+                    }
+                    else if(choose==2)
+                    {
+                        action.payBill();
+                    }
+                    else 
+                    {
+                        System.out.println("Invalid Option");
+                    }
+                    System.out.println("\nBack to Customer Page? \n1.Yes \n0.No");
+                    optt = s.nextInt();
+                }
+                while(optt!=0);   
             }
-            else
-            {
-                System.out.println("Invalid Option");
-            }
+            
             System.out.println("\nBack to main page ?\n1.Yes\n0.No");
             back = s.nextInt();
         }

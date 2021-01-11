@@ -3,7 +3,7 @@ import java.util.*;
 
 enum Type
 {
-  FISH, MEAT;
+  FISH,MEAT;
 }
 
 public class Rice implements Food
@@ -47,7 +47,7 @@ public class Rice implements Food
         System.out.println("\nEnter Sl.No. ");
         int ordr = s.nextInt();
 
-        System.out.println("Order more? \n1.Yes \n0.No");
+        System.out.println("More specials? \n1.Yes \n0.No");
         more = s.nextInt();
       }
       while(more != 0);
@@ -68,7 +68,7 @@ public class Rice implements Food
       break;
 
       default:
-      System.out.println("Wrong Input");
+      System.out.println("Invalid");
       break;
     }
   }

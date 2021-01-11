@@ -1,7 +1,7 @@
 package com.LxiSoft.HotelDetails;
 // import java.util.*;
 
-public class Dessert 
+public class Dessert implements Food
 {
     String foodName;
 	  String foodType;
