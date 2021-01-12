@@ -4,6 +4,7 @@ public class Animal{
 	String animalName;
 	int strength;
 	int energyLevel;
+	public void behaviour();
 	public void setName(String name){
 		this.animalName = name;
 	}

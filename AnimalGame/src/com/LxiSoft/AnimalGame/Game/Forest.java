@@ -35,13 +35,13 @@ public class Forest{
 		animals.add(new Herbivore());
 	}
 	public void setAnimal(){
-		animals.get(0).setName("Jaguar");
+		animals.get(0).setName("Jaguar      ");
 		animals.get(0).setStrength(8);
 		animals.get(0).setEnergyLevel(6);
-		animals.get(1).setName("Deer");
+		animals.get(1).setName("Deer        ");
 		animals.get(1).setStrength(5);
 		animals.get(1).setEnergyLevel(10);
-		animals.get(2).setName("Tiger");
+		animals.get(2).setName("Tiger       ");
 		animals.get(2).setStrength(10);
 		animals.get(2).setEnergyLevel(10);
 		animals.get(3).setName("Wilder_Beast");
