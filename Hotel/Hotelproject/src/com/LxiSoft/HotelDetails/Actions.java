@@ -119,7 +119,7 @@ public class Actions
 		        System.out.println("\nEnter quantity");
                 int number = s.nextInt();
 
-                System.out.println("\nNeed special? \n1.Yes \n 0.No");
+                System.out.println("\nNeed special on extra 100? \n1.Yes \n 0.No");
 		        int special = s.nextInt();
                 if(special==1)
                 {
@@ -142,7 +142,7 @@ public class Actions
 		    	    }
 		        }
             
-		        menu.riceOrder(order,number);
+		        menu.riceOrder(order,number,special);
                 break;
                 
                 case 2:

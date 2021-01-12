@@ -33,17 +33,21 @@ public class Menu
     public void setFishMenu(){
 		fish.add(new Rice());
 		fish.get(0).setName("Prawns");
+		// fish.get(0).setPrice(120);
 		
 		fish.add(new Rice());
 		fish.get(1).setName("Salmon");
+		// fish.get(1).setPrice(80);
 	}
 
 	public void setMeatMenu(){
 		meat.add(new Rice());
 		meat.get(0).setName("Chicken");
+		// meat.get(0).setPrice(120);
 
 		meat.add(new Rice());
 		meat.get(1).setName("Beef");
+		// meat.get(1).setPrice(140);
 	}
 
     public void getRice(int n)
@@ -162,38 +166,45 @@ public class Menu
 	public void printFishMenu()
 	{
 		this.setFishMenu();
+		// System.out.println(">-------------+-------------+------------<");
 		System.out.println("+---------+-------------+");
-		System.out.println("   Sl.No       Fish    ");
+		System.out.println("   Sl.No       Fish     ");
+		// System.out.println(">-------------+-------------+------------<");
 		System.out.println("+---------+-------------+");
 
 		for(int i=0; i<fish.size(); i++)
 		{
-			System.out.println("  "+(i+1)+"\t    "+fish.get(i).getName()+"\t ");
+			System.out.println("    "+(i+1)+"\t    "+fish.get(i).getName()+"\t    "); //+fish.get(i).getPrice()+"  ");
 		}
 		System.out.println("+---------+-------------+");
+		// System.out.println(">-------------+-------------+------------<");
 	}
 	public void printMeatMenu()
 	{
 		this.setMeatMenu();
 		System.out.println("+---------+-------------+");
-		System.out.println("   Sl.No        Meat    ");
+		// System.out.println(">-------------+-------------+------------<");
+		System.out.println("   Sl.No       Meat   ");
 		System.out.println("+---------+-------------+");
+		// System.out.println(">-------------+-------------+------------<");
 
 		for(int i=0; i<meat.size(); i++)
 		{
-			System.out.println("  "+(i+1)+"\t    "+meat.get(i).getName()+"\t ");
+			System.out.println("    "+(i+1)+"\t    "+meat.get(i).getName()+"\t    " ); //+meat.get(i).getPrice()+"  ");
 		}
 		System.out.println("+---------+-------------+");
+		// System.out.println(">-------------+-------------+------------<");
 	}
     
 	int riceItemsPrice=0;
 	int dessertItemsPrice=0;
-    int total=0;
+	int total=0;
+	int special = 100;
     
-    public void riceOrder(int order, int quantity)
+    public void riceOrder(int order, int quantity, int orderr)
     {
-		int prize = quantity * rices.get(order-1).getPrice();
-		riceItemsPrice = riceItemsPrice + prize;	
+		int price = quantity * rices.get(order-1).getPrice();
+		riceItemsPrice = riceItemsPrice + price;
     }
     
     public void dessertOrder(int order, int quantity)
@@ -205,9 +216,9 @@ public class Menu
     public void totalAmount()
     {
 		int totel = dessertItemsPrice + riceItemsPrice;
-		total = total + totel;
+		total = total + totel + special;
 		System.out.println("+--------------------------+");
-		System.out.println("  Bill Amount\t: "+total);	
+		System.out.println("  Bill Amount\t: "+ total);	
 		System.out.println("+--------------------------+");
 	}
 

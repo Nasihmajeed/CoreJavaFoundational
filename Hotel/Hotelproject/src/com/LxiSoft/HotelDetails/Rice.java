@@ -45,7 +45,7 @@ public class Rice implements Food
       do
       {			        
         System.out.println("\nEnter Sl.No. ");
-        int ordr = s.nextInt();
+        int orderr = s.nextInt();
 
         System.out.println("More specials? \n1.Yes \n0.No");
         more = s.nextInt();
@@ -59,7 +59,7 @@ public class Rice implements Food
       do
       {			                
         System.out.println("\nEnter Sl.No. ");          
-        int ordr = s.nextInt();
+        int orderr = s.nextInt();
 
         System.out.println("Order more? \n1.Yes \n0.No");
         moree = s.nextInt();
