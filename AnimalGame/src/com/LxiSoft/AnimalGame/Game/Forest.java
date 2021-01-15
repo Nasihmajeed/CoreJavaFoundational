@@ -46,13 +46,11 @@ public class Forest{
 		if(size == 1){
 			System.out.println("\nThe Conqurrer of "+forestName+" ");
 		   	System.out.println("+----------------------+");
-		    System.out.println("         JUMANJI         ");
+		    System.out.println("         JUMANJI        ");
 		    System.out.println("+----------------------+");
 		    System.out.println("     "+animals.get(size-1).getName());
-		    System.out.println("+----------------------+");
-		   	
+		    System.out.println("+----------------------+");   	
 		}
-
 	}	
 	public void addAnimals(){
 		animals.add(new Tiger());
