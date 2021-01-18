@@ -1,12 +1,11 @@
 package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
 public class Deer extends Animal implements Herbivore{
-	String animalName;
-	int strength;
-	int energyLevel;
-	public void behaviour(){
-		System.out.println("  ");
+	public void animalDetails(){
+		System.out.println("           3)   Deer or true deer are hoofed ruminant mammals forming the family Cervidae");
 	}
+
+
 	public void setName(String name){
 		this.animalName = name;
 	}
@@ -24,5 +23,5 @@ public class Deer extends Animal implements Herbivore{
 	}
 	public int getEnergyLevel(){
 		return energyLevel;
-	}
+	}	
 }

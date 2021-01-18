@@ -1,12 +1,11 @@
 package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
 public class WildeBeest extends Animal implements Herbivore{
-	String animalName;
-	int strength;
-	int energyLevel;
-	public void behaviour(){
-		System.out.println("  ");
+	public void animalDetails(){
+		System.out.println("           4)   The wildebeest is an antelope in the genus Connochaetes. It belongs to the family Bovidae.");
 	}
+
+
 	public void setName(String name){
 		this.animalName = name;
 	}

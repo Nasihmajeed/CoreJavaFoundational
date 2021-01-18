@@ -1,14 +1,35 @@
 package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
-abstract class Animal{
+public abstract class Animal{
+	public abstract void animalDetails();
+
+	String animalName;
+	int strength;
+	int energyLevel;
+	int hungerLevel;
 	
-	public void behaviour(){
-		System.out.println("  ");
+	public void setName(String name){
+		this.animalName = name;
 	}
-	abstract  void setName(String name);
-	abstract  String getName();
-	abstract  void setStrength(int strenth);
-	abstract int getStrength();
-	abstract  void setEnergyLevel(int energy);
-	abstract int getEnergyLevel();
+	public String getName(){
+		return animalName;
+	} 
+	public void setStrength(int strenth){
+		this.strength = strenth;
+	}
+	public int getStrength(){
+		return strength;
+	}
+	public void setEnergyLevel(int energy){
+		this.energyLevel = energy;
+	}
+	public int getEnergyLevel(){
+		return energyLevel;
+	}
+	public void setHungerLevel(int hunger){
+		this.hungerLevel = hunger;
+	}
+	public int getHungerLevel(){
+		return hungerLevel;
+	}
 }

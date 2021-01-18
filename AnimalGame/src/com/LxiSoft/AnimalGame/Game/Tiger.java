@@ -2,11 +2,8 @@ package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
 
 public class Tiger extends Animal implements Carnivore{
-	String animalName;
-	int strength;
-	int energyLevel;
-	public void behaviour(){
-		System.out.println("  ");
+	public void animalDetails(){
+		System.out.println("           1)   Tigers are the largest members of the cat family");
 	}
 	public void setName(String name){
 		this.animalName = name;
@@ -25,5 +22,11 @@ public class Tiger extends Animal implements Carnivore{
 	}
 	public int getEnergyLevel(){
 		return energyLevel;
+	}
+	public void setHungerLevel(int hunger){
+		this.hungerLevel = hunger;
+	}
+	public int getHungerLevel(){
+		return hungerLevel;
 	}
 }
