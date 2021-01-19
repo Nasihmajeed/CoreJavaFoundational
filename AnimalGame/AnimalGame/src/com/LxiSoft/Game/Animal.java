@@ -6,10 +6,10 @@ public class Animal
     int energyLevel;
     int strength;
 
-    public void behaviour()
-    {
+    //public void behaviour()
+    //{
 
-    }
+    //}
     public void setName(String name)
     {
         this.animalName = name;
