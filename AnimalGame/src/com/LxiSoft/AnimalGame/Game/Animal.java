@@ -7,6 +7,7 @@ public abstract class Animal{
 	int strength;
 	int energyLevel;
 	int hungerLevel;
+	int range;
 	
 	public void setName(String name){
 		this.animalName = name;
@@ -31,5 +32,11 @@ public abstract class Animal{
 	}
 	public int getHungerLevel(){
 		return hungerLevel;
+	}
+	public void setArea(int area){
+		this.range = area;
+	}
+	public int getArea(){
+		return range;
 	}
 }

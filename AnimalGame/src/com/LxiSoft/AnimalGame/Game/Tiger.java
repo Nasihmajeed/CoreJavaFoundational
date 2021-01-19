@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Tiger extends Animal implements Carnivore{
 	public void animalDetails(){
-		System.out.println("           1)   Tigers are the largest members of the cat family");
+		System.out.println("           1) Tigers are the largest members of the cat family");
 	}
 	public void setName(String name){
 		this.animalName = name;
@@ -28,5 +28,11 @@ public class Tiger extends Animal implements Carnivore{
 	}
 	public int getHungerLevel(){
 		return hungerLevel;
+	}
+	public void setArea(int area){
+		this.range = area;
+	}
+	public int getArea(){
+		return range;
 	}
 }

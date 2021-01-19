@@ -2,7 +2,7 @@ package com.LxiSoft.AnimalGame.Game;
 import java.util.*;
 public class Jaguar extends Animal implements Carnivore{
 	public void animalDetails(){
-		System.out.println("           2)   The jaguar is a large felid species and the only extant member of the genus Panthera ");
+		System.out.println("           2) The jaguar is a large felid species and the only extant member of the genus Panthera ");
 	}
 
 	public void setName(String name){
@@ -28,5 +28,11 @@ public class Jaguar extends Animal implements Carnivore{
 	}
 	public int getHungerLevel(){
 		return hungerLevel;
+	}
+	public void setArea(int area){
+		this.range = area;
+	}
+	public int getArea(){
+		return range;
 	}
 }
