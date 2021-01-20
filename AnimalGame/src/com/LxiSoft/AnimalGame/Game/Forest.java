@@ -82,7 +82,7 @@ public class Forest{
 		animals.get(0).setName("Bengal Tiger");
 		animals.get(0).setStrength(10);
 		animals.get(0).setEnergyLevel(9);
-		animals.get(0).setHungerLevel(8);
+		animals.get(0).setHungerLevel(6);
 		animals.get(0).setArea(bTigerTrtry);
 		animals.get(1).setName("Jaguar      ");
 		animals.get(1).setStrength(8);
