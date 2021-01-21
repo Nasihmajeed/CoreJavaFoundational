@@ -2,9 +2,32 @@ package com.LxiSoft.Game;
 
 public class Lion extends Animal implements Carnivore
 {
-    //public void behaviour()
-    //{
-    //    System.out.println("Fast, Strong");
-    //}
+    // public void animalDetails()
+    // {
+        public void setName(String name)
+        {
+            this.animalName = name;
+        }
+        public String getName()
+        {
+            return animalName;
+        } 
+        public void setStrength(int strenth)
+        {
+            this.strength = strenth;
+        }
+        public int getStrength()
+        {
+            return strength;
+        }
+        public void setEnergyLevel(int energy)
+        {
+            this.energyLevel = energy;
+        }
+        public int getEnergyLevel()
+        {
+            return energyLevel;
+        }
+    // }
     
 }

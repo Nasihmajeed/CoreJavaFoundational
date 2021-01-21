@@ -1,9 +1,9 @@
 package com.LxiSoft.Game;
 
-public class Deer extends Animal implements Herbivore
+public class Elephant extends Animal implements Herbivore
 {
-    //public void animalDetails()
-    //{
+    // public void animalDetails()
+    // {
         public void setName(String name)
         {
             this.animalName = name;
@@ -28,6 +28,5 @@ public class Deer extends Animal implements Herbivore
         {
             return energyLevel;
         }
-    //}
-    
+	// }
 }
