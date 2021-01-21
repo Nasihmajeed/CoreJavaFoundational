@@ -58,6 +58,9 @@ public class Forest{
 		    System.out.println("     "+animals.get(size-1).getName());
 		    System.out.println("+----------------------+");   	
 		}
+		else{
+			System.out.println("\nTHERE IS NO WINNER");
+		}
 	}	
 	public void addAnimals(){
 		animals.add(new Tiger());
@@ -82,7 +85,7 @@ public class Forest{
 		animals.get(0).setName("Bengal Tiger");
 		animals.get(0).setStrength(10);
 		animals.get(0).setEnergyLevel(9);
-		animals.get(0).setHungerLevel(6);
+		animals.get(0).setHungerLevel(8);
 		animals.get(0).setArea(bTigerTrtry);
 		animals.get(1).setName("Jaguar      ");
 		animals.get(1).setStrength(8);
@@ -92,10 +95,12 @@ public class Forest{
 		animals.get(2).setName("Deer        ");
 		animals.get(2).setStrength(5);
 		animals.get(2).setEnergyLevel(10);
+		animals.get(2).setHungerLevel(5);
 		animals.get(2).setArea(deerTrtry);
 		animals.get(3).setName("WildeBeest  ");
 		animals.get(3).setStrength(6);
 		animals.get(3).setEnergyLevel(7);
+		animals.get(3).setHungerLevel(4);
 		animals.get(3).setArea(beestTrtry);
 
 		animals.get(4).setName("White Tiger ");
@@ -111,10 +116,12 @@ public class Forest{
 		animals.get(6).setName("Red Deer    ");
 		animals.get(6).setStrength(6);
 		animals.get(6).setEnergyLevel(7);
+		animals.get(6).setHungerLevel(5);
 		animals.get(6).setArea(rDeerTrtry);
 		animals.get(7).setName("Bisons      ");
-		animals.get(7).setStrength(7);
+		animals.get(7).setStrength(5);
 		animals.get(7).setEnergyLevel(3);
+		animals.get(7).setHungerLevel(6);
 		animals.get(7).setArea(bisonTrtry);
 	}
 	public void printList(){

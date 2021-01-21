@@ -24,6 +24,12 @@ public class Deer extends Animal implements Herbivore{
 	public int getEnergyLevel(){
 		return energyLevel;
 	}
+	public void setHungerLevel(int hunger){
+		this.hungerLevel = hunger;
+	}
+	public int getHungerLevel(){
+		return hungerLevel;
+	}
 	public void setArea(int area){
 		this.range = area;
 	}
