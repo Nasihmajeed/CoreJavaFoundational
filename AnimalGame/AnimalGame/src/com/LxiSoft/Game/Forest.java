@@ -22,30 +22,17 @@ public class Forest
 
         if(start == 1)
         {
-            // this.printAnimals();
+           
             this.startGame();
         }
     }
 
-    // public void animal()
-    // {
-    //     Tiger tiger = new Tiger();
-    //     Lion lion = new Lion();
-    //     Deer deer = new Deer();
-    //     Elephant elephant = new Elephant();
-
-    //     tiger.animalDetails()
-    //     lion.animalDetails();
-    //     deer.animalDetails();
-    //     elephant.animalDetails();
-    // }
+   
 
     public void startGame()
     {
         Scanner s = new Scanner(System.in);
-        // this.addAnimal();
-        // this.setAnimal();
-        // this.printAnimals();
+       
 
         int size;
         do
@@ -98,7 +85,7 @@ public class Forest
 		animals.get(2).setEnergyLevel(10);
 		
 		animals.get(3).setName("Elephant");
-		animals.get(3).setStrength(10);
+		animals.get(3).setStrength(7);
 		animals.get(3).setEnergyLevel(5);
 		
 
