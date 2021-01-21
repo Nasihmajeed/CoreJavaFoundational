@@ -85,17 +85,17 @@ public class Forest
 		animals.get(2).setEnergyLevel(10);
 		
 		animals.get(3).setName("Elephant");
-		animals.get(3).setStrength(7);
-		animals.get(3).setEnergyLevel(5);
+		animals.get(3).setStrength(5);
+		animals.get(3).setEnergyLevel(3);
 		
 
 		animals.get(4).setName("Cheetah");
 		animals.get(4).setStrength(8);
-		animals.get(4).setEnergyLevel(10);
+		animals.get(4).setEnergyLevel(9);
 	
 		animals.get(5).setName("Leopard");
-		animals.get(5).setStrength(8);
-		animals.get(5).setEnergyLevel(9);
+		animals.get(5).setStrength(7);
+		animals.get(5).setEnergyLevel(8);
 	
 		animals.get(6).setName("Rabbit");
 		animals.get(6).setStrength(4);
