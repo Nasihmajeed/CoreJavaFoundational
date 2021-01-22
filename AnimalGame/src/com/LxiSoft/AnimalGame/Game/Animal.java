@@ -8,6 +8,8 @@ public abstract class Animal{
 	int energyLevel;
 	int hungerLevel;
 	int range;
+	int eyeSight;
+	boolean isAlive;
 	
 	public void setName(String name){
 		this.animalName = name;
@@ -38,5 +40,17 @@ public abstract class Animal{
 	}
 	public int getArea(){
 		return range;
+	}
+	public void setView(int view){
+		this.eyeSight = view;
+	}
+	public int getView(){
+		return eyeSight;
+	}
+	public void setLife(boolean alive){
+		this.isAlive = alive;
+	}
+	public boolean getLife(){
+		return isAlive;
 	}
 }

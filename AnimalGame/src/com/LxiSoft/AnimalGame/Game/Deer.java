@@ -36,4 +36,16 @@ public class Deer extends Animal implements Herbivore{
 	public int getArea(){
 		return range;
 	}	
+	public void setView(int view){
+		this.eyeSight = view;
+	}
+	public int getView(){
+		return eyeSight;
+	}
+	public void setLife(boolean alive){
+		this.isAlive = alive;
+	}
+	public boolean getLife(){
+		return isAlive;
+	}
 }
