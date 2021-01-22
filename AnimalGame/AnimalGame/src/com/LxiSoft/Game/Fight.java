@@ -10,11 +10,14 @@ public class Fight
         {
             this.carnVsCarn(animal1,animal2,animals);
         }
+        
         else if(animals.get(animal1) instanceof Carnivore && animals.get(animal2) instanceof Herbivore || (animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Carnivore))
         {
 			this.carnVsHerb(animal1,animal2,animals);
         }
         
+
+
         else if(animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Herbivore)
         {
             System.out.println(animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" doesn't fight each other");
@@ -32,6 +35,8 @@ public class Fight
                 System.out.println("\n");
             }
             
+
+
             
             else if(animals.get(n1).getStrength() == animals.get(n2).getStrength() && animals.get(n1).getEnergyLevel() < animals.get(n2).getEnergyLevel())
             {
@@ -61,13 +66,15 @@ public class Fight
 			    System.out.println(animals.get(anim2).getName()+" killed "+animals.get(anim1).getName());
                 animals.remove(anim1);
                 System.out.println("\n");
-		    }
+            }
+            
             else if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() < animals.get(anim2).getEnergyLevel())
             {
 		        System.out.println(animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
                 animals.remove(anim2);
                 System.out.println("\n");
-			}
+            }
+            
             else if(animals.get(anim1).getStrength() < animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() > animals.get(anim2).getEnergyLevel())
             {
 		        System.out.println(animals.get(anim2).getName()+" killed "+animals.get(anim1).getName());
