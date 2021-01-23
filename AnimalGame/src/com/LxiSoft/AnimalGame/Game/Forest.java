@@ -42,7 +42,7 @@ public class Forest{
 		    int x = random.nextInt(size);
 		    int y = random.nextInt(size);
 		    if(x != y){
-		    	fight.setFight(x,y,animals);
+		    	this.setFight(x,y,animals);
 		    }
 		    
 		    
@@ -50,6 +50,8 @@ public class Forest{
 		    //System.out.println("Do you need to keep fighting 1.Yes 0.No");
 		    //again = s.nextInt();
 		}while(size > 1);
+
+	 
 		if(size == 1){
 			System.out.println("\nThe Conquerer of "+forestName+" ");
 		   	System.out.println("+----------------------+");
@@ -61,6 +63,25 @@ public class Forest{
 		else{
 			System.out.println("\nTHERE IS NO WINNER");
 		}
+	}
+	public void setFight(int animal1,int animal2,ArrayList<Animal> animals){
+		//if(animals.get(animal1).getLife() == true && animals.get(animal2).getLife() == true){
+			if(animals.get(animal1) instanceof Carnivore && animals.get(animal2) instanceof Carnivore){
+			    fight.carnivoreVsCarnivore(animal1,animal2,animals);
+		    }
+		    else if(animals.get(animal1) instanceof Carnivore && animals.get(animal2) instanceof Herbivore){ 
+			    fight.carnivoreVsHerbivore(animal1,animal2,animals);
+		    }
+		    else if(animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Carnivore){
+			    fight.herbivoreVsCarnivore(animal1,animal2,animals);
+		    }
+		    else if(animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Herbivore){
+			
+			    fight.result(animal1,animal2,animals);
+			    System.out.println(" "+animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" does not fight each other");
+			    System.out.println("------------------------------------------------------------------------------------------"); 
+		    }
+		//}
 	}	
 	public void addAnimals(){
 		animals.add(new Tiger());
