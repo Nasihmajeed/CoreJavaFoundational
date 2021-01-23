@@ -10,76 +10,273 @@ public class Fight
         {
             this.carnVsCarn(animal1,animal2,animals);
         }
-        
-        else if(animals.get(animal1) instanceof Carnivore && animals.get(animal2) instanceof Herbivore || (animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Carnivore))
+
+        else if(animals.get(animal1) instanceof Carnivore && animals.get(animal2) instanceof Herbivore)
         {
 			this.carnVsHerb(animal1,animal2,animals);
         }
+
+        else if(animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Carnivore)
+        {
+            this.herbVsCarn(animal1,animal2,animals);
+        }
         
-
-
         else if(animals.get(animal1) instanceof Herbivore && animals.get(animal2) instanceof Herbivore)
         {
-            System.out.println(animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" doesn't fight each other");
-            System.out.println("\n");
+			System.out.println("		"+animals.get(animal1).getName()+" met "+animals.get(animal2).getName());
+			this.result(animal1,animal2,animals);
+			System.out.println("\n");
+			System.out.println("+------------------------------------------------------------------+"); 
+            System.out.println("	"+animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" doesn't fight each other");
 		}
     }
 
-    public void carnVsCarn(int n1,int n2,ArrayList<Animal> animals)
+    
+
+    public void carnVsCarn(int anml1,int anml2,ArrayList<Animal> animals)
     {
-
-            if(animals.get(n1).getStrength() > animals.get(n2).getStrength() && animals.get(n1).getEnergyLevel() > animals.get(n2).getEnergyLevel())
+		boolean area = this.setDomain(anml1,anml2,animals);
+        if(area == true)
+        {
+            if(animals.get(anml1).getView() > animals.get(anml2).getView() || animals.get(anml2).getView() > animals.get(anml1).getView())
             {
-			    System.out.println(animals.get(n1).getName()+" killed "+animals.get(n2).getName());
-                animals.remove(n2);
-                System.out.println("\n");
-            }
-            
+				System.out.println("	"+animals.get(anml1).getName()+" and "+animals.get(anml2).getName()+" meet and fight each other");
+                if(animals.get(anml1).getHungerLevel() > 2 || animals.get(anml2).getHungerLevel() > 2)
+                {
+        /*1*/       if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel())
+                    {
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+                        System.out.println("\n");
 
+			            animals.remove(anml2);
+			            int hunger = animals.get(anml1).getHungerLevel();
+			            hunger = hunger-1;
+			            animals.get(anml1).setHungerLevel(hunger);
+                    }
+                    
+        /*2*/       else if(animals.get(anml2).getStrength() > animals.get(anml1).getStrength() && animals.get(anml2).getEnergyLevel() > animals.get(anml1).getEnergyLevel())
+                    {
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println("\n");
 
+			            animals.remove(anml1);
+			            int hunger = animals.get(anml2).getHungerLevel();
+			            hunger = hunger-1;
+			            animals.get(anml2).setHungerLevel(hunger);
+                    }
+                    
+        /*3*/       else if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() < animals.get(anml2).getEnergyLevel())
+                    {
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+                        System.out.println("\n");
+
+		                animals.remove(anml2);
+		                int hunger = animals.get(anml1).getHungerLevel();
+		                hunger = hunger-1;
+		                animals.get(anml1).setHungerLevel(hunger);
+                    }
+                    
+		/*4*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel()){
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println("\n");
+
+		                animals.remove(anml1);
+		                int hunger = animals.get(anml2).getHungerLevel();
+		                hunger--;
+		                animals.get(anml2).setHungerLevel(hunger);
+                    }
+                    
+		/*5*/       else if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+		                System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+                        System.out.println("\n");
+
+                        animals.remove(anml2);
+		                int hunger = animals.get(anml1).getHungerLevel();
+		                hunger = hunger-1;
+		                animals.get(anml1).setHungerLevel(hunger);
+                    }
+                    
+		/*6*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println("\n");
+
+                        animals.remove(anml1);
+		                int hunger = animals.get(anml2).getHungerLevel();
+		                hunger = hunger-1;
+		                animals.get(anml2).setHungerLevel(hunger);
+                    }
+                    
+		/*7*/       else if(animals.get(anml1).getStrength() == animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel()){
+						this.result(anml1,anml2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anml1).getName()+" escaped from "+animals.get(anml2).getName()+" ");
+                        System.out.println("\n");
+                    }
+                    
+		/*8*/       else if(animals.get(anml1).getStrength() == animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() < animals.get(anml2).getEnergyLevel()){
+		                this.result(anml1,anml2,animals);
+                        System.out.println(" "+animals.get(anml2).getName()+" escaped from "+animals.get(anml1).getName()+"  ");
+                        System.out.println("\n");
+                    } 
+                    
+		/*9*/       else if(animals.get(anml1).getStrength() == animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
+		                this.result(anml1,anml2,animals);
+		                System.out.println(" "+animals.get(anml1).getName()+" , "+animals.get(anml2).getName()+" got tie ");
+						System.out.println("+------------------------------------------------------------------+"); 
+					}
+                
+        /*10*/  	else if(animals.get(anml1).getHungerLevel() <= 2 || animals.get(anml2).getHungerLevel() <= 2)
+                	{
+				    	System.out.println(animals.get(anml1).getName()+" and "+animals.get(anml2).getName()+"Not hungry & doesn't fight");
+		        	}
+            	}
             
-            else if(animals.get(n1).getStrength() == animals.get(n2).getStrength() && animals.get(n1).getEnergyLevel() < animals.get(n2).getEnergyLevel())
-            {
-                System.out.println(animals.get(n2).getName()+" escaped from "+animals.get(n1).getName()+" ");
-                System.out.println("\n");
-            } 
-            
-            else if(animals.get(n1).getStrength() == animals.get(n2).getStrength() && animals.get(n1).getEnergyLevel() == animals.get(n2).getEnergyLevel())
-            {
-                System.out.println(animals.get(n1).getName()+" , "+animals.get(n2).getName()+" got tie ");
-                System.out.println("\n");
-		    }
-    }
+            	else 
+            	{
+		    		System.out.println(animals.get(anml1).getName()+" and "+animals.get(anml2).getName()+" doesn't meet ");
+	    		}
+			}
+		}
+	}
     
 
     public void carnVsHerb(int anim1, int anim2,ArrayList<Animal> animals)
     {
-            if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() > animals.get(anim2).getEnergyLevel())
-            {
-			    System.out.println(animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
-                animals.remove(anim2);
-                System.out.println("\n");
+    boolean area = this.setDomain(anim1,anim2,animals);
+		if(area == true)
+		{
+
+/*1*/       if(animals.get(anim1).getView() > animals.get(anim2).getView())
+			{
+                System.out.println("\t\t"+animals.get(anim1).getName()+" spotted "+animals.get(anim2).getName()+" and start to attack");
+/*2*/           if(animals.get(anim1).getHungerLevel() > 2)
+				{
+/*3*/				if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() > animals.get(anim2).getEnergyLevel())
+					{
+						this.result(anim1,anim2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
+                        System.out.println("\n");
+
+			            animals.remove(anim2);
+			            int hunger = animals.get(anim1).getHungerLevel();
+			            hunger = hunger-1;
+			            animals.get(anim1).setHungerLevel(hunger);
+			        }
+		        
+/*4*/	            else if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() < animals.get(anim2).getEnergyLevel())
+                    {
+						this.result(anim1,anim2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
+                        System.out.println("\n");
+
+		                animals.remove(anim2);
+		                int hunger = animals.get(anim1).getHungerLevel();
+			            hunger = hunger-1;
+			            animals.get(anim1).setHungerLevel(hunger);
+			        }
+		        
+			    }
+/*5*/		    else if(animals.get(anim1).getHungerLevel() < 2)
+                {
+				    System.out.println("The Carnivore isn't hungry, doesn't attack");
+			    }
 			}
-            
-            else if(animals.get(anim2).getStrength() > animals.get(anim1).getStrength() && animals.get(anim2).getEnergyLevel() > animals.get(anim1).getEnergyLevel())
+/*6*/		else
             {
-			    System.out.println(animals.get(anim2).getName()+" killed "+animals.get(anim1).getName());
-                animals.remove(anim1);
-                System.out.println("\n");
-            }
-            
-            else if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() < animals.get(anim2).getEnergyLevel())
+				System.out.println(" "+animals.get(anim2).getName()+" escaped without getting Spotted by "+animals.get(anim1).getName());
+			}
+		}
+	}
+
+
+    public void herbVsCarn(int animl1, int animl2 ,ArrayList<Animal> animals)
+    {
+		boolean area = this.setDomain(animl1,animl2,animals);
+        if(area == true)
+        {
+/*1*/       if(animals.get(animl1) instanceof Herbivore && animals.get(animl2) instanceof Carnivore)
             {
-		        System.out.println(animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
-                animals.remove(anim2);
-                System.out.println("\n");
-            }
-            
-            else if(animals.get(anim1).getStrength() < animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() > animals.get(anim2).getEnergyLevel())
-            {
-		        System.out.println(animals.get(anim2).getName()+" killed "+animals.get(anim1).getName());
-                animals.remove(anim1);
-                System.out.println("\n");
+/*2*/           if(animals.get(animl1).getView() < animals.get(animl2).getView())
+                {
+			    	System.out.println(" "+animals.get(animl2).getName()+" spotted "+animals.get(animl1).getName()+" and start to attack");
+/*3*/               if(animals.get(animl2).getStrength() > animals.get(animl1).getStrength() && animals.get(animl2).getEnergyLevel() > animals.get(animl1).getEnergyLevel())
+                    {
+						this.result(animl1,animl2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
+                        System.out.println("\n");
+
+		                animals.remove(animl1);
+		                int hunger = animals.get(animl2).getHungerLevel();
+		                hunger = hunger-1;
+		                animals.get(animl2).setHungerLevel(hunger);
+                    }
+                    
+/*4*/               else if(animals.get(animl1).getStrength() < animals.get(animl2).getStrength() && animals.get(animl1).getEnergyLevel() > animals.get(animl2).getEnergyLevel())
+                    {
+						this.result(animl1,animl2,animals);
+						System.out.println("\n");
+                        System.out.println(" "+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
+                        System.out.println("\n");
+
+		                animals.remove(animl1);
+		                int hunger = animals.get(animl2).getHungerLevel();
+		                hunger = hunger-1;
+		                animals.get(animl2).setHungerLevel(hunger);
+		            }
+			    }
+/*5*/		    else
+                {
+				    System.out.println(" "+animals.get(animl1).getName()+" escaped without getting Spotted by "+animals.get(animl2).getName());
+			    }
 		    }
+		}    
+	}
+    
+
+    public boolean setDomain(int animl1, int animl2, ArrayList<Animal> animals)
+    {	
+		int range = 10;
+		int territory = (animals.get(animl1).getArea()) - (animals.get(animl2).getArea());
+        if(range>territory)
+        {
+			System.out.println("+------------------------------------------------------------------+"); 
+			System.out.println("		"+animals.get(animl1).getName()+" and "+animals.get(animl2).getName()+" are in same territory ");
+			System.out.println("\n");
+			return true;
+		}
+        else
+        {
+			System.out.println("+------------------------------------------------------------------+"); 
+			System.out.println("    "+animals.get(animl1).getName()+" and "+animals.get(animl2).getName()+" doesn't meet as they aren't in same territory");
+			return false;
+		}
+    }
+    
+    public void result(int animl1,int animl2,ArrayList<Animal> animals)
+    {
+		
+		System.out.println("+------------------------------------------------------------------+"); 
+		System.out.println("\n");       
+		System.out.println("		"+animals.get(animl1).getName()+" \tv/s\t"+animals.get(animl2).getName());
+		System.out.println("\n");
+
+		System.out.println(" Energy Level    :      "+animals.get(animl1).getEnergyLevel()+"\tv/s\t"+animals.get(animl2).getEnergyLevel());
+		System.out.println(" Strength Level  :      "+animals.get(animl1).getStrength()+"\tv/s\t"+animals.get(animl2).getStrength());
+		System.out.println(" Hunger Level    :      "+animals.get(animl1).getHungerLevel()+"\tv/s\t"+animals.get(animl2).getHungerLevel());
 	}
 }
