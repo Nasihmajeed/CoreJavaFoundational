@@ -4,7 +4,9 @@ public class Deer extends Animal implements Herbivore{
 	public void animalDetails(){
 		System.out.println("           3) Deer or true deer are hoofed ruminant mammals forming the family Cervidae");
 	}
-
+	public void herbBehaviour(){
+		System.out.println("           Herbivores are calm in nature and are fed by grass");
+	}
 
 	public void setName(String name){
 		this.animalName = name;

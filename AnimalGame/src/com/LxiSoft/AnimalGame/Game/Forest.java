@@ -14,10 +14,11 @@ public class Forest{
 		System.out.println("   FACTS : ");
 		this.aboutAnimal();
 		System.out.println("--------------------------------------------------------------------------------------------------------");
+		
 		System.out.println("\nDo you want to start the game 1.Yes 0.Exit");
 		int start = s.nextInt();
-		if(start == 1)
-			this.animalGame();
+	    if(start == 1)
+		   	this.animalGame();
 	}
 	public void aboutAnimal(){
 		Tiger t = new Tiger();
@@ -25,9 +26,13 @@ public class Forest{
 		Deer d = new Deer();
 		WildeBeest wb = new WildeBeest();
 		t.animalDetails();
+		t.carnBehaviour();
 		j.animalDetails();
+		j.carnBehaviour();
 		d.animalDetails();
+		d.herbBehaviour();
 		wb.animalDetails();
+		wb.herbBehaviour();
 	}
 	public void animalGame(){
 		Scanner s = new Scanner(System.in);
@@ -121,7 +126,7 @@ public class Forest{
 		animals.get(1).setName("Jaguar      ");
 		animals.get(1).setStrength(8);
 		animals.get(1).setEnergyLevel(6);
-		animals.get(1).setHungerLevel(6);
+		animals.get(1).setHungerLevel(4);
 		animals.get(1).setArea(35);
 		animals.get(1).setView(15);
 		animals.get(1).setLife(true);
@@ -143,14 +148,14 @@ public class Forest{
 		animals.get(4).setName("White Tiger ");
 		animals.get(4).setStrength(9);
 		animals.get(4).setEnergyLevel(8);
-		animals.get(4).setHungerLevel(5);
+		animals.get(4).setHungerLevel(4);
 		animals.get(4).setArea(32);
 		animals.get(4).setView(11);
 		animals.get(4).setLife(true);
 		animals.get(5).setName("Leopord     ");
 		animals.get(5).setStrength(7);
 		animals.get(5).setEnergyLevel(9);
-		animals.get(5).setHungerLevel(6);
+		animals.get(5).setHungerLevel(4);
 		animals.get(5).setArea(30);
 		animals.get(5).setView(13);
 		animals.get(5).setLife(true);

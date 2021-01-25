@@ -9,7 +9,8 @@ public class AnimalFight{
 		if(ar == true){
 			if(animals.get(n1).getView() > animals.get(n2).getView() || animals.get(n2).getView() > animals.get(n1).getView()){
 				System.out.println(animals.get(n1).getName()+" and "+animals.get(n2).getName()+" see each other and starts Fight");
-				if(animals.get(n1).getHungerLevel() > 2 || animals.get(n2).getHungerLevel() > 2){
+				
+				//if(animals.get(n1).getHungerLevel() > 2 || animals.get(n2).getHungerLevel() > 2){
 				    if(animals.get(n1).getStrength() > animals.get(n2).getStrength() && animals.get(n1).getEnergyLevel() > animals.get(n2).getEnergyLevel()){
 				        this.result(n1,n2,animals);
 			            System.out.println(" "+animals.get(n2).getName()+" has lost the fight and got killed by "+animals.get(n1).getName());
@@ -79,11 +80,8 @@ public class AnimalFight{
 		                System.out.println(" "+animals.get(n1).getName()+" , "+animals.get(n2).getName()+" got tie ");
 		                System.out.println("------------------------------------------------------------------------------------------");
 		            }
-		        }
-			    else if(animals.get(n1).getHungerLevel() <= 2 || animals.get(n2).getHungerLevel() <= 2){
-
-				    System.out.println(animals.get(n1).getName()+" and "+animals.get(n2).getName()+" does not engage in fight , he is not HUNGRY ");
-		        }
+		        //}
+			    
 		    }
 		    else {
 		    	System.out.println(animals.get(n1).getName()+" and "+animals.get(n2).getName()+" does not see each other");
@@ -95,15 +93,17 @@ public class AnimalFight{
 		if(ara == true){
 			if(animals.get(m1).getView() > animals.get(m2).getView()){
                 System.out.println("   "+animals.get(m1).getName()+" spotted "+animals.get(m2).getName()+" and engage to fight");
-			    if(animals.get(m1).getHungerLevel() > 2){
+			    if(animals.get(m1).getHungerLevel()<=2){
+
+				    System.out.println(animals.get(m1).getName()+" does not engage in fight "+animals.get(m2).getName()+" , he is not HUNGRY ");
+		        }
+		        else {
 				    if(animals.get(m1).getStrength() > animals.get(m2).getStrength() && animals.get(m1).getEnergyLevel() > animals.get(m2).getEnergyLevel()){
 			            this.result(m1,m2,animals);
 			            System.out.println(" "+animals.get(m2).getName()+" has lost the fight and got killed by "+animals.get(m1).getName());
 			            System.out.println("------------------------------------------------------------------------------------------");
 			            animals.remove(m2);
-			            //animals.get(m2).setLife(false);
 			            this.changeHungerLevel(m1,animals);
-			            //animals.get(m1).setStrength(animals.get(m1).getStrength()-2);
 			        }
 		        
 		            else if(animals.get(m1).getStrength() > animals.get(m2).getStrength() && animals.get(m1).getEnergyLevel() < animals.get(m2).getEnergyLevel()){
@@ -111,14 +111,9 @@ public class AnimalFight{
 		                System.out.println(" "+animals.get(m2).getName()+" has lost the fight and got killed by "+animals.get(m1).getName());
 		                System.out.println("------------------------------------------------------------------------------------------");
 		                animals.remove(m2);
-                        //animals.get(m2).setLife(false);
                         this.changeHungerLevel(m1,animals);
-			            //animals.get(m1).setStrength(animals.get(m1).getStrength()-2);
 			        }
-		        
-			    }
-			    else if(animals.get(m1).getHungerLevel() < 2){
-				    System.out.println("The Carnivore does not engage in fight , he is not HUNGRY ");
+			        
 			    }
 			}
 			else{
@@ -133,23 +128,25 @@ public class AnimalFight{
 			if(animals.get(a1) instanceof Herbivore && animals.get(a2) instanceof Carnivore){
 			    if(animals.get(a1).getView() < animals.get(a2).getView()){
 			    	System.out.println("  "+animals.get(a2).getName()+" spotted "+animals.get(a1).getName()+" and engage in fight");
-			    	if(animals.get(a2).getStrength() > animals.get(a1).getStrength() && animals.get(a2).getEnergyLevel() > animals.get(a1).getEnergyLevel()){
-		                this.result(a1,a2,animals);
-		                System.out.println(" "+animals.get(a1).getName()+" has lost the fight and got killed by "+animals.get(a2).getName());
-		                System.out.println("------------------------------------------------------------------------------------------");
-		                animals.remove(a1);
-		                //animals.get(a1).setLife(false);
-		                this.changeHungerLevel(a2,animals);
-		                //animals.get(a2).setStrength(animals.get(a2).getStrength()-2);
+			    	if(animals.get(a2).getHungerLevel() <= 2){
+
+				        System.out.println(animals.get(a2).getName()+" does not engage in fight "+animals.get(a1).getName()+" , he is not HUNGRY ");
 		            }
-		            else if(animals.get(a1).getStrength() < animals.get(a2).getStrength() && animals.get(a1).getEnergyLevel() > animals.get(a2).getEnergyLevel()){
-		                this.result(a1,a2,animals);
-		                System.out.println(" "+animals.get(a1).getName()+" has lost the fight and got killed by "+animals.get(a2).getName());
-		                System.out.println("------------------------------------------------------------------------------------------");
-		                animals.remove(a1);
-		                //animals.get(a1).setLife(false);
-		                this.changeHungerLevel(a2,animals);
-		                //animals.get(a2).setStrength(animals.get(a2).getStrength()-2);
+		            else{
+		            	if(animals.get(a2).getStrength() > animals.get(a1).getStrength() && animals.get(a2).getEnergyLevel() > animals.get(a1).getEnergyLevel()){
+		                    this.result(a1,a2,animals);
+		                    System.out.println(" "+animals.get(a1).getName()+" has lost the fight and got killed by "+animals.get(a2).getName());
+		                    System.out.println("------------------------------------------------------------------------------------------");
+		                    animals.remove(a1);
+		                    this.changeHungerLevel(a2,animals);
+		                }
+		                else if(animals.get(a1).getStrength() < animals.get(a2).getStrength() && animals.get(a1).getEnergyLevel() > animals.get(a2).getEnergyLevel()){
+		                    this.result(a1,a2,animals);
+		                    System.out.println(" "+animals.get(a1).getName()+" has lost the fight and got killed by "+animals.get(a2).getName());
+		                    System.out.println("------------------------------------------------------------------------------------------");
+		                    animals.remove(a1);		                
+		                    this.changeHungerLevel(a2,animals);
+		                }
 		            }
 			    }
 			    else{
@@ -172,11 +169,14 @@ public class AnimalFight{
 		int range = 10;
 		int teritory = (animals.get(p1).getArea()) - (animals.get(p2).getArea());
 		if(range>teritory){
+			System.out.println("------------------------------------------------------------------------------------------");
 			System.out.println("==>> "+animals.get(p1).getName()+" and "+animals.get(p2).getName()+" are in same teritory <<==");
 			return true;
 		}
 		else{
+			System.out.println("------------------------------------------------------------------------------------------");
 			System.out.println("==>> "+animals.get(p1).getName()+" and "+animals.get(p2).getName()+" are not in same teritory and do not meet each other <<==");
+			System.out.println("------------------------------------------------------------------------------------------");
 			return false;
 		}
 	}

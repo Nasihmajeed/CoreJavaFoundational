@@ -4,7 +4,10 @@ public class WildeBeest extends Animal implements Herbivore{
 	public void animalDetails(){
 		System.out.println("           4) The wildebeest is an antelope in the genus Connochaetes. It belongs to the family Bovidae.");
 	}
-
+	
+	public void herbBehaviour(){
+		System.out.println("           Herbivores are calm in nature and are fed by grass");
+	}
 
 	public void setName(String name){
 		this.animalName = name;

@@ -5,6 +5,9 @@ public class Tiger extends Animal implements Carnivore{
 	public void animalDetails(){
 		System.out.println("           1) Tigers are the largest members of the cat family");
 	}
+	public void carnBehaviour(){
+		System.out.println("           The carnivores are vigorous and kill other animals ");
+	}
 	public void setName(String name){
 		this.animalName = name;
 	}
