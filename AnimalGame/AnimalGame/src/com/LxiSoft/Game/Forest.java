@@ -67,8 +67,8 @@ public class Forest
         {
             System.out.println("+------------------------------------------------------------------+"); 
             System.out.println("+------------------------------------------------------------------+"); 
-            System.out.println("                     The Winner of the fight ");
-        
+            System.out.println("                      Winner of the fight ");
+                
 		    System.out.println("                            "+animals.get(size-1).getName());
             System.out.println("+------------------------------------------------------------------+");
             System.out.println("+------------------------------------------------------------------+"); 

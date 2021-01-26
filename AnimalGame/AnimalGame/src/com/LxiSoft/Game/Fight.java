@@ -29,6 +29,10 @@ public class Fight
 			System.out.println("+------------------------------------------------------------------+"); 
             System.out.println("	"+animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" doesn't fight each other");
 		}
+		// else
+		// {
+		// 	System.out.println("\nGame Exit...!");
+		// }
     }
 
     
@@ -47,7 +51,7 @@ public class Fight
                     {
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+                        System.out.println(" \t"+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
                         System.out.println("\n");
 
 			            animals.remove(anml2);
@@ -60,7 +64,7 @@ public class Fight
                     {
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println(" \t"+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
                         System.out.println("\n");
 
 			            animals.remove(anml1);
@@ -73,7 +77,7 @@ public class Fight
                     {
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+                        System.out.println(" \t"+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
                         System.out.println("\n");
 
 		                animals.remove(anml2);
@@ -85,7 +89,7 @@ public class Fight
 		/*4*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel()){
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println(" \t"+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
                         System.out.println("\n");
 
 		                animals.remove(anml1);
@@ -97,7 +101,7 @@ public class Fight
 		/*5*/       else if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-		                System.out.println(" "+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
+		                System.out.println(" \t"+animals.get(anml1).getName()+" killed "+animals.get(anml2).getName());
                         System.out.println("\n");
 
                         animals.remove(anml2);
@@ -109,7 +113,7 @@ public class Fight
 		/*6*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
 						this.result(anml1,anml2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
+                        System.out.println(" \t"+animals.get(anml2).getName()+" killed "+animals.get(anml1).getName());
                         System.out.println("\n");
 
                         animals.remove(anml1);
@@ -167,7 +171,7 @@ public class Fight
 					{
 						this.result(anim1,anim2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
+                        System.out.println(" \t"+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
                         System.out.println("\n");
 
 			            animals.remove(anim2);
@@ -180,7 +184,7 @@ public class Fight
                     {
 						this.result(anim1,anim2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
+                        System.out.println(" \t"+animals.get(anim1).getName()+" killed "+animals.get(anim2).getName());
                         System.out.println("\n");
 
 		                animals.remove(anim2);
@@ -197,7 +201,7 @@ public class Fight
 			}
 /*6*/		else
             {
-				System.out.println(" "+animals.get(anim2).getName()+" escaped without getting Spotted by "+animals.get(anim1).getName());
+				System.out.println(" "+animals.get(anim2).getName()+" escaped without disturbing "+animals.get(anim1).getName());
 			}
 		}
 	}
@@ -217,7 +221,7 @@ public class Fight
                     {
 						this.result(animl1,animl2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
+                        System.out.println(" \t"+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
                         System.out.println("\n");
 
 		                animals.remove(animl1);
@@ -230,7 +234,7 @@ public class Fight
                     {
 						this.result(animl1,animl2,animals);
 						System.out.println("\n");
-                        System.out.println(" "+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
+                        System.out.println(" \t"+animals.get(animl2).getName()+" killed "+animals.get(animl1).getName());
                         System.out.println("\n");
 
 		                animals.remove(animl1);
@@ -241,7 +245,7 @@ public class Fight
 			    }
 /*5*/		    else
                 {
-				    System.out.println(" "+animals.get(animl1).getName()+" escaped without getting Spotted by "+animals.get(animl2).getName());
+				    System.out.println(" "+animals.get(animl1).getName()+" escaped without disturbing "+animals.get(animl2).getName());
 			    }
 		    }
 		}    
@@ -275,8 +279,8 @@ public class Fight
 		System.out.println("		"+animals.get(animl1).getName()+" \tv/s\t"+animals.get(animl2).getName());
 		System.out.println("\n");
 
-		System.out.println(" Energy Level    :      "+animals.get(animl1).getEnergyLevel()+"\tv/s\t"+animals.get(animl2).getEnergyLevel());
-		System.out.println(" Strength Level  :      "+animals.get(animl1).getStrength()+"\tv/s\t"+animals.get(animl2).getStrength());
-		System.out.println(" Hunger Level    :      "+animals.get(animl1).getHungerLevel()+"\tv/s\t"+animals.get(animl2).getHungerLevel());
+		System.out.println(" \tEnergy Level    :      "+animals.get(animl1).getEnergyLevel()+"\tv/s\t"+animals.get(animl2).getEnergyLevel());
+		System.out.println(" \tStrength Level  :      "+animals.get(animl1).getStrength()+"\tv/s\t"+animals.get(animl2).getStrength());
+		System.out.println(" \tHunger Level    :      "+animals.get(animl1).getHungerLevel()+"\tv/s\t"+animals.get(animl2).getHungerLevel());
 	}
 }
