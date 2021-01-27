@@ -161,8 +161,6 @@ public class Forest
         animals.get(7).setView(7);	
     }
 
-
-
     public void printAnimals()
     {
         System.out.println("            +---------+-------------+");

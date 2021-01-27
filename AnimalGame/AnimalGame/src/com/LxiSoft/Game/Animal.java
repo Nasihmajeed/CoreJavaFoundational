@@ -9,10 +9,6 @@ public class Animal
 	int domain;
 	int eyeSight;
 
-    //public void behaviour()
-    //{
-
-    //}
     public void setName(String name)
     {
         this.animalName = name;
