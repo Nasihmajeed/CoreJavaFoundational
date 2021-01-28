@@ -4,7 +4,16 @@ public class Lion extends Animal implements Carnivore
 {
     public void animalDetails()
     {
-        System.out.println("           4. Lion");
+        System.out.println("\n        2. Lion");
+        System.out.println("            -> The lion is a species in the family Felidae and a member of the genus Panthera.");
+        System.out.println("            -> It has a muscular, deep-chested body, short, rounded head, round ears, and a hairy tuft at the end of its tail.");
+        System.out.println("            -> It is sexually dimorphic; adult male lions have a prominent mane.");
+    }
+
+    public void behaviour()
+    {
+        System.out.println("\n            -> Lion is a Carnivore.");
+        // System.out.println("            -> Carnivores are violent flesh eating animals. They usually hunt for food.");
     }
     
     public void setName(String name)

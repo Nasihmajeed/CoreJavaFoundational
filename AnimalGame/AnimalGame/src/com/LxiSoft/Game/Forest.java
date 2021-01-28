@@ -10,8 +10,20 @@ public class Forest
     public void setGame()
     {
         Scanner s = new Scanner(System.in);
-        System.out.println("\n\n    All animals do fight for their existance");
-        System.out.println("\n");
+        System.out.println("\n\n+-------------------------------------------------------------------------------------------------------------------------------------------+");
+        System.out.println("\n                                            A forest is an area of land dominated by trees.");
+        System.out.println("\n\n                   Forests and wildlife are necessary to regulate the population of different species of animals and birds."); 
+        System.out.println("                             The forest ecosystem has primary, secondary, and tertiary consumers in the food chain.");
+        System.out.println("\n\n                                                All animals do fight for their existance");
+        System.out.println("\n\n+-------------------------------------------------------------------------------------------------------------------------------------------+");
+        System.out.println(" Some facts : ");
+        System.out.println("                    -> Carnivores are violent flesh eating animals. They usually hunt for food.");
+        System.out.println("                    -> Carnivores fight each other and also hunt herbivores.");
+        System.out.println("\n                    -> Herbivores are plant eating animals. They are usually calm and quiet.");
+        System.out.println("                    -> Herbivores doesn't fight each other.");
+		this.animalDetail();
+		System.out.println("+-------------------------------------------------------------------------------------------------------------------------------------------+");
+		
 
         this.addAnimal();
         this.setAnimal();
@@ -39,9 +51,13 @@ public class Forest
         Elephant elephant = new Elephant();
 
         tiger.animalDetails();
+        tiger.behaviour();
         lion.animalDetails();
+        lion.behaviour();
         deer.animalDetails();
+        deer.behaviour();
         elephant.animalDetails();
+        elephant.behaviour();
     }
    
 

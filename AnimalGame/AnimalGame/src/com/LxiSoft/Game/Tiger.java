@@ -4,7 +4,16 @@ public class Tiger extends Animal implements Carnivore
 {
     public void animalDetails()
     {
-        System.out.println("           1) Tigers ");
+        System.out.println("\n        1. Tiger");
+        System.out.println("            -> The tiger is the largest extant cat species and a member of the genus Panthera.");
+        System.out.println("            -> It is most recognisable for its dark vertical stripes on orange-brown fur with a lighter underside.");
+        System.out.println("            -> It is an apex predator, primarily preying on ungulates such as deer and wild boar.");
+    }
+
+    public void behaviour()
+    {
+        System.out.println("\n            -> Tiger is a Carnivore.");
+        // System.out.println("            -> Carnivores are violent flesh eating animals. They usually hunt for food.");
     }
     
     public void setName(String name)

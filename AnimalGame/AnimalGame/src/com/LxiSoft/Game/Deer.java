@@ -4,7 +4,16 @@ public class Deer extends Animal implements Herbivore
 {
     public void animalDetails()
     {
-        System.out.println("           3) Deer ");
+        System.out.println("\n        3. Deer ");
+        System.out.println("            -> Deer or true deer are hoofed ruminant mammals forming the family Cervidae.");
+        System.out.println("            -> The two main groups of deer are the Cervinae, including the muntjac, the elk, the red deer, the fallow deer, and the chital;");
+        System.out.println("                                           and the Capreolinae, including the reindeer, the roe deer, the mule deer, and the moose.");
+    }
+
+    public void behaviour()
+    {
+        System.out.println("\n            -> Deer is a Herbivore.");
+        // System.out.println("            -> Herbivores are plant eating animals. They are usually calm and quiet.");
     }
     
     public void setName(String name)

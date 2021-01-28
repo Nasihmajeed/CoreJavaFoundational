@@ -4,7 +4,16 @@ public class Elephant extends Animal implements Herbivore
 {
     public void animalDetails()
     {
-        System.out.println("           3. Elephant");
+        System.out.println("\n        4. Elephant");
+        System.out.println("            -> Elephants are mammals of the family Elephantidae and the largest existing land animals.");
+        System.out.println("            -> Three species are currently recognised: the African bush elephant, the African forest elephant, and the Asian elephant.");
+        System.out.println("            -> Elephantidae is the only surviving family of the order Proboscidea; extinct members include the mastodons.");
+    }
+
+    public void behaviour()
+    {
+        System.out.println("\n            -> Elephant is a Herbivore.");
+        // System.out.println("            -> Herbivores are plant eating animals. They are usually calm and quiet.");
     }
     
     public void setName(String name)

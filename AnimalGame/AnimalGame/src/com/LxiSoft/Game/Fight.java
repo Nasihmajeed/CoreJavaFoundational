@@ -29,13 +29,7 @@ public class Fight
 			System.out.println("+------------------------------------------------------------------+"); 
             System.out.println("	"+animals.get(animal1).getName()+" and "+animals.get(animal2).getName()+" doesn't fight each other");
 		}
-		// else
-		// {
-		// 	System.out.println("\nGame Exit...!");
-		// }
     }
-
-    
 
     public void carnVsCarn(int anml1,int anml2,ArrayList<Animal> animals)
     {
@@ -55,9 +49,7 @@ public class Fight
                         System.out.println("\n");
 
 			            animals.remove(anml2);
-			            int hunger = animals.get(anml1).getHungerLevel();
-			            hunger = hunger-1;
-			            animals.get(anml1).setHungerLevel(hunger);
+			            this.hungerLevel(anml1, animals);
                     }
                     
         /*2*/       else if(animals.get(anml2).getStrength() > animals.get(anml1).getStrength() && animals.get(anml2).getEnergyLevel() > animals.get(anml1).getEnergyLevel())
@@ -68,9 +60,7 @@ public class Fight
                         System.out.println("\n");
 
 			            animals.remove(anml1);
-			            int hunger = animals.get(anml2).getHungerLevel();
-			            hunger = hunger-1;
-			            animals.get(anml2).setHungerLevel(hunger);
+			            this.hungerLevel(anml2, animals);
                     }
                     
         /*3*/       else if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() < animals.get(anml2).getEnergyLevel())
@@ -81,9 +71,7 @@ public class Fight
                         System.out.println("\n");
 
 		                animals.remove(anml2);
-		                int hunger = animals.get(anml1).getHungerLevel();
-		                hunger = hunger-1;
-		                animals.get(anml1).setHungerLevel(hunger);
+		                this.hungerLevel(anml1, animals);
                     }
                     
 		/*4*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel()){
@@ -93,9 +81,7 @@ public class Fight
                         System.out.println("\n");
 
 		                animals.remove(anml1);
-		                int hunger = animals.get(anml2).getHungerLevel();
-		                hunger--;
-		                animals.get(anml2).setHungerLevel(hunger);
+		                this.hungerLevel(anml2, animals);
                     }
                     
 		/*5*/       else if(animals.get(anml1).getStrength() > animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
@@ -105,9 +91,7 @@ public class Fight
                         System.out.println("\n");
 
                         animals.remove(anml2);
-		                int hunger = animals.get(anml1).getHungerLevel();
-		                hunger = hunger-1;
-		                animals.get(anml1).setHungerLevel(hunger);
+		                this.hungerLevel(anml1, animals);
                     }
                     
 		/*6*/       else if(animals.get(anml1).getStrength() < animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() == animals.get(anml2).getEnergyLevel()){
@@ -117,9 +101,7 @@ public class Fight
                         System.out.println("\n");
 
                         animals.remove(anml1);
-		                int hunger = animals.get(anml2).getHungerLevel();
-		                hunger = hunger-1;
-		                animals.get(anml2).setHungerLevel(hunger);
+		                this.hungerLevel(anml2, animals);
                     }
                     
 		/*7*/       else if(animals.get(anml1).getStrength() == animals.get(anml2).getStrength() && animals.get(anml1).getEnergyLevel() > animals.get(anml2).getEnergyLevel()){
@@ -155,7 +137,6 @@ public class Fight
 		}
 	}
     
-
     public void carnVsHerb(int anim1, int anim2,ArrayList<Animal> animals)
     {
     boolean area = this.setDomain(anim1,anim2,animals);
@@ -175,9 +156,7 @@ public class Fight
                         System.out.println("\n");
 
 			            animals.remove(anim2);
-			            int hunger = animals.get(anim1).getHungerLevel();
-			            hunger = hunger-1;
-			            animals.get(anim1).setHungerLevel(hunger);
+			            this.hungerLevel(anim1, animals);
 			        }
 		        
 /*4*/	            else if(animals.get(anim1).getStrength() > animals.get(anim2).getStrength() && animals.get(anim1).getEnergyLevel() < animals.get(anim2).getEnergyLevel())
@@ -188,9 +167,7 @@ public class Fight
                         System.out.println("\n");
 
 		                animals.remove(anim2);
-		                int hunger = animals.get(anim1).getHungerLevel();
-			            hunger = hunger-1;
-			            animals.get(anim1).setHungerLevel(hunger);
+		                this.hungerLevel(anim1, animals);
 			        }
 		        
 			    }
@@ -201,11 +178,10 @@ public class Fight
 			}
 /*6*/		else
             {
-				System.out.println(" "+animals.get(anim2).getName()+" escaped without disturbing "+animals.get(anim1).getName());
+				System.out.println(" "+animals.get(anim2).getName()+" escaped from "+animals.get(anim1).getName());
 			}
 		}
 	}
-
 
     public void herbVsCarn(int animl1, int animl2 ,ArrayList<Animal> animals)
     {
@@ -225,10 +201,7 @@ public class Fight
                         System.out.println("\n");
 
 		                animals.remove(animl1);
-		                int hunger = animals.get(animl2).getHungerLevel();
-		                hunger = hunger-1;
-		                animals.get(animl2).setHungerLevel(hunger);
-                    }
+						this.hungerLevel(animl2, animals);                    }
                     
 /*4*/               else if(animals.get(animl1).getStrength() < animals.get(animl2).getStrength() && animals.get(animl1).getEnergyLevel() > animals.get(animl2).getEnergyLevel())
                     {
@@ -238,20 +211,17 @@ public class Fight
                         System.out.println("\n");
 
 		                animals.remove(animl1);
-		                int hunger = animals.get(animl2).getHungerLevel();
-		                hunger = hunger-1;
-		                animals.get(animl2).setHungerLevel(hunger);
-		            }
-			    }
-/*5*/		    else
-                {
-				    System.out.println(" "+animals.get(animl1).getName()+" escaped without disturbing "+animals.get(animl2).getName());
-			    }
-		    }
+		                this.hungerLevel(animl2, animals);
+			    	}
+/*5*/		    	else
+                	{
+				    	System.out.println(" "+animals.get(animl1).getName()+" escaped from "+animals.get(animl2).getName());
+			    	}
+		    	}
+			}
 		}    
 	}
     
-
     public boolean setDomain(int animl1, int animl2, ArrayList<Animal> animals)
     {	
 		int range = 10;
@@ -269,11 +239,17 @@ public class Fight
 			System.out.println("    "+animals.get(animl1).getName()+" and "+animals.get(animl2).getName()+" doesn't meet as they aren't in same territory");
 			return false;
 		}
-    }
+	}
+	
+	public void hungerLevel(int x, ArrayList<Animal> animals)
+	{
+		int hunger = animals.get(x).getHungerLevel();
+		hunger = hunger-1;
+		animals.get(x).setHungerLevel(hunger);
+	}
     
     public void result(int animl1,int animl2,ArrayList<Animal> animals)
     {
-		
 		System.out.println("+------------------------------------------------------------------+"); 
 		System.out.println("\n");       
 		System.out.println("		"+animals.get(animl1).getName()+" \tv/s\t"+animals.get(animl2).getName());
