@@ -3,6 +3,8 @@ import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Game{
 	String[][] board = new String[10][10];
+	Dice dice  = new Dice();
+	ArrayList<Players> player = new ArrayList<Players>();
 	public void startGame(){
 		Scanner s = new Scanner(System.in);
 		int replay;
@@ -10,9 +12,12 @@ public class Game{
 			System.out.println("Start Game \n1.Yes \n2.No");
 			int start = s.nextInt();
 			if(start==1){
-				System.out.println("+++++++++++++++++++++ SNAKE AND LADDER +++++++++++++++++++++");
-				this.setGame();
+				System.out.println(" ++++++++++++++++++++ SNAKE AND LADDER +++++++++++++++++++++");
+				this.setBoard();
 		        this.print();
+		        this.addPlayer();
+		        this.setPlayer();
+		        this.setGame();
 			}
 			else{
 				break;
@@ -21,7 +26,7 @@ public class Game{
 			replay = s.nextInt();
 		}while(replay !=0 );
 	}
-	public void setGame(){
+	public void setBoard(){
 	    board[0][0] = "100";
 	    board[0][1] = " 99";
 	    board[0][2] = " 98";
@@ -131,6 +136,37 @@ public class Game{
 	    board[9][7] = "  8";
 	    board[9][8] = "  9";
 	    board[9][9] = " 10";
+	}
+	public void addPlayer(){
+		player.add(new Player1());
+		player.add(new Player2());
+	}
+	public void setPlayer(){
+		player.get(0).setPlayer("Player-A");
+		player.get(0).setColor("Red");
+		player.get(0).setPosition(0);
+		player.get(1).setPlayer("Player-B");
+		player.get(1).setColor("Green");
+		player.get(1).setPosition(0);
+	}
+	public void setGame(){
+		while(player.get(0).getPosition()<100 && player.get(0).getPosition()<100){
+			if(player.get(0).getPosition()==0 && player.get(1).getPosition()==0){
+				this.playGame();
+			}
+		}
+	}
+	public void playGame(){
+		for(int i=0; i<player.size(); i++){
+			int num = dice.diceRoll()+1;
+			if(num != 1){
+				System.out.println(player.get(i).getPlayer()+" Can not enter the match until the dice rolls to 1");
+			}
+			else{
+				player.get(i).setPosition(1);
+				System.out.println(player.get(i).getPlayer()+" enters the game and reached to "+player.get(i).getPosition());
+			}
+		}
 	}
 	public void print(){
 		System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");
