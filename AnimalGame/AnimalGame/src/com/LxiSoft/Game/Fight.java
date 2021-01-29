@@ -128,7 +128,6 @@ public class Fight
 				    	System.out.println(animals.get(anml1).getName()+" and "+animals.get(anml2).getName()+"Not hungry & doesn't fight");
 		        	}
             	}
-            
             	else 
             	{
 		    		System.out.println(animals.get(anml1).getName()+" and "+animals.get(anml2).getName()+" doesn't meet ");
