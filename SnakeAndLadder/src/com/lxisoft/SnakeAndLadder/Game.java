@@ -4,6 +4,8 @@ import java.util.*;
 public class Game{
 	String[][] board = new String[10][10];
 	Dice dice  = new Dice();
+	Snake snake = new Snake();
+	Ladder ladder = new Ladder();
 	ArrayList<Players> player = new ArrayList<Players>();
 	public void startGame(){
 		Scanner s = new Scanner(System.in);
@@ -18,6 +20,7 @@ public class Game{
 		        this.addPlayer();
 		        this.setPlayer();
 		        this.setGame();
+		        this.winner();
 			}
 			else{
 				break;
@@ -150,23 +153,82 @@ public class Game{
 		player.get(1).setPosition(0);
 	}
 	public void setGame(){
-		while(player.get(0).getPosition()<100 && player.get(0).getPosition()<100){
+		while(player.get(0).getPosition()<100 && player.get(1).getPosition()<100){
 			if(player.get(0).getPosition()==0 && player.get(1).getPosition()==0){
-				this.playGame();
+				this.play1Game();
+				this.play2Game();
+			}
+			else if(player.get(0).getPosition()==0 && player.get(1).getPosition()>0){
+				this.play1Game();
+				this.player2Game();
+				
+			}
+			else if(player.get(0).getPosition()>0 && player.get(1).getPosition()==0){
+				this.player1Game();
+				this.play2Game();
+			}
+			else if(player.get(0).getPosition()>0 && player.get(1).getPosition()>0){
+				this.player1Game();
+				this.player2Game();
 			}
 		}
 	}
-	public void playGame(){
-		for(int i=0; i<player.size(); i++){
-			int num = dice.diceRoll()+1;
-			if(num != 1){
-				System.out.println(player.get(i).getPlayer()+" Can not enter the match until the dice rolls to 1");
-			}
-			else{
-				player.get(i).setPosition(1);
-				System.out.println(player.get(i).getPlayer()+" enters the game and reached to "+player.get(i).getPosition());
-			}
+	public void play1Game(){
+		int num = dice.diceRoll()+1;
+		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+" Rolls the dice and gets "+num);
+		if(num != 1){
+			System.out.println(player.get(0).getPlayer()+" Can not enter the match until the dice rolls to 1");
 		}
+		else{
+			player.get(0).setPosition(1);
+			System.out.println(player.get(0).getPlayer()+" enters the game and reached to "+player.get(0).getPosition());
+		}
+	}
+	public void play2Game(){
+		int num = dice.diceRoll()+1;
+		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+" Rolls the dice and gets "+num);
+		if(num != 1){
+			System.out.println(player.get(1).getPlayer()+" Can not enter the match until the dice rolls to 1");
+		}
+		else{
+			player.get(1).setPosition(1);
+			System.out.println(player.get(1).getPlayer()+" enters the game and reached to "+player.get(1).getPosition());
+		}
+	}
+	public void player1Game(){
+		int num = dice.diceRoll();
+		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+" Rolls the dice and gets "+num);
+		player.get(0).setPosition(player.get(0).getPosition()+num);
+		System.out.println(player.get(0).getPlayer()+" moves to the "+player.get(0).getPosition()+" position");
+		int x = player.get(0).getPosition();
+		if(x<=100){
+			ladder.ladderClimb(player);
+			snake.snakeBite(player);
+		}
+	}
+	public void player2Game(){
+		int num = dice.diceRoll();
+		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+" Rolls the dice and gets "+num);
+		player.get(1).setPosition(player.get(1).getPosition()+num);
+		System.out.println(player.get(1).getPlayer()+" moves to the "+player.get(1).getPosition()+" position");
+		int y = player.get(0).getPosition();
+		if(y<=100){
+			ladder.ladderClimb(player);
+			snake.snakeBite(player);
+		}
+	}
+	public void winner(){
+		System.out.println("--------------------------------------------------");
+		System.out.println("\t\tThe Winner Is\t\t");
+		if(player.get(0).getPosition()>=100){
+			System.out.println("\t\t"+player.get(0).getPlayer()+"\t");
+			System.out.println("\t\t"+player.get(0).getColor()+"\t");
+		}
+		else if(player.get(1).getPosition()>=100){
+			System.out.println("\t\t"+player.get(1).getPlayer()+"\t");
+			System.out.println("\t\t"+player.get(1).getColor()+"\t");
+		}
+		System.out.println("--------------------------------------------------");
 	}
 	public void print(){
 		System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");
