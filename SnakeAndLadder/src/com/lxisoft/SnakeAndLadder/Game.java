@@ -2,6 +2,7 @@ package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Game{
+	int noOfPlayers;
 	String[][] board = new String[10][10];
 	Dice dice  = new Dice();
 	Snake snake = new Snake();
@@ -17,10 +18,12 @@ public class Game{
 				System.out.println(" ++++++++++++++++++++ SNAKE AND LADDER +++++++++++++++++++++");
 				this.setBoard();
 		        this.print();
-		        this.addPlayer();
-		        this.setPlayer();
-		        this.setGame();
-		        this.winner();
+		        System.out.println("Enter the number of players : ");
+		        noOfPlayers = s.nextInt();
+		        this.addPlayer(noOfPlayers);
+		        this.setPlayer(noOfPlayers);
+		        this.setGame(noOfPlayers);
+		        this.winner(noOfPlayers);
 			}
 			else{
 				break;
@@ -140,20 +143,55 @@ public class Game{
 	    board[9][8] = "  9";
 	    board[9][9] = " 10";
 	}
-	public void addPlayer(){
+	public void addPlayer(int num){
+		for(int i=0; i<num; i++){
+			player.add(new Players());
+		}
+		/*
 		player.add(new Player1());
-		player.add(new Player2());
+		player.add(new Player2());*/
 	}
-	public void setPlayer(){
+	public void setPlayer(int pNum){
+		Scanner s =new Scanner(System.in);
+		for(int i=0; i<pNum; i++){
+			System.out.println("Enter the name of the player : ");
+     		String pName = s.nextLine();
+    	   	player.get(i).setPlayer(pName);
+    		System.out.println("Enter the color of coin : ");
+    		String pColor = s.nextLine();
+    		player.get(i).setColor(pColor);
+    		player.get(i).setPosition(0);
+		}
+		/*
 		player.get(0).setPlayer("Player-A");
 		player.get(0).setColor("Red");
 		player.get(0).setPosition(0);
 		player.get(1).setPlayer("Player-B");
 		player.get(1).setColor("Green");
-		player.get(1).setPosition(0);
+		player.get(1).setPosition(0);*/
 	}
-	public void setGame(){
-		while(player.get(0).getPosition()<100 && player.get(1).getPosition()<100){
+	public void setGame(int pNo){
+		for(int j=0; j<pNo; j++){
+			while(player.get(j).getPosition()<100){
+			    if(player.get(j).getPosition()==0){
+				    this.playerGame(j);
+				    //this.play2Game();
+		    	}
+			    else if(player.get(j).getPosition()>0){
+				    //this.play1Game();
+			    	this.playGame(j);
+		    	}
+	     		/*else if(player.get(0).getPosition()>0 && player.get(1).getPosition()==0){
+		    		this.player1Game();
+			    	this.play2Game();
+		     	}
+		     	else if(player.get(0).getPosition()>0 && player.get(1).getPosition()>0){
+			    	this.player1Game();
+		     		this.player2Game();
+			    }*/
+		    }
+		}
+		/*while(player.get(0).getPosition()<100 && player.get(1).getPosition()<100){
 			if(player.get(0).getPosition()==0 && player.get(1).getPosition()==0){
 				this.play1Game();
 				this.play2Game();
@@ -171,19 +209,20 @@ public class Game{
 				this.player1Game();
 				this.player2Game();
 			}
-		}
+		}*/
 	}
-	public void play1Game(){
+	public void playerGame(int no){
 		int num = dice.diceRoll()+1;
-		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+" Rolls the dice and gets "+num);
+		System.out.println("\n"+player.get(no).getPlayer()+" Colour : "+player.get(no).getColor()+" Rolls the dice and gets "+num);
 		if(num != 1){
-			System.out.println(player.get(0).getPlayer()+" Can not enter the match until the dice rolls to 1");
+			System.out.println(player.get(no).getPlayer()+" Can not enter the match until the dice rolls to 1");
 		}
 		else{
-			player.get(0).setPosition(1);
-			System.out.println(player.get(0).getPlayer()+" enters the game and reached to "+player.get(0).getPosition());
+			player.get(no).setPosition(1);
+			System.out.println(player.get(no).getPlayer()+" enters the game and reached to "+player.get(no).getPosition());
 		}
 	}
+	/*
 	public void play2Game(){
 		int num = dice.diceRoll()+1;
 		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+" Rolls the dice and gets "+num);
@@ -194,18 +233,19 @@ public class Game{
 			player.get(1).setPosition(1);
 			System.out.println(player.get(1).getPlayer()+" enters the game and reached to "+player.get(1).getPosition());
 		}
-	}
-	public void player1Game(){
+	}*/
+	public void playGame(int noP){
 		int num = dice.diceRoll();
-		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+" Rolls the dice and gets "+num);
-		player.get(0).setPosition(player.get(0).getPosition()+num);
-		System.out.println(player.get(0).getPlayer()+" moves to the "+player.get(0).getPosition()+" position");
-		int x = player.get(0).getPosition();
+		System.out.println("\n"+player.get(noP).getPlayer()+" Colour : "+player.get(noP).getColor()+" Rolls the dice and gets "+num);
+		player.get(noP).setPosition(player.get(noP).getPosition()+num);
+		System.out.println(player.get(noP).getPlayer()+" moves to the "+player.get(noP).getPosition()+" position");
+		int x = player.get(noP).getPosition();
 		if(x<=100){
 			ladder.ladderClimb(player);
 			snake.snakeBite(player);
 		}
 	}
+	/*
 	public void player2Game(){
 		int num = dice.diceRoll();
 		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+" Rolls the dice and gets "+num);
@@ -216,10 +256,21 @@ public class Game{
 			ladder.ladderClimb(player);
 			snake.snakeBite(player);
 		}
-	}
-	public void winner(){
+	}*/
+	public void winner(int numP){
 		System.out.println("--------------------------------------------------");
 		System.out.println("\t\tThe Winner Is\t\t");
+		for(int x=0; x<numP; x++){
+		   	if(player.get(x).getPosition()>=100){
+	     		System.out.println("\t\t"+player.get(x).getPlayer()+"\t");
+		    	System.out.println("\t\t"+player.get(x).getColor()+"\t");
+	    	}
+     		else if(player.get(x).getPosition()>=100){
+			    System.out.println("\t\t"+player.get(x).getPlayer()+"\t");
+			    System.out.println("\t\t"+player.get(x).getColor()+"\t");
+		    }
+		}
+		/*
 		if(player.get(0).getPosition()>=100){
 			System.out.println("\t\t"+player.get(0).getPlayer()+"\t");
 			System.out.println("\t\t"+player.get(0).getColor()+"\t");
@@ -227,7 +278,7 @@ public class Game{
 		else if(player.get(1).getPosition()>=100){
 			System.out.println("\t\t"+player.get(1).getPlayer()+"\t");
 			System.out.println("\t\t"+player.get(1).getColor()+"\t");
-		}
+		}*/
 		System.out.println("--------------------------------------------------");
 	}
 	public void print(){
