@@ -1,7 +1,7 @@
 package com.LxiSoft.Game;
 // import com.lxisoft.Game.*;
 // import java.util.*;
-public abstract class Players
+public class Players
 {
 	String player;
 	String color;
