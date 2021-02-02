@@ -25,6 +25,7 @@ public class Game
         System.out.println("           6 : Ladder helps to move upwards.");
         System.out.println("           7 : First player to reach 100 wins.");
         Scanner s = new Scanner(System.in);
+        
         // int replay;
         // do
         // {
@@ -34,7 +35,8 @@ public class Game
             {
                 System.out.println("                     Welcome to the Game");
                 System.out.println(" +-------------------- SNAKE AND LADDER -------------------+");
-				this.setBoard();
+                this.setBoard();
+                
 		        // this.print();
 		        this.addPlayer();
 		        this.setPlayer();
@@ -44,7 +46,8 @@ public class Game
             else
             {
 				System.exit(0);
-			}
+            }
+            
 		// 	System.out.println("Restart Game? \n\t1.Yes \n\t0.No");
 		// 	replay = s.nextInt();
         // }
