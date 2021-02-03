@@ -156,7 +156,7 @@ public class Game{
 	public void setPlayer(int pNum){
 		Scanner s =new Scanner(System.in);
 		for(int i=0; i<pNum; i++){
-			System.out.println("Enter the name of "+i+" th player : ");
+			System.out.println("Enter the name of "+(i+1)+" th player : ");
      		String pName = s.nextLine();
     	   	player.get(i).setPlayer(pName);
     		System.out.println("Enter the color of coin : ");
@@ -173,17 +173,23 @@ public class Game{
 		player.get(1).setPosition(0);*/
 	}
 	public void setGame(int pNo){
-		for(int p = player.get(j).getPosition(); p<100; p++){
-		    for(int j=0; j<pNo;j++){
-		        if(player.get(j).getPosition()==0){
-			        this.playerGame(j);
+		
+		for(int j=0;j<player.size(); j++){
+			while(player.get(j).getPosition()<100){
+				if(player.get(j).getPosition()==0){
+			       this.playerGame(j);				    
 				    //this.play2Game();
-		   	    }
+		     	}
 		        else if(player.get(j).getPosition()>0){
 			    //this.play1Game();
-		    	    this.playGame(j);
-		   	    }
-		   	}
+		            this.playGame(j);
+		     	     
+			    }
+			    
+			}
+		}
+		this.winner();   	
+
 	     		/*else if(player.get(0).getPosition()>0 && player.get(1).getPosition()==0){
 		    		this.player1Game();
 			    	this.play2Game();
@@ -192,11 +198,11 @@ public class Game{
 			    	this.player1Game();
 		     		this.player2Game();
 			    }*/
-		}
-	    if(player.get(j).getPosition()>=100){
-	    	this.winner(j);
+			
 	    	//break;
-	    }
+		
+
+	    
 		//}
 		/*while(player.get(0).getPosition()<100 && player.get(1).getPosition()<100){
 			if(player.get(0).getPosition()==0 && player.get(1).getPosition()==0){
@@ -220,13 +226,14 @@ public class Game{
 	}
 	public void playerGame(int no){
 		int num = dice.diceRoll()+1;
-		System.out.println("\n"+player.get(no).getPlayer()+" Colour : "+player.get(no).getColor()+" Rolls the dice and gets "+num);
-	    if(num != 1){
-		    System.out.println(player.get(no).getPlayer()+" Can not enter the match until the dice rolls to 1");
-	   	}
+	
+       	System.out.println("\n"+player.get(no).getPlayer()+" Colour : "+player.get(no).getColor()+" Rolls the dice and gets "+num);
+        if(num != 1){
+	        System.out.println(player.get(no).getPlayer()+" Can not enter the match until the dice rolls to 1");
+   	    }
 	    else{
-    		player.get(no).setPosition(1);
-	   		System.out.println(player.get(no).getPlayer()+" enters the game and reached to "+player.get(no).getPosition());
+    	    player.get(no).setPosition(1);
+	   	    System.out.println(player.get(no).getPlayer()+" enters the game and reached to "+player.get(no).getPosition());
 	    }
 	}
 	/*
@@ -245,12 +252,13 @@ public class Game{
 	    int num = dice.diceRoll()+1;
 		System.out.println("\n"+player.get(noP).getPlayer()+" Colour : "+player.get(noP).getColor()+" Rolls the dice and gets "+num);
 	    player.get(noP).setPosition(player.get(noP).getPosition()+num);
-	   	System.out.println(player.get(noP).getPlayer()+" moves to the "+player.get(noP).getPosition()+" position");
-	   	int x = player.get(noP).getPosition();  
+	    System.out.println(player.get(noP).getPlayer()+" moves to the "+player.get(noP).getPosition()+" position");
+	    int x = player.get(noP).getPosition();  
 	    if(x<=100){
-    		ladder.ladderClimb(player);
-	   		snake.snakeBite(player);
-	    }
+     	    ladder.ladderClimb(player);
+		    snake.snakeBite(player);
+	    } 
+		
 	}
 	/*
 	public void player2Game(){
@@ -264,11 +272,23 @@ public class Game{
 			snake.snakeBite(player);
 		}
 	}*/
-	public void winner(int numP){
+	public void winner(){
 		System.out.println("--------------------------------------------------");
 		System.out.println("\t\tThe Winner Is\t\t");
-   		System.out.println("\t\t"+player.get(numP).getPlayer()+"\t");
-    	System.out.println("\t\t"+player.get(numP).getColor()+"\t");
+		int i=0;
+		for( ; ; ){
+			if(i<=player.size()){
+				if(player.get(i).getPosition()>=100){
+			        System.out.println("\t\t"+player.get(i).getPlayer()+"\t");
+        	        System.out.println("\t\t"+player.get(i).getColor()+"\t");
+		        }
+		        else{
+		        	break;
+		        }
+		        i++;
+			}
+		}
+   		
 		/*
 		if(player.get(0).getPosition()>=100){
 			System.out.println("\t\t"+player.get(0).getPlayer()+"\t");

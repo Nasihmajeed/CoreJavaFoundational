@@ -19,7 +19,7 @@ public class Snake{
 				int place = player.get(j).getPosition();
 				//place = place-18;
 				player.get(j).setPosition(3);
-				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" climbs up to "+player.get(j).getPosition());
+				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" get swallowed to "+player.get(j).getPosition());
 				System.out.println("--------------------------------------------------------");
 			}
 			else if(player.get(j).getPosition()==47){
@@ -28,7 +28,7 @@ public class Snake{
 				int place = player.get(j).getPosition();
 				//place = place-18;
 				player.get(j).setPosition(16);
-				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" climbs up to "+player.get(j).getPosition());
+				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" get swallowed to "+player.get(j).getPosition());
 				System.out.println("--------------------------------------------------------");
 			}
 			else if(player.get(j).getPosition()==75){
@@ -37,7 +37,7 @@ public class Snake{
 				int place = player.get(j).getPosition();
 				//place = place-18;
 				player.get(j).setPosition(32);
-				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" climbs up to "+player.get(j).getPosition());
+				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" get swallowed to "+player.get(j).getPosition());
 				System.out.println("--------------------------------------------------------");
 			}
 			else if(player.get(j).getPosition()==94){
@@ -46,7 +46,7 @@ public class Snake{
 				int place = player.get(j).getPosition();
 				//place = place-18;
 				player.get(j).setPosition(71);
-				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" climbs up to "+player.get(j).getPosition());
+				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" get swallowed to "+player.get(j).getPosition());
 				System.out.println("--------------------------------------------------------");
 			}
 			else if(player.get(j).getPosition()==96){
@@ -55,7 +55,7 @@ public class Snake{
 				int place = player.get(j).getPosition();
 				//place = place-18;
 				player.get(j).setPosition(42);
-				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" climbs up to "+player.get(j).getPosition());
+				System.out.println(player.get(j).getPlayer()+" "+player.get(j).getColor()+" get swallowed to "+player.get(j).getPosition());
 				System.out.println("--------------------------------------------------------");
 			}
 		}
