@@ -232,10 +232,15 @@ public class Game
     {
 		int num = dice.rollDice();
 		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+"\n gets "+num+" on dice ");
-        if(num != 1)
+        if(num > 1)
         {
 			System.out.println(player.get(0).getPlayer()+" : Get 1 to enter the Game ");
-		}
+		    if (num==6)
+            {
+                System.out.println(player.get(0).getPlayer()+" : Gets a bonus\n Roll dice again  ");
+                this.playGame1();
+            }
+        }
         else
         {
 			player.get(0).setPosition(1);
@@ -247,10 +252,15 @@ public class Game
     {
 		int num = dice.rollDice();
 		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+"\n gets "+num+" on dice ");
-        if(num != 1)
+        if(num > 1)
         {
 			System.out.println(player.get(1).getPlayer()+" : Get 1 to enter the Game ");
-		}
+            if (num==6)
+            {
+                System.out.println(player.get(1).getPlayer()+" : Gets a bonus\n Roll dice again  ");
+                this.playGame1();
+            }
+        }
         else
         {
 			player.get(1).setPosition(1);
@@ -280,13 +290,10 @@ public class Game
                     this.restart();
                 }
             }
-            
-            System.out.println(player.get(0).getPlayer()+" : Gets a bonus\n Roll dice again ");
-            int bonus = dice.rollDice();
-            if((player.get(0).getPosition())<=94)
+            else if((player.get(0).getPosition())>94)
             {
-                player.get(0).setPosition(player.get(0).getPosition()+bonus);
-                System.out.println(player.get(0).getPlayer()+" gets "+bonus+" moves to "+player.get(0).getPosition());
+                player.get(0).setPosition(player.get(0).getPosition()+num);
+                System.out.println(player.get(0).getPlayer()+" stays on same position ");   //+player.get(0).getPosition());
                 if((player.get(0).getPosition())==100)
                 {
                     this.winner();
@@ -294,6 +301,42 @@ public class Game
                     this.restart();
                 }
             }
+
+            // else
+            System.out.println(player.get(0).getPlayer()+" : Gets a bonus\n Roll dice again ");
+
+            int bonus = dice.rollDice();
+
+            if((player.get(0).getPosition())<=94)
+            {
+                player.get(0).setPosition(player.get(0).getPosition()+bonus);
+                System.out.println(player.get(0).getPlayer()+" gets "+bonus+" moves to "+player.get(0).getPosition());
+
+                if((player.get(0).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
+            }
+            else if((player.get(0).getPosition())>94)
+            {
+                player.get(0).setPosition(player.get(0).getPosition()+bonus);
+                System.out.println(player.get(0).getPlayer()+" gets "+bonus+" stays on "+player.get(0).getPosition());
+
+                if((player.get(0).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
+            }
+            // if((player.get(0).getPosition())==100)
+            //     {
+            //         this.winner();
+            //         // System.exit(0);
+            //         this.restart();
+            //     }
         }
 
         else
@@ -304,15 +347,19 @@ public class Game
             if(num > 4 && x==96)
             {
                 System.out.println("\n Get 4 or less to move");
+                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");
             }
             else if(num > 3 && x==97)
             {
-                System.out.println("\n Get 3 or less to move");   
+                System.out.println("\n Get 3 or less to move");
+                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");   
             }
             else if(num > 1 && x==99)
             {
                 System.out.println("\n Get 1 to win");   
+                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");
             }
+
             else if((player.get(0).getPosition())==100)
             {
                 this.winner();
@@ -323,13 +370,22 @@ public class Game
             {
                 player.get(0).setPosition(player.get(0).getPosition()+num);
             }
+
+
 		    System.out.println(player.get(0).getPlayer()+" moves to "+player.get(0).getPosition()+" ");
+            
             if(x<=100)
             {
 		    	ladder.climb(player);
                 snake.bite(player);
             }
         }
+        if((player.get(0).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
     }
     
     public void player2Game()
@@ -347,6 +403,19 @@ public class Game
             {
                 player.get(1).setPosition(player.get(1).getPosition()+num);
                 System.out.println(player.get(1).getPlayer()+" moves to "+player.get(1).getPosition()+" ");
+
+                if((player.get(1).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
+            }
+            else if((player.get(1).getPosition())>94)
+            {
+                player.get(1).setPosition(player.get(1).getPosition()+num);
+                System.out.println(player.get(1).getPlayer()+" stays on same position ");   //+player.get(1).getPosition());
+
                 if((player.get(1).getPosition())==100)
                 {
                     this.winner();
@@ -355,20 +424,45 @@ public class Game
                 }
             }
             
+            // else
             System.out.println(player.get(1).getPlayer()+" : Gets a bonus\n Roll dice again ");
+
             int bonus = dice.rollDice();
+
             if((player.get(1).getPosition())<=94)
             {
                 player.get(1).setPosition(player.get(1).getPosition()+bonus); 
                 System.out.println(player.get(1).getPlayer()+" gets "+bonus+" moves to "+player.get(1).getPosition()); 
+
                 if((player.get(1).getPosition())==100)
                 {
                     this.winner();
                     // System.exit(0);
                     this.restart();
                 }
-            }    
+            } 
+            else if((player.get(1).getPosition())>94)
+            {
+                player.get(1).setPosition(player.get(1).getPosition()+bonus);
+                System.out.println(player.get(1).getPlayer()+" gets "+bonus+" stays on " +player.get(1).getPosition());
+
+                if((player.get(1).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
+            } 
+            // if((player.get(1).getPosition())==100)
+            //     {
+            //         this.winner();
+            //         // System.exit(0);
+            //         this.restart();
+            //     }  
         }
+
+        
+
 
         else
         {
@@ -378,14 +472,17 @@ public class Game
             if(num > 4 && y==96)
             {
                 System.out.println("\n Get 4 or less to move");
+                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");
             }
             else if(num > 3 && y==97)
             {
                 System.out.println("\n Get 3 or less to move");   
+                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");
             }
             else if(num > 1 && y==99)
             {
-                System.out.println("\n Get 1 to win");   
+                System.out.println("\n Get 1 to win"); 
+                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");  
             }
             else if((player.get(1).getPosition())==100)
             {
@@ -407,6 +504,12 @@ public class Game
                 snake.bite(player);
             }
         }
+        if((player.get(1).getPosition())==100)
+                {
+                    this.winner();
+                    // System.exit(0);
+                    this.restart();
+                }
     }
     
     public void winner()
