@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Game
 {
+    int playerNo;
     String[][] board = new String[10][10];
     Dice dice = new Dice();
     Snake snake = new Snake();
@@ -26,32 +27,25 @@ public class Game
         System.out.println("           7 : First player to reach 100 wins.");
         Scanner s = new Scanner(System.in);
 
-        // int replay;
-        // do
-        // {
-            System.out.println("\nStart Game? \n\t1.Yes \n\t0.No");
-            int start = s.nextInt();
-            if(start == 1)
-            {
-                System.out.println("                     Welcome to the Game");
-                System.out.println(" +-------------------- SNAKE AND LADDER -------------------+");
-                this.setBoard();
+        System.out.println("\nStart Game? \n\t1.Yes \n\t0.No");
+        int start = s.nextInt();
+        if(start == 1)
+        {
+            System.out.println("                      Welcome to the Game");
+            System.out.println(" +-------------------- SNAKE AND LADDER -------------------+");
+            this.setBoard();
                 
-		        // this.print();
-		        this.addPlayer();
-		        this.setPlayer();
-                this.setGame();
-                this.winner();
-			}
-            else
-            {
-				System.exit(0);
-            }
-            
-		// 	System.out.println("Restart Game? \n\t1.Yes \n\t0.No");
-		// 	replay = s.nextInt();
-        // }
-        // while(replay !=0 );
+            System.out.println("Enter the no.of players : ");
+            playerNo = s.nextInt();
+
+		    this.addPlayer(playerNo);
+		    this.setPlayer(playerNo);
+            this.setGame();
+		}
+        else
+        {
+			System.exit(0);
+        }
     }
 
     public void restart()
@@ -182,349 +176,211 @@ public class Game
         board[9][9] = " 10";
     }
 
-    public void addPlayer()
+    public void addPlayer(int num)
     {
-		player.add(new Player1());
-		player.add(new Player2());
+        for(int i=0; i<num; i++)
+        {
+            player.add(new Players());
+        }
     }
     
-    public void setPlayer()
+    public void setPlayer(int playerNum)
     {
-		player.get(0).setPlayer("Player 1");
-		player.get(0).setColor("Blue");
-		player.get(0).setPosition(0);
-		player.get(1).setPlayer("Player 2");
-		player.get(1).setColor("Red");
-		player.get(1).setPosition(0);
+        Scanner s = new Scanner(System.in);
+        for(int i=0; i<playerNum; i++)
+        {
+            System.out.println("\nEnter the name of Player No. "+(i+1));
+            String playerName = s.nextLine();
+            player.get(i).setPlayer(playerName);
+            System.out.println("Enter the coin : ");
+            String coin = s.nextLine();
+            System.out.println("\n");
+            player.get(i).setColor(coin);
+            player.get(i).setPosition(0);
+        }
     }
 
-    // public void exception()
-    // {
-        
-    // }
-    
+   
     public void setGame()
     {
-        while(player.get(0).getPosition()<100 && player.get(0).getPosition()<100)
+        Scanner s = new Scanner(System.in);
+        int roll;
+        do
         {
-            if(player.get(0).getPosition()==0 && player.get(1).getPosition()==0)
+            for(int x=0; x<player.size(); x++)
             {
-                this.playGame1();
-                this.playGame2();
+                if(player.get(x).getPosition()==0)
+                {
+                    // System.out.println("********************1***************");
+                    this.playGame0(x);
+                }
+                else if(player.get(x).getPosition()>0)
+                {
+                    // System.out.println("********************2***************");
+                    this.playGame1(x);
+                }
+                if (player.get(x).getPosition()==100)
+                {
+                    this.winner(x);
+                    break;
+                }
             }
-            else if(player.get(0).getPosition()==0 && player.get(1).getPosition()>0){
-				this.player1Game();
-				this.player2Game();
-				
-			}
-			else if(player.get(0).getPosition()>0 && player.get(1).getPosition()==0){
-				this.player1Game();
-				this.player2Game();
-			}
-			else if(player.get(0).getPosition()>0 && player.get(1).getPosition()>0){
-				this.player1Game();
-				this.player2Game();
-			}
-		}
+            // System.out.println("********************3***************");
+
+            System.out.println("\n-------- Press 1 to roll --------\n");
+            roll = s.nextInt();
+        }
+        while(roll != 0);
     }
+
     
-    public void playGame1()
+    public void playGame0(int numb)
     {
-		int num = dice.rollDice();
-		System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+"\n gets "+num+" on dice ");
+        int num = dice.rollDice();
+        System.out.println("\n**********************4*************");
+        System.out.println("\n"+player.get(numb).getPlayer()+" Coin : "+player.get(numb).getColor()+"\n gets "+num+" on dice ");
         if(num > 1)
         {
-			System.out.println(player.get(0).getPlayer()+" : Get 1 to enter the Game ");
-		    if (num==6)
+            System.out.println(player.get(numb).getPlayer()+" : Get 1 to enter the Game \n");
+            System.out.println("*****************5******************");
+            if(num == 6)
             {
-                System.out.println(player.get(0).getPlayer()+" : Gets a bonus\n Roll dice again  ");
-                this.playGame1();
+                System.out.println(player.get(numb).getPlayer()+" : Gets a bonus\n Roll dice again  ");
+                this.playGame0(numb);
             }
+            // System.out.println("*****************6******************");
         }
         else
         {
-			player.get(0).setPosition(1);
-			System.out.println(player.get(0).getPlayer()+" enters the game \n Current position : "+player.get(0).getPosition());
-		}
-    }
-    
-    public void playGame2()
-    {
-		int num = dice.rollDice();
-		System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+"\n gets "+num+" on dice ");
-        if(num > 1)
-        {
-			System.out.println(player.get(1).getPlayer()+" : Get 1 to enter the Game ");
-            if (num==6)
-            {
-                System.out.println(player.get(1).getPlayer()+" : Gets a bonus\n Roll dice again  ");
-                this.playGame1();
-            }
+            player.get(numb).setPosition(1);
+            System.out.println(player.get(numb).getPlayer()+" enters the game \n Current position : "+player.get(numb).getPosition()+"\n");
+            System.out.println("****************7*******************");
         }
-        else
-        {
-			player.get(1).setPosition(1);
-			System.out.println(player.get(1).getPlayer()+" enters the game \n Current position : "+player.get(1).getPosition());
-		}
     }
+
     
-    public void player1Game()
+    public void playGame1(int numbr)
     {
         int num = dice.rollDice();
         if (num == 0)
         {
             dice.rollDice();
         }
-        else if (num == 6)
+        else if( num > 1 && num < 6)
         {
-            System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+"\n gets "+num+" on dice ");
-            // int b = player.get(0).getPosition();
-            if((player.get(0).getPosition())<=94)
-            {
-                player.get(0).setPosition(player.get(0).getPosition()+num);
-                System.out.println(player.get(0).getPlayer()+" moves to "+player.get(0).getPosition()+" ");
-                if((player.get(0).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-            else if((player.get(0).getPosition())>94)
-            {
-                player.get(0).setPosition(player.get(0).getPosition()+num);
-                System.out.println(player.get(0).getPlayer()+" stays on same position ");   //+player.get(0).getPosition());
-                if((player.get(0).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-
-            // else
-            System.out.println(player.get(0).getPlayer()+" : Gets a bonus\n Roll dice again ");
-
-            int bonus = dice.rollDice();
-
-            if((player.get(0).getPosition())<=94)
-            {
-                player.get(0).setPosition(player.get(0).getPosition()+bonus);
-                System.out.println(player.get(0).getPlayer()+" gets "+bonus+" moves to "+player.get(0).getPosition());
-
-                if((player.get(0).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-            else if((player.get(0).getPosition())>94)
-            {
-                player.get(0).setPosition(player.get(0).getPosition()+bonus);
-                System.out.println(player.get(0).getPlayer()+" gets "+bonus+" stays on "+player.get(0).getPosition());
-
-                if((player.get(0).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-            // if((player.get(0).getPosition())==100)
-            //     {
-            //         this.winner();
-            //         // System.exit(0);
-            //         this.restart();
-            //     }
-        }
-
-        else
-        {
-            int x = player.get(0).getPosition();
-            System.out.println("\n"+player.get(0).getPlayer()+" Colour : "+player.get(0).getColor()+"\n gets "+num+" on dice ");
-
-            if(num > 4 && x==96)
-            {
-                System.out.println("\n Get 4 or less to move");
-                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");
-            }
-            else if(num > 3 && x==97)
-            {
-                System.out.println("\n Get 3 or less to move");
-                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");   
-            }
-            else if(num > 1 && x==99)
-            {
-                System.out.println("\n Get 1 to win");   
-                // System.out.println(player.get(0).getPlayer()+" stays on "+player.get(0).getPosition()+" ");
-            }
-
-            else if((player.get(0).getPosition())==100)
-            {
-                this.winner();
-                // System.exit(0);
-                this.restart();
-            }
-            else
-            {
-                player.get(0).setPosition(player.get(0).getPosition()+num);
-            }
-
-
-		    System.out.println(player.get(0).getPlayer()+" moves to "+player.get(0).getPosition()+" ");
-            
-            if(x<=100)
-            {
-		    	ladder.climb(player);
-                snake.bite(player);
-            }
-        }
-        if((player.get(0).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-    }
-    
-    public void player2Game()
-    {
-        int num = dice.rollDice();
-        if (num == 0)
-        {
-            dice.rollDice();
-        }
-        else if (num == 6)
-        {
-            System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+"\n gets "+num+" on dice ");
-            // int b = player.get(1).getPosition();
-            if((player.get(1).getPosition())<=94)
-            {
-                player.get(1).setPosition(player.get(1).getPosition()+num);
-                System.out.println(player.get(1).getPlayer()+" moves to "+player.get(1).getPosition()+" ");
-
-                if((player.get(1).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-            else if((player.get(1).getPosition())>94)
-            {
-                player.get(1).setPosition(player.get(1).getPosition()+num);
-                System.out.println(player.get(1).getPlayer()+" stays on same position ");   //+player.get(1).getPosition());
-
-                if((player.get(1).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            }
-            
-            // else
-            System.out.println(player.get(1).getPlayer()+" : Gets a bonus\n Roll dice again ");
-
-            int bonus = dice.rollDice();
-
-            if((player.get(1).getPosition())<=94)
-            {
-                player.get(1).setPosition(player.get(1).getPosition()+bonus); 
-                System.out.println(player.get(1).getPlayer()+" gets "+bonus+" moves to "+player.get(1).getPosition()); 
-
-                if((player.get(1).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            } 
-            else if((player.get(1).getPosition())>94)
-            {
-                player.get(1).setPosition(player.get(1).getPosition()+bonus);
-                System.out.println(player.get(1).getPlayer()+" gets "+bonus+" stays on " +player.get(1).getPosition());
-
-                if((player.get(1).getPosition())==100)
-                {
-                    this.winner();
-                    // System.exit(0);
-                    this.restart();
-                }
-            } 
-            // if((player.get(1).getPosition())==100)
-            //     {
-            //         this.winner();
-            //         // System.exit(0);
-            //         this.restart();
-            //     }  
-        }
-
-        
-
-
-        else
-        {
-            System.out.println("\n"+player.get(1).getPlayer()+" Colour : "+player.get(1).getColor()+"\n gets "+num+" on dice ");
-            int y = player.get(1).getPosition();
+            int y = player.get(numbr).getPosition();
+            System.out.println("\n"+player.get(numbr).getPlayer()+" Colour : "+player.get(numbr).getColor()+"\n gets "+num+" on dice ");
 
             if(num > 4 && y==96)
             {
                 System.out.println("\n Get 4 or less to move");
-                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");
             }
             else if(num > 3 && y==97)
             {
-                System.out.println("\n Get 3 or less to move");   
-                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");
+                System.out.println("\n Get 3 or less to move");
             }
             else if(num > 1 && y==99)
             {
-                System.out.println("\n Get 1 to win"); 
-                // System.out.println(player.get(1).getPlayer()+" stays on "+player.get(1).getPosition()+" ");  
+                System.out.println("\n Get 1 to win");   
             }
-            else if((player.get(1).getPosition())==100)
+
+            else if((player.get(numbr).getPosition())==100)
             {
-                this.winner();
-                // System.exit(0);
+                this.winner(numbr);
                 this.restart();
             }
             else
             {
-                player.get(1).setPosition(player.get(1).getPosition()+num);
+                player.get(numbr).setPosition(player.get(numbr).getPosition()+num);
             }
-        
-        
-		    System.out.println(player.get(1).getPlayer()+" moves to "+player.get(1).getPosition()+" ");
-		
+
+
+		    System.out.println(player.get(numbr).getPlayer()+" moves to "+player.get(numbr).getPosition()+" ");
+            
             if(y<=100)
             {
 		    	ladder.climb(player);
                 snake.bite(player);
             }
-        }
-        if((player.get(1).getPosition())==100)
+        
+
+        else if (num == 6)
+        {
+            System.out.println("\n"+player.get(numbr).getPlayer()+" Colour : "+player.get(numbr).getColor()+"\n gets "+num+" on dice ");
+            if(player.get(numbr).getPosition()<94)
+            {
+                player.get(numbr).setPosition(player.get(numbr).getPosition()+num);
+                System.out.println(player.get(numbr).getPlayer()+" moves to "+player.get(numbr).getPosition()+" \n");
+                // System.out.println("****************8*******************");
+                if(player.get(numbr).getPosition()==100)
                 {
-                    this.winner();
-                    // System.exit(0);
+                    this.winner(numbr);
                     this.restart();
                 }
+            }
+            else if(player.get(numbr).getPosition()>94)
+            {
+                player.get(numbr).setPosition(player.get(numbr).getPosition()+num);
+                System.out.println(player.get(numbr).getPlayer()+" stays on same position ");   
+                if(player.get(numbr).getPosition()==100)
+                {
+                    this.winner(numbr);
+                    this.restart();
+                }
+            }
+
+            System.out.println(player.get(numbr).getPlayer()+" : Gets a bonus\n Roll dice again ");
+            
+            int bonus = dice.rollDice();
+
+            if(player.get(numbr).getPosition()<94)
+            {
+                player.get(numbr).setPosition(player.get(numbr).getPosition()+bonus);
+                System.out.println(player.get(numbr).getPlayer()+" gets "+bonus+" moves to "+player.get(numbr).getPosition());
+                // System.out.println("****************9*******************");
+                if(player.get(numbr).getPosition()==100)
+                {
+                    this.winner(numbr);
+                    this.restart();
+                }
+            }
+
+            else if(player.get(numbr).getPosition()>94)
+            {
+                player.get(numbr).setPosition(player.get(numbr).getPosition()+bonus);
+                System.out.println(player.get(numbr).getPlayer()+" gets "+bonus+" stays on same position ");
+                // System.out.println("****************10*******************");
+
+                if(player.get(numbr).getPosition()==100)
+                {
+                    this.winner(numbr);
+                    this.restart();
+                }
+            }
+        
+
+        
+        }
+
+        if(player.get(numbr).getPosition()==100)
+        {
+            this.winner(numbr);
+            this.restart();
+        }
     }
+}
+
     
-    public void winner()
+    public void winner(int w)
     { 
         System.out.println("\n\n +-------------------- SNAKE AND LADDER --------------------+");
         System.out.println(" +                          Winner                          +");
 
-        if(player.get(0).getPosition()==100)
+        if(player.get(w).getPosition()==100)
         {
-			System.out.println("                      "+player.get(0).getPlayer()+" : "+player.get(0).getColor());
+			System.out.println("                      "+player.get(w).getPlayer()+" : "+player.get(w).getColor());
 		}
-        else if(player.get(1).getPosition()==100)
-        {
-			System.out.println("                      "+player.get(1).getPlayer()+" : "+player.get(1).getColor());
-		}
+        
 		System.out.println(" +----------------------------------------------------------+");
     }
     
@@ -541,6 +397,5 @@ public class Game
             System.out.print("|\n");
             System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+"); 	
 		}
-		// System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");
 	}
 }
