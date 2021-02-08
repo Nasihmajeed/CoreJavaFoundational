@@ -129,7 +129,22 @@ public class Board{
     		String pColor = s.nextLine();
     		player.get(i).setColor(pColor);
     		player.get(i).setPosition(0);
+    		//player.add(new Players(pName,pColor,0));
 		}
+	}
+	public void gameDescription(ArrayList<Players> player){
+		System.out.println("+------------------------------------------------------------+");
+		System.out.println("|                  Game Description                          |");
+		System.out.println("|                 ------------------                         |");
+		System.out.println("| The game has a tottal of 100 cells.There can be any number |");
+		System.out.println("| of players. Each Player can roll the Dice simontaniously , |");
+		System.out.println("| the player who gets 1 will enter the match at the begening |");
+		System.out.println("| There are Snakes and Ladder all around the board the player|");
+		System.out.println("| who reaches 100 first will be the winner of the game.      |");
+		System.out.println("|                      Players                               |");
+		System.out.println("|                     ---------                              |");
+		System.out.println("         "+player+"           ");
+		System.out.println("+------------------------------------------------------------+");
 	}
 	public void print(){
 		System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");

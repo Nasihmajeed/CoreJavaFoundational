@@ -43,6 +43,7 @@ public class Game{
 			int numOfPlayers = s.nextInt();
 			bord.addPlayer(numOfPlayers,player);
 			bord.setPlayer(numOfPlayers,player);
+			bord.gameDescription(player);
 			this.setEasyGame();
 			break;
 			case HARD:
@@ -53,6 +54,7 @@ public class Game{
 			int noOfPlayers = s.nextInt();
 			bord.addPlayer(noOfPlayers,player);
 			bord.setPlayer(noOfPlayers,player);
+			bord.gameDescription(player);
 			this.setHardGame();
 			break;
 			default:
@@ -78,6 +80,7 @@ public class Game{
 			    }
 			    if(player.get(j).getPosition()>=100){
 			    	this.winner(j);
+			    	this.finalPosition();
 			    	break;
 			    }	    
 			}
@@ -103,6 +106,13 @@ public class Game{
 			    }
 			    if(player.get(j).getPosition()>=100){
 			    	this.winner(j);
+			    	this.finalPosition();
+			    	/*Collections.sort(player);
+	  	            System.out.println(" PLAYERS FINAL POSITIONS ");
+	            	System.out.println("-------------------------");
+	            	for(Players pl : player){
+	            		System.out.println("Player : "+pl.player+"  Coin : "+pl.color+" Position : "+pl.position);
+	            	}*/
 			    	break;
 			    }	    
 			}
@@ -245,5 +255,12 @@ public class Game{
 		}
 		System.out.println("--------------------------------------------------");
 	}
-	
+	public void finalPosition(){
+	    Collections.sort(player);
+	  	System.out.println(" PLAYERS FINAL POSITIONS ");
+	   	System.out.println("-------------------------");
+	   	for(Players pl : player){
+	   		System.out.println("Player : "+pl.player+"  Coin : "+pl.color+" Position : "+pl.position);
+	  	}
+	}
 }
