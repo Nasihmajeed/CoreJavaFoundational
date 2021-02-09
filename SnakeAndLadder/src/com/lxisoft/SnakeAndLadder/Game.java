@@ -39,6 +39,7 @@ public class Game{
 			System.out.println("     ***************** SNAKE AND LADDER ****************");
 			bord.setBoard();
 			bord.print();
+			bord.eBoardDescription();
 			System.out.println("Enter number of players ");
 			int numOfPlayers = s.nextInt();
 			bord.addPlayer(numOfPlayers,player);
@@ -46,10 +47,11 @@ public class Game{
 			bord.gameDescription(player);
 			this.setEasyGame();
 			break;
-			case HARD:
+	    	case HARD:
 			System.out.println("     ***************** SNAKE AND LADDER ****************");
 			bord.setBoard();
 			bord.print();
+			bord.hBoardDescription();
 			System.out.println("Enter number of players ");
 			int noOfPlayers = s.nextInt();
 			bord.addPlayer(noOfPlayers,player);
@@ -62,7 +64,6 @@ public class Game{
 			break;
 		}
 	}
-	
 	public void setEasyGame(){
 		Scanner s = new Scanner(System.in);
 		//int j;

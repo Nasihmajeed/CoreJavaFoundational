@@ -114,6 +114,46 @@ public class Board{
 	    board[9][8] = "  9";
 	    board[9][9] = " 10";
 	}
+	public void eBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 12th position        |");
+		System.out.println("|                            in 14th position        |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 41th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 37th position        |");
+		System.out.println("|                            in 47th position        |");
+		System.out.println("|                            in 75th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 96th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
+	public void hBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 8th position         |");
+		System.out.println("|                            in 20th position        |");
+		System.out.println("|                            in 32th position        |");
+		System.out.println("|                            in 54th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 30th position        |");
+		System.out.println("|                            in 44th position        |");
+		System.out.println("|                            in 58th position        |");
+		System.out.println("|                            in 66th position        |");
+		System.out.println("|                            in 72th position        |");
+		System.out.println("|                            in 84th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 98th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
 	public void addPlayer(int num,ArrayList<Players> player){
 		for(int i=0; i<num; i++){
 			player.add(new Players());
