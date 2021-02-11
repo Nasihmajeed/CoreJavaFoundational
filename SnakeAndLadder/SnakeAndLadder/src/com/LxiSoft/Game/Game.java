@@ -48,21 +48,6 @@ public class Game
         }
     }
 
-    // public void restart()
-    // {
-    //     Scanner s = new Scanner(System.in);
-    //     System.out.println("Restart Game? \n\t1.Yes \n\t0.No");
-    //     int replay = s.nextInt();
-    //     if(replay==1)
-    //     {
-    //         // reset values
-    //         this.startGame();
-    //     }
-    //     else
-    //     {
-    //         System.exit(0);
-    //     }
-    // }
 
     public void setBoard()
     {
