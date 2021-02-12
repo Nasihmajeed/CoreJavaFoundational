@@ -1,7 +1,7 @@
 package com.LxiSoft.Game;
 // import com.lxisoft.Game.*;
 // import java.util.*;
-public class Players
+public class Players implements Comparable<Players>
 {
 	String player;
 	String color;
@@ -30,5 +30,26 @@ public class Players
     public int getPosition()
     {
 		return position;
+	}
+
+	public String toString()
+	{
+		return this.player + "	Dice : " + this.color;
+	}
+
+	public int compareTo(Players play)
+	{
+		if(position==play.position)
+		{
+			return 0;
+		}
+		else if(position<play.position)
+		{
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
 	}
 }
