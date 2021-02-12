@@ -1,7 +1,7 @@
 public class Tyre 
 {
-int size;
-String type;
-int no;
-char name;
+int ty_no=4;
+String ty_name1="MRF";
+String ty_name2="CEAT";
+String ty_name3="APPOLO";
 }

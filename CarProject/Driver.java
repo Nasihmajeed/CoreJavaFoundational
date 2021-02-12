@@ -1,12 +1,9 @@
 public class Driver
 {
-int name;
+String driv_name1="Raj";
+String driv_name2="Madhu";
+String driv_name3="Balu";
+int age1=27;
+int age2=40;
+int age3=36;
 }
-car1.driver1.name=1"Raj";
-car1.driver1;
-
-car2.driver3.name="Madhu";
-car2.driver3;
-
-car2.driver3.name="Babu";
-car2.driver3;
