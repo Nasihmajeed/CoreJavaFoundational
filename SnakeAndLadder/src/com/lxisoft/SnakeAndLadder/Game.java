@@ -125,7 +125,7 @@ public class Game{
 	public void playerGame(int no){
 		int num = dice.diceRoll()+1;
 		System.out.println("====================================================================");
-       	System.out.println("\n"+player.get(no).getPlayer()+" Colour : "+player.get(no).getColor()+" Rolls the dice and gets "+num);
+       	System.out.println("\n"+player.get(no).getPlayer()+" Coin : "+player.get(no).getCoin()+" Rolls the dice and gets "+num);
         if(num != 1){
 	        System.out.println(player.get(no).getPlayer()+" Can not enter the match until the dice rolls to 1");
 	        System.out.println("====================================================================");
@@ -134,12 +134,14 @@ public class Game{
     	    player.get(no).setPosition(1);
 	   	    System.out.println(player.get(no).getPlayer()+" Enters the game and reached to "+player.get(no).getPosition());
 	   	    System.out.println("====================================================================");
+	   	    int p = player.get(no).getPosition();
+	   	    bord.printBoard(p,no,player);
 	    }
 	}
 	public void playEasyGame(int noP){
 	    int num = dice.diceRoll()+1;
 	    System.out.println("====================================================================");
-	    System.out.println("\n"+player.get(noP).getPlayer()+" Colour : "+player.get(noP).getColor()+" Rolls the dice and gets "+num);
+	    System.out.println("\n"+player.get(noP).getPlayer()+" Coin : "+player.get(noP).getCoin()+" Rolls the dice and gets "+num);
 	    if(player.get(noP).getPosition()<95){
 			
 	        player.get(noP).setPosition(player.get(noP).getPosition()+num);
@@ -149,7 +151,9 @@ public class Game{
 	        if(x<=100){
      	        ladder.eLadderClimb(player);
 		        snake.eSnakeBite(player);
-	        }	
+		        bord.printBoard(x,noP,player);
+	        }
+	        //bord.printBoard(x,noP,player);	
 		}
 		if(player.get(noP).getPosition()==95){
 			if(num == 6){
@@ -162,7 +166,9 @@ public class Game{
 	            int x = player.get(noP).getPosition();
 	            if(x<=100){    
 		            snake.eSnakeBite(player);
+		            bord.printBoard(x,noP,player);
 	            }
+	            //bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==97){
@@ -173,6 +179,8 @@ public class Game{
 				player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
+	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==98){
@@ -183,6 +191,8 @@ public class Game{
 				player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
+	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==99){
@@ -193,23 +203,28 @@ public class Game{
 				player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
+	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 			}
 		}
 	}
 	public void playHardGame(int noP){
 	    int num = dice.diceRoll()+1;
 	    System.out.println("====================================================================");
-	    System.out.println("\n"+player.get(noP).getPlayer()+" Colour : "+player.get(noP).getColor()+" Rolls the dice and gets "+num);
+	    System.out.println("\n"+player.get(noP).getPlayer()+" Coin : "+player.get(noP).getCoin()+" Rolls the dice and gets "+num);
 	    if(player.get(noP).getPosition()<95){
 			
 	        player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	        System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	        System.out.println("====================================================================");
 	        int x = player.get(noP).getPosition();
+	      //  bord.printBoard(x,noP,player);
 	        if(x<=100){
      	        ladder.hLadderClimb(player);
 		        snake.hSnakeBite(player);
+		        bord.printBoard(x,noP,player);
 	        }	
+	        //bord.printBoard(x,noP,player);
 		}
 		if(player.get(noP).getPosition()==95){
 			if(num == 6){
@@ -220,9 +235,12 @@ public class Game{
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
 	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 	            if(x<=100){    
 		            snake.hSnakeBite(player);
+		            bord.printBoard(x,noP,player);
 	            }
+	          //  bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==97){
@@ -233,6 +251,8 @@ public class Game{
 				player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
+	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==99){
@@ -243,6 +263,8 @@ public class Game{
 				player.get(noP).setPosition(player.get(noP).getPosition()+num);
 	            System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	            System.out.println("====================================================================");
+	            int x = player.get(noP).getPosition();
+	            bord.printBoard(x,noP,player);
 			}
 		}
 	}
@@ -252,7 +274,7 @@ public class Game{
 		
 		if(player.get(i).getPosition()>=100){
 			System.out.println("\t\t"+player.get(i).getPlayer()+"\t");
-			System.out.println("\t\t"+player.get(i).getColor()+"\t");
+			System.out.println("\t\t"+player.get(i).getCoin()+"\t");
 		}
 		System.out.println("--------------------------------------------------");
 	}
@@ -261,7 +283,7 @@ public class Game{
 	  	System.out.println(" PLAYERS FINAL POSITIONS ");
 	   	System.out.println("-------------------------");
 	   	for(Players pl : player){
-	   		System.out.println("Player : "+pl.player+"  Coin : "+pl.color+" Position : "+pl.position);
+	   		System.out.println("Player : "+pl.player+"  Coin : "+pl.coin+" Position : "+pl.position);
 	  	}
 	}
 }

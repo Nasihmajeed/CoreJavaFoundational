@@ -3,7 +3,7 @@ import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Players implements Comparable<Players>{
 	String player;
-	String color;
+	String coin;
 	int position;
 	
 	public void setPlayer(String name){
@@ -12,11 +12,11 @@ public class Players implements Comparable<Players>{
 	public String getPlayer(){
 		return player;
 	}
-	public void setColor(String colr){
-	    this.color = colr;
+	public void setCoin(String con){
+	    this.coin = con;
 	}
-	public String getColor(){
-		return color;
+	public String getCoin(){
+		return coin;
 	}
 	public void setPosition(int post){
 		this.position = post;
@@ -25,7 +25,7 @@ public class Players implements Comparable<Players>{
 		return position;
 	}
 	public String toString(){
-		return this.player+" \tDice : "+this.color;
+		return this.player+" \tDice : "+this.coin;
 	}
 	public int compareTo(Players p){
 		if(position==p.position){
