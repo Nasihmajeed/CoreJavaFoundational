@@ -29,7 +29,6 @@ public class Game{
 				String gameLevel = "HARD";
 				this.beginGame(GameLevel.valueOf(gameLevel));
 			}
-		    //this.winner(noOfPlayers);
 		}
 	}
 	public void beginGame(GameLevel gLevel){
@@ -66,16 +65,13 @@ public class Game{
 	}
 	public void setEasyGame(){
 		Scanner s = new Scanner(System.in);
-		//int j;
 		int rollAgain;
 		do{			
 			for(int j=0;j<player.size(); j++){
 				if(player.get(j).getPosition()==0){
 			       this.playerGame(j);				    
-				    //this.play2Game();
 		     	}
 		        else if(player.get(j).getPosition()>0){
-			    //this.play1Game();
 		            this.playEasyGame(j);
 		     	     
 			    }
@@ -87,39 +83,28 @@ public class Game{
 			}
 			System.out.println("Tap 1 for next round of rolling (To exit tap 0)");
 			rollAgain = s.nextInt();
-			//this.winner(j);
 		}while(rollAgain != 0);
 	}
 	public void setHardGame(){
 		Scanner s = new Scanner(System.in);
-		//int j;
 		int rollAgain;
 		do{			
 			for(int j=0;j<player.size(); j++){
 				if(player.get(j).getPosition()==0){
 			       this.playerGame(j);				    
-				    //this.play2Game();
 		     	}
 		        else if(player.get(j).getPosition()>0){
-			    //this.play1Game();
 		            this.playHardGame(j);
 		     	     
 			    }
 			    if(player.get(j).getPosition()>=100){
 			    	this.winner(j);
 			    	this.finalPosition();
-			    	/*Collections.sort(player);
-	  	            System.out.println(" PLAYERS FINAL POSITIONS ");
-	            	System.out.println("-------------------------");
-	            	for(Players pl : player){
-	            		System.out.println("Player : "+pl.player+"  Coin : "+pl.color+" Position : "+pl.position);
-	            	}*/
 			    	break;
 			    }	    
 			}
 			System.out.println("Tap 1 for next round of rolling (To exit tap 0)");
 			rollAgain = s.nextInt();
-			//this.winner(j);
 		}while(rollAgain != 0);
 	}
 	public void playerGame(int no){
@@ -151,9 +136,8 @@ public class Game{
 	        if(x<=100){
      	        ladder.eLadderClimb(player);
 		        snake.eSnakeBite(player);
-		        bord.printBoard(x,noP,player);
 	        }
-	        //bord.printBoard(x,noP,player);	
+	        bord.printBoard(x,noP,player);	
 		}
 		if(player.get(noP).getPosition()==95){
 			if(num == 6){
@@ -166,9 +150,8 @@ public class Game{
 	            int x = player.get(noP).getPosition();
 	            if(x<=100){    
 		            snake.eSnakeBite(player);
-		            bord.printBoard(x,noP,player);
 	            }
-	            //bord.printBoard(x,noP,player);
+	            bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==97){
@@ -218,13 +201,11 @@ public class Game{
 	        System.out.println(player.get(noP).getPlayer()+" Moves to the "+player.get(noP).getPosition()+" position");
 	        System.out.println("====================================================================");
 	        int x = player.get(noP).getPosition();
-	      //  bord.printBoard(x,noP,player);
 	        if(x<=100){
      	        ladder.hLadderClimb(player);
 		        snake.hSnakeBite(player);
-		        bord.printBoard(x,noP,player);
 	        }	
-	        //bord.printBoard(x,noP,player);
+	        bord.printBoard(x,noP,player);
 		}
 		if(player.get(noP).getPosition()==95){
 			if(num == 6){
@@ -238,9 +219,8 @@ public class Game{
 	            bord.printBoard(x,noP,player);
 	            if(x<=100){    
 		            snake.hSnakeBite(player);
-		            bord.printBoard(x,noP,player);
 	            }
-	          //  bord.printBoard(x,noP,player);
+	            bord.printBoard(x,noP,player);
 			}
 		}
 		else if(player.get(noP).getPosition()==97){

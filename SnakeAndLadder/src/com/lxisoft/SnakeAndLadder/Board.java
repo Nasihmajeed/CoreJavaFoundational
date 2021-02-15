@@ -204,7 +204,6 @@ public class Board{
 			for(int j=0; j<10; j++){
 				if(index==temp){
 					System.out.print("|   "+player.get(n).getCoin()+"   ");
-
 				}
 				else{
 					System.out.print("|");
