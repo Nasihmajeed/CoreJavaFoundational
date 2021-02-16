@@ -2,6 +2,36 @@ package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Ladder{
+	public void easyLadderClimb(int numOfLadder){
+		int[][] ladders = new ladders[numOfLadder][2];
+		ladders[0][0] = 4;
+		ladders[0][1] = 44;
+		ladders[1][0] = 12;
+		ladders[1][1] = 50;
+		ladders[2][0] = 14;
+		ladders[2][1] = 53;
+		ladders[3][0] = 22;
+		ladders[3][1] = 38;
+		ladders[4][0] = 41;
+		ladders[4][1] = 79;
+		ladders[5][0] = 54;
+		ladders[5][1] = 88;
+	}
+	public void hardLadderClimb(int numOfLadder){
+		int[][] ladder = new ladder[numOfLadder][2];
+		ladders[0][0] = 4;
+		ladders[0][1] = 16;
+		ladders[1][0] = 8;
+		ladders[1][1] = 12;
+		ladders[2][0] = 20;
+		ladders[2][1] = 74;
+		ladders[3][0] = 32;
+		ladders[3][1] = 56;
+		ladders[4][0] = 54;
+		ladders[4][1] = 70;
+	}
+}
+/*
 	public void eLadderClimb(ArrayList<Players> player){
 		for(int i=0; i<player.size(); i++){
 			if(player.get(i).getPosition()==4){
@@ -60,6 +90,7 @@ public class Ladder{
 			}
 		}
 	}
+	/*
 	public void hLadderClimb(ArrayList<Players> player){
 		for(int i=0; i<player.size(); i++){
 			if(player.get(i).getPosition()==4){
@@ -99,4 +130,4 @@ public class Ladder{
 			}
 		}
 	}
-}
+}*/

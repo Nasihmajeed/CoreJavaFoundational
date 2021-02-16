@@ -2,7 +2,13 @@ package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Board{
+	Snake snke = new Snake();
+	Ladder lad = new Ladder();
 	String[][] board = new String[10][10];
+	int eNumOfSanake = 6;
+	int eNumOfLadder = 5;
+	int hNumofSnake = 11;
+	int hNumofLadder = 5;
 	public void setBoard(){
 	    board[0][0] = "  01 ";
 	    board[0][1] = "  02 ";
@@ -131,6 +137,8 @@ public class Board{
 		System.out.println("|                            in 94th position        |");
 		System.out.println("|                            in 96th position        |");
 		System.out.println("+----------------------------------------------------+");
+		snke.setEasySnakes(6);
+		lad.easyLadderClimb(5);
 	}
 	public void hBoardDescription(){
 		System.out.println("+----------------------------------------------------+");
@@ -153,6 +161,8 @@ public class Board{
 		System.out.println("|                            in 94th position        |");
 		System.out.println("|                            in 98th position        |");
 		System.out.println("+----------------------------------------------------+");
+		snke.setHardSnakes(11);
+		lad.hardLadderClimb(5);
 	}
 	public void addPlayer(int num,ArrayList<Players> player){
 		for(int i=0; i<num; i++){
@@ -209,8 +219,7 @@ public class Board{
 					System.out.print("|");
 				    System.out.print(" "+board[i][j]+" ");
 				}
-				temp++;
-				 	
+				temp++;		 	
 			}
 			System.out.print("|\n+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+\n");
 		}

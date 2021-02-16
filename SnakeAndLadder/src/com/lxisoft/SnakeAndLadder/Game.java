@@ -15,7 +15,6 @@ public class Game{
 	GameLevel gLevel;
 	public void startGame(){
 		Scanner s = new Scanner(System.in);
-
 		System.out.println("Start Game \n1.Yes \n2.No");
 		int start = s.nextInt();
 		if(start==1){
@@ -65,47 +64,66 @@ public class Game{
 	}
 	public void setEasyGame(){
 		Scanner s = new Scanner(System.in);
+		int nextRound;
 		int rollAgain;
 		do{			
 			for(int j=0;j<player.size(); j++){
-				if(player.get(j).getPosition()==0){
-			       this.playerGame(j);				    
-		     	}
-		        else if(player.get(j).getPosition()>0){
-		            this.playEasyGame(j);
+				System.out.println("Player "+(j+1));
+				System.out.println("Press 1 to roll the dice ");
+				rollAgain = s.nextInt();
+				if(rollAgain == 1){
+					
+					if(player.get(j).getPosition()==0){
+			            this.playerGame(j);				    
+		        	}
+		            else if(player.get(j).getPosition()>0){
+		                this.playEasyGame(j);
 		     	     
-			    }
-			    if(player.get(j).getPosition()>=100){
-			    	this.winner(j);
-			    	this.finalPosition();
-			    	break;
-			    }	    
+			        }
+	     		    if(player.get(j).getPosition()>=100){
+		    	    	this.winner(j);
+     			    	this.finalPosition();
+		    	    	break;
+	    		    }
+				}
+				else {
+					System.out.println("Invalid ");
+				}	    
 			}
 			System.out.println("Tap 1 for next round of rolling (To exit tap 0)");
-			rollAgain = s.nextInt();
-		}while(rollAgain != 0);
+			nextRound = s.nextInt();
+		}while(nextRound != 0);
 	}
 	public void setHardGame(){
 		Scanner s = new Scanner(System.in);
 		int rollAgain;
+		int nextRound;
 		do{			
 			for(int j=0;j<player.size(); j++){
-				if(player.get(j).getPosition()==0){
-			       this.playerGame(j);				    
-		     	}
-		        else if(player.get(j).getPosition()>0){
-		            this.playHardGame(j);
-		     	     
-			    }
-			    if(player.get(j).getPosition()>=100){
-			    	this.winner(j);
-			    	this.finalPosition();
-			    	break;
-			    }	    
+				System.out.println("Player "+(j+1));
+				System.out.println("Press 1 to roll the dice ");
+				rollAgain = s.nextInt();
+				if(rollAgain == 1){
+					
+					if(player.get(j).getPosition()==0){
+			            this.playerGame(j);				    
+		        	}
+		            else if(player.get(j).getPosition()>0){
+		                this.playEasyGame(j);   
+			        }
+	     		    if(player.get(j).getPosition()>=100){
+		    	    	this.winner(j);
+     			    	this.finalPosition();
+		    	    	break;
+	    		    }
+				}
+				else {
+					System.out.println("Invalid");
+				}
 			}
 			System.out.println("Tap 1 for next round of rolling (To exit tap 0)");
-			rollAgain = s.nextInt();
-		}while(rollAgain != 0);
+			nextRound = s.nextInt();
+		}while(nextRound != 0);
 	}
 	public void playerGame(int no){
 		int num = dice.diceRoll()+1;
