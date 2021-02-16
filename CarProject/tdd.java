@@ -1,13 +1,15 @@
+import java.util.Scanner;
 
-public class TDD
+public class Tdd
 {
-public static void main(String[] args)
-{
-int i;
+        public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the number of cars");
+        int number = s.nextInt();
+        Cars car = new Cars();
+        car.cardetails(number);
+        car.printcardetails(number);
 
-Cars car=new Cars();
-car.print1();
-car.print2();
-car.print3();
-}
+    }
 }
