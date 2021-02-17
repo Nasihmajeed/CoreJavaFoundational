@@ -62,7 +62,8 @@ public class Doors
 		    d4[i].type =  s.nextLine();
         }
     }
-    public void printDoorDetail(int n){
+    public void printDoorDetail(int n)
+    {
 		
         for (int i=n;i<=n;i++) 
         {
@@ -90,4 +91,4 @@ public class Doors
 			System.out.println("Type     : "+d4[i].type);
 		}
     }
-      
+}      

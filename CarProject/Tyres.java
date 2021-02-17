@@ -22,20 +22,23 @@ public class Tyres
             System.out.println("\nEnter the number of Tyres of car " + (i+1));
 		    num = s.nextInt();
 
-		 
-			    System.out.println("Tyres");
+		
+			    System.out.println("------Tyre Details------");
 
-				System.out.println("Brand	");
+				System.out.println("Brand");
 				t[i].brand = s.next();
 
-				System.out.println("Model " );
+				System.out.println("Model");
 				t[i].model = s.next();
 
-				System.out.println("Radius 	");
+				System.out.println("Radius");
 				t[i].radius = s.nextInt();
 
-				System.out.println("price 	");
-		
+				System.out.println("Price");
+		        t[i].price = s.nextInt();
+
+		        s.nextline();
+
         }
 	}
 	public void printTyreDetails(int n){
@@ -47,7 +50,6 @@ public class Tyres
 			System.out.println("**********************");
 			System.out.println("Details of car" + (i+1) + " Tyres");
 		    System.out.println("No.of Tyres  : " + num);
-			
 		    System.out.println("Brand  : " + t[i].brand);
 			System.out.println("Model  : " + t[i].model);	
 			System.out.println("Radius : " + t[i].radius);

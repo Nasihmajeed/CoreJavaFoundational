@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Tdd
+public class TDD
 {
         public static void main(String[] args) 
     {

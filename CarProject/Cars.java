@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Cars
 {
     String brand;
@@ -14,26 +13,22 @@ public class Cars
     Tyres tyre = new Tyres();
     
     Cars[] c;
-
     public void cardetails(int n)
     {
         c = new Cars[n];
-
         for( int i=0; i<n; i++ )
         {
             c[i] = new Cars();
-
-
-            System.out.println("****Car" + (i+1) + "Details****");
+            System.out.println("****Car " + (i+1) + " Details****");
 
 		    System.out.println("Enter the Brand : ");
-		    c[i].brand = s.next();
+		    c[i].brand = s.nextLine();
 
 		    System.out.println("Enter the Model : ");
-		    c[i].model = s.next();
+		    c[i].model = s.nextLine();
 
 		    System.out.println("Enter the Color : ");
-            c[i].color = s.next();
+            c[i].color = s.nextLine();
             
 		    System.out.println("Steering type 	: ");
 		    System.out.println("1. Power Steering \n2. Normal Steering");
@@ -42,7 +37,11 @@ public class Cars
 		    System.out.println("\nIs there a driver?");
 		    System.out.println("1. Yes \n2. No");
             c[i].driver = s.nextInt();
+
+            s.nextLine();
         }
+
+
 
         tyre.tyredetails(n);
         door.doordetails(n);
@@ -79,7 +78,8 @@ public class Cars
 		    {
 		    	System.out.println("Driver is the Owner");			
 		    }
-		    else{
+		    else
+            {
                 System.out.println("invalid");
             }
 
@@ -88,8 +88,7 @@ public class Cars
         
         }
         System.out.println("**********************");
-       
+     
     }
+}
 
-}
-}
