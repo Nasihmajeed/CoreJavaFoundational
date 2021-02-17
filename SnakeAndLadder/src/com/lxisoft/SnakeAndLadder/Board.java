@@ -56,7 +56,7 @@ public class Board {
 		    		playerPositions.put(player, position);
 		    		System.out.println("----------------------------------------------------------------------");
 	    			System.out.println(" " + player + " takes ladder from " + ladders[idx][0] + " to " + ladders[idx][1]);
-	    			System.out.println("----------------------------------------------------------------------");
+	    			System.out.println("----------------------------------------------------------------------");	
 			
 		    		return false;
 		    	}
