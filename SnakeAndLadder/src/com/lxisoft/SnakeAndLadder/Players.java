@@ -1,41 +1,48 @@
 package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
-public class Players implements Comparable<Players>{
-	String player;
-	String coin;
-	int position;
+public class Players {
+
+	String name;
+	Dice dice = new Dice();
 	
-	public void setPlayer(String name){
-		this.player = name; 
-	} 
-	public String getPlayer(){
-		return player;
+	public Players(String name){
+		this.name = name;
 	}
-	public void setCoin(String con){
-	    this.coin = con;
+	public int takeTurn(){
+		
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print(name+"'s turn press [ENTER] to Roll the dice");
+		String input = scan.nextLine();
+		
+		
+		int val = 0;
+		for (int idx = 0; idx < input.length(); idx++){
+			val+= input.charAt(idx);
+		}
+		val = val % 10;
+		if (val == 0){
+			val = 1;
+		}
+		
+		
+		for (int idx = 0; idx < val; idx++){
+			dice.rollD6();
+		}
+		
+		
+		int roll = 0;
+		roll = dice.rollD6();
+		
+		System.out.println(name + " rolled and got " + roll + ".");
+		
+		return roll;
 	}
-	public String getCoin(){
-		return coin;
-	}
-	public void setPosition(int post){
-		this.position = post;
-	}
-	public int getPosition(){
-		return position;
-	}
+	
+	
 	public String toString(){
-		return this.player+" \tDice : "+this.coin;
-	}
-	public int compareTo(Players p){
-		if(position==p.position){
-			return 0;
-		}
-		else if(position<p.position){
-			return 1;
-		}
-		else {
-			return -1;
-		}
+		return name;
 	}
 }
