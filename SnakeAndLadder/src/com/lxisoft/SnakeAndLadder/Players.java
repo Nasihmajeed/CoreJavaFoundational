@@ -4,10 +4,12 @@ import java.util.*;
 public class Players {
 
 	String name;
+	String coin;
 	Dice dice = new Dice();
 	
-	public Players(String name){
+	public Players(String name, String coin){
 		this.name = name;
+		this.coin = coin;
 	}
 	public int takeTurn(){
 		
@@ -43,6 +45,6 @@ public class Players {
 	
 	
 	public String toString(){
-		return name;
+		return coin;
 	}
 }

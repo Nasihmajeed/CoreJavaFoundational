@@ -2,12 +2,13 @@ package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Board {
-
 	
 	int row = 10;
 	int col = 10;
-	int numSnakes = 6;
-	int numLadders = 6;
+	int eNumSnakes = 6;
+	int eNumLadders = 6;
+	int hNumSnakes = 11;
+	int hNumLadders = 5;
 	
     int[][] gameBoard;
 	int[][] snakes;
@@ -23,12 +24,29 @@ public class Board {
 		for (int i = 0; i < row; i++){
 			for (int j = 0; j < col; j++){
 				gameBoard[i][j] = i*row + j + 1;
+				//System.out.print(gameBoard[i][j]);
 			}
 		}
-		setSnakes();
-		setLadders();
+		setSnakesEasy();
+		setLaddersEasy();
+
 	}
-	public boolean movePlayer(Players player, int value){
+	public Board(List<Players> players, int n){
+		this.playerPositions = new HashMap<Players, Integer>();
+		for (Players player : players){
+			this.playerPositions.put(player, 0);
+		}
+        gameBoard = new int[row][col];
+		for (int i = 0; i < row; i++){
+			for (int j = 0; j < col; j++){
+				gameBoard[i][j] = i*row + j + 1;
+				//System.out.print(gameBoard[i][j]);
+			}
+		}
+		setSnakesHard();
+		setLaddersHard();
+	}
+	public boolean eMovePlayer(Players player, int value){
 		int position = playerPositions.get(player);
 		position += value;
 
@@ -39,7 +57,7 @@ public class Board {
 			return true;
 		} 
 		else {
-		    for (int idx = 0; idx < numSnakes; idx++){
+		    for (int idx = 0; idx < eNumSnakes; idx++){
 			    if (snakes[idx][0] == position){
 	    			position = snakes[idx][1];
 	     			playerPositions.put(player, position);
@@ -50,7 +68,7 @@ public class Board {
 		    		return false;
 			    }
 		    }
-    		for (int idx = 0; idx < numLadders; idx++){
+    		for (int idx = 0; idx < eNumLadders; idx++){
 	    		if (ladders[idx][0] == position){
 	    			position = ladders[idx][1];
 		    		playerPositions.put(player, position);
@@ -66,8 +84,47 @@ public class Board {
     	}
     }
 
-	private void setSnakes(){
-		snakes = new int[numSnakes][2];
+    public boolean hMovePlayer(Players player, int value){
+		int position = playerPositions.get(player);
+		position += value;
+
+
+		if (position >= 100){
+			
+			playerPositions.put(player, 100);
+			return true;
+		} 
+		else {
+		    for (int idx = 0; idx < hNumSnakes; idx++){
+			    if (snakes[idx][0] == position){
+	    			position = snakes[idx][1];
+	     			playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes snake from " + snakes[idx][0] + " to " + snakes[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");
+   
+		    		return false;
+			    }
+		    }
+    		for (int idx = 0; idx < hNumLadders; idx++){
+	    		if (ladders[idx][0] == position){
+	    			position = ladders[idx][1];
+		    		playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes ladder from " + ladders[idx][0] + " to " + ladders[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");	
+			
+		    		return false;
+		    	}
+	     	}
+	     	playerPositions.put(player, position);
+			return false;
+    	}
+    }
+
+
+	private void setSnakesEasy(){
+		snakes = new int[eNumSnakes][2];
 		snakes[0][0] = 28;
 		snakes[0][1] = 10;
 		snakes[1][0] = 37;
@@ -81,9 +138,34 @@ public class Board {
 		snakes[5][0] = 96;
 		snakes[5][1] = 42;		
 	}
+	private void setSnakesHard(){
+		snakes = new int[hNumSnakes][2];
+		snakes[0][0] = 22;
+		snakes[0][1] = 2;
+		snakes[1][0] = 28;
+		snakes[1][1] = 6;
+		snakes[2][0] = 30;
+		snakes[2][1] = 10;
+		snakes[3][0] = 44;
+		snakes[3][1] = 26;
+		snakes[4][0] = 58;
+		snakes[4][1] = 42;
+		snakes[5][0] = 66;
+		snakes[5][1] = 14;
+		snakes[6][0] = 72;
+		snakes[6][1] = 50;
+		snakes[7][0] = 84;
+		snakes[7][1] = 62;
+		snakes[8][0] = 94;
+		snakes[8][1] = 64;
+		snakes[9][0] = 96;
+		snakes[9][1] = 82;
+		snakes[10][0] = 98;
+		snakes[10][1] = 78;		
+	}
 
-	private void setLadders(){
-		ladders = new int[numLadders][2];
+	private void setLaddersEasy(){
+		ladders = new int[eNumLadders][2];
 		ladders[0][0] = 4;
 		ladders[0][1] = 44;
 		ladders[1][0] = 12;
@@ -96,6 +178,19 @@ public class Board {
 		ladders[4][1] = 79;
 		ladders[5][0] = 54;
 		ladders[5][1] = 88;
+	}
+	private void setLaddersHard(){
+		ladders = new int[hNumLadders][2];
+		ladders[0][0] = 4;
+		ladders[0][1] = 16;
+		ladders[1][0] = 8;
+		ladders[1][1] = 12;
+		ladders[2][0] = 20;
+		ladders[2][1] = 74;
+		ladders[3][0] = 32;
+		ladders[3][1] = 56;
+		ladders[4][0] = 54;
+		ladders[4][1] = 70;
 	}
 
 	public String toString(){
@@ -138,8 +233,7 @@ public class Board {
 						sb.append(gameBoard[rows][colms] + "\t");
 					}
 				}
-			} 
-			//Switch oddRow flag and print new line
+			}
 			oddRow = !oddRow;
 			sb.append("\n");
 		}

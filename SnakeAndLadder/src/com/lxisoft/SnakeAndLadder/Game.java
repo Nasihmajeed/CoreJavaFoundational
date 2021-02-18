@@ -2,12 +2,8 @@ package com.lxisoft.SnakeAndLadder;
 import com.lxisoft.SnakeAndLadder.*;
 import java.util.*;
 public class Game{
-	int noOfPlayers;	
-	//Board bord = new Board();
+	List<Players> players = new ArrayList<Players>();
 	Dice dice  = new Dice();
-	//Snake snake = new Snake();
-	//Ladder ladder = new Ladder();
-	//ArrayList<Players> player = new ArrayList<Players>();
 	enum GameLevel{
 		EASY,
 		HARD
@@ -29,8 +25,21 @@ public class Game{
 				String gameLevel = "HARD";
 				this.setHardGame();
 			}
-		    //this.winner(noOfPlayers);
 		}
+	}
+	public void gameDescription(List<Players> player){
+		System.out.println("+------------------------------------------------------------+");
+		System.out.println("|                  Game Description                          |");
+		System.out.println("|                 ------------------                         |");
+		System.out.println("| The game has a tottal of 100 cells.There can be any number |");
+		System.out.println("| of players. Each Player can roll the Dice simontaniously , |");
+		System.out.println("| the player who gets 1 will enter the match at the begening |");
+		System.out.println("| There are Snakes and Ladder all around the board the player|");
+		System.out.println("| who reaches 100 first will be the winner of the game.      |");
+		System.out.println("|                      Players                               |");
+		System.out.println("|                     ---------                              |");
+		System.out.println("   "+player+"   ");
+		System.out.println("+------------------------------------------------------------+");
 	}
 	void setEasyGame(){
 		Scanner scan = new Scanner(System.in);
@@ -38,14 +47,14 @@ public class Game{
 		while (numPlayers <= 0 || numPlayers >6 ){
 			System.out.print("Please enter the number of player (1-6): " );
 			numPlayers = scan.nextInt();
-		}
-		
-		List<Players> players = new ArrayList<Players>();
-		for (int idx = 0; idx < numPlayers; idx++){
-			Players player = new Players("P" + idx);
-			players.add(player);
+
 		}
 
+		for (int idx = 0; idx < numPlayers; idx++){
+			Players player = new Players("Player " +(idx+1),"P"+(idx+1));
+			players.add(player);
+		}
+		this.gameDescription(players);
 		Board board = new Board(players);
 		boolean done = false;
 		int playerIdx = 0;
@@ -54,20 +63,22 @@ public class Game{
 			Players currPlayer = players.get(playerIdx);
 			int roll = currPlayer.takeTurn();
 			
-			done = board.movePlayer(currPlayer, roll);
-			
+			done = board.eMovePlayer(currPlayer, roll);
+			System.out.println("----------------------------------------------------------------------------");
 			System.out.println(board);
-			System.out.println("-----------------------\n");
+			System.out.println("----------------------------------------------------------------------------\n");
+			//System.out.println("-----------------------\n");
 			
 			if (done){
-				System.out.println(currPlayer + " wins");
+				System.out.println("-----------------------");
+				System.out.println(" "+currPlayer + " wins ");
+				System.out.println("-----------------------");
 			}
 			
 			playerIdx++;
 			if (playerIdx == numPlayers){
 				playerIdx = 0;
-			}
-			
+			}	
 		}
 	}
 
@@ -82,11 +93,11 @@ public class Game{
 		
 		List<Players> players = new ArrayList<Players>();
 		for (int idx = 0; idx < numPlayers; idx++){
-			Players player = new Players("P" + idx);
+			Players player = new Players("Player " + (idx+1),"P"+(idx+1));
 			players.add(player);
 		}
-
-		Board board = new Board(players);
+		this.gameDescription(players);
+		Board board = new Board(players,numPlayers);
 		boolean done = false;
 		int playerIdx = 0;
 		while (!done){
@@ -94,20 +105,29 @@ public class Game{
 			Players currPlayer = players.get(playerIdx);
 			int roll = currPlayer.takeTurn();
 			
-			done = board.movePlayer(currPlayer, roll);
-			
+			done = board.hMovePlayer(currPlayer, roll);
+			System.out.println("----------------------------------------------------------------------------");
 			System.out.println(board);
-			System.out.println("-----------------------\n");
-			
+			System.out.println("----------------------------------------------------------------------------\n");
+
 			if (done){
-				System.out.println(currPlayer + " wins");
+				System.out.println("-----------------------");
+				System.out.println(" "+currPlayer + " wins");
+				System.out.println("-----------------------");
 			}
 			
 			playerIdx++;
 			if (playerIdx == numPlayers){
 				playerIdx = 0;
-			}
-			
+			}	
 		}
 	}
+	/*public void finalPosition(){
+	    Collections.sort(players);
+	  	System.out.println(" PLAYERS FINAL POSITIONS ");
+	   	System.out.println("-------------------------");
+	   	for(Players pl : player){
+	   		System.out.println("Player : "+pl.player+"  Coin : "+pl.coin+" Position : "+pl.position);
+	  	}
+	}*/
 }
