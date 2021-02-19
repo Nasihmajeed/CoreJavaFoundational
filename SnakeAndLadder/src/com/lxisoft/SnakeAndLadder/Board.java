@@ -121,7 +121,48 @@ public class Board {
 			return false;
     	}
     }
-
+    	public void eBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 12th position        |");
+		System.out.println("|                            in 14th position        |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 41th position        |");
+		System.out.println("|                            in 54th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 37th position        |");
+		System.out.println("|                            in 47th position        |");
+		System.out.println("|                            in 75th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 96th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
+	public void hBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 8th position         |");
+		System.out.println("|                            in 20th position        |");
+		System.out.println("|                            in 32th position        |");
+		System.out.println("|                            in 54th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 30th position        |");
+		System.out.println("|                            in 44th position        |");
+		System.out.println("|                            in 58th position        |");
+		System.out.println("|                            in 66th position        |");
+		System.out.println("|                            in 72th position        |");
+		System.out.println("|                            in 84th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 96th position        |");
+		System.out.println("|                            in 98th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
 
 	private void setSnakesEasy(){
 		snakes = new int[eNumSnakes][2];
@@ -232,6 +273,7 @@ public class Board {
 
 						sb.append(gameBoard[rows][colms] + "\t");
 					}
+			
 				}
 			}
 			oddRow = !oddRow;

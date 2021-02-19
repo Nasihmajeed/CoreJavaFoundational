@@ -12,6 +12,8 @@ public class Game{
 	public void startGame(){
 		Scanner s = new Scanner(System.in);
 
+		System.out.println("             WELCOME TO SNAKE AND LADDER         ");
+		System.out.println("            =============================        ");
 		System.out.println("Start Game \n1.Yes \n2.No");
 		int start = s.nextInt();
 		if(start==1){
@@ -47,7 +49,6 @@ public class Game{
 		while (numPlayers <= 0 || numPlayers >6 ){
 			System.out.print("Please enter the number of player (1-6): " );
 			numPlayers = scan.nextInt();
-
 		}
 
 		for (int idx = 0; idx < numPlayers; idx++){
@@ -56,6 +57,7 @@ public class Game{
 		}
 		this.gameDescription(players);
 		Board board = new Board(players);
+		board.eBoardDescription();
 		boolean done = false;
 		int playerIdx = 0;
 		while (!done){
@@ -98,6 +100,7 @@ public class Game{
 		}
 		this.gameDescription(players);
 		Board board = new Board(players,numPlayers);
+		board.hBoardDescription();
 		boolean done = false;
 		int playerIdx = 0;
 		while (!done){
