@@ -125,12 +125,5 @@ public class Game{
 			}	
 		}
 	}
-	/*public void finalPosition(){
-	    Collections.sort(players);
-	  	System.out.println(" PLAYERS FINAL POSITIONS ");
-	   	System.out.println("-------------------------");
-	   	for(Players pl : player){
-	   		System.out.println("Player : "+pl.player+"  Coin : "+pl.coin+" Position : "+pl.position);
-	  	}
-	}*/
+	
 }
