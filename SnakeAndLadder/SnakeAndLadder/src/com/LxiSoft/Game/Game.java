@@ -22,8 +22,8 @@ public class Game
     public void startGame()
     {
         System.out.println("\n\n +-------------------- SNAKE AND LADDER -------------------+");
-		board.setBoard();
-        board.print();
+		// board.setBoard();
+        // board.print();
         
         System.out.println("\nRules :");
         System.out.println("           1 : Get 1 on dice to enter the Game.");
@@ -69,7 +69,8 @@ public class Game
             System.out.println("                      Welcome to the Game");
             System.out.println(" +-------------------- SNAKE AND LADDER -------------------+");
             System.out.println(" +--------------------   Level : Easy   -------------------+");
-            board.setBoard();
+            board.setEasyBoard();
+            board.eprint();
 
             System.out.println("Enter the no.of players : ");
             playerNo = s.nextInt();
@@ -83,7 +84,8 @@ public class Game
             System.out.println("                      Welcome to the Game");
             System.out.println(" +-------------------- SNAKE AND LADDER -------------------+");
             System.out.println(" +--------------------   Level : Hard   -------------------+");
-            board.setBoard();
+            board.setHardBoard();
+            board.hprint();
 
             System.out.println("Enter the no.of players : ");
             playerNo = s.nextInt();
