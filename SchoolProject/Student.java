@@ -1,3 +1,4 @@
+import java.util.*;
 public class Student
 {
 	String name;
@@ -9,8 +10,8 @@ public class Student
 	{
 		Scanner s = new Scanner(System.in);
 
-	    System.out.println(">----------------------------<");
-			System.out.println(">---Enter  Student Details---<");
+	    System.out.println("*************************");
+			System.out.println("*****Enter  Student Details***** ");
 			
 			System.out.println("Name    : ");
 				this.name = s.next();
@@ -19,8 +20,8 @@ public class Student
 
 		subject = new Subject[3];
 
-		System.out.println(">----------------------------<");
-		System.out.println(">---Enter the Mark Details---<");
+		System.out.println("*************************");
+		System.out.println("*****Enter the Mark Details*****");
 		
 		for( i=0; i<3; i++)
 		{
@@ -35,8 +36,8 @@ public class Student
 		System.out.println("Name       \t: "+/*student[i]*/this.name);
 		System.out.println("Roll Number\t: "+/*student[i]*/this.roll);
 
-		// System.out.println(">----------------------------<");
-		   System.out.println(">-      -Mark Details-      -<");
+		
+		   System.out.println("*****Mark Details*****");
 
 		for(i=0; i<3; i++)
 		{

@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class School
 {
 	String name;
@@ -25,11 +24,11 @@ public class School
          number = s.nextInt();
 
         classroom = new Classroom[number];
-        System.out.println(">----------------------------<");
+        System.out.println("*************************");
 
         for(int i=0; i<number; i++)
         {
-            System.out.println(">----Enter  Class  Details---<");
+            System.out.println("*****Enter  Class  Details*****");
 
             classroom[i] = new Classroom();
             classroom[i].addClassDetails();
@@ -40,8 +39,8 @@ public class School
     {
     	System.out.println("\n");
     
-        System.out.println(">----------------------------<");
-        System.out.println(">-------School Details-------<");
+        System.out.println("*************************");
+        System.out.println("*****School Details*****");
         System.out.println("School Name : " + name);
         System.out.println("Place       : " + place);
         System.out.println("Medium      : " + medium);
@@ -50,8 +49,8 @@ public class School
         
         for(int i=0; i<number; i++)
         {
-            System.out.println(">----------------------------<");
-            System.out.println(">-------Class  Details-------<");
+            System.out.println("*************************");
+            System.out.println("*****Class  Details*****");
             classroom[i].printClassDetails(i);
             classroom[i].classRankList();
         }
@@ -86,15 +85,15 @@ public class School
         }
 
 
-        System.out.println(">----------------------------<");
-        System.out.println(">------School Rank List------<");
-        System.out.println(">----------------------------<");
+        System.out.println("*************************");
+        System.out.println("*****School Rank List*****");
+        System.out.println("*************************");
         for(int x=0; x<total; x++)
         {
             System.out.println("Name        : "+ rank[x].name);
             System.out.println("Roll No.    : "+ rank[x].roll);
             System.out.println("Total Mark  : "+ rank[x].totalMark);
-            System.out.println(">----------------------------<");
+            System.out.println("*************************");
         }
     }
 

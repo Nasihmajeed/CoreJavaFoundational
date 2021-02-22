@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Classroom
 {
 	int standard;
@@ -34,7 +33,7 @@ public class Classroom
 
 		
 		teacher.addTeacherDetails();
-		System.out.println(">----------------------------<");
+		System.out.println("*************************");
 	}
 
 	public void printClassDetails(int i)
@@ -46,7 +45,7 @@ public class Classroom
 	 
 		for(int j=0; j<num; j++)
 		{
-			System.out.println(">------Student  Details------<");
+			System.out.println("*****Student  Details*****");
 		   	student[j].printStudentDetails();   
 		}
 	}
@@ -67,15 +66,15 @@ public class Classroom
 			}
 		}
 
-		System.out.println(">----------------------------<");
-		System.out.println(">------Class  Rank List------<");
+		System.out.println("*************************");
+		System.out.println("*****Class  Rank List*****");
 		for(int z=0; z<num; z++)
 		{	
 			System.out.println("Name		:"+student[z].name);
 			System.out.println("Roll No.	:"+student[z].roll);
 			System.out.println("Total Mark	:"+student[z].totalMark);
-			System.out.println(">----------------------------<");
-			// System.out.println("\n\n");
+			System.out.println("*************************");
+			
 			
 		}
 	}
