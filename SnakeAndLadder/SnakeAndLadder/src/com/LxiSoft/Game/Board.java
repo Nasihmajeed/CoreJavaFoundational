@@ -4,286 +4,285 @@ import java.util.*;
 
 public class Board 
 {
-    String[][] board = new String[10][10];
+    int row = 10;
+	int col = 10;
+	int eNumSnakes = 6;
+	int eNumLadders = 6;
+	int hNumSnakes = 11;
+	int hNumLadders = 5;
+	
+    int[][] gameBoard;
+	int[][] snakes;
+	int[][] ladders;
+	Map<Players, Integer> playerPositions;
 
-    public void setEasyBoard()
-    {
-        board[0][0] = "100";
-        board[0][1] = " 99";
-        board[0][2] = " 98";
-        board[0][3] = " 97";
-        board[0][4] = " 96";
-        board[0][5] = " S ";
-        board[0][6] = " 94";
-        board[0][7] = " 93";
-        board[0][8] = " 92";
-        board[0][9] = " 91";
-
-        board[1][0] = " 81";
-        board[1][1] = " 82";
-        board[1][2] = " 83";
-        board[1][3] = " 84";
-        board[1][4] = " 85";
-        board[1][5] = " S ";
-        board[1][6] = " 87";
-        board[1][7] = " 88";
-        board[1][8] = " 89";
-        board[1][9] = " 90";
-
-        board[2][0] = " L ";
-        board[2][1] = " 79";
-        board[2][2] = " 78";
-        board[2][3] = " 77";
-        board[2][4] = " 76";
-        board[2][5] = " 75";
-        board[2][6] = " 74";
-        board[2][7] = " 73";
-        board[2][8] = " 72";
-        board[2][9] = " L ";
-
-        board[3][0] = " 61";
-        board[3][1] = " 62";
-        board[3][2] = " 63";
-        board[3][3] = " 64";
-        board[3][4] = " 65";
-        board[3][5] = " 66";
-        board[3][6] = " 67";
-        board[3][7] = " 68";
-        board[3][8] = " 69";
-        board[3][9] = " 70";
-
-        board[4][0] = " 60";
-        board[4][1] = " 59";
-        board[4][2] = " S ";
-        board[4][3] = " 57";
-        board[4][4] = " 56";
-        board[4][5] = " 55";
-        board[4][6] = " 54";
-        board[4][7] = " 53";
-        board[4][8] = " 52";
-        board[4][9] = " L ";
-
-        board[5][0] = " 41";
-        board[5][1] = " 42";
-        board[5][2] = " 43";
-        board[5][3] = " 44";
-        board[5][4] = " 45";
-        board[5][5] = " 46";
-        board[5][6] = " S ";
-        board[5][7] = " 48";
-        board[5][8] = " 49";
-        board[5][9] = " 50";
-
-        board[6][0] = " 40";
-        board[6][1] = " 39";
-        board[6][2] = " 38";
-        board[6][3] = " 37";
-        board[6][4] = " L ";
-        board[6][5] = " 35";
-        board[6][6] = " 34";
-        board[6][7] = " 33";
-        board[6][8] = " 32";
-        board[6][9] = " 31";
-
-        board[7][0] = " 21";
-        board[7][1] = " 22";
-        board[7][2] = " 23";
-        board[7][3] = " 24";
-        board[7][4] = " 25";
-        board[7][5] = " 26";
-        board[7][6] = " 27";
-        board[7][7] = " L ";
-        board[7][8] = " 29";
-        board[7][9] = " 30";
-
-        board[8][0] = " L ";
-        board[8][1] = " 19";
-        board[8][2] = " 18";
-        board[8][3] = " 17";
-        board[8][4] = " 16";
-        board[8][5] = " 15";
-        board[8][6] = " 14";
-        board[8][7] = " 13";
-        board[8][8] = " 12";
-        board[8][9] = " 11";
-
-        board[9][0] = "  1";
-        board[9][1] = "  2";
-        board[9][2] = "  3";
-        board[9][3] = "  L";
-        board[9][4] = "  5";
-        board[9][5] = "  6";
-        board[9][6] = "  7";
-        board[9][7] = "  8";
-        board[9][8] = "  L";
-        board[9][9] = " 10";
-    }
-
-    public void setHardBoard()
-    {
-        board[0][0] = "100";
-        board[0][1] = " 99";
-        board[0][2] = " 98";
-        board[0][3] = " S ";
-        board[0][4] = " 96";
-        board[0][5] = " S ";
-        board[0][6] = " 94";
-        board[0][7] = " S ";
-        board[0][8] = " 92";
-        board[0][9] = " 91";
-
-        board[1][0] = " 81";
-        board[1][1] = " 82";
-        board[1][2] = " 83";
-        board[1][3] = " 84";
-        board[1][4] = " 85";
-        board[1][5] = " S ";
-        board[1][6] = " 87";
-        board[1][7] = " 88";
-        board[1][8] = " 89";
-        board[1][9] = " 90";
-
-        board[2][0] = " 80";
-        board[2][1] = " 79";
-        board[2][2] = " 78";
-        board[2][3] = " 77";
-        board[2][4] = " 76";
-        board[2][5] = " 75";
-        board[2][6] = " 74";
-        board[2][7] = " 73";
-        board[2][8] = " 72";
-        board[2][9] = " L ";
-
-        board[3][0] = " S ";
-        board[3][1] = " 62";
-        board[3][2] = " 63";
-        board[3][3] = " 64";
-        board[3][4] = " 65";
-        board[3][5] = " 66";
-        board[3][6] = " 67";
-        board[3][7] = " 68";
-        board[3][8] = " 69";
-        board[3][9] = " 70";
-
-        board[4][0] = " 60";
-        board[4][1] = " 59";
-        board[4][2] = " S ";
-        board[4][3] = " 57";
-        board[4][4] = " 56";
-        board[4][5] = " 55";
-        board[4][6] = " 54";
-        board[4][7] = " 53";
-        board[4][8] = " 52";
-        board[4][9] = " 51";
-
-        board[5][0] = " 41";
-        board[5][1] = " 42";
-        board[5][2] = " 43";
-        board[5][3] = " 44";
-        board[5][4] = " 45";
-        board[5][5] = " 46";
-        board[5][6] = " S ";
-        board[5][7] = " 48";
-        board[5][8] = " S ";
-        board[5][9] = " 50";
-
-        board[6][0] = " 40";
-        board[6][1] = " 39";
-        board[6][2] = " 38";
-        board[6][3] = " 37";
-        board[6][4] = " L ";
-        board[6][5] = " 35";
-        board[6][6] = " 34";
-        board[6][7] = " 33";
-        board[6][8] = " 32";
-        board[6][9] = " 31";
-
-        board[7][0] = " 21";
-        board[7][1] = " 22";
-        board[7][2] = " 23";
-        board[7][3] = " 24";
-        board[7][4] = " 25";
-        board[7][5] = " 26";
-        board[7][6] = " 27";
-        board[7][7] = " 28";
-        board[7][8] = " 29";
-        board[7][9] = " 30";
-
-        board[8][0] = " L ";
-        board[8][1] = " 19";
-        board[8][2] = " 18";
-        board[8][3] = " 17";
-        board[8][4] = " 16";
-        board[8][5] = " 15";
-        board[8][6] = " 14";
-        board[8][7] = " 13";
-        board[8][8] = " 12";
-        board[8][9] = " 11";
-
-        board[9][0] = "  1";
-        board[9][1] = "  2";
-        board[9][2] = "  3";
-        board[9][3] = "  L";
-        board[9][4] = "  5";
-        board[9][5] = "  6";
-        board[9][6] = "  7";
-        board[9][7] = "  8";
-        board[9][8] = "  9";
-        board[9][9] = " 10";
-    }
-
-    public void addPlayer(int num,ArrayList<Players>player)
-    {
-        for(int i=0; i<num; i++)
-        {
-            player.add(new Players());
-        }
-    }
-    
-    public void setPlayer(int playerNum,ArrayList<Players>player)
-    {
-        Scanner s = new Scanner(System.in);
-        for(int i=0; i<playerNum; i++)
-        {
-            System.out.println("\nEnter the name of Player No. "+(i+1));
-            String playerName = s.nextLine();
-            player.get(i).setPlayer(playerName);
-            System.out.println("Enter the coin : ");
-            String coin = s.nextLine();
-            System.out.println("\n");
-            player.get(i).setColor(coin);
-            player.get(i).setPosition(0);
-            System.out.println("------------------------------------");
-
-        }
-    }
-
-    public void eprint()
-    {
-		System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");
-        for(int i=0; i<10; i++)
-        {
-            for(int j=0; j<10; j++)
-            {
-				System.out.print("|");
-                System.out.print(" "+board[i][j]+" ");
-			}
-            System.out.print("|\n");
-            System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+"); 	
+	public Board(List<Players> players){
+		this.playerPositions = new HashMap<Players, Integer>();
+		for (Players player : players){
+			this.playerPositions.put(player, 0);
 		}
-	}
-    public void hprint()
-    {
-		System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+");
-        for(int i=0; i<10; i++)
-        {
-            for(int j=0; j<10; j++)
-            {
-				System.out.print("|");
-                System.out.print(" "+board[i][j]+" ");
+        gameBoard = new int[row][col];
+		for (int i = 0; i < row; i++){
+			for (int j = 0; j < col; j++){
+				gameBoard[i][j] = i*row + j + 1;
+				//System.out.print(gameBoard[i][j]);
 			}
-            System.out.print("|\n");
-            System.out.println("+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+"); 	
 		}
+		setSnakesEasy();
+		setLaddersEasy();
+
 	}
+	public Board(List<Players> players, int n){
+		this.playerPositions = new HashMap<Players, Integer>();
+		for (Players player : players){
+			this.playerPositions.put(player, 0);
+		}
+        gameBoard = new int[row][col];
+		for (int i = 0; i < row; i++){
+			for (int j = 0; j < col; j++){
+				gameBoard[i][j] = i*row + j + 1;
+				//System.out.print(gameBoard[i][j]);
+			}
+		}
+		setSnakesHard();
+		setLaddersHard();
+	}
+	public boolean eMovePlayer(Players player, int value){
+		int position = playerPositions.get(player);
+		position += value;
+
+
+		if (position >= 100){
+			
+			playerPositions.put(player, 100);
+			return true;
+		} 
+		else {
+		    for (int idx = 0; idx < eNumSnakes; idx++){
+			    if (snakes[idx][0] == position){
+	    			position = snakes[idx][1];
+	     			playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes snake from " + snakes[idx][0] + " to " + snakes[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");
+   
+		    		return false;
+			    }
+		    }
+    		for (int idx = 0; idx < eNumLadders; idx++){
+	    		if (ladders[idx][0] == position){
+	    			position = ladders[idx][1];
+		    		playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes ladder from " + ladders[idx][0] + " to " + ladders[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");	
+			
+		    		return false;
+		    	}
+	     	}
+	     	playerPositions.put(player, position);
+			return false;
+    	}
+    }
+
+    public boolean hMovePlayer(Players player, int value){
+		int position = playerPositions.get(player);
+		position += value;
+
+
+		if (position >= 100){
+			
+			playerPositions.put(player, 100);
+			return true;
+		} 
+		else {
+		    for (int idx = 0; idx < hNumSnakes; idx++){
+			    if (snakes[idx][0] == position){
+	    			position = snakes[idx][1];
+	     			playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes snake from " + snakes[idx][0] + " to " + snakes[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");
+   
+		    		return false;
+			    }
+		    }
+    		for (int idx = 0; idx < hNumLadders; idx++){
+	    		if (ladders[idx][0] == position){
+	    			position = ladders[idx][1];
+		    		playerPositions.put(player, position);
+		    		System.out.println("----------------------------------------------------------------------");
+	    			System.out.println(" " + player + " takes ladder from " + ladders[idx][0] + " to " + ladders[idx][1]);
+	    			System.out.println("----------------------------------------------------------------------");	
+			
+		    		return false;
+		    	}
+	     	}
+	     	playerPositions.put(player, position);
+			return false;
+    	}
+    }
+    	public void eBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 12th position        |");
+		System.out.println("|                            in 14th position        |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 41th position        |");
+		System.out.println("|                            in 54th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 37th position        |");
+		System.out.println("|                            in 47th position        |");
+		System.out.println("|                            in 75th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 96th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
+	public void hBoardDescription(){
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are ladder :                          |");
+		System.out.println("|                            in 4th position         |");
+		System.out.println("|                            in 8th position         |");
+		System.out.println("|                            in 20th position        |");
+		System.out.println("|                            in 32th position        |");
+		System.out.println("|                            in 54th position        |");
+		System.out.println("+----------------------------------------------------+");
+		System.out.println("|        There are snakes :                          |");
+		System.out.println("|                            in 22th position        |");
+		System.out.println("|                            in 28th position        |");
+		System.out.println("|                            in 30th position        |");
+		System.out.println("|                            in 44th position        |");
+		System.out.println("|                            in 58th position        |");
+		System.out.println("|                            in 66th position        |");
+		System.out.println("|                            in 72th position        |");
+		System.out.println("|                            in 84th position        |");
+		System.out.println("|                            in 94th position        |");
+		System.out.println("|                            in 96th position        |");
+		System.out.println("|                            in 98th position        |");
+		System.out.println("+----------------------------------------------------+");
+	}
+
+	private void setSnakesEasy(){
+		snakes = new int[eNumSnakes][2];
+		snakes[0][0] = 28;
+		snakes[0][1] = 10;
+		snakes[1][0] = 37;
+		snakes[1][1] = 3;
+		snakes[2][0] = 47;
+		snakes[2][1] = 16;
+		snakes[3][0] = 75;
+		snakes[3][1] = 32;
+		snakes[4][0] = 94;
+		snakes[4][1] = 71;
+		snakes[5][0] = 96;
+		snakes[5][1] = 42;		
+	}
+	private void setSnakesHard(){
+		snakes = new int[hNumSnakes][2];
+		snakes[0][0] = 22;
+		snakes[0][1] = 2;
+		snakes[1][0] = 28;
+		snakes[1][1] = 6;
+		snakes[2][0] = 30;
+		snakes[2][1] = 10;
+		snakes[3][0] = 44;
+		snakes[3][1] = 26;
+		snakes[4][0] = 58;
+		snakes[4][1] = 42;
+		snakes[5][0] = 66;
+		snakes[5][1] = 14;
+		snakes[6][0] = 72;
+		snakes[6][1] = 50;
+		snakes[7][0] = 84;
+		snakes[7][1] = 62;
+		snakes[8][0] = 94;
+		snakes[8][1] = 64;
+		snakes[9][0] = 96;
+		snakes[9][1] = 82;
+		snakes[10][0] = 98;
+		snakes[10][1] = 78;		
+	}
+
+	private void setLaddersEasy(){
+		ladders = new int[eNumLadders][2];
+		ladders[0][0] = 4;
+		ladders[0][1] = 44;
+		ladders[1][0] = 12;
+		ladders[1][1] = 50;
+		ladders[2][0] = 14;
+		ladders[2][1] = 53;
+		ladders[3][0] = 22;
+		ladders[3][1] = 38;
+		ladders[4][0] = 41;
+		ladders[4][1] = 79;
+		ladders[5][0] = 54;
+		ladders[5][1] = 88;
+	}
+	private void setLaddersHard(){
+		ladders = new int[hNumLadders][2];
+		ladders[0][0] = 4;
+		ladders[0][1] = 16;
+		ladders[1][0] = 8;
+		ladders[1][1] = 12;
+		ladders[2][0] = 20;
+		ladders[2][1] = 74;
+		ladders[3][0] = 32;
+		ladders[3][1] = 56;
+		ladders[4][0] = 54;
+		ladders[4][1] = 70;
+	}
+
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		boolean oddRow = true;
+		for (int rows = row-1; rows >= 0; rows--){
+			for (int colms = 0; colms < col; colms++){
+				if (oddRow){
+					String pl = "";
+					boolean occupied = false;
+					for (Players temp : playerPositions.keySet()){
+						if (playerPositions.get(temp) == gameBoard[rows][col-1-colms]){
+							occupied = true;
+							pl += temp + " ";
+						}
+					}
+					
+					if (occupied){
+						pl += "\t";
+						sb.append(pl);
+					} else {
+						sb.append(gameBoard[rows][col-1-colms] + "\t");						
+					}
+				} else {
+					boolean occupied = false;
+					String pl = "";
+					for (Players temp : playerPositions.keySet()){
+						if (playerPositions.get(temp) == gameBoard[rows][colms]){
+							occupied = true;
+							pl += (temp + " ");
+						}
+					}
+					
+					if (occupied){
+						
+						pl += "\t";
+						sb.append(pl);	
+					} else {
+
+						sb.append(gameBoard[rows][colms] + "\t");
+					}
+			
+				}
+			}
+			oddRow = !oddRow;
+			sb.append("\n");
+		}
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
 }

@@ -1,55 +1,51 @@
 package com.LxiSoft.Game;
-// import com.lxisoft.Game.*;
-// import java.util.*;
-public class Players implements Comparable<Players>
-{
-	String player;
-	String color;
-	int position;
+import com.lxisoft.Game.*;
+import java.util.*;
 
-    public void setPlayer(String name)
-    {
-		this.player = name; 
-	} 
-    public String getPlayer()
-    {
-		return player;
-	}
-    public void setColor(String colr)
-    {
-		this.color = colr;
-	}
-    public String getColor()
-    {
-		return color;
-	}
-    public void setPosition(int post)
-    {
-		this.position = post;
-	}
-    public int getPosition()
-    {
-		return position;
-	}
+public class Players {
 
-	public String toString()
-	{
-		return this.player + "	Dice : " + this.color;
+	String name;
+	String coin;
+	Dice dice = new Dice();
+	
+	public Players(String name, String coin){
+		this.name = name;
+		this.coin = coin;
 	}
-
-	public int compareTo(Players play)
-	{
-		if(position==play.position)
-		{
-			return 0;
+	public int takeTurn(){
+		
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.print(name+"'s turn press [ENTER] to Roll the dice");
+		String input = s.nextLine();
+		
+		
+		int val = 0;
+		for (int idx = 0; idx < input.length(); idx++){
+			val+= input.charAt(idx);
 		}
-		else if(position<play.position)
-		{
-			return 1;
+		val = val % 10;
+		if (val == 0){
+			val = 1;
 		}
-		else
-		{
-			return -1;
+		
+		
+		for (int idx = 0; idx < val; idx++){
+			dice.rollD6();
 		}
+		
+		
+		int roll = 0;
+		roll = dice.rollD6();
+		
+		System.out.println(name + " rolled and got " + roll + ".");
+		
+		return roll;
+	}
+	
+	
+	public String toString(){
+		return coin;
 	}
 }
