@@ -1,56 +1,26 @@
-import java.util.*;
+import java.util.Scanner;
 public class Student
 {
-	String name;
-	int roll;
-	Subject[] subject;
-	int totalMark=0;
-	
-	public void addStudentDetails(int i)
+	private int regNo;
+	private String name;
+
+	public void setRegNo(int r)
 	{
-		Scanner s = new Scanner(System.in);
-
-	    System.out.println("*************************");
-			System.out.println("*****Enter  Student Details***** ");
-			
-			System.out.println("Name    : ");
-				this.name = s.next();
-			System.out.println("Roll No.: ");
-				this.roll = s.nextInt();  
-
-		subject = new Subject[3];
-
-		System.out.println("*************************");
-		System.out.println("*****Enter the Mark Details*****");
-		
-		for( i=0; i<3; i++)
-		{
-		    subject[i] = new Subject();
-		    subject[i].addMarkDetails();
-		}
-	}
-	public void printStudentDetails()
-	{
-		int i;
-		
-		System.out.println("Name       \t: "+/*student[i]*/this.name);
-		System.out.println("Roll Number\t: "+/*student[i]*/this.roll);
-
-		
-		   System.out.println("*****Mark Details*****");
-
-		for(i=0; i<3; i++)
-		{
-			subject[i].printMarkDetails();
-			
-		}
-		for (i=0; i<3; i++)
-		{
-		    totalMark = totalMark+subject[i].mark;		    	
-		}
-		
-		
+		regNo = r;
 	}
 
-	
+	public int getRegNo()
+	{
+		return regNo;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
 }
