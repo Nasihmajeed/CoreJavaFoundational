@@ -2,50 +2,54 @@ package com.LxiSoft.Game;
 import com.lxisoft.Game.*;
 import java.util.*;
 
-public class Players {
-
+public class Players 
+{
 	String name;
 	String coin;
 	Dice dice = new Dice();
 	
-	public Players(String name, String coin){
+	public Players(String name, String coin)
+	{
 		this.name = name;
 		this.coin = coin;
 	}
-	public int takeTurn(){
-		
-		
+
+	public int takeTurn()
+	{
 		Scanner s = new Scanner(System.in);
 		
-		System.out.print(name+"'s turn press [ENTER] to Roll the dice");
+		System.out.print(name+"'s turn : press [ENTER] to Roll");
 		String input = s.nextLine();
 		
-		
-		int val = 0;
-		for (int idx = 0; idx < input.length(); idx++){
-			val+= input.charAt(idx);
+		int value = 0;
+		for (int i = 0; i < input.length(); i++)
+		{
+			value+= input.charAt(i);
 		}
-		val = val % 10;
-		if (val == 0){
-			val = 1;
+		value = value % 10;
+		if (value == 0)
+		{
+			value = 1;
 		}
 		
 		
-		for (int idx = 0; idx < val; idx++){
-			dice.rollD6();
+		for (int i = 0; i < value; i++)
+		{
+			dice.roll();
 		}
 		
 		
 		int roll = 0;
-		roll = dice.rollD6();
+		roll = dice.roll();
 		
-		System.out.println(name + " rolled and got " + roll + ".");
+		System.out.println(name + " got " + roll + " on dice roll.");
 		
 		return roll;
 	}
 	
 	
-	public String toString(){
+	public String toString()
+	{
 		return coin;
 	}
 }

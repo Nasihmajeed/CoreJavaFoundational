@@ -8,7 +8,7 @@ public class Dice
 	public Dice(){
 		random = new Random();
 	}
-	public int rollD6(){
+	public int roll(){
 		return random.nextInt(6)+1;
 	}
 }

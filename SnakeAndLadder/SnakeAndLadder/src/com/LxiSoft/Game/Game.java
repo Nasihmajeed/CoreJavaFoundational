@@ -57,28 +57,30 @@ public class Game
     {
 		Scanner s = new Scanner(System.in);
 
-	    int numPlayers = 0;
-		while (numPlayers <= 0 || numPlayers >6 ){
-			System.out.print("Enter the number of players (1-6): " );
-			numPlayers = s.nextInt();
+	    int playerNum = 0;
+		while (playerNum <= 0 || playerNum >6 )
+        {
+			System.out.print("Enter the number of players [max 6]: " );
+			playerNum = s.nextInt();
 		}
         List<Players> players = new ArrayList<Players>();
-		for (int idx = 0; idx < numPlayers; idx++)
+		for (int i = 0; i < playerNum; i++)
         {
-			Players player = new Players("Player " +(idx+1),"P"+(idx+1));
+			Players player = new Players("Player " +(i+1),"*P"+(i+1));
 			players.add(player);
 		}
 
 		Board board = new Board(player);
-		board.eBoardDescription();
+		board.eBoardDetails();
 		boolean done = false;
-		int playerIdx = 0;
+		int playerr = 0;
+        
 		while (!done)
         {	
-			Players currPlayer = player.get(playerIdx);
-			int roll = currPlayer.takeTurn();
+			Players currentPlayer = player.get(playerr);
+			int roll = currentPlayer.takeTurn();
 			
-			done = board.eMovePlayer(currPlayer, roll);
+			done = board.eMovePlayer(currentPlayer, roll);
 			System.out.println("----------------------------------------------------------------------------");
 			System.out.println(board);
 			System.out.println("----------------------------------------------------------------------------\n");
@@ -86,14 +88,14 @@ public class Game
 			if (done)
             {
 				System.out.println("-----------------------");
-				System.out.println(" "+currPlayer + " wins ");
+				System.out.println("    "+currentPlayer + " wins ");
 				System.out.println("-----------------------");
 			}
 			
-			playerIdx++;
-			if (playerIdx == numPlayers)
+			playerr++;
+			if (playerr == playerNum)
             {
-				playerIdx = 0;
+				playerr = 0;
 			}	
 		}
 	}
@@ -102,29 +104,31 @@ public class Game
     {
 		Scanner s = new Scanner(System.in);
 
-	    int numPlayers = 0;
-		while (numPlayers <= 0 || numPlayers >6 ){
-			System.out.print("Enter the number of players (1-6): " );
-			numPlayers = s.nextInt();
+	    int playerNum = 0;
+		while (playerNum <= 0 || playerNum >6 )
+        {
+			System.out.print("Enter the number of players [max 6]: " );
+			playerNum = s.nextInt();
 		}
 		
 		List<Players> players = new ArrayList<Players>();
-		for (int idx = 0; idx < numPlayers; idx++)
+		for (int i = 0; i < playerNum; i++)
         {
-			Players player = new Players("Player " + (idx+1),"P"+(idx+1));
+			Players player = new Players("Player " + (i+1),"*P"+(i+1));
 			players.add(player);
 		}
 
-		Board board = new Board(players,numPlayers);
+		Board board = new Board(players,playerNum);
 		board.hBoardDescription();
 		boolean done = false;
-		int playerIdx = 0;
+		int playerr = 0;
+
 		while (!done)
         {	
-			Players currPlayer = players.get(playerIdx);
-			int roll = currPlayer.takeTurn();
+			Players currentPlayer = players.get(playerr);
+			int roll = currentPlayer.takeTurn();
 			
-			done = board.hMovePlayer(currPlayer, roll);
+			done = board.hMovePlayer(currentPlayer, roll);
 			System.out.println("----------------------------------------------------------------------------");
 			System.out.println(board);
 			System.out.println("----------------------------------------------------------------------------\n");
@@ -132,14 +136,14 @@ public class Game
 			if (done)
             {
 				System.out.println("-----------------------");
-				System.out.println(" "+currPlayer + " wins");
+				System.out.println("    "+currentPlayer + " wins");
 				System.out.println("-----------------------");
 			}
 			
-			playerIdx++;
-			if (playerIdx == numPlayers)
+			playerr++;
+			if (playerr == playerNum)
             {
-				playerIdx = 0;
+				playerr = 0;
 			}	
 		}
     }
