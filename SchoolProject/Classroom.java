@@ -30,7 +30,7 @@ public class Classroom
       System.out.println("Enter the mark of Malayalam: ");
       subject[i].sub3 = scanner.nextInt();
       subject[i].total = subject[i].sub1+subject[i].sub2+subject[i].sub3;
-      subject[i].percentage = (subject[i].total/300f)*100;
+      subject[i].percentage = (subject[i].total/300)*100;
       System.out.println(" \n ");
         }
     }
