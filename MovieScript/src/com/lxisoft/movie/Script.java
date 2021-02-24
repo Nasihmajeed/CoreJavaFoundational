@@ -79,4 +79,5 @@ public abstract class Script{
 	public String getDialogue10(){
 		return dialogue10;
 	}
+	
 }

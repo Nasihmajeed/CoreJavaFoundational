@@ -3,6 +3,6 @@ import com.lxisoft.movie.Movies;
 public class TDD{
 	public static void main(String[] args) {
 		Movies filim = new Movies();
-		filim.setMovie();
+		filim.movieOptions();
 	}
 }
