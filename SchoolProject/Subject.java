@@ -7,3 +7,4 @@ public class Subject
 	int total;
 	float percentage;
 }
+/*}

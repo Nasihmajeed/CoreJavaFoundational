@@ -1,10 +1,11 @@
+
 import java.util.Scanner;
 public class Classroom
 {
 	int clas;
 	String division;
 	String teacher;
-	Student[] student = new Student[3];
+	Student[] student = new Student[3]; 
 	Subject[] subject = new Subject[3];
 	Scanner scanner;
 	int i;
@@ -33,6 +34,7 @@ public class Classroom
       subject[i].percentage = (subject[i].total/300)*100;
       System.out.println(" \n ");
         }
+        
     }
       
      public void getStudents()
@@ -77,3 +79,4 @@ public class Classroom
      		System.out.println("Topper: "+name+"\n"+"Percentage:"+max);
      }
 }
+./*}
