@@ -1,9 +1,8 @@
-package com.LxiSoft.Game;
-import com.lxisoft.Game.*;
+package com.LxiSoft.SnakeAndLadder;
+import com.LxiSoft.SnakeAndLadder.*;
 import java.util.*;
+public class Players {
 
-public class Players 
-{
 	String name;
 	String coin;
 	Dice dice = new Dice();
@@ -13,27 +12,27 @@ public class Players
 		this.name = name;
 		this.coin = coin;
 	}
-
 	public int takeTurn()
 	{
 		Scanner s = new Scanner(System.in);
 		
-		System.out.print(name+"'s turn : press [ENTER] to Roll");
+		System.out.print("\n"+name+"'s turn : press [ENTER] to Roll");
 		String input = s.nextLine();
 		
-		int value = 0;
+		
+		int val = 0;
 		for (int i = 0; i < input.length(); i++)
 		{
-			value+= input.charAt(i);
+			val+= input.charAt(i);
 		}
-		value = value % 10;
-		if (value == 0)
+		val = val % 10;
+		if (val == 0)
 		{
-			value = 1;
+			val = 1;
 		}
 		
 		
-		for (int i = 0; i < value; i++)
+		for (int i = 0; i < val; i++)
 		{
 			dice.roll();
 		}
@@ -41,13 +40,10 @@ public class Players
 		
 		int roll = 0;
 		roll = dice.roll();
-		
 		System.out.println(name + " got " + roll + " on dice roll.");
-		
 		return roll;
 	}
-	
-	
+
 	public String toString()
 	{
 		return coin;
