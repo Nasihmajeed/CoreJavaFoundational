@@ -8,12 +8,16 @@ public class Movies{
 	String genere = "Comedy";
 	Scenes scene = new Scenes();
 	ArrayList<Cast> cast = new ArrayList<Cast>();
+	Moosa moosa = new Moosa();
+	Meena meena = new Meena();
+	Kochunni kochu = new Kochunni();
+	Vikraman vikram = new Vikraman();
+	AliyanSI si = new AliyanSI();
 	public void movieOptions(){
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
-			System.out.println("\n--------------Welcome---------------");
-		    System.out.println("Press 1.View Script 2.View Cast 0.Exit");
+		    System.out.println("Press   1.View Script   2.View Cast   0.Exit");
 		    option = s.nextInt();
 		    if(option == 1){
 		    	this.setMovie();
@@ -21,6 +25,47 @@ public class Movies{
 		    else if(option == 2){
 		    	this.setCast();
 		    	this.printCast();
+		    	System.out.println("Do you like to read about charectors 1.Yes 0.No");
+		    	int yN = s.nextInt();
+		    	if(yN==1){
+		    		this.printActors();
+		    		System.out.println("\nSelect the serial number to view the descriptions");
+		    		int sno = s.nextInt();
+		    		switch(sno){
+		    			case 1:
+		    			System.out.println("Actor Brief : ");
+		    			meena.actorBrief();
+		    			System.out.println("Charactor Brief : ");
+		    			meena.charectorBrief();
+		    			break;
+		    			case 2:
+		    			System.out.println("Actor Brief : ");
+		    			moosa.actorBrief();
+		    			System.out.println("Charactor Brief : ");
+		    			moosa.charectorBrief();
+		    			break;
+		    			case 3:
+		    			System.out.println("Actor Brief : ");
+		    			kochu.actorBrief();
+		    			System.out.println("Charactor Brief : ");
+		    			kochu.charectorBrief();
+		    			break;
+		    			case 4:
+		    			System.out.println("Actor Brief : ");
+		    			si.actorBrief();
+		    			System.out.println("Charactor Brief : ");
+		    			si.charectorBrief();
+		    			break;
+		    			case 5:
+		    			System.out.println("Actor Brief : ");
+		    			vikram.actorBrief();
+		    			System.out.println("Charactor Brief : ");
+		    			vikram.charectorBrief();
+		    			break;
+		    			default:
+		    			System.out.println("Something went wrong");
+		    		}
+		    	} 
 		    }
 		}while(option != 0);
 	}  
@@ -38,11 +83,16 @@ public class Movies{
 		cast.get(3).setName("Cochin_Haneefa");
 		cast.get(3).setAge(56);
 		cast.add(new Cast());
-		cast.get(4).setName("Saleem_Kumar");
-		cast.get(4).setAge(36);
-		cast.add(new Cast());
-		cast.get(5).setName("Bhavana");
-		cast.get(5).setAge(24);
+		cast.get(4).setName("Bhavana");
+		cast.get(4).setAge(24);
+	}
+	public void printActors(){
+		System.out.println("+------+-----------------------------------------------+");
+		System.out.println("| SNo  |                   Name                        |");
+		System.out.println("+------+-----------------------------------------------+");
+		for(int j=0; j<cast.size(); j++){
+			System.out.println("  "+(j+1)+"                "+cast.get(j).getName());
+		}
 	}
 	public void printCast(){
 		Collections.sort(cast);
@@ -67,9 +117,10 @@ public class Movies{
 		System.out.println("                                        Scene-1                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		String des1 = " Moolam kuzhiyil Sahadevan get prepared for the police selection and leaves the home in \n the mid way he tries to stop Thorappan Kochunni from pickpoketting Meena but Shadevan\n too get arrested by S.I.Peethambaran";
-		this.slowPrint(des1,50);
+		System.out.println(" Moolam kuzhiyil Sahadevan get prepared for the police selection and leaves the home in \n the mid way he tries to stop Thorappan Kochunni from pickpoketting Meena but Shadevan\n too get arrested by S.I.Peethambaran");
+		
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-1 Begins");
+		this.slowPrint();
 		scene.setScene1();
 		scene.printScene1();
 		System.out.println("+---------------------------------------------------------------------------------------+");
@@ -77,9 +128,10 @@ public class Movies{
 		System.out.println("                                        Scene-2                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		String des2 = " Sahadevan has got expelled from the selection camp as he couldn't get there on Time.   \n So he decided to start his own Private Detective Company ";
-		this.slowPrint(des2,50);
+		System.out.println(" Sahadevan has got expelled from the selection camp as he couldn't get there on Time.   \n So he decided to start his own Private Detective Company ");
+		
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-2 Begins");
+		this.slowPrint();
 		scene.setScene2();
 		scene.printScene2();
 		System.out.println("+---------------------------------------------------------------------------------------+");
@@ -87,9 +139,10 @@ public class Movies{
 		System.out.println("                                        Scene-3                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		String des3 = "Moosa and team chases an insane man and after long hardwork to capture him they came to\n know he is just a maniac.";
-		this.slowPrint(des3,50);
+		System.out.println(" Moosa and team chases an insane man and after long hardwork to capture him they came to\n know he is just a maniac.");
+		
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-3 Begins");
+		this.slowPrint();
 		scene.setScene3();
 		scene.printScene3();
 		System.out.println("+---------------------------------------------------------------------------------------+");
@@ -99,15 +152,12 @@ public class Movies{
 		System.out.println("                                      ----------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 	}
-	public void slowPrint(String scne,long delay){
-		for(int i=0; i<scne.length();i++){
-			System.out.print(scne.charAt(i));
-			try{
-				Thread.sleep(delay);
-			}
-			catch(InterruptedException e){
-				e.printStackTrace();
-			}
+	public void slowPrint(){
+		try{
+			Thread.sleep(1500);
+		}
+		catch(InterruptedException e){
+			e.printStackTrace();
 		}
 	}
 }

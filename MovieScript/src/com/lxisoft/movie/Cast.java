@@ -11,13 +11,11 @@ public class Cast implements Comparable<Cast>{
 	}
 	public void setAge(int a){
 		this.age = a;
-	}
+	}	
 	public int getAge(){
 		return age;
 	}
-	
-	 public int compareTo(Cast c)
-    {
-        return this.age - c.age;
-    }
+	public int compareTo(Cast c){
+		return this.age - c.age;
+	}
 } 
