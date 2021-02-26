@@ -1,79 +1,63 @@
-import java2util.Scanner;
-public class Classroom
-{
-	int clas;
-	String division;
-	String teacher;
-	Student[] student = new Student[3]; 
-	Subject[] subject = new Subject[3];
-	Scanner scanner;
-	int i;
-	
-	public void setStudents()
-	{
-      scanner = new Scanner(System.in);
-	  for(i=0;i<3;i++)
-		{
-			student[i] = new Student();
-			subject[i] = new Subject();
-			
-      System.out.println("Enter the register number: ");
-      int regNo = scanner.nextInt();
-      student[i].setRegNo(regNo);
-      System.out.println("Enter the name of the student: ");
-      String name = scanner.next();
-      student[i].setName(name);
-      System.out.println("Enter the mark of English: ");
-      subject[i].sub1 = scanner.nextInt();
-      System.out.println("Enter the mark of Hindi: ");
-      subject[i].sub2 = scanner.nextInt();
-      System.out.println("Enter the mark of Malayalam: ");
-      subject[i].sub3 = scanner.nextInt();
-      subject[i].total = subject[i].sub1+subject[i].sub2+subject[i].sub3;
-      subject[i].percentage = (subject[i].total/300)*100;
-      System.out.println(" \n ");
-        }   
-    } 
-     public void getStudents()
-     {
-     	for(i=0;i<3;i++)
-     	{
-        System.out.println("Reg No.: "+student[i].getRegNo());
-        System.out.println("Name: "+student[i].getName());
-     	  System.out.println("English: "+subject[i].sub1);
-        System.out.println("Hindi: "+subject[i].sub2);
-        System.out.println("Malayalam: "+subject[i].sub3);
-        System.out.println("Total mark: "+subject[i].total);
-        System.out.println("Tercentage: "+subject[i].percentage);
-         
-      if(subject[i].percentage>=40)
-      {
-      	System.out.println("Result : PASS");
-      }
-      else
-      {
-        System.out.println("Result : FAIL");
-      }
-
-        System.out.println(" \n ");
+import java.util.*;
+public class ClassRoom{
+    String division;
+    int standard;
+    int numOfStudents;
+    
+    Teacher t; 
+    Student[] student; 
+    
+    public void getClassDetails(){
+        Scanner s = new Scanner(System.in);
+        t = new Teacher();
+        System.out.println("Enter the standard ");
+        this.standard = s.nextInt();
+        s.nextLine();
+        System.out.println("Enter the Division ");
+        this.division = s.nextLine();
+        t.getTeacherDetails();
+        System.out.println("Enter the number of students in the class ");
+        numOfStudents = s.nextInt();
+        s.nextLine();
+        student = new Student[numOfStudents];
+        
+        for(int i=0; i<numOfStudents; i++){    
+            student[i] = new Student();
+            student[i].getStudentDetails(i);
         }
-     }
-     
+    }
+    public void printClassDetails(int i){
+        System.out.println("\t---- "+(i+1)+" Class Details----\t");
+        System.out.println("Standard          \t: "+this.standard);
+        System.out.println("Division          \t: "+this.division);
+        System.out.println("Number of Students\t: "+this.numOfStudents);
+        t.printTeacherDetails();
+        for(int j=0; j<numOfStudents; j++){
+            System.out.println("\t----Student Details----\t");
+            student[j].printStudentDetails();
+            
+        }
+    }
+    public void printClassRankList(){
 
-     public void topper()
-     {
-     	float max = subject[0].percentage;
-     	String name = null; 
-     	for(i=0;i<3;i++)
-     	{
-     		if(subject[i].percentage > max)
-     		{
-     			max = subject[i].percentage;
-     			name = student[i].getName();
-     		}
-
-     	}
-     		System.out.println("Topper: "+name+"\n"+"Percentage:"+max);
-     }
+        for(int m=0; m<numOfStudents; m++){
+            for(int x=m+1; x<numOfStudents; x++){
+                if(student[m].totalMark<student[x].totalMark){
+                    Student temp = new Student();
+                    temp = student[m];
+                    student[m] = student[x];
+                    student[x] = temp;          
+                }
+            }
+        }
+        System.out.println("The Class Rank List");
+        System.out.println("*****************************");
+        for(int l=0; l<numOfStudents; l++){
+            System.out.println("\tRANK    \t: "+(l+1)+"\t");
+            System.out.println("\tNAME    \t: "+student[l].name+"\t");
+            System.out.println("\tRoll Num\t: "+student[l].rollNum+"\t");
+            System.out.println("\tTOTAL   \t: "+student[l].totalMark+"\t");
+            System.out.println(" ***************************** ");
+        }
+    }
 }
-  

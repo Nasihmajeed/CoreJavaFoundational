@@ -1,12 +1,10 @@
+import java.util.*;
 
-public class TDD
-{
-	public static void main(String[] args)
-	{
-	School school = new School();
-	school.printName();
-	school.setClassroom();
-	school.getClassroom();
-	school.getSchool();
-	}
+public class Tdd{
+	public static void main(String[] arg){
+	    School s = new School();
+	    s.getSchoolDetails();
+	    s.printSchoolDetails();
+	    s.printSchoolRankList();
+    } 
 }
