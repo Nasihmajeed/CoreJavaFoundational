@@ -16,9 +16,7 @@ public class Game
 		System.out.println("\n\n +-------------------- SNAKE AND LADDER -------------------+");
         
         System.out.println("\nRules :");
-        // System.out.println("           1 : Get 1 on dice to enter the Game.");
         System.out.println("           1 : Each player gets a dice roll adjacently.");
-        // System.out.println("           3 : 6 on dice gives a bonus roll.");
         System.out.println("           2 : There are snakes and ladders.");
         System.out.println("           3 : Snake bites moves the player to the tail.");
         System.out.println("           4 : Ladder helps to move upwards.");

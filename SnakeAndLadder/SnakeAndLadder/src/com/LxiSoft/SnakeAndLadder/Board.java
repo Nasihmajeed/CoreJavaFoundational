@@ -289,7 +289,8 @@ public void hBoardDetails()
 		{
 			for (int colms = 0; colms < col; colms++)
 			{
-				if (oddRow){
+				if (oddRow)
+				{
 					String pl = "";
 					boolean occupied = false;
 					for (Players temp : playerPositions.keySet())
@@ -340,5 +341,4 @@ public void hBoardDetails()
 		sb.append("\n");
 		return sb.toString();
 	}
-
 }
