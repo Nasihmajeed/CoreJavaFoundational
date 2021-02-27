@@ -3,17 +3,23 @@ import com.lxisoft.movie.*;
 import java.util.*;
 
 public class Movies{
-	String movieName = "C.I.D MOOSA";
-	String director = "Jhony Antony";
-	String genere = "Comedy";
+	String movieName;// = "C.I.D MOOSA";
+	String director;// = "Jhony Antony";
+	String genere;// = "Comedy";
 	Scenes scene = new Scenes();
 	ArrayList<Cast> cast = new ArrayList<Cast>();
-	Moosa moosa = new Moosa();
-	Meena meena = new Meena();
-	Kochunni kochu = new Kochunni();
-	Vikraman vikram = new Vikraman();
-	AliyanSI si = new AliyanSI();
+	public Movies(){
+		movieName = "C.I.D MOOSA";
+	    director = "Jhony Antony";
+	    genere = "Comedy";
+	    this.setCast();
+	}
 	public void movieOptions(){
+		Moosa moosa = new Moosa();
+    	Meena meena = new Meena();
+	    Kochunni kochu = new Kochunni();
+    	Vikraman vikram = new Vikraman();
+    	AliyanSI si = new AliyanSI();
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
@@ -23,7 +29,7 @@ public class Movies{
 		    	this.setMovie();
 		    }
 		    else if(option == 2){
-		    	this.setCast();
+		    	//this.setCast();
 		    	this.printCast();
 		    	System.out.println("Do you like to read about charectors 1.Yes 0.No");
 		    	int yN = s.nextInt();
