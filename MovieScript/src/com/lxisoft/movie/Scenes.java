@@ -31,10 +31,12 @@ public class Scenes{
 	public void printScene1(){
 		//Movies movie = new Movies();
 		System.out.println("\n***Sahadevan walks through side of the road and he notices a girl screaming from the other side of road***");
+		this.printArray1();
 		System.out.println("\n Meena   : ");//+this.slowPrintt(script1.get(2).getDialogue0(),50)); //script1.get(2).getDialogue0());
 		this.slowPrintt(script1.get(2).getDialogue0(),50);
 		//this.printArray1();
 		System.out.println("\n***Sahadevan chases the thief***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script1.get(0).getDialogue0());
 		this.slowPrintt(script1.get(0).getDialogue0(),50);
 		//this.printArray1();
@@ -42,6 +44,7 @@ public class Scenes{
 		this.slowPrintt(script1.get(1).getDialogue0(),50);
 		//this.printArray1();
 		System.out.println("\n***Sahadevan cought Kochunni***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script1.get(0).getDialogue1());
 		this.slowPrintt(script1.get(0).getDialogue1(),50);
 		//this.printArray1();
@@ -50,6 +53,7 @@ public class Scenes{
 		this.slowPrintt(script1.get(1).getDialogue1(),50);
 		//this.printArray1();
 		System.out.println("\n***Same time S.I.Peethambaran gets to that place and Sahadevan doesnt see him entering ***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script1.get(0).getDialogue2());
 		this.slowPrintt(script1.get(0).getDialogue2(),50);
 		//this.printArray1();
@@ -108,6 +112,7 @@ public class Scenes{
 	}
 	public void printScene2(){
 		System.out.println("\n***The office is getting painted and Sahadevan Kochunni and Vikraman stands in frond and discuss about the C.I.D concepts***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script2.get(0).getDialogue0());
 		this.slowPrintt(script2.get(0).getDialogue0(),50);
 		//this.printArray1();
@@ -154,6 +159,7 @@ public class Scenes{
 		this.slowPrintt(script2.get(1).getDialogue3(),50);
 		//this.printArray1();
 		System.out.println("\n***Sahadevan slaps Kochunni and Vikraman starts laughing***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script2.get(0).getDialogue7());
 		this.slowPrintt(script2.get(0).getDialogue7(),50);
 		//this.printArray1();
@@ -200,6 +206,7 @@ public class Scenes{
 	}
 	public void printScene3(){
 		System.out.println("\n***The three of them sits idle infront of their new detective agency***\n");
+		this.printArray1();
 		System.out.println("\n Kochunni  : ");//+script3.get(1).getDialogue0());
 		this.slowPrintt(script3.get(1).getDialogue0(),50);
 		//this.printArray1();
@@ -219,6 +226,7 @@ public class Scenes{
 		this.slowPrintt(script3.get(2).getDialogue1(),50);
 		//this.printArray1();
 		System.out.println("\n***Shows a Maniac who fools around carrying a dummy gun***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script3.get(0).getDialogue1());
 		this.slowPrintt(script3.get(0).getDialogue1(),50);
 		//this.printArray1();
@@ -241,6 +249,7 @@ public class Scenes{
 		this.slowPrintt(script3.get(1).getDialogue4(),50);
 		//this.printArray1();
 		System.out.println("\n***Moosa and Team waits in his car the he saw that maniac in a car***\n");
+		this.printArray1();
 		System.out.println("\n Vikraman  : ");//+script3.get(2).getDialogue3());
 		this.slowPrintt(script3.get(2).getDialogue3(),50);
 		//this.printArray1();
@@ -248,6 +257,7 @@ public class Scenes{
 		this.slowPrintt(script3.get(0).getDialogue5(),50);
 		//this.printArray1();
 		System.out.println("\n***Moosa chases and blocks that car and he finds a international criminal in that car***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan  : ");//+script3.get(0).getDialogue6());
 		this.slowPrintt(script3.get(0).getDialogue6(),50);
 		//this.printArray1();
@@ -264,6 +274,7 @@ public class Scenes{
 		this.slowPrintt(script3.get(1).getDialogue6(),50);
 		//this.printArray1();
 		System.out.println("\n***S.I.Peethambaran reaches the place and by that time Moosa went to D.IG with media***\n");
+		this.printArray1();
 		System.out.println("\n S.I        : ");//+script3.get(3).getDialogue0());
 		this.slowPrintt(script3.get(3).getDialogue0(),50);
 		//this.printArray1();
@@ -274,10 +285,12 @@ public class Scenes{
 		this.slowPrintt(script3.get(2).getDialogue5(),50);
 		//this.printArray1();
 		System.out.println("\n***D.IG announces 10Lacks price for capturing that culprit***\n");
+		this.printArray1();
 		System.out.println("\n Sahadevan : ");//+script3.get(0).getDialogue8());
 		this.slowPrintt(script3.get(0).getDialogue8(),50);
 		//this.printArray1();
 		System.out.println("\n***S.I aliyan goes behind Sahadevan begging***\n");
+		this.printArray1();
 		System.out.println("\n S.I       : ");//+script3.get(3).getDialogue2());
 		this.slowPrintt(script3.get(3).getDialogue2(),50);
 		//this.printArray1();

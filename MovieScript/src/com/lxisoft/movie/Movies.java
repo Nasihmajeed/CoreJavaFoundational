@@ -7,6 +7,7 @@ public class Movies{
 	String director;// = "Jhony Antony";
 	String genere;// = "Comedy";
 	Scenes scene = new Scenes();
+	Theater theater = new Theater();
 	ArrayList<Cast> cast = new ArrayList<Cast>();
 	public Movies(){
 		movieName = "C.I.D MOOSA";
@@ -23,7 +24,7 @@ public class Movies{
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
-		    System.out.println("Press   1.View Script   2.View Cast   0.Exit");
+		    System.out.println("Press   1.View Script   2.View Cast   3.Book Tickets    0.Exit");
 		    option = s.nextInt();
 		    if(option == 1){
 		    	this.setMovie();
@@ -31,47 +32,53 @@ public class Movies{
 		    else if(option == 2){
 		    	//this.setCast();
 		    	this.printCast();
-		    	System.out.println("Do you like to read about charectors 1.Yes 0.No");
-		    	int yN = s.nextInt();
-		    	if(yN==1){
-		    		this.printActors();
-		    		System.out.println("\nSelect the serial number to view the descriptions");
-		    		int sno = s.nextInt();
-		    		switch(sno){
-		    			case 1:
-		    			System.out.println("Actor Brief : ");
-		    			meena.actorBrief();
-		    			System.out.println("Charactor Brief : ");
-		    			meena.charectorBrief();
-		    			break;
-		    			case 2:
-		    			System.out.println("Actor Brief : ");
-		    			moosa.actorBrief();
-		    			System.out.println("Charactor Brief : ");
-		    			moosa.charectorBrief();
-		    			break;
-		    			case 3:
-		    			System.out.println("Actor Brief : ");
-		    			kochu.actorBrief();
-		    			System.out.println("Charactor Brief : ");
-		    			kochu.charectorBrief();
-		    			break;
-		    			case 4:
-		    			System.out.println("Actor Brief : ");
-		    			si.actorBrief();
-		    			System.out.println("Charactor Brief : ");
-		    			si.charectorBrief();
-		    			break;
-		    			case 5:
-		    			System.out.println("Actor Brief : ");
-		    			vikram.actorBrief();
-		    			System.out.println("Charactor Brief : ");
-		    			vikram.charectorBrief();
-		    			break;
-		    			default:
-		    			System.out.println("Something went wrong");
-		    		}
-		    	} 
+		    	int yN;
+		    	do{
+		    		System.out.println("Do you like to read about charectors 1.Yes 0.No");
+		    	    yN = s.nextInt();
+		    		if(yN==1){
+		    		    this.printActors();
+		    		    System.out.println("\nSelect the serial number to view the descriptions");
+		    		    int sno = s.nextInt();
+		    		    switch(sno){
+		    			    case 1:
+		    			    System.out.println("Actor Brief : ");
+		        			meena.actorBrief();
+		    	    		System.out.println("Charactor Brief : ");
+		         			meena.charectorBrief();
+		        			break;
+		    	    		case 2:
+		         			System.out.println("Actor Brief : ");
+		    		    	moosa.actorBrief();
+		    	    		System.out.println("Charactor Brief : ");
+		        			moosa.charectorBrief();
+		    	    		break;
+		    		    	case 3:
+		         			System.out.println("Actor Brief : ");
+		    		    	kochu.actorBrief();
+		    	    		System.out.println("Charactor Brief : ");
+		    			    kochu.charectorBrief();
+		    		    	break;
+		    			    case 4:
+		    			    System.out.println("Actor Brief : ");
+		    			    si.actorBrief();
+		    			    System.out.println("Charactor Brief : ");
+		    			    si.charectorBrief();
+		    			    break;
+		    	     		case 5:
+		    		    	System.out.println("Actor Brief : ");
+		    			    vikram.actorBrief();
+		    	    		System.out.println("Charactor Brief : ");
+		    		    	vikram.charectorBrief();
+		    		    	break;
+		    	    		default:
+		    		    	System.out.println("Something went wrong");
+		    	    	}
+		        	}
+		    	}while(yN != 0); 
+		    }
+		    else if(option == 3){
+		    	theater.seatSelection();
 		    }
 		}while(option != 0);
 	}  
@@ -154,7 +161,7 @@ public class Movies{
 		System.out.println("+---------------------------------------------------------------------------------------+");
 
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		System.out.println("                                       The End                                          ");
+		System.out.println("                                       The End                                           ");
 		System.out.println("                                      ----------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 	}
