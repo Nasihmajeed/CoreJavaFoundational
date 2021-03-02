@@ -72,7 +72,9 @@ public class Theater{
 				System.out.println("Person "+(i+1)+" can have the Tickets");
 			}
 		}
-		System.out.println(" Number of tickets booked : "+num+" \nTotal amount for tickets : "+(num*rate));
+		System.out.println("+------------------------------------+");
+		System.out.println("| Number of tickets booked : "+num+" |\n| Total amount for tickets : "+(num*rate)+" |");
+		System.out.println("+------------------------------------+");
 		System.out.println("\n Thank you for the booking ");
 		this.review();
 	}
@@ -82,7 +84,6 @@ public class Theater{
 		String feed = sc.nextLine();
 		Pattern pattern=Pattern.compile(feed);
 		Matcher matcher=pattern.matcher("a");
-		//boolean c = Pattern.matches("[abc]",feed);
 		if(matcher.matches())
 		{
 			System.out.println(" Type your feedbacks");
