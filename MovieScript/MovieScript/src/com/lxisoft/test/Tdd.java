@@ -5,7 +5,7 @@ public class Tdd
 {
     public static void main(String[] args)
     {
-        Movies film = new Movies();
-        film.movieOptions();
+        Movies movie = new Movies();
+        movie.movieOptions();
     }
 }
