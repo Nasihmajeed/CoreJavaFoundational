@@ -1,7 +1,8 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
 import java.util.*;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class Movies{
 	String movieName;// = "C.I.D MOOSA";
 	String director;// = "Jhony Antony";
@@ -136,7 +137,7 @@ public class Movies{
 		this.slowPrint();
 		scene.setScene1();
 		scene.printScene1();
-		System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("\n+---------------------------------------------------------------------------------------+");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                        Scene-2                                          ");
 		System.out.println("                                       ---------                                         ");
@@ -147,7 +148,7 @@ public class Movies{
 		this.slowPrint();
 		scene.setScene2();
 		scene.printScene2();
-		System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("\n+---------------------------------------------------------------------------------------+");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                        Scene-3                                          ");
 		System.out.println("                                       ---------                                         ");
@@ -158,7 +159,7 @@ public class Movies{
 		this.slowPrint();
 		scene.setScene3();
 		scene.printScene3();
-		System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("\n+---------------------------------------------------------------------------------------+");
 
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                       The End                                           ");
