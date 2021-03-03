@@ -25,9 +25,8 @@ public class Gopi extends Script implements Actors
 		System.out.println("|                     -------------------                           |");
 		System.out.println("|    Gopi is a petty thief and has stolen a very precious chain     |");
         System.out.println("|  belonging to the Spanish Queen, from a Museum and is on the run. |");
-		System.out.println("| While on the run, Gopi meets Veena. by some of the police officers for   |");
-		System.out.println("| their personal vengence.So he decided to change himself into a   |");
-		System.out.println("| detective and starts a private detective agency.                 |");
+		System.out.println("|    While on the run, Gopi meets Veena. Gopi keeps the jewel in    |");
+		System.out.println("|    Veena's bag to escape and ask his friend Mani to follow her.   |");
 		System.out.println("+-------------------------------------------------------------------+");
 
     }
