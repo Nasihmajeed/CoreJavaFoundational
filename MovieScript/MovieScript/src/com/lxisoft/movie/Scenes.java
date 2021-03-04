@@ -1,5 +1,5 @@
 package com.lxisoft.movie;
-import com.lxisoft.movie.*;
+
 import java.util.*;
 
 public class Scenes 
@@ -96,7 +96,7 @@ public class Scenes
         script2.get(1).setDialogue4("I slipped the necklace inside her bag to escape from the police");
         script2.get(1).setDialogue5("Oh no by taxi? Is it an airport taxi?");
         script2.get(1).setDialogue6("Then we shall go to that counter and ask where she has gone");
-        
+
     }
 
     public void printScene2()

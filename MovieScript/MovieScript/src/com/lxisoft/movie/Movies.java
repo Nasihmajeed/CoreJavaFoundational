@@ -13,7 +13,6 @@ public class Movies
     Gopi gopi = new Gopi();
     Veena veena = new Veena();
     Mani mani = new Mani();
-    
     Felix felix = new Felix();
 
     public void movieOptions()
@@ -35,7 +34,7 @@ public class Movies
 				int x;
 				do
 				{
-                	System.out.println("\nView details of charectors? \n1.Yes \n0.No");
+                	System.out.println("\nView details of characters? \n1.Yes \n0.No");
                 	x = s.nextInt();
                 	if(x==1)
                 	{
@@ -75,14 +74,14 @@ public class Movies
                         	// case 4:
 		    				//     System.out.println("Actor Details : ");
 		    				//     maala.actorDetails();
-		    				//     System.out.println("Charactor Details : ");
+		    				//     System.out.println("Character Details : ");
 		    				//     maala.characterDetails();
 		    				//     break;
 
 		    				// case 5:
 		    				//     System.out.println("Actor Details : ");
 		    				//     kurup.actorDetails();
-		    				//     System.out.println("Charactor Details : ");
+		    				//     System.out.println("Character Details : ");
 		    				//     kurup.characterDetails();
 		    				//     break;
 		    			 
