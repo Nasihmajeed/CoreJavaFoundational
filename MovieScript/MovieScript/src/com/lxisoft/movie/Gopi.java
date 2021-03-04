@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import com.lxisoft.movie.*;
 
 
 public class Gopi extends Script implements Actors

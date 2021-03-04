@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import com.lxisoft.movie.*;
 
 
 public class Veena extends Script implements Actors

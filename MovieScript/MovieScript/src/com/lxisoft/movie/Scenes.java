@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import com.lxisoft.movie.*;
 
 import java.util.*;
 
@@ -443,11 +444,11 @@ public class Scenes
         System.out.println("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue12(),50);
 
-        System.out.println("\n\n                                                                                                            *** Veena leaves from there ***\n");
-        System.out.println("\n                                                                *** Police caught Veena with the necklace. She gave it to them and she gave Gopi the money that she got from her father ***\n");
-        System.out.println("\n                                                                                 *** Next day Gopi comes to the church to handover the money to Felix but nobody was there.  ***\n");
-        System.out.println("\n                                                                                            *** Veena had already cancelled the marriage and told Gopi about it ***\n");
-        System.out.println("\n                                                                                     *** Gopi ask Veena if she is ready to live with him..... Veena agrees...... ***\n");
+        System.out.println("\n\n                                                                        *** Veena leaves from there ***\n");
+        System.out.println("\n                                *** Police caught Veena with the necklace. She gave it to them and she gave Gopi the money that she got from her father ***\n");
+        System.out.println("\n                                                 *** Next day Gopi comes to the church to handover the money to Felix but nobody was there.  ***\n");
+        System.out.println("\n                                                             *** Veena had already cancelled the marriage and told Gopi about it ***\n");
+        System.out.println("\n                                                         *** Gopi ask Veena if she is ready to live with him..... Veena agrees...... ***\n");
 
 
     }

@@ -157,7 +157,7 @@ public class Movies
         System.out.println(" Gopalakrishnan a.k.a Gopi is at the airport waiting to board. From there he meets veena who is also waiting to board for her first ever flight. Veena leaves her trolley on the way to enquire about the flight. Gopi collides with the trolley and makes a mess.");
 
 		
-		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-1 Begins");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-1");
 		this.slowPrint();
 		scene.setScene1();
 		scene.printScene1();
@@ -169,7 +169,7 @@ public class Movies
         System.out.println(" Police arrive at the airport to get a thief suspecting Gopi.  They start to search him nut couldn't recover anything. Gopi saw Mani there and ask him to follow veena.");
 
 		
-		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-2 Begins");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-2");
 		this.slowPrint();
 		scene.setScene2();
 		scene.printScene2();
@@ -181,7 +181,7 @@ public class Movies
         System.out.println(" Gopi takes Veena home to get the jewel but he couldn't recover it. Gopi came to know that the jewel is lost. He comes to see off veena at the railway station. After boarding te train Veena shows the jewel and ask Gopi for help to find her fiance Felix to get the jewel back.");
 		
 
-        System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-3 Begins");
+        System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-3");
 		this.slowPrint();
 		scene.setScene3();
 		scene.printScene3();
@@ -193,7 +193,7 @@ public class Movies
         System.out.println(" Gopi and Veena arrives at a hotel in search of Felix and came to know it was Felix's marriage. Same time Mani arrives there with his girlfriend Maala");
 
 
-        // System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-4 Begins");
+        // System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-4");
 		// this.slowPrint();
 		// scene.setScene4();
 		// scene.printScene4();
@@ -205,7 +205,7 @@ public class Movies
         // System.out.println(" Due to some problems at the hotel Gopi meets Maala's father Kurup by mistake Instead of jewel agent Abdullah. \n ")
 
 
-        System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-4 Begins");
+        System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-4");
 		this.slowPrint();
 		scene.setScene4();
 		scene.printScene4();
@@ -217,7 +217,7 @@ public class Movies
         System.out.println(" Gopi meets Felix as Veena's cousin and ask to marry her for that he will arrange the Money. Felix agrres to that. Gopi asks Felix to meet Veena before all and clear their confusions and problems.");
 
 
-		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-5 Begins");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-5");
 		this.slowPrint();
 		scene.setScene5();
 		scene.printScene5();
