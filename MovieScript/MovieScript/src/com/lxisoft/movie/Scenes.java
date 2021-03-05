@@ -1,7 +1,9 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
-
+import com.lxisoft.actors.*;
 import java.util.*;
+import java.io.*;
+
 
 public class Scenes 
 {
@@ -452,15 +454,7 @@ public class Scenes
 
 
     }
-    // public void setScene6()
-    // {
-
-    // }
-
-    // public void printScene6()
-    // {
-
-    // }
+  
     public void printArray1()
     {
 		try
@@ -472,6 +466,7 @@ public class Scenes
 			e.printStackTrace();
 		}
 	}
+    
 	public String slowprint(String scne,long delay)
     {
 		for(int i=0; i<scne.length();i++)

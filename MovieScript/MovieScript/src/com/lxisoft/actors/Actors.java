@@ -1,5 +1,5 @@
-package com.lxisoft.movie;
-import com.lxisoft.movie.*;
+package com.lxisoft.actors;
+import com.lxisoft.actors.*;
 
 public interface Actors 
 {

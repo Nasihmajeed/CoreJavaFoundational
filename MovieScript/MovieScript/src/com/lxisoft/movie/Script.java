@@ -1,5 +1,6 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
+import java.util.*;
 
 public abstract class Script 
 {
@@ -18,7 +19,7 @@ public abstract class Script
 	String dialogue12;
 	String dialogue13;
 	String dialogue14;
-	String dialogue15;
+	
 
 	public void setDialogue0(String dialogue)
 	{
