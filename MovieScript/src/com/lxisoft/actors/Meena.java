@@ -1,4 +1,5 @@
-package com.lxisoft.movie;
+package com.lxisoft.actors;
+import com.lxisoft.actors.*;
 import com.lxisoft.movie.*;
 public class Meena extends Script implements Actors{
 	public void actorBrief(){

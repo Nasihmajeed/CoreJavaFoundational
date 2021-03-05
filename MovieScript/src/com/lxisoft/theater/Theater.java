@@ -1,5 +1,6 @@
-package com.lxisoft.movie;
+package com.lxisoft.theater;
 import com.lxisoft.movie.*;
+import com.lxisoft.theater.Theater;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

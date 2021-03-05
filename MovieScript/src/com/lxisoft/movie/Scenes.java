@@ -1,5 +1,6 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
 import java.util.*;
 import java.io.*;
 public class Scenes{
@@ -216,7 +217,7 @@ public class Scenes{
 		script2.get(2).setDialogue1("\n Vikraman  : Ennalum avan paranjathilum karyam ind ee coatum kalasom okke ithiri over alley...\n");
 		script2.get(2).setDialogue2("\n Vikraman  : Athum ok pakshey ee peru oru Gumm illa C.I.D.Moolamkuzhiyil Sahadevan\n");
 		script2.get(2).setDialogue3("\n Vikraman  : Venda enna C.I.D.Moolam ennu mathy....\n");
-		script2.get(2).setDialogue4("\n Vikraman  : MOOSA ath kollam oru Resam okke ind\n");*/
+		script2.get(2).setDialogue4("\n Vikraman  : MOOSA ath kollam oru Resam okke ind\n");
 	}
 	public void printScene2(){
 		try{

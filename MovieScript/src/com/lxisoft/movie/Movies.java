@@ -1,5 +1,7 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
+import com.lxisoft.theater.Theater;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +10,7 @@ public class Movies{
 	String director;// = "Jhony Antony";
 	String genere;// = "Comedy";
 	Scenes scene = new Scenes();
-	Theater theater = new Theater();
+	Theater theatr = new Theater();
 	ArrayList<Cast> cast = new ArrayList<Cast>();
 	public Movies(){
 		movieName = "C.I.D MOOSA";
@@ -79,7 +81,7 @@ public class Movies{
 		    	}while(yN != 0); 
 		    }
 		    else if(option == 3){
-		    	theater.seatSelection();
+		    	theatr.seatSelection();
 		    }
 		}while(option != 0);
 	}  

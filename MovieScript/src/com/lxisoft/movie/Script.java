@@ -1,5 +1,6 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
 import java.util.*;
 public abstract class Script{
 	String dialogue0;
