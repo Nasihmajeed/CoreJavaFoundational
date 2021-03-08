@@ -81,35 +81,4 @@ public Menu menu=new Menu();
 	}
 	public void updateFood(ArrayList<Item> itm)
 	{
-	int i;
-	int o;
-	int sizee=itm.size();
-	itm.add(new Item());
-	System.out.println("Enter the index value of the food item you want to update:");
-	Scanner scnr=new Scanner(System.in);
-	int nm=scnr.nextInt();
-	System.out.println("SlNo:"+"\t"+"Item"+"\t"+"Rate");
-	System.out.println("\n"+(nm)+"\t"+itm.get(nm-1).getName()+"\t"+itm.get(nm-1).getRate());
-	System.out.println("Enter the name of the new item");
-	String nam=scnr.next();
-	itm.get(nm-1).setName(nam);
-	System.out.println("Enter the rate of the new item");
-	int rat=scnr.nextInt();
-	itm.get(nm-1).setRate(rat);
-	System.out.println("The updated Menu is");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|                Menu                   |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|            The Sky Lounge             |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
-		for(i=0;i<sizee;i++)
-		{
-		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
-		}
-		System.out.println("|---------------------------------------|");
-		
-	}
-}
-
-/*SSSSSSS
+	
