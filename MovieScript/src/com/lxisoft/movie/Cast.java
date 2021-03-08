@@ -1,5 +1,5 @@
-package com.lxisoft.model;
-import com.lxisoft.model.*;
+package com.lxisoft.movie;
+import com.lxisoft.movie.*;
 public class Cast implements Comparable<Cast>{
 	String name;
 	int age;

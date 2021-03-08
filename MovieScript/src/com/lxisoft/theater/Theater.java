@@ -1,6 +1,6 @@
-package com.lxisoft.view;
-//import com.lxisoft.model.movies;
-import com.lxisoft.view.Theater;
+package com.lxisoft.theater;
+import com.lxisoft.movie.*;
+import com.lxisoft.theater.Theater;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +27,7 @@ public class Theater{
 		System.out.println(" Every should wear masks ,sanitize hands and follow social distancing    ");
 		System.out.println("+-----------------------------------------------------------------------+");
 		
-		System.out.println("Select the type of seat \n1.Dual  \t150/- \n2.VIP   \t200/-\n3.Normal\t120/-\n");
+		System.out.println("Select the type of seat \n1.Dual \n2.VIP \n3.Normal");
 		int seat = scan.nextInt();
 		
 		if(seat == 1){

@@ -1,6 +1,6 @@
-package com.lxisoft.view;
-import com.lxisoft.model.*;
-//import com.lxisoft.actors.*;
+package com.lxisoft.movie;
+import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
 import java.util.*;
 import java.io.*;
 public class Scenes{
@@ -8,6 +8,7 @@ public class Scenes{
 	ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
 	public void setScene1(){
+		
 		script1.add(new Moosa());
 		script1.get(0).setDialogue0("\n Sahadevan : Da Thorappa odaruth....nikkadaa\n");
 		script1.get(0).setDialogue1("\n Sahadevan : Oru paavam kuttiyude bag moshtich kadannu kalaya vijaricho nee\n");
@@ -32,7 +33,7 @@ public class Scenes{
 	}
 	public void printScene1(){
 		try{
-			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv");
     		FileWriter fileWriter = new FileWriter(file);
 	    	BufferedWriter writer = new BufferedWriter(fileWriter);
 	    	writer.write("\n    ***Sahadevan walks through side of the road and he notices a girl screaming from the other side of road***\n");
@@ -63,8 +64,8 @@ public class Scenes{
 	    }
 
 		try{
-			//Scanner scan = new Scanner(System.in);
-			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
+			Scanner scan = new Scanner(System.in);
+			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv"));
 			String s;
 			while((s=buffReader.readLine()) != null)
 			{
@@ -77,7 +78,7 @@ public class Scenes{
 			e.printStackTrace();
 		}
 
-	}
+	}	
 	public void setScene2(){
 		script2.add(new Moosa());
 		script2.get(0).setDialogue0("\n Sahadevan : Mamante kadam veetyathum Detective agency thodangyathokke valare pettannayirunnu\n");
@@ -102,7 +103,7 @@ public class Scenes{
 	}
 	public void printScene2(){
 		try{
-			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv");
 		    FileWriter fileWriter = new FileWriter(file);
 	    	BufferedWriter writer = new BufferedWriter(fileWriter);
     		writer.write("\n     ***The office is getting painted and Sahadevan Kochunni and Vikraman stands in frond and discuss about the C.I.D concepts*** \n");
@@ -132,7 +133,7 @@ public class Scenes{
 		}
 		try{
 			Scanner scan = new Scanner(System.in);
-			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
+			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv"));
 			String s;
 			while((s=buffReader.readLine()) != null)
 			{
@@ -144,8 +145,11 @@ public class Scenes{
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		
 	}
 	public void setScene3(){
+		
 		script3.add(new Moosa());
 		script3.get(0).setDialogue0("\n Sahadevan : Eda Thorappa ninak onnnu sahayichoode daa\n");
 		script3.get(0).setDialogue1("\n Sahadevan : Avan verum oru pottan alley...\n");
@@ -184,7 +188,7 @@ public class Scenes{
 	}
 	public void printScene3(){
 		try{
-			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv");
 		    FileWriter fileWriter = new FileWriter(file);
 	    	BufferedWriter writer = new BufferedWriter(fileWriter);
     		writer.write("\n     ***The three of them sits idle infront of their new detective agency***\n");
@@ -233,7 +237,7 @@ public class Scenes{
     	}
 		try{
 			Scanner scan = new Scanner(System.in);
-			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
+			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\scrpt.csv"));
 			String s;
 			while((s=buffReader.readLine()) != null)
 			{
@@ -245,6 +249,7 @@ public class Scenes{
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 	public void printArray1(){
 		try{

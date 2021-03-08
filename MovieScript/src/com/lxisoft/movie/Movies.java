@@ -1,7 +1,7 @@
-package com.lxisoft.controller;
-import com.lxisoft.model.*;
-import com.lxisoft.view.*;
-//import com.lxisoft.theater.Theater;
+package com.lxisoft.movie;
+import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
+import com.lxisoft.theater.Theater;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

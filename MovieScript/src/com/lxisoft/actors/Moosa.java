@@ -1,6 +1,6 @@
-package com.lxisoft.model;
-import com.lxisoft.model.*;
-//import com.lxisoft.actors.*;
+package com.lxisoft.actors;
+import com.lxisoft.movie.*;
+import com.lxisoft.actors.*;
 public class Moosa extends Script implements Actors{
 	public void actorBrief(){
 		System.out.println("+----------------------------------------------------------------+");
