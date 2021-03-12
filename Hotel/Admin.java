@@ -1,84 +1,173 @@
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
 
+import java.util.*;
 public class Admin
 {
-public Menu menu=new Menu();
-	public void adminConsole()
+	String password;
+	Hotel hotel;
+	
+
+
+	public void adminCheck(Hotel hotel)
 	{
-	int choicee=0;
-	System.out.println("\nPress \n1.Search a food Item\n2.Remove a food Item\n3.Update a food Item\n4.EXit");
-	Scanner scn=new Scanner(System.in);
-	choicee=scn.nextInt();
-		if(choicee==1)
-		{	
-			menu.addMenu();
-			//this.addFood(menu.itm);
-			menu.adminPrint();
-			menu.searchFood();
-		}
-		if(choicee==2)
+		String def="silver";
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the password");
+		password=scan.next();
+		if(password.equals(def))
 		{
-			menu.addMenu();
-			this.deleteFood(menu.itm);
-			//menu.searchFoodU();
+				System.out.println("\t***Welcome Admin***");
+				adminChoice(hotel);
+
 		}
-		else if(choicee==3)
-		{
-			menu.addMenu();
-			this.updateFood(menu.itm);
+		  else
+		  {
+		  	System.out.println("Invalid password");
+
+		  }
+
+
+		}	
+
+		public void adminChoice(Hotel hotel)
+		{			
+					int c;
+					Scanner scan=new Scanner(System.in);
+					System.out.println("Enter your choice ");
+					System.out.println("1.Add \n2.Display \n3.Delete \n4.Edit");
+					c=scan.nextInt();
+					
+				switch(c)
+					{
+						case 1:System.out.println("Add");
+										add(hotel);
+										break;
+						case 2:System.out.println("Display");
+										display(hotel);
+										break;
+						case 3:System.out.println("Delete");
+										delete(hotel);
+										break;
+						case 4:System.out.println("Edit");
+										edit(hotel);
+										break;
+
+						default:System.out.println("ERROR");
+
+					}
+					
+
+
 		}
-	}
-	public void addFood(ArrayList<Item> itm)
-	{
-	int i;
-	int size=itm.size();
-	int u=size+1;
-	Scanner scnr=new Scanner(System.in);
-	System.out.println("Enter name of the food:");
-	String name=scnr.next();
-	System.out.println("Enter rate of the food:");
-	int price=scnr.nextInt();
-	itm.add(new Item());
-	itm.get(u).setName(name);
-	itm.get(u).setRate(price);
-	System.out.println("The updated Menu is");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|                Menu                   |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|            The Sky Lounge             |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|----SlNo:---"+"----Item-------"+"---Rate----|");
-		for(i=0;i<u+1;i++)
-		{
-		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
-		}
-		System.out.println("|---------------------------------------|");
-	}
-	public void deleteFood(ArrayList<Item> itm)
-	{
-	int i;
-	int size=itm.size();
-	itm.add(new Item());
-	System.out.println("Enter the index value of the food item you want to remove:");
-	Scanner scnr=new Scanner(System.in);
-	int nmr=scnr.nextInt();
-	System.out.println(itm.get(nmr-1).getName()+" has been removed from the list");
-	itm.remove(nmr-1);
-	System.out.println("The updated Menu is");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|                Menu                   |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|            The Sky Lounge             |");
-	System.out.println("|---------------------------------------|");
-	System.out.println("|----SlNo:---"+"----Item--------"+"---Rate----|");
-		for(i=0;i<size-1;i++)
-		{
-		System.out.println("|"+"\t"+(i+1)+"|"+"\t"+itm.get(i).getName()+"\t"+"|"+"\t"+itm.get(i).getRate()+"\t"+"|");
-		}
-		System.out.println("|---------------------------------------|");
-	}
-	public void updateFood(ArrayList<Item> itm)
-	{
+
+	
+	
+				void add(Hotel hotel)
+				{
+							Scanner scan=new Scanner(System.in);
+						
+								boolean b=false;
+							do
+							{
+								b = false;
+								for(int i=0;i<hotel.food.length;i++)
+								{
+									if(hotel.food[i].name==null)
+									{
+										int c;
+										System.out.println("1. Add \n2.Print");
+										c=scan.nextInt();
+										switch(c)
+										{
+											case 1:
+													addExist(hotel,i);
+												b = true;
+												break; 
+										
+											case 2:
+												hotel.getMenu();
+												adminChoice(hotel);
+												break;
+											default:
+												System.out.println("Invalid");
+										}
+										break;
+									}
+									
+								}
+							}while(b);
+
+				}
+				void addExist(Hotel hotel,int i)
+				{
+												boolean test=true;
+												Scanner scan=new Scanner(System.in);
+											    System.out.println("Add");
+												System.out.println("Enter the FoodName");
+												String newfood=scan.next();
+												System.out.println("Enter the price");
+												int newprice=scan.nextInt();
+												for(int j=0;j<hotel.food.length;j++)
+												{
+													if(newfood.equals(hotel.food[j].name))
+													{
+														System.out.println("Already exists");
+														test=false;
+													}
+												}
+												if(test)
+												{
+													hotel.food[i].name=newfood;
+													hotel.food[i].price=newprice;
+													
+												}
+				}			
+
+
+				void display(Hotel hotel)
+
+				{
+						hotel.getMenu();
+						adminChoice(hotel);
+				}
+
+				void delete(Hotel hotel)
+				{
+					Scanner scan=new Scanner(System.in);
+					hotel.getMenu();
+					System.out.println("Enter the food you want to delete?");
+					int f=scan.nextInt();
+					hotel.food[f-1].name=null;
+					hotel.food[f-1].price=0;
+					hotel.getMenu();
+					adminChoice(hotel);
+
+
+					
+				}
+
+				void edit(Hotel hotel)
+				{
+					Scanner scan=new Scanner(System.in);
+					hotel.getMenu();
+					System.out.println("Select the food you want to update ");
+					int n=scan.nextInt();
+					System.out.println("Enter the name you want to update ");
+					String f=scan.next();
+					System.out.println("Enter the price you want to update ");
+					int p=scan.nextInt();
+						hotel.food[n-1].name=f;
+						hotel.food[n-1].price=p;
+						hotel.getMenu();
+						adminChoice(hotel);
+				}
+				
+}
+
+				
+
+
+
+		
+
+
 	

@@ -1,11 +1,11 @@
-import java.util.Scanner;
-public class TDD
-{
- public static void main(String[] args)
- {
- Hotel hotel = new Hotel();
- hotel.printName();
- hotel.setMenu();
- hotel.user();
- }	
+
+public class Tdd{
+	public static void main(String[] args) {
+		Sample sample = new Sample();
+		sample.test();
+		/*Hotel hotel=new Hotel();
+		hotel.details();
+		hotel.login();
+		hotel.menu();*/
+	}
 }
