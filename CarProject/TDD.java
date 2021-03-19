@@ -56,5 +56,33 @@ Tyre tr=new Tyre();
 tr.tyreType=" High Grip ";
 tr.typeOfTyre();
 
+
+//third car
+
+
+Car cr=new Car();
+cr.carName="Lamborghini";
+cr.drive();
+
+Color j=new Color();
+j.colorOfCar("Black");
+j.carColor="Black Color";
+
+Engine eng=new Engine();
+eng.engType="Multi Power";
+eng.startEngine("Hyper Engine");
+
+Fuel fl=new Fuel();
+fl.fuelType="Power Petrol";
+fl.carFuel(" Petrol");
+
+Driver drv=new Driver();
+drv.license=true;
+drv.checkLicense(true);
+
+Tyre te=new Tyre();
+te.tyreType="  Double layered ";
+te.typeOfTyre();
+
 }
 }
