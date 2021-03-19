@@ -3,7 +3,7 @@ class Marks{
 		float maths,science,english,total;
 	public float Total(){
 		total=maths+science+english;
-		System.out.println("Total Marks ="+ total);
+		
 		return total;
 	}
 		public float English(){
