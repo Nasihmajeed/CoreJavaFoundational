@@ -2,8 +2,7 @@ public class School
 {
 String schoolName;
 
-Student []s=new Student[3];
-Student []s1=new Student[3];
+
 
 	public void school()
 	{	
