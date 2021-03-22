@@ -6,14 +6,15 @@ class TDDcheck{
 		School sh= new School();
 		School [] st= new School[3];
 		Teacher[] t=new Teacher[3];
-		Marks[] m= new Marks[3];
-		Student[] s= new Student[3];
-		m[0]=new Marks();
-		m[1]=new Marks();
-		m[2]=new Marks();
-		s[0]=new Student();
-		s[1]=new Student();
-		s[2]=new Student();
+		Marks[][] m= new Marks[3][3];
+		Student[][] s= new Student[3][3];
+		
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
+				m[i][j]=new Marks();
+				s[i][j]=new Student();
+			}
+		}
 		st[0]=new School();
 		st[1]=new School();
 		st[2]=new School();
@@ -25,30 +26,31 @@ class TDDcheck{
 		t[1]=new Teacher();
 		t[2]=new Teacher();
         
-		for(int i=0;i<3;i++){
+		for(int i=0;i<2;i++){
 		t[i].TeacherName=t[i].teacherName();
 		
-		for(int j=0;j<3;j++){
-		s[j].StudentName=s[j].Input();
-		m[j].english=m[j].English();
-		m[j].maths=m[j].Maths();
-		m[j].science=m[j].Science();
-		m[j].total=m[j].Total();
+		for(int j=0;j<2;j++){
+		s[i][j].StudentName=s[i][j].Input();
+		m[i][j].english=m[i][j].English();
+		m[i][j].maths=m[i][j].Maths();
+		m[i][j].science=m[i][j].Science();
+		m[i][j].total=m[i][j].Total();
 		
 		}
 		}
-		for(int i=0;i<3;i++){
+		for(int i=0;i<2;i++){
 		System.out.println("STANDARD IS : "+st[i].std);
 		System.out.println("TEACHER'S NAME IS : "+t[i].TeacherName);
 		
-		for(int j=0;j<3;j++){
-		System.out.println(" STUDENT IS :"+s[j].StudentName);
-		System.out.println("MARKS IN ENGLISH :"+m[j].english);
-		System.out.println("MARKS IN SCIENCE :"+m[j].science);
-        System.out.println("MARKS IN MATHS   :"+m[j].maths);
-		System.out.println("TOTAL MARKS IS   :"+m[j].total);
+		for(int j=0;j<2;j++){
+		System.out.println(" STUDENT IS :"+s[i][j].StudentName);
+		System.out.println("MARKS IN ENGLISH :"+m[i][j].english);
+		System.out.println("MARKS IN SCIENCE :"+m[i][j].science);
+        System.out.println("MARKS IN MATHS   :"+m[i][j].maths);
+		System.out.println("TOTAL MARKS IS   :"+m[i][j].total);
 		}
 		}
+	t[0].PassOrFail(s,m,t);
 		
 		
 		
