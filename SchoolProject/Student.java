@@ -4,67 +4,36 @@ public class Student
 {
 	String sname;
 	
-	float physics,chemistry,maths,total;
+	float physics,chemistry,maths;
 	
 public void studentName()
   {
-	System.out.println("Enter the name of Student : ");
+	System.out.println("Enter the name of the Student : ");
 	Scanner sc=new Scanner(System.in);
 	sname=sc.nextLine();
 	System.out.println("Name of Student is : "+sname);
    }	
-
 	
 	
-public void totalMarks()
+public void studentMarks()
 	
 	{		
-	System.out.println("Enter the marks of student in Physics ");
+	
+	System.out.println("Enter the Marks obtained by the student in PHYSICS : ");
+	Scanner sc=new Scanner(System.in);
 	physics=sc.nextFloat();
+	System.out.println("Marks of student in Physics is "+physics);
 	
-	System.out.println("Enter the marks of student in Chemistry ");
-	chemistry=sc.nextFloat();
+	System.out.println("Enter the Marks obtained by the student in CHEMISTRY : ");
+	Scanner sc1=new Scanner(System.in);
+	chemistry=sc1.nextFloat();
+	System.out.println("Marks of student in Chemistry "+chemistry);
 	
-	System.out.println("Enter the marks of student in Maths ");
-	maths=sc.nextFloat();
-	
-	System.out.println("Marks of the Student "+sname+" in Physics is "+physics);
-	
-	System.out.println("Marks of the Student " +sname+" in Chemistry is "+chemistry);
-	
-	System.out.println("Marks of the Student "+sname+" in Maths is "+maths);
-
-    total=physics+chemistry+maths;
-		
-		
-	System.out.println("Total marks obtained by the "+sname+" is : "+total);
-
-if(physics>35)
-		{
-			System.out.println("Student has passed in Physics");
-		}
-		else
-		{
-			System.out.println("Student failed in Physics");
-		}			
-		
-		if(chemistry>35)
-		{
-			System.out.println("Student has passed in Chemistry");
-		}
-		else
-		{
-			System.out.println("Student failed in Chemistry");
-		}			
-		
-		if(maths>35)
-		{
-			System.out.println("Student has passed in Maths");
-		}
-		else
-		{
-			System.out.println("Student failed in Maths");
-		}			
-	}	
+	System.out.println("Enter the Marks obtained by the student in MATHEMATICS : ");
+	Scanner sc2=new Scanner(System.in);
+	maths=sc2.nextFloat();
+	System.out.println("Marks of student in Maths "+maths);
+   }	
 }
+
 

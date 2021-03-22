@@ -1,45 +1,33 @@
 public class TDD
 {
-public static void main(String[] args)
+public static void main(String[] args) 
 {
 
 School school1=new School();
 school1.schoolDisplay();	
 
-//creating 3 student objects 	
-Student s[ ]=new Student[3];
-s[0]=new Student();
-s[1]=new Student();
-s[2]=new Student();
-
-//class in which he/she studies
-Standard standard=new Standard();
-standard.studentStandard();
+s[0].teacherDetails();
 
 //marks of 3 subjects of student 1
-s[0].physics=55;
-s[0].chemistry=60;
-s[0].maths=65.5;
-s[0].totalMarks();
+s[0].studentName();
+s[0].studentMarks();
+s[0].studentStandard();
 
-//marks of 3 subjects of student 1
-s[1].physics=30;
-s[1].chemistry=70;
-s[1].maths=85.5;
-s[1].totalMarks();
 
-//marks of 3 subjects of student 1
-s[2].physics=95;
-s[2].chemistry=90;
-s[2].maths=98;
-s[2].totalMarks();
+//marks of 3 subjects of student 2
+s[1].studentName();
+s[1].studentMarks();
+s[1].studentStandard();
 
+
+//marks of 3 subjects of student 3
+s[2].studentName();
+s[2].studentMarks();
+s[2].studentStandard();
 
 Teacher teach=new Teacher();
-teach.teacherDetails();
-teach.topperDetails();
+teach.studentDetails();
 
 
-	
 }
 }

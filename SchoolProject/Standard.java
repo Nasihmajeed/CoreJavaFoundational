@@ -8,7 +8,6 @@ public class Standard
 		System.out.println("Enter the class in which student is studying : ");
 		Scanner sc=new Scanner(System.in);
 		standardName=sc.nextLine();
-		
 		System.out.println("The Student is studying in "+standardName+" standard");
 	}
 }
