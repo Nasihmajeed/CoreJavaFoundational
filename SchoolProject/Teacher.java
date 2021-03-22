@@ -35,4 +35,38 @@ class Teacher{
 				
 					
 		}
+		
+		
+		public void classTopper(Marks m[][], School st[], Student s[][]){
+			float largest1;
+			String topperName1="", topperName2="",topperName3="";
+			int i,j;
+			largest1=m[0][0].total;
+			for(i=0,j=0; j<3;j++){
+				if(m[i][j].total>largest1){
+					largest1=m[i][j].total;
+					topperName1=s[i][j].StudentName;
+				}
+				}
+			System.out.println("TOPPER IN CLASS"+st[i].std+" is "+ topperName1);
+		
+		float largest2;
+			largest2=m[1][0].total;
+			for(i=1,j=0; j<3;j++){
+				if(m[i][j].total>largest2){
+					largest2=m[i][j].total;
+					topperName2=s[i][j].StudentName;
+				}
+				}
+			System.out.println("TOPPER IN CLASS "+st[i].std+" is "+ topperName2);
+		float largest3;
+			largest3=m[2][0].total;
+			for(i=2,j=0; j<3;j++){
+				if(m[i][j].total>largest3){
+					largest3=m[i][j].total;
+					topperName3=s[i][j].StudentName;
+				}
+				}
+			System.out.println("TOPPER IN CLASS "+st[i].std+" is "+ topperName3);
+		}
 }

@@ -26,10 +26,10 @@ class TDDcheck{
 		t[1]=new Teacher();
 		t[2]=new Teacher();
         
-		for(int i=0;i<2;i++){
+		for(int i=0;i<3;i++){
 		t[i].TeacherName=t[i].teacherName();
 		
-		for(int j=0;j<2;j++){
+		for(int j=0;j<3;j++){
 		s[i][j].StudentName=s[i][j].Input();
 		m[i][j].english=m[i][j].English();
 		m[i][j].maths=m[i][j].Maths();
@@ -38,11 +38,11 @@ class TDDcheck{
 		
 		}
 		}
-		for(int i=0;i<2;i++){
+		for(int i=0;i<3;i++){
 		System.out.println("STANDARD IS : "+st[i].std);
 		System.out.println("TEACHER'S NAME IS : "+t[i].TeacherName);
 		
-		for(int j=0;j<2;j++){
+		for(int j=0;j<3;j++){
 		System.out.println(" STUDENT IS :"+s[i][j].StudentName);
 		System.out.println("MARKS IN ENGLISH :"+m[i][j].english);
 		System.out.println("MARKS IN SCIENCE :"+m[i][j].science);
@@ -51,7 +51,8 @@ class TDDcheck{
 		}
 		}
 	t[0].PassOrFail(s,m,t);
-		
+	t[0].classTopper(m,st,s);
+	st[0].schoolTopper(m,s);	
 		
 		
 		
