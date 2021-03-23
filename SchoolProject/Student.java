@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class Student
 {
-	String sname;
-	
 	float physics,chemistry,maths;
 	
 public void studentName()
   {
 	System.out.println("Enter the name of the Student : ");
 	Scanner sc=new Scanner(System.in);
-	sname=sc.nextLine();
+	String sname=sc.nextLine();
 	System.out.println("Name of Student is : "+sname);
    }	
 	

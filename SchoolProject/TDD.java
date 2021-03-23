@@ -6,27 +6,22 @@ public static void main(String[] args)
 School school1=new School();
 school1.schoolDisplay();	
 
-s[0].teacherDetails();
+Student student1=new Student();
+Student student2=new Student();
+Student student3=new Student();
 
-//marks of 3 subjects of student 1
-s[0].studentName();
-s[0].studentMarks();
-s[0].studentStandard();
-
-
-//marks of 3 subjects of student 2
-s[1].studentName();
-s[1].studentMarks();
-s[1].studentStandard();
+List<Student> students=new ArrayList<Student>();
+students.add(student1);
+students.add(student2);
+students.add(student3);
 
 
-//marks of 3 subjects of student 3
-s[2].studentName();
-s[2].studentMarks();
-s[2].studentStandard();
+Standard standard=new Standard();
+standard.studentStandard();
 
-Teacher teach=new Teacher();
-teach.studentDetails();
+Teacher teacher=new Teacher();
+teacher.teacherDetails();
+teacher.studentDetails();
 
 
 }
