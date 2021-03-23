@@ -1,8 +1,10 @@
+import java.util.*;
+
 class ClassTeacher
 {
 	String classTeacherName,topperName;
 	float topperMarks;
-	
+	Scanner sc = new Scanner(System.in);
 	
 	Student s=new Student();
 		
@@ -46,54 +48,55 @@ class ClassTeacher
 			float large=s[0].total;
 		
 		if(s[1].total>large)
-		{	if(s[1].total>s[2].total)
-			{	System.out.println("-------------------");
+		{		System.out.println("-------------------");
 				
 				//topper name
-				topperMarks=s[1].total;
+				large=s[1].total;
+				topperMarks=large;
 				topperName=s[1].studentName;
 				
 			System.out.println("Topper of the class is: "+s[1].studentName);
-			}
-			/*else if(s[2].total>s[1].total)
-			{System.out.println("-------------------");
-				System.out.println("Topper of the class is: "+s[2].studentName);
-			}*/
-		
 			
 		}
-		if(s[2].total>large)
-		{	if(s[2].total>s[1].total)
-			{	System.out.println("-------------------");
+		else if(s[2].total>large)
+		{
+			large=s[2].total;
+				topperMarks=large;
 				topperName=s[2].studentName;
-				topperMarks=s[2].total;
-			System.out.println("Topper of the class is: "+s[2].studentName);
-			}
-			else if(s[1].total>s[2].total)
-			{	System.out.println("-------------------");
-				topperName=s[1].studentName;
-				topperMarks=s[1].total;
-				System.out.println("Topper of the class is: "+s[1].studentName);
-			}
-		
-			
+				System.out.println("Topper of the class is: "+s[2].studentName);
 		}
+			
 		else{
 			System.out.println("-------------------");
 			topperName=s[0].studentName;
 			topperMarks=s[0].total;
-		System.out.println("Topper of the class is: "+s[0].studentName);
-		}
+			System.out.println("Topper of the class is: "+s[0].studentName);
+			System.out.println("-------------------");
+			}
 		
 		return topperName;
 		
 	}
-
-
+	
+	
+	
+	
+	
+	public void teacherName()
+	{	System.out.println("----------------");
+		System.out.println("Enter the class teacherName :");
+		classTeacherName=sc.nextLine();
+	}
+	
+	
+	
+	
+	
 	
 	public void classTeacherDisplay()
 	{	System.out.println("----------------");
 		System.out.println("Class Teacher of the class is "+classTeacherName );
+		System.out.println("-------------------");
 	}
 	
 	

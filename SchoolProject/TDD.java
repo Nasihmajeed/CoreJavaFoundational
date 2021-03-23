@@ -2,18 +2,13 @@ class TDD
 {
 	public static void main(String [] args)
 	{
-		Standard x=new Standard();
+		School s=new School();
 		
-		x.standard="X";
-		x.setStudent("Amal");
+		s.schoolName("SevaSadanCentralSchool");
 		
-		x.setStudentMarks(35,25,50);
-	
-		x.displayStandard();
-
+		s.examinationResults();
 		
-	
-	
+		s.schoolTopper();
 			
 		
 

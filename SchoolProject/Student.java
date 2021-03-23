@@ -1,3 +1,4 @@
+import java.util.*;
 public class Student
 {
 	String studentName;
@@ -7,10 +8,16 @@ public class Student
 	
 	
 	
+	Scanner sc=new Scanner(System.in);
 	
-	public void setName(String studentName)
+	
+	public void setName()
 	{
-		this.studentName=studentName;
+		System.out.println("Enter the Student name:");
+		studentName=sc.nextLine();
+		
+		
+		//this.studentName=studentName;
 	}
 	
 	public String getName()
@@ -18,12 +25,19 @@ public class Student
 		return studentName;
 		
 	}
-	public void setMarks(float maths,float science,float english)
+	public void setMarks()
 	{
-		this.maths=maths;
+	System.out.println("Enter the Marks in Maths:");
+	maths=sc.nextFloat();
+	System.out.println("Enter the Marks in Science:");
+	science=sc.nextFloat();
+	System.out.println("Enter the Marks in English:");
+	english=sc.nextFloat();	
+		
+	/*this.maths=maths;
 		this.science=science;
 		this.english=english;
-		
+		*/
 		
 	}
 	
@@ -32,7 +46,9 @@ public class Student
 	{
 		System.out.println("Student name: "+s.getName());
 		System.out.println("-------------------");
-		System.out.println("Marks in Maths: "+s.maths+"English: "+s.english+"Science: "+s.science);
+		System.out.println("Marks scored in Maths: "+s.maths);
+		System.out.println("Marks scored in English: "+s.english);
+		System.out.println("Marks scored in Science: "+s.science);
 		System.out.println("-------------------");
 		
 	}
@@ -40,11 +56,13 @@ public class Student
 	
 	
 	
-	public void marksTotal()
+	public float marksTotal()
 	{
 		total=maths+science+english;
 		System.out.println("-------------------");
 		System.out.println("Total Marks: "+total);
+		System.out.println("-------------------");
+		return total;
 	}
 	
 	
