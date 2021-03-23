@@ -1,28 +1,25 @@
+import java.util.Scanner;
+import java.util.ArrayList;
 class School{
-	int std;
-	void SchoolDetails(){
-		System.out.println("*********************************");
+	int standard;
+	public void schoolDetails(){
+		System.out.println("******************************************");
 		System.out.println("SEVA SADAN CENTRAL SCHOOL");
-		System.out.println("Athirkad , Pathiripala, PALAKKAD");
-		System.out.println("*********************************");
+		System.out.println("PATHIRIPALA PALAKKAD");
+		System.out.println("******************************************");
+	Scanner sc= new Scanner(System.in);
+	Scanner sn= new Scanner(System.in);
+	ArrayList<String> student=new ArrayList<String>();
+	
+	System.out.print("ENTER THE STANDARD ");
+	this.standard=sc.nextInt();
+	System.out.print("ENTER STUDENT'S NAME");
+	for (int i=0;i<3;i++){
+		String x= sn.nextLine();
+		student.add(x);
 	}
-	public void SchoolStd(){
-		System.out.print(std+"th STANDARD");
+	for (int i=0;i<3;i++){
+		System.out.println(student.get(i));
 	}
-	public void schoolTopper(Marks m[][], Student s[][]){
-		String topperClass="";
-		int i,j;
-		float large;
-		large=m[0][0].total;
-		for (i=0;i<3;i++){
-			for(j=0;j<3;j++){
-				if(m[i][j].total>large){
-					large=m[i][j].total;
-					topperClass=s[i][j].StudentName;
-			}
-		}
-		}
-		System.out.println("TOPPER IN SCHOOL IS "+ topperClass);
-		
-	}
+}
 }
