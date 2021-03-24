@@ -1,14 +1,14 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 class Student{
+	String StudentName;
 	
-
-	String studentName;
-	public void studentDetails(ArrayList<Student> student){
+	public String Input(){
 		Scanner sc= new Scanner(System.in);
 		System.out.println("ENTER STUDENT NAME :");
-		this.studentName= sc.nextLine();
-		System.out.println("STUDENT NAME :"+studentName);
-	
+		String StudentName= sc.nextLine();
+		
+		return StudentName;
 	}
-}
+	
+		
+	}
