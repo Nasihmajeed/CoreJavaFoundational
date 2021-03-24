@@ -9,6 +9,7 @@ public class School
 		Scanner sc=new Scanner(System.in);
 		String schoolName=sc.nextLine();
 		System.out.println("Our School Name is : "+schoolName);
+		
 		}
 		
 }
