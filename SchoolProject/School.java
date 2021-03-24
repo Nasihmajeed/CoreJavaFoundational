@@ -72,7 +72,7 @@ Standard[] x=new Standard[3];
 
 
 	public void schoolTopper()
-	{	System.out.println("----------School Topper --------------");
+	{	System.out.println("----------School  Topper --------------");
 		large=x[0].topMarks;
 		
 		if(x[1].topMarks>large)
