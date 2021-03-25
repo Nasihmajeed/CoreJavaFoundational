@@ -1,23 +1,27 @@
 package com.lxisoft.movie;
 import com.lxisoft.movie.*;
+import com.lxisoft.theatre.*;
 import com.lxisoft.actors.*;
-import com.lxisoft.search.*;
+
 import java.util.*;
+import java.util.regex.*;
 
 
 public class Movies 
 {
-    String movieName = "Vettam";
-    String director = "Priyadarshan";
-    String genre = "Comedy";
+    String movieName;
+    String director;
+    String genre;
     Scenes scene = new Scenes();
-	Search search = new Search();
+	Theatre theatre = new Theatre();
     ArrayList<Cast> cast = new ArrayList<Cast>();
 
-    // Gopi gopi = new Gopi();
-    // Veena veena = new Veena();
-   	// Mani mani = new Mani();
-    // Felix felix = new Felix();
+	public Movies()
+	{
+		movieName = "Vettam";
+		director = "Priyadarshan";
+    	genre = "Comedy";
+	}
 
     public void movieOptions()
     {
@@ -30,7 +34,8 @@ public class Movies
         int option;
         do
         {
-            System.out.println("\nSelect option: \n1.Play Script \n2.View Cast \n3.Search \n0.Exit");
+            System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	0.Exit");
+			System.out.print("\nEnter option : ");
             option = s.nextInt();
             if(option==1)
             {
@@ -43,7 +48,8 @@ public class Movies
 				int x;
 				do
 				{
-                	System.out.println("\nView details of characters? \n1.Yes \n0.No");
+                	System.out.println("\n	Select option : \n		1.View details of characters \n		2.Search actors \n		0.Exit");
+					System.out.print("\n	Enter option : ");
                 	x = s.nextInt();
                 	if(x==1)
                 	{
@@ -85,12 +91,16 @@ public class Movies
 		    				    System.out.println("Something went wrong");  
                     	}
 					}
+					else if(x==2)
+					{
+						theatre.search();
+					}
                 }
 				while(x!=0);
             }
 			else if(option==3)
 			{
-				search.look();
+				theatre.selectSeat();
 			}
 
         }
@@ -161,9 +171,9 @@ public class Movies
 
 		
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-2");
-		this.slowPrint();
-		scene.setScene2();
-		scene.printScene2();
+		// this.slowPrint();
+		// scene.setScene2();
+		// scene.printScene2();
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-3                                          ");
@@ -172,9 +182,9 @@ public class Movies
 		
 
         System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-3");
-		this.slowPrint();
-		scene.setScene3();
-		scene.printScene3();
+		// this.slowPrint();
+		// scene.setScene3();
+		// scene.printScene3();
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-4                                          ");
@@ -185,9 +195,9 @@ public class Movies
         
 
         System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-4");
-		this.slowPrint();
-		scene.setScene4();
-		scene.printScene4();
+		// this.slowPrint();
+		// scene.setScene4();
+		// scene.printScene4();
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-5                                          ");

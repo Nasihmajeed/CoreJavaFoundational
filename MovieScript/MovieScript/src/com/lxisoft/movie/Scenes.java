@@ -76,7 +76,6 @@ public class Scenes
         System.out.println("\n                                                               *** At the same time Mani is waiting for Gopi at the airport ***\n");
         System.out.println("\n                                                                               *** They reaches the airport ***\n");
         System.out.println("\n                                                     *** Gopi sees Mani and ask him to follow Veena and goes to see the police officer ***\n");
-        // System.out.println("\n                                                                                   *** Mani follows Veena ***\n");		
     }
 
     public void setScene2()
