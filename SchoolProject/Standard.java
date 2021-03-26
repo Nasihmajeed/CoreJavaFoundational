@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Standard     //class in which student is studying
 {	
+
 String standardName;
 float topMarks;
 
@@ -93,6 +94,7 @@ System.out.println("-----------------"+st[2].sname+"----------------");
 	System.out.println("----------------------------");
 	
  topMarks=teach.topper(st);
+ 
  System.out.println("Topper of the class has secured : "+topMarks);
  
 	}

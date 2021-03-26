@@ -4,6 +4,7 @@ public class School
 {
 	String schoolName,s_topperName;
 	float s_topperMarks;
+	
 	Standard[] std=new Standard[3];
 
 public void init()
@@ -13,7 +14,7 @@ public void init()
 	std[2]=new Standard();
 }
 	
-	public void schoolsName()
+	public void schoolName()
 	{
 		System.out.println("Please enter the name of the School ");
 		Scanner sc=new Scanner(System.in);
@@ -21,7 +22,7 @@ public void init()
 		System.out.println("Our School Name is : "+schoolName);
 	}
 	
-	Teacher t=new Teacher();
+
 	
 	public void schoolDisplay()
 	    {	
@@ -33,10 +34,9 @@ public void init()
 		
 		public void stopperDisplay()
 		{
-		
+        	Teacher t=new Teacher();		
 		s_topperMarks=t.schoolTopper(std);
 		System.out.println("Marks obtained by School Topper is : "+s_topperMarks);
 		}
-		
-		
+			
 }

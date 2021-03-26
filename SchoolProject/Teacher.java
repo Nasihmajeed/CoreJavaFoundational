@@ -85,7 +85,7 @@ public float topper(Student []st)
 }
 
 
-public float schoolTopper(Standard[] std)
+public float schoolTopper(Standard std[])
 {
 	sl.init();
 	large=std[0].topMarks;
@@ -93,7 +93,7 @@ public float schoolTopper(Standard[] std)
 	{
 		if(std[2].topMarks<large)
 		{
-			System.out.println("Topper of the School is : "+std[0].sname);
+			System.out.println("Topper of the School is : "+std[0].st[0].sname);
 		}
 		return std[0].topMarks;
 	}
@@ -101,13 +101,13 @@ public float schoolTopper(Standard[] std)
 	{
 		if(std[2].topMarks<std[1].topMarks)
 		{
-			System.out.println("Topper of the School is : "+std[0].sname);
+			System.out.println("Topper of the School is : "+std[1].st[0].sname);
 		}
 		return std[1].topMarks;
 	}
 	else
 	{
-		System.out.println("Topper of the School is : "+std[0].sname);
+		System.out.println("Topper of the School is : "+std[2].st[0].sname);
 	}
 	return std[2].topMarks;
 }
