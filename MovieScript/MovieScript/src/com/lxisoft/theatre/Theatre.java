@@ -27,8 +27,8 @@ public class Theatre
 	{
 		Scanner s = new Scanner(System.in);
 		System.out.println("+-----------------------------------------------------------------------+");
-		System.out.println("                 	 		 "+theatre);
-		System.out.println("                 			"+place);
+		System.out.println("                 	 	 "+theatre);
+		System.out.println("                 		"+place);
 		System.out.println("\n   This movie is certified  as an 18+ movie. Below 18 are not allowed.");
 		System.out.println("          The seats are limitted due to COVID-19 pandemic.");
 		System.out.println("   Obey COVID-19 protocols : Masks, Sanitizers and Social distancing.");
@@ -122,7 +122,7 @@ public class Theatre
 		Matcher matcher = pattern.matcher("Dileep");
 		Matcher matcher1 = pattern.matcher("Kalabhavan Mani");
 		Matcher matcher2 = pattern.matcher("Bhavna Pani");
-		Matcher matcher3 = pattern.matcher("Midhun");
+		Matcher matcher3 = pattern.matcher("Mithun Ramesh");
 		if(matcher.matches())
 		{
 			System.out.println(" 	Actor "+actor+" is acting in this movie");

@@ -37,37 +37,37 @@ public class Scenes
         System.out.println("\n                                                             *** Gopi collides with the trolley while walking to the boarding area ***");
         System.out.println("\n                                                                          *** Veena runnig towards her luggage seeing this ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue0(),50);
 		
-		System.out.println("\n\n Veena : ");
+		System.out.print("\n\n Veena : ");
 		this.slowprint(script1.get(1).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue1(),50);
 		
-		System.out.println("\n\n Veena : ");
+		System.out.print("\n\n Veena : ");
 		this.slowprint(script1.get(1).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue2(),50);
 		
-		System.out.println("\n\n Veena : ");
+		System.out.print("\n\n Veena : ");
 		this.slowprint(script1.get(1).getDialogue2(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue3(),50);
 		
-		System.out.println("\n\n Veena : ");
+		System.out.print("\n\n Veena : ");
 		this.slowprint(script1.get(1).getDialogue3(),50);
         
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue4(),50);
 		
-		System.out.println("\n\n Veena : ");
+		System.out.print("\n\n Veena : ");
 		this.slowprint(script1.get(1).getDialogue4(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script1.get(0).getDialogue5(),50);
 
         System.out.println("\n\n                                                      *** Gopi and Veena are travelling in the same flight in nearby seats ***\n");
@@ -107,46 +107,46 @@ public class Scenes
         System.out.println("\n                                                                            ***Afetr the checking Gopi meets Mani again ***\n");
 
        
-		System.out.println("\n Mani : ");
+		System.out.print("\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue0(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue1(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue2(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue2(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue3(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue3(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue4(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue4(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue5(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue5(),50);
 
-        System.out.println("\n\n Mani : ");
+        System.out.print("\n\n Mani : ");
 		this.slowprint(script2.get(0).getDialogue6(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script2.get(1).getDialogue6(),50);
 
     }
@@ -184,66 +184,66 @@ public class Scenes
         System.out.println("\n                                                                   *** He comes with veena to the railway station to see off Veena ***\n");
         
         
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue0(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue1(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue2(),50);
 
         System.out.println("\n\n                                                                                        *** Gopi moves from there ***\n");
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue2(),50);
 
         System.out.println("\n\n                                                                             *** Veena searches for Gopi and see him crying ***\n");
         System.out.println("\n                                                                                             *** Gopi comes back ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue3(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue3(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue4(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue4(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue5(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue5(),50);
 
         System.out.println("\n\n                                                                                       *** Train horn sound ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue6(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue6(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue7(),50);
 
         System.out.println("\n\n                                                                                    *** Veena boards the train ***\n");
 
-        System.out.println("\n Veena   : ");
+        System.out.print("\n Veena   : ");
         this.slowprint(script3.get(1).getDialogue7(),50);
 
         System.out.println("\n\n                                                                                *** Veena shows the necklace to Gopi ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script3.get(0).getDialogue8(),50);
 
         System.out.println("\n\n                                                                                      *** Gopi boards the train ***\n");
@@ -278,45 +278,45 @@ public class Scenes
         System.out.println("\n                                                 *** Gopi and veena arrives at the hotel where Felix is residing and Gopi goes to check in ***\n");
         System.out.println("\n                                                                     *** Veena comes to know that it's Felix's marriage ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue0(),50);
 
-        System.out.println("\n\n Veena   : ");
+        System.out.print("\n\n Veena   : ");
         this.slowprint(script4.get(1).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue1(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script4.get(1).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue2(),50);
 
         System.out.println("\n\n                                                                                        *** Mani and Maala arrives ***\n");
 
-        System.out.println("\n Mani   : ");
+        System.out.print("\n Mani   : ");
         this.slowprint(script4.get(2).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue3(),50);
 
-        System.out.println("\n\n Mani   : ");
+        System.out.print("\n\n Mani   : ");
         this.slowprint(script4.get(2).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue4(),50);
 
-        System.out.println("\n\n Mani   : ");
+        System.out.print("\n\n Mani   : ");
         this.slowprint(script4.get(2).getDialogue2(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue5(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script4.get(1).getDialogue2(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script4.get(0).getDialogue6(),50);
 
         System.out.println("\n\n                                                                 *** Veena sees Felix'sengagement and tries to commit suicide ***\n");
@@ -365,84 +365,84 @@ public class Scenes
     {
         System.out.println("\n                                                                                 *** Gopi Meets Felix as Veena's cousin ***\n");
 
-        System.out.println("\n Gopi   : ");
+        System.out.print("\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue0(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue0(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue1(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue1(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue2(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue2(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue3(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue3(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue4(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue4(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue5(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue5(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue6(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue6(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue7(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue7(),50);
 
-        System.out.println("\n\n Gopi   : ");
+        System.out.print("\n\n Gopi   : ");
         this.slowprint(script5.get(0).getDialogue8(),50);
 
         System.out.println("\n\n                                                                                       *** Felix Meets Veena ***\n");
 
-        System.out.println("\n Felix  : ");
+        System.out.print("\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue8(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script5.get(2).getDialogue0(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue9(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script5.get(2).getDialogue1(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue10(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script5.get(2).getDialogue2(),50);
 
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue11(),50);
 
-        System.out.println("\n\n Veena  : ");
+        System.out.print("\n\n Veena  : ");
         this.slowprint(script5.get(2).getDialogue3(),50);
         
-        System.out.println("\n\n Felix  : ");
+        System.out.print("\n\n Felix  : ");
         this.slowprint(script5.get(1).getDialogue12(),50);
 
         System.out.println("\n\n                                                                        *** Veena leaves from there ***\n");
