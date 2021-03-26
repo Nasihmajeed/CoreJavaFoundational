@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class Teacher
 {
-    float total;
+    float total,large;
 	String tname;
 
 Student st=new Student();
+School sl=new School();
 
 public void teacherDetails()
 {
@@ -52,35 +53,73 @@ if(st.maths>35)
 	}	
 }
  
-Standard std=new Standard();
-float large,top;
-public void topper(Student []st)
+
+public float topper(Student []st)
 {
 	large=st[0].total;
 	
 	
-	if(s[1].total>large)
-	{	if(s[2].total<s[1].total)
+	if(st[1].total>large)
+	{	if(st[2].total<st[1].total)
 		{
-			large=s[1].total;
-		System.out.println("Topper of the Class is : "+st[1].sname+" with "+large+" marks");
-	
+			large=st[1].total;
+		System.out.println("Topper of the Class  is "+st[1].sname+" with "+large+" marks");
+	   
 		}
-	
+	return large;
 	}
 	else if(st[2].total>large)
 	{
 		if(st[1].total<st[2].total)
 		{
-			large=s[2].total;
+			large=st[2].total;
 		System.out.println("Topper of the Class is : "+st[2].sname+" with"+large+" marks");
 		}
+		return large;
 	}
 	else
 	{
 		System.out.println("Topper of the Class is : "+st[0].sname+"with :"+large+" marks");
-	
 	}
+	return large;
+}
+
+
+public float schoolTopper(Standard[] std)
+{
+	sl.init();
+	large=std[0].topMarks;
+	if(std[1].topMarks<large)
+	{
+		if(std[2].topMarks<large)
+		{
+			System.out.println("Topper of the School is : "+std[0].sname);
+		}
+		return std[0].topMarks;
+	}
+	else if(std[1].topMarks>large)
+	{
+		if(std[2].topMarks<std[1].topMarks)
+		{
+			System.out.println("Topper of the School is : "+std[0].sname);
+		}
+		return std[1].topMarks;
+	}
+	else
+	{
+		System.out.println("Topper of the School is : "+std[0].sname);
+	}
+	return std[2].topMarks;
 }
 
 }
+
+
+
+	
+	
+	
+	
+
+
+

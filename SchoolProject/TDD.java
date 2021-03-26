@@ -2,9 +2,9 @@ public class TDD
 {
 public static void main(String[] args) 
 {
-Standard s=new Standard();
-s.studentDisplayDetails();
-
-
+School school=new School();
+school.schoolsName();
+school.schoolDisplay();
+school.stopperDisplay();
 }
 }

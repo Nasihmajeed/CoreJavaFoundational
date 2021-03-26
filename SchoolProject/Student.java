@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Student
 {	
     String sname;
+	
 	float physics,chemistry,maths,total;
 	
 	Scanner sc=new Scanner(System.in);
@@ -44,7 +45,7 @@ public void studentDetails()
   }
 	
 	   
-   public float totalMarks()
+public float totalMarks()
 {
 total=physics+chemistry+maths;
 return total;
