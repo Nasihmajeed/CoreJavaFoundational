@@ -202,7 +202,7 @@ public class Movies
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-5                                          ");
 		System.out.println("                                                                                          ---------                                         ");
-        System.out.println(" Gopi meets Felix as Veena's cousin and ask to marry her for that he will arrange the Money. Felix agrres to that. Gopi asks Felix to meet Veena before all and clear their confusions and problems.");
+        System.out.println(" Gopi meets Felix as Veena's cousin and ask to marry her for that he will arrange the Money. Felix agrees to that. Gopi asks Felix to meet Veena before all and clear their confusions and problems.");
 
 
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-5");
@@ -211,6 +211,20 @@ public class Movies
 		scene.printScene5();
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 
+		System.out.println("                                                                                           Scene-6                                          ");
+		System.out.println("                                                                                          ---------                                         ");
+        System.out.println(" 	                                                                     Felix Meets Veena to discuss about marriage");
+
+
+        
+
+        System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-6");
+		this.slowPrint();
+		scene.setScene6();
+		scene.printScene6();
+		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
+		
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                          The End                                          ");
 		System.out.println("                                                                                         ----------                                         ");
