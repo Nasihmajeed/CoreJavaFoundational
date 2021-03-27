@@ -1,15 +1,15 @@
+
 class TDD
-{	
-	public static void main(String [] args)
-	{
-		User u=new User();
+{
+
+
+	public static void main(String[] args)
+	{Test t= new Test();
 		
-	Customer c=new Customer();
-		
-	
-		u.addDishes();
-		u.displayDishes();
-	
-	
+		t.addDishes();
+		t.viewDishes();
+		t.updateDishes();
 	}
+
+
 }
