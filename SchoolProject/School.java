@@ -32,11 +32,54 @@ public void init()
 		std[2].studentDisplayDetails();
 		}
 		
+		
+		public float schoolTopper(Standard std[])
+      {
+	init();
+	large=std[0].topMarks;
+	if(std[1].topMarks<large)
+	{
+		if(std[2].topMarks<large)
+		{
+			System.out.println("Topper of the School is : "+std[0].st[0].sname);
+		}
+		return std[0].topMarks;
+	}
+	else if(std[1].topMarks>large)
+	{
+		if(std[2].topMarks<std[1].topMarks)
+		{
+			System.out.println("Topper of the School is : "+std[1].st[0].sname);
+		}
+		return std[1].topMarks;
+	}
+	else
+	{
+		System.out.println("Topper of the School is : "+std[2].st[0].sname);
+	}
+	return std[2].topMarks;
+}
+
 		public void stopperDisplay()
 		{
-        	Teacher t=new Teacher();		
-		s_topperMarks=t.schoolTopper(std);
+        	
+		s_topperMarks=schoolTopper(std);
 		System.out.println("Marks obtained by School Topper is : "+s_topperMarks);
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			
 }

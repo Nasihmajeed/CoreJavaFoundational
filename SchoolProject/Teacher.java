@@ -6,7 +6,7 @@ public class Teacher
 	String tname;
 
 Student st=new Student();
-School sl=new School();
+
 
 public void teacherDetails()
 {
@@ -85,32 +85,6 @@ public float topper(Student []st)
 }
 
 
-public float schoolTopper(Standard std[])
-{
-	sl.init();
-	large=std[0].topMarks;
-	if(std[1].topMarks<large)
-	{
-		if(std[2].topMarks<large)
-		{
-			System.out.println("Topper of the School is : "+std[0].st[0].sname);
-		}
-		return std[0].topMarks;
-	}
-	else if(std[1].topMarks>large)
-	{
-		if(std[2].topMarks<std[1].topMarks)
-		{
-			System.out.println("Topper of the School is : "+std[1].st[0].sname);
-		}
-		return std[1].topMarks;
-	}
-	else
-	{
-		System.out.println("Topper of the School is : "+std[2].st[0].sname);
-	}
-	return std[2].topMarks;
-}
 
 }
 

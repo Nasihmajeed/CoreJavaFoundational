@@ -9,6 +9,8 @@ float topMarks;
 
 Scanner sc=new Scanner(System.in);
 
+Teacher teach=new Teacher();     //creating teacher object
+
 Student[] st=new Student[3];    //creating student array
 
 public void initializeArray()          //student array is initailised and fn is called whenever needed
@@ -25,7 +27,7 @@ public void initializeArray()          //student array is initailised and fn is 
 	standardName=sc.nextLine();
 	System.out.println("The Student is studying in "+standardName+" standard");
 
-    Teacher teach=new Teacher();
+    
 	teach.teacherDetails();
 	teach.teacherName();
 
@@ -93,8 +95,8 @@ System.out.println("-----------------"+st[2].sname+"----------------");
 	teach.passOrFail(st[2]);
 	System.out.println("----------------------------");
 	
+
  topMarks=teach.topper(st);
- 
  System.out.println("Topper of the class has secured : "+topMarks);
  
 	}
