@@ -7,7 +7,10 @@ class TDD{
 		u.userDetails();
 		Food fd=new Food();
 		fd.addMenu();
-		
+
+		//Bill b1=new Bill();
+		//b.printBill();
+		//b1.printTotal();
 	
 		
 		

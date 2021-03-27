@@ -6,6 +6,8 @@ class Food{
 	ArrayList<Food> food=new ArrayList<Food>();
 	Food[] f=new Food[10];
 	Order o=new Order();
+	ArrayList<Bill> bill= new ArrayList<Bill>();
+	
 	public void Food(){
 		this.id=id;
 		this.foodItem=foodItem;
@@ -77,7 +79,7 @@ class Food{
 		for(int i=0;i<10;i++){
 			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 		}
-			o.takeOrder(food);
+			o.takeOrder(food,bill);
 	}
 	
 }
