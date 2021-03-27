@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class School
 {
 	String schoolName,s_topperName;
-	float s_topperMarks;
+	float s_topperMarks,large;
+	
+	Teacher tr=new Teacher(); 
 	
 	Standard[] std=new Standard[3];
 
@@ -32,6 +34,7 @@ public void init()
 		std[2].studentDisplayDetails();
 		}
 		
+	String stopName;	
 		
 		public float schoolTopper(Standard std[])
       {
@@ -41,7 +44,9 @@ public void init()
 	{
 		if(std[2].topMarks<large)
 		{
-			System.out.println("Topper of the School is : "+std[0].st[0].sname);
+			stopName=tr.topperName;
+			System.out.println("Topper of the School is : "+tr.topperName);
+			
 		}
 		return std[0].topMarks;
 	}
@@ -49,13 +54,15 @@ public void init()
 	{
 		if(std[2].topMarks<std[1].topMarks)
 		{
-			System.out.println("Topper of the School is : "+std[1].st[0].sname);
+			System.out.println("Topper of the School is : "+tr.topperName);
+			stopName=tr.topperName;
 		}
 		return std[1].topMarks;
 	}
 	else
 	{
-		System.out.println("Topper of the School is : "+std[2].st[0].sname);
+		System.out.println("Topper of the School is : "+tr.topperName);
+		stopName=tr.topperName;
 	}
 	return std[2].topMarks;
 }
@@ -63,8 +70,10 @@ public void init()
 		public void stopperDisplay()
 		{
         	
-		s_topperMarks=schoolTopper(std);
-		System.out.println("Marks obtained by School Topper is : "+s_topperMarks);
+		
+		
+		System.out.println("School Topper: "+stopName );
+		System.out.println("Marks obtained by School Topper is : "+schoolTopper(std));
 		}
 		
 		

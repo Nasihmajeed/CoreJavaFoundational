@@ -3,28 +3,29 @@ import java.util.Scanner;
 public class Teacher
 {
     float total,large;
-	String tname;
+	String tname,topperName;
 
 Student st=new Student();
+Student [] s=new Student[3];
 
 
-public void teacherDetails()
-{
+	public void teacherDetails()
+	{
 	System.out.println("Enter the name of the Teacher ");
 	Scanner sc=new Scanner(System.in);
 	tname=sc.nextLine();
 	
-}
+	}
 
-public void teacherName()
-{
+	public void teacherName()
+	{
 	System.out.println("Name of the Teacher is : "+tname);
 	
-}
+	}
 
 
-public void passOrFail(Student st)
-{
+	public void passOrFail(Student st)
+	{
 	if(st.physics>35)
 	{
 		System.out.println("Student "+st.sname+" passed in physics with marks: "+st.physics);
@@ -34,7 +35,7 @@ public void passOrFail(Student st)
 		System.out.println("Student "+st.sname+" failed in physics with marks: "+st.physics);
 	}
 	
-if(st.maths>35)
+	if(st.maths>35)
 	{
 		System.out.println("Student "+st.sname+" passed in maths with marks: "+st.maths);
 	}
@@ -54,38 +55,48 @@ if(st.maths>35)
 }
  
 
-public float topper(Student []st)
+
+public float topper(Student []s) // passed a array as parameter
 {
-	large=st[0].total;
 	
+		s[0]=new Student();	
+	s[1]=new Student();
+	s[2]=new Student();
+
+
+		large=s[0].total;
+		topperName=s[0].sname;
 	
-	if(st[1].total>large)
-	{	if(st[2].total<st[1].total)
-		{
-			large=st[1].total;
-		System.out.println("Topper of the Class  is "+st[1].sname+" with "+large+" marks");
+		if(s[1].total>large)
+		{		if(s[2].total<s[1].total)
+			{
+				large=s[1].total;
+				topperName=s[1].sname;
+			System.out.println("Topper of the Class  is "+topperName);
+				return large;
 	   
+			}
 		}
-	return large;
-	}
-	else if(st[2].total>large)
-	{
-		if(st[1].total<st[2].total)
+		else if(s[2].total>large)
 		{
-			large=st[2].total;
-		System.out.println("Topper of the Class is : "+st[2].sname+" with"+large+" marks");
+			if(s[1].total<s[2].total)
+			{
+			large=s[2].total;
+			topperName=s[2].sname;
+			System.out.println("Topper of the Class is : "+topperName);
+			return large;
+			}
+	
 		}
-		return large;
-	}
 	else
 	{
-		System.out.println("Topper of the Class is : "+st[0].sname+"with :"+large+" marks");
+		
+		System.out.println("Topper of the Class is : "+topperName);
+		return large;
 	}
-	return large;
+	
+	}
 }
-
-
-
 }
 
 

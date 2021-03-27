@@ -6,7 +6,7 @@ School sch=new School();
 sch.init();
 sch.schoolName();
 sch.schoolDisplay();
-sch.schoolTopper(std[]);
+
 sch.stopperDisplay();
 
 }
