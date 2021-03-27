@@ -3,11 +3,11 @@ class Food{
 	int id;
 	String foodItem;
 	float price;
-	ArrayList<Food> food=new ArrayList<Food>();
+	ArrayList<Food> food=new ArrayList<Food>(10);
 	Food[] f=new Food[10];
 	Order o=new Order();
-	ArrayList<Bill> bill= new ArrayList<Bill>();
-	
+	ArrayList<Bill> bill= new ArrayList<Bill>(10);
+	ArrayList<Integer> qty=new ArrayList<Integer>(10);
 	public void Food(){
 		this.id=id;
 		this.foodItem=foodItem;
