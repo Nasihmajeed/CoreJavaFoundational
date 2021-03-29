@@ -38,7 +38,7 @@ int i;
 	}
 	
 	int update,j;
-	String updateFood,updatePrice;
+	
 	public void updateDishes()
 	{
 		System.out.println("Enter the number to be edited :");
@@ -64,6 +64,7 @@ int i;
 	{
 		
 	}
+
 	
 	
 }

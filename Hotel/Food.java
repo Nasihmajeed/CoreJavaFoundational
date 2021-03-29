@@ -2,18 +2,22 @@ import java.util.*;
 class Food
 {	String food;
 	float price;
-	String updateFood,updatePrice;
+	String updateFood;
+	float updatePrice;
 	Scanner sc=new Scanner(System.in);
-	public void setFood()
+	public void setFood(String food)
 	{
-		System.out.println("Enter the food");
+		this.food=food;
+		/*System.out.println("Enter the food");
 	food=sc.nextLine();
-	
+	*/
 	}
-	public void setPrice()
+	public void setPrice(float price)
 	{
-		System.out.println("Enter the Price for "+food+" :");
-	price=sc.nextFloat();
+		this.price=price;
+		
+		/*System.out.println("Enter the Price for "+food+" :");
+	price=sc.nextFloat();*/
 		
 	}
 	
@@ -34,6 +38,13 @@ class Food
 		return price;
 		
 	}
+	
+	public void bill()
+	{
+		
+	}
+	
+	
 	
 	
 }
