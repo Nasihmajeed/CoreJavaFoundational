@@ -18,7 +18,7 @@ public void studentName()
 public void studentMarks()
 	
 	{		
-	
+	//marks
 	System.out.println("Enter the Marks obtained by the student in PHYSICS : ");
 	Scanner sc=new Scanner(System.in);
 	physics=sc.nextFloat();
