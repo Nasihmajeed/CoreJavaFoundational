@@ -4,6 +4,7 @@ class Bill{
 	int foodId;
 	String foodName;
 	float foodPrice;
+	int qnty;
 	ArrayList<Bill> bill= new ArrayList<Bill>();
 			Bill[] b=new Bill[10];
 			
@@ -13,6 +14,7 @@ class Bill{
 		this.foodId=foodId;
 		this.foodName=foodName;
 		this.foodPrice=foodPrice;
+		this.qnty=qnty;
 	}
 	public void setFoodId(int foodId){
 		this.foodId=foodId;
@@ -33,26 +35,22 @@ class Bill{
 	public float getFoodPrice(){
 		return foodPrice;
 	}
-	/* public void saveBill(ArrayList<Food> food, ArrayList<Bill> bill){
-		for (int i=0;i<10;i++){
-		b[i]=new Bill();
-	}for (int i=0;i<10;i++){
-	b[i].setFoodId(food.get(i).getId());
-	b[i].setFoodName(food.get(i).getFoodItem());
-	b[i].setFoodPrice(food.get(i).getPrice());
-	bill.add(b[i]);
+	public void setQnty(int qnty){
+		this.qnty=qnty;
 	}
-	} */
+	public int getQnty(){
+		return qnty;
+	}
 	
 	public void printBill(ArrayList<Food> food, ArrayList<Bill> bill){
-		
+		Order order=new Order();
 		System.out.println(" ----------------------------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
 	System.out.println(" -------------------BILL------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
 		for(int i=0;i<bill.size();i++){
-		System.out.println(bill.get(i).getFoodName()+"   "+bill.get(i).getFoodPrice());
+		System.out.println(bill.get(i).getFoodName()+"   "+bill.get(i).getFoodPrice()+" qty "+bill.get(i).getQnty());
 		}
 		System.out.println("-----------------------------------------------");
 	System.out.println("-----------------------------------------------");
