@@ -163,7 +163,7 @@ public class Movies
 		this.slowPrint();
 		scene.setScene1();
 		scene.printScene1();
-		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-2                                          ");
 		System.out.println("                                                                                          ---------                                         ");
@@ -185,20 +185,18 @@ public class Movies
 		// this.slowPrint();
 		// scene.setScene3();
 		// scene.printScene3();
-		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-4                                          ");
 		System.out.println("                                                                                          ---------                                         ");
         System.out.println(" Gopi and Veena arrives at a hotel in search of Felix and came to know it was Felix's marriage. Same time Mani arrives there with his girlfriend Maala");
 
 
-        
-
         System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-4");
 		// this.slowPrint();
 		// scene.setScene4();
 		// scene.printScene4();
-		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-5                                          ");
 		System.out.println("                                                                                          ---------                                         ");
@@ -209,8 +207,8 @@ public class Movies
 		this.slowPrint();
 		scene.setScene5();
 		scene.printScene5();
-		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
-
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
+		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-6                                          ");
 		System.out.println("                                                                                          ---------                                         ");
         System.out.println(" 	                                                                     Felix Meets Veena to discuss about marriage");
