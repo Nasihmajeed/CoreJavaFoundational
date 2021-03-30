@@ -24,8 +24,21 @@ class Order{
 		id=sc.nextInt();
 		System.out.println("____________________________________________________");
 		System.out.println("____________________________________________________");
+		for(int i=0;i<food.size(); i++){
+			if(id==food.get(i).getId()){
+			System.out.println("ENTER QUANTITY YOU WANT TO BUY");
+			b[i].setQnty(sr.nextInt());
+			b[i].setFoodId(food.get(i).getId());
+			b[i].setFoodName(food.get(i).getFoodItem());
+			b[i].setFoodPrice(food.get(i).getPrice());
+			
+			bill.add(b[i]);	
+			total=total+b[i].getQnty()*food.get(i).getPrice();
+			System.out.println("Order Placed "+food.get(i).getFoodItem()+": Price :"+food.get(i).getPrice());
+			}
+			}
 		
-		switch(id){
+		/* switch(id){
 			case 1:
 			//b.saveBill(food,bill);
 			System.out.println("ENTER QUANTITY YOU WANT TO BUY");
@@ -163,7 +176,7 @@ class Order{
 			default:
 			System.out.println("No order");
 			break;
-		}
+		} */
 		
 		System.out.println("____________________________________________________");
 		System.out.println("____________________________________________________");
