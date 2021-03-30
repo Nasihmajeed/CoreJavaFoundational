@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Menu{
 
-    //Order order=new Order();
-    Food food=new Food();
+	//Order order=new Order();
+	Food food=new Food();
   //  Dummy dummy=new Dummy();
 
    
@@ -15,23 +15,23 @@ public class Menu{
        
 
         menuList.add(new Food());
-        menuList.get(0).setFoodName("TEA");
+        menuList.get(0).setFoodName("0.TEA");
         menuList.get(0).setFoodPrice(10);
 
         menuList.add(new Food());
-        menuList.get(1).setFoodName("COFFEE");
+        menuList.get(1).setFoodName("1.COFFEE");
         menuList.get(1).setFoodPrice(15);
 
         menuList.add(new Food());
-        menuList.get(2).setFoodName("SANDWICH");
+        menuList.get(2).setFoodName("2.SANDWICH");
         menuList.get(2).setFoodPrice(100);
 
         menuList.add(new Food());
-        menuList.get(3).setFoodName("BURGER");
+        menuList.get(3).setFoodName("3.BURGER");
         menuList.get(3).setFoodPrice(200);
 
         menuList.add(new Food());
-        menuList.get(4).setFoodName("MANGO SHAKE");
+        menuList.get(4).setFoodName("4.MANGO SHAKE");
         menuList.get(4).setFoodPrice(120);
 
 
@@ -62,6 +62,14 @@ public class Menu{
             System.out.println("\n"+menuList.get(i).getFoodName()+"\t \t"+menuList.get(i).getFoodPrice());  
             }
         }
+
+
+
+
+      
+
+        
+
         
             public void getOrderDetails(){
                 System.out.println("How many items do you wish to have");
@@ -84,8 +92,38 @@ public class Menu{
                        grantTotal=grantTotal+orderList.get(i).getFoodPrice();
                        System.out.println("Your total bill is"+grantTotal);
 
+
+
+
         
+            //total=total+subjects[i].getSubjectMark();
+            //percentage=((total/(subjects.length*100.0)*100.0));
+
+        
+
+
+                       /* menuList.add(new Food());
+                        menuList.get(indexNumber).setFoodPrice(total);
+
+                        System.out.println("The total ");
+                        
+
+
+                           /* for(int j=0;j<itemNumber;i++){
+                                sum=0;
+                                total=0;
+                                sum=total+total;
+                            }
+                       
+                        /*orderList.add(new  Food());
+                       orderList.get(indexNumber).getFoodName();
+                       orderList.get(indexNumber).getFoodPrice();*/
                                            }
+
+
+
+               
+
 
 
                 }

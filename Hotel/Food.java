@@ -1,27 +1,8 @@
-
 import java.util.Scanner;
-public abstract class Dummy {
+public class Food extends Dummy {
 
-
-	private String foodName;
-	public void setFoodName(String a){
-		this.foodName=a;
-	}
-	public String getFoodName(){
-		return foodName;
+	public void print(){
+		System.out.println("ENJOY YOUR FOOD");
 	}
 
-	private Integer foodPrice;
-	public void setFoodPrice(Integer a){
-		this.foodPrice=a;
-	}
-	public Integer getFoodPrice(){
-		return foodPrice;
-	}
-
-	public abstract void print();
-
-	
-
-	
 }

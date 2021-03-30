@@ -12,7 +12,7 @@ public class Admin implements Interface{
 
 
 	public void details(){
-		System.out.println("MOB : 9876543210");
+		System.out.println("MOB=9876543210");
 	}
 	
 	
@@ -67,7 +67,8 @@ public class Admin implements Interface{
 			
 			}
 		
-	}	
+	}
+		
 
 		
 		

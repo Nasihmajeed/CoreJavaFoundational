@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 public abstract class Abstract extends Dummy{
 

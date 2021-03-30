@@ -6,16 +6,19 @@ public class Hotel{
         
         
 
-
+    
+    
     
     public void setHotelDetails(){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("********************************************************");
-        System.out.println("===================HOTAL SILVER STAR===================");
-        System.out.println("===================VEG AND NON VEG===================");                                      
-        System.out.println("===================CHERPULASSERY===================");
-        System.out.println("********************************************************"); 
-        dmin.details();
+        System.out.println("====================================================================");
+        System.out.println("                                                                                                 ");
+        System.out.println("                        HOTEL SILVER STAR                                                        ");
+        System.out.println("                         VEG AND NON VEG                                                         ");
+        System.out.println("                          CHERPULASSERY                                                          ");
+        System.out.println("                                                                                                 ");
+        System.out.println("====================================================================");
+        admin.details();
 
      //   menu.printMenuDetails();
 
