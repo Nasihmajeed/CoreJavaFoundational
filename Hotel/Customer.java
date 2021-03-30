@@ -8,39 +8,20 @@ class Customer
 	
 	Scanner sc= new Scanner(System.in);
 	
+	Admin a=new Admin();
 	
-	public void addFood()
-	{	foodItems.add(new Food());
-		foodItems.get(0).setFood("Appam");
-		foodItems.get(0).setPrice(10);
-		
-		foodItems.add(new Food());
-		foodItems.get(1).setFood("Dosa");
-		foodItems.get(1).setPrice(5);
-		
-		foodItems.add(new Food());
-		foodItems.get(2).setFood("Porotta");
-		foodItems.get(2).setPrice(10);
-		
-		foodItems.add(new Food());
-		foodItems.get(3).setFood("Meals");
-		foodItems.get(3).setPrice(40);
-		
-		
-		
-	}
 	
 	public void menu()
 	{
-		System.out.println(" -----------FOOD------------------Price------");
-		for(int i=0;i<foodItems.size();i++){
-		System.out.println(i+1+" "+foodItems.get(i).getFood()+"------------- "+foodItems.get(i).getPrice());
-		}
+		
+		
+		a.viewDishes();
 		
 	}
 	//float total;
 	int qty,option;
 	String repeat;
+	float amount=0;
 	
 	public void makeOrder()
 	{
@@ -51,35 +32,37 @@ class Customer
 			System.out.println("Select an option :");
 			option=sc.nextInt();
 			
-			if(option<=foodItems.size())
+			if(option<=a.foodItems.size())
 			{
 					System.out.println("Enter the quantity :");
 							qty=sc.nextInt();
-							break;
+						
 			
-	System.out.println("Do you want to enter more (yes/no) :");
-			repeat=sc.nextLine();
+	
 			
 			}
+			System.out.println("Do you want to enter more (yes/no) :");
+			repeat=sc.next();
 			
 			
-			
+			amount=amount+ bill();
 		
 		}
 		while(repeat.equals("yes"));
 		
-		bill();
 		
-		}	
+		System.out.println("Total :"+amount);
+		
+	}	
 			
 			
-	public void bill()
+	public float bill()
 	{
 		int j;
 		j=option-1;
-		total=qty*foodItems.get(j).getPrice();
+		total=qty*a.foodItems.get(j).getPrice();
+		return total;
 		
-		System.out.println("Total :"+total);
 		
 		
 		

@@ -5,6 +5,11 @@ class Food
 	String updateFood;
 	float updatePrice;
 	Scanner sc=new Scanner(System.in);
+	
+	
+	
+	
+	
 	public void setFood(String food)
 	{
 		this.food=food;

@@ -4,17 +4,29 @@ class TDD
 
 
 	public static void main(String[] args)
-	{Test t= new Test();
+	{	Admin a=new Admin();
 		
-		//t.addDishes();
-		//t.viewDishes();
+		//a.addDishes();
+		//
 	//	t.updateDishes();
 		
-		Customer c=new Customer();
-		c.addFood();
+		
+		/*a.foodList();
+	
+		
+		
+		
+		
+		
 		//c.menu();
-		c.makeOrder();
-		//c.bill();
+		//c.makeOrder();
+		//c.bill();*/
+		User u=new User();
+		
+		u.home();
+		
+		//a.foodItems.remove(null);
+		
 		
 		
 		
