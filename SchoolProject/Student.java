@@ -1,56 +1,49 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class Student
-{	
-    String sname;
-	
-	float physics,chemistry,maths,total;
-	
-	Scanner sc=new Scanner(System.in);
-	
-public void studentName()
-      {
-	System.out.println("Enter the name of the Student : ");
-    sname=sc.nextLine();
-    System.out.println("Name of Student is : "+sname);	
-	}
-
-public void studentMarks()
-	
-	{		
-	//marks
-	System.out.println("Enter the Marks obtained by the student in PHYSICS : ");
-	Scanner sc=new Scanner(System.in);
-	physics=sc.nextFloat();
-	
-	System.out.println("Enter the Marks obtained by the student in CHEMISTRY : ");
-	Scanner sc1=new Scanner(System.in);
-	chemistry=sc1.nextFloat();
-	
-	
-	System.out.println("Enter the Marks obtained by the student in MATHEMATICS : ");
-	Scanner sc2=new Scanner(System.in);
-	maths=sc2.nextFloat();
-	
-   }	
-
-public void studentDetails()
- {
-	System.out.println("Marks of student in Physics is "+physics);
-	System.out.println("Marks of student in Chemistry "+chemistry);
-	System.out.println("Marks of student in Maths "+maths);
-	total=totalMarks();
-	System.out.println("----------------------------------------------------");
-	System.out.println("Total Marks obtained by the student is : "+total);	
-  }
-	
-	   
-public float totalMarks()
 {
-total=physics+chemistry+maths;
-return total;
-}
-   
-}
+	String studentName;
 
-
+	float maths,science,english,total ;
+	
+	Scanner sc=new Scanner(System.in);
+	
+	public void setName()
+	{
+		System.out.println("Enter the Student name:");
+		studentName=sc.nextLine();
+	}
+	
+	public String getName()
+	{
+		return studentName;
+	}
+	public void setMarks()
+	 {
+	System.out.println("Enter the Marks in Maths:");
+	maths=sc.nextFloat();
+	System.out.println("Enter the Marks in Science:");
+	science=sc.nextFloat();
+	System.out.println("Enter the Marks in English:");
+	english=sc.nextFloat();	
+		
+	}
+	
+	
+	public void displayStudent(Student s)
+	{
+		System.out.println("Student name: "+s.getName());
+		System.out.println("-------------------");
+		System.out.println("Marks scored in Maths: "+s.maths);
+		System.out.println("Marks scored in English: "+s.english);
+		System.out.println("Marks scored in Science: "+s.science);
+		System.out.println("-------------------");
+		
+	}
+	
+	public float totalMarks()
+	{
+		total=maths+science+english;
+		System.out.println("Total marks obtained by the student is : "+total);
+		return total;
+	}
+}

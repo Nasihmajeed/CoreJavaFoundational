@@ -1,104 +1,72 @@
-import java.util.Scanner;
-
-public class Standard     //class in which student is studying
-{	
-
-String standardName;
-float topMarks;
-
-
-Scanner sc=new Scanner(System.in);
-
-Teacher teach=new Teacher();     //creating teacher object
-
-Student[] st=new Student[3];    //creating student array
-
-public void initializeArray()          //student array is initailised and fn is called whenever needed
+import java.util.*;
+public class Standard
 {
-	st[0]=new Student();
-    st[1]=new Student();
-    st[2]=new Student();
+	int standard;
+	String classTopper;
+	float topMarks;
+	
+	Scanner sc=new Scanner(System.in);
+		
+	Teacher t=new Teacher();
+	Student s=new Student();  
+	
+	Student stdnt[]=new Student[3];
+	
+public void initialize()
+{
+	stdnt[0] =new Student();	
+	stdnt[1] =new Student();	
+	stdnt[2] =new Student();
+}	
+		
+public void setStandard()
+{
+System.out.println("Enter the Standard in which student is studying ");
+standard=sc.nextInt();
+System.out.println("Student is studying in "+standard);
 }
 
-	public void studentDisplayDetails()            //details of each student
+	public void setStudent()
 	{
-	initializeArray();
-	System.out.println("Enter the class in which student is studying : ");
-	standardName=sc.nextLine();
-	System.out.println("The Student is studying in "+standardName+" standard");
-
-    
-	teach.teacherDetails();
-	teach.teacherName();
-
-
-	st[0].studentName();
-	System.out.println("----------------------------");
-    System.out.println("-----------------"+st[0].sname+"----------------");
-	
-	st[0].studentMarks();
-		System.out.println("----------------------------");
+		initialize();
 		
-	//---------------------------------------------------------------
-	
-	
-	
-	st[1].studentName();
-	System.out.println("----------------------------");
-System.out.println("-----------------"+st[1].sname+"----------------");
-
-	st[1].studentMarks();
-		System.out.println("----------------------------");
-
-//--------------------------------------------------------------------
-
-st[2].studentName();
-	System.out.println("----------------------------");
-System.out.println("-----------------"+st[2].sname+"----------------");
-
-	st[2].studentMarks();
-		System.out.println("----------------------------");		
+		stdnt[0].setName();
+		stdnt[0].setMarks();
 		
-
-
-System.out.println("-----------------"+st[0].sname+"----------------");
-
-	st[0].studentDetails();
-	System.out.println("----------------------------");
-
-System.out.println("-----------------"+st[1].sname+"----------------");
-
-	st[1].studentDetails();	
-	System.out.println("----------------------------");
-
-System.out.println("-----------------"+st[2].sname+"----------------");
-
-	st[2].studentDetails();
-	System.out.println("----------------------------");
-
-	
-	
-System.out.println("-----------------"+st[0].sname+"----------------");
-
-	teach.passOrFail(st[0]);
-	System.out.println("----------------------------");
-	
-	
-System.out.println("-----------------"+st[1].sname+"----------------");
-	
-	teach.passOrFail(st[1]);
-	System.out.println("----------------------------");
-	
-	
-System.out.println("-----------------"+st[2].sname+"----------------");
-	
-	teach.passOrFail(st[2]);
-	System.out.println("----------------------------");
-	
-
- topMarks=teach.topper(st);
- System.out.println("Topper of the class has secured : "+topMarks);
- 
+		stdnt[1].setName();
+		stdnt[1].setMarks();
+		
+		stdnt[2].setName();
+		stdnt[2].setMarks();
+		
 	}
 	
+	public void displayStandard()
+	{
+		t.teacherName();
+		
+		stdnt[0].displayStudent(stdnt[0]);
+		stdnt[0].totalMarks();	
+		t.checkPassOrFail(stdnt[0]);
+		
+		stdnt[1].displayStudent(stdnt[1]);
+		stdnt[1].totalMarks();	
+		t.checkPassOrFail(stdnt[1]);
+		
+		
+		stdnt[2].displayStudent(stdnt[2]);
+		stdnt[2].totalMarks();	
+		t.checkPassOrFail(stdnt[2]);
+	}
+	
+	public void classTopperCheck()
+	{	
+		
+		classTopper=t.topper(stdnt);
+		
+		topMarks=t.topperMarks;
+		
+		System.out.println("Topper of the class "+standard+" is "+classTopper+" with "+topMarks);
+		
+	}
 }

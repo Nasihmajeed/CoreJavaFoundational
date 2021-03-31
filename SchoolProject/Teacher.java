@@ -1,110 +1,80 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class Teacher
+class Teacher
 {
-    float total,large;
-	String tname,topperName;
-
-Student st=new Student();
-Student [] s=new Student[3];
-
-
-	public void teacherDetails()
-	{
-	System.out.println("Enter the name of the Teacher ");
-	Scanner sc=new Scanner(System.in);
-	tname=sc.nextLine();
+	String classTeacherName,topperName;
+	float topperMarks;
 	
-	}
-
-	public void teacherName()
-	{
-	System.out.println("Name of the Teacher is : "+tname);
+	Scanner sc = new Scanner(System.in);
 	
-	}
-
-
-	public void passOrFail(Student st)
-	{
-	if(st.physics>35)
-	{
-		System.out.println("Student "+st.sname+" passed in physics with marks: "+st.physics);
-	}
-	else
-	{
-		System.out.println("Student "+st.sname+" failed in physics with marks: "+st.physics);
-	}
-	
-	if(st.maths>35)
-	{
-		System.out.println("Student "+st.sname+" passed in maths with marks: "+st.maths);
-	}
-	else
-	{
-		System.out.println("Student "+st.sname+" failed in maths with marks: "+st.maths);
+	Student s=new Student();
 		
-	}	
-	if(st.chemistry>35)
+	public void checkPassOrFail(Student s)
 	{
-		System.out.println("Student "+st.sname+" passed in chemistry with marks: "+st.chemistry);
-	}
-	else
-	{
-		System.out.println("Student "+st.sname+"  failed in chemistry with marks: "+st.chemistry);
-	}	
-}
- 
-
-
-public float topper(Student []s) // passed a array as parameter
-{
-	
-		s[0]=new Student();	
-	s[1]=new Student();
-	s[2]=new Student();
-
-
-		large=s[0].total;
-		topperName=s[0].sname;
-	
-		if(s[1].total>large)
-		{		if(s[2].total<s[1].total)
-			{
-				large=s[1].total;
-				topperName=s[1].sname;
-			System.out.println("Topper of the Class  is "+topperName);
-				return large;
-	   
-			}
-		}
-		else if(s[2].total>large)
+		if(s.maths>=35)
 		{
-			if(s[1].total<s[2].total)
-			{
-			large=s[2].total;
-			topperName=s[2].sname;
-			System.out.println("Topper of the Class is : "+topperName);
-			return large;
-			}
-	
+			System.out.println("The Student :"+s.studentName+" has passed in Maths");
 		}
-	else
-	{
+		else
+		{
+			System.out.println("The Student :"+s.studentName+" failed in maths");
+			
+		}
+		if(s.science>=35)
+		{
+			System.out.println("The Student :"+s.studentName+" has passed in Science");
+		}
+		else
+		{
+			System.out.println("The Student :"+s.studentName+" failed in Science");
+			
+		}
+		if(s.english>=35)
+		{
+			System.out.println("The Student :"+s.studentName+" has passed in English");
+		}
+		else
+		{
+			System.out.println("The Student :"+s.studentName+" failed in English");
+		}
+	}
+	
+	public String topper(Student stu[])
+	{		
+	        String studentName;
+			studentName=stu[0].studentName;
+			float large=stu[0].total;
 		
-		System.out.println("Topper of the Class is : "+topperName);
-		return large;
+		if(stu[1].total>large)
+		{		
+				large=stu[1].total;
+				topperMarks=large;
+				topperName=stu[1].studentName;
+				
+			System.out.println("Topper of the class is "+stu[1].studentName);
+			
+		}
+		else if(stu[2].total>large)
+		{
+			large=stu[2].total;
+				topperMarks=large;
+				topperName=stu[2].studentName;
+				System.out.println("Topper of the class is "+stu[2].studentName);
+		}
+			
+		else {
+			topperName=stu[0].studentName;
+			topperMarks=stu[0].total;
+			System.out.println("Topper of the class is "+stu[0].studentName);
+			}
+		
+		return topperName;
+	}
+	public void teacherName()
+	{	
+		System.out.println("Enter the name of your Class Teacher : ");
+		classTeacherName=sc.nextLine();
+		System.out.println("Your class teacher is : "+classTeacherName );
 	}
 	
-	}
 }
-}
-
-
-
-	
-	
-	
-	
-
-
-

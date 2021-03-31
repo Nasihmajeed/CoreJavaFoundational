@@ -1,94 +1,63 @@
-import java.util.Scanner;
-
 public class School
 {
-	String schoolName,s_topperName;
-	float s_topperMarks,large;
-	
-	Teacher tr=new Teacher(); 
-	
-	Standard[] std=new Standard[3];
+String schoolName,schoolTopperName;
 
-public void init()
-{
-	std[0]=new Standard();
-	std[1]=new Standard();
-	std[2]=new Standard();
-}
-	
+float large; 
+
+Scanner sr=new Scanner(System.in);
+
+Standard[] std=new Standard[3];
+
+        public void init()
+		{
+		std[0]=new Standard();
+		std[1]=new Standard();
+		std[2]=new Standard();
+		}
+
 	public void schoolName()
-	{
-		System.out.println("Please enter the name of the School ");
-		Scanner sc=new Scanner(System.in);
-		schoolName=sc.nextLine();
-		System.out.println("Our School Name is : "+schoolName);
+	{	
+		System.out.println("Enter the name of your School ");
+		schoolName=sr.nextLine();
+		System.out.println("Name of your school is : "+schoolName);
 	}
-	
 
-	
-	public void schoolDisplay()
-	    {	
+	public void displayAllDetails()
+	{		
 		init();
-		std[0].studentDisplayDetails();
-		std[1].studentDisplayDetails();
-		std[2].studentDisplayDetails();
-		}
+		std[0].setStandard();	
+		std[0].setStudent();
+		std[0].displayStandard();
+		std[0].classTopperCheck();
 		
-	String stopName;	
+		std[1].setStandard();
+		std[1].setStudent();
+	    std[1].displayStandard();
+        std[1].classTopperCheck();
 		
-		public float schoolTopper(Standard std[])
-      {
-	init();
-	large=std[0].topMarks;
-	if(std[1].topMarks<large)
-	{
-		if(std[2].topMarks<large)
+		std[2].setStandard();
+		std[2].setStudent();
+	    std[2].displayStandard();
+        std[2].classTopperCheck();
+	}
+   public void schoolTopper()
+	{	
+		large=std[0].topMarks;
+		
+		if(std[1].topMarks>large)
 		{
-			stopName=tr.topperName;
-			System.out.println("Topper of the School is : "+tr.topperName);
+			large=std[1].topMarks;
 			
+			System.out.println("School Topper :"+std[1].classTopper+" with "+large);
 		}
-		return std[0].topMarks;
-	}
-	else if(std[1].topMarks>large)
-	{
-		if(std[2].topMarks<std[1].topMarks)
+		else if(std[2].topMarks>large)
 		{
-			System.out.println("Topper of the School is : "+tr.topperName);
-			stopName=tr.topperName;
+			large=std[2].topMarks;
+			System.out.println("School Topper :"+std[2].classTopper+" with "+large);
 		}
-		return std[1].topMarks;
-	}
-	else
-	{
-		System.out.println("Topper of the School is : "+tr.topperName);
-		stopName=tr.topperName;
-	}
-	return std[2].topMarks;
-}
-
-		public void stopperDisplay()
+		else 
 		{
-        	
-		
-		
-		System.out.println("School Topper: "+stopName );
-		System.out.println("Marks obtained by School Topper is : "+schoolTopper(std));
+			System.out.println("School Topper :"+std[0].classTopper+" with "+large);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
+	}
 }
