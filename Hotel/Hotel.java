@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 class Hotel{
 	
-	//Admin ad=new Admin();
+	Admin ad=new Admin();
 	ArrayList<Food> food=new ArrayList<Food>();
 	User u=new User();
 	Scanner sc=new Scanner(System.in);
@@ -20,7 +20,7 @@ class Hotel{
 		sel=sc.nextInt();
 		switch(sel){
 			case 1:
-				//ad.adminDetails(food);
+				ad.adminDetails(food);
 				
 			break;
 			case 2:

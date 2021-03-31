@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.*;
 class Food{
 	int id;
 	String foodItem;
@@ -6,7 +7,7 @@ class Food{
 	int qty;
 	ArrayList<Food> food=new ArrayList<Food>(10);
 	Food[] f=new Food[10];
-	Order o=new Order();
+
 	ArrayList<Bill> bill= new ArrayList<Bill>(10);
 	//ArrayList<Integer> qty=new ArrayList<Integer>(10);
 	public void Food(){
@@ -41,7 +42,9 @@ class Food{
 	public int getQty(){
 		return qty;
 	}
-	public void addMenu(){
+	public void addMenu(ArrayList<Food> food){
+		
+		
 		
 		for(int i=0;i<10;i++){
 		f[i]=new Food();
@@ -89,15 +92,19 @@ class Food{
 		for(int i=0;i<10;i++){
 		food.add(f[i]);
 		}
+		
+			
+	}
+	public void printMenu(ArrayList<Food> food){
+		addMenu(food);
 		System.out.println("**********************************");
-		System.out.println("MENU LIST");
+		System.out.println("MENU LIST"+food.size());
 		System.out.println("**********************************");
 
 		
 		for(int i=0;i<10;i++){
 			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 		}
-			o.takeOrder(food,bill);
 	}
 	
 }
