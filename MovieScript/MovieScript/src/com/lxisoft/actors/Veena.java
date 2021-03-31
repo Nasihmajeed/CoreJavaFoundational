@@ -2,7 +2,7 @@ package com.lxisoft.actors;
 import com.lxisoft.actors.*;
 import com.lxisoft.movie.*;
 
-public class Veena extends Script implements Actors
+public class Veena extends Script implements Actors, Heroine
 {
     public void actorDetails()
     {

@@ -2,7 +2,7 @@ package com.lxisoft.actors;
 import com.lxisoft.actors.*;
 import com.lxisoft.movie.*;
 
-public class Felix extends Script implements Actors
+public class Felix extends Script implements Actors, Villain
 {
     public void actorDetails()
     {

@@ -1,8 +1,9 @@
 package com.lxisoft.actors;
 import com.lxisoft.actors.*;
+
 import com.lxisoft.movie.*;
 
-public class Gopi extends Script implements Actors
+public class Gopi extends Script implements Actors, Hero
 {
     public void actorDetails()
     {

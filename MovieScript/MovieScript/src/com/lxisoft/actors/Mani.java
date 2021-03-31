@@ -2,7 +2,7 @@ package com.lxisoft.actors;
 import com.lxisoft.actors.*;
 import com.lxisoft.movie.*;
 
-public class Mani extends Script implements Actors
+public class Mani extends Script implements Actors, Comedian
 {
     public void actorDetails()
     {
