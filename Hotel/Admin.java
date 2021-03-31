@@ -1,19 +1,31 @@
 import java.util.*;
 class Admin
 {
-Food f=new Food();
+Food [] f=new Food[4];
 ArrayList<Food> foodItems=new ArrayList<Food>();
 
 ArrayList<Food> foodItemsAdd=new ArrayList<Food>();
 
+
 Scanner sc=new Scanner(System.in);
 String food,option;
 float price;
-int i;
+int i,n;
+	
+
+	//Food f=new Food();
 	
 	
-	public void foodList()
-	{
+	int update,j;
+	
+	public void addFood()
+	{	
+		
+		/*f[0]=new Food();
+		f[1]=new Food();
+		f[2]=new Food();
+			f[3]=new Food();*/
+		
 		foodItems.add(new Food());
 		foodItems.get(0).setFood("Appam");
 		foodItems.get(0).setPrice(10);
@@ -29,58 +41,49 @@ int i;
 		foodItems.add(new Food());
 		foodItems.get(3).setFood("Meals");
 		foodItems.get(3).setPrice(40);
-		
-		
-		/*System.out.println("---------------Food----------------------------Price");
-		for( i=0;i<foodItems.size();i++){
-		System.out.println(i+1+" "+foodItems.get(i).getFood()+"---------------"+foodItems.get(i).getPrice());
-		
-		}*/
-	}
 	
-	public void addFood()
-	{	
-	
-	 Iterator<Food> iterator =  foodItems.iterator();
-        while (iterator.hasNext()) {
-            
-            if (iterator.next()==null) {
-                iterator.remove();
-                break;
-            }  
-		}
-		viewDishes();
-		do
-		{	
-			int k=0;
+		System.out.println("Enter how many items need to be added");
+		n=sc.nextInt();
+		
+		j=foodItems.size();
+		 for(i=0;i<n;i++)
 			
-		foodItemsAdd.add(new Food());
-		System.out.println("Enter the food");
-		food=sc.next();
-		foodItemsAdd.get(k).setFood(food);
+		{ 
+			
+	
+			
+			
+			System.out.println("Enter the food");
+			food=sc.next();
+			
+			foodItems.add(new Food());
+			foodItems.get(j).setFood(food);		
+		
+		
+		
+			System.out.println("Enter the Price for "+food+" :");
+			price=sc.nextFloat();
+			foodItems.get(j).setPrice(price);		
 		
 	
+
+		j++;
+		}
+		
+}
 	
-		System.out.println("Enter the Price for "+food+" :");
-		price=sc.nextFloat();
-		foodItemsAdd.get(k).setPrice(price);
+	
+	
+	public void viewDishes()
+	{
+	
 		
-		
-		foodItems.add(new Food());
-		foodItems.add(foodItemsAdd.get(k));
-		
-		
-		
-		
-		
-		System.out.println("Do you want to enter more (yes/no)");
-		option=sc.next();
-		k++;
-		//foodItems.add(new Food());
-		}while(option.equals("yes"));
-		
-		
-		
+		System.out.println("------------Food ---------------Price of the food----");
+		for(i=0;i<foodItems.size();i++)
+		{	
+
+		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+		}
 		
 	}
 	
@@ -88,8 +91,6 @@ int i;
 	
 	
 	
-	
-	int update,j;
 	String updateFood;
 	float updatePrice;
 	
@@ -129,17 +130,7 @@ int i;
 	}
 	
 	
-	public void viewDishes()
-	{
-		foodList();
-		System.out.println("------------Food ---------------Price of the food----");
-		for(i=0;i<foodItems.size();i++)
-		{	
-
-		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
-		}
-		
-	}
+	
 
 	
 	

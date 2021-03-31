@@ -27,8 +27,7 @@ class Customer
 	{
 		do{	
 		
-			menu();
-			
+		
 			System.out.println("Select an option :");
 			option=sc.nextInt();
 			

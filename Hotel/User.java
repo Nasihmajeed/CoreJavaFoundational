@@ -17,6 +17,7 @@ String uname,pwd,ans;
 		switch(option)
 		{
 			case 1: System.out.println("-------Make Your Order----------");
+						c.menu();
 						c. makeOrder();
 						break;
 			
@@ -32,9 +33,10 @@ String uname,pwd,ans;
 						do{
 							System.out.println("-------------Enter the option :-------------");	
 						System.out.println("  1.Add ");
-						System.out.println("  1.Update");
-						System.out.println("  1.Remove");
-						System.out.println("  1.View");
+						System.out.println("  2.Update");
+						System.out.println("  3.Remove");
+						System.out.println("  4.View");
+						System.out.println("  5.Exit");
 						adminOption=sc.nextInt();
 						
 						switch(adminOption)
@@ -50,6 +52,9 @@ String uname,pwd,ans;
 								case 4:		a.viewDishes();
 											break;
 								
+									case 5:		home();
+											break;		
+								
 								default:System.out.println("Invalid option");
 								
 							}
@@ -59,7 +64,10 @@ String uname,pwd,ans;
 						
 						}while(ans.equals("yes"));
 						}
-							
+						
+						else{
+							System.out.println("Wrong username/password");
+						}	
 						
 		}				
 			

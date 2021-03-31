@@ -25,12 +25,15 @@ class Food
 	price=sc.nextFloat();*/
 		
 	}
+		Food()
+		{
+			
+		}
 	
-	
-	public void updateFoodPrice(String updateFood,float updatePrice)
+	public void updateFood(String updateFood,float updatePrice)
 	{
-		this.updateFood=updateFood;
-		this.updatePrice=updatePrice;
+		this.food=updateFood;
+		this.price=updatePrice;
 		
 	}
 	
@@ -44,10 +47,7 @@ class Food
 		
 	}
 	
-	public void bill()
-	{
-		
-	}
+	
 	
 	
 	
