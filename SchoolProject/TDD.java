@@ -1,14 +1,13 @@
-class TDD
+public class TDD
 {
-	public static void main(String [] args)
-	{
-		School sch=new School();
-		
-		sch.schoolName();
-		
-		sch.displayAllDetails();
-		
-		sch.schoolTopper();
-			
-	}
+public static void main(String args[])
+{
+School sl=new School();
+
+sl.schoolDetails();
+
+sl.displayAllDetails();
+
+sl.schoolTopperCheck();
+}
 }
