@@ -9,8 +9,12 @@ class TDD
 		//a.addDishes();
 		//
 	//	t.updateDishes();
-		
-		
+	Customer c=new Customer();
+	
+	
+	//a.viewDishes();
+		//c.menu();
+		//c.makeOrder();
 		/*a.foodList();
 	
 		
@@ -18,8 +22,8 @@ class TDD
 		
 		
 		
-		//c.menu();
-		//c.makeOrder();
+		
+		
 		//c.bill();*/
 		User u=new User();
 		

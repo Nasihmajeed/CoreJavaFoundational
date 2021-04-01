@@ -7,40 +7,56 @@ ArrayList<Food> foodItems=new ArrayList<Food>();
 ArrayList<Food> foodItemsAdd=new ArrayList<Food>();
 
 
+//Iterator itr=foodItems.iterator();
+
 Scanner sc=new Scanner(System.in);
 String food,option;
 float price;
 int i,n;
 	
+	{	foodItems.add(new Food());
+		foodItems.get(0).setFood("Appam");
+		foodItems.get(0).setPrice(10);
+		
+		
+		foodItems.add(new Food());
+		foodItems.get(1).setFood("Dosa");
+		foodItems.get(1).setPrice(5);
+		
+		
+		foodItems.add(new Food());
+		foodItems.get(2).setFood("Porotta");
+		foodItems.get(2).setPrice(10);
+	
+		foodItems.add(new Food());
+		foodItems.get(3).setFood("Meals");
+		foodItems.get(3).setPrice(40);
+	}	
 
 	//Food f=new Food();
 	
+	public void viewDishes()
+	{
+		
+	
+		
+		 System.out.println("------------Food ---------------Price of the food----");
+		for(i=0;i<foodItems.size();i++)
+		{	
+
+		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+		}
+		
+	}
 	
 	int update,j;
 	
 	public void addFood()
 	{	
 		
-		/*f[0]=new Food();
-		f[1]=new Food();
-		f[2]=new Food();
-			f[3]=new Food();*/
 		
-		foodItems.add(new Food());
-		foodItems.get(0).setFood("Appam");
-		foodItems.get(0).setPrice(10);
 		
-		foodItems.add(new Food());
-		foodItems.get(1).setFood("Dosa");
-		foodItems.get(1).setPrice(5);
 		
-		foodItems.add(new Food());
-		foodItems.get(2).setFood("Porotta");
-		foodItems.get(2).setPrice(10);
-		
-		foodItems.add(new Food());
-		foodItems.get(3).setFood("Meals");
-		foodItems.get(3).setPrice(40);
 	
 		System.out.println("Enter how many items need to be added");
 		n=sc.nextInt();
@@ -49,8 +65,7 @@ int i,n;
 		 for(i=0;i<n;i++)
 			
 		{ 
-			
-	
+				
 			
 			
 			System.out.println("Enter the food");
@@ -68,24 +83,15 @@ int i,n;
 	
 
 		j++;
-		}
+		
+		}viewDishes();
+		
 		
 }
 	
 	
 	
-	public void viewDishes()
-	{
 	
-		
-		System.out.println("------------Food ---------------Price of the food----");
-		for(i=0;i<foodItems.size();i++)
-		{	
-
-		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
-		}
-		
-	}
 	
 	
 	
@@ -131,7 +137,86 @@ int i,n;
 	
 	
 	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+
+	//float total;
+	int qty,optionUser;
+	String repeat;
+	float amount=0;
+	float totalBill;
+	
+	public void makeOrder()
+	{
+		do{	
+			for(i=0;i<foodItems.size();i++)
+		{	
+
+		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+		}
+		
+			System.out.println("Select an option :");
+			optionUser=sc.nextInt();
+			
+			
+					System.out.println("Enter the quantity :");
+							qty=sc.nextInt();
+						
+			
+	
+			
+			
+			System.out.println("Do you want to enter more (yes/no) :");
+			repeat=sc.next();
+			
+			
+			amount=amount+ bill();
+		
+		}while(repeat.equals("yes"));
+		
+		
+		System.out.println("Total :"+amount);
+		
+		
+		
+		
+	}	
+			
+			
+	public float bill()
+	{
+		int k;
+		k=optionUser-1;
+		totalBill=qty*foodItems.get(k).getPrice();
+		return totalBill;
+		
+		
+		
+		
+	}	
+	
+	
+	
+	
+	
 
 	
 	
 }
+
+
+
+	
+	
+	
+	
+
+	
+

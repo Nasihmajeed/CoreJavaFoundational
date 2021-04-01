@@ -6,6 +6,7 @@ int option,adminOption;
 Customer c=new Customer();
 Admin a=new Admin();
 String uname,pwd,ans;
+int optionUser;
 	public void home()
 	{
 		System.out.println("------------------Welcome to Blue Silver Hotel---------------");
@@ -17,8 +18,19 @@ String uname,pwd,ans;
 		switch(option)
 		{
 			case 1: System.out.println("-------Make Your Order----------");
-						c.menu();
-						c. makeOrder();
+						//a.viewDishes();
+						a.makeOrder();
+						System.out.println("Press 1 to exit ");
+						optionUser=sc.nextInt();
+						if(optionUser==1)
+						{
+			
+		
+						home();
+						}
+						else{
+							System.out.println("Thank you for using our application");
+						}
 						break;
 			
 			case 2:	 System.out.println("-------Enter your admin credentials----------");		
@@ -59,7 +71,7 @@ String uname,pwd,ans;
 								
 							}
 							
-												System.out.println(" want to enter more (yes/no):");
+												System.out.println(" Do you wish to continue in this panel (yes/no):");
 												ans=sc.next();
 						
 						}while(ans.equals("yes"));
