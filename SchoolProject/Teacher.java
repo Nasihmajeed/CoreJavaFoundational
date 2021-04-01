@@ -9,14 +9,14 @@ public class Teacher
 	
 	Student s=new Student();
 	
-	public void teacherName()
+	public void teacherName()   // to set teacher name
 	{
 		System.out.println("Enter the name of your Teacher : ");
 		teacher_Name=sc.nextLine();
 		System.out.println("Name of yout Teacher is : "+teacher_Name);
 	}
 	
-	public void checkPassOrFail(Student s)
+	public void checkPassOrFail(Student s) //to check whether each student is pass or fail
 	{
 		if(s.physics>=35)
 		{
@@ -44,7 +44,7 @@ public class Teacher
 		}
 	}
 
-public String topper(Student s[])
+public String topper(Student s[])  //method to find class topper
 	{		
 	        String studentName;
 			studentName=s[0].student_Name;

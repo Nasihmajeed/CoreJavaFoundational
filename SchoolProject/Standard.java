@@ -9,7 +9,7 @@ public class Standard
 	
 	Scanner sc=new Scanner(System.in);
 	
-	Teacher t=new Teacher();
+	Teacher t=new Teacher();          //Teacher object to access name of the teacher,topper method and to check pass or fail
 	
 	Student s=new Student();  
 	
@@ -22,14 +22,14 @@ public void initialize()
 	stdnt[2] =new Student();
 }	
 		
-public void setStandard()
+public void setStandard()     //to set Standard in which student studies
 {
 System.out.println("Enter the Standard in which student is studying ");
 cls_No=sc.nextInt();
 System.out.println("Student is studying in "+cls_No);
 }
 
-	public void setStudent()
+	public void setStudent()       // to set studentname,marks
 	{
 		initialize();
 		
@@ -44,7 +44,7 @@ System.out.println("Student is studying in "+cls_No);
 		
 	}
 	
-	public void displayStandard()
+	public void displayStandard()     //to display teachername,total marks of the student and check whether each student is pass or fail
 	{
 		t.teacherName();
 		
@@ -62,7 +62,7 @@ System.out.println("Student is studying in "+cls_No);
 		t.checkPassOrFail(stdnt[2]);
 	}
 	
-	public void classTopperCheck()
+	public void classTopperCheck()  //to print class topper
 	{	
 	    classTopper=t.topper(stdnt);
 		topMarks=t.topperMarks;

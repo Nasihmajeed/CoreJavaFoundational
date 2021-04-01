@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class School
+public class School              //A School
 {
 	String sch_Name;
 	
@@ -9,14 +9,14 @@ public class School
 	Scanner sc=new Scanner(System.in);
 	Standard[] std=new Standard[3];
 	
-	public void init()
+	public void init()                      //method to initialize 3 Standards
 	{
 		std[0]=new Standard();
 		std[1]=new Standard();
 		std[2]=new Standard();
 	}
 	
-	public void schoolDetails()
+	public void schoolDetails()                //to print school name
 	{
 		System.out.println("Enter the name of your School");
 		sch_Name=sc.nextLine();
@@ -24,7 +24,7 @@ public class School
 	}
 	
 	
-	public void displayAllDetails()
+	public void displayAllDetails()          // method for accessing all methods in Standard from School and to find class toppers of each Standard
 	{
 		init();
 		std[0].setStandard();
@@ -44,7 +44,7 @@ public class School
 		
 	}
 	
-	public void schoolTopperCheck()
+	public void schoolTopperCheck()             //to find the School Topper
 	{	
 		large=std[0].topMarks;
 		
