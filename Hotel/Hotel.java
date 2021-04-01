@@ -13,6 +13,7 @@ class Hotel{
 		System.out.println("PATHIRIPALA, PALAKKAD");
 		System.out.println("***************************************");
 		ff.addMenu(food);
+		selectUser();
 	}
 	public void selectUser(){
 		System.out.println("SELECT THE MODE ");

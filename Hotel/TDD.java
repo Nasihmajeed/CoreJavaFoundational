@@ -7,7 +7,7 @@ class TDD{
 		Hotel h= new Hotel();
 		//User u=new User();
 		h.displayHotel();
-		h.selectUser();
+		
 		
 
 	

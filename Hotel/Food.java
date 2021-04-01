@@ -110,9 +110,12 @@ class Food{
 		System.out.println("MENU LIST"+food.size());
 		System.out.println("**********************************");
 
-		
+		int j=1;
 		for(int i=0;i<food.size();i++){
-			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			if(j<=food.size()){
+			System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			j++;
+		}
 		}
 	}
 	public  void printMenuUser(ArrayList<Food> food){
@@ -121,9 +124,12 @@ class Food{
 		System.out.println("MENU LIST"+food.size());
 		System.out.println("**********************************");
 
-		
+		int j=1;
 		for(int i=0;i<food.size();i++){
-			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			if(j<food.size()){
+			System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			j++;
+		}
 		}
 	}
 	

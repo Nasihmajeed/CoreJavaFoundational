@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 class Bill{
-	
+	int home;
 	int foodId;
 	String foodName;
 	float foodPrice;
 	int qnty;
 	ArrayList<Bill> bill= new ArrayList<Bill>();
 			Bill[] b=new Bill[10];
-			
+	Scanner sc=new Scanner(System.in);
 	
 		
 	public Bill(){
@@ -43,6 +44,7 @@ class Bill{
 	}
 	
 	public void printBill(ArrayList<Food> food, ArrayList<Bill> bill){
+		Hotel ho=new Hotel();
 		Order order=new Order();
 		System.out.println(" ----------------------------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
@@ -55,6 +57,11 @@ class Bill{
 		}
 		System.out.println("-----------------------------------------------");
 	System.out.println("-----------------------------------------------");
+	System.out.println("RETURN TO HOME 1.Yes 2.NO");
+	home=sc.nextInt();
+	if(home==1){
+	ho.displayHotel();
+	}
 	}
 	/* public void printTotal(){
 		Order od=new Order();
