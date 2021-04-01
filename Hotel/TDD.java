@@ -5,7 +5,7 @@ class TDD{
 		//fd.addMenu();
 		
 		Hotel h= new Hotel();
-		User u=new User();
+		//User u=new User();
 		h.displayHotel();
 		h.selectUser();
 		

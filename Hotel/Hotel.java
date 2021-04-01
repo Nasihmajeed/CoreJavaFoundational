@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 class Hotel{
-	
+	Food ff= new Food();
 	Admin ad=new Admin();
 	ArrayList<Food> food=new ArrayList<Food>();
 	User u=new User();
@@ -12,6 +12,7 @@ class Hotel{
 		System.out.println("ABCD FIVE STAR HOTEL");
 		System.out.println("PATHIRIPALA, PALAKKAD");
 		System.out.println("***************************************");
+		ff.addMenu(food);
 	}
 	public void selectUser(){
 		System.out.println("SELECT THE MODE ");
@@ -24,7 +25,8 @@ class Hotel{
 				
 			break;
 			case 2:
-				u.userDetails();
+			//ff.addMenu(food);
+				u.userDetails(food);
 				
 				break;
 		}

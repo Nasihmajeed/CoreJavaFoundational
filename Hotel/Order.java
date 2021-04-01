@@ -23,7 +23,7 @@ class Order{
 	}
 		do{
 			
-		System.out.println("SELECT FOOD "));
+		System.out.println("SELECT FOOD ");
 		id=sc.nextInt();
 		System.out.println("____________________________________________________");
 		System.out.println("____________________________________________________");

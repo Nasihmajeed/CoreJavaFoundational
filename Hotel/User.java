@@ -7,10 +7,10 @@ class User{
 	Order o=new Order();
 	Scanner sc=new Scanner(System.in);
 	String userName;
-	public void userDetails(){
+	public void userDetails(ArrayList<Food> food){
 		System.out.println("ENTER USER NAME ");
 		userName=sc.nextLine();
-		fd.printMenu(food);
+		fd.printMenuUser(food);
 		o.takeOrder(food,bill);
 	}
 }

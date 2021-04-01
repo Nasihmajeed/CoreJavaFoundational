@@ -5,12 +5,12 @@ class Food{
 	String foodItem;
 	float price;
 	int qty;
-	ArrayList<Food> food=new ArrayList<Food>(10);
-	Food[] f=new Food[10];
+	public static ArrayList<Food> food=new ArrayList<Food>(10);
+	
 
 	ArrayList<Bill> bill= new ArrayList<Bill>(10);
 	//ArrayList<Integer> qty=new ArrayList<Integer>(10);
-	public void Food(){
+	public Food(){
 		this.id=id;
 		this.foodItem=foodItem;
 		this.price=price;
@@ -42,8 +42,17 @@ class Food{
 	public int getQty(){
 		return qty;
 	}
-	public void addMenu(ArrayList<Food> food){
+	public  void addMenu(ArrayList<Food> food){
+		Food[] f=new Food[10];
+		/* food.add(new Food());
+		food.get(0).setFoodItem("Chappathi");
+		food.get(0).setPrice(10);
 		
+		food.get(0).setId(1);
+		food.add(new Food());
+		food.get(1).setFoodItem("Parotta");
+		food.get(1).setPrice(12);
+		food.get(1).setId(2); */
 		
 		
 		for(int i=0;i<10;i++){
@@ -95,14 +104,25 @@ class Food{
 		
 			
 	}
-	public void printMenu(ArrayList<Food> food){
-		addMenu(food);
+	public static void printMenu(ArrayList<Food> food){
+	    //addMenu(food);
 		System.out.println("**********************************");
 		System.out.println("MENU LIST"+food.size());
 		System.out.println("**********************************");
 
 		
-		for(int i=0;i<10;i++){
+		for(int i=0;i<food.size();i++){
+			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+		}
+	}
+	public  void printMenuUser(ArrayList<Food> food){
+	    //addMenu(food);
+		System.out.println("**********************************");
+		System.out.println("MENU LIST"+food.size());
+		System.out.println("**********************************");
+
+		
+		for(int i=0;i<food.size();i++){
 			System.out.println(food.get(i).getId()+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 		}
 	}

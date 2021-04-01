@@ -10,7 +10,7 @@ class Bill{
 			
 	
 		
-	public void Bill(){
+	public Bill(){
 		this.foodId=foodId;
 		this.foodName=foodName;
 		this.foodPrice=foodPrice;
@@ -49,8 +49,9 @@ class Bill{
 	System.out.println(" -------------------BILL------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
+	System.out.println("ITEM                      PRICE                      QTY");
 		for(int i=0;i<bill.size();i++){
-		System.out.println(bill.get(i).getFoodName()+"   "+bill.get(i).getFoodPrice()+" qty "+bill.get(i).getQnty());
+		System.out.println(bill.get(i).getFoodName()+" ------------------  "+bill.get(i).getFoodPrice()+" ------------------- "+bill.get(i).getQnty());
 		}
 		System.out.println("-----------------------------------------------");
 	System.out.println("-----------------------------------------------");
