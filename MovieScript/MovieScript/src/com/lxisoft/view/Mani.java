@@ -1,9 +1,17 @@
-package com.lxisoft.actors;
-import com.lxisoft.actors.*;
-import com.lxisoft.movie.*;
+package com.lxisoft.view;
+import com.lxisoft.model.*;
+
 
 public class Mani extends Script implements Actors, Comedian
 {
+	public void character()
+	{
+		Mani mani = new Mani();
+		if(mani instanceof Comedian)
+		{
+			System.out.println("-Comedian-\n");
+		}
+	}
     public void actorDetails()
     {
         System.out.println("+-------------------------------------------------------------------+");
@@ -23,6 +31,7 @@ public class Mani extends Script implements Actors, Comedian
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("\n                               Mani");
 		System.out.println("                        -------------------");
+		this.character();
 		System.out.println("     Mani is a jobless fellow in town. He is a friend of Gopi.");
         System.out.println("   Mani is in love with a girl named Meghamaala known as Maala.");
 		System.out.println("    Mani and Gopi plans on a robbery and executes in a museum.");

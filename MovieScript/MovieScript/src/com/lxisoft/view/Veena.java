@@ -1,9 +1,17 @@
-package com.lxisoft.actors;
-import com.lxisoft.actors.*;
-import com.lxisoft.movie.*;
+package com.lxisoft.view;
+import com.lxisoft.model.*;
+
 
 public class Veena extends Script implements Actors, Heroine
 {
+	public void character()
+	{
+		Veena veena = new Veena();
+		if(veena instanceof Heroine)
+		{
+			System.out.println("-Heroine-\n");
+		}
+	}
     public void actorDetails()
     {
         System.out.println("+-----------------------------------------------------------------+");
@@ -23,6 +31,7 @@ public class Veena extends Script implements Actors, Heroine
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("\n                              Veena");
 		System.out.println("                        -------------------");
+		this.character();
 		System.out.println("       Veena is a brahmin girl working in a private company.");
         System.out.println("  Her family is very orthodox. She falls in love with a christian");
 		System.out.println("    boy Felix. She leaves her family behind to live with Felix.");

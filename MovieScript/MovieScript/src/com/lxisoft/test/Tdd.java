@@ -1,5 +1,5 @@
 package com.lxisoft.test;
-import com.lxisoft.movie.*;
+import com.lxisoft.view.Movies;
 public class Tdd 
 {
     public static void main(String[] args)

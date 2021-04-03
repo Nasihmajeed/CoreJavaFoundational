@@ -1,7 +1,7 @@
-package com.lxisoft.movie;
-import com.lxisoft.movie.*;
-import com.lxisoft.theatre.*;
-import com.lxisoft.actors.*;
+package com.lxisoft.view;
+import com.lxisoft.view.*;
+import com.lxisoft.model.*;
+import com.lxisoft.controller.*;
 
 import java.util.*;
 import java.util.regex.*;
@@ -14,6 +14,7 @@ public class Movies
     String genre;
     Scenes scene = new Scenes();
 	Theatre theatre = new Theatre();
+	Controller controller = new Controller();
     ArrayList<Cast> cast = new ArrayList<Cast>();
 
 	public Movies()
@@ -21,20 +22,16 @@ public class Movies
 		movieName = "Vettam";
 		director = "Priyadarshan";
     	genre = "Comedy";
+		controller.setCast(cast);
 	}
 
     public void movieOptions()
     {
-		Gopi gopi = new Gopi();
-    	Veena veena = new Veena();
-   	 	Mani mani = new Mani();
-    	Felix felix = new Felix();
-
         Scanner s = new Scanner(System.in);
         int option;
         do
         {
-            System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	0.Exit");
+            System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	4.Database \n	0.Exit");
 			System.out.print("\nEnter option : ");
             option = s.nextInt();
             if(option==1)
@@ -43,7 +40,7 @@ public class Movies
             }
             else if(option==2)
             {
-                this.setCast();
+                // this.setCast();
                 this.printCast();
 				int x;
 				do
@@ -54,42 +51,7 @@ public class Movies
                 	if(x==1)
                 	{
                     	this.printActors();
-                    	System.out.println("\nEnter ID to view the descriptions");
-                    	int id = s.nextInt();
-                    	switch(id)
-                    	{
-                        	case 1:
-		    				    System.out.println("\nActor Details : ");
-		    				    veena.actorDetails();
-		    				    System.out.println("\nCharacter Details : ");
-		    				    veena.characterDetails();
-		    				    break;
-
-							case 2:
-		    				    System.out.println("\nActor Details : ");
-		    				    felix.actorDetails();
-		    				    System.out.println("\nCharacter Details : ");
-		    				    felix.characterDetails();
-		    				    break;
-							case 3:
-
-		    				    System.out.println("\nActor Details : ");
-		    				    gopi.actorDetails();
-		    				    System.out.println("\nCharacter Details : ");
-		    				    gopi.characterDetails();
-		    				    break;
-		    			
-		    				case 4:
-		    				    System.out.println("\nActor Details : ");
-		    				    mani.actorDetails();
-		    				    System.out.println("\nCharacter Details : ");
-		    				    mani.characterDetails();
-		    				    break;
-		    			 
-
-		    				default:
-		    				    System.out.println("Something went wrong");  
-                    	}
+						controller.viewActors();
 					}
 					else if(x==2)
 					{
@@ -102,25 +64,19 @@ public class Movies
 			{
 				theatre.selectSeat();
 			}
-
-        }
+			else if(option==4)
+			{
+				int opt;
+				do
+				{
+					System.out.println("\n	Select option : \n		1.Add to Database \n		2.View Database \n		3.Delete from Database \n		0.Exit");
+					opt = s.nextInt();
+					controller.database(opt, cast);
+				}
+				while(opt!=0);
+			}
+		}
         while(option!=0);
-    }
-    public void setCast()
-    {
-        cast.add(new Cast());
-		cast.get(0).setName("Dileep");
-		cast.get(0).setAge(38);
-		cast.add(new Cast());
-		cast.get(1).setName("Bhavna Pani");
-		cast.get(1).setAge(28);
-		cast.add(new Cast());
-		cast.get(2).setName("Kalabhavan Mani");
-		cast.get(2).setAge(41);
-        cast.add(new Cast());
-		cast.get(3).setName("Mithun Ramesh");
-		cast.get(3).setAge(32);
-		
     }
 
     public void printActors()

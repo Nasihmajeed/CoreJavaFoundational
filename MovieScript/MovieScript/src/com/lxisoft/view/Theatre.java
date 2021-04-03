@@ -1,5 +1,6 @@
-package com.lxisoft.theatre;
-import com.lxisoft.movie.*;
+package com.lxisoft.view;
+import com.lxisoft.view.*;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +12,7 @@ enum Seats
 
 public class Theatre
 {
-	int ticketCharge;
+	int ticketRate;
 	String theatre;
 	String place;
 	int[] age;
@@ -54,13 +55,13 @@ public class Theatre
 		switch (seat) 
 		{
 			case VIP:
-			ticketCharge = 200;
-			this.booking(ticketCharge);
+			ticketRate = 200;
+			this.booking(ticketRate);
 			break;
 
 			case NORMAL:
-			ticketCharge = 120;
-			this.booking(ticketCharge);	
+			ticketRate = 120;
+			this.booking(ticketRate);	
 			break;		
 		}
 	}

@@ -1,5 +1,5 @@
-package com.lxisoft.movie;
-import com.lxisoft.movie.*;
+package com.lxisoft.model;
+import com.lxisoft.model.*;
 import java.util.*;
 
 public abstract class Script 

@@ -1,6 +1,7 @@
-package com.lxisoft.movie;
-import com.lxisoft.movie.*;
-import com.lxisoft.actors.*;
+package com.lxisoft.model;
+import com.lxisoft.model.*;
+import com.lxisoft.view.*;
+import com.lxisoft.repository.*;
 import java.util.*;
 import java.io.*;
 
@@ -31,10 +32,10 @@ public class Scenes
         script1.get(1).setDialogue3("Veena : Blind fellow\n"); 
         script1.get(1).setDialogue4("Veena : Blind fellow\n");
 
-    }
+    // }
 
-    public void printScene1()
-    {
+    // public void printScene1()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -68,7 +69,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene1()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -107,10 +111,10 @@ public class Scenes
         script2.get(1).setDialogue5("Gopi  : Oh no by taxi? Is it an airport taxi?\n");
         script2.get(1).setDialogue6("Gopi  : Then we shall go to that counter and ask where she has gone\n");
 
-    }
+    // }
 
-    public void printScene2()
-    {
+    // public void printScene2()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -141,7 +145,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene2()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -184,10 +191,10 @@ public class Scenes
         script3.get(1).setDialogue6("Veena : mm\n");
         script3.get(1).setDialogue7("Veena : Look. Are you searching for this?\n");
         script3.get(1).setDialogue8("Veena : If you would come with me and stay helping me then I'll reward you with this\n");
-    }
+    // }
 
-    public void printScene3()
-    {
+    // public void printScene3()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -241,7 +248,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene3()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -280,10 +290,10 @@ public class Scenes
         script4.get(2).setDialogue1("Mani  : Have you heared the news?\n");
         script4.get(2).setDialogue2("Mani  : Her father had fixed another marriage for her. We both eloped since we had no other option\n");
 
-    }
+    // }
 
-    public void printScene4()
-    {
+    // public void printScene4()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -320,7 +330,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene4()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -362,10 +375,10 @@ public class Scenes
         script5.get(1).setDialogue6("Felix : hmm\n");
         script5.get(1).setDialogue7("Felix : I still love her, and I'll marry her once the cash problem is solved\n");
         
-    }
+    // }
 
-    public void printScene5()
-    {
+    // public void printScene5()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -399,7 +412,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene5()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -433,10 +449,10 @@ public class Scenes
         script6.get(1).setDialogue2("Veena : Did Gopi said so?\n");
         script6.get(1).setDialogue3("Veena : How much he told you?\n");
 
-    }
+    // }
 
-    public void printScene6()
-    {
+    // public void printScene6()
+    // {
         try
         {
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -468,7 +484,10 @@ public class Scenes
         {
             e.printStackTrace();
         }
+    }
 
+    public void printScene6()
+    {
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));

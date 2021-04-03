@@ -1,5 +1,6 @@
-package com.lxisoft.actors;
-import com.lxisoft.actors.*;
+  
+package com.lxisoft.model;
+import com.lxisoft.model.*;
 
 public interface Actors 
 {

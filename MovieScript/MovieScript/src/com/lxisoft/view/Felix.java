@@ -1,9 +1,18 @@
-package com.lxisoft.actors;
-import com.lxisoft.actors.*;
-import com.lxisoft.movie.*;
+package com.lxisoft.view;
+import com.lxisoft.model.*;
+
 
 public class Felix extends Script implements Actors, Villain
 {
+	public void character()
+	{
+		Felix felix = new Felix();
+		if(felix instanceof Villain)
+		{
+			System.out.println("-Villain-\n");
+		}
+	}
+
     public void actorDetails()
     {
         System.out.println("+------------------------------------------------------------------+");
@@ -23,6 +32,7 @@ public class Felix extends Script implements Actors, Villain
 		System.out.println("+------------------------------------------------------------------+");
 		System.out.println("\n                              Felix");
 		System.out.println("                        -------------------");
+		this.character();
 		System.out.println("     Felix is son of KT Mathew known as Maathachan. He loves");
         System.out.println("   Veena, his colleague a rich brahmin girl. As Veena leaves her");
 		System.out.println("  family and wealth behind to live with Felix, he leaves her and");
@@ -30,7 +40,5 @@ public class Felix extends Script implements Actors, Villain
         System.out.println("        as his father is in need of a huge amount of money.");
 		System.out.println("\n+------------------------------------------------------------------+");
 
-    }
-
-	
+    }	
 }

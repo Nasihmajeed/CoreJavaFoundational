@@ -1,10 +1,17 @@
-package com.lxisoft.actors;
-import com.lxisoft.actors.*;
+package com.lxisoft.view;
+import com.lxisoft.model.*;
 
-import com.lxisoft.movie.*;
 
 public class Gopi extends Script implements Actors, Hero
 {
+	public void character()
+	{
+		Gopi gopi = new Gopi();
+		if(gopi instanceof Hero)
+		{
+			System.out.println("-Hero-\n");
+		}
+	}
     public void actorDetails()
     {
         System.out.println("+-----------------------------------------------------------------+");
@@ -24,7 +31,8 @@ public class Gopi extends Script implements Actors, Hero
     {
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("\n                   	 Gopalakrishnan (Gopi)");
-		System.out.println("                         -------------------");
+		System.out.println("                          ------------------");
+		this.character();
 		System.out.println("    Gopi is a petty thief and has stolen a very precious chain");
         System.out.println("  belonging to the Spanish Queen, from a Museum and is on the run.");
 		System.out.println("    While on the run, Gopi meets Veena. Gopi keeps the jewel in");
