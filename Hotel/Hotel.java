@@ -2,17 +2,22 @@ import java.util.Scanner;
 import java.util.ArrayList;
 class Hotel{
 	Food ff= new Food();
+	Drinks dr=new Drinks();
 	Admin ad=new Admin();
 	ArrayList<Food> food=new ArrayList<Food>();
+	ArrayList<Drinks> drinks=new ArrayList<Drinks>();
 	User u=new User();
 	Scanner sc=new Scanner(System.in);
+	Scanner sr=new Scanner(System.in);
 	int sel;
+	String username,pas;
 	public void displayHotel(){
 		System.out.println("***************************************");
 		System.out.println("ABCD FIVE STAR HOTEL");
 		System.out.println("PATHIRIPALA, PALAKKAD");
 		System.out.println("***************************************");
 		ff.addMenu(food);
+		dr.addDrinks(drinks);
 		selectUser();
 	}
 	public void selectUser(){
@@ -22,12 +27,23 @@ class Hotel{
 		sel=sc.nextInt();
 		switch(sel){
 			case 1:
-				ad.adminDetails(food);
+				System.out.println("ENTER ID");
+				username=sc.next();
+				System.out.println("ENTER PASSWORD");
+				pas=sc.next();
+				if(username.equals("nishad")&pas.equals("123")){
+					ad.adminDetails(food);
+				}
+				else{
+					System.out.println("WRONG ID OR PASSWORD");
+					displayHotel();
+				}
+				
 				
 			break;
 			case 2:
 			//ff.addMenu(food);
-				u.userDetails(food);
+				u.userDetails(food,drinks);
 				
 				break;
 		}

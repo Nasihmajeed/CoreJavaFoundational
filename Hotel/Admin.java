@@ -26,6 +26,7 @@ class Admin{
 		System.out.println("2. DELETE");
 		System.out.println("3. ADD");
 		System.out.println("4. EXIT");
+		System.out.println("5. VIEW");
 		select=sc.nextInt();
 		switch (select){
 			case 1:
@@ -107,6 +108,10 @@ class Admin{
 			hh.displayHotel();
 			
 			 break;
+			 
+		case 5:
+			fd.printMenu(food);
+			break;
 		}System.out.println("GO TO ADMIN PANEL? 1. Yes 2.No");
 		option=ss.nextInt();
 		}while(option==1);

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 class Bill{
-	int home;
+	
 	int foodId;
 	String foodName;
 	float foodPrice;
@@ -57,11 +57,7 @@ class Bill{
 		}
 		System.out.println("-----------------------------------------------");
 	System.out.println("-----------------------------------------------");
-	System.out.println("RETURN TO HOME 1.Yes 2.NO");
-	home=sc.nextInt();
-	if(home==1){
-	ho.displayHotel();
-	}
+	
 	}
 	/* public void printTotal(){
 		Order od=new Order();

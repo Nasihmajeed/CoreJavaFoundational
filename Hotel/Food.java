@@ -75,7 +75,7 @@ class Food{
 		f[3].setPrice(5);
 		f[3].setQty(0);
 		f[4].setId(5);
-		f[4].setFoodItem("7-up");
+		f[4].setFoodItem("Putt");
 		f[4].setPrice(30);
 		f[4].setQty(0);
 		f[5].setId(6);
@@ -87,8 +87,8 @@ class Food{
 		f[6].setPrice(80);
 		f[6].setQty(0);
 		f[7].setId(8);
-		f[7].setFoodItem("Mirinda");
-		f[7].setPrice(35);
+		f[7].setFoodItem("Pathiri");
+		f[7].setPrice(4);
 		f[7].setQty(0);
 		f[8].setId(9);
 		f[8].setFoodItem("Biriyani-Chicken");
