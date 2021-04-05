@@ -21,7 +21,7 @@ public class CastList
             Class.forName("com.mysql.cj.jdbc.Driver");
             try 
             {
-            	con = DriverManager.getConnection("cj.jdbc:mysql://localhost:3306/test","root","pavilion2912"); 
+            	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","pavilion2912"); 
             }
             catch (SQLException e) 
             {
@@ -37,23 +37,26 @@ public class CastList
     public void addToDatabase(ArrayList<Cast> cast)
     {
 		this.databaseConnect();
+		int w = cast.size();
 		try
         {
-			for(int i=0;i<cast.size();i++)
+			// System.out.println(""+w+"");
+			for(int i=0;i<w;i++)
             {
-				System.out.println("Name : "+cast.get(i).getName()+" Character : "+cast.get(i).getCharacterName());
-				pStatement = con.prepareStatement("insert into cast (id,name,character) values("+i+","+cast.get(i).getName()+","+cast.get(i).getCharacterName()+")");
+				System.out.println("\nName : "+cast.get(i).getName()+"\nCharacter : "+cast.get(i).getCharacterName());
+				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharacterName()+"')");
                 row = pStatement.executeUpdate();  
 			}
 			pStatement.close();
             con.close();
-            this.showDatabase();
+            // this.showDatabase();
 		}
 		catch(SQLException e)
         {
 			e.printStackTrace();
 		}
 	}
+
 	public void showDatabase()
     {
 		this.databaseConnect();
@@ -66,9 +69,9 @@ public class CastList
 			{
 				int id = result.getInt("id");
 				String aName = result.getString("name");
-				String cName = result.getString("character");
+				String cName = result.getString("charactor");
 
-				System.out.println("  ID       : "+id+"\n  Name     : "+aName+"\n Character : "+cName);
+				System.out.println("\n  ID       : "+id+"\n  Name     : "+aName+"\n Character : "+cName);
 			}
 			result.close();
 		}
@@ -77,6 +80,7 @@ public class CastList
 			e.printStackTrace();
 		}
 	}
+
 	public void deleteFromDatabase()
     {
 		this.databaseConnect();
@@ -85,12 +89,12 @@ public class CastList
 			statement = con.createStatement();
 			
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter the ID of actor to be deleted ");
+			System.out.print("\nEnter the ID of actor to be deleted : ");
 			int delete = sc.nextInt();
 
 			statement.executeUpdate("delete from cast where id ="+delete+"");
 
-			System.out.println("Deleted 1 row ");
+			System.out.println("\n\nDeleted 1 entry \n\n");
 			this.showDatabase();
 			
 		}

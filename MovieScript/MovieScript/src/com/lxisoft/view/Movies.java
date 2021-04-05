@@ -97,7 +97,7 @@ public class Movies
         
         for (Cast c: cast)
         {
-            System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getAge()+"\n");
+            System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getAge()+"\n\tCharacter  : "+c.getCharacterName()+"\n");
         }
     }
 

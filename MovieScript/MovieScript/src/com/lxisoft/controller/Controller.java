@@ -19,15 +19,22 @@ public class Controller
         cast.add(new Cast());
 		cast.get(0).setName("Dileep");
 		cast.get(0).setAge(38);
+		cast.get(0).setCharacterName("Gopi");
+
 		cast.add(new Cast());
 		cast.get(1).setName("Bhavna Pani");
 		cast.get(1).setAge(28);
+		cast.get(1).setCharacterName("Veena");
+
 		cast.add(new Cast());
 		cast.get(2).setName("Kalabhavan Mani");
 		cast.get(2).setAge(41);
+		cast.get(2).setCharacterName("Mani");
+
         cast.add(new Cast());
 		cast.get(3).setName("Mithun Ramesh");
 		cast.get(3).setAge(32);
+		cast.get(3).setCharacterName("Felix");
 		
     }
 
@@ -88,10 +95,10 @@ public class Controller
         	{
     			cl.deleteFromDatabase();
     		}
-    		else
-        	{
-    			System.out.println("Invalid Option");
-    		}
+    		// else
+        	// {
+    		// 	System.out.println("Invalid Option");
+    		// }
 		// }
 		// while(x!=0);
     } 
