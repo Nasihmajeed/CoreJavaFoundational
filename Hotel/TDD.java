@@ -1,9 +1,10 @@
+import java.util.*;
+
 public class TDD
 {
-public static void main(String args[])
-{
-Admin a=new Admin();
-a.adminDetails();
-
-}
+	public static void main(String[] args)
+	{
+		Hotel gudFud=new Hotel();
+		gudFud.hotelDetails();
+	}
 }
