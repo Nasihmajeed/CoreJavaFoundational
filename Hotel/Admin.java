@@ -231,7 +231,7 @@ class Admin
 		
 		
 		System.out.println("Enter which one to be removed (1.Food  2.Drinks )");
-		updateOption=sc.nextInt();
+		removeOption=sc.nextInt();
 		switch(removeOption)
 		{
 		case 1:		System.out.println("Enter the item to be remove: ");
@@ -302,7 +302,7 @@ class Admin
 						
 			
 	
-				foodBill=foodBill+bill();
+				foodBill=foodBill+foodBill();
 			
 				System.out.println("Do you want to enter more (yes/no) :");
 				repeatF=sc.next();
@@ -331,7 +331,7 @@ class Admin
 						
 			
 	
-			drinksBill=drinksBill+bill();
+				drinksBill=drinksBill+drinksBill();
 			
 				System.out.println("Do you want to enter more (yes/no) :");
 				repeatD=sc.next();
@@ -359,15 +359,30 @@ class Admin
 	}	
 				float totalBillFood,totalBillDrinks;	
 			
-	public float bill()
+	public float foodBill()
 	{
-		int k,l;
+		int k;
 		k=optionUser-1;
-		l=optionUserDrinks-1;
+		//l=optionUserDrinks-1;
 		totalBillFood=qty*foodItems.get(k).getPrice();
+		//totalBillDrinks=qtyDrinks*drinks.get(l).getPrice();
+			
+		return  totalBillFood;	
+		
+		
+		
+		
+	}	
+	
+		public float drinksBill()
+	{
+		int l;
+		//k=optionUser-1;
+		l=optionUserDrinks-1;
+		//totalBillFood=qty*foodItems.get(k).getPrice();
 		totalBillDrinks=qtyDrinks*drinks.get(l).getPrice();
-			 totalBill=totalBillFood+totalBillDrinks;	
-		return totalBill;
+			
+		return totalBillDrinks;	
 		
 		
 		
