@@ -107,13 +107,14 @@ class Food{
 	public static void printMenu(ArrayList<Food> food){
 	    //addMenu(food);
 		System.out.println("**********************************");
-		System.out.println("MENU LIST"+food.size());
+		System.out.println("MENU LIST");
 		System.out.println("**********************************");
-
+		System.out.printf("%-2s %-18s %6s\n","ID","FoodItem","Price");
 		int j=1;
 		for(int i=0;i<food.size();i++){
 			if(j<=food.size()){
-			System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+				System.out.printf("%-2s %-18s %-1s %6s\n",j,food.get(i).getFoodItem(),"-",food.get(i).getPrice());
+			//System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 			j++;
 		}
 		}
@@ -123,11 +124,13 @@ class Food{
 		System.out.println("**********************************");
 		System.out.println("MENU LIST"+food.size());
 		System.out.println("**********************************");
+		System.out.printf("%-2s %-10s %6s","ID","FoodItem","Price");
 
 		int j=1;
 		for(int i=0;i<food.size();i++){
 			if(j<food.size()){
-			System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			System.out.printf("%-2s %-18s %-1s %6s",j,food.get(i).getFoodItem(),"-",food.get(i).getPrice());
+			//System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 			j++;
 		}
 		}

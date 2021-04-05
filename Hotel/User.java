@@ -12,8 +12,8 @@ class User{
 	public void userDetails(ArrayList<Food> food, ArrayList<Drinks> drinks){
 		System.out.println("ENTER USER NAME ");
 		userName=sc.nextLine();
-		fd.printMenuUser(food);
-		d.printDrinksMenu(drinks);
+		/* fd.printMenuUser(food);
+		d.printDrinksMenu(drinks); */
 		o.takeOrder(food,bill,drinks);
 	}
 }

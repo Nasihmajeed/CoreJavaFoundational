@@ -51,9 +51,14 @@ class Bill{
 	System.out.println(" -------------------BILL------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
 	System.out.println(" ----------------------------------------------- ");
-	System.out.println("ITEM                      PRICE                      QTY");
+	System.out.printf("%-2s %-18s %6s %6s\n","ID","FoodItem","Price","Qty");
+	System.out.println(" ----------------------------------------------- ");
+		int j=1;
 		for(int i=0;i<bill.size();i++){
-		System.out.println(bill.get(i).getFoodName()+" ------------------  "+bill.get(i).getFoodPrice()+" ------------------- "+bill.get(i).getQnty());
+			if(j<=bill.size()){
+		System.out.printf("%-2s %-18s %6s %6s\n",j,bill.get(i).getFoodName(),bill.get(i).getFoodPrice(),bill.get(i).getQnty());
+		j++;
+		}
 		}
 		System.out.println("-----------------------------------------------");
 	System.out.println("-----------------------------------------------");

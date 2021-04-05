@@ -32,7 +32,7 @@ class Hotel{
 				System.out.println("ENTER PASSWORD");
 				pas=sc.next();
 				if(username.equals("nishad")&pas.equals("123")){
-					ad.adminDetails(food);
+					ad.adminDetails(food,drinks);
 				}
 				else{
 					System.out.println("WRONG ID OR PASSWORD");
