@@ -1,12 +1,11 @@
-package com.lxisoft.forest;
-public class  Fox extends Animal implements Carnivoros{
-	public void printCarnivores(){
-		System.out.println("CARNIVOROS");
+public class Fox extends Animal
+{
+	public void printDetails()
+	{
+		System.out.println("The animal is:"+name);
+		System.out.println("The animal strength is:"+strength);
 	}
 
-	public void eat(){
-		System.out.println("Eat Enemy");
-	}
-	
-	
 }
+	
+

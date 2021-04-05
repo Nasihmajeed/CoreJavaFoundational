@@ -1,12 +1,10 @@
-package com.lxisoft.forest;
-public class  Tiger extends Animal implements Carnivoros{
+public class Tiger extends Animal
+{
+	public void printDetails()
+{
+System.out.println("The animal is:"+name);
+System.out.println("The animal strength is:"+strength);
+}
 
-	public void printCarnivores(){
-		System.out.println(" CARNIVORES");
-	}
-
-	public void eat(){
-		System.out.println("Eat Enemy");
 	}
 	
-}

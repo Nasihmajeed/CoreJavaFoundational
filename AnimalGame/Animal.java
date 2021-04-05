@@ -1,58 +1,28 @@
-package com.lxisoft.forest;
 import java.util.Scanner;
-import java.util.ArrayList;
-public abstract  class Animal {
+public class Animal
+{
+	int number;
+	String name,winner;
+	int strength;
+	int energy;
 
-	Scanner scanner=new Scanner(System.in);
 
-	private String animalName;
-	public void setAnimalName(String a){
-		this.animalName=a;
+	Scanner sc=new Scanner(System.in);
+	public void printDetails()
+	{
+
 	}
+	public void animalDetails()
+	{
 
-	public String getAnimalName(){
-		return animalName;
 	}
-
-	private int animalStrength;
-	public void setAnimalStrength(int a){
-		this.animalStrength=a;
-	}
-	public int getAnimalStrength(){
-		return animalStrength;
-	}
-
-
-	 public String animalType;
-	 private void setAnimalNameTpe(String a){
-	 	this.animalType=a;
-	 }
-	 public String getAnimalType(){
-	 	return animalType;
-	 }
-
-	 
-	public boolean animalAlive;
-	public void setAnimalAlive(boolean a){
-		this.animalAlive=a;
-	}
-	public boolean getAnimalAlive(){
-		return animalAlive;
-	}
-
-	public abstract void eat();
-
-	 private int distance;
-    public void setDistance(int d)
-    {
-        distance=d;
-    }
-    public int getDistance()
-    {
-        return distance;
-    }
-
-
-
 	
+	public void eat()
+	{
+		System.out.println("eating meet");
+	}
+	 	public void run()
+	{
+		System.out.println("run fast");
+	}
 }
