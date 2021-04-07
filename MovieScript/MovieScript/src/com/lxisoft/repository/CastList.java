@@ -40,16 +40,16 @@ public class CastList
 		int w = cast.size();
 		try
         {
-			// System.out.println(""+w+"");
 			for(int i=0;i<w;i++)
             {
 				System.out.println("\nName : "+cast.get(i).getName()+"\nCharacter : "+cast.get(i).getCharacterName());
 				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharacterName()+"')");
                 row = pStatement.executeUpdate();  
+
+				System.out.println("\n\nAdded to Database \n\n");
 			}
 			pStatement.close();
             con.close();
-            // this.showDatabase();
 		}
 		catch(SQLException e)
         {
@@ -95,7 +95,6 @@ public class CastList
 			statement.executeUpdate("delete from cast where id ="+delete+"");
 
 			System.out.println("\n\nDeleted 1 entry \n\n");
-			this.showDatabase();
 			
 		}
 		catch(SQLException e)

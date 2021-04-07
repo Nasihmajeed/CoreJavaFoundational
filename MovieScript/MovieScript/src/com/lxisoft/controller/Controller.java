@@ -81,8 +81,7 @@ public class Controller
     public void database(int x, ArrayList<Cast> cast)
     {
         Scenes scenes = new Scenes();
-		// do
-		// {
+		
     		if(x==1)
         	{
     			cl.addToDatabase(cast);
@@ -95,11 +94,5 @@ public class Controller
         	{
     			cl.deleteFromDatabase();
     		}
-    		// else
-        	// {
-    		// 	System.out.println("Invalid Option");
-    		// }
-		// }
-		// while(x!=0);
     } 
 }
