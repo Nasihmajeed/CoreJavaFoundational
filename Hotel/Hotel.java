@@ -1,15 +1,15 @@
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Hotel
-{
-	
+class Hotel
+{	
 int sel;
 
-Admin adm=new Admin();
+ArrayList<Food> foodItems = new ArrayList<Food>(); 
 
-Food fd=new Food();
-
-ArrayList<Food> food = new ArrayList<Food>(); 
+Admin a=new Admin();
+Food f=new Food();
 
 Scanner sc=new Scanner(System.in);
 
@@ -28,14 +28,13 @@ public void hotelDetails()
    {
 	   System.out.println("Welcome Sir!!!!!!!!!!!!You are the Admin!!!!!!!!!!");
 	   
-	   adm.admAuthenticate();
+	   a.admAuthenticate();
    }
    else
    {
-	   System.out.println("Hi Sir/Madam!!!!!!!!!!!!!Welcome to Hotel Nalla Bakshanam!!!!!");
+	    System.out.println("Hi Sir/Madam!!!!!!!!!!!!!Welcome to Hotel Nalla Bakshanam!!!!!");
         System.out.println("We are happy to serve you......Please make your Order from the menu given below : ");
-		
-		fd.menuCard(food);
+		f.menuCardDisplay(foodItems);
    }
 }
 

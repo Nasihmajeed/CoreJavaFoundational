@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Admin
+class Admin
 {
 	String admName="Sai Krishna Prasad";
 	String username,pwd;
@@ -11,7 +11,7 @@ public class Admin
 	
 	public void admAuthenticate()
 	{
-	System.out.println("Admin Name is "+admName);	
+	System.out.println("You are the Admin with Name : "+admName);	
 	System.out.println("Please Enter your UserName");
 	username=sc.nextLine();
 	
@@ -21,7 +21,7 @@ public class Admin
 		pwd=sc.nextLine();
 		if(pwd.equals("skp@7"))
 		       {
-				   System.out.println("UserName and Password Verified...U are the Admin...Welcome Sai krishna");
+				   System.out.println("UserName and Password Verified......Welcome Sai krishna");
 				/*   
 				   admOperations();
 			   */
