@@ -2,10 +2,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 class Hotel{
 	Food ff= new Food();
-	Drinks dr=new Drinks();
+	//Drinks dr=new Drinks();
 	Admin ad=new Admin();
 	ArrayList<Food> food=new ArrayList<Food>();
-	ArrayList<Drinks> drinks=new ArrayList<Drinks>();
+	ArrayList<Food> drinks=new ArrayList<Food>();
+	//ArrayList<Drinks> drinks=new ArrayList<Drinks>();
 	User u=new User();
 	Scanner sc=new Scanner(System.in);
 	Scanner sr=new Scanner(System.in);
@@ -17,7 +18,7 @@ class Hotel{
 		System.out.println("PATHIRIPALA, PALAKKAD");
 		System.out.println("***************************************");
 		ff.addMenu(food);
-		dr.addDrinks(drinks);
+		ff.addDrinks(drinks);
 		selectUser();
 	}
 	public void selectUser(){

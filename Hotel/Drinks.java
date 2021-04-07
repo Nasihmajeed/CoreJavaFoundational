@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/* import java.util.ArrayList;
 import java.util.*;
 class Drinks{
 	int nos,idNo;
@@ -112,5 +112,5 @@ public static ArrayList<Drinks> drinks=new ArrayList<Drinks>(10);
 		}
 		}
 	}
-}
+} */
 		

@@ -6,7 +6,7 @@ class Food{
 	float price;
 	int qty;
 	public static ArrayList<Food> food=new ArrayList<Food>(10);
-	
+	public static ArrayList<Food> drinks=new ArrayList<Food>(10);
 
 	ArrayList<Bill> bill= new ArrayList<Bill>(10);
 	//ArrayList<Integer> qty=new ArrayList<Integer>(10);
@@ -104,6 +104,55 @@ class Food{
 		
 			
 	}
+	public void addDrinks(ArrayList<Food> drinks){
+		Food[] d=new Food[10];
+		for(int i=0;i<10;i++){
+		d[i]=new Food();
+		}
+		d[0].setId(1);
+		d[0].setFoodItem("7-up");
+		d[0].setPrice(35);
+		d[0].setQty(0);
+		d[1].setId(2);
+		d[1].setFoodItem("Mirinda");
+		d[1].setPrice(30);
+		d[1].setQty(0);
+		d[2].setId(3);
+		d[2].setFoodItem("RedBull");
+		d[2].setPrice(110);
+		d[2].setQty(0);
+		d[3].setId(4);
+		d[3].setFoodItem("Frooti");
+		d[3].setPrice(10);
+		d[3].setQty(0);
+		d[4].setId(5);
+		d[4].setFoodItem("Soda");
+		d[4].setPrice(8);
+		d[4].setQty(0);
+		d[5].setId(6);
+		d[5].setFoodItem("Beer");
+		d[5].setPrice(110);
+		d[5].setQty(0);
+		d[6].setId(7);
+		d[6].setFoodItem("Water");
+		d[6].setPrice(13);
+		d[6].setQty(0);
+		d[7].setId(8);
+		d[7].setFoodItem("Sprite");
+		d[7].setPrice(32);
+		d[7].setQty(0);
+		d[8].setId(9);
+		d[8].setFoodItem("Pepsi");
+		d[8].setPrice(40);
+		d[8].setQty(0);
+		d[9].setId(10);
+		d[9].setFoodItem("Cola");
+		d[9].setPrice(30);
+		d[9].setQty(0);
+		for(int i=0;i<10;i++){
+		drinks.add(d[i]);
+		}
+	}
 	public static void printMenu(ArrayList<Food> food){
 	    //addMenu(food);
 		System.out.println("**********************************");
@@ -130,6 +179,36 @@ class Food{
 		for(int i=0;i<food.size();i++){
 			if(j<food.size()){
 			System.out.printf("%-2s %-18s %-1s %6s",j,food.get(i).getFoodItem(),"-",food.get(i).getPrice());
+			//System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			j++;
+		}
+		}
+	}
+	public void printDrinksMenu(ArrayList<Food> drinks){
+	    //addMenu(food);
+		System.out.println("**********************************");
+		System.out.println("MENU LIST"+drinks.get(0).getFoodItem());
+		System.out.println("**********************************");
+		System.out.printf("%-2s %-18s %6s\n","ID","DrinkItem","Price");
+		int j=1;
+		for(int i=0;i<drinks.size();i++){
+			if(j<=drinks.size()){
+				System.out.printf("%-2s %-18s %-1s %6s\n",j,drinks.get(i).getFoodItem(),"-",drinks.get(i).getPrice());
+			//System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
+			j++;
+		}
+		}
+	}
+		public static void printDrinksMenuUser(ArrayList<Food> drinks){
+	    //addMenu(food);
+		System.out.println("**********************************");
+		System.out.println("MENU LIST"+drinks.get(0).getFoodItem());
+		System.out.println("**********************************");
+		System.out.printf("%-2s %-18s %6s\n","ID","DrinkItem","Price");
+		int j=1;
+		for(int i=0;i<drinks.size();i++){
+			if(j<=drinks.size()){
+				System.out.printf("%-2s %-18s %-1s %6s\n",j,drinks.get(i).getFoodItem(),"-",drinks.get(i).getPrice());
 			//System.out.println(j+" : "+ food.get(i).getFoodItem()+"  "+food.get(i).getPrice());
 			j++;
 		}

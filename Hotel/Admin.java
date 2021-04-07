@@ -8,14 +8,14 @@ class Admin{
 	Scanner sv=new Scanner(System.in);
 	Scanner ss=new Scanner(System.in);
 	Food fd=new Food();
-	Drinks ds=new Drinks();
+	//Drinks ds=new Drinks();
 	//Food[] ff=new Food[10];
 	int x;
 	int select,option,sel;
 	int edit,delete;
 	String newFood,newDrinks;
 	float newPrice,newDprice;
-	public void adminDetails(ArrayList<Food> food, ArrayList<Drinks> drinks){
+	public void adminDetails(ArrayList<Food> food, ArrayList<Food> drinks){
 		Hotel hh=new Hotel();
 		/* for(int i=0;i<10;i++){
 		ff[i]=new Food();
@@ -131,7 +131,7 @@ class Admin{
 			case 1:
 				do{
 			
-			ds.printDrinksMenu(drinks);
+			fd.printDrinksMenu(drinks);
 			System.out.println("SELECT WHICH ITEM TO EDIT");
 			edit=sr.nextInt();
 			int j=edit-1;
@@ -140,10 +140,10 @@ class Admin{
 				newDrinks=sn.nextLine();
 				System.out.println("ENTER NEW PRICE");
 				newDprice=sv.nextFloat();
-				drinks.get(j).setDrinksName(newDrinks);
-				drinks.get(j).setCost(newDprice);
+				drinks.get(j).setFoodItem(newDrinks);
+				drinks.get(j).setPrice(newDprice);
 				//System.out.println(food.get(i).getFoodItem());
-				ds.printDrinksMenu(drinks);
+				fd.printDrinksMenu(drinks);
 				
 			
 			System.out.println("DO YOU WISH TO EDIT MORE? 1.YES 2.NO");
@@ -154,12 +154,12 @@ class Admin{
 			
 			case 2:
 				do{
-			ds.printDrinksMenu(drinks);
+			fd.printDrinksMenu(drinks);
 			System.out.println("SELECT WHICH ITEM TO DELETE");
 			delete=sr.nextInt();
 			
 				drinks.remove(delete-1);
-				ds.printDrinksMenu(drinks);
+				fd.printDrinksMenu(drinks);
 			
 			System.out.println("DO YOU WISH TO DELETE MORE? 1.YES 2.NO");
 		x=ss.nextInt();
@@ -171,7 +171,7 @@ class Admin{
 		
 		case 3:
 			do{
-				ds.printDrinksMenu(drinks);
+				fd.printDrinksMenu(drinks);
 			System.out.println("Enter how many items need to be added");
 		int n=sc.nextInt();
 		
@@ -185,15 +185,15 @@ class Admin{
 			System.out.println("Enter the Drink");
 			String foo=sc.next();
 			
-			drinks.add(new Drinks());
-			drinks.get(j).setDrinksName(foo);		
+			drinks.add(new Food());
+			drinks.get(j).setFoodItem(foo);		
 		
 		
 		
 			System.out.println("Enter the Price for "+foo);
 			float price=sc.nextFloat();
-			drinks.get(j).setCost(price);		
-		ds.printDrinksMenu(drinks);
+			drinks.get(j).setPrice(price);		
+		fd.printDrinksMenu(drinks);
 	
 
 		j++;
@@ -209,7 +209,7 @@ class Admin{
 			 break;
 			 
 		case 5:
-			ds.printDrinksMenu(drinks);
+			fd.printDrinksMenu(drinks);
 			break;
 		}System.out.println("GO TO ADMIN PANEL? 1. Yes 2.No");
 		option=ss.nextInt();

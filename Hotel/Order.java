@@ -8,15 +8,15 @@ int home;
 	int id,select;
 	int proceed;
 	Food ff=new Food();
-	Drinks dd=new Drinks();
+	//Drinks dd=new Drinks();
 	Scanner sc=new Scanner(System.in);
 	Scanner sn=new Scanner(System.in);
 	Scanner sr=new Scanner(System.in);
 	ArrayList<Bill> bill=new ArrayList<Bill>();
 	ArrayList<Food> food=new ArrayList<Food>();
-	ArrayList<Drinks> drinks=new ArrayList<Drinks>();
+	//ArrayList<Drinks> drinks=new ArrayList<Drinks>();
 	
-	public void takeOrder(ArrayList<Food> food, ArrayList<Bill> bill,ArrayList<Drinks> drinks){
+	public void takeOrder(ArrayList<Food> food, ArrayList<Bill> bill,ArrayList<Food> drinks){
 		Hotel ho=new Hotel();
 		
 		Order order=new Order();
@@ -62,22 +62,22 @@ int home;
 				
 			case 2:
 				do{
-				dd.printDrinksMenu(drinks);
+				ff.printDrinksMenuUser(drinks);
 				System.out.println("SELECT DRINKS ");
 				id=sc.nextInt();
 				System.out.println("____________________________________________________");
 				System.out.println("____________________________________________________");
 				for(int i=0;i<drinks.size(); i++){
-					if(id==drinks.get(i).getIdno()){
+					if(id==drinks.get(i).getId()){
 					System.out.println("ENTER QUANTITY YOU WANT TO BUY");
 					b[i].setQnty(sr.nextInt());
 					//b[i].setFoodId(food.get(i).getId());
-					b[i].setFoodName(drinks.get(i).getDrinksName());
-					b[i].setFoodPrice(drinks.get(i).getCost());
+					b[i].setFoodName(drinks.get(i).getFoodItem());
+					b[i].setFoodPrice(drinks.get(i).getPrice());
 					
 					bill.add(b[i]);	
-					total=total+b[i].getQnty()*drinks.get(i).getCost();
-					System.out.println("Order Placed "+drinks.get(i).getDrinksName()+": Price :"+drinks.get(i).getCost());
+					total=total+b[i].getQnty()*drinks.get(i).getPrice();
+					System.out.println("Order Placed "+drinks.get(i).getFoodItem()+": Price :"+drinks.get(i).getPrice());
 					}
 					}
 				
