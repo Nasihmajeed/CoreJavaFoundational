@@ -6,8 +6,13 @@ class Admin
 
 	ArrayList<Drinks> drinks=new ArrayList<Drinks>();
 
-
-
+Bill [] b=new Bill[4];
+public void init(){
+b[0]=new Bill();
+b[1]=new Bill();
+b[2]=new Bill();
+b[3]=new Bill();
+}
 
 	Scanner sc=new Scanner(System.in);
 	String food,option,drink;
@@ -288,7 +293,7 @@ class Admin
 		
 		
 		int count=0;
-		int k;
+		int k,orderCount;
 		
 	public void makeOrder()
 	{
@@ -297,9 +302,11 @@ class Admin
 			orderOption=sc.nextInt();
 		if(orderOption==1)
 		{		
-			do{
-		
-				for(i=0;i<foodItems.size();i++)
+			
+		System.out.println("Enter how many items you want to order :");
+		orderCount=sc.nextInt();
+		do
+		{		for(i=0;i<foodItems.size();i++)
 				{	
 
 				System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
@@ -318,24 +325,32 @@ class Admin
 					
 				foodBill=foodBill+foodBill();
 				
-				
+				for(i=0;i<orderCount;i++)
+		{
+		init();
+				b[i].setBill(foodItems.get(k).getFood());
+				b[i].setPrice(foodItems.get(k).getPrice());
+				bill.add(b[i]);
+		}		
+					
 				
 				System.out.println("Do you want to enter more (yes/no)  :");
 			
 				repeatF=sc.next();
 			
+				
+		
 			
-			}while(repeatF.equals("yes"));
+			
+		}while(repeatF.equals("yes"));
 				
-				
-				
+			
 				
 				 	
 					
 			
 				
-				viewBill();		
-		
+			
 		}	
 	
 		if(orderOption==2)
@@ -382,7 +397,7 @@ class Admin
 		System.out.println("------------Order---------------");
 		System.out.println("-----food-----------price------------qty-----");
 		
-			
+			viewBill();
 				
 		System.out.println("Total :"+amount);
 		
@@ -395,16 +410,13 @@ class Admin
 	public float foodBill()
 	{
 		k=optionUser-1;
-		i=0;
+		
 	
 		totalBillFood=qty*foodItems.get(k).getPrice();
-				bill.add(new Bill());
-				bill.get(i).setBill(foodItems.get(k).getFood());
-				bill.get(i).setPrice(foodItems.get(k).getPrice());
-				
-			i++;
-				
-						
+		
+		
+		
+			
 		return  totalBillFood;	
 		
 		
