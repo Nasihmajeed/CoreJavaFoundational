@@ -39,7 +39,7 @@ ArrayList<Food> food = new ArrayList<Food>();
 	 return foodPrice;
  }
  
-public static void menuCardDisplay(ArrayList<Food> food)
+public static void menuCardDisplay(ArrayList food)
 {
    food.add(new Food());   
    food.get(0).setFoodName("Biriyani");

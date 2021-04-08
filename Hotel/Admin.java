@@ -41,12 +41,51 @@ class Admin
 /*
   public void admOperations()
   {
-	  System.out.println("SELECT THE OPERATION U WANT TO PERFORM");
+	  
+	  
+do{
+		System.out.println("SELECT THE OPERATION U WANT TO PERFORM");
 	  System.out.println("1.Add");
 	  System.out.println("2.Update/Edit");
 	  System.out.println("3.Remove/Delete");
-	  System.out.println("View");
-	  
-  }
+	  System.out.println("4.View");
+
+		select=sc.nextInt();
+
+		switch (select){
+
+			case 1:
+
+				do{
+			
+			
+			System.out.println("DO YOU WISH TO EDIT MORE? 1.YES 2.NO");
+			}while(x==1);
+			
+		 break;
+			
+			case 2:
+				do{
+			fd.printMenu(food);
+			System.out.println("");
+			
+			System.out.println();
+		
+			}while(x==1);
+			
+		break;
+		
+		case 3:
+			do{
+				
+			System.out.println("Enter items to be added");
+		
+					
+			System.out.println("Enter the food");
+			String foo=sc.next();
+			
+			food.add(new Food());
+			food.get().setFoodItem();		
+	}
 */
 }
