@@ -1,10 +1,10 @@
 import java.util.*;
-class Lion extends Animal
+class Snake extends Animal
 {	
     Random rand= new Random();
-	void  getData()
+	void getData()
 	{
-		 name="Lion";
+		 name="Snake";
      animal_strength=rand.nextInt(700)+100;
      
 	}
