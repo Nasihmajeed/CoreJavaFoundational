@@ -6,10 +6,17 @@ class Food
 	float updatePrice;
 	Scanner sc=new Scanner(System.in);
 	
+	int qty;
 	
+	public void setQty(int qty)
+	{
+		this.qty=qty;
+	}
 	
-	
-	
+	public int getQty()
+	{
+		return qty;
+	}
 	public void setFood(String food)
 	{
 		this.food=food;

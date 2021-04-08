@@ -9,7 +9,17 @@ class Drinks
 	
 	Food f=new Food();
 	
+	int qty;
 	
+	public void setQty(int qty)
+	{
+		this.qty=qty;
+	}
+	
+	public int getQty()
+	{
+		return qty;
+	}
 	public void setDrinks(String drinks)
 	{
 		this.drinks=drinks;
@@ -25,10 +35,7 @@ class Drinks
 	price=sc.nextFloat();*/
 		
 	}
-		Drinks()
-		{
-			
-		}
+		
 	
 	public void updateDrinks(String updateDrinks,float updatePrice)
 	{

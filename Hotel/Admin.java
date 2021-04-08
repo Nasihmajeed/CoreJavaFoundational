@@ -5,14 +5,9 @@ class Admin
 	ArrayList<Food> foodItems=new ArrayList<Food>();
 
 	ArrayList<Drinks> drinks=new ArrayList<Drinks>();
-
-Bill [] b=new Bill[4];
-public void init(){
-b[0]=new Bill();
-b[1]=new Bill();
-b[2]=new Bill();
-b[3]=new Bill();
-}
+	
+	ArrayList<Food>foodItemsBill =new ArrayList<Food>();
+ArrayList<Drinks> drinkItemsBill=new ArrayList<Drinks>();
 
 	Scanner sc=new Scanner(System.in);
 	String food,option,drink;
@@ -303,10 +298,12 @@ b[3]=new Bill();
 		if(orderOption==1)
 		{		
 			
-		System.out.println("Enter how many items you want to order :");
-		orderCount=sc.nextInt();
+		/*System.out.println("Enter how many items you want to order :");
+		orderCount=sc.nextInt();*/
 		do
-		{		for(i=0;i<foodItems.size();i++)
+		{
+			//bill(k);
+			for(i=0;i<foodItems.size();i++)
 				{	
 
 				System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
@@ -323,15 +320,10 @@ b[3]=new Bill();
 				System.out.println("Enter the quantity :");
 				qty=sc.nextInt();
 					
+					
 				foodBill=foodBill+foodBill();
-				
-				for(i=0;i<orderCount;i++)
-		{
-		init();
-				b[i].setBill(foodItems.get(k).getFood());
-				b[i].setPrice(foodItems.get(k).getPrice());
-				bill.add(b[i]);
-		}		
+					k=optionUser-1;
+					
 					
 				
 				System.out.println("Do you want to enter more (yes/no)  :");
@@ -339,7 +331,7 @@ b[3]=new Bill();
 				repeatF=sc.next();
 			
 				
-		
+	
 			
 			
 		}while(repeatF.equals("yes"));
@@ -374,8 +366,8 @@ b[3]=new Bill();
 				drinksBill=drinksBill+drinksBill();
 			
 			l=optionUserDrinks-1;
-			System.out.println("--"+drinks.get(l).getDrinks()+"---"+drinks.get(l).getPrice());
-			l++;
+			//System.out.println("--"+drinks.get(l).getDrinks()+"---"+drinks.get(l).getPrice());
+			//l++;
 			
 				System.out.println("Do you want to enter more (yes/no) :");
 				repeatD=sc.next();
@@ -395,10 +387,10 @@ b[3]=new Bill();
 		}while(repeat.equals("yes"));
 		
 		System.out.println("------------Order---------------");
-		System.out.println("-----food-----------price------------qty-----");
+		System.out.println("food \t\t\t price\t\t\t  ");
 		
-			viewBill();
-				
+			viewFoodBill();
+			viewDrinksBill();	
 		System.out.println("Total :"+amount);
 		
 		
@@ -407,31 +399,40 @@ b[3]=new Bill();
 	}	
 				float totalBillFood,totalBillDrinks;	
 			
+			
+			
+			
 	public float foodBill()
 	{
 		k=optionUser-1;
-		
 	
-		totalBillFood=qty*foodItems.get(k).getPrice();
+	
+	totalBillFood=qty*foodItems.get(k).getPrice();
+	
+		//foodItems.get(i).setQty(qty);
 		
-		
-		
-			
+		foodItemsBill.add(foodItems.get(k));
 		return  totalBillFood;	
 		
 		
 		
 		
 	}	
-	
+		
+		
 		public float drinksBill()
 	{
 		
 		
 		l=optionUserDrinks-1;
 		//totalBillFood=qty*foodItems.get(k).getPrice();
+		
+		
+		
 		totalBillDrinks=qtyDrinks*drinks.get(l).getPrice();
-			
+		
+		//drinks.get(k).setQty(qty);
+			drinkItemsBill.add(drinks.get(l));
 		return totalBillDrinks;	
 		
 		
@@ -441,15 +442,23 @@ b[3]=new Bill();
 	
 
 
-	public void viewBill()
+	public void viewFoodBill()
 	{
-			for(i=0;i<bill.size();i++)
+			for(i=0;i<foodItemsBill.size();i++)
 				{
-					System.out.println(bill.get(i).getItem()+" "+bill.get(i).getPrice());
+					System.out.println(foodItemsBill.get(i).getFood()+" \t\t\t "+foodItemsBill.get(i).getPrice()+"\t\t\t");
+				
 				}	
 	}
-	
-	
+	public void viewDrinksBill()
+	{
+			
+			for(i=0;i<drinkItemsBill.size();i++)
+				{
+					System.out.println(drinkItemsBill.get(i).getDrinks()+" \t \t\t\t "+drinkItemsBill.get(i).getPrice()+"\t\t\t");
+				
+				}	
+	}
 
 	
 	
