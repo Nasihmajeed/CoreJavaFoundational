@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.ArrayList;
+
 class Food
 {
 
@@ -9,19 +10,19 @@ float foodQty,foodPrice;
 
 ArrayList<Food> food = new ArrayList<Food>();
 
-  public void setFoodName(String foodName)
+  public void setFoodName(String fname)
   {
-	  this.foodName=foodName;
+	  this.foodName=fname;
   }
   
-  public void setFoodQty(float foodQty)
+  public void setFoodQty(float Quantity)
   {
-	  this.foodQty=foodQty;
+	  this.foodQty=Quantity;
   }
   
-  public void setFoodPrice(float foodPrice)
+  public void setFoodPrice(float Price)
   {
-	  this.foodPrice=foodPrice;
+	  this.foodPrice=Price;
   }
   
   public String getFoodName()
@@ -39,7 +40,7 @@ ArrayList<Food> food = new ArrayList<Food>();
 	 return foodPrice;
  }
  
-public static void menuCardDisplay(ArrayList food)
+public static void menuCardSetting(ArrayList<Food> food)
 {
    food.add(new Food());   
    food.get(0).setFoodName("Biriyani");
@@ -63,16 +64,19 @@ public static void menuCardDisplay(ArrayList food)
    
    food.add(new Food());   
    food.get(4).setFoodName("Meals");
-   food.get(4).setFoodQty(1);
-   food.get(4).setFoodPrice(35);
+   food.get(4).setFoodQty(2);
+   food.get(4).setFoodPrice(70);
+}
 
-  
+public void printMenu(ArrayList<Food> food)
+{ 
    System.out.println("..........................................................................MENU CARD : ......................................................................................");
    System.out.println("ITEMS : .........................................................Quantity..........................................................Price........................................................");
-   System.out.println(" 1 .  :  "+food.get[0].getFoodName()+"     Food Qty    :  "+food.get[0].getFoodQty()+"       Food Price   :  "+food.get[0].getFoodPrice());
-   System.out.println(" 2 .  :  "+food.get[1].getFoodName()+"     Food Qty    :  "+food.get[1].getFoodQty()+"       Food Price   :  "+food.get[1].getFoodPrice());
-   System.out.println(" 3 .  :  "+food.get[2].getFoodName()+"     Food Qty    :  "+food.get[2].getFoodQty()+"       Food Price   :  "+food.get[2].getFoodPrice());
-   System.out.println(" 4 .  :  "+food.get[3].getFoodName()+"     Food Qty    :  "+food.get[3].getFoodQty()+"       Food Price   :  "+food.get[3].getFoodPrice());
-   System.out.println(" 5 .  :  "+food.get[4].getFoodName()+"     Food Qty    :  "+food.get[4].getFoodQty()+"       Food Price   :  "+food.get[4].getFoodPrice());
+   System.out.println(" 1 .  :  "+food.get(0).getFoodName()+"  Food Qty    :  "+food.get(0).getFoodQty()+"  Food Price   :  "+food.get(0).getFoodPrice());
+   System.out.println(" 2 .  :  "+food.get(1).getFoodName()+"  Food Qty    :  "+food.get(1).getFoodQty()+"  Food Price   :  "+food.get(1).getFoodPrice());
+   System.out.println(" 3 .  :  "+food.get(2).getFoodName()+"  Food Qty    :  "+food.get(2).getFoodQty()+"  Food Price   :  "+food.get(2).getFoodPrice());
+   System.out.println(" 4 .  :  "+food.get(3).getFoodName()+"  Food Qty    :  "+food.get(3).getFoodQty()+"  Food Price   :  "+food.get(3).getFoodPrice());
+   System.out.println(" 5 .  :  "+food.get(4).getFoodName()+"  Food Qty    :  "+food.get(4).getFoodQty()+"  Food Price   :  "+food.get(4).getFoodPrice());
 }
+
 }

@@ -6,11 +6,12 @@ class Hotel
 {	
 int sel;
 
-ArrayList<Food> foodItems = new ArrayList<Food>(); 
+ArrayList<Food> food = new ArrayList<Food>();
+ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 Admin a=new Admin();
 Food f=new Food();
-
+Drink d=new Drink();
 Scanner sc=new Scanner(System.in);
 
 public void hotelDetails()
@@ -34,7 +35,9 @@ public void hotelDetails()
    {
 	    System.out.println("Hi Sir/Madam!!!!!!!!!!!!!Welcome to Hotel Nalla Bakshanam!!!!!");
         System.out.println("We are happy to serve you......Please make your Order from the menu given below : ");
-		f.menuCardDisplay(foodItems);
+		f.menuCardSetting(food);
+		f.printMenu(food);
+        d.drinksCardSetting(drinks);
    }
 }
 
