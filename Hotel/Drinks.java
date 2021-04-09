@@ -7,19 +7,11 @@ class Drinks
 	Scanner sc=new Scanner(System.in);
 	
 	
-	Food f=new Food();
+	
 	
 	int qty;
 	
-	public void setQty(int qty)
-	{
-		this.qty=qty;
-	}
 	
-	public int getQty()
-	{
-		return qty;
-	}
 	public void setDrinks(String drinks)
 	{
 		this.drinks=drinks;
@@ -27,7 +19,7 @@ class Drinks
 	food=sc.nextLine();
 	*/
 	}
-	public void setPrice(float price)
+	public void setDPrice(float price)
 	{
 		this.price=price;
 		
@@ -48,7 +40,7 @@ class Drinks
 	{
 		return drinks;
 	}
-	public float getPrice()
+	public float getDPrice()
 	{
 		return price;
 		
