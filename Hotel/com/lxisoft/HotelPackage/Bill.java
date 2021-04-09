@@ -1,4 +1,4 @@
-package HotelPackage;
+package com.lxisoft.HotelPackage;
 
 import java.util.ArrayList;
 import java.util.Scanner;

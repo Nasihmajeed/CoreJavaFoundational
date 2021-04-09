@@ -1,5 +1,5 @@
-package TddPackage;
-import HotelPackage.*;
+//package com.lxisoft.TddPackage;
+import com.lxisoft.HotelPackage.*;
 //import UserPackage.*;
 import java.util.ArrayList;
 public class TDD{

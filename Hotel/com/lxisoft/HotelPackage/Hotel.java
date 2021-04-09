@@ -1,5 +1,5 @@
-package HotelPackage;
-import UserPackage.*;
+package com.lxisoft.HotelPackage;
+import com.lxisoft.UserPackage.*;
 //import TddPackage.*;
 import java.util.Scanner;
 import java.util.ArrayList;
