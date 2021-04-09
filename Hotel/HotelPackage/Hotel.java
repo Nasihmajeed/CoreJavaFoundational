@@ -1,6 +1,9 @@
+package HotelPackage;
+import UserPackage.*;
+//import TddPackage.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-class Hotel{
+public class Hotel{
 	Food ff= new Food();
 	//Drinks dr=new Drinks();
 	Admin ad=new Admin();

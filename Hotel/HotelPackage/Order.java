@@ -1,6 +1,8 @@
+package HotelPackage;
+import UserPackage.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-class Order{ 
+public class Order{ 
 int home;
 	public float total=0;
 	//int[] qty=new int[10];

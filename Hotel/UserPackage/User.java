@@ -1,6 +1,8 @@
+package UserPackage;
+import HotelPackage.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-class User{
+public class User{
 	ArrayList<Bill> bill=new ArrayList<Bill>();
 	ArrayList<Food> food=new ArrayList<Food>();
 	ArrayList<Food> drinks=new ArrayList<Food>();

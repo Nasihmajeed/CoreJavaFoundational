@@ -1,5 +1,8 @@
+package TddPackage;
+import HotelPackage.*;
+//import UserPackage.*;
 import java.util.ArrayList;
-class TDD{
+public class TDD{
 	public static void main(String[] args){
 		
 		//fd.addMenu();
@@ -19,5 +22,5 @@ class TDD{
 		
 		
 		}
-	
 }
+	

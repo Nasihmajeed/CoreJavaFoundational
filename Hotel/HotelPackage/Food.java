@@ -1,6 +1,8 @@
+package HotelPackage;
+
 import java.util.ArrayList;
 import java.util.*;
-class Food{
+public class Food{
 	int id;
 	String foodItem;
 	float price;

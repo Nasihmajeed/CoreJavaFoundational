@@ -1,6 +1,8 @@
+package HotelPackage;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-class Bill{
+public class Bill{
 	
 	int foodId;
 	String foodName;

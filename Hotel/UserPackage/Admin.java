@@ -1,7 +1,9 @@
+package UserPackage;
+import HotelPackage.*;
 import java.util.Scanner;
 import java.util.*;
 import java.util.ArrayList;
-class Admin{
+public class Admin{
 	Scanner sc=new Scanner(System.in);
 	Scanner sr=new Scanner(System.in);
 	Scanner sn=new Scanner(System.in);
