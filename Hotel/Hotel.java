@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Hotel
+public class Hotel
 {	
 int sel;
 
@@ -10,8 +10,11 @@ ArrayList<Food> food = new ArrayList<Food>();
 ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 Admin a=new Admin();
+
 Food f=new Food();
+
 Drink d=new Drink();
+
 Scanner sc=new Scanner(System.in);
 
 public void hotelDetails()
@@ -38,6 +41,7 @@ public void hotelDetails()
 		f.menuCardSetting(food);
 		f.printMenu(food);
         d.drinksCardSetting(drinks);
+		d.printMenuDrinks(drinks);
    }
 }
 

@@ -15,7 +15,7 @@ ArrayList<Drink> drinks = new ArrayList<Drink>();
 	  this.drinkName=dname;
   }
   
-  public void setDrinkQty(float Quantity)
+  public void setDrinkQty(int Quantity)
   {
 	  this.drinkQty=Quantity;
   }
@@ -68,7 +68,7 @@ public static void drinksCardSetting(ArrayList<Drink> drinks)
    drinks.get(4).setDrinkPrice(90);
 }
 
-public void printMenu(ArrayList<Drink> drinks)
+public void printMenuDrinks(ArrayList<Drink> drinks)
 { 
    System.out.println("..........................................................................MENU CARD [Drinks] : ......................................................................................");
    System.out.println("DRINKS : .........................................................Quantity..........................................................Price........................................................");
