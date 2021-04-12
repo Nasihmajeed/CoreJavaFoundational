@@ -6,12 +6,12 @@ class Admin
 {
 	Food  f=new Food();
 	
-	ArrayList<Food> foodItems=new ArrayList<Food>();
+	ArrayList<Items> foodItems=new ArrayList<Items>();
 
-ArrayList<Food> drinks=new ArrayList<Food>();
+
 	
-	ArrayList<Food>foodItemsBill =new ArrayList<Food>();
-	ArrayList<Food> drinkItemsBill=new ArrayList<Food>();
+	ArrayList<Items>foodItemsBill =new ArrayList<Items>();
+	ArrayList<Items> drinkItemsBill=new ArrayList<Items>();
 
 	Scanner sc=new Scanner(System.in);
 	String food,option,drink;
@@ -19,42 +19,51 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 	int i,n;
 	
 	{	foodItems.add(new Food());
-		foodItems.get(0).setFood("Appam");
-		foodItems.get(0).setPrice(10);
+			foodItems.get(0).setItem("Appam");
+			foodItems.get(0).setPrice(10);
 		
 		
-		foodItems.add(new Food());
-		foodItems.get(1).setFood("Dosa");
-		foodItems.get(1).setPrice(5);
-		
-		
-		foodItems.add(new Food());
-		foodItems.get(2).setFood("Porotta");
-		foodItems.get(2).setPrice(10);
+			
+			foodItems.add(new Food());
+			foodItems.get(1).setItem("Dosa");
+			foodItems.get(1).setPrice(5);
 	
+		
+		
 		foodItems.add(new Food());
-		foodItems.get(3).setFood("Meals");
-		foodItems.get(3).setPrice(40);
+		
+			foodItems.get(2).setItem("Porotta");
+			foodItems.get(2).setPrice(10);
+		
+	
+	foodItems.add(new Food());
+		
+			foodItems.get(3).setItem("Meals");
+			foodItems.get(3).setPrice(40);
 		
 		
 		//*********Drinks//
 		
 		
-			drinks.add(new Food());
-			drinks.get(0).setDrinks("Lime");
-			drinks.get(0).setDPrice(20);
+			foodItems.add(new Drinks());
+			
+			foodItems.get(4).setItem("Lime");
+			foodItems.get(4).setPrice(20);
 		
-			drinks.add(new Food());
-			drinks.get(1).setDrinks("Apple Juice");
-			drinks.get(1).setDPrice(40);
+			foodItems.add(new Drinks());
 		
-			drinks.add(new Food());
-			drinks.get(2).setDrinks("Milk Shake");
-			drinks.get(2).setDPrice(50);
+			foodItems.get(5).setItem("Apple Juice");
+			foodItems.get(5).setPrice(40);
 		
-			drinks.add(new Food());
-			drinks.get(3).setDrinks("Badam Milk");
-			drinks.get(3).setDPrice(30);
+			foodItems.add(new Drinks());
+		
+			foodItems.get(6).setItem("Milk Shake");
+			foodItems.get(6).setPrice(50);
+	
+			foodItems.add(new Drinks());
+			
+			foodItems.get(7).setItem("Badam Milk");
+			foodItems.get(7).setPrice(30);
 		
 		
 		
@@ -73,9 +82,9 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		 System.out.println("------------Item ---------------Price ----");
 		for(i=0;i<foodItems.size();i++)
 		{	
-		
-		System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
-		
+				if(foodItems.get(i) instanceof Food){
+		System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+			}
 		}
 	
 		// drinks listing 
@@ -83,11 +92,11 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		System.out.println("--------------------------------------------Drinks----------------------------------------------------------");
 		
 		 System.out.println("------------Item ---------------Price ----");
-		for(i=0;i<drinks.size();i++)
+		for(i=0;i<foodItems.size();i++)
 		{	
-		
-		System.out.println(i+1+" "+	drinks.get(i).getDrinks()+"-------------------         ----------- "+	drinks.get(i).getDPrice());
-		
+		if(foodItems.get(i) instanceof Drinks){
+		System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+	foodItems.get(i).getPrice());
+		}
 		}
 		
 	}
@@ -104,7 +113,7 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 	
 		case 1:	System.out.println("Enter how many items need to be added");
 				n=sc.nextInt();
-		
+			
 				j=foodItems.size();
 				for(i=0;i<n;i++)
 			
@@ -116,14 +125,16 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 				food=sc.next();
 			
 				foodItems.add(new Food());
-				foodItems.get(j).setFood(food);		
-		
+				
+				foodItems.get(j).setItem(food);		
+				
 		
 		
 				System.out.println("Enter the Price for "+food+" :");
 				price=sc.nextFloat();
-				foodItems.get(j).setPrice(price);		
-		
+				
+					foodItems.get(j).setPrice(price);		
+				
 	
 
 				j++;
@@ -134,7 +145,7 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		case 2:	System.out.println("Enter how many items need to be added");
 				n=sc.nextInt();
 		
-				j=drinks.size();
+				j=foodItems.size();
 				for(i=0;i<n;i++)
 			
 				{ 
@@ -144,16 +155,17 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 				System.out.println("Enter the Drink");
 				drink=sc.next();
 			
-				drinks.add(new Food());
-				drinks.get(j).setDrinks(drink);		
-		
+			foodItems.add(new Drinks());
+				
+				foodItems.get(j).setItem(drink);		
+				
 		
 		
 				System.out.println("Enter the Price for "+drink+" :");
 				dPrice=sc.nextFloat();
-				drinks.get(j).setDPrice(dPrice);		
-		
-	
+				
+				foodItems.get(j).setPrice(dPrice);		
+				
 
 				j++;
 			
@@ -197,8 +209,9 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 					System.out.println("Enter the price to be update: ");
 					updatePrice=sc.nextFloat();
 			
-					foodItems.get(j).setFood(updateFood);
+					foodItems.get(j).setItem(updateFood);
 					foodItems.get(j).setPrice(updatePrice);
+			
 					break;
 				
 		case 2:		System.out.println("Enter the number to be edited :");
@@ -213,8 +226,9 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 					System.out.println("Enter the price to be update: ");
 					updateDPrice=sc.nextFloat();
 			
-				drinks.get(m).setDrinks(updateDrink);
-					drinks.get(m).setDPrice(updateDPrice);
+					
+					foodItems.get(m).setItem(updateDrink);
+					foodItems.get(m).setPrice(updateDPrice);
 					break;
 				
 				
@@ -245,15 +259,19 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		case 1:		System.out.println("Enter the item to be remove: ");
 					removeF=sc.nextInt();
 					j=removeF-1;
-					foodItems.remove(j);
+				
+				foodItems.remove(j);
+				
 					viewDishes();
 					break;
 				
 		case 2:		System.out.println("Enter the item to be remove: ");
 					removeD=sc.nextInt();
 					m=removeD-1;
-					drinks.remove(m);
-					viewDishes();
+					
+					foodItems.remove(m);
+				
+				viewDishes();
 					break;
 				
 				
@@ -312,9 +330,10 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 			
 					for(i=0;i<foodItems.size();i++)
 					{	
-				
-					System.out.println(i+1+" "+foodItems.get(i).getFood()+"-------------------         ----------- "+foodItems.get(i).getPrice());
-				
+					if(foodItems.get(i) instanceof Food)
+						{
+						System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+						}
 					}
 		
 		
@@ -356,11 +375,12 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		if(orderOption==2)
 		{
 			do{
-					for(i=0;i<drinks.size();i++)
+					for(i=0;i<foodItems.size();i++)
 					{	
-			
-					System.out.println(i+1+" "+drinks.get(i).getDrinks()+"-------------------         ----------- "+drinks.get(i).getDPrice());
-				
+					if(foodItems.get(i) instanceof Drinks)
+						{
+					System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+						}
 					}
 		
 					System.out.println("Select an option :");
@@ -417,9 +437,8 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 	
 	totalBillFood=qty*foodItems.get(k).getPrice();
 	
-		//foodItems.get(i).setQty(qty);
-		
 		foodItemsBill.add(foodItems.get(k));
+						
 		return  totalBillFood;	
 		
 		
@@ -431,10 +450,10 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 		public float drinksBill()
 		{
 		l=optionUserDrinks-1;
-		totalBillDrinks=qtyDrinks*drinks.get(l).getDPrice();
-	
 		
-			drinkItemsBill.add(drinks.get(l));
+			totalBillDrinks=qtyDrinks*foodItems.get(l).getPrice();
+				drinkItemsBill.add(foodItems.get(l));
+				
 		return totalBillDrinks;	
 		}	
 	
@@ -445,9 +464,10 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 			for(i=0;i<foodItemsBill.size();i++)
 				{
 					
-	
-					System.out.println(foodItemsBill.get(i).getFood()+" \t\t\t "+foodItemsBill.get(i).getPrice()+"\t\t\t");
-	
+				if(foodItems.get(i) instanceof Food)
+						{
+					System.out.println(foodItemsBill.get(i).getItem()+" \t\t\t "+foodItemsBill.get(i).getPrice()+"\t\t\t");
+						}
 				}	
 	}
 	public void viewDrinksBill()
@@ -455,9 +475,11 @@ ArrayList<Food> drinks=new ArrayList<Food>();
 			
 			for(i=0;i<drinkItemsBill.size();i++)
 				{
-					
+				if(foodItems.get(i) instanceof Drinks)
+						{	
 	
-				System.out.println(drinkItemsBill.get(i).getDrinks()+" \t \t\t\t "+drinkItemsBill.get(i).getDPrice()+"\t\t\t");
+				System.out.println(drinkItemsBill.get(i).getItem()+" \t \t\t\t "+drinkItemsBill.get(i).getPrice()+"\t\t\t");
+						}
 	
 				}	
 	}
