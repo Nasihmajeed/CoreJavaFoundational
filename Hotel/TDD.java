@@ -6,14 +6,3 @@ class TDD
 	    h.hotelDetails();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

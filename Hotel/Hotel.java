@@ -38,12 +38,8 @@ public void hotelDetails()
    {
 	    System.out.println("Hi Sir/Madam!!!!!!!!!!!!!Welcome to Hotel Nalla Bakshanam!!!!!");
         System.out.println("We are happy to serve you......Please make your Order from the menu given below : ");
-		/*
-		f.menuCardSetting(food);
-		f.printMenu(food);
-        d.drinksCardSetting(drinks);
+		f.printMenuFood(food);
 		d.printMenuDrinks(drinks);
-        */
    }
 }
 

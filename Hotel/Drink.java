@@ -10,6 +10,33 @@ int dQty;
 
 ArrayList<Drink> drinks = new ArrayList<Drink>();
 
+ {
+   drinks.add(new Drink());   
+   drinks.get(0).setDrinkName("Pepsi");
+   drinks.get(0).setDrinkQty(2);
+   drinks.get(0).setDrinkPrice(100);
+
+   drinks.add(new Drink());   
+   drinks.get(1).setDrinkName("COCA-COLA");
+   drinks.get(1).setDrinkQty(3);
+   drinks.get(1).setDrinkPrice(150);
+
+   drinks.add(new Drink());   
+   drinks.get(2).setDrinkName("Mirinda");
+   drinks.get(2).setDrinkQty(5);
+   drinks.get(2).setDrinkPrice(350);
+
+   drinks.add(new Drink());   
+   drinks.get(3).setDrinkName("Sprite");
+   drinks.get(3).setDrinkQty(1);
+   drinks.get(3).setDrinkPrice(35);
+   
+   drinks.add(new Drink());   
+   drinks.get(4).setDrinkName("Maa");
+   drinks.get(4).setDrinkQty(1);
+   drinks.get(4).setDrinkPrice(90);
+}
+ 
  public void setDrinkName(String dname)
   {
 	  this.dName=dname;
@@ -40,34 +67,6 @@ ArrayList<Drink> drinks = new ArrayList<Drink>();
 	 return dPrice;
  }
  
-public static void drinksCardSetting(ArrayList<Drink> drinks)
-{
-   drinks.add(new Drink());   
-   drinks.get(0).setDrinkName("Pepsi");
-   drinks.get(0).setDrinkQty(2);
-   drinks.get(0).setDrinkPrice(100);
-
-   drinks.add(new Drink());   
-   drinks.get(1).setDrinkName("COCA-COLA");
-   drinks.get(1).setDrinkQty(3);
-   drinks.get(1).setDrinkPrice(150);
-
-   drinks.add(new Drink());   
-   drinks.get(2).setDrinkName("Mirinda");
-   drinks.get(2).setDrinkQty(5);
-   drinks.get(2).setDrinkPrice(350);
-
-   drinks.add(new Drink());   
-   drinks.get(3).setDrinkName("Sprite");
-   drinks.get(3).setDrinkQty(1);
-   drinks.get(3).setDrinkPrice(35);
-   
-   drinks.add(new Drink());   
-   drinks.get(4).setDrinkName("Maa");
-   drinks.get(4).setDrinkQty(1);
-   drinks.get(4).setDrinkPrice(90);
-}
-
 public void printMenuDrinks(ArrayList<Drink> drinks)
 { 
    System.out.println("...................MENU CARD [Drinks]........................");

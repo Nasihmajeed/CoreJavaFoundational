@@ -10,37 +10,7 @@ float fQty,fPrice;
 
 ArrayList<Food> food = new ArrayList<Food>();
 
-  public void setFoodName(String name)
-  {
-	  this.fName=name;
-  }
-  
-  public void setFoodQty(float Quantity)
-  {
-	  this.fQty=Quantity;
-  }
-  
-  public void setFoodPrice(float Price)
-  {
-	  this.fPrice=Price;
-  }
-  
-  public String getFoodName()
-  {
-	  return fName; 
-  }
 
- public float getFoodQty()
- {
-	 return fQty;
- }
- 
- public float getFoodPrice()
- {
-	 return fPrice;
- }
- 
-public static void menuCardSetting(ArrayList<Food> food)
 {
    food.add(new Food());   
    food.get(0).setFoodName("Biriyani");
@@ -68,7 +38,38 @@ public static void menuCardSetting(ArrayList<Food> food)
    food.get(4).setFoodPrice(70);
 }
 
-public void printMenu(ArrayList<Food> food)
+ public void setFoodName(String name)
+  {
+	  this.fName=name;
+  }
+  
+  public void setFoodQty(int Quantity)
+  {
+	  this.fQty=Quantity;
+  }
+  
+  public void setFoodPrice(float Price)
+  {
+	  this.fPrice=Price;
+  }
+  
+  public String getFoodName()
+  {
+	  return fName; 
+  }
+
+ public float getFoodQty()
+ {
+	 return fQty;
+ }
+ 
+ public float getFoodPrice()
+ {
+	 return fPrice;
+ }
+
+
+public void printMenuFood(ArrayList<Food> food)
 { 
    System.out.println("..............MENU CARD................");
    System.out.println("ITEMS : ...............................Quantity...........  .............. ...Price");
