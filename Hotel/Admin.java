@@ -7,11 +7,12 @@ class Admin
 	Food  f=new Food();
 	
 	ArrayList<Items> foodItems=new ArrayList<Items>();
-
+	ArrayList quantity=new ArrayList();	
+//ArrayList quantityDrinks=new ArrayList();	
 
 	
-	ArrayList<Items>foodItemsBill =new ArrayList<Items>();
-	ArrayList<Items> drinkItemsBill=new ArrayList<Items>();
+	ArrayList<Items>foodDrinksBill =new ArrayList<Items>();
+//	ArrayList<Items> drinkItemsBill=new ArrayList<Items>();
 
 	Scanner sc=new Scanner(System.in);
 	String food,option,drink;
@@ -437,8 +438,9 @@ class Admin
 	
 	totalBillFood=qty*foodItems.get(k).getPrice();
 	
-		foodItemsBill.add(foodItems.get(k));
-						
+		foodDrinksBill.add(foodItems.get(k));
+		quantity.add(qty);
+									
 		return  totalBillFood;	
 		
 		
@@ -452,8 +454,8 @@ class Admin
 		l=optionUserDrinks-1;
 		
 			totalBillDrinks=qtyDrinks*foodItems.get(l).getPrice();
-				drinkItemsBill.add(foodItems.get(l));
-				
+				foodDrinksBill.add(foodItems.get(l));
+				quantity.add(qtyDrinks);		
 		return totalBillDrinks;	
 		}	
 	
@@ -461,24 +463,25 @@ class Admin
 
 	public void viewFoodBill()
 	{
-			for(i=0;i<foodItemsBill.size();i++)
+			for(i=0;i<foodDrinksBill.size();i++)
 				{
 					
 				if(foodItems.get(i) instanceof Food)
 						{
-					System.out.println(foodItemsBill.get(i).getItem()+" \t\t\t "+foodItemsBill.get(i).getPrice()+"\t\t\t");
+					System.out.println(foodDrinksBill.get(i).getItem()+" \t\t\t "+foodDrinksBill.get(i).getPrice()+"\t\t\t"+quantity.get(i));
 						}
 				}	
 	}
 	public void viewDrinksBill()
 	{
 			
-			for(i=0;i<drinkItemsBill.size();i++)
+			for(i=0;i<foodDrinksBill.size();i++)
 				{
 				if(foodItems.get(i) instanceof Drinks)
 						{	
-	
-				System.out.println(drinkItemsBill.get(i).getItem()+" \t \t\t\t "+drinkItemsBill.get(i).getPrice()+"\t\t\t");
+						j=foodDrinksBill.size();
+				System.out.println(foodDrinksBill.get(i).getItem()+" \t \t\t\t "+foodDrinksBill.get(i).getPrice()+"\t\t\t"+quantity.get(j));
+						j++;
 						}
 	
 				}	
