@@ -1,5 +1,7 @@
+package com.lxisoft.forestPackage;
+import com.lxisoft.animalPackage.*;
 import java.util.*;
-class Forest{
+public class Forest{
 		//ArrayList<Animal> herbAnimal=new ArrayList<Animal>();
 	ArrayList<Animal> animal=new ArrayList<Animal>();
 	ArrayList<String> deadAnimal=new ArrayList<String>();
@@ -30,15 +32,15 @@ class Forest{
 		System.out.printf("%-20s %10s\n", "HERBIVORES ANIMAL","STRENGTH");
 		System.out.printf("----------------------------------------------");
 			for(int i=0;i<animal.size();i++){
-				if(animal.get(i).type.equals("HERBIVORES")){
-				System.out.printf("\n%-15s %10s\n", animal.get(i).name,animal.get(i).strength);
+				if(animal.get(i).getType().equals("HERBIVORES")){
+				System.out.printf("\n%-15s %10s\n", animal.get(i).getName(),animal.get(i).getStrength());
 				}
 			}
 			System.out.printf("\n\n%-20s %10s\n", "CARNIVORES ANIMAL","STRENGTH");
 		System.out.printf("----------------------------------------------");
 			for(int i=0;i<animal.size();i++){
-				if(animal.get(i).type.equals("CARNIVORES")){
-				System.out.printf("\n%-15s %10s\n", animal.get(i).name,animal.get(i).strength);
+				if(animal.get(i).getType().equals("CARNIVORES")){
+				System.out.printf("\n%-15s %10s\n", animal.get(i).getName(),animal.get(i).getStrength());
 				}
 			}
 		do{
@@ -53,59 +55,59 @@ class Forest{
 				} catch(InterruptedException ex) {
 					Thread.currentThread().interrupt();
 				} */
-				System.out.println("\n ANIMALS IN THE RING "+animal.get(randm1).name +" AND "+ animal.get(randm2).name);
-				if(animal.get(randm1).type.equals("HERBIVORES")&&animal.get(randm2).type.equals("HERBIVORES")){
+				System.out.println("\n ANIMALS IN THE RING "+animal.get(randm1).getName() +" AND "+ animal.get(randm2).getName());
+				if(animal.get(randm1).getType().equals("HERBIVORES")&&animal.get(randm2).getType().equals("HERBIVORES")){
 					System.out.println("HERBIVORES ANIMALS WON'T FIGHT");
 				}
-				 else if(animal.get(randm1).strength>animal.get(randm2).strength){
+				 else if(animal.get(randm1).getStrength()>animal.get(randm2).getStrength()){
 					/* 				try {
 					Thread.sleep(2000);                 //1500 milliseconds is one second.
 				} catch(InterruptedException ex) {
 					Thread.currentThread().interrupt();
 				} */
-				System.out.println("\n ANIMAL "+animal.get(randm1).name+" WINS");
-				animal.get(randm2).strength=animal.get(randm2).strength/2;
+				System.out.println("\n ANIMAL "+animal.get(randm1).getName()+" WINS");
+				animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
 						/* 			try {
 						Thread.sleep(1500);                 //1500 milliseconds is one second.
 					} catch(InterruptedException ex) {
 						Thread.currentThread().interrupt();
 					} */
-				System.out.println("Strength of "+animal.get(randm2).name +" is "+animal.get(randm2).strength);
-					if(animal.get(randm2).strength<=10){
+				System.out.println("Strength of "+animal.get(randm2).getName() +" is "+animal.get(randm2).getStrength());
+					if(animal.get(randm2).getStrength()<=10){
 							/* 				try {
 						Thread.sleep(3000);                 //1500 milliseconds is one second.
 					} catch(InterruptedException ex) {
 						Thread.currentThread().interrupt();
 					} */
 						
-						System.out.println("ANIMAL "+animal.get(randm2).name+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD");
 						//deadAnimal.add(new String());
-						deadAnimal.add(animal.get(randm2).name);
+						deadAnimal.add(animal.get(randm2).getName());
 						animal.remove(randm2);
 					}
 				}
-				else if(animal.get(randm1).strength<animal.get(randm2).strength){
+				else if(animal.get(randm1).getStrength()<animal.get(randm2).getStrength()){
 								/* 	try {
 					Thread.sleep(2000);                 //1500 milliseconds is one second.
 				} catch(InterruptedException ex) {
 					Thread.currentThread().interrupt();
 				} */
-					System.out.println("\n ANIMAL "+animal.get(randm2).name+" WINS");
-					animal.get(randm1).strength=animal.get(randm1).strength/2;
+					System.out.println("\n ANIMAL "+animal.get(randm2).getName()+" WINS");
+					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
 									/* 		try {
 							Thread.sleep(1500);                 //1500 milliseconds is one second.
 						} catch(InterruptedException ex) {
 							Thread.currentThread().interrupt();
 						} */
-					System.out.println("Strength of "+animal.get(randm1).name +" is "+animal.get(randm1).strength);
-					if(animal.get(randm1).strength<=10){
+					System.out.println("Strength of "+animal.get(randm1).getName() +" is "+animal.get(randm1).getStrength());
+					if(animal.get(randm1).getStrength()<=10){
 								/* 		try {
 						Thread.sleep(3000);                 //1500 milliseconds is one second.
 					} catch(InterruptedException ex) {
 						Thread.currentThread().interrupt();
 					} */
-											System.out.println("ANIMAL "+animal.get(randm1).name+" IS DEAD");
-											deadAnimal.add(animal.get(randm1).name);
+											System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD");
+											deadAnimal.add(animal.get(randm1).getName());
 							animal.remove(randm1);
 					}
 				}
@@ -123,7 +125,7 @@ class Forest{
 			System.out.println("DEAD ANIMAL : "+deadAnimal.get(i));
 			}
 		System.out.println("\n\n|***************************************************|");
-		System.out.println("|******************WINNER IS "+animal.get(0).name+"******************|");
+		System.out.println("|******************WINNER IS "+animal.get(0).getName()+"******************|");
 		System.out.println("|***************************************************|");
 	}
 	//public void fight(randm1,randm2,ArrayList<Animal> animal){

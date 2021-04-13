@@ -1,5 +1,7 @@
+package com.lxisoft.animalPackage;
+
 import java.util.*;
-class Animal{
+public class Animal{
 	String name,type;
 	int strength;
 	ArrayList<Animal> animal=new ArrayList<Animal>();
