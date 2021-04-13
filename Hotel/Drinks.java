@@ -1,5 +1,0 @@
-class Drinks extends Items
-{
-	
-	
-}

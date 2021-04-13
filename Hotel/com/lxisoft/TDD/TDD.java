@@ -1,5 +1,6 @@
-
-class TDD
+package com.lxisoft.TDD;
+import com.lxisoft.Admin;
+public class TDD
 {
 
 
@@ -7,7 +8,7 @@ class TDD
 	{	Admin a=new Admin();
 		
 		
-	Customer c=new Customer();
+	//Customer c=new Customer();
 	
 	
 	

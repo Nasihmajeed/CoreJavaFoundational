@@ -1,5 +1,7 @@
+package com.lxisoft.Items;
 import java.util.*;
-class Items
+
+public class Items
 {float price;
 String item;
 		

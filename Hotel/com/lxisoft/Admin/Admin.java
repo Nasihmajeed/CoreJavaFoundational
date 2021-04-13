@@ -1,8 +1,11 @@
 import java.util.*;
 
-	
+	package com.lxisoft.Admin;
+	import com.lxisoft.Items;
+	import com.lxisoft.Food;
+	import com.lxisoft.Drinks;
 
-class Admin 
+public class Admin 
 {
 	Food  f=new Food();
 	

@@ -1,5 +1,0 @@
-class Food extends Items
-{	
-	
-	
-}

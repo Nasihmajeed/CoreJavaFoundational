@@ -1,5 +1,8 @@
+package com.lxisoft.User;
+import com.lxisoft.Admin;
+
 import java.util.*;
-class User
+public class User
 {
 Scanner sc=new Scanner(System.in);
 int option,adminOption;
