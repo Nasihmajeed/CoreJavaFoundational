@@ -17,7 +17,7 @@ public class Forest{
 	} */
 	public void forestDetails(){
 		System.out.println("|**********************************|");
-		System.out.println("|******WELCOME TO THE JUNGLE*******|");
+		System.out.println("|******WELCOME TO THE JUNGLE********|");
 		System.out.println("|**********************************|");
 		a.addAnimal(animal);
 				try {
