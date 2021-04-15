@@ -1,4 +1,5 @@
-package com.lxisoft.Food;
+//package com.lxisoft.Hotel;
+
 public class Food extends Items
 {	
 	

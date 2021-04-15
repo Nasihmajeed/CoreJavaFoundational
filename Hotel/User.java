@@ -1,12 +1,12 @@
-package com.lxisoft.User;
-import com.lxisoft.Admin;
+//package com.lxisoft.AdminUser;
+
 
 import java.util.*;
 public class User
 {
 Scanner sc=new Scanner(System.in);
 int option,adminOption;
-Customer c=new Customer();
+//Customer c=new Customer();
 Admin a=new Admin();
 String uname,pwd,ans;
 int optionUser;

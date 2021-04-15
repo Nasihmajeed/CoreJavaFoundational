@@ -1,10 +1,9 @@
+	//package com.lxisoft.AdminUser;
 import java.util.*;
 
-	package com.lxisoft.Admin;
-	import com.lxisoft.Items;
-	import com.lxisoft.Food;
-	import com.lxisoft.Drinks;
 
+	//import com.lxisoft.Hotel.*;
+	
 public class Admin 
 {
 	Food  f=new Food();
@@ -83,11 +82,11 @@ public class Admin
 		
 		
 		 System.out.println("--------------------------------------------Food----------------------------------------------------------");
-		 System.out.println("------------Item ---------------Price ----");
+		 System.out.printf("%3s %15s %-4s\n","ID","Food","Price");
 		for(i=0;i<foodItems.size();i++)
 		{	
 				if(foodItems.get(i) instanceof Food){
-		System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+		System.out.printf("%3s %15s %-4s\n",i+i,foodItems.get(i).getItem(),foodItems.get(i).getPrice());
 			}
 		}
 	
@@ -95,11 +94,11 @@ public class Admin
 		System.out.println("------------------------------------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------Drinks----------------------------------------------------------");
 		
-		 System.out.println("------------Item ---------------Price ----");
+		 System.out.printf("%3s %15s %-4s\n","ID","Drinks","Price");
 		for(i=0;i<foodItems.size();i++)
 		{	
 		if(foodItems.get(i) instanceof Drinks){
-		System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+	foodItems.get(i).getPrice());
+		System.out.printf("%3s %15s %-4s\n",i+1,foodItems.get(i).getItem(),foodItems.get(i).getPrice());
 		}
 		}
 		
@@ -309,7 +308,7 @@ public class Admin
 	float amount=0;
 	float totalBill,foodBill,drinksBill;
 	
-	ArrayList<Bill> bill=new ArrayList<Bill>();
+//	ArrayList<Bill> bill=new ArrayList<Bill>();
 	
 	
 		int l;
@@ -328,15 +327,15 @@ public class Admin
 			if(orderOption==1)
 			{		
 			
-		
+		//System.out.printf("%3s %15s %-6s\n","ID","Food","Price");
 				do
 					{
-			
+			System.out.printf("%3s %15s %-6s\n","ID","Food","Price");
 					for(i=0;i<foodItems.size();i++)
 					{	
 					if(foodItems.get(i) instanceof Food)
 						{
-						System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+						System.out.printf("%3s %15s %-6s\n",i+1,foodItems.get(i).getItem(),foodItems.get(i).getPrice());
 						}
 					}
 		
@@ -379,11 +378,12 @@ public class Admin
 		if(orderOption==2)
 		{
 			do{
-					for(i=0;i<foodItems.size();i++)
+					System.out.printf("%3s %15s %-4s\n","ID","Food","Price");
+				for(i=0;i<foodItems.size();i++)
 					{	
 					if(foodItems.get(i) instanceof Drinks)
 						{
-					System.out.println(i+1+" "+foodItems.get(i).getItem()+"-------------------         ----------- "+foodItems.get(i).getPrice());
+					System.out.printf("%3s %15s %-4s\n",i+1,foodItems.get(i).getItem(),foodItems.get(i).getPrice());
 						}
 					}
 		
@@ -419,7 +419,7 @@ public class Admin
 		}while(repeat.equals("yes"));
 		
 		System.out.println("------------Order---------------");
-		System.out.println("food \t\t\t price\t\t\t  ");
+		System.out.printf("%3s %15s %-4s %3s\n","ID","Food","Price","Qty");
 		
 			viewFoodBill();
 			viewDrinksBill();	
@@ -465,25 +465,24 @@ public class Admin
 
 
 	public void viewFoodBill()
-	{
+	{		 
 			for(i=0;i<foodDrinksBill.size();i++)
 				{
 					
 				if(foodItems.get(i) instanceof Food)
 						{
-					System.out.println(foodDrinksBill.get(i).getItem()+" \t\t\t "+foodDrinksBill.get(i).getPrice()+"\t\t\t"+quantity.get(i));
+					System.out.printf("%3s %15s %-4s %3s\n",i+1,foodDrinksBill.get(i).getItem(),foodDrinksBill.get(i).getPrice(),quantity.get(i));
 						}
 				}	
 	}
 	public void viewDrinksBill()
-	{
-			
+	{			
 			for(i=0;i<foodDrinksBill.size();i++)
 				{
 				if(foodItems.get(i) instanceof Drinks)
 						{	
 						j=foodDrinksBill.size();
-				System.out.println(foodDrinksBill.get(i).getItem()+" \t \t\t\t "+foodDrinksBill.get(i).getPrice()+"\t\t\t"+quantity.get(j));
+				System.out.printf("%3s %15s %-4s %3s\n",i+1,foodDrinksBill.get(i).getItem(),foodDrinksBill.get(i).getPrice(),quantity.get(j));
 						j++;
 						}
 	
