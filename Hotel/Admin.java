@@ -1,5 +1,8 @@
 import java.util.*;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+
 class Admin
  {
     Scanner sc=new Scanner(System.in);
@@ -198,24 +201,22 @@ public void viewList(ArrayList<Food> food, ArrayList<Drink> drinks)
 									  if(v==1)                          //Food List
 									  {
 										System.out.println("--------------------MENU[FOOD-ITEMS]---------------------");
-									    Iterator ite=food.iterator();
-									    while(ite.hasNext())
-									   {
-										  Object o=ite.next();
-										  System.out.println(o);
-									   }
+									    for(int i=0;i<=food.size();i++)
+										{
+	System.out.println("Food Name : "+food.get(i).getFoodName()+" Food Qty : "food.get(i).getFoodQty()+" Food Price : "+food.get(i).getFoodPrice());		
+										}
+									
 									   System.out.println("------------------------------------------------------------");  
 									   }
 						              
 									  else if(v==2)                   //Drinks List
 									  {
 										  System.out.println("--------------------MENU[Drinks]---------------------");
-								          Iterator iter=drinks.iterator();
-									      while(iter.hasNext())
-									     {
-										  Object o=iter.next();
-										  System.out.println(o);
-									      }
+                                          for(int i=0;i<=drinks.size();i++)
+										{
+	System.out.println("Drink Name : "+drinks.get(i).getDrinkName()+" Drink Qty : "drinks.get(i).getDrinkQty()+" Drink Price : "+drinks.get(i).getDrinkPrice());		
+										}								         
+										 
 									     System.out.println("-------------------------------------------------------------------");
 									   }
 									   else

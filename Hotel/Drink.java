@@ -10,8 +10,39 @@ int dQty;
 
 ArrayList<Drink> drinks = new ArrayList<Drink>();
 
+public void setDrinkName(String dname)
+  {
+	  this.dName=dname;
+  }
+  
+  public void setDrinkQty(int Quantity)
+  {
+	  this.dQty=Quantity;
+  }
+  
+  public void setDrinkPrice(float Price)
+  {
+	  this.dPrice=Price;
+  }
+  
+  public String getDrinkName()
+  {
+	  return dName; 
+  }
+
+ public int getDrinkQty()
  {
-   drinks.add(new Drink());   
+	 return dQty;
+ }
+ 
+ public float getDrinkPrice()
+ {
+	 return dPrice;
+ }
+
+public static void setDrinks(ArrayList<Drink> drinks)
+{
+	drinks.add(new Drink());   
    drinks.get(0).setDrinkName("Pepsi");
    drinks.get(0).setDrinkQty(2);
    drinks.get(0).setDrinkPrice(100);
@@ -36,36 +67,6 @@ ArrayList<Drink> drinks = new ArrayList<Drink>();
    drinks.get(4).setDrinkQty(1);
    drinks.get(4).setDrinkPrice(90);
 }
- 
- public void setDrinkName(String dname)
-  {
-	  this.dName=dname;
-  }
-  
-  public void setDrinkQty(int Quantity)
-  {
-	  this.dQty=Quantity;
-  }
-  
-  public void setDrinkPrice(float Price)
-  {
-	  this.dPrice=Price;
-  }
-  
-  public String getDrinkName()
-  {
-	  return dName; 
-  }
-
- public float getDrinkQty()
- {
-	 return dQty;
- }
- 
- public float getDrinkPrice()
- {
-	 return dPrice;
- }
  
 public void printMenuDrinks(ArrayList<Drink> drinks)
 { 
