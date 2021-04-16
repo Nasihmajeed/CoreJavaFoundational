@@ -1,6 +1,8 @@
-abstract class Animal
+ class Animal
 {
 	int energyLevel;
-	
-//public abstract  int energyLevel();
+	public   int energyLevel()
+	{
+		
+	}
 }

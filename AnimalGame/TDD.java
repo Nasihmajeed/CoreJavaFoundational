@@ -1,9 +1,12 @@
+import java.util.*;
 class TDD
 {
 	public static void main(String [] args)
 		{
+			 Random rand = new Random();
+			  int x = rand.nextInt(3);
 		Tiger t=new Tiger();
-		Deer d=new Deer();
-		t.fight();
+		Animal []a={new Deer(),new Rabbit()};
+		t.fight(a[x]);
 		}
 }

@@ -1,6 +1,6 @@
-class Deer extends Animal  implements Herbivores 
+class Rabbit  extends Animal implements Herbivores 
 {
-	int energyLevel=5;
+int energyLevel=3;
 	int stamina=6;
 		
 		public	int getEnergyLevel()

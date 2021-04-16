@@ -2,7 +2,7 @@ interface Carnivores
 {
 
 public void stamina();
-public void fight();
+public void fight(Animal a);
 
 
 }
