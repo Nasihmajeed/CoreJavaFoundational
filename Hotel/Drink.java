@@ -6,18 +6,10 @@ class Drink
 {
 String dName;
 float dPrice;
-int dQty;
-
-ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 public void setDrinkName(String dname)
   {
 	  this.dName=dname;
-  }
-  
-  public void setDrinkQty(int Quantity)
-  {
-	  this.dQty=Quantity;
   }
   
   public void setDrinkPrice(float Price)
@@ -30,11 +22,6 @@ public void setDrinkName(String dname)
 	  return dName; 
   }
 
- public int getDrinkQty()
- {
-	 return dQty;
- }
- 
  public float getDrinkPrice()
  {
 	 return dPrice;
@@ -42,33 +29,28 @@ public void setDrinkName(String dname)
 
 public static void setDrinks(ArrayList<Drink> drinks)
 {
-	drinks.add(new Drink());   
+	for(int i=0;i<5;i++)
+	{
+	drinks.add(new Drink());   	
+	}
+	
    drinks.get(0).setDrinkName("Pepsi");
-   drinks.get(0).setDrinkQty(2);
-   drinks.get(0).setDrinkPrice(100);
-
-   drinks.add(new Drink());   
-   drinks.get(1).setDrinkName("COCA-COLA");
-   drinks.get(1).setDrinkQty(3);
-   drinks.get(1).setDrinkPrice(150);
-
-   drinks.add(new Drink());   
-   drinks.get(2).setDrinkName("Mirinda");
-   drinks.get(2).setDrinkQty(5);
-   drinks.get(2).setDrinkPrice(350);
-
-   drinks.add(new Drink());   
-   drinks.get(3).setDrinkName("Sprite");
-   drinks.get(3).setDrinkQty(1);
-   drinks.get(3).setDrinkPrice(35);
+   drinks.get(0).setDrinkPrice(55);
    
-   drinks.add(new Drink());   
+   drinks.get(1).setDrinkName("COCA-COLA");
+   drinks.get(1).setDrinkPrice(50);
+
+   drinks.get(2).setDrinkName("Mirinda");
+   drinks.get(2).setDrinkPrice(35);
+ 
+   drinks.get(3).setDrinkName("Sprite");
+   drinks.get(3).setDrinkPrice(30);
+     
    drinks.get(4).setDrinkName("Maa");
-   drinks.get(4).setDrinkQty(1);
-   drinks.get(4).setDrinkPrice(90);
+   drinks.get(4).setDrinkPrice(70);
 }
  
-public void printMenuDrinks(ArrayList<Drink> drinks)
+public void printMenuDrinks()
 { 
    System.out.println("...................MENU CARD [Drinks]........................");
    System.out.println("DRINKS : .........................................................Quantity...............................Price");
@@ -78,5 +60,4 @@ public void printMenuDrinks(ArrayList<Drink> drinks)
    System.out.println(" 4. "+drinks.get(3).getDrinkName()+" Drink Qty:"+drinks.get(3).getDrinkQty()+" Drink Price   :  "+drinks.get(3).getDrinkPrice());
    System.out.println(" 5. "+drinks.get(4).getDrinkName()+" Drink Qty:"+drinks.get(4).getDrinkQty()+" Drink Price   :  "+drinks.get(4).getDrinkPrice());
 }
-
 }

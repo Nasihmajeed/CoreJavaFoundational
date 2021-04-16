@@ -4,79 +4,66 @@ import java.util.ArrayList;
 class Food
 {
 
-String fName;
-int fQty;
-float fPrice;
+String foodName;
 
-ArrayList<Food> food = new ArrayList<Food>();
+float foodPrice;
 
-public void setFoodName(String name)
+
+ public void setFoodName(String foodName)
   {
-	  this.fName=name;
+	  this.foodName=name;
   }
   
-  public void setFoodQty(int Quantity)
+  public void setFoodPrice(float foodPrice)
   {
-	  this.fQty=Quantity;
-  }
-  
-  public void setFoodPrice(float Price)
-  {
-	  this.fPrice=Price;
+	  this.foodPrice=foodPrice;
   }
   
   public String getFoodName()
   {
-	  return fName; 
+	  return foodName; 
   }
 
- public int getFoodQty()
- {
-	 return fQty;
- }
- 
  public float getFoodPrice()
  {
-	 return fPrice;
+	 return foodPrice;
  }
 
-public static void setFood(ArrayList<Food> food)
+public  void setFood()
  {
-   food.add(new Food());   
+   for(int i=o;i<5;i++)
+   {
+	food.add(new Food());    
+   }
    food.get(0).setFoodName("Biriyani");
-   food.get(0).setFoodQty(2);
-   food.get(0).setFoodPrice(260);
+   food.get(0).setFoodPrice(130);
 
-   food.add(new Food());   
+  
    food.get(1).setFoodName("Fried Rice");
-   food.get(1).setFoodQty(3);
-   food.get(1).setFoodPrice(300);
+   food.get(1).setFoodPrice(100);
 
-   food.add(new Food());   
-   food.get(2).setFoodName("Chapathi");
-   food.get(2).setFoodQty(5);
-   food.get(2).setFoodPrice(50);
-
-   food.add(new Food());   
-   food.get(3).setFoodName("Dosa");
-   food.get(3).setFoodQty(5);
-   food.get(3).setFoodPrice(40);
    
-   food.add(new Food());   
+   food.get(2).setFoodName("Chapathi");
+   food.get(2).setFoodPrice(10);
+
+   
+   food.get(3).setFoodName("Dosa");
+   food.get(3).setFoodPrice(8);
+   
+  
    food.get(4).setFoodName("Meals");
-   food.get(4).setFoodQty(2);
-   food.get(4).setFoodPrice(70);
+   food.get(4).setFoodPrice(50);
 }
 
-public void printMenuFood(ArrayList<Food> food)
+public void printMenuFood()
 { 
    System.out.println("..............MENU CARD................");
-   System.out.println("ITEMS : ...............................Quantity...........  .............. ...Price");
-   System.out.println(" 1 .  :  "+food.get(0).getFoodName()+" Food Qty:"+food.get(0).getFoodQty()+"  Food Price   :  "+food.get(0).getFoodPrice());
-   System.out.println(" 2 .  :  "+food.get(1).getFoodName()+" Food Qty:"+food.get(1).getFoodQty()+"  Food Price   :  "+food.get(1).getFoodPrice());
-   System.out.println(" 3 .  :  "+food.get(2).getFoodName()+" Food Qty:"+food.get(2).getFoodQty()+"  Food Price   :  "+food.get(2).getFoodPrice());
-   System.out.println(" 4 .  :  "+food.get(3).getFoodName()+" Food Qty:"+food.get(3).getFoodQty()+"  Food Price   :  "+food.get(3).getFoodPrice());
-   System.out.println(" 5 .  :  "+food.get(4).getFoodName()+" Food Qty:"+food.get(4).getFoodQty()+"  Food Price   :  "+food.get(4).getFoodPrice());
+   System.out.printf("%4s,%15s,%8s,%6s","Id,ITEMS,Quantity,Price");
+   System.out.printf("%4s,%15s,%8s,%6s"," 1 "+food.get(0).getFoodName(),food.get(0).getFoodQty(),food.get(0).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s,%6s"," 2 "+food.get(1).getFoodName(),food.get(1).getFoodQty(),food.get(1).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s,%6s"," 3 "+food.get(2).getFoodName(),food.get(2).getFoodQty(),food.get(2).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s,%6s"," 4 "+food.get(3).getFoodName(),food.get(3).getFoodQty(),food.get(3).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s,%6s"," 5 "+food.get(4).getFoodName(),food.get(4).getFoodQty(),food.get(4).getFoodPrice());
 }
 
 }
