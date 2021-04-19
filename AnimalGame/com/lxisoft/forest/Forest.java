@@ -1,6 +1,11 @@
+package com.lxisoft.forest;
+import com.lxisoft.type.*;
+import com.lxisoft.Animals.*;
 import java.util.*;
-class Forest{
+public class Forest{
+	Scanner sc=new Scanner(System.in);
 	ArrayList<Animal> animal=new ArrayList<Animal>();
+	ArrayList<String> deadAnimal=new ArrayList<String>();
 	public void animalDetails(){
 		animal.add(new Lion());
 		animal.get(0).setName("lion");
@@ -29,7 +34,7 @@ class Forest{
 		
 		animal.add(new Elephant());
 		animal.get(5).setName("elephant");
-		animal.get(5).setStrength(93);
+		animal.get(5).setStrength(91);
 		animal.get(5).setLife(true);
 		
 		animal.add(new Giraffe());
@@ -46,12 +51,18 @@ class Forest{
 	}
 	
 	public void fight(){
-		int randm1,randm2;
+		int randm1,randm2,a;
+		System.out.println("************************************");
+		System.out.println("Hi.... Welcome to the JUNGLE......");
+		System.out.println("************************************");
+		System.out.println("Press 1 to start the game ");
+		a=sc.nextInt();
+		if(a==1){
 		do{
 			randm1=randNum();
 			randm2=randNum();
 			if(randm1 !=randm2){
-				System.out.println("ANIMALS IN THE RING "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName());
+				System.out.println("\n\nANIMALS IN THE RING "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName());
 				if(animal.get(randm1) instanceof Herbivorous && animal.get(randm2) instanceof Herbivorous){
 					System.out.println("NO FIGHT");
 				}
@@ -60,16 +71,20 @@ class Forest{
 					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
 					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
 					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm2).getName());
 						animal.remove(randm2);
 					}
 					}
 					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
 					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
 					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm1).getName());
 						animal.remove(randm1);
 					}
 				}
@@ -79,16 +94,20 @@ class Forest{
 					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
 					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
 					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm2).getName());
 						animal.remove(randm2);
 					}
 					}
 					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
 					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
 					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm1).getName());
 						animal.remove(randm1);
 					}
 				}
@@ -98,22 +117,32 @@ class Forest{
 					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
 					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
 					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm2).getName());
 						animal.remove(randm2);
 					}
 					}
 					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
 					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
 					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD");
+						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm1).getName());
 						animal.remove(randm1);
 					}
 				}
 				}
 			}
 		}while(animal.size()!=1);
-		System.out.println("\n\n WINNER IS "+animal.get(0).getName());
+		for(int i=0;i<deadAnimal.size();i++){
+			System.out.println("DEAD ANIMAL : "+deadAnimal.get(i));
+		}
+		System.out.println("\n\n**********************************");
+		System.out.println("*********WINNER IS "+animal.get(0).getName()+"***********");
+		System.out.println("**********************************");
+		}
 }
 }

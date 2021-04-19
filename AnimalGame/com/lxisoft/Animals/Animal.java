@@ -1,8 +1,10 @@
+package com.lxisoft.Animals;
+import com.lxisoft.type.*;
 import java.util.*;
 public class Animal{
-	String name;
-	int strength;
-	boolean life;
+	private String name;
+	private int strength;
+	private boolean life;
 /* public Animal(){
 	this.name=name;
 	this.strength=strength;
