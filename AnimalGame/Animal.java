@@ -1,8 +1,14 @@
- class Animal
+class Animal
 {
-	int energyLevel;
-	public   int energyLevel()
-	{
-		
-	}
+	
+	
+	int energyLevel=3;
+	
+		public	int getEnergyLevel()
+			{
+	
+	
+				return energyLevel;
+			}
+	
 }

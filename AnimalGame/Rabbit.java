@@ -1,4 +1,4 @@
-class Rabbit  extends Animal implements Herbivores 
+class Rabbit extends Animal implements Herbivores  
 {
 int energyLevel=3;
 	int stamina=6;
@@ -9,14 +9,5 @@ int energyLevel=3;
 	
 				return energyLevel;
 			}
-		@Override
-			public void escape()
-			{
 		
-			}
-		@Override
-			public void stamina()
-			{
-		
-			}
 }
