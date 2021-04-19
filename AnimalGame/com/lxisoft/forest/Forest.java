@@ -49,16 +49,15 @@ public class Forest{
 		int random=(int)(Math.random()*s);
                 return random;
 	}
-	
-	public void fight(){
-		int randm1,randm2,a;
+	public void setFight(){
+			int randm1,randm2,a;
 		System.out.println("************************************");
 		System.out.println("Hi.... Welcome to the JUNGLE......");
 		System.out.println("************************************");
 		System.out.println("Press 1 to start the game ");
 		a=sc.nextInt();
 		if(a==1){
-		do{
+			do{
 			randm1=randNum();
 			randm2=randNum();
 			if(randm1 !=randm2){
@@ -66,83 +65,48 @@ public class Forest{
 				if(animal.get(randm1) instanceof Herbivorous && animal.get(randm2) instanceof Herbivorous){
 					System.out.println("NO FIGHT");
 				}
-				else if(animal.get(randm1) instanceof Herbivorous && animal.get(randm2) instanceof Carnivorous){
-					
-					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
-					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
-					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm2).getName());
-						animal.remove(randm2);
-					}
-					}
-					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
-					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
-					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm1).getName());
-						animal.remove(randm1);
-					}
-				}
-				}
-				else if(animal.get(randm2) instanceof Herbivorous && animal.get(randm1) instanceof Carnivorous){
-					
-					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
-					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
-					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm2).getName());
-						animal.remove(randm2);
-					}
-					}
-					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
-					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
-					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm1).getName());
-						animal.remove(randm1);
-					}
-				}
-				}
-			else if(animal.get(randm2) instanceof Carnivorous && animal.get(randm1) instanceof Carnivorous){
-					
-					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
-					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
-					if(animal.get(randm2).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm2).getName());
-						animal.remove(randm2);
-					}
-					}
-					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
-					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
-					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
-					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
-					if(animal.get(randm1).getStrength()<=10){
-						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
-						deadAnimal.add(animal.get(randm1).getName());
-						animal.remove(randm1);
-					}
-				}
-				}
+				else if(animal.get(randm1) instanceof Herbivorous && animal.get(randm2) instanceof Carnivorous)
+					fight(randm1,randm2);
+				else if(animal.get(randm2) instanceof Herbivorous && animal.get(randm1) instanceof Carnivorous)
+					fight(randm1,randm2);
+				else if(animal.get(randm2) instanceof Carnivorous && animal.get(randm1) instanceof Carnivorous)
+					fight(randm1,randm2);
 			}
-		}while(animal.size()!=1);
-		for(int i=0;i<deadAnimal.size();i++){
+			}while(animal.size()!=1); 
+			for(int i=0;i<deadAnimal.size();i++){
 			System.out.println("DEAD ANIMAL : "+deadAnimal.get(i));
 		}
 		System.out.println("\n\n**********************************");
 		System.out.println("*********WINNER IS "+animal.get(0).getName()+"***********");
 		System.out.println("**********************************");
+	} 
+	}
+	public void fight(int randm1,int randm2){
+	
+					
+					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
+					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
+					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
+					if(animal.get(randm2).getStrength()<=10){
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm2).getName());
+						animal.remove(randm2);
+					}
+					}
+					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
+					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
+					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
+					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
+					if(animal.get(randm1).getStrength()<=10){
+						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
+						deadAnimal.add(animal.get(randm1).getName());
+						animal.remove(randm1);
+					}
+				}
+				
+		
+		
 		}
 }
-}
+
