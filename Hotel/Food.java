@@ -58,12 +58,12 @@ public  void setFood()
 public void printMenuFood()
 { 
    System.out.println("..............MENU CARD................");
-   System.out.printf("%4s,%15s,%8s,%6s","Id,ITEMS,Quantity,Price");
-   System.out.printf("%4s,%15s,%8s,%6s"," 1 "+food.get(0).getFoodName(),food.get(0).getFoodQty(),food.get(0).getFoodPrice());
-  System.out.printf("%4s,%15s,%8s,%6s"," 2 "+food.get(1).getFoodName(),food.get(1).getFoodQty(),food.get(1).getFoodPrice());
-  System.out.printf("%4s,%15s,%8s,%6s"," 3 "+food.get(2).getFoodName(),food.get(2).getFoodQty(),food.get(2).getFoodPrice());
-  System.out.printf("%4s,%15s,%8s,%6s"," 4 "+food.get(3).getFoodName(),food.get(3).getFoodQty(),food.get(3).getFoodPrice());
-  System.out.printf("%4s,%15s,%8s,%6s"," 5 "+food.get(4).getFoodName(),food.get(4).getFoodQty(),food.get(4).getFoodPrice());
+   System.out.printf("%4s,%15s,%8s","Id,ITEMS,Price");
+   System.out.printf("%4s,%15s,%8s"," 1 "+food.get(0).getFoodName(),food.get(0).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s"," 2 "+food.get(1).getFoodName(),food.get(1).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s"," 3 "+food.get(2).getFoodName(),food.get(2).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s"," 4 "+food.get(3).getFoodName(),food.get(3).getFoodPrice());
+  System.out.printf("%4s,%15s,%8s"," 5 "+food.get(4).getFoodName(),food.get(4).getFoodPrice());
 }
 
 }
