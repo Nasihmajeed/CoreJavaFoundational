@@ -5,16 +5,14 @@ import java.util.Scanner;
 
 class Admin
  {
-    Scanner sc=new Scanner(System.in);
+    static Scanner sc=new Scanner(System.in);
+	
+	ArrayList<Drink> drinks = new ArrayList<Drink>();
+    ArrayList<Food> food = new ArrayList<Food>();
 	
 	String aName="Sai Krishna",uname,pwd;
     int option,select,v,si;
-   ArrayList<Drink> drinks = new ArrayList<Drink>();
-   ArrayList<Food> food = new ArrayList<Food>();
-   
-   Food f=new Food();
-   Drink d=new Drink();
-	
+
 	public void authenticate()
 	{
 
@@ -53,8 +51,7 @@ public void adminOperate()
 	option=sc.nextInt();
 	switch(option)
 	                  {
-						  case 1://add
-						                     System.out.println("Admin can add ..........1.Food Item.........2.Drink");
+						  case 1:        System.out.println("Admin can add ..........1.Food Item.........2.Drinks");
 											 select=sc.nextInt();
 											 if(select==1)
 											 {
@@ -62,27 +59,27 @@ public void adminOperate()
 											 }
 											 else if(select==2)
 											 {
-											      addDrink(drinks);	 
+											      addDrinks(drinks);	 
 											 }
 											 else
 											 {
 											System.out.println("Invalid Input!!!!!!!!!!");	 
 											 }
 									break;
-						  case 2://update
-												  updateItems(food,drinks);
-									break;
-						  case 3://remove
-						                             System.out.println("remove");
+						  
+						  case 2:  updateItems(food,drinks);
+									   break;
+						  
+						  case 3:  System.out.println("remove");
 						            break;
-						  case 4://view
-						                viewList(food,drinks);
+						  
+						  case 4:viewList(food,drinks);
 							         break;
 					  }
 	
 }
 //Addition of food items & Drinks
-int num,qty;
+int num;
 float price;
 String fud,drk;
 
@@ -100,10 +97,6 @@ public void addFood(ArrayList<Food> food)
 		food.add(new Food());
 		food.get(si).setFoodName(fud);
 		
-		System.out.println("Enter Quantity of Food :");
-		qty=sc.nextInt();
-		food.get(si).setFoodQty(qty);
-		
 		System.out.println("Enter price of Food :");
 		price=sc.nextFloat();
 		food.get(si).setFoodPrice(price);
@@ -112,7 +105,7 @@ public void addFood(ArrayList<Food> food)
 	}
 	
 }
-public void addDrink(ArrayList<Drink> drinks)
+public void addDrinks(ArrayList<Drink> drinks)
 {
 	System.out.println("Enter the number of drinks to be added");
     num=sc.nextInt();
@@ -125,11 +118,7 @@ public void addDrink(ArrayList<Drink> drinks)
 		drk=sc.nextLine();
 		drinks.add(new Drink());
 		drinks.get(si).setDrinkName(drk);
-		
-		System.out.println("Enter Quantity of Drink :");
-		qty=sc.nextInt();
-		drinks.get(si).setDrinkQty(qty);
-		
+			
 		System.out.println("Enter price of Drink :");
 		price=sc.nextFloat();
 		drinks.get(si).setDrinkPrice(price);
@@ -139,7 +128,7 @@ public void addDrink(ArrayList<Drink> drinks)
 }
 
 //Updating the list
-int n,m,nfq,ndq;
+int n,m;
 float prc,dpr;
 String newFud,newDrk;
 
@@ -158,15 +147,11 @@ switch(select)
 							System.out.println("Enter new Food Item :");
 							newFud=sc.next();
 							
-							System.out.println("Enter quantity of new Food Item :");
-							nfq=sc.nextInt();
-							
 							System.out.println("Enter Price of new Food Item :");
 							prc=sc.nextFloat();
 							
 							
                            food.get(m).setFoodName(newFud);							
-						   food.get(m).setFoodQty(nfq);
                            food.get(m).setFoodPrice(prc);						   
                        break;				
 
@@ -178,16 +163,12 @@ switch(select)
                             
 							System.out.println("Enter new Drink name:");
 							newDrk=sc.next();
-							
-							System.out.println("Enter quantity of new Drink :");
-							ndq=sc.nextInt();
-							
+						
 							System.out.println("Enter Price of new Drink :");
 							dpr=sc.nextFloat();
 							
 							
                            drinks.get(m).setDrinkName(newDrk);							
-						   drinks.get(m).setDrinkQty(ndq);
                            drinks.get(m).setDrinkPrice(dpr);						   
                        break;									   
 }
@@ -203,7 +184,7 @@ public void viewList(ArrayList<Food> food, ArrayList<Drink> drinks)
 										System.out.println("--------------------MENU[FOOD-ITEMS]---------------------");
 									    for(int i=0;i<=food.size();i++)
 										{
-	System.out.println("Food Name : "+food.get(i).getFoodName()+" Food Qty : "food.get(i).getFoodQty()+" Food Price : "+food.get(i).getFoodPrice());		
+	System.out.println("Food Name : "+food.get(i).getFoodName()+" Food Price : "+food.get(i).getFoodPrice());		
 										}
 									
 									   System.out.println("------------------------------------------------------------");  
@@ -214,7 +195,7 @@ public void viewList(ArrayList<Food> food, ArrayList<Drink> drinks)
 										  System.out.println("--------------------MENU[Drinks]---------------------");
                                           for(int i=0;i<=drinks.size();i++)
 										{
-	System.out.println("Drink Name : "+drinks.get(i).getDrinkName()+" Drink Qty : "drinks.get(i).getDrinkQty()+" Drink Price : "+drinks.get(i).getDrinkPrice());		
+	System.out.println("Drink Name : "+drinks.get(i).getDrinkName()+" Drink Price : "+drinks.get(i).getDrinkPrice());		
 										}								         
 										 
 									     System.out.println("-------------------------------------------------------------------");

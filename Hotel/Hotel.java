@@ -5,14 +5,13 @@ import java.util.Scanner;
 class Hotel
 {	
 int sel;
-
-ArrayList<Food> food = new ArrayList<Food>();
-ArrayList<Drink> drinks = new ArrayList<Drink>();
+static Scanner sc=new Scanner(System.in);
 
 Admin a=new Admin();
 User u=new User();
 
-Scanner sc=new Scanner(System.in);
+ArrayList<Drink> drinks = new ArrayList<Drink>();
+ArrayList<Food> food = new ArrayList<Food>();
 
 public void hotelDetails()
 {
@@ -24,15 +23,20 @@ public void hotelDetails()
 	System.out.println("1.Admin");
 	System.out.println("2.Customer");
      sel=sc.nextInt();
+     details();   
+}
 
-   if(sel==1)
+public void details()
+{
+	if(sel==1)
    {
 	   System.out.println("Welcome Sir ! Please Enter Admin Credentials !!!");
 	   a.authenticate();
    }
    else
    {
-	u.customer();   
+	u.customer();
+   // o.customerOrder();	
    }
 }
 

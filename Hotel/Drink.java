@@ -2,10 +2,12 @@ import java.util.*;
 import java.util.ArrayList;
 
 class Drink
-
 {
+
 String drinkName;
 float drinkPrice;
+
+ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 public void setDrinkName(String drinkName)
   {
@@ -27,7 +29,6 @@ public void setDrinkName(String drinkName)
 	 return drinkPrice;
  }
 
-public static void setDrinks(ArrayList<Drink> drinks)
 {
 	for(int i=0;i<5;i++)
 	{
