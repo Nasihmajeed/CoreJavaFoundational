@@ -1,6 +1,8 @@
+package src.com.lxisoft.Forest;
+ 
 import java.util.*;
 
-class Fight
+class Forest
 {
 
 	
@@ -19,6 +21,7 @@ public void fight(Animal a,Animal b)
 				System.out.println("--------------------------------------------------------------");
 				
 				System.out.println("The "+b.getClass().getName()+" Energy level is:"+b.getEnergyLevel());
+				System.out.println("--------------------------------------------------------------");
 				//break;
 			}
 			
@@ -39,6 +42,9 @@ public void fight(Animal a,Animal b)
 			System.out.println("The "+a.getClass().getName()+" is caught by "+b.getClass().getName());
 			System.out.println("--------------------------------------------------------------");
 			System.out.println("The "+a.getClass().getName()+" is Dead");
+						System.out.println("--------------------------------------------------------------");
+			System.out.println("The winner is "+b.getClass().getName());
+			System.out.println("--------------------------------------------------------------");
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Herbivores))
 			{System.out.println("--------------------------------------------------------------");
@@ -57,6 +63,9 @@ public void fight(Animal a,Animal b)
 			System.out.println("The "+b.getClass().getName()+" is caught by "+a.getClass().getName() );
 				System.out.println("--------------------------------------------------------------");
 			System.out.println("The "+b.getClass().getName()+" is Dead");
+			System.out.println("--------------------------------------------------------------");
+			System.out.println("The winner is "+a.getClass().getName());
+			System.out.println("--------------------------------------------------------------");
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Carnivores))
 			{System.out.println("--------------------------------------------------------------");
@@ -79,6 +88,9 @@ public void fight(Animal a,Animal b)
 			System.out.println("The "+b.getClass().getName()+" is caught ");
 			System.out.println("--------------------------------------------------------------");
 			System.out.println("The "+b.getClass().getName()+" is Dead ");
+						System.out.println("--------------------------------------------------------------");
+			System.out.println("The winner is "+a.getClass().getName());
+			System.out.println("--------------------------------------------------------------");
 			}
 				}
 			
@@ -89,10 +101,13 @@ public void fight(Animal a,Animal b)
 						System.out.println("The "+b.getClass().getName()+"energy level is decreasing "+preyStamina);
 						preyStamina--;
 						}
-						System.out.println("--------------------------------------------------------------");
-					System.out.println("The "+b.getClass().getName()+" is caught by "+a.getClass().getName());
-					System.out.println("--------------------------------------------------------------");
-					System.out.println("The "+b.getClass().getName()+" is Dead");
+							System.out.println("--------------------------------------------------------------");
+							System.out.println("The "+b.getClass().getName()+" is caught by "+a.getClass().getName());
+							System.out.println("--------------------------------------------------------------");
+							System.out.println("The "+b.getClass().getName()+" is Dead");
+							System.out.println("--------------------------------------------------------------");
+							System.out.println("The winner is "+a.getClass().getName());
+							System.out.println("--------------------------------------------------------------");
 				}
 				
 			

@@ -1,3 +1,4 @@
+package src.com.lxisoft.forest;
 class Animal
 {
 	

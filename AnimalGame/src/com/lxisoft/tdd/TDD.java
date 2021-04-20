@@ -1,3 +1,6 @@
+package src.com.lxisoft.tdd;
+import animals.*;
+import forest.*;
 import java.util.*;
 class TDD
 {
@@ -19,7 +22,7 @@ Scanner sc=new Scanner(System.in);
 		a[5]=new Lion();
 		
 		//Animal []b={new Herbivores(),new Carnivores()};
-		Fight f=new Fight();
+		Forest f=new Fight();
 				do{
 					 int x = rand.nextInt(5);
 			  int y=rand.nextInt(5);
