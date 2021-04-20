@@ -3,7 +3,7 @@ import com.lxisoft.type.*;
 import java.util.*;
 public class Animal{
 	private String name;
-	private int strength;
+	private int strength,distance;
 	private boolean life;
 /* public Animal(){
 	this.name=name;
@@ -28,5 +28,11 @@ public void setLife(boolean life){
 }
 public boolean getLife(){
 	return life;
+}
+public void setDistance(int distance){
+	this.distance=distance;
+}
+public int getDistance(){
+	return distance;
 }
 }
