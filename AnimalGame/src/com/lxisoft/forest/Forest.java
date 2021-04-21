@@ -1,6 +1,7 @@
-package com.lxisoft.forest;
-import com.lxisoft.type.*;
-import com.lxisoft.Animals.*;
+package src.com.lxisoft.forest;
+import src.com.lxisoft.type.*;
+import src.com.lxisoft.Animals.*;
+//import src.com.lxisoft.tddPackage.*;
 import java.util.*;
 public class Forest{
 	Scanner sc=new Scanner(System.in);
@@ -68,7 +69,7 @@ public class Forest{
 			randm1=randNum();
 			randm2=randNum();
 			if(randm1 !=randm2){
-				d=(animal.get(randm1).getDistance()-animal.get(randm2).getDistance());
+				d=Math.abs(animal.get(randm1).getDistance()-animal.get(randm2).getDistance());
 				/* if(animal.get(randm1).getDistance()>animal.get(randm2).getDistance()){
 						d=animal.get(randm1).getDistance()-animal.get(randm2).getDistance();
 					}
@@ -85,24 +86,33 @@ public class Forest{
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
 					}
-					else if(d>30)
+					else if(d>30){
+						animal.get(randm1).setDistance(animal.get(randm1).getDistance()/2);
+						animal.get(randm2).setDistance(animal.get(randm2).getDistance()/2);
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE FAR AWAY");
+					}
 				}
 				else if(animal.get(randm2) instanceof Herbivorous && animal.get(randm1) instanceof Carnivorous){
 					if(d<30){
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
 					}
-					else if(d>30)
+					else if(d>30){
+						animal.get(randm1).setDistance(animal.get(randm1).getDistance()/2);
+						animal.get(randm2).setDistance(animal.get(randm2).getDistance()/2);
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE FAR AWAY");
+					}
 				}
 				else if(animal.get(randm2) instanceof Carnivorous && animal.get(randm1) instanceof Carnivorous){
 					if(d<30){
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
 					}
-					else if (d>30)
+					else if (d>30){
+						animal.get(randm1).setDistance(animal.get(randm1).getDistance()/2);
+						animal.get(randm2).setDistance(animal.get(randm2).getDistance()/2);
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE FAR AWAY");
+					}
 				}
 			}
 			}while(animal.size()!=1); 
