@@ -1,8 +1,8 @@
 package com.lxisoft.animals;
 import  com.lxisoft.jungle.*;
-public class Sheep extends Animal implements Herbivores  
+public class Zebra extends Animal implements Herbivores 
 {
-int energyLevel=3;
+int energyLevel=8;
 	int stamina=6;
 		
 		public	int getEnergyLevel()
@@ -11,5 +11,4 @@ int energyLevel=3;
 	
 				return energyLevel;
 			}
-		
 }

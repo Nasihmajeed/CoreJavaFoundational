@@ -1,5 +1,6 @@
-package src.com.lxisoft.forest;
-class Animal
+package com.lxisoft.jungle;
+
+public class Animal
 {
 	
 	

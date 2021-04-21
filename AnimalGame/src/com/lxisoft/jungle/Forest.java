@@ -1,8 +1,10 @@
-package src.com.lxisoft.Forest;
+
+ package com.lxisoft.jungle;
+  import com.lxisoft.animals.*;
  
 import java.util.*;
 
-class Forest
+public class Forest
 {
 
 	
@@ -17,61 +19,61 @@ public void fight(Animal a,Animal b)
 				System.out.println("There is no fight");
 				System.out.println("--------------------------------------------------------------");
 				
-				System.out.println("The "+a.getClass().getName()+" Energy level is:"+a.getEnergyLevel());
+				System.out.println("The "+a.getClass().getSimpleName()+" Energy level is:"+a.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
 				
-				System.out.println("The "+b.getClass().getName()+" Energy level is:"+b.getEnergyLevel());
+				System.out.println("The "+b.getClass().getSimpleName()+" Energy level is:"+b.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
 				//break;
 			}
 			
 			else if(( a instanceof  Herbivores)|| ( b instanceof Carnivores))
 			{System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+a.getClass().getName()+" Energy level is:"+a.getEnergyLevel());
+				System.out.println("The "+a.getClass().getSimpleName()+" Energy level is:"+a.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+b.getClass().getName()+" Energy level is :"+b.getEnergyLevel());
+				System.out.println("The "+b.getClass().getSimpleName()+" Energy level is :"+b.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
 				System.out.println("---------------------------Fighting -----------------------------------");
 				preyStamina=a.getEnergyLevel();
 			while(preyStamina>0)
 			{
-			System.out.println("The "+a.getClass().getName()+" energy level is decreasing "+preyStamina);
+			System.out.println("The "+a.getClass().getSimpleName()+" energy level is decreasing "+preyStamina);
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+a.getClass().getName()+" is caught by "+b.getClass().getName());
+			System.out.println("The "+a.getClass().getSimpleName()+" is caught by "+b.getClass().getSimpleName());
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+a.getClass().getName()+" is Dead");
+			System.out.println("The "+a.getClass().getSimpleName()+" is Dead");
 						System.out.println("--------------------------------------------------------------");
-			System.out.println("The winner is "+b.getClass().getName());
+			System.out.println("The winner is "+b.getClass().getSimpleName());
 			System.out.println("--------------------------------------------------------------");
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Herbivores))
 			{System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+b.getClass().getName()+" Energy level is:"+b.getEnergyLevel());
+				System.out.println("The "+b.getClass().getSimpleName()+" Energy level is:"+b.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+a.getClass().getName()+" Energy level is :"+a.getEnergyLevel());
+				System.out.println("The "+a.getClass().getSimpleName()+" Energy level is :"+a.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
 				System.out.println("---------------------------Fighting -----------------------------------");
 				preyStamina=b.getEnergyLevel();
 			while(preyStamina>0)
 			{
-			System.out.println("The "+b.getClass().getName()+" energy level is decreasing "+preyStamina);
+			System.out.println("The "+b.getClass().getSimpleName()+" energy level is decreasing "+preyStamina);
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getName()+" is caught by "+a.getClass().getName() );
+			System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName() );
 				System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getName()+" is Dead");
+			System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The winner is "+a.getClass().getName());
+			System.out.println("The winner is "+a.getClass().getSimpleName());
 			System.out.println("--------------------------------------------------------------");
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Carnivores))
 			{System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+a.getClass().getName()+" Energy level is:"+a.getEnergyLevel());
+				System.out.println("The "+a.getClass().getSimpleName()+" Energy level is:"+a.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
-				System.out.println("The "+b.getClass().getName()+" Energy level is :"+b.getEnergyLevel());
+				System.out.println("The "+b.getClass().getSimpleName()+" Energy level is :"+b.getEnergyLevel());
 				System.out.println("--------------------------------------------------------------");
 				System.out.println("---------------------------Fighting -----------------------------------");
 				
@@ -81,15 +83,15 @@ public void fight(Animal a,Animal b)
 				{
 			while(preyStamina>0)
 			{
-			System.out.println("The "+b.getClass().getName()+" energy level is decreasing "+preyStamina);
+			System.out.println("The "+b.getClass().getSimpleName()+" energy level is decreasing "+preyStamina);
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getName()+" is caught ");
+			System.out.println("The "+b.getClass().getSimpleName()+" is caught ");
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getName()+" is Dead ");
+			System.out.println("The "+b.getClass().getSimpleName()+" is Dead ");
 						System.out.println("--------------------------------------------------------------");
-			System.out.println("The winner is "+a.getClass().getName());
+			System.out.println("The winner is "+a.getClass().getSimpleName());
 			System.out.println("--------------------------------------------------------------");
 			}
 				}
@@ -98,15 +100,15 @@ public void fight(Animal a,Animal b)
 				{
 							while(hunterStamina>0)
 						{
-						System.out.println("The "+b.getClass().getName()+"energy level is decreasing "+preyStamina);
+						System.out.println("The "+b.getClass().getSimpleName()+"energy level is decreasing "+preyStamina);
 						preyStamina--;
 						}
 							System.out.println("--------------------------------------------------------------");
-							System.out.println("The "+b.getClass().getName()+" is caught by "+a.getClass().getName());
+							System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName());
 							System.out.println("--------------------------------------------------------------");
-							System.out.println("The "+b.getClass().getName()+" is Dead");
+							System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
 							System.out.println("--------------------------------------------------------------");
-							System.out.println("The winner is "+a.getClass().getName());
+							System.out.println("The winner is "+a.getClass().getSimpleName());
 							System.out.println("--------------------------------------------------------------");
 				}
 				
