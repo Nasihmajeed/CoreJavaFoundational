@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
-public class TDD
+class TDD
 {
-	public static void main(String[] args)
-	{
-		Hotel h=new Hotel();
-	    h.hotelDetails();
-	}
+public static void main(String[] args)
+{
+Hotel h=new Hotel();
+h.hotelDetails();
+}
 }
