@@ -5,11 +5,11 @@ class Admin
 {
 String admName="Sai Krishna",uname,pwd;
 Scanner sc=new Scanner(System.in);
-int admOption;
+int sel,admOption;
 
 ArrayList<Food> foodItems=new ArrayList<Food>();
 ArrayList<Drinks> drinkList=new ArrayList<Drinks>();
-ArrayList orders=new ArrayList();
+//ArrayList<Object> order1=new ArrayList<Object>();
 
             //setting food and drink items into arraylists
 {
@@ -81,30 +81,36 @@ public void printMenu()
 
 
 
-int ordr,qty,dqty,in;
-String fud,drk,x;
+int fudNum,item,fqty,dqty,in,n;
+float fprc,fbill;
+String drk,x;
+
+String fd1;
+float fp1;
+
 
 public void customerOrder()
 {
 	System.out.println("Enter the item you want to order...............1.Food Item..........2.Drink.............");
-	ordr=sc.nextInt();
-	switch(ordr)
+	item=sc.nextInt();
+	switch(item)
 	                  {
 						  case 1:       do{
-											           System.out.println("Enter the name of food item you are ordering :");
-						                               fud=sc.next();
-													   System.out.println("Enter the quantity of food item you are ordering :");
-											           qty=sc.nextInt();
-														
-														if(foodItems.contains(fud))
-											             {  
-														     in=indexOf(fud);
-												             orders.add(foodItems.get(in));
-											              }			
-														  else
-														  {
-															System.out.println("Sorry......You have selected the wrong item");  
-														  }
+											           System.out.println("Enter the number of the food item you want to order from the menu :");
+						                               fudNum=sc.nextInt();
+													   n=fudNum-1;
+													   fd1=foodItems.get(n).getFname();
+													   System.out.println("You have ordered "+fd1);
+													   
+													   fp1=foodItems.get(n).getFprice()
+													   System.out.println("Price of the ordered food item is : "+fp1);
+													 
+													   System.out.println("Enter the quantity of food item you want :");
+											           fqty=sc.nextInt();
+													   System.out.println("Quantity of food you have ordered is : "+fqty);
+													   
+													  
+													     
 														  System.out.println("Do you want to order more food ?..........yes.........no.......");
 														  x=sc.next();
 													}while(x.equals("yes"));
@@ -168,16 +174,66 @@ public void adminOperations()
 	System.out.println("2.Update/Edit Existing menu");
 	System.out.println("3.Delete Items from Menu");
 	System.out.println("4.View Menu");
+	
 	admOption=sc.nextInt();
+	
 	switch(admOption)
 	            {
-		                   case 1:System.out.println("add");
-						   case 2:System.out.println("update");
+		                   case 1: addItem();
+						               break;
+						   case 2: System.out.println("update");
+						                break;
 						   case 3: System.out.println("remove");
+						                break;
 						   case 4: System.out.println("view");
-						   default : System.out.println("Enter a valid Option!!!!");
+	                                     break;
+                                  	default : System.out.println("Enter a valid Option!!!!");
 	             }
 }
 
+String newFud;
+float newPrc;
+int num,j;
+public void addItem()
+{
+	System.out.println("Select the list into which you want to add..................1.Food...........2.Drink..............");
+	sel=sc.nextInt();
+	
+                             switch(sel)
+							 {
+								 case 1: 
+								         j=foodItems.size();
+								         for(int i=0;i<j;i++)
+								            {
+									 System.out.println("Food name : "+foodItems.get(i).getFname()+" Food Price : "+foodItems.get(i).getFprice());
+								            }
+								 System.out.println("Enter the number  of food items you want to add :");
+								 num=sc.nextInt();	 
+								 
+								 for(int i=0;i<num;i++)
+								 {
+								     System.out.println("Enter the name of the new Food Item : ");
+                                     newFud=sc.next();
+									 System.out.println("Enter the price of the new Food Item : ");
+                                     newPrc=sc.nextFloat();
+									 foodItems.add(new Food());
+									 foodItems.get(j).setFname(newFud);
+									 foodItems.get(j).setFprice(newPrc);
+								 }
+								 System.out.println("Item added Successfully");
+								 
+								for(Food food : foodItems)
+								{
+									System.out.println(food);
+								}
+								 
+								 break;
+								 
+								 case 2: 
+								               System.out.println("drink added Successfully");
+								 break;
+							 }
+
+}
 
 }
