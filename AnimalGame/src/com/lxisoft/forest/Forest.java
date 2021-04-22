@@ -130,6 +130,7 @@ public class Forest{
 					if(animal.get(randm1).getStrength() > animal.get(randm2).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm1).getName()+" WINS");
 					animal.get(randm2).setStrength(animal.get(randm2).getStrength()/2);
+					animal.get(randm1).setStrength(animal.get(randm1).getStrength()-10);
 					System.out.println("STRENGTH OF "+animal.get(randm2).getName()+" IS "+animal.get(randm2).getStrength());
 					if(animal.get(randm2).getStrength()<=10){
 						System.out.println("ANIMAL "+animal.get(randm2).getName()+" IS DEAD\n");
@@ -140,6 +141,7 @@ public class Forest{
 					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
 					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
+					animal.get(randm2).setStrength(animal.get(randm2).getStrength()-10);
 					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
 					if(animal.get(randm1).getStrength()<=10){
 						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
