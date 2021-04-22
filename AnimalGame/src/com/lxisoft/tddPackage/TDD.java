@@ -1,5 +1,5 @@
-//package src.com.lxisoft.tddPackage;
-import src.com.lxisoft.forest.*;
+package com.lxisoft.tddPackage;
+import com.lxisoft.forest.*;
 public class TDD{
 	public static void main(String[] args){
 		Forest f=new Forest();

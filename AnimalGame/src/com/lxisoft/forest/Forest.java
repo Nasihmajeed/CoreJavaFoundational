@@ -1,6 +1,6 @@
-package src.com.lxisoft.forest;
-import src.com.lxisoft.type.*;
-import src.com.lxisoft.Animals.*;
+package com.lxisoft.forest;
+import com.lxisoft.type.*;
+import com.lxisoft.Animals.*;
 //import src.com.lxisoft.tddPackage.*;
 import java.util.*;
 public class Forest{

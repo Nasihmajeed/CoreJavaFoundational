@@ -1,5 +1,5 @@
-package src.com.lxisoft.Animals;
-import src.com.lxisoft.type.*;
+package com.lxisoft.Animals;
+import com.lxisoft.type.*;
 public class Giraffe extends Animal implements Herbivorous{
 	
 }

@@ -1,4 +1,4 @@
-package src.com.lxisoft.type;
+package com.lxisoft.type;
 public interface Carnivorous{
 	
 }
