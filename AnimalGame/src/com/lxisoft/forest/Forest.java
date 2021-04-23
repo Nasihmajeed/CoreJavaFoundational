@@ -50,6 +50,12 @@ public class Forest{
 		animal.get(6).setLife(true);
 		animal.get(6).setDistance(6);
 		
+		animal.add(new Horse());
+		animal.get(7).setName("horse");
+		animal.get(7).setStrength(40);
+		animal.get(7).setLife(true);
+		animal.get(7).setDistance(9);
+		
 	}
 	
 	public int randNum(){
@@ -57,8 +63,13 @@ public class Forest{
 		int random=(int)(Math.random()*s);
                 return random;
 	}
+	public int LuckRandm(){
+		int lckRandm=(int)(Math.random()*2);
+		return lckRandm;
+	}
 	public void setFight(){
 			int randm1,randm2,a,d;
+			
 		System.out.println("************************************");
 		System.out.println("Hi.... Welcome to the JUNGLE......");
 		System.out.println("************************************");
@@ -81,8 +92,13 @@ public class Forest{
 					System.out.println("BOTH ARE HERBIVOROUS NO FIGHT");
 				}
 				else if(animal.get(randm1) instanceof Herbivorous && animal.get(randm2) instanceof Carnivorous){
+					System.out.println("\n\nANIMALS IN THE RING "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName());
+					int lck= LuckRandm();
+					if(animal.get(randm1) instanceof weakAnimal && lck==1){
+						System.out.println("ANIMAL "+animal.get(randm1).getName()+" GOT LUCKY AND ESCAPES");
+					}
 					
-					if(d<30){
+					else if(d<30){
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
 					}
@@ -93,7 +109,12 @@ public class Forest{
 					}
 				}
 				else if(animal.get(randm2) instanceof Herbivorous && animal.get(randm1) instanceof Carnivorous){
-					if(d<30){
+					System.out.println("\n\nANIMALS IN THE RING "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName());
+					int lck= LuckRandm();
+					if(animal.get(randm2) instanceof weakAnimal && lck==1){
+						System.out.println("ANIMAL "+animal.get(randm2).getName()+" GOT LUCKY AND ESCAPES");
+					}
+					else if(d<30){
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
 					}
@@ -104,6 +125,7 @@ public class Forest{
 					}
 				}
 				else if(animal.get(randm2) instanceof Carnivorous && animal.get(randm1) instanceof Carnivorous){
+					System.out.println("\n\nANIMALS IN THE RING "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName());
 					if(d<30){
 						System.out.println("ANIMALS "+animal.get(randm1).getName()+" AND "+animal.get(randm2).getName()+" ARE CLOSE ENOUGH TO FIGHT");
 						fight(randm1,randm2);
@@ -141,7 +163,7 @@ public class Forest{
 					else if(animal.get(randm2).getStrength() > animal.get(randm1).getStrength()){
 					System.out.println("ANIMAL "+animal.get(randm2).getName()+" WINS");
 					animal.get(randm1).setStrength(animal.get(randm1).getStrength()/2);
-					animal.get(randm2).setStrength(animal.get(randm2).getStrength()-10);
+					animal.get(randm2).setStrength(animal.get(randm2).getStrength()-12);
 					System.out.println("STRENGTH OF "+animal.get(randm1).getName()+" IS "+animal.get(randm1).getStrength());
 					if(animal.get(randm1).getStrength()<=10){
 						System.out.println("ANIMAL "+animal.get(randm1).getName()+" IS DEAD\n");
