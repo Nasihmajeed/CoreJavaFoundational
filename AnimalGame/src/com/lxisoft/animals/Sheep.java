@@ -4,6 +4,7 @@ public class Sheep extends Animal implements Herbivores
 {
 int energyLevel=3;
 	int stamina=6;
+	int distance=6;
 		
 		public	int getEnergyLevel()
 			{
@@ -11,5 +12,10 @@ int energyLevel=3;
 	
 				return energyLevel;
 			}
-		
+		public int getDistance()
+		{
+			
+			return distance;
+			
+		}
 }

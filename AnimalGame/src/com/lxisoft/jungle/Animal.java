@@ -5,6 +5,7 @@ public class Animal
 	
 	
 	int energyLevel=3;
+		int distance=20;
 	
 		public	int getEnergyLevel()
 			{
@@ -13,4 +14,10 @@ public class Animal
 				return energyLevel;
 			}
 	
+	public int getDistance()
+		{
+			
+			return distance;
+			
+		}
 }

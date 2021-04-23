@@ -75,8 +75,10 @@ public void fight(Animal a,Animal b)
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
+			if(a.getDistance()<=5)
+			{
 			System.out.println("The "+a.getClass().getSimpleName()+" is caught by "+b.getClass().getSimpleName());
-			try{
+							try{
 								Thread.sleep(1000);
 							}
 							catch(InterruptedException ex)
@@ -88,8 +90,15 @@ public void fight(Animal a,Animal b)
 						System.out.println("--------------------------------------------------------------");
 			System.out.println("The winner is "+b.getClass().getSimpleName());
 			//remove dead animal
-			animals.remove(a);
+
+				animals.remove(a);
+				System.out.println("--------------------------------------------------------------");
+			}
+				else
+				{
 			System.out.println("--------------------------------------------------------------");
+			System.out.println("The "+a.getClass().getSimpleName()+" is Escaped");
+				}
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Herbivores))
 			{System.out.println("--------------------------------------------------------------");
@@ -105,8 +114,10 @@ public void fight(Animal a,Animal b)
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName() );
-			try{
+			if(b.getDistance()<=5)
+				{
+					System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName() );
+						try	{
 								Thread.sleep(1000);
 							}
 							catch(InterruptedException ex)
@@ -114,13 +125,18 @@ public void fight(Animal a,Animal b)
 								Thread.currentThread().interrupt();
 							}
 			
-				System.out.println("--------------------------------------------------------------");
-			System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
-			System.out.println("--------------------------------------------------------------");
-			System.out.println("The winner is "+a.getClass().getSimpleName());
+					System.out.println("--------------------------------------------------------------");
+					System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
+					animals.remove(b);
+					System.out.println("--------------------------------------------------------------");
+				}
+			else
+			{
+				System.out.println("The "+b.getClass().getSimpleName()+" is Escaped");
+				System.out.println("The winner is "+a.getClass().getSimpleName());
 			
-				//remove dead animal
-			animals.remove(b);
+			}	//remove dead animal
+			
 			System.out.println("--------------------------------------------------------------");
 			}
 			else if(( a instanceof  Carnivores)||( b instanceof Carnivores))
@@ -141,6 +157,7 @@ public void fight(Animal a,Animal b)
 			preyStamina--;
 			}
 			System.out.println("--------------------------------------------------------------");
+			if(b.getDistance()<=5){
 			System.out.println("The "+b.getClass().getSimpleName()+" is caught ");
 			try{
 								Thread.sleep(1000);
@@ -154,7 +171,12 @@ public void fight(Animal a,Animal b)
 						System.out.println("--------------------------------------------------------------");
 			System.out.println("The winner is "+a.getClass().getSimpleName());
 			animals.remove(b);
-			System.out.println("--------------------------------------------------------------");
+			}
+			else
+			{
+			System.out.println("The "+b.getClass().getSimpleName()+" is escaped ");	
+			}
+	System.out.println("--------------------------------------------------------------");
 			}
 				}
 			
@@ -166,19 +188,26 @@ public void fight(Animal a,Animal b)
 						preyStamina--;
 						}
 							System.out.println("--------------------------------------------------------------");
-							System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName());
-							try{
-								Thread.sleep(1000);
-							}
-							catch(InterruptedException ex)
+							if(b.getDistance()<=5)
 							{
-								Thread.currentThread().interrupt();
-							}
+							System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName());
+										try{
+											Thread.sleep(1000);
+											}
+											catch(InterruptedException ex)
+											{
+												Thread.currentThread().interrupt();
+											}
 							System.out.println("--------------------------------------------------------------");
 							System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
 							System.out.println("--------------------------------------------------------------");
 							System.out.println("The winner is "+a.getClass().getSimpleName());
 							animals.remove(b);
+							}
+							else
+							{
+								System.out.println("The "+b.getClass().getSimpleName()+" is Escaped");
+							}
 							System.out.println("--------------------------------------------------------------");
 				}
 				
