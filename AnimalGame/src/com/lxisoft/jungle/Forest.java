@@ -77,7 +77,9 @@ public void fight(Animal a,Animal b)
 			System.out.println("--------------------------------------------------------------");
 			if(a.getDistance()<=5)
 			{
-			System.out.println("The "+a.getClass().getSimpleName()+" is caught by "+b.getClass().getSimpleName());
+				if(a.getLuckFactor()==0)
+				{
+						System.out.println("The "+a.getClass().getSimpleName()+" is caught by "+b.getClass().getSimpleName());
 							try{
 								Thread.sleep(1000);
 							}
@@ -89,9 +91,14 @@ public void fight(Animal a,Animal b)
 			System.out.println("The "+a.getClass().getSimpleName()+" is Dead");
 						System.out.println("--------------------------------------------------------------");
 			System.out.println("The winner is "+b.getClass().getSimpleName());
+				animals.remove(a);
+				}
+				else{
+					System.out.println("The "+a.getClass().getSimpleName()+" is lucky and escaped");
+				}
 			//remove dead animal
 
-				animals.remove(a);
+				
 				System.out.println("--------------------------------------------------------------");
 			}
 				else
@@ -116,6 +123,8 @@ public void fight(Animal a,Animal b)
 			System.out.println("--------------------------------------------------------------");
 			if(b.getDistance()<=5)
 				{
+					if(a.getLuckFactor()==0)
+						{
 					System.out.println("The "+b.getClass().getSimpleName()+" is caught by "+a.getClass().getSimpleName() );
 						try	{
 								Thread.sleep(1000);
@@ -128,7 +137,13 @@ public void fight(Animal a,Animal b)
 					System.out.println("--------------------------------------------------------------");
 					System.out.println("The "+b.getClass().getSimpleName()+" is Dead");
 					animals.remove(b);
-					System.out.println("--------------------------------------------------------------");
+						}
+						else
+						{
+							System.out.println("The "+b.getClass().getSimpleName()+" is lucky and escaped");
+						}
+
+				System.out.println("--------------------------------------------------------------");
 				}
 			else
 			{
