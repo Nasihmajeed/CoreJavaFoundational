@@ -26,7 +26,6 @@ public void hotelDetails()
 	else
 	{ 
 		c.customerName();
-		a.printMenu();
 		a.customerOrder();
 	}
 }
