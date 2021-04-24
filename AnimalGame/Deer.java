@@ -1,11 +1,8 @@
 import java.util.*;
-class Deer extends Animal
+public class Deer extends AnimalHerbivor
 {	
-    Random rand= new Random();
-	void getData()
-	{
-	 name="Deer";
-     animal_strength=rand.nextInt(700)+100;
-     
-	}
+  
+	
+	
+
 }

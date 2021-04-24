@@ -1,11 +1,6 @@
 import java.util.*;
-class Tiger extends Animal
+public class Tiger extends AnimalCarnivor
 {	
-    Random rand= new Random();
-	void getData()
-	{
-		 name="Tiger";
-     animal_strength=rand.nextInt(700)+100;
-     
-	}
+    
+	
 }
