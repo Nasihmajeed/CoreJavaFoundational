@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class Admin
 {
@@ -9,10 +10,9 @@ int sel,admOption,num,j;
 
 ArrayList<Food> foodItems=new ArrayList<Food>();
 ArrayList<Drinks> drinkList=new ArrayList<Drinks>();
-/*
-ArrayList<Bill> fbill=new ArrayList<Bill>();
-ArrayList<Bill> dbill=new ArrayList<Bill>();
-*/
+ArrayList bill=new ArrayList();
+//ArrayList<Bill> bill=new ArrayList<Bill>();
+
             //setting food and drink items into arraylists
 {
 	foodItems.add(new Food());
@@ -58,27 +58,27 @@ ArrayList<Bill> dbill=new ArrayList<Bill>();
                                                                                                //printing those items
 public void printMenu()
 {
-	System.out.println("===============================MENU========================");
-	System.out.println("===========================================================");
+	System.out.println("=======================================MENU=====================================");
+	System.out.println("================================================================================");
     System.out.println("----------------------------------------------FOOD ITEMS----------------------------------------------");
     System.out.println("Food name : ......................."+foodItems.get(0).getFname()+"....................... Food price : ......................."+foodItems.get(0).getFprice());
 	System.out.println("Food name : ......................."+foodItems.get(1).getFname()+"....................... Food price : ......................."+foodItems.get(1).getFprice());
 	System.out.println("Food name : ...................... "+foodItems.get(2).getFname()+"....................... Food price : ......................."+foodItems.get(2).getFprice());
 	System.out.println("Food name : ......................."+foodItems.get(3).getFname()+"....................... Food price : ......................."+foodItems.get(3).getFprice());
 	System.out.println("Food name : ......................."+foodItems.get(4).getFname()+"....................... Food price : ......................."+foodItems.get(4).getFprice());
-	System.out.println("===========================================================");
-	System.out.println("===========================================================");
+	System.out.println("================================================================================");
+	System.out.println("================================================================================");
 	
-	System.out.println("===============================MENU========================");
-	System.out.println("===========================================================");
+	System.out.println("=======================================MENU=====================================");
+	System.out.println("================================================================================");
     System.out.println("----------------------------------------------DRINK ITEMS---------------------------------------------");
     System.out.println("Food name : ......................."+drinkList.get(0).getDname()+"....................... Food price : ......................."+drinkList.get(0).getDprice());
 	System.out.println("Food name : ......................."+drinkList.get(1).getDname()+"....................... Food price : ......................."+drinkList.get(1).getDprice());
 	System.out.println("Food name : ......................."+drinkList.get(2).getDname()+"....................... Food price : ......................."+drinkList.get(2).getDprice());
 	System.out.println("Food name : ......................."+drinkList.get(3).getDname()+"....................... Food price : ......................."+drinkList.get(3).getDprice());
 	System.out.println("Food name : ......................."+drinkList.get(4).getDname()+"....................... Food price : ......................."+drinkList.get(4).getDprice());
-	System.out.println("===========================================================");
-	System.out.println("===========================================================");
+	System.out.println("================================================================================");
+	System.out.println("================================================================================");
 }
 
 public void viewFoods()                      //a function to print food list whenever needed
@@ -99,9 +99,9 @@ public void viewDrinks()                    //a function to print drink list whe
 
 
 //Customer ordering items
-/*
-int item,qy;
-String fudOrder,repeat;
+
+int item,qy,i=0,fnum,dnum,fdOrdr,drOrdr;
+String repeat;
 float total;
 public void customerOrder()
 {
@@ -112,49 +112,83 @@ public void customerOrder()
 	                  {
 						  case 1:                          viewFoods();
 						                             do{    
-						                               System.out.println("Please place your order for Food Item :");
-													   fudOrder=sc.next();
-													   if(fudOrder instanceof foodItems)
+						                               System.out.println("Please place your order number for Food Item :");
+													   fnum=sc.nextInt();
+													   System.out.println("===========================================");
+													   if(fnum<=foodItems.size())
 													   {
-														   System.out.println("Order accepted!!!");
-														   j=indexOf(fudOrder);
-														   System.out.println("You have ordered "+foodItems.get(j).getFname()+" of price "+foodItems.get(j).getFprice());
-                                                           System.out.println("Enter the quantity of "+foodItems.get(j).getFname()+" you want :");
-                                                           qy=sc.nextInt();
-														   total=qy*foodItems.get(j).getFprice();
-                                                           fbill.setAmount(total);										   
+														System.out.println("===========================================");
+														System.out.println("Order accepted!!!");  
+														System.out.println("===========================================");
+														fdOrdr=fnum-1;
+														System.out.println("===========================================");
+						System.out.println("You have ordered "+foodItems.get(fdOrdr).getFname()+" with price of Rs."+foodItems.get(fdOrdr).getFprice());
+						                                System.out.println("===========================================");
+													    System.out.println("Enter the quantity of food item you want :");
+                                                            qy=sc.nextInt();
+														System.out.println("===========================================");
+														System.out.println("You have ordered "+qy+" quantity of "+foodItems.get(fdOrdr).getFname());
+															total=qy*foodItems.get(fdOrdr).getFprice();
+                                                            bill.add(total);
+													                   
 													   }
-							                           
-											           System.out.println("Do you want to order more food ?..........yes.................no..............");
+													   billPrint(bill);
+													   System.out.println("===========================================");
+													   System.out.println("Do you want to order more food ?.................yes.................no.................");
+													   System.out.println("===========================================");
 													   repeat=sc.next();
 													   
 													}while(repeat.equals("yes"));
+													billPrint(bill);
                                                        break;
-													   
-						  case 2:                    viewFoods();
+							                           
+						  case 2:                    viewDrinks();
 						                             do{    
-						                               System.out.println("Please place your order for Drink :");
-													   drkOrder=sc.next();
-													   if(drkOrder instanceof drinkList)
+						                               System.out.println("Please place your order number for Food Item :");
+													   dnum=sc.nextInt();
+													   System.out.println("===========================================");
+													   if(dnum<=drinkList.size())
 													   {
-														   System.out.println("Order accepted!!!");
-														   j=indexOf(drkOrder);
-														   System.out.println("You have ordered "+drinkList.get(j).getDname()+" of price "+drinkList.get(j).getDprice());
-                                                           System.out.println("Enter the quantity of "+drinkList.get(j).getDname()+" you want :");
-                                                           qy=sc.nextInt();
-														   total=qy*drinkList.get(j).getDprice();
-                                                           dbill.setAmount(total);										   
+														System.out.println("===========================================");
+														System.out.println("Order accepted!!!");
+														System.out.println("===========================================");
+														drOrdr=dnum-1;
+						System.out.println("You have ordered "+drinkList.get(drOrdr).getDname()+" with price of Rs."+drinkList.get(drOrdr).getDprice());
+						                                System.out.println("===========================================");
+													    System.out.println("Enter the quantity of drink you want :");
+                                                            qy=sc.nextInt();
+															System.out.println("===========================================");
+															System.out.println("You have ordered "+qy+" quantity of "+drinkList.get(drOrdr).getDname());
+															total=qy*drinkList.get(drOrdr).getDprice();
+                                                          	 bill.add(total);       															
 													   }
-							                           
-											           System.out.println("Do you want to order more food ?..........yes.................no..............");
+													   billPrint(bill);
+													   System.out.println("===========================================");
+													   System.out.println("Do you want to order more food ?.................yes.................no.................");
+													   System.out.println("===========================================");
 													   repeat=sc.next();
 													   
 													}while(repeat.equals("yes"));
-                                                        foodBill();
-                                                       break;
+													billPrint(bill);
+                                                    break;
 					  }
 }
-*/
+
+//Billing
+float totalAmount=0,amount;
+public void billPrint(ArrayList totalBill)
+{
+	System.out.println("-----------...........Total Bill : ............----------");
+	amount=totalBill.get(i);
+	for(int i=0;i<totalBill.size();i++)
+	{   
+	    System.out.println(i+1+"----------"+totalBill.get(i)+"-------------");
+	    totalAmount = totalAmount + amount;                                                                                                      	                                                                              
+	}
+System.out.println("===========================================");
+System.out.println("You have to Pay a total amount of : : "+totalAmount);
+System.out.println("===========================================");
+}
 
 //admin part
 
@@ -162,12 +196,12 @@ public void customerOrder()
 public void adminAuthenticate()
 {
 	System.out.println("Enter the Username of the Admin");
-		uname=sc.next();
+		uname=sc.nextLine();
 		if(uname.equals("saiskp"))
 		{
 			System.out.println("Username Authenticated!!!");
 			System.out.println("Enter the Admin Password");
-			pwd=sc.next();
+			pwd=sc.nextLine();
 
 			if(pwd.equals("sai"))
 			{
@@ -231,7 +265,7 @@ public void addItem()
 								 for(int i=0;i<num;i++)
 								 {
 								     System.out.println("Enter the name of the new Food Item : ");
-                                     newFud=sc.next();
+                                     newFud=sc.nextLine();
 									 System.out.println("Enter the price of the new Food Item : ");
                                      newPrc=sc.nextFloat();
 									 foodItems.add(new Food());
@@ -251,7 +285,7 @@ public void addItem()
 								 for(int i=0;i<num;i++)
 								 {
 								     System.out.println("Enter the name of the new Drink : ");
-                                     newDrk=sc.next();
+                                     newDrk=sc.nextLine();
 									 System.out.println("Enter the price of the new Drink : ");
                                      newDpr=sc.nextFloat();
 									 drinkList.add(new Drinks());
@@ -283,7 +317,7 @@ public void updateItems()
 									 j=num-1;
 									 
 									 System.out.println("Enter the new food with which the list is to be updated :");
-									 updateFud=sc.next();
+									 updateFud=sc.nextLine();
 									 
 									 System.out.println("Enter the Food price to be updated :");
 									 updFudPrc=sc.nextFloat();
@@ -301,7 +335,7 @@ public void updateItems()
 									 j=num-1;
 									 
 									 System.out.println("Enter the new drink with which the list is to be updated :");
-									 updateDrk=sc.next();
+									 updateDrk=sc.nextLine();
 									 
 									 System.out.println("Enter the drink price to be updated :");
 									 updDrkPrc=sc.nextFloat();
