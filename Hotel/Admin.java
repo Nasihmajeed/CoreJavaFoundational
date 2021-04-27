@@ -11,9 +11,8 @@ int sel,admOption,num,j;
 ArrayList<Food> foodItems=new ArrayList<Food>();
 ArrayList<Drinks> drinkList=new ArrayList<Drinks>();
 ArrayList bill=new ArrayList();
-//ArrayList<Bill> bill=new ArrayList<Bill>();
 
-            //setting food and drink items into arraylists
+                          //setting food and drink items into arraylists
 {
 	foodItems.add(new Food());
 	foodItems.get(0).setFname("Dosa");
@@ -112,7 +111,7 @@ public void customerOrder()
 	                  {
 						  case 1:                          viewFoods();
 						                             do{    
-						                               System.out.println("Please place your order number for Food Item :");
+						                               System.out.println("Please place your order number for the corresponding Food Item :");
 													   fnum=sc.nextInt();
 													   System.out.println("===========================================");
 													   if(fnum<=foodItems.size())
@@ -132,7 +131,7 @@ public void customerOrder()
                                                             bill.add(total);
 													                   
 													   }
-													   billPrint(bill);
+													   
 													   System.out.println("===========================================");
 													   System.out.println("Do you want to order more food ?.................yes.................no.................");
 													   System.out.println("===========================================");
@@ -144,7 +143,7 @@ public void customerOrder()
 							                           
 						  case 2:                    viewDrinks();
 						                             do{    
-						                               System.out.println("Please place your order number for Food Item :");
+						                               System.out.println("Please place your order number for the corresponding Drink :");
 													   dnum=sc.nextInt();
 													   System.out.println("===========================================");
 													   if(dnum<=drinkList.size())
@@ -162,9 +161,9 @@ public void customerOrder()
 															total=qy*drinkList.get(drOrdr).getDprice();
                                                           	 bill.add(total);       															
 													   }
-													   billPrint(bill);
+													   
 													   System.out.println("===========================================");
-													   System.out.println("Do you want to order more food ?.................yes.................no.................");
+													   System.out.println("Do you want to order more Drink ?.................yes.................no.................");
 													   System.out.println("===========================================");
 													   repeat=sc.next();
 													   
@@ -179,15 +178,17 @@ float totalAmount=0,amount;
 public void billPrint(ArrayList totalBill)
 {
 	System.out.println("-----------...........Total Bill : ............----------");
-	amount=totalBill.get(i);
+	
 	for(int i=0;i<totalBill.size();i++)
 	{   
+	    amount=(Float)totalBill.get(i);
 	    System.out.println(i+1+"----------"+totalBill.get(i)+"-------------");
 	    totalAmount = totalAmount + amount;                                                                                                      	                                                                              
 	}
 System.out.println("===========================================");
 System.out.println("You have to Pay a total amount of : : "+totalAmount);
 System.out.println("===========================================");
+
 }
 
 //admin part
