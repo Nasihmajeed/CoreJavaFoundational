@@ -11,8 +11,8 @@ class Play
 	Player p2=new Player2();
 Board b=new Board();
 Die d=new Die();
-int dieNumber,dieCount,coinPos=0;
-
+int dieNumber,dieCount,coinPos;
+boolean isHome;
 int ans;
 Scanner sc=new Scanner(System.in);
 public void play()
@@ -23,30 +23,35 @@ public void play()
 	b.setColumns();
 	System.out.println("Player throws die");
 	
-	do{
+	/*isHome=getHome(p1);
 		
-			if(getHome(p1)==true)
-			{
-				System.out.println(" And can throw die one more time");
-
-				coinPos=coinPos+d.getNumberOnDie();
-				System.out.println("Now the Player 1 moved to "+coinPos);
-
-
-			}
+			if(isHome==true)
+			{*/
+				//System.out.println(" And can throw die one more time");
+				
+				
+		/*	}
 
 			else
-				{
-				System.out.println("The "+p1.getClass().getSimpleName()+" can't play, switch player");
+			{
+			System.out.println("The "+p1.getClass().getSimpleName()+" can't play, switch player");
 
-				}
+			}
 	
 
-				System.out.println("continue playing press 1:");
+				/*System.out.println("continue playing press 1:");
 				
-				ans=sc.nextInt();
-	}while(ans==1);	
+				ans=sc.nextInt();*/
+	
+	
 
+		
+			
+	
+
+				/*System.out.println("continue playing press 1:");
+				
+				ans=sc.nextInt();*/
 	
 
 
@@ -56,9 +61,9 @@ public void play()
 public boolean getHome(Player p)
 	{
 		if(d.getNumberOnDie()==6)
-			{
-				p.setCoinPosition(dieNumber);
-				System.out.println("Player 1 moved to home");
+			{	System.out.println("Player "+p.getClass().getSimpleName()+" got 6 ");
+				p.setCoinPosition(0);
+				System.out.println("Player "+p.getClass().getSimpleName()+" moved to home");
 				return true;
 			}
 		else
@@ -66,11 +71,24 @@ public boolean getHome(Player p)
 				return false;
 			}
 
+	}
 
 
 
+	public void move()
+	{
+		coinPos=0;
+				while(coinPos<=10){
+					
 
+				dieNumber=d.getNumberOnDie();
 
+					System.out.println("The number on die"+dieNumber);	
+				coinPos=coinPos+dieNumber;
+
+				System.out.println("Now the Player 1 moved to "+coinPos);
+				}
+				
 	}
 
 
