@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class Admin
 {
-String admName="Sai Krishna",uname,pwd;
+String admName="Sai Krishna",uname,pwd,check;
 Scanner sc=new Scanner(System.in);
 int sel,admOption,num,j;
 
@@ -60,22 +60,17 @@ public void printMenu()
 	System.out.println("=======================================MENU=====================================");
 	System.out.println("================================================================================");
     System.out.println("----------------------------------------------FOOD ITEMS----------------------------------------------");
-    System.out.println("Food name : ......................."+foodItems.get(0).getFname()+"....................... Food price : ......................."+foodItems.get(0).getFprice());
-	System.out.println("Food name : ......................."+foodItems.get(1).getFname()+"....................... Food price : ......................."+foodItems.get(1).getFprice());
-	System.out.println("Food name : ...................... "+foodItems.get(2).getFname()+"....................... Food price : ......................."+foodItems.get(2).getFprice());
-	System.out.println("Food name : ......................."+foodItems.get(3).getFname()+"....................... Food price : ......................."+foodItems.get(3).getFprice());
-	System.out.println("Food name : ......................."+foodItems.get(4).getFname()+"....................... Food price : ......................."+foodItems.get(4).getFprice());
+    for(int i=0;i<foodItems.size();i++)
+	{
+		System.out.println("Food name : ......................."+foodItems.get(i).getFname()+"Food price : ......................."+foodItems.get(i).getFprice());
+	}
 	System.out.println("================================================================================");
-	System.out.println("================================================================================");
-	
-	System.out.println("=======================================MENU=====================================");
 	System.out.println("================================================================================");
     System.out.println("----------------------------------------------DRINK ITEMS---------------------------------------------");
-    System.out.println("Food name : ......................."+drinkList.get(0).getDname()+"....................... Food price : ......................."+drinkList.get(0).getDprice());
-	System.out.println("Food name : ......................."+drinkList.get(1).getDname()+"....................... Food price : ......................."+drinkList.get(1).getDprice());
-	System.out.println("Food name : ......................."+drinkList.get(2).getDname()+"....................... Food price : ......................."+drinkList.get(2).getDprice());
-	System.out.println("Food name : ......................."+drinkList.get(3).getDname()+"....................... Food price : ......................."+drinkList.get(3).getDprice());
-	System.out.println("Food name : ......................."+drinkList.get(4).getDname()+"....................... Food price : ......................."+drinkList.get(4).getDprice());
+	for(int i=0;i<drinkList.size();i++)
+	{
+	   System.out.println("Drink name : ......................."+drinkList.get(i).getDname()+"....................... Drink price : ......................."+drinkList.get(i).getDprice());	
+	}
 	System.out.println("================================================================================");
 	System.out.println("================================================================================");
 }
@@ -96,9 +91,7 @@ public void viewDrinks()                    //a function to print drink list whe
 	}
 }
 
-
 //Customer ordering items
-
 int item,qy,i=0,fnum,dnum,fdOrdr,drOrdr;
 String repeat;
 float total;
@@ -109,8 +102,9 @@ public void customerOrder()
 	item=sc.nextInt();
 	switch(item)
 	                  {
-						  case 1:                          viewFoods();
+						  case 1:                          
 						                             do{    
+													          viewFoods();
 						                               System.out.println("Please place your order number for the corresponding Food Item :");
 													   fnum=sc.nextInt();
 													   System.out.println("===========================================");
@@ -129,7 +123,6 @@ public void customerOrder()
 														System.out.println("You have ordered "+qy+" quantity of "+foodItems.get(fdOrdr).getFname());
 															total=qy*foodItems.get(fdOrdr).getFprice();
                                                             bill.add(total);
-													                   
 													   }
 													   
 													   System.out.println("===========================================");
@@ -141,8 +134,9 @@ public void customerOrder()
 													billPrint(bill);
                                                        break;
 							                           
-						  case 2:                    viewDrinks();
-						                             do{    
+						  case 2:                   
+						                             do{
+                                                                   viewDrinks();														 
 						                               System.out.println("Please place your order number for the corresponding Drink :");
 													   dnum=sc.nextInt();
 													   System.out.println("===========================================");
@@ -188,12 +182,9 @@ public void billPrint(ArrayList totalBill)
 System.out.println("===========================================");
 System.out.println("You have to Pay a total amount of : : "+totalAmount);
 System.out.println("===========================================");
-
 }
 
 //admin part
-
-
 public void adminAuthenticate()
 {
 	System.out.println("Enter the Username of the Admin");
@@ -219,7 +210,6 @@ public void adminAuthenticate()
 			System.out.println("Username Invalid !!! Try Again !!!");
 		}
 }
-
 public void adminOperations()
 {
 	System.out.println("Welcome Sai Krishna!!!!");
@@ -228,9 +218,7 @@ public void adminOperations()
 	System.out.println("2.Update/Edit Existing menu");
 	System.out.println("3.Delete Items from Menu");
 	System.out.println("4.View Menu");
-	
 	admOption=sc.nextInt();
-	
 	switch(admOption)
 	            {
 		                   case 1: addItem();
@@ -244,9 +232,7 @@ public void adminOperations()
                                   	default : System.out.println("Enter a valid Option!!!!");
 	             }
 }
-
 //addition of food item/drink
-
 String newFud,newDrk;
 float newPrc,newDpr;
 
@@ -260,21 +246,21 @@ public void addItem()
 								 case 1: 
 								         viewFoods();
 								         j=foodItems.size();
-								 System.out.println("Enter the number  of food items you want to add :");
-								 num=sc.nextInt();	 
+								        System.out.println("Enter the number  of food items you want to add :");
+								        num=sc.nextInt();	 
 								 
-								 for(int i=0;i<num;i++)
-								 {
+								         for(int i=0;i<num;i++)
+								          {
 								     System.out.println("Enter the name of the new Food Item : ");
-                                     newFud=sc.nextLine();
+                                     newFud=sc.next();
 									 System.out.println("Enter the price of the new Food Item : ");
                                      newPrc=sc.nextFloat();
 									 foodItems.add(new Food());
 									 foodItems.get(j).setFname(newFud);
 									 foodItems.get(j).setFprice(newPrc);
-								 }
-								 System.out.println("Item added Successfully");
-								 viewFoods();
+								          }
+								          System.out.println("Food Item added Successfully");
+								          viewFoods();
 								 break;
 								 
 								 case 2: 
@@ -286,7 +272,7 @@ public void addItem()
 								 for(int i=0;i<num;i++)
 								 {
 								     System.out.println("Enter the name of the new Drink : ");
-                                     newDrk=sc.nextLine();
+                                     newDrk=sc.next();
 									 System.out.println("Enter the price of the new Drink : ");
                                      newDpr=sc.nextFloat();
 									 drinkList.add(new Drinks());
@@ -294,14 +280,11 @@ public void addItem()
 									 drinkList.get(j).setDprice(newDpr);
 								 }
 								 System.out.println("Drink added Successfully");
-								viewDrinks();
+								 viewDrinks();
 								 break;
 							 }
-
 }
-
 //update menu list of food and drinks
-
 String updateFud,updateDrk;
 float updFudPrc,updDrkPrc;
 
@@ -312,13 +295,14 @@ public void updateItems()
 	
 	switch(sel)
 	              {
-		               case 1:  viewFoods();
-					                System.out.println("Enter the number of food item to be updated or edited :");
+		               case 1:  do{
+						                    viewFoods();
+					                 System.out.println("Enter the number of food item to be updated or edited :");
 					                 num=sc.nextInt();
 									 j=num-1;
 									 
 									 System.out.println("Enter the new food with which the list is to be updated :");
-									 updateFud=sc.nextLine();
+									 updateFud=sc.next();
 									 
 									 System.out.println("Enter the Food price to be updated :");
 									 updFudPrc=sc.nextFloat();
@@ -327,16 +311,23 @@ public void updateItems()
 									 foodItems.get(j).setFprice(updFudPrc);
 									 
 					                 System.out.println("Food updated Successfully !!!");
+									 viewFoods();
+									 System.out.println("Do you want to update more food ?.......................yes.......................no");
+									 check=sc.next();
+					                     }while(check.equals("yes"))
+					                
+									System.out.println("Updated Food Menu : ");
                                      viewFoods();
-									 break;									  
+									 break;			 						  
 					   case 2: 
-	                                   viewDrinks();
+	                                   do{
+										viewDrinks();
 									   System.out.println("Enter the number of drink item to be updated or edited :");
 					                 num=sc.nextInt();
 									 j=num-1;
 									 
 									 System.out.println("Enter the new drink with which the list is to be updated :");
-									 updateDrk=sc.nextLine();
+									 updateDrk=sc.next();
 									 
 									 System.out.println("Enter the drink price to be updated :");
 									 updDrkPrc=sc.nextFloat();
@@ -346,13 +337,15 @@ public void updateItems()
 					                 
 									 System.out.println("Drink updated successfully !!!");
 				                     viewDrinks();
-									 
+									 System.out.println("Do you want to update more Drinks ?.......................yes.......................no");
+									 check=sc.next();
+									   }while(check.equals("yes"))
+                                     System.out.println("Updated Drinks Menu : ");
+                                     viewDrinks();									 
 									 break;
 				  }
 }
-
 //remove items from menu list
-
 int delete;
 
 public void removeItem()
@@ -361,30 +354,42 @@ public void removeItem()
 	sel=sc.nextInt();
 	switch(sel)
 	                {
-						case 1 : 
-						              viewFoods();
+						case 1 :  do
+						              {
+										viewFoods();
 						              System.out.println("Enter the number of the food item you want to remove :");
 									  num=sc.nextInt();
 									  delete=num-1;
 						              foodItems.remove(delete);
 									  System.out.println("Food item removed Successfully !!!");
 									  viewFoods();
+                                       System.out.println("Do you want to remove more Food Items ?.......................yes.......................no");									  
+									    check=sc.next();
+									  }while(check.equals("yes"))
+						              System.out.println("Items removed successfully!!!!");
+									  viewFoods();
 									  break;
 						case 2 :
-						              viewDrinks();
+						              do
+									  {
+										viewDrinks();
 						              System.out.println("Enter the number of the Drink you want to remove :");
 									  num=sc.nextInt();
 									  delete=num-1;
-						              drinkList.remove(delete);
+						              drinkList.remove(delete);  
 									  System.out.println("Drink removed Successfully !!!");
 									  viewDrinks();
+									  System.out.println("Do you want to remove more Drinks ?.......................yes.......................no");
+									  check=sc.next();
+									  }while(check.equals("yes"))
+						              System.out.println("Items removed successfully");
+									  viewDrinks();
 					                   break;
-					}
-					
+					}					
 }
 
-
 //admin wants to view the list
+
 public void viewList()
 {
 	System.out.println("Which list do you want to view ?");
@@ -393,13 +398,31 @@ public void viewList()
 	sel=sc.nextInt();
 	switch(sel)
 	            {
-					case 1 : viewFoods();
+					case 1 :
+									viewFoods();
+                                    System.out.println("Do you want to view the Drinks Menu also? .......................yes.......................no  "); 
+                                    check=sc.next();									
+								    if(check.equals("yes"))
+									{
+										viewDrinks();
+									}
+									else
+									{
+									System.out.println("Thank you !");	
+									}
 					              break;
 					case 2 : viewDrinks();
+					              System.out.println("Do you want to view the Food Menu also? .......................yes.......................no  "); 
+                                    check=sc.next();									
+								    if(check.equals("yes"))
+									{
+										viewFoods();
+									}
+									else
+									{
+									System.out.println("Thank you !");	
+									}
 				                  break;
-				}
-	
+				}	
 }
-
-
 }

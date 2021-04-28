@@ -25,9 +25,13 @@ public void hotelDetails()
 	select=sc.nextInt();
 	switch(select)
 	{
-		case 1 : a.adminAuthenticate();
-		case 2 : c.customerName();
+		case 1 : 
+		              a.adminAuthenticate();
+					  break;
+		case 2 : 
+		             c.customerName();
 		             a.customerOrder();
+					 break;
 	}
 }
 
