@@ -216,6 +216,9 @@ public class Game{
 
 			//	System.out.println("TEST"+ladder[x][0]);
 				if(p1.getPosition()==ladder[x][0]){
+					System.out.println("\n********************************");
+					System.out.println("THERE IS A LADDER AT "+p1.getPosition());
+					System.out.println("********************************");
 					//System.out.println("TEST");
 					p1.setPosition(ladder[x][1]);
 					System.out.println("CLIMBED UP A LADDER");
@@ -224,6 +227,9 @@ public class Game{
 			}
 		for(int x=0;x<8;x++){
 					if(p1.getPosition()==snake[x][0]){
+						System.out.println("\n********************************");
+						System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
+						System.out.println("********************************");
 					p1.setPosition(snake[x][1]);
 						System.out.println("BITTEN BY SNAKE");
 							System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
@@ -278,15 +284,22 @@ public class Game{
 
 		//	System.out.println("TEST"+ladder[x][0]);
 			if(p2.getPosition()==ladder[x][0]){
+				System.out.println("\n********************************");
+				System.out.println("THERE IS A LADDER AT "+p2.getPosition());
+				System.out.println("********************************");
 				//System.out.println("TEST");
 				p2.setPosition(ladder[x][1]);
-				System.out.println("CLIMBED UP A LADDER");
+				System.out.println("CLIMBED UP THE LADDER");
 					System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
 			}
 		}
 	for(int x=0;x<8;x++){
 				if(p2.getPosition()==snake[x][0]){
+					System.out.println("\n********************************");
+					System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
+					System.out.println("********************************");
 				p2.setPosition(snake[x][1]);
+
 					System.out.println("BITTEN BY SNAKE");
 						System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
 				}
