@@ -1,27 +1,7 @@
-class Drinks
+interface Drinks 
 {
-	
-	String dname;
-	float dprice;
-	
-public void setDname(String dname)
-{
-		this.dname=dname;
-}
-	
-public void setDprice(float dprice)
-{
-		this.dprice=dprice;
-}
-
-public String getDname()
-{
-	 return dname;
-}
-
-public float getDprice()
-{
-    return dprice;	
-}
-
+public void setDname(String dname);
+public void setDprice(float dprice);
+public String getDname();
+public float getDprice();
 }
