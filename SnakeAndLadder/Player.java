@@ -1,6 +1,6 @@
 class Player
 {
-	int coinPosition;
+	int coinPosition,dieNumber;
 
 	public int getCoinPosition()
 	{
@@ -10,6 +10,7 @@ class Player
 	public void setCoinPosition(int coinPosition)
 	{
 		this.coinPosition=coinPosition;
+		
 
 	}
 
