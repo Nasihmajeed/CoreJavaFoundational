@@ -13,7 +13,7 @@ ArrayList<Item> drinkList=new ArrayList<Item>();
 ArrayList bill=new ArrayList();
 
                           //setting food and drink items into arraylists
-{
+{   
 	foodItems.add(new Item());
 	foodItems.get(0).setFname("Dosa");
 	foodItems.get(0).setFprice(8);
@@ -33,7 +33,7 @@ ArrayList bill=new ArrayList();
 	foodItems.add(new Item());
 	foodItems.get(4).setFname("Veg-Burger");
 	foodItems.get(4).setFprice(45);
-
+ 
     drinkList.add(new Item());
 	drinkList.get(0).setDname("Pepsi");
 	drinkList.get(0).setDprice(50);
@@ -77,9 +77,13 @@ public void printMenu()
 
 public void viewFoods()                      //a function to print food list whenever needed
 {
+	
 	for(int i=0;i<foodItems.size();i++)
 	{
-		System.out.println(i+1+"  "+" Food name : ......................."+foodItems.get(i).getFname()+"....................... Food price : ......................."+foodItems.get(i).getFprice());
+		if(foodItems.get(i) instanceof Item)
+		{
+		System.out.println(i+1+"  "+" Food name : ......................."+foodItems.get(i).getFname()+"....................... Food price : ......................."+foodItems.get(i).getFprice());	
+		}
 	}
 }
 
@@ -87,7 +91,10 @@ public void viewDrinks()                    //a function to print drink list whe
 {
 	for(int i=0;i<drinkList.size();i++)
 	{
-		System.out.println(i+1+"  "+" Drink name : ......................."+drinkList.get(i).getDname()+"....................... Drink price : ......................."+drinkList.get(i).getDprice());
+		if(drinkList.get(i) instanceof Item)
+		{
+		System.out.println(i+1+"  "+" Drink name : ......................."+drinkList.get(i).getDname()+"....................... Drink price : ......................."+drinkList.get(i).getDprice());	
+		}
 	}
 }
 
@@ -229,7 +236,8 @@ public void adminOperations()
 						                break;
 						   case 4: viewList();
 	                                     break;
-                                  	default : System.out.println("Enter a valid Option!!!!");
+                      
+				 default : System.out.println("Enter a valid Option!!!!");
 	             }
 }
 //addition of food item/drink
@@ -251,14 +259,15 @@ public void addItem()
 								          {
 								     System.out.println("Enter the name of the new Food Item : ");
                                      newFud=sc.next();
+									 
 									 System.out.println("Enter the price of the new Food Item : ");
                                      newPrc=sc.nextFloat();
 									 foodItems.add(new Item());
 									 foodItems.get(j).setFname(newFud);
 									 foodItems.get(j).setFprice(newPrc);
 									 System.out.println("Food Item added Successfully");   	
-                                      j=j+1;  										
-									} 
+                                      j=j+1;  										 
+									      }	
                                             viewFoods();										 
 								      break;
 								 case 2: 
@@ -331,9 +340,10 @@ public void updateItems()
 									 System.out.println("Enter the drink price to be updated :");
 									 updDrkPrc=sc.nextFloat();
 									 
+									 
 									 drinkList.get(j).setDname(updateDrk);
-									 drinkList.get(j).setDprice(updDrkPrc);
-					                 
+									 drinkList.get(j).setDprice(updDrkPrc);	
+									 
 									 System.out.println("Drink updated successfully !!!");
 				                     viewDrinks();
 									 System.out.println("Do you want to update more Drinks ?.......................yes.......................no");
@@ -363,7 +373,7 @@ public void removeItem()
 									  System.out.println("Food item removed Successfully !!!");
 									  viewFoods();
                                        System.out.println("Do you want to remove more Food Items ?.......................yes.......................no");									  
-									    check=sc.next();
+									   check=sc.next();
 									  }while(check.equals("yes"));
 						              System.out.println("Items removed successfully!!!!");
 									  System.out.println("Updated Food Menu : ");
@@ -426,4 +436,5 @@ public void viewList()
 				                  break;
 				}	
 }
+
 }

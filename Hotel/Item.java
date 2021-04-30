@@ -7,8 +7,8 @@ class Item implements Food,Drinks
 //Food
 
 	public void setFname(String fname)
-	{
-		this.fname=fname;
+	{   
+		this.fname=fname;	
 	}
 	
 	public void setFprice(float fprice)
