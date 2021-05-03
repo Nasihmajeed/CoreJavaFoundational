@@ -1,7 +1,8 @@
 class Player
 {
-	int coinPosition,dieNumber;
+	int coinPosition,dieNumber=0;
 	Die d=new Die();
+	boolean isHome;
 
 	public int getCoinPosition()
 	{
@@ -23,7 +24,7 @@ class Player
 
 					System.out.println("The number on die "+dieNumber);	
 				coinPosition=coinPosition+dieNumber;
-				System.out.println("The player moved to"+coinPosition);
+				
 				
 				
 	}
