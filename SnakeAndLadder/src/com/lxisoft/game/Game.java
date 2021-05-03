@@ -5,7 +5,9 @@ import java.util.*;
 public class Game{
 	int val=100;
 	String[][] board= new String[10][10];
-	int[][] snake=new int[8][2];
+	int[][] snakeHL=new int[8][2];
+	int[][] snakeML=new int[5][2];
+	int[][] snakeLL=new int[3][2];
 	int[][] ladder=new int[8][2];
 	public void boardView(){
 				board[0][0]="100";
@@ -133,23 +135,48 @@ public class Game{
 			//System.out.print("\n");
 		//}
 
-	public void snake(){
-		snake[0][0]=17;
-		snake[0][1]=7;
-		snake[1][0]=62;
-		snake[1][1]=18;
-		snake[2][0]=54;
-		snake[2][1]=34;
-		snake[3][0]=87;
-		snake[3][1]=36;
-		snake[4][0]=64;
-		snake[4][1]=60;
-		snake[5][0]=92;
-		snake[5][1]=73;
-		snake[6][0]=95;
-		snake[6][1]=75;
-		snake[7][0]=98;
-		snake[7][1]=78;
+	public void snakeHL(){
+		snakeHL[0][0]=17;
+		snakeHL[0][1]=7;
+		snakeHL[1][0]=62;
+		snakeHL[1][1]=18;
+		snakeHL[2][0]=54;
+		snakeHL[2][1]=34;
+		snakeHL[3][0]=87;
+		snakeHL[3][1]=36;
+		snakeHL[4][0]=64;
+		snakeHL[4][1]=60;
+		snakeHL[5][0]=92;
+		snakeHL[5][1]=73;
+		snakeHL[6][0]=95;
+		snakeHL[6][1]=75;
+		snakeHL[7][0]=98;
+		snakeHL[7][1]=78;
+
+	}
+	public void snakeML(){
+		snakeML[0][0]=17;
+		snakeML[0][1]=7;
+		snakeML[1][0]=62;
+		snakeML[1][1]=18;
+		snakeML[2][0]=54;
+		snakeML[2][1]=34;
+		snakeML[3][0]=87;
+		snakeML[3][1]=36;
+		snakeML[4][0]=95;
+		snakeML[4][1]=75;
+
+
+	}
+	public void snakeLL(){
+		snakeLL[0][0]=17;
+		snakeLL[0][1]=7;
+		snakeLL[1][0]=62;
+		snakeLL[1][1]=18;
+		snakeLL[2][0]=54;
+		snakeLL[2][1]=34;
+
+
 
 	}
 	public void ladder(){
@@ -178,7 +205,7 @@ public class Game{
 	public void startGame(Player p1, Player p2){
 		boardView();
 		ladder();
-		snake();
+		snakeHL();
 		int position=0;
 		int temp=0;
 		//String player="p1";
@@ -186,6 +213,16 @@ public class Game{
 		System.out.println("ENTER 1 TO START THE GAME");
 		int start= sc.nextInt();
 		if(start==1){
+			System.out.println("SELECT THE DIFFICULTY LEVEL");
+			System.out.println("1.HARD");
+			System.out.println("2.MODERATE");
+			System.out.println("3.EASY");
+			int sel=sc.nextInt();
+			switch(sel){
+				case 1:
+				System.out.println("\n***********************");
+				System.out.println("DIFFICULTY LEVEL HARD");
+				System.out.println("***********************");
 
 			do{
 				System.out.println("PLAYER "+p1.getName()+"s TURN");
@@ -226,11 +263,11 @@ public class Game{
 				}
 			}
 		for(int x=0;x<8;x++){
-					if(p1.getPosition()==snake[x][0]){
+					if(p1.getPosition()==snakeHL[x][0]){
 						System.out.println("\n********************************");
 						System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
 						System.out.println("********************************");
-					p1.setPosition(snake[x][1]);
+					p1.setPosition(snakeHL[x][1]);
 						System.out.println("BITTEN BY SNAKE");
 							System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
 					}
@@ -294,11 +331,11 @@ public class Game{
 			}
 		}
 	for(int x=0;x<8;x++){
-				if(p2.getPosition()==snake[x][0]){
+				if(p2.getPosition()==snakeHL[x][0]){
 					System.out.println("\n********************************");
 					System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
 					System.out.println("********************************");
-				p2.setPosition(snake[x][1]);
+				p2.setPosition(snakeHL[x][1]);
 
 					System.out.println("BITTEN BY SNAKE");
 						System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
@@ -337,8 +374,327 @@ public class Game{
 		if(p1.getPosition()>=100)
 		System.out.println(p1.getName()+" WINS");
 		else if(p2.getPosition()>=100)
-			System.out.println(p2.getName()+" WINS");
+				System.out.println(p2.getName()+" WINS");
+				break;
+
+
+		case 2:
+			System.out.println("\n***********************");
+			System.out.println("DIFFICULTY LEVEL MODERATE");
+			System.out.println("***********************");
+				do{
+					System.out.println("PLAYER "+p1.getName()+"s TURN");
+				//	System.out.println("PLAYER TURN");
+				System.out.println("ENTER 1 TO ROLL THE DICE");
+				int roll=sc.nextInt();
+				int dice=randNum();
+				//	System.out.println(p1.name+" NOW AT POSITION "+p1.position);
+				if (roll==1) {
+
+					System.out.println("DICE IS "+dice);
+					if(dice==1 && p1.getPosition()<=99)
+						p1.setPosition(p1.getPosition()+1);
+					else if(dice==2 && p1.getPosition()<=98 && p1.getPosition()>=1 )
+						p1.setPosition(p1.getPosition()+2);
+					else if(dice==3 && p1.getPosition()<=97 && p1.getPosition()>=1)
+						p1.setPosition(p1.getPosition()+3);
+					else if(dice==4 && p1.getPosition()<=96 && p1.getPosition()>=1 )
+						p1.setPosition(p1.getPosition()+4);
+					else if(dice==5 && p1.getPosition()<=95 && p1.getPosition()>=1 )
+						p1.setPosition(p1.getPosition()+5);
+					else if(dice==6 && p1.getPosition()<=94 && p1.getPosition()>=1 )
+						p1.setPosition(p1.getPosition()+6);
+						System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+
+
+				for(int x=0;x<8;x++){
+
+				//	System.out.println("TEST"+ladder[x][0]);
+					if(p1.getPosition()==ladder[x][0]){
+						System.out.println("\n********************************");
+						System.out.println("THERE IS A LADDER AT "+p1.getPosition());
+						System.out.println("********************************");
+						//System.out.println("TEST");
+						p1.setPosition(ladder[x][1]);
+						System.out.println("CLIMBED UP A LADDER");
+							System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+					}
+				}
+				for(int x=0;x<8;x++){
+						if(p1.getPosition()==snakeML[x][0]){
+							System.out.println("\n********************************");
+							System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
+							System.out.println("********************************");
+						p1.setPosition(snakeML[x][1]);
+							System.out.println("BITTEN BY SNAKE");
+								System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+						}
+					}
+					for (int i=0;i<10;i++){
+						for(int j=0;j<10;j++){
+							//System.out.println(String.valueOf(position));
+							if(String.valueOf(p1.getPosition()).equals(board[i][j])){
+								temp=Integer.parseInt(board[i][j]);
+								board[i][j]="p1";
+							}
+								//System.out.println(temp);
+								//temp=board[i][j];
+								//board[i][j]=player;
+								//player=temp;
+						}
+				}
+					for (int i=0;i<10;i++){
+						for(int j=0;j<10;j++){
+							System.out.print("|"+board[i][j]+"|"+"\t");
+						}
+						System.out.println("\n-----------------------------------------------------------------------------");
+						//System.out.print("\n");
+					}
+				}
+				if(p1.getPosition()<100){
+				System.out.println("PLAYER "+p2.getName()+"s TURN");
+				//	System.out.println("PLAYER TURN");
+				System.out.println("ENTER 1 TO ROLL THE DICE");
+				roll=sc.nextInt();
+				dice=randNum();
+				//System.out.println("NOW AT POSITION "+p2.position);
+				if (roll==1) {
+
+				System.out.println("DICE IS "+dice);
+				if(dice==1 && p2.getPosition()<=99)
+					p2.setPosition(p2.getPosition()+1);
+				else if(dice==2 && p2.getPosition()<=98 && p2.getPosition()>=1)
+					p2.setPosition(p2.getPosition()+2);
+				else if(dice==3 && p2.getPosition()<=97 && p2.getPosition()>=1)
+					p2.setPosition(p2.getPosition()+3);
+				else if(dice==4 && p2.getPosition()<=96 && p2.getPosition()>=1)
+					p2.setPosition(p2.getPosition()+4);
+				else if(dice==5 && p2.getPosition()<=95 && p2.getPosition()>=1)
+					p2.setPosition(p2.getPosition()+5);
+				else if(dice==6 && p2.getPosition()<=94 && p2.getPosition()>=1)
+					p2.setPosition(p2.getPosition()+6);
+					System.out.println(p2.getName() +" NOW AT POSITION "+p2.getPosition());
+
+				for(int x=0;x<8;x++){
+
+				//	System.out.println("TEST"+ladder[x][0]);
+				if(p2.getPosition()==ladder[x][0]){
+					System.out.println("\n********************************");
+					System.out.println("THERE IS A LADDER AT "+p2.getPosition());
+					System.out.println("********************************");
+					//System.out.println("TEST");
+					p2.setPosition(ladder[x][1]);
+					System.out.println("CLIMBED UP THE LADDER");
+						System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
+				}
+				}
+				for(int x=0;x<8;x++){
+					if(p2.getPosition()==snakeML[x][0]){
+						System.out.println("\n********************************");
+						System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
+						System.out.println("********************************");
+					p2.setPosition(snakeML[x][1]);
+
+						System.out.println("BITTEN BY SNAKE");
+							System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
+					}
+				}
+				for (int i=0;i<10;i++){
+					for(int j=0;j<10;j++){
+						//System.out.println(String.valueOf(position));
+						if(String.valueOf(p2.getPosition()).equals(board[i][j]))
+							board[i][j]="p2";
+							//System.out.println(board[i][j]);
+					}
+				}
+				/*for (int i=0;i<10;i++){
+				for(int j=0;j<10;j++){
+					//System.out.println(String.valueOf(position));
+					if(String.valueOf(p1.position).equals(board[i][j])){
+						//temp=Integer.parseInt(board[i][j]);
+						board[i][j]=String.valueOf(temp);
+							System.out.println(board[i][j]);
+					}
+				}
+				}*/
+				for (int i=0;i<10;i++){
+					for(int j=0;j<10;j++){
+						System.out.print("|"+board[i][j]+"|"+"\t");
+					}
+					System.out.println("\n-----------------------------------------------------------------------------");
+					//System.out.print("\n");
+				}
+				boardView();
+				}
+				}
+				}while(p1.getPosition()<100 && p2.getPosition()<100);
+				//System.out.println("NOW AT POSITION "+p1.position);
+				if(p1.getPosition()>=100)
+				System.out.println(p1.getName()+" WINS");
+				else if(p2.getPosition()>=100)
+					System.out.println(p2.getName()+" WINS");
+					break;
+
+
+
+					case 3:
+						System.out.println("\n***********************");
+						System.out.println("DIFFICULTY LEVEL EASY");
+						System.out.println("***********************");
+							do{
+								System.out.println("PLAYER "+p1.getName()+"s TURN");
+							//	System.out.println("PLAYER TURN");
+							System.out.println("ENTER 1 TO ROLL THE DICE");
+							int roll=sc.nextInt();
+							int dice=randNum();
+							//	System.out.println(p1.name+" NOW AT POSITION "+p1.position);
+							if (roll==1) {
+
+								System.out.println("DICE IS "+dice);
+								if(dice==1 && p1.getPosition()<=99)
+									p1.setPosition(p1.getPosition()+1);
+								else if(dice==2 && p1.getPosition()<=98 && p1.getPosition()>=1 )
+									p1.setPosition(p1.getPosition()+2);
+								else if(dice==3 && p1.getPosition()<=97 && p1.getPosition()>=1)
+									p1.setPosition(p1.getPosition()+3);
+								else if(dice==4 && p1.getPosition()<=96 && p1.getPosition()>=1 )
+									p1.setPosition(p1.getPosition()+4);
+								else if(dice==5 && p1.getPosition()<=95 && p1.getPosition()>=1 )
+									p1.setPosition(p1.getPosition()+5);
+								else if(dice==6 && p1.getPosition()<=94 && p1.getPosition()>=1 )
+									p1.setPosition(p1.getPosition()+6);
+									System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+
+
+							for(int x=0;x<8;x++){
+
+							//	System.out.println("TEST"+ladder[x][0]);
+								if(p1.getPosition()==ladder[x][0]){
+									System.out.println("\n********************************");
+									System.out.println("THERE IS A LADDER AT "+p1.getPosition());
+									System.out.println("********************************");
+									//System.out.println("TEST");
+									p1.setPosition(ladder[x][1]);
+									System.out.println("CLIMBED UP A LADDER");
+										System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+								}
+							}
+							for(int x=0;x<8;x++){
+									if(p1.getPosition()==snakeLL[x][0]){
+										System.out.println("\n********************************");
+										System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
+										System.out.println("********************************");
+									p1.setPosition(snakeLL[x][1]);
+										System.out.println("BITTEN BY SNAKE");
+											System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
+									}
+								}
+								for (int i=0;i<10;i++){
+									for(int j=0;j<10;j++){
+										//System.out.println(String.valueOf(position));
+										if(String.valueOf(p1.getPosition()).equals(board[i][j])){
+											temp=Integer.parseInt(board[i][j]);
+											board[i][j]="p1";
+										}
+											//System.out.println(temp);
+											//temp=board[i][j];
+											//board[i][j]=player;
+											//player=temp;
+									}
+							}
+								for (int i=0;i<10;i++){
+									for(int j=0;j<10;j++){
+										System.out.print("|"+board[i][j]+"|"+"\t");
+									}
+									System.out.println("\n-----------------------------------------------------------------------------");
+									//System.out.print("\n");
+								}
+							}
+							if(p1.getPosition()<100){
+							System.out.println("PLAYER "+p2.getName()+"s TURN");
+							//	System.out.println("PLAYER TURN");
+							System.out.println("ENTER 1 TO ROLL THE DICE");
+							roll=sc.nextInt();
+							dice=randNum();
+							//System.out.println("NOW AT POSITION "+p2.position);
+							if (roll==1) {
+
+							System.out.println("DICE IS "+dice);
+							if(dice==1 && p2.getPosition()<=99)
+								p2.setPosition(p2.getPosition()+1);
+							else if(dice==2 && p2.getPosition()<=98 && p2.getPosition()>=1)
+								p2.setPosition(p2.getPosition()+2);
+							else if(dice==3 && p2.getPosition()<=97 && p2.getPosition()>=1)
+								p2.setPosition(p2.getPosition()+3);
+							else if(dice==4 && p2.getPosition()<=96 && p2.getPosition()>=1)
+								p2.setPosition(p2.getPosition()+4);
+							else if(dice==5 && p2.getPosition()<=95 && p2.getPosition()>=1)
+								p2.setPosition(p2.getPosition()+5);
+							else if(dice==6 && p2.getPosition()<=94 && p2.getPosition()>=1)
+								p2.setPosition(p2.getPosition()+6);
+								System.out.println(p2.getName() +" NOW AT POSITION "+p2.getPosition());
+
+							for(int x=0;x<8;x++){
+
+							//	System.out.println("TEST"+ladder[x][0]);
+							if(p2.getPosition()==ladder[x][0]){
+								System.out.println("\n********************************");
+								System.out.println("THERE IS A LADDER AT "+p2.getPosition());
+								System.out.println("********************************");
+								//System.out.println("TEST");
+								p2.setPosition(ladder[x][1]);
+								System.out.println("CLIMBED UP THE LADDER");
+									System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
+							}
+							}
+							for(int x=0;x<8;x++){
+								if(p2.getPosition()==snakeLL[x][0]){
+									System.out.println("\n********************************");
+									System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
+									System.out.println("********************************");
+								p2.setPosition(snakeLL[x][1]);
+
+									System.out.println("BITTEN BY SNAKE");
+										System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
+								}
+							}
+							for (int i=0;i<10;i++){
+								for(int j=0;j<10;j++){
+									//System.out.println(String.valueOf(position));
+									if(String.valueOf(p2.getPosition()).equals(board[i][j]))
+										board[i][j]="p2";
+										//System.out.println(board[i][j]);
+								}
+							}
+							/*for (int i=0;i<10;i++){
+							for(int j=0;j<10;j++){
+								//System.out.println(String.valueOf(position));
+								if(String.valueOf(p1.position).equals(board[i][j])){
+									//temp=Integer.parseInt(board[i][j]);
+									board[i][j]=String.valueOf(temp);
+										System.out.println(board[i][j]);
+								}
+							}
+							}*/
+							for (int i=0;i<10;i++){
+								for(int j=0;j<10;j++){
+									System.out.print("|"+board[i][j]+"|"+"\t");
+								}
+								System.out.println("\n-----------------------------------------------------------------------------");
+								//System.out.print("\n");
+							}
+							boardView();
+							}
+							}
+							}while(p1.getPosition()<100 && p2.getPosition()<100);
+							//System.out.println("NOW AT POSITION "+p1.position);
+							if(p1.getPosition()>=100)
+							System.out.println(p1.getName()+" WINS");
+							else if(p2.getPosition()>=100)
+								System.out.println(p2.getName()+" WINS");
+								break;
 
 	}
+}
 }
 }
