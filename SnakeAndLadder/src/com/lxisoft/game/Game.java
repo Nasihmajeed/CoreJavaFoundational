@@ -1,8 +1,13 @@
 package com.lxisoft.game;
 import com.lxisoft.player.*;
 import java.util.*;
+enum Difficulty{
+	HARD, MODERATE, EASY;
+}
 
 public class Game{
+	Difficulty diff;
+
 	int val=100;
 	String[][] board= new String[10][10];
 	int[][] snakeHL=new int[8][2];
@@ -206,6 +211,8 @@ public class Game{
 		boardView();
 		ladder();
 		snakeHL();
+		snakeML();
+		snakeLL();
 		int position=0;
 		int temp=0;
 		//String player="p1";
@@ -218,8 +225,21 @@ public class Game{
 			System.out.println("2.MODERATE");
 			System.out.println("3.EASY");
 			int sel=sc.nextInt();
-			switch(sel){
-				case 1:
+			if(sel==1){
+				Difficulty diff= Difficulty.HARD;
+				this.diff=diff;
+			}
+			else if(sel==2){
+				Difficulty diff= Difficulty.MODERATE;
+				this.diff=diff;
+			}
+			else if(sel==3){
+				Difficulty diff= Difficulty.EASY;
+				this.diff=diff;
+			}
+
+			switch(diff){
+				case HARD:
 				System.out.println("\n***********************");
 				System.out.println("DIFFICULTY LEVEL HARD");
 				System.out.println("***********************");
@@ -378,7 +398,7 @@ public class Game{
 				break;
 
 
-		case 2:
+		case MODERATE:
 			System.out.println("\n***********************");
 			System.out.println("DIFFICULTY LEVEL MODERATE");
 			System.out.println("***********************");
@@ -407,7 +427,7 @@ public class Game{
 						System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
 
 
-				for(int x=0;x<8;x++){
+				for(int x=0;x<5;x++){
 
 				//	System.out.println("TEST"+ladder[x][0]);
 					if(p1.getPosition()==ladder[x][0]){
@@ -420,10 +440,11 @@ public class Game{
 							System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
 					}
 				}
-				for(int x=0;x<8;x++){
+				for(int x=0;x<5;x++){
 						if(p1.getPosition()==snakeML[x][0]){
 							System.out.println("\n********************************");
 							System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
+						//	System.out.println("SNAKE AT "+snakeML[x][0]);
 							System.out.println("********************************");
 						p1.setPosition(snakeML[x][1]);
 							System.out.println("BITTEN BY SNAKE");
@@ -475,7 +496,7 @@ public class Game{
 					p2.setPosition(p2.getPosition()+6);
 					System.out.println(p2.getName() +" NOW AT POSITION "+p2.getPosition());
 
-				for(int x=0;x<8;x++){
+				for(int x=0;x<5;x++){
 
 				//	System.out.println("TEST"+ladder[x][0]);
 				if(p2.getPosition()==ladder[x][0]){
@@ -488,7 +509,7 @@ public class Game{
 						System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
 				}
 				}
-				for(int x=0;x<8;x++){
+				for(int x=0;x<5;x++){
 					if(p2.getPosition()==snakeML[x][0]){
 						System.out.println("\n********************************");
 						System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
@@ -537,7 +558,7 @@ public class Game{
 
 
 
-					case 3:
+					case EASY:
 						System.out.println("\n***********************");
 						System.out.println("DIFFICULTY LEVEL EASY");
 						System.out.println("***********************");
@@ -566,7 +587,7 @@ public class Game{
 									System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
 
 
-							for(int x=0;x<8;x++){
+							for(int x=0;x<3;x++){
 
 							//	System.out.println("TEST"+ladder[x][0]);
 								if(p1.getPosition()==ladder[x][0]){
@@ -579,7 +600,7 @@ public class Game{
 										System.out.println(p1.getName()+" NOW AT POSITION "+p1.getPosition());
 								}
 							}
-							for(int x=0;x<8;x++){
+							for(int x=0;x<3;x++){
 									if(p1.getPosition()==snakeLL[x][0]){
 										System.out.println("\n********************************");
 										System.out.println("THERE IS A SNAKE AT "+p1.getPosition());
@@ -634,7 +655,7 @@ public class Game{
 								p2.setPosition(p2.getPosition()+6);
 								System.out.println(p2.getName() +" NOW AT POSITION "+p2.getPosition());
 
-							for(int x=0;x<8;x++){
+							for(int x=0;x<3;x++){
 
 							//	System.out.println("TEST"+ladder[x][0]);
 							if(p2.getPosition()==ladder[x][0]){
@@ -647,7 +668,7 @@ public class Game{
 									System.out.println(p2.getName()+" NOW AT POSITION "+p2.getPosition());
 							}
 							}
-							for(int x=0;x<8;x++){
+							for(int x=0;x<3;x++){
 								if(p2.getPosition()==snakeLL[x][0]){
 									System.out.println("\n********************************");
 									System.out.println("THERE IS A SNAKE AT "+p2.getPosition());
