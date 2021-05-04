@@ -1,3 +1,4 @@
+import java.util.*;
 class TDD
 {
 	
@@ -8,7 +9,19 @@ class TDD
 			Player p1=new Player1();
 			Player p2=new Player2();
 				Player p=new Player();
-			play.startPlayer1(p1,p2);
+				 int ans;
+ Scanner sc=new Scanner(System.in);
+			
+
+			do{	
+			play.start();
+
+
+			System.out.println("To continue press 1");
+			ans=sc.nextInt();
+			}while(ans==1);
+			
+			
 			
 	
 	}

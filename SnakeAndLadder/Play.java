@@ -7,195 +7,131 @@ class Play
 
 
 
-static	Player p1=new Player1();
-static	Player p2=new Player2();
-static Board b=new Board();
-static Die d=new Die();
-static int dieNumber,dieCount,coinPos;
-static boolean isHome,isWin;
-static int ans;
-static Scanner sc=new Scanner(System.in);
-
-static {	
-			while((p1.dieNumber!=6)||(p2.dieNumber!=6))
-				{
-					p1.dieNumber=d.getNumberOnDie();
-					p2.dieNumber=d.getNumberOnDie();
-					if(p1.dieNumber==6 )
-					{	p1.isHome=true;
-					System.out.println("The"+p1.getClass().getSimpleName()+" reached the home");
-					startPlayer1(p1,p2);
-
-					}
-					else if( p2.dieNumber==6)
-					{p2.isHome=true;
-					System.out.println("The"+p2.getClass().getSimpleName()+" reached the home");
-					startPlayer1(p1,p2);
-					}
-					else
-					{
-					System.out.println("players havent reached the home");
-					}
-
 	
 
-
-
-				}
-}
-{
-					p1.dieNumber=d.getNumberOnDie();
-					p2.dieNumber=d.getNumberOnDie();
-					if(p1.dieNumber==6 )
-					{	p1.isHome=true;
-					System.out.println("The"+p1.getClass().getSimpleName()+" reached the home");
-					startPlayer1(p1,p2);
-
-					}
-					else if( p2.dieNumber==6)
-					{p2.isHome=true;
-					System.out.println("The"+p2.getClass().getSimpleName()+" reached the home");
-					startPlayer1(p1,p2);
-					}
-					else
-					{
-					System.out.println("players havent reached the home");
-					}
-
+		Player p1=new Player1();
 	
 
-
-
-				}
-
-
-
-
-
-
-
-public static void startPlayer1(Player p1,Player p2)
-{
-	System.out.println("-------------------Snake and Lader Game--------------");
-	System.out.println("------------------------------------------------------ ");
-	System.out.println("------------------Play Begins------------------------");
-	b.setColumns();
-	System.out.println("The "+p1.getClass().getSimpleName()+" throws die");
-
-do{
+		Player p2=new Player2();
 		
-/*if(d.getNumberOnDie()==6)
-			{	System.out.println("Player "+p1.getClass().getSimpleName()+" got 6 ");
-				p.setCoinPosition(0);
-				System.out.println("Player "+p1.getClass().getSimpleName()+" moved to home");*/
 
-		do{
-				
-			if(p1 instanceof Player1){
-					if(p1.isHome==true){
 
-				p1.play();
-				System.out.println("The "+p1.getClass().getSimpleName()+" moved to"+p1.coinPosition);
-			
-				if(p1.coinPosition>=10)
-				{
-				System.out.println("The "+p1.getClass().getSimpleName()+" wins");
-					isWin=true;
-				System.exit(0);
-				}
-				
-			}
-				else
-			{	//p2.coinPosition=0;
-					//p1.dieNumber=d.getNumberOnDie();
-					Play p=new Play();
-				System.out.println("The "+p1.getClass().getSimpleName()+" not in home");
-			}
-			}
-			
-				if(p1 instanceof Player1){
-				if(p2.isHome==true){
-				p2.play();
-				System.out.println("The "+p2.getClass().getSimpleName()+" moved to"+p2.coinPosition);
-			
-				if(p2.coinPosition>=10)
-				{
-				System.out.println("The "+p2.getClass().getSimpleName()+" wins");
-					isWin=true;
-				System.exit(0);
-				}
-			}
-			else
-			{	//p2.coinPosition=0;
-				Play p=new Play();
-				//p2.dieNumber=d.getNumberOnDie();
-				System.out.println("The "+p2.getClass().getSimpleName()+" not in home");
-			}
-			}
-			//startPlayer1(p2);
-				b.getBoard(p1.coinPosition,p2.coinPosition);
+ Board b=new Board();
+ Die d=new Die();
+ int dieNumber,dieCount,pos;
+ boolean isHome,isWin;
+ int ans,i;
+ Scanner sc=new Scanner(System.in);
 
-				System.out.println("Continue Playing press 1");
-			ans=sc.nextInt();	
 
-}while(ans==1);
 
-/*else
+
+
+
+
+
+
+
+
+
+
+public  void start()
 {
-System.out.println("The "+p.getClass().getSimpleName()+" not in home");
-startPlayer1(p2);
-}*/
-
-}while(!isWin);	
-/**/
+	System.out.println("-------------------Snake and Lader Game--------------");
+	System.out.println("------------------------------------------------------ ");
+	System.out.println("------------------Play Begins------------------------");
+	b.setColumns();
 	
 
+	pos=p1.getHome();
+
+		if(pos==6)
+		{	System.out.println("The "+p1.getClass().getSimpleName()+" is  in home");
+			p1.setCoinPosition(1);
+				
+			//players.get(i).play();
+			System.out.println("The "+p1.getClass().getSimpleName()+" moved to "+p1.coinPosition);
+
+		}
+		else if((p1.getHome()==1) && (p1.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(1);
+
+		}
+		else if((p1.getHome()==2) && (p1.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(2);
+		}
+		else if((p1.getHome()==3) && (p1.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(3);
+		}
+
+		else if((p1.getHome()==4) && (p1.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(4);
+		}
+
+		else if((p1.getHome()==5) && (p1.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(5);
+		}
+
+
+		else
+	{
+		System.out.println("The "+p1.getClass().getSimpleName()+" is not in home");
+	}
+
+
+if(p2.getHome()==6)
+		{	System.out.println("The "+p2.getClass().getSimpleName()+" is  in home");
+			p1.setCoinPosition(1);
+				
+			//players.get(i).play();
+			System.out.println("The "+p1.getClass().getSimpleName()+" moved to "+p2.coinPosition);
+
+		}
+		else if((p2.getHome()==1) && (p2.getCoinPosition()==1))
+		{
+			p2.setCoinPosition(1);
+
+		}
+		else if((p2.getHome()==2) && (p2.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(2);
+		}
+		else if((p2.getHome()==3) && (p2.getCoinPosition()==1))
+		{
+			p1.setCoinPosition(3);
+		}
+
+		else if((p2.getHome()==4) && (p2.getCoinPosition()==1))
+		{
+			p2.setCoinPosition(4);
+		}
+
+		else if((p2.getHome()==5) && (p2.getCoinPosition()==1))
+		{
+			p2.setCoinPosition(5);
+		}
+
+
+
+
+
+	
+	else
+	{
+		System.out.println("The "+p2.getClass().getSimpleName()+" is not in home");
+	}
+
+		
 
 
 	
 
 }
-
-/*{
-
-	System.out.println("-------------------Snake and Lader Game--------------");
-	System.out.println("------------------------------------------------------ ");
-	System.out.println("------------------Play Begins------------------------");
-	b.setColumns();
-	System.out.println("The "+p.getClass().getSimpleName()+" throws die");
-	do{
-
-		if(p instanceof Player2)
-				{p.play();
-				System.out.println("The "+p.getClass().getSimpleName()+" moved to"+p.coinPosition);
-			
-				if(p.coinPosition>=10)
-				{
-				System.out.println("The "+p.getClass().getSimpleName()+" wins");
-				isWin=true;
-				System.exit(0);
-				}
-				}
-			System.out.println("Continue Playing press 1");
-			ans=sc.nextInt();
-	}while(ans==1);
-}*/
-
-/*public boolean getHome(Player p)
-	{
-		if(d.getNumberOnDie()==6)
-			{	System.out.println("Player "+p.getClass().getSimpleName()+" got 6 ");
-				p.setCoinPosition(0);
-				System.out.println("Player "+p.getClass().getSimpleName()+" moved to home");
-				return true;
-			}
-		else
-			{
-				return false;
-			}
-
-	}*/
-
 
 
 	public void move(Player p)
