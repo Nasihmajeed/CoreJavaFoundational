@@ -1,4 +1,4 @@
-class Tiger extends Animal implements Carnivore
+class Lion extends Animal implements Carnivore
 {
 
 int energy,stamina,distance,luckFactor;
@@ -6,17 +6,17 @@ int energy,stamina,distance,luckFactor;
 
 public void setEnergy(int energy)
 {
-	this.energy=10;
+	this.energy=15;
 }
 
 public void setDistance(int distance)
 {
-	this.distance=6;
+	this.distance=7;
 }
 
 public void setStamina(int stamina)
 {
-	this.stamina=8;
+	this.stamina=10;
 }
 
 }

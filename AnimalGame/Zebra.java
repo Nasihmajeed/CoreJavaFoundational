@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Random;
 
-class Rabbit extends Animal  implements herbivore
+class Zebra extends Animal  implements herbivore
 {
 
 int energy,stamina,distance,luckFactor;
@@ -10,17 +10,17 @@ Random r=new Random();
 
 public void setStamina(int stamina)
 {
-	this.stamina=3;
+	this.stamina=6;
 }
 
 public void setEnergy(int energy)
 {
-	this.energy=4;
+	this.energy=5;
 }
 
 public void setDistance(int distance)
 {
-	this.distance=2;
+	this.distance=4;
 }
 
 public int getLuckFactor()
