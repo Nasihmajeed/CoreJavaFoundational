@@ -5,8 +5,17 @@ class Zebra extends Animal  implements herbivore
 {
 
 int energy,stamina,distance,luckFactor;
-
+String name;
 Random r=new Random();
+
+public void setName(String name)
+{
+	this.name=name;
+}
+public void getName()
+{
+	return name;
+}
 
 public void setStamina(int stamina)
 {
