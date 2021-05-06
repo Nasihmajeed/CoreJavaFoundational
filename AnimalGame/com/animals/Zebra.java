@@ -1,21 +1,12 @@
 import java.util.*;
 import java.util.Random;
 
-class Rabbit extends Animal  implements herbivore
+class Zebra extends Animal  implements herbivore
 {
 
-int energy,stamina,distance,luckFactor;
-String name;
+private int energy,stamina,distance,luckFactor;
+
 Random r=new Random();
-
-public void setName(String name)
-{
-	this.name=name;
-}
-public void getName()
-{
-	return name;
-}
 
 public void setStamina(int stamina)
 {

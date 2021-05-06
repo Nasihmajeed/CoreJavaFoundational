@@ -1,17 +1,7 @@
-class Fox extends Animal implements Carnivore
+class Tiger extends Animal implements Carnivore
 {
 
-int energy,stamina,distance,luckFactor;
-String name;
-
-public void setName(String name)
-{
-	this.name=name;
-}
-public void getName()
-{
-	return name;
-}
+private int energy,stamina,distance,luckFactor;
 
 public void setEnergy(int energy)
 {

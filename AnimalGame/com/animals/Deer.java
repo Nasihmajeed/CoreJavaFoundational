@@ -4,18 +4,9 @@ import java.util.Random;
 class Deer extends Animal  implements herbivore
 {
 
-int energy,stamina,distance,luckFactor;
-String name;
-Random r=new Random();
+private int energy,stamina,distance,luckFactor;
 
-public void setName(String name)
-{
-	this.name=name;
-}
-public void getName()
-{
-	return name;
-}
+Random r=new Random();
 
 public void setStamina(int stamina)
 {

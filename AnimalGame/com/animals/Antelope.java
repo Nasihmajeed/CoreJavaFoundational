@@ -4,32 +4,23 @@ import java.util.Random;
 class Antelope extends Animal  implements herbivore
 {
 
-int energy,stamina,distance,luckFactor;
-String name;
-Random r=new Random();
+private int energy,stamina,distance,luckFactor;
 
-public void setName(String name)
-{
-	this.name=name;
-}
-public void getName()
-{
-	return name;
-}
+Random r=new Random();
 
 public void setStamina(int stamina)
 {
-	this.stamina=6;
+	this.stamina=stamina;
 }
 
 public void setEnergy(int energy)
 {
-	this.energy=6;
+	this.energy=energy;
 }
 
 public void setDistance(int distance)
 {
-	this.distance=4;
+	this.distance=distance;
 }
 
 public int getLuckFactor()
