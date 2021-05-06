@@ -31,7 +31,7 @@ class Board
 		}
 	}
 
-	public void getBoard(int pos1, Player player1,int pos2,Player player2)
+	public void getBoardEasy(int pos1, Player player1,int pos2,Player player2)
 	{
 		for(int i=0;i<=100;i++)
 		{
@@ -53,4 +53,58 @@ class Board
 			}
 		}
 	}
+
+//Medium
+	public void getBoardMedium(int pos1, Player player1,int pos2,Player player2)
+	{
+		for(int i=0;i<=150;i++)
+		{
+			
+			if((player1 instanceof Player1) && (i==pos1)){
+			System.out.print("\t"+p1+"\t");
+			}
+			else if((player2 instanceof Player2 )&& (i==pos2))
+			{
+				System.out.print("\t"+p2+"\t");
+			} 
+			else
+			{
+					System.out.print("\t"+board[i]+"\t");
+			}
+
+				if(i%10==0){
+      	  System.out.print("\n");
+			}
+		}
+	}
+
+
+//Hard
+
+public void getBoardHard(int pos1, Player player1,int pos2,Player player2)
+	{
+		for(int i=0;i<=200;i++)
+		{
+			
+			if((player1 instanceof Player1) && (i==pos1)){
+			System.out.print("\t"+p1+"\t");
+			}
+			else if((player2 instanceof Player2 )&& (i==pos2))
+			{
+				System.out.print("\t"+p2+"\t");
+			} 
+			else
+			{
+					System.out.print("\t"+board[i]+"\t");
+			}
+
+				if(i%10==0){
+      	  System.out.print("\n");
+			}
+		}
+	}
+
+
+
+
 }
