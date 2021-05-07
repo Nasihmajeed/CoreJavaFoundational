@@ -1,31 +1,21 @@
+package com.animals;
+
 import java.util.*;
 import java.util.Random;
 
-class Antelope extends Animal  implements herbivore
+public class Antelope extends Animal implements Herbivore
 {
 
-private int energy,stamina,distance,luckFactor;
+private int luckFactor;
 
 Random r=new Random();
-
-public void setStamina(int stamina)
-{
-	this.stamina=stamina;
-}
-
-public void setEnergy(int energy)
-{
-	this.energy=energy;
-}
-
-public void setDistance(int distance)
-{
-	this.distance=distance;
-}
-
+    
+	
+                                                        //luckFactor
 public int getLuckFactor()
 {
 	luckFactor=r.nextInt(2);
+	return luckFactor;
 }
 
 }

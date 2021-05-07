@@ -1,21 +1,6 @@
-class Fox extends Animal implements Carnivore
-{
+package com.animals;
 
-private int energy,stamina,distance,luckFactor;
-
-public void setEnergy(int energy)
+public class Fox extends Animal implements Carnivore
 {
-	this.energy=energy;
-}
-
-public void setDistance(int distance)
-{
-	this.distance=distance;
-}
-
-public void setStamina(int stamina)
-{
-	this.stamina=stamina;
-}
 
 }

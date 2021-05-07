@@ -1,4 +1,6 @@
-interface Carnivore
+package com.animals;
+
+public interface Carnivore
 {
 
 }

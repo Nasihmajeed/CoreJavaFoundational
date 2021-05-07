@@ -1,7 +1,14 @@
-class Animal 
+package com.animals;
+
+import java.util.*;
+import java.util.Random;
+
+public class Animal 
 {
 String animalName;
-int energy,stamina,distance;
+int energy,stamina,distance,luckFactor;
+
+Random ran=new Random();
 
 public void wildAnimals()
 {
@@ -14,25 +21,69 @@ public void wildAnimals()
 	System.out.println("6.Crocodile");
 	System.out.println("7.Antelope");
 	System.out.println("8.Fox");
+	
+	try{ 
+			         Thread.sleep(1000);
+				 }
+	       catch(InterruptedException e)
+		              {
+						  Thread.currentThread().interrupt();
+					  }
+	
+	
+	
 }
 
-public void getName()
+public void setName(String animalName)
+{
+	this.animalName=animalName;
+}
+
+public String getName()
 {
 	return animalName;
 }
-public void getEnergy()
+                                                      //energy
+
+public void setEnergy(int energy)
 {
-	return energy;
+	this.energy=energy;
 }
 
-public void getDistance()
+public int getEnergy()
 {
-	return distance;
+return energy; 	
 }
 
-public void getStamina()
+                                                       //distance
+public void setDistance(int distance)
+{
+	this.distance=distance;
+}
+
+public int getDistance()
+{
+return distance;
+}
+
+                                                     //stamina
+
+public void setStamina(int stamina)
+{
+	this.stamina=stamina;
+}
+
+public int getStamina()
 {
 	return stamina;
+}
+
+public int getLuckFactor()
+{
+	
+	luckFactor=ran.nextInt(3);
+	return luckFactor;
+
 }
 
 }
