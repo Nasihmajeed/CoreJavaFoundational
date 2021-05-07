@@ -48,11 +48,14 @@ public class Movie{
 
     }
   public void menu(){
-    System.out.println("SELECT ");
+    int sel;
+    do{
+    System.out.println("MOVIE ******PARAKKUM THALIKA******* \n\n");
     System.out.println("1.CAST");
     System.out.println("2.START MOVIE");
     System.out.println("3.PLOT");
-    int sel=sc.nextInt();
+    System.out.println("4. EXIT");
+    sel=sc.nextInt();
     switch(sel){
       case 1:
             printCast();
@@ -63,10 +66,14 @@ public class Movie{
       case 3:
             printPlot();
             break;
+     case 4:
+            System.out.println("Exiting..");
+            break;
       default:
               System.out.println("INVALID ENTRY");
               break;
     }
+  }while(sel!=4);
   }
   public void printPlot(){
     System.out.println("Unnikrishnan owns an old bus, received as compensation for his father");
