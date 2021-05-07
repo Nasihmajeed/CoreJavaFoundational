@@ -2,7 +2,9 @@ import java.util.*;
  enum DifficultyLevel{
  	easy,medium,hard;
 
-}
+}	
+
+
 
 class TDD
 {	 
@@ -15,35 +17,40 @@ class TDD
 			Player p2=new Player2();
 				Player p=new Player();
 				 int ans,ansMode;
- Scanner sc=new Scanner(System.in);
+		 Scanner sc=new Scanner(System.in);
 			
 			play.begining();
 			
-			
+		
+			String easy="easy";
+			String hard="hard";
+			String medium="medium";
 
-
-			DifficultyLevel []mode=DifficultyLevel.values();
-			/*DifficultyLevel mode[0]=DifficultyLevel.easy;
-			DifficultyLevel mode[1]=DifficultyLevel.medium;
-			DifficultyLevel mode[2]=DifficultyLevel.hard;*/
-			String modeSelected;
+			DifficultyLevel mode=DifficultyLevel.easy;
+		//DifficultyLevel mode=DifficultyLevel.easy;
+			//this.mode=mode;
+			/*DifficultyLevel mode=DifficultyLevel.medium;
+			DifficultyLevel mode=DifficultyLevel.hard;*/
+			String modeSelected="easy";
 System.out.println("------------------------------------------------------ ");
 			System.out.println("Enter the option (1.Easy 2.Medium 3.Hard)");
 			ansMode=sc.nextInt();
 					
 			if(ansMode==1)
-			{
-			 modeSelected=mode[0].toString();
+			{	DifficultyLevel.valueOf(easy);
+			 modeSelected="easy";
 				
 			}
 			else if(ansMode==2)
-			{
-			 modeSelected=mode[1].toString();
+			{ DifficultyLevel.valueOf(medium);
+				//this.mode=mode;
+			 modeSelected="medium";
 				
 			}
 			else if(ansMode==3)
-			{
-				 modeSelected=mode[2].toString();
+			{	DifficultyLevel.valueOf(hard);
+				//this.mode=mode;
+				 modeSelected="hard";
 				 
 			}
 			

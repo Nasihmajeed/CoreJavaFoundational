@@ -7,7 +7,9 @@ Snake s=new Snake();
 Ladder l=new Ladder();		
 
 
- Board b=new Board();
+ Board b1=new Board();
+  Board b2=new Board();
+   Board b3=new Board();
  Die d=new Die();
  int dieNumber,dieCount,pos;
  boolean isHomeP1,isHomeP2,isWin;
@@ -20,7 +22,7 @@ Ladder l=new Ladder();
  	System.out.println("\n-------------------Snake and Lader Game--------------");
 	System.out.println("------------------------------------------------------ ");
 	System.out.println("------------------Play Begins------------------------");
-	b.setColumns();
+	b1.setColumns();
 	System.out.println("------------------------------------------------------ ");
 	System.out.println("\t \t Position 6 ,32,56,72,95 \tcontains Snake\t \t ");					
 	System.out.println("\t \tPosition 8,36,64,82 \tcontains Ladder	\t \t");
@@ -85,7 +87,7 @@ public void moveEasy(Player p)
 
 	
 	
-	b.getBoardEasy(p.coinPosition,p,p.coinPosition,p);
+	b1.getBoardEasy(p.coinPosition,p,p.coinPosition,p);
 
 	
 	if(p.coinPosition>=100 )
@@ -113,7 +115,7 @@ public void moveMedium(Player p)
 
 	
 	
-	b.getBoardMedium(p.coinPosition,p,p.coinPosition,p);
+	b2.getBoardMedium(p.coinPosition,p,p.coinPosition,p);
 
 	
 	if(p.coinPosition>=150 )
@@ -142,7 +144,7 @@ public void moveMedium(Player p)
 
 	
 	
-	b.getBoardHard(p.coinPosition,p,p.coinPosition,p);
+	b3.getBoardHard(p.coinPosition,p,p.coinPosition,p);
 
 	
 	if(p.coinPosition>=200 )

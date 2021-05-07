@@ -7,16 +7,38 @@ class Board
 	Player player1=new Player1();
 	Player player2=new Player2();
 	int pos1,pos2;
-	int i,j;
-	int []board=new int[101];
+	int i,j,k;
+	int []easyBoard=new int[101];
+	int []mediumBoard=new int[151];
+	int []hardBoard=new int[201];
 
 {
 	for(i=0;i<=100;i++)
 		{
-			board[i]=board[i]+i;
+			easyBoard[i]=easyBoard[i]+i;
 		}
 		
 }
+
+{
+	for(j=0;j<=150;j++)
+		{
+			mediumBoard[j]=mediumBoard[j]+j;
+		}
+		
+}
+{
+	for(k=0;k<=200;k++)
+		{
+			hardBoard[k]=hardBoard[k]+k;
+		}
+		
+}
+
+
+
+
+
 	
 	public void setColumns()
 	{
@@ -24,7 +46,7 @@ class Board
 		for( i=0; i<=100; i++)
 		{ 
     
-  	  	System.out.print("\t "+board[i]+"\t ");
+  	  	System.out.print("\t "+easyBoard[i]+"\t ");
   	  	if(i%10==0){
         System.out.print("\n");
 		}
@@ -45,7 +67,7 @@ class Board
 			} 
 			else
 			{
-					System.out.print("\t"+board[i]+"\t");
+					System.out.print("\t"+easyBoard[i]+"\t");
 			}
 
 				if(i%10==0){
@@ -57,22 +79,22 @@ class Board
 //Medium
 	public void getBoardMedium(int pos1, Player player1,int pos2,Player player2)
 	{
-		for(int i=0;i<=150;i++)
+		for( j=0;j<=150;j++)
 		{
 			
-			if((player1 instanceof Player1) && (i==pos1)){
+			if((player1 instanceof Player1) && (j==pos1)){
 			System.out.print("\t"+p1+"\t");
 			}
-			else if((player2 instanceof Player2 )&& (i==pos2))
+			else if((player2 instanceof Player2 )&& (j==pos2))
 			{
 				System.out.print("\t"+p2+"\t");
 			} 
 			else
 			{
-					System.out.print("\t"+board[i]+"\t");
+					System.out.print("\t"+mediumBoard[j]+"\t");
 			}
 
-				if(i%10==0){
+				if(j%10==0){
       	  System.out.print("\n");
 			}
 		}
@@ -83,22 +105,22 @@ class Board
 
 public void getBoardHard(int pos1, Player player1,int pos2,Player player2)
 	{
-		for(int i=0;i<=200;i++)
+		for(k=0;k<=200;k++)
 		{
 			
-			if((player1 instanceof Player1) && (i==pos1)){
+			if((player1 instanceof Player1) && (k==pos1)){
 			System.out.print("\t"+p1+"\t");
 			}
-			else if((player2 instanceof Player2 )&& (i==pos2))
+			else if((player2 instanceof Player2 )&& (k==pos2))
 			{
 				System.out.print("\t"+p2+"\t");
 			} 
 			else
 			{
-					System.out.print("\t"+board[i]+"\t");
+					System.out.print("\t"+hardBoard[k]+"\t");
 			}
 
-				if(i%10==0){
+				if(k%10==0){
       	  System.out.print("\n");
 			}
 		}
