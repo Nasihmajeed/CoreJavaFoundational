@@ -1,8 +1,6 @@
 package com.lxisoft.game;
 
 import com.lxisoft.players.*;
-import com.lxisoft.snakeAndLadder.*;
-
 import java.util.*;
 class Play
 {

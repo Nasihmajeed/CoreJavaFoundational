@@ -1,4 +1,7 @@
-package com.lxisoft.board;
+package com.lxisoft.game;
+import com.lxisoft.players.*;
+
+
 
 
 class Board

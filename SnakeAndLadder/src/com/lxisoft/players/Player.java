@@ -1,4 +1,5 @@
 package com.lxisoft.players;
+import com.lxisoft.game.*;
 import java.util.*;
 class Player
 {

@@ -1,15 +1,12 @@
-package com.lxisoft.TDD;
-
+package com.lxisoft.tdd;
+import com.lxisoft.players.*;
+import com.lxisoft.game.*;
 import java.util.*;
- enum DifficultyLevel{
+ class TDD
+{	 enum DifficultyLevel{
  	easy,medium,hard;
 
-}	
-
-
-
-class TDD
-{	 
+}
 	
 	public static void main(String [] args)
 	{

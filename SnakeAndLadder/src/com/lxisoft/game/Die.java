@@ -1,6 +1,5 @@
 package com.lxisoft.game;
 
-
 import java.util.*;
 class Die
 {

@@ -1,4 +1,5 @@
-package com.lxisoft.snakeAndLadder;
+package com.lxisoft.game;
+import com.lxisoft.players.*;
 class Ladder
 {
 	public int getLadder(int pos)
