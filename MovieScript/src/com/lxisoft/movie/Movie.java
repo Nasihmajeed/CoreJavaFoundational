@@ -56,6 +56,8 @@ public class Movie{
     System.out.println("1.CAST");
     System.out.println("2.START MOVIE");
     System.out.println("3.PLOT");
+    System.out.println("4.COMEDIAN");
+    System.out.println("5.HEROINE");
     System.out.println("4.EXIT");
     sel=sc.nextInt();
     switch(sel){
@@ -69,13 +71,19 @@ public class Movie{
             printPlot();
             break;
      case 4:
+            printComedy();
+            break;
+     case 5:
+            printHeroineDialogue();
+            break;
+     case 6:
             System.out.println("Exiting..");
             break;
       default:
               System.out.println("INVALID ENTRY");
               break;
     }
-  }while(sel!=4);
+  }while(sel!=6);
   }
   public void printPlot(){
     System.out.println("|****************************************************************************************************************************************|");
@@ -109,6 +117,17 @@ public class Movie{
     System.out.println("|Cochin Haneefa as Veerappan Kurupp    |");
     System.out.println("|**************************************|");
   }
-
+  public void printComedy(){
+    for(Actors a: actors){
+      if(a instanceof comedian)
+          System.out.println(a.getDialogue());
+      }
+  }
+  public void printHeroineDialogue(){
+    for(Actors a: actors){
+      if(a instanceof heroine)
+          System.out.println(a.getDialogue());
+      }
+  }
 
 }
