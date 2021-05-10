@@ -2,7 +2,7 @@ package com.lxisoft.game;
 
 import com.lxisoft.players.*;
 import java.util.*;
-class Play
+public class Play
 {
 Player p1=new Player1();
 Player p2=new Player2();
@@ -14,8 +14,8 @@ Ladder l=new Ladder();
   Board b2=new Board();
    Board b3=new Board();
  Die d=new Die();
- int dieNumber,dieCount,pos;
- boolean isHomeP1,isHomeP2,isWin;
+public int dieNumber,dieCount,pos;
+ public boolean isHomeP1,isHomeP2,isWin;
  int ans,i;
  Scanner sc=new Scanner(System.in);
 

@@ -4,7 +4,7 @@ import com.lxisoft.players.*;
 
 
 
-class Snake
+public class Snake
 {
 	public int getSnake(int pos)
 	{	System.out.println("Player caught by snake");

@@ -1,6 +1,6 @@
 package com.lxisoft.game;
 import com.lxisoft.players.*;
-class Ladder
+public class Ladder
 {
 	public int getLadder(int pos)
 	{	System.out.println("Payer moving with up through Ladder");

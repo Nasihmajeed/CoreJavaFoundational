@@ -1,9 +1,9 @@
 package com.lxisoft.players;
 import com.lxisoft.game.*;
 import java.util.*;
-class Player
+public class Player
 {
-	int coinPosition,dieNumber=0,numberOnDie;
+	public int coinPosition,dieNumber=0,numberOnDie;
 	Die d=new Die();
 	boolean isHome;
 

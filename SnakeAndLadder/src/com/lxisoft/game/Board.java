@@ -4,7 +4,7 @@ import com.lxisoft.players.*;
 
 
 
-class Board
+public class Board
 {
 	
 	int boardColumns;

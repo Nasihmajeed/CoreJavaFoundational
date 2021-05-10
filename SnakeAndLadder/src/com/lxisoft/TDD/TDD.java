@@ -2,7 +2,7 @@ package com.lxisoft.tdd;
 import com.lxisoft.players.*;
 import com.lxisoft.game.*;
 import java.util.*;
- class TDD
+ public class TDD
 {	 enum DifficultyLevel{
  	easy,medium,hard;
 

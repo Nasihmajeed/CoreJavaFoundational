@@ -1,7 +1,7 @@
 package com.lxisoft.game;
 
 import java.util.*;
-class Die
+public class Die
 {
 	 Random rand = new Random();
 	int numberOnDie;
