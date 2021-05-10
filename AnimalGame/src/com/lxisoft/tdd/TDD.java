@@ -1,6 +1,6 @@
-package com.tdd;
+package src.com.lxisoft.tdd;
    
-import com.forest.Forest;   
+import src.com.lxisoft.forest.Forest;   
    
 public class TDD
 {

@@ -1,4 +1,4 @@
-package com.animals;
+package src.com.lxisoft.animals;
 
 import java.util.*;
 import java.util.Random;
