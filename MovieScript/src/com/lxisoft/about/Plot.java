@@ -1,15 +1,13 @@
-package com.lxisoft.script;
+package com.lxisoft.about;
 import java.io.*;
 import java.util.*;
+public class Plot
+{
 
-public class Scene2 implements ComedyScene
+public void getPlot()
 {
-	
-	
-	public void comedyScene()
-{
- try {
-      File myObj = new File("D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\KarthiGanesh.txt");
+try {
+      File myObj = new File("D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\about\\Plot.txt");
       Scanner myReader = new Scanner(myObj);
       while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
@@ -20,8 +18,6 @@ public class Scene2 implements ComedyScene
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
-}	
-
-
+}
 
 }

@@ -1,18 +1,8 @@
 package com.lxisoft.cast;
 
-public class Actor
+public class Actor extends Actors
 {
 	
-String actorName;
 
-public void setName(actorName)
-{
-	this.actorName=actorName;
-}
-
-public String getName()
-{
-	return actorName;
-}
 
 }
