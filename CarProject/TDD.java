@@ -1,62 +1,100 @@
+import java.util.Scanner;
 public class TDD {
 
   public static void main(String ar[]) {
   //car1
+  Scanner sc=new Scanner(System.in);
    Car c1= new Car();
-   c1.carname="MG";
-   c1.drive();
-   Carcolor clr1= new Carcolor();
-  clr1.color="Black";
-  clr1.clr();
-  Fuel f1=new Fuel();
-  f1.carFuel="Petrol";
-  f1.fuelType();
-  Tyre T1=new Tyre();
-  T1.CarTyre="Normal";
-  T1.crtyr();
-  Driver d1= new Driver();
-  d1.PassangerLicense=true ;
-  d1.license();
-  Engine e1= new Engine();
-  e1.engineType="Normal";
-  e1.engine();
-  //car2
   Car c2= new Car();
-   c2.carname="Tesla";
-   c2.drive();
-   Carcolor clr2= new Carcolor();
-  clr2.color="Red";
-  clr2.clr();
-  Fuel f2=new Fuel();
-  f2.carFuel="Electric";
-  f2.fuelType();
-  Tyre T2=new Tyre();
-  T2.CarTyre="Sports";
-  T2.crtyr();
-  Driver d2= new Driver();
-  d2.PassangerLicense=false  ;
-  d2.license();
-  Engine e2= new Engine();
-  e2.engineType="sports";
-  e2.engine();
-  //car3
   Car c3= new Car();
-   c3.carname="TATA Nexon";
-   c3.drive();
-   Carcolor clr3= new Carcolor();
-  clr3.color="White";
-  clr3.clr();
+  Carcolor clr1= new Carcolor();
+  Carcolor clr2= new Carcolor();
+  Carcolor clr3= new Carcolor();
+  Fuel f1=new Fuel();
+  Fuel f2=new Fuel();
   Fuel f3=new Fuel();
-  f3.carFuel="Hybrid";
-  f3.fuelType();
+  Tyre T1=new Tyre();
+  Tyre T2=new Tyre();
   Tyre T3=new Tyre();
-  T3.CarTyre="Normal";
-  T3.crtyr();
-  Driver d3= new Driver();
-  d3.PassangerLicense=true ;
-  d3.license();
+  Engine e1= new Engine();
+  Engine e2= new Engine();
   Engine e3= new Engine();
-  e3.engineType="High Power";
+  Driver d1= new Driver();
+  Driver d2= new Driver();
+  Driver d3= new Driver();
+  
+  //car1
+  System.out.println("Enter 1st car's name:");
+  c1.carname=sc.nextLine();
+  System.out.println("Enter 1st car's color:");
+  clr1.color=sc.nextLine();
+  System.out.println("Enter 1st car's fuel type:");
+  f1.carFuel=sc.nextLine();
+  System.out.println("Enter 1st car's Tyre Type");
+  T1.CarTyre=sc.nextLine();
+  System.out.println("Enter whether 1st car's passanger have licence");
+  d1.PassangerLicense=sc.nextBoolean();
+  System.out.println("Enter Engine type of 1st car:");
+  e3.engineType=sc.nextLine();
+  /*System.out.println("Enter whether 1st car's passanger have licence");
+  d1.PassangerLicense=sc.nextBoolean();*/
+  
+  //car 2
+  System.out.println("Enter 2nd car's name:");
+  c2.carname=sc.nextLine();
+  System.out.println("Enter 2nd car's color:");
+  clr2.color=sc.nextLine();
+  System.out.println("Enter 2nd car's fuel type:");
+  f2.carFuel=sc.nextLine();
+  System.out.println("Enter 2nd car's Tyre Type");
+  T2.CarTyre=sc.nextLine();
+  
+  System.out.println("Enter Engine type of 2nd car");
+  e3.engineType=sc.nextLine();
+  System.out.println("Enter whether 2nd car's passanger have licence");
+  d2.PassangerLicense=sc.nextBoolean();
+  
+  //car3
+  System.out.println("Enter 3rd car's name:");
+  c3.carname=sc.nextLine();
+  System.out.println("Enter 3rd car's color:");
+  clr3.color=sc.nextLine();
+  System.out.println("Enter 3rd car's fuel type:");
+  f3.carFuel=sc.nextLine();
+  System.out.println("Enter 3rd car's Tyre Type");
+  T3.CarTyre=sc.nextLine();
+  
+  System.out.println("Enter Engine type of 3rd car");
+  e3.engineType=sc.nextLine();
+  System.out.println("Enter whether 3rd car's passanger have licence");
+  d3.PassangerLicense=sc.nextBoolean();
+  
+  
+  //car1
+  c1.drive();
+  clr1.clr();
+ f1.fuelType();
+  T1.crtyr();
+   d1.license();
+   e1.engine();
+  
+  
+  //car2
+ c2.drive();
+ clr2.clr();
+  f2.fuelType();
+   T2.crtyr();
+   d2.license();
+  e2.engine(); 
+  
+  //car3
+ 
+   c3.drive();
+   clr3.clr();
+   f3.fuelType();
+   T3.crtyr();
+   d3.license();
   e3.engine();
   }
 }
+
