@@ -1,8 +1,12 @@
 package com.lxisoft.movie;
 import com.lxisoft.actors.*;
 import java.util.*;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class Movie{
   Scanner sc=new Scanner(System.in);
   ArrayList<Actors> actors=new ArrayList<Actors>();
@@ -11,6 +15,41 @@ public class Movie{
   String dirName;
   String genre;
   int n;
+
+  public void FileWordSearch() throws IOException{
+
+        File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\comedyScene.txt"); //Creation of File Descriptor for input file
+        String[] words=null;  //Intialize the word Array
+        FileReader fr = new FileReader(f1);  //Creation of File Reader object
+        BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
+        String s;
+        System.out.println("ENTER WORD TO SEARCH ");
+        String input1=sc.next();
+        System.out.println("ENTER 2nd WORD TO SEARCH ");
+        String input2=sc.next();
+           // Input word to be searched
+        //int count=0;   //Intialize the word to zero
+        while((s=br.readLine())!=null)   //Reading Content from the file
+        {
+           words=s.split(" ");  //Split the word using space
+            for (String word : words)
+            {
+                   if (word.equals(input1)){  //Search for the given word
+                        System.out.println(s);
+
+                      }
+                    else if (word.equals(input2)){
+                           System.out.println(s);
+                         }
+
+            }
+        }
+
+           fr.close();
+     }
+
+
+
   public void addDialogue(){
     //actors.add(new Unnikrishnan());
     //actors.get(0).setDialogue("Hi I am Unnikrishnan");
@@ -55,7 +94,7 @@ public class Movie{
     actors.get(18).setDialogue("\nSundhareshan : Ninak idali dosa vada garbha...enik porottem chickenum garbhaa(laughs)..daivame ethra nalaayi oru "+"\n"+"50nte pacha note kanditt chilavakaanum thonnanilla..oru photostat eduthu vakkam..apo oru photostatnte cash koode garbha(laughs awkwardly)");
 
   }
-  public void menu(){
+  public void menu() throws IOException{
     int sel;
     do{
       System.out.println("********************************");
@@ -68,6 +107,7 @@ public class Movie{
       System.out.println("2.PLOT");
       System.out.println("3.GENERATE SCRIPT");
       System.out.println("4.EXIT");
+      System.out.println("5.SEARCH");
       //System.out.println("5.EXIT");
       sel=sc.nextInt();
     switch(sel){
@@ -83,6 +123,9 @@ public class Movie{
             break;
      case 4:
             System.out.println("Exiting..");
+            break;
+    case 5:
+            FileWordSearch();
             break;
       default:
               System.out.println("INVALID ENTRY");
