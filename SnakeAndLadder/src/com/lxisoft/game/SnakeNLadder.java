@@ -46,31 +46,8 @@ public class SnakeNLadder
 	
 	public void letsGo()
 	{
-		System.out.println("Select the Player number.........");
-		System.out.println("1.Player-1");
-		System.out.println("2.Player-2");
-		select=sc.nextInt();
-		
-		if(select==1)
-		{
-			System.out.println("You have selected Player-1");
-		                                                                                          play();
-		}
-		
-		else if(select==2)
-		    {
-			System.out.println("You have selected Player-2");
-			                                                                                       play();
-		     }
-		
-		else	
-		   {
-			System.out.println("Sorry !!!!! Invalid Player Number !!!!");
-		   }
 		
 	}
-	
-	
 	int startNum;
 	public void play()
 	 {
