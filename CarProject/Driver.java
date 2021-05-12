@@ -1,14 +1,17 @@
 public class Driver {
-boolean PassangerLicense=true;
+String PassangerLicense;
+
 public void license()
 {
-if(PassangerLicense==true)
-{
-System.out.println("Passenger can drive");
-}
-else
-{
-System.out.println("only driver can drive");
-}
+//String PassangerLicense;
+
+if(PassangerLicense.equals("YES"))
+
+System.out.println("Passenger can drive\n");
+
+else 
+
+System.out.println("only driver can drive\n");
+
 }
 }

@@ -4,7 +4,7 @@ public class TDD {
   public static void main(String ar[]) {
   //car1
   Scanner sc=new Scanner(System.in);
-   Car c1= new Car();
+  Car c1= new Car();
   Car c2= new Car();
   Car c3= new Car();
   Carcolor clr1= new Carcolor();
@@ -24,7 +24,7 @@ public class TDD {
   Driver d3= new Driver();
   
   //car1
-  System.out.println("Enter 1st car's name:");
+ System.out.println("Enter 1st car's name:");
   c1.carname=sc.nextLine();
   System.out.println("Enter 1st car's color:");
   clr1.color=sc.nextLine();
@@ -32,12 +32,11 @@ public class TDD {
   f1.carFuel=sc.nextLine();
   System.out.println("Enter 1st car's Tyre Type");
   T1.CarTyre=sc.nextLine();
-  System.out.println("Enter whether 1st car's passanger have licence");
-  d1.PassangerLicense=sc.nextBoolean();
   System.out.println("Enter Engine type of 1st car:");
-  e3.engineType=sc.nextLine();
-  /*System.out.println("Enter whether 1st car's passanger have licence");
-  d1.PassangerLicense=sc.nextBoolean();*/
+  e1.engineType=sc.nextLine();
+   System.out.println("Enter whether 1st car's passanger have licence \n Enter \n  YES OR NO");
+  d1.PassangerLicense=sc.nextLine();
+
   
   //car 2
   System.out.println("Enter 2nd car's name:");
@@ -50,9 +49,9 @@ public class TDD {
   T2.CarTyre=sc.nextLine();
   
   System.out.println("Enter Engine type of 2nd car");
-  e3.engineType=sc.nextLine();
-  System.out.println("Enter whether 2nd car's passanger have licence");
-  d2.PassangerLicense=sc.nextBoolean();
+  e2.engineType=sc.nextLine();
+  System.out.println("Enter whether 2nd car's passanger have licence \n Enter \n  YES OR NO");
+  d2.PassangerLicense=sc.nextLine();
   
   //car3
   System.out.println("Enter 3rd car's name:");
@@ -66,18 +65,19 @@ public class TDD {
   
   System.out.println("Enter Engine type of 3rd car");
   e3.engineType=sc.nextLine();
-  System.out.println("Enter whether 3rd car's passanger have licence");
-  d3.PassangerLicense=sc.nextBoolean();
+  System.out.println("Enter whether 3rd car's passanger have licence \n Enter \n  YES OR NO");
+  d3.PassangerLicense=sc.nextLine();
   
   
   //car1
   c1.drive();
   clr1.clr();
- f1.fuelType();
+f1.fuelType();
   T1.crtyr();
-   d1.license();
+  d1.license();
    e1.engine();
-  
+   
+   
   
   //car2
  c2.drive();
@@ -85,7 +85,8 @@ public class TDD {
   f2.fuelType();
    T2.crtyr();
    d2.license();
-  e2.engine(); 
+   e2.engine(); 
+
   
   //car3
  
@@ -94,7 +95,8 @@ public class TDD {
    f3.fuelType();
    T3.crtyr();
    d3.license();
-  e3.engine();
+    e3.engine();
+    
   }
 }
 
