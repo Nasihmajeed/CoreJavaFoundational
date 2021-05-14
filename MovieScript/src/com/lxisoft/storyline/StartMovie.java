@@ -8,6 +8,7 @@ public class StartMovie
 	Scene2 sc2=new Scene2();
 	Scene3 sc3=new Scene3();
 	Scanner sc=new Scanner(System.in);
+
 	int ans;
 	public void startMovie()
 	{
@@ -29,6 +30,13 @@ public class StartMovie
 
 
 	}
+
+	public void scriptSelection()
+	{
+
+
+	}
+
 
 
 }
