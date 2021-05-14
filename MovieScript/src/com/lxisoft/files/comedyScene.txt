@@ -1,13 +1,14 @@
-Sundhareshan enters the scene humming a song...
-
-
-Sundhareshan : Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo
-Basanthi : Padayappashinnaa
-Sundhareshan : Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal"+"\n"+" pinne kopayirikum..pidichal kittoolla, vem pokko
-Basanthi : Bukaaroooo
-Sundhareshan : Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed
-Basanthi : (crying)..aaah Bukaaroooo
-Sundhareshan : Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
-Basanthi : hi its testing
-Unnikrishnan: okay FileNotFoundException
-Basanthi : poderkkaa
+comedy;Sundhareshan : Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo
+comedy;Basanthi : Padayappashinnaa
+comedy;Sundhareshan : Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal"+"\n"+" pinne kopayirikum..pidichal kittoolla, vem pokko
+comedy;Basanthi : Bukaaroooo
+romantic;Sundhareshan : Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed
+romantic;Basanthi : (crying)..aaah Bukaaroooo
+comedy;Sundhareshan : Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
+comedy;Basanthi : hi its testing
+romantic;Unnikrishnan: okay
+romantic;Basanthi : poderkkaa
+emotional;Villain : dai appadi pona eppadi da. ingai irunth irangi ooru fulla sutti ninte koode kazhinja ival
+emotional;Unnikrishnan : Sir nilkumpol gayathri kuttye thalli, adhukonda kshamikanam.
+emotional;Gayathri : (soabing heavily) Appa appa avaru poraru appa. enne vittid appa nan avare koode poree.
+emotional;R K Santhanam : poo..ni nalla varanam.

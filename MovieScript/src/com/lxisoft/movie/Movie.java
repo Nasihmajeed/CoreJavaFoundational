@@ -10,6 +10,7 @@ import java.io.IOException;
 public class Movie{
   Scanner sc=new Scanner(System.in);
   ArrayList<Actors> actors=new ArrayList<Actors>();
+  ArrayList<Script> script=new ArrayList<Script>();
   Actors a=new Actors();
   String [] name= new String[10];
   String dirName;
@@ -23,32 +24,56 @@ public class Movie{
         FileReader fr = new FileReader(f1);  //Creation of File Reader object
         BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
         String s;
-        System.out.println("ENTER WORD TO SEARCH ");
-        String input1=sc.next();
-        System.out.println("ENTER 2nd WORD TO SEARCH ");
-        String input2=sc.next();
+
+
            // Input word to be searched
         //int count=0;   //Intialize the word to zero
         while((s=br.readLine())!=null)   //Reading Content from the file
         {
-           words=s.split(" ");  //Split the word using space
-            for (String word : words)
-            {
-                   if (word.equals(input1)){  //Search for the given word
-                        System.out.println(s);
+           words=s.split(";");
 
-                      }
-                    else if (word.equals(input2)){
-                           System.out.println(s);
-                         }
+          // System.out.println(size); //Split the word using space
+
+            //  System.out.println(words[i]);
+            if (words[0].equals("comedy") || words[0].equals("romantic") || words[0].equals("emotional")){
+              script.add(new Script());
+            //  System.out.println(script.size());
+              for(int i=script.size()-1;i<script.size();i++){
+              script.get(i).setGenre(words[0]);
+              script.get(i).setConversation(words[1]);
+              //System.out.println(script.get(i).getGenre());
+              //System.out.println(script.get(i).getConversation());
+            }
+          }
+            // System.out.println(words[i+1]);
+
+            //  script.get(i).setConversation(words[i+1]);
+
+                /*   if (words[i].equals(input1)){  //Search for the given word
+                        System.out.println(words[i+1]);*/
+
+
 
             }
+
+
+fr.close();
         }
 
-           fr.close();
+
+
+
+     public void movieGenerate(){
+       System.out.println("ENTER THE GENRE ");
+       String input1=sc.next();
+                   for (int i=0;i<script.size();i++)
+                   {
+                   //  System.out.println(script.get(i).getGenre()+input1);
+                     if(script.get(i).getGenre().equals(input1)){
+                      System.out.println(script.get(i).getConversation());
+                     }
      }
-
-
+   }
 
   public void addDialogue(){
     //actors.add(new Unnikrishnan());
@@ -125,7 +150,7 @@ public class Movie{
             System.out.println("Exiting..");
             break;
     case 5:
-            FileWordSearch();
+            movieGenerate();
             break;
       default:
               System.out.println("INVALID ENTRY");
