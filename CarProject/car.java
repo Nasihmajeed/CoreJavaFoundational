@@ -20,7 +20,7 @@ System.out.println("Enter the Engine type");
   e1.fueltype =input.nextLine();
   }
   public void license1(){
-      System.out.println("Enter whether 1st car's passanger have licence \n Enter \n  YES OR NO");
+      System.out.println("Enter whether  car's passanger have licence \n Enter \n  YES OR NO");
   d1.PassangerLicense=input.nextLine();
 
   }
