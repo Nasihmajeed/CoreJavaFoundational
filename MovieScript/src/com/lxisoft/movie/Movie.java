@@ -16,7 +16,11 @@ public class Movie{
   String dirName;
   String genre;
   int n;
-
+  public int randNum(){
+  		int s=script.size();
+  		int random=(int)(Math.random()*s);
+                  return random;
+  	}
   public void FileWordSearch() throws IOException{
 
         File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\comedyScene.txt"); //Creation of File Descriptor for input file
@@ -33,8 +37,7 @@ public class Movie{
            words=s.split(";");
 
           // System.out.println(size); //Split the word using space
-
-            //  System.out.println(words[i]);
+          //  System.out.println(words[i]);
             if (words[0].equals("comedy") || words[0].equals("romantic") || words[0].equals("emotional")){
               script.add(new Script());
             //  System.out.println(script.size());
@@ -63,17 +66,7 @@ fr.close();
 
 
 
-     public void movieGenerate(){
-       System.out.println("ENTER THE GENRE ");
-       String input1=sc.next();
-                   for (int i=0;i<script.size();i++)
-                   {
-                   //  System.out.println(script.get(i).getGenre()+input1);
-                     if(script.get(i).getGenre().equals(input1)){
-                      System.out.println(script.get(i).getConversation());
-                     }
-     }
-   }
+
 
   public void addDialogue(){
     //actors.add(new Unnikrishnan());
@@ -132,7 +125,7 @@ fr.close();
       System.out.println("2.PLOT");
       System.out.println("3.GENERATE SCRIPT");
       System.out.println("4.EXIT");
-      System.out.println("5.SEARCH");
+      
       //System.out.println("5.EXIT");
       sel=sc.nextInt();
     switch(sel){
@@ -149,9 +142,7 @@ fr.close();
      case 4:
             System.out.println("Exiting..");
             break;
-    case 5:
-            movieGenerate();
-            break;
+
       default:
               System.out.println("INVALID ENTRY");
               break;
@@ -168,10 +159,10 @@ fr.close();
 
     System.out.println("ENTER DIRECTOR's name : ");
     dirName=sc.nextLine();
-    System.out.println("ENTER GENRE :(comedy/emotional)");
-    genre=sc.nextLine();
+    System.out.println("ENTER THE GENRE ");
+    String input1=sc.next();
 
-    if(genre.equals("comedy")){
+
 
       System.out.println("********************************");
       System.out.println("********************************");
@@ -191,7 +182,25 @@ fr.close();
         System.out.println("************SCENE1***************");
         System.out.println("********************************");
         System.out.println("********************************");
-      printComedy();
+
+
+                      for (int i=0;i<script.size();i++)
+                      {
+                      //  System.out.println(script.get(i).getGenre()+input1);
+                        if(script.get(i).getGenre().equals(input1)){
+                         System.out.println(script.get(i).getConversation());
+                        }
+
+        }
+        int n=randNum();
+        for(int i=0;i<n;i++){
+
+         if(!script.get(i).getGenre().equals(input1)){
+           System.out.println(script.get(i).getConversation());
+         }
+        }
+      }
+    /*  printComedy();
       System.out.println("ENTER 1 to see full scene");
       int b=sc.nextInt();
       if(b==1){
@@ -218,8 +227,8 @@ fr.close();
         System.out.println("********************************");
         System.out.println("********************************");
       printEmotionalScene();
-    }
-  }
+    }*/
+
   public void printPlot(){
     System.out.println("|****************************************************************************************************************************************|");
     System.out.println("|Unnikrishnan owns an old bus, received as compensation for his father                                                                   |");
