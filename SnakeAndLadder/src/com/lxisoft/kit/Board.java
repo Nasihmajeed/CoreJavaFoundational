@@ -2,30 +2,50 @@ package com.lxisoft.kit;
 
 public class Board
 {
-	
-	int i,j,k;
-	
-	int[] playBoard1=new int[100];
-	int[] playBoard2=new int[200];
-	int[] playBoard3=new int[300];
+	 int i,j,k,columns,position1,position2;
+	 String a="P1",b="P2";
 	
 	
-	for(int i=0 ; i<100 ; i++)
+	int[] easy=new int[101];
+	int[] medium=new int[151];
+	int[] hard=new int[201];
+	
+	
+	Player player1=new Player1();
+	Player player2=new Player2();
+	
+	
+	
+	
+	for(i=0;i<=100;i++)
 	{
-		playBoard1[i]=new playBoard1();
-		playBoard1[i]=playBoard1[i]+i;
+		easy[i]=easy[i]+i;
 	}
 	
-	for(int j=0 ; j<200 ; j++)
+	for(j=0;j<=100;j++)
 	{
-		playBoard2[j]=new playBoard2();
-		playBoard2[j]=playBoard2[j]+j;
+		medium[j]=medium[j]+j;
 	}
 	
-	for(int k=0 ; k<300 ; k++)
+	for(k=0;k<=100;k++)
 	{
-		playBoard3[k]=new playBoard3();
-		playBoard3[k]=playBoard3[k]+k;
+		hard[k]=hard[k]+k;
 	}
-	
+  
+  
+  public void setColumns()
+  {
+	  for(i=0;i<=100;i++)
+	  {
+		  System.out.println("================"+easy[i]+"=================");
+		  if(i%10==0)
+		  {
+			  System.out.println("---\n---");
+		  }
+	  }
+  }
+
+
+
+
 }
