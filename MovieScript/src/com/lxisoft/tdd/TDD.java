@@ -13,39 +13,74 @@ public class TDD
 		Imdb imdb=new Imdb();
 		Plot plot=new Plot();
 		StartMovie start =new StartMovie();
+		Mapping map=new Mapping();
+
 		Scanner sc =new Scanner(System.in);
 		int ans;
-		int againAns;
+		int againAns,genereSelect;
 		System.out.println("\tMovie Script Project");
 		System.out.println("\t-----------------------------");
 
 		do{
-		System.out.println("\tSelect The option you want to see about the movie ---VinnaiThandi Varuvaya-----");
+		System.out.println("\tSelect the genere of the movie you want");
 		System.out.println("							");
-		System.out.println("\t 1. Cast");
+		System.out.println("\t 1. Comedy");
+		System.out.println("\t 2. Romantic");
+		System.out.println("\t 3. Emotional");
+
+		/*System.out.println("\t 1. Cast");
 		System.out.println("\t 2. Genere");
 		System.out.println("\t 3. IMDB Rating");
 		System.out.println("\t 4. Plot ");
-		System.out.println("\t 5. Storyline");
+		System.out.println("\t 5. Storyline");*/
 		ans=sc.nextInt();
 
 		switch(ans)
 		{
-			case 1: 	System.out.println("\t The Cast of this movie");	
+			case 1: 	System.out.println("\t\n The Cast of this movie");	
 						casting.setCasting();
 						casting.displayCasting();
+						imdb.setImdb(7.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
+						System.out.println("\t\n Plot of the movie is \n");
+						plot.getPlot();
+						genere.setGenere("Comedy");
+						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
+						//genereSelect=sc.nextInt();
+						map.scriptSelection(1);
+						
 						break;
 
-			case 2:		System.out.println("\t The Genere of this movie :"+genere.getGenere());
-						break;
-			case 3:		System.out.println("\t The IMDB Rating of this movie :"+imdb.getRating());
-						break;
-			case 4:		System.out.println("\t Plot of the movie is \n");
+			case 2:		System.out.println("\t\n The Cast of this movie");	
+						casting.setCasting();
+						casting.displayCasting();
+						imdb.setImdb(8.1f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
+						System.out.println("\t\n Plot of the movie is \n");
 						plot.getPlot();
+						genere.setGenere("Romantic");
+						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
+						map.scriptSelection(2);
 						break;
-			case 5:		System.out.println("\t Scene from  the movie is \n");
-						start.startMovie();
-						break;	
+			case 3:		
+						System.out.println("\t\n The Cast of this movie");	
+						casting.setCasting();
+						casting.displayCasting();
+						imdb.setImdb(8.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
+						System.out.println("\t\n Plot of the movie is \n");
+						plot.getPlot();
+						genere.setGenere("Emotional");
+						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
+						map.scriptSelection(3);
+
+						break;
+			default:		
+						System.out.println("\t Invalid Input");
+						
+						break;
+			
+						
 
 		}
 System.out.println("\n\tDo you want to see more details about the movie(1.to view more 2.exit ) ");

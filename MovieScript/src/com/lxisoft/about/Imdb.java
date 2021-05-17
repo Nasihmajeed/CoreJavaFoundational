@@ -1,7 +1,12 @@
 package com.lxisoft.about;
 public class Imdb
 {
-final float rating=8.9f;
+ float rating;
+
+public void setImdb(float rating)
+{
+	this.rating=rating;
+}
 
 public float getRating()
 {

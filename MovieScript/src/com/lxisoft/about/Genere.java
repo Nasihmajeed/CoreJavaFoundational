@@ -1,7 +1,12 @@
 package com.lxisoft.about;
 public class Genere
 {
-final String genere="Drama,Romance";
+ String genere;
+
+ public void setGenere(String genere)
+ {
+ 	this.genere=genere;
+ }
 
 public String getGenere()
 {
