@@ -1,10 +1,10 @@
 public class Engine {
-
-String engineType;
-public void engine()
-{
-System.out.println("The Engine Type "+engineType);
-System.out.println("*********************************");
-
+//Scanner input=new Scanner(System.in);
+String enginetype,fueltype;
+public void engn(){
+System.out.println("The Engine type is "+enginetype);
+ // enginetype =input2.nextLine();
+  System.out.println("The fuel type "+fueltype);
+ // fueltype =input2.nextLine();
 }
 }

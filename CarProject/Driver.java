@@ -1,5 +1,5 @@
 public class Driver {
-String PassangerLicense;
+  String PassangerLicense;
 
 public void license()
 {
@@ -15,3 +15,4 @@ System.out.println("only driver can drive\n");
 
 }
 }
+
