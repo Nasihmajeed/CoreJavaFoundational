@@ -13,7 +13,11 @@ public class TDD
 		Imdb imdb=new Imdb();
 		Plot plot=new Plot();
 		StartMovie start =new StartMovie();
+
 		Mapping map=new Mapping();
+		Movie movie=new Movie();
+		StringBuilder movieName=new StringBuilder();
+
 
 		Scanner sc =new Scanner(System.in);
 		int ans;
@@ -22,7 +26,14 @@ public class TDD
 		System.out.println("\t-----------------------------");
 
 		do{
-		System.out.println("\tSelect the genere of the movie you want");
+
+				System.out.println("\t Enter the name of the movie ");
+				movieName=sc.next();
+				movieName.append(movieName);
+				movie.setMovieName(movieName.toString());
+
+
+		System.out.println("\t Select the genere of the movie you want");
 		System.out.println("							");
 		System.out.println("\t 1. Comedy");
 		System.out.println("\t 2. Romantic");
@@ -37,7 +48,8 @@ public class TDD
 
 		switch(ans)
 		{
-			case 1: 	System.out.println("\t\n The Cast of this movie");	
+			case 1: 	System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
+						System.out.println("\t\n The Cast of this movie");	
 						casting.setCasting();
 						casting.displayCasting();
 						imdb.setImdb(7.6f);
@@ -51,7 +63,8 @@ public class TDD
 						
 						break;
 
-			case 2:		System.out.println("\t\n The Cast of this movie");	
+			case 2:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
+						System.out.println("\t\n The Cast of this movie");	
 						casting.setCasting();
 						casting.displayCasting();
 						imdb.setImdb(8.1f);
@@ -62,7 +75,8 @@ public class TDD
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 						map.scriptSelection(2);
 						break;
-			case 3:		
+			
+			case 3:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
 						System.out.println("\t\n The Cast of this movie");	
 						casting.setCasting();
 						casting.displayCasting();
