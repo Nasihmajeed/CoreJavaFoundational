@@ -125,7 +125,7 @@ fr.close();
       System.out.println("2.PLOT");
       System.out.println("3.GENERATE SCRIPT");
       System.out.println("4.EXIT");
-      
+
       //System.out.println("5.EXIT");
       sel=sc.nextInt();
     switch(sel){
@@ -140,11 +140,11 @@ fr.close();
             generateScript();
             break;
      case 4:
-            System.out.println("Exiting..");
+            System.out.println("Exiting...");
             break;
 
       default:
-              System.out.println("INVALID ENTRY");
+              System.out.println("INVALID ENTRY ");
               break;
     }
   }while(sel!=4);
