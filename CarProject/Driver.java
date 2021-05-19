@@ -1,16 +1,16 @@
 import java.util.Scanner;
-public class Driver {
+public class Driver{
 Scanner input=new Scanner(System.in);
-String PassangerLicense;
-public void driverdetails(){
+String passangerLicense;
+public void driverDetails(){
   System.out.println("Enter whether  car's passanger have licence \n Enter \n  YES OR NO");
-  PassangerLicense=input.nextLine();
+  passangerLicense=input.nextLine();
 
 }
 
-public void printdriverdetails()
+public void printDriverDetails()
 {
-if(PassangerLicense.equals("YES"))
+if(passangerLicense.equals("YES"))
 
 System.out.println("Passenger can drive\n");
 
