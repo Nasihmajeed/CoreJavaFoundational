@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class Movie{
   Scanner sc=new Scanner(System.in);
+  Scanner sn=new Scanner(System.in);
   ArrayList<Actors> actors=new ArrayList<Actors>();
   ArrayList<Script> script=new ArrayList<Script>();
   Actors a=new Actors();
@@ -16,6 +17,7 @@ public class Movie{
   String dirName;
   String genre;
   int n;
+  String movieName;
   public int randNum(){
   		int s=script.size();
   		int random=(int)(Math.random()*s);
@@ -150,6 +152,8 @@ fr.close();
   }while(sel!=4);
 }
   public void generateScript(){
+    System.out.println("Enter movie name :");
+     movieName=sn.nextLine();
     System.out.println("How many actors?");
     n=sc.nextInt();
     System.out.println("ENTER THE Actor's name : ");
@@ -166,7 +170,7 @@ fr.close();
 
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("******EE PARAKKUM THALIKA*******");
+      System.out.println("******"+movieName+"*******");
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("********************************");
