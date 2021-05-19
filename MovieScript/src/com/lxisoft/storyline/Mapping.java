@@ -237,7 +237,7 @@ emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
 			i++;
 		}
 
-j++;
+		j++;
 
 	}
 

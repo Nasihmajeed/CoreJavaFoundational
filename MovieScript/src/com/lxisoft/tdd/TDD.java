@@ -13,11 +13,17 @@ public class TDD
 		Imdb imdb=new Imdb();
 		Plot plot=new Plot();
 		StartMovie start =new StartMovie();
-
+		Actors hero=new Actor();
+		Actors heroine=new Actress();
+		Actors comedian=new Actor();
+		Actors villan=new Actor();
+		NonActors director=new NonActors();
+ 
 		Mapping map=new Mapping();
 		Movie movie=new Movie();
-		StringBuilder movieName=new StringBuilder();
+		String movieName;
 
+		
 
 		Scanner sc =new Scanner(System.in);
 		int ans;
@@ -29,8 +35,12 @@ public class TDD
 
 				System.out.println("\t Enter the name of the movie ");
 				movieName=sc.next();
-				movieName.append(movieName);
-				movie.setMovieName(movieName.toString());
+				//movieName.append(movieName);
+				movie.setMovieName(movieName);
+
+			
+
+
 
 
 		System.out.println("\t Select the genere of the movie you want");
