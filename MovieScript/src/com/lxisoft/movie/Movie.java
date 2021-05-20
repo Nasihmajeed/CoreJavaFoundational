@@ -10,13 +10,14 @@ import java.io.IOException;
 public class Movie{
   Scanner sc=new Scanner(System.in);
   Scanner sn=new Scanner(System.in);
+  Scanner sr=new Scanner(System.in);
   ArrayList<Actors> actors=new ArrayList<Actors>();
   ArrayList<Script> script=new ArrayList<Script>();
   Actors a=new Actors();
   String [] name= new String[10];
   String dirName;
-  String genre;
-  int n;
+  String genre,comedian,hero,heroine,villain;
+//  int n;
   String movieName;
   public int randNum(){
   		int s=script.size();
@@ -45,17 +46,12 @@ public class Movie{
             //  System.out.println(script.size());
               for(int i=script.size()-1;i<script.size();i++){
               script.get(i).setGenre(words[0]);
-              script.get(i).setConversation(words[1]);
+              script.get(i).setCharacter(words[1]);
+              script.get(i).setConversation(words[2]);
               //System.out.println(script.get(i).getGenre());
               //System.out.println(script.get(i).getConversation());
             }
           }
-            // System.out.println(words[i+1]);
-
-            //  script.get(i).setConversation(words[i+1]);
-
-                /*   if (words[i].equals(input1)){  //Search for the given word
-                        System.out.println(words[i+1]);*/
 
 
 
@@ -154,12 +150,21 @@ fr.close();
   public void generateScript(){
     System.out.println("Enter movie name :");
      movieName=sn.nextLine();
-    System.out.println("How many actors?");
+  /*  System.out.println("How many actors?");
     n=sc.nextInt();
     System.out.println("ENTER THE Actor's name : ");
     for(int i=0;i<=n;i++){
       name[i]=sc.nextLine();
+    }*/
+    System.out.println("ENTER comedian's name : ");
+    comedian=sr.nextLine();
+    for (int i=0;i<script.size();i++){
+    //  System.out.println(script.get(i).getCharacter());
+      if(script.get(i).getCharacter().equals("Comedian")){
+       script.get(i).setCharacter(comedian);
+      }
     }
+
 
     System.out.println("ENTER DIRECTOR's name : ");
     dirName=sc.nextLine();
@@ -177,9 +182,7 @@ fr.close();
       System.out.println("DIRECTOR :          "+dirName);
       System.out.println("********************************");
       System.out.println("ACTORS : ");
-      for(int i=0;i<=n;i++){
-        System.out.println(name[i]);
-      }
+
       System.out.println("********************************\n\n");
         System.out.println("********************************");
         System.out.println("********************************");
@@ -190,7 +193,7 @@ fr.close();
 
                       for (int i=0;i<script.size();i++)
                       {
-                      //  System.out.println(script.get(i).getGenre()+input1);
+                      //  System.out.println(script.get(i).getCharacter());
                         if(script.get(i).getGenre().equals(input1)){
                          System.out.println(script.get(i).getConversation());
                         }
@@ -204,34 +207,7 @@ fr.close();
          }
         }
       }
-    /*  printComedy();
-      System.out.println("ENTER 1 to see full scene");
-      int b=sc.nextInt();
-      if(b==1){
-        addDialogue();
-        for(Actors a: actors){
-          System.out.println(a.getDialogue());
-          System.out.println("\n");
-        }
-      }
-    }
 
-    else if(genre.equals("emotional")){
-      System.out.println("********************************");
-      System.out.println("DIRECTOR :          "+dirName);
-      System.out.println("********************************");
-      System.out.println("ACTORS : ");
-      for(int i=0;i<=n;i++){
-        System.out.println(name[i]);
-      }
-      System.out.println("********************************\n\n");
-        System.out.println("********************************");
-        System.out.println("********************************");
-        System.out.println("************SCENE2***************");
-        System.out.println("********************************");
-        System.out.println("********************************");
-      printEmotionalScene();
-    }*/
 
   public void printPlot(){
     System.out.println("|****************************************************************************************************************************************|");
@@ -248,13 +224,7 @@ fr.close();
     System.out.println("******************SCENE 1************************");
     System.out.println("*************************************************");
     System.out.println("Sundhareshan enters the scene humming a song, finds Basanthi siiting infront of the bus\n\n");
-    //System.out.println(actors.get(0).getDialogue());
-    //System.out.println(actors.get(1).getDialogue());
-    //System.out.println(actors.get(2).getDialogue());
-    /*for(Actors a: actors){
-      System.out.println(a.getDialogue());
-      System.out.println("\n");
-    }*/
+
   }
 
   public void printCast(){

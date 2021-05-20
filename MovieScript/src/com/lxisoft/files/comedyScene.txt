@@ -1,22 +1,22 @@
-comedy;Sundhareshan : Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo
-comedy;Basanthi : Padayappashinnaa
-comedy;Sundhareshan : Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal"+"\n"+" pinne kopayirikum..pidichal kittoolla, vem pokko
-comedy;Basanthi : Bukaaroooo
-comedy;Sundhareshan : Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed
-comedy;Basanthi : (crying)..aaah Bukaaroooo
-comedy;Sundhareshan : Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
-comedy;Basanthi : hi its testing
-romantic;Unnikrishnan: okay
-romantic;Basanthi : adhonum paranjal patulla unnietta
-emotional;Villain : dai appadi pona eppadi da. ingai irunth irangi ooru fulla sutti ninte koode kazhinja ival
-emotional;Unnikrishnan : Sir nilkumpol gayathri kuttye thalli, adhukonda kshamikanam.
-emotional;Gayathri : (soabing heavily) Appa appa avaru poraru appa. enne vittid appa nan avare koode poree.
-emotional;R K Santhanam : poo..ni nalla varanam.
-comedy;Sundhareshan :   Eee eliye njan thallikollum.
-comedy;Unnikrishnan : Eli ninnne endh cheythitta
-romantic;Gayathri : Unniettan illathe enik patillaa
-romantic;Unnikrishnan : pirinjalle patu namuk
-emotional;Gayathri : Unniettan enik vendi oru karyam cheyanam
-emotional;Unnikrishnan  Eee vandi vilkanam
-romantic;Gayathri : Pachapp niranja ee gramathil namuk oru veed vakanam
-romantic;Unnikrishnan : Adhe namukayi swandhamenn parayan oru veed
+comedy;Comedian;: Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo
+comedy;Heroine;: Padayappashinnaa
+comedy;Comedian;: Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal"+"\n"+" pinne kopayirikum..pidichal kittoolla, vem pokko
+comedy;Heroine;: Bukaaroooo
+comedy;Comedian;: Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed
+comedy;Heroine;: (crying)..aaah Bukaaroooo
+comedy;Heroine;: Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
+comedy;Heroine;: hi its testing
+romantic;Hero;: okay
+romantic;Heroine;: adhonum paranjal patulla unnietta
+emotional;Villain;: dai appadi pona eppadi da. ingai irunth irangi ooru fulla sutti ninte koode kazhinja ival
+emotional;Hero;: Sir nilkumpol gayathri kuttye thalli, adhukonda kshamikanam.
+emotional;Heroine;: (soabing heavily) Appa appa avaru poraru appa. enne vittid appa nan avare koode poree.
+emotional;Villain;: poo..ni nalla varanam.
+comedy;Comedian;:   Eee eliye njan thallikollum.
+comedy;Hero;: Eli ninnne endh cheythitta
+romantic;Heroine;: Unniettan illathe enik patillaa
+romantic;Hero;: pirinjalle patu namuk
+emotional;Heroine;: Unniettan enik vendi oru karyam cheyanam
+emotional;Hero;:  Eee vandi vilkanam
+romantic;Heroine;: Pachapp niranja ee gramathil namuk oru veed vakanam
+romantic;Hero;: Adhe namukayi swandhamenn parayan oru veed
