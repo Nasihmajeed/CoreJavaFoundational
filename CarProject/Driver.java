@@ -12,10 +12,11 @@ public void printDriverDetails()
 {
 if(passangerLicense.equals("YES"))
 
-System.out.println("Passenger can drive\n");
+System.out.println("Passenger can drive\n***************************************");
 
 else 
 
-System.out.println("only driver can drive\n");
+System.out.println("only driver can drive\n***************************************");
+
 }
 }

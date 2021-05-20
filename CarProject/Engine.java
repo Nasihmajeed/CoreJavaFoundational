@@ -12,6 +12,7 @@ input.nextLine();
 }
 public void printEngineDetails(){
   System.out.println("The Engine Model of the car is :"+engineModel+"\n The Engine Type of the Car is "+engineType);
+  
 }
 }
 
