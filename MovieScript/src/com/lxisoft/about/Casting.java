@@ -1,6 +1,7 @@
 package com.lxisoft.about;
 import com.lxisoft.cast.*;
 import java.util.*;
+import com.lxisoft.storyline.*;
 
 public class Casting
 {
@@ -10,13 +11,14 @@ public class Casting
 	Actors villan=new Actor();
 
 	NonActors director=new Director();
+	Mapping map=new Mapping();
 
 Scanner sc =new Scanner(System.in);
-		String heroName;
-		String heroineName;
-		String comedianName;
-		String villanName;
-		String directorName;
+		public String heroName;
+	public	String heroineName;
+		public String comedianName;
+		public String villanName;
+		public String directorName;
 	
 	public void setCasting()
 	{
@@ -26,6 +28,7 @@ Scanner sc =new Scanner(System.in);
 			System.out.println("\t Enter the Hero Name ");
 				heroName=sc.nextLine();
 				hero.setName(heroName);
+				heroName=hero.getName();
 
 				System.out.println("\t Enter the Heroine Name ");
 				heroineName=sc.nextLine();
@@ -43,6 +46,7 @@ Scanner sc =new Scanner(System.in);
 				directorName=sc.nextLine();
 				director.setName(directorName);
 
+				map.setActors(hero.getName(),heroine.getName(),comedian.getName(),villan.getName());
 	
 
 

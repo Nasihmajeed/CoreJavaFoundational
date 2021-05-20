@@ -2,6 +2,8 @@ package com.lxisoft.storyline;
 import com.lxisoft.script.*;
 import java.io.*;
 import java.util.*;
+import com.lxisoft.cast.*;
+import com.lxisoft.about.*;
 public class Mapping
 {
 int i;
@@ -20,12 +22,39 @@ File emotionalFile=new File(emotionalScript);
 BufferedReader comedyScriptReader=null;
 BufferedReader romanceScriptReader=null;
 BufferedReader emotionalScriptReader=null;
+		/*hero.setName(cast.heroName);
+		heroine.setName(cast.heroineName);
+		comedian.setName(cast.comedianName);
+		villan.setName(cast.villanName);*/
+		String  heroName,heroineName,comedianName,villanName;
+		ArrayList<Script> comedyListFromFile=new ArrayList<Script>();
+ArrayList<Script> romanceListFromFile=new ArrayList<Script>();
+ArrayList<Script> emotionalListFromFile=new ArrayList<Script>();
+{
+	comedyListFromFile.add(new ComedyScript());
+	romanceListFromFile.add(new RomanticScript());
+	emotionalListFromFile.add(new EmotionalScript());
+}
+
+public void setActors(String heroName,String heroineName,String comedianName,String villanName)
+{
+	this.heroName=heroName;
+	this.comedianName=comedianName;
+	this.heroineName=heroineName;
+	this.villanName=villanName;
+}
+
 
 public void scriptSelection(int genere)
 {
-ArrayList<Script> comedyListFromFile=new ArrayList<Script>();
-ArrayList<Script> romanceListFromFile=new ArrayList<Script>();
-ArrayList<Script> emotionalListFromFile=new ArrayList<Script>();
+
+		/*Actors hero=new Actor();
+		Actors heroine=new Actress();
+		Actors comedian=new Actor();
+		Actors villan=new Actor();
+		Casting cast=new Casting();*/
+		
+
 
 switch(genere)
 {
@@ -35,8 +64,21 @@ switch(genere)
 			{
 				//System.out.print(listFromFile.get(i).getCharacter()+":");
 			
-					System.out.println(comedyListFromFile.get(i).getDialogue());
-				
+					if(comedyListFromFile.get(i) instanceof ComedyScript)
+						{	comedyListFromFile.get(1).setCharacter(heroName);
+						System.out.print(comedyListFromFile.get(1).getCharacter());
+							System.out.println(comedyListFromFile.get(1).getDialogue());
+						if(i%2==0)
+						{	comedyListFromFile.get(i).setCharacter(comedianName);
+							System.out.print(comedyListFromFile.get(i).getCharacter());
+							System.out.println(comedyListFromFile.get(i).getDialogue());
+						}
+						else if(i>2)
+						{	comedyListFromFile.get(i).setCharacter(heroName);
+							System.out.print(comedyListFromFile.get(i).getCharacter());
+							System.out.println(comedyListFromFile.get(i).getDialogue());
+						}
+					}
 			}
 			break;
 			
@@ -85,11 +127,19 @@ public ArrayList<Script> comedyMovie()
 
 ArrayList<Script> comedyList= new ArrayList<Script>();
 
+comedyList.add(new ComedyScript());
+	comedyList.add(new RomanticScript());
+	comedyList.add(new EmotionalScript());
+
+i=0;
 try
 {
 	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));
 	romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
 	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
+
+
+	
 
 	String line=null;
 
@@ -98,15 +148,20 @@ try
 		String []parts=line.split(":");
 		String actor=parts[0].trim();
 
+
 		StringBuilder dialogue=new StringBuilder();
 		dialogue.append(line);
 	
-			if(!(dialogue.toString().equals(""))&& !(actor.equals("")))
-		{
-			comedyList.add(new Script());
+			if(!(dialogue.toString().equals("")))
+		{	
+			
+			if(comedyList.get(i) instanceof ComedyScript)
+			{
 			comedyList.get(i).setCharacter(actor);
 			comedyList.get(i).setDialogue(dialogue.toString());
-			i++;
+			
+			}i++;
+			
 		}
 
 	}
@@ -123,10 +178,14 @@ try
 
 		if(!(dialogueRomance.toString().equals(""))&& !(actorRomance.equals("")))
 		{	i=comedyList.size();
-			comedyList.add(new Script());
+			if(comedyList.get(i) instanceof RomanticScript)
+			{
 			comedyList.get(i).setCharacter(actorRomance);
 			comedyList.get(i).setDialogue(dialogueRomance.toString());
 			i++;
+			}
+			
+			
 		}
 
 j++;
@@ -145,10 +204,13 @@ while((minorLine2=emotionalScriptReader.readLine())!=null && (k<8))
 		if(!(dialogueEmotional.toString().equals(""))&& !(actorEmotional.equals("")))
 		{	//
 			int s=comedyList.size();
-			comedyList.add(new MinorScript());
-			comedyList.get(s).setCharacter(actorEmotional);
+			if(comedyList.get(s) instanceof EmotionalScript)
+			{
+				comedyList.get(s).setCharacter(actorEmotional);
 			comedyList.get(s).setDialogue(dialogueEmotional.toString());
 			s++;
+			}
+			
 		}
 
 k++;

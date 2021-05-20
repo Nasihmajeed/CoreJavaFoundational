@@ -5,8 +5,7 @@ import java.util.*;
 public class ScriptWriting 
 {
 
-
-String actorsName;
+/*String actorsName;
 
 final String comedyScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\KarthiGanesh.txt";
 
@@ -100,7 +99,7 @@ finally
 }
 
 
-
+*/
 
 
 
