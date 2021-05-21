@@ -1,38 +1,31 @@
+//import CarProjectDemo4.Engine;
+
+
 public class Tdd {
 
-  public static void main(String[] args) {
-   Car firstCar=new Car();
-   Car secondCar=new Car();
-  Engine firstCarEngine = new Engine();
-  Driver firstCarDriver=new Driver();
-  Engine secondCarEngine = new Engine();
-  Driver secondCarDriver=new Driver();
-  Tyre firstCarTyreType=new Tyre();
-  Tyre secondCarTyreType=new Tyre();
- Color firstCarColor=new Color();
-Color secondCarColor=new Color();
-
-   firstCar.carDetails();
- firstCarEngine.engineDetails();
- firstCarTyreType.tyreDetails();
- firstCarColor.colorDetails();
- firstCarDriver.driverDetails();
-   secondCar.carDetails();
-secondCarEngine.engineDetails();
-secondCarTyreType.tyreDetails();
-secondCarColor.colorDetails();
-secondCarDriver.driverDetails();
-
-   firstCar.printCarDetails();
- firstCarEngine.printEngineDetails();  
- firstCarTyreType.printTyreDetails();
- firstCarColor.printColorDetails();
- firstCarDriver.printDriverDetails();
-   secondCar.printCarDetails();
- secondCarEngine.printEngineDetails();
- secondCarTyreType.printTyreDetails();
- secondCarColor.printColorDetails();
- secondCarDriver.printDriverDetails();
+ public static void main(String[] args) {
+  //Taking input from Cars
+   Car car1=new Car();
+   Engine engine1=new Engine();
+   car1.engine=engine1;
+   Tyre tyre1=new Tyre();
+   car1.tyre=tyre1;
+   Driver driver1=new Driver();
+   car1.driver=driver1;
+   car1.inputDetails();
+  
+   
+  Car car2=new Car();
+   Engine engine2=new Engine();
+   car2.engine=engine2;
+   Tyre tyre2=new Tyre();
+   car2.tyre=tyre2;
+   Driver driver2=new Driver();
+   car2.driver=driver2;
+   car2.inputDetails();
+ //comand to print about both cars  
+    car1.printDetails();
+   car2.printDetails();
+  
   }
 }
-

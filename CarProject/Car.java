@@ -1,31 +1,28 @@
 import java.util.Scanner;
 
 public class Car{
-String name;
+String name,color;
 Scanner input=new Scanner(System.in);
 
 
-Engine firstCarEngine;
-Engine secondCarEngine;
-
-
-Driver firstCarDriver;
-Driver secondCarDriver;
-Tyre firstCarTyreType;
-Tyre secondCarTyreType;
-Color firstCarColor;
-Color secondCarColor;
-
-public void carDetails(){
+Engine engine;
+Driver driver;
+Tyre tyre;
+public void inputDetails(){
   System.out.println("Enter Car's name");
 name=input.nextLine();
-
+System.out.println("Enter car's color");
+color=input.nextLine();
+this.engine.inputDetails();
+this.tyre.inputDetails();
+this.driver.inputDetails();
 
 
            }
-public void printCarDetails(){
-  System.out.println("The Car's name is "+name);
-
+public void printDetails(){
+  System.out.println("The Car's name is "+name+"\n Car's color is "+color);
+ this.engine.printDetails();
+ this.tyre.printDetails();
+this.driver.printDetails();
 }
 }
-
