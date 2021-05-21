@@ -11,6 +11,9 @@ public class Movie{
   Scanner sc=new Scanner(System.in);
   Scanner sn=new Scanner(System.in);
   Scanner sr=new Scanner(System.in);
+  Scanner sv=new Scanner(System.in);
+  Scanner ss=new Scanner(System.in);
+  Scanner si=new Scanner(System.in);
   ArrayList<Actors> actors=new ArrayList<Actors>();
   ArrayList<Script> script=new ArrayList<Script>();
   Actors a=new Actors();
@@ -115,7 +118,7 @@ fr.close();
     do{
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("******EE PARAKKUM THALIKA*******");
+      System.out.println("*******SCRIPT GENERATOR*******");
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("1.CAST");
@@ -158,16 +161,31 @@ fr.close();
     }*/
     System.out.println("ENTER comedian's name : ");
     comedian=sr.nextLine();
+    System.out.println("ENTER Hero's name : ");
+    hero=ss.nextLine();
+    System.out.println("ENTER Heroine's name : ");
+    heroine=sv.nextLine();
+    System.out.println("ENTER Vilain's name : ");
+    villain=si.nextLine();
     for (int i=0;i<script.size();i++){
     //  System.out.println(script.get(i).getCharacter());
       if(script.get(i).getCharacter().equals("Comedian")){
        script.get(i).setCharacter(comedian);
       }
+      if(script.get(i).getCharacter().equals("Heroine")){
+       script.get(i).setCharacter(heroine);
+      }
+      if(script.get(i).getCharacter().equals("Hero")){
+       script.get(i).setCharacter(hero);
+      }
+      if(script.get(i).getCharacter().equals("Villain")){
+       script.get(i).setCharacter(villain);
+      }
     }
 
 
     System.out.println("ENTER DIRECTOR's name : ");
-    dirName=sc.nextLine();
+    dirName=sn.nextLine();
     System.out.println("ENTER THE GENRE ");
     String input1=sc.next();
 
@@ -182,7 +200,10 @@ fr.close();
       System.out.println("DIRECTOR :          "+dirName);
       System.out.println("********************************");
       System.out.println("ACTORS : ");
-
+      System.out.println("COMEDIAN : "+comedian);
+      System.out.println("HERO :"+hero);
+      System.out.println("HEROINE :"+heroine);
+      System.out.println("VILLAIN :"+villain);
       System.out.println("********************************\n\n");
         System.out.println("********************************");
         System.out.println("********************************");
@@ -195,15 +216,17 @@ fr.close();
                       {
                       //  System.out.println(script.get(i).getCharacter());
                         if(script.get(i).getGenre().equals(input1)){
-                         System.out.println(script.get(i).getConversation());
+                         System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
                         }
 
         }
         int n=randNum();
+        //System.out.println(n);
         for(int i=0;i<n;i++){
-
+          //  System.out.println(n);
          if(!script.get(i).getGenre().equals(input1)){
-           System.out.println(script.get(i).getConversation());
+           //System.out.println(n);
+           System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
          }
         }
       }

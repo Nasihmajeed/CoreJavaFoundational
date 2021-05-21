@@ -4,7 +4,7 @@ comedy;Comedian;: Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vi
 comedy;Heroine;: Bukaaroooo
 comedy;Comedian;: Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed
 comedy;Heroine;: (crying)..aaah Bukaaroooo
-comedy;Heroine;: Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
+comedy;Comedian;: Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa
 comedy;Heroine;: hi its testing
 romantic;Hero;: okay
 romantic;Heroine;: adhonum paranjal patulla unnietta
