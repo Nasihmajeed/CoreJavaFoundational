@@ -4,13 +4,18 @@ import java.io.*;
 import java.util.*;
 public class Script
 {
-	String character,dialogues;
+	String character1,character2,dialogues;
 
 
 
-	public void setCharacter(String character)
+	public void setCharacter1(String character)
 	{
-		this.character=character;
+		this.character1=character;
+
+	}
+		public void setCharacter2(String character)
+	{
+		this.character2=character;
 
 	}
 
@@ -19,9 +24,14 @@ public class Script
 		this.dialogues=dialogues;
 	}
 
-	public String getCharacter()
+	public String getCharacter1()
 	{
-		return character;
+		return character1;
+
+	}
+	public String getCharacter2()
+	{
+		return character2;
 
 	}
 	public String getDialogue()
