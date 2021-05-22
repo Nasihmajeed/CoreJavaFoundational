@@ -1,6 +1,6 @@
 package com.lxisoft.cast;
-
-public interface Comedian
+public class Comedian extends Cast
 {
+	
 	
 }

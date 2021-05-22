@@ -1,6 +1,6 @@
 package com.lxisoft.cast;
-
-public interface Actor
+public class Actor extends Cast
 {
-
+	
+	
 }
