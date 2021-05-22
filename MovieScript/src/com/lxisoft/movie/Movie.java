@@ -122,7 +122,7 @@ fr.close();
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("1.CAST");
-    //System.out.println("2.START MOVIE");
+      //System.out.println("2.START MOVIE");
       System.out.println("2.PLOT");
       System.out.println("3.GENERATE SCRIPT");
       System.out.println("4.EXIT");
@@ -205,11 +205,11 @@ fr.close();
       System.out.println("HEROINE :"+heroine);
       System.out.println("VILLAIN :"+villain);
       System.out.println("********************************\n\n");
-        System.out.println("********************************");
-        System.out.println("********************************");
-        System.out.println("************SCENE1***************");
-        System.out.println("********************************");
-        System.out.println("********************************");
+      System.out.println("********************************");
+      System.out.println("********************************");
+      System.out.println("************SCENE1***************");
+      System.out.println("********************************");
+      System.out.println("********************************");
 
 
                       for (int i=0;i<script.size();i++)
