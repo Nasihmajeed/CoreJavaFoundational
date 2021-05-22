@@ -60,8 +60,8 @@ public class TDD
 		{
 			case 1: 	System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
 						System.out.println("\t\n The Cast of this movie");	
-						casting.setCasting();
-						casting.displayCasting();
+						map.setCasting();
+						map.displayCasting();
 						imdb.setImdb(7.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
 						System.out.println("\t\n Plot of the movie is \n");
@@ -75,8 +75,8 @@ public class TDD
 
 			case 2:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
 						System.out.println("\t\n The Cast of this movie");	
-						casting.setCasting();
-						casting.displayCasting();
+						map.setCasting();
+						map.displayCasting();
 						imdb.setImdb(8.1f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
 						System.out.println("\t\n Plot of the movie is \n");
@@ -88,8 +88,8 @@ public class TDD
 			
 			case 3:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
 						System.out.println("\t\n The Cast of this movie");	
-						casting.setCasting();
-						casting.displayCasting();
+						map.setCasting();
+						map.displayCasting();
 						imdb.setImdb(8.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
 						System.out.println("\t\n Plot of the movie is \n");

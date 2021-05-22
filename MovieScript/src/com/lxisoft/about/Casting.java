@@ -46,7 +46,7 @@ Scanner sc =new Scanner(System.in);
 				directorName=sc.nextLine();
 				director.setName(directorName);
 
-				map.setActors(hero.getName(),heroine.getName(),comedian.getName(),villan.getName());
+				//map.setActors(hero.getName(),heroine.getName(),comedian.getName(),villan.getName());
 	
 
 
