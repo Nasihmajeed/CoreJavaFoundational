@@ -40,48 +40,15 @@ Actors hero=new Actor();
 		Actors comedian=new Actor();
 		Actors villan=new Actor();
 		NonActors director=new Director();
+		Map<String,String> cast_Map=new HashMap<String,String>();
 
-public void setCasting()
+public void getCasting(Map<String,String> castMap)
 	{
-		
+		cast_Map.putAll(castMap);
 
 
-			System.out.println("\t Enter the Hero Name ");
-				heroName=sc.nextLine();
-				hero.setName(heroName);
-				heroName=hero.getName();
-
-				System.out.println("\t Enter the Heroine Name ");
-				heroineName=sc.nextLine();
-				heroine.setName(heroineName);
-
-				System.out.println("\t Enter the Comedian Name ");
-				comedianName=sc.nextLine();
-				comedian.setName(comedianName);
-
-				System.out.println("\t Enter the villan Name ");
-				villanName=sc.nextLine();
-				villan.setName(villanName);
-
-				System.out.println("\t Enter the director Name ");
-				directorName=sc.nextLine();
-				director.setName(directorName);
-
-				//map.setActors(hero.getName(),heroine.getName(),comedian.getName(),villan.getName());
+	}
 	
-
-
-
-	}
-	public void displayCasting()
-	{
-		System.out.println("\t Hero :"+hero.getName());
-		System.out.println("\t Heroine :"+heroine.getName());
-		System.out.println("\t comdeian :"+comedian.getName());
-		System.out.println("\t villain :"+villan.getName());
-		System.out.println("\t director :"+director.getName());
-
-	}
 
 
 public void scriptSelection(int genere)

@@ -23,6 +23,7 @@ public class TDD
 		Movie movie=new Movie();
 		String movieName;
 
+		Characters characters=new Characters();
 		
 
 		Scanner sc =new Scanner(System.in);
@@ -38,8 +39,13 @@ public class TDD
 				//movieName.append(movieName);
 				movie.setMovieName(movieName);
 
+			characters.setHeroName();
 			
-
+	
+			characters.setHeroineName();
+			characters.setComedianName();
+			characters.setVillianName();
+			characters.displayAll();
 
 
 
@@ -48,12 +54,6 @@ public class TDD
 		System.out.println("\t 1. Comedy");
 		System.out.println("\t 2. Romantic");
 		System.out.println("\t 3. Emotional");
-
-		/*System.out.println("\t 1. Cast");
-		System.out.println("\t 2. Genere");
-		System.out.println("\t 3. IMDB Rating");
-		System.out.println("\t 4. Plot ");
-		System.out.println("\t 5. Storyline");*/
 		ans=sc.nextInt();
 
 		switch(ans)
