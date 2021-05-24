@@ -1,4 +1,4 @@
-package com.lxisoft.Movie;
+package com.lxisoft.Model;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.regex.Matcher;

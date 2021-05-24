@@ -1,11 +1,13 @@
 package com.lxisoft.Library;
-public class Books
+public abstract class Books
 {
 	private String bookName;
 	private String authorName;
 	private String publisherName;
 	private int id;
 	private int price;
+	public abstract void detailsOftheBook();
+	
 	public void setBookName(String bookName)
 	{
 		this.bookName = bookName;
