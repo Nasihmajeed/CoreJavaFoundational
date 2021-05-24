@@ -193,7 +193,7 @@ fr.close();
 
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("******"+movieName+"*******");
+      System.out.println("******"+movieName+"********");
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("********************************");
