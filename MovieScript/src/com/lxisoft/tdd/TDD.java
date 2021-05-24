@@ -1,43 +1,52 @@
 package com.lxisoft.tdd;
 
 import java.util.*;
-import com.lxisoft.cast;
-import com.lxisoft.script;
-import com.lxisoft.movie;
+import com.lxisoft.cast.*;
+import com.lxisoft.scripts.*;
+import com.lxisoft.movie.*;
 
 public class TDD
 {
 public static void main(String[] args)
 {
-String movieName,movieGenre;
 
-Scanner scanner=new Scanner(System.in);
+String movieName;
+int numOfHero,numOfHeroine,numOfComedian;
+
+Scanner sc=new Scanner(System.in);
 
 Movie movie=new Movie();
-Actor actor=new Actor();
-Actress actress=new Actress();
-Comedian comedian=new Comedian();
 
 
+
+{
 
 System.out.println("---------------------------------------------------------------------------------------------------------");	
 System.out.println("---------------------------------------------------------------------------------------------------------");	
 System.out.println("------------------------------------------Movie_Script------------------------------------------------");
 System.out.println("---------------------------------------------------------------------------------------------------------");
-System.out.println("---------------------------------------------------------------------------------------------------------");
-
-           try{
+System.out.println("---------------------------------------------------------------------------------------------------------");	
+                 try{
 					Thread.sleep(2000);
-				}
+				     }
 				catch(InterruptedException e)
-				{
+				    {
 					Thread.currentThread().interrupt();
-				}	
+				    }
+}
+
+
+
+
 
 System.out.println("Enter the Movie Name : ");	
-movieName=scanner.nextLine();			
+movieName=sc.nextLine();			
 movie.setMovieName(movieName);
-System.out.println("The movie name you have entered is : "+movie.getMovieName());
+System.out.println("The Movie Name you have entered is : "+movie.getMovieName());
+
+
+
+
 				 try{
 					Thread.sleep(2000);
 				}
@@ -46,51 +55,17 @@ System.out.println("The movie name you have entered is : "+movie.getMovieName())
 					Thread.currentThread().interrupt();
 				}
 
-System.out.println("Enter the Movie Genre: ");	
-System.out.println("Romantic");	
-System.out.println("Emotional");	
-System.out.println("Comedy");	
 
-movieGenre=scanner.nextLine();				
-movie.setMovieGenre(movieGenre);
-System.out.println("This movie falls under the category of "+movie.getMovieGenre()+" genre !");
+System.out.println("Enter the number of Heroes in the movie : ");
+numOfHero=sc.nextInt();
 
-           try{
-					Thread.sleep(2000);
-				}
-				catch(InterruptedException e)
-				{
-					Thread.currentThread().interrupt();
-				}
-				
-				
-				
-int numOfActor,numOfActress,numOfComedian;
+System.out.println("Enter the number of Heroines in the movie : ");
+numOfHeroine=sc.nextInt();
 
+System.out.println("Enter the number of Comedians in the movie : ");
+numOfComedian=sc.nextInt();
 
-
-if(movieGenre.equals("Romantic"))
-{
-	actor.setNumberOfActors(2);
-	actress.setNumberOfActresses(2);
-	comedian.setNumberOfComedians(1);
-	System.out.println("You have selected a Romantic movie");
-}
-
-else if(movieGenre.equals("Emotional"))
-{
-	
-	System.out.println("You have selected an Emotional movie");
-}
-
-else if(movieGenre.equals("Comedy"))
-{
-	System.out.println("You have selected a Comedy movie");
-}
-
-
-
-
+movie.setNumber(numOfHero,numOfHeroine,numOfComedian);
 
 }
 }
