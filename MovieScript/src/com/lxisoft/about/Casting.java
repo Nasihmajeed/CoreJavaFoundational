@@ -20,7 +20,7 @@ Scanner sc =new Scanner(System.in);
 		public String villanName;
 		public String directorName;
 	
-	public void setCasting()
+	/*public void setCasting()
 	{
 		
 
@@ -62,7 +62,7 @@ Scanner sc =new Scanner(System.in);
 
 	}
 
-
+*/
 
 
 

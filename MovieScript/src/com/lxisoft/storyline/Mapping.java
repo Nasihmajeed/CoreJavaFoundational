@@ -40,47 +40,57 @@ Actors hero=new Actor();
 		Actors comedian=new Actor();
 		Actors villan=new Actor();
 		NonActors director=new Director();
-		Map<String,String> cast_Map=new HashMap<String,String>();
-
-public void getCasting(Map<String,String> castMap)
+		Map<String,ArrayList<Actors>> cast_Map=new HashMap<String,ArrayList<Actors>>();
+		ArrayList<Actors> actors=new ArrayList<Actors>();
+		Characters characters=new Characters();
+/*public void getCasting(Map<String,ArrayList<Actors>> castMap)
 	{
 		cast_Map.putAll(castMap);
 
 
-	}
-	
+	}*/
+	 
+
 
 
 public void scriptSelection(int genere)
 {
 
+characters.setHeroName();
+			
+	
+			characters.setHeroineName();
+			characters.setComedianName();
+			characters.setVillianName();
+			characters.displayAll();
+
 		/**/
 		Casting cast=new Casting();
-		
+		 cast_Map=characters.getMap();
 
 
 switch(genere)
 {
 	case 1: comedyListFromFile= comedyMovie();
 
+
 			for(i=0;i<comedyListFromFile.size();i++ )
 			{
 				//System.out.print(listFromFile.get(i).getCharacter()+":");
 			
 					if(comedyListFromFile.get(i) instanceof ComedyScript)
-					{		/*comedyListFromFile.get(1).setCharacter(heroName);
-						System.out.print(comedyListFromFile.get(1).getCharacter());
-							*///System.out.println(comedyListFromFile.get(1).getDialogue());
-							comedyListFromFile.get(i).setCharacter1(comedianName);
-							comedyListFromFile.get(i).setCharacter2(heroName);
+					{		
+							/*comedyListFromFile.get(i).setCharacter1(cast_Map.get("Comedian").get(i).getComedianCharacterName());
+							comedyListFromFile.get(i).setCharacter2(cast_Map.get("Hero").getHeroCharacterName());*/
+
 						if(i%2==0)
 						{	//comedyListFromFile.get(i).setCharacter(comedianName);
-							System.out.print(comedyListFromFile.get(i).getCharacter1());
+							System.out.print(cast_Map.get("Comedian").get(i).getComedianCharacterName());
 							System.out.println(comedyListFromFile.get(i).getDialogue());
 						}
 						else if(i>2 && i>0)
 						{	//comedyListFromFile.get(i).setCharacter(heroName);
-							System.out.print(comedyListFromFile.get(i).getCharacter2());
+							System.out.print(cast_Map.get("Hero").get(i).getHeroCharacterName());
 							System.out.println(comedyListFromFile.get(i).getDialogue());
 						}
 					}

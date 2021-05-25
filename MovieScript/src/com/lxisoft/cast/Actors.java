@@ -36,7 +36,11 @@ public void setVillianName(String villianName)
 
 
 
-///------------------------------Character setter
+///------------------------------Character setter-------------------
+
+
+
+
 public void setHeroCharacterName(String heroName)
 {
 	this.heroName=heroName;
@@ -62,7 +66,7 @@ public String getHeroName()
 }
 public String getHeroineName()
 {
-	return heroineName
+	return heroineName;
 }
 public String getComedianName()
 {
@@ -79,7 +83,7 @@ public String getHeroCharacterName()
 }
 public String getHeroineCharacterName()
 {
-	return heroineName
+	return heroineName;
 }
 public String getComedianCharacterName()
 {
