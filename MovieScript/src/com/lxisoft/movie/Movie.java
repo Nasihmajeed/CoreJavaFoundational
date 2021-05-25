@@ -193,11 +193,11 @@ fr.close();
 
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("******"+movieName+"********");
+      System.out.println("********"+movieName+"********");
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("DIRECTOR :          "+dirName);
+      System.out.println("DIRECTOR :   ==>    "+dirName);
       System.out.println("********************************");
       System.out.println("ACTORS : ");
       System.out.println("COMEDIAN : "+comedian);
