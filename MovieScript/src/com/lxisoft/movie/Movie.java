@@ -19,7 +19,11 @@ public class Movie{
   Actors a=new Actors();
   String [] name= new String[10];
   String dirName;
-  String genre,comedian,hero,heroine,villain;
+  String genre;
+  String [] comedian= new String[10];
+  String [] hero =new String[10];
+  String [] heroine =new String[10];
+  String [] villain =new String[10];
 //  int n;
   String movieName;
   public int randNum(){
@@ -159,27 +163,49 @@ fr.close();
     for(int i=0;i<=n;i++){
       name[i]=sc.nextLine();
     }*/
+    System.out.println("enter number of comedians");
+    int c=sc.nextInt();
+
     System.out.println("ENTER comedian's name : ");
-    comedian=sr.nextLine();
+    for(int i=0;i<c;i++){
+      comedian[i]=sr.nextLine();
+    }
+    System.out.println("enter number of hero");
+    int h=sr.nextInt();
+    //comedian=sr.nextLine();
     System.out.println("ENTER Hero's name : ");
-    hero=ss.nextLine();
+    for(int i=0;i<h;i++){
+    hero[i]=si.nextLine();
+  }
+  System.out.println("enter number of heroine");
+  int hi=ss.nextInt();
     System.out.println("ENTER Heroine's name : ");
-    heroine=sv.nextLine();
+    for(int i=0;i<hi;i++){
+    heroine[i]=sv.nextLine();
+    }
+    System.out.println("enter number of Villain");
+    int v=ss.nextInt();
     System.out.println("ENTER Vilain's name : ");
-    villain=si.nextLine();
+    for(int i=0;i<v;i++){
+    villain[i]=si.nextLine();
+  }
     for (int i=0;i<script.size();i++){
     //  System.out.println(script.get(i).getCharacter());
+
       if(script.get(i).getCharacter().equals("Comedian")){
-       script.get(i).setCharacter(comedian);
-      }
+
+          script.get(i).setCharacter(comedian[c-1]);
+        }
+       //script.get(i).setCharacter(comedian);
+
       if(script.get(i).getCharacter().equals("Heroine")){
-       script.get(i).setCharacter(heroine);
+       script.get(i).setCharacter(heroine[hi-1]);
       }
       if(script.get(i).getCharacter().equals("Hero")){
-       script.get(i).setCharacter(hero);
+       script.get(i).setCharacter(hero[h-1]);
       }
       if(script.get(i).getCharacter().equals("Villain")){
-       script.get(i).setCharacter(villain);
+       script.get(i).setCharacter(villain[v-1]);
       }
     }
 
@@ -200,10 +226,22 @@ fr.close();
       System.out.println("DIRECTOR :   ==>    "+dirName);
       System.out.println("********************************");
       System.out.println("ACTORS : ");
-      System.out.println("COMEDIAN : "+comedian);
-      System.out.println("HERO :"+hero);
-      System.out.println("HEROINE :"+heroine);
-      System.out.println("VILLAIN :"+villain);
+      System.out.println("COMEDIAN : ");
+      for(int i=0;i<c;i++){
+      System.out.println(comedian[i]);
+    }
+      System.out.println("HERO :");
+      for(int i=0;i<h;i++){
+      System.out.println(hero[i]);
+    }
+      System.out.println("HEROINE :");
+      for(int i=0;i<hi;i++){
+      System.out.println(heroine[i]);
+    }
+      System.out.println("VILLAIN :");
+      for(int i=0;i<v;i++){
+      System.out.println(villain[i]);
+    }
       System.out.println("********************************\n\n");
       System.out.println("********************************");
       System.out.println("********************************");
