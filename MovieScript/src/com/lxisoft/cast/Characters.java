@@ -1,8 +1,9 @@
 package com.lxisoft.cast;
 
 import java.util.*;
-import java.util.HashMap;
-import com.lxisoft.scripts.*;
+
+//import com.lxisoft.scripts.*;
+
 import com.lxisoft.movie.*;
 
 public class Characters extends Actors 
@@ -38,7 +39,7 @@ public void setHero()
 		 heroCharName=sc.next();
 		 all.get(i).setHeroCharName(heroCharName);
 		 
-		 actorsMap.put("Hero" , all );         // set a key for hero
+		 actorsMap.put("Hero",all);         // set a key for hero
 		
 	 }
 
@@ -60,7 +61,7 @@ public void setHeroine()
 		 heroineCharName=sc.next();
 		 all.get(i).setHeroineCharName(heroineCharName);
 		 
-		 actorsMap.put("Heroine" , all );         // set a key for hero
+		 actorsMap.put("Heroine",all);         // set a key for heroine
 		
 	 }
 
@@ -82,19 +83,89 @@ public void setComedian()
 		 comedianCharName=sc.next();
 		 all.get(i).setComedianCharName(comedianCharName);
 		 
-		 actorsMap.put("Comedian" , all );         // set a key for hero
+		 actorsMap.put("Comedian",all);         // set a key for comedian
 		
 	 }
 }
-/*
-public void showAllCharacters()
+
+
+public void printCharacters()
 {
 	
-	for(Map.Entry<String , actorsMap > entry : map.entrySet() )
-	{
-		System.out.println(" Actor  : "+entry.getKey()+" , "+"Character  : "+entry.getValue());
+   for(int i=0 ; i<all.size() ; i++)
+    {
+		System.out.println("\r\n");
+		System.out.println("---------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------------");
+
+
+		if( all.get(i).getHeroName()  != null)
+		{
+	      System.out.println("Hero name : "+all.get(i).getHeroName());		
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	   
+	   if( all.get(i).getHeroCharName()  != null)
+		{
+	      System.out.println("Hero's Character name : "+all.get(i).getHeroCharName());		
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	   
+	    if( all.get(i).getHeroineName()  != null)
+		{
+	      System.out.println("Heroine  name : "+all.get(i).getHeroineName());		
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	   
+	   
+	    if( all.get(i).getHeroineCharName()  != null)
+		{
+	      System.out.println("Heroine's Character name : "+all.get(i).getHeroineCharName());	
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	   
+	   
+	   if( all.get(i).getComedianName()  != null)
+		{
+	      System.out.println("Comedian name : "+all.get(i).getComedianName());
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	  
+	
+	  if( all.get(i).getComedianCharName()  != null)
+		{
+	      System.out.println("Comedian's Character name : "+all.get(i).getComedianCharName());
+		}
+	   else
+	   {
+		   System.out.println("---------------------------------------------------------------------------");
+	   }
+	
+	System.out.println("\r\n");
+	
+	
+			
 	}
 	
 }
-*/
+
 }
+

@@ -2,7 +2,7 @@ package com.lxisoft.tdd;
 
 import java.util.*;
 import com.lxisoft.cast.*;
-import com.lxisoft.scripts.*;
+//import com.lxisoft.scripts.*;
 import com.lxisoft.movie.*;
 
 public class TDD
@@ -23,6 +23,8 @@ System.out.println("------------------------------------------------------------
 				    {
 					Thread.currentThread().interrupt();
 				    }
+System.out.println("\r\n");
+
 }
 
 Movie movie=new Movie();
