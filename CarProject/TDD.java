@@ -9,10 +9,14 @@ public class Tdd {
    Tyre tyre2=new Tyre();
    Tyre tyre3=new Tyre();
    Tyre tyre4=new Tyre();
- car1.rearTyreLeft=tyre1;
+ /*car1.rearTyreLeft=tyre1;
 car1.rearTyreRight=tyre2;
 car1.frontTyreLeft=tyre3;
-car1.frontTyreRight=tyre4;
+car1.frontTyreRight=tyre4;*/
+car1.tyres[0]=tyre1;
+car1.tyres[1]=tyre2;
+car1.tyres[2]=tyre3;
+car1.tyres[3]=tyre4;
    Driver driver1=new Driver();
    car1.driver=driver1;
    car1.inputDetails();
@@ -25,10 +29,14 @@ car1.frontTyreRight=tyre4;
    Tyre tyre6=new Tyre();
    Tyre tyre7=new Tyre();
    Tyre tyre8=new Tyre();
- car2.rearTyreLeft=tyre5;
+ /*car2.rearTyreLeft=tyre5;
 car2.rearTyreRight=tyre6;
 car2.frontTyreLeft=tyre7;
-car2.frontTyreRight=tyre8;
+car2.frontTyreRight=tyre8;*/
+car2.tyres[0]=tyre5;
+car2.tyres[1]=tyre6;
+car2.tyres[2]=tyre7;
+car2.tyres[3]=tyre8;
    Driver driver2=new Driver();
    car2.driver=driver2;
    car2.inputDetails();
@@ -37,7 +45,7 @@ car2.frontTyreRight=tyre8;
  //comand to print about both cars*/
  
     car1.printDetails();
-   car2.printDetails();
+  car2.printDetails();
   
   }
 }
