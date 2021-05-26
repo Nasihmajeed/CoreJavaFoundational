@@ -1,23 +1,23 @@
-package com.lxisoft.Tyre;
+package com.lxisoft.Car;
 import com.lxisoft.Car.Car;
 public class Tyre 
 {
     String tyrename;
-    int size;
+    String size;
 
-    public void settyreName(String tyrename)
+    public void setTyreName(String tyrename)
     {
         this.tyrename = tyrename;
     }
-    public String gettyreName()
+    public String getTyreName()
     {
         return tyrename;
     }
-    public void settyreSize(int size)
+    public void setTyreSize(String size)
     {
         this.size = size;
     }
-    public int gettyreSize()
+    public String getTyreSize()
     {
         return size;
     }
@@ -28,9 +28,9 @@ public void printTyreDetails()
         System.out.print("\n");
     	System.out.print("Details Of The Tyre :  ");
         System.out.print("\n");
-		System.out.print("Tyre Manufactures name is : "+gettyreName());
+		System.out.print("Tyre Manufactures name is : "+getTyreName());
         System.out.print("\n");
-		System.out.print("Tyre Size is : "+gettyreSize());
+		System.out.print("Tyre Size is : "+getTyreSize());
         System.out.print("\n");
 		System.out.print("-------------------------------------");	
        }

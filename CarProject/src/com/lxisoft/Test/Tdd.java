@@ -2,10 +2,10 @@ package com.lxisoft.Test;
 import com.lxisoft.Car.Car;
 import java.util.Scanner;
 import java.util.ArrayList;
-import com.lxisoft.Engine.Engine;
-import com.lxisoft.Rc.Rc;
-import com.lxisoft.Tyre.Tyre;
-import com.lxisoft.Door.Door;
+import com.lxisoft.Car.Engine;
+import com.lxisoft.Car.Rc;
+import com.lxisoft.Car.Tyre;
+import com.lxisoft.Car.Door;
 public class Tdd
 {
  public static void main(String[] args) 
@@ -24,49 +24,53 @@ public class Tdd
 			System.out.println("Enter The Details of Car : ");
 			System.out.println("Enter Name of the car : ");
 			String carname=scanner.next();
-			car.setcarName(carname);
+			car.setCarName(carname);
 			System.out.println("Enter Model of the Car :");
 			String model=scanner.next();
-			car.setcarModel(model);
+			car.setCarModel(model);
         	System.out.println("Enter Manufacture of the Car : ");
         	String manufacturer=scanner.next();
-        	car.setcarManufacturer(manufacturer);
+        	car.setCarManufacturer(manufacturer);
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
         	System.out.println("Enter The RC Details : ");
 			System.out.println("Enter The Name Of RC Owner :");
 			String owner=scanner.next();
-			rc.setrcOwner(owner);
+			rc.setRcOwner(owner);
 			System.out.println ("Enter Adress Of RC Owner");
 			String address=scanner.next();
-			rc.setownerAddress(address);
+			rc.setOwnerAddress(address);
+			car.setRc(rc);
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter The Engine Details : ");
     		System.out.println("Enter The Engine CC : ");
-    		int ccnumber= scanner.nextInt();
-    		engine.setengineNumber(ccnumber);
+    		String ccnumber= scanner.next();
+    		engine.setEngineNumber(ccnumber);
     		System.out.println("Enter The Type Of Engine : ");
     		String cctype= scanner.next();
-    		engine.setengineType(cctype);
+    		engine.setEngineType(cctype);
+    		car.setEngine(engine);
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
     		System.out.println("Enter the Details of Doors : ");
 			System.out.println("Enter The Number OF Doors : ");
-			int doornumber=scanner.nextInt();
-			door.setdoorNumber(doornumber);
+			String doornumber=scanner.next();
+			door.setDoorNumber(doornumber);
 			System.out.println("Enter The Type Of Door : ");
 			String doortype=scanner.next();
-			door.setdoorType(doortype);
+			door.setDoorType(doortype);
+			car.setDoor(door);
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter the Details of Tyre : ");
 			System.out.println("Enter The Size OF Tyre : ");
-			int size=scanner.nextInt();
-			tyre.settyreSize(size);
+			String size=scanner.next();
+			tyre.setTyreSize(size);
 			System.out.println("Enter The Name Of Manufacture Of the Tyre : ");
 			String tyrename=scanner.next();
-			tyre.settyreName(tyrename);
+			tyre.setTyreName(tyrename);
+			car.setTyre(tyre);
 			System.out.println("-------------------------------------");
 			
         }
@@ -74,11 +78,7 @@ public class Tdd
         int number = scanner.nextInt();
 	    if(number==2)
     {  
-       car.printCarDetails();
-       engine.printEngineDetails();
-	    rc.printRcDetails();
-        tyre.printTyreDetails();
-        door.printDoorDetails();  
+       car.printCarDetails(rc,engine,door,tyre); 
     }	
 	  else
 		{

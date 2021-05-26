@@ -1,23 +1,23 @@
-package com.lxisoft.Engine;
+package com.lxisoft.Car;
 import com.lxisoft.Car.Car;
 public class Engine 
 {
-    int ccnumber;
+    String ccnumber;
     String cctype;
 
-    public void setengineNumber(int ccnumber)
+    public void setEngineNumber(String ccnumber)
     {
         this.ccnumber = ccnumber;
     }
-    public int getengineNumber()
+    public String getEngineNumber()
     {
         return ccnumber;
     }
-    public void setengineType(String cctype)
+    public void setEngineType(String cctype)
     {
         this.cctype = cctype;
     }
-    public String getengineType()
+    public String getEngineType()
     {
         return cctype;
     }
@@ -28,9 +28,9 @@ public class Engine
         System.out.print("\n");
         System.out.print("Engine Details . ");
         System.out.print("\n");
-    	System.out.print("Engine CC is : "+getengineNumber());
+    	System.out.print("Engine CC is : "+getEngineNumber());
         System.out.print("\n");
-    	System.out.print("Engine Type is : "+getengineType());
+    	System.out.print("Engine Type is : "+getEngineType());
         System.out.print("\n");
 		System.out.print("-------------------------------------");
        }

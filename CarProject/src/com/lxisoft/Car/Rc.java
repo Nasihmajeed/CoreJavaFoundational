@@ -1,23 +1,23 @@
-package com.lxisoft.Rc;
+package com.lxisoft.Car;
 import com.lxisoft.Car.Car;
 public class Rc
 {
      String owner;
 	String address;
 
-	public void setrcOwner(String owner)
+	public void setRcOwner(String owner)
     {
         this.owner = owner;
     }
-    public String getrcOwner()
+    public String getRcOwner()
     {
         return owner;
     }
-    public void setownerAddress(String address)
+    public void setOwnerAddress(String address)
     {
         this.address = address;
     }
-    public String getownerAddress()
+    public String getOwnerAddress()
     {
         return address;
     }
@@ -28,9 +28,9 @@ public class Rc
         System.out.print("\n");
         System.out.print("Details of the Car Rc ");
         System.out.print("\n");
-		System.out.print("Name of RC Owner : "+getrcOwner());
+		System.out.print("Name of RC Owner : "+getRcOwner());
         System.out.print("\n");
-		System.out.print("Adress of RC owner: "+getownerAddress());
+		System.out.print("Adress of RC owner: "+getOwnerAddress());
         System.out.print("\n");
 		System.out.print("-------------------------------------"); 
        }
