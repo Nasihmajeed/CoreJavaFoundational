@@ -11,7 +11,9 @@ Tyre[] tyres=new Tyre[4];
 
 
 
-
+//Tyre rearTyreRight;
+//Tyre frontTyreLeft;
+//Tyre frontTyreRight;
 public void inputDetails(){
 
   System.out.println("Enter Car's name");
