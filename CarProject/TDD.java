@@ -1,6 +1,7 @@
 public class Tdd {
 
- public static void main(String[] args) {
+  public static void main(String[] args) {
+
   //Taking input from Cars
    Car car1=new Car();
    Engine engine1=new Engine();
@@ -12,6 +13,8 @@ public class Tdd {
   
 for(int num=0;num<=3;num++){
 
+//car1.tyres[num]=tyre[num];
+car1.tyres[num]=new Tyre();
 car1.tyres[num]=tyre[num];
 }
 
@@ -24,7 +27,9 @@ Car car2=new Car();
    Engine engine2=new Engine();
   car2.engine=engine2;
  for(int num=0;num<=3;num++){
+ car2.tyres[num]=new Tyre();
 car2.tyres[num]=tyre[4+num];
+//car1.tyres[num]=new Tyre();
 }
  Driver driver2=new Driver();
   car2.driver=driver2;
@@ -35,4 +40,5 @@ car2.tyres[num]=tyre[4+num];
   car2.printDetails();
   
   }
-}
+
+  }
