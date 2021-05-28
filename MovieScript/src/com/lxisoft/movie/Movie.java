@@ -318,7 +318,7 @@ fr.close();
       }
       sc.close();
     }catch(FileNotFoundException e){
-      System.out.println("An error occure");
+      System.out.println("An error occures");
       e.printStackTrace();
     }
     }
