@@ -1,9 +1,9 @@
-package com.lxisoft.Car;
+package com.lxisoft.car;
 import java.util.ArrayList;
-import com.lxisoft.Car.Engine;
-import com.lxisoft.Car.Rc;
-import com.lxisoft.Car.Tyre;
-import com.lxisoft.Car.Door;
+import com.lxisoft.car.Engine;
+import com.lxisoft.car.Rc;
+import com.lxisoft.car.Tyres;
+import com.lxisoft.car.Door;
 
 public class Car 
 { 
@@ -38,7 +38,7 @@ public void setCarName(String name)
         return manufacturer;
     }
 
-    public void printCarDetails(Rc rc,Engine engine,Door door,Tyre tyre)
+    public void printCarDetails()
 	{   
 	    System.out.print("-------------------------------------");
         System.out.print("\n");
@@ -51,10 +51,6 @@ public void setCarName(String name)
         System.out.print("Manufacturer of the Car : "+getCarManufacturer());
         System.out.print("\n");
 		System.out.print("-------------------------------------");	
-        this.setRc(rc);
-        this.setEngine(engine);
-        this.setDoor(door);
-        this.setTyre(tyre);
     }
     public void setEngine(Engine engine)
    {   
@@ -68,8 +64,8 @@ public void setCarName(String name)
    {
         door.printDoorDetails();     
    }
-  public void setTyre(Tyre tyre)
+  public void setTyre(Tyres tyres)
    {
-        tyre.printTyreDetails();
+        tyres.printTyresDetails();
    }
 }

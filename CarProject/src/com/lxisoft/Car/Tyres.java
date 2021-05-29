@@ -1,6 +1,6 @@
-package com.lxisoft.Car;
-import com.lxisoft.Car.Car;
-public class Tyre 
+package com.lxisoft.car;
+import com.lxisoft.car.Car;
+public class Tyres 
 {
     String tyrename;
     String size;
@@ -22,7 +22,7 @@ public class Tyre
         return size;
     }
 
-public void printTyreDetails()
+public void printTyresDetails()
        {
         System.out.print("-------------------------------------");
         System.out.print("\n");
