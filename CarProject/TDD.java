@@ -2,38 +2,51 @@ public class Tdd {
 
   public static void main(String[] args) {
 
-  //Taking input from Cars
+  //Taking input from Cars 1
    Car car1=new Car();
+   //Array 
+   Tyre[] tyre=new Tyre[8];
+   
+   //objects for car1
+   
    Engine engine1=new Engine();
-   car1.engine=engine1;
-  Tyre[] tyre=new Tyre[9];
-   for(int num =0;num<=7;num++){
-   tyre[num]=new Tyre();
- }
-  
-for(int num=0;num<=3;num++){
+   Driver driver1=new Driver();
+  for(int num =0;num<=3;num++){
+ tyre[num]=new Tyre();
+}
+//assigning for methods of car 1
 
-//car1.tyres[num]=tyre[num];
-car1.tyres[num]=new Tyre();
+   car1.engine=engine1;
+  car1.driver=driver1;
+for(int num=0;num<=3;num++){
 car1.tyres[num]=tyre[num];
 }
+//input details
 
-   Driver driver1=new Driver();
-   car1.driver=driver1;
-   car1.inputDetails();
+car1.inputDetails();
  
-   
+   // input for car 2
 Car car2=new Car();
+//objects for car 2
    Engine engine2=new Engine();
-  car2.engine=engine2;
- for(int num=0;num<=3;num++){
- car2.tyres[num]=new Tyre();
-car2.tyres[num]=tyre[4+num];
-//car1.tyres[num]=new Tyre();
+   Driver driver2=new Driver();
+   for(int num =4;num<=7;num++){
+ tyre[num]=new Tyre();
 }
- Driver driver2=new Driver();
-  car2.driver=driver2;
+
+//assigng for method for car 2
+
+ car2.engine=engine2;
+car2.driver=driver2;
+ for(int num=0;num<=3;num++){
+ car2.tyres[num]=tyre[4+num];
+}
+ 
+ //input deatils of car2
+  
   car2.inputDetails();
+  
+  
   //comand to print about both cars*/
  
     car1.printDetails();
