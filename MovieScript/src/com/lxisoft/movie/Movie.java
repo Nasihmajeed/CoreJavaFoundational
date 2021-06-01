@@ -122,7 +122,7 @@ fr.close();
     do{
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("*******SCRIPT GENERATOR*******");
+      System.out.println("*******SCRIPT  GENERATOR*******");
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("1.CAST");
@@ -166,14 +166,14 @@ fr.close();
     System.out.println("enter number of comedians");
     int c=sc.nextInt();
 
-    System.out.println("ENTER comedian's name : ");
+    System.out.println("ENTER comedian's  name : ");
     for(int i=0;i<c;i++){
       comedian[i]=sr.nextLine();
     }
     System.out.println("enter number of hero");
     int h=sr.nextInt();
     //comedian=sr.nextLine();
-    System.out.println("ENTER Hero's name : ");
+    System.out.println("ENTER Hero's  name : ");
     for(int i=0;i<h;i++){
     hero[i]=si.nextLine();
   }
@@ -210,7 +210,7 @@ fr.close();
     }
 
 
-    System.out.println("ENTER DIRECTOR's name : ");
+    System.out.println("ENTER THE DIRECTOR's name : ");
     dirName=sn.nextLine();
     System.out.println("ENTER THE GENRE ");
     String input1=sc.next();
