@@ -1,6 +1,6 @@
 package com.lxisoft.car;
 import com.lxisoft.car.Car;
-public class Tyres 
+public class Tyre 
 {
     String tyrename;
     String size;

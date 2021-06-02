@@ -2,13 +2,15 @@ package com.lxisoft.car;
 import java.util.ArrayList;
 import com.lxisoft.car.Engine;
 import com.lxisoft.car.Rc;
-import com.lxisoft.car.Tyres;
+import com.lxisoft.car.Tyre;
 import com.lxisoft.car.Door;
 
 public class Car 
 { 
-
-
+    Engine engine;
+    Rc rc;
+    Door doors;
+    Tyre tyres;
     String name;
 	String model;
     String manufacturer;
@@ -37,6 +39,22 @@ public void setCarName(String name)
     {
         return manufacturer;
     }
+     public void setEngine(Engine engine)
+   {   
+     this.engine= engine;     
+   } 
+  public void setRc(Rc rc)
+   {
+        this.rc=rc; 
+   }
+  public void setDoor(Door doors)
+   {
+      this.doors=doors;
+   }
+  public void setTyre(Tyre tyres)
+   {
+      this.tyres=tyres;
+   }
 
     public void printCarDetails()
 	{   
@@ -50,22 +68,10 @@ public void setCarName(String name)
         System.out.print("\n");
         System.out.print("Manufacturer of the Car : "+getCarManufacturer());
         System.out.print("\n");
-		System.out.print("-------------------------------------");	
-    }
-    public void setEngine(Engine engine)
-   {   
-        engine.printEngineDetails();      
-   } 
-  public void setRc(Rc rc)
-   {
-        rc.printRcDetails();      
-   }
-  public void setDoor(Door door)
-   {
-        door.printDoorDetails();     
-   }
-  public void setTyre(Tyres tyres)
-   {
-        tyres.printTyresDetails();
-   }
+		System.out.print("-------------------------------------");
+        engine.printEngineDetails();
+        rc.printRcDetails();  
+        doors.printDoorDetails();
+        tyres.printTyresDetails();     	
+    }   
 }

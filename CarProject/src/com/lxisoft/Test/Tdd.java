@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import com.lxisoft.car.Engine;
 import com.lxisoft.car.Rc;
-import com.lxisoft.car.Tyres;
+import com.lxisoft.car.Tyre;
 import com.lxisoft.car.Door;
 public class Tdd
 {
@@ -13,13 +13,17 @@ public class Tdd
 	Car car = new Car();
  	Engine engine =new Engine(); 
     Rc rc =new Rc();
-    Door door = new Door();
-    Tyres tyres =new Tyres();
+    Door doors = new Door();
+    Tyre tyres =new Tyre();
         Scanner scanner = new Scanner(System.in);
 		System.out.println("1 - Enter The Details Of vehicle : ");	
 		int choice = scanner.nextInt();
 		if(choice==1)
 		{
+			car.setRc(rc);
+            car.setEngine(engine);
+            car.setDoor(doors);
+            car.setTyre(tyres); 
 			System.out.println("-------------------------------------");
 			System.out.println("Enter The Details of Car : ");
 			System.out.println("Enter Name of the car : ");
@@ -54,10 +58,10 @@ public class Tdd
     		System.out.println("Enter the Details of Doors : ");
 			System.out.println("Enter The Number OF Doors : ");
 			String doornumber=scanner.next();
-			door.setDoorNumber(doornumber);
+			doors.setDoorNumber(doornumber);
 			System.out.println("Enter The Type Of Door : ");
 			String doortype=scanner.next();
-			door.setDoorType(doortype);
+			doors.setDoorType(doortype);
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter the Details of Tyre : ");
@@ -68,17 +72,12 @@ public class Tdd
 			String tyrename=scanner.next();
 			tyres.setTyreName(tyrename);
 			System.out.println("-------------------------------------");
-			
         }
         System.out.println("2 - Print The Details Of Vehicle : ");
         int number = scanner.nextInt();
 	    if(number==2)
     {  
-       car.printCarDetails();
-       car.setRc(rc);
-       car.setEngine(engine);
-       car.setDoor(door);
-       car.setTyre(tyres); 
+       car.printCarDetails();  
     }	
 	  else
 		{
