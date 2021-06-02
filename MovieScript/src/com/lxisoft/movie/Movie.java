@@ -223,7 +223,7 @@ fr.close();
       System.out.println("********************************");
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("DIRECTOR :   ==>    "+dirName);
+      System.out.println("DIRECTOR :     ==>    "+dirName);
       System.out.println("********************************");
       System.out.println("ACTORS : ");
       System.out.println("COMEDIAN : ");
@@ -245,7 +245,7 @@ fr.close();
       System.out.println("********************************\n\n");
       System.out.println("********************************");
       System.out.println("********************************");
-      System.out.println("************SCENE1***************");
+      System.out.println("*************SCENE1***************");
       System.out.println("********************************");
       System.out.println("********************************");
 
@@ -277,7 +277,7 @@ fr.close();
     System.out.println("|but she is actually Gayathri, the daughter of an influential and politically powerful minister R. K. Santhanam in Puducherry.           |");
     System.out.println("|The police trace her and takes her back to Santhanam's custody. Santhanam is making arrangements for her marriage with someone else.    |");
     System.out.println("|Meanwhile, Unni realizes that he could not live without Gayathri. He and Sundareshan secretly enter her house.                         |");
-    System.out.println("|Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
+    System.out.println("| Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
     System.out.println("|****************************************************************************************************************************************|");
   }
   public void printDialogue(){
