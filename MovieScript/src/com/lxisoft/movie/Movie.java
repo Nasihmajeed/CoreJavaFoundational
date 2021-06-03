@@ -2,8 +2,10 @@ package com.lxisoft.movie;
 import com.lxisoft.actors.*;
 import java.util.*;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -48,13 +50,13 @@ public class Movie{
 
           // System.out.println(size); //Split the word using space
           //  System.out.println(words[i]);
-            if (words[0].equals("comedy") || words[0].equals("romantic") || words[0].equals("emotional")){
+            if (words[1].equals("comedy") || words[1].equals("romantic") || words[1].equals("emotional")){
               script.add(new Script());
             //  System.out.println(script.size());
               for(int i=script.size()-1;i<script.size();i++){
-              script.get(i).setGenre(words[0]);
-              script.get(i).setCharacter(words[1]);
-              script.get(i).setConversation(words[2]);
+              script.get(i).setGenre(words[1]);
+              script.get(i).setCharacter(words[2]);
+              script.get(i).setConversation(words[3]);
               //System.out.println(script.get(i).getGenre());
               //System.out.println(script.get(i).getConversation());
             }
@@ -269,6 +271,73 @@ fr.close();
         }
       }
 
+      public void dataUsingHashmap(){
+      HashMap<String, String> map
+               = new HashMap<String, String>();
+
+           // key-value pairs
+           map.put("1", "comedy;Comedian;: Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo");
+           map.put("2", "Padayappashinnaa");
+           map.put("3", "comedy;Comedian;: Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal pinne kopayirikum..pidichal kittoolla, vem pokko");
+           map.put("4","comedy;Heroine;: Bukaaroooo");
+           map.put("5","comedy;Comedian;: Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed");
+           map.put("6","comedy;Heroine;: (crying)..aaah Bukaarooo");
+           map.put("7","comedy;Comedian;: Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa");
+           map.put("8","comedy;Heroine;: hi its testing");
+           map.put("9","romantic;Hero;: okay");
+           map.put("10","romantic;Heroine;: adhonum paranjal patulla unnietta");
+           map.put("11","emotional;Villain;: dai appadi pona eppadi da. ingai irunth irangi ooru fulla sutti ninte koode kazhinja ival");
+           map.put("12","emotional;Hero;: Sir nilkumpol gayathri kuttye thalli, adhukonda kshamikanam.");
+           map.put("13","emotional;Heroine;: (soabing heavily) Appa appa avaru poraru appa. enne vittid appa nan avare koode poree.");
+           map.put("14","emotional;Villain;: poo..ni nalla varanam.");
+           map.put("15","comedy;Comedian;:   Eee eliye njan thallikollum.");
+           map.put("16","comedy;Hero;: Eli ninnne endh cheythitta");
+           map.put("17","romantic;Heroine;: Unniettan illathe enik patillaa");
+           map.put("18","romantic;Hero;: pirinjalle patu namuk");
+           map.put("19","emotional;Heroine;: Unniettan enik vendi oru karyam cheyanam");
+           map.put("20","emotional;Hero;:  Eee vandi vilkanam");
+           map.put("21","romantic;Heroine;: Pachapp niranja ee gramathil namuk oru veed vakanam");
+           map.put("22","romantic;Hero;: Adhe namukayi swandhamenn parayan oru veed");
+
+           // new file object
+           File file = new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\comedyScene.txt");
+
+           BufferedWriter bf = null;
+
+           try {
+
+               // create new BufferedWriter for the output file
+               bf = new BufferedWriter(new FileWriter(file));
+
+               // iterate map entries
+               for (Map.Entry<String, String> entry :
+                    map.entrySet()) {
+
+                   // put key and value separated by a colon
+                   bf.write(entry.getKey() + ";"
+                            + entry.getValue());
+
+                   // new line
+                   bf.newLine();
+               }
+
+               bf.flush();
+           }
+           catch (IOException e) {
+               e.printStackTrace();
+           }
+           finally {
+
+               try {
+
+                   // always close the writer
+                   bf.close();
+               }
+               catch (Exception e) {
+               }
+           }
+       }
+
 
   public void printPlot(){
     System.out.println("|****************************************************************************************************************************************|");
@@ -277,7 +346,7 @@ fr.close();
     System.out.println("|but she is actually Gayathri, the daughter of an influential and politically powerful minister R. K. Santhanam in Puducherry.           |");
     System.out.println("|The police trace her and takes her back to Santhanam's custody. Santhanam is making arrangements for her marriage with someone else.    |");
     System.out.println("|Meanwhile, Unni realizes that he could not live without Gayathri. He and Sundareshan secretly enter her house.                         |");
-    System.out.println("| Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
+    System.out.println("|Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
     System.out.println("|****************************************************************************************************************************************|");
   }
   public void printDialogue(){

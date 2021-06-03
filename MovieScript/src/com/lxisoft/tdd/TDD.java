@@ -6,7 +6,9 @@ public class TDD{
     Movie m=new Movie();
     //m.addDialogue();
     //m.printDialogue();
+    m.dataUsingHashmap();
     m.FileWordSearch();
+
     m.menu();
 
     //m.printScene();
