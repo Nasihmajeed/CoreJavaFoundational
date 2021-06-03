@@ -26,6 +26,7 @@ System.out.println("-------------: Enter the name of the movie :------------");
 movieName=sc.next();	
 
 System.out.println("\r\n");
+System.out.println("Name of the Movie is : "+movieName);
 System.out.println("\r\n");
 System.out.println("\r\n");
 	            
@@ -55,10 +56,15 @@ System.out.println("Enter the Movie Genre you want-----");
 	System.out.println("2.Emotional");
 	System.out.println("3.Comedy");
 gtype=sc.nextInt();
+                try{
+					Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+System.out.println("\r\n");
 
-System.out.println("\r\n");
-System.out.println("\r\n");
-System.out.println("\r\n");
 
 
 switch(gtype)
@@ -66,80 +72,86 @@ switch(gtype)
                  case 1 : 
                                                        g.setMovieGenre("Romantic");				  
 				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-									
-									System.out.println("\r\n");
-									System.out.println("\r\n");
-									System.out.println("\r\n");
+									                   System.out.println("\r\n");
+
+                                                          try{
+					                                              Thread.sleep(2000);
+				                                               }
+				                                        catch(InterruptedException e)
+				                                               {
+					                                              Thread.currentThread().interrupt();
+				                                                }
 									
 				                                      rating.setRating(7.2f);
 									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
-				               
-							   System.out.println("\r\n");
-							   System.out.println("\r\n");
-							   System.out.println("\r\n");
-							   
-							   
-							   
+				                                      System.out.println("\r\n");
+							                          
+							                                 try{
+					                                                 Thread.sleep(2000);
+				                                                  }
+				                                       catch(InterruptedException e)
+				                                                   {
+					                                                  Thread.currentThread().interrupt();
+				                                                    }
+							  							   
 							   scripting.selectScript(gtype);
 							   
 							   break;
 				 case 2 : 
 				                                                                                 g.setMovieGenre("Emotional");				  
 				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-				                                      
 													  System.out.println("\r\n");
-													  System.out.println("\r\n");
-													  System.out.println("\r\n");
+													  try{
+					                                         Thread.sleep(2000);
+				                                           }
+				                                catch(InterruptedException e)
+				                                          {
+					                                         Thread.currentThread().interrupt();
+				                                          }
 													  
 													  
 													  rating.setRating(6.7f);
 									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
-				               
-							   System.out.println("\r\n");
-							   System.out.println("\r\n");
-							   System.out.println("\r\n");
-							   
-							   
+				                                     System.out.println("\r\n");
+							                          
+													  try{
+					                                         Thread.sleep(2000);
+				                                           }
+				                                catch(InterruptedException e)
+				                                          {
+					                                         Thread.currentThread().interrupt();
+				                                          }
+							  		   
 							   scripting.selectScript(gtype);
 							   
 							   break;
 				 case 3 : 
-				                                                                              g.setMovieGenre("Comedy");				  
+				                                                       g.setMovieGenre("Comedy");				  
 				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-				                                     
-                                 System.out.println("\r\n");
-								 System.out.println("\r\n");
-								 System.out.println("\r\n");
+				                                                       System.out.println("\r\n");
 								 
-								 
+								                      try{
+					                                         Thread.sleep(2000);
+				                                           }
+				                                catch(InterruptedException e)
+				                                          {
+					                                         Thread.currentThread().interrupt();
+				                                          }
+								 								 
 													 rating.setRating(8.5f);
 									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
-				     	      
-							  System.out.println("\r\n");
-							  System.out.println("\r\n");
-							  System.out.println("\r\n");
+				     	                            System.out.println("\r\n");
+							                         
+													 try{
+					                                         Thread.sleep(2000);
+				                                           }
+				                                catch(InterruptedException e)
+				                                          {
+					                                         Thread.currentThread().interrupt();
+				                                          }
 							  
 							  scripting.selectScript(gtype);
-							   
-							   
 							   break;
-
-	
             }
-
 }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
