@@ -14,7 +14,7 @@ public class Characters extends Actors
 	String heroName,heroineName,comedianName,heroCharName,heroineCharName,comedianCharName;
 	
 	int numOfHero,numOfHeroine,numOfCom;
-	
+	/*
 	
 	ArrayList<Actors> all=new ArrayList<Actors>();
 	
@@ -24,7 +24,7 @@ public class Characters extends Actors
 	
 	
 	Map<String , ArrayList<Actors> > actorsMap=new HashMap<String , ArrayList<Actors>>(); //Map for saving all the actors using the key-----Hero
-	
+	*/
 	
 public void setHero()
 {
