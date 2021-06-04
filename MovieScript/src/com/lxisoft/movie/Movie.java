@@ -347,7 +347,7 @@ fr.close();
     System.out.println("|The police trace her and takes her back to Santhanam's custody. Santhanam is making arrangements for her marriage with someone else.    |");
     System.out.println("|Meanwhile, Unni realizes that he could not live without Gayathri. He and Sundareshan secretly enter her house.                         |");
     System.out.println("|Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
-    System.out.println("|****************************************************************************************************************************************|");
+    System.out.println("|*****************************************************************************************************************************************|");
   }
   public void printDialogue(){
     System.out.println("\n\n*************************************************");
