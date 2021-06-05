@@ -351,7 +351,7 @@ fr.close();
   }
   public void printDialogue(){
     System.out.println("\n\n*************************************************");
-    System.out.println("******************SCENE 1************************");
+    System.out.println("******************SCENE1************************");
     System.out.println("*************************************************");
     System.out.println("Sundhareshan enters the scene humming a song, finds Basanthi siiting infront of the bus\n\n");
 
@@ -401,7 +401,7 @@ fr.close();
         }
         sc.close();
       }catch(FileNotFoundException e){
-        System.out.println("An error occure");
+        System.out.println("An error occurs");
         e.printStackTrace();
       }
       }
