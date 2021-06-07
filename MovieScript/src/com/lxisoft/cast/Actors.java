@@ -41,21 +41,21 @@ public void setVillianName(String villianName)
 
 
 
-public void setHeroCharacterName(String heroName)
+public void setHeroCharacterName(String heroCharacterName)
 {
-	this.heroName=heroName;
+	this.heroCharacterName=heroCharacterName;
 }
-public void setHeroineCharacterName(String heroineName)
+public void setHeroineCharacterName(String heroineCharacterName)
 {
-	this.heroineName=heroineName;
+	this.heroineCharacterName=heroineCharacterName;
 }
-public void setComedianCharacterName(String comedianName)
+public void setComedianCharacterName(String comedianCharacterName)
 {
-	this.comedianName=comedianName;
+	this.comedianCharacterName=comedianCharacterName;
 }
-public void setVillianCharacterName(String villianName)
+public void setVillianCharacterName(String villianCharacterName)
 {
-	this.villianName=villianName;
+	this.villianCharacterName=villianCharacterName;
 }
 
 //getters for Actor names
@@ -79,19 +79,19 @@ public String getVillianName()
 //--------------getters for characher names
 public String getHeroCharacterName()
 {
-	return heroName;
+	return heroCharacterName;
 }
 public String getHeroineCharacterName()
 {
-	return heroineName;
+	return heroineCharacterName;
 }
 public String getComedianCharacterName()
 {
-	return comedianName;
+	return comedianCharacterName;
 }
 public String getVillianCharacterName()
 {
-	return villianName;
+	return villianCharacterName;
 }
 
 

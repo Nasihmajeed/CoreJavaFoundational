@@ -38,15 +38,8 @@ public class TDD
 				movieName=sc.next();
 				//movieName.append(movieName);
 				movie.setMovieName(movieName);
-
-			characters.setHeroName();
+				map.setAll();
 			
-	
-			characters.setHeroineName();
-			characters.setComedianName();
-			characters.setVillianName();
-			characters.displayAll();
-
 
 
 		System.out.println("\t Select the genere of the movie you want");
@@ -69,6 +62,7 @@ public class TDD
 						genere.setGenere("Comedy");
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 						//genereSelect=sc.nextInt();
+						
 						map.scriptSelection(1);
 						
 						break;
