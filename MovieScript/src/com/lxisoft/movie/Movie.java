@@ -12,7 +12,9 @@ String movieName;
 
 public void begin()
 {
+System.out.println("------------------------------------------------------------");	
 System.out.println("-------------: Enter the name of the movie :------------");
+System.out.println("------------------------------------------------------------");
 movieName=sc.next();	
 
                 try{
@@ -25,7 +27,7 @@ movieName=sc.next();
 
 
 System.out.println("\r\n");
-System.out.println("Name of the Movie is : "+movieName);
+System.out.println("Name of the Movie is : "+"--------------------------"+movieName+"--------------------------");
 System.out.println("\r\n");
 	            
 				try{
