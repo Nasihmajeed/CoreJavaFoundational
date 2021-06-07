@@ -245,10 +245,10 @@ fr.close();
       System.out.println(villain[i]);
     }
       System.out.println("********************************\n\n");
-      System.out.println("********************************");
+      System.out.println("**********************************");
       System.out.println("********************************");
       System.out.println("*************SCENE1***************");
-      System.out.println("********************************");
+      System.out.println("**********************************");
       System.out.println("********************************");
 
 
@@ -340,20 +340,20 @@ fr.close();
 
 
   public void printPlot(){
-    System.out.println("|****************************************************************************************************************************************|");
+    System.out.println("|*****************************************************************************************************************************************|");
     System.out.println("|Unnikrishnan owns an old bus, received as compensation for his father                                                                   |");
     System.out.println("|The plot takes a turn when a girl named Basanthi enters the bus as a nomad,                                                             |");
     System.out.println("|but she is actually Gayathri, the daughter of an influential and politically powerful minister R. K. Santhanam in Puducherry.           |");
     System.out.println("|The police trace her and takes her back to Santhanam's custody. Santhanam is making arrangements for her marriage with someone else.    |");
     System.out.println("|Meanwhile, Unni realizes that he could not live without Gayathri. He and Sundareshan secretly enter her house.                         |");
     System.out.println("|Unni and his friends plans to take Gayathri, but Santhanam find them inside the almirah. After a fight, everything ends well.           |");
-    System.out.println("|*****************************************************************************************************************************************|");
+    System.out.println("|******************************************************************************************************************************************|");
   }
   public void printDialogue(){
     System.out.println("\n\n*************************************************");
     System.out.println("******************SCENE1************************");
     System.out.println("*************************************************");
-    System.out.println("Sundhareshan enters the scene humming a song, finds Basanthi siiting infront of the bus\n\n");
+    System.out.println("Sundhareshan enters the  scene humming a song, finds Basanthi siiting infront of the bus\n\n");
 
   }
 
@@ -401,7 +401,7 @@ fr.close();
         }
         sc.close();
       }catch(FileNotFoundException e){
-        System.out.println("An error occurs");
+        System.out.println("An error occured");
         e.printStackTrace();
       }
       }
