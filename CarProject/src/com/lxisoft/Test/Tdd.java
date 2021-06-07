@@ -13,8 +13,11 @@ public class Tdd
 	Car car = new Car();
  	Engine engine =new Engine(); 
     Rc rc =new Rc();
-    Door doors = new Door();
-    Tyre tyres =new Tyre();
+    Door door = new Door();
+    Tyre tyre = new Tyre();
+    ArrayList<Door> doors = new ArrayList<Door>();
+    ArrayList<Tyre> tyres = new ArrayList<Tyre>();
+
         Scanner scanner = new Scanner(System.in);
 		System.out.println("1 - Enter The Details Of vehicle : ");	
 		int choice = scanner.nextInt();
@@ -23,7 +26,8 @@ public class Tdd
 			car.setRc(rc);
             car.setEngine(engine);
             car.setDoor(doors);
-            car.setTyre(tyres); 
+            car.setTyre(tyres);
+
 			System.out.println("-------------------------------------");
 			System.out.println("Enter The Details of Car : ");
 			System.out.println("Enter Name of the car : ");
@@ -58,19 +62,28 @@ public class Tdd
     		System.out.println("Enter the Details of Doors : ");
 			System.out.println("Enter The Number OF Doors : ");
 			String doornumber=scanner.next();
-			doors.setDoorNumber(doornumber);
-			System.out.println("Enter The Type Of Door : ");
-			String doortype=scanner.next();
-			doors.setDoorType(doortype);
+			door.setDoorNumber(doornumber);
+			for(int i=0;i<4;i++)
+			{
+			    System.out.println("Enter The Type Of Door : ");
+			    String doortype=scanner.next();
+			    doors.get(i).setDoorType(doortype);
+		    }
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter the Details of Tyre : ");
-			System.out.println("Enter The Size OF Tyre : ");
-			String size=scanner.next();
-			tyres.setTyreSize(size);
-			System.out.println("Enter The Name Of Manufacture Of the Tyre : ");
-			String tyrename=scanner.next();
-			tyres.setTyreName(tyrename);
+			System.out.println("Enter the number of Tyres :");
+			String tyrenumber=scanner.next();
+			tyre.setTyreNumber(tyrenumber);
+			for(int j=0;j<4;j++)
+			{
+			   System.out.println("Enter The Size OF Tyre : ");
+			   String size=scanner.next();
+			   tyres.get(j).setTyreSize(size);
+			   System.out.println("Enter The Name Of Manufacture Of the Tyre : ");
+			   String tyrename=scanner.next();
+			   tyres.get(j).setTyreName(tyrename);
+		    }
 			System.out.println("-------------------------------------");
         }
         System.out.println("2 - Print The Details Of Vehicle : ");

@@ -9,8 +9,10 @@ public class Car
 { 
     Engine engine;
     Rc rc;
-    Door doors;
-    Tyre tyres;
+    Door door;
+    Tyre tyre;
+    ArrayList<Door> doors;
+    ArrayList<Tyre> tyres;
     String name;
 	String model;
     String manufacturer;
@@ -47,11 +49,11 @@ public void setCarName(String name)
    {
         this.rc=rc; 
    }
-  public void setDoor(Door doors)
+  public void setDoor(ArrayList<Door> doors)
    {
       this.doors=doors;
    }
-  public void setTyre(Tyre tyres)
+  public void setTyre(ArrayList<Tyre> tyres)
    {
       this.tyres=tyres;
    }
@@ -71,7 +73,7 @@ public void setCarName(String name)
 		System.out.print("-------------------------------------");
         engine.printEngineDetails();
         rc.printRcDetails();  
-        doors.printDoorDetails();
-        tyres.printTyresDetails();     	
+        door.printDoorDetails(doors);
+        tyre.printTyresDetails(tyres);     	
     }   
 }

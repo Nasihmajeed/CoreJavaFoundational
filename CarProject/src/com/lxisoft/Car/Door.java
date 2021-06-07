@@ -1,5 +1,6 @@
 package com.lxisoft.car;
 import com.lxisoft.car.Car;
+import java.util.ArrayList;
 public class Door 
 {
     String doornumber;
@@ -22,7 +23,7 @@ public class Door
         return doortype;
     }
 
-    public void printDoorDetails()
+    public void printDoorDetails(ArrayList<Door> doors)
        {
         System.out.print("-------------------------------------");
         System.out.print("\n");
@@ -30,8 +31,11 @@ public class Door
         System.out.print("\n");
 		System.out.print("Number of Doors : "+getDoorNumber());
         System.out.print("\n");
-		System.out.print("Type of Door : "+getDoorType());
+        for(int i=0;i<=3;i++)
+        {
+		System.out.print("Type of Door : "+doors.get(i).getDoorType());
         System.out.print("\n");
+        }
 		System.out.print("-------------------------------------");
        }
 
