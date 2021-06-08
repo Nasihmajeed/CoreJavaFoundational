@@ -272,8 +272,7 @@ fr.close();
       }
 
       public void dataUsingHashmap(){
-      HashMap<String, String> map
-               = new HashMap<String, String>();
+      HashMap<String, String> map= new HashMap<String, String>();
 
            // key-value pairs
            map.put("1", "comedy;Comedian;: Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo");
