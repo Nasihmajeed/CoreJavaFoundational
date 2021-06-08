@@ -3,9 +3,9 @@ package com.lxisoft.cast;
 public class Actors extends Cast
 {
 	
-	String heroName,heroineName,comedianName;   //real names of actors
+	String heroName,heroineName,comedianName,villainName;   //real names of actors
 	
-	String heroCharName,heroineCharName,comedianCharName; // character name of actors in the movie
+	String heroCharName,heroineCharName,comedianCharName,villainCharName; // character name of actors in the movie
 	
 	//Setters
 	
@@ -24,6 +24,11 @@ public class Actors extends Cast
 		this.comedianName=comedianName;
 	}
 	
+	public void setVillainName(String villainName)
+	{
+		this.villainName=villainName;
+	}
+	
 	public void setHeroCharName(String heroCharName)
 	{
 		this.heroCharName=heroCharName;
@@ -37,6 +42,11 @@ public class Actors extends Cast
 	public void setComedianCharName(String comedianCharName)
 	{
 		this.comedianCharName=comedianCharName;
+	}
+	
+	public void setVillainCharName(String villainCharName)
+	{
+		this.villainCharName=villainCharName;
 	}
 	
 	//Getters
@@ -56,6 +66,11 @@ public class Actors extends Cast
 		return comedianName;
 	}
 	
+	public String getVillainName()
+	{
+		return villainName;
+	}
+	
 	
 	
 	public String getHeroCharName()
@@ -71,6 +86,11 @@ public class Actors extends Cast
 	public String getComedianCharName()
 	{
 		return comedianCharName;
+	}
+	
+	public String getVillainCharName()
+	{
+		return villainCharName;
 	}
 	
 }

@@ -62,5 +62,18 @@ movie.begin();
 
 System.out.println("Genre of the movie is : "+genre.getMovieGenre());
 
+if(gtype.equals("Romantic"))
+{
+	scr.selectScript(1);
+}
+else if(gtype.equals("Emotional"))
+{
+	scr.selectScript(2);
+}
+else if(gtype.equals("Comedy"))
+{
+	scr.selectScript(3);
+}
+
 }
 }

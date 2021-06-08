@@ -1,12 +1,12 @@
 package com.lxisoft.scripts;
 
 import com.lxisoft.cast.*;
+import com.lxisoft.movie.*;
 
 import java.io.*;
 import java.util.*;
 import java.nio.*;
 import java.nio.file.Files;
-
 import java.nio.file.Paths;
 
 //create 3 arrayLists for saving heroname,heroinename and comedian name ---- their charname.....
@@ -24,72 +24,52 @@ import java.nio.file.Paths;
 
 public class Script
 {
+Scanner sc=new Scanner(System.in);
 	
-static final String romance="E:\\MovieScriptProject\\src\\com\\lxisoft\\scripts\\RomanticScr.txt";
-static final String emotional= "E:\\MovieScriptProject\\src\\com\\lxisoft\\scripts\\EmotionalScr.txt";
-static final String comedy= "E:\\MovieScriptProject\\src\\com\\lxisoft\\scripts\\ComedyScr.txt";
-
-String line;
-
-
-Characters c=new Characters();
-
-
-Actors actors=new Actors();
-Cast casting =new Cast();
-Script scripting=new Script();
-Genre g=new Genre();
-Rating rating=new Rating();
-Characters characters=new Characters();
-
-
-
-characters.setHero();
-characters.setHeroine();
-characters.setComedian();
-characters.printCharacters();
-
-              try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+static final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.txt";
+static final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.txt";
+static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.txt";
+ 
+ 
+//  Actors act=new Actors();
+  Rating rating=new Rating();
 
     
-                try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-System.out.println("\r\n");
+    String heroName,heroineName,comedianName,heroCharName,heroineCharName,comedianCharName,villainName,villainCharName,line;
+	
+	int numOfHero,numOfHeroine,numOfCom,numOfVillain;
+	
+	long numOfLines=0;
+	
+	//For all actors
+	ArrayList<Actors> allActors=new ArrayList<Actors>();
+	
+	//ArrayLists to save each category
+	
+	ArrayList<Hero> heroes=new ArrayList<Hero>();
+	ArrayList<Heroine> heroines=new ArrayList<Heroine>();
+	ArrayList<Comedian> comedians=new ArrayList<Comedian>();
+	ArrayList<Villain> villains=new ArrayList<Villain>();
+	
+	ArrayList<String> romDialog=new ArrayList<String>();
+    ArrayList<String> emoDialog=new ArrayList<String>();
+    ArrayList<String> comDialog=new ArrayList<String>();	
+	
+	
+	Map<String , String > actorsRole=new HashMap<String , String>();  //a Map for saving heroname and their respective roles 
+
+								                 Long a=numberOfLinesInRomanceFile()-3;
+												 Long b=numberOfLinesInEmotionalFile()-6;
+												 Long c=numberOfLinesInComedyFile()-10;
 
 
-
+	
 public void selectScript(int genre)
 {
 	switch(genre)
             {
                  case 1 : 
-                                                       g.setMovieGenre("Romantic");				  
-				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-									                   System.out.println("\r\n");
-
-                                                          try{
-					                                              Thread.sleep(2000);
-				                                               }
-				                                        catch(InterruptedException e)
-				                                               {
-					                                              Thread.currentThread().interrupt();
-				                                                }
-									
-				                                      rating.setRating(7.2f);
-									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
-				                                      System.out.println("\r\n");
-							                          
+                                             
 							                                 try{
 					                                                 Thread.sleep(2000);
 				                                                  }
@@ -98,24 +78,103 @@ public void selectScript(int genre)
 					                                                  Thread.currentThread().interrupt();
 				                                                    }
 							  							   
-							   scripting.selectScript(gtype);
+							                                         rating.setRating(7.2f);
+									  System.out.println("IMDB rating : "+rating.getRating());
+							                     
+												            try{
+					                                                 Thread.sleep(2000);
+				                                                  }
+				                                       catch(InterruptedException e)
+				                                                   {
+					                                                  Thread.currentThread().interrupt();
+				                                                    }
+																
+                                                   setHero();
+                                                   setHeroine();
+                                                   setComedian();
+                                                   setVillain();
+
+                                                           try{
+					                                                 Thread.sleep(2000);
+				                                                  }
+				                                       catch(InterruptedException e)
+				                                                   {
+					                                                  Thread.currentThread().interrupt();
+				                                                    }
+                     
+                                                 printCharacters();
+
+                            //  File Reading and saving into the corresponding arraylist
+	                            
+                          try{
+							               //Reading Complete Data from Romantic Script
+							  
+							         BufferedReader brom=new BufferedReader(new FileReader(romance));
+								 
+								         while( (line=brom.readLine()) != null)
+								             {
+									            romDialog.add(line);
+								             }
+											 
+										//Reading partial data from Emotional Script
+											 
+								    BufferedReader bremo=new BufferedReader(new FileReader(emotional));
+							
+                                 for(int i=0 ; i<b ; i++)
+								             {	 
+		          						  while( ( (line=bremo.readLine()) != null) && i<b )
+					     			             {
+						    			            emoDialog.add(line);
+							  	                 }
+								             }
+								         
+									//Reading partial data from ComedyScript
+											 
+								    BufferedReader brcom=new BufferedReader(new FileReader(comedy));
+							
+                                 for(int i=0 ; i<c ; i++)
+								             {	 
+		          						  while( ( (line=brcom.readLine()) != null) && i<c )
+					     			             {
+						    			            comDialog.add(line);
+							  	                 }
+								             }
+											 
+											 
+						       }  								
+							catch(IOException e)
+							   {
+								e.printStackTrace();
+							   }	 
+								 
+								   for(int i=0 ; i<numberOfLinesInRomanceFile() ; i++)
+								          {
+											   System.out.println(heroes.get(i).getHeroName()+" : "+actorsRole.get("Hero")+" : "+romDialog.get(i));
+								               System.out.println(heroines.get(i).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+romDialog.get(i+1));         
+										  }  
+											  
+									for(int j=0 ; j<b ; j++)
+										 {		  
+										      System.out.println(heroes.get(j).getHeroName()+" : "+actorsRole.get("Hero")+" : "+emoDialog.get(j));
+									          System.out.println(heroines.get(j).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+emoDialog.get(j+1));
+                                              System.out.println(villains.get(j).getVillainName()+" : "+actorsRole.get("Villain")+" : "+emoDialog.get(j+3));
+					                     }
+							       for(int k=0 ; k<c ; k++)
+					                     {
+											  System.out.println(heroes.get(k).getHeroName()+" : "+actorsRole.get("Hero")+" : "+comDialog.get(k));
+								              System.out.println(heroines.get(k).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+comDialog.get(k+1));
+                                              System.out.println(comedians.get(k).getComedianName()+" : "+actorsRole.get("Comedian")+" : "+comDialog.get(k+2));
+                                         }
+										 
+								         
+                                             								 
 							   
 							   break;
+							   
 				 case 2 : 
-				                                                                                 g.setMovieGenre("Emotional");				  
-				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-													  System.out.println("\r\n");
-													  try{
-					                                         Thread.sleep(2000);
-				                                           }
-				                                catch(InterruptedException e)
-				                                          {
-					                                         Thread.currentThread().interrupt();
-				                                          }
-													  
-													  
+				 
 													  rating.setRating(6.7f);
-									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
+									  System.out.println("IMDB rating : "+rating.getRating());
 				                                     System.out.println("\r\n");
 							                          
 													  try{
@@ -126,24 +185,15 @@ public void selectScript(int genre)
 					                                         Thread.currentThread().interrupt();
 				                                          }
 							  		   
-							   scripting.selectScript(gtype);
+							   
 							   
 							   break;
-				 case 3 : 
-				                                                       g.setMovieGenre("Comedy");				  
-				                    System.out.println(movieName+" is a movie of "+g.getMovieGenre()+" genre");
-				                                                       System.out.println("\r\n");
-								 
-								                      try{
-					                                         Thread.sleep(2000);
-				                                           }
-				                                catch(InterruptedException e)
-				                                          {
-					                                         Thread.currentThread().interrupt();
-				                                          }
-								 								 
+				 
+				 case 3 :
+				 
+				 
 													 rating.setRating(8.5f);
-									  System.out.println(movieName+" has an IMDB rating of "+rating.getRating());
+									  System.out.println("IMDB rating : "+rating.getRating());
 				     	                            System.out.println("\r\n");
 							                         
 													 try{
@@ -154,42 +204,60 @@ public void selectScript(int genre)
 					                                         Thread.currentThread().interrupt();
 				                                          }
 							  
-							  scripting.selectScript(gtype);
 							   break;
             }
 
 }
 
+
+public long numberOfLinesInRomanceFile()
+{
+	
+	
+	try{
+	         numOfLines=Files.lines(Paths.get(romance)).count();	
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
+	
+	return numOfLines;
 }
 
 
-
-
-
-//Characters Class
-
-
-
-
-public class Characters extends Actors 
+public long numberOfLinesInEmotionalFile()
 {
-	Scanner sc=new Scanner(System.in);
-	
-	String heroName,heroineName,comedianName,heroCharName,heroineCharName,comedianCharName;
-	
-	int numOfHero,numOfHeroine,numOfCom;
-	/*
-	
-	ArrayList<Actors> all=new ArrayList<Actors>();
-	
-	ArrayList<Hero> heroes=new ArrayList<Hero>();
-	ArrayList<Heroine> heroines=new ArrayList<Heroine>();
-	ArrayList<Comedian> comedians=new ArrayList<Comedian>();
 	
 	
-	Map<String , ArrayList<Actors> > actorsMap=new HashMap<String , ArrayList<Actors>>(); //Map for saving all the actors using the key-----Hero
-	*/
+	try{
+	         numOfLines=Files.lines(Paths.get(emotional)).count();	
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
 	
+	return numOfLines;
+}
+
+
+public long numberOfLinesInComedyFile()
+{
+	
+	
+	try{
+	         numOfLines=Files.lines(Paths.get(comedy)).count();	
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
+	
+	return numOfLines;
+}
+
+
 public void setHero()
 {
 	 System.out.println("Enter the number of heroes in the movie : ");
@@ -205,8 +273,8 @@ public void setHero()
 		 heroName=sc.next();
 		 System.out.println("Name of the Hero is: "+heroName);
 		 
-		 all.add(new Actors());
-		 all.get(i).setHeroName(heroName);
+		 allActors.add(new Actors());
+		 allActors.get(i).setHeroName(heroName);
 		 
 		 System.out.println("\r\n");
 		 System.out.println("Enter the Character name of the Hero : ");
@@ -217,9 +285,9 @@ public void setHero()
 		 heroes.add(new Hero());
 		 heroes.get(i).setHeroCharName(heroCharName);
 		 
-		 all.get(i).setHeroCharName(heroCharName);
+		 allActors.get(i).setHeroCharName(heroCharName);
 		 
-		 actorsMap.put("Hero",all);         // set a key for hero
+		 actorsRole.put("Hero",heroCharName);         // set a key for hero
 		
 	 }
 
@@ -240,8 +308,8 @@ public void setHeroine()
 		 heroineName=sc.next();
 		 System.out.println("Name of the Heroine is : "+heroineName);  
 		 
-		 all.add(new Actors());
-		 all.get(i).setHeroineName(heroineName);
+		 allActors.add(new Actors());
+		 allActors.get(i).setHeroineName(heroineName);
 		 
 		 System.out.println("\r\n");
 		 System.out.println("Enter the Character name of the Heroine : ");
@@ -253,9 +321,9 @@ public void setHeroine()
 		 
 		 System.out.println("\r\n");
 		 
-		 all.get(i).setHeroineCharName(heroineCharName);
+		 allActors.get(i).setHeroineCharName(heroineCharName);
 		 
-		 actorsMap.put("Heroine",all);         // set a key for heroine
+		 actorsRole.put("Heroine",heroineCharName);         // set a key for heroine
 		
 	 }
 
@@ -277,8 +345,8 @@ public void setComedian()
 		 System.out.println("Name of the Comedian is : "+comedianName);  
 		 
 		 
-		 all.add(new Actors());
-		 all.get(i).setComedianName(comedianName);
+		 allActors.add(new Actors());
+		 allActors.get(i).setComedianName(comedianName);
 		 
 		 System.out.println("\r\n");
 		 System.out.println("Enter the Character name of the Comedian : ");
@@ -288,13 +356,47 @@ public void setComedian()
 		 comedians.add(new Comedian());
 		 comedians.get(i).setComedianCharName(comedianCharName);
 		 
-		 all.get(i).setComedianCharName(comedianCharName);
+		 allActors.get(i).setComedianCharName(comedianCharName);
 		 
-		 actorsMap.put("Comedian",all);         // set a key for comedian
+		 actorsRole.put("Comedian",comedianCharName);         // set a key for comedian
 		
 	 }
 }
 
+
+public void setVillain()
+{
+	 System.out.println("Enter the number of villains in the movie : ");
+     numOfVillain=sc.nextInt(); 
+	 System.out.println("Number of Villains in the movie is : "+numOfVillain);  
+	 System.out.println("\r\n");
+	 
+	 
+     for(int i=0 ; i<numOfVillain ; i++)
+	 {
+		 System.out.println("\r\n");
+		 System.out.println("Enter Villain Name : ");  
+		 villainName=sc.next();
+		 System.out.println("Name of the Villain is : "+villainName);  
+		 
+		 
+		 allActors.add(new Actors());
+		 allActors.get(i).setVillainName(villainName);
+		 
+		 System.out.println("\r\n");
+		 System.out.println("Enter the Character name of the Villain : ");
+		 villainCharName=sc.next();
+		 System.out.println("Name of the Villain's Character is : "+villainCharName);  
+		 
+		 villains.add(new Villain());
+		 villains.get(i).setVillainCharName(villainCharName);
+		 
+		 allActors.get(i).setVillainCharName(villainCharName);
+		 
+		 actorsRole.put("Villain",villainCharName);         // set a key for villain
+		
+	 }
+}
 
 
 public void printCharacters()
@@ -307,39 +409,50 @@ public void printCharacters()
 		System.out.println("---------------------------------------------------------------------------");
 		System.out.println("\r\n");
 		
-   for(int i=0 ; i<all.size() ; i++)
+   for(int i=0 ; i<allActors.size() ; i++)
     {
-		if( all.get(i).getHeroName()  != null)
+		if( allActors.get(i).getHeroName()  != null)
 		{
-	      System.out.println("Hero name is: "+all.get(i).getHeroName());		
+	      System.out.println("Hero name is: "+allActors.get(i).getHeroName());		
 		}
 	
-	   if( all.get(i).getHeroCharName()  != null)
+	   if( allActors.get(i).getHeroCharName()  != null)
 		{
-	      System.out.println("Hero's Character name is: "+all.get(i).getHeroCharName());		
+	      System.out.println("Hero's Character name is: "+allActors.get(i).getHeroCharName());		
 		}
 	   
-	    if( all.get(i).getHeroineName()  != null)
+	    if( allActors.get(i).getHeroineName()  != null)
 		{
-	      System.out.println("Heroine  name is: "+all.get(i).getHeroineName());		
+	      System.out.println("Heroine  name is: "+allActors.get(i).getHeroineName());		
 		}
 	 
 	   
-	    if( all.get(i).getHeroineCharName()  != null)
+	    if( allActors.get(i).getHeroineCharName()  != null)
 		{
-	      System.out.println("Heroine's Character name is: "+all.get(i).getHeroineCharName());	
+	      System.out.println("Heroine's Character name is: "+allActors.get(i).getHeroineCharName());	
 		}
 	 
 	   
-	   if( all.get(i).getComedianName()  != null)
+	   if( allActors.get(i).getComedianName()  != null)
 		{
-	      System.out.println("Comedian name is : "+all.get(i).getComedianName());
+	      System.out.println("Comedian name is : "+allActors.get(i).getComedianName());
 		}
 	
 	
-	  if( all.get(i).getComedianCharName()  != null)
+	  if( allActors.get(i).getComedianCharName()  != null)
 		{
-	      System.out.println("Comedian's Character name is : "+all.get(i).getComedianCharName());
+	      System.out.println("Comedian's Character name is : "+allActors.get(i).getComedianCharName());
+		}	
+		
+		if( allActors.get(i).getVillainName()  != null)
+		{
+	      System.out.println("Villain name is : "+allActors.get(i).getVillainName());
+		}
+	
+	
+	  if( allActors.get(i).getVillainCharName()  != null)
+		{
+	      System.out.println("Villain's Character name is : "+allActors.get(i).getVillainCharName());
 		}	
 	}
 	
@@ -352,4 +465,7 @@ public void printCharacters()
 	
 }
 
+
+
 }
+

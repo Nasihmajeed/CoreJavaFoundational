@@ -12,4 +12,6 @@ public class Comedian extends Actors
 	{
 		return comedianCharName;
 	}
+	
+	
 }
