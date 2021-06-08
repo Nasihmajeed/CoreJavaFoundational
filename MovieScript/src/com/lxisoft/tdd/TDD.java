@@ -47,6 +47,7 @@ public class TDD
 		System.out.println("\t 1. Comedy");
 		System.out.println("\t 2. Romantic");
 		System.out.println("\t 3. Emotional");
+		System.out.println("\t 4. Thriller");
 		ans=sc.nextInt();
 
 		switch(ans)
@@ -93,6 +94,22 @@ public class TDD
 						map.scriptSelection(3);
 
 						break;
+
+			case 4:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
+						System.out.println("\t\n The Cast of this movie");	
+						//map.setCasting();
+						//map.displayCasting();
+						imdb.setImdb(8.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
+						System.out.println("\t\n Plot of the movie is \n");
+						plot.getPlot();
+						genere.setGenere("Thriller");
+						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
+						map.scriptSelection(4);
+
+						break;			
+
+						
 			default:		
 						System.out.println("\t Invalid Input");
 						
