@@ -146,29 +146,7 @@ public void selectScript(int genre)
 							   {
 								e.printStackTrace();
 							   }	 
-								 
-								   for(int i=0 ; i<numberOfLinesInRomanceFile() ; i++)
-								          {
-											   System.out.println(heroes.get(i).getHeroName()+" : "+actorsRole.get("Hero")+" : "+romDialog.get(i));
-								               System.out.println(heroines.get(i).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+romDialog.get(i+1));         
-										  }  
-											  
-									for(int j=0 ; j<b ; j++)
-										 {		  
-										      System.out.println(heroes.get(j).getHeroName()+" : "+actorsRole.get("Hero")+" : "+emoDialog.get(j));
-									          System.out.println(heroines.get(j).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+emoDialog.get(j+1));
-                                              System.out.println(villains.get(j).getVillainName()+" : "+actorsRole.get("Villain")+" : "+emoDialog.get(j+3));
-					                     }
-							       for(int k=0 ; k<c ; k++)
-					                     {
-											  System.out.println(heroes.get(k).getHeroName()+" : "+actorsRole.get("Hero")+" : "+comDialog.get(k));
-								              System.out.println(heroines.get(k).getHeroineName()+" : "+actorsRole.get("Heroine")+" : "+comDialog.get(k+1));
-                                              System.out.println(comedians.get(k).getComedianName()+" : "+actorsRole.get("Comedian")+" : "+comDialog.get(k+2));
-                                         }
-										 
-								         
-                                             								 
-							   
+										   
 							   break;
 							   
 				 case 2 : 
@@ -184,9 +162,7 @@ public void selectScript(int genre)
 				                                          {
 					                                         Thread.currentThread().interrupt();
 				                                          }
-							  		   
-							   
-							   
+			   
 							   break;
 				 
 				 case 3 :
