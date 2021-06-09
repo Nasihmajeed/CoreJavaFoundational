@@ -10,8 +10,8 @@ public class Casting
 	Actors comedian=new Actor();
 	Actors villan=new Actor();
 
-	NonActors director=new Director();
-	Mapping map=new Mapping();
+	//NonActors director=new Director();
+	//Mapping map=new Mapping();
 
 Scanner sc =new Scanner(System.in);
 		public String heroName;

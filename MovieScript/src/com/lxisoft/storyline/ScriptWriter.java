@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.about.*;
-public class Mapping
+public class ScriptWriter
 {
 int i=0;
 Scanner sc =new Scanner(System.in);
@@ -50,10 +50,13 @@ Actors hero=new Actor();
 		Actors heroine=new Actress();
 		Actors comedian=new Actor();
 		Actors villan=new Actor();
-		NonActors director=new Director();
+		//NonActors director=new Director();
+		
 		Map<String,ArrayList<Actors>> cast_Map=new HashMap<String,ArrayList<Actors>>();
 		ArrayList<Actors> actors=new ArrayList<Actors>();
-		Characters characters=new Characters();
+		
+
+		Director director=new Director();
 /*public void getCasting(Map<String,ArrayList<Actors>> castMap)
 	{
 		cast_Map.putAll(castMap);
@@ -63,11 +66,11 @@ Actors hero=new Actor();
 	 
 public void setAll()
 {
-			characters.setHeroName();
-			characters.setHeroineName();
-			characters.setComedianName();
-			characters.setVillianName();
-			characters.displayAll();
+			director.setHeroName();
+			director.setHeroineName();
+			director.setComedianName();
+			director.setVillianName();
+			director.displayAll();
 
 }
 
@@ -79,7 +82,7 @@ public void scriptSelection(int genere)
 
 		/**/
 		Casting cast=new Casting();
-		 cast_Map=characters.getMap();
+		 cast_Map=director.getMap();
 
 
 switch(genere)
