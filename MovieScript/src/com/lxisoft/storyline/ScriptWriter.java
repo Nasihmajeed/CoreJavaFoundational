@@ -56,7 +56,7 @@ Actors hero=new Actor();
 		ArrayList<Actors> actors=new ArrayList<Actors>();
 		
 
-		Director director=new Director();
+		 Director director=new Director();
 /*public void getCasting(Map<String,ArrayList<Actors>> castMap)
 	{
 		cast_Map.putAll(castMap);
@@ -64,7 +64,7 @@ Actors hero=new Actor();
 
 	}*/
 	 
-public void setAll()
+public void setCasting()
 {
 			director.setHeroName();
 			director.setHeroineName();

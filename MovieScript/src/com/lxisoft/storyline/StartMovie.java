@@ -7,21 +7,19 @@ import java.io.*;
 import java.util.*;
 public class StartMovie
 {
-	Scene1 sc1=new Scene1();
-	Scene2 sc2=new Scene2();
-	Scene3 sc3=new Scene3();
+	
 	Scanner sc=new Scanner(System.in);
 
 	int ans;
+
+
 	public void startMovie()
 	{
 		
 		
-//Casting casting=new Casting();
-		Genere genere =new Genere();
-		Imdb imdb=new Imdb();
-		Plot plot=new Plot();
-		StartMovie start =new StartMovie();
+		Casting casting=new Casting();
+		
+		
 		
 
 		Actors hero=new Actor();
@@ -36,22 +34,15 @@ public class StartMovie
 		Movie movie=new Movie();
 		String movieName;
 
-		//Characters characters=new Characters();
+		
 		
 
 		Scanner sc =new Scanner(System.in);
 		int ans;
 		int againAns,genereSelect;
-		System.out.println("\tMovie Script Project");
-		System.out.println("\t-----------------------------");
+		
 
-		do{
-
-				System.out.println("\t Enter the name of the movie ");
-				movieName=sc.next();
-				//movieName.append(movieName);
-				movie.setMovieName(movieName);
-				scriptWriter.setAll();
+		
 			
 
 
@@ -65,7 +56,12 @@ public class StartMovie
 
 		switch(ans)
 		{
-			case 1: 	movie.comedyMovie();
+			case 1: 	System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
+						System.out.println("\t\n The Cast of this movie");	
+
+						setGenere("Comedy");
+						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
+						
 						scriptWriter.scriptSelection(1);
 						
 						break;

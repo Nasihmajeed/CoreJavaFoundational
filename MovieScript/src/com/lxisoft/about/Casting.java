@@ -2,6 +2,7 @@ package com.lxisoft.about;
 import com.lxisoft.cast.*;
 import java.util.*;
 import com.lxisoft.storyline.*;
+import com.lxisoft.cast.*;
 
 public class Casting
 {
@@ -14,55 +15,20 @@ public class Casting
 	//Mapping map=new Mapping();
 
 Scanner sc =new Scanner(System.in);
-		public String heroName;
-	public	String heroineName;
-		public String comedianName;
-		public String villanName;
-		public String directorName;
+		Director director =new Director();
+
+
 	
-	/*public void setCasting()
-	{
-		
+	public void setCasting()
+{
+			director.setHeroName();
+			director.setHeroineName();
+			director.setComedianName();
+			director.setVillianName();
+			director.displayAll();
 
+}
 
-			System.out.println("\t Enter the Hero Name ");
-				heroName=sc.nextLine();
-				hero.setName(heroName);
-				heroName=hero.getName();
-
-				System.out.println("\t Enter the Heroine Name ");
-				heroineName=sc.nextLine();
-				heroine.setName(heroineName);
-
-				System.out.println("\t Enter the Comedian Name ");
-				comedianName=sc.nextLine();
-				comedian.setName(comedianName);
-
-				System.out.println("\t Enter the villan Name ");
-				villanName=sc.nextLine();
-				villan.setName(villanName);
-
-				System.out.println("\t Enter the director Name ");
-				directorName=sc.nextLine();
-				director.setName(directorName);
-
-				//map.setActors(hero.getName(),heroine.getName(),comedian.getName(),villan.getName());
-	
-
-
-
-	}
-	public void displayCasting()
-	{
-		System.out.println("\t Hero :"+hero.getName());
-		System.out.println("\t Heroine :"+heroine.getName());
-		System.out.println("\t comdeian :"+comedian.getName());
-		System.out.println("\t villain :"+villan.getName());
-		System.out.println("\t director :"+director.getName());
-
-	}
-
-*/
 
 
 

@@ -8,10 +8,9 @@ public class Movie
 {
 	String movieName;
 
-Plot plot =new Plot();
-Imdb imdb=new Imdb();
-Genere genere=new Genere();
-
+		
+		
+		Casting cast=new Casting();
 
 
 	public void comedyMovie()
@@ -21,11 +20,10 @@ Genere genere=new Genere();
 						System.out.println("\t\n The Cast of this movie");	
 						//map.setCasting();
 						//map.displayCasting();
-						imdb.setImdb(7.6f);
+						setImdb(7.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
-						System.out.println("\t\n Plot of the movie is \n");
-						plot.getPlot();
-						genere.setGenere("Comedy");
+						
+						setGenere("Comedy");
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 
 	}
@@ -39,8 +37,7 @@ Genere genere=new Genere();
 						//map.displayCasting();
 						imdb.setImdb(8.1f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
-						System.out.println("\t\n Plot of the movie is \n");
-						plot.getPlot();
+						
 						genere.setGenere("Romantic");
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 	
@@ -53,11 +50,10 @@ Genere genere=new Genere();
 						System.out.println("\t\n The Cast of this movie");	
 						//map.setCasting();
 						//map.displayCasting();
-						imdb.setImdb(8.6f);
+						setImdb(8.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
-						System.out.println("\t\n Plot of the movie is \n");
-						plot.getPlot();
-						genere.setGenere("Emotional");
+					
+						setGenere("Emotional");
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 	}
 
@@ -67,14 +63,38 @@ Genere genere=new Genere();
 						System.out.println("\t\n The Cast of this movie");	
 						//map.setCasting();
 						//map.displayCasting();
-						imdb.setImdb(8.6f);
+						setImdb(8.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+imdb.getRating());
-						System.out.println("\t\n Plot of the movie is \n");
-						plot.getPlot();
-						genere.setGenere("Thriller");
+						
+						setGenere("Thriller");
 						System.out.println("\t\n The Genere of this movie :"+genere.getGenere());
 	}
 
+
+String genere;
+
+ public void setGenere(String genere)
+ {
+ 	this.genere=genere;
+ }
+
+public String getGenere()
+{
+	return genere;
+}
+
+
+float rating;
+
+public void setImdb(float rating)
+{
+	this.rating=rating;
+}
+
+public float getRating()
+{
+	return rating;
+}
 
 
 

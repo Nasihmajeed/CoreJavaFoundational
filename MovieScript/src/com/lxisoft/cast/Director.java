@@ -4,19 +4,17 @@ import com.lxisoft.storyline.*;
 public class Director 
 {
 
-String heroName; 
-String heroineName; 
-String comedianName; 
-String villianName; 
 
 int numberOfCharacters,i;
 
-String heroCharacterName; 
-String heroineCharacterName; 
-String comedianCharacterName; 
-String villianCharacterName; 
 Scanner sc=new Scanner(System.in);
-Actors hero=new Actor();
+Actors hero=new Hero();
+Actors heroine=new Heroine();
+Actors comedian=new Comedian();
+Actors villan =new Villan();
+
+
+
 ArrayList<Actors> actorsHero=new ArrayList<Actors>();
 ArrayList<Actors> actorsHeroine=new ArrayList<Actors>();
 ArrayList<Actors> actorsComedian=new ArrayList<Actors>();
@@ -34,14 +32,14 @@ public void setHeroName()
 	{
 		
 			System.out.println("Enter the name of hero "+(i+1));
-		heroName=sc.next();	
+		hero.heroName=sc.next();	
 		actorsHero.add(new Hero());
-		actorsHero.get(i).setHeroName(heroName);
+		actorsHero.get(i).setHeroName(hero.heroName);
 
 	System.out.println("Enter the Character name of "+actorsHero.get(i).getHeroName());
-		heroCharacterName=sc.next();
+		hero.heroCharacterName=sc.next();
 		//actors.add(new Actors());
-		actorsHero.get(i).setHeroCharacterName(heroCharacterName);
+		actorsHero.get(i).setHeroCharacterName(hero.heroCharacterName);
 	castMap.put("Hero",actorsHero);	
 		
 	
@@ -56,14 +54,14 @@ public void setHeroineName()
 	for(i=0;i<numberOfCharacters;i++)
 	{	
 			System.out.println("Enter the name of heroines "+(i+1));
-		heroineName=sc.next();	
+		heroine.heroineName=sc.next();	
 		actorsHeroine.add(new Heroine());
-		actorsHeroine.get(i).setHeroineName(heroineName);
+		actorsHeroine.get(i).setHeroineName(heroine.heroineName);
 
 
 		System.out.println("Enter the Character name of "+actorsHeroine.get(i).getHeroineName());
-		heroineCharacterName=sc.next();
-		actorsHeroine.get(i).setHeroineCharacterName(heroineCharacterName);
+		heroine.heroineCharacterName=sc.next();
+		actorsHeroine.get(i).setHeroineCharacterName(heroine.heroineCharacterName);
 
 
 	castMap.put("Heroine",actorsHeroine);	
@@ -80,13 +78,13 @@ public void setComedianName()
 	for(i=0;i<numberOfCharacters;i++)
 	{	
 			System.out.println("Enter the name of Comedian "+(i+1));
-		comedianName=sc.next();	
+		comedian.comedianName=sc.next();	
 		actorsComedian.add(new Comedian());
-		actorsComedian.get(i).setComedianName(comedianName);
+		actorsComedian.get(i).setComedianName(comedian.comedianName);
 
 		System.out.println("Enter the Character name of "+actorsComedian.get(i).getComedianName());
-		comedianCharacterName=sc.next();
-		actorsComedian.get(i).setComedianCharacterName(comedianCharacterName);
+		comedian.comedianCharacterName=sc.next();
+		actorsComedian.get(i).setComedianCharacterName(comedian.comedianCharacterName);
 
 		castMap.put("Comedian",actorsComedian);	
 		
@@ -103,13 +101,13 @@ public void setVillianName()
 	{
 		
 			System.out.println("Enter the name of Villian "+(i+1));
-		 villianName=sc.next();	
+		 villan.villianName=sc.next();	
 		 actorsVillan.add(new Villan());
-		actorsVillan.get(i).setVillianName(villianName);
+		actorsVillan.get(i).setVillianName(villan.villianName);
 
 	System.out.println("Enter the Character name of "+actorsVillan.get(i).getVillianName());
-		 villianCharacterName=sc.next();
-		  actorsVillan.get(i).setVillianCharacterName(villianCharacterName);
+		 villan.villianCharacterName=sc.next();
+		  actorsVillan.get(i).setVillianCharacterName(villan.villianCharacterName);
 
 		 castMap.put("Villian",actorsVillan);	
 
@@ -160,11 +158,7 @@ public void displayVillan()
 
 public void displayAll()
 {
-/*for (Map.Entry<String,ArrayList<Actors>> entry : castMap.entrySet())
- 	{
-   	System.out.println(entry.getKey()+" : ");
-	}*/
-    //System.out.print(entry.getValue());
+
 	
 displayHero();
 displayHeroine();
@@ -173,7 +167,7 @@ displayVillan();
  
 
  
-  // map.getCasting(castMap);
+  
     
 }
 
