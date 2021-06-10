@@ -2,6 +2,9 @@ package com.lxisoft.movie;
 
 import java.util.*;
 
+//Movie contains Director who selects actors and ScriptWriter.....(Does the casting) ,  Script contains a method selectScript()
+
+
 public class Movie
 {
 
