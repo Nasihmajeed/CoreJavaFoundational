@@ -108,15 +108,15 @@ fr.close();
     actors.add(new Basanthi());
     actors.get(13).setDialogue("\nBasanthi : Dhushtaannn?");
     actors.add(new Sundhareshan());
-    actors.get(14).setDialogue("\nSundhareshan : Dhushtyannn...avan enik paisa thannillaa");
+    actors.get(14).setDialogue("\nSundhareshan : Dhushtannn...avan enik paisa thannillaa");
     actors.add(new Basanthi());
-    actors.get(15).setDialogue("\nBasanthi : haa paisaaa(takes out money)");
+    actors.get(15).setDialogue("\nBasanthi : haa paisaaaa(takes out money)");
     actors.add(new Sundhareshan());
-    actors.get(16).setDialogue("\nSundhareshan : Havu bagyam paisakk ella bashayilm paisa enn thanne aanu(receives the money from her stunned)"+"\n"+"paisa kaari aanalle ee bankil iniym paisa undoo");
+    actors.get(16).setDialogue("\nSundhareshan : Havuu bagyam paisakk ella bashayilm paisa enn thanne aanu(receives the money from her stunned)"+"\n"+"paisa kaari aanalle ee bankil iniym paisa undoo");
     actors.add(new Basanthi());
     actors.get(17).setDialogue("\nBasanthi : heeyy??");
     actors.add(new Sundhareshan());
-    actors.get(18).setDialogue("\nSundhareshan : Ninak idali dosa vada garbha...enik porottem chickenum garbhaa(laughs)..daivame ethra nalaayi oru "+"\n"+"50nte pacha note kanditt chilavakaanum thonnanilla..oru photostat eduthu vakkam..apo oru photostatnte cash koode garbha(laughs awkwardly)");
+    actors.get(18).setDialogue("\nSundhareshan : Ninak idalii dosa vada garbha...enik porottem chickenum garbhaa(laughs)..daivame ethra nalaayi oru "+"\n"+"50nte pacha note kanditt chilavakaanum thonnanilla..oru photostat eduthu vakkam..apo oru photostatnte cash koode garbha(laughs awkwardly)");
 
   }
   public void menu() throws IOException{
