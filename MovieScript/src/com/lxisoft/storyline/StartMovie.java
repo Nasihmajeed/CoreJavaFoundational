@@ -1,7 +1,7 @@
 package com.lxisoft.storyline;
-import com.lxisoft.script.*;
-import com.lxisoft.storyline.*;
-import com.lxisoft.about.*;
+
+
+import com.lxisoft.about.Movie;
 import com.lxisoft.cast.*;
 import java.io.*;
 import java.util.*;
@@ -10,14 +10,8 @@ public class StartMovie
 	
 	Scanner sc=new Scanner(System.in);
 
-	int ans;
-
-
-	public void startMovie()
-	{
-		
-		
-		Casting casting=new Casting();
+	int ans,againAns;
+Casting casting=new Casting();
 		
 		
 		
@@ -34,18 +28,20 @@ public class StartMovie
 		Movie movie=new Movie();
 		String movieName;
 
-		
-		
+	public void startMovie()
+	{		
+			System.out.println("\t-----------------------------");
+			System.out.println("\tMovie Script Project");
+			System.out.println("\t-----------------------------");
 
-		Scanner sc =new Scanner(System.in);
-		int ans;
-		int againAns,genereSelect;
+			movie.movieDetails();
 		
+		System.out.println("\t Now the Characters and roles has been set");
+		System.out.println("\t--------------------------------------------");
+		do{
 
+				
 		
-			
-
-
 		System.out.println("\t Select the genere of the movie you want");
 		System.out.println("							");
 		System.out.println("\t 1. Comedy");
@@ -59,23 +55,45 @@ public class StartMovie
 			case 1: 	System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
 						System.out.println("\t\n The Cast of this movie");	
 
-						setGenere("Comedy");
+						movie.setGenere("Comedy");
 						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
 						
 						scriptWriter.scriptSelection(1);
 						
 						break;
 
-			case 2:		movie.romanticMovie();
+			case 2:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
+						System.out.println("\t\n The Cast of this movie");	
+						
+						movie.setImdb(8.1f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
+						
+						movie.setGenere("Romantic");
+						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
+
 						scriptWriter.scriptSelection(2);
 						break;
 			
-			case 3:		movie.emotionalMovie();
+			case 3:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
+						System.out.println("\t\n The Cast of this movie");	
+						
+						movie.setImdb(8.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
+					
+						movie.setGenere("Emotional");
+						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
 						scriptWriter.scriptSelection(3);
 
 						break;
 
-			case 4:		movie.thrillerMovie();
+			case 4:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
+						System.out.println("\t\n The Cast of this movie");	
+						
+						movie.setImdb(8.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
+						
+						movie.setGenere("Thriller");
+						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
 						scriptWriter.scriptSelection(4);
 
 						break;			

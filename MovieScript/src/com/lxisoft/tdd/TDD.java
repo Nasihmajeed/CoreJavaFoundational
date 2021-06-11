@@ -11,7 +11,11 @@ public class TDD
 	{	
 		StartMovie startMovie=new StartMovie();
 
-		startMovie.startMovie();
+		//startMovie.startMovie();
+
+
+		ScriptWriter scriptWriter=new ScriptWriter();
+		scriptWriter.scriptSelection(1);
 
 
 	}

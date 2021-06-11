@@ -1,8 +1,7 @@
-package com.lxisoft.about;
-import com.lxisoft.cast.*;
+package com.lxisoft.cast;
+
 import java.util.*;
 import com.lxisoft.storyline.*;
-import com.lxisoft.cast.*;
 
 public class Casting
 {

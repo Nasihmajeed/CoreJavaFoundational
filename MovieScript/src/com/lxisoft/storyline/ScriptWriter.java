@@ -1,5 +1,5 @@
 package com.lxisoft.storyline;
-import com.lxisoft.script.*;
+
 import java.io.*;
 import java.util.*;
 import com.lxisoft.cast.*;
@@ -28,10 +28,7 @@ BufferedReader comedyScriptReader=null;
 BufferedReader romanceScriptReader=null;
 BufferedReader emotionalScriptReader=null;
 BufferedReader thrillerScriptReader=null;
-		/*hero.setName(cast.heroName);
-		heroine.setName(cast.heroineName);
-		comedian.setName(cast.comedianName);
-		villan.setName(cast.villanName);*/
+		
 		String  heroName,heroineName,comedianName,villanName,directorName;
 
 
@@ -40,11 +37,7 @@ BufferedReader thrillerScriptReader=null;
 		ArrayList<Script> emotionalListFromFile=new ArrayList<Script>();
 		ArrayList<Script> thrillerListFromFile=new ArrayList<Script>();	 
 
-/*{
-	comedyListFromFile.add(new ComedyScript());
-	romanceListFromFile.add(new RomanticScript());
-	emotionalListFromFile.add(new EmotionalScript());
-}*/
+
 
 Actors hero=new Actor();
 		Actors heroine=new Actress();
@@ -64,15 +57,6 @@ Actors hero=new Actor();
 
 	}*/
 	 
-public void setCasting()
-{
-			director.setHeroName();
-			director.setHeroineName();
-			director.setComedianName();
-			director.setVillianName();
-			director.displayAll();
-
-}
 
 public void scriptSelection(int genere)
 {
@@ -80,8 +64,7 @@ public void scriptSelection(int genere)
 
 			
 
-		/**/
-		Casting cast=new Casting();
+		
 		 cast_Map=director.getMap();
 
 
@@ -92,14 +75,13 @@ switch(genere)
 
 			for(i=0;i<comedyListFromFile.size();i++ )
 			{
-				//System.out.print(listFromFile.get(i).getCharacter()+":");
+			
 			
 					if(comedyListFromFile.get(i) instanceof ComedyScript)
 					{
 						
 
-							/*comedyListFromFile.get(i).setCharacter1(cast_Map.get("Comedian").get(i).getComedianCharacterName());
-							comedyListFromFile.get(i).setCharacter2(cast_Map.get("Hero").getHeroCharacterName());*/
+							
 
 						if(i%2==0)
 						{
@@ -124,8 +106,7 @@ switch(genere)
 					}
 					if(comedyListFromFile.get(i) instanceof RomanticScript)
 					{
-						//comedyListFromFile.get(i).setCharacter1(heroineName);
-							//comedyListFromFile.get(i).setCharacter2(heroName);
+						
 						if(i%2==0)
 						{	
 							System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
@@ -141,18 +122,15 @@ switch(genere)
 					}
 					if(comedyListFromFile.get(i) instanceof EmotionalScript)
 					{
-						//comedyListFromFile.get(i).setCharacter1(heroineName);
-							//comedyListFromFile.get(i).setCharacter2(heroName);
+						
 						if(i%2==0)
-						{	//comedyListFromFile.get(i).setCharacter(comedianName);
-							//System.out.print(comedyListFromFile.get(i).getCharacter1());
+						{	
 							System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
 							System.out.print("("+cast_Map.get("Hero").get(1).getHeroName()+")");
 							System.out.println(comedyListFromFile.get(i).getDialogue());
 						}
 						else if(i>2)
-						{	//comedyListFromFile.get(i).setCharacter(heroName);
-							//System.out.print(comedyListFromFile.get(i).getCharacter2());
+						{	
 							System.out.print(cast_Map.get("Heroine").get(1).getHeroineCharacterName());
 							System.out.print("("+cast_Map.get("Heroine").get(1).getHeroineName()+")");
 							System.out.println(comedyListFromFile.get(i).getDialogue());
@@ -168,7 +146,6 @@ switch(genere)
 
 			for(i=0;i<romanceListFromFile.size();i++ )
 			{
-				//System.out.print(listFromFile.get(i).getCharacter()+":");
 				
 
 				if(romanceListFromFile.get(i) instanceof RomanticScript)
