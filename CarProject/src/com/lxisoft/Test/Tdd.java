@@ -13,8 +13,6 @@ public class Tdd
 	Car car = new Car();
  	Engine engine =new Engine(); 
     Rc rc =new Rc();
-    Door door = new Door();
-    Tyre tyre = new Tyre();
     ArrayList<Door> doors = new ArrayList<Door>();
     ArrayList<Tyre> tyres = new ArrayList<Tyre>();
 
@@ -60,11 +58,11 @@ public class Tdd
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
     		System.out.println("Enter the Details of Doors : ");
-			System.out.println("Enter The Number OF Doors : ");
-			String doornumber=scanner.next();
-			door.setDoorNumber(doornumber);
-			for(int i=0;i<4;i++)
-			{
+    		for(int i=0;i<4;i++)
+			{	doors.add(new Door());
+			    System.out.println("Enter The door Number : ");
+			    String doornumber=scanner.next();
+			    doors.get(i).setDoorNumber(doornumber);
 			    System.out.println("Enter The Type Of Door : ");
 			    String doortype=scanner.next();
 			    doors.get(i).setDoorType(doortype);
@@ -72,17 +70,19 @@ public class Tdd
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter the Details of Tyre : ");
-			System.out.println("Enter the number of Tyres :");
-			String tyrenumber=scanner.next();
-			tyre.setTyreNumber(tyrenumber);
 			for(int j=0;j<4;j++)
 			{
+				tyres.add(new Tyre());
+			   System.out.println("Enter the Tyre Number :");
+			   String tyrenumber=scanner.next();
+			   tyres.get(j).setTyreNumber(tyrenumber);
 			   System.out.println("Enter The Size OF Tyre : ");
 			   String size=scanner.next();
 			   tyres.get(j).setTyreSize(size);
 			   System.out.println("Enter The Name Of Manufacture Of the Tyre : ");
 			   String tyrename=scanner.next();
 			   tyres.get(j).setTyreName(tyrename);
+			   
 		    }
 			System.out.println("-------------------------------------");
         }

@@ -9,8 +9,6 @@ public class Car
 { 
     Engine engine;
     Rc rc;
-    Door door;
-    Tyre tyre;
     ArrayList<Door> doors;
     ArrayList<Tyre> tyres;
     String name;
@@ -72,8 +70,15 @@ public void setCarName(String name)
         System.out.print("\n");
 		System.out.print("-------------------------------------");
         engine.printEngineDetails();
-        rc.printRcDetails();  
-        door.printDoorDetails(doors);
-        tyre.printTyresDetails(tyres);     	
+        rc.printRcDetails(); 
+        for (var i=0;i<doors.size();i++)
+         {
+            doors[i].printDoorDetails();
+        }
+         for (var j=0;j<tyres.size();j++)
+          {
+               tyres[j].printTyresDetails();
+          } 
+                  	
     }   
 }

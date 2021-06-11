@@ -32,18 +32,18 @@ public class Tyre
         return size;
     }
 
-public void printTyresDetails(ArrayList<Tyre> tyres)
+public void printTyresDetails()
        {
         System.out.print("-------------------------------------");
         System.out.print("\n");
     	System.out.print("Details Of The Tyre :  ");
         System.out.print("\n");
-        System.out.print("Number of tyres in tyhe car:"+getTyreNumber());
-        for(int j=0;j<=3;j++)
+        for(int i =0;i<=4;i++)
         {
-		  System.out.print("Tyre Manufactures name is : "+tyres.get(j).getTyreName());
+             System.out.print("Number of tyres in tyhe car:"+getTyreNumber());
+          System.out.print("Tyre Manufactures name is : "+getTyreName());
           System.out.print("\n");
-		  System.out.print("Tyre Size is : "+tyres.get(j).getTyreSize());
+          System.out.print("Tyre Size is : "+getTyreSize());
           System.out.print("\n");
         }
 		System.out.print("-------------------------------------");	

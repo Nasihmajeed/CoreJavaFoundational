@@ -23,20 +23,21 @@ public class Door
         return doortype;
     }
 
-    public void printDoorDetails(ArrayList<Door> doors)
+    public void printDoorDetails()
        {
         System.out.print("-------------------------------------");
         System.out.print("\n");
 		System.out.print("Details Of The Door and Seating of vehicle : ");
         System.out.print("\n");
-		System.out.print("Number of Doors : "+getDoorNumber());
-        System.out.print("\n");
-        for(int i=0;i<=3;i++)
+        for(int i=0;i<4;i++)
         {
-		System.out.print("Type of Door : "+doors.get(i).getDoorType());
+            System.out.print("Number of Doors : "+getDoorNumber());
         System.out.print("\n");
+        System.out.print("Type of Door : "+getDoorType());
+        System.out.print("\n");
+        System.out.print("-------------------------------------");
         }
-		System.out.print("-------------------------------------");
+		
        }
 
 }
