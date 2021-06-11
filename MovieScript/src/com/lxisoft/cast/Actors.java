@@ -1,6 +1,6 @@
 package com.lxisoft.cast;
 
-public class Actors extends Cast
+public class Actors 
 {
 	
 	String heroName,heroineName,comedianName,villainName;   //real names of actors
