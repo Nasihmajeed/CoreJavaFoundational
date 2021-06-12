@@ -1,6 +1,6 @@
 package com.lxisoft.about;
 
-import com.lxisoft.cast.Casting;
+import com.lxisoft.cast.*;
 import com.lxisoft.storyline.*;
 import com.lxisoft.script.*;
 
@@ -14,8 +14,9 @@ public class Movie
 		
 		
 		Casting casting=new Casting();
-	ScriptWriter scriptWriter=new ScriptWriter();
+
 	Scanner sc=new Scanner(System.in);
+	Director director=new Director();
 
 public void movieDetails()
 {
@@ -24,7 +25,6 @@ public void movieDetails()
 				movieName=sc.next();
 				
 				setMovieName(movieName);
-				casting.setCasting();
 				
 
 

@@ -1,6 +1,6 @@
 package com.lxisoft.tdd;
 import com.lxisoft.storyline.*;
-import com.lxisoft.script.*;
+//import com.lxisoft.script.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.about.*;
 import java.util.*;
@@ -11,12 +11,10 @@ public class TDD
 	{	
 		StartMovie startMovie=new StartMovie();
 
-		//startMovie.startMovie();
+		startMovie.startMovie();
 
 
-		ScriptWriter scriptWriter=new ScriptWriter();
-		scriptWriter.scriptSelection(1);
-
+		
 
 	}
 }

@@ -21,7 +21,6 @@ final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lx
 File romanceFile=new File(romanceScript);
 File comdeyFile=new File(comedyScript);
 File emotionalFile=new File(emotionalScript);
-
 File thrillerFile=new File(thrillerScript);
 
 BufferedReader comedyScriptReader=null;
@@ -39,33 +38,24 @@ BufferedReader thrillerScriptReader=null;
 
 
 
-Actors hero=new Actor();
+		Actors hero=new Actor();
 		Actors heroine=new Actress();
 		Actors comedian=new Actor();
 		Actors villan=new Actor();
-		//NonActors director=new Director();
+		
 		
 		Map<String,ArrayList<Actors>> cast_Map=new HashMap<String,ArrayList<Actors>>();
 		ArrayList<Actors> actors=new ArrayList<Actors>();
 		
 
 		 Director director=new Director();
-/*public void getCasting(Map<String,ArrayList<Actors>> castMap)
-	{
-		cast_Map.putAll(castMap);
-
-
-	}*/
-	 
+		//Movie movie=new Movie();
+		Casting casting=new Casting();
 
 public void scriptSelection(int genere)
 {
-
-
-			
-
-		
-		 cast_Map=director.getMap();
+	casting.makeCasting();
+	cast_Map=casting.getMap();
 
 
 switch(genere)
@@ -101,7 +91,13 @@ switch(genere)
 						}	//comedyListFromFile.get(i).setCharacter(heroName);
 							
 
-						
+						try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 						
 					}
 					if(comedyListFromFile.get(i) instanceof RomanticScript)
@@ -120,6 +116,13 @@ switch(genere)
 							System.out.println(comedyListFromFile.get(i).getDialogue());
 						}
 					}
+					try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 					if(comedyListFromFile.get(i) instanceof EmotionalScript)
 					{
 						
@@ -146,7 +149,13 @@ switch(genere)
 
 			for(i=0;i<romanceListFromFile.size();i++ )
 			{
-				
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 
 				if(romanceListFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
@@ -163,6 +172,13 @@ switch(genere)
 
 					
 				}
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 
 				if(romanceListFromFile.get(i) instanceof EmotionalScript)
 				{
@@ -177,6 +193,13 @@ switch(genere)
 					System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
 					System.out.println(romanceListFromFile.get(i).getDialogue());	
 					}
+				}
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
 				}
 				if(romanceListFromFile.get(i) instanceof ComedyScript)
 				{
@@ -202,6 +225,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 
 			for(i=0;i<emotionalListFromFile.size();i++ )
 			{
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 				if(emotionalListFromFile.get(i) instanceof EmotionalScript)
 				{
 					if(i%2==0)
@@ -216,7 +246,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 					System.out.println(emotionalListFromFile.get(i).getDialogue());	
 					}
 				}
-
+					try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 
 				if(emotionalListFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
@@ -233,7 +269,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 
 					
 				}
-
+					try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 				
 				if(emotionalListFromFile.get(i) instanceof ComedyScript)
 				{
@@ -259,6 +301,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 
 			for(i=0;i<thrillerListFromFile.size();i++ )
 			{
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 				if(thrillerListFromFile.get(i) instanceof ThrillerScript)
 				{
 					if(i%2==0)
@@ -279,6 +328,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 					}
 				}
 
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 
 				if(thrillerListFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
@@ -296,7 +352,13 @@ case 3: emotionalListFromFile= emotionalMovie();
 					
 				}
 
-				
+				try{
+					Thread.sleep(10);
+				}
+				catch(InterruptedException ex)
+				{
+					Thread.currentThread().interrupt();
+				}
 				if(thrillerListFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0)
@@ -341,15 +403,7 @@ public ArrayList<Script> comedyMovie()
 
 
 ArrayList<Script> comedyList= new ArrayList<Script>();
-	/*comedyList.add(new ComedyScript());
-	comedyList.add(new EmotionalScript());
-	comedyList.add(new RomanticScript());*/
-
 	
-	
-	
-
-//i=0;
 try
 {
 	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));

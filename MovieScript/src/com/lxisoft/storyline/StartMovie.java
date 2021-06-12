@@ -11,15 +11,16 @@ public class StartMovie
 	Scanner sc=new Scanner(System.in);
 
 	int ans,againAns;
+	float rating;
 Casting casting=new Casting();
-		
+Director director=new Director();		
 		
 		
 
-		Actors hero=new Actor();
+		/*Actors hero=new Actor();
 		Actors heroine=new Actress();
 		Actors comedian=new Actor();
-		Actors villan=new Actor();
+		Actors villan=new Actor();*/
 		
  
 		ScriptWriter scriptWriter=new ScriptWriter();
@@ -33,7 +34,7 @@ Casting casting=new Casting();
 			System.out.println("\t-----------------------------");
 			System.out.println("\tMovie Script Project");
 			System.out.println("\t-----------------------------");
-
+			
 			movie.movieDetails();
 		
 		System.out.println("\t Now the Characters and roles has been set");
@@ -52,8 +53,9 @@ Casting casting=new Casting();
 
 		switch(ans)
 		{
-			case 1: 	System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
-						System.out.println("\t\n The Cast of this movie");	
+			case 1: 	
+						System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
+						
 
 						movie.setGenere("Comedy");
 						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
@@ -63,7 +65,7 @@ Casting casting=new Casting();
 						break;
 
 			case 2:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());
-						System.out.println("\t\n The Cast of this movie");	
+							
 						
 						movie.setImdb(8.1f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
@@ -75,7 +77,7 @@ Casting casting=new Casting();
 						break;
 			
 			case 3:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
-						System.out.println("\t\n The Cast of this movie");	
+								
 						
 						movie.setImdb(8.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
@@ -87,10 +89,10 @@ Casting casting=new Casting();
 						break;
 
 			case 4:		System.out.println("\t\n The name of the movie \n"+movie.getMovieName());	
-						System.out.println("\t\n The Cast of this movie");	
+						
 						
 						movie.setImdb(8.6f);
-						System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
+						
 						
 						movie.setGenere("Thriller");
 						System.out.println("\t\n The Genere of this movie :"+movie.getGenere());
@@ -107,6 +109,16 @@ Casting casting=new Casting();
 						
 
 		}
+
+		
+		System.out.println("\n \t\t Give your rating for the movie out of 10");
+		rating=sc.nextFloat();
+		movie.setImdb(rating);
+		System.out.println("\t\n The IMDB Rating of this movie :"+movie.getRating());
+
+
+
+
 System.out.println("\n\tDo you want to see more details about the movie(1.to view more 2.exit ) ");
 againAns=sc.nextInt();
 	}while(againAns==1);
