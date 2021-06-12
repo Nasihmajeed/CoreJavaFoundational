@@ -13,6 +13,8 @@ public class Tdd
 	Car car = new Car();
  	Engine engine =new Engine(); 
     Rc rc =new Rc();
+    Door door = new Door();
+    Tyre tyre = new Tyre();
     ArrayList<Door> doors = new ArrayList<Door>();
     ArrayList<Tyre> tyres = new ArrayList<Tyre>();
 
@@ -59,7 +61,7 @@ public class Tdd
 			System.out.println("-------------------------------------");
     		System.out.println("Enter the Details of Doors : ");
     		for(int i=0;i<4;i++)
-			{	doors.add(new Door());
+			{	doors.add(door);
 			    System.out.println("Enter The door Number : ");
 			    String doornumber=scanner.next();
 			    doors.get(i).setDoorNumber(doornumber);
@@ -72,7 +74,7 @@ public class Tdd
 			System.out.println("Enter the Details of Tyre : ");
 			for(int j=0;j<4;j++)
 			{
-				tyres.add(new Tyre());
+				tyres.add(tyre);
 			   System.out.println("Enter the Tyre Number :");
 			   String tyrenumber=scanner.next();
 			   tyres.get(j).setTyreNumber(tyrenumber);

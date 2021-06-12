@@ -38,14 +38,11 @@ public void printTyresDetails()
         System.out.print("\n");
     	System.out.print("Details Of The Tyre :  ");
         System.out.print("\n");
-        for(int i =0;i<=4;i++)
-        {
              System.out.print("Number of tyres in tyhe car:"+getTyreNumber());
           System.out.print("Tyre Manufactures name is : "+getTyreName());
           System.out.print("\n");
           System.out.print("Tyre Size is : "+getTyreSize());
           System.out.print("\n");
-        }
 		System.out.print("-------------------------------------");	
        }
 

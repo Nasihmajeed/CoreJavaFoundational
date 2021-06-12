@@ -29,15 +29,11 @@ public class Door
         System.out.print("\n");
 		System.out.print("Details Of The Door and Seating of vehicle : ");
         System.out.print("\n");
-        for(int i=0;i<4;i++)
-        {
-            System.out.print("Number of Doors : "+getDoorNumber());
+        System.out.print("Number of Doors : "+getDoorNumber());
         System.out.print("\n");
         System.out.print("Type of Door : "+getDoorType());
         System.out.print("\n");
-        System.out.print("-------------------------------------");
-        }
-		
+        System.out.print("-------------------------------------");	
        }
 
 }
