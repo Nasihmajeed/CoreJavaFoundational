@@ -246,16 +246,18 @@ fr.close();
     }
       System.out.println("********************************\n\n");
       System.out.println("**********************************");
-      System.out.println("********************************");
-      System.out.println("*************SCENE1***************");
-      System.out.println("**********************************");
-      System.out.println("********************************");
+      System.out.println("*********************************");
+      System.out.println("*************SCENE1****************");
+      System.out.println("***********************************");
+      System.out.println("*********************************");
 
 
                       for (int i=0;i<script.size();i++)
                       {
+
                       //  System.out.println(script.get(i).getCharacter());
                         if(script.get(i).getGenre().equals(input1)){
+
                          System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
                         }
 
@@ -275,10 +277,10 @@ fr.close();
       HashMap<String, String> map= new HashMap<String, String>();
 
            // key-value pairs
-           map.put("1", "comedy;Comedian;: Entammoo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo");
+           map.put("1", "comedy;Comedian;: Entammoooo.....aaa palltheppoke kazhinjo..dhe lavaningad varum munpe padiyirangikoo");
            map.put("2", "Padayappashinnaa");
-           map.put("3", "comedy;Comedian;: Aaa padayappa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal pinne kopayirikum..pidichal kittoolla, vem pokko");
-           map.put("4","comedy;Heroine;: Bukaaroooo");
+           map.put("3", "comedy;Comedian;: Aaa padayappaa cinema oke njan kanditullathaa..vekam sthalam vitto..avanu deshyam vanal pinne kopayirikum..pidichal kittoolla, vem pokko");
+           map.put("4","comedy;Heroine;: Bukaaaroooo");
            map.put("5","comedy;Comedian;: Aaah Bukaro train nte samayam onum enik ariyan padilla..bukaro alle veed");
            map.put("6","comedy;Heroine;: (crying)..aaah Bukaarooo");
            map.put("7","comedy;Comedian;: Vayattil kai vach bukaroo nn paranjal....aaaaaaa sadharana njangalk bujkaroo vannal oru mondha vellavumayi aa kuttikatttil poyi iruniit mukkaraa");
