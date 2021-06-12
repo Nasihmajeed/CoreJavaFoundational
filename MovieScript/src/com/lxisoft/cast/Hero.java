@@ -10,10 +10,24 @@ public class Hero extends Actors
 		this.heroName=heroName;
 	}
 	
+	
+	public void setHeroCharName(String heroCharName)
+	{
+		this.heroCharName=heroCharName;
+	}
+	
+	
 	public String getHeroName()
 	{
 		return heroName;
 	}
+	
+	
+	public String getHeroCharName()
+	{
+		return heroCharName;
+	}
+	
 	
 	
 }

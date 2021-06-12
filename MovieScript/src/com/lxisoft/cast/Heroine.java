@@ -12,4 +12,16 @@ public class Heroine extends Actors
 	{
 		return heroineName;
 	}
+	
+	public void setHeroineCharName(String heroineCharName)
+	{
+		this.heroineCharName=heroineCharName;
+	}
+	
+	public String getHeroineCharName()
+	{
+		return heroineCharName;
+	}
+	
+	
 }

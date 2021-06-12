@@ -14,5 +14,14 @@ public class Comedian extends Actors
 		return comedianName;
 	}
 	
+	public void setComedianCharName(String comedianCharName)
+	{
+		this.comedianCharName=comedianCharName;
+	}
+	
+	public String getComedianCharName()
+	{
+		return comedianCharName;
+	}
 	
 }

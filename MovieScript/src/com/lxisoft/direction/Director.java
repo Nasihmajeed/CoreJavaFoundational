@@ -2,7 +2,6 @@ package com.lxisoft.direction;
 
 import com.lxisoft.cast.*;
 import com.lxisoft.movie.*;
-//import com.lxisoft.scripts.*;
 
 import java.util.*;
 
@@ -10,31 +9,25 @@ public class Director implements Directorable
 {
 	Scanner sc=new Scanner(System.in);
 	
-	List<String> qualities=new ArrayList<String>();
+	//Director can set the actors
 	
-	{
-		qualities.add("Stress-Tolerant");
-		qualities.add("having Positive Attitude");
-		qualities.add("Flexible");
-		qualities.add("Using Time Efficiently");
-		qualities.add("always Knowing How to be Diplomatic");
-		qualities.add("a man who had to deal with lots of contoversies due to his arrogant attitude");
-	}
-	
-private int numOfMov,numOfHero,numOfHeroine,numOfCom,numOfVillain;
-private String directorName;
+private int numOfMoviesDirected,numOfHero,numOfHeroine,numOfCom,numOfVillain;
+private String directorName,directorLanguage;
 private String heroName,heroineName,comedianName,villainName;
 private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 	
+
+ArrayList<Actor> allActors=new ArrayList<Actor>();
+ArrayList<Hero> allHeroes=new ArrayList<Hero>();
+ArrayList<Heroine> allHeroines=new ArrayList<Heroine>();
+ArrayList<Comedian> allComedians=new ArrayList<Comedian>();
+ArrayList<Villain> allVillains=new ArrayList<Villain>();
+
+
 	
 	public void setDirectorName(String directorName)
 	{
 		this.directorName=directorName;
-	}
-	
-	public void setNumberOfMoviesDirected(int numOfMov)
-	{
-		this.numOfMov=numOfMov;
 	}
 	
 	
@@ -43,65 +36,38 @@ private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 		return directorName;
 	}
 	
-	public int getNumberOfMoviesDirected()
-	{
-		return numOfMov;
-	}
 	
-	public void directorDetails()
-	{
-		System.out.println("Name of the director is : "+getDirectorName());
-		System.out.println("--------------------Director has directed "+getNumberOfMoviesDirected()+" movies--------------------------");
-		System.out.println("\r\n");
-	}
-	
-	
-	public void qualitiesOfDirector()
-	{
-		         try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-					
-		for(String a : qualities)
-		{
-			System.out.println("Director of the Movie is : "+a);
-		}
-	}
+    public void setDirectorLanguage(String directorLanguage)
+    {
+      this.directorLanguage=directorLanguage;
+    }
+
+    public String getDirectorLanguage()
+    {
+     return directorLanguage;
+    }
+
+
+
+    public void setNumberOfMoviesDirected(int numOfMoviesDirected)
+    {
+      this.numOfMoviesDirected=numOfMoviesDirected;
+    }
+
+    public int getNumberOfMoviesDirected()
+    {
+     return numOfMoviesDirected;
+    }
 	
 /*	 
 	 Movie m=new Movie();
 	ScriptWriter writer=new ScriptWriter();   Script writer is selected by the Director of the Movie 
 	
 	*/
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	  
 	 //Casting the actors by the Director---
 	 
-	 ArrayList<Actors> allActors=new ArrayList<Actors>();
-	 ArrayList<Hero> allHeroes=new ArrayList<Hero>();
-	 ArrayList<Heroine> allHeroines=new ArrayList<Heroine>();
-	 ArrayList<Comedian> allComedians=new ArrayList<Comedian>();
-	 ArrayList<Villain> allVillains=new ArrayList<Villain>();
-	 
-	 int num=0;
-	 String genre="";
-	 
-	 
-	 public ArrayList<Hero> setHero()
+	 public ArrayList<Hero> castingTheHero()
 {
 	 System.out.println("Enter the number of heroes in the movie : ");
      numOfHero=sc.nextInt(); 
@@ -116,18 +82,19 @@ private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 		 heroName=sc.next();
 		 System.out.println("Name of the Hero is: "+heroName);
 		 
-		 allActors.add(new Actors());
-		 allActors.get(i).setHeroName(heroName);
-		 
+		 allActors.add(new Actor());
+		 allHeroes.add(new Hero());
+
+		 allActors.get(i).setActorName(heroName);
+		 allHeroes.get(i).setHeroName(heroName);
+
 		 System.out.println("\r\n");
 		 
 		 System.out.println("Enter the Character name of the Hero : ");
 		 heroCharName=sc.next();
 		 System.out.println("Name of the Hero's Character is : "+heroCharName);  
-		 allActors.get(i).setHeroCharName(heroCharName);
-		 
-		 allHeroes.add(new Hero());
-		 allHeroes.get(i).setHeroName(heroName);
+		 allActors.get(i).setActorCharName(heroCharName);
+		 allHeroes.get(i).setHeroCharName(heroCharName);
 		 
 		 System.out.println("\r\n");
 		 
@@ -136,7 +103,7 @@ private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 return allHeroes;
 }
 
-public ArrayList<Heroine> setHeroine()
+public ArrayList<Heroine> castingTheHeroine()
 {
 	 System.out.println("Enter the number of heroines in the movie : ");
      numOfHeroine=sc.nextInt(); 
@@ -151,27 +118,31 @@ public ArrayList<Heroine> setHeroine()
 		 heroineName=sc.next();
 		 System.out.println("Name of the Heroine is : "+heroineName);  
 		 
-		 allActors.add(new Actors());
-		 allActors.get(i).setHeroineName(heroineName);
-		 
+		 allActors.add(new Actor());
+		 allHeroines.add(new Heroine());
+
+		 allActors.get(i).setActorName(heroineName);
+		 allHeroines.get(i).setHeroineName(heroineName);
+
 		 System.out.println("\r\n");
 		 
 		 System.out.println("Enter the Character name of the Heroine : ");
 		 heroineCharName=sc.next();
 		 System.out.println("Name of the Heroine's Character is : "+heroineCharName);  
-		 allActors.get(i).setHeroineCharName(heroineCharName);
 		 
-		 allHeroines.add(new Heroine());
-		 allHeroines.get(i).setHeroineName(heroineName);
+		 allActors.get(i).setActorCharName(heroineCharName);
+		 allHeroines.get(i).setHeroineCharName(heroineCharName);
 		 
+		
 		 System.out.println("\r\n");
-		 
-         		 
+		  		 
 	 }
 return allHeroines;
 }
 
-public ArrayList<Comedian> setComedian()
+
+
+public ArrayList<Comedian> castingTheComedian()
 {
 	 System.out.println("Enter the number of comedians in the movie : ");
      numOfCom=sc.nextInt(); 
@@ -187,18 +158,21 @@ public ArrayList<Comedian> setComedian()
 		 System.out.println("Name of the Comedian is : "+comedianName);  
 		 
 		 
-		 allActors.add(new Actors());
-		 allActors.get(i).setComedianName(comedianName);
-		 
+		 allActors.add(new Actor());
+		 allComedians.add(new Comedian());
+
+		 allActors.get(i).setActorName(comedianName);
+		 allComedians.get(i).setComedianName(comedianName);
+
 		 System.out.println("\r\n");
 		 
 		 System.out.println("Enter the Character name of the Comedian : ");
 		 comedianCharName=sc.next();
 		 System.out.println("Name of the Comedian's Character is : "+comedianCharName);  
-		 allActors.get(i).setComedianCharName(comedianCharName);
 		 
-		 allComedians.add(new Comedian());
-		 allComedians.get(i).setComedianName(comedianName);
+		 allActors.get(i).setActorCharName(comedianCharName);
+		 allComedians.get(i).setComedianCharName(comedianCharName);
+		 
 		 
 		 System.out.println("\r\n");
 		 
@@ -207,7 +181,8 @@ return allComedians;
 }
 
 
-public ArrayList<Villain> setVillain()
+
+public ArrayList<Villain> castingTheVillain()
 {
 	 System.out.println("Enter the number of villains in the movie : ");
      numOfVillain=sc.nextInt(); 
@@ -223,19 +198,20 @@ public ArrayList<Villain> setVillain()
 		 System.out.println("Name of the Villain is : "+villainName);  
 		 
 		 
-		 allActors.add(new Actors());
-		 allActors.get(i).setVillainName(villainName);
-		 
+		 allActors.add(new Actor());
+		 allVillains.add(new Villain());
+		 allActors.get(i).setActorName(villainName);
+		 allVillains.get(i).setVillainName(villainName);
+
 		 System.out.println("\r\n");
 		 
 		 System.out.println("Enter the Character name of the Villain : ");
 		 villainCharName=sc.next();
 		 System.out.println("Name of the Villain's Character is : "+villainCharName);  
-		 allActors.get(i).setVillainCharName(villainCharName);
 		 
-		 allVillains.add(new Villain());
-		 allVillains.get(i).setVillainName(villainName);
-		 
+		 allActors.get(i).setActorCharName(villainCharName);
+		 allVillains.get(i).setVillainCharName(villainCharName);
+
 	 }
 return allVillains;
 }
@@ -246,10 +222,9 @@ public void printCharacters()
 	    System.out.println("\r\n");
 		System.out.println("---------------------------------------------------------------------------");
         System.out.println("---------------------------------------------------------------------------");
-        System.out.println("----------------------=====CHARACTERS=====--------------------");
+        System.out.println("----------------------------=====CHARACTERS=====---------------------------");
 		System.out.println("---------------------------------------------------------------------------");
 		System.out.println("---------------------------------------------------------------------------");
-		System.out.println("\r\n");
 		
 		          try{
 					    Thread.sleep(2000);
@@ -259,8 +234,6 @@ public void printCharacters()
 					Thread.currentThread().interrupt();
 				    }
 		
-		
-		
 		System.out.println("-----------------------------Heroes in the Movie--------------------------------");
 		{
 			for(int i=0 ; i<allHeroes.size() ; i++)
@@ -268,7 +241,7 @@ public void printCharacters()
 		             System.out.println(allHeroes.get(i).getHeroName());
 	              }
 		}
-		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------");
 		
 		
 		
@@ -287,7 +260,7 @@ public void printCharacters()
 		             System.out.println(allHeroines.get(i).getHeroineName());
 	              }
 		}
-		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------");
 	
 	
 	              try{
@@ -307,7 +280,7 @@ public void printCharacters()
 		             System.out.println(allComedians.get(i).getComedianName());
 	              }
 		}
-		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------------------------------------------------------------");
 		
 		
 		         try{
@@ -327,17 +300,9 @@ public void printCharacters()
 		             System.out.println(allVillains.get(i).getVillainName());
 	              }
 		}
-		System.out.println("------------------------------------------------------------------------------------");
-		
-		
-		
-		
-		System.out.println("---------------------------------------------------------------------------");
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.println("---------------------------------------------------------------------------");
-		System.out.println("---------------------------------------------------------------------------");
-		System.out.println("---------------------------------------------------------------------------");
-	    System.out.println("\r\n");
+		System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------");
 	
 	/*
 	

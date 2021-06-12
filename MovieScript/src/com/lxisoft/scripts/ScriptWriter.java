@@ -3,13 +3,13 @@ package com.lxisoft.scripts;
 import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
 import com.lxisoft.movie.*;
-
+/*
 import java.io.*;
 import java.util.*;
 import java.nio.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+*/
 //create 3 arrayLists for saving heroname,heroinename and comedian name ---- their charname.....
 
 // Ask for Movie Genre at the beginning itself
@@ -21,13 +21,13 @@ import java.nio.file.Paths;
 //enter names and characters and print them to the user
 
 //save each script to file and read each dialogues from file and add to an arrayListand get dialogues using--- random----get(Random variable) 
-
+import java.util.*;
 
 public class ScriptWriter
 {
- /* 
+ 
 Scanner sc=new Scanner(System.in);
-	
+/*	
 static final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.txt";
 static final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.txt";
 static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.txt";
@@ -55,7 +55,27 @@ static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\Action
 												 Long b=numberOfLinesInEmotionalFile();
 												 Long c=numberOfLinesInComedyFile();
 
+*/
+String writerName;
 
+public void writerDetails()
+{
+System.out.println("Enter the name of the ScriptWriter");
+setWriterName(sc.next());
+}
+
+public void setWriterName(String writerName)
+{
+this.writerName=writerName;
+}
+
+
+public String getWriterName()
+{
+	return writerName;
+} 
+
+/*
 	
 public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , ArrayList<Comedian> , ArrayList<Villain>)
 {
@@ -70,48 +90,7 @@ public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , 
 				                                                   {
 					                                                  Thread.currentThread().interrupt();
 				                                                  }
-	                            
-                          try{
-							               //Reading Complete Data from Romantic Script
-							  
-							         
-								 
-								         while( (line=brom.readLine()) != null)
-								             {
-									            romDialog.add(line);
-								             }
-											 
-										//Reading partial data from Emotional Script
-											 
-								   
-							
-                                 for(int i=0 ; i<b ; i++)
-								             {	 
-		          						  while( ( (line=bremo.readLine()) != null) && i<b )
-					     			             {
-						    			            emoDialog.add(line);
-							  	                 }
-								             }
-								         
-									//Reading partial data from ComedyScript
-											 
-								    
-							
-                                 for(int i=0 ; i<c ; i++)
-								             {	 
-		          						  while( ( (line=brcom.readLine()) != null) && i<c )
-					     			             {
-						    			            comDialog.add(line);
-							  	                 }
-								             }
-											 
-											 
-						       }  								
-							catch(IOException e)
-							   {
-								e.printStackTrace();
-							   }	 
-										   
+	                   
 							   break;
 							   
 				 case 2 : 
@@ -201,9 +180,6 @@ public long numberOfLinesInComedyFile()
 	return numOfLines;
 }
 
-
-
 */
-
 }
 

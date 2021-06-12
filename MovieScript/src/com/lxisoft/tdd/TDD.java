@@ -20,7 +20,6 @@ System.out.println("------------------------------------------------------------
 				    {
 					Thread.currentThread().interrupt();
 				    }
-System.out.println("\r\n");
 }
 Movie movie=new Movie();
 movie.begin();

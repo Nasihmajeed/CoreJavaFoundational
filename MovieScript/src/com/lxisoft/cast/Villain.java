@@ -15,4 +15,15 @@ String villainName;
 		return villainName;
 	}
 
+    public void setVillainCharName(String villainCharName)
+	{
+		this.villainCharName=villainCharName;
+	}
+
+	public String getVillainCharName()
+	{
+		return villainCharName;
+	}
+
+
 }
