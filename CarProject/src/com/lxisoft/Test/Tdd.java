@@ -60,7 +60,7 @@ public class Tdd
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
     		System.out.println("Enter the Details of Doors : ");
-    		for(int i=0;i<4;i++)
+    		for(int i=0;i<=3;i++)
 			{	doors.add(door);
 			    System.out.println("Enter The door Number : ");
 			    String doornumber=scanner.next();
@@ -72,7 +72,7 @@ public class Tdd
 			System.out.println("-------------------------------------");
 			System.out.println("-------------------------------------");
 			System.out.println("Enter the Details of Tyre : ");
-			for(int j=0;j<4;j++)
+			for(int j=0;j<=3;j++)
 			{
 				tyres.add(tyre);
 			   System.out.println("Enter the Tyre Number :");
@@ -88,7 +88,7 @@ public class Tdd
 		    }
 			System.out.println("-------------------------------------");
         }
-        System.out.println("2 - Print The Details Of Vehicle : ");
+        System.out.println("2 - Print The Details Of Vehicle : "); 
         int number = scanner.nextInt();
 	    if(number==2)
     {  

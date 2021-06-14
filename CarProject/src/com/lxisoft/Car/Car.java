@@ -71,8 +71,14 @@ public void setCarName(String name)
 		System.out.print("-------------------------------------");
         engine.printEngineDetails();
         rc.printRcDetails(); 
-            door.printDoorDetails();
-               tyre.printTyresDetails();
+        for (var i=0;i<doors.size();i++)
+         {
+            doors.get(i).printDoorDetails();
+        }
+         for (var j=0;j<tyres.size();j++)
+          {
+               tyres.get(j).printTyresDetails();
+          } 
                   	
     }   
 }
