@@ -1,5 +1,8 @@
 package com.lxisoft.tdd;
 
+import com.lxisoft.cast.*;
+import com.lxisoft.direction.*;
+import com.lxisoft.scripts.*;
 import com.lxisoft.movie.*;
 
 public class TDD
@@ -23,6 +26,6 @@ System.out.println("------------------------------------------------------------
 }
 Movie movie=new Movie();
 movie.begin();
-
+movie.play();
 }
 }

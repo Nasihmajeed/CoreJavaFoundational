@@ -19,7 +19,7 @@ private int yearOfRelease;
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-ScriptWriter writer=new ScriptWriter();
+ScriptWriter writer;
 
 ArrayList<Hero> heros=new ArrayList<Hero>();
 ArrayList<Heroine> heroin=new ArrayList<Heroine>();
@@ -121,6 +121,8 @@ System.out.println("\r\n");
 				    {
 					Thread.currentThread().interrupt();
 				    }
+
+writer=new ScriptWriter();
 
 writer.writerDetails();
 
@@ -269,13 +271,33 @@ director.printCharacters();
 				catch(InterruptedException e)
 				    {
 					Thread.currentThread().interrupt();
-				    }
-
-	
-
-	             			
-									
+				    }									
 }
+
+
+public void play()
+{
+writer=new ScriptWriter();
+
+if(getMovieGenre().equals("Romantic"))
+{
+	writer.writingTheScript(1,heros,heroin,comediann,vilain);	
+}	
+else if(getMovieGenre().equals("Comedy"))
+{
+	writer.writingTheScript(2,heros,heroin,comediann,vilain);
+}
+else if(getMovieGenre().equals("Emotional"))
+{
+	writer.writingTheScript(3,heros,heroin,comediann,vilain);
+}
+else if(getMovieGenre().equals("Action"))
+{
+	writer.writingTheScript(4,heros,heroin,comediann,vilain);
+}
+
+}
+
 
 
 //Genre of the movie

@@ -3,60 +3,37 @@ package com.lxisoft.scripts;
 import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
 import com.lxisoft.movie.*;
-/*
-import java.io.*;
 import java.util.*;
+import java.io.*;
 import java.nio.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-*/
-//create 3 arrayLists for saving heroname,heroinename and comedian name ---- their charname.....
 
-// Ask for Movie Genre at the beginning itself
-
-//add names of all to arrayLists and also to setheroCharName,.......in Characters Class
-
-//add 
-
-//enter names and characters and print them to the user
-
-//save each script to file and read each dialogues from file and add to an arrayListand get dialogues using--- random----get(Random variable) 
-import java.util.*;
 
 public class ScriptWriter
 {
  
 Scanner sc=new Scanner(System.in);
-/*	
-static final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.txt";
-static final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.txt";
-static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.txt";
-static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.txt";
+
+private String writerName,line;	
+
+static final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
+static final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
+static final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.CSV";
+static final String action= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.CSV";
 	
-	long numOfLines=0;
+	
+	   ArrayList<Hero> heroo=new ArrayList<Hero>();
+	   ArrayList<Heroine> heroinee=new ArrayList<Heroine>();
+	   ArrayList<Comedian> comediann=new ArrayList<Comedian>();
+	   ArrayList<Villain> villainn=new ArrayList<Villain>();
 
 	
-	ArrayList<Hero> heroo=new ArrayList<Hero>();
-	ArrayList<Heroine> heroinee=new ArrayList<Heroine>();
-	ArrayList<Comedian> comediann=new ArrayList<Comedian>();
-	ArrayList<Villain> villainn=new ArrayList<Villain>();
+	  ArrayList<String> romScr=new ArrayList<String>();
+     ArrayList<String> emoScr=new ArrayList<String>();
+     ArrayList<String> comScr=new ArrayList<String>();
+     ArrayList<String> actScr=new ArrayList<String>();	
 
-	
-	ArrayList<String> romDialog=new ArrayList<String>();
-    ArrayList<String> emoDialog=new ArrayList<String>();
-    ArrayList<String> comDialog=new ArrayList<String>();	
-	
-	BufferedReader brom=new BufferedReader(new FileReader(romance));
-	BufferedReader bemo=new BufferedReader(new FileReader(emotional));
-	BufferedReader bcom=new BufferedReader(new FileReader(comedy));
-
-
-								                 Long a=numberOfLinesInRomanceFile();
-												 Long b=numberOfLinesInEmotionalFile();
-												 Long c=numberOfLinesInComedyFile();
-
-*/
-String writerName;
 
 public void writerDetails()
 {
@@ -75,21 +52,72 @@ public String getWriterName()
 	return writerName;
 } 
 
-/*
+
 	
-public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , ArrayList<Comedian> , ArrayList<Villain>)
+public void writingTheScript(int genre,ArrayList<Hero> heroo,ArrayList<Heroine> heroinee,ArrayList<Comedian> comediann,ArrayList<Villain> villainn)
 {
+       
 	switch(genre)
             {
-                 case 1 : 
-                                             
-							                                 try{
-					                                                 Thread.sleep(2000);
-				                                                  }
-				                                       catch(InterruptedException e)
-				                                                   {
-					                                                  Thread.currentThread().interrupt();
-				                                                  }
+                 case 1 : //romantic script
+
+                                 try{     
+   
+   
+	// BufferedReader bact=new BufferedReader(new FileReader(action));
+	
+	
+                BufferedReader brom=new BufferedReader(new FileReader(romance));
+                                 while( (line=brom.readLine()) != null)
+                                    {
+                 	                 romScr.add(line);
+                                    }
+
+                BufferedReader bemo=new BufferedReader(new FileReader(emotional));
+                                 while( (line=bemo.readLine()) != null)
+                                    {
+                                    	if(line.length()<50)
+                                    	{
+                                         romScr.add(line);		
+                                    	}
+                                     
+                                    }
+
+                BufferedReader bcom=new BufferedReader(new FileReader(comedy));
+                                 while( (line=bcom.readLine()) != null ) 
+                                    {
+                                    	if(line.length()<50)
+                                    	{
+                                         romScr.add(line);		
+                                    	}
+                                     
+                                    }
+
+                  for(String a:romScr)
+                  {
+                      System.out.println(a);
+                  }
+                            
+                       
+                            }
+                          
+
+                          }
+                          catch(IOException io)
+                          {
+                            io.printStackTrace();
+                          }
+
+
+
+
+                          try{
+                          	Thread.sleep(2000);
+                          }
+                          catch(InterruptedException ex)
+				                         {
+					                       Thread.currentThread().interrupt();
+				                         }
 	                   
 							   break;
 							   
@@ -99,7 +127,7 @@ public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , 
 													  try{
 					                                         Thread.sleep(2000);
 				                                           }
-				                                catch(InterruptedException e)
+				                                catch(InterruptedException ex)
 				                                          {
 					                                         Thread.currentThread().interrupt();
 				                                          }
@@ -111,7 +139,7 @@ public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , 
 													 try{
 					                                         Thread.sleep(2000);
 				                                           }
-				                                catch(InterruptedException e)
+				                                catch(InterruptedException ex)
 				                                          {
 					                                         Thread.currentThread().interrupt();
 				                                          }
@@ -122,7 +150,7 @@ public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , 
 				                                        try{
 					                                         Thread.sleep(2000);
 				                                           }
-				                                catch(InterruptedException e)
+				                                catch(InterruptedException ex)
 				                                          {
 					                                         Thread.currentThread().interrupt();
 				                                          }
@@ -132,54 +160,23 @@ public void writingTheScript(int genre , ArrayList<Hero> , ArrayList<Heroine> , 
 
 }
 
+/*
 
-public long numberOfLinesInRomanceFile()
+public long noOflinesRomFile(String romanceFile) 
 {
-	
-	
-	try{
-	         numOfLines=Files.lines(Paths.get(romance)).count();	
-	}
-	catch(IOException e)
-	{
-		e.printStackTrace();
-	}
-	
-	return numOfLines;
+   long lines = 0;
+
+      try 
+      {
+          lines = Files.lines(Paths.get(romanceFile)).count();
+      } 
+      catch (IOException e) 
+      {
+          e.printStackTrace();
+      }
+      
+    return lines;
+  */
+
+
 }
-
-
-public long numberOfLinesInEmotionalFile()
-{
-	
-	
-	try{
-	         numOfLines=Files.lines(Paths.get(emotional)).count();	
-	}
-	catch(IOException e)
-	{
-		e.printStackTrace();
-	}
-	
-	return numOfLines;
-}
-
-
-public long numberOfLinesInComedyFile()
-{
-	
-	
-	try{
-	         numOfLines=Files.lines(Paths.get(comedy)).count();	
-	}
-	catch(IOException e)
-	{
-		e.printStackTrace();
-	}
-	
-	return numOfLines;
-}
-
-*/
-}
-

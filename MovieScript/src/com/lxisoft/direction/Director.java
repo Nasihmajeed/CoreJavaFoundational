@@ -23,7 +23,6 @@ ArrayList<Heroine> allHeroines=new ArrayList<Heroine>();
 ArrayList<Comedian> allComedians=new ArrayList<Comedian>();
 ArrayList<Villain> allVillains=new ArrayList<Villain>();
 
-
 	
 	public void setDirectorName(String directorName)
 	{
@@ -59,11 +58,10 @@ ArrayList<Villain> allVillains=new ArrayList<Villain>();
      return numOfMoviesDirected;
     }
 	
-/*	 
-	 Movie m=new Movie();
-	ScriptWriter writer=new ScriptWriter();   Script writer is selected by the Director of the Movie 
+	 
+	  
 	
-	*/
+	
 	  
 	 //Casting the actors by the Director---
 	 
@@ -219,10 +217,11 @@ return allVillains;
 
 public void printCharacters()
 {
-	    System.out.println("\r\n");
+	  System.out.println("\r\n");
+		
 		System.out.println("---------------------------------------------------------------------------");
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.println("----------------------------=====CHARACTERS=====---------------------------");
+    System.out.println("---------------------------------------------------------------------------");
+    System.out.println("----------------------------=====CHARACTERS=====---------------------------");
 		System.out.println("---------------------------------------------------------------------------");
 		System.out.println("---------------------------------------------------------------------------");
 		
@@ -304,34 +303,7 @@ public void printCharacters()
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");
 	
-	/*
 	
-	
-	genre=m.getMovieGenre();
-	
-	
-	
-	if(genre.equals("Romantic"))
-	{
-		num=1;
-	}
-	else if(genre.equals("Emotional"))
-	{
-		num=2;
-	}
-	else if(genre.equals("Comedy"))
-	{
-		num=3;
-	}
-	else if(genre.equals("Action"))
-	{
-		num=4;
-	}
-	
-	
-	
-	writer.writingTheScript(num , allHeroes , allHeroines , allComedians , allVillains);
-*/
 }
 	  	
 }
