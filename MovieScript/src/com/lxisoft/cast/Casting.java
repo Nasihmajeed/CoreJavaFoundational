@@ -11,20 +11,24 @@ int numberOfCharacters,i;
 
 Scanner sc=new Scanner(System.in);
 
-Actors hero=new Hero();
-Actors heroine=new Heroine();
-Actors comedian=new Comedian();
-Actors villan =new Villan();
+Hero hero=new Hero();
+Heroine heroine=new Heroine();
+Comedian comedian=new Comedian();
+Villan villan =new Villan();
 
 
 
-ArrayList<Actors> actorsHero=new ArrayList<Actors>();
-ArrayList<Actors> actorsHeroine=new ArrayList<Actors>();
-ArrayList<Actors> actorsComedian=new ArrayList<Actors>();
-ArrayList<Actors> actorsVillan=new ArrayList<Actors>();
+ArrayList<Hero> actorsHero=new ArrayList<Hero>();
+ArrayList<Heroine> actorsHeroine=new ArrayList<Heroine>();
+ArrayList<Comedian> actorsComedian=new ArrayList<Comedian>();
+ArrayList<Villan> actorsVillan=new ArrayList<Villan>();
 
 
-public Map<String,ArrayList<Actors>> castMap=new HashMap<String,ArrayList<Actors>>();
+
+		Map<String,ArrayList<Hero>> heroMap=new HashMap<String,ArrayList<Hero>>();
+		Map<String,ArrayList<Heroine>> heroineMap=new HashMap<String,ArrayList<Heroine>>();
+		Map<String,ArrayList<Comedian>> comedianMap=new HashMap<String,ArrayList<Comedian>>();
+		Map<String,ArrayList<Villan>> villanMap=new HashMap<String,ArrayList<Villan>>();
 
 public void setHeroName()
 {
@@ -42,7 +46,7 @@ public void setHeroName()
 		hero.heroCharacterName=sc.next();
 
 		actorsHero.get(i).setHeroCharacterName(hero.heroCharacterName);
-	castMap.put("Hero",actorsHero);	
+	heroMap.put("Hero",actorsHero);	
 		
 	
 	}
@@ -66,7 +70,7 @@ public void setHeroineName()
 		actorsHeroine.get(i).setHeroineCharacterName(heroine.heroineCharacterName);
 
 
-	castMap.put("Heroine",actorsHeroine);	
+	heroineMap.put("Heroine",actorsHeroine);	
 		
 		
 	}
@@ -88,7 +92,7 @@ public void setComedianName()
 		comedian.comedianCharacterName=sc.next();
 		actorsComedian.get(i).setComedianCharacterName(comedian.comedianCharacterName);
 
-		castMap.put("Comedian",actorsComedian);	
+		comedianMap.put("Comedian",actorsComedian);	
 		
 	
 	}
@@ -111,7 +115,7 @@ public void setVillianName()
 		 villan.villianCharacterName=sc.next();
 		  actorsVillan.get(i).setVillianCharacterName(villan.villianCharacterName);
 
-		 castMap.put("Villian",actorsVillan);	
+		 villanMap.put("Villian",actorsVillan);	
 
 		 
 	}
@@ -123,7 +127,7 @@ public void displayHero()
 	for(i=0;i<actorsHero.size();i++)
 	{
  		
- 			System.out.println(" "+castMap.get("Hero").get(i).getHeroName()+" "+castMap.get("Hero").get(i).getHeroCharacterName());
+ 			System.out.println(" "+heroMap.get("Hero").get(i).getHeroName()+" "+heroMap.get("Hero").get(i).getHeroCharacterName());
  		
   }	 
 
@@ -161,10 +165,29 @@ public void displayVillan()
 
 
 
-public Map<String,ArrayList<Actors>> getMap()
+/*public Map<String,ArrayList<Actors>> getMap()
 {
 	return castMap;
+}*/
+
+public Map<String,ArrayList<Hero>> getHeroMap()
+{
+	return heroMap;
 }
+public Map<String,ArrayList<Heroine>> getHeroineMap()
+{
+	return heroineMap;
+}
+public Map<String,ArrayList<Comedian>> getComedianMap()
+{
+	return comedianMap;
+}
+public Map<String,ArrayList<Villan>> getVillanMap()
+{
+	return villanMap;
+}
+
+
 
 
 
