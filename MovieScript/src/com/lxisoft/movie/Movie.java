@@ -12,20 +12,21 @@ public class Movie
 
 Scanner sc=new Scanner(System.in);
 
-private String movieName,movieGenre;
+private String movieName,movieGenre,movieLanguage;
 private float rating;
 private int yearOfRelease;
 
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-ScriptWriter writer;
+ScriptWriter writer=new ScriptWriter();
 
+/*
 ArrayList<Hero> heros=new ArrayList<Hero>();
 ArrayList<Heroine> heroin=new ArrayList<Heroine>();
 ArrayList<Comedian> comediann=new ArrayList<Comedian>();
 ArrayList<Villain> vilain=new ArrayList<Villain>();
-
+*/
 
 public void begin()
 {
@@ -33,7 +34,7 @@ System.out.println("\r\n");
 System.out.println("------------------------------------------------------------");	
 System.out.println("---------------: Enter the name of the movie :--------------");
 System.out.println("------------------------------------------------------------");
-movieName=sc.next();	
+setMovieName(sc.next());	
 
                 try{
 					Thread.sleep(2000);
@@ -43,8 +44,22 @@ movieName=sc.next();
 					Thread.currentThread().interrupt();
 				    }
 
-    System.out.println("\r\n");
-    System.out.println("---------------------------------------------------------------------------------------------------------");	
+System.out.println("\r\n");
+System.out.println("------------------------------------------------------------");	
+System.out.println("---------------: Enter the Language of the movie :--------------");
+System.out.println("------------------------------------------------------------");
+setMovieLanguage(sc.next());
+
+                  try{
+					Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+  System.out.println("\r\n");
+  System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("----------------------------------Enter the genre of your movie------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("Romantic");
@@ -54,10 +69,8 @@ movieName=sc.next();
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");					
-   
-   
-                           movieGenre=sc.next();
-						   setMovieGenre(movieGenre);
+	
+	setMovieGenre(sc.next());
 						  
 	            
 				try{
@@ -69,13 +82,12 @@ movieName=sc.next();
 				    }
 
     System.out.println("\r\n");
-                          System.out.println("---------------------------------------------------------------------------------------------------------");
-                          System.out.println("-----------------------------Enter the Year in which the Movie was Released------------------------------"); 
-                          System.out.println("---------------------------------------------------------------------------------------------------------");
-						  yearOfRelease=sc.nextInt();
-						  setYear(yearOfRelease);
-						  						 
+    System.out.println("---------------------------------------------------------------------------------------------------------");
+    System.out.println("-----------------------------Enter the Year in which the Movie was Released------------------------------"); 
+    System.out.println("---------------------------------------------------------------------------------------------------------");
 						  
+		setYear(sc.nextInt());
+					
     System.out.println("\r\n");
 
 				try{
@@ -122,8 +134,6 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 
-writer=new ScriptWriter();
-
 writer.writerDetails();
 
                   try{
@@ -136,11 +146,11 @@ writer.writerDetails();
 					
 //Casting the actors
 
-heros=director.castingTheHero();
-heroin=director.castingTheHeroine();
-comediann=director.castingTheComedian();
-vilain=director.castingTheVillain();
-                
+director.castingTheHero();
+director.castingTheHeroine();
+director.castingTheComedian();
+director.castingTheVillain();
+               
                  try{
 					   Thread.sleep(2000);
 				     }
@@ -153,7 +163,7 @@ vilain=director.castingTheVillain();
     System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
-				System.out.println("Name of the Movie : "+movieName);
+				System.out.println("Name of the Movie : "+getMovieName());
 
 
 				try{
@@ -272,32 +282,40 @@ director.printCharacters();
 				    {
 					Thread.currentThread().interrupt();
 				    }									
-}
 
-
-public void play()
-{
-writer=new ScriptWriter();
 
 if(getMovieGenre().equals("Romantic"))
 {
-	writer.writingTheScript(1,heros,heroin,comediann,vilain);	
+	writer.writeScript(1);	
 }	
 else if(getMovieGenre().equals("Comedy"))
 {
-	writer.writingTheScript(2,heros,heroin,comediann,vilain);
+	writer.writeScript(2);
 }
 else if(getMovieGenre().equals("Emotional"))
 {
-	writer.writingTheScript(3,heros,heroin,comediann,vilain);
+	writer.writeScript(3);
 }
 else if(getMovieGenre().equals("Action"))
 {
-	writer.writingTheScript(4,heros,heroin,comediann,vilain);
+	writer.writeScript(4);
 }
+
 
 }
 
+
+//Name of the movie
+
+public void setMovieName(String movieName)
+{
+this.movieName=movieName;	
+}		
+
+public String getMovieName()
+{
+	return movieName;
+}
 
 
 //Genre of the movie
@@ -310,6 +328,18 @@ this.movieGenre=movieGenre;
 public String getMovieGenre()
 {
 	return movieGenre;
+}
+
+//Language of the movie
+
+public void setMovieLanguage(String movieLanguage)
+{
+this.movieLanguage=movieLanguage;	
+}		
+
+public String getMovieLanguage()
+{
+	return movieLanguage;
 }
 
 
@@ -338,11 +368,4 @@ public void setYear(int yearOfRelease)
 		return yearOfRelease;
 	}
 	
-
 }
-
-
-
-
-
-    

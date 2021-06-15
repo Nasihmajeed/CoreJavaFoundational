@@ -65,7 +65,7 @@ ArrayList<Villain> allVillains=new ArrayList<Villain>();
 	  
 	 //Casting the actors by the Director---
 	 
-	 public ArrayList<Hero> castingTheHero()
+	 public void castingTheHero()
 {
 	 System.out.println("Enter the number of heroes in the movie : ");
      numOfHero=sc.nextInt(); 
@@ -98,10 +98,9 @@ ArrayList<Villain> allVillains=new ArrayList<Villain>();
 		 
 		 
 	 }
-return allHeroes;
 }
 
-public ArrayList<Heroine> castingTheHeroine()
+ public void castingTheHeroine()
 {
 	 System.out.println("Enter the number of heroines in the movie : ");
      numOfHeroine=sc.nextInt(); 
@@ -135,12 +134,12 @@ public ArrayList<Heroine> castingTheHeroine()
 		 System.out.println("\r\n");
 		  		 
 	 }
-return allHeroines;
+
 }
 
 
 
-public ArrayList<Comedian> castingTheComedian()
+ public void castingTheComedian()
 {
 	 System.out.println("Enter the number of comedians in the movie : ");
      numOfCom=sc.nextInt(); 
@@ -175,12 +174,12 @@ public ArrayList<Comedian> castingTheComedian()
 		 System.out.println("\r\n");
 		 
 	 }
-return allComedians;
+
 }
 
 
 
-public ArrayList<Villain> castingTheVillain()
+public void castingTheVillain()
 {
 	 System.out.println("Enter the number of villains in the movie : ");
      numOfVillain=sc.nextInt(); 
@@ -211,7 +210,29 @@ public ArrayList<Villain> castingTheVillain()
 		 allVillains.get(i).setVillainCharName(villainCharName);
 
 	 }
-return allVillains;
+
+}
+
+
+
+public ArrayList<Hero> returnHero()
+{
+	return allHeroes;
+}
+
+public ArrayList<Heroine> returnHeroine()
+{
+	return allHeroines;
+}
+
+public ArrayList<Comedian> returnComedian()
+{
+	return allComedians;
+}
+
+public ArrayList<Villain> returnVillain()
+{
+	return allVillains;
 }
 
 

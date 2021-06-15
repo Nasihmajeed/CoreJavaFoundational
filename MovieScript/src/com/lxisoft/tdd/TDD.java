@@ -26,6 +26,6 @@ System.out.println("------------------------------------------------------------
 }
 Movie movie=new Movie();
 movie.begin();
-movie.play();
+
 }
 }
