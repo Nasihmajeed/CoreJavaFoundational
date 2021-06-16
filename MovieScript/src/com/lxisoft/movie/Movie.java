@@ -26,6 +26,10 @@ public class Movie{
   String [] hero =new String[10];
   String [] heroine =new String[10];
   String [] villain =new String[10];
+  String [] comedianCharName= new String[10];
+  String [] heroCharName =new String[10];
+  String [] heroineCharName =new String[10];
+  String [] villainCharName =new String[10];
 //  int n;
   String movieName;
   public int randNum(){
@@ -35,7 +39,7 @@ public class Movie{
   	}
   public void FileWordSearch() throws IOException{
 
-        File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\comedyScene.txt"); //Creation of File Descriptor for input file
+        File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\script.csv"); //Creation of File Descriptor for input file
         String[] words=null;  //Intialize the word Array
         FileReader fr = new FileReader(f1);  //Creation of File Reader object
         BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
@@ -168,28 +172,40 @@ fr.close();
     System.out.println("enter number of comedians");
     int c=sc.nextInt();
 
-    System.out.println("ENTER comedian's  name : ");
+
     for(int i=0;i<c;i++){
+      System.out.println("ENTER comedian's  name : ");
       comedian[i]=sr.nextLine();
+      System.out.println("ENTER "+comedian[i]+"'s CHARACTER name :");
+      comedianCharName[i]=sv.nextLine();
     }
     System.out.println("enter number of hero");
     int h=sr.nextInt();
     //comedian=sr.nextLine();
-    System.out.println("ENTER Hero's  name : ");
+
     for(int i=0;i<h;i++){
-    hero[i]=si.nextLine();
+      System.out.println("ENTER Hero's  name : ");
+     hero[i]=si.nextLine();
+     System.out.println("ENTER "+hero[i]+"'s CHARACTER name :");
+     heroCharName[i]=sn.nextLine();
   }
   System.out.println("enter number of heroine");
   int hi=ss.nextInt();
-    System.out.println("ENTER Heroine's name  : ");
+
     for(int i=0;i<hi;i++){
+    System.out.println("ENTER Heroine's name  : ");
     heroine[i]=sv.nextLine();
+    System.out.println("ENTER "+heroine[i]+"'s CHARACTER name :");
+    heroineCharName[i]=si.nextLine();
     }
     System.out.println("enter number of Villain");
     int v=ss.nextInt();
-    System.out.println("ENTER Vilain's name  : ");
+
     for(int i=0;i<v;i++){
+      System.out.println("ENTER Vilain's name  : ");
     villain[i]=si.nextLine();
+    System.out.println("ENTER "+heroine[i]+"'s CHARACTER name :");
+    villainCharName[i]=sv.nextLine();
   }
     for (int i=0;i<script.size();i++){
     //  System.out.println(script.get(i).getCharacter());
@@ -301,7 +317,7 @@ fr.close();
            map.put("22","romantic;Hero;: Adhe namukayi swandhamenn parayan oru veed");
 
            // new file object
-           File file = new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\comedyScene.txt");
+           File file = new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\files\\script.csv");
 
            BufferedWriter bf = null;
 
