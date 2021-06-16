@@ -5,7 +5,6 @@ import com.lxisoft.cast.*;
 import com.lxisoft.scripts.*;
 
 import java.util.*;
-//Movie contains Director who selects actors and ScriptWriter.....(Does the casting) ,  Script contains a method selectScript()
 
 public class Movie
 {
@@ -21,12 +20,70 @@ private int yearOfRelease;
 Director director=new Director();
 ScriptWriter writer=new ScriptWriter();
 
-/*
-ArrayList<Hero> heros=new ArrayList<Hero>();
-ArrayList<Heroine> heroin=new ArrayList<Heroine>();
-ArrayList<Comedian> comediann=new ArrayList<Comedian>();
-ArrayList<Villain> vilain=new ArrayList<Villain>();
-*/
+
+//Name of the movie
+
+public void setMovieName(String movieName)
+{
+this.movieName=movieName;	
+}		
+
+public String getMovieName()
+{
+	return movieName;
+}
+
+
+//Genre of the movie
+
+public void setMovieGenre(String movieGenre)
+{
+this.movieGenre=movieGenre;	
+}		
+
+public String getMovieGenre()
+{
+	return movieGenre;
+}
+
+//Language of the movie
+
+public void setMovieLanguage(String movieLanguage)
+{
+this.movieLanguage=movieLanguage;	
+}		
+
+public String getMovieLanguage()
+{
+	return movieLanguage;
+}
+
+
+//Movie Rating
+
+    public void setRating(float rating)
+	{
+		this.rating=rating;
+	}
+
+	public float getRating()
+	{
+		return rating;
+	}
+
+
+//Year of Release
+
+    public void setYear(int yearOfRelease)
+	{
+		this.yearOfRelease=yearOfRelease;
+	}
+		
+	public int getYear()
+	{
+		return yearOfRelease;
+	}
+	
 
 public void begin()
 {
@@ -44,6 +101,8 @@ setMovieName(sc.next());
 					Thread.currentThread().interrupt();
 				    }
 
+
+
 System.out.println("\r\n");
 System.out.println("------------------------------------------------------------");	
 System.out.println("---------------: Enter the Language of the movie :--------------");
@@ -57,6 +116,10 @@ setMovieLanguage(sc.next());
 				    {
 					Thread.currentThread().interrupt();
 				    }
+
+
+
+
 
   System.out.println("\r\n");
   System.out.println("---------------------------------------------------------------------------------------------------------");	
@@ -81,12 +144,17 @@ setMovieLanguage(sc.next());
 					Thread.currentThread().interrupt();
 				    }
 
+
+
+
+
+
     System.out.println("\r\n");
     System.out.println("---------------------------------------------------------------------------------------------------------");
     System.out.println("-----------------------------Enter the Year in which the Movie was Released------------------------------"); 
     System.out.println("---------------------------------------------------------------------------------------------------------");
 						  
-		setYear(sc.nextInt());
+    setYear(sc.nextInt());
 					
     System.out.println("\r\n");
 
@@ -102,6 +170,11 @@ setMovieLanguage(sc.next());
                           System.out.println("---------------------------------------Enter the Rating of the Movie-------------------------------------"); 
                           System.out.println("---------------------------------------------------------------------------------------------------------");
 						  setRating(sc.nextFloat());
+
+
+
+
+
 	
 	System.out.println("\r\n");
 
@@ -124,6 +197,11 @@ System.out.println("\r\n");
 
 System.out.println("Enter the number of movies directed by the Director");
 director.setNumberOfMoviesDirected(sc.nextInt());
+
+
+
+
+
 System.out.println("\r\n");
                    
                    try{
@@ -134,7 +212,8 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 
-writer.writerDetails();
+
+     writer.writerDetails();
 
                   try{
 					   Thread.sleep(2000);
@@ -143,14 +222,12 @@ writer.writerDetails();
 				    {
 					Thread.currentThread().interrupt();
 				    }
-					
-//Casting the actors
 
-director.castingTheHero();
-director.castingTheHeroine();
-director.castingTheComedian();
-director.castingTheVillain();
-               
+}
+
+
+ public void getMovieDetails()
+ {
                  try{
 					   Thread.sleep(2000);
 				     }
@@ -158,6 +235,10 @@ director.castingTheVillain();
 				    {
 					Thread.currentThread().interrupt();
 				    }
+
+
+
+
     System.out.println("\r\n");
 
     System.out.println("---------------------------------------------------------------------------------------------------------");	
@@ -269,103 +350,5 @@ director.castingTheVillain();
 				    {
 					Thread.currentThread().interrupt();
 				    }
-
-    System.out.println("\r\n");
-
-director.printCharacters();
-						  
-						  
-			     try{
-					    Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }									
-
-
-if(getMovieGenre().equals("Romantic"))
-{
-	writer.writeScript(1);	
-}	
-else if(getMovieGenre().equals("Comedy"))
-{
-	writer.writeScript(2);
 }
-else if(getMovieGenre().equals("Emotional"))
-{
-	writer.writeScript(3);
-}
-else if(getMovieGenre().equals("Action"))
-{
-	writer.writeScript(4);
-}
-
-
-}
-
-
-//Name of the movie
-
-public void setMovieName(String movieName)
-{
-this.movieName=movieName;	
-}		
-
-public String getMovieName()
-{
-	return movieName;
-}
-
-
-//Genre of the movie
-
-public void setMovieGenre(String movieGenre)
-{
-this.movieGenre=movieGenre;	
-}		
-
-public String getMovieGenre()
-{
-	return movieGenre;
-}
-
-//Language of the movie
-
-public void setMovieLanguage(String movieLanguage)
-{
-this.movieLanguage=movieLanguage;	
-}		
-
-public String getMovieLanguage()
-{
-	return movieLanguage;
-}
-
-
-//Movie Rating
-
-    public void setRating(float rating)
-	{
-		this.rating=rating;
-	}
-
-	public float getRating()
-	{
-		return rating;
-	}
-
-
-//Year of Release
-
-public void setYear(int yearOfRelease)
-	{
-		this.yearOfRelease=yearOfRelease;
-	}
-		
-	public int getYear()
-	{
-		return yearOfRelease;
-	}
-	
 }

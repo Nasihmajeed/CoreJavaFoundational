@@ -24,8 +24,34 @@ System.out.println("------------------------------------------------------------
 					Thread.currentThread().interrupt();
 				    }
 }
+
+
 Movie movie=new Movie();
+ScriptWriter scr=new ScriptWriter();
+
+
 movie.begin();
+
+if(movie.getMovieGenre().equals("Romantic"))
+{
+scr.startMovie(1);	
+}
+
+else if(movie.getMovieGenre().equals("Emotional"))
+{
+scr.startMovie(2);	
+}
+
+else if(movie.getMovieGenre().equals("Comedy"))
+{
+scr.startMovie(3);	
+}
+
+else if(movie.getMovieGenre().equals("Action"))
+{
+scr.startMovie(4);	
+}
+
 
 }
 }
