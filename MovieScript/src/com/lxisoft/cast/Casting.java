@@ -7,7 +7,7 @@ import com.lxisoft.cast.*;
 public class Casting
 {
 	
-int numberOfCharacters,i;
+int numberOfCharacters;
 
 Scanner sc=new Scanner(System.in);
 
@@ -19,24 +19,16 @@ Villan villan =new Villan();
 
 
 ArrayList<Actors> actors=new ArrayList<Actors>();
-/*ArrayList<Heroine> actorsHeroine=new ArrayList<Heroine>();
-ArrayList<Comedian> actorsComedian=new ArrayList<Comedian>();
-ArrayList<Villan> actorsVillan=new ArrayList<Villan>();*/
 
-
-
-		Map<String,ArrayList<Actors>> castMap=new HashMap<String,ArrayList<Actors>>();
-		/*Map<String,ArrayList<Heroine>> heroineMap=new HashMap<String,ArrayList<Heroine>>();
-		Map<String,ArrayList<Comedian>> comedianMap=new HashMap<String,ArrayList<Comedian>>();
-		Map<String,ArrayList<Villan>> villanMap=new HashMap<String,ArrayList<Villan>>();*/
-
+Map<String,ArrayList<Actors>> castMap=new HashMap<String,ArrayList<Actors>>();
+		
 
 
 public void setHeroName()
 {
 	System.out.println("Enter the number of heros: ");
 	numberOfCharacters=sc.nextInt();
-	for(i=0;i<numberOfCharacters;i++)
+	for(int i=0;i<numberOfCharacters;i++)
 	{
 		
 		System.out.println("Enter the name of hero "+(i+1));
@@ -62,7 +54,7 @@ public void setHeroineName()
 {
 	System.out.println("Enter the number of heroines: ");
 	numberOfCharacters=sc.nextInt();
-	for(i=0;i<numberOfCharacters;i++)
+	for(int i=0;i<numberOfCharacters;i++)
 	{	
 		System.out.println("Enter the name of heroines "+(i+1));
 		heroine.heroineName=sc.next();	
@@ -86,7 +78,7 @@ public void setComedianName()
 {
 	System.out.println("Enter the number of Comedian: ");
 	numberOfCharacters=sc.nextInt();
-	for(i=0;i<numberOfCharacters;i++)
+	for(int i=0;i<numberOfCharacters;i++)
 	{	
 		System.out.println("Enter the name of Comedian "+(i+1));
 		comedian.comedianName=sc.next();	
@@ -110,7 +102,7 @@ public void setVillianName()
 {
 	System.out.println("Enter the number of Villian: ");
 	numberOfCharacters=sc.nextInt();
-	for(i=0;i<numberOfCharacters;i++)
+	for(int i=0;i<numberOfCharacters;i++)
 	{
 		
 			System.out.println("Enter the name of Villian "+(i+1));
@@ -131,9 +123,9 @@ public void setVillianName()
 
 
 }
-public void displayHero()
+public void displayCast()
 {
-	for(i=0;i<actors.size();i++)
+	for(int i=0;i<actors.size();i++)
 	{		if(actors.get(i) instanceof Hero)
  			{System.out.println(" "+castMap.get("Hero").get(i).getHeroName()+" "+castMap.get("Hero").get(i).getHeroCharacterName());
  			}
@@ -203,9 +195,9 @@ public Map<String,ArrayList<Actors>> getMap()
 	return castMap;
 }
 
-public void displayMap()
+/*public void displayMap()
 {
-	 for(i=0;i<actors.size();i++)
+	 for(int i=0;i<actors.size();i++)
 	 {
 	 	System.out.print(castMap.get("Villian").get(i).getVillianCharacterName());
 	 }
@@ -244,20 +236,20 @@ public Map<String,ArrayList<Villan>> getVillanMap()
 
 }
 
-public void displayAllCast()
+/*public void displayAllCast()
 {
 
 	
 displayHero();
-/*displayHeroine();
+displayHeroine();
 displayComedian();
-displayVillan();*/
+displayVillan();
  
 
  
   
     
-}
+}*/
 
 
 

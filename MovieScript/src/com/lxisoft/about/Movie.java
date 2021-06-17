@@ -13,7 +13,7 @@ public class Movie
 	Scanner sc=new Scanner(System.in);
 	Director director=new Director();
 	ScriptWriter scriptWriter=new ScriptWriter();
-	int ans,againAns;
+	
 public void movieDetails()
 {
 
@@ -71,7 +71,7 @@ public float getRating()
 
 
 	public void startMovie()
-	{		
+	{		int ans,againAns;
 			System.out.println("\t-----------------------------");
 			System.out.println("\tMovie Script Project");
 			System.out.println("\t-----------------------------");
