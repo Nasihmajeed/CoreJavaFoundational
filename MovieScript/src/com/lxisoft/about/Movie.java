@@ -80,6 +80,7 @@ public float getRating()
 		
 		System.out.println("\t Now the Characters and roles has been set");
 		System.out.println("\t--------------------------------------------");
+		
 		do{
 
 				
@@ -108,8 +109,8 @@ public float getRating()
 			case 2:		System.out.println("\t\n The name of the movie \n"+getMovieName());
 							
 						
-						setImdb(8.1f);
-						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());
+						/*setImdb(8.1f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());*/
 						
 						setGenere("Romantic");
 						System.out.println("\t\n The Genere of this movie :"+getGenere());
@@ -120,8 +121,8 @@ public float getRating()
 			case 3:		System.out.println("\t\n The name of the movie \n"+getMovieName());	
 								
 						
-						setImdb(8.6f);
-						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());
+						/*setImdb(8.6f);
+						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());*/
 					
 						setGenere("Emotional");
 						System.out.println("\t\n The Genere of this movie :"+getGenere());
@@ -132,7 +133,7 @@ public float getRating()
 			case 4:		System.out.println("\t\n The name of the movie \n"+getMovieName());	
 						
 						
-						setImdb(8.6f);
+						//setImdb(8.6f);
 						
 						
 						setGenere("Thriller");

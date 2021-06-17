@@ -9,12 +9,11 @@ public class TDD
 {
 	public static void main(String [] args)
 	{	
-		StartMovie startMovie=new StartMovie();
+	Movie startMovie=new Movie();
 
 		startMovie.startMovie();
 
-
-		
+			
 
 	}
 }

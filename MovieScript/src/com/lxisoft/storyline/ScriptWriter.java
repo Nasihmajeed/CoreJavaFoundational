@@ -31,11 +31,9 @@ BufferedReader thrillerScriptReader=null;
 		String  heroName,heroineName,comedianName,villanName,directorName;
 
 
-		ArrayList<Script> comedyListFromFile=new ArrayList<Script>();
-		ArrayList<Script> romanceListFromFile=new ArrayList<Script>();
-		ArrayList<Script> emotionalListFromFile=new ArrayList<Script>();
-		ArrayList<Script> thrillerListFromFile=new ArrayList<Script>();	 
+		
 
+		ArrayList<Script> listFromFile=new ArrayList<Script>(); 
 
 
 		Hero hero=new Hero();
@@ -49,38 +47,35 @@ BufferedReader thrillerScriptReader=null;
 
 		//map for each class
 
-		Map<String,ArrayList<Hero>> heroMap=new HashMap<String,ArrayList<Hero>>();
-		Map<String,ArrayList<Heroine>> heroineMap=new HashMap<String,ArrayList<Heroine>>();
-		Map<String,ArrayList<Comedian>> comedianMap=new HashMap<String,ArrayList<Comedian>>();
-		Map<String,ArrayList<Villan>> villanMap=new HashMap<String,ArrayList<Villan>>();
+		
 
 		ArrayList<Actors> actors=new ArrayList<Actors>();
 		
 
-		 Director director=new Director();
-		//Movie movie=new Movie();
-		Casting casting=new Casting();
+		
+		
+
+		
 
 public void scriptSelection(int genere)
-{
-	casting.makeCasting();
-	//cast_Map=casting.getMap();
+{	
+	Casting casting=new Casting();
+		casting.makeCasting();
+		
+		cast_Map=casting.getMap();
 
-	heroMap=casting.getHeroMap();
-	heroineMap=casting.getHeroineMap();
-	comedianMap=casting.getComedianMap();
-	villanMap=casting.getVillanMap();
+	
 
 switch(genere)
 {
-	case 1: comedyListFromFile= comedyMovie();
+	case 1: listFromFile= comedyMovie();
 
 
-			for(i=0;i<comedyListFromFile.size();i++ )
+			for(i=0;i<listFromFile.size();i++ )
 			{
 			
 			
-					if(comedyListFromFile.get(i) instanceof ComedyScript)
+					if(listFromFile.get(i) instanceof ComedyScript)
 					{
 						
 
@@ -89,18 +84,18 @@ switch(genere)
 						if(i%2==0)
 						{
 
-							System.out.print(comedianMap.get("Comedian").get(0).getComedianCharacterName());
-							System.out.print("("+comedianMap.get("Comedian").get(0).getComedianName()+")");
+							System.out.print(cast_Map.get("Comedian").get(0).getComedianCharacterName());
+							System.out.print("("+cast_Map.get("Comedian").get(0).getComedianName()+")");
 
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.println(listFromFile.get(i).getDialogue());
 						}	
 							
 						
 						else if(i>2 && i>0)
 						{
-							System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-							System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+							System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+							System.out.println(listFromFile.get(i).getDialogue());
 						}	
 							
 
@@ -113,20 +108,20 @@ switch(genere)
 				}
 						
 					}
-					if(comedyListFromFile.get(i) instanceof RomanticScript)
+					if(listFromFile.get(i) instanceof RomanticScript)
 					{
 						
 						if(i%2==0)
 						{	
-							System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-							System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+							System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+							System.out.println(listFromFile.get(i).getDialogue());
 						}
 						else if(i>2)
 						{	
-							System.out.print(heroineMap.get("Heroine").get(0).getHeroineCharacterName());
-							System.out.print("("+heroineMap.get("Heroine").get(0).getHeroineName()+")");
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.print(cast_Map.get("Heroine").get(0).getHeroineCharacterName());
+							System.out.print("("+cast_Map.get("Heroine").get(0).getHeroineName()+")");
+							System.out.println(listFromFile.get(i).getDialogue());
 						}
 					}
 					try{
@@ -136,20 +131,20 @@ switch(genere)
 				{
 					Thread.currentThread().interrupt();
 				}
-					if(comedyListFromFile.get(i) instanceof EmotionalScript)
+					if(listFromFile.get(i) instanceof EmotionalScript)
 					{
 						
 						if(i%2==0)
 						{	
-							System.out.print(heroMap.get("Hero").get(1).getHeroCharacterName());
-							System.out.print("("+heroMap.get("Hero").get(1).getHeroName()+")");
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
+							System.out.print("("+cast_Map.get("Hero").get(1).getHeroName()+")");
+							System.out.println(listFromFile.get(i).getDialogue());
 						}
 						else if(i>2)
 						{	
-							System.out.print(heroineMap.get("Heroine").get(1).getHeroineCharacterName());
-							System.out.print("("+heroineMap.get("Heroine").get(1).getHeroineName()+")");
-							System.out.println(comedyListFromFile.get(i).getDialogue());
+							System.out.print(cast_Map.get("Heroine").get(1).getHeroineCharacterName());
+							System.out.print("("+cast_Map.get("Heroine").get(1).getHeroineName()+")");
+							System.out.println(listFromFile.get(i).getDialogue());
 						}
 					}
 
@@ -158,9 +153,9 @@ switch(genere)
 			}
 			break;
 			
-	case 2: romanceListFromFile= romanticMovie();
+	case 2: listFromFile= romanticMovie();
 
-			for(i=0;i<romanceListFromFile.size();i++ )
+			for(i=0;i<listFromFile.size();i++ )
 			{
 				try{
 					Thread.sleep(10);
@@ -170,17 +165,17 @@ switch(genere)
 					Thread.currentThread().interrupt();
 				}
 
-				if(romanceListFromFile.get(i) instanceof RomanticScript)
+				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
-					{	System.out.print(heroineMap.get("Heroine").get(1).getHeroineCharacterName());
-						System.out.print("("+heroineMap.get("Heroine").get(1).getHeroineName()+")");
-						System.out.println(romanceListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Heroine").get(1).getHeroineCharacterName());
+						System.out.print("("+cast_Map.get("Heroine").get(1).getHeroineName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(1).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(1).getHeroName()+")");
-					System.out.println(romanceListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(1).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
 					
@@ -193,18 +188,18 @@ switch(genere)
 					Thread.currentThread().interrupt();
 				}
 
-				if(romanceListFromFile.get(i) instanceof EmotionalScript)
+				if(listFromFile.get(i) instanceof EmotionalScript)
 				{
 					if(i%2==0)
-					{	System.out.print(heroineMap.get("Heroine").get(0).getHeroineCharacterName());
-						System.out.print("("+heroineMap.get("Heroine").get(0).getHeroineName()+")");
-						System.out.println(romanceListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Heroine").get(0).getHeroineCharacterName());
+						System.out.print("("+cast_Map.get("Heroine").get(0).getHeroineName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-					System.out.println(romanceListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
 				try{
@@ -214,18 +209,18 @@ switch(genere)
 				{
 					Thread.currentThread().interrupt();
 				}
-				if(romanceListFromFile.get(i) instanceof ComedyScript)
+				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0)
-					{	System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-						System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-						System.out.println(romanceListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+						System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-						System.out.print(comedianMap.get("Comedian").get(0).getComedianCharacterName());
-						System.out.print("("+comedianMap.get("Comedian").get(0).getComedianCharacterName()+")");
-					System.out.println(romanceListFromFile.get(i).getDialogue());	
+						System.out.print(cast_Map.get("Comedian").get(0).getComedianCharacterName());
+						System.out.print("("+cast_Map.get("Comedian").get(0).getComedianCharacterName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					
 				}
@@ -234,9 +229,9 @@ switch(genere)
 					
 			}		
 			break;		
-case 3: emotionalListFromFile= emotionalMovie();
+case 3: listFromFile= emotionalMovie();
 
-			for(i=0;i<emotionalListFromFile.size();i++ )
+			for(i=0;i<listFromFile.size();i++ )
 			{
 				try{
 					Thread.sleep(10);
@@ -245,18 +240,18 @@ case 3: emotionalListFromFile= emotionalMovie();
 				{
 					Thread.currentThread().interrupt();
 				}
-				if(emotionalListFromFile.get(i) instanceof EmotionalScript)
+				if(listFromFile.get(i) instanceof EmotionalScript)
 				{
 					if(i%2==0)
-					{	System.out.print(heroineMap.get("Heroine").get(0).getHeroineCharacterName());
-						System.out.print("("+heroineMap.get("Heroine").get(0).getHeroineName()+")");
-						System.out.println(emotionalListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Heroine").get(0).getHeroineCharacterName());
+						System.out.print("("+cast_Map.get("Heroine").get(0).getHeroineName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-					System.out.println(emotionalListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
 					try{
@@ -267,17 +262,17 @@ case 3: emotionalListFromFile= emotionalMovie();
 					Thread.currentThread().interrupt();
 				}
 
-				if(emotionalListFromFile.get(i) instanceof RomanticScript)
+				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
-					{	System.out.print(heroineMap.get("Heroine").get(1).getHeroineCharacterName());
-						System.out.print("("+heroineMap.get("Heroine").get(1).getHeroineName()+")");
-						System.out.println(emotionalListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Heroine").get(1).getHeroineCharacterName());
+						System.out.print("("+cast_Map.get("Heroine").get(1).getHeroineName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(1).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(1).getHeroName()+")");
-					System.out.println(emotionalListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(1).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
 					
@@ -290,18 +285,18 @@ case 3: emotionalListFromFile= emotionalMovie();
 					Thread.currentThread().interrupt();
 				}
 				
-				if(emotionalListFromFile.get(i) instanceof ComedyScript)
+				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0)
-					{	System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-						System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-						System.out.println(emotionalListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+						System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-						System.out.print(comedianMap.get("Comedian").get(0).getComedianCharacterName());
-						System.out.print("("+comedianMap.get("Comedian").get(0).getComedianName()+")");
-					System.out.println(emotionalListFromFile.get(i).getDialogue());	
+						System.out.print(cast_Map.get("Comedian").get(0).getComedianCharacterName());
+						System.out.print("("+cast_Map.get("Comedian").get(0).getComedianName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					
 				}
@@ -310,9 +305,9 @@ case 3: emotionalListFromFile= emotionalMovie();
 			break;		
 	
 
-	case 4 :thrillerListFromFile= thrillerMovie();
+	case 4 :listFromFile= thrillerMovie();
 
-			for(i=0;i<thrillerListFromFile.size();i++ )
+			for(i=0;i<listFromFile.size();i++ )
 			{
 				try{
 					Thread.sleep(10);
@@ -321,23 +316,23 @@ case 3: emotionalListFromFile= emotionalMovie();
 				{
 					Thread.currentThread().interrupt();
 				}
-				if(thrillerListFromFile.get(i) instanceof ThrillerScript)
+				if(listFromFile.get(i) instanceof ThrillerScript)
 				{
 					if(i%2==0)
-					{	System.out.print(villanMap.get("Villian").get(0).getVillianCharacterName());
-						System.out.print("("+villanMap.get("Villian").get(0).getVillianName()+")");
-						System.out.println(thrillerListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Villian").get(0).getVillianCharacterName());
+						System.out.print("("+cast_Map.get("Villian").get(0).getVillianName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-					System.out.println(thrillerListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					else if(i>15)
 					{
-						System.out.print(heroMap.get("Hero").get(1).getHeroCharacterName());
-					System.out.println(thrillerListFromFile.get(i).getDialogue());	
+						System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
 
@@ -349,17 +344,17 @@ case 3: emotionalListFromFile= emotionalMovie();
 					Thread.currentThread().interrupt();
 				}
 
-				if(thrillerListFromFile.get(i) instanceof RomanticScript)
+				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0)
-					{	System.out.print(heroineMap.get("Heroine").get(1).getHeroineCharacterName());
-						System.out.print("("+heroineMap.get("Heroine").get(1).getHeroineName()+")");
-						System.out.println(thrillerListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Heroine").get(1).getHeroineCharacterName());
+						System.out.print("("+cast_Map.get("Heroine").get(1).getHeroineName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-					System.out.print(heroMap.get("Hero").get(1).getHeroCharacterName());
-					System.out.print("("+heroMap.get("Hero").get(1).getHeroName()+")");
-					System.out.println(thrillerListFromFile.get(i).getDialogue());	
+					System.out.print(cast_Map.get("Hero").get(1).getHeroCharacterName());
+					System.out.print("("+cast_Map.get("Hero").get(1).getHeroName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
 					
@@ -372,18 +367,18 @@ case 3: emotionalListFromFile= emotionalMovie();
 				{
 					Thread.currentThread().interrupt();
 				}
-				if(thrillerListFromFile.get(i) instanceof ComedyScript)
+				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0)
-					{	System.out.print(heroMap.get("Hero").get(0).getHeroCharacterName());
-						System.out.print("("+heroMap.get("Hero").get(0).getHeroName()+")");
-						System.out.println(thrillerListFromFile.get(i).getDialogue());
+					{	System.out.print(cast_Map.get("Hero").get(0).getHeroCharacterName());
+						System.out.print("("+cast_Map.get("Hero").get(0).getHeroName()+")");
+						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2)
 					{
-						System.out.print(comedianMap.get("Comedian").get(0).getComedianCharacterName());
-						System.out.print("("+comedianMap.get("Comedian").get(0).getComedianName()+")");
-					System.out.println(thrillerListFromFile.get(i).getDialogue());	
+						System.out.print(cast_Map.get("Comedian").get(0).getComedianCharacterName());
+						System.out.print("("+cast_Map.get("Comedian").get(0).getComedianName()+")");
+					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					
 				}
@@ -396,11 +391,6 @@ case 3: emotionalListFromFile= emotionalMovie();
 }			
 
  
-
-/*if(listFromFile.get(i) instanceof MinorScript)
-{	//System.out.println("Romance scenes");
-	System.out.println(listFromFile.get(i).getDialogue());
-}*/
 
 
 
@@ -649,7 +639,6 @@ emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
 			if(!(dialogue.toString().equals("")))
 		{
 			emotionalList.add(new EmotionalScript());
-			emotionalList.get(i).setCharacter1(actor);
 			emotionalList.get(i).setDialogue(dialogue.toString());
 			i++;
 		}
@@ -669,7 +658,6 @@ emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
 		if(!(dialogueRomance.toString().equals("")))
 		{	i=emotionalList.size();
 			emotionalList.add(new RomanticScript());
-			emotionalList.get(i).setCharacter1(actorRomance);
 			emotionalList.get(i).setDialogue(dialogueRomance.toString());
 			i++;
 		}
@@ -691,7 +679,6 @@ j++;
 		if(!(dialogueComedy.toString().equals("")))
 		{	int s=emotionalList.size();
 			emotionalList.add(new ComedyScript());
-			emotionalList.get(s).setCharacter1(actorComedy);
 			emotionalList.get(s).setDialogue(dialogueComedy.toString());
 			s++;
 		}
