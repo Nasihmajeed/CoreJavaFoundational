@@ -87,11 +87,16 @@ public String getMovieLanguage()
 
 public void begin()
 {
-System.out.println("\r\n");
-System.out.println("------------------------------------------------------------");	
-System.out.println("---------------: Enter the name of the movie :--------------");
-System.out.println("------------------------------------------------------------");
-setMovieName(sc.next());	
+   
+
+   System.out.println("\r\n");
+   
+
+   System.out.println("------------------------------------------------------------");	
+   System.out.println("---------------: Enter the name of the movie :--------------");
+   System.out.println("------------------------------------------------------------");
+   setMovieName(sc.next());	
+ 
 
                 try{
 					Thread.sleep(2000);
@@ -103,11 +108,11 @@ setMovieName(sc.next());
 
 
 
-System.out.println("\r\n");
-System.out.println("------------------------------------------------------------");	
-System.out.println("---------------: Enter the Language of the movie :--------------");
-System.out.println("------------------------------------------------------------");
-setMovieLanguage(sc.next());
+   System.out.println("\r\n");
+   System.out.println("------------------------------------------------------------");	
+   System.out.println("---------------: Enter the Language of the movie :--------------");
+   System.out.println("------------------------------------------------------------");
+   setMovieLanguage(sc.next());
 
                   try{
 					Thread.sleep(2000);
@@ -121,8 +126,8 @@ setMovieLanguage(sc.next());
 
 
 
-  System.out.println("\r\n");
-  System.out.println("---------------------------------------------------------------------------------------------------------");	
+    System.out.println("\r\n");
+    System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("----------------------------------Enter the genre of your movie------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("Romantic");
@@ -156,6 +161,8 @@ setMovieLanguage(sc.next());
 						  
     setYear(sc.nextInt());
 					
+
+
     System.out.println("\r\n");
 
 				try{
@@ -166,10 +173,12 @@ setMovieLanguage(sc.next());
 					Thread.currentThread().interrupt();
 				    }
 
-                          System.out.println("---------------------------------------------------------------------------------------------------------");
-                          System.out.println("---------------------------------------Enter the Rating of the Movie-------------------------------------"); 
-                          System.out.println("---------------------------------------------------------------------------------------------------------");
-						  setRating(sc.nextFloat());
+
+
+   System.out.println("---------------------------------------------------------------------------------------------------------");
+   System.out.println("---------------------------------------Enter the Rating of the Movie-------------------------------------"); 
+   System.out.println("---------------------------------------------------------------------------------------------------------");
+   setRating(sc.nextFloat());
 
 
 
@@ -187,6 +196,10 @@ setMovieLanguage(sc.next());
 				    }	 
 
 
+
+
+
+
 System.out.println("Enter the name of the Director");
 director.setDirectorName(sc.next());
 System.out.println("\r\n");
@@ -202,8 +215,9 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 
 
 
-System.out.println("\r\n");
+     System.out.println("\r\n");
                    
+     
                    try{
 					   Thread.sleep(2000);
 				     }
@@ -214,6 +228,7 @@ System.out.println("\r\n");
 
 
      writer.writerDetails();
+
 
                   try{
 					   Thread.sleep(2000);
@@ -330,15 +345,6 @@ System.out.println("\r\n");
 
 				System.out.println("Name of the Script Writer : "+writer.getWriterName());
 
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
@@ -351,4 +357,5 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 }
+
 }

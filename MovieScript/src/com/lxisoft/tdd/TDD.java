@@ -31,6 +31,7 @@ ScriptWriter scr=new ScriptWriter();
 
 
 movie.begin();
+movie.getMovieDetails();
 
 if(movie.getMovieGenre().equals("Romantic"))
 {

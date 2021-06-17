@@ -5,7 +5,7 @@ import com.lxisoft.movie.*;
 
 import java.util.*;
 
-public class Director implements Directorable
+public class Director 
 {
 	Scanner sc=new Scanner(System.in);
 	
