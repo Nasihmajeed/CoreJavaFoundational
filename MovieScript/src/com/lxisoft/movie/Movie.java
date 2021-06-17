@@ -169,7 +169,7 @@ fr.close();
     for(int i=0;i<=n;i++){
       name[i]=sc.nextLine();
     }*/
-    System.out.println("enter number of comedians");
+    System.out.println("enter number of comedians : ");
     int c=sc.nextInt();
 
 
@@ -179,7 +179,7 @@ fr.close();
       System.out.println("ENTER "+comedian[i]+"'s CHARACTER name :");
       comedianCharName[i]=sv.nextLine();
     }
-    System.out.println("enter number of hero");
+    System.out.println("enter number of hero : ");
     int h=sr.nextInt();
     //comedian=sr.nextLine();
 
@@ -189,7 +189,7 @@ fr.close();
      System.out.println("ENTER "+hero[i]+"'s CHARACTER name :");
      heroCharName[i]=sn.nextLine();
   }
-  System.out.println("enter number of heroine");
+  System.out.println("enter number of heroine : ");
   int hi=ss.nextInt();
 
     for(int i=0;i<hi;i++){
@@ -198,7 +198,7 @@ fr.close();
     System.out.println("ENTER "+heroine[i]+"'s CHARACTER name :");
     heroineCharName[i]=si.nextLine();
     }
-    System.out.println("enter number of Villain");
+    System.out.println("enter number of Villain : ");
     int v=ss.nextInt();
 
     for(int i=0;i<v;i++){
