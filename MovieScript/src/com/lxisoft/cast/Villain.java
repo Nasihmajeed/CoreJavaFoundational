@@ -1,9 +1,9 @@
 package com.lxisoft.cast;
 
-public class Villain extends Actors
+public class Villain extends Actor
 {
 
-String villainName;
+   private String villainName;
 
    public void setVillainName(String villainName)
 	{

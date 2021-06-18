@@ -1,9 +1,9 @@
 package com.lxisoft.cast;
 
-public class Hero extends Actors
+public class Hero extends Actor
 {
 
-	String heroName;
+	private String heroName;
 	
 	public void setHeroName(String heroName)
 	{
@@ -27,7 +27,6 @@ public class Hero extends Actors
 	{
 		return heroCharName;
 	}
-	
 	
 	
 }

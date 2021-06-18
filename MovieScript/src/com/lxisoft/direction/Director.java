@@ -17,11 +17,7 @@ private String heroName,heroineName,comedianName,villainName;
 private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 	
 
-ArrayList<Actor> allActors=new ArrayList<Actor>();
-ArrayList<Hero> allHeroes=new ArrayList<Hero>();
-ArrayList<Heroine> allHeroines=new ArrayList<Heroine>();
-ArrayList<Comedian> allComedians=new ArrayList<Comedian>();
-ArrayList<Villain> allVillains=new ArrayList<Villain>();
+ArrayList<Actor> actors=new ArrayList<Actor>();
 
 	
 	public void setDirectorName(String directorName)
@@ -65,177 +61,153 @@ ArrayList<Villain> allVillains=new ArrayList<Villain>();
 	  
 	 //Casting the actors by the Director---
 	 
-	 public ArrayList<Hero> castingTheHero()
-{
-	 System.out.println("Enter the number of heroes in the movie : ");
+	 public void castingTheActors()
+   {
+         //Casting the Heroes
+
+	   System.out.println("Enter the number of heroes in the movie : ");
      numOfHero=sc.nextInt(); 
-	 System.out.println("Number of heroes in the Movie is : "+numOfHero);
-     System.out.println("\r\n");
-	 
+	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	 
 	 for(int i=0 ; i<numOfHero ; i++)
-	 {
+	   {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Hero : ");  
 		 heroName=sc.next();
 		 System.out.println("Name of the Hero is: "+heroName);
 		 
-		 allActors.add(new Actor());
-		 allHeroes.add(new Hero());
-
-		 allActors.get(i).setActorName(heroName);
-		 allHeroes.get(i).setHeroName(heroName);
-
-		 System.out.println("\r\n");
-		 
+		 actors.add(new Hero());
+     
+		 actors.get(i).setHeroName(heroName);
+      
 		 System.out.println("Enter the Character name of the Hero : ");
 		 heroCharName=sc.next();
 		 System.out.println("Name of the Hero's Character is : "+heroCharName);  
-		 allActors.get(i).setActorCharName(heroCharName);
-		 allHeroes.get(i).setHeroCharName(heroCharName);
+		 actors.get(i).setHeroCharName(heroCharName);
 		 
-		 System.out.println("\r\n");
-		 
-		 
-	 }
-	 return allHeroes;
-}
+		 System.out.println("\r\n"); 
+	   }
 
- public ArrayList<Heroine> castingTheHeroine()
-{
-	 System.out.println("Enter the number of heroines in the movie : ");
-     numOfHeroine=sc.nextInt(); 
-	 System.out.println("Number of Heroines in the movie is : "+numOfHeroine);
-	 System.out.println("\r\n");
+
+          try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+		//Casting the Heroine
+
+		System.out.println("Enter the number of heroines in the movie : ");
+    numOfHeroine=sc.nextInt(); 
+	  System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
 	 
-	 
-     for(int i=0 ; i<numOfHeroine ; i++)
-	 {
+	 for(int i=0;i<numOfHeroine;i++)
+	   {
 		 System.out.println("\r\n");
-		 System.out.println("Enter Heroine Name : ");  
+		 System.out.println("Enter the name of the Heroine : ");  
 		 heroineName=sc.next();
-		 System.out.println("Name of the Heroine is : "+heroineName);  
+		 System.out.println("Name of the Heroine is: "+heroineName);
 		 
-		 allActors.add(new Actor());
-		 allHeroines.add(new Heroine());
-
-		 allActors.get(i).setActorName(heroineName);
-		 allHeroines.get(i).setHeroineName(heroineName);
-
-		 System.out.println("\r\n");
-		 
+		 actors.add(new Heroine());
+     
+		 actors.get(i).setHeroineName(heroineName);
+      
 		 System.out.println("Enter the Character name of the Heroine : ");
 		 heroineCharName=sc.next();
 		 System.out.println("Name of the Heroine's Character is : "+heroineCharName);  
+		 actors.get(i).setHeroineCharName(heroineCharName);
 		 
-		 allActors.get(i).setActorCharName(heroineCharName);
-		 allHeroines.get(i).setHeroineCharName(heroineCharName);
-		 
-		
-		 System.out.println("\r\n");
-		  		 
-	 }
-  return allHeroines;
-}
+		 System.out.println("\r\n"); 
+	   }	    
 
 
 
- public ArrayList<Comedian> castingTheComedian()
-{
-	 System.out.println("Enter the number of comedians in the movie : ");
+                 try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+     //Casting the Comedians
+
+
+     System.out.println("Enter the number of Comedian in the movie : ");
      numOfCom=sc.nextInt(); 
-	 System.out.println("Number of Comedians in the movie is : "+numOfCom);  
-	 System.out.println("\r\n");
+	   System.out.println("Number of comedians in the Movie is : "+numOfCom);
 	 
-	 
-     for(int i=0 ; i<numOfCom ; i++)
-	 {
+	 for(int i=0;i<numOfCom;i++)
+	   {
 		 System.out.println("\r\n");
-		 System.out.println("Enter Comedian Name : ");  
+		 System.out.println("Enter the name of the Comedian : ");  
 		 comedianName=sc.next();
-		 System.out.println("Name of the Comedian is : "+comedianName);  
+		 System.out.println("Name of the Comedian is: "+comedianName);
 		 
-		 
-		 allActors.add(new Actor());
-		 allComedians.add(new Comedian());
-
-		 allActors.get(i).setActorName(comedianName);
-		 allComedians.get(i).setComedianName(comedianName);
-
-		 System.out.println("\r\n");
-		 
+		 actors.add(new Comedian());
+     
+		 actors.get(i).setComedianName(comedianName);
+      
 		 System.out.println("Enter the Character name of the Comedian : ");
 		 comedianCharName=sc.next();
 		 System.out.println("Name of the Comedian's Character is : "+comedianCharName);  
+		 actors.get(i).setHeroCharName(comedianCharName);
 		 
-		 allActors.get(i).setActorCharName(comedianCharName);
-		 allComedians.get(i).setComedianCharName(comedianCharName);
-		 
-		 
-		 System.out.println("\r\n");
-		 
-	 }
-  return allComedians;
-}
+		 System.out.println("\r\n"); 
+	   }
 
+				    try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
 
+    //Casting the Villains
 
-public ArrayList<Villain> castingTheVillain()
-{
-	 System.out.println("Enter the number of villains in the movie : ");
+     System.out.println("Enter the number of villains in the movie : ");
      numOfVillain=sc.nextInt(); 
-	 System.out.println("Number of Villains in the movie is : "+numOfVillain);  
-	 System.out.println("\r\n");
+	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
 	 
-	 
-     for(int i=0 ; i<numOfVillain ; i++)
-	 {
+	   for(int i=0;i<numOfVillain;i++)
+	   {
 		 System.out.println("\r\n");
-		 System.out.println("Enter Villain Name : ");  
+		 System.out.println("Enter the name of the Villain : ");  
 		 villainName=sc.next();
-		 System.out.println("Name of the Villain is : "+villainName);  
+		 System.out.println("Name of the Villain is: "+villainName);
 		 
-		 
-		 allActors.add(new Actor());
-		 allVillains.add(new Villain());
-		 allActors.get(i).setActorName(villainName);
-		 allVillains.get(i).setVillainName(villainName);
-
-		 System.out.println("\r\n");
-		 
+		 actors.add(new Villain());
+     
+		 actors.get(i).setVillainName(villainName);
+      
 		 System.out.println("Enter the Character name of the Villain : ");
 		 villainCharName=sc.next();
 		 System.out.println("Name of the Villain's Character is : "+villainCharName);  
+		 actors.get(i).setVillainCharName(villainCharName);
 		 
-		 allActors.get(i).setActorCharName(villainCharName);
-		 allVillains.get(i).setVillainCharName(villainCharName);
+		 System.out.println("\r\n"); 
+	   }
 
-	 }
-  return allVillains;
+              try{
+		   			      Thread.sleep(2000);
+				        }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
 }
 
 
-/*
-public ArrayList<Hero> returnHero()
+
+
+public ArrayList<Actor> allActors()
 {
-	return allHeroes;
+	return actors;
 }
 
-public ArrayList<Heroine> returnHeroine()
-{
-	return allHeroines;
-}
-
-public ArrayList<Comedian> returnComedian()
-{
-	return allComedians;
-}
-
-public ArrayList<Villain> returnVillain()
-{
-	return allVillains;
-}
-*/
 
 public void printCharacters()
 {
@@ -243,7 +215,29 @@ public void printCharacters()
 		
 		System.out.println("---------------------------------------------------------------------------");
     System.out.println("---------------------------------------------------------------------------");
+            
+
+                  try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+
     System.out.println("----------------------------=====CHARACTERS=====---------------------------");
+            
+
+                      try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+
 		System.out.println("---------------------------------------------------------------------------");
 		System.out.println("---------------------------------------------------------------------------");
 		
@@ -254,73 +248,64 @@ public void printCharacters()
 				    {
 					Thread.currentThread().interrupt();
 				    }
-		
-		System.out.println("-----------------------------Heroes in the Movie--------------------------------");
-		{
-			for(int i=0 ; i<allHeroes.size() ; i++)
-                  {
-		             System.out.println(allHeroes.get(i).getHeroName());
-	              }
-		}
-		System.out.println("---------------------------------------------------------------------------------");
-		
-		
-		
-		           try{
-					    Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+
+for(int i=0;i<actors.size();i++)
+ {
+
+
+ 	if(actors.get(i) instanceof Hero)
+   {
+    System.out.println("Hero Name : "+actors.get(i).getHeroName()+" : "+"Hero's Character Name : "+actors.get(i).getHeroCharName());
    
-        System.out.println("-----------------------------Heroines in the Movie--------------------------------");
-		{
-			for(int i=0 ; i<allHeroines.size() ; i++)
-                  {
-		             System.out.println(allHeroines.get(i).getHeroineName());
-	              }
-		}
-		System.out.println("----------------------------------------------------------------------------------");
-	
-	
-	              try{
-					    Thread.sleep(2000);
-				     }
+            try{
+					      Thread.sleep(2000);
+				       }
 				catch(InterruptedException e)
 				    {
 					Thread.currentThread().interrupt();
 				    }
-	    
-		
-		
-		System.out.println("-----------------------------Comedians in the Movie--------------------------------");
-		{
-			for(int i=0 ; i<allComedians.size() ; i++)
-                  {
-		             System.out.println(allComedians.get(i).getComedianName());
-	              }
-		}
-		System.out.println("-----------------------------------------------------------------------------------");
-		
-		
-		         try{
-					    Thread.sleep(2000);
-				     }
+   }
+  else if(actors.get(i) instanceof Heroine)
+   {
+    System.out.println("Heroine Name : "+actors.get(i).getHeroineName()+" : "+"Heroine's Character Name : "+actors.get(i).getHeroineCharName());
+   
+            try{
+					      Thread.sleep(2000);
+				       }
 				catch(InterruptedException e)
 				    {
 					Thread.currentThread().interrupt();
 				    }
-		
-		
-		
-		System.out.println("-----------------------------Villains in the Movie--------------------------------");
-		{
-			for(int i=0 ; i<allVillains.size() ; i++)
-                  {
-		             System.out.println(allVillains.get(i).getVillainName());
-	              }
-		}
+
+   }
+  else if(actors.get(i) instanceof Comedian)
+   {
+    System.out.println("Comedian Name : "+actors.get(i).getComedianName()+" : "+"Comedian's Character Name : "+actors.get(i).getComedianCharName());
+   
+
+             try{
+					      Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+   }
+  else if(actors.get(i) instanceof Villain)
+   {
+    System.out.println("Villain Name : "+actors.get(i).getVillainName()+" : "+"Villain's Character Name : "+actors.get(i).getVillainCharName());
+   
+             try{
+					      Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+   }      
+ }
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");

@@ -1,7 +1,9 @@
 package com.lxisoft.cast;
-public class Comedian extends Actors
+
+public class Comedian extends Actor
 {
-	String comedianName;
+	
+	private String comedianName;
 	
 	public void setComedianName(String comedianName)
 	{

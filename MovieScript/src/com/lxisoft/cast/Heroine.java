@@ -1,7 +1,10 @@
 package com.lxisoft.cast;
-public class Heroine extends Actors
+
+public class Heroine extends Actor
 {
-	String heroineName;
+
+
+	private String heroineName;
 	
 	public void setHeroineName(String heroineName)
 	{

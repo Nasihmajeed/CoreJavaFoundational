@@ -18,7 +18,7 @@ private int yearOfRelease;
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-ScriptWriter writer=new ScriptWriter();
+Script writer=new Script();
 
 
 //Name of the movie
@@ -83,12 +83,27 @@ public String getMovieLanguage()
 	{
 		return yearOfRelease;
 	}
+
+
+public void movieTitle()
+{  
+System.out.println("---------------------------------------------------------------------------------------------------------");	
+System.out.println("---------------------------------------------------------------------------------------------------------");	
+System.out.println("------------------------------------------Movie_Script------------------------------------------------");
+System.out.println("---------------------------------------------------------------------------------------------------------");
+System.out.println("---------------------------------------------------------------------------------------------------------");	
+                 try{
+					Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+}
 	
 
 public void begin()
 {
-   
-
    System.out.println("\r\n");
    
 
@@ -344,6 +359,17 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 
 
 				System.out.println("Name of the Script Writer : "+writer.getWriterName());
+                  
+                  try{
+					   Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+
+				System.out.println("Language of the Script Writer : "+writer.getWriterLanguage());
 
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
 	System.out.println("---------------------------------------------------------------------------------------------------------");	
