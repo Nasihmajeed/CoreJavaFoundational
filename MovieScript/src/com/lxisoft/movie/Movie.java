@@ -169,22 +169,22 @@ fr.close();
     for(int i=0;i<=n;i++){
       name[i]=sc.nextLine();
     }*/
-    System.out.println("enter number of comedians : ");
+    System.out.println("enter number of comedians  :");
     int c=sc.nextInt();
 
 
     for(int i=0;i<c;i++){
-      System.out.println("ENTER comedian's  name : ");
+      System.out.println("ENTER comedian's  name  :");
       comedian[i]=sr.nextLine();
       System.out.println("ENTER "+comedian[i]+"'s CHARACTER name :");
       comedianCharName[i]=sv.nextLine();
     }
-    System.out.println("enter number of hero : ");
+    System.out.println("enter number of hero  :");
     int h=sr.nextInt();
     //comedian=sr.nextLine();
 
     for(int i=0;i<h;i++){
-      System.out.println("ENTER Hero's  name : ");
+      System.out.println("ENTER Hero's  name  :");
      hero[i]=si.nextLine();
      System.out.println("ENTER "+hero[i]+"'s CHARACTER name :");
      heroCharName[i]=sn.nextLine();
@@ -262,10 +262,10 @@ fr.close();
     }
       System.out.println("********************************\n\n");
       System.out.println("**********************************");
-      System.out.println("*********************************");
+      System.out.println("***********************************");
       System.out.println("*************SCENE1****************");
       System.out.println("***********************************");
-      System.out.println("*********************************");
+      System.out.println("***********************************");
 
 
                       for (int i=0;i<script.size();i++)
@@ -357,7 +357,7 @@ fr.close();
 
 
   public void printPlot(){
-    System.out.println("|*****************************************************************************************************************************************|");
+    System.out.println("|****************************************************************************************************************************************|");
     System.out.println("|Unnikrishnan  owns an old bus, received as compensation for his father                                                                   |");
     System.out.println("|The plot takes a big turn when a girl named Basanthi enters the bus as a nomad,                                                             |");
     System.out.println("|but she is actually  Gayathri, the daughter of an influential and politically powerful minister R. K. Santhanam in Puducherry.           |");
