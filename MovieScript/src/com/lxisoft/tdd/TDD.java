@@ -9,9 +9,9 @@ public class TDD
 {
 	public static void main(String [] args)
 	{	
-	Movie startMovie=new Movie();
+	Movie movie=new Movie();
 
-		startMovie.startMovie();
+		movie.startMovie();
 
 			
 

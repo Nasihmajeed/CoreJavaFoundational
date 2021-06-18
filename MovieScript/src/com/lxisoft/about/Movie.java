@@ -14,7 +14,7 @@ public class Movie
 	Director director=new Director();
 	ScriptWriter scriptWriter=new ScriptWriter();
 	
-public void movieDetails()
+public void getMovieDetailsFromUser()
 {
 
 			System.out.println("\t Enter the name of the movie ");
@@ -76,7 +76,7 @@ public float getRating()
 			System.out.println("\tMovie Script Project");
 			System.out.println("\t-----------------------------");
 			
-			movieDetails();
+			getMovieDetailsFromUser();
 		
 		System.out.println("\t Now the Characters and roles has been set");
 		System.out.println("\t--------------------------------------------");
