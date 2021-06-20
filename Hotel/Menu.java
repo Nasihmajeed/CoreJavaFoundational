@@ -1,6 +1,6 @@
-package com.lxisoft.mahesan711.Hotel;
+package com.lxisoft.Hotel;
 
-import com.lxisoft.mahesan711.Hotel.FoodItems;
+import com.lxisoft.Hotel.FoodItems;
 import java.util.*;
 public class Menu {
 int num,i, quantity;

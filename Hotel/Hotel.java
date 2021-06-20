@@ -1,7 +1,7 @@
-package com.lxisoft.mahesan711.Hotel;
+package com.lxisoft.Hotel;
 
-import com.lxisoft.mahesan711.Hotel.Admin;
-import com.lxisoft.mahesan711.Hotel.Menu;
+import com.lxisoft.Hotel.Admin;
+import com.lxisoft.Hotel.Menu;
 import java.util.*;
 public class Hotel {
 

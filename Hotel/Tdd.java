@@ -1,9 +1,9 @@
 package com.lxisoft.Tdd;
 
-import com.lxisoft.mahesan711.Hotel.Hotel;
+import com.lxisoft.Hotel.Hotel;
 
 
-public class Tdd {
+public class TDD {
 
   public static void main(String[] args) {
    
