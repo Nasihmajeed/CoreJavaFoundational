@@ -1,6 +1,6 @@
 package com.lxisoft.cast;
 
-public class Villan extends Actors {
+public class Villan extends Actor {
 
 
 

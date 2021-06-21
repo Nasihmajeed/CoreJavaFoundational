@@ -1,7 +1,35 @@
 package com.lxisoft.cast;
-public class Actors
+public class Actor
 {
-	String heroName; 
+	String actorName;
+	String characterName;
+
+	public void setActorName(String actorName)
+	{
+		this.actorName=actorName;
+
+	}
+	public void setCharacterName(String characterName)
+	{
+		this.characterName=characterName;
+		
+	}
+
+
+	public String getActorName()
+	{
+		return actorName;
+	}
+	public String getCharacterName()
+	{
+		return characterName;
+	}
+
+
+
+
+
+	/*String heroName; 
 String heroCharacterName; 
 
 String heroineName;
@@ -11,12 +39,13 @@ String heroineCharacterName;
 	String comedianCharacterName;
 
 	String villianName; 
-String villianCharacterName; 
+String villianCharacterName; */
 
 
+	
 
 //hero
-	public void setHeroName(String heroName)
+	/*public void setHeroName(String heroName)
 	{
 		this.heroName=heroName;
 	}
@@ -103,6 +132,6 @@ String villianCharacterName;
 	public String getVillianCharacterName()
 	{
 		return villianCharacterName;
-	}
+	}*/
 
 }

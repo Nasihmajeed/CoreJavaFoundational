@@ -1,6 +1,6 @@
 package com.lxisoft.cast;
 
-public class Hero extends Actors
+public class Hero extends Actor
  {
 
 
