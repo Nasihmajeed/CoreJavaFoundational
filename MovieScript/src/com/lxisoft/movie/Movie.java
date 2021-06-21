@@ -357,7 +357,7 @@ fr.close();
 
 
   public void printPlot(){
-    System.out.println("|****************************************************************************************************************************************|");
+    System.out.println("|*******************************************************8*************************************************************************************************************|");
     System.out.println("|Unnikrishnan  owns an old bus, received as compensation for his father                                                                   |");
     System.out.println("|The plot takes a big turn when a girl named Basanthi enters the bus as a nomad,                                                             |");
     System.out.println("|but she is actually  Gayathri, the daughter of an influential and politically powerful minister R. K. Santhanam in Puducherry.           |");
@@ -367,7 +367,7 @@ fr.close();
     System.out.println("|******************************************************************************************************************************************|");
   }
   public void printDialogue(){
-    System.out.println("\n\n*************************************************");
+    System.out.println("\n\n***************************************************************************************************");
     System.out.println("*******************SCENE1*************************");
     System.out.println("*************************************************");
     System.out.println("Sundhareshan enters the  scene humming a song, finds Basanthi siiting infront of the bus\n\n");
