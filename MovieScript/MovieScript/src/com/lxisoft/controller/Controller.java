@@ -16,25 +16,35 @@ public class Controller
 
     public void setCast(ArrayList<Cast> cast)
     {
+		System.out.println("\nSet Cast");
+		Scanner s = new Scanner(System.in);
+		System.out.print(" Hero name		: ");	
         cast.add(new Cast());
-		cast.get(0).setName("Dileep");
-		cast.get(0).setAge(38);
-		cast.get(0).setCharacterName("Gopi");
+		cast.get(0).setName(s.next());
+		// cast.get(0).setAge(38);
+		System.out.print(" Character name	: ");
+		cast.get(0).setCharacterName(s.next());
 
+		System.out.print(" Heroine name		: ");
 		cast.add(new Cast());
-		cast.get(1).setName("Bhavna Pani");
-		cast.get(1).setAge(28);
-		cast.get(1).setCharacterName("Veena");
+		cast.get(1).setName(s.next());
+		// cast.get(1).setAge(28);
+		System.out.print(" Character name	: ");
+		cast.get(1).setCharacterName(s.next());
 
+		System.out.print(" Comedian name	: ");
 		cast.add(new Cast());
-		cast.get(2).setName("Kalabhavan Mani");
-		cast.get(2).setAge(41);
-		cast.get(2).setCharacterName("Mani");
+		cast.get(2).setName(s.next());
+		// cast.get(2).setAge(41);
+		System.out.print(" Character name	: ");
+		cast.get(2).setCharacterName(s.next());
 
         cast.add(new Cast());
-		cast.get(3).setName("Mithun Ramesh");
-		cast.get(3).setAge(32);
-		cast.get(3).setCharacterName("Felix");
+		System.out.print(" Villain name		: ");
+		cast.get(3).setName(s.next());
+		// cast.get(3).setAge(32);
+		System.out.print(" Character name	: ");
+		cast.get(3).setCharacterName(s.next());
 		
     }
 
