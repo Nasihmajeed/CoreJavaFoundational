@@ -8,6 +8,7 @@ import java.io.*;
 
 public class Scenes 
 {
+    
     ArrayList<Script> script1 = new ArrayList<Script>();
 	ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
@@ -80,7 +81,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }
@@ -156,7 +157,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }
@@ -259,7 +260,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }
@@ -341,7 +342,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }
@@ -423,7 +424,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }
@@ -495,7 +496,7 @@ public class Scenes
             while((s = reader.readLine()) !=null)
             {
                 System.out.print("\n");
-                this.slowprint(s, 50);
+                this.slowprint(s, 10);
             }
             reader.close();
         }

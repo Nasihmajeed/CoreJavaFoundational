@@ -4,7 +4,6 @@ import com.lxisoft.model.*;
 import com.lxisoft.controller.*;
 
 import java.util.*;
-import java.util.regex.*;
 
 
 public class Movies 
@@ -19,16 +18,13 @@ public class Movies
 
 	public Movies()
 	{
-		Scanner s = new Scanner(System.in);
-		System.out.print("\n Movie name  : ");
-		movieName = s .next();
-		System.out.print("\n Director    : ");
-		director = s .next();
-		
-
 		// movieName = "Vettam";
 		// director = "Priyadarshan";
     	// genre = "Comedy";
+		Scanner s = new Scanner(System.in);
+		System.out.print("\n Movie name  : ");
+		movieName = s .next();
+
 		controller.setCast(cast);
 	}
 
@@ -45,40 +41,92 @@ public class Movies
             option = s.nextInt();
             if(option==1)
             {
-				System.out.print("\n Select Genre ");
-				System.out.println("\n	1.Comedy \n	2.Romance \n	3.Thriller \n	4.Emotional \n	5.Play all \n	0.Exit");
-				System.out.print("\nEnter option : ");
-				genre = s .nextInt();
+				System.out.println("\nSelect Genre : \n	1.Comedy \n	2.Romance \n	3.Emotional \n	4.Thriller \n	5.Play all	\n	0.Exit");
+                System.out.print("\nEnter option : ");
+            	genre = s.nextInt();
 				if(genre==1)
-            	{
-            	    this.comedy();
-					this.romance();
-					this.thriller();
-					this.emotional();
-            	}
-            	else if(genre==2)
-            	{
-					this.romance();
-					this.comedy();
-					this.thriller();
-					this.emotional();
+				{
+					// System.out.print("\n--Comedy Scene ");
+					scene.setScene1();
+					scene.printScene1();
+					scene.setScene2();
+					scene.printScene2();
+
+					scene.setScene5();
+					scene.printScene5();
+					scene.setScene6();
+					scene.printScene6();
+
+					scene.setScene4();
+					scene.printScene4();
+
+					scene.setScene3();
+					scene.printScene3();
+				}
+				else if (genre==2)
+				{
+					scene.setScene3();
+					scene.printScene3();
+
+					scene.setScene1();
+					scene.printScene1();
+					scene.setScene2();
+					scene.printScene2();
+
+					scene.setScene4();
+					scene.printScene4();
+
+					scene.setScene5();
+					scene.printScene5();
+					scene.setScene6();
+					scene.printScene6();
 				}
 				else if(genre==3)
 				{
-					this.thriller();
-					this.comedy();
-					this.romance();
-					this.emotional();
+					scene.setScene4();
+					scene.printScene4();
+
+					scene.setScene5();
+					scene.printScene5();
+					scene.setScene6();
+					scene.printScene6();
+
+					scene.setScene1();
+					scene.printScene1();
+					scene.setScene2();
+					scene.printScene2();
+
+					scene.setScene3();
+					scene.printScene3();
 				}
 				else if(genre==4)
 				{
-					this.emotional();
-					this.thriller();
-					this.comedy();
-					this.romance();
+					scene.setScene5();
+					scene.printScene5();
+					scene.setScene6();
+					scene.printScene6();
+
+					scene.setScene1();
+					scene.printScene1();
+					scene.setScene2();
+					scene.printScene2();
+
+					scene.setScene4();
+					scene.printScene4();
+
+					scene.setScene3();
+					scene.printScene3();
 				}
 				else if(genre==5)
-                this.setMovie();
+				{
+					this.setMovie();
+				}
+				else if(genre==0)
+				{
+				break;
+				}
+				else
+				System.out.print("\nInvalid option... Try again.\n");
             }
             else if(option==2)
             {
@@ -87,15 +135,16 @@ public class Movies
 				int x;
 				do
 				{
-                	System.out.println("\n	Select option : \n		1.View details of characters \n		2.Search actors \n		0.Exit");
+                	// System.out.println("\n	Select option : \n		1.View details of characters \n		2.Search actors \n		0.Exit");
+					System.out.println("\n	Select option : \n		1.Search actors \n		0.Exit");
 					System.out.print("\n	Enter option : ");
                 	x = s.nextInt();
-                	if(x==1)
-                	{
-                    	this.printActors();
-						controller.viewActors();
-					}
-					else if(x==2)
+                	// if(x==1)
+                	// {
+                    // 	this.printActors();
+					// 	controller.viewActors();
+					// }
+					if(x==1)
 					{
 						theatre.search();
 					}
@@ -149,7 +198,7 @@ public class Movies
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                   |                                        "+movieName+"                                         |");
 		System.out.println("                                                   |                                Directed by : "+director+"                             |");
-		System.out.println("                                                   |                                               										   |");
+		System.out.println("                                                   |    Genere : "+genre+"                                           IMDb Rating : 6.7/10     |");
 		System.out.println("                                                   |    Plot   :  Life of a thief and the unexpected twists and situations in his life     |");
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
@@ -238,34 +287,5 @@ public class Movies
         {
 			e.printStackTrace();
 		}
-	}
-
-	public void comedy()
-	{
-		System.out.println("Comedy scenes");
-		scene.setScene1();
-		scene.printScene1();
-		scene.setScene4();
-		scene.printScene4();
-	}
-	public void romance()
-	{
-		System.out.println("Romance scenes");
-		scene.setScene2();
-		scene.printScene2();
-	}
-	public void emotional()
-	{
-		System.out.println("Emotional scenes");
-		scene.setScene3();
-		scene.printScene3();
-	}
-	public void thriller()
-	{
-		System.out.println("Thriller scenes");
-		scene.setScene5();
-		scene.printScene5();
-		scene.setScene5();
-		scene.printScene5();
 	}
 }

@@ -22,28 +22,28 @@ public class Controller
         cast.add(new Cast());
 		cast.get(0).setName(s.next());
 		// cast.get(0).setAge(38);
-		System.out.print(" Character name	: ");
+		System.out.print(" Character name		: ");
 		cast.get(0).setCharacterName(s.next());
 
 		System.out.print(" Heroine name		: ");
 		cast.add(new Cast());
 		cast.get(1).setName(s.next());
 		// cast.get(1).setAge(28);
-		System.out.print(" Character name	: ");
+		System.out.print(" Character name		: ");
 		cast.get(1).setCharacterName(s.next());
 
-		System.out.print(" Comedian name	: ");
+		System.out.print(" Comedian name		: ");
 		cast.add(new Cast());
 		cast.get(2).setName(s.next());
 		// cast.get(2).setAge(41);
-		System.out.print(" Character name	: ");
+		System.out.print(" Character name		: ");
 		cast.get(2).setCharacterName(s.next());
 
         cast.add(new Cast());
 		System.out.print(" Villain name		: ");
 		cast.get(3).setName(s.next());
 		// cast.get(3).setAge(32);
-		System.out.print(" Character name	: ");
+		System.out.print(" Character name		: ");
 		cast.get(3).setCharacterName(s.next());
 		
     }
