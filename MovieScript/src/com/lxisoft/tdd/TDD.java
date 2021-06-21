@@ -15,7 +15,6 @@ Script scr=new Script();
 
 movie.movieTitle();
 movie.begin();
-movie.getMovieDetails();
 
 if(movie.getMovieGenre().equals("Romantic"))
 {
@@ -37,6 +36,8 @@ else if(movie.getMovieGenre().equals("Action"))
 scr.startMovie(4);	
 }
 
+
+movie.getMovieDetails();
 
 }
 }

@@ -23,11 +23,9 @@ public class Script
   
 	Director director=new Director();
 
-
-      ArrayList<Actor> actors;
-
 	   ArrayList<String> movieScript=new ArrayList<String>();	
 
+     ArrayList<Actor> allActors;
 
     public void writerDetails()
      {
@@ -79,27 +77,24 @@ public class Script
       } 
 
 
+int j=0;
+int numOfHero=director.getNumberOfHero();
+int numOfHeroinee=director.getNumberOfHeroine();
+int numOfComedian=director.getNumberOfComedian();
+int numOfVillain=director.getNumberOfVillain();
+
+
+
   public void startMovie(int genre)
     {
 
 //Casting the actors
 
-director.castingTheActors();
+allActors=director.castingTheActors();
 
     System.out.println("\r\n");
 
                 director.printCharacters();
-						  					  
-			     try{
-					    Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }									
-
-actors=director.allActors();
-
 
               try{
 					    Thread.sleep(2000);
@@ -119,42 +114,68 @@ actors=director.allActors();
                      	BufferedReader brom=new BufferedReader(new FileReader(romance));
                                 	while((line=brom.readLine()) != null)
                                 	{
-                               		movieScript.add(new String(line));
+                               		
+                                  movieScript.add(new String(line));
                                 	}
 
 
                                	brom=new BufferedReader(new FileReader(emotional));
-                               	while( ( (line=brom.readLine())  != null) && (line.length()<50) )
+
+                               	while((line=brom.readLine()) != null)   
                                	{
-                               		movieScript.add(new String(line));
+                                  while((line.length())<60)
+                                  {
+                                      movieScript.add(new String(line));  
+                                  }
+                               		
                                	}
                                   
                                 
                                 brom=new BufferedReader(new FileReader(comedy));
-                               	while( ( (line=brom.readLine())  != null) && (line.length()<50) )
-                               	{
-                               		movieScript.add(new String(line));
-                               	}
+
+                               	while((line=brom.readLine()) != null)   
+                                {
+                                  while((line.length())<60)
+                                  {
+                                      movieScript.add(new String(line));  
+                                  }
+                                  
+                                }
 
                                }
                                catch(IOException ioe)
                                {
+
                                	ioe.printStackTrace();
+                               
                                }        
                                 
-                               int i=0;
+                              
 
-                               if((actors.get(i) instanceof Hero) && (i%2==0))
-                               {
+            
+                              
+                              for(int i=0;i<numOfHero;i++)
+                              {
+                                  if( ( ( allActors.get(i) ) instanceof Hero) && (j<movieScript.size()))
+                                     {
+System.out.println(allActors.get(i).getHeroName()+":"+allActors.get(i).getHeroCharName()+":"+movieScript.get(j));     
+                                     }
+                                  else if( ( ( allActors.get(i) ) instanceof Heroine) && (j<movieScript.size()))
+                                     {
+System.out.println(allActors.get(i).getHeroineName()+":"+allActors.get(i).getHeroineCharName()+":"+movieScript.get(j));
+                                     }
+                               else if( ( ( allActors.get(i) ) instanceof Comedian) && (j<movieScript.size()))
+                                     {
+System.out.println(allActors.get(i).getComedianName()+":"+allActors.get(i).getComedianCharName()+":"+movieScript.get(j));
+                                     }
 
-                               for(int j=0;i<=movieScript.size();j++)
-                                 {
-                               	
-   System.out.println(actors.get(i).getHeroName()+":"+actors.get(i).getHeroCharName()+":"+movieScript.get(j));
-                                       i++;
-                                 }
-                               	
-                               }                     
+                                 j++;
+
+                              }
+                               
+                               
+                              
+                                                    
 							   break;
 							   
 				 case 2 : System.out.println("script");
@@ -174,3 +195,11 @@ actors=director.allActors();
 
 }
 }
+
+
+
+
+
+
+
+

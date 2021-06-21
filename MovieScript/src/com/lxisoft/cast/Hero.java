@@ -2,10 +2,9 @@ package com.lxisoft.cast;
 
 public class Hero extends Actor
 {
-
 	private String heroName;
 	
-	public void setHeroName(String heroName)
+/*	public void setHeroName(String heroName)
 	{
 		this.heroName=heroName;
 	}
@@ -16,7 +15,16 @@ public class Hero extends Actor
 		this.heroCharName=heroCharName;
 	}
 	
-	
+*/	
+
+     public Hero(String heroName, String heroCharName)
+     {
+          this.heroName=heroName;
+          this.heroCharName=heroCharName;
+     }
+
+
+
 	public String getHeroName()
 	{
 		return heroName;

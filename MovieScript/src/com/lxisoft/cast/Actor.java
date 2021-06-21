@@ -3,11 +3,12 @@ package com.lxisoft.cast;
 public class Actor
 {
 
-private String heroName,heroCharName;
-private String comedianName,comedianCharName;
-private String heroineName,heroineCharName;
-private String villainName,villainCharName;
-	
+ protected String heroName,heroCharName;
+ protected String comedianName,comedianCharName;
+ protected String heroineName,heroineCharName;
+ protected String villainName,villainCharName;
+
+/*	
 	public void setHeroName(String heroName)
 	{
 		this.heroName=heroName;
@@ -18,7 +19,7 @@ private String villainName,villainCharName;
 	{
 		this.heroCharName=heroCharName;
 	}
-	
+*/	
 	
 	public String getHeroName()
 	{
@@ -33,26 +34,22 @@ private String villainName,villainCharName;
 
 
 
-
-
-
-
-
-public void setHeroineName(String heroineName)
+/*
+   public void setHeroineName(String heroineName)
 	{
 		this.heroineName=heroineName;
 	}
-	
+*/	
 	public String getHeroineName()
 	{
 		return heroineName;
 	}
 	
-	public void setHeroineCharName(String heroineCharName)
+/*	public void setHeroineCharName(String heroineCharName)
 	{
 		this.heroineCharName=heroineCharName;
 	}
-	
+*/	
 	public String getHeroineCharName()
 	{
 		return heroineCharName;
@@ -60,29 +57,23 @@ public void setHeroineName(String heroineName)
 
 
 
-
-
-
-
-
-
-
-public void setComedianName(String comedianName)
+/*
+    public void setComedianName(String comedianName)
 	{
 		this.comedianName=comedianName;
 	}
-	
+*/	
 	
 	public String getComedianName()
 	{
 		return comedianName;
 	}
 	
-	public void setComedianCharName(String comedianCharName)
+/*	public void setComedianCharName(String comedianCharName)
 	{
 		this.comedianCharName=comedianCharName;
 	}
-	
+*/	
 	public String getComedianCharName()
 	{
 		return comedianCharName;
@@ -91,26 +82,22 @@ public void setComedianName(String comedianName)
 
 
 
-
-
-
-
-
+/*
 	public void setVillainName(String villainName)
 	{
 		this.villainName=villainName;
 	}
-	
+*/	
 	public String getVillainName()
 	{
 		return villainName;
 	}
-
+/*
     public void setVillainCharName(String villainCharName)
 	{
 		this.villainCharName=villainCharName;
 	}
-
+*/
 	public String getVillainCharName()
 	{
 		return villainCharName;
