@@ -111,11 +111,29 @@ public class Controller
 	{
 		for(int i=0;i<cast.size();i++)
 		{	
-			
+			System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
+			System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
+ 			System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
+			System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
 		}
 	}
 
-	
+	public Map<String,ArrayList<Cast>> getHero()
+	{
+		return heros;
+	}
+	public Map<String,ArrayList<Cast>> getHeroine()
+	{
+		return heroines;
+	}
+	public Map<String,ArrayList<Cast>> getComedian()
+	{
+		return comedians;
+	}
+	public Map<String,ArrayList<Cast>> getVillain()
+	{
+		return villains;
+	}
 
     // public void database(int x, ArrayList<Cast> cast)
     // {
