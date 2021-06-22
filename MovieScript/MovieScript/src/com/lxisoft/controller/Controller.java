@@ -1,108 +1,167 @@
 package com.lxisoft.controller;
 import com.lxisoft.controller.*;
+import com.lxisoft.controller.Heroine;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
+
 import com.lxisoft.repository.*;
 import java.util.*;
 
 public class Controller 
 {
-    Gopi gopi = new Gopi();
-    Veena veena = new Veena();
-   	Mani mani = new Mani();
-    Felix felix = new Felix();
-    CastList cl = new CastList();
-	Scenes scenes = new Scenes();
+	int i,number;
+	Scanner input=new Scanner(System.in);
 
-    public void setCast(ArrayList<Cast> cast)
-    {
-		System.out.println("\nSet Cast");
-		Scanner s = new Scanner(System.in);
-		System.out.print(" Hero name		: ");	
-        cast.add(new Cast());
-		cast.get(0).setName(s.next());
-		// cast.get(0).setAge(38);
-		System.out.print(" Character name		: ");
-		cast.get(0).setCharacterName(s.next());
+		Cast hero=new Hero();
+		Cast heroine=new Heroine();
+		Cast comedian=new Comedian();
+		Cast villain=new Villain();
 
-		System.out.print(" Heroine name		: ");
-		cast.add(new Cast());
-		cast.get(1).setName(s.next());
-		// cast.get(1).setAge(28);
-		System.out.print(" Character name		: ");
-		cast.get(1).setCharacterName(s.next());
+	ArrayList<Cast>cast=new ArrayList<Cast>();
 
-		System.out.print(" Comedian name		: ");
-		cast.add(new Cast());
-		cast.get(2).setName(s.next());
-		// cast.get(2).setAge(41);
-		System.out.print(" Character name		: ");
-		cast.get(2).setCharacterName(s.next());
-
-        cast.add(new Cast());
-		System.out.print(" Villain name		: ");
-		cast.get(3).setName(s.next());
-		// cast.get(3).setAge(32);
-		System.out.print(" Character name		: ");
-		cast.get(3).setCharacterName(s.next());
+	Map<String,ArrayList<Cast>> castMap=new HashMap<String,ArrayList<Cast>>();
 		
-    }
+	Map<String,ArrayList<Cast>> heros = new HashMap<String,ArrayList<Cast>>();
+	Map<String,ArrayList<Cast>> heroines = new HashMap<String,ArrayList<Cast>>();
+	Map<String,ArrayList<Cast>> comedians = new HashMap<String,ArrayList<Cast>>();
+	Map<String,ArrayList<Cast>> villains = new HashMap<String,ArrayList<Cast>>();
 
-    public void viewActors()
+    public void setCast()
     {
-        Scanner s = new Scanner(System.in);
-        System.out.println("\nEnter ID to view the descriptions");
-        int id = s.nextInt();
-        switch(id)
-        {
-            case 1:
-		        System.out.println("\nActor Details : ");
-		    	veena.actorDetails();
-		    	System.out.println("\nCharacter Details : ");
-		    	veena.characterDetails();
-		    	break;
+		this.setHero();
+		this.setHeroine();
+		this.setComedian();
+		this.setVillain();
+	}
 
-			case 2:
-		    	System.out.println("\nActor Details : ");
-		    	felix.actorDetails();
-		    	System.out.println("\nCharacter Details : ");
-		    	felix.characterDetails();
-		    	break;
-		    
-            case 3:
-                System.out.println("\nActor Details : ");
-		    	gopi.actorDetails();
-		    	System.out.println("\nCharacter Details : ");
-		    	gopi.characterDetails();
-		    	break;
-		    			
-		    case 4:
-		    	System.out.println("\nActor Details : ");
-		    	mani.actorDetails();
-		    	System.out.println("\nCharacter Details : ");
-		    	mani.characterDetails();
-		    	break;
-		    			 
-            default:
-		    	System.out.println("Something went wrong");  
-        }
-    }
+	public void setHero()
+	{
+		System.out.print("Number of Heros	\t\t\t: ");
+		number = input.nextInt();
 
-    public void database(int x, ArrayList<Cast> cast)
-    {
-        Scenes scenes = new Scenes();
+		for(i=0;i<number;i++)
+		{
+				System.out.print("Name of Hero "+(i+1)+" \t\t\t\t: ");
+				hero.name = input.next();
+				System.out.print("Character name of "+hero.name+"\t\t: ");
+				hero.character = input.next();
+				cast.add(new Hero());
+				cast.get(i).setName(hero.name);
+				cast.get(i).setCharacter(hero.character);
+				heros.put("name",cast);
+			
+		}
+	}
+	public void setHeroine()
+	{
+		System.out.print("Number of Heroines \t\t\t: ");
+		number = input.nextInt();
+
+		for(i=0;i<number;i++)
+		{
+				System.out.print("Name of Heroine "+(i+1)+" \t\t\t: ");
+				heroine.name = input.next();
+				System.out.print("Character name of "+heroine.name+"\t\t: ");
+				heroine.character = input.next();
+				cast.add(new Heroine());
+				cast.get(i).setName(heroine.name);
+				cast.get(i).setCharacter(heroine.character);
+				heroines.put("name",cast);
+			
+		}
+	}
+	public void setComedian()
+	{
+		System.out.print("Number of Comedians \t\t\t: ");
+		number = input.nextInt();
+
+		for(i=0;i<number;i++)
+		{
+				System.out.print("Name of Comedian "+(i+1)+" \t\t\t: ");
+				comedian.name = input.next();
+				System.out.print("Character name of "+comedian.name+" \t\t: ");
+				comedian.character = input.next();
+				cast.add(new Comedian());
+				cast.get(i).setName(comedian.name);
+				cast.get(i).setCharacter(comedian.character);
+				comedians.put("name",cast);
+			
+		}
+	}
+	public void setVillain()
+	{
+		System.out.print("Number of Villains \t\t\t: ");
+		number = input.nextInt();
+
+		for(i=0;i<number;i++)
+		{
+				System.out.print("Name of Villain "+(i+1)+" \t\t\t: ");
+				villain.name = input.next();
+				System.out.print("Character name of "+villain.name+" \t\t: ");
+				villain.character = input.next();
+				cast.add(new Villain());
+				cast.get(i).setName(villain.name);
+				cast.get(i).setCharacter(villain.character);
+				villains.put("name",cast);
+			
+		}
+	}
+
+	public void printCast()
+	{
+		for(int i=0;i<cast.size();i++)
+		{	
+			if(cast.get(i) instanceof Hero)
+ 			{
+				System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
+ 			}
+ 			if(cast.get(i) instanceof Heroine)
+ 			{
+				System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
+ 			}
+ 			if(cast.get(i) instanceof Comedian)
+ 			{
+				System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
+ 			}
+ 			if(cast.get(i) instanceof Villain)
+ 			{
+				System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
+ 			}
+		}
+	}
+
+	public Map<String,ArrayList<Cast>> getHero()
+	{
+		return heros;
+	}
+	public Map<String,ArrayList<Cast>> getHeroine()
+	{
+		return heroines;
+	}
+	public Map<String,ArrayList<Cast>> getComedian()
+	{
+		return comedians;
+	}
+	public Map<String,ArrayList<Cast>> getVillain()
+	{
+		return villains;
+	}
+
+    // public void database(int x, ArrayList<Cast> cast)
+    // {
+    //     Scenes scenes = new Scenes();
 		
-    		if(x==1)
-        	{
-    			cl.addToDatabase(cast);
-    		}
-    		else if(x==2)
-        	{
-    			cl.showDatabase();
-    		}
-    		else if(x==3)
-        	{
-    			cl.deleteFromDatabase();
-    		}
-    } 
+    // 		if(x==1)
+    //     	{
+    // 			cl.addToDatabase(cast);
+    // 		}
+    // 		else if(x==2)
+    //     	{
+    // 			cl.showDatabase();
+    // 		}
+    // 		else if(x==3)
+    //     	{
+    // 			cl.deleteFromDatabase();
+    // 		}
+    // } 
 }

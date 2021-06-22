@@ -3,9 +3,10 @@ import com.lxisoft.model.*;
 
 public class Cast implements Comparable<Cast>
 {
-  String name;
+  public String name;
   String characterName;
   int age;
+public String character;
     
   public void setName(String n)
   {
@@ -15,11 +16,11 @@ public class Cast implements Comparable<Cast>
   {
     return name;
   }
-  public void setCharacterName(String cn)
+  public void setCharacter(String cn)
   {
 		this.characterName = cn;
 	}
-	public String getCharacterName()
+	public String getCharacter()
   {
 		return characterName;
 	}

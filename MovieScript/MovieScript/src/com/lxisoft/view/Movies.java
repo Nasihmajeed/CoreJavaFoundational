@@ -18,14 +18,11 @@ public class Movies
 
 	public Movies()
 	{
-		// movieName = "Vettam";
-		// director = "Priyadarshan";
-    	// genre = "Comedy";
 		Scanner s = new Scanner(System.in);
-		System.out.print("\n Movie name  : ");
+		System.out.print("\nMovie name  \t\t\t\t: ");
 		movieName = s .next();
 
-		controller.setCast(cast);
+		controller.setCast();
 	}
 
     public void movieOptions()
@@ -131,7 +128,7 @@ public class Movies
             else if(option==2)
             {
                 // this.setCast();
-                this.printCast();
+                controller.printCast();
 				int x;
 				do
 				{
@@ -162,7 +159,7 @@ public class Movies
 				{
 					System.out.println("\n	Select option : \n		1.Add to Database \n		2.View Database \n		3.Delete from Database \n		0.Exit");
 					opt = s.nextInt();
-					controller.database(opt, cast);
+					// controller.database(opt, cast);
 				}
 				while(opt!=0);
 			}
@@ -181,17 +178,17 @@ public class Movies
 		}
 		System.out.println("+------+-----------------------------------------------+");
     }
-    public void printCast()
-    {
-        Collections.sort(cast);
-        System.out.println("\nMovie Cast : \n");
+    // public void printCast()
+    // {
+    //     Collections.sort(cast);
+    //     System.out.println("\nMovie Cast : \n");
         
-        for (Cast c: cast)
-        {
-            // System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getAge()+"\n\tCharacter  : "+c.getCharacterName()+"\n");
-			System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getCharacterName()+"\n");
-        }
-    }
+    //     for (Cast c: cast)
+    //     {
+    //         // System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getAge()+"\n\tCharacter  : "+c.getCharacterName()+"\n");
+	// 		System.out.println("\tName : "+c.getName()+"\n\tAge  : "+c.getCharacterName()+"\n");
+    //     }
+    // }
 
     public void setMovie()
     {

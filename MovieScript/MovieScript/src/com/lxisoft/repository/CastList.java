@@ -42,8 +42,8 @@ public class CastList
         {
 			for(int i=0;i<w;i++)
             {
-				System.out.println("\nName : "+cast.get(i).getName()+"\nCharacter : "+cast.get(i).getCharacterName());
-				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharacterName()+"')");
+				System.out.println("\nName : "+cast.get(i).getName()+"\nCharacter : "+cast.get(i).getCharacter());
+				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharacter()+"')");
                 row = pStatement.executeUpdate();  
 
 				System.out.println("\n\nAdded to Database \n\n");
