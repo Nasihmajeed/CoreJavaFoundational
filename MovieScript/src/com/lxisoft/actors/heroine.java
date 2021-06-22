@@ -1,4 +1,11 @@
 package com.lxisoft.actors;
-public interface heroine{
-  
+import java.util.*;
+public class Heroine extends Actor{
+  String heroineName,heroineCharName;
+  public Heroine(String heroineName, String heroineCharName)
+  {
+   this.heroineName=heroineName;
+   this.heroineCharName=heroineCharName;
+  }
+
 }

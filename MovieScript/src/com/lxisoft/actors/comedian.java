@@ -1,4 +1,5 @@
 package com.lxisoft.actors;
-public interface comedian{
+
+public class Comedian extends Actor{
 
 }
