@@ -18,9 +18,9 @@ Actor villan =new Villan();
 
 
 
-ArrayList<Actor> actors=new ArrayList<Actor>();
+ public ArrayList<Actor> actors=new ArrayList<Actor>();
 
-Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
+public Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
 
 Map<String,ArrayList<Actor>> heroMap=new HashMap<String,ArrayList<Actor>>();
 Map<String,ArrayList<Actor>> heroineMap=new HashMap<String,ArrayList<Actor>>();
@@ -194,20 +194,20 @@ public void displayVillan()
 */
 
 
-/*public Map<String,ArrayList<Actor>> getMap()
+public Map<String,ArrayList<Actor>> getMap()
 {	
 	castMap.putAll(heroMap);
 	castMap.putAll(heroineMap);
 	castMap.putAll(comedianMap);
 	castMap.putAll(villanMap);
 	return castMap;
-}*/
+}
 
 /*public void displayMap()
-{
+{	
 	 for(int i=0;i<actors.size();i++)
 	 {
-	 	System.out.print(castMap.get("Villian").get(i).getVillianCharacterName());
+	 	System.out.print(villanMap.get("Villian").get(i).getCharacterName());
 	 }
 }*/
 public Map<String,ArrayList<Actor>> getHeroMap()

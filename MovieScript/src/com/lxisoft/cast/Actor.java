@@ -4,7 +4,7 @@ public class Actor
 	String actorName;
 	String characterName;
 
-	public void setActorName(String actorName)
+	/*public void setActorName(String actorName)
 	{
 		this.actorName=actorName;
 
@@ -24,7 +24,7 @@ public class Actor
 	{
 		return characterName;
 	}
-
+*/
 
 
 
@@ -45,7 +45,7 @@ String villianCharacterName; */
 	
 
 //hero
-	/*public void setHeroName(String heroName)
+	public void setHeroName(String heroName)
 	{
 		this.heroName=heroName;
 	}
@@ -132,6 +132,6 @@ String villianCharacterName; */
 	public String getVillianCharacterName()
 	{
 		return villianCharacterName;
-	}*/
+	}
 
 }

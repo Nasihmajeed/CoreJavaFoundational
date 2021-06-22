@@ -12,8 +12,11 @@ public class TDD
 	Movie movie=new Movie();
 
 		movie.startMovie();
+		/*ScriptWriter scriptWriter= new ScriptWriter();
+		scriptWriter.displayMap();*/
 
-			
+		/*Casting casting=new Casting();
+		casting.displayMap();*/			
 
 	}
 }
