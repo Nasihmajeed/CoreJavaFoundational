@@ -109,13 +109,22 @@ public class Controller
 
 	public void printCast()
 	{
-		for(int i=0;i<cast.size();i++)
-		{	
-			System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
- 			System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
- 			System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
- 			System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
-		}
+		Set set = hero.entrySet();
+      	Iterator i = set.iterator();
+
+      	while(i.hasNext()) 
+		{
+         	hero.Entry me = (hero.Entry)i.next();
+         	System.out.print(me.getKey() + ": ");
+         	System.out.println(me.getValue());
+      	}
+		// for(int i=0;i<cast.size();i++)
+		// {	
+		// 	System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
+ 		// 	System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
+ 		// 	System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
+ 		// 	System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
+		// }
 	}
 
 	public Map<String,ArrayList<Cast>> getHero()

@@ -34,6 +34,7 @@ public class Movies
 			
 
             System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	4.Database \n	0.Exit");
+			// System.out.println("\nSelect option : \n	1.Play Script \n	2.Ticket booking \n	3.Database \n	0.Exit");
 			System.out.print("\nEnter option : ");
             option = s.nextInt();
             if(option==1)
