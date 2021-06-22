@@ -32,16 +32,6 @@ public class Script
            System.out.println("Enter the name of the ScriptWriter");
            setWriterName(sc.next());
                             
-            
-            try{
-					      Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
            System.out.println("Enter the Language of the ScriptWriter");
            setWriterLanguage(sc.next());
      }
@@ -77,14 +67,6 @@ public class Script
       } 
 
 
-int j=0;
-int numOfHero=director.getNumberOfHero();
-int numOfHeroinee=director.getNumberOfHeroine();
-int numOfComedian=director.getNumberOfComedian();
-int numOfVillain=director.getNumberOfVillain();
-
-
-
   public void startMovie(int genre)
     {
 
@@ -110,6 +92,14 @@ allActors=director.castingTheActors();
                 {
                  
                   case 1 : 
+
+
+                                   int j=0;
+                                   int numOfHero=director.getNumberOfHero();
+                                   int numOfHeroinee=director.getNumberOfHeroine();
+                                   int numOfComedian=director.getNumberOfComedian();
+                                   int numOfVillain=director.getNumberOfVillain();
+
                                try{
                      	BufferedReader brom=new BufferedReader(new FileReader(romance));
                                 	while((line=brom.readLine()) != null)
@@ -123,10 +113,8 @@ allActors=director.castingTheActors();
 
                                	while((line=brom.readLine()) != null)   
                                	{
-                                  while((line.length())<60)
-                                  {
+                                 
                                       movieScript.add(new String(line));  
-                                  }
                                		
                                	}
                                   
@@ -135,10 +123,8 @@ allActors=director.castingTheActors();
 
                                	while((line=brom.readLine()) != null)   
                                 {
-                                  while((line.length())<60)
-                                  {
+                                  
                                       movieScript.add(new String(line));  
-                                  }
                                   
                                 }
 
