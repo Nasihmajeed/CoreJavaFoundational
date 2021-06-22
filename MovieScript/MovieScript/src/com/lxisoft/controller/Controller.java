@@ -48,7 +48,7 @@ public class Controller
 				cast.add(new Hero());
 				cast.get(i).setName(hero.name);
 				cast.get(i).setCharacter(hero.character);
-				heros.put("name",cast);
+				heros.put("Hero",cast);
 			
 		}
 	}
@@ -66,7 +66,7 @@ public class Controller
 				cast.add(new Heroine());
 				cast.get(i).setName(heroine.name);
 				cast.get(i).setCharacter(heroine.character);
-				heroines.put("name",cast);
+				heroines.put("Heroine",cast);
 			
 		}
 	}
@@ -84,7 +84,7 @@ public class Controller
 				cast.add(new Comedian());
 				cast.get(i).setName(comedian.name);
 				cast.get(i).setCharacter(comedian.character);
-				comedians.put("name",cast);
+				comedians.put("Comedian",cast);
 			
 		}
 	}
@@ -102,7 +102,7 @@ public class Controller
 				cast.add(new Villain());
 				cast.get(i).setName(villain.name);
 				cast.get(i).setCharacter(villain.character);
-				villains.put("name",cast);
+				villains.put("Villain",cast);
 			
 		}
 	}
@@ -112,9 +112,9 @@ public class Controller
 		for(int i=0;i<cast.size();i++)
 		{	
 			System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
-			System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
+ 			System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
  			System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
-			System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
+ 			System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
 		}
 	}
 
