@@ -1,4 +1,4 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotel;
 
 public class FoodItems {
 public String foodName;

@@ -1,6 +1,6 @@
-package com.lxisoft.Tdd;
+package com.lxisoft.tdd;
 
-import com.lxisoft.Hotel.Hotel;
+import com.lxisoft.hotel.Hotel;
 
 
 public class TDD {
@@ -9,8 +9,8 @@ public class TDD {
    
 
    Hotel hotel =new Hotel();
-   hotel.showDetails();
-   hotel.inputDetails();
+   hotel.showHotelDetail();
+   hotel.inputUserDetail();
  
   }
 }

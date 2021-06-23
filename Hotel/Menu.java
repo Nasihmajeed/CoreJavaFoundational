@@ -1,13 +1,13 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotel;
 
-import com.lxisoft.Hotel.FoodItems;
+import com.lxisoft.hotel.FoodItems;
 import java.util.*;
 public class Menu {
-int num,i, quantity;
+int  quantityOfFoodItem;
 Scanner input= new Scanner(System.in);
 ArrayList<FoodItems> list=new ArrayList<FoodItems>();
 
-public void printMenu(){
+public void printFoodMenu(){
 list.add(new FoodItems());
 list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
@@ -19,10 +19,10 @@ list.get(2).setfoodName("Dosa");
 list.get(2).setfoodPrice(20);
 
 System.out.println("FoodItems and It's Prices");
-int num1;
-int num2=list.size();
-for( num1=0;num1<num2;num1++){
-System.out.println(num1+1 +".    "+ list.get(num1).getfoodName() +" "+ list.get(num1).getfoodPrice()+"\n");
+int arrayNumber;
+int arrayListSize=list.size();
+for( arrayNumber=0;arrayNumber<arrayListSize;arrayNumber++){
+System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
 //System.out.println(i);
 
  
@@ -30,7 +30,7 @@ System.out.println(num1+1 +".    "+ list.get(num1).getfoodName() +" "+ list.get(
 
 }
 //use of polymorphism method over loading
-public void printMenu(int num3){
+public void printFoodMenu(int num3){
 list.add(new FoodItems());
 list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
@@ -42,10 +42,10 @@ list.get(2).setfoodName("Dosa");
 list.get(2).setfoodPrice(20);
 
 System.out.println("FoodItems and It's Prices");
-int num1;
-int num2=list.size();
-for( num1=0;num1<num2-3;num1++){
-System.out.println(num1+1 +".    "+ list.get(num1).getfoodName() +" "+ list.get(num1).getfoodPrice()+"\n");
+int arrayNumber;
+int arrayListSize=list.size();
+for( arrayNumber=0;arrayNumber<arrayListSize-3;arrayNumber++){
+System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
 //System.out.println(i);
 
  
@@ -55,17 +55,17 @@ System.out.println(num1+1 +".    "+ list.get(num1).getfoodName() +" "+ list.get(
 
 
 //public int j=list.size();
-public void addFoodDetails(){
+public void addFoodDetail(){
 System.out.println("Enter Index No Of food Item");
-int num3=input.nextInt();
-num3=num3-1;
-int num1;
+int indexNumber=input.nextInt();
+indexNumber=indexNumber-1;
+int loopNumberToAddItem;
 
   System.out.println("Enter how many food Items you want To add");
- int num2=input.nextInt();
+ int numberOfItemUserToAddOnMenu=input.nextInt();
  
   input.nextLine();
-  for(num1=0;num1<num2;num1++){
+  for(loopNumberToAddItem=0;loopNumberToAddItem<numberOfItemUserToAddOnMenu;loopNumberToAddItem++){
    
  // list.add(new FoodItems());
 
@@ -79,37 +79,37 @@ int num1;
     
     list.add(new FoodItems());
    
- list.get(num3).setfoodName(name);
- list.get(num3).setfoodPrice(price);
+ list.get(indexNumber).setfoodName(name);
+ list.get(indexNumber).setfoodPrice(price);
  //list.add(new FoodItems());
 
 
     input.nextLine();
    
-  num3++;
+indexNumber++;
   }
   }
   
   
-public void orderFood(){
-int num1; int num3=0;
+public void orderFoodFromMenu(){
+int numberOfFoodOrder; int totalPriceOfAllFoodOrder=0;
 System.out.println("Enter how many dishes you want to order");
-num1=input.nextInt();
-for(int num2=0;num2<num1;num2++){
+numberOfFoodOrder=input.nextInt();
+for(int numberToRunLoop=0;numberToRunLoop<numberOfFoodOrder;numberToRunLoop++){
   System.out.println("Enter the Item Number");
-  num=input.nextInt();
+  int foodItemIndexNumber=input.nextInt();
   input.nextLine();
  
  System.out.println("Enter Quantity You Need");
-  quantity=input.nextInt();
+  quantityOfFoodItem=input.nextInt();
   input.nextLine();
  
-  System.out.println("food Item : "+list.get(num-1).getfoodName());
-  System.out.println("total price: "+quantity*list.get(num-1).getfoodPrice());
+  System.out.println("food Item : "+list.get(foodItemIndexNumber-1).getfoodName());
+  System.out.println("total price: "+quantityOfFoodItem*list.get(foodItemIndexNumber-1).getfoodPrice());
  
-  num3=num3+quantity*list.get(num-1).getfoodPrice();
+  totalPriceOfAllFoodOrder=totalPriceOfAllFoodOrder+quantityOfFoodItem*list.get(foodItemIndexNumber-1).getfoodPrice();
    }
-   System.out.println("Total money to pay   "+num3+"Rupees");
+   System.out.println("Total money to pay   "+totalPriceOfAllFoodOrder+"Rupees");
    System.out.println("*****************************");
    }
    

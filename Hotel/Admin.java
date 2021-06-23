@@ -1,18 +1,18 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotel;
 
-import com.lxisoft.Hotel.Menu;
+import com.lxisoft.hotel.Menu;
 import java.util.*;
 public class Admin {
 
 Menu menu=new Menu();
 Scanner input=new Scanner(System.in);
-int num;
-public void conformation(){
-  int password=123;
+int userEnteredPassword;
+public void adminVerification(){
+  int originalPassword=123;
   System.out.println("Enter Password");
-  num=input.nextInt();
+  userEnteredPassword=input.nextInt();
   input.nextLine();
-  if(num==password){
+  if(userEnteredPassword==originalPassword){
     System.out.println("Welcome");
   }
   else{

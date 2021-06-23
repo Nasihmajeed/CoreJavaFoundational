@@ -1,7 +1,7 @@
-package com.lxisoft.Hotel;
+package com.lxisoft.hotel;
 
-import com.lxisoft.Hotel.Admin;
-import com.lxisoft.Hotel.Menu;
+import com.lxisoft.hotel.Admin;
+import com.lxisoft.hotel.Menu;
 import java.util.*;
 public class Hotel {
 
@@ -10,27 +10,27 @@ Admin admin = new Admin();
 Menu menu=new Menu();
 Scanner input=new Scanner(System.in);
 
-public void showDetails(){
+public void showHotelDetail(){
   System.out.println("WELCOME TO PARIS HOTEL");
   }
-  public void inputDetails(){
-  int num;
+  public void inputUserDetail(){
+  int userIdentificationNumber;
     System.out.println("Select Who Are You");
     System.out.println("1 For Admin \n2 For Customer \n3 For Exit");
-   num=input.nextInt();
+   userIdentificationNumber=input.nextInt();
    input.nextLine();
-    switch (num){
+    switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
-     admin.conformation();
-     menu.printMenu();
-      menu.addFoodDetails();
-      menu.printMenu(3);//use of method over loading (polymorphism)
-     this.inputDetails();
+     admin.adminVerification();
+     menu.printFoodMenu();
+      menu.addFoodDetail();
+      menu.printFoodMenu(3);//use of method over loading (polymorphism)
+     this.inputUserDetail();
       break;
       case 2: System.out.println("Customer");
-      menu.printMenu();
-     menu.orderFood();
-   this.inputDetails();
+      menu.printFoodMenu();
+     menu.orderFoodFromMenu();
+   this.inputUserDetail();
       break;
       case 3:
       System.out.println("Thank you");
