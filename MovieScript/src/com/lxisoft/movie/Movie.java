@@ -1,5 +1,7 @@
 package com.lxisoft.movie;
 import com.lxisoft.actors.*;
+import com.lxisoft.director.*;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
