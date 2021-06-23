@@ -13,7 +13,7 @@ public void castSetting()
 
 public void displayCasting()
 {
-	casting.displayCast();
+	//casting.displayCast();
 }
 
 

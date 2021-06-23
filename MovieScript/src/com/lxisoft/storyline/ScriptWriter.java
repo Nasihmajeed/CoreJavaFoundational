@@ -57,14 +57,14 @@ BufferedReader thrillerScriptReader=null;
 		
 
 		
-		public void displayMap()
+		/*public void displayMap()
 {	casting.setHeroineName();
 	heroine_Map=casting.getHeroineMap();
 	 for(int i=0;i<casting.actors.size();i++)
 	 {
 	 	System.out.print(heroine_Map.get("Heroine").get(i).getCharacterName());
 	 }
-}
+}*/
 
 		
 
@@ -72,15 +72,14 @@ public void scriptSelection(int genere)
 {	
 	
 		casting.makeCasting();
+		//actors=casting.getArraylistOfActor();
 		
-		/*hero_Map=casting.getHeroMap();
-		heroine_Map=casting.getHeroineMap();
-		comedian_Map=casting.getComedianMap();
-		villan_Map=casting.getVillanMap();*/
-		/*cast_Map.putAll(casting.getHeroMap());
-		cast_Map.putAll(casting.getHeroineMap());
-		cast_Map.putAll(casting.getComedianMap());
-		cast_Map.putAll(casting.getVillanMap());*/
+		
+
+
+		
+		cast_Map=casting.getMap();
+		
 
 
 	
@@ -103,8 +102,8 @@ switch(genere)
 						if(i%2==0)
 						{
 
-							System.out.print(casting.getMap().get("Comedian").get(0).getCharacterName());
-							System.out.print("("+casting.getMap().get("Comedian").get(0).getActorName()+")");
+							System.out.print(cast_Map.get("Comedian").get(0).getCharacterName());
+							System.out.print("("+cast_Map.get("Comedian").get(0).getActorName()+")");
 
 							System.out.println(listFromFile.get(i).getDialogue());
 						}	
@@ -112,8 +111,8 @@ switch(genere)
 						
 						else if(i>2 && i>0)
 						{
-							System.out.print(casting.getMap().get("Hero").get(0).getCharacterName());
-							System.out.print("("+casting.getMap().get("Hero").get(0).getActorName()+")");
+							System.out.print(cast_Map.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast_Map.get("Hero").get(0).getActorName()+")");
 							System.out.println(listFromFile.get(i).getDialogue());
 						}	
 							

@@ -9,14 +9,14 @@ public class TDD
 {
 	public static void main(String [] args)
 	{	
-	Movie movie=new Movie();
+	/*Movie movie=new Movie();
 
-		movie.startMovie();
+		movie.startMovie();*/
 		/*ScriptWriter scriptWriter= new ScriptWriter();
 		scriptWriter.displayMap();*/
 
-		/*Casting casting=new Casting();
-		casting.displayMap();*/			
+		Casting casting=new Casting();
+		casting.putActorsInMap();		
 
 	}
 }
