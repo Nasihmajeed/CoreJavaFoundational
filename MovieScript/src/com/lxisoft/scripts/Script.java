@@ -4,6 +4,8 @@ import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
 import com.lxisoft.movie.*;
 
+
+
 import java.util.*;
 import java.io.*;
 
@@ -16,10 +18,12 @@ public class Script
  private String writerName,writerLanguage,line;	
 
  final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
+ /*
+
  final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
  final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.CSV";
  final String action= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.CSV";
-	
+	*/
   
 	Director director=new Director();
 
