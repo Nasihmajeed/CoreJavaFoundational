@@ -44,7 +44,7 @@ BufferedReader thrillerScriptReader=null;
 		
 	Map<String,ArrayList<Actor>> cast_Map=new HashMap<String,ArrayList<Actor>>();
 
-		Map<String,ArrayList<Actor>> hero_Map=new HashMap<String,ArrayList<Actor>>();
+		 Map<String,ArrayList<Actor>> hero_Map=new HashMap<String,ArrayList<Actor>>();
 		Map<String,ArrayList<Actor>> heroine_Map=new HashMap<String,ArrayList<Actor>>();
 		Map<String,ArrayList<Actor>> comedian_Map=new HashMap<String,ArrayList<Actor>>();
 		Map<String,ArrayList<Actor>> villan_Map=new HashMap<String,ArrayList<Actor>>();
@@ -71,15 +71,10 @@ BufferedReader thrillerScriptReader=null;
 public void scriptSelection(int genere)
 {	
 	
-		casting.makeCasting();
-		//actors=casting.getArraylistOfActor();
+		//casting.makeCasting();
 		
-		
-
-
-		
-		cast_Map=casting.getMap();
-		
+	//cast_Map=casting.getMap();
+		actors=casting.getActorsArraylist();
 
 
 	
@@ -102,17 +97,19 @@ switch(genere)
 						if(i%2==0)
 						{
 
-							System.out.print(cast_Map.get("Comedian").get(0).getCharacterName());
-							System.out.print("("+cast_Map.get("Comedian").get(0).getActorName()+")");
+						if(actors.get(0) instanceof Comedian)			
+							{System.out.print(actors.get(0).getCharacterName());
+							System.out.print("("+actors.get(0).getActorName()+")");}
 
 							System.out.println(listFromFile.get(i).getDialogue());
 						}	
 							
 						
 						else if(i>2 && i>0)
-						{
-							System.out.print(cast_Map.get("Hero").get(0).getCharacterName());
-							System.out.print("("+cast_Map.get("Hero").get(0).getActorName()+")");
+						{	if(actors.get(i) instanceof Hero)
+							{System.out.print(actors.get(0).getCharacterName());
+							System.out.print("("+actors.get(0).getActorName()+")");}
+							
 							System.out.println(listFromFile.get(i).getDialogue());
 						}	
 							

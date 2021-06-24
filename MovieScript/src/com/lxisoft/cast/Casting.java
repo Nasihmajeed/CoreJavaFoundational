@@ -18,18 +18,16 @@ Actor villan =new Villan();
 
 
 
- public ArrayList<Actor> actors=new ArrayList<Actor>();
+ 
 
-public Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
+ Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
+ArrayList<Actor> actors=new ArrayList<Actor>();
 
-Map<String,ArrayList<Actor>> heroMap=new HashMap<String,ArrayList<Actor>>();
-Map<String,ArrayList<Actor>> heroineMap=new HashMap<String,ArrayList<Actor>>();
-Map<String,ArrayList<Actor>> comedianMap=new HashMap<String,ArrayList<Actor>>();
-Map<String,ArrayList<Actor>> villanMap=new HashMap<String,ArrayList<Actor>>();		
 
 
 public void setHeroName()
-{int i, numberOfHeroCharacters,numberOfHeroineCharacters,numberOfComedianCharacters,numberOfVillanCharacters;
+{
+	int i, numberOfHeroCharacters,numberOfHeroineCharacters,numberOfComedianCharacters,numberOfVillanCharacters;
 	System.out.println("Enter the number of heros: ");
 	numberOfHeroCharacters=sc.nextInt();
 	
@@ -86,10 +84,6 @@ j++;
 		comedian.characterName=sc.next();
 		actors.get(n).setCharacterName(comedian.characterName);
 		//if(actors.get(i) instanceof Comedian)
-		
-		
-		
-		
 		n++;
 	
 	}
@@ -109,7 +103,7 @@ j++;
 		//if(actors.get(i) instanceof Villan)
 		
 		
-		m++;
+		//m++;
 		
 
 		 
@@ -270,33 +264,41 @@ public void putActorsInMap()
 	 {
 	 	if(actors.get(i) instanceof Hero)
 	 	{
-	 		 castMap.put("Hero",actors);
+	 		 
+	 		//System.out.println(actors.get(i).getActorName()+" "+actors.get(i).getCharacterName());
+	 		castMap.put("Hero",actors);
 	 	}
-	 	int j=actors.size();
-	 	if(actors.get(j) instanceof Heroine)
+	 
+	 	if(actors.get(i) instanceof Heroine)
 	 	{
+	 		//System.out.println(actors.get(i).getActorName()+" "+actors.get(i).getCharacterName());
 	 		castMap.put("Heroine",actors);
 	 	}
-	 	j++;
-	 	int n=actors.size();
-
-	 	if(actors.get(n) instanceof Comedian)
+	
+	 	if(actors.get(i) instanceof Comedian)
 	 	{
+	 		//System.out.println(actors.get(i).getActorName()+" "+actors.get(i).getCharacterName());
 	 		castMap.put("Comedian",actors);	
 	 	}
-	 	n++;
-	 	int m=actors.size();
-	 	if(actors.get(m) instanceof Villan)
+	 	
+	 	if(actors.get(i) instanceof Villan)
 	 	{
+	 		//
 	 		castMap.put("Villian",actors);	
+	 		//
 	 	}
+	 	//System.out.println(actors.get(i).getActorName()+" "+actors.get(i).getCharacterName());
+
 	 }
-	 viewArraylist();
+	 //System.out.println(castMap.get("Hero").getActorName()+" "+castMap.get("Hero").getCharacterName());
+	// viewArraylist();
 }
 
 
-
-
+public ArrayList<Actor> getActorsArraylist()
+{
+	return actors;
+}
 
 
 	
@@ -323,7 +325,7 @@ public void viewArraylist()
 	//{	
 		//System.out.println(" "+castMap.get("Hero").get(k).getActorName()+" "+castMap.get("Hero").get(k).getCharacterName()+" ");
 		//System.out.println(" "+castMap.get("Heroine").get(k).getActorName()+" "+castMap.get("Heroine").get(k).getCharacterName()+" ");
-		System.out.println(" "+castMap.get("Comedian").get(0).getActorName()+" "+castMap.get("Comedian").get(0).getCharacterName()+" ");
+		//System.out.println(" "+castMap.get("Comedian").get(0).getActorName()+" "+castMap.get("Comedian").get(0).getCharacterName()+" ");
 		//System.out.println(" "+castMap.get("Villian").get(k).getActorName()+" "+castMap.get("Villian").get(k).getCharacterName()+" ");
 	//}
 
