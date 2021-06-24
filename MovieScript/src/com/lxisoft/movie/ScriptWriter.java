@@ -24,7 +24,7 @@ public class ScriptWriter{
 
 
 
-        while((s=br.readLine())!=null)  
+        while((s=br.readLine())!=null)
         {
            words=s.split(";");
 
@@ -65,9 +65,9 @@ try{
   String input1=sc.next();
 
 
-  System.out.println("********************************\n\n");
-  System.out.println("**********************************");
-  System.out.println("***********************************");
+  System.out.println("************************************n\n");
+  System.out.println("***************************************");
+  System.out.println("*******************************************");
   System.out.println("*************SCENE1****************");
   System.out.println("***********************************");
   System.out.println("***********************************");
