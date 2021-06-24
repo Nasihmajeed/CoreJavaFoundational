@@ -8,15 +8,18 @@ Scanner input= new Scanner(System.in);
 ArrayList<FoodItems> list=new ArrayList<FoodItems>();
 
 public void printFoodMenu(){
-list.add(new FoodItems());
-list.get(0).setfoodName("Biriyani");
+list.add(new FoodItems("Biriyani",100));
+list.add(new FoodItems("Porota",10));
+list.add(new FoodItems("dosa",20));
+
+/*list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
 list.add(new FoodItems());
 list.get(1).setfoodName("porota");
 list.get(1).setfoodPrice(10);
 list.add(new FoodItems());
 list.get(2).setfoodName("Dosa");
-list.get(2).setfoodPrice(20);
+list.get(2).setfoodPrice(20);*/
 
 System.out.println("FoodItems and It's Prices");
 int arrayNumber;
@@ -30,8 +33,11 @@ System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +
 
 }
 //use of polymorphism method over loading
-public void printFoodMenu(int num3){
-list.add(new FoodItems());
+public void printFoodMenu(int numberToRemoveUnwantedArraylist){
+list.add(new FoodItems("Biriyani",100));
+list.add(new FoodItems("Porota",10));
+list.add(new FoodItems("dosa",20));
+/*list.add(new FoodItems());
 list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
 list.add(new FoodItems());
@@ -39,12 +45,12 @@ list.get(1).setfoodName("porota");
 list.get(1).setfoodPrice(10);
 list.add(new FoodItems());
 list.get(2).setfoodName("Dosa");
-list.get(2).setfoodPrice(20);
+list.get(2).setfoodPrice(20);*/
 
 System.out.println("FoodItems and It's Prices");
 int arrayNumber;
 int arrayListSize=list.size();
-for( arrayNumber=0;arrayNumber<arrayListSize-3;arrayNumber++){
+for( arrayNumber=0;arrayNumber<arrayListSize;arrayNumber++){
 System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
 //System.out.println(i);
 
@@ -77,10 +83,10 @@ int loopNumberToAddItem;
     
     int price=input.nextInt();
     
-    list.add(new FoodItems());
+    list.add(new FoodItems(name,price));
    
- list.get(indexNumber).setfoodName(name);
- list.get(indexNumber).setfoodPrice(price);
+ /*list.get(indexNumber).setfoodName(name);
+ list.get(indexNumber).setfoodPrice(price);*/
  //list.add(new FoodItems());
 
 
