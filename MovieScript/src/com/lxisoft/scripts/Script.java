@@ -4,32 +4,40 @@ import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
 import com.lxisoft.movie.*;
 
-
-
 import java.util.*;
 import java.io.*;
 
-
 public class Script
-{
+ {
  
- Scanner sc=new Scanner(System.in);
+  Scanner sc=new Scanner(System.in);
 
- private String writerName,writerLanguage,line;	
+  private String writerName,writerLanguage,line;	
 
- final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
- /*
-
- final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
- final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.CSV";
- final String action= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.CSV";
-	*/
+   final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
+   final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
+   final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.CSV";
+ //  final String action= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.CSV";
   
-	Director director=new Director();
+	
+        
+       ArrayList<RomanceScript> romanceScene=new ArrayList<RomanceScript>();
+       ArrayList<EmotionalScript> emotionalScene=new ArrayList<EmotionalScript>(); 
+   //    ArrayList<ActionScript> actionScene=new ArrayList<ActionScript>(); 
+	   ArrayList<ComedyScript> comedyScene=new ArrayList<ComedyScript>();
 
-	   ArrayList<String> movieScript=new ArrayList<String>();	
+       Director director=new Director();
 
-     ArrayList<Actor> allActors;
+       ArrayList<Actor> allActors;
+                                       
+   //Getting the number of each actors in the movie from the Director   
+   int numOfHero=director.getNumberOfHero();
+   int numOfHeroine=director.getNumberOfHeroine();
+   int numOfComedian=director.getNumberOfComedian();
+ //  int numOfVillain=director.getNumberOfVillain();
+
+
+   int j=0;
 
     public void writerDetails()
      {
@@ -96,40 +104,31 @@ allActors=director.castingTheActors();
                 {
                  
                   case 1 : 
-
-
-                                   int j=0;
-                                   int numOfHero=director.getNumberOfHero();
-                                   int numOfHeroinee=director.getNumberOfHeroine();
-                                   int numOfComedian=director.getNumberOfComedian();
-                                   int numOfVillain=director.getNumberOfVillain();
-
+                           
                                try{
-                     	BufferedReader brom=new BufferedReader(new FileReader(romance));
-                                	while((line=brom.readLine()) != null)
+
+                 BufferedReader brom=new BufferedReader(new FileReader(romance));
+                                while((line=brom.readLine()) != null)
                                 	{
-                               		
-                                  movieScript.add(new String(line));
+                                        String[] s1=line.split(":");
+                                        String st=s1[0].trim();
+                                  romanceScene.add(new RomanceScript(st));
                                 	}
 
-
                                	brom=new BufferedReader(new FileReader(emotional));
-
                                	while((line=brom.readLine()) != null)   
                                	{
-                                 
-                                      movieScript.add(new String(line));  
-                               		
+                                        String[] s2=line.split(":");
+                                        String str=s2[0].trim();
+                                  emotionalScene.add(new EmotionalScript(str));  
                                	}
                                   
-                                
                                 brom=new BufferedReader(new FileReader(comedy));
-
                                	while((line=brom.readLine()) != null)   
-                                {
-                                  
-                                      movieScript.add(new String(line));  
-                                  
+                                {      
+                                        String[] s3=line.split(":");
+                                        String stri=s3[0].trim();
+                                  comedyScene.add(new ComedyScript(stri));   
                                 }
 
                                }
@@ -140,32 +139,90 @@ allActors=director.castingTheActors();
                                
                                }        
                                 
+                             
                               
-
+                           //Romantic Scene between Hero and Heroine
             
                               
-                              for(int i=0;i<numOfHero;i++)
+                              for(int i=0;i<allActors.size();i++)
                               {
-                                  if( ( ( allActors.get(i) ) instanceof Hero) && (j<movieScript.size()))
+
+                                do{
+
+                                     if( ( ( allActors.get(i) ) instanceof Hero) && (j<romanceScene.size()))
                                      {
-System.out.println(allActors.get(i).getHeroName()+":"+allActors.get(i).getHeroCharName()+":"+movieScript.get(j));     
+System.out.println(allActors.get(i).getHeroName()+":"+allActors.get(i).getHeroCharName()+":"+romanceScene.get(j));     
                                      }
-                                  else if( ( ( allActors.get(i) ) instanceof Heroine) && (j<movieScript.size()))
+                                     else if( ( ( allActors.get(i) ) instanceof Heroine) && (j<romanceScene.size()))
                                      {
-System.out.println(allActors.get(i).getHeroineName()+":"+allActors.get(i).getHeroineCharName()+":"+movieScript.get(j));
+System.out.println(allActors.get(i).getHeroineName()+":"+allActors.get(i).getHeroineCharName()+":"+romanceScene.get(j));
                                      }
-                               else if( ( ( allActors.get(i) ) instanceof Comedian) && (j<movieScript.size()))
+                                    
+                                    i++;
+                                    j++;
+
+                                   }while(i<=numOfHero);
+ 
+                              }
+                               
+                             
+
+
+
+
+                             //Comedy Scene between Hero and Comedian  
+                             
+
+                              for(int i=0;i<allActors.size();i++)
+                              {
+
+                                do{
+
+                                     if( ( ( allActors.get(i) ) instanceof Hero) && (j<comedyScene.size()))
                                      {
-System.out.println(allActors.get(i).getComedianName()+":"+allActors.get(i).getComedianCharName()+":"+movieScript.get(j));
+System.out.println(allActors.get(i).getHeroName()+":"+allActors.get(i).getHeroCharName()+":"+comedyScene.get(j));     
+                                     }
+                                     else if( ( ( allActors.get(i) ) instanceof Comedian) && (j<comedyScene.size()))
+                                     {
+System.out.println(allActors.get(i).getComedianName()+":"+allActors.get(i).getComedianCharName()+":"+comedyScene.get(j));
+                                     }
+
+                                   }while(i<numOfComedian);
+                               }
+
+
+
+
+
+
+                              
+
+
+/*
+
+                              for(int i=0;i<numOfHeroine;i++)
+                              {
+                                  if( ( ( allActors.get(i) ) instanceof Hero) && (j<romanceScene.size()))
+                                     {
+System.out.println(allActors.get(i).getHeroName()+":"+allActors.get(i).getHeroCharName()+":"+romanceScene.get(j));     
+                                     }
+                                  else if( ( ( allActors.get(i) ) instanceof Heroine) && (j<romanceScene.size()))
+                                     {
+System.out.println(allActors.get(i).getHeroineName()+":"+allActors.get(i).getHeroineCharName()+":"+romanceScene.get(j));
+                                     }
+                               else if( ( ( allActors.get(i) ) instanceof Comedian) && (j<romanceScene.size()))
+                                     {
+System.out.println(allActors.get(i).getComedianName()+":"+allActors.get(i).getComedianCharName()+":"+romanceScene.get(j));
                                      }
 
                                  j++;
 
                               }
-                               
-                               
-                              
-                                                    
+                                 
+*/
+
+
+
 							   break;
 							   
 				 case 2 : System.out.println("script");
@@ -181,10 +238,11 @@ System.out.println(allActors.get(i).getComedianName()+":"+allActors.get(i).getCo
 				                System.out.println("script");
 				
 				               break;
+   
    }
+}
+}
 
-}
-}
 
 
 
