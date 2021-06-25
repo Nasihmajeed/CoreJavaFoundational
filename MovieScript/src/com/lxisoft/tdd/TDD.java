@@ -16,6 +16,7 @@ Script scr=new Script();
 movie.movieTitle();
 movie.begin();
 
+
 if(movie.getMovieGenre().equals("Romantic"))
 {
 scr.startMovie(1);	
