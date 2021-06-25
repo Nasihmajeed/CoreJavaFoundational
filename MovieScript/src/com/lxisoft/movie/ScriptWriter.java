@@ -8,17 +8,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-public class ScriptWriter{
+public class ScriptWriter {
   File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\script\\script.csv");
-  BufferedReader br =null;
+
   ArrayList<Script>script= new ArrayList<Script>();
-  public void writeScript() {
+  public void writeScript() throws IOException {
 
 
 
         String s;
-        String words[];
-        try{
+        String words[]=null;
+
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
 
@@ -39,24 +39,14 @@ public class ScriptWriter{
 
             }
           }
-
-
-
-            }
-          }
-
-          catch(IOException e)
-          {
-            e.printStackTrace();
-          }
-          finally{
-try{
-              br.close();
-            }
-            catch(IOException e)
-            {
-            }
 }
+
+fr.close();
+
+
+
+
+
 
 
   Scanner sc= new Scanner(System.in);
@@ -65,9 +55,9 @@ try{
   String input1=sc.next();
 
 
-  System.out.println("************************************n\n");
-  System.out.println("***************************************");
-  System.out.println("*******************************************");
+  System.out.println("**********************************n\n");
+  System.out.println("************************************");
+  System.out.println("************************************");
   System.out.println("*************SCENE1****************");
   System.out.println("***********************************");
   System.out.println("***********************************");
