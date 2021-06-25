@@ -158,8 +158,7 @@ public class Admin
 				System.out.println("Enter the Drink");
 				drink=sc.next();
 			
-			foodItems.add(new Drinks());
-				
+				foodItems.add(new Drinks());
 				foodItems.get(j).setItem(drink);		
 				
 		
