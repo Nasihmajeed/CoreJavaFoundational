@@ -1,13 +1,13 @@
 package com.lxisoft.hotel;
 
-public class FoodItems {
-/*public*/ String foodName;
-/*public*/ int foodPrice;
+public class FoodItem {
+public String foodName;
+public int foodPrice;
 
-public FoodItems(String foodName,int foodPrice){
+public FoodItem(String foodName,int foodPrice){
   this.foodName=foodName;
   this.foodPrice=foodPrice;
-
+}
 
 public void setfoodName(String foodName){
   this.foodName=foodName;
@@ -23,7 +23,4 @@ public String getfoodName(){
 public int getfoodPrice(){
   return foodPrice;
 }
-
-
-
 }

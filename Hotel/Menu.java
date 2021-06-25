@@ -1,16 +1,16 @@
 package com.lxisoft.hotel;
 
-import com.lxisoft.hotel.FoodItems;
+import com.lxisoft.hotel.FoodItem;
 import java.util.*;
 public class Menu {
 int  quantityOfFoodItem;
 Scanner input= new Scanner(System.in);
-ArrayList<FoodItems> list=new ArrayList<FoodItems>();
+ArrayList<FoodItem> list=new ArrayList<FoodItem>();
 
 public void printFoodMenu(){
-list.add(new FoodItems("Biriyani",100));
-list.add(new FoodItems("Porota",10));
-list.add(new FoodItems("dosa",20));
+list.add(new FoodItem("Biriyani",100));
+list.add(new FoodItem("Porota",10));
+list.add(new FoodItem("dosa",20));
 
 /*list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
@@ -25,7 +25,7 @@ System.out.println("FoodItems and It's Prices");
 int arrayNumber;
 int arrayListSize=list.size();
 for( arrayNumber=0;arrayNumber<arrayListSize;arrayNumber++){
-System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
+System.out.println(1+arrayNumber +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
 //System.out.println(i);
 
  
@@ -34,9 +34,9 @@ System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +
 }
 //use of polymorphism method over loading
 public void printFoodMenu(int numberToRemoveUnwantedArraylist){
-list.add(new FoodItems("Biriyani",100));
-list.add(new FoodItems("Porota",10));
-list.add(new FoodItems("dosa",20));
+list.add(new FoodItem("Biriyani",100));
+list.add(new FoodItem("Porota",10));
+list.add(new FoodItem("dosa",20));
 /*list.add(new FoodItems());
 list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
@@ -50,8 +50,8 @@ list.get(2).setfoodPrice(20);*/
 System.out.println("FoodItems and It's Prices");
 int arrayNumber;
 int arrayListSize=list.size();
-for( arrayNumber=0;arrayNumber<arrayListSize;arrayNumber++){
-System.out.println(arrayNumber+1 +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
+for( arrayNumber=0;arrayNumber<arrayListSize-numberToRemoveUnwantedArraylist;arrayNumber++){
+System.out.println(1+arrayNumber +".    "+ list.get(arrayNumber).getfoodName() +" "+ list.get(arrayNumber).getfoodPrice()+"\n");
 //System.out.println(i);
 
  
@@ -83,7 +83,7 @@ int loopNumberToAddItem;
     
     int price=input.nextInt();
     
-    list.add(new FoodItems(name,price));
+    list.add(new FoodItem(name,price));
    
  /*list.get(indexNumber).setfoodName(name);
  list.get(indexNumber).setfoodPrice(price);*/
