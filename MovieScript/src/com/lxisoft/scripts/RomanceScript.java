@@ -2,7 +2,7 @@ package com.lxisoft.scripts;
 
 public class RomanceScript extends Script
 {
-  String dialogue;
+String dialogue;
     
   public void setDialogue(String dialogue)
   {  

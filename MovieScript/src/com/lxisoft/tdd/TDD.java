@@ -11,34 +11,32 @@ public static void main(String[] args)
 {
 
 Movie movie=new Movie();
-Script scr=new Script();
+Script script=new Script();
 
 movie.movieTitle();
-movie.begin();
-
+movie.setMovieDetails();
+script.receiveAndPrintDetailsOfCharacters();
 
 if(movie.getMovieGenre().equals("Romantic"))
 {
-scr.startMovie(1);	
+script.startMovie(1);	
 }
 
 else if(movie.getMovieGenre().equals("Emotional"))
 {
-scr.startMovie(2);	
+script.startMovie(2);	
 }
 
 else if(movie.getMovieGenre().equals("Comedy"))
 {
-scr.startMovie(3);	
+script.startMovie(3);	
 }
 
 else if(movie.getMovieGenre().equals("Action"))
 {
-scr.startMovie(4);	
+script.startMovie(4);	
 }
 
-
-movie.getMovieDetails();
 
 }
 }

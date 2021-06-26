@@ -2,7 +2,7 @@ package com.lxisoft.scripts;
 
 public class ComedyScript extends Script
 {
-String dialogue;
+  String dialogue;
     
   public void setDialogue(String dialogue)
   {  
@@ -15,5 +15,4 @@ String dialogue;
   {
     return dialogue;
   }
-
 }

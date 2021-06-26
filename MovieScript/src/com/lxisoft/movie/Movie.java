@@ -102,7 +102,7 @@ System.out.println("------------------------------------------------------------
 }
 	
 
-public void begin()
+public void setMovieDetails()
 {
    System.out.println("\r\n");
    

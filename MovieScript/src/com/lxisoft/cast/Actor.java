@@ -3,104 +3,32 @@ package com.lxisoft.cast;
 public class Actor
 {
 
- protected String heroName,heroCharName;
- protected String comedianName,comedianCharName;
- protected String heroineName,heroineCharName;
- protected String villainName,villainCharName;
+ protected String actorName,actorCharName;
 
-/*	
-	public void setHeroName(String heroName)
+	
+	public void setActorName(String actorName)
 	{
-		this.heroName=heroName;
+		this.actorName=actorName;
 	}
 	
 	
-	public void setHeroCharName(String heroCharName)
+	public void setActorCharName(String actorCharName)
 	{
-		this.heroCharName=heroCharName;
-	}
-*/	
-	
-	public String getHeroName()
-	{
-		return heroName;
+		this.actorCharName=actorCharName;
 	}
 	
 	
-	public String getHeroCharName()
+	public String getActorName()
 	{
-		return heroCharName;
-	}
-
-
-
-/*
-   public void setHeroineName(String heroineName)
-	{
-		this.heroineName=heroineName;
-	}
-*/	
-	public String getHeroineName()
-	{
-		return heroineName;
+		return actorName;
 	}
 	
-/*	public void setHeroineCharName(String heroineCharName)
-	{
-		this.heroineCharName=heroineCharName;
-	}
-*/	
-	public String getHeroineCharName()
-	{
-		return heroineCharName;
-	}
-
-
-
-/*
-    public void setComedianName(String comedianName)
-	{
-		this.comedianName=comedianName;
-	}
-*/	
 	
-	public String getComedianName()
+	public String getActorCharName()
 	{
-		return comedianName;
-	}
-	
-/*	public void setComedianCharName(String comedianCharName)
-	{
-		this.comedianCharName=comedianCharName;
-	}
-*/	
-	public String getComedianCharName()
-	{
-		return comedianCharName;
+		return actorCharName;
 	}
 
 
-
-
-/*
-	public void setVillainName(String villainName)
-	{
-		this.villainName=villainName;
-	}
-*/	
-	public String getVillainName()
-	{
-		return villainName;
-	}
-/*
-    public void setVillainCharName(String villainCharName)
-	{
-		this.villainCharName=villainCharName;
-	}
-*/
-	public String getVillainCharName()
-	{
-		return villainCharName;
-	}
 
 }
