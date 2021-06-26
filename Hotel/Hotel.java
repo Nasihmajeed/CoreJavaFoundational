@@ -22,9 +22,10 @@ public void showHotelDetail(){
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
      admin.adminVerification();
+     menu.foodMenuList();
      menu.printFoodMenu();
       menu.addFoodDetail();
-      menu.printFoodMenu(3);//use of method over loading (polymorphism)
+      menu.printFoodMenu();//use of method over loading (polymorphism)
      this.inputUserDetail();
       break;
       case 2: System.out.println("Customer");
