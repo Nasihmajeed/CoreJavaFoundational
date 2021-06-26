@@ -16,14 +16,8 @@ Actor heroine=new Heroine();
 Actor comedian=new Comedian();
 Actor villan =new Villan();
 
-
-
- 
-
- Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
+Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
 ArrayList<Actor> actors=new ArrayList<Actor>();
-
-
 
 public void setActorsName()
 {	
@@ -52,7 +46,7 @@ public void setActorsName()
 	
 	}
 int j,n,m;
-j=actors.size();
+//j=actors.size();
 	System.out.println("Enter the number of heroines: ");
 	numberOfHeroineCharacters=sc.nextInt();
 	
@@ -61,20 +55,20 @@ j=actors.size();
 		System.out.println("Enter the name of heroines "+(i+1));
 		heroine.heroineName=sc.next();
 		
-		actors.get(j).setHeroineName(heroine.heroineName);	
+		actors.get(i).setHeroineName(heroine.heroineName);	
 		System.out.println("Enter the Character name of "+heroine.heroineName);
 		heroine.heroineCharacterName=sc.next();
 		
-		actors.get(j).setHeroineCharacterName(heroine.heroineCharacterName);
+		actors.get(i).setHeroineCharacterName(heroine.heroineCharacterName);
 		//if(actors.get(i) instanceof Heroine)
 			castMap.put("Heroine",actors);
 		
 		
 	
-j++;		
+//j++;		
 		
 	}
-		n=actors.size();
+		//n=actors.size();
 		System.out.println("Enter the number of Comedian: ");
 	numberOfComedianCharacters=sc.nextInt();
 	for( i=0;i<numberOfComedianCharacters;i++)
@@ -82,17 +76,17 @@ j++;
 		System.out.println("Enter the name of Comedian "+(i+1));
 		comedian.comedianName=sc.next();
 		
-		actors.get(n).setComedianName(comedian.comedianName);	
+		actors.get(i).setComedianName(comedian.comedianName);	
 		System.out.println("Enter the Character name of "+comedian.comedianName);
 		comedian.comedianCharacterName=sc.next();
 		
-		actors.get(n).setComedianCharacterName(comedian.comedianCharacterName);
+		actors.get(i).setComedianCharacterName(comedian.comedianCharacterName);
 		//if(actors.get(i) instanceof Comedian)
 		castMap.put("Comedian",actors);
-		n++;
+		//n++;
 	
 	}
-	m=actors.size();
+	//m=actors.size();
 	System.out.println("Enter the number of Villian: ");
 	numberOfVillanCharacters=sc.nextInt();
 		
@@ -101,13 +95,13 @@ j++;
 		actors.add(new Villan());
 		System.out.println("Enter the name of Villian "+(i+1));
 		 villan.villianName=sc.next();
-		actors.get(m).setVillianName(villan.villianName);	
+		actors.get(i).setVillianName(villan.villianName);	
 		System.out.println("Enter the Character name of "+villan.villianName);
 		 villan.villianCharacterName=sc.next();
-		actors.get(m).setVillianCharacterName(villan.villianCharacterName);
+		actors.get(i).setVillianCharacterName(villan.villianCharacterName);
 		//if(actors.get(i) instanceof Villan)
 		castMap.put("Villian",actors);
-		m++;
+		//m++;
 		
 
 		 
