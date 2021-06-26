@@ -36,7 +36,7 @@ public class Director{
     System.out.println("ENTER NUMBER OF COMEDIANS");
     int numOfComedians=sc.nextInt();
     for(int i=0;i<numOfComedians;i++){
-      System.out.println("ENTER THE NAME OF HERO ");
+      System.out.println("ENTER THE NAME OF COMEDIAN ");
       comedianName=sc.next();
 
       actor.get(i).setActorName(comedianName);

@@ -37,18 +37,18 @@ try{
   }
   public void printDialogue(){
     System.out.println("\n\n***************************************************************************************************");
-    System.out.println("*******************SCENE1*********************************************");
-    System.out.println("*********************************************************************");
+    System.out.println("*********************************SCENE1*********************************************");
+    System.out.println("************************************************************************************");
     System.out.println("Sundhareshan enters the  scene humming a song, finds Basanthi siiting infront of the bus\n\n");
 
   }
 
   public void printCast(){
-    System.out.println("|**************************************|");
-    System.out.println("|Dileep as Unnikrishnan               |");
-    System.out.println("|Harisree Ashokan as Sundhareshan     |");
-    System.out.println("|Nithya Das as Basanthi,Gayathri        |");
-    System.out.println("|Cochin Haneefa as Veerappan Kurupp     |");
+    System.out.println("|****************************************|");
+    System.out.println("|Dileep as Unnikrishnan                  |");
+    System.out.println("|Harisree Ashokan as Sundhareshan        |");
+    System.out.println("|Nithya Das as Basanthi,Gayathri         |");
+    System.out.println("|Cochin Haneefa as Veerappan Kurupp      |");
     System.out.println("|**************************************|");
   }
 
