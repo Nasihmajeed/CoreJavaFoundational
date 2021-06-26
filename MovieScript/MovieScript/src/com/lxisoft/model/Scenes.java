@@ -1,20 +1,27 @@
 package com.lxisoft.model;
-import com.lxisoft.model.*;
-import com.lxisoft.view.*;
-import com.lxisoft.repository.*;
 import java.util.*;
+
+import com.lxisoft.view.Felix;
+import com.lxisoft.view.Gopi;
+import com.lxisoft.view.Mani;
+import com.lxisoft.view.Veena;
+
 import java.io.*;
 
 
 public class Scenes 
 {
-    
     ArrayList<Script> script1 = new ArrayList<Script>();
 	ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
     ArrayList<Script> script4 = new ArrayList<Script>();
     ArrayList<Script> script5 = new ArrayList<Script>();
     ArrayList<Script> script6 = new ArrayList<Script>();
+
+    ArrayList<String> hero = new ArrayList<>();
+    ArrayList<String> heroine = new ArrayList<>();
+    ArrayList<String> comedian = new ArrayList<>();
+    ArrayList<String> villain = new ArrayList<>();
 
 	public void setScene1()
     {
@@ -24,7 +31,7 @@ public class Scenes
         script1.get(0).setDialogue2("Gopi  : What?  What did you call me?\n");
         script1.get(0).setDialogue3("Gopi  : Call me that again.\n");
         script1.get(0).setDialogue4("Gopi  : Call me again.\n");
-        script1.get(0).setDialogue5("Gopi  : I knew you would call.  You are so rude.\n");
+        script1.get(0).setDialogue5("Gopi  : I knew you would call.  You are so rude.\n\n\n");
 
         script1.add(new Veena());
         script1.get(1).setDialogue0("Veena : Get lost\n");
@@ -179,7 +186,7 @@ public class Scenes
         script3.get(0).setDialogue6("Gopi  : Train is coming.. (gives some money) Here take this.. I have only this left and you may need it to meet your travel expenses... All your wishes will be fulfilled and I'll pray for it \n");
         script3.get(0).setDialogue7("Gopi  : The earth is round so if we are destined to meet then we will meet somewhere\n");
         script3.get(0).setDialogue8("Gopi  : (surprised)\n");
-        script3.get(0).setDialogue9("Gopi  : Here I come. I'll ensure that you get married before doing anything else\n");
+        script3.get(0).setDialogue9("Gopi  : Here I come. I'll ensure that you get married before doing anything else\n\n\n");
         
 
         script3.add(new Veena());
@@ -202,20 +209,21 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            writer.write("\n                                                              *** Gopi faces some problem there too and decides to leave from there ***\n");
-            writer.write("\n                                                                   *** He comes with veena to the railway station to see off Veena ***\n\n");
+            // writer.write("\n                                                              *** Gopi faces some problem there too and decides to leave from there ***\n");
+            // writer.write("\n                                                                   *** He comes with veena to the railway station to see off Veena ***\n\n");
+            
             writer.write(script3.get(0).getDialogue0());
             writer.write(script3.get(1).getDialogue0());
             writer.write(script3.get(0).getDialogue1());
             writer.write(script3.get(1).getDialogue1());
             writer.write(script3.get(0).getDialogue2());
 
-            writer.write("\n\n                                                                                        *** Gopi moves from there ***\n\n");
+            // writer.write("\n\n                                                                                        *** Gopi moves from there ***\n\n");
 
             writer.write(script3.get(1).getDialogue2());
 
-            writer.write("\n\n                                                                             *** Veena searches for Gopi and see him crying ***\n");
-            writer.write("\n                                                                                             *** Gopi comes back ***\n\n");
+            // writer.write("\n\n                                                                             *** Veena searches for Gopi and see him crying ***\n");
+            // writer.write("\n                                                                                             *** Gopi comes back ***\n\n");
 
             writer.write(script3.get(0).getDialogue3());
             writer.write(script3.get(1).getDialogue3());
@@ -224,23 +232,23 @@ public class Scenes
             writer.write(script3.get(0).getDialogue5());
             writer.write(script3.get(1).getDialogue5());
 
-            writer.write("\n\n                                                                                       *** Train horn sound ***\n\n");
+            // writer.write("\n\n                                                                                       *** Train horn sound ***\n\n");
 
             writer.write(script3.get(0).getDialogue6());
             writer.write(script3.get(1).getDialogue6());
             writer.write(script3.get(0).getDialogue7());
 
-            writer.write("\n\n                                                                                    *** Veena boards the train ***\n\n");
+            // writer.write("\n\n                                                                                    *** Veena boards the train ***\n\n");
 
             writer.write(script3.get(1).getDialogue7());
 
-            writer.write("\n\n                                                                                *** Veena shows the necklace to Gopi ***\n\n");
+            // writer.write("\n\n                                                                                *** Veena shows the necklace to Gopi ***\n\n");
 
             writer.write(script3.get(0).getDialogue8());
             writer.write(script3.get(1).getDialogue8());
             writer.write(script3.get(0).getDialogue9());
 
-            writer.write("\n\n                                                                                      *** Gopi boards the train ***\n\n");
+            // writer.write("\n\n                                                                                      *** Gopi boards the train ***\n\n");
     
             writer.flush();
             writer.close();
@@ -301,8 +309,8 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            writer.write("\n                                                 *** Gopi and veena arrives at the hotel where Felix is residing and Gopi goes to check in ***\n");
-            writer.write("\n                                                                     *** Veena comes to know that it's Felix's marriage ***\n\n");
+            // writer.write("\n                                                 *** Gopi and veena arrives at the hotel where Felix is residing and Gopi goes to check in ***\n");
+            // writer.write("\n                                                                     *** Veena comes to know that it's Felix's marriage ***\n\n");
 
             writer.write(script4.get(0).getDialogue0());
             writer.write(script4.get(1).getDialogue0());
@@ -310,7 +318,7 @@ public class Scenes
             writer.write(script4.get(1).getDialogue1());
             writer.write(script4.get(0).getDialogue2());
 
-            writer.write("\n\n                                                                                        *** Mani and Maala arrives ***\n\n");
+            // writer.write("\n\n                                                                                        *** Mani and Maala arrives ***\n\n");
 
             writer.write(script4.get(2).getDialogue0());
             writer.write(script4.get(0).getDialogue3());
@@ -363,7 +371,7 @@ public class Scenes
         script5.get(0).setDialogue5("Gopi  : I don't think her family like to see that she is suffering due to some cash issues. I can get you the cash\n");
         script5.get(0).setDialogue6("Gopi  : You go and talk with veena first. I'm responsible for giving cash to you before marriage\n");
         script5.get(0).setDialogue7("Gopi  : She don't want to know that we already talked about this here. She will come and meet you. Try to forget everything\n");
-        script5.get(0).setDialogue8("Gopi  : Don't want to go down on your love with the money you are spending. Don't make her suffer. Better inform me. I'll take care of her\n");
+        script5.get(0).setDialogue8("Gopi  : Don't want to go down on your love with the money you are spending. Don't make her suffer. Better inform me. I'll take care of her\n\n\n");
 
 
         script5.add(new Felix());
@@ -386,7 +394,7 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
   
-            writer.write("\n                                                                                 *** Gopi Meets Felix as Veena's cousin ***\n\n");
+            // writer.write("\n                                                                                 *** Gopi Meets Felix as Veena's cousin ***\n\n");
 
             writer.write(script5.get(0).getDialogue0());
             writer.write(script5.get(1).getDialogue0());
@@ -441,7 +449,7 @@ public class Scenes
         script6.get(0).setDialogue1("Felix : Then the cash which you offered you can give that time as well to avoid all this problems\n");
         script6.get(0).setDialogue2("Felix : Your cousin Gopi told me, he will give cash to me before marriage\n");
         script6.get(0).setDialogue3("Felix : Yes\n");
-        script6.get(0).setDialogue4("Felix : 30lakhs. I'll come to church with my father. Then give the money directly to him we can marry from there\n");
+        script6.get(0).setDialogue4("Felix : 30lakhs. I'll come to church with my father. Then give the money directly to him we can marry from there\n\n\n");
         
 
         script6.add(new Veena());
@@ -460,7 +468,7 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            writer.write("\n\n                                                                                       *** Felix Meets Veena ***\n\n");
+            // writer.write("\n\n                                                                                       *** Felix Meets Veena ***\n\n");
 
             writer.write(script6.get(0).getDialogue0());
             writer.write(script6.get(1).getDialogue0());
@@ -510,7 +518,7 @@ public class Scenes
     {
 		try
         {
-			Thread.sleep(1500);
+			Thread.sleep(1100);
 		}
 		catch(InterruptedException e)
         {
@@ -534,4 +542,27 @@ public class Scenes
 		}
 		return scne;
 	}
+
+    public void comedyScene()
+    {
+        this.setScene2();
+        this.printScene2();
+        this.setScene4();
+        this.printScene4();
+    }
+    public void romanticScene()
+    {
+        this.setScene3();
+        this.printScene3();
+    }
+    public void thrillerScene()
+    {
+        this.setScene5();
+        this.printScene5();
+    }
+    public void emotionalScene()
+    {
+        this.setScene6();
+        this.printScene6();
+    }
 }

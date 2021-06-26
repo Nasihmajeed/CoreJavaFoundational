@@ -1,9 +1,7 @@
 package com.lxisoft.repository;
-import com.lxisoft.repository.*;
-import com.lxisoft.controller.*;
-import com.lxisoft.model.*;
-import com.lxisoft.view.*;
-import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList; 
+import java.util.Map.Entry; 
 import java.sql.*;
 
 public class CastList 
@@ -34,20 +32,20 @@ public class CastList
         }
     }
 
-    public void addToDatabase(ArrayList<Cast> cast)
+    public void addToDatabase(ArrayList<Entry<String, String>> cast)
     {
 		this.databaseConnect();
-		int w = cast.size();
+		// int w = cast.size();
+		int i=1;
 		try
         {
-			for(int i=0;i<w;i++)
-            {
-				System.out.println("\nName : "+cast.get(i).getName()+"\nCharacter : "+cast.get(i).getCharacter());
-				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharacter()+"')");
+			for (Entry<String, String> entry : cast) 
+        	{ 
+           		System.out.println("\nName : "+entry.getKey()+"\nCharacter : "+entry.getValue()); 
+				pStatement = con.prepareStatement("insert into cast (id,name,charactor) values('"+(i++)+"','"+entry.getKey()+"','"+entry.getValue()+"')");
                 row = pStatement.executeUpdate();  
-
-				System.out.println("\n\nAdded to Database \n\n");
 			}
+			System.out.println("\n\nAdded to Database \n\n");
 			pStatement.close();
             con.close();
 		}

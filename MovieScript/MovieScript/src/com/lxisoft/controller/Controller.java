@@ -1,164 +1,140 @@
 package com.lxisoft.controller;
-import com.lxisoft.controller.*;
-import com.lxisoft.controller.Heroine;
 import com.lxisoft.model.*;
-import com.lxisoft.view.*;
-
 import com.lxisoft.repository.*;
-import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList; 
+import java.util.HashMap; 
+import java.util.Map.Entry; 
+import java.util.Set; 
 
 public class Controller 
-{
-	int i,number;
-	Scanner input=new Scanner(System.in);
+{	
+    CastList cl = new CastList();
+	Scenes scenes = new Scenes();
 
-		Cast hero=new Hero();
-		Cast heroine=new Heroine();
-		Cast comedian=new Comedian();
-		Cast villain=new Villain();
+	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
+	ArrayList<String> heroList = new ArrayList<>();
+	ArrayList<String> heroineList = new ArrayList<>();
+	ArrayList<String> comedianList = new ArrayList<>();
+	ArrayList<String> villainList = new ArrayList<>();
 
-	ArrayList<Cast>cast=new ArrayList<Cast>();
+	public void setCast(ArrayList<Entry<String, String>> cast)
+	{
+		int i;
+		HashMap<String, String> hero = new HashMap<>();
+		Scanner scan = new Scanner(System.in);
+        System.out.print("\nNumber of heros\t\t : ");
+		int heroNumber = scan.nextInt();
 
-	Map<String,ArrayList<Cast>> castMap=new HashMap<String,ArrayList<Cast>>();
+        for(i=0;i<heroNumber;i++)
+        {
+			System.out.print("\nName\t\t : ");
+			String name = scan.next();
+
+			System.out.print("Character\t : ");
+			String characterName = scan.next();
+			String value = hero.put(name, characterName);
+			heroList.add(characterName);
+		} 
+
+        HashMap<String, String> heroine = new HashMap<>();
+        System.out.print("\nNumber of heroines\t : ");
+			int heroineNumber = scan.nextInt();
+
+        for(i=0;i<heroineNumber;i++)
+        {
+			System.out.print("\nName\t\t : ");
+			String name = scan.next();
+
+			System.out.print("Character\t : ");
+			String characterName = scan.next();
+			String value = heroine.put(name, characterName);
+			heroineList.add(characterName);
+		} 
+
+        HashMap<String, String> comedian = new HashMap<>();
+        System.out.print("\nNumber of comedians\t : ");
+			int comedianNumber = scan.nextInt();
+
+        for(i=0;i<comedianNumber;i++)
+        {
+			System.out.print("\nName\t\t : ");
+			String name = scan.next();
+
+			System.out.print("Character\t : ");
+			String characterName = scan.next();
+			String value = comedian.put(name, characterName);
+			comedianList.add(characterName);
+		}
+
+		HashMap<String, String> villain = new HashMap<>();
+        System.out.print("\nNumber of villains\t : ");
+			int villainNumber = scan.nextInt();
+
+        for(i=0;i<villainNumber;i++)
+        {
+			System.out.print("\nName\t\t : ");
+			String name = scan.next();
+
+			System.out.print("Character\t : ");
+			String characterName = scan.next();
+			String value = villain.put(name, characterName);
+			villainList.add(characterName);
+		}
 		
-	Map<String,ArrayList<Cast>> heros = new HashMap<String,ArrayList<Cast>>();
-	Map<String,ArrayList<Cast>> heroines = new HashMap<String,ArrayList<Cast>>();
-	Map<String,ArrayList<Cast>> comedians = new HashMap<String,ArrayList<Cast>>();
-	Map<String,ArrayList<Cast>> villains = new HashMap<String,ArrayList<Cast>>();
+		Set<Entry<String, String>> actorSet1 = hero.entrySet(); 
+        Set<Entry<String, String>> actorSet2 = heroine.entrySet(); 
+        Set<Entry<String, String>> actorSet3 = comedian.entrySet(); 
+		Set<Entry<String, String>> actorSet4 = villain.entrySet(); 
+                  
+        ArrayList<Entry<String, String>> actors = new ArrayList<Entry<String,String>>(actorSet1); 
+        ArrayList<Entry<String, String>> actors1 = new ArrayList<Entry<String,String>>(actorSet2); 
+        ArrayList<Entry<String, String>> actors2 = new ArrayList<Entry<String,String>>(actorSet3); 
+		ArrayList<Entry<String, String>> actors3 = new ArrayList<Entry<String,String>>(actorSet4);
 
-    public void setCast()
+      	actors.addAll(actors1);
+      	actors.addAll(actors2);
+		actors.addAll(actors3);
+		cast.addAll(actors);
+	}
+
+	// public void scenes()
+	// {
+		
+	// }
+
+    public void database(int x, ArrayList<Entry<String, String>> cast)
     {
-		this.setHero();
-		this.setHeroine();
-		this.setComedian();
-		this.setVillain();
-	}
-
-	public void setHero()
-	{
-		System.out.print("Number of Heros	\t\t\t: ");
-		number = input.nextInt();
-
-		for(i=0;i<number;i++)
-		{
-				System.out.print("Name of Hero "+(i+1)+" \t\t\t\t: ");
-				hero.name = input.next();
-				System.out.print("Character name of "+hero.name+"\t\t: ");
-				hero.character = input.next();
-				cast.add(new Hero());
-				cast.get(i).setName(hero.name);
-				cast.get(i).setCharacter(hero.character);
-				heros.put("Hero",cast);
-			
-		}
-	}
-	public void setHeroine()
-	{
-		System.out.print("Number of Heroines \t\t\t: ");
-		number = input.nextInt();
-
-		for(i=0;i<number;i++)
-		{
-				System.out.print("Name of Heroine "+(i+1)+" \t\t\t: ");
-				heroine.name = input.next();
-				System.out.print("Character name of "+heroine.name+"\t\t: ");
-				heroine.character = input.next();
-				cast.add(new Heroine());
-				cast.get(i).setName(heroine.name);
-				cast.get(i).setCharacter(heroine.character);
-				heroines.put("Heroine",cast);
-			
-		}
-	}
-	public void setComedian()
-	{
-		System.out.print("Number of Comedians \t\t\t: ");
-		number = input.nextInt();
-
-		for(i=0;i<number;i++)
-		{
-				System.out.print("Name of Comedian "+(i+1)+" \t\t\t: ");
-				comedian.name = input.next();
-				System.out.print("Character name of "+comedian.name+" \t\t: ");
-				comedian.character = input.next();
-				cast.add(new Comedian());
-				cast.get(i).setName(comedian.name);
-				cast.get(i).setCharacter(comedian.character);
-				comedians.put("Comedian",cast);
-			
-		}
-	}
-	public void setVillain()
-	{
-		System.out.print("Number of Villains \t\t\t: ");
-		number = input.nextInt();
-
-		for(i=0;i<number;i++)
-		{
-				System.out.print("Name of Villain "+(i+1)+" \t\t\t: ");
-				villain.name = input.next();
-				System.out.print("Character name of "+villain.name+" \t\t: ");
-				villain.character = input.next();
-				cast.add(new Villain());
-				cast.get(i).setName(villain.name);
-				cast.get(i).setCharacter(villain.character);
-				villains.put("Villain",cast);
-			
-		}
-	}
-
-	public void printCast()
-	{
-		Set set = hero.entrySet();
-      	Iterator i = set.iterator();
-
-      	while(i.hasNext()) 
-		{
-         	hero.Entry me = (hero.Entry)i.next();
-         	System.out.print(me.getKey() + ": ");
-         	System.out.println(me.getValue());
-      	}
-		// for(int i=0;i<cast.size();i++)
-		// {	
-		// 	System.out.println(" "+castMap.get("Hero").get(i).getName()+" "+castMap.get("Hero").get(i).getCharacter());
- 		// 	System.out.println(" "+castMap.get("Heroine").get(i).getName()+" "+castMap.get("Heroine").get(i).getCharacter());
- 		// 	System.out.println(" "+castMap.get("Comedian").get(i).getName()+" "+castMap.get("Comedian").get(i).getCharacter());
- 		// 	System.out.println(" "+castMap.get("Villain").get(i).getName()+" "+castMap.get("Villain").get(i).getCharacter());
-		// }
-	}
-
-	public Map<String,ArrayList<Cast>> getHero()
-	{
-		return heros;
-	}
-	public Map<String,ArrayList<Cast>> getHeroine()
-	{
-		return heroines;
-	}
-	public Map<String,ArrayList<Cast>> getComedian()
-	{
-		return comedians;
-	}
-	public Map<String,ArrayList<Cast>> getVillain()
-	{
-		return villains;
-	}
-
-    // public void database(int x, ArrayList<Cast> cast)
-    // {
-    //     Scenes scenes = new Scenes();
+        Scenes scenes = new Scenes();
 		
-    // 		if(x==1)
-    //     	{
-    // 			cl.addToDatabase(cast);
-    // 		}
-    // 		else if(x==2)
-    //     	{
-    // 			cl.showDatabase();
-    // 		}
-    // 		else if(x==3)
-    //     	{
-    // 			cl.deleteFromDatabase();
-    // 		}
-    // } 
+    		if(x==1)
+        	{
+    			cl.addToDatabase(cast);
+    		}
+    		else if(x==2)
+        	{
+    			cl.showDatabase();
+    		}
+    		else if(x==3)
+        	{
+    			cl.deleteFromDatabase();
+    		}
+    } 
 }
+
+// for(int j=0; j<heroList.size(); j++)
+//         {
+// 			System.out.println((j+1)+" "+heroList.get(j));
+// 		}
+// 		for(int j=0; j<heroineList.size(); j++)
+//         {
+// 			System.out.println((j+1)+" "+heroineList.get(j));	
+// 		}
+// 		for(int j=0; j<comedianList.size(); j++)
+//         {
+// 			System.out.println((j+1)+" "+comedianList.get(j));	
+// 		}
+// 		for(int j=0; j<villainList.size(); j++)
+//         {
+// 			System.out.println((j+1)+" "+villainList.get(j));
+// 		}

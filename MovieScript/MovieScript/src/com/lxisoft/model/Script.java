@@ -1,6 +1,4 @@
 package com.lxisoft.model;
-import com.lxisoft.model.*;
-import java.util.*;
 
 public abstract class Script 
 {
@@ -19,7 +17,7 @@ public abstract class Script
 	String dialogue12;
 	String dialogue13;
 	String dialogue14;
-	
+
 
 	public void setDialogue0(String dialogue)
 	{

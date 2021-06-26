@@ -5,6 +5,6 @@ public class Tdd
     public static void main(String[] args)
     {
         Movies movie = new Movies();
-        movie.movieOptions();
+        movie.movieInput();
     }
 }

@@ -1,12 +1,10 @@
 package com.lxisoft.model;
-import com.lxisoft.model.*;
 
 public class Cast implements Comparable<Cast>
 {
-  public String name;
+  String name;
   String characterName;
   int age;
-public String character;
     
   public void setName(String n)
   {
@@ -16,11 +14,11 @@ public String character;
   {
     return name;
   }
-  public void setCharacter(String cn)
+  public void setCharacterName(String cn)
   {
 		this.characterName = cn;
 	}
-	public String getCharacter()
+	public String getCharacterName()
   {
 		return characterName;
 	}
