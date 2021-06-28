@@ -10,19 +10,24 @@ public class ScriptWriter
 int i=0;
 Scanner sc =new Scanner(System.in);
 
-final String comedyScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Comedy.csv";
+/*final String comedyScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Comedy.csv";
 
 final String romanceScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Romance.csv";
  
 final String emotionalScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Emotional.csv";
 
 final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Thriller.csv";
+*/
+StringBuilder scriptPath=new StringBuilder("script\\Comedy.csv");
 
 
-File romanceFile=new File(romanceScript);
+/*File romanceFile=new File(romanceScript);
 File comdeyFile=new File(comedyScript);
 File emotionalFile=new File(emotionalScript);
-File thrillerFile=new File(thrillerScript);
+File thrillerFile=new File(thrillerScript);*/
+
+
+File movieFile=new File(scriptPath);
 
 BufferedReader comedyScriptReader=null;
 BufferedReader romanceScriptReader=null;
