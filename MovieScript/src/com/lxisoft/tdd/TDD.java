@@ -15,7 +15,18 @@ Script script=new Script();
 
 movie.movieTitle();
 movie.setMovieDetails();
+movie.getMovieDetails();
 script.receiveAndPrintDetailsOfCharacters();
+
+
+                    try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
 
 if(movie.getMovieGenre().equals("Romantic"))
 {
@@ -36,7 +47,7 @@ else if(movie.getMovieGenre().equals("Action"))
 {
 script.startMovie(4);	
 }
-
+                    
 
 }
 }

@@ -219,9 +219,29 @@ System.out.println("Enter the name of the Director");
 director.setDirectorName(sc.next());
 System.out.println("\r\n");
 
+
+                   try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+
 System.out.println("Enter the language of the Director ");
 director.setDirectorLanguage(sc.next());
 System.out.println("\r\n");
+                  
+
+                  try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
 
 System.out.println("Enter the number of movies directed by the Director");
 director.setNumberOfMoviesDirected(sc.nextInt());

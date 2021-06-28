@@ -17,6 +17,8 @@ public class Director
 	
 	//Director can set the actors
 	
+         
+
 private int numOfMoviesDirected,numOfHero,numOfHeroine,numOfComedian,numOfVillain;
 private String directorName,directorLanguage;
 private String heroName,heroineName,comedianName,villainName;
@@ -75,7 +77,7 @@ public ArrayList<Actor> castingTheActors()
 	   System.out.println("Enter the number of heroes in the movie : ");
        numOfHero=sc.nextInt(); 
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
-	   setNumberOfHero(numOfHero); 
+	 //  setNumberOfHero(numOfHero); 
 
 	  for(int i=0 ; i<numOfHero ; i++)
 	    {
@@ -106,7 +108,7 @@ public ArrayList<Actor> castingTheActors()
 		System.out.println("Enter the number of heroines in the movie : ");
         numOfHeroine=sc.nextInt(); 
 	    System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
-	    setNumberOfHeroine(numOfHeroine);
+	//    setNumberOfHeroine(numOfHeroine);
 
 	   for(int i=0 ; i<numOfHeroine ; i++)
 	    {
@@ -132,7 +134,7 @@ public ArrayList<Actor> castingTheActors()
        System.out.println("Enter the number of Comedian in the movie : ");
        numOfComedian=sc.nextInt(); 
 	   System.out.println("Number of comedians in the Movie is : "+numOfComedian);
-	   setNumberOfComedian(numOfComedian);
+	//   setNumberOfComedian(numOfComedian);
 
 	   for(int i=0 ; i<numOfComedian ; i++)
 	    {
@@ -157,7 +159,7 @@ public ArrayList<Actor> castingTheActors()
        System.out.println("Enter the number of villains in the movie : ");
        numOfVillain=sc.nextInt(); 
 	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
-	   setNumberOfVillain(numOfVillain);
+	//   setNumberOfVillain(numOfVillain);
 
 	    for(int i=0 ; i<numOfVillain ; i++)
 	    {
@@ -180,6 +182,10 @@ public ArrayList<Actor> castingTheActors()
   }
  return actors;
 }	    
+
+
+
+/*
 
 //Setters for the number of each category of actors in the movie
  
@@ -226,6 +232,7 @@ public int getNumberOfVillain()
 	return numOfVillain;
 }
 
+*/
 
 
 //To print the characters to the user
