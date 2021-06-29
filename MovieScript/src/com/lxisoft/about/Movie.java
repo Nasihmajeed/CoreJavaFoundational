@@ -7,8 +7,8 @@ public class Movie
 {
 	String movieName;
 
-		
-		
+		Genere genere;
+	
 	Casting casting=new Casting();
 	Scanner sc=new Scanner(System.in);
 	Director director=new Director();
@@ -25,22 +25,22 @@ public void getMovieDetailsFromUser()
 
 
 }
-
-	
-	
-
-
-String genere;
-
- public void setGenere(String genere)
+public void setGenere(Genere genere)
  {
  	this.genere=genere;
- }
+ }	
+	
+	
 
-public String getGenere()
+
+//String genere;
+
+ 
+
+/*public String getGenere()
 {
 	return genere;
-}
+}*/
 
 
 float rating;
@@ -98,11 +98,13 @@ public float getRating()
 			case 1: 	
 						System.out.println("\t\n The name of the movie \n"+getMovieName());
 						
+						setGenere(Genere.valueOf("Comedy"));
+						director.directsMovie(Genere.valueOf("Comedy"));
 
-						setGenere("Comedy");
-						System.out.println("\t\n The Genere of this movie :"+getGenere());
+						/*setGenere("Comedy");
+						System.out.println("\t\n The Genere of this movie :"+getGenere());*/
 						
-						scriptWriter.scriptSelection(1);
+						//scriptWriter.scriptSelection(1);
 						
 						break;
 
@@ -112,10 +114,12 @@ public float getRating()
 						/*setImdb(8.1f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());*/
 						
-						setGenere("Romantic");
-						System.out.println("\t\n The Genere of this movie :"+getGenere());
+						/*setGenere("Romantic");
+						System.out.println("\t\n The Genere of this movie :"+getGenere());*/
+							setGenere(Genere.valueOf("Romantic"));
+							director.directsMovie(Genere.valueOf("Romantic"));
 
-						scriptWriter.scriptSelection(2);
+						//scriptWriter.scriptSelection(2);
 						break;
 			
 			case 3:		System.out.println("\t\n The name of the movie \n"+getMovieName());	
@@ -124,9 +128,11 @@ public float getRating()
 						/*setImdb(8.6f);
 						System.out.println("\t\n The IMDB Rating of this movie :"+getRating());*/
 					
-						setGenere("Emotional");
-						System.out.println("\t\n The Genere of this movie :"+getGenere());
-						scriptWriter.scriptSelection(3);
+						/*setGenere("Emotional");
+						System.out.println("\t\n The Genere of this movie :"+getGenere());*/
+						setGenere(Genere.valueOf("Emotional"));
+							director.directsMovie(Genere.valueOf("Emotional"));
+						//scriptWriter.scriptSelection(3);
 
 						break;
 
@@ -136,9 +142,11 @@ public float getRating()
 						//setImdb(8.6f);
 						
 						
-						setGenere("Thriller");
-						System.out.println("\t\n The Genere of this movie :"+getGenere());
-						scriptWriter.scriptSelection(4);
+						/*setGenere("Thriller");
+						System.out.println("\t\n The Genere of this movie :"+getGenere());*/
+						setGenere(Genere.valueOf("Thriller"));
+						director.directsMovie(Genere.valueOf("Thriller"));
+						//scriptWriter.scriptSelection(4);
 
 						break;			
 

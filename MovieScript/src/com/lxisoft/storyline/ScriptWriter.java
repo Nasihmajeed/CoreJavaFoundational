@@ -18,7 +18,7 @@ final String emotionalScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\l
 
 final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Thriller.csv";
 */
-StringBuilder scriptPath=new StringBuilder("script\\Comedy.csv");
+StringBuilder scriptPath=new StringBuilder("storyline\\script\\Comedy.csv");
 
 
 /*File romanceFile=new File(romanceScript);
@@ -27,12 +27,12 @@ File emotionalFile=new File(emotionalScript);
 File thrillerFile=new File(thrillerScript);*/
 
 
-File movieFile=new File(scriptPath);
+File movieFile=new File(scriptPath.toString());
 
-BufferedReader comedyScriptReader=null;
-BufferedReader romanceScriptReader=null;
+BufferedReader scriptReader=null;
+/*BufferedReader romanceScriptReader=null;
 BufferedReader emotionalScriptReader=null;
-BufferedReader thrillerScriptReader=null;
+BufferedReader thrillerScriptReader=null;*/
 		
 //String  heroName,heroineName,comedianName,villanName,directorName;
 ArrayList<Script> listFromFile=new ArrayList<Script>(); 
@@ -142,7 +142,7 @@ switch(genere)
 					
 			}
 			break;
-			
+		/*	
 	case 2: listFromFile= romanticMovie();
 
 			for(i=0;i<listFromFile.size();i++ )
@@ -375,7 +375,7 @@ case 3: listFromFile= emotionalMovie();
 					
 			}		
 			break;		
-	
+	*/
 						
 
 }			
@@ -393,16 +393,16 @@ ArrayList<Script> comedyList= new ArrayList<Script>();
 	
 try
 {
-	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));
-	romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
+	scriptReader=new BufferedReader(new FileReader(movieFile));
+	/*romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
+	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));*/
 
 
 	
 
 	String line=null;
 
-	while((line=comedyScriptReader.readLine())!=null  )
+	while((line=scriptReader.readLine())!=null  )
 	{
 		String []parts=line.split(":");
 		String actor=parts[0].trim();
@@ -421,7 +421,9 @@ try
 
 	String minorLine=null;
 	int j=0,l=0;
-	while((minorLine=romanceScriptReader.readLine())!=null && j<15  )
+	//File minorFile1=new File()
+	//scriptReader=new BufferedReader(new FileReader(movieFile));
+	while((minorLine=scriptReader.readLine())!=null && j<15  )
 	{
 		String []partsRomance=minorLine.split(":");
 		String actorRomance=partsRomance[0].trim();
@@ -443,7 +445,8 @@ j++;
 	String minorLine2=null;
 	int k=0;
 	int s=0;
-while((minorLine2=emotionalScriptReader.readLine())!=null && (k<8) )
+	//scriptReader=new BufferedReader(new FileReader(movieFile));
+while((minorLine2=scriptReader.readLine())!=null && (k<8) )
 	{
 		String []partsEmotional=minorLine2.split(":");
 		String actorEmotional=partsEmotional[0].trim();
@@ -477,9 +480,9 @@ finally
 
 		try
 		{
-			comedyScriptReader.close();
-			emotionalScriptReader.close();
-			romanceScriptReader.close();
+			scriptReader.close();
+			/*emotionalScriptReader.close();
+			romanceScriptReader.close();*/
 		}
 		catch(IOException e)
 			{
@@ -496,7 +499,7 @@ return comedyList;
 
 
 
-
+/*
 public ArrayList<Script> romanticMovie()
 {
 
@@ -804,7 +807,7 @@ finally
 return thrillerList;
 
 }
-
+*/
 
 
 
