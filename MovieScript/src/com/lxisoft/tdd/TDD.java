@@ -47,7 +47,32 @@ else if(movie.getMovieGenre().equals("Action"))
 {
 script.startMovie(4);	
 }
+ 
+
+
+        System.out.println("---------------------------------------------------------------------------");
                     
+                    try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+        System.out.println("-----------------------------THE END---------------------------------------");
+                    
+                    try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+        System.out.println("---------------------------------------------------------------------------");
+  }
+
 
 }
-}
+

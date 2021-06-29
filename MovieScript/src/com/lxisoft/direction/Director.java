@@ -74,6 +74,7 @@ public ArrayList<Actor> castingTheActors()
    {
          //Casting the Heroes
     {
+       System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
        numOfHero=sc.nextInt(); 
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
@@ -89,7 +90,8 @@ public ArrayList<Actor> castingTheActors()
 
          System.out.println("Enter the Character name of the Hero : ");
 		 heroCharName=sc.next();
-		 System.out.println("Name of the Hero's Character is : "+heroCharName);  
+		 System.out.println("Name of the Hero's Character is : "+heroCharName);
+		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero());
          actors.get(i).setActorName(heroName);
          actors.get(i).setActorCharName(heroCharName);
@@ -104,7 +106,7 @@ public ArrayList<Actor> castingTheActors()
            
            int k=actors.size();
      
-
+        System.out.println("---------------------------------------------------------------------------------------------------------");
 		System.out.println("Enter the number of heroines in the movie : ");
         numOfHeroine=sc.nextInt(); 
 	    System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
@@ -119,7 +121,8 @@ public ArrayList<Actor> castingTheActors()
      
          System.out.println("Enter the Character name of the Heroine : ");
 		 heroineCharName=sc.next();
-		 System.out.println("Name of the Heroine's Character is : "+heroineCharName);  
+		 System.out.println("Name of the Heroine's Character is : "+heroineCharName);
+		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Heroine());
 		 actors.get(k).setActorName(heroineName);
          actors.get(k).setActorCharName(heroineCharName);
@@ -130,7 +133,7 @@ public ArrayList<Actor> castingTheActors()
        System.out.println("\r\n");
     
    //Casting the Comedians
-
+       System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of Comedian in the movie : ");
        numOfComedian=sc.nextInt(); 
 	   System.out.println("Number of comedians in the Movie is : "+numOfComedian);
@@ -146,7 +149,8 @@ public ArrayList<Actor> castingTheActors()
  
          System.out.println("Enter the Character name of the Comedian : ");
 		 comedianCharName=sc.next();
-		 System.out.println("Name of the Comedian's Character is : "+comedianCharName);  
+		 System.out.println("Name of the Comedian's Character is : "+comedianCharName);
+		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Comedian());
 		 actors.get(k).setActorName(comedianName);
          actors.get(k).setActorCharName(comedianCharName);
@@ -155,7 +159,7 @@ public ArrayList<Actor> castingTheActors()
           System.out.println("\r\n");
 
     //Casting the Villains
-    
+       System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of villains in the movie : ");
        numOfVillain=sc.nextInt(); 
 	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
@@ -172,6 +176,7 @@ public ArrayList<Actor> castingTheActors()
          System.out.println("Enter the Character name of the Villain : ");
 		 villainCharName=sc.next();
 		 System.out.println("Name of the Villain's Character is : "+villainCharName);  
+		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 actors.add(new Villain());
          actors.get(k).setActorName(villainName);
          actors.get(k).setActorCharName(villainCharName);
