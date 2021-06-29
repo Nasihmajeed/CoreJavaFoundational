@@ -20,6 +20,11 @@ public class Movies
 	ArrayList<String> search = new ArrayList<>();
 	Scanner input = new Scanner(System.in);
 
+	ArrayList<String> heroList = new ArrayList<>();
+	ArrayList<String> heroineList = new ArrayList<>();
+	ArrayList<String> comedianList = new ArrayList<>();
+	ArrayList<String> villainList = new ArrayList<>();
+
 	public void movieInput()
 	{
 		System.out.print("\n\nEnter Movie Name	: ");
@@ -166,7 +171,6 @@ public class Movies
 		System.out.println("   ID          Name                   Character");
 		System.out.println("+------+-----------------------+-----------------------+");
         
-		// for (Entry<String, String> entry : cast) 
 		for(int k=0;k<cast.size();k++)
         { 
             System.out.println("   "+(k+1)+"\t   "+cast.get(k).getKey()+"\t\t\t   "+cast.get(k).getValue()); 

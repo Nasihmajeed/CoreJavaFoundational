@@ -81,27 +81,18 @@ public class Controller
 			String value = villain.put(name, characterName);
 			villainList.add(characterName);
 		}
+
 		
 		Set<Entry<String, String>> actorSet1 = hero.entrySet(); 
         Set<Entry<String, String>> actorSet2 = heroine.entrySet(); 
         Set<Entry<String, String>> actorSet3 = comedian.entrySet(); 
 		Set<Entry<String, String>> actorSet4 = villain.entrySet(); 
-                  
-        ArrayList<Entry<String, String>> actors = new ArrayList<Entry<String,String>>(actorSet1); 
-        ArrayList<Entry<String, String>> actors1 = new ArrayList<Entry<String,String>>(actorSet2); 
-        ArrayList<Entry<String, String>> actors2 = new ArrayList<Entry<String,String>>(actorSet3); 
-		ArrayList<Entry<String, String>> actors3 = new ArrayList<Entry<String,String>>(actorSet4);
 
-      	actors.addAll(actors1);
-      	actors.addAll(actors2);
-		actors.addAll(actors3);
-		cast.addAll(actors);
+      	actorSet1.addAll(actorSet2);
+      	actorSet1.addAll(actorSet3);
+		actorSet1.addAll(actorSet4);
+		cast.addAll(actorSet1);
 	}
-
-	// public void scenes()
-	// {
-		
-	// }
 
     public void database(int x, ArrayList<Entry<String, String>> cast)
     {
