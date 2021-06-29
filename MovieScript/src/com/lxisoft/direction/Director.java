@@ -185,56 +185,6 @@ public ArrayList<Actor> castingTheActors()
 
 
 
-/*
-
-//Setters for the number of each category of actors in the movie
- 
-public void setNumberOfHero(int numOfHero)
-{
-   this.numOfHero=numOfHero;
-}
-
-public void setNumberOfHeroine(int numOfHeroine)
-{
-   this.numOfHeroine=numOfHeroine;
-}
-
-public void setNumberOfComedian(int numOfCom)
-{
-   this.numOfComedian=numOfComedian;
-}
-
-public void setNumberOfVillain(int numOfVillain)
-{
-   this.numOfHero=numOfHero;
-}
-
-
-//Getters for the number of each category of actors in the movie
-
-public int getNumberOfHero()
-{
-	return numOfHero;
-}
-
-public int getNumberOfHeroine()
-{
-	return numOfHeroine;
-}
-
-public int getNumberOfComedian()
-{
-	return numOfComedian;
-}
-
-public int getNumberOfVillain()
-{
-	return numOfVillain;
-}
-
-*/
-
-
 //To print the characters to the user
     
 public void printCharacters()
@@ -338,5 +288,7 @@ for(int i=0; i<actors.size(); i++)
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");
 
-}  	
+} 
+
+
 }

@@ -15,8 +15,8 @@ Script script=new Script();
 
 movie.movieTitle();
 movie.setMovieDetails();
+script.directorCastingCharacters();
 movie.getMovieDetails();
-script.receiveAndPrintDetailsOfCharacters();
 
 
                     try{
