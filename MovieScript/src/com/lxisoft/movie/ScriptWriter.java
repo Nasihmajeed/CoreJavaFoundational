@@ -58,9 +58,9 @@ fr.close();
   System.out.println("**********************************n\n");
   System.out.println("************************************");
   System.out.println("************************************");
-  System.out.println("*************SCENE1****************");
-  System.out.println("***********************************");
-  System.out.println("***********************************");
+  System.out.println("*************SCENE1*****************");
+  System.out.println("************************************");
+  System.out.println("************************************");
 
 
                   for (int i=0;i<script.size();i++)
