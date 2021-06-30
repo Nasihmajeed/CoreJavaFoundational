@@ -1,15 +1,13 @@
 package com.lxisoft.scripts;
 
-public class ActionScript extends Script
+public class ComedyScene extends Script
 {
-	String dialogue;
+  String dialogue;
     
   public void setDialogue(String dialogue)
   {  
      this.dialogue=dialogue; 
   }
-
-  
 
   public String getDialogue()
   {

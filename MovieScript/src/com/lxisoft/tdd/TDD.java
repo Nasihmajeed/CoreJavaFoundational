@@ -10,13 +10,21 @@ public class TDD
 public static void main(String[] args)
 {
 
+
+{
+
+System.out.println("------------------------------------------------------------------------------------------------------");	
+System.out.println("------------------------------------------------------------------------------------------------------");	
+System.out.println("------------------------------------------Movie_Script------------------------------------------------");
+System.out.println("------------------------------------------------------------------------------------------------------");
+System.out.println("------------------------------------------------------------------------------------------------------");	
+
+} 
+
+
+
 Movie movie=new Movie();
 Script script=new Script();
-
-movie.movieTitle();
-movie.setMovieDetails();
-script.directorCastingCharacters();
-movie.getMovieDetails();
 
 
                     try{
@@ -27,6 +35,10 @@ movie.getMovieDetails();
 					Thread.currentThread().interrupt();
 				    }
 
+
+//Enumeration instead of if-else statements
+
+/*
 
 if(movie.getMovieGenre().equals("Romantic"))
 {
@@ -48,6 +60,7 @@ else if(movie.getMovieGenre().equals("Action"))
 script.startMovie(4);	
 }
  
+ */
 
 
         System.out.println("---------------------------------------------------------------------------");

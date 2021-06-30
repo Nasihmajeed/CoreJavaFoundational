@@ -1,6 +1,6 @@
 package com.lxisoft.scripts;
 
-public class RomanceScript extends Script
+public class RomanceScene extends Script
 {
 String dialogue;
     
@@ -10,7 +10,6 @@ String dialogue;
   }
 
   
-
   public String getDialogue()
   {
     return dialogue;

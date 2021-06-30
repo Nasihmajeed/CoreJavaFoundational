@@ -15,16 +15,15 @@ public class Director
 {
 	Scanner sc=new Scanner(System.in);
 	
-	//Director can set the actors
-	
-         
+private String directorName;
 
-private int numOfMoviesDirected,numOfHero,numOfHeroine,numOfComedian,numOfVillain;
-private String directorName,directorLanguage;
-private String heroName,heroineName,comedianName,villainName;
-private String heroCharName,heroineCharName,comedianCharName,villainCharName;
 	
 Actor actor=new Actor();
+Actor heroo=new Hero();
+Actor heroinee=new Heroine();
+Actor comediann=new Comedian();
+Actor villainn=new Villain();
+
 
 ArrayList<Actor> actors=new ArrayList<Actor>();
 
@@ -41,32 +40,6 @@ ArrayList<Actor> actors=new ArrayList<Actor>();
 	}
 	
 	
-    public void setDirectorLanguage(String directorLanguage)
-    {
-      this.directorLanguage=directorLanguage;
-    }
-
-    public String getDirectorLanguage()
-    {
-     return directorLanguage;
-    }
-
-
-
-    public void setNumberOfMoviesDirected(int numOfMoviesDirected)
-    {
-      this.numOfMoviesDirected=numOfMoviesDirected;
-    }
-
-    public int getNumberOfMoviesDirected()
-    {
-     return numOfMoviesDirected;
-    }
-	
-	 
-	  
-	
-	
 	  
 	 //Casting the actors by the Director---
 	 
@@ -78,8 +51,7 @@ public ArrayList<Actor> castingTheActors()
 	   System.out.println("Enter the number of heroes in the movie : ");
        numOfHero=sc.nextInt(); 
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
-	 //  setNumberOfHero(numOfHero); 
-
+	 
 	  for(int i=0 ; i<numOfHero ; i++)
 	    {
 		 System.out.println("\r\n");
@@ -100,8 +72,6 @@ public ArrayList<Actor> castingTheActors()
 		 System.out.println("\r\n"); 
      
 
-
-
 		//Casting the Heroine
            
            int k=actors.size();
@@ -110,8 +80,7 @@ public ArrayList<Actor> castingTheActors()
 		System.out.println("Enter the number of heroines in the movie : ");
         numOfHeroine=sc.nextInt(); 
 	    System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
-	//    setNumberOfHeroine(numOfHeroine);
-
+	
 	   for(int i=0 ; i<numOfHeroine ; i++)
 	    {
 		 System.out.println("\r\n");
@@ -133,11 +102,12 @@ public ArrayList<Actor> castingTheActors()
        System.out.println("\r\n");
     
    //Casting the Comedians
+
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of Comedian in the movie : ");
        numOfComedian=sc.nextInt(); 
 	   System.out.println("Number of comedians in the Movie is : "+numOfComedian);
-	//   setNumberOfComedian(numOfComedian);
+	
 
 	   for(int i=0 ; i<numOfComedian ; i++)
 	    {
@@ -159,12 +129,12 @@ public ArrayList<Actor> castingTheActors()
           System.out.println("\r\n");
 
     //Casting the Villains
+
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of villains in the movie : ");
        numOfVillain=sc.nextInt(); 
 	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
-	//   setNumberOfVillain(numOfVillain);
-
+	
 	    for(int i=0 ; i<numOfVillain ; i++)
 	    {
 		 System.out.println("\r\n");
@@ -192,7 +162,7 @@ public ArrayList<Actor> castingTheActors()
 
 //To print the characters to the user
     
-public void printCharacters()
+public void printCharactersOfTheMovie()
 {
 	  System.out.println("\r\n");
 		

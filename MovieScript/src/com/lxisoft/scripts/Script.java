@@ -12,7 +12,7 @@ public class Script
  
   Scanner sc=new Scanner(System.in);
 
-  private String writerName,writerLanguage,line;	
+  private String scriptWriterName,line;	
 
    final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
    final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
@@ -35,41 +35,22 @@ public class Script
      {
            System.out.println("Enter the name of the ScriptWriter");
            setWriterName(sc.next());
-                            
-           System.out.println("Enter the Language of the ScriptWriter");
-           setWriterLanguage(sc.next());
      }
 
 
 
-    public void setWriterName(String writerName)
+    public void setScriptWriterName(String scriptWriterName)
      {
-       this.writerName=writerName;
+       this.scriptWriterName=scriptWriterName;
      }
 
 
 
 
-     public String getWriterName()
+    public String getScriptWriterName()
       {
-	   return writerName;
+	   return scriptWriterName;
       } 
-
-
-
-     public void setWriterLanguage(String writerLanguage)
-     {
-       this.writerLanguage=writerLanguage;
-     }
-
-
-
-
-     public String getWriterLanguage()
-      {
-	   return writerLanguage;
-      } 
-
 
 
 
@@ -77,7 +58,7 @@ public class Script
 public void directorCastingCharacters()
 {
 
-allActors=director.castingTheActors();
+allActors=castingTheActors();
 
 System.out.println("\r\n");
 
@@ -96,7 +77,7 @@ System.out.println("\r\n");
 
 
 
-public void startMovie(int genre)
+public void startMovie(String genre)
   {          
 
                                  director.printCharacters();

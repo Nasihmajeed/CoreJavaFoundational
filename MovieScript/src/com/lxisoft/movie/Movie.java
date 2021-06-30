@@ -84,25 +84,9 @@ public String getMovieLanguage()
 		return yearOfRelease;
 	}
 
-
-public void movieTitle()
-{  
-System.out.println("------------------------------------------------------------------------------------------------------");	
-System.out.println("------------------------------------------------------------------------------------------------------");	
-System.out.println("------------------------------------------Movie_Script------------------------------------------------");
-System.out.println("------------------------------------------------------------------------------------------------------");
-System.out.println("------------------------------------------------------------------------------------------------------");	
-                 try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-}
 	
 
-public void setMovieDetails()
+public void askMovieDetailsFromUse()
 {
    System.out.println("\r\n");
    
