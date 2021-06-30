@@ -8,6 +8,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.stream.Stream;
+enum Genre{
+  COMEDY,ROMANTIC,EMOTIONAL;
+}
 public class ScriptWriter {
   File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\script\\script.csv");
 
@@ -29,7 +33,7 @@ public class ScriptWriter {
            words=s.split(";");
 
 
-            if (words[0].equals("comedy") || words[0].equals("romantic") || words[0].equals("emotional")){
+            if (words[0].equals("COMEDY") || words[0].equals("ROMANTIC") || words[0].equals("EMOTIONAL")){
               script.add(new Script());
 
               for(int i=script.size()-1;i<script.size();i++){
@@ -52,7 +56,10 @@ fr.close();
   Scanner sc= new Scanner(System.in);
 
   System.out.println("ENTER GENRE ");
-  String input1=sc.next();
+  for (Genre genre : Genre.values()) {
+    System.out.println(genre);
+}
+  int input=sc.nextInt();
 
 
   System.out.println("**********************************n\n");
@@ -61,13 +68,13 @@ fr.close();
   System.out.println("*************SCENE1*****************");
   System.out.println("************************************");
   System.out.println("************************************");
-
+System.out.println(Genre.values()[input-1]);
 
                   for (int i=0;i<script.size();i++)
                   {
 
                   //  System.out.println(script.get(i).getCharacter());
-                    if(script.get(i).getGenre().equals(input1)){
+                    if(script.get(i).getGenre().equals(Genre.values()[input-1])){
 
                      System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
                     }
@@ -77,7 +84,7 @@ fr.close();
     //System.out.println(n);
     for(int i=0;i<n;i++){
       //  System.out.println(n);
-     if(!script.get(i).getGenre().equals(input1)){
+     if(!script.get(i).getGenre().equals(Genre.values()[input-1])){
        //System.out.println(n);
        System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
      }
