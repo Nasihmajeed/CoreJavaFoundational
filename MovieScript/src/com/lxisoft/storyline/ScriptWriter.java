@@ -18,7 +18,7 @@ final String emotionalScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\l
 
 final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Thriller.csv";
 */
-StringBuilder scriptPath=new StringBuilder("storyline\\script\\Comedy.csv");
+StringBuilder scriptPath=new StringBuilder("D:\\CoreJavaFoundational\\MovieScript\\src\\resources\\script\\ComedyMovie.csv");
 
 
 /*File romanceFile=new File(romanceScript);
@@ -42,7 +42,7 @@ Map<String,ArrayList<Actor>> cast_Map=new HashMap<String,ArrayList<Actor>>();
 ArrayList<Actor> actors=new ArrayList<Actor>();
 		
 
-public void scriptSelection(int genere)
+public void scriptSelection(Genere genere)
 {	
 	Casting casting=new Casting();
 		casting.makeCasting();
@@ -55,19 +55,15 @@ public void scriptSelection(int genere)
 
 switch(genere)
 {
-	case 1: listFromFile= comedyMovie();
+	case Comedy: listFromFile= fetchMovieScript(movieFile);
 
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
 			
 			
-					if(listFromFile.get(i) instanceof ComedyScript)
+					if(listFromFile.get(i).getDialogue().equals("Comedy"))
 					{
-						
-
-							
-
 						if(i%2==0 && i>0)
 						{
 
@@ -98,7 +94,7 @@ switch(genere)
 				}
 						
 					}
-					if(listFromFile.get(i) instanceof RomanticScript)
+					if(listFromFile.get(i).getDialogue().equals("Romance"))
 					{
 						
 						if(i%2==0)
@@ -121,7 +117,7 @@ switch(genere)
 				{
 					Thread.currentThread().interrupt();
 				}
-					if(listFromFile.get(i) instanceof EmotionalScript)
+					if(listFromFile.get(i).getDialogue().equals("Emotional"))
 					{
 						
 						if(i%2==0 && i>0)
@@ -143,7 +139,7 @@ switch(genere)
 			}
 			break;
 		/*	
-	case 2: listFromFile= romanticMovie();
+	case Romantic: listFromFile= romanticMovie();
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -218,7 +214,7 @@ switch(genere)
 					
 			}		
 			break;		
-case 3: listFromFile= emotionalMovie();
+case Emotional : listFromFile= emotionalMovie();
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -294,7 +290,7 @@ case 3: listFromFile= emotionalMovie();
 			break;		
 	
 
-	case 4 :listFromFile= thrillerMovie();
+	case Thriller :listFromFile= thrillerMovie();
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -384,7 +380,61 @@ case 3: listFromFile= emotionalMovie();
 }
 
 
-public ArrayList<Script> comedyMovie()
+public ArrayList<Script> fetchMovieScript(File file)
+{
+	ArrayList<Script> scriptList=new ArrayList<Script>();
+	
+
+try{
+scriptReader=new BufferedReader(new FileReader(file));
+String line=null;
+
+	while((line=scriptReader.readLine())!=null  )
+	{
+		String []parts=line.split(":");
+		//String scene=parts[0].trim();
+
+		//String scene
+		StringBuilder dialogue=new StringBuilder();
+		dialogue.append(line);
+	if(!(dialogue.toString().equals("")) )
+		{	scriptList.add(new Script());
+			//scriptList.get(i).setScene(scene);
+			scriptList.get(i).setDialogue(dialogue.toString());
+			i++;	
+		}
+
+	}
+
+}
+catch(IOException e)
+{
+e.printStackTrace();
+}
+finally
+{
+
+		try
+		{
+			scriptReader.close();
+			/*emotionalScriptReader.close();
+			romanceScriptReader.close();*/
+		}
+		catch(IOException e)
+			{
+
+			}
+
+
+}
+return scriptList;
+
+}
+
+
+
+
+/*public ArrayList<Script> comedyMovie()
 {
 
 
@@ -395,7 +445,7 @@ try
 {
 	scriptReader=new BufferedReader(new FileReader(movieFile));
 	/*romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));*/
+	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
 
 
 	
@@ -482,7 +532,7 @@ finally
 		{
 			scriptReader.close();
 			/*emotionalScriptReader.close();
-			romanceScriptReader.close();*/
+			romanceScriptReader.close();
 		}
 		catch(IOException e)
 			{
@@ -496,7 +546,7 @@ return comedyList;
 
 }
 
-
+*/
 
 
 /*
