@@ -384,35 +384,36 @@ public ArrayList<Script> fetchMovieScript(File file)
 {
 	ArrayList<Script> scriptList=new ArrayList<Script>();
 	
+switch(genere)
+{
+case Comedy:	try{
+		scriptReader=new BufferedReader(new FileReader(file));
+		String line=null;
 
-try{
-scriptReader=new BufferedReader(new FileReader(file));
-String line=null;
-
-	while((line=scriptReader.readLine())!=null  )
-	{
-		String []parts=line.split(":");
+		while((line=scriptReader.readLine())!=null  )
+		{
+			String []parts=line.split(":");
 		//String scene=parts[0].trim();
 
 		//String scene
-		StringBuilder dialogue=new StringBuilder();
-		dialogue.append(line);
-	if(!(dialogue.toString().equals("")) )
-		{	scriptList.add(new Script());
-			//scriptList.get(i).setScene(scene);
-			scriptList.get(i).setDialogue(dialogue.toString());
-			i++;	
+			StringBuilder dialogue=new StringBuilder();
+			dialogue.append(line);
+				if(!(dialogue.toString().equals("")) )
+				{	scriptList.add(new Script());
+					//scriptList.get(i).setScene(scene);
+					scriptList.get(i).setDialogue(dialogue.toString());
+					i++;	
+				}
+
+			}
+
 		}
-
-	}
-
-}
-catch(IOException e)
-{
-e.printStackTrace();
-}
-finally
-{
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+	{
 
 		try
 		{
@@ -426,8 +427,11 @@ finally
 			}
 
 
+	}
+
 }
 return scriptList;
+
 
 }
 
