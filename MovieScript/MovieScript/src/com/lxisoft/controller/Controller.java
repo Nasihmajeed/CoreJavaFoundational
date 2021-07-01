@@ -1,6 +1,7 @@
 package com.lxisoft.controller;
 import com.lxisoft.model.*;
 import com.lxisoft.repository.*;
+
 import java.util.Scanner;
 import java.util.ArrayList; 
 import java.util.HashMap; 
@@ -9,22 +10,31 @@ import java.util.Set;
 
 public class Controller 
 {	
+
     CastList cl = new CastList();
 	Scenes scenes = new Scenes();
 
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
+	
 	ArrayList<String> heroList = new ArrayList<>();
 	ArrayList<String> heroineList = new ArrayList<>();
 	ArrayList<String> comedianList = new ArrayList<>();
 	ArrayList<String> villainList = new ArrayList<>();
 
+	ArrayList<String> heroCast = new ArrayList<>();
+	ArrayList<String> heroineCast = new ArrayList<>();
+	ArrayList<String> comedianCast = new ArrayList<>();
+	ArrayList<String> villainCast = new ArrayList<>();
+
+	int i, heroNumber, heroineNumber, comedianNumber, villainNumber;
+
 	public void setCast(ArrayList<Entry<String, String>> cast)
 	{
-		int i;
+		// int i;
 		HashMap<String, String> hero = new HashMap<>();
 		Scanner scan = new Scanner(System.in);
         System.out.print("\nNumber of heros\t\t : ");
-		int heroNumber = scan.nextInt();
+			 heroNumber = scan.nextInt();
 
         for(i=0;i<heroNumber;i++)
         {
@@ -39,7 +49,7 @@ public class Controller
 
         HashMap<String, String> heroine = new HashMap<>();
         System.out.print("\nNumber of heroines\t : ");
-			int heroineNumber = scan.nextInt();
+			 heroineNumber = scan.nextInt();
 
         for(i=0;i<heroineNumber;i++)
         {
@@ -54,7 +64,7 @@ public class Controller
 
         HashMap<String, String> comedian = new HashMap<>();
         System.out.print("\nNumber of comedians\t : ");
-			int comedianNumber = scan.nextInt();
+			 comedianNumber = scan.nextInt();
 
         for(i=0;i<comedianNumber;i++)
         {
@@ -69,7 +79,7 @@ public class Controller
 
 		HashMap<String, String> villain = new HashMap<>();
         System.out.print("\nNumber of villains\t : ");
-			int villainNumber = scan.nextInt();
+			 villainNumber = scan.nextInt();
 
         for(i=0;i<villainNumber;i++)
         {
@@ -87,16 +97,38 @@ public class Controller
         Set<Entry<String, String>> actorSet2 = heroine.entrySet(); 
         Set<Entry<String, String>> actorSet3 = comedian.entrySet(); 
 		Set<Entry<String, String>> actorSet4 = villain.entrySet(); 
+                  
+        ArrayList<Entry<String, String>> actors = new ArrayList<Entry<String,String>>(actorSet1); 
+        ArrayList<Entry<String, String>> actors1 = new ArrayList<Entry<String,String>>(actorSet2); 
+        ArrayList<Entry<String, String>> actors2 = new ArrayList<Entry<String,String>>(actorSet3); 
+		ArrayList<Entry<String, String>> actors3 = new ArrayList<Entry<String,String>>(actorSet4);
 
-      	actorSet1.addAll(actorSet2);
-      	actorSet1.addAll(actorSet3);
-		actorSet1.addAll(actorSet4);
-		cast.addAll(actorSet1);
+      	actors.addAll(actors1);
+      	actors.addAll(actors2);
+		actors.addAll(actors3);
+		cast.addAll(actors);
+
+	}
+
+	public void setHero(ArrayList<String>heroCast)
+	{
+		heroCast.addAll(heroList);
+	}
+	public void setHeroine(ArrayList<String> heroineCast)
+	{
+		heroineCast.addAll(heroineList);
+	}
+	public void setComedian(ArrayList<String> comedianCast)
+	{
+		comedianCast.addAll(comedianList);
+	}
+	public void setVillain(ArrayList<String> villainCast)
+	{
+		villainCast.addAll(villainList);
 	}
 
     public void database(int x, ArrayList<Entry<String, String>> cast)
     {
-        Scenes scenes = new Scenes();
 		
     		if(x==1)
         	{
@@ -112,20 +144,3 @@ public class Controller
     		}
     } 
 }
-
-// for(int j=0; j<heroList.size(); j++)
-//         {
-// 			System.out.println((j+1)+" "+heroList.get(j));
-// 		}
-// 		for(int j=0; j<heroineList.size(); j++)
-//         {
-// 			System.out.println((j+1)+" "+heroineList.get(j));	
-// 		}
-// 		for(int j=0; j<comedianList.size(); j++)
-//         {
-// 			System.out.println((j+1)+" "+comedianList.get(j));	
-// 		}
-// 		for(int j=0; j<villainList.size(); j++)
-//         {
-// 			System.out.println((j+1)+" "+villainList.get(j));
-// 		}

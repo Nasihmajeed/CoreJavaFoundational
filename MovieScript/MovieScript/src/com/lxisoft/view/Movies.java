@@ -4,7 +4,7 @@ import com.lxisoft.controller.*;
 
 import java.util.Scanner;
 import java.util.ArrayList; 
-import java.util.Map.Entry;;
+import java.util.Map.Entry;
 
 
 
@@ -13,17 +13,31 @@ public class Movies
     String movieName;
     String director;
     String genre;
+
     Scenes scene = new Scenes();
 	Theatre theatre = new Theatre();
 	Controller controller = new Controller();
+	SceneSetting setScene = new SceneSetting();
+
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
 	ArrayList<String> search = new ArrayList<>();
+	
+	ArrayList<String> heroCast = new ArrayList<>();
+	ArrayList<String> heroineCast = new ArrayList<>();
+	ArrayList<String> comedianCast = new ArrayList<>();
+	ArrayList<String> villainCast = new ArrayList<>();
+
+	ArrayList<String> hero= new ArrayList<String>();
+	ArrayList<String> heroine= new ArrayList<String>();
+	ArrayList<String> comedian= new ArrayList<String>();
+	ArrayList<String> villain= new ArrayList<String>();
+
 	Scanner input = new Scanner(System.in);
 
-	ArrayList<String> heroList = new ArrayList<>();
-	ArrayList<String> heroineList = new ArrayList<>();
-	ArrayList<String> comedianList = new ArrayList<>();
-	ArrayList<String> villainList = new ArrayList<>();
+	public Movies()
+	{
+		controller.setCast(cast);
+	}
 
 	public void movieInput()
 	{
@@ -37,13 +51,9 @@ public class Movies
 		this.movieOptions();
 	}
 
-	public Movies()
-	{
-		controller.setCast(cast);
-	}
-
     public void movieOptions()
     {
+		this.casting();
         Scanner s = new Scanner(System.in);
         int option;
         do
@@ -61,25 +71,26 @@ public class Movies
 					if(option==1)
             		{
 						System.out.print("\n\n>> Comedy Scene <<\n\n");
-             		   	scene.comedyScene();
+             		   	this.setComedyScene();
             		}
 					else if(option==2)
 					{
 						System.out.print("\n\n>> Romantic Scene <<\n\n");
-						scene.romanticScene();
+						this.setRomanticScene();
 					}
 					else if(option==3)
 					{
 						System.out.print("\n\n>> Thriller Scene <<\n\n");
-						scene.thrillerScene();
+						this.setThrillerScene();
 					}
 					else if(option==4)
 					{
-						System.out.print("\n\n>> Emotional Scene <<");
-						scene.emotionalScene();
+						System.out.print("\n\n>> Emotional Scene <<\n\n");
+						this.setEmotionalScene();
 					}
 					else if(option==5)
 					{
+						// this.casting();
 						this.setMovie();
 					}
 					else if(option==0)
@@ -153,17 +164,39 @@ public class Movies
 		}
 	}
 
-    // public void printActors()
-    // {
-    //     System.out.println("\n+------+-----------------------------------------------+");
-	// 	System.out.println("   ID  |                   Name");
-	// 	System.out.println("+------+-----------------------------------------------+");
-	// 	for(int j=0; j<cast.size(); j++)
-    //     {
-	// 		System.out.println("   "+(j+1)+"                     "+cast.get(j).getValue());
-	// 	}
-	// 	System.out.println("+------+-----------------------------------------------+");
-    // }
+	public void casting()
+	{
+		controller.setHero(heroCast);
+		controller.setHeroine(heroineCast);
+		controller.setComedian(comedianCast);
+		controller.setVillain(villainCast);
+
+		// System.out.println(">> Heros <<");
+		for(int k=0;k<heroCast.size();k++)
+        {
+			hero.add(heroCast.get(k));
+		}
+		
+		// System.out.println(">> Heroines <<");
+		for(int k=0;k<heroineCast.size();k++)
+        {
+			heroine.add(heroineCast.get(k));
+		}
+		
+		// System.out.println(">> Comedians <<");
+		for(int k=0;k<comedianCast.size();k++)
+        {
+			comedian.add(comedianCast.get(k));
+		}
+
+		// System.out.println(">> Villlains <<");
+		for(int k=0;k<villainCast.size();k++)
+        {
+			villain.add(villainCast.get(k));
+		}
+	}
+
+   
     public void printCast()
     {
         System.out.println("\nMovie Cast : \n");
@@ -177,6 +210,76 @@ public class Movies
         } 
 		System.out.println("+------+-----------------------+-----------------------+");
     }
+
+	public void setComedyScene()
+	{	
+		scene.setScene2();
+		scene.setScene3();
+		scene.setScene4();
+		scene.setScene5();
+
+		setScene.printComedyScene();
+		setScene.printRomanticScene();
+		setScene.printEmotionalScene();
+		setScene.printThrillerScene();
+
+		// for(int j=0; j<hero.size(); j++)
+        // {
+		// 	System.out.println((j+1)+" "+hero.get(j));
+		// }
+	}
+	public void setRomanticScene()
+	{
+		scene.setScene2();
+		scene.setScene3();
+		scene.setScene4();
+		scene.setScene5();
+
+		setScene.printEmotionalScene();
+		setScene.printThrillerScene();
+		setScene.printComedyScene();		
+		setScene.printRomanticScene();
+
+
+		// for(int j=0; j<heroine.size(); j++)
+        // {
+		// 	System.out.println((j+1)+" "+heroine.get(j));	
+		// }
+	}
+	public void setEmotionalScene()
+	{
+		scene.setScene2();
+		scene.setScene3();
+		scene.setScene4();
+		scene.setScene5();
+
+		setScene.printEmotionalScene();
+		setScene.printThrillerScene();
+		setScene.printComedyScene();
+		setScene.printRomanticScene();
+
+		// for(int j=0; j<comedianCast.size(); j++)
+        // {
+		// 	System.out.println((j+1)+" "+comedian.get(j));	
+		// }
+	}
+	public void setThrillerScene()
+	{
+		scene.setScene2();
+		scene.setScene3();
+		scene.setScene4();
+		scene.setScene5();
+		
+		setScene.printThrillerScene();
+		setScene.printComedyScene();
+		setScene.printRomanticScene();
+		setScene.printEmotionalScene();
+
+		// for(int j=0; j<villainCast.size(); j++)
+        // {
+		// 	System.out.println((j+1)+" "+villain.get(j));
+		// }
+	}
 
     public void setMovie()
     {
@@ -204,9 +307,10 @@ public class Movies
 
 		
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-2");
-		// this.slowPrint();
-		// scene.setScene2();
+		this.slowPrint();
+		scene.setScene2();
 		// scene.printScene2();
+		setScene.printRomanticScene();
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-3                                          ");
@@ -215,9 +319,10 @@ public class Movies
 		
 
         System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-3");
-		// this.slowPrint();
-		// scene.setScene3();
+		this.slowPrint();
+		scene.setScene3();
 		// scene.printScene3();
+		setScene.printEmotionalScene();
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-4                                          ");
@@ -226,9 +331,10 @@ public class Movies
 
 
         System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-4");
-		// this.slowPrint();
-		// scene.setScene4();
+		this.slowPrint();
+		scene.setScene4();
 		// scene.printScene4();
+		setScene.printComedyScene();
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-5                                          ");
@@ -239,7 +345,8 @@ public class Movies
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+\n Scene-5");
 		this.slowPrint();
 		scene.setScene5();
-		scene.printScene5();
+		// scene.printScene5();
+		setScene.printThrillerScene();
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("\n                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                                                           Scene-6                                          ");

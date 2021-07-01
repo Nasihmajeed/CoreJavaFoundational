@@ -10,6 +10,7 @@ import java.io.*;
 
 public class Scenes 
 {
+
     ArrayList<Script> script1 = new ArrayList<Script>();
 	ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
@@ -17,8 +18,10 @@ public class Scenes
     ArrayList<Script> script5 = new ArrayList<Script>();
     ArrayList<Script> script6 = new ArrayList<Script>();
 
+
 	public void setScene1()
     {
+        
         script1.add(new Gopi());
         script1.get(0).setDialogue0("Gopi  : You stupid idiot fool....\n");
         script1.get(0).setDialogue1("Gopi  : Oh! so you are from kerala... \n       Why are you pushing this trolley where poeple are walking?\n");
@@ -36,6 +39,8 @@ public class Scenes
 
         try
         {
+            
+
             File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -111,7 +116,7 @@ public class Scenes
 
         try
         {
-            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\romanticScenes.csv");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
@@ -188,7 +193,7 @@ public class Scenes
  
         try
         {
-            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\emotionalScenes.csv");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
@@ -284,7 +289,7 @@ public class Scenes
 
         try
         {
-            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\comedyScenes.csv");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
@@ -365,7 +370,7 @@ public class Scenes
         
         try
         {
-            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
+            File file = new File("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\thrillerScenes.csv");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
   
@@ -514,26 +519,26 @@ public class Scenes
 		return scne;
 	}
 
-    public void comedyScene()
-    {
-        this.setScene2();
-        this.printScene2();
-        this.setScene4();
-        this.printScene4();
-    }
-    public void romanticScene()
-    {
-        this.setScene3();
-        this.printScene3();
-    }
-    public void thrillerScene()
-    {
-        this.setScene5();
-        this.printScene5();
-    }
-    public void emotionalScene()
-    {
-        this.setScene6();
-        this.printScene6();
-    }
+    // public void comedyScene()
+    // {
+    //     this.setScene2();
+    //     this.printScene2();
+    //     this.setScene4();
+    //     this.printScene4();
+    // }
+    // public void romanticScene()
+    // {
+    //     this.setScene3();
+    //     this.printScene3();
+    // }
+    // public void thrillerScene()
+    // {
+    //     this.setScene5();
+    //     this.printScene5();
+    // }
+    // public void emotionalScene()
+    // {
+    //     this.setScene6();
+    //     this.printScene6();
+    // }
 }
