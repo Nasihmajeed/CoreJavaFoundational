@@ -29,14 +29,7 @@ public class Script
 
        ArrayList<Actor> allActors;
          
-   int l=0,m=0,n=0,p=0;                              
-
-    public void writerDetails()
-     {
-           System.out.println("Enter the name of the ScriptWriter");
-           setWriterName(sc.next());
-     }
-
+       int l=0,m=0,n=0,p=0;                             
 
 
     public void setScriptWriterName(String scriptWriterName)
@@ -45,22 +38,10 @@ public class Script
      }
 
 
-
-
     public String getScriptWriterName()
       {
 	   return scriptWriterName;
       } 
-
-
-
-//Casting the actors
-public void directorCastingCharacters()
-{
-
-allActors=castingTheActors();
-
-System.out.println("\r\n");
 
                     
                      try{
@@ -71,13 +52,8 @@ System.out.println("\r\n");
                     Thread.currentThread().interrupt();
                     }
 
-} 
 
-
-
-
-
-public void startMovie(String genre)
+public void startMovie(int genre)
   {          
 
                                  director.printCharacters();

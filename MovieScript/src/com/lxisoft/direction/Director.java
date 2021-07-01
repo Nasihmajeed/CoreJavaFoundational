@@ -15,17 +15,16 @@ public class Director
 {
 	Scanner sc=new Scanner(System.in);
 	
-private String directorName;
+    private String directorName;
 
 	
-Actor actor=new Actor();
-Actor heroo=new Hero();
-Actor heroinee=new Heroine();
-Actor comediann=new Comedian();
-Actor villainn=new Villain();
+    Actor heroo=new Hero();
+    Actor heroinee=new Heroine();
+    Actor comediann=new Comedian();
+    Actor villainn=new Villain();
 
 
-ArrayList<Actor> actors=new ArrayList<Actor>();
+   ArrayList<Actor> actors=new ArrayList<Actor>();
 
  
 	public void setDirectorName(String directorName)
@@ -49,24 +48,24 @@ public ArrayList<Actor> castingTheActors()
     {
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
-       numOfHero=sc.nextInt(); 
-	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
+       heroo.setNumOfHero(sc.nextInt()); 
+	   System.out.println("Number of heroes in the Movie is : "+heroo.getNumOfHero());
 	 
-	  for(int i=0 ; i<numOfHero ; i++)
+	  for(int i=0 ; i<heroo.getNumOfHero() ; i++)
 	    {
+		 
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Hero : ");  
-		 heroName=sc.next();
-		 System.out.println("Name of the Hero is: "+heroName);
+		 String name=sc.next();
+		 System.out.println("Name of the Hero is: "+name);
 		 
 
          System.out.println("Enter the Character name of the Hero : ");
-		 heroCharName=sc.next();
-		 System.out.println("Name of the Hero's Character is : "+heroCharName);
+		 String charName=sc.next();
+		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-         actors.add(new Hero());
-         actors.get(i).setActorName(heroName);
-         actors.get(i).setActorCharName(heroCharName);
+         actors.add(new Hero(name,charName));
+
         } 	 
 		 
 		 System.out.println("\r\n"); 
@@ -74,28 +73,25 @@ public ArrayList<Actor> castingTheActors()
 
 		//Casting the Heroine
            
-           int k=actors.size();
+           
      
         System.out.println("---------------------------------------------------------------------------------------------------------");
 		System.out.println("Enter the number of heroines in the movie : ");
-        numOfHeroine=sc.nextInt(); 
-	    System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
+        heroinee.setNumOfHeroine(sc.nextInt()); 
+	    System.out.println("Number of heroines in the Movie is : "+heroinee.getNumOfHeroine());
 	
-	   for(int i=0 ; i<numOfHeroine ; i++)
+	   for(int i=0 ; i<heroinee.getNumOfHeroine(); i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Heroine : ");  
-		 heroineName=sc.next();
-		 System.out.println("Name of the Heroine is: "+heroineName);
+		 String name=sc.next();
+		 System.out.println("Name of the Heroine is: "+name);
      
          System.out.println("Enter the Character name of the Heroine : ");
-		 heroineCharName=sc.next();
-		 System.out.println("Name of the Heroine's Character is : "+heroineCharName);
+		 String charName=sc.next();
+		 System.out.println("Name of the Heroine's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-		 actors.add(new Heroine());
-		 actors.get(k).setActorName(heroineName);
-         actors.get(k).setActorCharName(heroineCharName);
-         k++;
+		 actors.add(new Heroine(name,charName));
 
         }
      
@@ -105,26 +101,24 @@ public ArrayList<Actor> castingTheActors()
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of Comedian in the movie : ");
-       numOfComedian=sc.nextInt(); 
-	   System.out.println("Number of comedians in the Movie is : "+numOfComedian);
+       comediann.setNumOfComedian(sc.nextInt()); 
+	   System.out.println("Number of comedians in the Movie is : "+comediann.getNumOfComedian());
 	
 
-	   for(int i=0 ; i<numOfComedian ; i++)
+	   for(int i=0 ; i<comediann.getNumOfComedian() ; i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Comedian : ");  
-		 comedianName=sc.next();
-		 System.out.println("Name of the Comedian is: "+comedianName);
+		 String name=sc.next();
+		 System.out.println("Name of the Comedian is: "+name);
      	 
  
          System.out.println("Enter the Character name of the Comedian : ");
-		 comedianCharName=sc.next();
-		 System.out.println("Name of the Comedian's Character is : "+comedianCharName);
+		 String charName=sc.next();
+		 System.out.println("Name of the Comedian's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-		 actors.add(new Comedian());
-		 actors.get(k).setActorName(comedianName);
-         actors.get(k).setActorCharName(comedianCharName);
-         k++;
+		 actors.add(new Comedian(name,charName));
+
         }
           System.out.println("\r\n");
 
@@ -132,25 +126,23 @@ public ArrayList<Actor> castingTheActors()
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of villains in the movie : ");
-       numOfVillain=sc.nextInt(); 
-	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
+       villainn.setNumOfVillain(sc.nextInt()); 
+	   System.out.println("Number of villains in the Movie is : "+villainn.getNumOfVillain());
 	
-	    for(int i=0 ; i<numOfVillain ; i++)
+	    for(int i=0 ; i<villainn.getNumOfVillain() ; i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Villain : ");  
-		 villainName=sc.next();
-		 System.out.println("Name of the Villain is: "+villainName);
+		 String name=sc.next();
+		 System.out.println("Name of the Villain is: "+name);
      
 
          System.out.println("Enter the Character name of the Villain : ");
-		 villainCharName=sc.next();
-		 System.out.println("Name of the Villain's Character is : "+villainCharName);  
+		 String charName=sc.next();
+		 System.out.println("Name of the Villain's Character is : "+charName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
-		 actors.add(new Villain());
-         actors.get(k).setActorName(villainName);
-         actors.get(k).setActorCharName(villainCharName);
-         k++;
+		 actors.add(new Villain(name,charName));
+
         }
 
        System.out.println("\r\n");

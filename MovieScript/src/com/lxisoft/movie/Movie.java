@@ -11,14 +11,14 @@ public class Movie
 
 Scanner sc=new Scanner(System.in);
 
-private String movieName,movieGenre,movieLanguage;
+private String movieName,movieLanguage;
 private float rating;
-private int yearOfRelease;
+private int yearOfRelease,movieGenre;
 
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-Script writer=new Script();
+Script scr;
 
 
 //Name of the movie
@@ -36,12 +36,12 @@ public String getMovieName()
 
 //Genre of the movie
 
-public void setMovieGenre(String movieGenre)
+public void setMovieGenre(int movieGenre)
 {
 this.movieGenre=movieGenre;	
 }		
 
-public String getMovieGenre()
+public int getMovieGenre()
 {
 	return movieGenre;
 }
@@ -86,7 +86,7 @@ public String getMovieLanguage()
 
 	
 
-public void askMovieDetailsFromUse()
+public void setInitialDetails()
 {
    System.out.println("\r\n");
    
@@ -123,21 +123,21 @@ public void askMovieDetailsFromUse()
 
 
 
+    public enum Genre{"Romantic","Emotional","Comedy","Action"};
 
 
     System.out.println("\r\n");
     System.out.println("--------------------------------------------------------------------------------------------------");	
-	System.out.println("----------------------------------Enter the genre of your movie-----------------------------------");	
+	System.out.println("------Enter the number corresponding to the given below options to select genre of your movie-------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");	
-	System.out.println("Romantic");
-	System.out.println("Emotional");
-	System.out.println("Comedy");
-	System.out.println("Action");
+	System.out.println(Genre);
 	System.out.println("--------------------------------------------------------------------------------------------------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");					
 	
-	setMovieGenre(sc.next());
+       
+
+       setMovieGenre(sc.nextInt());
 						  
 	            
 				try{
@@ -213,43 +213,12 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 
+
+				    scr=new Script();
 System.out.println("---------------------------------------------------------------------------------------------------------");
-System.out.println("-------------------------------------Enter the language of the Director----------------------------------");
+System.out.println("--------------------------------------Enter the name of the ScriptWriter---------------------------------");
 System.out.println("---------------------------------------------------------------------------------------------------------");
-director.setDirectorLanguage(sc.next());
-System.out.println("\r\n");
-                  
-
-                  try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-System.out.println("---------------------------------------------------------------------------------------------------------");
-System.out.println("------------------------Enter the number of movies directed by the Director------------------------------");
-System.out.println("---------------------------------------------------------------------------------------------------------");
-director.setNumberOfMoviesDirected(sc.nextInt());
-
-
-
-
-
-     System.out.println("\r\n");
-                   
-     
-                   try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
-     writer.writerDetails();
+     scr.setScriptWriterName(sc.next());
 
 
                   try{
@@ -263,7 +232,7 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 }
 
 
- public void getMovieDetails()
+ public void getInitialDetails()
  {
  	System.out.println("\r\n");
  	System.out.println("\r\n");
@@ -309,6 +278,7 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 				System.out.println("Name of the Movie : "+getMovieName());
 
 
+				
 				try{
 					   Thread.sleep(2000);
 				     }
@@ -318,9 +288,11 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 				    }
 
 
-				System.out.println("Genre of the movie : "+getMovieGenre());
+
+                System.out.println("Language of the Movie : "+getMovieLanguage());
 
 
+				
 				try{
 					   Thread.sleep(2000);
 				     }
@@ -328,7 +300,6 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 				    {
 					Thread.currentThread().interrupt();
 				    }
-
 
 				System.out.println("Year of Release : "+getYear());
 				
@@ -366,31 +337,7 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 				    }
 
 
-				System.out.println("Language of the Director : "+director.getDirectorLanguage());
-
-
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
-				System.out.println("Number of movies directed by the Director : "+director.getNumberOfMoviesDirected());
-
-
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
-				System.out.println("Name of the Script Writer : "+writer.getWriterName());
+				System.out.println("Name of the Script Writer : "+scr.getScriptWriterName());
                   
                   try{
 					   Thread.sleep(2000);
@@ -399,9 +346,6 @@ director.setNumberOfMoviesDirected(sc.nextInt());
 				    {
 					Thread.currentThread().interrupt();
 				    }
-
-
-				System.out.println("Language of the Script Writer : "+writer.getWriterLanguage());
 
 	System.out.println("-------------------------------------------------------------------------------------");	
 	System.out.println("-------------------------------------------------------------------------------------");	

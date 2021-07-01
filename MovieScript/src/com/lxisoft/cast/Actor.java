@@ -6,18 +6,13 @@ public class Actor
  protected String actorName,actorCharName;
 
 	
-	public void setActorName(String actorName)
-	{
-		this.actorName=actorName;
-	}
-	
-	
-	public void setActorCharName(String actorCharName)
-	{
-		this.actorCharName=actorCharName;
-	}
-	
-	
+   public Actor(String actorName,String actorCharName)
+   {
+   	this.actorName=actorName;
+   	this.actorCharName=actorCharName;
+   }
+
+
 	public String getActorName()
 	{
 		return actorName;

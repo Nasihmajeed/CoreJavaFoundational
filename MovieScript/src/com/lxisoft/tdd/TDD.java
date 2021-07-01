@@ -22,9 +22,9 @@ System.out.println("------------------------------------------------------------
 } 
 
 
-
 Movie movie=new Movie();
-Script script=new Script();
+
+Script scrObj;
 
 
                     try{
@@ -36,31 +36,61 @@ Script script=new Script();
 				    }
 
 
-//Enumeration instead of if-else statements
+movie.setInitialDetails();
 
-/*
 
-if(movie.getMovieGenre().equals("Romantic"))
-{
-script.startMovie(1);	
-}
 
-else if(movie.getMovieGenre().equals("Emotional"))
-{
-script.startMovie(2);	
-}
+                     try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
 
-else if(movie.getMovieGenre().equals("Comedy"))
-{
-script.startMovie(3);	
-}
+movie.getInitialDetails();
 
-else if(movie.getMovieGenre().equals("Action"))
-{
-script.startMovie(4);	
-}
- 
- */
+
+                      try{
+					    Thread.sleep(2000);
+				       }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+
+   switch(movie.getMovieGenre())
+	{
+		case 1 : 
+                   System.out.println("Genre of the movie is Romantic ");
+                   scrObj=new Script(Genre.valueOf("Romantic"));
+        case 2 : 
+                   System.out.println("Genre of the movie is Emotional ");
+                   scrObj=new Script(Genre.valueOf("Emotional"));
+        case 3 : 
+                   System.out.println("Genre of the movie is Comedy ");
+                   scrObj=new Script(Genre.valueOf("Comedy"));
+        case 4 : 
+                   System.out.println("Genre of the movie is Action ");
+                   scrObj=new Script(Genre.valueOf("Action"));
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         System.out.println("---------------------------------------------------------------------------");
