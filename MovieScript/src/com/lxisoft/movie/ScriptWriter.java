@@ -62,10 +62,10 @@ fr.close();
   int input=sc.nextInt();
 
 
-  System.out.println("**********************************n\n");
+  System.out.println("************************************\n");
   System.out.println("************************************");
   System.out.println("************************************");
-  System.out.println("*************SCENE1*****************");
+  System.out.println("***************8*SCENE1*****************");
   System.out.println("************************************");
   System.out.println("************************************");
 System.out.println(Genre.values()[input-1]);
