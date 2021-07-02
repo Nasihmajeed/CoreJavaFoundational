@@ -18,7 +18,9 @@ final String emotionalScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\l
 
 final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Thriller.csv";
 */
-StringBuilder scriptPath=new StringBuilder("D:\\CoreJavaFoundational\\MovieScript\\src\\resources\\script\\ComedyMovie.csv");
+StringBuilder scriptPath=new StringBuilder("D:\\CoreJavaFoundational\\MovieScript\\src\\script\\");
+
+String extension=".csv";
 
 
 /*File romanceFile=new File(romanceScript);
@@ -27,7 +29,7 @@ File emotionalFile=new File(emotionalScript);
 File thrillerFile=new File(thrillerScript);*/
 
 
-File movieFile=new File(scriptPath.toString());
+
 
 BufferedReader scriptReader=null;
 /*BufferedReader romanceScriptReader=null;
@@ -50,19 +52,23 @@ public void scriptSelection(Genere genere)
 	cast_Map=casting.getMap();
 		//actors=casting.getActorsArraylist();
 
+scriptPath.append(genere.toString()+extension);
+File movieFile=new File(scriptPath.toString());
 
 	
 
 switch(genere)
 {
-	case Comedy: listFromFile= fetchMovieScript(movieFile);
+	case Comedy: 
+
+					listFromFile= fetchMovieScript(movieFile,genere);
 
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
 			
 			
-					if(listFromFile.get(i).getDialogue().equals("Comedy"))
+					if(listFromFile.get(i) instanceof ComedyScript)
 					{
 						if(i%2==0 && i>0)
 						{
@@ -94,7 +100,7 @@ switch(genere)
 				}
 						
 					}
-					if(listFromFile.get(i).getDialogue().equals("Romance"))
+					if(listFromFile.get(i) instanceof RomanticScript)
 					{
 						
 						if(i%2==0)
@@ -117,7 +123,7 @@ switch(genere)
 				{
 					Thread.currentThread().interrupt();
 				}
-					if(listFromFile.get(i).getDialogue().equals("Emotional"))
+					if(listFromFile.get(i) instanceof EmotionalScript)
 					{
 						
 						if(i%2==0 && i>0)
@@ -380,40 +386,71 @@ case Emotional : listFromFile= emotionalMovie();
 }
 
 
-public ArrayList<Script> fetchMovieScript(File file)
+public ArrayList<Script> fetchMovieScript(File file,Genere genere)
 {
 	ArrayList<Script> scriptList=new ArrayList<Script>();
 	
 switch(genere)
 {
 case Comedy:	try{
-		scriptReader=new BufferedReader(new FileReader(file));
-		String line=null;
+						
+						
+						scriptReader=new BufferedReader(new FileReader(file));
+						String line=null;
 
-		while((line=scriptReader.readLine())!=null  )
-		{
-			String []parts=line.split(":");
-		//String scene=parts[0].trim();
+					while((line=scriptReader.readLine())!=null  )
+					{
+					String []parts=line.split(":");
+					String scene=parts[0].trim();
+					//String dialogues=parts[1].trim();
 
-		//String scene
-			StringBuilder dialogue=new StringBuilder();
-			dialogue.append(line);
-				if(!(dialogue.toString().equals("")) )
-				{	scriptList.add(new Script());
-					//scriptList.get(i).setScene(scene);
-					scriptList.get(i).setDialogue(dialogue.toString());
-					i++;	
+					//String scene
+					StringBuilder dialogue=new StringBuilder();
+					dialogue.append(line);
+					
+					if(!(dialogue.toString().equals("")))
+					{
+						if(scene.equals("Comedy") )
+						{	scriptList.add(new ComedyScript());
+						//scriptList.get(i).setScene(scene);
+						scriptList.get(i).setDialogue(dialogue.toString());
+						i++;	
+						}
+
+					else if(scene.equals("Emotional") )
+					{	int j=scriptList.size();
+						scriptList.add(new EmotionalScript());
+						//scriptList.get(i).setScene(scene);
+						scriptList.get(j).setDialogue(dialogue.toString());
+						j++;	
+					}	
+					else if(scene.equals("Romance") )
+					{	int k=scriptList.size();
+						scriptList.add(new RomanticScript());
+						//scriptList.get(i).setScene(scene);
+						scriptList.get(k).setDialogue(dialogue.toString());
+						k++;	
+					}
+					else if(scene.equals("Thriller") )
+					{	int l=scriptList.size();
+						scriptList.add(new ThrillerScript());
+						//scriptList.get(i).setScene(scene);
+						scriptList.get(l).setDialogue(dialogue.toString());
+						l++;	
+					}
+					}
+					
+						
+					}
+
+
 				}
-
+			catch(IOException e)
+			{
+				e.printStackTrace();
 			}
-
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
 		finally
-	{
+		{
 
 		try
 		{
@@ -427,7 +464,7 @@ case Comedy:	try{
 			}
 
 
-	}
+		}
 
 }
 return scriptList;
