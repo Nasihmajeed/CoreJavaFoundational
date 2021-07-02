@@ -24,7 +24,7 @@ System.out.println("------------------------------------------------------------
 
 Movie movie=new Movie();
 
-Script scrObj;
+Script scrObj=new Script();
 
 
                     try{
@@ -38,17 +38,7 @@ Script scrObj;
 
 movie.setInitialDetails();
 
-
-
-                     try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-movie.getInitialDetails();
+// movie.getInitialDetails();
 
 
                       try{
@@ -63,17 +53,21 @@ movie.getInitialDetails();
    switch(movie.getMovieGenre())
 	{
 		case 1 : 
-                   System.out.println("Genre of the movie is Romantic ");
-                   scrObj=new Script(Genre.valueOf("Romantic"));
+                   
+                   scrObj.startMovie(Movie.Genre.Romantic.toString());
+                   break;
         case 2 : 
-                   System.out.println("Genre of the movie is Emotional ");
-                   scrObj=new Script(Genre.valueOf("Emotional"));
+                   
+                   scrObj.startMovie(Movie.Genre.Emotional.toString());
+                   break;
         case 3 : 
-                   System.out.println("Genre of the movie is Comedy ");
-                   scrObj=new Script(Genre.valueOf("Comedy"));
+                   
+                   scrObj.startMovie(Movie.Genre.Comedy.toString());
+                   break;
         case 4 : 
-                   System.out.println("Genre of the movie is Action ");
-                   scrObj=new Script(Genre.valueOf("Action"));
+                   
+                   scrObj.startMovie(Movie.Genre.Action.toString());
+                   break;
 	}
 
 

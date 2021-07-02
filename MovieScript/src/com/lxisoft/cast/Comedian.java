@@ -7,7 +7,13 @@ public class Comedian extends Actor
 	private String comedianName,comedianCharName;
 
 
-	public Comedian(String comedianName,String comedianCharName)
+    public Comedian()
+	{
+		
+	}
+
+
+   public Comedian(String comedianName,String comedianCharName)
    {
        super(comedianName,comedianCharName);
    }

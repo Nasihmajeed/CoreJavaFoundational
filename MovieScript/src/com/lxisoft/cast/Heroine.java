@@ -6,7 +6,11 @@ public class Heroine extends Actor
 
   private String heroineName,heroineCharName;
 
-
+   
+  public Heroine()
+  {
+    
+  }
 
 
    public Heroine(String heroineName,String heroineCharName)

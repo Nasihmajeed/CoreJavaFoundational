@@ -18,7 +18,7 @@ private int yearOfRelease,movieGenre;
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-Script scr;
+Script scr=new Script();
 
 
 //Name of the movie
@@ -86,6 +86,48 @@ public String getMovieLanguage()
 
 	
 
+
+
+    public enum Genre
+    {
+    	Romantic
+    	{
+    		public String toString()
+    		  {
+    			return "RomanticMovie";
+    		  }
+    	},
+
+        Emotional
+    	{
+            public String toString()
+    		  {
+    			return "EmotionalMovie";
+    		  } 
+    	},
+
+    	Comedy
+    	{
+            public String toString()
+    		  {
+    			return "ComedyMovie";
+    		  }
+    	},
+    	Action
+    	{
+            public String toString()
+    		  {
+    			return "ActionMovie";
+    		  }
+    	}
+
+    };
+
+
+
+
+
+
 public void setInitialDetails()
 {
    System.out.println("\r\n");
@@ -122,15 +164,11 @@ public void setInitialDetails()
 				    }
 
 
-
-    public enum Genre{"Romantic","Emotional","Comedy","Action"};
-
-
     System.out.println("\r\n");
     System.out.println("--------------------------------------------------------------------------------------------------");	
-	System.out.println("------Enter the number corresponding to the given below options to select genre of your movie-------");	
+	System.out.println("------Enter a number corresponding to the given below options to select genre of your movie-------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");	
-	System.out.println(Genre);
+	System.out.println(java.util.Arrays.asList(Genre.values()));
 	System.out.println("--------------------------------------------------------------------------------------------------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");	
 	System.out.println("--------------------------------------------------------------------------------------------------");					
@@ -214,7 +252,7 @@ System.out.println("\r\n");
 				    }
 
 
-				    scr=new Script();
+				    
 System.out.println("---------------------------------------------------------------------------------------------------------");
 System.out.println("--------------------------------------Enter the name of the ScriptWriter---------------------------------");
 System.out.println("---------------------------------------------------------------------------------------------------------");
@@ -286,7 +324,32 @@ System.out.println("------------------------------------------------------------
 				    {
 					Thread.currentThread().interrupt();
 				    }
+ 
 
+               switch(getMovieGenre())
+               {
+               	case 1 :
+               	        System.out.println("Genre of the Movie : "+Genre.Romantic.toString());
+               	        break;
+               	case 2 :
+               	        System.out.println("Genre of the Movie : "+Genre.Emotional.toString());
+               	        break;
+               	case 3 :
+               	        System.out.println("Genre of the Movie : "+Genre.Comedy.toString());
+               	        break;
+               	case 4 :
+               	        System.out.println("Genre of the Movie : "+Genre.Action.toString());
+               	        break;
+               }
+                                 
+                  
+                      try{
+				          Thread.sleep(2000);
+				         }
+				     catch(InterruptedException e)
+				         {
+					      Thread.currentThread().interrupt();
+				         }
 
 
                 System.out.println("Language of the Movie : "+getMovieLanguage());

@@ -7,6 +7,12 @@ public class Villain extends Actor
    private String villainName,villainCharName;
 
 
+   public Villain()
+   {
+      
+   }
+
+
    public Villain(String villainName,String villainCharName)
    {
        super(villainName,villainCharName);

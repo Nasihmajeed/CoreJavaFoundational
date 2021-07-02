@@ -7,6 +7,10 @@ public class Hero extends Actor
 	private String heroName,heroCharName;
 
 	
+	public Hero()
+	{
+		
+	}
 
    public Hero(String heroName,String heroCharName)
    {

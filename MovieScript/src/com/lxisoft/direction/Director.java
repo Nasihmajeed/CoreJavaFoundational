@@ -1,11 +1,6 @@
 package com.lxisoft.direction;
 
-import com.lxisoft.cast.Actor;
-
-import com.lxisoft.cast.Hero;
-import com.lxisoft.cast.Heroine;
-import com.lxisoft.cast.Comedian;
-import com.lxisoft.cast.Villain;
+import com.lxisoft.cast.*;
 
 import com.lxisoft.movie.*;
 
@@ -18,10 +13,10 @@ public class Director
     private String directorName;
 
 	
-    Actor heroo=new Hero();
-    Actor heroinee=new Heroine();
-    Actor comediann=new Comedian();
-    Actor villainn=new Villain();
+    Hero heroo=new Hero();
+    Heroine heroinee=new Heroine();
+    Comedian comediann=new Comedian();
+    Villain villainn=new Villain();
 
 
    ArrayList<Actor> actors=new ArrayList<Actor>();

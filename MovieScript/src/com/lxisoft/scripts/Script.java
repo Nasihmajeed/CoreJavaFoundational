@@ -6,36 +6,80 @@ import com.lxisoft.movie.*;
 
 import java.util.*;
 import java.io.*;
+import java.io.File;
+
 
 public class Script
  {
- 
-  Scanner sc=new Scanner(System.in);
+/*
+       Relative path methods
 
-  private String scriptWriterName,line;	
+ 1.      String filePath = new File("").getAbsolutePath();
+       filePath.concat("path to the property file");
 
-   final String romance="E:\\MovieScript\\src\\com\\lxisoft\\scripts\\RomanticScr.CSV";
-   final String emotional= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\EmotionalScr.CSV";
-   final String comedy= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ComedyScr.CSV";
-   final String action= "E:\\MovieScript\\src\\com\\lxisoft\\scripts\\ActionScr.CSV";
 
-        
-       ArrayList<RomanceScript> romanceScene=new ArrayList<RomanceScript>();
-       ArrayList<EmotionalScript> emotionalScene=new ArrayList<EmotionalScript>(); 
-       ArrayList<ActionScript> actionScene=new ArrayList<ActionScript>(); 
-	   ArrayList<ComedyScript> comedyScene=new ArrayList<ComedyScript>();
+
+ 2.    String basePath = new File("").getAbsolutePath();
+    System.out.println(basePath);
+
+    String path = new File("src/main/resources/conf.properties").getAbsolutePath();
+    System.out.println(path);
+
+3.   this.getClass().getClassLoader().getResource("relative path");
+
+4.  String pathToWsdl = this.getClass().getClassLoader().getResource("src\\com\\lxisoft\\resources\\RomanticScr.CSV").toString();
+
+5.  The simplest approach uses an instance of the java.io.File class
+    to read the /src/test/resources directory, by calling the getAbsolutePath() method:
+    Note that this path is relative to the current working directory, 
+    meaning the project directory.
+       
+    
+
+String path = "src/com/lxisoft";
+
+File file = new File(path);
+
+String absolutePath = file.getAbsolutePath();
+
+System.out.println(absolutePath);
+
+assertTrue(absolutePath.endsWith("src/com/lxisoft"));
+
+
+
+6.//we can use the Path class, which was introduced in Java 7.
+//First, we need to call a static factory method – Paths.get(). 
+Then, we'll convert Path to File.
+//In the end, we just need to call getAbsolutePath(), 
+as in the previous example:
+
+Path resourceDirectory = Paths.get("src","com","lxisoft");
+
+String movieFiles = resourceDirectory.toFile().getAbsolutePath();
+
+Assert.assertTrue(absolutePath.endsWith("src/com/lxisoft"));
+
+
+*/
+       Scanner sc=new Scanner(System.in);
+
+       private String scriptWriterName,line;
+       private int type;
+
+       List<String> scriptOfFilm=new ArrayList<String>();
 
        Director director=new Director();
 
-       ArrayList<Actor> allActors;
-         
-       int l=0,m=0,n=0,p=0;                             
+       ArrayList<Actor> allActors;                     
 
 
-    public void setScriptWriterName(String scriptWriterName)
-     {
+
+   public void setScriptWriterName(String scriptWriterName)
+      {
        this.scriptWriterName=scriptWriterName;
-     }
+      }
+
 
 
     public String getScriptWriterName()
@@ -43,890 +87,43 @@ public class Script
 	   return scriptWriterName;
       } 
 
-                    
-                     try{
+            
+
+public void startMovie(String genre)
+  {          
+                                 
+                                 allActors=director.castingTheActors();
+
+                                 director.printCharactersOfTheMovie();
+
+
+                    try{
                         Thread.sleep(2000);
                        }
                 catch(InterruptedException e)
-                    {
-                    Thread.currentThread().interrupt();
-                    }
-
-
-public void startMovie(int genre)
-  {          
-
-                                 director.printCharacters();
-
-        int i=0,j=0; 
-                        try{
-                                BufferedReader br=new BufferedReader(new FileReader(romance));
-                                         do{
-                                             while((line=br.readLine()) != null) 
-                                              {
-                                               String[] a=line.split(":");
-                                               String st=a[0].trim();
-                                                  romanceScene.add(new RomanceScript());
-                                                  romanceScene.get(l).setDialogue(st);
-                                                  l++;
-                                              }
-                                           }while(l<15);
-                                 br=new BufferedReader(new FileReader(comedy));
-                                         do{
-                                             while((line=br.readLine()) != null) 
-                                              {
-                                               String[] b=line.split(":");
-                                               String str=b[0].trim();
-                                                  comedyScene.add(new ComedyScript());
-                                                  comedyScene.get(m).setDialogue(str);
-                                                  m++;
-                                              }
-                                           }while(m<15);
-                                 br=new BufferedReader(new FileReader(emotional));
-                                         do{
-                                             while((line=br.readLine()) != null) 
-                                              {
-                                               String[] c=line.split(":");
-                                               String strn=c[0].trim();
-                                                  emotionalScene.add(new EmotionalScript());
-                                                  emotionalScene.get(n).setDialogue(strn);
-                                                  n++;
-                                              }
-                                           }while(n<15);
-                                 br=new BufferedReader(new FileReader(action));
-                                         do{
-                                             while((line=br.readLine()) != null) 
-                                              {
-                                               String[] g=line.split(":");
-                                               String strng=g[0].trim();
-                                                  actionScene.add(new ActionScript());
-                                                  actionScene.get(p).setDialogue(strng);
-                                                  p++;
-                                              }
-                                           }while(p<15);
-                    }catch(IOException ioe)
-                            {
-                                ioe.printStackTrace();
-                            }
-
-
-
-
-         switch(genre)
-           {
-                  
-
-    case 1 :      
-
-                                   //Romantic Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=0;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+romanceScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-
-
-                    //Comedy Scene between Hero and Comedian
-/* *********************************************************************************************************/
-
-
-try{
-
-     i=0;
-     j=2;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Comedian))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+comedyScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-        }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                      
-                      //Fight Scene Between Hero and Villain
-  /* *********************************************************************************************************/
-
-   try{
-
-                  i=0;
-                  j=3;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+actionScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Comedian))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-
-
- //Romantic Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=7;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+romanceScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-                }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                   break;
-
-    case 2 : 
-                           
-          
-
-          //Emotional Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=0;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+emotionalScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-
-
-                    //Emotional Scene between Hero and Villain
-/* *********************************************************************************************************/
-
-
-try{
-
-     i=0;
-     j=2;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+emotionalScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Comedian))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-        }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                      
-                      //Fight Scene Between Hero and Villain
-  /* *********************************************************************************************************/
-
-   try{
-
-                  i=0;
-                  j=3;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+actionScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Comedian))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-
-
- //Romantic Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=7;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+romanceScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-                }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                     	   break;
-				 
-				 case 3 :
-				                  
-
-        //Comedy Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=0;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+comedyScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-
-
-                    //Comedy Scene between Hero and Comedian
-/* *********************************************************************************************************/
-
-
-try{
-
-     i=0;
-     j=2;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Comedian))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+comedyScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-        }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                      
-                      //Comedy Scene Between Hero and Villain
-  /* *********************************************************************************************************/
-
-   try{
-
-                  i=0;
-                  j=8;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+comedyScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Comedian))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-
-
- //Romantic Scene between Hero and Heroine
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=9;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Heroine))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+romanceScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-                }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-
-				
-							   break;
-				case 4 :
-				                
-          //Action Scene between Hero and Villain
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=0;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+actionScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Heroine))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-
-
-                    //Comedy Scene between Hero and Comedian
-/* *********************************************************************************************************/
-
-
-try{
-
-     i=0;
-     j=8;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Comedian))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+comedyScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Villain))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-        }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-                      
-                      //Fight Scene Between Hero and Villain
-  /* *********************************************************************************************************/
-
-   try{
-
-                  i=0;
-                  j=7;
-
-while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Hero) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+actionScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Heroine) ||  ( ( allActors.get(i) ) instanceof Comedian))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-
-
- //Fight Scene between Heroine and Villain
- /* *********************************************************************************************************/
-                    try{
-
-                         i=0;
-                         j=7;
-
-                         while( (i<allActors.size()) && (j<15) )
-                         {
-                             if( ( ( allActors.get(i) ) instanceof Heroine) || ( ( allActors.get(i) ) instanceof Villain))
-                                     {
-System.out.println(allActors.get(i).getActorName()+":"+allActors.get(i).getActorCharName()+":"+actionScene.get(j).getDialogue());     
-                                   
-                         
-                                    try{
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-                                     }                                                           
-    else if( ( ( allActors.get(i) ) instanceof Comedian) ||  ( ( allActors.get(i) ) instanceof Hero))
-                                    {
-                                        
-                                        i=i;
-
-                                    try{ 
-                                        Thread.sleep(2000);
-                                       }
-                                    catch(InterruptedException e)
-                                       {
-                                        Thread.currentThread().interrupt();
-                                       }
-
-                                    }
-                            i++;
-                            j++;
-                         }
-
-      }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-
-
-  /* *********************************************************************************************************/
-
-                }catch(IndexOutOfBoundsException iofbe)
-                      {
-                       iofbe.printStackTrace();
-                      }
-
-				
-				               break;
-   
+                       {
+                        Thread.currentThread().interrupt();
+                       }
+
+   if(genre.equals("RomanticMovie"))
+   {
+  
+       
+   }
+   else if(genre.equals("EmotionalMovie"))
+   {
 
    }
+   else if(genre.equals("ComedyMovie"))
+    {
 
-           
+    }
+   else if(genre.equals("ActionMovie"))
+    {
+
+    }
+
+
+         
   }
-
-}
+}      

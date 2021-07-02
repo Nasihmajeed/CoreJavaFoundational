@@ -5,6 +5,13 @@ public class Actor
 
  protected String actorName,actorCharName;
 
+
+
+   public Actor()
+   {
+   	
+   }
+
 	
    public Actor(String actorName,String actorCharName)
    {
