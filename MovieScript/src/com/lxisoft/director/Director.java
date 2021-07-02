@@ -2,9 +2,9 @@ package com.lxisoft.director;
 import com.lxisoft.actors.*;
 import java.util.*;
 public class Director{
-  public String directorName,movieName,heroName,heroineName,villainName,comedianName;
-  public String heroCharName,heroineCharName,villainCharName,comedianCharName;
+  String directorName,movieName;
   ArrayList<Actor>actor= new ArrayList<Actor>();
+  Actor a=new Actor();
   Scanner sc= new Scanner(System.in);
   public void casting(){
     System.out.println("ENTER DIRECTOR NAME ");
@@ -15,47 +15,47 @@ public class Director{
     int numOfHeroes=sc.nextInt();
     for(int i=0;i<numOfHeroes;i++){
       System.out.println("ENTER THE NAME OF HERO ");
-      heroName=sc.next();
+      a.setActorName(sc.next());
 
 
-      System.out.println("ENTER THE CHARACTER NAME OF "+heroName+" : ");
-      heroCharName=sc.next();
-      actor.add(new Hero(heroName,heroCharName));
+      System.out.println("ENTER THE CHARACTER NAME : ");
+      a.setCharName(sc.next());
+      actor.add(new Hero(a.getActorName(),a.getCharName()));
     }
     System.out.println("ENTER NUMBER OF HEROINES");
     int numOfHeroines=sc.nextInt();
     for(int i=0;i<numOfHeroines;i++){
       System.out.println("ENTER THE NAME OF HEROINE ");
-      heroineName=sc.next();
+      a.setActorName(sc.next());
 
 
-      System.out.println("ENTER THE CHARACTER NAME OF "+heroineName+" : ");
-      heroineCharName=sc.next();
-        actor.add(new Heroine(heroineName,heroineCharName));
+      System.out.println("ENTER THE CHARACTER NAME OF : ");
+      a.setCharName(sc.next());
+        actor.add(new Heroine(a.getActorName(),a.getCharName()));
     }
     System.out.println("ENTER NUMBER OF COMEDIANS");
     int numOfComedians=sc.nextInt();
     for(int i=0;i<numOfComedians;i++){
       System.out.println("ENTER THE NAME OF COMEDIAN ");
-      comedianName=sc.next();
-
-      actor.get(i).setActorName(comedianName);
-      System.out.println("ENTER THE CHARACTER NAME OF "+comedianName+" : ");
-      comedianCharName=sc.next();
-      actor.add(new Comedian(comedianName,comedianCharName));
+      a.setActorName(sc.next());
+      System.out.println("ENTER THE CHARACTER NAME OF : ");
+      a.setCharName(sc.next());
+      actor.add(new Comedian(a.getActorName(),a.getCharName()));
     }
 
     System.out.println("ENTER NUMBER OF VILLAINS");
     int numOfVillains=sc.nextInt();
     for(int i=0;i<numOfVillains;i++){
       System.out.println("ENTER THE NAME OF VILLAIN ");
-      villainName=sc.next();
+      a.setActorName(sc.next());
 
 
-      System.out.println("ENTER THE CHARACTER NAME OF "+villainName+" : ");
-      comedianCharName=sc.next();
-      actor.add(new Villain(villainName,villainCharName));
+      System.out.println("ENTER THE CHARACTER NAME : ");
+      a.setCharName(sc.next());
+      actor.add(new Hero(a.getActorName(),a.getCharName()));
     }
+
+
 
 
   }
