@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+
 public class SceneSetting 
 {
+    int i=0;
+    
     public void printComedyScene()
     {
         try

@@ -222,12 +222,8 @@ public class Movies
 		setScene.printRomanticScene();
 		setScene.printEmotionalScene();
 		setScene.printThrillerScene();
-
-		// for(int j=0; j<hero.size(); j++)
-        // {
-		// 	System.out.println((j+1)+" "+hero.get(j));
-		// }
 	}
+
 	public void setRomanticScene()
 	{
 		scene.setScene2();
@@ -239,13 +235,8 @@ public class Movies
 		setScene.printThrillerScene();
 		setScene.printComedyScene();		
 		setScene.printRomanticScene();
-
-
-		// for(int j=0; j<heroine.size(); j++)
-        // {
-		// 	System.out.println((j+1)+" "+heroine.get(j));	
-		// }
 	}
+
 	public void setEmotionalScene()
 	{
 		scene.setScene2();
@@ -257,12 +248,8 @@ public class Movies
 		setScene.printThrillerScene();
 		setScene.printComedyScene();
 		setScene.printRomanticScene();
-
-		// for(int j=0; j<comedianCast.size(); j++)
-        // {
-		// 	System.out.println((j+1)+" "+comedian.get(j));	
-		// }
 	}
+
 	public void setThrillerScene()
 	{
 		scene.setScene2();
@@ -274,11 +261,26 @@ public class Movies
 		setScene.printComedyScene();
 		setScene.printRomanticScene();
 		setScene.printEmotionalScene();
+	}
 
-		// for(int j=0; j<villainCast.size(); j++)
-        // {
-		// 	System.out.println((j+1)+" "+villain.get(j));
-		// }
+	public void printit()
+	{
+		for(int j=0; j<hero.size(); j++)
+        {
+			System.out.println((j+1)+" "+hero.get(j));
+		}
+		for(int j=0; j<heroine.size(); j++)
+        {
+			System.out.println((j+1)+" "+heroine.get(j));	
+		}
+		for(int j=0; j<comedianCast.size(); j++)
+        {
+			System.out.println((j+1)+" "+comedian.get(j));	
+		}
+		for(int j=0; j<villainCast.size(); j++)
+        {
+			System.out.println((j+1)+" "+villain.get(j));
+		}
 	}
 
     public void setMovie()
