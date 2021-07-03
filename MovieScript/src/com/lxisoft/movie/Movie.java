@@ -18,7 +18,7 @@ private int yearOfRelease,movieGenre;
 //Movie has A director and a ScriptWriter
 
 Director director=new Director();
-Script scr=new Script();
+
 
 
 //Name of the movie
@@ -256,7 +256,7 @@ System.out.println("\r\n");
 System.out.println("---------------------------------------------------------------------------------------------------------");
 System.out.println("--------------------------------------Enter the name of the ScriptWriter---------------------------------");
 System.out.println("---------------------------------------------------------------------------------------------------------");
-     scr.setScriptWriterName(sc.next());
+     director.setScriptWriterName(sc.next());
 
 
                   try{
@@ -400,7 +400,7 @@ System.out.println("------------------------------------------------------------
 				    }
 
 
-				System.out.println("Name of the Script Writer : "+scr.getScriptWriterName());
+				System.out.println("Name of the Script Writer : "+director.getScriptWriterName());
                   
                   try{
 					   Thread.sleep(2000);

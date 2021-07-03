@@ -24,7 +24,7 @@ System.out.println("------------------------------------------------------------
 
 Movie movie=new Movie();
 
-Script scrObj=new Script();
+Director director=new Director();
 
 
                     try{
@@ -54,19 +54,19 @@ movie.setInitialDetails();
 	{
 		case 1 : 
                    
-                   scrObj.startMovie(Movie.Genre.Romantic.toString());
+                   director.startMovie(Movie.Genre.Romantic.toString());
                    break;
         case 2 : 
                    
-                   scrObj.startMovie(Movie.Genre.Emotional.toString());
+                   director.startMovie(Movie.Genre.Emotional.toString());
                    break;
         case 3 : 
                    
-                   scrObj.startMovie(Movie.Genre.Comedy.toString());
+                   director.startMovie(Movie.Genre.Comedy.toString());
                    break;
         case 4 : 
                    
-                   scrObj.startMovie(Movie.Genre.Action.toString());
+                   director.startMovie(Movie.Genre.Action.toString());
                    break;
 	}
 
