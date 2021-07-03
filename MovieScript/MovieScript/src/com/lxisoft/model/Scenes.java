@@ -1,12 +1,12 @@
 package com.lxisoft.model;
-import java.util.*;
 
-import com.lxisoft.view.Felix;
 import com.lxisoft.view.Gopi;
-import com.lxisoft.view.Mani;
 import com.lxisoft.view.Veena;
-import java.io.*;
+import com.lxisoft.view.Mani;
+import com.lxisoft.view.Felix;
 
+import java.util.*;
+import java.io.*;
 
 public class Scenes 
 {
@@ -120,7 +120,7 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            writer.write("\n                                                            ***Gopi meets the officer and the officer ask the policemen to check gopi ***\n");
+            writer.write("\n                                                            ***Gopi meets the officer and the officer ask the policemen to check Gopi ***\n");
             writer.write("\n                                                                            ***After the checking Gopi meets Mani again ***\n\n");
 
             writer.write(script2.get(0).getDialogue0());
@@ -198,7 +198,7 @@ public class Scenes
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
             // writer.write("\n                                                              *** Gopi faces some problem there too and decides to leave from there ***\n");
-            // writer.write("\n                                                                   *** He comes with veena to the railway station to see off Veena ***\n\n");
+            // writer.write("\n                                                                   *** He comes with Veena to the railway station to see off Veena ***\n\n");
             
             writer.write(script3.get(0).getDialogue0());
             writer.write(script3.get(1).getDialogue0());
@@ -293,7 +293,7 @@ public class Scenes
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            // writer.write("\n                                                 *** Gopi and veena arrives at the hotel where Felix is residing and Gopi goes to check in ***\n");
+            // writer.write("\n                                                 *** Gopi and Veena arrives at the hotel where Felix is residing and Gopi goes to check in ***\n");
             // writer.write("\n                                                                     *** Veena comes to know that it's Felix's marriage ***\n\n");
 
             writer.write(script4.get(0).getDialogue0());
@@ -353,7 +353,7 @@ public class Scenes
         script5.get(0).setDialogue3("Gopi  : Will you agree if you get the money?\n");
         script5.get(0).setDialogue4("Gopi  : I'll give you the money\n");
         script5.get(0).setDialogue5("Gopi  : I don't think her family like to see that she is suffering due to some cash issues. I can get you the cash\n");
-        script5.get(0).setDialogue6("Gopi  : You go and talk with veena first. I'm responsible for giving cash to you before marriage\n");
+        script5.get(0).setDialogue6("Gopi  : You go and talk with Veena first. I'm responsible for giving cash to you before marriage\n");
         script5.get(0).setDialogue7("Gopi  : She don't want to know that we already talked about this here. She will come and meet you. Try to forget everything\n");
         script5.get(0).setDialogue8("Gopi  : Don't want to go down on your love with the money you are spending. Don't make her suffer. Better inform me. I'll take care of her\n\n\n");
 
