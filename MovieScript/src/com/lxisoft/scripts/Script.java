@@ -104,7 +104,7 @@ public void startMovie(String genre)
                        {
                         Thread.currentThread().interrupt();
                        }
-
+/*
    if(genre.equals("RomanticMovie"))
    {
   
@@ -122,7 +122,7 @@ public void startMovie(String genre)
     {
 
     }
-
+*/
 
          
   }
