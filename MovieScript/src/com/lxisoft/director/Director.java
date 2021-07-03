@@ -12,15 +12,15 @@ public class Director{
     System.out.println("Enter movie name :");
      movieName=sc.next();
     System.out.println("ENTER NUMBER OF HEROES");
-    int numOfHeroes=sc.nextInt();
-    for(int i=0;i<numOfHeroes;i++){
+    a.setNumOfActors(sc.nextInt());
+    for(int i=0;i<a.getNumOfActors();i++){
       System.out.println("ENTER THE NAME OF HERO ");
       a.setActorName(sc.next());
 
 
       System.out.println("ENTER THE CHARACTER NAME : ");
       a.setCharName(sc.next());
-      actor.add(new Hero(a.getActorName(),a.getCharName()));
+      actor.add(new Hero(a.getActorName(),a.getCharName(),a.getNumOfActors()));
     }
     System.out.println("ENTER NUMBER OF HEROINES");
     int numOfHeroines=sc.nextInt();
@@ -52,7 +52,7 @@ public class Director{
 
       System.out.println("ENTER THE CHARACTER NAME : ");
       a.setCharName(sc.next());
-      actor.add(new Hero(a.getActorName(),a.getCharName()));
+      actor.add(new Villain(a.getActorName(),a.getCharName()));
     }
 
 

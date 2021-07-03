@@ -72,8 +72,8 @@ System.out.println(Genre.values()[input-1]);
 
                   for (int i=0;i<script.size();i++)
                   {
-
-                  //  System.out.println(script.get(i).getCharacter());
+                      //System.out.println(Genre.values()[input-1]);
+                    System.out.println(script.get(i).getGenre());
                     if(script.get(i).getGenre().equals(Genre.values()[input-1])){
 
                      System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
@@ -81,10 +81,11 @@ System.out.println(Genre.values()[input-1]);
 
     }
     int n=randNum();
+//  System.out.println("random"+n);
     //System.out.println(n);
     for(int i=0;i<n;i++){
       //  System.out.println(n);
-     if(!script.get(i).getGenre().equals(Genre.values()[input-1])){
+     if(!script.get(i).getGenre().equals(Genre.name()[input-1])){
        //System.out.println(n);
        System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
      }
