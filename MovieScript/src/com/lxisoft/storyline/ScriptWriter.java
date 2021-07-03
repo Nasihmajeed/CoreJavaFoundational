@@ -9,41 +9,15 @@ public class ScriptWriter
 
 int i=0;
 Scanner sc =new Scanner(System.in);
-
-/*final String comedyScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Comedy.csv";
-
-final String romanceScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Romance.csv";
- 
-final String emotionalScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Emotional.csv";
-
-final String thrillerScript="D:\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\script\\Thriller.csv";
-*/
-StringBuilder scriptPath=new StringBuilder("D:\\CoreJavaFoundational\\MovieScript\\src\\script\\");
-
+String scriptPath=new String("com\\script\\");
 String extension=".csv";
-
-
-/*File romanceFile=new File(romanceScript);
-File comdeyFile=new File(comedyScript);
-File emotionalFile=new File(emotionalScript);
-File thrillerFile=new File(thrillerScript);*/
-
-
-
-
 BufferedReader scriptReader=null;
-/*BufferedReader romanceScriptReader=null;
-BufferedReader emotionalScriptReader=null;
-BufferedReader thrillerScriptReader=null;*/
-		
-//String  heroName,heroineName,comedianName,villanName,directorName;
 ArrayList<Script> listFromFile=new ArrayList<Script>(); 
-
 Map<String,ArrayList<Actor>> cast_Map=new HashMap<String,ArrayList<Actor>>();
 //map for each class
 ArrayList<Actor> actors=new ArrayList<Actor>();
+File movieFile=null;
 		
-
 public void scriptSelection(Genere genere)
 {	
 	Casting casting=new Casting();
@@ -52,15 +26,11 @@ public void scriptSelection(Genere genere)
 	cast_Map=casting.getMap();
 		//actors=casting.getActorsArraylist();
 
-scriptPath.append(genere.toString()+extension);
-File movieFile=new File(scriptPath.toString());
-
-	
 
 switch(genere)
 {
 	case Comedy: 
-
+					 movieFile=new File(scriptPath+"Comedy.csv");
 					listFromFile= fetchMovieScript(movieFile,genere);
 
 
@@ -144,8 +114,9 @@ switch(genere)
 					
 			}
 			break;
-		/*	
-	case Romantic: listFromFile= romanticMovie();
+		
+	case Romantic:  movieFile=new File(scriptPath+"Romantic.csv");
+					listFromFile= fetchMovieScript(movieFile,genere);
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -220,7 +191,8 @@ switch(genere)
 					
 			}		
 			break;		
-case Emotional : listFromFile= emotionalMovie();
+case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
+					listFromFile= fetchMovieScript(movieFile,genere);
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -296,7 +268,8 @@ case Emotional : listFromFile= emotionalMovie();
 			break;		
 	
 
-	case Thriller :listFromFile= thrillerMovie();
+	case Thriller : movieFile=new File(scriptPath+"Thriller.csv");
+					listFromFile= fetchMovieScript(movieFile,genere);
 
 			for(i=0;i<listFromFile.size();i++ )
 			{
@@ -377,7 +350,7 @@ case Emotional : listFromFile= emotionalMovie();
 					
 			}		
 			break;		
-	*/
+	
 						
 
 }			
@@ -410,40 +383,15 @@ case Comedy:	try{
 					
 					if(!(dialogue.toString().equals("")))
 					{
-						if(scene.equals("Comedy") )
-						{	scriptList.add(new ComedyScript());
-						//scriptList.get(i).setScene(scene);
+						scriptList.add(new ComedyScript());
 						scriptList.get(i).setDialogue(dialogue.toString());
 						i++;	
-						}
-
-					else if(scene.equals("Emotional") )
-					{	int j=scriptList.size();
-						scriptList.add(new EmotionalScript());
-						//scriptList.get(i).setScene(scene);
-						scriptList.get(j).setDialogue(dialogue.toString());
-						j++;	
-					}	
-					else if(scene.equals("Romance") )
-					{	int k=scriptList.size();
-						scriptList.add(new RomanticScript());
-						//scriptList.get(i).setScene(scene);
-						scriptList.get(k).setDialogue(dialogue.toString());
-						k++;	
-					}
-					else if(scene.equals("Thriller") )
-					{	int l=scriptList.size();
-						scriptList.add(new ThrillerScript());
-						//scriptList.get(i).setScene(scene);
-						scriptList.get(l).setDialogue(dialogue.toString());
-						l++;	
-					}
 					}
 					
 						
 					}
-
-
+					
+							
 				}
 			catch(IOException e)
 			{
@@ -455,8 +403,60 @@ case Comedy:	try{
 		try
 		{
 			scriptReader.close();
-			/*emotionalScriptReader.close();
-			romanceScriptReader.close();*/
+			
+		}
+		catch(IOException e)
+			{
+
+			}
+		}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			break;
+
+
+
+
+
+
+case Emotional:	try{
+						
+						
+						scriptReader=new BufferedReader(new FileReader(file));
+						String line=null;
+
+					while((line=scriptReader.readLine())!=null  )
+					{
+					String []parts=line.split(":");
+					String scene=parts[0].trim();
+					//String dialogues=parts[1].trim();
+
+					//String scene
+					StringBuilder dialogue=new StringBuilder();
+					dialogue.append(line);
+					
+					if(!(dialogue.toString().equals("")))
+					{
+						scriptList.add(new EmotionalScript());
+						scriptList.get(i).setDialogue(dialogue.toString());
+						i++;	
+					}
+					
+						
+					}
+					
+				}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+		finally
+		{
+
+		try
+		{
+			scriptReader.close();
+			
 		}
 		catch(IOException e)
 			{
@@ -464,9 +464,118 @@ case Comedy:	try{
 			}
 
 
+			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			break;
+			
+
+case Romantic:	try{
+						
+						
+						scriptReader=new BufferedReader(new FileReader(file));
+						String line=null;
+
+					while((line=scriptReader.readLine())!=null  )
+					{
+					String []parts=line.split(":");
+					String scene=parts[0].trim();
+					//String dialogues=parts[1].trim();
+
+					//String scene
+					StringBuilder dialogue=new StringBuilder();
+					dialogue.append(line);
+					
+					if(!(dialogue.toString().equals("")))
+					{
+						scriptList.add(new RomanticScript());
+						scriptList.get(i).setDialogue(dialogue.toString());
+						i++;	
+					}
+					
+						
+					}
+					
+							
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+		finally
+		{
+
+		try
+		{
+			scriptReader.close();
+			
 		}
+		catch(IOException e)
+			{
+
+			}
+
+
+			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			break;
+
+
+case Thriller:	try{
+						
+						
+						scriptReader=new BufferedReader(new FileReader(file));
+						String line=null;
+
+					while((line=scriptReader.readLine())!=null  )
+					{
+					String []parts=line.split(":");
+					String scene=parts[0].trim();
+					//String dialogues=parts[1].trim();
+
+					//String scene
+					StringBuilder dialogue=new StringBuilder();
+					dialogue.append(line);
+					
+					if(!(dialogue.toString().equals("")))
+					{
+						scriptList.add(new ThrillerScript());
+						scriptList.get(i).setDialogue(dialogue.toString());
+						i++;	
+					}
+					
+						
+					}
+					
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+		finally
+		{
+
+		try
+		{
+			scriptReader.close();
+			
+		}
+		catch(IOException e)
+			{
+
+			}
+
+
+			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			break;
+
 
 }
+		
+
 return scriptList;
 
 
@@ -475,431 +584,87 @@ return scriptList;
 
 
 
-/*public ArrayList<Script> comedyMovie()
-{
 
-
-
-ArrayList<Script> comedyList= new ArrayList<Script>();
+public ArrayList<Script> writeMinorParts(String scriptPath,Genere genere,ArrayList<Script> scriptList)
+{	
 	
-try
-{
-	scriptReader=new BufferedReader(new FileReader(movieFile));
-	/*romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-	emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
-
-
+	int j=0;
 	
+	File file=new File(scriptPath+(genere.toString()+extension));
+	
+			try{
+					String minorLine=null;
 
-	String line=null;
+					scriptReader=new BufferedReader(new FileReader(file));
+					while((minorLine=scriptReader.readLine())!=null && j<15  )
+						{
+							String []partsRomance=minorLine.split(":");
+							String actorRomance=partsRomance[0].trim();
+	
+							StringBuilder dialogue=new StringBuilder();
+								dialogue.append(minorLine);
+	
+						
 
-	while((line=scriptReader.readLine())!=null  )
-	{
-		String []parts=line.split(":");
-		String actor=parts[0].trim();
-
-
-		StringBuilder dialogue=new StringBuilder();
-		dialogue.append(line);
-	if(!(dialogue.toString().equals("")) )
-		{	comedyList.add(new ComedyScript());
+								switch(genere)
+								{
+									case Comedy:if(!(dialogue.toString().equals("")))
+													{int l=scriptList.size();
+													scriptList.add(new ComedyScript());
+													scriptList.get(l).setDialogue(dialogue.toString());
+													l++;}
+													break;	
+									case Emotional:	if(!(dialogue.toString().equals("")))
+														{int k=scriptList.size();
+														scriptList.add(new EmotionalScript());
+														scriptList.get(k).setDialogue(dialogue.toString());
+														k++;}
+													break;			
+									case Romantic:	if(!(dialogue.toString().equals("")))
+													{int m=scriptList.size();
+													scriptList.add(new RomanticScript());
+													scriptList.get(m).setDialogue(dialogue.toString());
+													m++;				
+													}
+													break;
+									case Thriller:	if(!(dialogue.toString().equals("")))
+													{int n=scriptList.size();
+													scriptList.add(new ThrillerScript());
+													scriptList.get(n).setDialogue(dialogue.toString());
+													n++;
+													}break;				
+								
+								}
+									
+							
 			
-			comedyList.get(i).setDialogue(dialogue.toString());
-			i++;	
-		}
+							j++;
+	
+						}
 
-	}
+				}
+							catch(IOException e)
+							{
+								e.printStackTrace();
+							}
+							finally
+							{
+								try
+								{	
+								scriptReader.close();
+								}
+								catch(IOException e)
+								{
 
-	String minorLine=null;
-	int j=0,l=0;
-	//File minorFile1=new File()
-	//scriptReader=new BufferedReader(new FileReader(movieFile));
-	while((minorLine=scriptReader.readLine())!=null && j<15  )
-	{
-		String []partsRomance=minorLine.split(":");
-		String actorRomance=partsRomance[0].trim();
+								}
+							}	
 
-		StringBuilder dialogueRomance=new StringBuilder();
-		dialogueRomance.append(minorLine);
 
-		if(!(dialogueRomance.toString().equals("")))
-		{	l=comedyList.size();
-			comedyList.add(new RomanticScript());
-				
-			comedyList.get(l).setDialogue(dialogueRomance.toString());
-		l++;
-		}
+
 		
-j++;
-
-	}
-	String minorLine2=null;
-	int k=0;
-	int s=0;
-	//scriptReader=new BufferedReader(new FileReader(movieFile));
-while((minorLine2=scriptReader.readLine())!=null && (k<8) )
-	{
-		String []partsEmotional=minorLine2.split(":");
-		String actorEmotional=partsEmotional[0].trim();
-
-		StringBuilder dialogueEmotional=new StringBuilder();
-		dialogueEmotional.append(minorLine2);
-		//
-		if(!(dialogueEmotional.toString().equals(""))  )
-		{	//
-			 s=comedyList.size();
-			comedyList.add(new EmotionalScript());
-			
-			comedyList.get(s).setDialogue(dialogueEmotional.toString());
-			s++;
-		}
-
-k++;
-
-	}
-
-
-
+return scriptList;
 
 }
-catch(IOException e)
-{
-	e.printStackTrace();
-}
-finally
-{
-
-		try
-		{
-			scriptReader.close();
-			/*emotionalScriptReader.close();
-			romanceScriptReader.close();
-		}
-		catch(IOException e)
-			{
-
-			}
-
-
-}
-
-return comedyList;
-
-}
-
-*/
-
-
-/*
-public ArrayList<Script> romanticMovie()
-{
-
-
-ArrayList<Script> romanceList= new ArrayList<Script>();
-
-try
-{
-	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));
-	romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
-	String line=null;
-
-	while((line=romanceScriptReader.readLine())!=null)
-	{
-		String []parts=line.split(":");
-		String actor=parts[0].trim();
-
-		StringBuilder dialogue=new StringBuilder();
-		dialogue.append(line);
-	
-			if(!(dialogue.toString().equals("")))
-		{
-			romanceList.add(new RomanticScript());
-			
-			romanceList.get(i).setDialogue(dialogue.toString());
-			i++;
-		}
-
-	}
-
-	String minorLine=null;
-	int j=0;
-	while((minorLine=comedyScriptReader.readLine())!=null && j<15)
-	{
-		String []partsRomance=minorLine.split(":");
-		String actorRomance=partsRomance[0].trim();
-
-		StringBuilder dialogueRomance=new StringBuilder();
-		dialogueRomance.append(minorLine);
-
-		if(!(dialogueRomance.toString().equals("")))
-		{	i=romanceList.size();
-			romanceList.add(new ComedyScript());
-			
-			romanceList.get(i).setDialogue(dialogueRomance.toString());
-			i++;
-		}
-
-		j++;
-
-	}
-
-	String minorLine2=null;
-	int k=0;
-	while((minorLine2=emotionalScriptReader.readLine())!=null && (k<15))
-	{
-		String []partsEmotional=minorLine2.split(":");
-		String actorEmotional=partsEmotional[0].trim();
-
-		StringBuilder dialogueEmotional=new StringBuilder();
-		dialogueEmotional.append(minorLine2);
-
-		if(!(dialogueEmotional.toString().equals("")))
-		{	int s=romanceList.size();
-			romanceList.add(new EmotionalScript());
-			//romanceList.get(s).setCharacter1(actorEmotional);
-			romanceList.get(s).setDialogue(dialogueEmotional.toString());
-			s++;
-		}
-
-k++;
-
-	}
-
-
-}
-catch(IOException e)
-{
-	e.printStackTrace();
-}
-finally
-{
-
-		try
-		{	comedyScriptReader.close();
-			romanceScriptReader.close();
-			emotionalScriptReader.close();
-		}
-		catch(IOException e)
-			{
-
-			}
-
-
-}
-
-return romanceList;
-
-}
-
-
-public ArrayList<Script> emotionalMovie()
-{
-
-
-ArrayList<Script> emotionalList= new ArrayList<Script>();
-
-try
-{
-	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));
-	romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
-	String line=null;
-
-	while((line=emotionalScriptReader.readLine())!=null)
-	{
-		String []parts=line.split(":");
-		String actor=parts[0].trim();
-
-		StringBuilder dialogue=new StringBuilder();
-		dialogue.append(line);
-	
-			if(!(dialogue.toString().equals("")))
-		{
-			emotionalList.add(new EmotionalScript());
-			emotionalList.get(i).setDialogue(dialogue.toString());
-			i++;
-		}
-
-	}
-
-	String minorLine=null;
-	int j=0;
-	while((minorLine=romanceScriptReader.readLine())!=null && j<15)
-	{
-		String []partsRomance=minorLine.split(":");
-		String actorRomance=partsRomance[0].trim();
-
-		StringBuilder dialogueRomance=new StringBuilder();
-		dialogueRomance.append(minorLine);
-
-		if(!(dialogueRomance.toString().equals("")))
-		{	i=emotionalList.size();
-			emotionalList.add(new RomanticScript());
-			emotionalList.get(i).setDialogue(dialogueRomance.toString());
-			i++;
-		}
-
-j++;
-
-	}
-
-	String minorLine2=null;
-	int k=0;
-	while((minorLine2=comedyScriptReader.readLine())!=null && (k<15))
-	{
-		String []partsComedy=minorLine2.split(":");
-		String actorComedy=partsComedy[0].trim();
-
-		StringBuilder dialogueComedy=new StringBuilder();
-		dialogueComedy.append(minorLine2);
-
-		if(!(dialogueComedy.toString().equals("")))
-		{	int s=emotionalList.size();
-			emotionalList.add(new ComedyScript());
-			emotionalList.get(s).setDialogue(dialogueComedy.toString());
-			s++;
-		}
-
-k++;
-
-	}
-
-
-}
-catch(IOException e)
-{
-	e.printStackTrace();
-}
-finally
-{
-
-		try
-		{	comedyScriptReader.close();
-			romanceScriptReader.close();
-			emotionalScriptReader.close();
-		}
-		catch(IOException e)
-			{
-
-			}
-
-
-}
-
-return emotionalList;
-
-}
-
-
-
-
-// thriller Movie
-public ArrayList<Script> thrillerMovie()
-{
-
-
-ArrayList<Script> thrillerList= new ArrayList<Script>();
-
-try
-{
-	comedyScriptReader=new BufferedReader(new FileReader(comdeyFile));
-	romanceScriptReader=new BufferedReader(new FileReader(romanceFile));
-emotionalScriptReader=new BufferedReader(new FileReader(emotionalFile));
-	thrillerScriptReader=new BufferedReader(new FileReader(thrillerFile)); 
-
-	String line=null;
-
-	while((line=thrillerScriptReader.readLine())!=null)
-	{
-		String []parts=line.split(":");
-		String actor=parts[0].trim();
-
-		StringBuilder dialogue=new StringBuilder();
-		dialogue.append(line);
-	
-			if(!(dialogue.toString().equals("")))
-		{
-			thrillerList.add(new ThrillerScript());
-			//thrillerList.get(i).setCharacter1(actor);
-			thrillerList.get(i).setDialogue(dialogue.toString());
-			i++;
-		}
-
-	}
-
-	String minorLine=null;
-	int j=0;
-	while((minorLine=romanceScriptReader.readLine())!=null && j<15)
-	{
-		String []partsRomance=minorLine.split(":");
-		String actorRomance=partsRomance[0].trim();
-
-		StringBuilder dialogueRomance=new StringBuilder();
-		dialogueRomance.append(minorLine);
-
-		if(!(dialogueRomance.toString().equals("")))
-		{	i=thrillerList.size();
-			thrillerList.add(new RomanticScript());
-			//thrillerList.get(i).setCharacter1(actorRomance);
-			thrillerList.get(i).setDialogue(dialogueRomance.toString());
-			i++;
-		}
-
-j++;
-
-	}
-
-	String minorLine2=null;
-	int k=0;
-	while((minorLine2=comedyScriptReader.readLine())!=null && (k<15))
-	{
-		String []partsComedy=minorLine2.split(":");
-		String actorComedy=partsComedy[0].trim();
-
-		StringBuilder dialogueComedy=new StringBuilder();
-		dialogueComedy.append(minorLine2);
-
-		if(!(dialogueComedy.toString().equals("")))
-		{	int s=thrillerList.size();
-			thrillerList.add(new ComedyScript());
-			//thrillerList.get(s).setCharacter1(actorComedy);
-			thrillerList.get(s).setDialogue(dialogueComedy.toString());
-			s++;
-		}
-
-k++;
-
-	}
-
-
-}
-catch(IOException e)
-{
-	e.printStackTrace();
-}
-finally
-{
-
-		try
-		{	comedyScriptReader.close();
-			romanceScriptReader.close();
-			emotionalScriptReader.close();
-			thrillerScriptReader.close();
-		}
-		catch(IOException e)
-			{
-
-			}
-
-
-}
-
-return thrillerList;
-
-}
-*/
-
 
 
 
