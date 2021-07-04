@@ -1,9 +1,10 @@
 package com.lxisoft.hotel;
 
 import com.lxisoft.hotel.Menu;
+import com.lxisoft.hotel.Customer;
 import java.util.*;
 public class Admin {
-
+Customer customer = new Customer();
 Menu menu=new Menu();
 Scanner input=new Scanner(System.in);
 int userEnteredPassword;
@@ -19,4 +20,7 @@ public void adminVerification(){
     System.out.println("Wrong Password");
   }
   } 
+  public void takeOrderFromCustomer(){
+customer.giveOrderToWaiter();
+  }
 }

@@ -98,6 +98,8 @@ indexNumber++;
   
   
 public void orderFoodFromMenu(){
+  this.foodMenuList();
+  this.printFoodMenu();
 int numberOfFoodOrder; int totalPriceOfAllFoodOrder=0;
 System.out.println("Enter how many dishes you want to order");
 numberOfFoodOrder=input.nextInt();
