@@ -12,8 +12,7 @@ public class Controller
 {	
 
     CastList cl = new CastList();
-	// Scenes scenes = new Scenes();
-
+	
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
 	
 	ArrayList<String> heroList = new ArrayList<>();

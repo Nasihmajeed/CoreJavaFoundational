@@ -7,10 +7,9 @@ import java.io.IOException;
 
 public class SceneSetting 
 {
-    int i=0;
-    
     public void printComedyScene()
     {
+        System.out.print("\n\n>> Comedy Scene <<\n\n");
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\comedyScenes.csv"));
@@ -30,6 +29,7 @@ public class SceneSetting
     
     public void printRomanticScene()
     {
+        System.out.print("\n\n>> Romantic Scene <<\n\n");
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\romanticScenes.csv"));
@@ -49,6 +49,7 @@ public class SceneSetting
     
     public void printThrillerScene()
     {
+        System.out.print("\n\n>> Thriller Scene <<\n\n");
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\thrillerScenes.csv"));
@@ -68,6 +69,7 @@ public class SceneSetting
 
     public void printEmotionalScene()
     {
+        System.out.print("\n\n>> Emotional Scene <<\n\n");
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("J:\\Work\\CoreJava\\CoreJavaFoundational\\MovieScript\\MovieScript\\src\\com\\lxisoft\\repository\\emotionalScenes.csv"));
