@@ -6,14 +6,16 @@ public class Comedian extends Actor
 	String comedianCharacterName;
 	
 public void setComedianName(String comedianName)
-	{
+	{	
 		this.comedianName=comedianName;
+		
 	}
 	public void setComedianCharacterName(String comedianCharacterName)
 	{
 		this.comedianCharacterName=comedianCharacterName;
 	}
 
+	
 //getters
 	public String getComedianName()
 	{

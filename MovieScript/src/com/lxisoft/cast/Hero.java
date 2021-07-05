@@ -6,11 +6,13 @@ public class Hero extends Actor
 String heroCharacterName; 
 
 
+	
 	public void setHeroName(String heroName)
-	{
+	{	
 		this.heroName=heroName;
+		
 	}
-	public void setHeroCharacterName(String  heroCharacterName)
+	public void setHeroCharacterName(String heroCharacterName)
 	{
 		this.heroCharacterName= heroCharacterName;
 	}

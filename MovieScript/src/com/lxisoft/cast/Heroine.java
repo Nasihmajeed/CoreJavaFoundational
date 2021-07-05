@@ -5,15 +5,21 @@ public class Heroine  extends Actor {
 	String heroineName;
 String heroineCharacterName;
 
-public void setHeroineName(String  heroineName)
-	{
+	
+
+
+
+	public void setHeroineName(String  heroineName)
+	{	
 		this.heroineName= heroineName;
+		
 	}
 	public void setHeroineCharacterName(String  heroineCharacterName)
 	{
 		this.heroineCharacterName=heroineCharacterName;
 	}
-
+	
+	
 //getters
 	public String getHeroineName()
 	{

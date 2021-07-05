@@ -17,6 +17,8 @@ public class TDD
 
 		/*Casting casting=new Casting();
 		casting.putActorsInMap();	*/	
+		/*Director director=new Director();
+		director.doCasting();*/
 
 	}
 }
