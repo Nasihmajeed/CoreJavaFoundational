@@ -5,12 +5,15 @@ import com.lxisoft.cast.*;
 import com.lxisoft.movie.*;
 
 import java.util.*;
+import java.io.*;
+import java.util.function.BiConsumer;
+
 
 public class Director 
 {
 	Scanner sc=new Scanner(System.in);
 	
-    private String directorName;
+    private String directorName,line;
 
 	
     Hero heroo=new Hero();
@@ -20,6 +23,9 @@ public class Director
 
 
    ArrayList<Actor> actors=new ArrayList<Actor>();
+
+
+   Map<String,ArrayList<Actor>> actorsInMovie=new HashMap<String,ArrayList<Actor>>();
 
  
 	public void setDirectorName(String directorName)
@@ -35,7 +41,7 @@ public class Director
 	  
 	 //Casting the actors by the Director---
 	 
-public ArrayList<Actor> castingTheActors()
+public void castingTheActors()
    {
          //Casting the Heroes
     {
@@ -58,9 +64,13 @@ public ArrayList<Actor> castingTheActors()
 		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
+         
+         actorsInMovie.put("Hero",actors);
 
         } 	 
+
 		 
+		
 		 System.out.println("\r\n"); 
      
 
@@ -85,12 +95,15 @@ public ArrayList<Actor> castingTheActors()
 		 System.out.println("Name of the Heroine's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Heroine(name,charName));
-
+         actorsInMovie.put("Heroine",actors);
+         
         }
      
        System.out.println("\r\n");
     
    //Casting the Comedians
+
+       
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of Comedian in the movie : ");
@@ -111,11 +124,18 @@ public ArrayList<Actor> castingTheActors()
 		 System.out.println("Name of the Comedian's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Comedian(name,charName));
+		 actorsInMovie.put("Comedian",actors);
+		 
+		 
+
+
 
         }
           System.out.println("\r\n");
 
     //Casting the Villains
+       
+       
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of villains in the movie : ");
@@ -135,13 +155,57 @@ public ArrayList<Actor> castingTheActors()
 		 System.out.println("Name of the Villain's Character is : "+charName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 actors.add(new Villain(name,charName));
+		 actorsInMovie.put("Villain",actors);
 
         }
 
        System.out.println("\r\n");
+
   }
- return actors;
+
 }	    
+
+
+
+
+
+
+
+
+/*
+
+public synchronized void addToList(String typeOfActor, Actor actor)
+ {
+    ArrayList<Actor> actorsList = actorsInMovie.get(typeOfActor);
+
+
+       if(actorsList == null)
+       {
+               actorsList=new ArrayList<Actor>();
+               actorsList.add(actor);
+               actorsInMovie.put(typeOfActor,actorsList);
+       }
+       else
+       {
+           if(!actorsList.contains(actor)) 
+           	actorsList.add(actor);
+       }
+
+}
+
+
+
+
+
+int l=actors.size();
+actors.add(new Villain(name,charName));
+		 actorsInMovie.put(actors.get(l).getActorName(),actors.get(l).getActorCharName());
+		 l++;
+
+
+*/
+
+
 
 
 
@@ -185,7 +249,19 @@ public void printCharactersOfTheMovie()
 				catch(InterruptedException e)
 				    {
 					Thread.currentThread().interrupt();
+
 				    }
+
+
+
+for(int i=0;i<actorsInMovie.size();i++)
+{
+System.out.println(actorsInMovie.get("Hero").get(i).getActorName()+" : "+actorsInMovie.get("Hero").get(i).getActorCharName());	
+}
+
+
+
+/*
 
 for(int i=0; i<actors.size(); i++)
  {
@@ -203,6 +279,7 @@ for(int i=0; i<actors.size(); i++)
 					Thread.currentThread() .interrupt();
 				    }
    }
+ 
   else if(actors.get(i) instanceof Heroine)
    {
     System.out.println("Heroine Name : "+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
@@ -247,11 +324,9 @@ for(int i=0; i<actors.size(); i++)
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------");
+ */
 
 } 
-
-
-
 
 
 
@@ -270,10 +345,22 @@ public void startMovie(String genre)
                        {
                         Thread.currentThread().interrupt();
                        }
-/*
+
    if(genre.equals("RomanticMovie"))
    {
-  
+      try{
+              String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
+     BufferedReader br=new BufferedReader(new FileReader(romance));
+     while((line=br.readLine()) != null)
+     {
+     	System.out.println(line);
+     }
+
+      }catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+     
        
    }
    else if(genre.equals("EmotionalMovie"))
@@ -288,111 +375,7 @@ public void startMovie(String genre)
     {
 
     }
-*/
-
          
   }
-}      
-
-
-
-
-
-
-
-
-// Script class
-
-
-public class Script
- {
-/*
-       Relative path methods
-
- 1.      String filePath = new File("").getAbsolutePath();
-       filePath.concat("path to the property file");
-
-
-
- 2.    String basePath = new File("").getAbsolutePath();
-    System.out.println(basePath);
-
-    String path = new File("src/main/resources/conf.properties").getAbsolutePath();
-    System.out.println(path);
-
-3.   this.getClass().getClassLoader().getResource("relative path");
-
-4.  String pathToWsdl = this.getClass().getClassLoader().getResource("src\\com\\lxisoft\\resources\\RomanticScr.CSV").toString();
-
-5.  The simplest approach uses an instance of the java.io.File class
-    to read the /src/test/resources directory, by calling the getAbsolutePath() method:
-    Note that this path is relative to the current working directory, 
-    meaning the project directory.
-       
-    
-
-String path = "src/com/lxisoft";
-
-File file = new File(path);
-
-String absolutePath = file.getAbsolutePath();
-
-System.out.println(absolutePath);
-
-assertTrue(absolutePath.endsWith("src/com/lxisoft"));
-
-
-
-6.//we can use the Path class, which was introduced in Java 7.
-//First, we need to call a static factory method – Paths.get(). 
-Then, we'll convert Path to File.
-//In the end, we just need to call getAbsolutePath(), 
-as in the previous example:
-
-Path resourceDirectory = Paths.get("src","com","lxisoft");
-
-String movieFiles = resourceDirectory.toFile().getAbsolutePath();
-
-Assert.assertTrue(absolutePath.endsWith("src/com/lxisoft"));
-
-
-*/
-       
-
-       private String line;
-       private int type;
-
-       List<String> scriptOfFilm=new ArrayList<String>();
-
-       Director director=new Director();
-
-       ArrayList<Actor> allActors;                     
-
-
-
-   
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+     

@@ -3,7 +3,7 @@ package com.lxisoft.tdd;
 import com.lxisoft.movie.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
-import com.lxisoft.scripts.*;
+
 
 public class TDD
 {
@@ -12,13 +12,11 @@ public static void main(String[] args)
 
 
 {
-
 System.out.println("------------------------------------------------------------------------------------------------------");	
 System.out.println("------------------------------------------------------------------------------------------------------");	
 System.out.println("------------------------------------------Movie_Script------------------------------------------------");
 System.out.println("------------------------------------------------------------------------------------------------------");
 System.out.println("------------------------------------------------------------------------------------------------------");	
-
 } 
 
 
@@ -49,6 +47,10 @@ movie.setInitialDetails();
 					Thread.currentThread().interrupt();
 				    }
 
+director.castingTheActors();
+
+director.printCharactersOfTheMovie();
+
 
    switch(movie.getMovieGenre())
 	{
@@ -69,18 +71,6 @@ movie.setInitialDetails();
                    director.startMovie(Movie.Genre.Action.toString());
                    break;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

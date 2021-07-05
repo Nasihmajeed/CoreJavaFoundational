@@ -2,9 +2,10 @@ package com.lxisoft.movie;
 
 import com.lxisoft.direction.*;
 import com.lxisoft.cast.*;
-import com.lxisoft.scripts.*;
 
 import java.util.*;
+
+
 
 public class Movie
 {
@@ -250,23 +251,6 @@ System.out.println("\r\n");
 				    {
 					Thread.currentThread().interrupt();
 				    }
-
-
-				    
-System.out.println("---------------------------------------------------------------------------------------------------------");
-System.out.println("--------------------------------------Enter the name of the ScriptWriter---------------------------------");
-System.out.println("---------------------------------------------------------------------------------------------------------");
-     director.setScriptWriterName(sc.next());
-
-
-                  try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
 }
 
 
@@ -392,17 +376,6 @@ System.out.println("------------------------------------------------------------
 
 
 				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
-				System.out.println("Name of the Script Writer : "+director.getScriptWriterName());
-                  
-                  try{
 					   Thread.sleep(2000);
 				     }
 				catch(InterruptedException e)
