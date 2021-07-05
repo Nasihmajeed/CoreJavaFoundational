@@ -9,10 +9,12 @@ import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.stream.Stream;
+import java.lang.*;
 enum Genre{
   COMEDY,ROMANTIC,EMOTIONAL;
 }
 public class ScriptWriter {
+    //Genre genres = Genre.values();
   File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\script\\script.csv");
 
   ArrayList<Script>script= new ArrayList<Script>();
@@ -68,16 +70,19 @@ fr.close();
   System.out.println("****************SCENE1*****************");
   System.out.println("************************************");
   System.out.println("************************************");
-System.out.println(Genre.values()[input-1]);
+
+//System.out.println(genre.name()[input-1]);
 
                   for (int i=0;i<script.size();i++)
                   {
                       //System.out.println(Genre.values()[input-1]);
-                    System.out.println(script.get(i).getGenre());
+                    //System.out.println(script.get(i).getGenre());
+                    for(Genre genre : Genre.values()) {
                     if(script.get(i).getGenre().equals(Genre.values()[input-1])){
 
                      System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
                     }
+                  }
 
     }
     int n=randNum();
@@ -85,7 +90,7 @@ System.out.println(Genre.values()[input-1]);
     //System.out.println(n);
     for(int i=0;i<n;i++){
       //  System.out.println(n);
-     if(!script.get(i).getGenre().equals(Genre.name()[input-1])){
+     if(!script.get(i).getGenre().equals(Genre.values()[input-1])){
        //System.out.println(n);
        System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
      }
