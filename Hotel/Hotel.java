@@ -29,9 +29,9 @@ public void showHotelDetail(){
      this.inputUserDetail();
       break;
       case 2: System.out.println("Customer");
-     // menu.printFoodMenu();
-     //menu.orderFoodFromMenu();
-      admin.takeOrderFromCustomer();
+      menu.printFoodMenu();
+     menu.orderFoodFromMenu();
+      //admin.takeOrderFromCustomer();
    this.inputUserDetail();
       break;
       case 3:

@@ -20,7 +20,5 @@ public void adminVerification(){
     System.out.println("Wrong Password");
   }
   } 
-  public void takeOrderFromCustomer(){
-customer.giveOrderToWaiter();
+  
   }
-}
