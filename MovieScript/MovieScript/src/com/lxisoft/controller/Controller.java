@@ -12,7 +12,7 @@ public class Controller
 {	
 
     CastList cl = new CastList();
-	
+
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
 	
 	ArrayList<String> heroList = new ArrayList<>();
@@ -128,7 +128,6 @@ public class Controller
 
     public void database(int x, ArrayList<Entry<String, String>> cast)
     {
-		
     		if(x==1)
         	{
     			cl.addToDatabase(cast);
