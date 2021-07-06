@@ -1,7 +1,11 @@
 package com.lxisoft.direction;
 
 import com.lxisoft.cast.*;
-
+import com.lxisoft.cast.Actor;
+import com.lxisoft.cast.Hero;
+import com.lxisoft.cast.Heroine;
+import com.lxisoft.cast.Comedian;
+import com.lxisoft.cast.Villain;
 import com.lxisoft.movie.*;
 
 import java.util.*;
@@ -9,11 +13,11 @@ import java.io.*;
 import java.util.function.BiConsumer;
 
 
-public class Director 
+public class Director
 {
 	Scanner sc=new Scanner(System.in);
 	
-    private String directorName,line;
+    private String directorName;
 
 	
     Hero heroo=new Hero();
@@ -25,8 +29,14 @@ public class Director
    ArrayList<Actor> actors=new ArrayList<Actor>();
 
 
-   Map<String,ArrayList<Actor>> actorsInMovie=new HashMap<String,ArrayList<Actor>>();
+   Map<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
 
+
+
+ List<String> RomanticDialogues=new ArrayList<String>();
+ List<String> EmotionalDialogues=new ArrayList<String>();
+ List<String> ComedyDialogues=new ArrayList<String>();
+ List<String> ActionDialogues=new ArrayList<String>();
  
 	public void setDirectorName(String directorName)
 	{
@@ -65,7 +75,7 @@ public void castingTheActors()
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
          
-         actorsInMovie.put("Hero",actors);
+         actorsInMovie.put(1,actors);
 
         } 	 
 
@@ -95,7 +105,7 @@ public void castingTheActors()
 		 System.out.println("Name of the Heroine's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Heroine(name,charName));
-         actorsInMovie.put("Heroine",actors);
+         actorsInMovie.put(2,actors);
          
         }
      
@@ -124,7 +134,7 @@ public void castingTheActors()
 		 System.out.println("Name of the Comedian's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Comedian(name,charName));
-		 actorsInMovie.put("Comedian",actors);
+		 actorsInMovie.put(3,actors);
 		 
 		 
 
@@ -155,7 +165,7 @@ public void castingTheActors()
 		 System.out.println("Name of the Villain's Character is : "+charName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 actors.add(new Villain(name,charName));
-		 actorsInMovie.put("Villain",actors);
+		 actorsInMovie.put(4,actors);
 
         }
 
@@ -164,46 +174,6 @@ public void castingTheActors()
   }
 
 }	    
-
-
-
-
-
-
-
-
-/*
-
-public synchronized void addToList(String typeOfActor, Actor actor)
- {
-    ArrayList<Actor> actorsList = actorsInMovie.get(typeOfActor);
-
-
-       if(actorsList == null)
-       {
-               actorsList=new ArrayList<Actor>();
-               actorsList.add(actor);
-               actorsInMovie.put(typeOfActor,actorsList);
-       }
-       else
-       {
-           if(!actorsList.contains(actor)) 
-           	actorsList.add(actor);
-       }
-
-}
-
-
-
-
-
-int l=actors.size();
-actors.add(new Villain(name,charName));
-		 actorsInMovie.put(actors.get(l).getActorName(),actors.get(l).getActorCharName());
-		 l++;
-
-
-*/
 
 
 
@@ -254,20 +224,9 @@ public void printCharactersOfTheMovie()
 
 
 
-for(int i=0;i<actorsInMovie.size();i++)
+for(int i=0;i<actors.size();i++)
 {
-System.out.println(actorsInMovie.get("Hero").get(i).getActorName()+" : "+actorsInMovie.get("Hero").get(i).getActorCharName());	
-}
-
-
-
-/*
-
-for(int i=0; i<actors.size(); i++)
- {
-
-
- 	if(actors.get(i) instanceof Hero)
+if(actors.get(i) instanceof Hero)
    {
     System.out.println("Hero Name : "+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
    
@@ -319,23 +278,23 @@ for(int i=0; i<actors.size(); i++)
 					Thread.currentThread().interrupt();
 				    }
 
-   }      
+   }      	
+}
+    System.out.println("----------------------------------------------------------------------------------");
+	System.out.println("----------------------------------------------------------------------------------");
+	System.out.println("----------------------------------------------------------------------------------");
  }
-		System.out.println("----------------------------------------------------------------------------------");
-		System.out.println("----------------------------------------------------------------------------------");
-		System.out.println("----------------------------------------------------------------------------------");
- */
-
-} 
 
 
 
 public void startMovie(String genre)
   {          
-                                 
-                                 castingTheActors();
-
-                                 printCharactersOfTheMovie();
+           
+String line;
+String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
+String comedy=new String("com\\lxisoft\\resources\\EmotionalScr.CSV");
+String emotional=new String("com\\lxisoft\\resources\\ComedyScr.CSV");
+String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
 
 
                     try{
@@ -346,23 +305,61 @@ public void startMovie(String genre)
                         Thread.currentThread().interrupt();
                        }
 
-   if(genre.equals("RomanticMovie"))
-   {
-      try{
-              String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
-     BufferedReader br=new BufferedReader(new FileReader(romance));
-     while((line=br.readLine()) != null)
-     {
-     	System.out.println(line);
-     }
 
-      }catch(IOException e)
-      {
-      	e.printStackTrace();
-      }
-     
-       
-   }
+
+
+try{
+
+          BufferedReader br=new BufferedReader(new FileReader(romance));
+          while((line=br.readLine()) != null )
+          {
+          	RomanticDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(emotional));
+          while((line=br.readLine()) != null )
+          {
+          	EmotionalDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(comedy));
+          while((line=br.readLine()) != null )
+          {
+          	ComedyDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(action));
+          while((line=br.readLine()) != null )
+          {
+          	ActionDialogues.add(new String(line));
+     	   
+          }
+
+          
+    }catch(IOException e)
+         {
+          e.printStackTrace();
+         }
+
+
+
+
+
+ if(genre.equals("RomanticMovie"))
+   {
+   	          
+           
+      }        
+
+   
+
+   
    else if(genre.equals("EmotionalMovie"))
    {
 
@@ -375,7 +372,35 @@ public void startMovie(String genre)
     {
 
     }
-         
-  }
+  } 
+
+
+
+
+
+
+
+
+
+
+
+ /*
+  if(genre.equals("RomanticMovie"))
+   {
+      for(int i=0;i<actorsInMovie.size();i++)
+      {
+                      int j=0;
+
+           while(j<30)
+           {
+                
+System.out.println(actorsInMovie.get(1).get(i).getActorName()+":"+actorsInMovie.get(1).get(i).getActorCharName()+dialogues.get(j));
+                j++;
+System.out.println(actorsInMovie.get(2).get(i).getActorName()+":"+actorsInMovie.get(2).get(i).getActorCharName()+dialogues.get(j));
+       	     	 j++;
+           }
+           
+      }          
+*/
+
 }
-     

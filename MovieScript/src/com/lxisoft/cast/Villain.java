@@ -15,7 +15,7 @@ public class Villain extends Actor
 
    public Villain(String villainName,String villainCharName)
    {
-       super(villainName,villainCharName);
+      super(villainName,villainCharName);
    }
 
 
@@ -29,24 +29,5 @@ public class Villain extends Actor
    {
       return numOfVillain;
    }
-
-
-
-
-
-/*
-
-public boolean equals(Object o) {
-if((o instanceof Dog) &&
-(((Dog)o).name == name)) {
-return true;
-} else {
-return false;
-}
-}
-public int hashCode() {return name.length(); }
-*/
-
-
 
 }

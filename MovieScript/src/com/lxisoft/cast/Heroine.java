@@ -15,7 +15,7 @@ public class Heroine extends Actor
 
    public Heroine(String heroineName,String heroineCharName)
    {
-       super(heroineName,heroineCharName);
+      super(heroineName,heroineCharName);
    }
 
 
@@ -31,22 +31,3 @@ public class Heroine extends Actor
   }
 
 }
-
-
-
-
-
-
-
-/*
-
-public boolean equals(Object o) {
-if((o instanceof Dog) &&
-(((Dog)o).name == name)) {
-return true;
-} else {
-return false;
-}
-}
-public int hashCode() {return name.length(); }
-*/

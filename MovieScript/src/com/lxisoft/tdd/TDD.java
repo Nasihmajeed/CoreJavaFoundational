@@ -36,7 +36,7 @@ Director director=new Director();
 
 movie.setInitialDetails();
 
-// movie.getInitialDetails();
+ 
 
 
                       try{
@@ -48,6 +48,10 @@ movie.setInitialDetails();
 				    }
 
 director.castingTheActors();
+
+
+movie.getInitialDetails();
+
 
 director.printCharactersOfTheMovie();
 
