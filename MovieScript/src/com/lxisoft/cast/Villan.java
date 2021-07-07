@@ -30,7 +30,16 @@ Villan(String villianName,String villianCharacterName)
 	}
 
 
-
+/*int numberOfVillanCharacters;
+public void setNumberOfVillan(int getNumberOfVillanCharacter)
+{
+	this.numberOfVillanCharacters=numberOfVillanCharacters;
+}
+public int getNumberOfVillan()
+{
+	return numberOfVillanCharacters;
+} 
+*/
 
 //getters 
 

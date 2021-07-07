@@ -5,6 +5,7 @@ public class Hero extends Actor
  	String heroName; 
 String heroCharacterName; 
 
+
 		Hero(){
 
 		}
@@ -29,7 +30,7 @@ String heroCharacterName;
 
 //getters
 
-	public String getHeroName()
+	/*public String getHeroName()
 	{
 		return heroName;
 	}
@@ -37,7 +38,15 @@ String heroCharacterName;
 	public String getHeroCharacterName()
 	{
 		return  heroCharacterName;
+	}*/
+	/*int numberOfHeroCharacters;
+	public void setNumberOfHeros(int numberOfHeroCharacters)
+	{
+		this.numberOfHeroCharacters=numberOfHeroCharacters;
 	}
-	
+	public int getNumberOfHero()
+	{
+		return numberOfHeroCharacters;
+	}*/
 
 }

@@ -38,5 +38,15 @@ String heroineCharacterName;
 		return heroineCharacterName;
 	}
 
+
+/*int numberOfHeroineCharacters;
+public void setNumberOfHeroines(int numberOfHeroineCharacters)
+	{
+		this.numberOfHeroineCharacters=numberOfHeroineCharacters;
+	}
+	public int getNumberOfHeroines()
+	{
+		return numberOfHeroineCharacters;
+	}*/
 	
 }

@@ -31,4 +31,17 @@ Comedian(String comedianName,String comedianCharacterName)
 	{
 		return comedianCharacterName;
 	}
+
+
+int numberOfComedianCharacters;
+public void setNumberOfComedian(int numberOfComedianCharacters)
+{
+this.numberOfComedianCharacters=numberOfComedianCharacters;
+}
+public int getNumberOfComedian()
+{
+	return numberOfComedianCharacters;
+}
+
+
 }
