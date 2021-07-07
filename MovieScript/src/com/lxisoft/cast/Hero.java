@@ -5,6 +5,16 @@ public class Hero extends Actor
  	String heroName; 
 String heroCharacterName; 
 
+		Hero(){
+
+		}
+		Hero(String heroName,String heroCharacterName)
+		{
+			super(heroName,heroCharacterName);
+			this.heroName=heroName;
+			this.heroCharacterName= heroCharacterName;
+		
+		}
 
 	
 	public void setHeroName(String heroName)

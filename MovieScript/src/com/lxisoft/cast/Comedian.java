@@ -4,10 +4,16 @@ public class Comedian extends Actor
 {
 	String comedianName; 
 	String comedianCharacterName;
+	Comedian()
+	{
+
+	}
+
 	
-public void setComedianName(String comedianName)
-	{	
+Comedian(String comedianName,String comedianCharacterName)
+	{	super(comedianName,comedianCharacterName);
 		this.comedianName=comedianName;
+		this.comedianCharacterName=comedianCharacterName;
 		
 	}
 	public void setComedianCharacterName(String comedianCharacterName)

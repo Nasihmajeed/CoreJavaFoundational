@@ -7,7 +7,16 @@ public class Villan extends Actor {
 String villianCharacterName; 
 
 		
+Villan()
+{
 
+}
+Villan(String villianName,String villianCharacterName)
+{
+	super(villianName,villianCharacterName);
+	this.villianName=villianName;
+	this.villianCharacterName=villianCharacterName;
+}
 
 
 	public void setVillanName(String villianName)

@@ -4,7 +4,18 @@ public class Actor
 String actorName;
 String characterName;
 
+	Actor()
+	{
 
+	}
+	Actor(String actorName,String characterName)
+	{
+		this.actorName=actorName;
+		this.characterName=characterName;
+
+
+
+	}
 
 	
 	public String getActorName()

@@ -5,7 +5,15 @@ public class Heroine  extends Actor {
 	String heroineName;
 String heroineCharacterName;
 
-	
+	Heroine()
+	{
+
+	}
+	Heroine(String heroineName,String heroineCharacterName)
+	{	super(heroineName,heroineCharacterName);
+		this.heroineName= heroineName;
+		this.heroineCharacterName=heroineCharacterName;
+	}
 
 
 
