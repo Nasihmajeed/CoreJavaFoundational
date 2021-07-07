@@ -35,8 +35,6 @@ public class CastList
     public void addToDatabase(ArrayList<Entry<String, String>> cast)
     {
 		this.databaseConnect();
-		// int w = cast.size();
-		int i=1;
 		try
         {
 			for (Entry<String, String> entry : cast) 
