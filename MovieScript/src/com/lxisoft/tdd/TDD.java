@@ -81,7 +81,7 @@ director.printCharactersOfTheMovie();
 
 
 
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
                     
                     try{
 					    Thread.sleep(2000);
@@ -91,7 +91,7 @@ director.printCharactersOfTheMovie();
 					Thread.currentThread().interrupt();
 				    }
 
-        System.out.println("-----------------------------THE END---------------------------------------");
+        System.out.println("-----------------------------------------------THE END-----------------------------------------------------");
                     
                     try{
 					    Thread.sleep(2000);
@@ -101,7 +101,7 @@ director.printCharactersOfTheMovie();
 					Thread.currentThread().interrupt();
 				    }
 
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
   }
 
 
