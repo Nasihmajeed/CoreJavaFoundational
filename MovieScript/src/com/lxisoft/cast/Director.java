@@ -16,11 +16,11 @@ String extension=".csv";
 
 BufferedReader scriptReader=null;
 
-ArrayList<Script> listFromFile=new ArrayList<Script>(); 
+List<Script> listFromFile=new ArrayList<Script>(); 
 
 Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
 //map for each class
-ArrayList<Actor> actors=new ArrayList<Actor>();
+List<Actor> actors=new ArrayList<Actor>();
 
 File movieFile=null;
 
