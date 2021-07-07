@@ -58,10 +58,8 @@ fr.close();
   Scanner sc= new Scanner(System.in);
 
   System.out.println("ENTER GENRE ");
-  for (Genre genre : Genre.values()) {
-    System.out.println(genre);
-}
-  int input=sc.nextInt();
+
+  String input=sc.next();
 
 
   System.out.println("************************************\n");
@@ -77,12 +75,11 @@ fr.close();
                   {
                       //System.out.println(Genre.values()[input-1]);
                     //System.out.println(script.get(i).getGenre());
-                    for(Genre genre : Genre.values()) {
-                    if(script.get(i).getGenre().equals(Genre.values()[input-1])){
+
+                    if(script.get(i).getGenre().equals(input)){
 
                      System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
                     }
-                  }
 
     }
     int n=randNum();
@@ -90,7 +87,7 @@ fr.close();
     //System.out.println(n);
     for(int i=0;i<n;i++){
       //  System.out.println(n);
-     if(!script.get(i).getGenre().equals(Genre.values()[input-1])){
+     if(!script.get(i).getGenre().equals(input)){
        //System.out.println(n);
        System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
      }
