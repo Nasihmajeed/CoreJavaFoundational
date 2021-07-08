@@ -1,11 +1,6 @@
 package com.lxisoft.direction;
 
 import com.lxisoft.cast.*;
-import com.lxisoft.cast.Actor;
-import com.lxisoft.cast.Hero;
-import com.lxisoft.cast.Heroine;
-import com.lxisoft.cast.Comedian;
-import com.lxisoft.cast.Villain;
 import com.lxisoft.movie.*;
 
 import java.util.*;
