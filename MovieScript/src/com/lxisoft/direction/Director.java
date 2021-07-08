@@ -27,11 +27,12 @@ public class Director
    Map<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
 
 
-
+/*
  List<String> RomanticDialogues=new ArrayList<String>();
  List<String> EmotionalDialogues=new ArrayList<String>();
  List<String> ComedyDialogues=new ArrayList<String>();
  List<String> ActionDialogues=new ArrayList<String>();
+ */
  
 	public void setDirectorName(String directorName)
 	{
