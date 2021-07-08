@@ -16,7 +16,7 @@ public class Movie{
   Director director=new Director();
   ScriptWriter writer=new ScriptWriter();
   public  void startMovie() {
-    //director.casting();
+    director.casting();
 try{
     writer.writeScript();
   }

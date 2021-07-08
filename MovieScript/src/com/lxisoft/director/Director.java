@@ -1,8 +1,10 @@
 package com.lxisoft.director;
 import com.lxisoft.actors.*;
 import java.util.*;
+
 public class Director{
   String directorName,movieName;
+  Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
   ArrayList<Actor>actor= new ArrayList<Actor>();
   Actor a=new Actor();
   Scanner sc= new Scanner(System.in);
@@ -22,6 +24,12 @@ public class Director{
       a.setCharName(sc.next());
       actor.add(new Hero(a.getActorName(),a.getCharName(),a.getNumOfActors()));
     }
+      for(Actor a : actor){
+        if(a instanceof Hero){
+          cast.put("hero",actor);
+        }
+      }
+
     System.out.println("ENTER NUMBER OF HEROINES");
     int numOfHeroines=sc.nextInt();
     for(int i=0;i<numOfHeroines;i++){
@@ -32,7 +40,13 @@ public class Director{
       System.out.println("ENTER THE CHARACTER NAME OF : ");
       a.setCharName(sc.next());
         actor.add(new Heroine(a.getActorName(),a.getCharName()));
-    }
+      }
+        for(Actor a : actor){
+          if(a instanceof Heroine){
+            cast.put("heroine",actor);
+          }
+        }
+
     System.out.println("ENTER NUMBER OF COMEDIANS");
     int numOfComedians=sc.nextInt();
     for(int i=0;i<numOfComedians;i++){
@@ -42,6 +56,12 @@ public class Director{
       a.setCharName(sc.next());
       actor.add(new Comedian(a.getActorName(),a.getCharName()));
     }
+      for(Actor a : actor){
+        if(a instanceof Comedian){
+          cast.put("comedian",actor);
+        }
+      }
+
 
     System.out.println("ENTER NUMBER OF VILLAINS");
     int numOfVillains=sc.nextInt();
@@ -54,8 +74,19 @@ public class Director{
       a.setCharName(sc.next());
       actor.add(new Villain(a.getActorName(),a.getCharName()));
     }
+      for(Actor a : actor){
+        if(a instanceof Hero){
+          cast.put("villain",actor);
+        }
+      }
 
+      for(Map.Entry m : cast.entrySet()){
+        if(cast.containsKey("hero")){
 
+            System.out.println(m.getValue());
+
+        }
+        }
 
 
   }

@@ -83,12 +83,12 @@ fr.close();
 
     }
     int n=randNum();
-//  System.out.println("random"+n);
-    //System.out.println(n);
+
     for(int i=0;i<n;i++){
-      //  System.out.println(n);
+
      if(!script.get(i).getGenre().equals(input)){
-       //System.out.println(n);
+
+
        System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
      }
     }
