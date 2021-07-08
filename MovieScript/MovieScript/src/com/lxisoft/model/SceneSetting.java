@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class SceneSetting 
 {
+
     public void printComedyScene()
     {
         System.out.print("\n\n>> Comedy Scene <<\n\n");
@@ -15,6 +16,7 @@ public class SceneSetting
             String s;
             while((s = reader.readLine()) !=null)
             {
+                
                 System.out.print("\n");
                 this.slowprint(s, 10);
             }
@@ -35,6 +37,7 @@ public class SceneSetting
             String s;
             while((s = reader.readLine()) !=null)
             {
+                
                 System.out.print("\n");
                 this.slowprint(s, 10);
             }
@@ -55,6 +58,7 @@ public class SceneSetting
             String s;
             while((s = reader.readLine()) !=null)
             {
+
                 System.out.print("\n");
                 this.slowprint(s, 10);
             }
@@ -75,6 +79,7 @@ public class SceneSetting
             String s;
             while((s = reader.readLine()) !=null)
             {
+
                 System.out.print("\n");
                 this.slowprint(s, 10);
             }

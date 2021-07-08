@@ -10,7 +10,6 @@ import java.util.Set;
 
 public class Controller 
 {	
-
     CastList cl = new CastList();
 
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
@@ -91,7 +90,6 @@ public class Controller
 			villainList.add(characterName);
 		}
 
-		
 		Set<Entry<String, String>> actorSet1 = hero.entrySet(); 
         Set<Entry<String, String>> actorSet2 = heroine.entrySet(); 
         Set<Entry<String, String>> actorSet3 = comedian.entrySet(); 
@@ -106,7 +104,6 @@ public class Controller
       	actors.addAll(actors2);
 		actors.addAll(actors3);
 		cast.addAll(actors);
-
 	}
 
 	public void setHero(ArrayList<String>heroCast)
