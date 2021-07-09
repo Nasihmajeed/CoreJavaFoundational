@@ -5,7 +5,6 @@ import com.lxisoft.movie.*;
 
 import java.util.*;
 import java.io.*;
-import java.util.function.BiConsumer;
 
 
 public class Director
@@ -14,25 +13,15 @@ public class Director
 	
     private String directorName;
 
-	
-    Hero heroo=new Hero();
-    Heroine heroinee=new Heroine();
-    Comedian comediann=new Comedian();
-    Villain villainn=new Villain();
-
-
    ArrayList<Actor> actors=new ArrayList<Actor>();
-
 
    Map<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
 
-
-/*
  List<String> RomanticDialogues=new ArrayList<String>();
  List<String> EmotionalDialogues=new ArrayList<String>();
  List<String> ComedyDialogues=new ArrayList<String>();
  List<String> ActionDialogues=new ArrayList<String>();
- */
+ 
  
 	public void setDirectorName(String directorName)
 	{
@@ -47,7 +36,7 @@ public class Director
 	  
 	 //Casting the actors by the Director---
 	 
-public void castingTheActors()
+public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine heroinee,Comedian comediann, Villain villainn)
    {
          //Casting the Heroes
     {
@@ -74,8 +63,6 @@ public void castingTheActors()
          actorsInMovie.put(1,actors);
 
         } 	 
-
-		 
 		
 		 System.out.println("\r\n"); 
      
@@ -107,8 +94,7 @@ public void castingTheActors()
      
        System.out.println("\r\n");
     
-   //Casting the Comedians
-
+       //Casting the Comedians
        
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
@@ -133,14 +119,11 @@ public void castingTheActors()
 		 actorsInMovie.put(3,actors);
 		 
 		 
-
-
-
         }
-          System.out.println("\r\n");
+          
+        System.out.println("\r\n");
 
-    //Casting the Villains
-       
+        //Casting the Villains
        
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
@@ -168,6 +151,8 @@ public void castingTheActors()
        System.out.println("\r\n");
 
   }
+
+ return actorsInMovie;
 
 }	    
 
@@ -280,104 +265,6 @@ if(actors.get(i) instanceof Hero)
 	System.out.println("----------------------------------------------------------------------------------");
 	System.out.println("----------------------------------------------------------------------------------");
  }
-
-
-
-public void startMovie(String genre)
-  {          
-           
-String line;
-String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
-String comedy=new String("com\\lxisoft\\resources\\EmotionalScr.CSV");
-String emotional=new String("com\\lxisoft\\resources\\ComedyScr.CSV");
-String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
-
-
-                    try{
-                        Thread.sleep(2000);
-                       }
-                catch(InterruptedException e)
-                       {
-                        Thread.currentThread().interrupt();
-                       }
-
-
-
-
-try{
-
-          BufferedReader br=new BufferedReader(new FileReader(romance));
-          while((line=br.readLine()) != null )
-          {
-          	RomanticDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(emotional));
-          while((line=br.readLine()) != null )
-          {
-          	EmotionalDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(comedy));
-          while((line=br.readLine()) != null )
-          {
-          	ComedyDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(action));
-          while((line=br.readLine()) != null )
-          {
-          	ActionDialogues.add(new String(line));
-     	   
-          }
-
-          
-    }catch(IOException e)
-         {
-          e.printStackTrace();
-         }
-
-
-
-
-
- if(genre.equals("RomanticMovie"))
-   {
-   	          
-           
-      }        
-
-   
-
-   
-   else if(genre.equals("EmotionalMovie"))
-   {
-
-   }
-   else if(genre.equals("ComedyMovie"))
-    {
-
-    }
-   else if(genre.equals("ActionMovie"))
-    {
-
-    }
-  } 
-
-
-
-
-
-
-
-
-
 
 
  /*

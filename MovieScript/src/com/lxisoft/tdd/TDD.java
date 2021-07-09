@@ -22,7 +22,6 @@ System.out.println("------------------------------------------------------------
 
 Movie movie=new Movie();
 
-Director director=new Director();
 
 
                     try{

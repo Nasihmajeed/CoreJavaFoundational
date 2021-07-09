@@ -12,13 +12,21 @@ public class Movie
 
 Scanner sc=new Scanner(System.in);
 
+
+    Hero heroo=new Hero();
+
+    Heroine heroinee=new Heroine();
+
+    Comedian comediann=new Comedian();
+
+    Villain villainn=new Villain();
+
+    Director director=new Director();
+
+
 private String movieName,movieLanguage;
 private float rating;
 private int yearOfRelease,movieGenre;
-
-//Movie has A director and a ScriptWriter
-
-Director director=new Director();
 
 
 
@@ -191,9 +199,6 @@ public void setInitialDetails()
 
 
 
-
-
-
     System.out.println("\r\n");
     System.out.println("---------------------------------------------------------------------------------------------------------");
     System.out.println("-----------------------------Enter the Year in which the Movie was Released------------------------------"); 
@@ -201,7 +206,6 @@ public void setInitialDetails()
 						  
     setYear(sc.nextInt());
 					
-
 
     System.out.println("\r\n");
 
@@ -219,9 +223,6 @@ public void setInitialDetails()
    System.out.println("---------------------------------------Enter the Rating of the Movie-------------------------------------"); 
    System.out.println("---------------------------------------------------------------------------------------------------------");
    setRating(sc.nextFloat());
-
-
-
 
 
 	
@@ -253,6 +254,10 @@ System.out.println("\r\n");
 				    {
 					Thread.currentThread().interrupt();
 				    }
+
+  HashMap<Integer,ArrayList<Actor>> actors=director.castingTheActors(heroo,heroinee,comediann,villainn);
+
+
 }
 
 
@@ -397,5 +402,103 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 }
+
+
+
+
+
+public void startMovie(String genre)
+  {          
+           
+String line;
+String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
+String comedy=new String("com\\lxisoft\\resources\\EmotionalScr.CSV");
+String emotional=new String("com\\lxisoft\\resources\\ComedyScr.CSV");
+String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
+
+
+                    try{
+                        Thread.sleep(2000);
+                       }
+                catch(InterruptedException e)
+                       {
+                        Thread.currentThread().interrupt();
+                       }
+
+
+try{
+
+          BufferedReader br=new BufferedReader(new FileReader(romance));
+          while((line=br.readLine()) != null )
+          {
+          	RomanticDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(emotional));
+          while((line=br.readLine()) != null )
+          {
+          	EmotionalDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(comedy));
+          while((line=br.readLine()) != null )
+          {
+          	ComedyDialogues.add(new String(line));
+     	   
+          }
+
+
+          br=new BufferedReader(new FileReader(action));
+          while((line=br.readLine()) != null )
+          {
+          	ActionDialogues.add(new String(line));
+     	   
+          }
+
+          
+    }catch(IOException e)
+         {
+          e.printStackTrace();
+         }
+
+
+
+
+
+ if(genre.equals("RomanticMovie"))
+   {
+   	          
+           
+      }        
+
+   
+
+   
+   else if(genre.equals("EmotionalMovie"))
+   {
+
+   }
+   else if(genre.equals("ComedyMovie"))
+    {
+
+    }
+   else if(genre.equals("ActionMovie"))
+    {
+
+    }
+  } 
+
+
+
+
+
+
+
+
+
 
 }
