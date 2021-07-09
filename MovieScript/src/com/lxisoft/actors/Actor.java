@@ -3,7 +3,11 @@ import java.util.*;
 public class Actor{
   private String charName;
   private String actorName;
-  private int numOfActors;
+  //private int numOfActors;
+  public Actor(String actorName,String charName){
+    this.actorName=actorName;
+    this.charName=charName;
+  }
   public void setCharName(String charName){
     this.charName=charName;
   }
@@ -16,10 +20,10 @@ public class Actor{
   public String getActorName(){
     return actorName;
   }
-  public void setNumOfActors(int numOfActors){
+/*  public void setNumOfActors(int numOfActors){
     this.numOfActors=numOfActors;
   }
   public int getNumOfActors(){
     return numOfActors;
-  }
+  }*/
 }
