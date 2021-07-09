@@ -7,11 +7,9 @@ public class Movie
 {
 	String movieName;
 	Genere genere;
-	
-	Casting casting=new Casting();
 	Scanner sc=new Scanner(System.in);
 	Director director=new Director();
-	//ScriptWriter scriptWriter=new ScriptWriter();
+	
 	
 public void getMovieDetailsFromUser()
 {
@@ -56,7 +54,8 @@ public float getRating()
 
 
 	public void startMovie()
-	{		int ans,againAns;
+	{		int againAns;
+		String answerTheGenere;
 			System.out.println("\t-----------------------------");
 			System.out.println("\tMovie Script Project");
 			System.out.println("\t-----------------------------");
@@ -72,36 +71,36 @@ public float getRating()
 		
 		System.out.println("\t Select the genere of the movie you want");
 		System.out.println("							");
-		System.out.println("\t 1. Comedy");
-		System.out.println("\t 2. Romantic");
-		System.out.println("\t 3. Emotional");
-		System.out.println("\t 4. Thriller");
-		ans=sc.nextInt();
+		System.out.println("\t 1. "+Genere.valueOf("Comedy").toString());
+		System.out.println("\t 2."+Genere.valueOf("Romantic").toString());
+		System.out.println("\t 3."+Genere.valueOf("Emotional").toString());
+		System.out.println("\t 4. "+Genere.valueOf("Thriller").toString());
+		answerTheGenere=sc.next();
 
-		switch(ans)
+		switch(Genere.valueOf(answerTheGenere))
 		{
-			case 1: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
+			case Comedy: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Comedy"));
 						director.doCasting();
 						director.scriptSelection(Genere.valueOf("Comedy"));
 						
 						break;
 
-			case 2:		System.out.println("\t\n The name of the movie \n"+getMovieName());
+			case Romantic:	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Romantic"));
 							director.doCasting();
 						director.scriptSelection(Genere.valueOf("Romantic"));
 					
 						break;
 			
-			case 3:		System.out.println("\t\n The name of the movie \n"+getMovieName());	
+			case Emotional:	System.out.println("\t\n The name of the movie \n"+getMovieName());	
 						setGenere(Genere.valueOf("Emotional"));
 							director.doCasting();
 						director.scriptSelection(Genere.valueOf("Emotional"));
 					
 						break;
 
-			case 4:		System.out.println("\t\n The name of the movie \n"+getMovieName());	
+			case Thriller :	System.out.println("\t\n The name of the movie \n"+getMovieName());	
 						setGenere(Genere.valueOf("Thriller"));
 						director.doCasting();
 						director.scriptSelection(Genere.valueOf("Thriller"));
