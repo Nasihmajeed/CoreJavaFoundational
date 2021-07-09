@@ -9,7 +9,7 @@ public class Director
 
 //for randomizing actors
 int i=0;
-Random randomActor=new Random();
+
 Scanner sc =new Scanner(System.in);
 String scriptPath=new String("com\\script\\");
 String extension=".csv";
@@ -20,53 +20,88 @@ List<Script> listFromFile=new ArrayList<Script>();
 
 Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
 //map for each class
-List<Actor> actors=new ArrayList<Actor>();
+ArrayList<Actor> actors=new ArrayList<Actor>();
 
 File movieFile=null;
 
 public void doCasting()
 {
 	
-
-
-
-	castMap.put("Hero",castHero());	
-	castMap.put("Heroine",castHeroine());
-	castMap.put("Comedian",castComedian());
-	castMap.put("Villian",castVillan());
+/*actors=castActors();
+for(i=0;i<actors.size();i++)
+	{	if(actors.get(i) instanceof Hero)
+		{castMap.put("Hero",actors);	
+		}
+		if(actors.get(i) instanceof Heroine)
+		{castMap.put("Heroine",actors);
+		}
+		if(actors.get(i) instanceof Comedian)
+		{
+			castMap.put("Comedian",actors);
+		}
+		if(actors.get(i) instanceof Villan)
+		{castMap.put("Villian",actors);}
+	}*/
 		
 		
 	
-	System.out.print(castMap.get("Comedian").get(0).getCharacterName());
+	/*System.out.print(castMap.get("Comedian").get(0).getCharacterName());
 	System.out.print(castMap.get("Villian").get(0).getCharacterName());
-	System.out.print(castMap.get("Heroine").get(0).getCharacterName());
+	System.out.print(castMap.get("Heroine").get(0).getCharacterName());*/
 
 }
 
-public ArrayList<Actor> castHero()
-{	int i,numberOfHeroCharacters;
-	String heroName,heroCharacterName;
-	System.out.println("Enter the number of heros: ");
-	numberOfHeroCharacters=sc.nextInt();
-	ArrayList<Actor> heros=new ArrayList<Actor>();
-	for(i=0;i<numberOfHeroCharacters;i++)
+public ArrayList<Actor> castActors()
+{	int i,numberOfCharacters;
+	String actorName,characterName,role=" ";
+
+
+	System.out.println("Enter the role"+role+": ");
+	role=sc.next();
+	System.out.println("Enter number of  "+role+": ");
+	numberOfCharacters=sc.nextInt();
+	
+	//ArrayList<Actor> actors=new ArrayList<Actor>();
+	for(i=0;i<numberOfCharacters;i++)
 	{
 			
 
-		System.out.println("Enter the name of hero "+(i+1));
-		heroName=sc.next();	
+		System.out.println("Enter the name of"+role+" "+(i+1));
+		actorName=sc.next();	
 		
 		
-		System.out.println("Enter the Character name of "+heroName);
-		heroCharacterName=sc.next();
+		System.out.println("Enter the Character name of "+actorName);
+		characterName=sc.next();
+		
+		switch(role)
+		{
+			case "hero":actors.add(new Hero(actorName,characterName));
+							castMap.put("Hero",actors);
+							break;
+			case "heroine":actors.add(new Heroine(actorName,characterName));
+							castMap.put("Heroine",actors);
+							break;
+			case "comedian": actors.add(new Comedian(actorName,characterName));
+								castMap.put("Comedian",actors);
+								break;
+			case "villan": actors.add(new Villan(actorName,characterName));
+							castMap.put("Villian",actors);
+							break;
+			default :System.out.println("Invalid entry");			
+		}
 
-		heros.add(new Hero(heroName,heroCharacterName));
-		//heros.setNumberOfHeros(numberOfHeroCharacters);
+
+
+		
+		 	
+		 		
+		
 		
 		}
 
-		return heros;
+		return actors;
 }
+/*
 public ArrayList<Actor> castHeroine()
 {	String heroineName,heroineCharacterName;
 	int i,numberOfHeroineCharacters;
@@ -134,7 +169,7 @@ public ArrayList<Actor> castVillan()
 	}
 	return villans;
 }
-
+*/
 		
 public void scriptSelection(Genere genere)
 {	

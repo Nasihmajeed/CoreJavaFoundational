@@ -11,6 +11,11 @@ public class Movie
 	Director director=new Director();
 	
 	
+
+
+
+
+
 public void getMovieDetailsFromUser()
 {
 
@@ -81,7 +86,9 @@ public float getRating()
 		{
 			case Comedy: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Comedy"));
-						director.doCasting();
+						//director.doCasting();
+
+						director.castActors();
 						director.scriptSelection(Genere.valueOf("Comedy"));
 						
 						break;
