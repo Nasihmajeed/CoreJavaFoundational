@@ -158,25 +158,21 @@ public class Movies
 		controller.setComedian(comedianCast);
 		controller.setVillain(villainCast);
 
-		// System.out.println(">> Heros <<");
 		for(int k=0;k<heroCast.size();k++)
         {
 			hero.add(heroCast.get(k));
 		}
 		
-		// System.out.println(">> Heroines <<");
 		for(int k=0;k<heroineCast.size();k++)
         {
 			heroine.add(heroineCast.get(k));
 		}
 		
-		// System.out.println(">> Comedians <<");
 		for(int k=0;k<comedianCast.size();k++)
         {
 			comedian.add(comedianCast.get(k));
 		}
 
-		// System.out.println(">> Villlains <<");
 		for(int k=0;k<villainCast.size();k++)
         {
 			villain.add(villainCast.get(k));
@@ -232,29 +228,29 @@ public class Movies
 		setScene.printEmotionalScene();
 	}
 
-	public void printit()
-	{
-		System.out.println(">> Heros <<");
-		for(int j=0; j<hero.size(); j++)
-        {
-			System.out.println((j+1)+" "+hero.get(j));
-		}
-		System.out.println(">> Heroines <<");
-		for(int j=0; j<heroine.size(); j++)
-        {
-			System.out.println((j+1)+" "+heroine.get(j));	
-		}
-		System.out.println(">> Comedians <<");
-		for(int j=0; j<comedianCast.size(); j++)
-        {
-			System.out.println((j+1)+" "+comedian.get(j));	
-		}
-		System.out.println(">> Villains <<");
-		for(int j=0; j<villainCast.size(); j++)
-        {
-			System.out.println((j+1)+" "+villain.get(j));
-		}
-	}
+	// public void printit()
+	// {
+	// 	System.out.println(">> Heros <<");
+	// 	for(int j=0; j<hero.size(); j++)
+    //     {
+	// 		System.out.println((j+1)+" "+hero.get(j));
+	// 	}
+	// 	System.out.println(">> Heroines <<");
+	// 	for(int j=0; j<heroine.size(); j++)
+    //     {
+	// 		System.out.println((j+1)+" "+heroine.get(j));	
+	// 	}
+	// 	System.out.println(">> Comedians <<");
+	// 	for(int j=0; j<comedianCast.size(); j++)
+    //     {
+	// 		System.out.println((j+1)+" "+comedian.get(j));	
+	// 	}
+	// 	System.out.println(">> Villains <<");
+	// 	for(int j=0; j<villainCast.size(); j++)
+    //     {
+	// 		System.out.println((j+1)+" "+villain.get(j));
+	// 	}
+	// }
 
     public void setMovie()
     {

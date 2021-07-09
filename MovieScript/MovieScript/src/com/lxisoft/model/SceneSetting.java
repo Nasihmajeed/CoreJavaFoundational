@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public class SceneSetting 
 {
-
     public void printComedyScene()
     {
         System.out.print("\n\n>> Comedy Scene <<\n\n");
