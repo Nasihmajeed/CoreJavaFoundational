@@ -15,12 +15,7 @@ public class Director
 
    ArrayList<Actor> actors=new ArrayList<Actor>();
 
-   Map<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
-
- List<String> RomanticDialogues=new ArrayList<String>();
- List<String> EmotionalDialogues=new ArrayList<String>();
- List<String> ComedyDialogues=new ArrayList<String>();
- List<String> ActionDialogues=new ArrayList<String>();
+   HashMap<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
  
  
 	public void setDirectorName(String directorName)
@@ -166,8 +161,8 @@ public void printCharactersOfTheMovie()
 {
 	  System.out.println("\r\n");
 		
-		System.out.println("---------------------------------------------------------------------------");
-        System.out.println("---------------------------------------------------------------------------");
+		System.out.println("******************************************************************************************************");	
+        System.out.println("******************************************************************************************************");
             
 
                   try{
@@ -179,7 +174,7 @@ public void printCharactersOfTheMovie()
 				    }
 
 
-    System.out.println("----------------------------=====CHARACTERS=====---------------------------");
+        System.out.println("**************************************=====CHARACTERS=====********************************************");
             
 
                       try{
@@ -191,8 +186,8 @@ public void printCharactersOfTheMovie()
 				    }
 
 
-		System.out.println("---------------------------------------------------------------------------");
-		System.out.println("---------------------------------------------------------------------------");
+		System.out.println("******************************************************************************************************");	
+        System.out.println("******************************************************************************************************");
 		
 		          try{
 					    Thread.sleep(2000);
@@ -209,7 +204,7 @@ for(int i=0;i<actors.size();i++)
 {
 if(actors.get(i) instanceof Hero)
    {
-    System.out.println("Hero Name : "+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
    
             try{
 					      Thread.sleep(2000);
@@ -222,7 +217,7 @@ if(actors.get(i) instanceof Hero)
  
   else if(actors.get(i) instanceof Heroine)
    {
-    System.out.println("Heroine Name : "+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
    
             try{
 					      Thread.sleep(2000);
@@ -235,7 +230,7 @@ if(actors.get(i) instanceof Hero)
    }
   else if(actors.get(i) instanceof Comedian)
    {
-    System.out.println("Comedian Name : "+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
    
 
              try{
@@ -249,7 +244,7 @@ if(actors.get(i) instanceof Hero)
    }
   else if(actors.get(i) instanceof Villain)
    {
-    System.out.println("Villain Name : "+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
    
              try{
 					      Thread.sleep(2000);
@@ -261,29 +256,11 @@ if(actors.get(i) instanceof Hero)
 
    }      	
 }
-    System.out.println("----------------------------------------------------------------------------------");
-	System.out.println("----------------------------------------------------------------------------------");
-	System.out.println("----------------------------------------------------------------------------------");
+        System.out.println("******************************************************************************************************");	
+        System.out.println("******************************************************************************************************");
+        System.out.println("******************************************************************************************************");	
+        
  }
 
-
- /*
-  if(genre.equals("RomanticMovie"))
-   {
-      for(int i=0;i<actorsInMovie.size();i++)
-      {
-                      int j=0;
-
-           while(j<30)
-           {
-                
-System.out.println(actorsInMovie.get(1).get(i).getActorName()+":"+actorsInMovie.get(1).get(i).getActorCharName()+dialogues.get(j));
-                j++;
-System.out.println(actorsInMovie.get(2).get(i).getActorName()+":"+actorsInMovie.get(2).get(i).getActorCharName()+dialogues.get(j));
-       	     	 j++;
-           }
-           
-      }          
-*/
 
 }

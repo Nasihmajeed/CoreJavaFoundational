@@ -2,6 +2,7 @@ package com.lxisoft.movie;
 
 import com.lxisoft.direction.*;
 import com.lxisoft.cast.*;
+import com.lxisoft.scripts.*;
 
 import java.util.*;
 
@@ -10,7 +11,7 @@ import java.util.*;
 public class Movie
 {
 
-Scanner sc=new Scanner(System.in);
+  Scanner sc=new Scanner(System.in);
 
 
     Hero heroo=new Hero();
@@ -21,54 +22,64 @@ Scanner sc=new Scanner(System.in);
 
     Villain villainn=new Villain();
 
+
+
     Director director=new Director();
+    ScriptWriter writer=new ScriptWriter();
 
 
-private String movieName,movieLanguage;
-private float rating;
-private int yearOfRelease,movieGenre;
+ 
+   private int yearOfRelease,movieGenre;
+   private float rating;
+   private String movieName,movieLanguage;
+
+
+   HashMap<Integer,ArrayList<Actor>> actors;
+
+
+   //Name of the movie
+
+   public void setMovieName(String movieName)
+   {
+    this.movieName=movieName;	
+   }		
+
+   public String getMovieName()
+   {
+	return movieName; 
+   } 
 
 
 
-//Name of the movie
+   //Genre of the movie
 
-public void setMovieName(String movieName)
-{
-this.movieName=movieName;	
-}		
+   public void setMovieGenre(int movieGenre)
+   {
+    this.movieGenre=movieGenre;	
+   }		
 
-public String getMovieName()
-{
-	return movieName;
-}
-
-
-//Genre of the movie
-
-public void setMovieGenre(int movieGenre)
-{
-this.movieGenre=movieGenre;	
-}		
-
-public int getMovieGenre()
-{
+   public int getMovieGenre()
+   {
 	return movieGenre;
-}
+   }
 
-//Language of the movie
 
-public void setMovieLanguage(String movieLanguage)
-{
-this.movieLanguage=movieLanguage;	
-}		
 
-public String getMovieLanguage()
-{
+   //Language of the movie
+
+   public void setMovieLanguage(String movieLanguage)
+   {
+    this.movieLanguage=movieLanguage;	
+   }		
+
+   public String getMovieLanguage()
+   {
 	return movieLanguage;
-}
+   }
 
 
-//Movie Rating
+
+   //Movie Rating
 
     public void setRating(float rating)
 	{
@@ -81,7 +92,8 @@ public String getMovieLanguage()
 	}
 
 
-//Year of Release
+
+    //Year of Release
 
     public void setYear(int yearOfRelease)
 	{
@@ -137,8 +149,8 @@ public String getMovieLanguage()
 
 
 
-public void setInitialDetails()
-{
+ public void inputInitialDetails()
+  {
    System.out.println("\r\n");
    
 
@@ -180,9 +192,9 @@ public void setInitialDetails()
 	System.out.println("------Enter a number corresponding to the given below options to select genre of your movie------------");	
 	System.out.println("-------------------------------------------------------------------------------------------------------");	
 	System.out.println(java.util.Arrays.asList(Genre.values()));
-	System.out.println("-------------------------------------------------------------------------------------------------------");	
-	System.out.println("-------------------------------------------------------------------------------------------------------");	
-	System.out.println("-------------------------------------------------------------------------------------------------------");					
+	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
+	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
+	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");					
 	
        
 
@@ -254,22 +266,64 @@ System.out.println("\r\n");
 				    {
 					Thread.currentThread().interrupt();
 				    }
+ System.out.println("-----------------------------------------------------------------------------------------------------------");
+ System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
+ System.out.println("-----------------------------------------------------------------------------------------------------------");
+ writer.setScriptWriterName(sc.next());
+ System.out.println("\r\n");
 
-  HashMap<Integer,ArrayList<Actor>> actors=director.castingTheActors(heroo,heroinee,comediann,villainn);
+
+//******************************************************************************
+  actors=director.castingTheActors(heroo,heroinee,comediann,villainn);
+//******************************************************************************
 
 
 }
 
 
- public void getInitialDetails()
+ public void printInitialDetails()
  {
+
+   System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
+                  
+                  try{
+					   Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+	System.out.println("-------------------------------GOOD FRIDAY MOVIE HOUSE in association with----------------------------------");
+                  
+                  try{
+					   Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
+
+                 try{
+					   Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+    
+
+
+
  	System.out.println("\r\n");
  	System.out.println("\r\n");
  	System.out.println("\r\n");
  	System.out.println("\r\n");
  	System.out.println("\r\n");
                  
-    System.out.println("-----------------------------------------------------------------------------------------------------------");
+    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
                   try{
 					   Thread.sleep(2000);
@@ -289,7 +343,7 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 
-	System.out.println("-----------------------------------------------------------------------------------------------------------");
+	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
                  try{
 					   Thread.sleep(2000);
@@ -301,9 +355,9 @@ System.out.println("\r\n");
 
     System.out.println("\r\n");
 
-    System.out.println("-----------------------------------------------------------------------------------------------------------");	
-	System.out.println("-----------------------------------------------------------------------------------------------------------");	
-	System.out.println("-----------------------------------------------------------------------------------------------------------");	
+    System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
+	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
+	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");		
 				System.out.println("Name of the Movie : "+getMovieName());
 
 
@@ -390,9 +444,20 @@ System.out.println("\r\n");
 					Thread.currentThread().interrupt();
 				    }
 
-	System.out.println("-----------------------------------------------------------------------------------------------------------");	
-	System.out.println("-----------------------------------------------------------------------------------------------------------");	
-	System.out.println("-----------------------------------------------------------------------------------------------------------");	
+				System.out.println("Name of the Script Writer : "+writer.getScriptWriterName());
+
+
+				try{
+					   Thread.sleep(2000);
+				     }
+				catch(InterruptedException e)
+				    {
+					Thread.currentThread().interrupt();
+				    }
+
+	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
+	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
+	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");	
                 
                  try{
 					   Thread.sleep(2000);
@@ -401,101 +466,13 @@ System.out.println("\r\n");
 				    {
 					Thread.currentThread().interrupt();
 				    }
+
+
+       //******************************************************************************
+		director.printCharactersOfTheMovie();
+		writer.selectingAndPrintingScript(getMovieGenre(),actors);
+	   //******************************************************************************
 }
-
-
-
-
-
-public void startMovie(String genre)
-  {          
-           
-String line;
-String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
-String comedy=new String("com\\lxisoft\\resources\\EmotionalScr.CSV");
-String emotional=new String("com\\lxisoft\\resources\\ComedyScr.CSV");
-String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
-
-
-                    try{
-                        Thread.sleep(2000);
-                       }
-                catch(InterruptedException e)
-                       {
-                        Thread.currentThread().interrupt();
-                       }
-
-
-try{
-
-          BufferedReader br=new BufferedReader(new FileReader(romance));
-          while((line=br.readLine()) != null )
-          {
-          	RomanticDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(emotional));
-          while((line=br.readLine()) != null )
-          {
-          	EmotionalDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(comedy));
-          while((line=br.readLine()) != null )
-          {
-          	ComedyDialogues.add(new String(line));
-     	   
-          }
-
-
-          br=new BufferedReader(new FileReader(action));
-          while((line=br.readLine()) != null )
-          {
-          	ActionDialogues.add(new String(line));
-     	   
-          }
-
-          
-    }catch(IOException e)
-         {
-          e.printStackTrace();
-         }
-
-
-
-
-
- if(genre.equals("RomanticMovie"))
-   {
-   	          
-           
-      }        
-
-   
-
-   
-   else if(genre.equals("EmotionalMovie"))
-   {
-
-   }
-   else if(genre.equals("ComedyMovie"))
-    {
-
-    }
-   else if(genre.equals("ActionMovie"))
-    {
-
-    }
-  } 
-
-
-
-
-
 
 
 
