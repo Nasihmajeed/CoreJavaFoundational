@@ -9,7 +9,8 @@ public class Movie
 	Genere genere;
 	Scanner sc=new Scanner(System.in);
 	Director director=new Director();
-	
+	ArrayList<Actor> actors=new ArrayList<Actor>();
+	ScriptWriter scriptWriter=new ScriptWriter();
 	
 
 
@@ -23,8 +24,20 @@ public void getMovieDetailsFromUser()
 				movieName=sc.next();
 				
 				setMovieName(movieName);
-				
 }
+
+public void casting()
+{
+			
+Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
+actors=director.castActors();
+castMap=director.createMap();
+scriptWriter.setActorsMap(castMap);
+
+}
+
+
+
 public void setGenere(Genere genere)
  {
  	this.genere=genere;
@@ -60,6 +73,7 @@ public float getRating()
 
 	public void startMovie()
 	{		int againAns;
+		Role role;
 		String answerTheGenere;
 			System.out.println("\t-----------------------------");
 			System.out.println("\tMovie Script Project");
@@ -86,31 +100,31 @@ public float getRating()
 		{
 			case Comedy: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Comedy"));
-						//director.doCasting();
+						casting();
 
-						director.castActors();
-						director.scriptSelection(Genere.valueOf("Comedy"));
+					
+						scriptWriter.writeScript(Genere.valueOf("Comedy"));
 						
 						break;
 
 			case Romantic:	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Romantic"));
-							director.doCasting();
-						director.scriptSelection(Genere.valueOf("Romantic"));
+							casting();
+						scriptWriter.writeScript(Genere.valueOf("Romantic"));
 					
 						break;
 			
 			case Emotional:	System.out.println("\t\n The name of the movie \n"+getMovieName());	
 						setGenere(Genere.valueOf("Emotional"));
-							director.doCasting();
-						director.scriptSelection(Genere.valueOf("Emotional"));
+							casting();
+						scriptWriter.writeScript(Genere.valueOf("Emotional"));
 					
 						break;
 
 			case Thriller :	System.out.println("\t\n The name of the movie \n"+getMovieName());	
 						setGenere(Genere.valueOf("Thriller"));
-						director.doCasting();
-						director.scriptSelection(Genere.valueOf("Thriller"));
+						casting();
+						scriptWriter.writeScript(Genere.valueOf("Thriller"));
 						
 						break;			
 
