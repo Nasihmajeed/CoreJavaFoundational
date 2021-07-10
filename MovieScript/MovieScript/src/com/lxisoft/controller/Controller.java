@@ -1,5 +1,4 @@
 package com.lxisoft.controller;
-import com.lxisoft.model.*;
 import com.lxisoft.repository.*;
 
 import java.util.Scanner;
@@ -29,8 +28,9 @@ public class Controller
 	public void setCast(ArrayList<Entry<String, String>> cast)
 	{
 		// int i;
-		HashMap<String, String> hero = new HashMap<>();
 		Scanner scan = new Scanner(System.in);
+
+		HashMap<String, String> hero = new HashMap<>();
         System.out.print("\nNumber of heros\t\t : ");
 			 heroNumber = scan.nextInt();
 
