@@ -108,8 +108,12 @@ String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
 
            for(int i=0;i<7;i++)
            { 
-                int a=r.nextInt(2);
+
+           	int a=r.nextInt(2);
+               if(actors.get(1).get(a) instanceof Hero){
 System.out.println(actors.get(1).get(a).getActorName()+" : "+actors.get(1).get(a).getActorCharName()+" : "+"\n\t"+romanticDialogues.get(r.nextInt(15)));
+               }
+                
                 
                  try{
 				     Thread.sleep(2000);
@@ -146,9 +150,14 @@ System.out.println(actors.get(2).get(b).getActorName()+" : "+actors.get(2).get(b
           for(int i=0;i<2;i++)
           {
           	int c=r.nextInt(2);
-System.out.println(actors.get(1).get(c).getActorName()+" : "+actors.get(1).get(c).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));
-                
-                 try{
+          	int d=r.nextInt(2);
+          	int e=r.nextInt(2);
+
+          	if(actors.get(1).get(c) instanceof Hero)
+          	{
+System.out.println(actors.get(1).get(c).getActorName()+" : "+actors.get(1).get(c).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));	
+          	
+          	try{
 				     Thread.sleep(2000);
 				    }
 				catch(InterruptedException ide)
@@ -156,27 +165,41 @@ System.out.println(actors.get(1).get(c).getActorName()+" : "+actors.get(1).get(c
 					Thread.currentThread().interrupt();
 				    }
 
-                int d=r.nextInt(2);
-System.out.println(actors.get(2).get(d).getActorName()+" : "+actors.get(2).get(d).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));
+          	}
+
                 
-                  try{
+                 
+                
+            else if(actors.get(2).get(d) instanceof Heroine)
+            {
+System.out.println(actors.get(2).get(d).getActorName()+" : "+actors.get(2).get(d).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));	
+            try{
 				     Thread.sleep(2000);
 				    }
 				catch(InterruptedException ide)
 				    {
 					Thread.currentThread().interrupt();
 				    }
+            }
 
-                int e=r.nextInt(2);
-System.out.println(actors.get(4).get(e).getActorName()+" : "+actors.get(4).get(e).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));
+                
                   
-                   try{
+
+                
+            else if(actors.get(4).get(e) instanceof Villain)
+            {
+System.out.println(actors.get(4).get(e).getActorName()+" : "+actors.get(4).get(e).getActorCharName()+" : "+"\n\t"+emotionalDialogues.get(r.nextInt(15)));	
+            try{
 				     Thread.sleep(2000);
 				    }
 				catch(InterruptedException ide)
 				    {
 					Thread.currentThread().interrupt();
 				    }
+            }
+
+                  
+                   
           }
 
 
