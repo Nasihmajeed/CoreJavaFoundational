@@ -92,7 +92,7 @@ public class Director{
       }*/
       System.out.println("ACTORS\n");
       for(int i=0;i<actor.size();i++){
-        System.out.println("ACTOR NAME "+actor.get(i).getActorName()+": CHARACTER NAME "+actor.get(i).getCharName());
+        System.out.println("ACTOR NAME  "+actor.get(i).getActorName()+" : CHARACTER NAME  "+actor.get(i).getCharName());
       }
 
 

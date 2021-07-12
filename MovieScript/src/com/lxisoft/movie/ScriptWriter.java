@@ -62,12 +62,12 @@ fr.close();
   String input=sc.next();
 
 
-  System.out.println("************************************\n");
-  System.out.println("************************************");
-  System.out.println("************************************");
+  System.out.println("***************************************\n");
+  System.out.println("**************************************");
+  System.out.println("**************************************");
   System.out.println("****************SCENE1*****************");
-  System.out.println("************************************");
-  System.out.println("************************************");
+  System.out.println("***************************************");
+  System.out.println("***************************************");
 
 //System.out.println(genre.name()[input-1]);
 
