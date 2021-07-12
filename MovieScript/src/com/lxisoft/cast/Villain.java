@@ -4,9 +4,6 @@ public class Villain extends Actor
 {
    private int numOfVillain;
 
-   private String villainName,villainCharName;
-
-
    public Villain()
    {
       
