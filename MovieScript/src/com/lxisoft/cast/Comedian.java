@@ -2,8 +2,7 @@ package com.lxisoft.cast;
 
 public class Comedian extends Actor
 {
-	String comedianName; 
-	String comedianCharacterName;
+	
 	Comedian()
 	{
 
@@ -12,8 +11,7 @@ public class Comedian extends Actor
 	
 Comedian(String comedianName,String comedianCharacterName)
 	{	super(comedianName,comedianCharacterName);
-		this.comedianName=comedianName;
-		this.comedianCharacterName=comedianCharacterName;
+		
 		
 	}
 	public void setComedianCharacterName(String comedianCharacterName)
@@ -32,7 +30,7 @@ Comedian(String comedianName,String comedianCharacterName)
 		return comedianCharacterName;
 	}
 
-
+/*
 int numberOfComedianCharacters;
 public void setNumberOfComedian(int numberOfComedianCharacters)
 {
@@ -42,6 +40,6 @@ public int getNumberOfComedian()
 {
 	return numberOfComedianCharacters;
 }
-
+*/
 
 }

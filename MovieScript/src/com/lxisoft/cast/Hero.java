@@ -2,8 +2,7 @@ package com.lxisoft.cast;
 
 public class Hero extends Actor
  {
- 	String heroName; 
-String heroCharacterName; 
+ 	 
 
 
 		Hero(){
@@ -12,8 +11,7 @@ String heroCharacterName;
 		Hero(String heroName,String heroCharacterName)
 		{
 			super(heroName,heroCharacterName);
-			this.heroName=heroName;
-			this.heroCharacterName= heroCharacterName;
+			
 		
 		}
 
