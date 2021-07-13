@@ -7,77 +7,119 @@ import com.lxisoft.about.*;
 public class Director
 {
 Scanner sc =new Scanner(System.in);
-Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
 
-public ArrayList<Actor> castActors()
-{	int i,numberOfCharacters;
-	String actorName,characterName,actorRole=" ";
-	Role role;
 
+public Map<String,ArrayList<Actor>> castActors()
+{	int i,numberOfCharacters,selectActorRole,addMore=0;
+	String actorName,characterName;
+	Role role,roleSelected;
+
+	Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
+do{
+
+System.out.println("Enter the role: ");
 	
+	System.out.println("1 "+Role.valueOf("Hero").toString());
+	System.out.println("2 "+Role.valueOf("Heroine").toString());
+	System.out.println("3 "+Role.valueOf("Comedian").toString());
+	System.out.println("4 "+Role.valueOf("Villan").toString());
+	selectActorRole=sc.nextInt();
+	roleSelected=Role.getRole(selectActorRole-1);
 
-	System.out.println("Enter the role: ");
-	
-	System.out.println(Role.valueOf("Hero").toString());
-	System.out.println(Role.valueOf("Heroine").toString());
-	System.out.println(Role.valueOf("Comedian").toString());
-	System.out.println(Role.valueOf("Villan").toString());
-	actorRole=sc.next();
-
-	System.out.println("Enter number of  "+actorRole+": ");
+	System.out.println("Enter number of  "+roleSelected.toString()+": ");
 	numberOfCharacters=sc.nextInt();
 	
-	ArrayList<Actor> actors=new ArrayList<Actor>();
+	ArrayList<Actor> heros=new ArrayList<Actor>();
+	ArrayList<Actor> heroines=new ArrayList<Actor>();
+	ArrayList<Actor> comedians=new ArrayList<Actor>();
+	ArrayList<Actor> villans=new ArrayList<Actor>();
+	
 	for(i=0;i<numberOfCharacters;i++)
 	{
 			
 
-		System.out.println("Enter the name of"+actorRole+" "+(i+1));
+		System.out.println("Enter the name of "+roleSelected.toString()+" "+(i+1));
 		actorName=sc.next();	
 		
 		
 		System.out.println("Enter the Character name of "+actorName);
 		characterName=sc.next();
 		
-		switch(Role.valueOf(actorRole))
+		switch(roleSelected)
 		{
-			case Hero:actors.add(new Hero(actorName,characterName));
-							return actors;
+			case Hero:heros.add(new Hero(actorName,characterName));
+						//	cast.put("Hero",);
+							//return actors;
+							cast.put("Hero",heros);
+							break;
+			case Heroine:heroines.add(new Heroine(actorName,characterName));
+			//cast.put("Heroine",);
+							//return actors;
+			cast.put("Heroine",heroines);
+			break;
 							
-			case Heroine:actors.add(new Heroine(actorName,characterName));
-							return actors;
-							
-			case Comedian: actors.add(new Comedian(actorName,characterName));
-								return actors;
+			case Comedian:comedians.add(new Comedian(actorName,characterName));
+			// cast.put("Comedian",);
+								cast.put("Comedian",comedians);
+								break;
 								
-			case Villan: actors.add(new Villan(actorName,characterName));
-							return actors;
+			case Villan:villans.add(new Villan(actorName,characterName));
+			 			cast.put("Villan",villans);
+			 			break;
+			 //cast.put("Villan",);
+							//return actors;
 							
 			default :System.out.println("Invalid entry");			
 						
 		}
+System.out.println(cast.get("Hero").get(i).getActorName());
+
+		}
 
 
+
+
+		/*for(int k=0;k<actors.size();k++)
+		{
+			if(actors.get(i) instanceof Hero)
+			{
+				cast.get("Hero").put(actors);
+				
+			}
+		}
+*/
+System.out.println("Add more actors press 1");
+addMore=sc.nextInt();
+}while(addMore==1);
+	
+return cast;
 
 		
 		 	
 		 		
 		
 		
-		}
-
-	return null;	
+	//return null;	
 }
-
-public Map<String,ArrayList<Actor>> createMap()
+/*
+public Map<String,ArrayList<Actor>> assignRolesForActors()
 {	
-	castMap.put("Hero",castActors());
-	castMap.put("Heroine",castActors());
-	castMap.put("Comedian",castActors());
-	castMap.put("Villan",castActors());
-	return castMap;
+		ArrayList<Actor> actors=new ArrayList<Actor>();
+		actors=castActors();
+		for(int i=0;i<actors.size();i++)
+	{	if(actors.get(i) instanceof Hero)
+		{
+			System.out.println(actors.get(i).getActorName());
+		}
+		
+	}
+	cast.put("Hero",actors);
+		cast.put("Heroine",actors);
+		cast.put("Comedian",actors);
+		cast.put("Villan",actors);
+	return cast;
 }
-
+*/
 
 
 

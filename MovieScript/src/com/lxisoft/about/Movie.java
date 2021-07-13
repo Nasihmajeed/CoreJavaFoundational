@@ -29,10 +29,10 @@ public void getMovieDetailsFromUser()
 public void casting()
 {
 			
-Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
-actors=director.castActors();
-castMap=director.createMap();
-scriptWriter.setActorsMap(castMap);
+Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
+//actors=director.castActors();
+cast=director.castActors();
+scriptWriter.setCast(cast);
 
 }
 
@@ -72,7 +72,7 @@ public float getRating()
 
 
 	public void startMovie()
-	{		int againAns;
+	{		int againAns,selectTheGenere;
 		Role role;
 		String answerTheGenere;
 			System.out.println("\t-----------------------------");
@@ -94,9 +94,18 @@ public float getRating()
 		System.out.println("\t 2."+Genere.valueOf("Romantic").toString());
 		System.out.println("\t 3."+Genere.valueOf("Emotional").toString());
 		System.out.println("\t 4. "+Genere.valueOf("Thriller").toString());
-		answerTheGenere=sc.next();
+		selectTheGenere=sc.nextInt();
+		Genere genereSelected=genere.getGenere(selectTheGenere-1);
+		System.out.println(genereSelected.toString());
 
-		switch(Genere.valueOf(answerTheGenere))
+		casting();
+		scriptWriter.writeScript(genereSelected);
+
+
+
+		//answerTheGenere=sc.next();
+
+		/*switch(Genere.valueOf(answerTheGenere))
 		{
 			case Comedy: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
 						setGenere(Genere.valueOf("Comedy"));
@@ -135,7 +144,7 @@ public float getRating()
 						
 
 		}
-
+*/
 		
 		System.out.println("\n \t\t Give your rating for the movie out of 10");
 		rating=sc.nextFloat();

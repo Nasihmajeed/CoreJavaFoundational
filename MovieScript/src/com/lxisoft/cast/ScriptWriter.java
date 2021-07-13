@@ -17,20 +17,15 @@ BufferedReader scriptReader=null;
 
 List<Script> listFromFile=new ArrayList<Script>(); 
 
-Map<String,ArrayList<Actor>> castMap=new HashMap<String,ArrayList<Actor>>();
-//map for each class
-//ArrayList<Actor> actors=new ArrayList<Actor>();
+Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 
 File movieFile=null;
 
-public void setActorsMap(Map<String,ArrayList<Actor>> castMap)
+public void setCast(Map<String,ArrayList<Actor>> cast)
 {
-	this.castMap=castMap;
+	this.cast=cast;
 }
 
-
-
-		
 public void writeScript(Genere genere)
 {	
 
@@ -52,8 +47,8 @@ switch(genere)
 						{
 
 							
-							System.out.print(castMap.get("Comedian").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Comedian").get(0).getActorName()+")");
+							System.out.print(cast.get("Comedian").get(0).getCharacterName());
+							System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
 
 							System.out.println(listFromFile.get(i).getDialogue());
 							
@@ -62,8 +57,8 @@ switch(genere)
 						
 						else if(i>2 && i>0)
 						{	
-							System.out.print(castMap.get("Hero").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+							System.out.print(cast.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 							
 							System.out.println(listFromFile.get(i).getDialogue());
 						}	
@@ -83,14 +78,14 @@ switch(genere)
 						
 						if(i%2==0)
 						{	
-							System.out.print(castMap.get("Hero").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+							System.out.print(cast.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 							System.out.println(listFromFile.get(i).getDialogue());
 						}
 						else if(i>2)
 						{	
-							System.out.print(castMap.get("Heroine").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Heroine").get(0).getActorName()+")");
+							System.out.print(cast.get("Heroine").get(0).getCharacterName());
+							System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
 							System.out.println(listFromFile.get(i).getDialogue());
 						}
 					}
@@ -106,14 +101,14 @@ switch(genere)
 						
 						if(i%2==0 && i>0)
 						{	
-							System.out.print(castMap.get("Hero").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+							System.out.print(cast.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 							System.out.println(listFromFile.get(i).getDialogue());
 						}
 						else if(i>2 && i>0)
 						{	
-							System.out.print(castMap.get("Heroine").get(0).getCharacterName());
-							System.out.print("("+castMap.get("Heroine").get(0).getActorName()+")");
+							System.out.print(cast.get("Heroine").get(0).getCharacterName());
+							System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
 							System.out.println(listFromFile.get(i).getDialogue());
 						}
 					}
@@ -138,14 +133,14 @@ switch(genere)
 
 				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+castMap.get("Heroine").get(1).getActorName()+")");
+					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
+						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(1).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(1).getActorName()+")");
+					System.out.print(cast.get("Hero").get(1).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
@@ -161,14 +156,14 @@ switch(genere)
 				if(listFromFile.get(i) instanceof EmotionalScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Heroine").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Heroine").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Heroine").get(0).getCharacterName());
+						System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(0).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					System.out.print(cast.get("Hero").get(0).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
@@ -182,14 +177,14 @@ switch(genere)
 				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Hero").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
+						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-						System.out.print(castMap.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Comedian").get(0).getActorName()+")");
+						System.out.print(cast.get("Comedian").get(0).getCharacterName());
+						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					
@@ -214,14 +209,14 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 				if(listFromFile.get(i) instanceof EmotionalScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Heroine").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Heroine").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Heroine").get(0).getCharacterName());
+						System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(0).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					System.out.print(cast.get("Hero").get(0).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
@@ -235,14 +230,14 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 
 				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+castMap.get("Heroine").get(1).getActorName()+")");
+					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
+						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(1).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(1).getActorName()+")");
+					System.out.print(cast.get("Hero").get(1).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
@@ -259,14 +254,14 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Hero").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
+						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-						System.out.print(castMap.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Comedian").get(0).getActorName()+")");
+						System.out.print(cast.get("Comedian").get(0).getCharacterName());
+						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					
@@ -291,20 +286,20 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 				if(listFromFile.get(i) instanceof ThrillerScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Villian").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Villian").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Villian").get(0).getCharacterName());
+						System.out.print("("+cast.get("Villian").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(0).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					System.out.print(cast.get("Hero").get(0).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					else if(i>15 && i>0)
 					{
-						System.out.print(castMap.get("Hero").get(1).getCharacterName());
-						System.out.print("("+castMap.get("Hero").get(1).getActorName()+")");
+						System.out.print(cast.get("Hero").get(1).getCharacterName());
+						System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 				}
@@ -319,14 +314,14 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 
 				if(listFromFile.get(i) instanceof RomanticScript)
 				{	if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+castMap.get("Heroine").get(1).getActorName()+")");
+					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
+						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-					System.out.print(castMap.get("Hero").get(1).getCharacterName());
-					System.out.print("("+castMap.get("Hero").get(1).getActorName()+")");
+					System.out.print(cast.get("Hero").get(1).getCharacterName());
+					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 
@@ -343,14 +338,14 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 				if(listFromFile.get(i) instanceof ComedyScript)
 				{
 					if(i%2==0 && i>0)
-					{	System.out.print(castMap.get("Hero").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Hero").get(0).getActorName()+")");
+					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
+						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
 						System.out.println(listFromFile.get(i).getDialogue());
 					}
 					else if(i>2 && i>0)
 					{
-						System.out.print(castMap.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+castMap.get("Comedian").get(0).getActorName()+")");
+						System.out.print(cast.get("Comedian").get(0).getCharacterName());
+						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
 					System.out.println(listFromFile.get(i).getDialogue());	
 					}
 					

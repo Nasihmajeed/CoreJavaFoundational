@@ -6,7 +6,7 @@ public class Script
 {
 	String dialogues;
 
-	String scene;
+	
 
 	
 
@@ -22,16 +22,6 @@ public class Script
 	}
 
 
-public void setScene(String scene)
-	{
-		this.scene=scene;
-	}
-
-	
-	public String getScene()
-	{
-		return scene;
-	}
 
 
 }
