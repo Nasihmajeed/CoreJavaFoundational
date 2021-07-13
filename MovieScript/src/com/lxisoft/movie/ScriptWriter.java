@@ -69,12 +69,10 @@ fr.close();
   System.out.println("***************************************");
   System.out.println("***************************************");
 
-//System.out.println(genre.name()[input-1]);
+
 
                   for (int i=0;i<script.size();i++)
                   {
-                      //System.out.println(Genre.values()[input-1]);
-                    //System.out.println(script.get(i).getGenre());
 
                     if(script.get(i).getGenre().equals(input)){
 
