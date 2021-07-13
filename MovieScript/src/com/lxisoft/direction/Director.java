@@ -15,7 +15,7 @@ public class Director
 
    ArrayList<Actor> actors=new ArrayList<Actor>();
 
-   HashMap<Integer,ArrayList<Actor>> actorsInMovie=new HashMap<Integer,ArrayList<Actor>>();
+   HashMap<Integer,ArrayList<Actor>> mapOfActors=new HashMap<Integer,ArrayList<Actor>>();
  
  
 	public void setDirectorName(String directorName)
@@ -31,16 +31,16 @@ public class Director
 	  
 	 //Casting the actors by the Director---
 	 
-public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine heroinee,Comedian comediann, Villain villainn)
+public HashMap<Integer,ArrayList<Actor>> castingTheActors()
    {
          //Casting the Heroes
     {
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
-       heroo.setNumOfHero(sc.nextInt()); 
-	   System.out.println("Number of heroes in the Movie is : "+heroo.getNumOfHero());
+	   int numOfHero=sc.nextInt(); 
+	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	 
-	  for(int i=0 ; i<heroo.getNumOfHero() ; i++)
+	  for(int i=0 ; i<numOfHero ; i++)
 	    {
 		 
 		 System.out.println("\r\n");
@@ -55,7 +55,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
          
-         actorsInMovie.put(1,actors);
+         mapOfActors.put(1,actors);
 
         } 	 
 		
@@ -68,10 +68,10 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
      
         System.out.println("---------------------------------------------------------------------------------------------------------");
 		System.out.println("Enter the number of heroines in the movie : ");
-        heroinee.setNumOfHeroine(sc.nextInt()); 
-	    System.out.println("Number of heroines in the Movie is : "+heroinee.getNumOfHeroine());
+        int numOfHeroine=sc.nextInt(); 
+	    System.out.println("Number of heroines in the Movie is : "+numOfHeroine);
 	
-	   for(int i=0 ; i<heroinee.getNumOfHeroine(); i++)
+	   for(int i=0 ; i<numOfHeroine ; i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Heroine : ");  
@@ -83,7 +83,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 		 System.out.println("Name of the Heroine's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Heroine(name,charName));
-         actorsInMovie.put(2,actors);
+         mapOfActors.put(2,actors);
          
         }
      
@@ -94,11 +94,11 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of Comedian in the movie : ");
-       comediann.setNumOfComedian(sc.nextInt()); 
-	   System.out.println("Number of comedians in the Movie is : "+comediann.getNumOfComedian());
+       int numOfComedian=sc.nextInt();
+	   System.out.println("Number of comedians in the Movie is : "+numOfComedian);
 	
 
-	   for(int i=0 ; i<comediann.getNumOfComedian() ; i++)
+	   for(int i=0 ; i<numOfComedian ; i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Comedian : ");  
@@ -111,7 +111,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 		 System.out.println("Name of the Comedian's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Comedian(name,charName));
-		 actorsInMovie.put(3,actors);
+		 mapOfActors.put(3,actors);
 		 
 		 
         }
@@ -123,10 +123,10 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 
        System.out.println("---------------------------------------------------------------------------------------------------------");
        System.out.println("Enter the number of villains in the movie : ");
-       villainn.setNumOfVillain(sc.nextInt()); 
-	   System.out.println("Number of villains in the Movie is : "+villainn.getNumOfVillain());
+       int numOfVillain=sc.nextInt(); 
+	   System.out.println("Number of villains in the Movie is : "+numOfVillain);
 	
-	    for(int i=0 ; i<villainn.getNumOfVillain() ; i++)
+	    for(int i=0 ; i<numOfVillain ; i++)
 	    {
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Villain : ");  
@@ -139,7 +139,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 		 System.out.println("Name of the Villain's Character is : "+charName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 actors.add(new Villain(name,charName));
-		 actorsInMovie.put(4,actors);
+		 mapOfActors.put(4,actors);
 
         }
 
@@ -147,7 +147,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors(Hero heroo,Heroine her
 
   }
 
- return actorsInMovie;
+ return mapOfActors;
 
 }	    
 

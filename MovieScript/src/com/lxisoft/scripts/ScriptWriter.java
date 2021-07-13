@@ -33,7 +33,7 @@ public class ScriptWriter
 
 
 
-public void selectingAndPrintingScript(int genre , HashMap<Integer,ArrayList<Actor>> actors)
+public void writeScript(int genre , HashMap<Integer,ArrayList<Actor>> actors)
   {          
 
 String line;

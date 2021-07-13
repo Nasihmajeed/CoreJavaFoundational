@@ -274,7 +274,7 @@ System.out.println("\r\n");
 
 
 //******************************************************************************
-  actors=director.castingTheActors(heroo,heroinee,comediann,villainn);
+  actors=director.castingTheActors();
 //******************************************************************************
 
 
@@ -470,7 +470,7 @@ System.out.println("\r\n");
 
        //******************************************************************************
 		director.printCharactersOfTheMovie();
-		writer.selectingAndPrintingScript(getMovieGenre(),actors);
+		writer.writeScript(getMovieGenre(),actors);
 	   //******************************************************************************
 }
 

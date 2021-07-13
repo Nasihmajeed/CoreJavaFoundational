@@ -2,8 +2,7 @@ package com.lxisoft.cast;
 
 public class Villain extends Actor
 {
-   private int numOfVillain;
-
+   
    public Villain()
    {
       
@@ -16,15 +15,5 @@ public class Villain extends Actor
    }
 
 
-
-   public void setNumOfVillain(int numOfVillain)
-   {
-          this.numOfVillain=numOfVillain;
-   }
-
-   public int getNumOfVillain()
-   {
-      return numOfVillain;
-   }
 
 }
