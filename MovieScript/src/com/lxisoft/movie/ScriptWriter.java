@@ -15,7 +15,7 @@ enum Genre{
 }
 public class ScriptWriter {
     //Genre genres = Genre.values();
-  File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\com\\lxisoft\\script\\script.csv");
+  File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\resources\\script\\script.csv");
 
   ArrayList<Script>script= new ArrayList<Script>();
   public void writeScript() throws IOException {
@@ -41,7 +41,7 @@ public class ScriptWriter {
               for(int i=script.size()-1;i<script.size();i++){
               script.get(i).setGenre(words[0]);
               script.get(i).setCharacter(words[1]);
-              script.get(i).setConversation(words[2]);
+              script.get(i).setDialogues(words[2]);
 
             }
           }
@@ -76,7 +76,7 @@ fr.close();
 
                     if(script.get(i).getGenre().equals(input)){
 
-                     System.out.println(script.get(i).getCharacter()+" "+script.get(i).getConversation());
+                     System.out.println(script.get(i).getCharacter()+" "+script.get(i).getDialogues());
                     }
 
     }
@@ -87,7 +87,7 @@ fr.close();
      if(!script.get(i).getGenre().equals(input)){
 
 
-       System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getConversation());
+       System.out.println(script.get(i).getCharacter()+"  "+script.get(i).getDialogues());
      }
     }
   }

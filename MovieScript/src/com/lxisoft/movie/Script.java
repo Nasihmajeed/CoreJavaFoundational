@@ -15,10 +15,10 @@ public class Script{
   public String getCharacter(){
     return character;
   }
-  public void setConversation(String conversation){
+  public void setDialogues(String conversation){
     this.conversation=conversation;
   }
-  public String getConversation(){
+  public String getDialogues(){
     return conversation;
   }
 }
