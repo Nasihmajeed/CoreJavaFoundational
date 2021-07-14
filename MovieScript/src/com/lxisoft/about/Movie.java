@@ -26,17 +26,6 @@ public void getMovieDetailsFromUser()
 				setMovieName(movieName);
 }
 
-public void casting()
-{
-			
-Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
-//actors=director.castActors();
-cast=director.castActors();
-scriptWriter.setCast(cast);
-
-}
-
-
 
 public void setGenere(Genere genere)
  {
@@ -98,53 +87,14 @@ public float getRating()
 		Genere genereSelected=genere.getGenere(selectTheGenere-1);
 		System.out.println(genereSelected.toString());
 
-		casting();
+		Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
+		cast=director.castActors();
+		scriptWriter.setCast(cast);
 		scriptWriter.writeScript(genereSelected);
 
 
 
-		//answerTheGenere=sc.next();
-
-		/*switch(Genere.valueOf(answerTheGenere))
-		{
-			case Comedy: 	System.out.println("\t\n The name of the movie \n"+getMovieName());
-						setGenere(Genere.valueOf("Comedy"));
-						casting();
-
-					
-						scriptWriter.writeScript(Genere.valueOf("Comedy"));
-						
-						break;
-
-			case Romantic:	System.out.println("\t\n The name of the movie \n"+getMovieName());
-						setGenere(Genere.valueOf("Romantic"));
-							casting();
-						scriptWriter.writeScript(Genere.valueOf("Romantic"));
-					
-						break;
-			
-			case Emotional:	System.out.println("\t\n The name of the movie \n"+getMovieName());	
-						setGenere(Genere.valueOf("Emotional"));
-							casting();
-						scriptWriter.writeScript(Genere.valueOf("Emotional"));
-					
-						break;
-
-			case Thriller :	System.out.println("\t\n The name of the movie \n"+getMovieName());	
-						setGenere(Genere.valueOf("Thriller"));
-						casting();
-						scriptWriter.writeScript(Genere.valueOf("Thriller"));
-						
-						break;			
-
-						
-			default:	System.out.println("\t Invalid Input");
-						break;
-			
-						
-
-		}
-*/
+		
 		
 		System.out.println("\n \t\t Give your rating for the movie out of 10");
 		rating=sc.nextFloat();

@@ -10,7 +10,7 @@ public class ScriptWriter
 int i=0;
 
 Scanner sc =new Scanner(System.in);
-String scriptPath=new String("com\\script\\");
+String scriptPath=new String("resources\\script\\");
 String extension=".csv";
 
 BufferedReader scriptReader=null;
@@ -354,7 +354,7 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 			}		
 			break;		
 	
-					
+			
 
 }			
 
