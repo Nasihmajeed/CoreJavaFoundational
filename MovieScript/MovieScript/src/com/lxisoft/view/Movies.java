@@ -6,8 +6,6 @@ import java.util.Scanner;
 import java.util.ArrayList; 
 import java.util.Map.Entry;
 
-
-
 public class Movies 
 {
     String movieName;
