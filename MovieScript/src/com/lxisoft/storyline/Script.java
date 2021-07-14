@@ -4,21 +4,21 @@ import java.io.*;
 import java.util.*;
 public class Script
 {
-	String dialogues;
+	String dialogueLine;
 
 	
 
 	
 
-	public void setDialogue(String dialogues)
+	public void setDialogueLine(String dialogueLine)
 	{
-		this.dialogues=dialogues;
+		this.dialogueLine=dialogueLine;
 	}
 
 	
-	public String getDialogue()
+	public String getDialogueLine()
 	{
-		return dialogues;
+		return dialogueLine;
 	}
 
 
