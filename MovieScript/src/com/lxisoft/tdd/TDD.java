@@ -11,8 +11,8 @@ public class TDD
 	{	
 	Movie movie=new Movie();
 
-		/*movie.startMovie();
-		ScriptWriter scriptWriter= new ScriptWriter();*/
+		movie.startMovie();
+		/*ScriptWriter scriptWriter= new ScriptWriter();*/
 		
 	
 		/*Director director=new Director();
