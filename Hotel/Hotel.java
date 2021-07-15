@@ -1,6 +1,6 @@
 package com.lxisoft.hotel;
 
-import com.lxisoft.hotel.Admin;
+import com.lxisoft.user.Admin;
 import com.lxisoft.hotel.Menu;
 import java.util.*;
 public class Hotel {
@@ -22,7 +22,7 @@ public void showHotelDetail(){
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
      admin.adminVerification();
-     menu.foodMenuList();
+     menu.inbuiltMenuList();
      menu.printFoodMenu();
       menu.addFoodDetail();
       menu.printFoodMenu();//use of method over loading (polymorphism)

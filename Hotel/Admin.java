@@ -1,4 +1,4 @@
-package com.lxisoft.hotel;
+package com.lxisoft.user;
 
 import com.lxisoft.hotel.Menu;
 //import com.lxisoft.hotel.Customer;
