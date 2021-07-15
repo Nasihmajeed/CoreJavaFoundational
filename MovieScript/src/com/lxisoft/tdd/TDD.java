@@ -11,12 +11,10 @@ public class TDD
 	{	
 	Movie movie=new Movie();
 
-		movie.startMovie();
-		/*ScriptWriter scriptWriter= new ScriptWriter();
-		scriptWriter.displayMap();*/
-
-		/*Casting casting=new Casting();
-		casting.putActorsInMap();	*/	
+		/*movie.startMovie();
+		ScriptWriter scriptWriter= new ScriptWriter();*/
+		
+	
 		/*Director director=new Director();
 		director.doCasting();*/
 
