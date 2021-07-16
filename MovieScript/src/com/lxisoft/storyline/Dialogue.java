@@ -2,13 +2,9 @@ package com.lxisoft.storyline;
 
 import java.io.*;
 import java.util.*;
-public class Script
+public class Dialogue
 {
 	String dialogueLine;
-
-	
-
-	
 
 	public void setDialogueLine(String dialogueLine)
 	{

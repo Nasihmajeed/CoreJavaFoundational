@@ -13,10 +13,6 @@ public class Movie
 	ScriptWriter scriptWriter=new ScriptWriter();
 	
 
-
-
-
-
 public void getMovieDetailsFromUser()
 {
 
@@ -83,8 +79,10 @@ public float getRating()
 		System.out.println("\t 2."+Genere.valueOf("Romantic").toString());
 		System.out.println("\t 3."+Genere.valueOf("Emotional").toString());
 		System.out.println("\t 4. "+Genere.valueOf("Thriller").toString());
+		Genere [] geners=Genere.values();
 		selectTheGenere=sc.nextInt();
-		Genere genereSelected=genere.getGenere(selectTheGenere-1);
+		int setGenere=selectTheGenere-1;
+		Genere genereSelected=geners[setGenere];
 		System.out.println(genereSelected.toString());
 
 		Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
