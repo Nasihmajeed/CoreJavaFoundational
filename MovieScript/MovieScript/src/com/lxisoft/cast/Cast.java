@@ -1,5 +1,4 @@
-package com.lxisoft.controller;
-import com.lxisoft.repository.*;
+import com.lxisoft.story.*;
 
 import java.util.Scanner;
 import java.util.ArrayList; 
@@ -7,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map.Entry; 
 import java.util.Set; 
 
-public class Controller 
+public class Cast 
 {	
     CastList cl = new CastList();
 
