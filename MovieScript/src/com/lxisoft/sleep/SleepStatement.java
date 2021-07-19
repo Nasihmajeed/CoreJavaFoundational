@@ -2,7 +2,7 @@ public class SleepStatement
 {
 	
 
-public void SleepThread()
+public void sleepThread()
 {
 	                try{
 					    Thread.sleep(2000);
