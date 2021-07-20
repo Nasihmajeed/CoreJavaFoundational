@@ -105,7 +105,7 @@ switch(genere)
 			
 			break;
 		
-	case Romantic:  movieFile=new File(scriptPath+"Romantic.csv");
+	case Romantic :  movieFile=new File(scriptPath+"Romantic.csv");
 					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
 
 			for(i=0;i<dialogueLinesFromFile.size();i++ )
@@ -541,7 +541,7 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 									case Comedy:if(!(dialogue.toString().equals("")))
 													{int l=scriptList.size();
 													scriptList.add(new ComedyDialogue());
-													scriptList.get(l).setDDialogueLine(dialogue.toString());
+													scriptList.get(l).setDialogueLine(dialogue.toString());
 													l++;}
 													break;	
 									case Emotional:	if(!(dialogue.toString().equals("")))
