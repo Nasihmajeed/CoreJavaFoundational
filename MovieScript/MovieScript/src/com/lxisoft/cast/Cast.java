@@ -1,4 +1,6 @@
-import com.lxisoft.story.*;
+package com.lxisoft.cast;
+
+
 
 import java.util.Scanner;
 import java.util.ArrayList; 
@@ -8,8 +10,6 @@ import java.util.Set;
 
 public class Cast 
 {	
-    CastList cl = new CastList();
-
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
 	
 	ArrayList<String> heroList = new ArrayList<>();
@@ -122,19 +122,4 @@ public class Cast
 		villainCast.addAll(villainList);
 	}
 
-    public void database(int x, ArrayList<Entry<String, String>> cast)
-    {
-    		if(x==1)
-        	{
-    			cl.addToDatabase(cast);
-    		}
-    		else if(x==2)
-        	{
-    			cl.showDatabase();
-    		}
-    		else if(x==3)
-        	{
-    			cl.deleteFromDatabase();
-    		}
-    } 
 }

@@ -1,11 +1,15 @@
 package com.lxisoft.movie;
 
 import com.lxisoft.cast.*;
-import com.lxisoft.controller.*;
 
 import java.util.Scanner;
 import java.util.ArrayList; 
 import java.util.Map.Entry;
+
+// enum Genre
+// {
+// 	COMEDY,EMOTIONAL,ROMANCE,THRILLER;
+// }
 
 public class Movies 
 {
@@ -13,12 +17,11 @@ public class Movies
     String director;
     String genre;
 
-	Theatre theatre = new Theatre();
-	Controller controller = new Controller();
-	SceneSetting setScene = new SceneSetting();
-
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
 	ArrayList<String> search = new ArrayList<>();
+	Cast controller = new Cast();
+	Theatre theatre = new Theatre();
+	Director dir = new Director();
 	
 	ArrayList<String> heroCast = new ArrayList<>();
 	ArrayList<String> heroineCast = new ArrayList<>();
@@ -32,20 +35,15 @@ public class Movies
 
 	Scanner input = new Scanner(System.in);
 
-	public Movies()
-	{
-		controller.setCast(cast);
-	}
-
 	public void movieInput()
 	{
 		System.out.print("\n\nEnter Movie Name	: ");
 		movieName = input.next();
-		System.out.print("Director Name		: ");
-		director = input.next();
+		// System.out.print("Director Name		: ");
+		// director = input.next();
 		System.out.print("Enter genre		: ");
 		genre = input.next();
-
+		dir.setCast(cast);
 		this.movieOptions();
 	}
 
@@ -56,7 +54,7 @@ public class Movies
         int option;
         do
         {
-            System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	4.Database \n	0.Exit");
+            System.out.println("\nSelect option : \n	1.Play Script \n	2.View Cast \n	3.Ticket booking \n	0.Exit");
 			System.out.print("\nEnter option : ");
             option = s.nextInt();
             if(option==1)
@@ -96,59 +94,59 @@ public class Movies
             else if(option==2)
             {
                 this.printCast();
-				int x;
-				do
-				{
-					System.out.println("\n	Select option : \n		1.Search actors \n		0.Exit");
-					System.out.print("\n	Enter option : ");
-                	x = s.nextInt();
-					if(x==1)
-					{
-						this.search();
-					}
-                }
-				while(x!=0);
+				// int x;
+				// do
+				// {
+				// 	System.out.println("\n	Select option : \n		1.Search actors \n		0.Exit");
+				// 	System.out.print("\n	Enter option : ");
+                // 	x = s.nextInt();
+				// 	if(x==1)
+				// 	{
+				// 		this.search();
+				// 	}
+                // }
+				// while(x!=0);
             }
 			else if(option==3)
 			{
 				theatre.selectSeat();
 			}
-			else if(option==4)
-			{
-				int opt;
-				do
-				{
-					System.out.println("\n	Select option : \n		1.Add to Database \n		2.View Database \n		3.Delete from Database \n		0.Exit");
-					opt = s.nextInt();
-					controller.database(opt, cast);
-				}
-				while(opt!=0);
-			}
+			// else if(option==4)
+			// {
+			// 	int opt;
+			// 	do
+			// 	{
+			// 		System.out.println("\n	Select option : \n		1.Add to Database \n		2.View Database \n		3.Delete from Database \n		0.Exit");
+			// 		opt = s.nextInt();
+			// 		controller.database(opt, cast);
+			// 	}
+			// 	while(opt!=0);
+			// }
 		}
         while(option!=0);
     }
 
-	public void search()
-	{
-		for(int k=0;k<cast.size();k++)
-        {
-			search.add(cast.get(k).getKey());
-		}
+	// public void search()
+	// {
+	// 	for(int k=0;k<cast.size();k++)
+    //     {
+	// 		search.add(cast.get(k).getKey());
+	// 	}
 
-		Scanner s = new Scanner(System.in);
-		System.out.print("\n	Enter actor name : ");
-		String actor = s.nextLine();
+	// 	Scanner s = new Scanner(System.in);
+	// 	System.out.print("\n	Enter actor name : ");
+	// 	String actor = s.nextLine();
 		
-		if(search.contains(actor))
-		{
-			System.out.println(" 	Actor "+actor+" is acting in this movie");
-		}
-		else
-		{
-			System.out.println(" 	Actor "+actor+" is not acting in this movie");
-			return;
-		}
-	}
+	// 	if(search.contains(actor))
+	// 	{
+	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
+	// 	}
+	// 	else
+	// 	{
+	// 		System.out.println(" 	Actor "+actor+" is not acting in this movie");
+	// 		return;
+	// 	}
+	// }
 
 	public void casting()
 	{
