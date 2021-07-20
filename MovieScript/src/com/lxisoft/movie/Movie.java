@@ -12,6 +12,8 @@ import java.util.*;
 public class Movie
 {
 
+  SleepStatement slp=new SleepStatement();
+
   Scanner sc=new Scanner(System.in);
 
 
@@ -162,13 +164,7 @@ public class Movie
    setMovieName(sc.next());	
  
 
-                try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                slp.sleepThread();
 
 
 
@@ -179,13 +175,8 @@ public class Movie
 
    setMovieLanguage(sc.next());
 
-                  try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                  slp.sleepThread();
+
 
 
     System.out.println("\r\n");
@@ -202,13 +193,8 @@ public class Movie
        setMovieGenre(sc.nextInt());
 						  
 	            
-				try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 
 
@@ -222,13 +208,8 @@ public class Movie
 
     System.out.println("\r\n");
 
-				try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 
 
@@ -241,13 +222,8 @@ public class Movie
 	
 	System.out.println("\r\n");
 
-				try{
-					Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }	 
+				slp.sleepThread();
+	 
 
 
 
@@ -260,13 +236,8 @@ director.setDirectorName(sc.next());
 System.out.println("\r\n");
 
 
-                   try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                   slp.sleepThread();
+
  System.out.println("-----------------------------------------------------------------------------------------------------------");
  System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
  System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -287,33 +258,18 @@ System.out.println("\r\n");
 
    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                  try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                  slp.sleepThread();
+
 
 	System.out.println("-------------------------------GOOD FRIDAY MOVIE HOUSE in association with----------------------------------");
                   
-                  try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                  slp.sleepThread();
+
 
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                 slp.sleepThread();
+
     
 
 
@@ -326,33 +282,18 @@ System.out.println("\r\n");
                  
     System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                  try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                  slp.sleepThread();
+
 
 	System.out.println("---------------------------------UNIVERSAL PICTURE PRODUCTIONS PRESENTS------------------------------------");
                   
-                  try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                  slp.sleepThread();
+
 
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                 slp.sleepThread();
+
 
     System.out.println("\r\n");
 
@@ -363,13 +304,8 @@ System.out.println("\r\n");
 
 
 				
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
  
 
                switch(getMovieGenre())
@@ -389,84 +325,48 @@ System.out.println("\r\n");
                }
                                  
                   
-                      try{
-				          Thread.sleep(2000);
-				         }
-				     catch(InterruptedException e)
-				         {
-					      Thread.currentThread().interrupt();
-				         }
+                     slp.sleepThread();
+
 
 
                 System.out.println("Language of the Movie : "+getMovieLanguage());
 
 
 				
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 				System.out.println("Year of Release : "+getYear());
 				
 
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 
 				System.out.println("Rating of the movie : "+getRating());
 				
 
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 
 				System.out.println("Name of the Director : "+director.getDirectorName());
 
 
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
 
 				System.out.println("Name of the Script Writer : "+writer.getScriptWriterName());
 
 
-				try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+				slp.sleepThread();
+
 
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");	
                 
-                 try{
-					   Thread.sleep(2000);
-				     }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                 slp.sleepThread();
+
 
 
        //******************************************************************************

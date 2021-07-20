@@ -10,6 +10,8 @@ import java.io.*;
 
 public class Director
 {
+    SleepStatement slep=new SleepStatement();
+
 	Scanner sc=new Scanner(System.in);
 	
     private String directorName;
@@ -39,6 +41,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
 	   int numOfHero=sc.nextInt(); 
+	   slep.sleepThread();
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	 
 	  for(int i=0 ; i<numOfHero ; i++)
@@ -47,11 +50,13 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Hero : ");  
 		 String name=sc.next();
+		 slep.sleepThread();
 		 System.out.println("Name of the Hero is: "+name);
 		 
 
          System.out.println("Enter the Character name of the Hero : ");
 		 String charName=sc.next();
+		 slep.sleepThread();
 		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
@@ -166,40 +171,14 @@ public void printCharactersOfTheMovie()
         System.out.println("******************************************************************************************************");
             
 
-                  try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
+                  slep.sleepThread();
 
         System.out.println("**************************************=====CHARACTERS=====********************************************");
-            
-
-                      try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
-
-
+            slep.sleepThread();
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
 		
-		          try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-
-				    }
-
-
+		         slep.sleepThread();
 
 for(int i=0;i<actors.size();i++)
 {
@@ -207,26 +186,14 @@ if(actors.get(i) instanceof Hero)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
    
-            try{
-					      Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread() .interrupt();
-				    }
+            slep.sleepThread();
    }
  
   else if(actors.get(i) instanceof Heroine)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
    
-            try{
-					      Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+           slep.sleepThread();
 
    }
   else if(actors.get(i) instanceof Comedian)
@@ -234,26 +201,14 @@ if(actors.get(i) instanceof Hero)
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
    
 
-             try{
-					      Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+            slep.sleepThread();
 
    }
   else if(actors.get(i) instanceof Villain)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
    
-             try{
-					      Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+             slep.sleepThread();
 
    }      	
 }

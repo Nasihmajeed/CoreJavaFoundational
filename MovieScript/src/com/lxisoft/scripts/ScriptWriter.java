@@ -1,13 +1,12 @@
 package com.lxisoft.scripts;
 
-
 import com.lxisoft.cast.*;
 import com.lxisoft.sleep.*;
 
 import java.util.*;
 import java.io.*;
 
-public class ScriptWriter
+public class Script
 {
 
   private String scriptWriterName;
@@ -23,8 +22,6 @@ public class ScriptWriter
   return scriptWriterName;  	
   }
 
-
-        Random r=new Random();
 
 
  List<String> romanticDialogues=new ArrayList<String>();

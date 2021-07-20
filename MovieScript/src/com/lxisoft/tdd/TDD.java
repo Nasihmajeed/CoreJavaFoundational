@@ -11,6 +11,7 @@ public class TDD
 public static void main(String[] args)
 {
 
+SleepStatement sl=new SleepStatement();
 
 {
 System.out.println("******************************************************************************************************");	
@@ -24,61 +25,31 @@ System.out.println("************************************************************
 System.out.println("******************************************************************************************************");		
 } 
 
-                    try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                   sl.sleepThread();
 
 Movie movie=new Movie();
 movie.inputInitialDetails();
 
  
-                      try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                      sl.sleepThread();
 
 
 movie.printInitialDetails();
                      
 
 
-                      try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                       sl.sleepThread();
 
 
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
                     
-                    try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                     sl.sleepThread();
 
         System.out.println("/////////////////------------------------------THE END---------------------------/////////////////////");
                     
-                    try{
-					    Thread.sleep(2000);
-				       }
-				catch(InterruptedException e)
-				    {
-					Thread.currentThread().interrupt();
-				    }
+                    sl.sleepThread();
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
