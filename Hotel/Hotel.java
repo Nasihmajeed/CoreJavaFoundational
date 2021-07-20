@@ -15,22 +15,25 @@ public void showHotelDetail(){
   }
   public void inputUserDetail(){
   int userIdentificationNumber;
+  
     System.out.println("Select Who Are You");
     System.out.println("1 For Admin \n2 For Customer \n3 For Exit");
+   menu.inbuiltMenuList();
    userIdentificationNumber=input.nextInt();
    input.nextLine();
+
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
      admin.adminVerification();
-     menu.inbuiltMenuList();
      menu.printFoodMenu();
       menu.addFoodDetail();
-      menu.printFoodMenu();//use of method over loading (polymorphism)
+      menu.printFoodMenu();
      this.inputUserDetail();
       break;
       case 2: System.out.println("Customer");
       menu.printFoodMenu();
-     menu.orderFoodFromMenu();
+     //menu.orderFoodFromMenu();
+     menu.printSelectedFoodAndBill();
       //admin.takeOrderFromCustomer();
    this.inputUserDetail();
       break;

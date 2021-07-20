@@ -97,7 +97,7 @@ indexNumber++;
   }
   
   
-public void orderFoodFromMenu(){
+public void printSelectedFoodAndBill(){
   //this.foodMenuList();
   //this.printFoodMenu();
 int numberOfFoodOrder; int totalPriceOfAllFoodOrder=0;
