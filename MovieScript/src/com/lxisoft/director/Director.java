@@ -3,7 +3,7 @@ import com.lxisoft.actors.*;
 import java.util.*;
 
 public class Director{
-  String directorName,movieName;
+  String directorName;
   Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 
 
@@ -15,6 +15,19 @@ public class Director{
         if(a instanceof Hero){
           cast.put("hero",actors);
         }
+    for(Actor a : actors){
+            if(a instanceof Heroine){
+              cast.put("heroine",actors);
+            }
+
+    for(Actor a : actors){
+                if(a instanceof Comedian){
+                  cast.put("comedian",actors);
+                }
+    for(Actor a : actors){
+                      if(a instanceof Villain){
+                        cast.put("villain",actors);
+                      }
 
   }
 

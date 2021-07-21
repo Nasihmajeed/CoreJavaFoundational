@@ -14,8 +14,9 @@ enum Genre{
   COMEDY,ROMANTIC,EMOTIONAL;
 }
 public class ScriptWriter {
+  String Scriptpath = new String ("resources\\script\\");
     //Genre genres = Genre.values();
-  File f1=new File("C:\\Users\\Nisha\\Desktop\\work\\Movie Script\\src\\resources\\script\\script.csv");
+  File f1=new File(Scriptpath+"script.csv");
 
   ArrayList<Script>script= new ArrayList<Script>();
   public void writeScript() throws IOException {
