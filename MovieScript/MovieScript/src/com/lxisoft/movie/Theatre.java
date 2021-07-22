@@ -1,8 +1,6 @@
 package com.lxisoft.movie;
 
 import java.util.*;
-// import java.util.regex.Matcher;
-// import java.util.regex.Pattern;
 
 enum Seats
 {
@@ -112,37 +110,4 @@ public class Theatre
 			return;
 		}
 	}
-
-	// public void search()
-	// {
-	// 	Scanner s = new Scanner(System.in);
-	// 	System.out.print("\n	Enter actor name : ");
-	// 	String actor = s.nextLine();
-	// 	Pattern pattern = Pattern.compile(actor);
-	// 	Matcher matcher = pattern.matcher("Dileep");
-	// 	Matcher matcher1 = pattern.matcher("Kalabhavan Mani");
-	// 	Matcher matcher2 = pattern.matcher("Bhavna Pani");
-	// 	Matcher matcher3 = pattern.matcher("Mithun Ramesh");
-	// 	if(matcher.matches())
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
-	// 	}
-	// 	else if(matcher1.matches())
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
-	// 	}
-	// 	else if(matcher2.matches())
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
-	// 	}
-	// 	else if(matcher3.matches())
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
-	// 	}
-	// 	else
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is not acting in this movie");
-	// 		return;
-	// 	}
-	// }
 }

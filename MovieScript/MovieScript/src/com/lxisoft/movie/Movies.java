@@ -6,15 +6,10 @@ import java.util.Scanner;
 import java.util.ArrayList; 
 import java.util.Map.Entry;
 
-// enum Genre
-// {
-// 	COMEDY,EMOTIONAL,ROMANCE,THRILLER;
-// }
 
 public class Movies 
 {
     String movieName;
-    String director;
     String genre;
 
 	ArrayList<Entry<String, String>> cast = new ArrayList<Entry<String,String>>();
@@ -22,6 +17,7 @@ public class Movies
 	Cast controller = new Cast();
 	Theatre theatre = new Theatre();
 	Director dir = new Director();
+	Writer writer = new Writer();
 	
 	ArrayList<String> heroCast = new ArrayList<>();
 	ArrayList<String> heroineCast = new ArrayList<>();
@@ -39,8 +35,7 @@ public class Movies
 	{
 		System.out.print("\n\nEnter Movie Name	: ");
 		movieName = input.next();
-		// System.out.print("Director Name		: ");
-		// director = input.next();
+	
 		System.out.print("Enter genre		: ");
 		genre = input.next();
 		dir.setCast(cast);
@@ -111,42 +106,9 @@ public class Movies
 			{
 				theatre.selectSeat();
 			}
-			// else if(option==4)
-			// {
-			// 	int opt;
-			// 	do
-			// 	{
-			// 		System.out.println("\n	Select option : \n		1.Add to Database \n		2.View Database \n		3.Delete from Database \n		0.Exit");
-			// 		opt = s.nextInt();
-			// 		controller.database(opt, cast);
-			// 	}
-			// 	while(opt!=0);
-			// }
 		}
         while(option!=0);
     }
-
-	// public void search()
-	// {
-	// 	for(int k=0;k<cast.size();k++)
-    //     {
-	// 		search.add(cast.get(k).getKey());
-	// 	}
-
-	// 	Scanner s = new Scanner(System.in);
-	// 	System.out.print("\n	Enter actor name : ");
-	// 	String actor = s.nextLine();
-		
-	// 	if(search.contains(actor))
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is acting in this movie");
-	// 	}
-	// 	else
-	// 	{
-	// 		System.out.println(" 	Actor "+actor+" is not acting in this movie");
-	// 		return;
-	// 	}
-	// }
 
 	public void casting()
 	{
@@ -192,44 +154,43 @@ public class Movies
 
 	public void setComedyScene()
 	{	this.setMovie();
-		setScene.printComedyScene();
-		setScene.printRomanticScene();
-		setScene.printEmotionalScene();
-		setScene.printThrillerScene();
+		writer.printComedyScene();
+		writer.printRomanticScene();
+		writer.printEmotionalScene();
+		writer.printThrillerScene();
 	}
 
 	public void setRomanticScene()
 	{
 		this.setMovie();
-		setScene.printEmotionalScene();
-		setScene.printThrillerScene();
-		setScene.printComedyScene();		
-		setScene.printRomanticScene();
+		writer.printEmotionalScene();
+		writer.printThrillerScene();
+		writer.printComedyScene();		
+		writer.printRomanticScene();
 	}
 
 	public void setEmotionalScene()
 	{
 		this.setMovie();
-		setScene.printEmotionalScene();
-		setScene.printThrillerScene();
-		setScene.printComedyScene();
-		setScene.printRomanticScene();
+		writer.printEmotionalScene();
+		writer.printThrillerScene();
+		writer.printComedyScene();
+		writer.printRomanticScene();
 	}
 
 	public void setThrillerScene()
 	{
 		this.setMovie();
-		setScene.printThrillerScene();
-		setScene.printComedyScene();
-		setScene.printRomanticScene();
-		setScene.printEmotionalScene();
+		writer.printThrillerScene();
+		writer.printComedyScene();
+		writer.printRomanticScene();
+		writer.printEmotionalScene();
 	}
 
     public void setMovie()
     {
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
 		System.out.println("                                                   |                                        "+movieName+"\t\t\t\t\t   |");
-		System.out.println("                                                   |                                Directed by : "+director+"\t\t\t\t   |");
 		System.out.println("                                                   |    Genere : "+genre+"\t\t\t\t\t\t  IMDb Rating : 6.7/10     |");
 		System.out.println("                                                   |    Plot   :  Life of a thief and the unexpected twists and situations in his life     |");
 		System.out.println("                                                   +---------------------------------------------------------------------------------------+");
