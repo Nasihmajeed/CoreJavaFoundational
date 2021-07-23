@@ -8,11 +8,38 @@ public class Script
 ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 
 int i=0;
-public void createScriptFromDialogues(String dialogue)
+public void createScriptFromDialogues(String dialogue,Genere genere)
 {	
-		dialogues.get(i).setDialogueLine(dialogue);
+		
+	switch(genere)
+	{
+		case Comedy: dialogues.add(new ComedyDialogue());
+					dialogues.get(i).setDialogueLine(dialogue);
+					i++;
+					break;
 
-i++;
+		case Romantic:	dialogues.add(new RomanticDialogue());				
+						dialogues.get(i).setDialogueLine(dialogue);
+						i++;
+						break;
+
+		case Thriller:	dialogues.add(new ThrillerDialogue());
+						dialogues.get(i).setDialogueLine(dialogue);
+						i++;
+						break;
+
+		case Emotional:	dialogues.add(new EmotionalDialogue());
+						dialogues.get(i).setDialogueLine(dialogue);
+						i++;
+						break;											
+
+	}
+
+
+
+		
+
+		
 
 }
 

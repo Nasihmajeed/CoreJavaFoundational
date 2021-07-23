@@ -343,7 +343,9 @@ public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
 			{
 
 			}
-		}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
+		}
+
+			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
 			break;
