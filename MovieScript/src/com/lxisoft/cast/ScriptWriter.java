@@ -21,6 +21,9 @@ Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 
 File movieFile=null;
 
+
+Script script =new Script();
+
 public void setCast(Map<String,ArrayList<Actor>> cast)
 {
 	this.cast=cast;
@@ -105,7 +108,7 @@ switch(genere)
 			
 			break;
 		
-	case Romantic :  movieFile=new File(scriptPath+"Romantic.csv");
+/*	case Romantic :  movieFile=new File(scriptPath+"Romantic.csv");
 					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
 
 			for(i=0;i<dialogueLinesFromFile.size();i++ )
@@ -286,7 +289,7 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
 					
 			}		
 			break;		
-	
+	*/
 			
 
 		}			
@@ -317,9 +320,14 @@ public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
 					
 					if(!(dialogue.toString().equals("")))
 					{
-						scriptList.add(new ComedyDialogue());
-						scriptList.get(i).setDialogueLine(dialogue.toString());
+					 //scriptList=script.createScriptFromDialogues(dialogue.toString(),Genere.valueOf("Comedy"));
+
+						script.dialogues.add(new ComedyDialogue());
+						script.dialogues.get(i).setDialogueLine(dialogue.toString());
 						i++;	
+						//scriptList.get(i).setDialogueLine(dialogue.toString());
+						
+						
 					}
 					
 						
@@ -345,17 +353,17 @@ public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
 			}
 		}
 
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
+/*			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
-			break;
+			
+*/
+
+break;
 
 
 
-
-
-
-		case Emotional:	try{
+	/*	case Emotional:	try{
 						
 						
 						scriptReader=new BufferedReader(new FileReader(file));
@@ -503,12 +511,13 @@ case Thriller:	try{
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
 			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
 			break;
+			*/
 
 
 }
 		
-
-return scriptList;
+return script.dialogues;
+//return scriptList;
 
 
 }
@@ -541,12 +550,16 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 								switch(genere)
 								{
 									case Comedy:if(!(dialogue.toString().equals("")))
-													{int l=scriptList.size();
-													scriptList.add(new ComedyDialogue());
-													scriptList.get(l).setDialogueLine(dialogue.toString());
-													l++;}
+													{int l=script.dialogues.size();
+													script.dialogues.add(new ComedyDialogue());
+													script.dialogues.get(l).setDialogueLine(dialogue.toString());
+
+													//scriptList.get(l).setDialogueLine(dialogue.toString());
+													l++;
+													//scriptList=script.getDialogues();
+													}
 													break;	
-									case Emotional:	if(!(dialogue.toString().equals("")))
+								/*	case Emotional:	if(!(dialogue.toString().equals("")))
 														{int k=scriptList.size();
 														scriptList.add(new EmotionalDialogue());
 														scriptList.get(k).setDialogueLine(dialogue.toString());
@@ -564,7 +577,7 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 													scriptList.add(new ThrillerDialogue());
 													scriptList.get(n).setDialogueLine(dialogue.toString());
 													n++;
-													}break;				
+													}break;	*/			
 								
 								}
 									
@@ -593,8 +606,8 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 
 
 
-		
-return scriptList;
+		return script.dialogues;
+//return scriptList;
 
 }
 

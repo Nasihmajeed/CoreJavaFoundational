@@ -2,48 +2,30 @@ package com.lxisoft.storyline;
 
 import java.io.*;
 import java.util.*;
+import com.lxisoft.about.*;
 public class Script
 {
 
-ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+public ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 
-int i=0;
-public void createScriptFromDialogues(String dialogue,Genere genere)
+/*Dialogue comedyDialogue=new ComedyDialogue();
+Dialogue romanticDialogue=new RomanticDialogue();
+Dialogue thrillerDialogue=new ThrillerDialogue();
+Dialogue emotionalDialogue=new EmotionalDialogue();
+*/
+int index=0;
+public void createScriptFromDialogues(String dialogue)
 {	
+
+	dialogues.get(index).setDialogueLine(dialogue);
 		
-	switch(genere)
-	{
-		case Comedy: dialogues.add(new ComedyDialogue());
-					dialogues.get(i).setDialogueLine(dialogue);
-					i++;
-					break;
-
-		case Romantic:	dialogues.add(new RomanticDialogue());				
-						dialogues.get(i).setDialogueLine(dialogue);
-						i++;
-						break;
-
-		case Thriller:	dialogues.add(new ThrillerDialogue());
-						dialogues.get(i).setDialogueLine(dialogue);
-						i++;
-						break;
-
-		case Emotional:	dialogues.add(new EmotionalDialogue());
-						dialogues.get(i).setDialogueLine(dialogue);
-						i++;
-						break;											
-
-	}
-
-
-
-		
-
-		
-
+	index++;
 }
 
-
+public ArrayList<Dialogue> getDialogues()
+{
+	return dialogues;	
+}
 
 
 	
