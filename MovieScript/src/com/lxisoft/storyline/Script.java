@@ -8,11 +8,7 @@ public class Script
 
 public ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 
-/*Dialogue comedyDialogue=new ComedyDialogue();
-Dialogue romanticDialogue=new RomanticDialogue();
-Dialogue thrillerDialogue=new ThrillerDialogue();
-Dialogue emotionalDialogue=new EmotionalDialogue();
-*/
+
 int index=0;
 public void createScriptFromDialogues(String dialogue)
 {	
