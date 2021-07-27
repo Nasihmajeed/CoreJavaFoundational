@@ -40,7 +40,7 @@ public class ScriptWriter {
               script.add(new Script());
 
               for(int i=script.size()-1;i<script.size();i++){
-              script.get(i).setGenre(words[0]);
+              
               script.get(i).setCharacter(words[1]);
               script.get(i).setDialogues(words[2]);
 

@@ -1,18 +1,18 @@
 package com.lxisoft.actors;
 import java.util.*;
 public class Actor{
-  private String charName;
+  private String characterName;
   private String actorName;
   //private int numOfActors;
   public Actor(String actorName,String charName){
     this.actorName=actorName;
     this.charName=charName;
   }
-  public void setCharName(String charName){
-    this.charName=charName;
+  public void setCharacterName(String characterName){
+    this.characterName=characterName;
   }
   public String getCharName(){
-    return charName;
+    return characterName;
   }
   public void setActorName(String actorName){
     this.actorName=actorName;

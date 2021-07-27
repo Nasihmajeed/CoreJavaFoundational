@@ -36,14 +36,9 @@ public class Movie{
 
 
       System.out.println("ENTER THE CHARACTER NAME : ");
-      String charName=sc.next();
-      actors.add(new Hero(actorName,charName));
+      String characterName=sc.next();
+      actors.add(new Hero(actorName,characterName));
     }
-    /*  for(Actor a : actors){
-        if(a instanceof Hero){
-          cast.put("hero",actors);
-        }
-      }*/
 
     System.out.println("ENTER NUMBER OF HEROINES");
     int numOfHeroines=sc.nextInt();
@@ -54,14 +49,10 @@ public class Movie{
 
 
       System.out.println("ENTER THE CHARACTER NAME OF : ");
-      String charName=sc.next();
-        actors.add(new Heroine(actorName,charName));
+      String characterName=sc.next();
+        actors.add(new Heroine(actorName,characterName));
       }
-        /*for(Actor a : actors){
-          if(a instanceof Heroine){
-            cast.put("heroine",actors);
-          }
-        }*/
+
 
     System.out.println("ENTER NUMBER OF COMEDIANS");
     int numOfComedians=sc.nextInt();
@@ -70,15 +61,9 @@ public class Movie{
       String actorName=sc.next();
 
       System.out.println("ENTER THE CHARACTER NAME OF : ");
-      String charName=sc.next();
-      actors.add(new Comedian(actorName,charName));
+      String characterName=sc.next();
+      actors.add(new Comedian(actorName,characterName));
     }
-    /*  for(Actor a : actors){
-        if(a instanceof Comedian){
-          cast.put("comedian",actors);
-        }
-      }
-*/
 
     System.out.println("ENTER NUMBER OF VILLAINS");
     int numOfVillains=sc.nextInt();
@@ -90,15 +75,11 @@ public class Movie{
 
       System.out.println("ENTER THE CHARACTER NAME : ");
       String charName=sc.next();
-      actors.add(new Villain(actorName,charName));
+      actors.add(new Villain(actorName,characterName));
     }
-  /*    for(Actor a : actors){
-        if(a instanceof Hero){
-          cast.put("villain",actors);
-        }
-      }
 
-  */  /*  for(Map.Entry m : cast.entrySet()){
+
+ /*  for(Map.Entry m : cast.entrySet()){
         if(cast.containsKey("hero")){
 
             System.out.println(m.getValue());
@@ -107,7 +88,7 @@ public class Movie{
       }*/
       System.out.println("ACTORS\n");
       for(int i=0;i<actors.size();i++){
-        System.out.println("ACTOR NAME  "+actors.get(i).getActorName()+" : CHARACTER NAME  "+actors.get(i).getCharName());
+        System.out.println("ACTOR NAME  "+actors.get(i).getActorName()+" : CHARACTER NAME  "+actors.get(i).getCharacterName());
       }
 
     director.castActors(actors);

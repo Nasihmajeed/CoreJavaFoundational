@@ -1,21 +1,14 @@
 package com.lxisoft.movie;
 public class Script{
-  String genre;
   String character;
-  String conversation;
-  public void setGenre(String genre){
-    this.genre=genre;
-  }
-  public String getGenre(){
-    return genre;
-  }
+  String dialogue;
   public void setCharacter(String character){
     this.character=character;
   }
   public String getCharacter(){
     return character;
   }
-  public void setDialogues(String conversation){
+  public void setDialogues(String dialogue){
     this.conversation=conversation;
   }
   public String getDialogues(){
