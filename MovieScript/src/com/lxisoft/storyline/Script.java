@@ -6,20 +6,34 @@ import com.lxisoft.about.*;
 public class Script
 {
 
-public ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 
 
-int index=0;
-public void createScriptFromDialogues(String dialogue)
+ ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+
+public void writeDialogues(Dialogue dialogueType,String dialogue,int i)
+{	
+	dialogues.add(dialogueType);
+	dialogues.get(i).setDialogueLine(dialogue);
+i++;
+
+for(int j=0;j<dialogues.size();j++)
+{
+	System.out.println(" Dialogues "dialogues.get(i).getDialogueLine());
+
+}
+}
+
+public void createScriptFromDialogues(ArrayList<Dialogue> dialogues)
 {	
 
-	dialogues.get(index).setDialogueLine(dialogue);
+	dialogues.addAll(dialogues);
 		
-	index++;
+	
 }
 
 public ArrayList<Dialogue> getDialogues()
-{
+{	
+
 	return dialogues;	
 }
 

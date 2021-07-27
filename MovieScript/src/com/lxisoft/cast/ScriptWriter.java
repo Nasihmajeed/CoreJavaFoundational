@@ -21,6 +21,7 @@ Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 
 File movieFile=null;
 
+ ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 
 Script script =new Script();
 
@@ -37,8 +38,9 @@ switch(genere)
 {
 	case Comedy: 
 					 movieFile=new File(scriptPath+"Comedy.csv");
-					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
 
+					script.createScriptFromDialogues(majorContentsOfTheMovie(movieFile,genere));
+					dialogueLinesFromFile=script.getDialogues();
 
 			for(i=0;i<dialogueLinesFromFile.size();i++ )
 			{
@@ -297,10 +299,9 @@ case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
  }
 }
 
-
-public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
+public ArrayList<Dialogue> majorContentsOfTheMovie(File file,Genere genere)
 {
-		ArrayList<Dialogue> scriptList=new ArrayList<Dialogue>();
+		//ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 	
 	switch(genere)
 	{
@@ -322,9 +323,11 @@ public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
 					{
 					 //scriptList=script.createScriptFromDialogues(dialogue.toString(),Genere.valueOf("Comedy"));
 
-						script.dialogues.add(new ComedyDialogue());
-						script.dialogues.get(i).setDialogueLine(dialogue.toString());
-						i++;	
+						/*dialogues.add(new ComedyDialogue());
+						dialogues.get(i).setDialogueLine(dialogue.toString());
+						i++;*/	
+						script.writeDialogues(new ComedyDialogue(),dialogue.toString(),i);
+
 						//scriptList.get(i).setDialogueLine(dialogue.toString());
 						
 						
@@ -353,11 +356,10 @@ public ArrayList<Dialogue> fetchMovieScript(File file,Genere genere)
 			}
 		}
 
-/*			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
-			
-*/
+		dialogues=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),dialogues );
+			/*scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			*/
 
 break;
 
@@ -507,16 +509,16 @@ case Thriller:	try{
 			}
 
 
-			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			}scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Comedy"),scriptList);
+			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),scriptList);
+			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),scriptList);
 			break;
 			*/
 
 
 }
-		
-return script.dialogues;
+script.createScriptFromDialogues(dialogues);		
+return dialogues;
 //return scriptList;
 
 
@@ -526,7 +528,7 @@ return script.dialogues;
 
 
 
-public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,ArrayList<Dialogue> scriptList)
+public ArrayList<Dialogue> minorContentsOfTheMovie(String scriptPath,Genere genere,ArrayList<Dialogue> dialogues)
 {	
 	
 	int j=0;
@@ -549,22 +551,24 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 
 								switch(genere)
 								{
-									case Comedy:if(!(dialogue.toString().equals("")))
-													{int l=script.dialogues.size();
-													script.dialogues.add(new ComedyDialogue());
-													script.dialogues.get(l).setDialogueLine(dialogue.toString());
+									/*case Comedy:if(!(dialogue.toString().equals("")))
+													{int l=dialogues.size();
+													dialogues.add(new ComedyDialogue());
+													dialogues.get(l).setDialogueLine(dialogue.toString());
 
 													//scriptList.get(l).setDialogueLine(dialogue.toString());
 													l++;
 													//scriptList=script.getDialogues();
 													}
-													break;	
-								/*	case Emotional:	if(!(dialogue.toString().equals("")))
-														{int k=scriptList.size();
-														scriptList.add(new EmotionalDialogue());
-														scriptList.get(k).setDialogueLine(dialogue.toString());
+													break;	*/
+								case Emotional:	if(!(dialogue.toString().equals("")))
+														{int k=dialogues.size();
+														/*dialogues.add(new EmotionalDialogue());
+														dialogues.get(k).setDialogueLine(dialogue.toString());
+														*/
+														script.writeDialogues(new EmotionalDialogue(),dialogue.toString(),k);	
 														k++;}
-													break;			
+													break;	/*		
 									case Romantic:	if(!(dialogue.toString().equals("")))
 													{int m=scriptList.size();
 													scriptList.add(new RomanticDialogue());
@@ -606,10 +610,11 @@ public ArrayList<Dialogue> writeMinorParts(String scriptPath,Genere genere,Array
 
 
 
-		return script.dialogues;
+		return dialogues;
 //return scriptList;
 
 }
+
 
 private void breakBetweenScenes()
 {
