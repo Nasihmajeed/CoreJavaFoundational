@@ -3,15 +3,13 @@ package com.lxisoft.tdd;
 import com.lxisoft.movie.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
-import com.lxisoft.sleep.*;
 
-//Script,Dialogue,Scenes
+
 public class TDD
 {
 public static void main(String[] args)
 {
 
-SleepStatement sl=new SleepStatement();
 
 {
 System.out.println("******************************************************************************************************");	
@@ -25,36 +23,65 @@ System.out.println("************************************************************
 System.out.println("******************************************************************************************************");		
 } 
 
-                   sl.sleepThread();
+
+        try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
 
 Movie movie=new Movie();
 movie.inputInitialDetails();
 
  
-                      sl.sleepThread();
+                     try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
 
 
 movie.printInitialDetails();
                      
 
 
-                       sl.sleepThread();
+                     try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
 
 
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
                     
-                     sl.sleepThread();
+                     try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
 
         System.out.println("/////////////////------------------------------THE END---------------------------/////////////////////");
                     
-                    sl.sleepThread();
+                   try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
-  }
-
-
+ 
+ }
 }
-

@@ -3,16 +3,26 @@ package com.lxisoft.movie;
 import com.lxisoft.direction.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.scripts.*;
-import com.lxisoft.sleep.*;
 
 import java.util.*;
 
 
-//ArrayList
 public class Movie
 {
 
-  SleepStatement slp=new SleepStatement();
+     public void sleepStatement()
+     {
+        try{
+              Thread.sleep(2000);
+               }
+        catch(InterruptedException e)
+            {
+          Thread.currentThread().interrupt();
+            }
+     }
+
+           
+  
 
   Scanner sc=new Scanner(System.in);
 
@@ -164,7 +174,7 @@ public class Movie
    setMovieName(sc.next());	
  
 
-                slp.sleepThread();
+                sleepStatement();
 
 
 
@@ -175,7 +185,7 @@ public class Movie
 
    setMovieLanguage(sc.next());
 
-                  slp.sleepThread();
+                  sleepStatement();
 
 
 
@@ -193,7 +203,7 @@ public class Movie
        setMovieGenre(sc.nextInt());
 						  
 	            
-				slp.sleepThread();
+				sleepStatement();
 
 
 
@@ -208,8 +218,7 @@ public class Movie
 
     System.out.println("\r\n");
 
-				slp.sleepThread();
-
+				sleepStatement();
 
 
 
@@ -222,7 +231,7 @@ public class Movie
 	
 	System.out.println("\r\n");
 
-				slp.sleepThread();
+				sleepStatement();
 	 
 
 
@@ -236,7 +245,7 @@ director.setDirectorName(sc.next());
 System.out.println("\r\n");
 
 
-                   slp.sleepThread();
+                   sleepStatement();
 
  System.out.println("-----------------------------------------------------------------------------------------------------------");
  System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
@@ -258,17 +267,16 @@ System.out.println("\r\n");
 
    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                  slp.sleepThread();
+                 sleepStatement();
 
 
 	System.out.println("-------------------------------GOOD FRIDAY MOVIE HOUSE in association with----------------------------------");
                   
-                  slp.sleepThread();
-
+                  sleepStatement();
 
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 slp.sleepThread();
+                sleepStatement();
 
     
 
@@ -282,18 +290,16 @@ System.out.println("\r\n");
                  
     System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                  slp.sleepThread();
+                 sleepStatement();
 
 
 	System.out.println("---------------------------------UNIVERSAL PICTURE PRODUCTIONS PRESENTS------------------------------------");
                   
-                  slp.sleepThread();
-
+                 sleepStatement();
 
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 slp.sleepThread();
-
+                 sleepStatement();
 
     System.out.println("\r\n");
 
@@ -304,7 +310,7 @@ System.out.println("\r\n");
 
 
 				
-				slp.sleepThread();
+				sleepStatement();
 
  
 
@@ -325,7 +331,7 @@ System.out.println("\r\n");
                }
                                  
                   
-                     slp.sleepThread();
+                    sleepStatement();
 
 
 
@@ -333,45 +339,45 @@ System.out.println("\r\n");
 
 
 				
-				slp.sleepThread();
+				sleepStatement();
 
 
 				System.out.println("Year of Release : "+getYear());
 				
 
-				slp.sleepThread();
+				sleepStatement();
 
 
 
 				System.out.println("Rating of the movie : "+getRating());
 				
 
-				slp.sleepThread();
+				sleepStatement();
 
 
 
 				System.out.println("Name of the Director : "+director.getDirectorName());
 
 
-				slp.sleepThread();
+				sleepStatement();
 
 				System.out.println("Name of the Script Writer : "+writer.getScriptWriterName());
 
 
-				slp.sleepThread();
+				sleepStatement();
 
 
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");	
                 
-                 slp.sleepThread();
+                sleepStatement();
 
 
 
        //******************************************************************************
 		director.printCharactersOfTheMovie();
-		writer.writeScript(getMovieGenre(),actors);
+     //		writer.writeScript(getMovieGenre(),actors);
 	   //******************************************************************************
 }
 

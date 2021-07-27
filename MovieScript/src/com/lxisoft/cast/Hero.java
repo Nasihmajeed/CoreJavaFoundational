@@ -2,7 +2,6 @@ package com.lxisoft.cast;
 
 public class Hero extends Actor
 {
-	private int numOfHero;
 	
 	public Hero()
 	{
@@ -13,21 +12,6 @@ public class Hero extends Actor
    {
        super(heroName,heroCharName);
    }
-
-
-
-	public void setNumOfHero(int numOfHero)
-	{
-          this.numOfHero=numOfHero;
-	}
-
-	public int getNumOfHero()
-	{
-		return numOfHero;
-	}
-
-
-
 
 
 }
