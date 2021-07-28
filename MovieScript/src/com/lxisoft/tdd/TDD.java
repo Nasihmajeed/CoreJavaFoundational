@@ -13,7 +13,8 @@ public class TDD
 
 		movie.startMovie();
 		/*ScriptWriter scriptWriter= new ScriptWriter();*/
-		
+	/*Script script =new Script();
+	script.writeDialogues();	*/
 	
 		/*Director director=new Director();
 		director.doCasting();*/

@@ -21,9 +21,8 @@ Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 
 File movieFile=null;
 
- ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+ArrayList<Dialogue> script=new ArrayList<Dialogue>();
 
-Script script =new Script();
 
 public void setCast(Map<String,ArrayList<Actor>> cast)
 {
@@ -34,13 +33,12 @@ public void writeScript(Genere genere)
 {	
 
 
-switch(genere)
-{
-	case Comedy: 
-					 movieFile=new File(scriptPath+"Comedy.csv");
+	switch(genere)
+	{
+		case Comedy: 
+						 movieFile=new File(scriptPath+"Comedy.csv");
 
-					script.createScriptFromDialogues(majorContentsOfTheMovie(movieFile,genere));
-					dialogueLinesFromFile=script.getDialogues();
+					dialogueLinesFromFile=majorContentsOfTheMovie(movieFile,genere);
 
 			for(i=0;i<dialogueLinesFromFile.size();i++ )
 			{
@@ -50,16 +48,11 @@ switch(genere)
 					{
 						if(i%2==0 && i>0)
 						{
-
-							
 							System.out.print(cast.get("Comedian").get(0).getCharacterName());
 							System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
-
 							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
 							
 						}	
-							
-						
 						else if(i>2 && i>0)
 						{	
 							System.out.print(cast.get("Hero").get(0).getCharacterName());
@@ -68,8 +61,8 @@ switch(genere)
 							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
 						}	
 							
-
-				breakBetweenScenes();
+					}	
+				
 					if(dialogueLinesFromFile.get(i) instanceof RomanticDialogue)
 					{
 						
@@ -86,7 +79,7 @@ switch(genere)
 							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
 						}
 					}
-					breakBetweenScenes();
+				
 					if(dialogueLinesFromFile.get(i) instanceof EmotionalDialogue)
 					{
 						
@@ -109,232 +102,121 @@ switch(genere)
 			}
 			
 			break;
-		
-/*	case Romantic :  movieFile=new File(scriptPath+"Romantic.csv");
-					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
-
-			for(i=0;i<dialogueLinesFromFile.size();i++ )
-			{	
-
-				if(dialogueLinesFromFile.get(i) instanceof RomanticDialogue)
-				{	if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(1).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-
-				}
-									
-
-				
-
-				if(dialogueLinesFromFile.get(i) instanceof EmotionalDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Heroine").get(0).getCharacterName());
-						System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(0).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-				}
-				//breakBetweenScenes();
-				if(dialogueLinesFromFile.get(i) instanceof ComedyDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
-						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-						System.out.print(cast.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-					
-				}
-
-
-					
-			}		
-			break;		
-case Emotional : movieFile=new File(scriptPath+"Emotional.csv");
-					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
-
-			for(i=0;i<dialogueLinesFromFile.size();i++ )
-			{
-				breakBetweenScenes();
-				if(dialogueLinesFromFile.get(i) instanceof EmotionalDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Heroine").get(0).getCharacterName());
-						System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(0).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-				}
-					
-				if(dialogueLinesFromFile.get(i) instanceof RomanticDialogue)
-				{	if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(1).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-
-					
-				}
-					breakBetweenScenes();
-				
-				if(dialogueLinesFromFile.get(i) instanceof ComedyDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
-						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-						System.out.print(cast.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-					
-				}
-					
-			}		
-			break;		
 	
+		
 
-	case Thriller : movieFile=new File(scriptPath+"Thriller.csv");
-					dialogueLinesFromFile= fetchMovieScript(movieFile,genere);
+case Romantic : 		 movieFile=new File(scriptPath+"Romantic.csv");
+
+					dialogueLinesFromFile=majorContentsOfTheMovie(movieFile,genere);
 
 			for(i=0;i<dialogueLinesFromFile.size();i++ )
 			{
-				breakBetweenScenes();
-				if(dialogueLinesFromFile.get(i) instanceof ThrillerDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Villian").get(0).getCharacterName());
-						System.out.print("("+cast.get("Villian").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(0).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-					else if(i>15 && i>0)
-					{
-						System.out.print(cast.get("Hero").get(1).getCharacterName());
-						System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-				}
-
-				breakBetweenScenes();
-
-				if(dialogueLinesFromFile.get(i) instanceof RomanticDialogue)
-				{	if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Heroine").get(1).getCharacterName());
-						System.out.print("("+cast.get("Heroine").get(1).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-					System.out.print(cast.get("Hero").get(1).getCharacterName());
-					System.out.print("("+cast.get("Hero").get(1).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-
-					
-				}
-
-				breakBetweenScenes();
-				if(dialogueLinesFromFile.get(i) instanceof ComedyDialogue)
-				{
-					if(i%2==0 && i>0)
-					{	System.out.print(cast.get("Hero").get(0).getCharacterName());
-						System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
-						System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
-					}
-					else if(i>2 && i>0)
-					{
-						System.out.print(cast.get("Comedian").get(0).getCharacterName());
-						System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
-					System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());	
-					}
-					
-				}
-					
-			}		
-			break;		
-	*/
 			
+			
+					if(dialogueLinesFromFile.get(i) instanceof ComedyDialogue)
+					{
+						if(i%2==0 && i>0)
+						{
 
-		}			
+							
+							System.out.print(cast.get("Heroine").get(0).getCharacterName());
+							System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
 
- }
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+							
+						}	
+							
+						
+						else if(i>2 && i>0)
+						{	
+							System.out.print(cast.get("Comedian").get(0).getCharacterName());
+							System.out.print("("+cast.get("Comedian").get(0).getActorName()+")");
+							
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+						}	
+							
+					}	
+				
+					if(dialogueLinesFromFile.get(i) instanceof RomanticDialogue)
+					{
+						
+						if(i%2==0)
+						{	
+							System.out.print(cast.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+						}
+						else if(i>2)
+						{	
+							System.out.print(cast.get("Heroine").get(0).getCharacterName());
+							System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+						}
+					}
+				
+					if(dialogueLinesFromFile.get(i) instanceof EmotionalDialogue)
+					{
+						
+						if(i%2==0 && i>0)
+						{	
+							System.out.print(cast.get("Hero").get(0).getCharacterName());
+							System.out.print("("+cast.get("Hero").get(0).getActorName()+")");
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+						}
+						else if(i>2 && i>0)
+						{	
+							System.out.print(cast.get("Heroine").get(0).getCharacterName());
+							System.out.print("("+cast.get("Heroine").get(0).getActorName()+")");
+							System.out.println(dialogueLinesFromFile.get(i).getDialogueLine());
+						}
+					}
+
+
+					
+			}
+			
+			break;
+
+
+
+
+	}
+
+
+
+
 }
 
 public ArrayList<Dialogue> majorContentsOfTheMovie(File file,Genere genere)
 {
-		//ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+				
 	
-	switch(genere)
-	{
-		case Comedy:	try{
-						scriptReader=new BufferedReader(new FileReader(file));
-						String line=null;
+		switch(genere)
+		{
+				case Comedy:	try{
+										scriptReader=new BufferedReader(new FileReader(file));
+										String line=null;
 
-					while((line=scriptReader.readLine())!=null  )
-					{
-					String []parts=line.split(":");
-					String scene=parts[0].trim();
-					//String dialogues=parts[1].trim();
+									while((line=scriptReader.readLine())!=null  )
+									{
+										String []parts=line.split(":");
+										String scene=parts[0].trim();
+										//String dialogues=parts[1].trim();
 
-					//String scene
-					StringBuilder dialogue=new StringBuilder();
-					dialogue.append(line);
+									//String scene
+									StringBuilder dialogue=new StringBuilder();
+								dialogue.append(line);
 					
-					if(!(dialogue.toString().equals("")))
-					{
-					 //scriptList=script.createScriptFromDialogues(dialogue.toString(),Genere.valueOf("Comedy"));
-
-						/*dialogues.add(new ComedyDialogue());
-						dialogues.get(i).setDialogueLine(dialogue.toString());
-						i++;*/	
-						script.writeDialogues(new ComedyDialogue(),dialogue.toString(),i);
-
-						//scriptList.get(i).setDialogueLine(dialogue.toString());
-						
-						
-					}
+							if(!(dialogue.toString().equals("")))
+							{
+							
+							script.add(new ComedyDialogue());
+							script.get(i).setDialogueLine(dialogue.toString());
+							i++;	
+							}
 					
 						
-					}
+								}
 					
 							
 				}
@@ -355,17 +237,16 @@ public ArrayList<Dialogue> majorContentsOfTheMovie(File file,Genere genere)
 
 			}
 		}
-
-		dialogues=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),dialogues );
-			/*scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),scriptList);
-			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Thriller"),scriptList);
-			*/
+		script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),script );
+		script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),script);
+		script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Thriller"),script);
+			
 
 break;
 
 
 
-	/*	case Emotional:	try{
+	case Emotional:	try{
 						
 						
 						scriptReader=new BufferedReader(new FileReader(file));
@@ -383,8 +264,8 @@ break;
 					
 					if(!(dialogue.toString().equals("")))
 					{
-						scriptList.add(new EmotionalDialogue());
-						scriptList.get(i).setDialogueLine(dialogue.toString());
+						script.add(new EmotionalDialogue());
+						script.get(i).setDialogueLine(dialogue.toString());
 						i++;	
 					}
 					
@@ -410,9 +291,9 @@ break;
 			}
 
 
-			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Romantic"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			}script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Comedy"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Thriller"),script);
 			break;
 			
 
@@ -432,8 +313,8 @@ break;
 					
 					if(!(dialogue.toString().equals("")))
 					{
-						scriptList.add(new RomanticDialogue());
-						scriptList.get(i).setDialogueLine(dialogue.toString());
+						script.add(new RomanticDialogue());
+						script.get(i).setDialogueLine(dialogue.toString());
 						i++;	
 					}
 					
@@ -460,9 +341,9 @@ break;
 			}
 
 
-			}scriptList=writeMinorParts(scriptPath,Genere.valueOf("Comedy"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Emotional"),scriptList);
-			scriptList=writeMinorParts(scriptPath,Genere.valueOf("Thriller"),scriptList);
+			}script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Comedy"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Thriller"),script);
 			break;
 
 
@@ -482,8 +363,8 @@ case Thriller:	try{
 					
 					if(!(dialogue.toString().equals("")))
 					{
-						scriptList.add(new ThrillerDialogue());
-						scriptList.get(i).setDialogueLine(dialogue.toString());
+						script.add(new ThrillerDialogue());
+						script.get(i).setDialogueLine(dialogue.toString());
 						i++;	
 					}
 					
@@ -509,79 +390,74 @@ case Thriller:	try{
 			}
 
 
-			}scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Comedy"),scriptList);
-			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),scriptList);
-			scriptList=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),scriptList);
+			}
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Comedy"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Emotional"),script);
+			script=minorContentsOfTheMovie(scriptPath,Genere.valueOf("Romantic"),script);
 			break;
-			*/
-
+		
 
 }
-script.createScriptFromDialogues(dialogues);		
-return dialogues;
-//return scriptList;
 
 
+return script;
 }
 
 
 
 
 
-public ArrayList<Dialogue> minorContentsOfTheMovie(String scriptPath,Genere genere,ArrayList<Dialogue> dialogues)
+public ArrayList<Dialogue> minorContentsOfTheMovie(String scriptPath,Genere genere,ArrayList<Dialogue> script)
 {	
 	
 	int j=0;
 	
 	File file=new File(scriptPath+(genere.toString()+extension));
 	
-			try{
-					String minorLine=null;
+			try
+			{
+						String minorLine=null;
 
-					scriptReader=new BufferedReader(new FileReader(file));
-					while((minorLine=scriptReader.readLine())!=null && j<15  )
+						scriptReader=new BufferedReader(new FileReader(file));
+						while((minorLine=scriptReader.readLine())!=null && j<15  )
 						{
-							String []partsRomance=minorLine.split(":");
-							String actorRomance=partsRomance[0].trim();
+								String []partsRomance=minorLine.split(":");
+								String actorRomance=partsRomance[0].trim();
 	
-							StringBuilder dialogue=new StringBuilder();
-								dialogue.append(minorLine);
+									StringBuilder dialogue=new StringBuilder();
+									dialogue.append(minorLine);
 	
 						
 
 								switch(genere)
 								{
-									/*case Comedy:if(!(dialogue.toString().equals("")))
-													{int l=dialogues.size();
-													dialogues.add(new ComedyDialogue());
-													dialogues.get(l).setDialogueLine(dialogue.toString());
-
-													//scriptList.get(l).setDialogueLine(dialogue.toString());
-													l++;
-													//scriptList=script.getDialogues();
+									case Comedy:if(!(dialogue.toString().equals("")))
+													{int l=script.size();
+													script.add(new ComedyDialogue());
+													script.get(l).setDialogueLine(dialogue.toString());
+														l++;
+													
 													}
-													break;	*/
-								case Emotional:	if(!(dialogue.toString().equals("")))
-														{int k=dialogues.size();
-														/*dialogues.add(new EmotionalDialogue());
-														dialogues.get(k).setDialogueLine(dialogue.toString());
-														*/
-														script.writeDialogues(new EmotionalDialogue(),dialogue.toString(),k);	
+													break;	
+									case Emotional:	if(!(dialogue.toString().equals("")))
+														{int k=script.size();
+														script.add(new EmotionalDialogue());
+														script.get(k).setDialogueLine(dialogue.toString());
 														k++;}
-													break;	/*		
+													break;			
 									case Romantic:	if(!(dialogue.toString().equals("")))
-													{int m=scriptList.size();
-													scriptList.add(new RomanticDialogue());
-													scriptList.get(m).setDialogueLine(dialogue.toString());
+													{int m=script.size();
+													script.add(new RomanticDialogue());
+													script.get(m).setDialogueLine(dialogue.toString());
 													m++;				
 													}
 													break;
 									case Thriller:	if(!(dialogue.toString().equals("")))
-													{int n=scriptList.size();
-													scriptList.add(new ThrillerDialogue());
-													scriptList.get(n).setDialogueLine(dialogue.toString());
+													{int n=script.size();
+													script.add(new ThrillerDialogue());
+													script.get(n).setDialogueLine(dialogue.toString());
 													n++;
-													}break;	*/			
+													}break;		
 								
 								}
 									
@@ -610,23 +486,11 @@ public ArrayList<Dialogue> minorContentsOfTheMovie(String scriptPath,Genere gene
 
 
 
-		return dialogues;
-//return scriptList;
+	return script;
 
 }
 
 
-private void breakBetweenScenes()
-{
-	try{
-					Thread.sleep(10);
-				}
-				catch(InterruptedException ex)
-				{
-					Thread.currentThread().interrupt();
-				}
-
-}
 
 
 }
