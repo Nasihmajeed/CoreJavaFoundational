@@ -32,6 +32,9 @@ System.out.println(1+arrayNumber +".    "+ list.get(arrayNumber).getfoodName() +
 }
 
 }
+public ArrayList<FoodItem> getArraylist(){
+  return list;
+}
 //use of polymorphism method over loading
 /*public void printFoodMenu(int numberToRemoveUnwantedArraylist){
 list.add(new FoodItem("Biriyani",100));
@@ -61,40 +64,7 @@ list.get(2).setfoodPrice(20);*/
 
 
 //public int j=list.size();
-public void addFoodDetail(){
-System.out.println("Enter Index No Of food Item");
-int indexNumber=input.nextInt();
-indexNumber=indexNumber-1;
-int loopNumberToAddItem;
 
-  System.out.println("Enter how many food Items you want To add");
- int numberOfItemUserToAddOnMenu=input.nextInt();
- 
-  input.nextLine();
-  for(loopNumberToAddItem=0;loopNumberToAddItem<numberOfItemUserToAddOnMenu;loopNumberToAddItem++){
-   
- // list.add(new FoodItems());
-
-  System.out.println("Enter Name of FoodItem ");
-  String name=input.nextLine();
-//list.get(j).setfoodName(name);
-
-    System.out.println("Enter Price of Food Item ");
-    
-    int price=input.nextInt();
-    
-    list.add(new FoodItem(name,price));
-   
- /*list.get(indexNumber).setfoodName(name);
- list.get(indexNumber).setfoodPrice(price);*/
- //list.add(new FoodItems());
-
-
-    input.nextLine();
-   
-indexNumber++;
-  }
-  }
   
   
 public void printSelectedFoodAndBill(){

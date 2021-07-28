@@ -18,15 +18,15 @@ public void showHotelDetail(){
   
     System.out.println("Select Who Are You");
     System.out.println("1 For Admin \n2 For Customer \n3 For Exit");
-   menu.inbuiltMenuList();
    userIdentificationNumber=input.nextInt();
    input.nextLine();
 
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
      admin.adminVerification();
+     menu.inbuiltMenuList();
      menu.printFoodMenu();
-      menu.addFoodDetail();
+      admin.addFoodDetail(menu);
       menu.printFoodMenu();
      this.inputUserDetail();
       break;
