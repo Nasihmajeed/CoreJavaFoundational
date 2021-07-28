@@ -40,7 +40,7 @@ public class ScriptWriter {
               script.add(new Script());
 
               for(int i=script.size()-1;i<script.size();i++){
-              
+
               script.get(i).setCharacter(words[1]);
               script.get(i).setDialogues(words[2]);
 
@@ -65,8 +65,8 @@ fr.close();
 
   System.out.println("********************************************************************\n");
   System.out.println("************************************************************************");
-  System.out.println("****************************************************************");
-  System.out.println("****************SCENE1********************************************");
+  System.out.println("***********************************************************************");
+  System.out.println("****************SCENE1**********************************************8ss****");
   System.out.println("***********************************************************************");
   System.out.println("**********************************************************************");
 
@@ -75,10 +75,10 @@ fr.close();
                   for (int i=0;i<script.size();i++)
                   {
 
-                    if(script.get(i).getGenre().equals(input)){
+                  //  if(script.get(i).getGenre().equals(input)){
 
                      System.out.println(script.get(i).getCharacter()+" "+script.get(i).getDialogues());
-                    }
+
 
     }
     int n=randNum();

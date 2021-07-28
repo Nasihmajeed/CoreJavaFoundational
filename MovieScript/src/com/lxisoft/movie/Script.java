@@ -9,9 +9,9 @@ public class Script{
     return character;
   }
   public void setDialogues(String dialogue){
-    this.conversation=conversation;
+    this.dialogue=dialogue;
   }
   public String getDialogues(){
-    return conversation;
+    return dialogue;
   }
 }

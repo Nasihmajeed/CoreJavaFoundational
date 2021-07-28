@@ -6,12 +6,12 @@ public class Actor{
   //private int numOfActors;
   public Actor(String actorName,String charName){
     this.actorName=actorName;
-    this.charName=charName;
+    this.characterName=charName;
   }
   public void setCharacterName(String characterName){
     this.characterName=characterName;
   }
-  public String getCharName(){
+  public String getCharacterName(){
     return characterName;
   }
   public void setActorName(String actorName){
