@@ -23,63 +23,27 @@ System.out.println("************************************************************
 System.out.println("******************************************************************************************************");		
 } 
 
-
-        try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
+//sleep
 
 Movie movie=new Movie();
 movie.inputInitialDetails();
 
- 
-                     try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
-
+ //sleep
 
 movie.printInitialDetails();
                      
 
-
-                     try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
+//sleep
 
 
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
-                    
-                     try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
+               //sleep
 
         System.out.println("/////////////////------------------------------THE END---------------------------/////////////////////");
                     
-                   try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
-
+                //sleep
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
  
