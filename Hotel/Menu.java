@@ -12,7 +12,7 @@ list.add(new FoodItem("Biriyani",100));
 list.add(new FoodItem("Porota",10));
 list.add(new FoodItem("dosa",20));
 }
-/*list.get(0).setfoodName("Biriyani");
+/* list.get(0).setfoodName("Biriyani");
 list.get(0).setfoodPrice(100);
 list.add(new FoodItems());
 list.get(1).setfoodName("porota");
