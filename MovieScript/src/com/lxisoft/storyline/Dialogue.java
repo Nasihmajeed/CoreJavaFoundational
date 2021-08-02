@@ -4,17 +4,17 @@ import java.io.*;
 import java.util.*;
 public class Dialogue
 {
-	String dialogueLine;
+	String dialogue;
 
-	public void setDialogueLine(String dialogueLine)
+	public void setDialogueLine(String dialogue)
 	{
-		this.dialogueLine=dialogueLine;
+		this.dialogue=dialogue;
 	}
 
 	
 	public String getDialogueLine()
 	{
-		return dialogueLine;
+		return dialogue;
 	}
 
 
