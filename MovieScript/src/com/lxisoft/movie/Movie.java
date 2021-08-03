@@ -3,26 +3,15 @@ package com.lxisoft.movie;
 import com.lxisoft.direction.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.scripts.*;
+import com.lxisoft.resources.DisplayUtility;
 
 import java.util.*;
 
 
 public class Movie
-{
+{ 
 
-     public void sleepStatement()
-     {
-        try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
-     }
-
-           
-  
+  DisplayUtility sleep=new DisplayUtility(); 
 
   Scanner sc=new Scanner(System.in);
 
@@ -174,7 +163,7 @@ public class Movie
    setMovieName(sc.next());	
  
 
-                sleepStatement();
+                sleep.sleepStatement();
 
 
 
@@ -185,7 +174,7 @@ public class Movie
 
    setMovieLanguage(sc.next());
 
-                  sleepStatement();
+                  sleep.sleepStatement();
 
 
 
@@ -203,7 +192,7 @@ public class Movie
        setMovieGenre(sc.nextInt());
 						  
 	            
-				sleepStatement();
+				sleep.sleepStatement();
 
 
 
@@ -218,7 +207,7 @@ public class Movie
 
     System.out.println("\r\n");
 
-				sleepStatement();
+				sleep.sleepStatement();
 
 
 
@@ -231,7 +220,7 @@ public class Movie
 	
 	System.out.println("\r\n");
 
-				sleepStatement();
+				sleep.sleepStatement();
 	 
 
 
@@ -245,7 +234,7 @@ director.setDirectorName(sc.next());
 System.out.println("\r\n");
 
 
-                   sleepStatement();
+                  sleep.sleepStatement();
 
  System.out.println("-----------------------------------------------------------------------------------------------------------");
  System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
@@ -267,16 +256,16 @@ System.out.println("\r\n");
 
    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                 sleepStatement();
+                 sleep.sleepStatement();
 
 
 	System.out.println("-------------------------------GOOD FRIDAY MOVIE HOUSE in association with----------------------------------");
                   
-                  sleepStatement();
+                 sleep.sleepStatement();
 
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                sleepStatement();
+               sleep.sleepStatement();
 
     
 
@@ -290,16 +279,14 @@ System.out.println("\r\n");
                  
     System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                 sleepStatement();
-
+                 sleep.sleepStatement();
 
 	System.out.println("---------------------------------UNIVERSAL PICTURE PRODUCTIONS PRESENTS------------------------------------");
                   
-                 sleepStatement();
-
+                 sleep.sleepStatement();
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 sleepStatement();
+                 sleep.sleepStatement();
 
     System.out.println("\r\n");
 
@@ -310,7 +297,7 @@ System.out.println("\r\n");
 
 
 				
-				sleepStatement();
+				sleep.sleepStatement();
 
  
 
@@ -331,48 +318,45 @@ System.out.println("\r\n");
                }
                                  
                   
-                    sleepStatement();
-
+                    sleep.sleepStatement();
 
 
                 System.out.println("Language of the Movie : "+getMovieLanguage());
 
 
 				
-				sleepStatement();
+				sleep.sleepStatement();
 
 
 				System.out.println("Year of Release : "+getYear());
 				
 
-				sleepStatement();
+				sleep.sleepStatement();
 
 
 
 				System.out.println("Rating of the movie : "+getRating());
 				
 
-				sleepStatement();
+				sleep.sleepStatement();
 
 
 
 				System.out.println("Name of the Director : "+director.getDirectorName());
 
 
-				sleepStatement();
+				sleep.sleepStatement();
 
 				System.out.println("Name of the Script Writer : "+writer.getScriptWriterName());
 
 
-				sleepStatement();
-
+				sleep.sleepStatement();
 
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");	
                 
-                sleepStatement();
-
+               sleep.sleepStatement();
 
 
        //******************************************************************************

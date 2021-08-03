@@ -6,19 +6,11 @@ import com.lxisoft.movie.*;
 import java.util.*;
 import java.io.*;
 
+import com.lxisoft.resources.DisplayUtility;
 
 public class Director
 {
-    public void sleepStatement()
-     {
-        try{
-              Thread.sleep(2000);
-               }
-        catch(InterruptedException e)
-            {
-          Thread.currentThread().interrupt();
-            }
-     }
+    DisplayUtility sleep=new DisplayUtility();
 
 
 	Scanner sc=new Scanner(System.in);
@@ -50,7 +42,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
 	   int numOfHero=sc.nextInt(); 
-	   sleepStatement();
+	   sleep.sleepStatement();
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	 
 	  for(int i=0 ; i<numOfHero ; i++)
@@ -59,13 +51,13 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("\r\n");
 		 System.out.println("Enter the name of the Hero : ");  
 		 String name=sc.next();
-		 sleepStatement();
+		 sleep.sleepStatement();
 		 System.out.println("Name of the Hero is: "+name);
 		 
 
          System.out.println("Enter the Character name of the Hero : ");
 		 String charName=sc.next();
-		 sleepStatement();
+		 sleep.sleepStatement();
 		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
@@ -179,14 +171,14 @@ public void printCharactersOfTheMovie()
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
             
-                sleepStatement();
+                sleep.sleepStatement();
 
         System.out.println("**************************************=====CHARACTERS=====********************************************");
-           sleepStatement();
+          sleep.sleepStatement();
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
 		
-		        sleepStatement();
+		        sleep.sleepStatement();
 
 for(int i=0;i<actors.size();i++)
 {
@@ -194,14 +186,14 @@ if(actors.get(i) instanceof Hero)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
    
-            sleepStatement();
+            sleep.sleepStatement();
    }
  
   else if(actors.get(i) instanceof Heroine)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
    
-          sleepStatement();
+          sleep.sleepStatement();
 
    }
   else if(actors.get(i) instanceof Comedian)
@@ -209,13 +201,13 @@ if(actors.get(i) instanceof Hero)
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
    
 
-            sleepStatement();
+            sleep.sleepStatement();
    }
   else if(actors.get(i) instanceof Villain)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
    
-             sleepStatement();
+             sleep.sleepStatement();
 
    }      	
 }
