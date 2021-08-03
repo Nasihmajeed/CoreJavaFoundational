@@ -5,10 +5,10 @@ import com.lxisoft.hotel.Menu;
 import com.lxisoft.menu.FoodItem;
 import java.util.*;
 public class Customer {
-Menu menu;
+//Menu menu;
 Scanner input=new Scanner(System.in);
 public void printSelectedFoodAndBill(Menu menu){
-	this.menu=menu;
+	//this.menu=menu;
 	ArrayList<FoodItem> list =menu.getArraylist();
   //this.foodMenuList();
   //this.printFoodMenu();

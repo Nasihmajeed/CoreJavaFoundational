@@ -1,8 +1,8 @@
 package com.lxisoft.menu;
 
 public class FoodItem {
-public String foodName;
-public int foodPrice;
+private String foodName;
+private int foodPrice;
 
 public FoodItem(String foodName,int foodPrice){
   this.foodName=foodName;

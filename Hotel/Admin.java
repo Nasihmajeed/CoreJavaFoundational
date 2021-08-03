@@ -6,10 +6,10 @@ import com.lxisoft.menu.FoodItem;
 import java.util.*;
 public class Admin {
 //Customer customer = new Customer();
-Menu menu;
+//Menu menu;
 Scanner input=new Scanner(System.in);
 int userEnteredPassword;
-public void adminVerification(){
+public void verifyAdmin(){
   int originalPassword=123;
   System.out.println("Enter Password");
   userEnteredPassword=input.nextInt();
@@ -22,7 +22,7 @@ public void adminVerification(){
   }
   } 
   public void addFoodDetail(Menu menu){
-    this.menu=menu;
+    //this.menu=menu;
     ArrayList<FoodItem> list =menu.getArraylist();
 System.out.println("Enter Index No Of food Item");
 int indexNumber=input.nextInt();

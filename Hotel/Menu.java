@@ -3,11 +3,11 @@ package com.lxisoft.hotel;
 import com.lxisoft.menu.FoodItem;
 import java.util.*;
 public class Menu {
-int  quantityOfFoodItem;
+//int  quantityOfFoodItem;
 Scanner input= new Scanner(System.in);
 ArrayList<FoodItem> list=new ArrayList<FoodItem>();
 
-public void inbuiltMenuList(){
+public void showMenuDetail(){
 list.add(new FoodItem("Biriyani",100));
 list.add(new FoodItem("Porota",10));
 list.add(new FoodItem("dosa",20));

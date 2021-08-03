@@ -24,8 +24,8 @@ public void showHotelDetail(){
 
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
-     admin.adminVerification();
-     menu.inbuiltMenuList();
+     admin.verifyAdmin();
+     menu.showMenuDetail();
      menu.printFoodMenu();
       admin.addFoodDetail(menu);
       menu.printFoodMenu();
