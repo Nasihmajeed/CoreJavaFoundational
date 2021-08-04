@@ -87,8 +87,8 @@ public float getRating()
 
 		Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 		cast=director.castActors();
-		scriptWriter.setCast(cast);
-		scriptWriter.writeScript(genereSelected);
+		//scriptWriter.setCast(cast);
+		scriptWriter.writeScript(genereSelected,cast);
 
 
 
