@@ -18,8 +18,6 @@ public class Director
     private String directorName;
 
    ArrayList<Actor> actors=new ArrayList<Actor>();
-
-   HashMap<Integer,ArrayList<Actor>> mapOfActors=new HashMap<Integer,ArrayList<Actor>>();
  
  
 	public void setDirectorName(String directorName)
@@ -35,7 +33,7 @@ public class Director
 	  
 	 //Casting the actors by the Director---
 	 
-public HashMap<Integer,ArrayList<Actor>> castingTheActors()
+public ArrayList<Actor> castingTheActors()
    {
          //Casting the Heroes
     {
@@ -61,8 +59,6 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
-         
-         mapOfActors.put(1,actors);
 
         } 	 
 		
@@ -90,7 +86,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("Name of the Heroine's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Heroine(name,charName));
-         mapOfActors.put(2,actors);
+         
          
         }
      
@@ -118,8 +114,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("Name of the Comedian's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
 		 actors.add(new Comedian(name,charName));
-		 mapOfActors.put(3,actors);
-		 
+		
 		 
         }
           
@@ -146,7 +141,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 		 System.out.println("Name of the Villain's Character is : "+charName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 actors.add(new Villain(name,charName));
-		 mapOfActors.put(4,actors);
+		 
 
         }
 
@@ -154,7 +149,7 @@ public HashMap<Integer,ArrayList<Actor>> castingTheActors()
 
   }
 
- return mapOfActors;
+  return actors;
 
 }	    
 

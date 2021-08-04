@@ -29,14 +29,12 @@ public class Movie
     Director director=new Director();
     ScriptWriter writer=new ScriptWriter();
 
-
+    ArrayList<Actor> actors;
  
    private int yearOfRelease,movieGenre;
    private float rating;
    private String movieName,movieLanguage;
 
-
-   HashMap<Integer,ArrayList<Actor>> actors;
 
 
    //Name of the movie
