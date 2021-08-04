@@ -15,6 +15,8 @@ import java.util.*;
 
 public class Movie{
   private String movieName;
+  Director director=new Director();
+  ScriptWriter writer=new ScriptWriter();
     ArrayList<Actor>actors= new ArrayList<Actor>();
   public void setMovieName(String movieName){
     this.movieName=movieName;
@@ -22,8 +24,7 @@ public class Movie{
   public String getMovieName(){
     return movieName;
   }
-  Director director=new Director();
-  ScriptWriter writer=new ScriptWriter();
+
   Scanner sc= new Scanner(System.in);
   public  void startMovie() {
     System.out.println("ENTER MOVIE NAME ");
@@ -74,7 +75,7 @@ public class Movie{
 
 
       System.out.println("ENTER THE CHARACTER NAME : ");
-      String charName=sc.next();
+      String characterName=sc.next();
       actors.add(new Villain(actorName,characterName));
     }
 

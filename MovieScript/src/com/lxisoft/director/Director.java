@@ -29,5 +29,17 @@ public class Director{
 
 
 }
+System.out.println("HEROES\n");
+System.out.println(cast.get("hero").get(0).getActorName()+" IN AND AS "+cast.get("hero").get(0).getCharacterName());
+
+System.out.println("HEROINES\n");
+System.out.println(cast.get("heroine").get(1).getActorName()+" IN AND AS "+cast.get("heroine").get(1).getCharacterName());
+
+System.out.println("COMEDIAN\n");
+System.out.println(cast.get("comedian").get(2).getActorName()+" IN AND AS "+cast.get("comedian").get(2).getCharacterName());
+
+System.out.println("VILLAIN\n ");
+System.out.println(cast.get("villain").get(3).getActorName()+" IN AND AS "+cast.get("villain").get(3).getCharacterName());
+
 }
 }
