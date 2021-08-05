@@ -21,8 +21,12 @@ private String scriptWriterName;
   return scriptWriterName;  	
   }
 
-
-
+/*
+   public Script writeScript(int genre ,ArrayList<Actor> actors)
+   {
+    
+   }
+*/
   
 
 }

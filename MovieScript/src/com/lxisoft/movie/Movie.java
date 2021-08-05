@@ -359,7 +359,7 @@ System.out.println("\r\n");
 
        //******************************************************************************
 		director.printCharactersOfTheMovie();
-     //		writer.writeScript(getMovieGenre(),actors);
+     		// writer.writeScript(getMovieGenre(),actors);
 	   //******************************************************************************
 }
 
