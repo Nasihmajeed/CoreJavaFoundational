@@ -9,7 +9,7 @@ public class Director
 Scanner sc =new Scanner(System.in);
 
 
-public Map<String,ArrayList<Actor>> castActors()
+public ArrayList<Actor> castActors(ArrayList<Actor> actors)
 {	int i,numberOfCharacters,selectActorRole,addMore=0;
 	String actorName,characterName;
 	Role role,roleSelected;
@@ -28,11 +28,8 @@ System.out.println("\t Enter the role: ");
 
 	System.out.println("\tEnter number of  "+roleSelected.toString()+": ");
 	numberOfCharacters=sc.nextInt();
-	ArrayList<Actor> actors=new ArrayList<Actor>();
-	ArrayList<Actor> heros=new ArrayList<Actor>();
-	ArrayList<Actor> heroines=new ArrayList<Actor>();
-	ArrayList<Actor> comedians=new ArrayList<Actor>();
-	ArrayList<Actor> villans=new ArrayList<Actor>();
+	
+	
 	
 	for(i=0;i<numberOfCharacters;i++)
 	{
@@ -47,21 +44,21 @@ System.out.println("\t Enter the role: ");
 		
 		switch(roleSelected)
 		{
-			case Hero:heros.add(new Hero(actorName,characterName));
-						cast.put("Hero",heros);
+			case Hero:actors.add(new Hero(actorName,characterName));
+						//cast.put("Hero",heros);
 							break;
-			case Heroine:heroines.add(new Heroine(actorName,characterName));
+			case Heroine:actors.add(new Heroine(actorName,characterName));
 			
-						cast.put("Heroine",heroines);
+						//cast.put("Heroine",heroines);
 						break;
 							
-			case Comedian:comedians.add(new Comedian(actorName,characterName));
+			case Comedian:actors.add(new Comedian(actorName,characterName));
 			
-								cast.put("Comedian",comedians);
+								//cast.put("Comedian",comedians);
 								break;
 								
-			case Villan:villans.add(new Villan(actorName,characterName));
-			 			cast.put("Villan",villans);
+			case Villan:actors.add(new Villan(actorName,characterName));
+			 			//cast.put("Villan",villans);
 			 			break;
 
 							
@@ -80,7 +77,7 @@ System.out.println("\tAdd more actors press 1");
 addMore=sc.nextInt();
 }while(addMore==1);
 	
-return cast;
+return actors;
 
 		
 		 	

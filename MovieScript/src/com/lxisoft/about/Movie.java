@@ -6,10 +6,15 @@ import java.util.*;
 public class Movie
 {
 	String movieName;
+	
 	Genere genere;
+	
 	Scanner sc=new Scanner(System.in);
+	
 	Director director=new Director();
+	
 	ArrayList<Actor> actors=new ArrayList<Actor>();
+	
 	ScriptWriter scriptWriter=new ScriptWriter();
 	
 
@@ -85,10 +90,10 @@ public float getRating()
 		Genere genereSelected=geners[setGenere];
 		System.out.println(genereSelected.toString());
 
-		Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
-		cast=director.castActors();
-		//scriptWriter.setCast(cast);
-		scriptWriter.writeScript(genereSelected,cast);
+		
+		actors=director.castActors(actors);
+	
+		scriptWriter.writeScript(genereSelected,actors);
 
 
 

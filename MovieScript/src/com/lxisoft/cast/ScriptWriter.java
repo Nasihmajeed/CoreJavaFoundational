@@ -13,11 +13,7 @@ public class ScriptWriter
 Scanner sc =new Scanner(System.in);
 
 
-
-
-
 ArrayList<Dialogue> script=new ArrayList<Dialogue>();
-
 
 FileUtilities fileOperation=new FileUtilities();
 
@@ -25,36 +21,36 @@ Script story=new Script();
 
 
 
-public void writeScript(Genere genere,Map<String,ArrayList<Actor>> cast)
+public void writeScript(Genere genere,ArrayList<Actor> actors)
 {	
 
 
 	switch(genere)
 	{
-		case Comedy:story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,25),cast);
-					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,10),cast);
-					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),cast);
+		case Comedy:story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,25),actors);
+					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,10),actors);
+					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),actors);
 					break;
 	
 		
 
 		case Romantic : 
 
-					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),cast);
-					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,25),cast);
-					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),cast);
+					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),actors);
+					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,25),actors);
+					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),actors);
 					break;
 			
 		case Emotional : 
-					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),cast);
-					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,15),cast);
-					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,25),cast);
+					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),actors);
+					story.showRomanticScene(fileOperation.fetchMinorContents(Genere.valueOf("Romantic"),script,15),actors);
+					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,25),actors);
 					break;
 			
 		case Thriller :
-					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),cast);
-					story.showThrillerScene(fileOperation.fetchMinorContents(Genere.valueOf("Thriller"),script,25),cast);
-					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),cast);
+					story.showComedyScene(fileOperation.fetchMinorContents(Genere.valueOf("Comedy"),script,15),actors);
+					story.showThrillerScene(fileOperation.fetchMinorContents(Genere.valueOf("Thriller"),script,25),actors);
+					story.showEmotionalScene(fileOperation.fetchMinorContents(Genere.valueOf("Emotional"),script,15),actors);
 					break;
 					
 
