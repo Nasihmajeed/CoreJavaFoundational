@@ -1,14 +1,17 @@
 package com.lxisoft.hotel;
 
-import com.lxisoft.user.Admin;
-import com.lxisoft.user.Customer;
+import com.lxisoft.hotel.Cashier;
+import com.lxisoft.hotel.Customer;
 import com.lxisoft.hotel.Menu;
+import com.lxisoft.user.Admin;
 import java.util.*;
 public class Hotel {
 
 Admin admin = new Admin();
-Customer customer =new Customer();
+
 Menu menu=new Menu();
+Customer customer =new Customer();
+Cashier cashier = new Cashier();
 Scanner input=new Scanner(System.in);
 
 public void showHotelDetail(){
@@ -19,15 +22,16 @@ public void showHotelDetail(){
   
     System.out.println("Select Who Are You");
     System.out.println("1 For Admin \n2 For Customer \n3 For Exit");
+ //  menu.inbuiltMenuList();
    userIdentificationNumber=input.nextInt();
    input.nextLine();
 
     switch (userIdentificationNumber){
       case 1: System.out.println("Admin");
-     admin.verifyAdmin();
-     menu.showMenuDetail();
-     menu.printFoodMenu();
-      admin.addFoodDetail(menu);
+     admin.adminVerification();
+     menu.inbuiltMenuList();
+      menu.printFoodMenu();
+     admin.addFoodDetail(menu);
       menu.printFoodMenu();
      this.inputUserDetail();
       break;
@@ -35,6 +39,7 @@ public void showHotelDetail(){
       menu.printFoodMenu();
      //menu.orderFoodFromMenu();
      customer.printSelectedFoodAndBill(menu);
+    cashier.printBill(customer);
       //admin.takeOrderFromCustomer();
    this.inputUserDetail();
       break;

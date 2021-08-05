@@ -9,7 +9,7 @@ public class Admin {
 //Menu menu;
 Scanner input=new Scanner(System.in);
 int userEnteredPassword;
-public void verifyAdmin(){
+public void adminVerification(){
   int originalPassword=123;
   System.out.println("Enter Password");
   userEnteredPassword=input.nextInt();
@@ -22,8 +22,8 @@ public void verifyAdmin(){
   }
   } 
   public void addFoodDetail(Menu menu){
-    //this.menu=menu;
-    ArrayList<FoodItem> list =menu.getArraylist();
+  //this.menu=menu;
+ ArrayList<FoodItem> list=menu.getArraylist();
 System.out.println("Enter Index No Of food Item");
 int indexNumber=input.nextInt();
 indexNumber=indexNumber-1;
@@ -35,7 +35,7 @@ int loopNumberToAddItem;
   input.nextLine();
   for(loopNumberToAddItem=0;loopNumberToAddItem<numberOfItemUserToAddOnMenu;loopNumberToAddItem++){
    
- // list.add(new FoodItems());
+//  list.add(new FoodItems());
 
   System.out.println("Enter Name of FoodItem ");
   String name=input.nextLine();
@@ -56,6 +56,7 @@ int loopNumberToAddItem;
    
 indexNumber++;
   }
+ // return menu;
   }
   
-   }
+  }
