@@ -15,25 +15,23 @@ public class Director
 
 	Scanner sc=new Scanner(System.in);
 	
-    private String directorName;
-
-   ArrayList<Actor> actors=new ArrayList<Actor>();
+    private String name;
  
  
-	public void setDirectorName(String directorName)
+	public void setName(String name)
 	{
-		this.directorName=directorName;
+		this.name=name;
 	}
 	
 	
-	public String getDirectorName()
+	public String getName()
 	{
-		return directorName;
+		return name;
 	}
 	  
 	 //Casting the actors by the Director---
 	 
-public ArrayList<Actor> castingTheActors()
+public ArrayList<Actor> castingTheActors(ArrayList<Actor> actors)
    {
          //Casting the Heroes
     {

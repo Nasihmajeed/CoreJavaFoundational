@@ -29,7 +29,7 @@ public class Movie
     Director director=new Director();
     ScriptWriter writer=new ScriptWriter();
 
-    ArrayList<Actor> actors;
+    ArrayList<Actor> actors=new ArrayList<Actor>();
  
    private int yearOfRelease,movieGenre;
    private float rating;
@@ -228,7 +228,7 @@ public class Movie
 System.out.println("-----------------------------------------------------------------------------------------------------------");
 System.out.println("------------------------------------------Enter the name of the Director-----------------------------------");
 System.out.println("-----------------------------------------------------------------------------------------------------------");
-director.setDirectorName(sc.next());
+director.setName(sc.next());
 System.out.println("\r\n");
 
 
@@ -237,12 +237,12 @@ System.out.println("\r\n");
  System.out.println("-----------------------------------------------------------------------------------------------------------");
  System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
  System.out.println("-----------------------------------------------------------------------------------------------------------");
- writer.setScriptWriterName(sc.next());
+ writer.setName(sc.next());
  System.out.println("\r\n");
 
 
 //******************************************************************************
-  actors=director.castingTheActors();
+  actors=director.castingTheActors(actors);
 //******************************************************************************
 
 
@@ -340,12 +340,12 @@ System.out.println("\r\n");
 
 
 
-				System.out.println("Name of the Director : "+director.getDirectorName());
+				System.out.println("Name of the Director : "+director.getName());
 
 
 				sleep.sleepStatement();
 
-				System.out.println("Name of the Script Writer : "+writer.getScriptWriterName());
+				System.out.println("Name of the Script Writer : "+writer.getName());
 
 
 				sleep.sleepStatement();

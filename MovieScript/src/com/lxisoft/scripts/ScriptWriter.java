@@ -8,17 +8,17 @@ public class ScriptWriter
 Script scr=new Script();
 
 
-private String scriptWriterName;
+private String name;
 
-  public void setScriptWriterName(String scriptWriterName)
+  public void setName(String name)
   {
-     this.scriptWriterName=scriptWriterName;
+     this.name=name;
   }
   
 
-  public String getScriptWriterName()
+  public String getName()
   {
-  return scriptWriterName;  	
+  return name;  	
   }
 
 /*
