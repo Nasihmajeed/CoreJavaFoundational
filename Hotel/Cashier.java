@@ -1,6 +1,6 @@
-package com.lxisoft.hotel;
-import com.lxisoft.hotel.Customer;
-import com.lxisoft.menu.Order;
+package com.lxisoft.user;
+import com.lxisoft.user.Customer;
+import com.lxisoft.hotel.Order;
 import java.util.*;
 
 public class Cashier {

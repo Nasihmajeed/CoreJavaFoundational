@@ -1,4 +1,4 @@
-package com.lxisoft.menu;
+package com.lxisoft.hotel;
 //import com.lxisoft.hotel.Employee;
 public class Order {
 //Employee employee = new Employee()

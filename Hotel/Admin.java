@@ -1,7 +1,7 @@
 package com.lxisoft.user;
 
 import com.lxisoft.hotel.Menu;
-import com.lxisoft.menu.FoodItem;
+import com.lxisoft.hotel.FoodItem;
 //import com.lxisoft.hotel.Customer;
 import java.util.*;
 public class Admin {

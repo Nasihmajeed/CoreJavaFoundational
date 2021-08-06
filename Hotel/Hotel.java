@@ -1,7 +1,7 @@
 package com.lxisoft.hotel;
 
-import com.lxisoft.hotel.Cashier;
-import com.lxisoft.hotel.Customer;
+import com.lxisoft.user.Cashier;
+import com.lxisoft.user.Customer;
 import com.lxisoft.hotel.Menu;
 import com.lxisoft.user.Admin;
 import java.util.*;

@@ -1,8 +1,8 @@
-package com.lxisoft.hotel;
+package com.lxisoft.user;
 //import com.lxisoft.hotel.Employee;
-import com.lxisoft.menu.FoodItem;
+import com.lxisoft.hotel.FoodItem;
 import com.lxisoft.hotel.Menu;
-import com.lxisoft.menu.Order;
+import com.lxisoft.hotel.Order;
 import java.util.*;
 //import java.util.Scanner;
 

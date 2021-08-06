@@ -1,6 +1,6 @@
 package com.lxisoft.hotel;
 
-import com.lxisoft.menu.FoodItem;
+import com.lxisoft.hotel.FoodItem;
 import java.util.*;
 public class Menu {
 int  quantityOfFoodItem;
