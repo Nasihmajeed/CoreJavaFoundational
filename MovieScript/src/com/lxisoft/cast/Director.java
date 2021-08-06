@@ -9,7 +9,7 @@ public class Director
 Scanner sc =new Scanner(System.in);
 
 
-public ArrayList<Actor> castActors(ArrayList<Actor> actors)
+public Map<String,ArrayList<Actor>> castActors(Map<String,ArrayList<Actor>> actors)
 {	int i,numberOfCharacters,selectActorRole,addMore=0;
 	String actorName,characterName;
 	Role role,roleSelected;
@@ -29,7 +29,12 @@ System.out.println("\t Enter the role: ");
 	System.out.println("\tEnter number of  "+roleSelected.toString()+": ");
 	numberOfCharacters=sc.nextInt();
 	
-	
+	/*ArrayList<Actor> heros=new ArrayList<Hero>();
+	ArrayList<Actor> heroines=new ArrayList<Heroine>();
+	ArrayList<Actor> comedians=new ArrayList<Comedian>();
+	ArrayList<Actor> villans=new ArrayList<Villan>();*/
+
+	ArrayList<Actor> heros,heroines,comedians,villans;
 	
 	for(i=0;i<numberOfCharacters;i++)
 	{
@@ -44,22 +49,24 @@ System.out.println("\t Enter the role: ");
 		
 		switch(roleSelected)
 		{
-			case Hero:actors.add(new Hero(actorName,characterName));
-						//cast.put("Hero",heros);
+			case Hero:		heros=new ArrayList<Actor>();
+							heros.add(new Hero(actorName,characterName));
+							actors.put("Hero",heros);
 							break;
-			case Heroine:actors.add(new Heroine(actorName,characterName));
-			
-						//cast.put("Heroine",heroines);
-						break;
+			case Heroine:	heroines=new ArrayList<Actor>();
+							heroines.add(new Heroine(actorName,characterName));
+							actors.put("Heroine",heroines);
+							break;
 							
-			case Comedian:actors.add(new Comedian(actorName,characterName));
-			
-								//cast.put("Comedian",comedians);
-								break;
-								
-			case Villan:actors.add(new Villan(actorName,characterName));
-			 			//cast.put("Villan",villans);
-			 			break;
+			case Comedian:	comedians=new ArrayList<Actor>();
+							comedians.add(new Comedian(actorName,characterName));
+							actors.put("Comedian",comedians);
+							break;
+									
+			case Villan:	villans=new ArrayList<Actor>();	
+							villans.add(new Villan(actorName,characterName));
+			 				actors.put("Villan",villans);
+			 				break;
 
 							
 			default :System.out.println("Invalid entry");			

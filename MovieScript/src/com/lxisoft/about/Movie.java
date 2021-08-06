@@ -13,7 +13,7 @@ public class Movie
 	
 	Director director=new Director();
 	
-	ArrayList<Actor> actors=new ArrayList<Actor>();
+	Map<String,ArrayList<Actor>> actors=new HashMap<String,ArrayList<Actor>>();
 	
 	ScriptWriter scriptWriter=new ScriptWriter();
 	

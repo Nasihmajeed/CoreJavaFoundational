@@ -16,93 +16,11 @@ File movieFile=null;
 BufferedReader scriptReader=null;
 
 
-public ArrayList<Dialogue> fetchMajorContents(Genere genere,ArrayList<Dialogue> script)
-{	
-				movieFile=new File(scriptPath+(genere.toString()+extension));
-				
-				try{
-							scriptReader=new BufferedReader(new FileReader(movieFile));
-								String line=null;
-
-									while((line=scriptReader.readLine())!=null  )
-									{
-										String []parts=line.split(":");
-										String scene=parts[0].trim();
-									
-										StringBuilder dialogue=new StringBuilder();
-										dialogue.append(line);
-										int i=0;
-										switch(genere)
-										{
-											case Comedy:if(!(dialogue.toString().equals("")))
-															{
-							
-																script.add(new ComedyDialogue());
-															script.get(i).setDialogueLine(dialogue.toString());
-																i++;	
-															}
-														break;
-
-											case Emotional:if(!(dialogue.toString().equals("")))
-															{
-							
-																script.add(new EmotionalDialogue());
-															script.get(i).setDialogueLine(dialogue.toString());
-																i++;	
-															}
-															break;
-
-											case Romantic :if(!(dialogue.toString().equals("")))
-															{
-							
-																script.add(new RomanticDialogue());
-															script.get(i).setDialogueLine(dialogue.toString());
-																i++;	
-															}
-
-															break;
-											case Thriller :if(!(dialogue.toString().equals("")))
-															{
-							
-																script.add(new ThrillerDialogue());
-															script.get(i).setDialogueLine(dialogue.toString());
-																i++;	
-															}
-															break;	
-
-										}	
-
-
-							
-									}
-					
-							
-					}
-					catch(IOException e)
-						{
-						e.printStackTrace();
-						}
-					finally
-					{
-
-						try
-						{
-							scriptReader.close();
-			
-						}
-						catch(IOException e)
-						{
-
-						}
-					}
-
-return script;
-
-}
 
 
 
-public ArrayList<Dialogue> fetchMinorContents(Genere genere,ArrayList<Dialogue> script,int noOfLines)
+
+public ArrayList<Dialogue> fetchContents(Genere genere,ArrayList<Dialogue> script,int noOfLines)
 {
 movieFile=new File(scriptPath+(genere.toString()+extension));
 
