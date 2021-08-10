@@ -87,11 +87,7 @@ public class Movie{
 
         }
       }*/
-      System.out.println("ACTORS\n");
-      for(int i=0;i<actors.size();i++){
-        System.out.println("ACTOR NAME  "+actors.get(i).getActorName()+" : CHARACTER NAME  "+actors.get(i).getCharacterName());
-      }
-
+  
     director.castActors(actors);
 try{
     writer.writeScript();

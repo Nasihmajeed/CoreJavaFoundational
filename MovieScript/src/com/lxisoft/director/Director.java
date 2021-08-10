@@ -13,20 +13,20 @@ public class Director{
     directorName=sc.next();
     for(Actor a : actors){
         if(a instanceof Hero){
-          System.out.println("HEROES\n");
-          System.out.println(a.getActorName()+" "+a.getCharacterName());
+          System.out.println("\nHEROES");
+          System.out.println(a.getActorName()+"IN AND AS "+a.getCharacterName());
         }
         if(a instanceof Heroine){
-          System.out.println("HEROINES\n");
-          System.out.println(a.getActorName()+" "+a.getCharacterName());
+          System.out.println("\nHEROINES");
+          System.out.println(a.getActorName()+"IN AND AS "+a.getCharacterName());
         }
         if(a instanceof Villain){
-          System.out.println("VILLAINES\n");
-          System.out.println(a.getActorName()+" "+a.getCharacterName());
+          System.out.println("\nVILLAINES");
+          System.out.println(a.getActorName()+"IN AND AS "+a.getCharacterName());
         }
         if(a instanceof Comedian){
-          System.out.println("COMEDIANS\n");
-          System.out.println(a.getActorName()+" "+a.getCharacterName());
+          System.out.println("\nCOMEDIANS");
+          System.out.println(a.getActorName()+"IN AND AS "+a.getCharacterName());
         }
 
 
