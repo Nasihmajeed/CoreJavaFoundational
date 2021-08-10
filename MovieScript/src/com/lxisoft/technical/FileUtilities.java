@@ -45,6 +45,7 @@ try
 									case Comedy:if(!(dialogue.toString().equals("")))
 													{int l=script.size();
 													script.add(new ComedyDialogue());
+													
 													script.get(l).setDialogueLine(dialogue.toString());
 														l++;
 													

@@ -8,122 +8,192 @@ import com.lxisoft.storyline.*;
 public class Script
 {
 	ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
-	public void showComedyScene(ArrayList<Dialogue> comedyDialogues,Map<String,ArrayList<Actor>> actors )
-	{
-		for(int i=0;i<comedyDialogues.size();i++)
-			{
+	public void showComedyScene(ArrayList<Dialogue> comedyDialogues,ArrayList<Actor> actors )
+	{	int i;
+		for(int j=0;j<comedyDialogues.size();j++)
+
+			{	
 			
-			
-					if(comedyDialogues.get(i) instanceof ComedyDialogue  )
-					{	
-							if(i%2==0  )
-							{
+				for( i=0;i<actors.size();i++){
+								
+					if(comedyDialogues.get(j) instanceof ComedyDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Comedian)
+										{
+											System.out.print(actors.get(i).getCharacterName());
+											System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(comedyDialogues.get(j).getDialogueLine());
+										}
+														
+									
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	System.out.print(actors.get(i).getCharacterName());
+										System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(comedyDialogues.get(j).getDialogueLine());
+									}
+																							
+								
+							}
+													
+
+
+												
+												}
+
+												
+								
+									
+									
+								
+											
+								
 							
-								System.out.print(actors.get("Comedian").get(0).getCharacterName());
-							System.out.print("("+actors.get("Comedian").get(0).getActorName()+")");
-							System.out.println(comedyDialogues.get(i).getDialogueLine());
 							
-						}	
-						else 
-						{	
+							//i++;
+
+				}
+						
 							
-								System.out.print(actors.get("Hero").get(0).getCharacterName());
-							System.out.print("("+actors.get("Hero").get(0).getActorName()+")");
-							
-							
-							System.out.println(comedyDialogues.get(i).getDialogueLine());
-						}
-						//}	
-							
-					}	
+					
 	}
 }
-	public void showRomanticScene(ArrayList<Dialogue> romanticDialogues,Map<String,ArrayList<Actor>> actors)
+	public void showRomanticScene(ArrayList<Dialogue> romanticDialogues,ArrayList<Actor> actors)
 	{	
 
-		for(int i=0;i<romanticDialogues.size();i++ )
-		{
-			if(romanticDialogues.get(i) instanceof RomanticDialogue)
-							{
-								
-								if(i%2==0  )
+	int i;
+		for(int j=0;j<romanticDialogues.size();j++)
 
+			{	
+			
+				for( i=0;i<actors.size();i++){
 								
+					if(romanticDialogues.get(j) instanceof RomanticDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Heroine)
+										{
+											System.out.print(actors.get(i).getCharacterName());
+											System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(romanticDialogues.get(j).getDialogueLine());
+										}
+														
 									
-								{	System.out.print(actors.get("Hero").get(0).getCharacterName());
-									System.out.print("("+actors.get("Hero").get(0).getActorName()+")");
-									System.out.println(romanticDialogues.get(i).getDialogueLine());
-								}
-								
-								else
-							
-								{	System.out.print(actors.get("Heroine").get(0).getCharacterName());
-									System.out.print("("+actors.get("Heroine").get(0).getActorName()+")");
-									System.out.println(romanticDialogues.get(i).getDialogueLine());
-								}
-							}
-								
-							
+								}	
+													
 
-		}
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	System.out.print(actors.get(i).getCharacterName());
+										System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(romanticDialogues.get(j).getDialogueLine());
+									}
+																							
+								
+							}
+													
+
+
+						}
+										
+				}
+	
+			}
 	}
-	public void showEmotionalScene(ArrayList<Dialogue> emotionalDialogues,Map<String,ArrayList<Actor>> actors)
+	public void showEmotionalScene(ArrayList<Dialogue> emotionalDialogues,ArrayList<Actor> actors)
 	{
 
-		for(int i=0;i<emotionalDialogues.size();i++ )
-		{
-			if(emotionalDialogues.get(i) instanceof EmotionalDialogue)
-							{
+		int i;
+		for(int j=0;j<emotionalDialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
 								
-								if(i%2==0 )
-								{	
+					if(emotionalDialogues.get(j) instanceof EmotionalDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Heroine)
+										{
+											System.out.print(actors.get(i).getCharacterName());
+											System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(emotionalDialogues.get(j).getDialogueLine());
+										}
+														
 									
-										System.out.print(actors.get("Hero").get(0).getCharacterName());
-									System.out.print("("+actors.get("Hero").get(0).getActorName()+")");
-																	
-									System.out.println(emotionalDialogues.get(i).getDialogueLine());
-								}
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	System.out.print(actors.get(i).getCharacterName());
+										System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(emotionalDialogues.get(j).getDialogueLine());
+									}
+																							
 								
-								else 
-								
-									{
-										System.out.print(actors.get("Heroine").get(0).getCharacterName());
-									System.out.print("("+actors.get("Heroine").get(0).getActorName()+")");
-																	
-									System.out.println(emotionalDialogues.get(i).getDialogueLine());
-								}
-							
 							}
-		}
+													
+
+
+						}
+										
+				}
+	
+			}
 	}
-	public void showThrillerScene(ArrayList<Dialogue> thrillerDialogues,Map<String,ArrayList<Actor>> actors)
+	public void showThrillerScene(ArrayList<Dialogue> thrillerDialogues,ArrayList<Actor> actors)
 	{	
-		for(int i=0;i<thrillerDialogues.size();i++ )
-		{
-			if(thrillerDialogues.get(i) instanceof ThrillerDialogue)
-							{
+		int i;
+		for(int j=0;j<thrillerDialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
 								
-								if(i%2==0  )
-								
+					if(thrillerDialogues.get(j) instanceof RomanticDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Villan)
+										{
+											System.out.print(actors.get(i).getCharacterName());
+											System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(thrillerDialogues.get(j).getDialogueLine());
+										}
+														
 									
-									{
-										System.out.print(actors.get("Hero").get(0).getCharacterName());
-										System.out.print("("+actors.get("Hero").get(0).getActorName()+")");
-																	
-									System.out.println(thrillerDialogues.get(i).getDialogueLine());
-								}
-							
-								else 
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	System.out.print(actors.get(i).getCharacterName());
+										System.out.print("("+actors.get(i).getActorName()+")");
+										System.out.println(thrillerDialogues.get(j).getDialogueLine());
+									}
+																							
 								
-									{
-										System.out.print(actors.get("Villan").get(0).getCharacterName());
-									System.out.print("("+actors.get("Villan").get(0).getActorName()+")");
-																	
-									System.out.println(thrillerDialogues.get(i).getDialogueLine());
-								}
-							
 							}
-		}
+													
+
+
+						}
+										
+				}
+	
+			}
 	
 
 	}

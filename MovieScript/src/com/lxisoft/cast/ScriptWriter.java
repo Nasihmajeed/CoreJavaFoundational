@@ -21,7 +21,7 @@ Script story=new Script();
 
 
 
-public void writeScript(Genere genere,Map<String,ArrayList<Actor>> actors)
+public void writeScript(Genere genere,ArrayList<Actor> actors)
 {	
 
 

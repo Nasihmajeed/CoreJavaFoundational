@@ -13,7 +13,7 @@ public class Movie
 	
 	Director director=new Director();
 	
-	Map<String,ArrayList<Actor>> actors=new HashMap<String,ArrayList<Actor>>();
+	ArrayList<Actor> actors=new ArrayList<Actor>();
 	
 	ScriptWriter scriptWriter=new ScriptWriter();
 	
@@ -60,11 +60,10 @@ public float getRating()
 	}
 
 
-
 	public void startMovie()
 	{		int againAns,selectTheGenere;
-		Role role;
-		String answerTheGenere;
+			Role role;
+			String answerTheGenere;
 			System.out.println("\t-----------------------------");
 			System.out.println("\tMovie Script Project");
 			System.out.println("\t-----------------------------");
