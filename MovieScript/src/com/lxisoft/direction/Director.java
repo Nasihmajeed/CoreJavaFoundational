@@ -168,7 +168,7 @@ public ArrayList<Actor> castingTheActors(ArrayList<Actor> actors)
 
 //To print the characters to the user
     
-public void printCharactersOfTheMovie()
+public void printCharactersOfTheMovie( ArrayList<Actor> actors)
 {
 	  System.out.println("\r\n");
 		
