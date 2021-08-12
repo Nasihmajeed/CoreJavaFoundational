@@ -74,11 +74,11 @@ public void createBoard()
 
 public void creatCells()//for movement of coin in table
     {
-        int counter=1000,iteration=-1,i=0;
+        int counter=100,iteration=-1,i=0;
          while (counter >0)
         {
             cells.add(new Cell());
-            if (counter%10 == 0 && counter != 1000)
+            if (counter%10 == 0 && counter != 100)
             {
                 if(iteration==-1)
                 { 
@@ -131,7 +131,7 @@ public void changePosition(Player player,int flag,int position)
 public void showPlayBoard(ArrayList<Cell>cells,ArrayList<Snake>snakes,ArrayList<Ladder>ladders)
     {
         System.out.println("____________________________________Board______________________________________\n\n");
-        for (int j=1;j<=1000;j++)
+        for (int j=1;j<=100;j++)
         {           
         System.out.print(cells.get(j-1).getPosition()+" ");
         System.out.print(cells.get(j-1).getCoinPlace()+"\t");

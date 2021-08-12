@@ -8,14 +8,14 @@ public class Designs
 	public void gameBoard()
 	{
 
-		    int counter= 1000;
+		    int counter= 100;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
         
        
         while (counter > 0)
         {
-                if (counter%10 == 0 && counter != 1000)
+                if (counter%10 == 0 && counter != 100)
                 {
                 if(iteration==-1)
                 {
@@ -43,21 +43,26 @@ public class Designs
 	}
     public void gameRule() 
     {
-        System.out.println ("\t\t\t\t\t\t\tGENERAL INSTUCTIONS OF GAME");
-        System.out.println(" \t\t\t\t THERE WILL BE 2 PLAYERS IN THE GAME ");
-        System.out.println(" \t\t\tWE CAN ENTER THE GAME ONLY IF WE GET 1 :");
-        System.out.println ("\t\t\t\t\t\t LET'S GO.........");    
+        System.out.println ("\t\t\t\t\t\t\tInstructions:");
+        System.out.println(" \t\t\t\t  There will be 2 players in the game");
+          System.out.println(" \t\t\tEach player enter the game if and only if he rolls 1 on the dice:");
+            System.out.println ("\t\t\t there will be preset squares which will be the snakes or ladders.");
+        System.out.println ("\t\tOnce you land on top of a snake you go down a few squares, and move up if you land on the bottom of a ladder. ");
+             
         
+            System.out.println(" \t\t\t\t  player who reaches at 100th position 1st wins yhe game");
+               System.out.println ("\t\t\t\t\t\t Good Luck and Have FUN!!!");
+
     }
     public void snakeAndLadderPosition()
     {
 
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println(" ");
-        System.out.println("");
-        System.out.println("");
+        System.out.println("\t Ladders \t\t Snakes\n");
+        System.out.println("\t 2 - 38  \t\t 25 - 4 ");
+        System.out.println("\t 6- 14  \t\t 36 - 15 ");
+        System.out.println("\t 17 - 47  \t\t 62 - 57 ");
+        System.out.println("\t 33 - 85  \t\t 92 - 53 ");
+        System.out.println("\t 52 - 88  \t\t 98 -8 ");
     }
 
 }

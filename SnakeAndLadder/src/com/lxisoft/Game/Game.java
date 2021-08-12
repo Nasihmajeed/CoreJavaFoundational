@@ -179,7 +179,7 @@ public void setWinner(Player player,int value)
 	{
 		int temp=player.getPlayerPosition();
 		int position=(temp-value);
-		int distance=(1000-position);
+		int distance=(100-position);
 		if(distance<value)
  		{	System.out.println("\n* You Need To Get Less Than Or "+distance);
 			player.setPlayerPosition(position);	 }
@@ -187,7 +187,7 @@ public void setWinner(Player player,int value)
 		else
 		{	player.setPlayerPosition(temp);	 }
 
-		if(temp==1000)
+		if(temp==100)
 		{	player.setPlayerStatus(true);    }
 		
 	}
