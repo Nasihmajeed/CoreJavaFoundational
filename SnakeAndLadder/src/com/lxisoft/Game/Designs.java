@@ -8,14 +8,14 @@ public class Designs
 	public void gameBoard()
 	{
 
-		    int counter= 100;
+		    int counter= 1000;
 		    int iteration=-1; 
         System.out.println ("-----------------------------------------------------Game Board-----------------------------------------------------------------------------");
         
        
         while (counter > 0)
         {
-                if (counter%10 == 0 && counter != 100)
+                if (counter%10 == 0 && counter != 1000)
                 {
                 if(iteration==-1)
                 {
