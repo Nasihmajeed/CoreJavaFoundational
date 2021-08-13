@@ -15,5 +15,10 @@ public class Hero extends Actor
 		
 		}
 
+		public Hero(String heroName,String heroCharacterName,String dialogueSaidByHero)
+		{
+			super(heroName,heroCharacterName,dialogueSaidByHero);
+		}
+
 
 }

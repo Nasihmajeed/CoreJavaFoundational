@@ -3,7 +3,7 @@ public class Actor
 {
 String actorName;
 String characterName;
-
+String dialogueSaidByActor;
 	Actor()
 	{
 
@@ -17,6 +17,14 @@ String characterName;
 
 	}
 
+	Actor(String actorName, String characterName,String dialogueSaidByActor)
+	{
+		this.actorName=actorName;
+		this.characterName=characterName;
+		this.dialogueSaidByActor=dialogueSaidByActor;
+		System.out.println(actorName+"("+characterName+")"+dialogueSaidByActor);
+	
+	}
 	
 	public String getActorName()
 	{	
@@ -28,6 +36,10 @@ String characterName;
 		return characterName;
 	}
 	
+	/*public void getDialogueSaidByActor()
+	{
+		return dialogueSaidByActor;
+	}*/
 
 
 	

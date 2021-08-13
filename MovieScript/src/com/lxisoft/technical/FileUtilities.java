@@ -20,7 +20,7 @@ BufferedReader scriptReader=null;
 
 
 
-public ArrayList<Dialogue> fetchContents(Genere genere,ArrayList<Dialogue> script,int noOfLines)
+public ArrayList<Dialogue> fetchContents(Genere genere,ArrayList<Dialogue> dialogues,int noOfLines)
 {
 movieFile=new File(scriptPath+(genere.toString()+extension));
 
@@ -43,31 +43,31 @@ try
 								switch(genere)
 								{
 									case Comedy:if(!(dialogue.toString().equals("")))
-													{int l=script.size();
-													script.add(new ComedyDialogue());
+													{int l=dialogues.size();
+													dialogues.add(new ComedyDialogue());
 													
-													script.get(l).setDialogueLine(dialogue.toString());
+													dialogues.get(l).setDialogueLine(dialogue.toString());
 														l++;
 													
 													}
 													break;	
 									case Emotional:	if(!(dialogue.toString().equals("")))
-														{int k=script.size();
-														script.add(new EmotionalDialogue());
-														script.get(k).setDialogueLine(dialogue.toString());
+														{int k=dialogues.size();
+														dialogues.add(new EmotionalDialogue());
+														dialogues.get(k).setDialogueLine(dialogue.toString());
 														k++;}
 													break;			
 									case Romantic:	if(!(dialogue.toString().equals("")))
-													{int m=script.size();
-													script.add(new RomanticDialogue());
-													script.get(m).setDialogueLine(dialogue.toString());
+													{int m=dialogues.size();
+													dialogues.add(new RomanticDialogue());
+													dialogues.get(m).setDialogueLine(dialogue.toString());
 													m++;				
 													}
 													break;
 									case Thriller:	if(!(dialogue.toString().equals("")))
-													{int n=script.size();
-													script.add(new ThrillerDialogue());
-													script.get(n).setDialogueLine(dialogue.toString());
+													{int n=dialogues.size();
+													dialogues.add(new ThrillerDialogue());
+													dialogues.get(n).setDialogueLine(dialogue.toString());
 													n++;
 													}break;		
 								
@@ -98,7 +98,7 @@ try
 
 
 
-	return script;
+	return dialogues;
 
 
 

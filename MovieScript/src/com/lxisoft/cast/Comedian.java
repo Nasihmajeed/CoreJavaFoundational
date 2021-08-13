@@ -14,6 +14,10 @@ Comedian(String comedianName,String comedianCharacterName)
 		
 		
 	}
-	
+
+	public Comedian(String comedianName,String comedianCharacterName,String dialogueSaidByComedian)
+		{
+			super(comedianName,comedianCharacterName,dialogueSaidByComedian);
+		}
 
 }

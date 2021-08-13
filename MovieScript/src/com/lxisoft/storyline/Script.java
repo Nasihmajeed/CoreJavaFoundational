@@ -7,7 +7,8 @@ import com.lxisoft.storyline.*;
 
 public class Script
 {
-	ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+	//ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+	Actor actor;
 	public void showComedyScene(ArrayList<Dialogue> comedyDialogues,ArrayList<Actor> actors )
 	{	int i;
 		for(int j=0;j<comedyDialogues.size();j++)
@@ -22,21 +23,18 @@ public class Script
 								{
 									if(actors.get(i) instanceof Comedian)
 										{
-											System.out.print(actors.get(i).getCharacterName());
-											System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(comedyDialogues.get(j).getDialogueLine());
+											
+							actor=new Comedian((actors.get(i).getCharacterName()).toString(),(actors.get(i).getActorName()).toString(),(comedyDialogues.get(j).getDialogueLine()).toString());
 										}
 														
-									
 								}	
 													
 
 							if(!(j%2==0))
 							{	if(actors.get(i) instanceof Hero)
 									{	
-									 	System.out.print(actors.get(i).getCharacterName());
-										System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(comedyDialogues.get(j).getDialogueLine());
+									 	
+									actor=new Hero((actors.get(i).getCharacterName()).toString(),(actors.get(i).getActorName()).toString(),(comedyDialogues.get(j).getDialogueLine()).toString());
 									}
 																							
 								
@@ -45,21 +43,12 @@ public class Script
 
 
 												
-												}
+						}
 
 												
 								
-									
-									
-								
-											
-								
-							
-							
-							//i++;
-
-				}
-						
+		}
+					
 							
 					
 	}
@@ -80,9 +69,8 @@ public class Script
 								{
 									if(actors.get(i) instanceof Heroine)
 										{
-											System.out.print(actors.get(i).getCharacterName());
-											System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(romanticDialogues.get(j).getDialogueLine());
+											
+										actor=new Heroine(actors.get(i).getCharacterName(),actors.get(i).getActorName(),romanticDialogues.get(j).getDialogueLine());
 										}
 														
 									
@@ -92,9 +80,8 @@ public class Script
 							if(!(j%2==0))
 							{	if(actors.get(i) instanceof Hero)
 									{	
-									 	System.out.print(actors.get(i).getCharacterName());
-										System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(romanticDialogues.get(j).getDialogueLine());
+									 	
+										actor=new Hero(actors.get(i).getCharacterName(),actors.get(i).getActorName(),romanticDialogues.get(j).getDialogueLine());
 									}
 																							
 								
@@ -124,9 +111,8 @@ public class Script
 								{
 									if(actors.get(i) instanceof Heroine)
 										{
-											System.out.print(actors.get(i).getCharacterName());
-											System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(emotionalDialogues.get(j).getDialogueLine());
+											
+										actor=new Heroine(actors.get(i).getCharacterName(),actors.get(i).getActorName(),emotionalDialogues.get(j).getDialogueLine());
 										}
 														
 									
@@ -136,9 +122,8 @@ public class Script
 							if(!(j%2==0))
 							{	if(actors.get(i) instanceof Hero)
 									{	
-									 	System.out.print(actors.get(i).getCharacterName());
-										System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(emotionalDialogues.get(j).getDialogueLine());
+									 
+										actor=new Hero(actors.get(i).getCharacterName(),actors.get(i).getActorName(),emotionalDialogues.get(j).getDialogueLine());
 									}
 																							
 								
@@ -167,9 +152,8 @@ public class Script
 								{
 									if(actors.get(i) instanceof Villan)
 										{
-											System.out.print(actors.get(i).getCharacterName());
-											System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(thrillerDialogues.get(j).getDialogueLine());
+											
+										actor=new Villan(actors.get(i).getCharacterName(),actors.get(i).getActorName(),thrillerDialogues.get(j).getDialogueLine());
 										}
 														
 									
@@ -179,9 +163,8 @@ public class Script
 							if(!(j%2==0))
 							{	if(actors.get(i) instanceof Hero)
 									{	
-									 	System.out.print(actors.get(i).getCharacterName());
-										System.out.print("("+actors.get(i).getActorName()+")");
-										System.out.println(thrillerDialogues.get(j).getDialogueLine());
+									 	
+										actor=new Hero((actors.get(i).getCharacterName()),(actors.get(i).getActorName()),(thrillerDialogues.get(j).getDialogueLine()));
 									}
 																							
 								
@@ -189,11 +172,11 @@ public class Script
 													
 
 
-						}
+					}
 										
-				}
-	
 			}
+	
+		}
 	
 
 	}
