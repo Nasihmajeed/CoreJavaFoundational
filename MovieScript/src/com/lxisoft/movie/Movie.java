@@ -31,10 +31,12 @@ public class Movie
 
     ArrayList<Actor> actors=new ArrayList<Actor>();
  
-   private int yearOfRelease,movieGenre;
+   private int yearOfRelease,movieGenre,genreNum;
    private float rating;
    private String movieName,movieLanguage;
 
+
+            Genre[] genres;
 
 
    //Name of the movie
@@ -48,20 +50,6 @@ public class Movie
    {
 	return movieName; 
    } 
-
-
-
-   //Genre of the movie
-
-   public void setMovieGenre(int movieGenre)
-   {
-    this.movieGenre=movieGenre;	
-   }		
-
-   public int getMovieGenre()
-   {
-	return movieGenre;
-   }
 
 
 
@@ -108,44 +96,10 @@ public class Movie
 	
 
 
-
-    public enum Genre
-    {
-    	Romantic
-    	{
-    		public String toString()
-    		  {
-    			return "RomanticMovie";
-    		  }
-    	},
-
-        Emotional
-    	{
-            public String toString()
-    		  {
-    			return "EmotionalMovie";
-    		  } 
-    	},
-
-    	Comedy
-    	{
-            public String toString()
-    		  {
-    			return "ComedyMovie";
-    		  }
-    	},
-    	Action
-    	{
-            public String toString()
-    		  {
-    			return "ActionMovie";
-    		  }
-    	}
-
-    };
-
-
-
+ enum Genre
+       {
+        	Romantic,Emotional,Comedy,Action;
+       }
 
 
 
@@ -176,22 +130,26 @@ public class Movie
 
 
 
+
+
+
+
+   genres=Genre.values();
+
+
     System.out.println("\r\n");
-    System.out.println("-------------------------------------------------------------------------------------------------------");	
-	System.out.println("------Enter a number corresponding to the given below options to select genre of your movie------------");	
+  System.out.println("-------------------------------------------------------------------------------------------------------");	
+	System.out.println("----------------------------Select the genre of your movie from below list-----------------------------");	
 	System.out.println("-------------------------------------------------------------------------------------------------------");	
-	System.out.println(java.util.Arrays.asList(Genre.values()));
+	System.out.println(java.util.Arrays.asList(genres));
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");					
-	
-       
+	   
 
-       setMovieGenre(sc.nextInt());
-						  
-	            
+      genreNum=sc.nextInt();
+						        
 				sleep.sleepStatement();
-
 
 
 
@@ -222,9 +180,6 @@ public class Movie
 	 
 
 
-
-
-
 System.out.println("-----------------------------------------------------------------------------------------------------------");
 System.out.println("------------------------------------------Enter the name of the Director-----------------------------------");
 System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -251,6 +206,7 @@ System.out.println("\r\n");
 
  public void printInitialDetails()
  {
+
 
    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
@@ -299,19 +255,19 @@ System.out.println("\r\n");
 
  
 
-               switch(getMovieGenre())
+               switch(genres[genreNum-1])
                {
-               	case 1 :
-               	        System.out.println("Genre of the Movie : "+Genre.Romantic.toString());
+               	case Romantic :
+               	        System.out.println(getMovieName()+" is a Romantic Movie!!!");
                	        break;
-               	case 2 :
-               	        System.out.println("Genre of the Movie : "+Genre.Emotional.toString());
+               	case Emotional :
+               	        System.out.println(getMovieName()+" is an Emotional Movie!!!");
                	        break;
-               	case 3 :
-               	        System.out.println("Genre of the Movie : "+Genre.Comedy.toString());
+               	case Comedy :
+               	        System.out.println(getMovieName()+" is a Comedy Movie!!!");
                	        break;
-               	case 4 :
-               	        System.out.println("Genre of the Movie : "+Genre.Action.toString());
+               	case Action :
+               	        System.out.println(getMovieName()+" is an Action Movie!!!");
                	        break;
                }
                                  

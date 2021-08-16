@@ -8,6 +8,11 @@ public class Dialogue
 
 	String dialogue;
 
-	
+	Dialogue(Actor deliveredBy,String dialogue)
+	{
+         this.deliveredBy=deliveredBy;
+         this.dialogue=dialogue;
+	}
 
+  
 }

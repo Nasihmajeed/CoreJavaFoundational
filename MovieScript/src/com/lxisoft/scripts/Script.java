@@ -11,10 +11,15 @@ public class Script
 
 
 List<Dialogue> dialogs=new ArrayList<Dialogue>();
-  
+ 
+ /* 
+public void setDialogues()
+{
 
+dialogs.add(new Dialogue());
 
-
+}
+*/
 
 
 }
