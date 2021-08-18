@@ -12,73 +12,52 @@ Scanner sc =new Scanner(System.in);
 public ArrayList<Actor> castActors(ArrayList<Actor> actors)
 {	int i,numberOfCharacters,selectActorRole,addMore=0;
 	String actorName,characterName;
-	Role role,roleSelected;
+	Role roleSelected;
 
-	Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
+//Map<String,ArrayList<Actor>> cast=new HashMap<String,ArrayList<Actor>>();
 do{
 
 System.out.println("\t Enter the role: ");
-	
-	System.out.println("\t1 "+Role.valueOf("Hero").toString());
-	System.out.println("\t2 "+Role.valueOf("Heroine").toString());
-	System.out.println("\t3 "+Role.valueOf("Comedian").toString());
-	System.out.println("\t4 "+Role.valueOf("Villan").toString());
+
+Role [] roles=Role.values();
+for(Role role: roles)
+{
+	System.out.println(role.ordinal()+1+" "+role);
+}
+
 	selectActorRole=sc.nextInt();
 	roleSelected=Role.getRole(selectActorRole-1);
 
 	System.out.println("\tEnter number of  "+roleSelected.toString()+": ");
 	numberOfCharacters=sc.nextInt();
 	
-	/*ArrayList<Actor> heros=new ArrayList<Hero>();
-	ArrayList<Actor> heroines=new ArrayList<Heroine>();
-	ArrayList<Actor> comedians=new ArrayList<Comedian>();
-	ArrayList<Actor> villans=new ArrayList<Villan>();*/
-
-	//ArrayList<Actor> actors=new ArrayList<Actor>();
-	
 	for(i=0;i<numberOfCharacters;i++)
 	{
-			
-
-		System.out.println("\tEnter the name of "+roleSelected.toString()+" "+(i+1));
+	System.out.println("\tEnter the name of "+roleSelected.toString()+" "+(i+1));
 		actorName=sc.next();	
 		
-		
-		System.out.println("\tEnter the Character name of "+actorName);
-		characterName=sc.next();
+	System.out.println("\tEnter the Character name of "+actorName);
+	characterName=sc.next();
 		
 		switch(roleSelected)
 		{
-			case Hero:		//actors=new ArrayList<Actor>();
-							actors.add(new Hero(actorName,characterName));
-							//actors.put("Hero",heros);
+			case Hero:		actors.add(new Hero(actorName,characterName));
 							break;
-			case Heroine:	//heroines=new ArrayList<Actor>();
-							actors.add(new Heroine(actorName,characterName));
-							//actors.put("Heroine",heroines);
+			case Heroine:	actors.add(new Heroine(actorName,characterName));
 							break;
 							
-			case Comedian:	//actors=new ArrayList<Actor>();
-							actors.add(new Comedian(actorName,characterName));
-							//actors.put("Comedian",comedians);
+			case Comedian:	actors.add(new Comedian(actorName,characterName));
 							break;
 									
-			case Villan:	//villans=new ArrayList<Actor>();	
-							actors.add(new Villan(actorName,characterName));
-			 				//actors.put("Villan",villans);
+			case Villan:	actors.add(new Villan(actorName,characterName));
 			 				break;
 
-							
 			default :System.out.println("Invalid entry");			
 						
 		}
-//System.out.println(cast.get("Hero").getActorName());
+
 
 		}
-
-
-
-
 
 System.out.println("\tAdd more actors press 1");
 addMore=sc.nextInt();

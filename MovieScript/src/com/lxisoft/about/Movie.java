@@ -12,9 +12,7 @@ public class Movie
 	Scanner sc=new Scanner(System.in);
 	
 	Director director=new Director();
-	
 	ArrayList<Actor> actors=new ArrayList<Actor>();
-	
 	ScriptWriter scriptWriter=new ScriptWriter();
 	
 
@@ -75,8 +73,6 @@ public float getRating()
 		
 		do{
 
-				
-		
 		System.out.println("\t Select the genere of the movie you want");
 		System.out.println("							");
 		System.out.println("\t 1. "+Genere.valueOf("Comedy").toString());
@@ -89,22 +85,13 @@ public float getRating()
 		Genere genereSelected=geners[setGenere];
 		System.out.println(genereSelected.toString());
 
-		
 		actors=director.castActors(actors);
-	
 		scriptWriter.writeScript(genereSelected,actors);
 
-
-
-		
-		
 		System.out.println("\n \t\t Give your rating for the movie out of 10");
 		rating=sc.nextFloat();
 		setImdb(rating);
 		System.out.println("\t\n The IMDB Rating of this movie :"+getRating());
-
-
-
 
 System.out.println("\n\tDo you want to see more details about the movie(1.to view more 2.exit ) ");
 againAns=sc.nextInt();

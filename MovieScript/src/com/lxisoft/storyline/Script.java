@@ -7,8 +7,13 @@ import com.lxisoft.storyline.*;
 
 public class Script
 {
-	//ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
+	ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 	Actor actor;
+	
+	public ArrayList<Dialogue> getDialogue()
+	{
+		return dialogues;
+	} 
 	public void showComedyScene(ArrayList<Dialogue> comedyDialogues,ArrayList<Actor> actors )
 	{	int i;
 		for(int j=0;j<comedyDialogues.size();j++)
