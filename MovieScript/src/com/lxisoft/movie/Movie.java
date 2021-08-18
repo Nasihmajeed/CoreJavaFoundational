@@ -16,13 +16,13 @@ public class Movie
   Scanner sc=new Scanner(System.in);
 
 
-    Hero heroo=new Hero();
+    Actor heroo=new Hero();
 
-    Heroine heroinee=new Heroine();
+    Actor heroinee=new Heroine();
 
-    Comedian comediann=new Comedian();
+    Actor comediann=new Comedian();
 
-    Villain villainn=new Villain();
+    Actor villainn=new Villain();
 
 
 
