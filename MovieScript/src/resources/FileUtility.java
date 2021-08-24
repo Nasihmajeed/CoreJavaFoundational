@@ -1,7 +1,4 @@
-package com.lxisoft.resources;
-
-
-
+package resources;
 
 public class FileUtility
 {
@@ -11,10 +8,10 @@ public class FileUtility
  List<String> comedyDialogues=new ArrayList<String>();
  List<String> actionDialogues=new ArrayList<String>();
 
-String romance=new String("com\\lxisoft\\resources\\RomanticScr.CSV");
-String comedy=new String("com\\lxisoft\\resources\\EmotionalScr.CSV");
-String emotional=new String("com\\lxisoft\\resources\\ComedyScr.CSV");
-String action=new String("com\\lxisoft\\resources\\ActionScr.CSV");
+String romance=new String("com\\resources\\RomanticScr.CSV");
+String comedy=new String("com\\resources\\EmotionalScr.CSV");
+String emotional=new String("comresources\\ComedyScr.CSV");
+String action=new String("com\\resources\\ActionScr.CSV");
 
 
     try{

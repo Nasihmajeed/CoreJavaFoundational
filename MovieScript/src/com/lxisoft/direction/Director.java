@@ -6,7 +6,7 @@ import com.lxisoft.movie.*;
 import java.util.*;
 import java.io.*;
 
-import com.lxisoft.resources.DisplayUtility;
+import resources.*;
 
 public class Director
 {
@@ -31,14 +31,14 @@ public class Director
 	  
 	 //Casting the actors by the Director---
 	 
-public ArrayList<Actor> castingTheActors(ArrayList<Actor> actors)
+public List<Actor> castActors(List<Actor> actors)
    {
          //Casting the Heroes
     {
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
 	   int numOfHero=sc.nextInt(); 
-	   sleep.sleepStatement();
+	   sleep.sleepThread();
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	   System.out.println("---------------------------------------------------------------------------------------------------------");
 	  for(int i=0 ; i<numOfHero ; i++)
@@ -48,14 +48,14 @@ public ArrayList<Actor> castingTheActors(ArrayList<Actor> actors)
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 System.out.println("Enter the name of the Hero : ");  
 		 String name=sc.next();
-		 sleep.sleepStatement();
+		 sleep.sleepThread();
 		 System.out.println("Name of the Hero is: "+name);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
          
          System.out.println("---------------------------------------------------------------------------------------------------------");
          System.out.println("Enter the Character name of the Hero : ");
 		 String charName=sc.next();
-		 sleep.sleepStatement();
+		 sleep.sleepThread();
 		 System.out.println("Name of the Hero's Character is : "+charName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
          actors.add(new Hero(name,charName));
@@ -168,36 +168,35 @@ public ArrayList<Actor> castingTheActors(ArrayList<Actor> actors)
 
 //To print the characters to the user
     
-public void printCharactersOfTheMovie( ArrayList<Actor> actors)
+public void printCharacters(List<Actor> actors)
 {
 	  System.out.println("\r\n");
 		
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
             
-                sleep.sleepStatement();
+               sleep.sleepThread();
 
         System.out.println("**************************************=====CHARACTERS=====********************************************");
-          sleep.sleepStatement();
+         sleep.sleepThread();
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
 		
-		        sleep.sleepStatement();
-
+		        sleep.sleepThread();
 for(int i=0;i<actors.size();i++)
 {
 if(actors.get(i) instanceof Hero)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
    
-            sleep.sleepStatement();
+           sleep.sleepThread();
    }
  
   else if(actors.get(i) instanceof Heroine)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
    
-          sleep.sleepStatement();
+          sleep.sleepThread();
 
    }
   else if(actors.get(i) instanceof Comedian)
@@ -205,13 +204,13 @@ if(actors.get(i) instanceof Hero)
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
    
 
-            sleep.sleepStatement();
+           sleep.sleepThread();
    }
   else if(actors.get(i) instanceof Villain)
    {
     System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
    
-             sleep.sleepStatement();
+            sleep.sleepThread();
 
    }      	
 }

@@ -3,7 +3,7 @@ package com.lxisoft.tdd;
 import com.lxisoft.movie.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.direction.*;
-import com.lxisoft.resources.DisplayUtility;
+import resources.DisplayUtility;
 
 
 public class TDD
@@ -25,27 +25,26 @@ System.out.println("************************************************************
 System.out.println("******************************************************************************************************");		
 } 
 
-                                  sleep.sleepStatement();
+                                  sleep.sleepThread();
 
 Movie movie=new Movie();
 movie.inputInitialDetails();
 
-                                  sleep.sleepStatement();
+                                  sleep.sleepThread();
 
 movie.printInitialDetails();
                      
 
-                                  sleep.sleepStatement();
-
+                                  sleep.sleepThread();
 
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
-               sleep.sleepStatement();
+               sleep.sleepThread();
 
         System.out.println("/////////////////------------------------------THE END---------------------------/////////////////////");
                     
-               sleep.sleepStatement();
+               sleep.sleepThread();
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
  

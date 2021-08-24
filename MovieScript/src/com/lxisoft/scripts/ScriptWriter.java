@@ -1,9 +1,12 @@
 package com.lxisoft.scripts;
 
-import com.lxisoft.resources.DisplayUtility;
+import resources.DisplayUtility;
+import com.lxisoft.cast.*;
 
 public class ScriptWriter
 {
+
+//  ArrayList<Actor> actors;
 
 Script scr=new Script();
 
@@ -20,7 +23,6 @@ private String name;
   {
   return name;  	
   }
-
 
   
 

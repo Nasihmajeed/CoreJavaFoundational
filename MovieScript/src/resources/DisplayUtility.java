@@ -1,8 +1,9 @@
-package com.lxisoft.resources;
+package resources;
 
 public class DisplayUtility
 {
-	public void sleepStatement()
+  
+	public void sleepThread()
      {
         try{
               Thread.sleep(2000);

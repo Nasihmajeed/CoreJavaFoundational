@@ -3,7 +3,7 @@ package com.lxisoft.movie;
 import com.lxisoft.direction.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.scripts.*;
-import com.lxisoft.resources.DisplayUtility;
+import resources.DisplayUtility;
 
 import java.util.*;
 
@@ -24,19 +24,23 @@ public class Movie
 
     Actor villainn=new Villain();
 
-
-
     Director director=new Director();
+    
     ScriptWriter writer=new ScriptWriter();
 
-    ArrayList<Actor> actors=new ArrayList<Actor>();
+                    List<Actor> actors;
  
-   private int yearOfRelease,movieGenre,genreNum;
+   private int yearOfRelease,genreNum;
    private float rating;
    private String movieName,movieLanguage;
 
+   Genre[] genre;
+            
 
-            Genre[] genres;
+      enum Genre
+       {
+          Romantic,Emotional,Comedy,Action;
+       }
 
 
    //Name of the movie
@@ -93,15 +97,6 @@ public class Movie
 		return yearOfRelease;
 	}
 
-	
-
-
- enum Genre
-       {
-        	Romantic,Emotional,Comedy,Action;
-       }
-
-
 
  public void inputInitialDetails()
   {
@@ -115,9 +110,7 @@ public class Movie
    setMovieName(sc.next());	
  
 
-                sleep.sleepStatement();
-
-
+               sleep.sleepThread();
 
    System.out.println("\r\n");
    System.out.println("---------------------------------------------------------------------------------------------------------");	
@@ -126,22 +119,18 @@ public class Movie
 
    setMovieLanguage(sc.next());
 
-                  sleep.sleepStatement();
+                  sleep.sleepThread();
 
 
 
-
-
-
-
-   genres=Genre.values();
+   genre=Genre.values();
 
 
     System.out.println("\r\n");
   System.out.println("-------------------------------------------------------------------------------------------------------");	
 	System.out.println("----------------------------Select the genre of your movie from below list-----------------------------");	
 	System.out.println("-------------------------------------------------------------------------------------------------------");	
-	System.out.println(java.util.Arrays.asList(genres));
+	System.out.println(java.util.Arrays.asList(genre));
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");					
@@ -149,8 +138,7 @@ public class Movie
 
       genreNum=sc.nextInt();
 						        
-				sleep.sleepStatement();
-
+			sleep.sleepThread();
 
 
     System.out.println("\r\n");
@@ -163,7 +151,7 @@ public class Movie
 
     System.out.println("\r\n");
 
-				sleep.sleepStatement();
+			sleep.sleepThread();
 
 
 
@@ -176,8 +164,7 @@ public class Movie
 	
 	System.out.println("\r\n");
 
-				sleep.sleepStatement();
-	 
+				sleep.sleepThread();
 
 
 System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -187,7 +174,7 @@ director.setName(sc.next());
 System.out.println("\r\n");
 
 
-                  sleep.sleepStatement();
+                 sleep.sleepThread();
 
  System.out.println("-----------------------------------------------------------------------------------------------------------");
  System.out.println("----------------------------------------Enter the name of the Script Writer---------------------------------");
@@ -196,8 +183,11 @@ System.out.println("\r\n");
  System.out.println("\r\n");
 
 
+        actors=new ArrayList<Actor>();
+
+
 //******************************************************************************
-  actors=director.castingTheActors(actors);
+  actors=director.castActors(actors);
 //******************************************************************************
 
 
@@ -210,16 +200,15 @@ System.out.println("\r\n");
 
    System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                 sleep.sleepStatement();
+                sleep.sleepThread();
 
 
 	System.out.println("-------------------------------GOOD FRIDAY MOVIE HOUSE in association with----------------------------------");
                   
-                 sleep.sleepStatement();
-
+                sleep.sleepThread();
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-               sleep.sleepStatement();
+              sleep.sleepThread();
 
     
 
@@ -233,14 +222,14 @@ System.out.println("\r\n");
                  
     System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
                   
-                 sleep.sleepStatement();
+                 sleep.sleepThread();
 
 	System.out.println("---------------------------------UNIVERSAL PICTURE PRODUCTIONS PRESENTS------------------------------------");
                   
-                 sleep.sleepStatement();
+                 sleep.sleepThread();
 	System.out.println("/////////////////////////////////----------------------------------------///////////////////////////////////");
 
-                 sleep.sleepStatement();
+                 sleep.sleepThread();
 
     System.out.println("\r\n");
 
@@ -251,11 +240,11 @@ System.out.println("\r\n");
 
 
 				
-				sleep.sleepStatement();
+			sleep.sleepThread();
 
  
 
-               switch(genres[genreNum-1])
+               switch(genre[genreNum-1])
                {
                	case Romantic :
                	        System.out.println(getMovieName()+" is a Romantic Movie!!!");
@@ -272,50 +261,50 @@ System.out.println("\r\n");
                }
                                  
                   
-                    sleep.sleepStatement();
+                   sleep.sleepThread();
 
 
                 System.out.println("Language of the Movie : "+getMovieLanguage());
 
 
 				
-				sleep.sleepStatement();
+			sleep.sleepThread();
 
 
 				System.out.println("Year of Release : "+getYear());
 				
 
-				sleep.sleepStatement();
+				sleep.sleepThread();
 
 
 
 				System.out.println("Rating of the movie : "+getRating());
 				
 
-				sleep.sleepStatement();
+				sleep.sleepThread();
 
 
 
 				System.out.println("Name of the Director : "+director.getName());
 
 
-				sleep.sleepStatement();
+				sleep.sleepThread();
 
 				System.out.println("Name of the Script Writer : "+writer.getName());
 
 
-				sleep.sleepStatement();
+				sleep.sleepThread();
 
 	System.out.println("////////////////////////////--------------------------------------------------------------------------------");	
 	System.out.println("---------------------------////////////////////////////////////////////////---------------------------------");	
 	System.out.println("---------------------------------------------------------------------------/////////////////////////////////");	
                 
-               sleep.sleepStatement();
+               sleep.sleepThread();
 
 
        //******************************************************************************
-		director.printCharactersOfTheMovie(actors);
-     		// writer.writeScript(getMovieGenre(),actors);
+		director.printCharacters(actors);
+     //		 writer.writeScript(genre[genreNum-1] , actors);
 	   //******************************************************************************
 }
 

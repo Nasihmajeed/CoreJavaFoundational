@@ -14,5 +14,14 @@ public class Dialogue
          this.dialogue=dialogue;
 	}
 
+  public Actor getActor()
+  {
+  	return deliveredBy;
+  }
+
+  public String getDialogue()
+  {
+  	return dialogue;
+  }
   
 }

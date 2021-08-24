@@ -1,7 +1,7 @@
 package com.lxisoft.scripts;
 
 import com.lxisoft.cast.*;
-import com.lxisoft.resources.*;
+import resources.*;
 
 import java.util.*;
 import java.io.*;
@@ -9,17 +9,16 @@ import java.io.*;
 public class Script
 {
 
-
+/*
 List<Dialogue> dialogs=new ArrayList<Dialogue>();
  
- /* 
-public void setDialogues()
+ 
+public void setScript()
 {
 
 dialogs.add(new Dialogue());
 
 }
+
 */
-
-
 }
