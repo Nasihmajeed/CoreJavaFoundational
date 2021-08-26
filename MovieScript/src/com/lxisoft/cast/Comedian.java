@@ -2,15 +2,10 @@ package com.lxisoft.cast;
 
 public class Comedian extends Actor
 {
-    public Comedian()
-	{
-		
-	}
 
-
-   public Comedian(String comedianName,String comedianCharName)
+   public Comedian(String name,String characterName)
    {
-       super(comedianName,comedianCharName);
+       super(name,characterName);
    }
 
 }

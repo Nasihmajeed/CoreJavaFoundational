@@ -3,53 +3,26 @@ package com.lxisoft.cast;
 public class Actor
 {
 
- protected String actorName,actorCharName;
-
-
-
-   public Actor()
-   {
-   	
-   }
+ protected String name,characterName;
 
 	
-   public Actor(String actorName,String actorCharName)
+   public Actor(String name,String characterName)
    {
-   	this.actorName=actorName;
-   	this.actorCharName=actorCharName;
+   	this.name=name;
+   	this.characterName=characterName;
    }
 
 
-	public String getActorName()
+	public String getName()
 	{
-		return actorName;
+		return name;
 	}
 	
 	
-	public String getActorCharName()
+	public String getCharacterName()
 	{
-		return actorCharName;
+		return characterName;
 	}
 
-
-  public int hashCode() 
-  {
-   return actorName.length()+actorCharName.length(); 
-  }
-
-
-  public boolean equals(Object o) 
-  {
-
-   if((o instanceof Actor) && (((Actor)o).getActorName() == getActorName()) && (((Actor)o).getActorCharName() == getActorCharName())) 
-  {
-   return true;
-  }
-   else 
-  {
-   return false;
-  }
-
-  }
 
 }

@@ -9,6 +9,14 @@ import java.io.*;
 public class Script
 {
 
+Scene scene=new Scene();
+
+
+
+
+
+//  Script has scene and scene has dialogues.
+
 /*
 List<Dialogue> dialogs=new ArrayList<Dialogue>();
  

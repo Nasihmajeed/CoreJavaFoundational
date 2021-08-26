@@ -10,7 +10,7 @@ import resources.*;
 
 public class Director
 {
-    DisplayUtility sleep=new DisplayUtility();
+    DisplayUtility du=new DisplayUtility();
 
 
 	Scanner sc=new Scanner(System.in);
@@ -38,7 +38,7 @@ public List<Actor> castActors(List<Actor> actors)
        System.out.println("---------------------------------------------------------------------------------------------------------");
 	   System.out.println("Enter the number of heroes in the movie : ");
 	   int numOfHero=sc.nextInt(); 
-	   sleep.sleepThread();
+	   
 	   System.out.println("Number of heroes in the Movie is : "+numOfHero);
 	   System.out.println("---------------------------------------------------------------------------------------------------------");
 	  for(int i=0 ; i<numOfHero ; i++)
@@ -48,17 +48,17 @@ public List<Actor> castActors(List<Actor> actors)
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
 		 System.out.println("Enter the name of the Hero : ");  
 		 String name=sc.next();
-		 sleep.sleepThread();
+		 
 		 System.out.println("Name of the Hero is: "+name);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
          
          System.out.println("---------------------------------------------------------------------------------------------------------");
          System.out.println("Enter the Character name of the Hero : ");
-		 String charName=sc.next();
-		 sleep.sleepThread();
-		 System.out.println("Name of the Hero's Character is : "+charName);
+		 String characterName=sc.next();
+		 
+		 System.out.println("Name of the Hero's Character is : "+characterName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-         actors.add(new Hero(name,charName));
+         actors.add(new Hero(name,characterName));
 
         } 	 
 		
@@ -85,10 +85,10 @@ public List<Actor> castActors(List<Actor> actors)
 
          System.out.println("---------------------------------------------------------------------------------------------------------");
          System.out.println("Enter the Character name of the Heroine : ");
-		 String charName=sc.next();
-		 System.out.println("Name of the Heroine's Character is : "+charName);
+		 String characterName=sc.next();
+		 System.out.println("Name of the Heroine's Character is : "+characterName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-		 actors.add(new Heroine(name,charName));
+		 actors.add(new Heroine(name,characterName));
          
          
         }
@@ -116,10 +116,10 @@ public List<Actor> castActors(List<Actor> actors)
          
          System.out.println("---------------------------------------------------------------------------------------------------------");
          System.out.println("Enter the Character name of the Comedian : ");
-		 String charName=sc.next();
-		 System.out.println("Name of the Comedian's Character is : "+charName);
+		 String characterName=sc.next();
+		 System.out.println("Name of the Comedian's Character is : "+characterName);
 		 System.out.println("---------------------------------------------------------------------------------------------------------");  
-		 actors.add(new Comedian(name,charName));
+		 actors.add(new Comedian(name,characterName));
 		
 		 
         }
@@ -146,10 +146,10 @@ public List<Actor> castActors(List<Actor> actors)
          
          System.out.println("---------------------------------------------------------------------------------------------------------");
          System.out.println("Enter the Character name of the Villain : ");
-		 String charName=sc.next();
-		 System.out.println("Name of the Villain's Character is : "+charName);  
+		 String characterName=sc.next();
+		 System.out.println("Name of the Villain's Character is : "+characterName);  
 		 System.out.println("---------------------------------------------------------------------------------------------------------");
-		 actors.add(new Villain(name,charName));
+		 actors.add(new Villain(name,characterName));
 		 
 
         }
@@ -175,42 +175,42 @@ public void printCharacters(List<Actor> actors)
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
             
-               sleep.sleepThread();
+               du.pauseScreen();
 
         System.out.println("**************************************=====CHARACTERS=====********************************************");
-         sleep.sleepThread();
+         du.pauseScreen();
 		System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
 		
-		        sleep.sleepThread();
+		        du.pauseScreen();
 for(int i=0;i<actors.size();i++)
 {
 if(actors.get(i) instanceof Hero)
    {
-    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Hero's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getName()+" : "+"Hero's Character Name : "+actors.get(i).getCharacterName());
    
-           sleep.sleepThread();
+           du.pauseScreen();
    }
  
   else if(actors.get(i) instanceof Heroine)
    {
-    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Heroine's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getName()+" : "+"Heroine's Character Name : "+actors.get(i).getCharacterName());
    
-          sleep.sleepThread();
+          du.pauseScreen();
 
    }
   else if(actors.get(i) instanceof Comedian)
    {
-    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Comedian's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getName()+" : "+"Comedian's Character Name : "+actors.get(i).getCharacterName());
    
 
-           sleep.sleepThread();
+           du.pauseScreen();
    }
   else if(actors.get(i) instanceof Villain)
    {
-    System.out.println("Starring>>>>>>"+actors.get(i).getActorName()+" : "+"Villain's Character Name : "+actors.get(i).getActorCharName());
+    System.out.println("Starring>>>>>>"+actors.get(i).getName()+" : "+"Villain's Character Name : "+actors.get(i).getCharacterName());
    
-            sleep.sleepThread();
+            du.pauseScreen();
 
    }      	
 }

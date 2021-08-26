@@ -11,7 +11,7 @@ public class TDD
 public static void main(String[] args)
 {
 
-DisplayUtility sleep=new DisplayUtility();
+DisplayUtility du=new DisplayUtility();
 
 {
 System.out.println("******************************************************************************************************");	
@@ -25,26 +25,26 @@ System.out.println("************************************************************
 System.out.println("******************************************************************************************************");		
 } 
 
-                                  sleep.sleepThread();
+                                  du.pauseScreen();
 
 Movie movie=new Movie();
 movie.inputInitialDetails();
 
-                                  sleep.sleepThread();
+                                  du.pauseScreen();
 
 movie.printInitialDetails();
                      
 
-                                  sleep.sleepThread();
+                                  du.pauseScreen();
 
 
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
-               sleep.sleepThread();
+               du.pauseScreen();
 
         System.out.println("/////////////////------------------------------THE END---------------------------/////////////////////");
                     
-               sleep.sleepThread();
+               du.pauseScreen();
         System.out.println("******************************************************************************************************");	
         System.out.println("******************************************************************************************************");
  

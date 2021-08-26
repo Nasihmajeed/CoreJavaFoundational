@@ -2,15 +2,10 @@ package com.lxisoft.cast;
 
 public class Hero extends Actor
 {
-	
-	public Hero()
-	{
-		
-	}
 
-   public Hero(String heroName,String heroCharName)
+   public Hero(String name,String characterName)
    {
-       super(heroName,heroCharName);
+       super(name,characterName);
    }
 
 

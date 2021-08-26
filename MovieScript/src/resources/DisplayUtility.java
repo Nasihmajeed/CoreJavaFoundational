@@ -3,7 +3,7 @@ package resources;
 public class DisplayUtility
 {
   
-	public void sleepThread()
+	public void pauseScreen()
      {
         try{
               Thread.sleep(2000);
