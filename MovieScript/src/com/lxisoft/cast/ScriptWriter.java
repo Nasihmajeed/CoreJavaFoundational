@@ -18,28 +18,28 @@ public void writeScript(Genere genere,ArrayList<Actor> actors)
 {	
 	switch(genere)
 	{
-		case Comedy:script.showComedyScene(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),25),actors);
-					script.showRomanticScene(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),10),actors);
-					script.showEmotionalScene(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors);
+		case Comedy:script.viewScript(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),25),actors,Genere.valueOf("Comedy"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),10),actors,Genere.valueOf("Romantic"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors,Genere.valueOf("Emotional"));
 					break;
 	
 		case Romantic : 
 
-					script.showComedyScene(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors);
-					script.showRomanticScene(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),25),actors);
-					script.showEmotionalScene(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors);
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors,Genere.valueOf("Comedy"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),25),actors,Genere.valueOf("Romantic"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors,Genere.valueOf("Emotional"));
 					break;
 			
 		case Emotional : 
-					script.showComedyScene(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors);
-					script.showRomanticScene(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),15),actors);
-					script.showEmotionalScene(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),25),actors);
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors,Genere.valueOf("Comedy"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Romantic"),script.getDialogue(),15),actors,Genere.valueOf("Romantic"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),25),actors,Genere.valueOf("Emotional"));
 					break;
 			
 		case Thriller :
-					script.showComedyScene(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors);
-					script.showThrillerScene(fileOperation.fetchContents(Genere.valueOf("Thriller"),script.getDialogue(),25),actors);
-					script.showEmotionalScene(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors);
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Comedy"),script.getDialogue(),15),actors,Genere.valueOf("Comedy"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Thriller"),script.getDialogue(),25),actors,Genere.valueOf("Thriller"));
+					script.viewScript(fileOperation.fetchContents(Genere.valueOf("Emotional"),script.getDialogue(),15),actors,Genere.valueOf("Emotional"));
 					break;
 					
 

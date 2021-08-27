@@ -3,18 +3,198 @@ import java.io.*;
 import java.util.*;
 import com.lxisoft.cast.*;
 import com.lxisoft.storyline.*;
+import com.lxisoft.about.*;
 
 
 public class Script
 {
 	ArrayList<Dialogue> dialogues=new ArrayList<Dialogue>();
 	Actor actor;
+	Genere genere;
 	
 	public ArrayList<Dialogue> getDialogue()
 	{
 		return dialogues;
 	} 
-	public void showComedyScene(ArrayList<Dialogue> comedyDialogues,ArrayList<Actor> actors )
+
+	public void viewScript(ArrayList<Dialogue> dialogues,ArrayList<Actor> actors,Genere genere)
+	{	int i;
+		switch(genere)
+		{
+			case Comedy: for(int j=0;j<dialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
+								
+					if(dialogues.get(j) instanceof ComedyDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Comedian)
+										{
+											
+							actor=new Comedian((actors.get(i).getCharacterName()).toString(),(actors.get(i).getActorName()).toString(),(dialogues.get(j).getDialogueLine()).toString());
+										}
+														
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	
+									actor=new Hero((actors.get(i).getCharacterName()).toString(),(actors.get(i).getActorName()).toString(),(dialogues.get(j).getDialogueLine()).toString());
+									}
+																							
+								
+							}
+													
+
+
+												
+						}
+
+
+
+
+												
+								
+		}
+					
+							
+					
+	}
+
+
+				break;
+
+		case Romantic :for(int j=0;j<dialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
+								
+					if(dialogues.get(j) instanceof RomanticDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Heroine)
+										{
+											
+										actor=new Heroine(actors.get(i).getCharacterName(),actors.get(i).getActorName(),dialogues.get(j).getDialogueLine());
+										}
+														
+									
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	
+										actor=new Hero(actors.get(i).getCharacterName(),actors.get(i).getActorName(),dialogues.get(j).getDialogueLine());
+									}
+																							
+								
+							}
+													
+
+
+						}
+										
+				}
+	
+			}
+			break;
+
+
+			case Emotional: 	for(int j=0;j<dialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
+								
+					if(dialogues.get(j) instanceof EmotionalDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Heroine)
+										{
+											
+										actor=new Heroine(actors.get(i).getCharacterName(),actors.get(i).getActorName(),dialogues.get(j).getDialogueLine());
+										}
+														
+									
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 
+										actor=new Hero(actors.get(i).getCharacterName(),actors.get(i).getActorName(),dialogues.get(j).getDialogueLine());
+									}
+																							
+								
+							}
+													
+
+
+						}
+										
+				}
+	
+			}break;
+			
+
+			case Thriller: 
+			for(int j=0;j<dialogues.size();j++)
+
+			{	
+			
+				for( i=0;i<actors.size();i++){
+								
+					if(dialogues.get(j) instanceof RomanticDialogue  )
+						{
+							if(j%2==0)
+								{
+									if(actors.get(i) instanceof Villan)
+										{
+											
+										actor=new Villan(actors.get(i).getCharacterName(),actors.get(i).getActorName(),dialogues.get(j).getDialogueLine());
+										}
+														
+									
+								}	
+													
+
+							if(!(j%2==0))
+							{	if(actors.get(i) instanceof Hero)
+									{	
+									 	
+										actor=new Hero((actors.get(i).getCharacterName()),(actors.get(i).getActorName()),(dialogues.get(j).getDialogueLine()));
+									}
+																							
+								
+							}
+													
+
+
+					}
+										
+			}
+	
+		}
+	
+			break;	
+
+		}				
+
+
+
+	}
+	/*public void showComedyScene(ArrayList<Dialogue> comedyDialogues,ArrayList<Actor> actors )
 	{	int i;
 		for(int j=0;j<comedyDialogues.size();j++)
 
@@ -49,6 +229,9 @@ public class Script
 
 												
 						}
+
+
+
 
 												
 								
@@ -185,9 +368,10 @@ public class Script
 	
 
 	}
-	
-
+	*/
 
 }
+
+
 
 
