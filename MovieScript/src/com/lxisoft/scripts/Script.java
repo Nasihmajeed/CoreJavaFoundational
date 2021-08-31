@@ -9,24 +9,38 @@ import java.io.*;
 public class Script
 {
 
-Scene scene=new Scene();
+/*
 
-
+Scene scene;
 
 
 
 //  Script has scene and scene has dialogues.
 
-/*
+
 List<Dialogue> dialogs=new ArrayList<Dialogue>();
  
  
-public void setScript()
-{
+public void setScript(Genre genre,ArrayList<Actor> actors)
+  {
 
-dialogs.add(new Dialogue());
+   switch(genre)
+       {
+         scene=new RomanceScene();
 
-}
+
+       for(int i=0;i<actors.size();i++)
+             {
+         dialogs.add(new Dialogue(actors.get(i).getName(),dialogs.get(i)));
+             }
+       }
+
+   }
+
+ public Script getScript()
+ {
+    return new Script();
+ }
 
 */
 }

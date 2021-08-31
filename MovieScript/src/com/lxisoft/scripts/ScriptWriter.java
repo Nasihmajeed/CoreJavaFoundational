@@ -3,15 +3,12 @@ package com.lxisoft.scripts;
 import resources.DisplayUtility;
 import com.lxisoft.cast.*;
 
+
 public class ScriptWriter
 {
-
-//  ArrayList<Actor> actors;
-
-Script scr=new Script();
-
-
-private String name;
+    
+    private String name;
+  
 
   public void setName(String name)
   {
@@ -25,5 +22,17 @@ private String name;
   }
 
   
+/*
+
+    Script scr=new Script();
+
+   public void writeScript(Genre genre,ArrayList<Actor> actors)
+   {
+      scr.setScript(genre,actors);
+
+   }
+
+  */
+
 
 }

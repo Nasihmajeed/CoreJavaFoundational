@@ -15,15 +15,7 @@ public class Movie
 
   Scanner sc=new Scanner(System.in);
 
-/*
-    Actor heroo=new Hero();
 
-    Actor heroinee=new Heroine();
-
-    Actor comediann=new Comedian();
-
-    Actor villainn=new Villain();
-*/
     Director director=new Director();
     
     ScriptWriter writer=new ScriptWriter();
@@ -298,8 +290,10 @@ System.out.println("\r\n");
 
        //******************************************************************************
 		director.printCharacters(actors);
-     //		 writer.writeScript(genre[genreNum-1] , actors);
-	   //******************************************************************************
+        
+      //  writer.writeScript(genre[genreNum-1] , actors);
+	   
+       //******************************************************************************
 }
 
 
