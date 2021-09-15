@@ -38,8 +38,8 @@ public void showHotelDetail(){
       case 2: System.out.println("Customer");
       menu.printFoodMenu();
      //menu.orderFoodFromMenu();
-     customer.printSelectedFoodAndBill(menu);
-   cashier.printBill(customer);
+     customer.giveOrder(menu);
+   cashier.calculateBill(customer,menu);
       //admin.takeOrderFromCustomer();
    this.inputUserDetail();
       break;
