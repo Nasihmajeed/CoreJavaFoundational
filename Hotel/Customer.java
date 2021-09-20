@@ -12,14 +12,13 @@ public class Customer {
 //Employee e=new Employee();
 //ArrayList<Order> orderList=new ArrayList<Order>();
 Scanner input = new Scanner(System.in);
-  HashMap<ArrayList<FoodItem>,ArrayList<Integer>> order= new HashMap<ArrayList<FoodItem>,ArrayList<Integer>>();
-  ArrayList<Integer> quantityOfFoodItem =new ArrayList<Integer>();
-  ArrayList<Integer> listOfOrderedFood=new ArrayList<Integer>();
+  HashMap<String,Integer> order= new HashMap<String,Integer>();
 
 //Menu menu;
 //ArrayList<FoodItem> list;
 //menu.orderFoodFromMenu(ArrayList<FoodItem> list);
 
+ArrayList<Integer> indexNumberOfOrderedFood=new ArrayList<Integer>();
 public void giveOrder(Menu menu){
 //this.menu=menu;
 ArrayList<FoodItem> list=menu.getArraylist();
@@ -35,34 +34,25 @@ for(int numberToRunLoop=0;numberToRunLoop<numberOfFoodOrder;numberToRunLoop++){
   System.out.println("Enter the Item Number");
   int foodItemIndexNumber=input.nextInt();
   input.nextLine();
-  listOfOrderedFood.add(foodItemIndexNumber);
+indexNumberOfOrderedFood.add(foodItemIndexNumber);
   
  
  System.out.println("Enter Quantity You Need");
  int quantityOfFood=input.nextInt();
    input.nextLine();
-   quantityOfFoodItem.add(quantityOfFood);
+  // quantityOfFoodItem.add(quantityOfFood);
  // this.quantityOfFoodItem=quantityOfFoodItem;
-order.put(list,quantityOfFoodItem);
+order.put(list.get(foodItemIndexNumber-1).getfoodName(),quantityOfFood);
 //order.put(list,quantityOfFoodItem);
 //numberOfFoodOrder++;
  }
   }
  
-public HashMap<ArrayList<FoodItem>,ArrayList<Integer>> getOrder(){
-this.order=order;
+public HashMap<String,Integer> getOrder(){
+//this.order=order;
 return order;
 }
-public ArrayList<Integer> getListOfOrderedFood(){
-this.listOfOrderedFood=listOfOrderedFood;
-return listOfOrderedFood;
-//this.quantityOfFoodItem=quantityOfFoodItem;
-  }
-public ArrayList<Integer> getquantityOfFoodItem(){
-//this.quantityOfFoodItem=quantityOfFoodItem;
-return quantityOfFoodItem;
-//this.quantityOfFoodItem=quantityOfFoodItem;
-  }
-  
-  
+public ArrayList<Integer> getIndexNumberOfOrderedFood(){
+  return indexNumberOfOrderedFood;
 }
+  }
