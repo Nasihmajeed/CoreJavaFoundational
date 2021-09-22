@@ -12,13 +12,13 @@ public class Customer {
 //Employee e=new Employee();
 //ArrayList<Order> orderList=new ArrayList<Order>();
 Scanner input = new Scanner(System.in);
-  HashMap<String,Integer> order= new HashMap<String,Integer>();
+  HashMap<FoodItem,Integer> order= new HashMap<FoodItem,Integer>();
 
 //Menu menu;
 //ArrayList<FoodItem> list;
 //menu.orderFoodFromMenu(ArrayList<FoodItem> list);
 
-ArrayList<Integer> indexNumberOfOrderedFood=new ArrayList<Integer>();
+//ArrayList<Integer> indexNumberOfOrderedFood=new ArrayList<Integer>();
 public void giveOrder(Menu menu){
 //this.menu=menu;
 ArrayList<FoodItem> list=menu.getArraylist();
@@ -34,7 +34,7 @@ for(int numberToRunLoop=0;numberToRunLoop<numberOfFoodOrder;numberToRunLoop++){
   System.out.println("Enter the Item Number");
   int foodItemIndexNumber=input.nextInt();
   input.nextLine();
-indexNumberOfOrderedFood.add(foodItemIndexNumber);
+//indexNumberOfOrderedFood.add(foodItemIndexNumber);
   
  
  System.out.println("Enter Quantity You Need");
@@ -42,17 +42,16 @@ indexNumberOfOrderedFood.add(foodItemIndexNumber);
    input.nextLine();
   // quantityOfFoodItem.add(quantityOfFood);
  // this.quantityOfFoodItem=quantityOfFoodItem;
-order.put(list.get(foodItemIndexNumber-1).getfoodName(),quantityOfFood);
+order.put(list.get(foodItemIndexNumber-1),quantityOfFood);
 //order.put(list,quantityOfFoodItem);
 //numberOfFoodOrder++;
  }
   }
  
-public HashMap<String,Integer> getOrder(){
+public HashMap<FoodItem,Integer> getOrder(){
 //this.order=order;
 return order;
 }
-public ArrayList<Integer> getIndexNumberOfOrderedFood(){
-  return indexNumberOfOrderedFood;
-}
+//public ArrayList<Integer> getIndexNumberOfOrderedFood()  return indexNumberOfOrderedFood;
+//}
   }

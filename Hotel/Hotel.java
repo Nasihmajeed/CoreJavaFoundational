@@ -39,7 +39,7 @@ public void showHotelDetail(){
       menu.printFoodMenu();
      //menu.orderFoodFromMenu();
      customer.giveOrder(menu);
-   cashier.calculateBill(customer,menu);
+   cashier.calculateBill(customer);
       //admin.takeOrderFromCustomer();
    this.inputUserDetail();
       break;
