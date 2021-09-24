@@ -1,10 +1,9 @@
-package com.lxisoft.test;
-import com.lxisoft.game.*;
-public class Tdd
-{
-public static void main(String args[])
-	{
-		PlayBoard playBoard=new PlayBoard();
-		playBoard.createBoard();
+package com.lxisoft.Test;
+import com.lxisoft.SnakeAndLadder.Game;
+public class TDD{
+	public static void main(String[] args) {
+		Game game = new Game();
+		game.startGame();
+		//game.winner();
 	}
 }
