@@ -1,57 +1,57 @@
-package com.AnimalGame.Game;
+package com.animalGame.game;
 
 public class AnimalCharacteristics {
 private String animalName;
 private String animalType;
 //all values below under 10 for simplicity
 private int strength;
-private int hungerlevel;
+private int hungerLevel;
 private int runningSpeed;
 private int vision;
 
-public AnimalCharacteristics(String animalName,String animalType,int strength,int hungerlevel,int runningSpeed,int vision){
+public AnimalCharacteristics(String animalName,String animalType,int strength,int hungerLevel,int runningSpeed,int vision){
   this.animalName=animalName;
   this.animalType=animalType;
   this.strength=strength;
-  this.hungerlevel=hungerlevel;
+  this.hungerLevel=hungerLevel;
   this.runningSpeed=runningSpeed;
   this.vision=vision;
 }
-public void setanimalName(String animalName){
+public void setAnimalName(String animalName){
   this.animalName=animalName;
 }
-public String getanimalName(){
+public String getAnimalName(){
   return animalName;
 }
-public void setanimalType(String animalType){
+public void setAnimalType(String animalType){
   this.animalType=animalType;
 }
-public String getanimalType(){
+public String getAnimalType(){
   return animalType;
 }
-public void setstrength(int strength){
+public void setStrength(int strength){
   this.strength=strength;
 }
-public int getstrength(){
+public int getStrength(){
   return strength;
 }
 
-public void sethungerlevel(int hungerlevel){
-  this.hungerlevel=hungerlevel;
+public void setHungerLevel(int hungerLevel){
+  this.hungerLevel=hungerLevel;
 }
-public int gethungerlevel(){
-  return hungerlevel;
+public int getHungerLevel(){
+  return hungerLevel;
 }
-public void setrunningSpeed(int runningSpeed){
+public void setRunningSpeed(int runningSpeed){
   this.runningSpeed=runningSpeed;
 }
-public int getrunningSpeed(){
+public int getRunningSpeed(){
   return runningSpeed;
 }
-public void setvision(int vision){
+public void setVision(int vision){
   this.vision=vision;
 }
-public int getvision(){
+public int getVision(){
   return vision;
 }
 }
