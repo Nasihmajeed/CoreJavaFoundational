@@ -19,6 +19,7 @@ public ArrayList<AnimalCharacteristics> getAnimalList(){
   return list;
 }
 public void animalFight(Player player){
+
 ArrayList<AnimalCharacteristics> selectedList=player.getSelectedAnimalList();
 if(selectedList.get(0).getAnimalType().equals(herbivores)&& selectedList.get(1).getAnimalType().equals(herbivores)){
    System.out.println("There is No Fight");
@@ -57,5 +58,6 @@ if(selectedList.get(0).getAnimalType().equals(herbivores)&& selectedList.get(1).
   System.out.println(selectedList.get(1).getAnimalName()+" is the winner in the Fight");
    }
  }
+ 
 }
 }
