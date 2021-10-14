@@ -1,6 +1,7 @@
 package com.lxisoft.movie;
 
 import com.lxisoft.cast.*;
+import com.lxisoft.director.Director;
 
 import java.util.Scanner;
 import java.util.ArrayList; 
@@ -155,36 +156,36 @@ public class Movies
 	public void setComedyScene()
 	{	this.setMovie();
 		writer.printComedyScene();
-		writer.printRomanticScene();
-		writer.printEmotionalScene();
-		writer.printThrillerScene();
+		// writer.printRomanticScene();
+		// writer.printEmotionalScene();
+		// writer.printThrillerScene();
 	}
 
 	public void setRomanticScene()
 	{
 		this.setMovie();
-		writer.printEmotionalScene();
-		writer.printThrillerScene();
-		writer.printComedyScene();		
 		writer.printRomanticScene();
+		// writer.printEmotionalScene();
+		// writer.printThrillerScene();
+		// writer.printComedyScene();		
 	}
 
 	public void setEmotionalScene()
 	{
 		this.setMovie();
 		writer.printEmotionalScene();
-		writer.printThrillerScene();
-		writer.printComedyScene();
-		writer.printRomanticScene();
+		// writer.printThrillerScene();
+		// writer.printComedyScene();
+		// writer.printRomanticScene();
 	}
 
 	public void setThrillerScene()
 	{
 		this.setMovie();
 		writer.printThrillerScene();
-		writer.printComedyScene();
-		writer.printRomanticScene();
-		writer.printEmotionalScene();
+		// writer.printComedyScene();
+		// writer.printRomanticScene();
+		// writer.printEmotionalScene();
 	}
 
     public void setMovie()

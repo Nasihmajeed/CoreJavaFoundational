@@ -82,7 +82,7 @@ public class Theatre
 				assert(age[i] >18);
 				// System.out.println("Permitted ");//" Age :"+age[i]);
 				if(age[i]<18)
-				{
+				{	
 					System.out.println("\nViewer "+(i+1)+" : (below 18) Not permitted ");
 					System.out.println("\nTry again");
 					return;
@@ -90,7 +90,6 @@ public class Theatre
 				else
 				{
 					System.out.println("Permitted ");
-					
 				}
 			}
 			System.out.println("\n	Number of tickets booked : "+num+" \n	Total amount	 	 : "+(num*rate));

@@ -113,7 +113,7 @@ public class Cast
 		heroineCast.addAll(heroineList);
 	}
 	public void setComedian(ArrayList<String> comedianCast)
-	{
+	{	
 		comedianCast.addAll(comedianList);
 	}
 	public void setVillain(ArrayList<String> villainCast)
