@@ -1,6 +1,6 @@
 package com.lxisoft.test;
 import com.lxisoft.game.*;
-public class Tdd
+public class TDD
 {
 public static void main(String args[])
 	{
