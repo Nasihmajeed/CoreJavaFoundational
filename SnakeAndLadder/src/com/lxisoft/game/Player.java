@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Player
+public class PLAYER
 {
   private String name,coin;
   private int position;

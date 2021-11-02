@@ -52,6 +52,7 @@ public void createBoard()
         ladders.add(new Ladder());      
         ladders.get(0).setStart(2);
         ladders.get(0).setEnd(38);
+        
        
          ladders.add(new Ladder());      
         ladders.get(1).setStart(6);

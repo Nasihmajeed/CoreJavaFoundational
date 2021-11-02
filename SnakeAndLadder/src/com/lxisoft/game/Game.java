@@ -22,8 +22,6 @@ public class Game
 		this.creatPlayers();
 		this.playerDetails(players);	
 		this.startGame(snakes,ladders,cells);
-		
-
 	}
 
 public void creatPlayers()
@@ -194,3 +192,4 @@ public void setWinner(Player player,int value)
 
 
 }
+
