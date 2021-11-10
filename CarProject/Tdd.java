@@ -1,90 +1,74 @@
-package practice;
-
 import java.util.Scanner;
+public class TDD
+{
+       public static void main(String[] args)
+       {
+              String Brand,Model,RegNo,Color ;
 
-class Car {
-	String Brand;
+              Scanner src  = new Scanner(System.in);
+              
+              System.out.println("WELCOME TO OUR CAR FACTORY");      
+              
+              System.out.println("Enter the brand of a car : ");
+              
+              Brand = src .nextLine();
+              
+              System.out.println("Enter the model of a car : ");
+              
+              Model = src .nextLine();
+              
+              System.out.println("Enter registration number : ");
+              
+              RegNo = src .nextLine();
+              
+              System.out.println("Enter the color of the car : ");
+              
+              Color = src .nextLine();
+              
+              Car c1 = new Car();
+              
+              c1.Brand=Brand;
+              
+              
+              c1.Model=Model;
+              
+              c1.RegNo=RegNo;
+              
+              c1.Color=Color;
+              
+              Tyre t=new Tyre();
 
-	String Model;
+              String tyreType,Brand,Radius;
 
-	String RegNo;
+              System.out.println("Enter the Tyre type");
+               
+              tyreType=src.nextLine();
+              
+              System.out.println("Enter the Tyre brand");
+               
+              Brand=src.nextLine();
+          
+              System.out.println("Enter the Tyre radius");
+               
+              Radius=src.nextLine();
 
-	String Color;
-
-	Scanner src = new Scanner(System.in);
-
-	public void PrintDetails() {
-		System.out.println("Enter the brand of a car : ");
-
-		Brand = src.nextLine();
-
-		System.out.println("Enter the model of a car : ");
-
-		Model = src.nextLine();
-
-		System.out.println("Enter registration number : ");
-
-		RegNo = src.nextLine();
-
-		System.out.println("Enter the color of the car : ");
-
-		Color = src.nextLine();
-
-		System.out.println("CAR BRAND IS :" + Brand);
-
-		System.out.println("CAR MODEL IS :" + Model);
-
-		System.out.println("CAR REGISTRATION NUMBER IS :" + RegNo);
-
-		System.out.println("COLOR OF THE CAR IS :" + Color);
-
-	}
-}
-
-class Tyre {
-
-	String Brand;
-
-	float Radius;
-
-	String t1, t2, t3, t4;
-
-	public void typeOfTyre()
-
-	{
-		System.out.println("TYRE BRAND IS : " + Brand);
-
-		System.out.println("TYRE RADIUS IS : " + Radius);
-
-		System.out.println("THE CAR TYRES ARE : " +t1+ " ," +t2+ "," +t3+ ", " +t4);
-	}
-
-}
-
-public class TDD {
-
-	public static void main(String[] ar) {
-
-		System.out.println("WELCOME TO OUR CAR FACTORY");
-
-		Car c = new Car();
-
-		c.PrintDetails();
-
-		Tyre t = new Tyre();
-
-		t.Brand = "MRF";
-
-		t.Radius = 5.25f;
-
-		t.t1 = "FRONT_LEFT_TYRE";
-
-		t.t2 = "FRONT_RIGHT_TYRE";
-
-		t.t3 = "BACK_RIGHT_TYRE";
-
-		t.t4 = "BACK_LEFT_TYRE";
-
-		t.typeOfTyre();
-	}
+              t.tyreType=tyreType;
+              
+              t.Brand=Brand;
+              
+              t.Radius=Radius;
+              
+              t.t1="FRONT_LEFT_TYRE";
+              
+              t.t2="FRONT_RIGHT_TYRE";
+              
+              t.t3="BACK_RIGHT_TYRE";
+              
+              t.t4="BACK_LEFT_TYRE";
+              
+              c1.PrintDetails();
+              
+              t.PrintDetails();
+       }
+       
 }
