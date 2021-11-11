@@ -5,9 +5,9 @@ public class Tyre
        
        String Brand;
        
-       float Radius;
+       String Radius;
        
-       String t1,t2,t3,t4;
+       String possition;
 
 public void PrintDetails()
 {
@@ -17,8 +17,10 @@ public void PrintDetails()
        System.out.println("BRAND OF TYRE IS : "+this.Brand);
        
        System.out.println("RADIUS OF TYRE IS : "+this.Radius);
+
+       System.out.println("POSSITION OF TYRE IS : "+this.possition);
        
-       System.out.println("THE CAR HAVE FOUR TYRE'S : " + this.t1 + " ,"+this.t2+","+this.t3+", "+this.t4 );
+      // System.out.println("THE CAR HAVE FOUR TYRE'S : " + this.t1 + " ,"+this.t2+","+this.t3+", "+this.t4 );
 }
 
 }
