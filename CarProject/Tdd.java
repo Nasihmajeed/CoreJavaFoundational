@@ -5,70 +5,113 @@ public class TDD
        {
               String Brand,Model,RegNo,Color ;
 
-              Scanner src  = new Scanner(System.in);
+              Scanner src= new Scanner(System.in);
               
               System.out.println("WELCOME TO OUR CAR FACTORY");      
+
+              System.out.println("CAR-1"); 
               
               System.out.println("Enter the brand of a car : ");
               
-              Brand = src .nextLine();
+              Brand = src.nextLine();
               
               System.out.println("Enter the model of a car : ");
               
-              Model = src .nextLine();
+              Model = src.nextLine();
               
               System.out.println("Enter registration number : ");
               
-              RegNo = src .nextLine();
+              RegNo = src.nextLine();
               
               System.out.println("Enter the color of the car : ");
               
-              Color = src .nextLine();
+              Color = src.nextLine();
               
               Car c1 = new Car();
               
               c1.Brand=Brand;
-              
               
               c1.Model=Model;
               
               c1.RegNo=RegNo;
               
               c1.Color=Color;
-              
-              Tyre t=new Tyre();
 
-              String tyreType,Brand,Radius;
+              System.out.println("CAR-2");      
+              
+              System.out.println("Enter the brand of a car : ");
+              
+              Brand = src.nextLine();
+              
+              System.out.println("Enter the model of a car : ");
+              
+              Model = src.nextLine();
+              
+              System.out.println("Enter registration number : ");
+              
+              RegNo = src.nextLine();
+              
+              System.out.println("Enter the color of the car : ");
+              
+              Color = src.nextLine();
+              
+              Car c2 = new Car();
+              
+              c2.Brand=Brand;
+              
+              c2.Model=Model;
+              
+              c2.RegNo=RegNo;
+              
+              c2.Color=Color;
 
-              System.out.println("Enter the Tyre type");
-               
-              tyreType=src.nextLine();
+              System.out.println("CAR-3");      
               
-              System.out.println("Enter the Tyre brand");
-               
-              Brand=src.nextLine();
-          
-              System.out.println("Enter the Tyre radius");
-               
-              Radius=src.nextLine();
+              System.out.println("Enter the brand of a car : " );
+              
+              Brand = src.nextLine();
+              
+              System.out.println("Enter the model of a car : ");
+              
+              Model = src.nextLine();
+              
+              System.out.println("Enter registration number : ");
+              
+              RegNo = src.nextLine();
+              
+              System.out.println("Enter the color of the car : ");
+              
+              Color = src.nextLine();
 
-              t.tyreType=tyreType;
+              Car c3 = new Car();
               
-              t.Brand=Brand;
+              c3.Brand=Brand;
               
-              t.Radius=Radius;
+              c3.Model=Model;
               
-              t.t1="FRONT_LEFT_TYRE";
+              c3.RegNo=RegNo;
               
-              t.t2="FRONT_RIGHT_TYRE";
+              c3.Color=Color;
+
               
-              t.t3="BACK_RIGHT_TYRE";
+              System.out.println("-------------------------------");
+
+              System.out.println("DETAILS OF FIRST CAR ");
+
+              c1.PrintDetails();  
               
-              t.t4="BACK_LEFT_TYRE";
+              System.out.println("-------------------------------");
+
+              System.out.println("DETAILS OF SECOND CAR ");
               
-              c1.PrintDetails();
+              c2.PrintDetails();
               
-              t.PrintDetails();
+              System.out.println("-------------------------------");
+
+              System.out.println("DETAILS OF THIRD CAR ");
+              
+              c3.PrintDetails();
+              
        }
        
 }

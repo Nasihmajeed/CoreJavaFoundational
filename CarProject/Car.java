@@ -9,6 +9,8 @@ public class Car
              
               String Color;
 
+              String T1,T2,T3,T4;
+
        public void PrintDetails()
        {
               
@@ -20,7 +22,6 @@ public class Car
               
               System.out.println("COLOR OF THE CAR IS : " +this.Color);
               
-             
-      
+              
        }
 }
