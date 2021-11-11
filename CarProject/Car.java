@@ -20,6 +20,23 @@ public class Car
               
               System.out.println("COLOR OF THE CAR IS : " +this.Color);
               
+              Tyre t=new Tyre();
+              
+              t.tyreType="Flat";
+              
+              t.Brand="MRF";
+              
+              t.Radius=3.75f;
+              
+              t.t1="FRONT_LEFT_TYRE";
+              
+              t.t2="FRONT_RIGHT_TYRE";
+              
+              t.t3="BACK_RIGHT_TYRE";
+              
+              t.t4="BACK_LEFT_TYRE";
+
+              t.PrintDetails();
              
       
        }
