@@ -6,7 +6,7 @@ public class TDD{
               S.Address = "malampuzha(p.o) palakkad  678001";
               S.PhNo = "9876501234";
               S.printDetails();
-              Students s1 = new Students();
+              Student s1 = new Student();
               s1.Name = "Gokul";
               s1.Regno = "sslc0001";
               s1.Address = "kuzhivetil house";
