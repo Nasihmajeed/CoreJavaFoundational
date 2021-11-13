@@ -3,7 +3,10 @@ public class TDD
 {
        public static void main(String[] args)
        {
-              String Brand,Model,RegNo,Color ;
+              String Brand;
+              String Model;
+              String RegNo;
+              String Color;
 
               Scanner src= new Scanner(System.in);
               
