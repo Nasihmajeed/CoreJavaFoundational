@@ -1,23 +1,21 @@
-public class ClassRoom{
-
-       String std;
-
+import java.util.Scanner;
+public class ClassRoom {
+       String classes;
        String div;
-
+       int numOfSeats;
+       public void inputDetails() {
+              Scanner in = new Scanner(System.in);
+              
+              System.out.println("WHICH CLASS DETAILS YOU WANT ?");
+              this.classes = in.nextLine();
+              System.out.println("ENTER THE DIVISSION");
+              this.div = in.nextLine();
+              this.numOfSeats = 60;
+       }
        public void printDetails() {
-             // System.out.println("YOU ARE UNDER "+this.std+" TH STANDERD ");
-             // System.out.println("YOUR DIVISION IS " +this.div);
-
-              Teacher T1 = new Teacher();
-
-              T1.Name = "shabna";
-
-              T1.Possition = "class_Teacher";
-
-              T1.Subject = "Maths";
-
-              T1.State = "permenant staff";
-
-              T1.printDetails();
+              System.out.println("~~~~~~CLASS DATA'S~~~~~~~~~");
+              
+              System.out.println("THE DETAILS OF "+classes+"TH "+div);
+              System.out.println("TOTAL NUMBER OF SEATS ARE: " +numOfSeats);
        }
 }

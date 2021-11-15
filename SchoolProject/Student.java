@@ -1,23 +1,24 @@
-public class Student{
-
+public class Student {
        String Name;
-       
-       String Regno;
-       
-       String Address;
-       
-       String Batch;
-       
-       String Class;
-       
+       String Gardian;
+       String Gender;
+       String Age;
+       String phNo;
+       public void inputDetails() {
+            
+              this.Name = "mubhashir";
+              this.Gardian = "muhammad";
+              this.Gender = "Male";
+              this.Age = "15";
+              this.phNo = "8976354201";
+       }
        public void printDetails() {
-       
-              System.out.println("NAME OF STUDENT : " +this.Name);
+              System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
               
-              System.out.println("REGISTER NAMBER IS : " +this.Regno);
-              
-              System.out.println("ADDRESS OF STUDENT : " +this.Address);
-              
-              System.out.println("THE STUDENT STUDING ON "+this.Class+" AT "+this.Batch+"");
+              System.out.println("NAME OF STUDENT : " +Name);
+              System.out.println("NAME OF GARDIAN : " +Gardian);
+              System.out.println("GENDER : " +Gender);
+              System.out.println("AGE : " +Age);
+              System.out.println("CONTACT NUMBER : " +phNo);
        }
 }

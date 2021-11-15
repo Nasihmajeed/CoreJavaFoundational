@@ -1,17 +1,20 @@
-public class Teacher{
+public class Teacher {
        String Name;
-       
        String Possition;
-       
        String Subject;
-       
-       String State;
-       
+       String phNo;
+       public void inputDetails() {
+             
+              this.Name = "SHABNA SIRAJUDHEEN";
+              this.Possition = "CLASS_TEACHER";
+              this.Subject = "MATHS";
+              this.phNo = "9384726501";
+       }
        public void printDetails() {
-              System.out.println("TEACHER NAME IS : " +this.Name);
+              System.out.println("******TEACHERS DATA***********");
               
-              System.out.println(""+this.Name+" IS A "+this.Possition+" & DEALS WITH "+this.Subject+"");
-              
-              System.out.println("TEACHER IS A "+this.State+" OF OUR SCHOOL");
+              System.out.println("NAME OF TEACHER : " +Name);
+              System.out.println(""+Name+" IS "+Possition+" AND DEALS WITH "+Subject+"");
+              System.out.println("CONTACT ON : " +phNo);
        }
 }
