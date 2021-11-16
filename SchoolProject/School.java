@@ -3,24 +3,23 @@ public class School {
        String location;
        String address;
        String phNo;
-       ClassRoom classes;
-       Teacher T1;
-       Student S1;
+       ClassRoom class1,class2;
+       
+       
        public void inputDetails() {
               this.schoolName = "MOULANA HEIGHER SECOUNDARY SCHOOL";
               this.location = "MALAMPUZHA CENTER";
               this.address = "MALAMPUZHA (P.O),  PALAKKAD  PIN: 678001";
               this.phNo = "9876501234";
-              this.classes.inputDetails();
-              this.T1.inputDetails();
-              this.S1.inputDetails();
+              this.class1.inputDetails1();
+              this.class2.inputDetails2();   
        }
        public void printDetails() {
               System.out.println("SCHOOL NAME IS : " +schoolName);
               System.out.println("LOCATE AT : "+location+" " +address);
               System.out.println("FOR ADMISSION AND ENQUIRY CONTACT : " +phNo);
-              this.classes.printDetails();
-              this.T1.printDetails();
-              this.S1.printDetails();
+              this.class1.printDetails1();
+             this.class2.printDetails2();
+             
        }
 }
