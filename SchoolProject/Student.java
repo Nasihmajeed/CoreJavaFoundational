@@ -1,97 +1,97 @@
 public class Student {
-       String Name;
-       String Gardian;
-       String Gender;
-       String Age;
-       String phNo;
+       String name;
+       String gardian;
+       String gender;
+       String age;
+       String phno;
        public void inputDetailsS1() {
-              this.Name = "mubhashir";
-              this.Gardian = "muhammad";
-              this.Gender = "Male";
-              this.Age = "15";
-              this.phNo = "8976354201";
+              this.name = "mubhashir";
+              this.gardian = "muhammad";
+              this.gender = "Male";
+              this.age = "15";
+              this.phno = "8976354201";
        }
        public void inputDetailsS2() {
-              this.Name = "sai";
-              this.Gardian = "krishna";
-              this.Gender = "Male";
-              this.Age = "15";
-              this.phNo = "9786354201";
+              this.name = "sai";
+              this.gardian = "krishna";
+              this.gender = "Male";
+              this.age = "15";
+              this.phno = "9786354201";
        }
        public void inputDetailsS3() {
-              this.Name = "sanoop";
-              this.Gardian = "Ajay";
-              this.Gender = "Male";
-              this.Age = "15";
-              this.phNo = "8967354201";
+              this.name = "sanoop";
+              this.gardian = "Ajay";
+              this.gender = "Male";
+              this.age = "15";
+              this.phno = "8967354201";
        }
        public void inputDetailsS4() {
-              this.Name = "sneha";
-              this.Gardian = "suresh";
-              this.Gender = "Female";
-              this.Age = "15";
-              this.phNo = "8976534201";
+              this.name = "sneha";
+              this.gardian = "suresh";
+              this.gender = "Female";
+              this.age = "15";
+              this.phno = "8976534201";
        }
        public void inputDetailsS5() {
-              this.Name = "ajay";
-              this.Gardian = "mallothra";
-              this.Gender = "Male";
-              this.Age = "15";
-              this.phNo = "8976345201";
+              this.name = "ajay";
+              this.gardian = "mallothra";
+              this.gender = "Male";
+              this.age = "15";
+              this.phno = "8976345201";
        }
        public void inputDetailsS6() {
-              this.Name = "rahul";
-              this.Gardian = "ramesh";
-              this.Gender = "Male";
-              this.Age = "15";
-              this.phNo = "8976354102";
+              this.name = "rahul";
+              this.gardian = "ramesh";
+              this.gender = "Male";
+              this.age = "15";
+              this.phno = "8976354102";
        }
        public void printDetailsS1() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
        public void printDetailsS2() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
        public void printDetailsS3() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
        public void printDetailsS4() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
        public void printDetailsS5() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
        public void printDetailsS6() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
-              System.out.println("NAME OF STUDENT : " +Name);
-              System.out.println("NAME OF GARDIAN : " +Gardian);
-              System.out.println("GENDER : " +Gender);
-              System.out.println("AGE : " +Age);
-              System.out.println("CONTACT NUMBER : " +phNo);
+              System.out.println("NAME OF STUDENT : " +name);
+              System.out.println("NAME OF GARDIAN : " +gardian);
+              System.out.println("GENDER : " +gender);
+              System.out.println("AGE : " +age);
+              System.out.println("CONTACT NUMBER : " +phno);
        }
 }

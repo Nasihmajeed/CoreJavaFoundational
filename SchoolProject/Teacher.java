@@ -1,36 +1,36 @@
 public class Teacher {
-       String Name;
-       String Possition;
-       String Subject;
-       String phNo;
+       String name;
+       String possition;
+       String subject;
+       String phno;
        public void inputDetails1() {
              
-              this.Name = "SHABNA SIRAJUDHEEN";
-              this.Possition = "CLASS_TEACHER";
-              this.Subject = "MATHS";
-              this.phNo = "9384726501";
+              this.name = "SHABNA SIRAJUDHEEN";
+              this.possition = "CLASS_TEACHER";
+              this.subject = "MATHS";
+              this.phno = "9384726501";
        }
        public void inputDetails2() {
              
-              this.Name = "SUJITH";
-              this.Possition = "CLASS_TEACHER";
-              this.Subject = "SOCIAL_SCIENCE";
-              this.phNo = "9384672501";
+              this.name = "SUJITH";
+              this.possition = "CLASS_TEACHER";
+              this.subject = "SOCIAL_SCIENCE";
+              this.phno = "9384672501";
        }
        public void printDetails1() {
               System.out.println();
               System.out.println("******TEACHERS DATA***********");
               System.out.println();
-              System.out.println("NAME OF TEACHER : " +Name);
-              System.out.println(""+Name+" IS "+Possition+" AND DEALS WITH "+Subject+"");
-              System.out.println("CONTACT ON : " +phNo);
+              System.out.println("NAME OF TEACHER : " +name);
+              System.out.println(""+name+" IS "+possition+" AND DEALS WITH "+subject+"");
+              System.out.println("CONTACT ON : " +phno);
        }
        public void printDetails2() {
               System.out.println();
               System.out.println("******TEACHERS DATA***********");
               System.out.println();
-              System.out.println("NAME OF TEACHER : " +Name);
-              System.out.println(""+Name+" IS "+Possition+" AND DEALS WITH "+Subject+"");
-              System.out.println("CONTACT ON : " +phNo);
+              System.out.println("NAME OF TEACHER : " +name);
+              System.out.println(""+name+" IS "+possition+" AND DEALS WITH "+subject+"");
+              System.out.println("CONTACT ON : " +phno);
        }
 }
