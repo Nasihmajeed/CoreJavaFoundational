@@ -3,17 +3,17 @@ public class ClassRoom {
        String classes;
        String div;
        int numOfSeats;
-       Teacher t1,t2;
-       Student s1,s2,s3,s4,s5,s6;
+       Teacher[] ts = new  Teacher[2];
+       Student[] ss = new Student[6];
        public void inputDetails1() {
               Scanner in = new Scanner(System.in);
               this.classes = "10 TH";
               this.div = "A";
               this.numOfSeats = 60;
-              this.t1.inputDetails1();
-              this.s1.inputDetailsS1();
-              this.s2.inputDetailsS1();
-              this.s3.inputDetailsS1();
+              this.ts[0].inputDetails1();
+             this.ss[0].inputDetailsS1();
+              this.ss[1].inputDetailsS1();
+              this.ss[2].inputDetailsS1();
               
        }
        public void inputDetails2() {
@@ -21,10 +21,10 @@ public class ClassRoom {
               this.classes = "10 TH";
               this.div = "B";
               this.numOfSeats = 60;
-              this.t2.inputDetails2();
-              this.s4.inputDetailsS1();
-              this.s5.inputDetailsS1();
-              this.s6.inputDetailsS1();
+              this.ts[1].inputDetails2();
+              this.ss[3].inputDetailsS1();
+              this.ss[4].inputDetailsS1();
+              this.ss[5].inputDetailsS1();
 
        }
        public void printDetails1() {
@@ -33,13 +33,13 @@ public class ClassRoom {
               System.out.println();
               System.out.println("THE DETAILS OF "+classes+" "+div);
               System.out.println("TOTAL NUMBER OF SEATS ARE: " +numOfSeats);
-              this.t1.printDetails1();
+              this.ts[0].printDetails1();
               System.out.println();
-              this.s1.printDetailsS1();
+              this.ss[0].printDetailsS1();
               System.out.println();
-              this.s2.printDetailsS2();
+              this.ss[1].printDetailsS2();
               System.out.println();
-              this.s3.printDetailsS3();
+              this.ss[2].printDetailsS3();
         
        }
        public void printDetails2() {
@@ -48,12 +48,12 @@ public class ClassRoom {
               System.out.println();
               System.out.println("THE DETAILS OF "+classes+" "+div);
               System.out.println("TOTAL NUMBER OF SEATS ARE: " +numOfSeats);
-              this.t2.printDetails2();
+              this.ts[1].printDetails2();
               System.out.println();
-              this.s4.printDetailsS4();
+              this.ss[3].printDetailsS4();
               System.out.println();
-              this.s5.printDetailsS5();
+              this.ss[4].printDetailsS5();
               System.out.println();
-              this.s6.printDetailsS6();
+              this.ss[5].printDetailsS6();
        }
 }
