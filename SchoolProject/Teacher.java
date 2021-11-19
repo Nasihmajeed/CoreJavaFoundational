@@ -6,8 +6,11 @@ public class Teacher {
        public void inputDetails1() {
              
               this.name = "SHABNA SIRAJUDHEEN";
+              
               this.possition = "CLASS_TEACHER";
+              
               this.subject = "MATHS";
+              
               this.phno = "9384726501";
        }
        public void inputDetails2() {

@@ -7,9 +7,13 @@ public class ClassRoom {
        Student[] ss = new Student[6];
        public void inputDetails1() {
               Scanner in = new Scanner(System.in);
+              
               this.classes = "10 TH";
+              
               this.div = "A";
+              
               this.numOfSeats = 60;
+              
               this.ts[0].inputDetails1();
              this.ss[0].inputDetailsS1();
               this.ss[1].inputDetailsS1();
