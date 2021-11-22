@@ -4,8 +4,7 @@ public class School {
        String address;
        String phNo;
        ClassRoom[] classes = new ClassRoom[2];
-       //class1[0] = {0};
-       //class1[1] = {0};
+       
        public void inputDetails() {
               this.schoolName = "MOULANA HEIGHER SECOUNDARY SCHOOL";  
               
@@ -32,4 +31,5 @@ public class School {
              this.classes[1].printDetails2();
              
        }
+     
 }

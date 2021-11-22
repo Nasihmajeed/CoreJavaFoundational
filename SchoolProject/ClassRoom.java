@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class ClassRoom {
        String classes;
        String div;
@@ -6,13 +5,10 @@ public class ClassRoom {
        Teacher[] ts = new  Teacher[2];
        Student[] ss = new Student[6];
        public void inputDetails1() {
-              Scanner in = new Scanner(System.in);
-              
               this.classes = "10 TH";
               
               this.div = "A";
-              
-              this.numOfSeats = 60;
+	 this.numOfSeats = 60;
               
               this.ts[0].inputDetails1();
              this.ss[0].inputDetailsS1();
@@ -21,7 +17,7 @@ public class ClassRoom {
               
        }
        public void inputDetails2() {
-              Scanner in = new Scanner(System.in);
+            
               this.classes = "10 TH";
               this.div = "B";
               this.numOfSeats = 60;
@@ -37,7 +33,7 @@ public class ClassRoom {
               System.out.println();
               System.out.println("THE DETAILS OF "+classes+" "+div);
               System.out.println("TOTAL NUMBER OF SEATS ARE: " +numOfSeats);
-              this.ts[0].printDetails1();
+             this.ts[0].printDetails1();
               System.out.println();
               this.ss[0].printDetailsS1();
               System.out.println();
@@ -60,4 +56,5 @@ public class ClassRoom {
               System.out.println();
               this.ss[5].printDetailsS6();
        }
+   
 }

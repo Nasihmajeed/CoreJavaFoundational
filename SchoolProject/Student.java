@@ -46,6 +46,8 @@ public class Student {
               this.age = "15";
               this.phno = "8976354102";
        }
+       
+       
        public void printDetailsS1() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
               System.out.println("NAME OF STUDENT : " +name);
@@ -54,6 +56,8 @@ public class Student {
               System.out.println("AGE : " +age);
               System.out.println("CONTACT NUMBER : " +phno);
        }
+       
+       
        public void printDetailsS2() {
               System.out.println("$$$$$--STUDENT DETAILS--$$$$$$$");
               System.out.println("NAME OF STUDENT : " +name);

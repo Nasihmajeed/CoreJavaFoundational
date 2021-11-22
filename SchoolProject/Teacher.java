@@ -8,10 +8,8 @@ public class Teacher {
               this.name = "SHABNA SIRAJUDHEEN";
               
               this.possition = "CLASS_TEACHER";
-              
-              this.subject = "MATHS";
-              
-              this.phno = "9384726501";
+ 		 this.subject = "MATHS";
+		  this.phno = "9384726501";
        }
        public void inputDetails2() {
              
