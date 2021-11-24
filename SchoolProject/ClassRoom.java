@@ -1,27 +1,30 @@
-package com.School;
+package com.school;
 
-public class ClassRoom  {
-	
-	String name;
-	int seats = 35;
-       int number;
-       String div;
-       //Teacher[] t = new Teacher[3];
-	ClassRoom(String n,int i,String d){
-           name = n;
-           number = i;
-           div = d;
-       }
+public class ClassRoom {
 
+	int seats;
+	String standard;
+	String division;
+	Student[] students;
+	Teacher classTeacher;
 
-	public void printDetails() {
-			System.out.println(name +" "+ number +" "+ div + "\n");
-			
-		System.out.println("NUMBER OF SEATS : " + seats + "\n");
-		
-             // for (int i = 0; i < t.length; i++) {
-               //      this.t[i].printDetails();
-            //  }
-		}
+	ClassRoom(int seats, String standard, String division, Student[] students, Teacher classTeacher) {
+		this.seats = seats;
+		this.standard = standard;
+		this.division = division;
+		this.students = students;
+		this.classTeacher = classTeacher;
 	}
 
+	public void printDetails() {
+		System.out.println(standard + " " + division + "\n====================================");
+		System.out.println("Number of seats: " + seats);
+		System.out.println("\nClass Teacher\n-----------------------");
+		classTeacher.printDetails();
+		System.out.println("\nStudents\n-----------------------");
+		for (int i = 0; i < students.length; i++) {
+			students[i].printDetails();
+		}
+		System.out.println();
+	}
+}

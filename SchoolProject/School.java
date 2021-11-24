@@ -1,28 +1,21 @@
-package com.School;
+package com.school;
 
-public class School  {
+public class School {
 	String name;
 	String address;
-	String phoneNo;
-	ClassRoom c[] = new ClassRoom[3];
+	long phoneNo;
+	ClassRoom classRooms[];
+
 	public void inputDetails() {
-		this.name = "LXI SCHOOL";
-		this.address = "GANDHI SEVA BHAVAN,PATHIRIPALA,PALAKKAD,678507";
-		this.phoneNo = "9562001100";
-		//for (int i = 0; i < c.length; i++) {
-			//this.c[i].inputDetails();
-	//	}
-		
+		name = "LXI SCHOOL";
+		address = "GANDHI SEVA BHAVAN,PATHIRIPALA,PALAKKAD,678507";
+		phoneNo = 9876543210l;
 	}
+
 	public void printDetails() {
-		System.out.println(name + "\n" + address + "\n" + phoneNo + "\n");
-		for (int i = 0; i < c.length; i++) {
-			this.c[i].printDetails();
+		System.out.println("School Name: " + name + "\nSchool Address: " + address + "\nPhone Number: " + phoneNo + "\n");
+		for (int i = 0; i < classRooms.length; i++) {
+			classRooms[i].printDetails();
 		}
 	}
-	}
-
-
-
-
-
+}
