@@ -1,32 +1,31 @@
 public class ClassRoom  {
-	Teacher[] teacher = new Teacher[3];
-	String name;
+	
 	int seats;
-	
-	public void inputDetails() {
-			this.name = "CLASSROOM";
-			this.seats = 35;
-		/*for (int i = 0; i < teacher.length; i++) {
-				this.teacher[i].inputDetails();
-			}*/
-			
+	String standard;
+	String division;
+	Student[] students;
+	Teacher classTeacher;
+
+	ClassRoom(int seats, String standard, String division, Student[] students, Teacher classTeacher) {
+		this.seats = seats;
+		this.standard = standard;
+		this.division = division;
+		this.students = students;
+		this.classTeacher = classTeacher;
 	}
+
 	public void printDetails() {
-	 	int[] x= {1,2,3} ;
-		if (x[0]==1) {
-			
-			System.out.println(name + x + "\n");
+		System.out.println(standard + " " + division + "\n");
+		System.out.println();
+		System.out.println("Number of seats: " + seats);
+		System.out.println("\nClass Teacher\n");
+		System.out.println();
+		classTeacher.printDetails();
+		System.out.println("\nStudents\n");
+		System.out.println();
+		for (int i = 0; i < students.length; i++) {
+			students[i].printDetails();
 		}
-		else if (x[1]==2) {
-		
-		System.out.println(name + x + "\n");
-		}
-		else if (x[2]==3) {
-		System.out.println(name + x + "\n");
-		}	
-		System.out.println("NUMBER OF SEATS : " + seats + "\n");
-		/*for (int i = 0; i < teacher.length; i++) {
-				this.teacher[i].printDetails();
-			}*/
-		}
-	
+		System.out.println();
+	}
+}
