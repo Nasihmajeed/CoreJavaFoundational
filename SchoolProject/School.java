@@ -1,35 +1,19 @@
 public class School {
-       String schoolName;
-       String location;
-       String address;
-       String phNo;
-       ClassRoom[] classes = new ClassRoom[2];
-       
-       public void inputDetails() {
-              this.schoolName = "MOULANA HEIGHER SECOUNDARY SCHOOL";  
-              
-              this.location = "MALAMPUZHA CENTER";
-              
-              this.address = "MALAMPUZHA (P.O),  PALAKKAD  PIN: 678001";
-              
-              this.phNo = "9876501234";
-              
-              this.classes[0].inputDetails1();
-              
-              this.classes[1].inputDetails2();   
-       }
-       public void printDetails() {
-              
-              System.out.println("SCHOOL NAME IS : " +schoolName);
-              
-              System.out.println("LOCATE AT : "+location+" " +address);
-              
-              System.out.println("FOR ADMISSION AND ENQUIRY CONTACT : " +phNo);
-              
-              this.classes[0].printDetails1();
-             
-             this.classes[1].printDetails2();
-             
-       }
-     
+	String name;
+	String address;
+	String phoneNo;
+	ClassRoom classRooms[];
+
+	public void inputDetails() {
+		name = "MHSS SCHOOL";
+		address = "KANJIRAPUZHA,KANJIRAPUZHA,PALAKKAD,678507";
+		phoneNo = "9878685848";
+	}
+
+	public void printDetails() {
+		System.out.println("School Name: " + name + "\nSchool Address: " + address + "\nPhone Number: " + phoneNo + "\n");
+		for (int i = 0; i < classRooms.length; i++) {
+			classRooms[i].printDetails();
+		}
+	}
 }
