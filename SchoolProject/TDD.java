@@ -10,7 +10,7 @@ public class TDD {
 				students[j - 1] = new Student("STUDENT " + j, j,"ADDRESS " + j);
 			}
 			Teacher classTeacher = new Teacher("T00" + i, "Teacher " + i, "Subject " + i, "PhoneNumber" + i);
-			school.getClassRooms()[i - 1] = new ClassRoom(60 + i, "Class " + i++, "A", students, classTeacher);
+			school.getClassRooms()[i - 1] = new ClassRoom(60 + i, "Class " + i, "A", students, classTeacher);
 		}
 
 		school.inputDetails();
