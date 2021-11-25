@@ -1,4 +1,4 @@
-package com.school;
+
 
 public class School {
 	private String name;
