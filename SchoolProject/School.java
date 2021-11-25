@@ -1,9 +1,9 @@
 public class School  {
 	
-	String name;
-	String address;
-	String phoneNo;
-	ClassRoom classes[];
+	private String name;
+	private String address;
+	private String phoneNo;
+	private ClassRoom classes[];
 
 	public void inputDetails() {
 		name = "MUNDUR HIGHER SECONDARY SCHOOL";
@@ -16,5 +16,36 @@ public class School  {
 		for (int i = 0; i < classes.length; i++) {
 			classes[i].printDetails();
 		}
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public ClassRoom[] getClasses() {
+		return classes;
+	}
+
+	public void setClasses(ClassRoom[] classes) {
+		this.classes = classes;
 	}
 }
