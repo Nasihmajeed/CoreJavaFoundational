@@ -16,13 +16,19 @@ public class ClassRoom  {
 
 	public void printDetails() {
 		System.out.println(standard + " " + division + "\n");
+
 		System.out.println();
+
 		System.out.println("Number of seats: " + seats);
-		System.out.println("\nClass Teacher\n");
+		System.out.println("\nCLASS TEACHER\n");
+
 		System.out.println();
+
 		classTeacher.printDetails();
-		System.out.println("\nStudents\n");
+		System.out.println("\nSTUDENTS\n");
+
 		System.out.println();
+
 		for (int i = 0; i < students.length; i++) {
 			students[i].printDetails();
 		}

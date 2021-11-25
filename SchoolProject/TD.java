@@ -10,19 +10,19 @@ public class TD {
 		Teacher classTeacher = new Teacher("Shabna", "English", "8946345677");
 		school.classes[0] = new ClassRoom(40, "PLUS ONE", "C1", students, classTeacher);
 
-		students = new Student[4];
+		students = new Student[3];
 		students[0] = new Student("Rahul", 1);
 		students[1] = new Student("Ajay", 2);
 		students[2] = new Student("Sreya", 3);
-		students[3] = new Student("Sujitha", 4);
-		classTeacher = new Teacher("Sahadh", "Social", "8964678534");
+		
+		classTeacher = new Teacher("Sahadh", "Financial Accounting", "8964678534");
 		school.classes[1] = new ClassRoom(40, "PLUS ONE", "C2", students, classTeacher);
 
-		students = new Student[4];
+		students = new Student[3];
 		students[0] = new Student("Renjith", 1);
 		students[1] = new Student("Ramadas", 2);
 		students[2] = new Student("Jyothi", 3);
-		students[3] = new Student("Shruthi", 4);
+		
 		classTeacher = new Teacher("Rafeeq", "Maths", "8975864367");
 		school.classes[2] = new ClassRoom(30, "PLUS ONE", "C3", students, classTeacher);
 
