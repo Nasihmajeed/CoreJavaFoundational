@@ -24,6 +24,6 @@ public class ClassRoom {
 		for (int i = 0; i < students.length; i++) {
 			students[i].printDetails();
 		}
-		System.out.println("\n *********************_________********************");
+		System.out.println("\n *******_________*******");
 	}
 }
