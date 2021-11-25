@@ -10,15 +10,15 @@ for(int i = 1; i<= 3; i++)  {
 Car c = new Car();
 
 System.out.println("car : " +i); 
-System.out.println("Enter the Brand :");
+System.out.println("Enter the Brand" + i + ":");
 c.brand = sc.nextLine();
-System.out.println("Enter the Model :");
+System.out.println("Enter the Model" + i + " :");
 c.model = sc.nextLine();
-System.out.println("Enter the Register number :");
+System.out.println("Enter the Register number" + i + " :");
 c.registerno = sc.nextLine();
-System.out.println("Enter the Colour : ");
+System.out.println("Enter the Colour " + i + ": ");
 c.colour = sc.nextLine();
-System.out.println("Enter the Price :");
+System.out.println("Enter the Price " + i + ":");
 c.price = sc.nextLine();
 System.out.println("*************************");
 

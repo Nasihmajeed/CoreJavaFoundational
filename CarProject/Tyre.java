@@ -7,9 +7,9 @@ String radius;
 
 public void printDetails()  {
 System.out.println("TYRE");
-System.out.println("Brand Is :" + brand);
-System.out.println("Position Is :" + position);
-System.out.println("Radius Is :" +radius);
+System.out.println("Brand Is :" +this.brand);
+System.out.println("Position Is :" + this.position);
+System.out.println("Radius Is :" +this.radius);
 System.out.println("\n");
 }
 
