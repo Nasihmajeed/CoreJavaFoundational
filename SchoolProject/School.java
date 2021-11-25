@@ -1,10 +1,10 @@
 package com.school;
 
 public class School {
-	String name;
-	String address;
-	long phoneNo;
-	ClassRoom classRooms[];
+	private String name;
+	private String address;
+	private long phoneNo;
+	private ClassRoom classRooms[];
 
 	public void inputDetails() {
 		name = "LXI SCHOOL";
@@ -17,5 +17,37 @@ public class School {
 		for (int i = 0; i < classRooms.length; i++) {
 			classRooms[i].printDetails();
 		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public ClassRoom[] getClassRooms() {
+		return classRooms;
+	}
+
+	public void setClassRooms(ClassRoom[] classRooms) {
+		this.classRooms = classRooms;
 	}
 }
