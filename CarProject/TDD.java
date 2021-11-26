@@ -35,10 +35,7 @@ c.t4 = tyre4;
 
 
 c.printDetails();
-tyre.printDetails();
-tyre2.printDetails();
-tyre3.printDetails();
-tyre4.printDetails();
+
 
 
 System.out.println("_________________________");

@@ -33,9 +33,6 @@ t4.brand = "JKTYRE";
 t4.position = "Back Left";
 t4.radius = "5"; 
 
-}
-
-public void TyreDetails()  {
 
 t1.printDetails();
 t2.printDetails();
