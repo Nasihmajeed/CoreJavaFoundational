@@ -1,44 +1,82 @@
 public class Car  {
 
-String model;
-String brand;
-String registerno;
-String colour;
-String price;
-Tyre t1,t2,t3,t4;
+private String Model;
+ private String Brand;
+private String RegisterNo;
+private String Colour;
+private String Price;
+String M,B,RN,C,P;
+Tyre T1,T2,T3,T4;
+
+public String getModel()  
+{
+return Model;
+}
+  public void setModel(String newModel)  
+{
+Model=this.M;
+}
+public String getBrand()  
+{
+return Brand;
+}
+ public void setBrand(String newBrand)  
+{
+Brand=this.B;
+}
+public String getRegisterNo()
+{
+return RegisterNo;
+}
+public void setRegisterNo(String nerRegisterNo)
+{
+ RegisterNo=this.RN;
+}
+public String getColour()
+{
+return Colour;
+}
+public void setColour(String Colour)
+{
+Colour=this.C;
+}
+public String getPrice()
+{
+return Price;
+}
+public void setPrice(String Price) 
+{
+Price=this.P;
+}
+public void printDetails()   { 
+System.out.println("Car Brand:" + this.B);
+System.out.println("Car Model:" + this.M);
+System.out.println("Car Register Number:" + this.RN);
+System.out.println("Car Colour:" + this.C);
+System.out.println("Car Price:" + this.P);
+System.out.println("\n");
+
+ T1.Br = "appollo";
+T1.Po = "Front Right";
+T1.R = "5";
+
+T2.Br = "CEAT";
+T2.Po = "Front Left";
+T2.R = "5";
+
+T3.Br = "MRF";
+T3.Po = "Back Right";
+T3.R = "5";
+
+T4.Br = "JKTYRE";
+T4.Po = "Back Left";
+T4.R = "5"; 
 
 
-public void printDetails()   {
+T1.printDetails();
+T2.printDetails();
+T3.printDetails();
+T4.printDetails();
 
-System.out.println("Car Brand:" + this.brand);
-System.out.println("Car Model:" + this.model);
-System.out.println("Car Register number:" + this.registerno);
-System.out.println("Car colour:" + this.colour);
-System.out.println("Car price:" + this.price);
-
-
- t1.brand = "appollo";
-t1.position = "Front Right";
-t1.radius = "5";
-
-t2.brand = "CEAT";
-t2.position = "Front Left";
-t2.radius = "5";
-
-t3.brand = "MRF";
-t3.position = "Back Right";
-t3.radius = "5";
-
-t4.brand = "JKTYRE";
-t4.position = "Back Left";
-t4.radius = "5"; 
-
-
-t1.printDetails();
-t2.printDetails();
-t3.printDetails();
-t4.printDetails();
-
-  
 }
 }

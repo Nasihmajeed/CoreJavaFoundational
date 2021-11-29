@@ -6,31 +6,33 @@ public static void main(String [] args)  {
 
 Scanner sc = new Scanner(System.in);
 
-for(int i = 1; i<= 3; i++)  {
+
+for(int i = 1; i <=3; i++) {
+
 Car c = new Car();
 
 System.out.println("car : " +i); 
 System.out.println("Enter the Brand" + i + ":");
-c.brand = sc.nextLine();
+c.B = sc.nextLine();
 System.out.println("Enter the Model" + i + " :");
-c.model = sc.nextLine();
+c.M = sc.nextLine();
 System.out.println("Enter the Register number" + i + " :");
-c.registerno = sc.nextLine();
+c.RN = sc.nextLine();
 System.out.println("Enter the Colour " + i + ": ");
-c.colour = sc.nextLine();
+c.C = sc.nextLine();
 System.out.println("Enter the Price " + i + ":");
-c.price = sc.nextLine();
+c.P = sc.nextLine();
 System.out.println("*************************");
 
 Tyre tyre = new Tyre();
 
-c.t1 = tyre;
+c.T1 = tyre;
 Tyre tyre2 = new Tyre();
-c.t2 = tyre2;
+c.T2 = tyre2;
 Tyre tyre3 = new Tyre();
-c.t3 = tyre3;
+c.T3 = tyre3;
 Tyre tyre4 = new Tyre();
-c.t4 = tyre4;
+c.T4 = tyre4;
 
 
 
