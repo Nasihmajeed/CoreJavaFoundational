@@ -5,7 +5,7 @@ private String Model;
 private String RegisterNo;
 private String Colour;
 private String Price;
-String M,B,RN,C,P;
+String M,B,RN,C,P; 
 Tyre T1,T2,T3,T4;
 
 public String getModel()  
@@ -56,27 +56,10 @@ System.out.println("Car Colour:" + this.C);
 System.out.println("Car Price:" + this.P);
 System.out.println("\n");
 
- T1.Br = "appollo";
-T1.Po = "Front Right";
-T1.R = "5";
-
-T2.Br = "CEAT";
-T2.Po = "Front Left";
-T2.R = "5";
-
-T3.Br = "MRF";
-T3.Po = "Back Right";
-T3.R = "5";
-
-T4.Br = "JKTYRE";
-T4.Po = "Back Left";
-T4.R = "5"; 
-
 
 T1.printDetails();
 T2.printDetails();
 T3.printDetails();
 T4.printDetails();
-
 }
 }
