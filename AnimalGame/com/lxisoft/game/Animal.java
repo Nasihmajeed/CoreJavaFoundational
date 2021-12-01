@@ -1,4 +1,4 @@
-//package com.lxi_soft.forest;
+package com.lxisoft.game;
 
 public class Animal {
        private String name;
