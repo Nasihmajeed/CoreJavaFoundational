@@ -1,8 +1,19 @@
 public class Hero  {
-  private String name;
-  private String characterName;
+   String name;
+   String characterName;
+ 
+  public void inputDetails() {
+
+    this.name="Dileep";
+    this.characterName="Madhavan";
+  }
+  public void printDetails (){
+    System.out.println("Actor Name:" +name);
+    System.out.println("Chatacter Name:" +characterName);
+  }
+  }
    
-   public String getName() {
+  /* public String getName() {
     	return name;
 
 }
@@ -16,6 +27,6 @@ public String getcharacterName() {
   public void setCharacterName(String characterName) {
      this.characterName=characterName;
 }
-   }
+   }*/
   
  
