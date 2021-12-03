@@ -1,59 +1,61 @@
 public class Car  {
 
-private String Model;
- private String Brand;
-private String RegisterNo;
-private String Colour;
-private String Price;
-String M,B,RN,C,P; 
+private String model;
+private String brand;
+private String registerNo;
+private String colour;
+private String price;
+ 
 Tyre T1,T2,T3,T4;
 
 public String getModel()  
 {
-return Model;
+return model;
 }
   public void setModel(String newModel)  
 {
-Model=this.M;
+this.model=newModel;
 }
 public String getBrand()  
 {
-return Brand;
+return brand;
 }
  public void setBrand(String newBrand)  
 {
-Brand=this.B;
+this.brand=newBrand;
 }
 public String getRegisterNo()
 {
-return RegisterNo;
+return registerNo;
 }
-public void setRegisterNo(String nerRegisterNo)
+public void setRegisterNo(String newRegisterNo)
 {
- RegisterNo=this.RN;
+ this.registerNo=newRegisterNo;
 }
 public String getColour()
 {
-return Colour;
+return colour;
 }
-public void setColour(String Colour)
+public void setColour(String newColour)
 {
-Colour=this.C;
+this.colour=newColour;
 }
 public String getPrice()
 {
-return Price;
+return price;
 }
-public void setPrice(String Price) 
+public void setPrice(String newPrice) 
 {
-Price=this.P;
+this.price=newPrice;
 }
 public void printDetails()   { 
-System.out.println("Car Brand:" + this.B);
-System.out.println("Car Model:" + this.M);
-System.out.println("Car Register Number:" + this.RN);
-System.out.println("Car Colour:" + this.C);
-System.out.println("Car Price:" + this.P);
+for (int i = 1; i <= 3; i++)  {
+System.out.println("CAR :" + i);
+System.out.println("Car Brand" + i+ ": Brand" + i);
+System.out.println("Car Model" + i+ ": Model" + i);
+System.out.println("Car Register Number" + i +":Register Number"+i+i);
+System.out.println("Car Colour" + i + ":Colour" +i);
+System.out.println("Car Price" + i + ":Price"+i+i+i);
 System.out.println("\n");
 
 
@@ -61,5 +63,6 @@ T1.printDetails();
 T2.printDetails();
 T3.printDetails();
 T4.printDetails();
+}
 }
 }
