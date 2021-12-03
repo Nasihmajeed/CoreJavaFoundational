@@ -1,5 +1,4 @@
 public class Tdd {
-
 	public static void main(String[] args) {
 		System.out.println("WELCOME TO SNAKES AND LADDERS");
 		System.out.println("==============================");

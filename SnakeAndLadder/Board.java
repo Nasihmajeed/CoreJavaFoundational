@@ -1,5 +1,4 @@
 public class Board {
-
 	private int noOfCells;
 	private Snake snakes[];
 	private Ladder ladders[];
