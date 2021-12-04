@@ -1,10 +1,16 @@
 package com.lxisoft.game;
 
 public class Animal {
-       String animalName;
-int energy,stamina,distance;
+private String animalName;
+private int energy,stamina,distance;
 
+public Animal(String animalName,int energy,int stamina,int distance){
+		this.animalName = animalName;
+		this.energy = energy;
+		this.stamina = stamina;
+		this.distance = distance;
 
+}
 public void wildAnimals()
 {
 	
@@ -21,14 +27,13 @@ public void wildAnimals()
                      System.out.println("The above Animals are ...... FIGHTERS");
 	
 	
-			try{ 
-				Thread.sleep(1000);
-			      }
-	     catch(InterruptedException e)
-			     {
-						Thread.currentThread().interrupt();
-					}
+			
 	
+}
+
+public String getName()
+{
+	return animalName;
 }
 								//name
 public void setName(String animalName)
@@ -36,20 +41,20 @@ public void setName(String animalName)
 	this.animalName=animalName;
 }
 
-public String getName()
+public int getEnergy()
 {
-	return animalName;
+return energy; 	
 }
-                                                      //energy
+                                                   //energy
 
 public void setEnergy(int energy)
 {
 	this.energy=energy;
 }
 
-public int getEnergy()
+public int getDistance()
 {
-return energy; 	
+return distance;
 }
 
                                                        //distance
@@ -58,20 +63,15 @@ public void setDistance(int distance)
 	this.distance=distance;
 }
 
-public int getDistance()
+public int getStamina()
 {
-return distance;
-}
-
-                                                     //stamina
+	return stamina;
+}                                                   //stamina
 
 public void setStamina(int stamina)
 {
 	this.stamina=stamina;
 }
 
-public int getStamina()
-{
-	return stamina;
-}
+
 }
