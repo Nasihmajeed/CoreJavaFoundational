@@ -19,7 +19,27 @@ public class Movie {
        System.out.println("Movie Name:" +name);
        System.out.println("Gnere:" +genere);
        System.out.println("Year Of Release:" +year);
-       System.out.println("Production Company:" +producer);
+       System.out.println("Director:" +director);
+       System.out.println("Production Company:" +producer +"\n");
+
+   
+     	Hero hero = new Hero();
+        hero.inputDetails();
+		hero.printDetails();
+
+
+        System.out.println("****************************************************");
+		
+		Heroine heroine = new Heroine();
+		heroine.inputDetails();
+		heroine.printDetails();
+
+		System.out.println("****************************************************");
+
+		Comedian comedian = new Comedian();
+		comedian.inputDetails();
+		comedian.printDetails();
+
    }
 
 }

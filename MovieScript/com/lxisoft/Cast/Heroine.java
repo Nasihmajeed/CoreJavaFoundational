@@ -7,7 +7,7 @@ public class Heroine  {
    this.characterName="Rukmini";
  }
  public void printDetails (){
-   System.out.println("Heroine name:" +name);
+   System.out.println("Actress name:" +name);
    System.out.println("Chatacter Name:" +characterName);
  }
  }

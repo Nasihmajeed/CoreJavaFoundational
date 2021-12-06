@@ -1,6 +1,6 @@
 public class Comedian  {
- private String name;
-  private String characterName;
+  String name;
+   String characterName;
   public void inputDetails() {
 
    this.name="Harisri Asokan";
