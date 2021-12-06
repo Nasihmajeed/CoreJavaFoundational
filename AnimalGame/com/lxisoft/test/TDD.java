@@ -6,7 +6,7 @@ public class TDD {
        
        public static void main(String[] args) {
               
-              Forest f = new Forest();
-              f.welcomeToForest();
+              Forest myForest = new Forest();
+              myForest.welcomeToForest();
        }
 }

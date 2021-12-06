@@ -2,11 +2,11 @@ package com.lxisoft.animals;
 
 import com.lxisoft.game.Animal;
 
-public class Elephant extends Animal{
+public class Elephant extends Animal implements Herbivores {
        
-       public Elephant(String animalName,int energy,int stamina,int distance)
+       public Elephant(String animalName,int starvage,int stamina,int distance)
        {
-              super(animalName,energy,stamina,distance);
+              super(animalName,starvage,stamina,distance);
        }
 
 }
