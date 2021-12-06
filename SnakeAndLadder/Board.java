@@ -1,22 +1,28 @@
-public class Board {
-	private int noOfCells;
+private int noOfCells;
 	private Snake snakes[];
 	private Ladder ladders[];
 
-	public void biteOrLift(Player player) {
-
+	public Board(int noOfCells) {
+		this.noOfCells = noOfCells;
+		addSnakesAndLadders();
 	}
 
-	public void addSnakesAndLadders() {
+	public void biteOrLift(Player player) {
+		
+	}
 
+	private void addSnakesAndLadders() {
+		int length = noOfCells * 5 / 100;
+		snakes = new Snake[length];
+		ladders = new Ladder[length];
+		for (int i = 0; i <= length; i++) {
+			snakes[i] = new Snake();
+			ladders[i] = new Ladder();
+		}
 	}
 
 	public int getNoOfCells() {
 		return noOfCells;
-	}
-
-	public void setNoOfCells(int noOfCells) {
-		this.noOfCells = noOfCells;
 	}
 
 	public Snake[] getSnakes() {
