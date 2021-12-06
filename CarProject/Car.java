@@ -6,7 +6,7 @@ private String registerNo;
 private String colour;
 private String price;
  
-Tyre T1,T2,T3,T4;
+Tyre tyre;
 
 public String getModel()  
 {
@@ -58,11 +58,10 @@ System.out.println("Car Colour" + i + ":Colour" +i);
 System.out.println("Car Price" + i + ":Price"+i+i+i);
 System.out.println("\n");
 
+tyre.printDetails();
 
-T1.printDetails();
-T2.printDetails();
-T3.printDetails();
-T4.printDetails();
+
+System.out.println("_________________________");
 }
 }
 }
