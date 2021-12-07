@@ -8,5 +8,6 @@ public class Crocodile extends Animal implements Carnivores {
        {
               super(animalName,starvage,stamina,distance);
        }
+       
 
 }

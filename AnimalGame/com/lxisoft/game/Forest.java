@@ -17,7 +17,9 @@ public class Forest {
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
                      Animal animal = new Animal(" ",0,0,0);
+                     
               System.out.println("List of Animals in the Forest :  ");
+              
                      animal.wildAnimals();
       
 	

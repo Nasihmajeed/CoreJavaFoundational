@@ -38,6 +38,7 @@ public String getName()
 								//name
 public void setName(String animalName)
 {
+	
 	this.animalName=animalName;
 }
 
