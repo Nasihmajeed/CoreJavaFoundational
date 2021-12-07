@@ -3,12 +3,20 @@ public class Heroine  {
  String characterName;
 
  public void inputDetails() {
-   this.name="Kavya Madhavan";
-   this.characterName="Rukmini";
+
+
+   this.name="Shailene Woodley";
+   this.characterName="Hazel Graze Lancaster";
  }
  public void printDetails (){
-   System.out.println("Actress name:" +name);
-   System.out.println("Chatacter Name:" +characterName);
+  System.out.println("\t\t+----------------------------------+");
+
+   System.out.println("\t\tActress name:" +name);
+   System.out.println("\t\tChatacter Name:" +characterName);
+
+   System.out.println("\t\t+----------------------------------+");
+
+  
  }
  }
   /* public String getName() {

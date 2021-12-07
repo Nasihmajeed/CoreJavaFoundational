@@ -12,13 +12,24 @@ public class Theater {
     
   }
   public void printDetails (){
-    System.out.println("Theater Name:" +name);
-    System.out.println("Theater Place:" +place);
-    System.out.println("Theater Phone No:" +phone);
+
+ 
+    System.out.println("\t\t+----------------------------------+");
+
+    System.out.println("\t\tTheater Name:" +name);
+    System.out.println("\t\tTheater Place:" +place);
+    System.out.println("\t\tTheater Phone No:" +phone);
+
+    System.out.println("\t\t+----------------------------------+");
     
     System.out.println();
 
+  
+
     movie.printDetails();
+
+    
+  
 
     
 

@@ -4,12 +4,21 @@ public class Hero  {
  
   public void inputDetails() {
 
-    this.name="Dileep";
-    this.characterName="Madhavan";
+  
+
+    this.name="Ansel Elgort";
+    this.characterName="Augustus Waters";
   }
   public void printDetails (){
-    System.out.println("Actor Name:" +name);
-    System.out.println("Chatacter Name:" +characterName);
+    System.out.println("\t\t+----------------------------------+");
+
+    System.out.println("\t\tActor Name:" +name);
+    System.out.println("\t\tChatacter Name:" +characterName);
+
+    System.out.println("\t\t+----------------------------------+");
+
+ 
+
   }
   }
    
