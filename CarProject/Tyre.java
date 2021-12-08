@@ -3,7 +3,16 @@ public class Tyre {
 private String brand ;
 private String position;
 private String radius;
-int x,i = 1;
+
+
+Tyre (String brand,String position,String radius)  {
+
+this.brand=brand;
+this.position=position;
+this.radius=radius;
+
+}
+
 public String getBrand()
 {
 return brand;
@@ -31,14 +40,13 @@ this.radius=newRadius;
 }
 public void printDetails()
  {
-for(x = 1; x <=4; x++)  { 
+
 System.out.println("TYRE");
-System.out.println("Brand Is : Brand" +i +"-"+ x);
-System.out.println("Position Is :Position "+ i+"-" +x);
-System.out.println("Radius Is : Radius "+i+x);
+System.out.println("Brand Is: " + this.brand);
+System.out.println("Position Is: "+ this.position);
+System.out.println("Radius Is: "+ this.radius);
 System.out.println("\n"); 
-}
-i = i +1;  
+  
  
 }
 }

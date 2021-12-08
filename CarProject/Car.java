@@ -1,12 +1,22 @@
 public class Car  {
 
-private String model;
 private String brand;
+private String model;
 private String registerNo;
 private String colour;
 private String price;
  
-Tyre tyre;
+Tyre T1,T2,T3,T4;
+
+
+Car (String model,String brand,String registerNo,String colour,String price) {
+this.model=model;
+this.brand=brand;
+this.registerNo=registerNo;
+this.colour=colour;
+this.price=price;
+ }
+
 
 public String getModel()  
 {
@@ -49,19 +59,22 @@ public void setPrice(String newPrice)
 this.price=newPrice;
 }
 public void printDetails()   { 
-for (int i = 1; i <= 3; i++)  {
-System.out.println("CAR :" + i);
-System.out.println("Car Brand" + i+ ": Brand" + i);
-System.out.println("Car Model" + i+ ": Model" + i);
-System.out.println("Car Register Number" + i +":Register Number"+i+i);
-System.out.println("Car Colour" + i + ":Colour" +i);
-System.out.println("Car Price" + i + ":Price"+i+i+i);
+
+System.out.println("Car Brand : " + this.brand);
+System.out.println("Car Model : " + this.model);
+System.out.println("Car Register Number : " +this.registerNo);
+System.out.println("Car Colour : " + this.colour);
+System.out.println("Car Price : " + this.price);
 System.out.println("\n");
 
-tyre.printDetails();
+T1.printDetails();
+T2.printDetails();
+T3.printDetails();
+T4.printDetails();
+
 
 
 System.out.println("_________________________");
-}
+
 }
 }
