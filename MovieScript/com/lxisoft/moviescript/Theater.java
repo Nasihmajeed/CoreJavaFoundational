@@ -1,3 +1,6 @@
+package com.lxisoft.moviescript;
+
+
 public class Theater {
   String name;
   String place;
@@ -27,6 +30,14 @@ public class Theater {
   
 
     movie.printDetails();
+
+    try{ 
+      Thread.sleep(2000);
+      }
+catch(InterruptedException e)
+     {
+     Thread.currentThread().interrupt();
+     }
 
     
   

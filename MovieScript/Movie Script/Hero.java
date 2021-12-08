@@ -1,5 +1,3 @@
-package com.lxisoft.cast;
-
 public class Hero  {
    String name;
    String characterName;
@@ -12,8 +10,12 @@ public class Hero  {
     this.characterName="Augustus Waters";
   }
   public void printDetails (){
+
+    System.out.println("\t\t         -- Cast Details --");
+
+
     
-    System.out.println("\t\t+----------------------------------+");
+    System.out.println("\t\t+----------------------------------+" +"\n");
 
     System.out.println("\t\tActor Name:" +name);
     System.out.println("\t\tChatacter Name:" +characterName);

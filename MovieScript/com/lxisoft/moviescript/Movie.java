@@ -1,3 +1,9 @@
+package com.lxisoft.moviescript;
+
+import com.lxisoft.cast;
+//import com.lxisoft.;
+
+
 public class Movie {
     String name;
     String genere;
@@ -6,7 +12,7 @@ public class Movie {
     String producer;
     
    public void inputDetails() {
-       this.name="THE FAULT IN OUR STARS";
+       this.name= "THE FAULT IN OUR STARS";
        this.genere="Romance - Drama";
        this.year= 2014;
        this.director="Josh Boone";
@@ -16,7 +22,7 @@ public class Movie {
     
    public void printDetails (){
 
-System.out.println("\t\t+----------------------------------+");
+       System.out.println("\t\t+----------------------------------+");
     
        System.out.println("\t\t" +name +"\n");
 
@@ -43,6 +49,7 @@ System.out.println("\t\t+----------------------------------+");
         Script script = new Script();
         script.inputDetails();
         script.printDetails();
+
 
    
 

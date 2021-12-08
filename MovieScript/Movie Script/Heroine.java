@@ -1,5 +1,3 @@
-package com.lxisoft.cast;
-
 public class Heroine  {
  String name;
  String characterName;
@@ -12,7 +10,7 @@ public class Heroine  {
  }
  public void printDetails (){
 
-   System.out.println("\t\t+----------------------------------+");
+  // System.out.println("\t\t+----------------------------------+");
 
    System.out.println("\t\tActress name:" +name);
    System.out.println("\t\tChatacter Name:" +characterName);
