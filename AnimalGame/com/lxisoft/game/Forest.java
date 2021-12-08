@@ -8,6 +8,21 @@ import java.util.ArrayList;
 public class Forest {
 
        int i = 0;
+       
+         String meeting;
+         
+       public String setMeeting(Animal animal1,Animal animal2){
+       
+       if((animal1 instanceof Herbivores) && (animal2 instanceof Herbivores)){
+              System.out.println("????????????????????????????????????????????");
+              System.out.println("Chance of Occurrence of a Fight is Zero!!!!!");
+             
+              System.out.println("Both animals are herbivorous!!!!!!");
+              System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+              System.out.println("Sorry!...... fight isn't possible !!!!We are Good -F-R-I-E-N-D-S-");
+              return "Sorry!...... fight isn't possible !!!!We are Good -F-R-I-E-N-D-S-";
+              //return animal1,animal2;
+             }
 
        public void welcomeToForest()
        {
