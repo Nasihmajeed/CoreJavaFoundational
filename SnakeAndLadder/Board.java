@@ -1,6 +1,12 @@
-private int noOfCells;
+import java.util.Random;
+
+public class Board {
+
+	private int noOfCells;
 	private Snake snakes[];
 	private Ladder ladders[];
+	int length = noOfCells * 5 / 100;
+	Random random = new Random();
 
 	public Board(int noOfCells) {
 		this.noOfCells = noOfCells;
@@ -8,14 +14,15 @@ private int noOfCells;
 	}
 
 	public void biteOrLift(Player player) {
-		
+		Snake randomNumberFromSnake = snakes[random.nextInt(length)];
+		Ladder randomNumberFromLadder = ladders[random.nextInt(length)];
 	}
 
 	private void addSnakesAndLadders() {
-		int length = noOfCells * 5 / 100;
+
 		snakes = new Snake[length];
 		ladders = new Ladder[length];
-		for (int i = 0; i <= length; i++) {
+		for (int i = 0; i < length; i++) {
 			snakes[i] = new Snake();
 			ladders[i] = new Ladder();
 		}

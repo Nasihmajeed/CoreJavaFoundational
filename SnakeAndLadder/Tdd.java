@@ -1,6 +1,4 @@
-public class Tdd {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 
 		Die die = new Die(6);
 		Player player1 = new Player();
