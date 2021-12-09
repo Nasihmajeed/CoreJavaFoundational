@@ -1,7 +1,10 @@
 package com.lxisoft.moviescript;
 
-import com.lxisoft.cast;
-//import com.lxisoft.;
+import com.lxisoft.cast.Hero;
+import com.lxisoft.cast.Heroine;
+import java.util.*;
+
+///import com.lxisoft.moviescript;
 
 
 public class Movie {
@@ -22,9 +25,13 @@ public class Movie {
     
    public void printDetails (){
 
+      
+    System.out.println("\t\t          -- Movie Details --");
+
+
        System.out.println("\t\t+----------------------------------+");
     
-       System.out.println("\t\t" +name +"\n");
+       System.out.println("\t\t\t"   +name +"\n");
 
        System.out.println("\t\tGnere:" +genere);
        System.out.println("\t\tYear Of Release:" +year);
@@ -57,3 +64,4 @@ public class Movie {
    }
 
 }
+

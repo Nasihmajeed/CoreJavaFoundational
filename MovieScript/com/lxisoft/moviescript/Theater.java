@@ -1,6 +1,6 @@
 package com.lxisoft.moviescript;
 
-
+import com.lxisoft.moviescript.*;
 public class Theater {
   String name;
   String place;
@@ -16,12 +16,13 @@ public class Theater {
   }
   public void printDetails (){
 
- 
+    System.out.println("\t\t        -- Theater Details --");
+
     System.out.println("\t\t+----------------------------------+");
 
     System.out.println("\t\tTheater Name:" +name);
     System.out.println("\t\tTheater Place:" +place);
-    System.out.println("\t\tTheater Phone No:" +phone);
+    System.out.println("\t\tTheater Phone No:" +phone +"\n");
 
     System.out.println("\t\t+----------------------------------+");
     
@@ -30,20 +31,7 @@ public class Theater {
   
 
     movie.printDetails();
-
-    try{ 
-      Thread.sleep(2000);
-      }
-catch(InterruptedException e)
-     {
-     Thread.currentThread().interrupt();
-     }
-
-    
-  
-
-    
-
      
   }
 }
+

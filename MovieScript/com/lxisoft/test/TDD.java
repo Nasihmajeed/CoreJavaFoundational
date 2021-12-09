@@ -1,7 +1,7 @@
 package com.lxisoft.test;
 
-import com.lxisoft.moviescript;
-import com.lxisoft.cast;
+import com.lxisoft.moviescript.*;
+import com.lxisoft.cast.*;
 public class TDD  {
  	public static void main(String[] args) {
 
