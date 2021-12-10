@@ -1,4 +1,4 @@
-public class Car  {
+ public class Car  {
 
 private String brand;
 private String model;
@@ -6,18 +6,18 @@ private String registerNo;
 private String colour;
 private String price;
  
-Tyre T1,T2,T3,T4;
+private Tyre T1,T2,T3,T4;
 
 
 Car (String model,String brand,String registerNo,String colour,String price) {
+
 this.model=model;
 this.brand=brand;
 this.registerNo=registerNo;
 this.colour=colour;
 this.price=price;
+
  }
-
-
 public String getModel()  
 {
 return model;
@@ -58,6 +58,39 @@ public void setPrice(String newPrice)
 {
 this.price=newPrice;
 }
+public Tyre getT1()
+{
+return T1;
+}
+public void setT1(Tyre newT1)
+{
+this.T1=newT1;
+}
+public Tyre getT2()
+{
+return T2;
+}
+public void setT2(Tyre newT2)
+{
+this.T2=newT2;
+}
+public Tyre getT3()
+{
+return T3;
+}
+public void setT3(Tyre newT3)
+{
+this.T3=newT3;
+}
+public Tyre getT4()
+{
+return T4;
+}
+public void setT4(Tyre newT4)
+{
+this.T4=newT4;
+}
+
 public void printDetails()   { 
 
 System.out.println("Car Brand : " + this.brand);
