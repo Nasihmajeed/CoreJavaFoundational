@@ -9,11 +9,13 @@ public class Board {
 	Random random = new Random();
 
 	public Board(int noOfCells) {
+
 		this.noOfCells = noOfCells;
 		addSnakesAndLadders();
 	}
 
 	public void biteOrLift(Player player) {
+
 		Snake randomNumberFromSnake = snakes[random.nextInt(length)];
 		Ladder randomNumberFromLadder = ladders[random.nextInt(length)];
 	}

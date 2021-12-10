@@ -7,6 +7,7 @@ public static void main(String[] args) {
 		player2.setName("Player 2");
 		Board board = new Board(100);
 
+
 		System.out.println("WELCOME TO SNAKES AND LADDERS");
 		System.out.println("==============================\n");
 		System.out.println("Board");
@@ -24,6 +25,10 @@ public static void main(String[] args) {
 		System.out.println("* Value to start the game: 1\n");
 		System.out.println("Let's start the game...\n");
 		System.out.println("Player1 rolling the die...");
+		System.out.println("Rolled: ");
+		System.out.println("Current Position: ");
+		System.out.println("New Position: \n");
+ 		
 
 	}
 
