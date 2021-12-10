@@ -45,14 +45,11 @@ public class Movie {
         hero.inputDetails();
 		hero.printDetails();
 
-
-      
-		Heroine heroine = new Heroine();
-		heroine.inputDetails();
-		heroine.printDetails();
+        Heroine heroine = new Heroine();
+        heroine.inputDetails();
+        heroine.printDetails();
 
 		
-
         Script script = new Script();
         script.inputDetails();
         script.printDetails();

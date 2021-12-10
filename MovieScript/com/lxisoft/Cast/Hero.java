@@ -1,6 +1,7 @@
 package com.lxisoft.cast;
 
 public class Hero  {
+  
   String name;
   String characterName;
 

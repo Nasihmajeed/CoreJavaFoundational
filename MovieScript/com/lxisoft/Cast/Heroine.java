@@ -1,6 +1,7 @@
 package com.lxisoft.cast;
 
 public class Heroine  {
+  
   String name;
   String characterName;
  
