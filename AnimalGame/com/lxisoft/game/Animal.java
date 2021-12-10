@@ -1,17 +1,21 @@
 package com.lxisoft.game;
 
+import com.lxisoft.animals.*;
+import java.util.Random;
 public class Animal {
 private String animalName;
-private int energy,stamina,distance;
+private int starvage,strength,distance,luckFactor;
 
-public Animal(String animalName,int energy,int stamina,int distance){
+Random rand = new Random();
+public Animal(String animalName,int starvage,int strength,int distance){
+	
 		this.animalName = animalName;
-		this.energy = energy;
-		this.stamina = stamina;
+		this.starvage = starvage;
+		this.strength = strength;
 		this.distance = distance;
 
 }
-public void wildAnimals()
+public void printAnimals()
 {
 	
 	System.out.println("1.Tiger");
@@ -24,7 +28,7 @@ public void wildAnimals()
 	System.out.println("8.Guar");
 	System.out.println("9.Crocodile");
 	System.out.println("10.Rhinoceros" +"\n");
-       System.out.println("The above Animals are ...... FIGHTERS" );
+    System.out.println("The above Animals are ...... FIGHTERS" );
 	System.out.println("!------------------------------!");
 	
 			
@@ -35,22 +39,21 @@ public String getName()
 {
 	return animalName;
 }
-								//name
-public void setName(String animalName)
+		
+public void setName(String animalName)					//name
 {
-	
 	this.animalName=animalName;
 }
 
-public int getEnergy()
+public int getStarvage()
 {
-return energy; 	
+return starvage; 	
 }
-                                                   //energy
+                                    
 
-public void setEnergy(int energy)
+public void setStarvage(int starvage)	               //starvage
 {
-	this.energy=energy;
+	this.starvage=starvage;
 }
 
 public int getDistance()
@@ -58,27 +61,35 @@ public int getDistance()
 return distance;
 }
 
-                                                       //distance
-public void setDistance(int distance)
+                                        
+public void setDistance(int distance)		               //distance
 {
 	this.distance=distance;
 }
 
-public int getStamina()
+public int getStrength()
 {
-	return stamina;
-}                                                   //stamina
+	return strength;
+}                                        
 
-public void setStamina(int stamina)
+public void setStrength(int strength)			           //stamina
 {
-	this.stamina=stamina;
+	this.strength = strength;
 }
-protected void printing() {
+
+public int getLuckFactor()
+{
+	
+	luckFactor=rand.nextInt(3);
+	return luckFactor;
+
+}
+protected void printDetails() {
          
   
 	System.out.println("Name : " + this.getName());
-	System.out.println("Energy : " + this.getEnergy());
-	System.out.println("Stamina : " + this.getStamina());
+	System.out.println("Starvage : " + this.getStarvage());
+	System.out.println("strength : " + this.getStrength());
 	System.out.println("Distance: " + this.getDistance());
 	System.out.println();
  
