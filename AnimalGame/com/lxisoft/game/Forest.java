@@ -22,16 +22,7 @@ public class Forest {
        String meeting;
        public String setMeeting(Animal animal1,Animal animal2){
        
-       if((animal1 instanceof Herbivores) && (animal2 instanceof Herbivores)){
-              System.out.println("????????????????????????????????????????????");
-              System.out.println("Chance of Occurrence of a Fight is Zero!!!!!");
-             
-              System.out.println("Both players are herbivorous!!!!!!");
-              System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-              //System.out.println("Sorry!...... fight isn't possible !!!!We are Good -F-R-I-E-N-D-S-");
-              return "Sorry!...... fight isn't possible !!!!We are Good -F-R-I-E-N-D-S-";
-              //return animal1,animal2;
-             }
+      
              else if((animal1 instanceof Herbivores) && (animal2 instanceof Carnivores)){
               System.out.println("First Player is a Herbivore !!!!!!");
               System.out.println("Player1 is : "+animal1.getName()+"    "+" with starvage level "+animal1.getStarvage()+" having strength of "+animal1.getStrength());
