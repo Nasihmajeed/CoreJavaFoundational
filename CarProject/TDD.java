@@ -12,21 +12,27 @@ Car c = new Car("brand"+i,"model"+i,"registerNo"+i,"colour"+i,"price"+i);
 System.out.println("CAR :" +i);
 
 
+for(int j = 1; j <5; j++)  {
 
-
-Tyre tyre = new Tyre("brand"+i+"1","position"+i+"1",i+"1");
+if(j==1)  {
+Tyre tyre = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
 c.setT1  (tyre);
+}
+if (j==2)  {
 
-Tyre tyre2 = new Tyre("brand"+i+"2","position"+i+"2",i+"2");
+Tyre tyre2 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
 c.setT2(tyre2);
+}
 
-Tyre tyre3 = new Tyre("brand"+i+"3","position"+i+"3",i+"3");  
+if(j==3)  {
+Tyre tyre3 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);  
 c.setT3(tyre3);
-
-Tyre tyre4 = new Tyre("brand"+i+"4","position"+i+"4",i+"4");
+}
+if(j==4)  {
+Tyre tyre4 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
 c.setT4(tyre4);
-
-
+}
+}
 c.printDetails();
 
 }
