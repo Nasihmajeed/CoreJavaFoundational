@@ -13,7 +13,7 @@ public class Script {
 
         System.out.println("\n");
 
-        System.out.println("\t\t       SCENE " +scene1);
+        System.out.println("\t\t      SCENE " +scene1);
         System.out.println("\t\t+----------------+" +"\n");
 
         try{ 
@@ -164,5 +164,4 @@ public class Script {
         
     }
     }  
-
         

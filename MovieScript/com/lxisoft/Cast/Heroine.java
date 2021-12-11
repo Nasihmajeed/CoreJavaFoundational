@@ -1,15 +1,20 @@
 package com.lxisoft.cast;
 
-public class Heroine  {
+import com.lxisoft.moviescript.Actor;
+
+
+public class Heroine extends Actor {
+
   
-  String name;
-  String characterName;
+}
+  //String name;
+ // String characterName;
  
-  public void inputDetails() {
+ /* public void inputDetails() {
  
  
-    this.name="Shailene Woodley";
-    this.characterName="Hazel Graze Lancaster";
+    super.name="Shailene Woodley";
+    super.characterName="Hazel Graze Lancaster";
   }
   public void printDetails (){
  
@@ -18,11 +23,11 @@ public class Heroine  {
     System.out.println("\t\tActress name:" +name);
     System.out.println("\t\tChatacter Name:" +characterName);
  
-    System.out.println("\t\t+----------------------------------+");
+    System.out.println("\t\t+----------------------------------+");*/
  
    
-  }
-  }
+  
+  
    /* public String getName() {
        return name;
  }
@@ -37,5 +42,6 @@ public class Heroine  {
       this.characterName=characterName;
  }
     }*/
+   
    
   

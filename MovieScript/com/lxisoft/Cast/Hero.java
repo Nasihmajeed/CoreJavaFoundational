@@ -1,36 +1,36 @@
 package com.lxisoft.cast;
 
-public class Hero  {
-  
-  String name;
-  String characterName;
+import com.lxisoft.moviescript.Actor;
 
- public void inputDetails() {
+public class Hero extends Actor  {
 
- 
+}
+  //String name;
+  //String characterName;
 
-   this.name="Ansel Elgort";
-   this.characterName="Augustus Waters";
+/* public void inputDetails() {
+
+   super.name="Ansel Elgort";
+   super.characterName="Augustus Waters";
  }
  public void printDetails (){
 
-  System.out.println("\n");
+  System.out.println("\n"); */
 
-   System.out.println("\t\t         -- Cast Details --" +"\n");
+  // System.out.println("\t\t         -- Cast Details --" +"\n");
 
 
    
-   System.out.println("\t\t+----------------------------------+" +"\n");
+   //System.out.println("\t\t+----------------------------------+" +"\n");
 
-   System.out.println("\t\tActor Name:" +name);
-   System.out.println("\t\tChatacter Name:" +characterName);
+   //System.out.println("\t\tActor Name:" +name);
+   //System.out.println("\t\tChatacter Name:" +characterName);
 
-   System.out.println("\t\t+----------------------------------+" +"\n");
+   //System.out.println("\t\t+----------------------------------+" +"\n");
 
 
 
- }
- }
+ 
   
  /* public String getName() {
      return name;

@@ -3,13 +3,13 @@ package com.lxisoft.test;
 import com.lxisoft.moviescript.*;
 import com.lxisoft.cast.*;
 public class TDD  {
- 	public static void main(String[] args) {
+	public static void main(String[] args) {
 
-		Theater theater = new Theater();
-		theater.inputDetails();
-		theater.printDetails();
+	   Theater theater = new Theater();
+	   theater.inputDetails();
+	   theater.printDetails();
 
-	
+   
 
 
 } 

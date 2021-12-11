@@ -4,9 +4,6 @@ import com.lxisoft.cast.Hero;
 import com.lxisoft.cast.Heroine;
 import java.util.*;
 
-///import com.lxisoft.moviescript;
-
-
 public class Movie {
     String name;
     String genere;
@@ -40,15 +37,26 @@ public class Movie {
 
        System.out.println("\t\t+----------------------------------+");
 
+       System.out.println();
+
+       System.out.println();
+
+       System.out.println("\t\t         -- Cast Details --" +"\n");
+
    
-     	Hero hero = new Hero();
-        hero.inputDetails();
-		hero.printDetails();
+     	 Hero hero = new Hero();
+         hero.name = "\t\tHero Name: Ansel Elgort";
+         hero.characterName ="\t\tCharacter Name: Augustus Waters";
+         hero.showDetails();
+
+         System.out.println("\t\t+----------------------------------+");
 
         Heroine heroine = new Heroine();
-        heroine.inputDetails();
-        heroine.printDetails();
+        heroine.name = "\t\tHeroine Name: Shailene Woodley";
+        heroine.characterName ="\t\tCharacter Name:Hazel Graze Lancaster";
+        heroine.showDetails();
 
+    
 		
         Script script = new Script();
         script.inputDetails();
@@ -61,4 +69,3 @@ public class Movie {
    }
 
 }
-
