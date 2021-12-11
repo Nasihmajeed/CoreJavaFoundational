@@ -4,6 +4,7 @@ public class Snake {
 	private int tailPosition;
 
 	public void bite(Player player) {
+		System.out.println("Player reaches tailposition when snake bite");
 		player.setPosition(tailPosition);
 	}
 
