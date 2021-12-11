@@ -1,4 +1,4 @@
- public class Car  {
+  public class Car  {
 
 private String brand;
 private String model;
@@ -7,6 +7,8 @@ private String colour;
 private String price;
  
 private Tyre T1,T2,T3,T4;
+
+
 
 
 Car (String model,String brand,String registerNo,String colour,String price) {
@@ -100,13 +102,10 @@ System.out.println("Car Colour : " + this.colour);
 System.out.println("Car Price : " + this.price);
 System.out.println("\n");
 
-T1.printDetails();
-T2.printDetails();
-T3.printDetails();
-T4.printDetails();
-
-
-
+Tyre [] tyres = {T1,T2,T3,T4};
+ for(int x =0; x <tyres.length; x++)  {
+tyres[x].printDetails();
+}
 System.out.println("_________________________");
 
 }
