@@ -1,21 +1,18 @@
 package com.lxisoft.game;
 
-import com.lxisoft.animals.*;
-import java.util.Random;
 public class Animal {
-private String animalName;
-private int starvage,strength,distance,luckFactor;
+	private String animalName;
+	private int starvage,strength,distance;
 
-Random rand = new Random();
 public Animal(String animalName,int starvage,int strength,int distance){
 	
-		this.animalName = animalName;
-		this.starvage = starvage;
-		this.strength = strength;
-		this.distance = distance;
+	this.animalName = animalName;
+	this.starvage = starvage;
+	this.strength = strength;
+	this.distance = distance;
 
 }
-public void printAnimals()
+public void listOfwildAnimals()
 {
 	
 	System.out.println("1.Tiger");
@@ -28,7 +25,7 @@ public void printAnimals()
 	System.out.println("8.Guar");
 	System.out.println("9.Crocodile");
 	System.out.println("10.Rhinoceros" +"\n");
-    System.out.println("The above Animals are ...... FIGHTERS" );
+       System.out.println("The above Animals are ...... FIGHTERS" );
 	System.out.println("!------------------------------!");
 	
 			
@@ -39,9 +36,10 @@ public String getName()
 {
 	return animalName;
 }
-		
-public void setName(String animalName)					//name
+																	//name
+public void setName(String animalName)
 {
+	
 	this.animalName=animalName;
 }
 
@@ -77,14 +75,8 @@ public void setStrength(int strength)			           //stamina
 	this.strength = strength;
 }
 
-public int getLuckFactor()
-{
-	
-	luckFactor=rand.nextInt(3);
-	return luckFactor;
 
-}
-protected void printDetails() {
+protected void printData() {
          
   
 	System.out.println("Name : " + this.getName());
