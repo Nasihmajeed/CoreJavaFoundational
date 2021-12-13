@@ -10,7 +10,7 @@ public class Forest {
        int i = 0;
        Random rand = new Random();
        ArrayList<Animal> animalsList = new ArrayList<Animal>();
-         String winner;
+         Animal winner;
        public void welcomeToForest()
        {
 
@@ -39,19 +39,19 @@ public class Forest {
                      System.out.println();  
                      i++;
               } 
-		System.out.println( playersMeeting(returnPlayer1(animalsList),returnPlayer2(animalsList)));
+		System.out.println( playersMeeting(returnPlayers(animalsList),returnPlayers(animalsList)));
        }
-       public Animal returnPlayer1(ArrayList<Animal> animalsList){
+       public Animal returnPlayers(ArrayList<Animal> animalsList){
               int player1 =rand.nextInt(animalsList.size());
-              Animal p1 = animalsList.get(player1);
-               return p1;
+              Animal player = animalsList.get(player1);
+               return player;
         }
 
-        public Animal returnPlayer2(ArrayList<Animal> animalsList){
+        /*public Animal returnPlayer2(ArrayList<Animal> animalsList){
               int player2 =rand.nextInt(animalsList.size());
               Animal p2 = animalsList.get(player2);
               return p2;
-        }
+        }*/
 
         /*static String[] getP1AndP2(ArrayList<Animal> animalsList){
               String[] players = new String[2];
@@ -111,16 +111,16 @@ public class Forest {
        return "No such Players existing in my F_O_R_E_S_T";
 
        }
-       public String startFight(Animal player1, Animal player2){
+       public Animal startFight(Animal player1, Animal player2){
 
             
 
               do{
                      if((player1.getStrength() <= 5) && (player2.getStarvage() <= 5))
                            {
-                            System.out.println(player1.getName()+" was very unlucky and caught by "+player2.getName());
-                            System.out.println(player1.getName()+" is caught by "+player2.getName());
-                            System.out.println(player2.getName()+" is attacking "+player1.getName());
+                            System.out.println(player2.getName()+" was very unlucky and caught by "+player1.getName());
+                            System.out.println(player2.getName()+" is caught by "+player1.getName());
+                            System.out.println(player1.getName()+" is attacking "+player2.getName());
                             System.out.println("Starvage of "+player2.getName()+" is higher than  the strength of"+player1.getName());
                             System.out.println("The strength of "+player1.getName()+" is decreasing");
                      }
