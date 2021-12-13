@@ -8,6 +8,7 @@ private String price;
  
 private Tyre T1,T2,T3,T4;
 
+Tyre [] tyres = new Tyre [4];
 
 
 
@@ -102,10 +103,11 @@ System.out.println("Car Colour : " + this.colour);
 System.out.println("Car Price : " + this.price);
 System.out.println("\n");
 
-Tyre [] tyres = {T1,T2,T3,T4};
- for(int x =0; x <tyres.length; x++)  {
-tyres[x].printDetails();
-}
+T1.printDetails ();
+T2.printDetails ();
+T3.printDetails ();
+T4.printDetails ();
+
 System.out.println("_________________________");
 
 }
