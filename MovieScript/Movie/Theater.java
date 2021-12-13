@@ -1,6 +1,4 @@
-package com.lxisoft.moviescript;
 
-import com.lxisoft.moviescript.*;
 public class Theater {
   String name;
   String place;
@@ -28,12 +26,9 @@ public class Theater {
     
     System.out.println();
 
-  
 
     movie.printDetails();
      
   }
 }
-
-
 

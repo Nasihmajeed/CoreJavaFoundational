@@ -1,8 +1,4 @@
-package com.lxisoft.moviescript;
 
-import com.lxisoft.cast.Hero;
-import com.lxisoft.cast.Heroine;
-import java.util.*;
 
 public class Movie {
     String name;
@@ -63,9 +59,8 @@ public class Movie {
         script.printDetails();
 
 
-   
-
 
    }
 
 }
+

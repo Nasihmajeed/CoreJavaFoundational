@@ -1,8 +1,7 @@
-package com.lxisoft.cast;
-
-import com.lxisoft.moviescript.Actor;
 
 public class Hero extends Actor  {
+
+
 
 }
   //String name;
@@ -31,6 +30,7 @@ public class Hero extends Actor  {
 
 
  
+
   
  /* public String getName() {
      return name;

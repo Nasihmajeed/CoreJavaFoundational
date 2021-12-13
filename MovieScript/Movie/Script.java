@@ -1,4 +1,3 @@
-package com.lxisoft.moviescript;
 
 public class Script {
     String scene1;
@@ -164,4 +163,5 @@ public class Script {
         
     }
     }  
+
         

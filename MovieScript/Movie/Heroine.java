@@ -1,10 +1,8 @@
-package com.lxisoft.cast;
-
-import com.lxisoft.moviescript.Actor;
 
 
 public class Heroine extends Actor {
 
+  
   
 }
   //String name;
@@ -26,7 +24,7 @@ public class Heroine extends Actor {
     System.out.println("\t\t+----------------------------------+");*/
  
    
-  
+
   
    /* public String getName() {
        return name;
@@ -42,6 +40,5 @@ public class Heroine extends Actor {
       this.characterName=characterName;
  }
     }*/
-   
    
   
