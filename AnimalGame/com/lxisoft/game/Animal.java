@@ -12,7 +12,7 @@ public Animal(String animalName,int starvage,int strength,int distance){
 	this.distance = distance;
 
 }
-public void listOfwildAnimals()
+/*public void listOfwildAnimals()
 {
 	
 	System.out.println("1.Tiger");
@@ -30,7 +30,7 @@ public void listOfwildAnimals()
 	
 			
 	
-}
+}*/
 
 public String getName()
 {

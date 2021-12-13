@@ -1,7 +1,6 @@
 package com.lxisoft.game;
 
 import com.lxisoft.animals.*;
-//import com.lxisoft.animals.Tiger;
 import com.lxisoft.game.Animal;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,10 +11,6 @@ public class Forest {
        Random rand = new Random();
        ArrayList<Animal> animalsList = new ArrayList<Animal>();
          String winner;
-         //String player1 =rand.nextLine(animalsList.size());
-         //int player2 =rand.nextInt(animalsList.size());
-
-
        public void welcomeToForest()
        {
 
@@ -23,17 +18,10 @@ public class Forest {
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
-                     Animal animal = new Animal(" ",0,0,0);
-                     
-              System.out.println("List of Animals in the Forest :  ");
-              
-                     animal.listOfwildAnimals();
-      
-	
-      
-              
-                     System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
-
+             // Animal animal = new Animal(" ",0,0,0);
+              //System.out.println("List of Animals in the Forest :  ");
+              //animal.listOfwildAnimals();
+              System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
               animalsList.add(new Tiger("Bengal-Tiger",14,10,5));
               animalsList.add(new Rabbit("Cutey-Rabbit",10,7,5));
               animalsList.add(new Deer("Little-Deer",2,4,2));
@@ -47,21 +35,19 @@ public class Forest {
 
             
                 while(i < animalsList.size()){
-                     animalsList.get(i).printData();   
+                     animalsList.get(i).printData(); 
+                     System.out.println();  
                      i++;
-              }
-              //System.out.println(getP1Name(animalsList));
-              //System.out.println(getP2Name(animalsList)); 
-		System.out.println( playersMeeting(getP1(animalsList),getP2(animalsList)));
+              } 
+		System.out.println( playersMeeting(returnPlayer1(animalsList),returnPlayer2(animalsList)));
        }
-       public Animal getP1(ArrayList<Animal> animalsList){
+       public Animal returnPlayer1(ArrayList<Animal> animalsList){
               int player1 =rand.nextInt(animalsList.size());
               Animal p1 = animalsList.get(player1);
-              //p1.getStarvage();
                return p1;
         }
 
-        public Animal getP2(ArrayList<Animal> animalsList){
+        public Animal returnPlayer2(ArrayList<Animal> animalsList){
               int player2 =rand.nextInt(animalsList.size());
               Animal p2 = animalsList.get(player2);
               return p2;
@@ -78,14 +64,11 @@ public class Forest {
        int strengthOfPlayer1,strengthOfPlayer2;
         
       public String playersMeeting(Animal player1, Animal player2){
-             //this.player1 = p1;
- //            this.player2 = p2;
-   //    System.out.println(player1);
-    //   System.out.println(player2); 
              
             
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
-                      return "we are Best F_R_I_E_N_D_S";
+                     System.out.println("!!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
+                     return "we are Best F_R_I_E_N_D_S";
               }
               else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
                      System.out.println("First player is a Herbivore !!!!!!");
@@ -98,7 +81,7 @@ public class Forest {
                
                      strengthOfPlayer1 = player1.getStrength();
                      strengthOfPlayer2 = player2.getStrength();
-                     startFightHerb(player1,player2);
+                     startFight(player1,player2);
                      System.out.println("The Winner of the Game is :- ");
                      return player2.getName();
               }
@@ -108,12 +91,14 @@ public class Forest {
                      System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength());
                      System.out.println("Second Player is a Herbivore !!!!!!");
                      System.out.println("Player2 is : "+player2.getName()+"    "+" with starvage level "+player2.getStarvage()+" having strength of "+player2.getStrength());
+                    
                      starvageOfPlayer1 = player1.getStarvage();
                      starvageOfPlayer2 = player2.getStarvage();
                
                      strengthOfPlayer1 = player1.getStrength();
                      strengthOfPlayer2 = player2.getStrength();
-                     startFightCarn(player1,player2);
+                    
+                     startFight(player1,player2);
                      System.out.println("The Winner of the Game is :- ");
                      return player1.getName();
               }
@@ -126,7 +111,7 @@ public class Forest {
        return "No such Players existing in my F_O_R_E_S_T";
 
        }
-       public String startFightHerb(Animal player1, Animal player2){
+       public String startFight(Animal player1, Animal player2){
 
             
 
@@ -147,14 +132,27 @@ public class Forest {
                            System.out.println("Strength of "+player1.getName()+" decreased to "+strengthOfPlayer1);
                      }while(strengthOfPlayer1 > 0);
                      System.out.println(player1.getName()+" Defeated and Killed by "+player1.getName());
+                    
+                     do{if((player1.getStarvage() <= 5) && (player2.getStrength() <= 5))
+                            {
+                             System.out.println(player2.getName()+" was very unlucky and caught by "+player1.getName());
+                             System.out.println(player2.getName()+" is caught by "+player1.getName());
+                             System.out.println(player2.getName()+" is attacking "+player1.getName());
+                             System.out.println("Starvage of "+player1.getName()+" is higher than  the strength of"+player2.getName());
+                             System.out.println("The strength of "+player2.getName()+" is decreasing");
+                      }
+                      else if((player2.getStrength() > 5))
+                             {
+                                  System.out.println(player2.getName()+" was very lucky that he ran away from the Beast..........!!!!!!!!!!!!!!!!");
+                             } 
+                             strengthOfPlayer1 -= 1;
+                            System.out.println("Strength of "+player2.getName()+" decreased to "+strengthOfPlayer1);
+                      }while(strengthOfPlayer1 > 0);
+                      System.out.println(player2.getName()+" Defeated and Killed by "+player1.getName());
                      return winner;
        }
-/*else{
-return winner;
-}
-}*/
 
-public void startFightCarn(Animal player1, Animal player2){
+/*public void startFightCarn(Animal player1, Animal player2){
 
        
        do{
@@ -174,5 +172,5 @@ public void startFightCarn(Animal player1, Animal player2){
                     System.out.println("Strength of "+player2.getName()+" decreased to "+strengthOfPlayer1);
               }while(strengthOfPlayer1 > 0);
               System.out.println(player2.getName()+" Defeated and Killed by "+player1.getName());
-       }
+       }*/
 }
