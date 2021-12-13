@@ -1,10 +1,18 @@
+package com.lxisoft.snakesandladders;
+
+import com.lxisoft.game.Player;
+
 public class Snake {
 
 	private int headPosition;
 	private int tailPosition;
 
+	public Snake(int headPosition, int tailPosition) {
+		this.headPosition = headPosition;
+		this.tailPosition = tailPosition;
+	}
+
 	public void bite(Player player) {
-		System.out.println("Player reaches tailposition when snake bite");
 		player.setPosition(tailPosition);
 	}
 
@@ -12,15 +20,8 @@ public class Snake {
 		return headPosition;
 	}
 
-	public void setHeadPosition(int headPosition) {
-		this.headPosition = headPosition;
-	}
-
 	public int getTailPosition() {
 		return tailPosition;
 	}
 
-	public void setTailPosition(int tailPosition) {
-		this.tailPosition = tailPosition;
-	}
 }

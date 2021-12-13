@@ -1,7 +1,16 @@
+package com.lxisoft.snakesandladders;
+
+import com.lxisoft.game.Player;
+
 public class Ladder {
 
 	private int topPosition;
 	private int bottomPosition;
+
+	public Ladder(int topPosition, int bottomPosition) {
+		this.topPosition = topPosition;
+		this.bottomPosition = bottomPosition;
+	}
 
 	public void lift(Player player) {
 		player.setPosition(topPosition);
@@ -11,16 +20,8 @@ public class Ladder {
 		return topPosition;
 	}
 
-	public void setTopPosition(int topPosition) {
-		this.topPosition = topPosition;
-	}
-
 	public int getBottomPosition() {
 		return bottomPosition;
-	}
-
-	public void setBottomPosition(int bottomPosition) {
-		this.bottomPosition = bottomPosition;
 	}
 
 }

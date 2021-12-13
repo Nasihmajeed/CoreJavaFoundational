@@ -1,3 +1,10 @@
+package com.lxisoft;
+
+import com.lxisoft.game.Die;
+import com.lxisoft.game.Game;
+import com.lxisoft.game.Player;
+import com.lxisoft.snakesandladders.Board;
+
 public class Tdd {
 
 	public static void main(String[] args) {
@@ -7,16 +14,20 @@ public class Tdd {
 		player1.setName("Player 1");
 		Player player2 = new Player();
 		player2.setName("Player 2");
-		Board board = new Board(100);
-
+		Board board = new Board();
+		Game game = new Game();
+		game.setBoard(board);
+		game.setPlayer1(player1);
+		game.setPlayer2(player2);
+		game.setDie(die);
 
 		System.out.println("WELCOME TO SNAKES AND LADDERS");
 		System.out.println("==============================\n");
 		System.out.println("Board");
 		System.out.println("-------");
-		System.out.println("* Number of cells: " + board.getNoOfCells());
-		System.out.println("* Number of snakes: ");
-		System.out.println("* Number of ladders: \n");
+		System.out.println("* Number of cells: 100");
+		System.out.println("* Number of snakes: 5");
+		System.out.println("* Number of ladders: 5\n");
 		System.out.println("Players");
 		System.out.println("-------");
 		System.out.println("* " + player1.getName());
@@ -26,12 +37,8 @@ public class Tdd {
 		System.out.println("* Number of faces: " + die.getFaces());
 		System.out.println("* Value to start the game: 1\n");
 		System.out.println("Let's start the game...\n");
-		System.out.println("Player1 rolling the die...");
-		System.out.println("Rolled: ");
-		System.out.println("Current Position: ");
-		System.out.println("New Position: \n");
- 		
 
+		game.play();
 	}
 
 }
