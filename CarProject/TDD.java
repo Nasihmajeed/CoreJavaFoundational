@@ -1,4 +1,4 @@
-import java.util.Scanner;
+ import java.util.Scanner;
 
 public class TDD {
 
@@ -14,24 +14,12 @@ System.out.println("CAR :" +i);
 
 for(int j = 1; j <5; j++)  {
 
-if(j==1)  {
+
 Tyre tyre = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.tyres[0]  = tyre;
-}
-if (j==2)  {
+c.tyres[j] = tyre;
 
-Tyre tyre2 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.tyres[1] = tyre2;
-}
 
-if(j==3)  {
-Tyre tyre3 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);  
-c.tyres[2] = tyre3;
-}
-if(j==4)  {
-Tyre tyre4 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.tyres[3] = tyre4;
-}
+
 }
 c.printDetails();
 

@@ -7,8 +7,7 @@ private String colour;
 private String price;
  
 
-
-Tyre [] tyres = new Tyre [4];
+ Tyre [] tyres = new Tyre [5];
 
 
 
@@ -62,6 +61,7 @@ public void setPrice(String newPrice)
 this.price=newPrice;
 }
 
+
 public void printDetails()   { 
 
 System.out.println("Car Brand : " + this.brand);
@@ -71,7 +71,7 @@ System.out.println("Car Colour : " + this.colour);
 System.out.println("Car Price : " + this.price);
 System.out.println("\n");
 
-for(int x = 0; x <tyres.length; x++)  {
+for(int x = 1; x <tyres.length; x++)  {
 	
 tyres[x].printDetails();
 
