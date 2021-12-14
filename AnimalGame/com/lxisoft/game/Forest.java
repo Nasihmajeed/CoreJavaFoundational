@@ -47,19 +47,7 @@ public class Forest {
                return player;
         }
 
-        /*public Animal returnPlayer2(ArrayList<Animal> animalsList){
-              int player2 =rand.nextInt(animalsList.size());
-              Animal p2 = animalsList.get(player2);
-              return p2;
-        }*/
-
-        /*static String[] getP1AndP2(ArrayList<Animal> animalsList){
-              String[] players = new String[2];
-              players[0] = rand.nextInt(animalsList.size());
-              players[1] = rand.nextInt(animalsList.size());
-              return players;
-        }*/
-        //String player1,player2;
+        
        int starvageOfPlayer1,starvageOfPlayer2;
        int strengthOfPlayer1,strengthOfPlayer2;
         
