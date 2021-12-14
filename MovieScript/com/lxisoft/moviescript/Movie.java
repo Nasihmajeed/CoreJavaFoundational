@@ -1,4 +1,7 @@
+package com.lxisoft.moviescript;
 
+import com.lxisoft.cast.*;
+import com.lxisoft.moviescript.Actor;
 
 public class Movie {
     String name;

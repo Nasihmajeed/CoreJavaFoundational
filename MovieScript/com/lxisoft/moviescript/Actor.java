@@ -1,7 +1,10 @@
+package com.lxisoft.moviescript;
+
+import com.lxisoft.cast.*;
 
 public class Actor {
 
-    String name,characterName;
+    public String name,characterName;
   
  public void showDetails() {
 
