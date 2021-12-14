@@ -16,21 +16,21 @@ for(int j = 1; j <5; j++)  {
 
 if(j==1)  {
 Tyre tyre = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.setT1  (tyre);
+c.tyres[0]  = tyre;
 }
 if (j==2)  {
 
 Tyre tyre2 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.setT2(tyre2);
+c.tyres[1] = tyre2;
 }
 
 if(j==3)  {
 Tyre tyre3 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);  
-c.setT3(tyre3);
+c.tyres[2] = tyre3;
 }
 if(j==4)  {
 Tyre tyre4 = new Tyre("brand"+i+j,"position"+i+j,"R-"+i+j);
-c.setT4(tyre4);
+c.tyres[3] = tyre4;
 }
 }
 c.printDetails();

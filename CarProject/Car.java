@@ -6,7 +6,7 @@ private String registerNo;
 private String colour;
 private String price;
  
-private Tyre T1,T2,T3,T4;
+
 
 Tyre [] tyres = new Tyre [4];
 
@@ -61,38 +61,6 @@ public void setPrice(String newPrice)
 {
 this.price=newPrice;
 }
-public Tyre getT1()
-{
-return T1;
-}
-public void setT1(Tyre newT1)
-{
-this.T1=newT1;
-}
-public Tyre getT2()
-{
-return T2;
-}
-public void setT2(Tyre newT2)
-{
-this.T2=newT2;
-}
-public Tyre getT3()
-{
-return T3;
-}
-public void setT3(Tyre newT3)
-{
-this.T3=newT3;
-}
-public Tyre getT4()
-{
-return T4;
-}
-public void setT4(Tyre newT4)
-{
-this.T4=newT4;
-}
 
 public void printDetails()   { 
 
@@ -103,11 +71,11 @@ System.out.println("Car Colour : " + this.colour);
 System.out.println("Car Price : " + this.price);
 System.out.println("\n");
 
-T1.printDetails ();
-T2.printDetails ();
-T3.printDetails ();
-T4.printDetails ();
+for(int x = 0; x <tyres.length; x++)  {
+	
+tyres[x].printDetails();
 
+}
 System.out.println("_________________________");
 
 }
