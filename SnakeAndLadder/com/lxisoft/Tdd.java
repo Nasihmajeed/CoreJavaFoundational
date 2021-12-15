@@ -1,5 +1,6 @@
 package com.lxisoft;
 
+import com.lxisoft.game.Coin;
 import com.lxisoft.game.Die;
 import com.lxisoft.game.Game;
 import com.lxisoft.game.Player;
@@ -12,8 +13,14 @@ public class Tdd {
 		Die die = new Die(6);
 		Player player1 = new Player();
 		player1.setName("Player 1");
+		Coin coin1 = new Coin();
+		coin1.setColor("Red");
+		player1.setCoin(coin1);
 		Player player2 = new Player();
 		player2.setName("Player 2");
+		Coin coin2 = new Coin();
+		coin2.setColor("Blue");
+		player2.setCoin(coin2);
 		Board board = new Board();
 		Game game = new Game();
 		game.setBoard(board);
@@ -30,10 +37,10 @@ public class Tdd {
 		System.out.println("* Number of ladders: 5\n");
 		System.out.println("Players");
 		System.out.println("-------");
-		System.out.println("* " + player1.getName());
-		System.out.println("* " + player2.getName() + "\n");
+		System.out.println("* " + player1.getName() + " with " + coin1.getColor());
+		System.out.println("* " + player2.getName() + " with " + coin2.getColor() + "\n");
 		System.out.println("Die");
-		System.out.println("-------");
+		System.out.println("-----");
 		System.out.println("* Number of faces: " + die.getFaces());
 		System.out.println("* Value to start the game: 1\n");
 		System.out.println("Let's start the game...\n");

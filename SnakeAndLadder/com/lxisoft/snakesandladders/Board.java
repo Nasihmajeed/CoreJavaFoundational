@@ -1,6 +1,9 @@
 package com.lxisoft.snakesandladders;
 
-import com.lxisoft.game.Player;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lxisoft.game.Coin;
 
 public class Board {
 
@@ -11,14 +14,14 @@ public class Board {
 		addSnakesAndLadders();
 	}
 
-	public void biteOrLift(Player player) {
+	public void biteOrLift(Coin coin) {
 		for (int i = 0; i < 5; i++) {
-			if (player.getPosition() == ladders[i].getBottomPosition()) {
-				ladders[i].lift(player);
+			if (coin.getPosition() == ladders[i].getBottomPosition()) {
+				ladders[i].lift(coin);
 				System.out.println("Wow...ladder on cell " + ladders[i].getBottomPosition());
 				break;
-			} else if (player.getPosition() == snakes[i].getHeadPosition()) {
-				snakes[i].bite(player);
+			} else if (coin.getPosition() == snakes[i].getHeadPosition()) {
+				snakes[i].bite(coin);
 				System.out.println("Aww...snake on cell " + snakes[i].getHeadPosition());
 				break;
 			}

@@ -3,10 +3,10 @@ package com.lxisoft.game;
 public class Player {
 
 	private String name;
-	private int position;
+	private Coin coin;
 
-	public void move(int moves) {
-		position = position + moves;
+	public void movecoin(int moves) {
+		coin.setPosition(coin.getPosition() + moves);
 	}
 
 	public String getName() {
@@ -17,12 +17,12 @@ public class Player {
 		this.name = name;
 	}
 
-	public int getPosition() {
-		return position;
+	public Coin getCoin() {
+		return coin;
 	}
 
-	public void setPosition(int position) {
-		this.position = position;
+	public void setCoin(Coin coin) {
+		this.coin = coin;
 	}
 
 }

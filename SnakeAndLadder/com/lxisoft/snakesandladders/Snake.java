@@ -1,6 +1,6 @@
 package com.lxisoft.snakesandladders;
 
-import com.lxisoft.game.Player;
+import com.lxisoft.game.Coin;
 
 public class Snake {
 
@@ -12,8 +12,8 @@ public class Snake {
 		this.tailPosition = tailPosition;
 	}
 
-	public void bite(Player player) {
-		player.setPosition(tailPosition);
+	public void bite(Coin coin) {
+		coin.setPosition(tailPosition);
 	}
 
 	public int getHeadPosition() {

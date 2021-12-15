@@ -14,25 +14,25 @@ public class Game {
 			System.out.println(player1.getName() + " rolling the die...");
 			int result = die.roll();
 			System.out.println(player1.getName() + " rolled: " + result);
-			System.out.println("Current Position: " + player1.getPosition());
-			if ((player1.getPosition() > 0 || result == 1) && (player1.getPosition() + result <= 100)) {
-				player1.move(result);
-				board.biteOrLift(player1);
-				System.out.print("New Position: " + player1.getPosition());
+			System.out.println("Current Position of " + player1.getCoin().getColor() + " coin: " + player1.getCoin().getPosition());
+			if ((player1.getCoin().getPosition() > 0 || result == 1) && (player1.getCoin().getPosition() + result <= 100)) {
+				player1.movecoin(result);
+				board.biteOrLift(player1.getCoin());
+				System.out.print("New Position: " + player1.getCoin().getPosition());
 			}
 			System.out.println("\n------------------------------------");
 			System.out.println(player2.getName() + " rolling the die...");
 			result = die.roll();
 			System.out.println(player2.getName() + " rolled: " + result);
-			System.out.println("Current Position: " + player2.getPosition());
-			if ((player2.getPosition() > 0 || result == 1) && (player2.getPosition() + result <= 100)) {
-				player2.move(result);
-				board.biteOrLift(player2);
-				System.out.print("New Position: " + player1.getPosition());
+			System.out.println("Current Position of " + player2.getCoin().getColor() + " coin: " + player2.getCoin().getPosition());
+			if ((player2.getCoin().getPosition() > 0 || result == 1) && (player2.getCoin().getPosition() + result <= 100)) {
+				player2.movecoin(result);
+				board.biteOrLift(player2.getCoin());
+				System.out.print("New Position: " + player2.getCoin().getPosition());
 			}
 			System.out.println("\n------------------------------------");
-		} while (player1.getPosition() < 100 && player2.getPosition() < 100);
-		if (player1.getPosition() == 100)
+		} while (player1.getCoin().getPosition() < 100 && player2.getCoin().getPosition() < 100);
+		if (player1.getCoin().getPosition() == 100)
 			System.out
 					.println("\nCongratulations " + player1.getName() + "\nBetter luck next time " + player2.getName());
 		else

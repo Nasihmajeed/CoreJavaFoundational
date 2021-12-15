@@ -1,6 +1,6 @@
 package com.lxisoft.snakesandladders;
 
-import com.lxisoft.game.Player;
+import com.lxisoft.game.Coin;
 
 public class Ladder {
 
@@ -12,8 +12,8 @@ public class Ladder {
 		this.bottomPosition = bottomPosition;
 	}
 
-	public void lift(Player player) {
-		player.setPosition(topPosition);
+	public void lift(Coin coin) {
+		coin.setPosition(topPosition);
 	}
 
 	public int getTopPosition() {
