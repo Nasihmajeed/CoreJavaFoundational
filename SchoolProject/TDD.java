@@ -23,7 +23,7 @@ cl.setTc  (tr);
 for(int j = 1; j < 4; j++)  {
 	
 Students ss = new Students("Student"+j,"Age"+j,"RollNo"+j,"Mark"+j);
-tr.st[j] =ss;
+cl.st[j] =ss;
 
 }
 }

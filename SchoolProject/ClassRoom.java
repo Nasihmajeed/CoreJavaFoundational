@@ -5,6 +5,7 @@ private String seats;
 private String standard;
 private String division;
 private Teacher tc;
+Students [] st = new Students[4];
 
 
 ClassRoom(String standard, String division,String seats)   {
@@ -58,5 +59,9 @@ public void printDetails()  {
 	
 	tc.printDetails();
 	
+	for(int x = 1; x < 4; x++)  {
+		
+	st[x].printDetails();
+}
 }
 }

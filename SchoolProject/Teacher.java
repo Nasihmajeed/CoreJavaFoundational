@@ -4,7 +4,7 @@ private String name;
 private String subject;
 private String phoneNo;
 
-Students [] st = new Students[4];
+
 
 Teacher(String name,String subject,String phoneNo)  {
 	
@@ -46,10 +46,7 @@ public void printDetails()   {
 	System.out.println("Phone Number :" + this.phoneNo);
 	System.out.println("____________________");
 	
-	for(int x = 1; x < 4; x++)  {
-		
-	st[x].printDetails();
-}
+	
 }
 
 
