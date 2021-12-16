@@ -59,6 +59,7 @@ public class Forest {
                      fightChance = 0;
                      return "we are Best F_R_I_E_N_D_S";
               }
+              
               else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
                      System.out.println("First player is a Herbivore !!!!!!");
                      System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength());
@@ -74,6 +75,7 @@ public class Forest {
                      startFight(player1,player2);
                      return "Game Is Over !";
               }
+              
               else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores))
               {
                      System.out.println("First Player is a Carnivore !!!!!!");
@@ -92,6 +94,7 @@ public class Forest {
                      startFight(player1,player2);
                      return "Game Is Over !";
               }
+              
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
 		System.out.println("!!!!!!!!!Both the beasts are Carnivorous Players !!!!!!!");
@@ -105,7 +108,9 @@ public class Forest {
        }
        
               public Animal startFight(Animal player1, Animal player2){
+       
        if(fightChance == 1){
+       
               if(player1 instanceof Carnivores) {
                     
                      System.out.println(player2.getName()+" was very unlucky and caught by "+player1.getName());
@@ -127,7 +132,9 @@ public class Forest {
                                                         
                            winner = player1;
                            return winner;
-         }else if(player2 instanceof Carnivores){
+         }
+         
+         else if(player2 instanceof Carnivores){
               System.out.println(player1.getName()+" was very unlucky and caught by "+player2.getName());
               System.out.println(player1.getName()+" is caught by "+player2.getName());
               System.out.println(player2.getName()+" is attacking "+player1.getName());
@@ -150,7 +157,4 @@ System.out.println(player1.getName()+" Defeated and Killed by "+player2.getName(
        return winner;
        }
 
-       public String escapeFromEnemy(Animal player1, Animal player2){
-
-       }
 }
