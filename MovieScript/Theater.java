@@ -3,8 +3,7 @@ public class Theater  {
 private String name;
 private String location;
 private String phoneNo;
-
-private Movie mv;
+Movie mv;
 
 Theater (String name,String location,String phoneNo)  {
 	
@@ -39,14 +38,6 @@ public void setPhoneNo(String newPhoneNo)  {
 }
 
 
-public Movie getMv()  {
-	return mv;
-}
-public void setMv(Movie newMv)  {
-	this.mv = newMv;
-}
-
-
 
 public void printDetails()   {
 	
@@ -57,7 +48,7 @@ System.out.println("Location :" + this.location);
 System.out.println("Phone No :" + this.phoneNo);
 System.out.println("\n");
 
-mv.details();
+mv.showDetails();
 mv.printDetails();
 	
 }

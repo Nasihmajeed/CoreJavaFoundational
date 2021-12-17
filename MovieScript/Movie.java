@@ -1,42 +1,21 @@
 public class Movie  {
 
- private String name;
- private String genre;
- private String language;
+ String name;
+  String genre;
+ String language;
+ Hero hr1;
+ Heroine hn1;
+ Comedian cmd;
  
- 
- public String getName()  {
-	 return name;
- }
- public void setName(String newName)  {
-	 this.name = newName;
- }
- 
- 
- public String getGenre()  {
-	 return genre;
- }
- public void setGenre(String newGenre)  {
-	 this.genre = genre;
- }
- 
- 
- public String getLanguage()  {
-	 return language;
- }
- public void setLanguage(String newLanguage)  {
-	 this.language = language;
- }
- 
- 
- 
- public void details()   {
+ public void showDetails()  {
 	 
-   this.name = "THE GREAT FATHER";
-   this.genre = "ACTION";
-   this.language = "MALAYALAM";
-
+	name = "THE GREAT FATHER";
+genre = "ACTION";
+language = "MALAYALAM";	
+	 	 
+	 
  }
+ 
  
  
  public void printDetails()   {
@@ -48,9 +27,15 @@ public class Movie  {
 	 System.out.println("Genre :" + this.genre);
 	 System.out.println("Language :" + this.language);
 	 System.out.println("\n");
+	
+	System.out.println(" ACTORS DETAILS");
+	System.out.println("_________________");
+	System.out.println("\n");
+	
+	 hr1.printDetails();
 	 
+	 hn1.printDetails();
 	 
-	 
-	 
+	 cmd.printDetails();
  }	 
 }
