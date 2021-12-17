@@ -12,25 +12,7 @@ public Animal(String animalName,int starvage,int strength,int distance){
 	this.distance = distance;
 
 }
-/*public void listOfwildAnimals()
-{
-	
-	System.out.println("1.Tiger");
-	System.out.println("2.Rabbit");
-	System.out.println("3.Deer");
-	System.out.println("4.Fox");
-	System.out.println("5.Lion");
-	System.out.println("6.Elephant");
-	System.out.println("7.Leopard");
-	System.out.println("8.Guar");
-	System.out.println("9.Crocodile");
-	System.out.println("10.Rhinoceros" +"\n");
-       System.out.println("The above Animals are ...... FIGHTERS" );
-	System.out.println("!------------------------------!");
-	
-			
-	
-}*/
+
 
 public String getName()
 {
