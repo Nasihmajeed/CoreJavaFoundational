@@ -33,11 +33,9 @@ public class Game {
 			System.out.println("\n------------------------------------");
 		} while (player1.getCoin().getPosition() < 100 && player2.getCoin().getPosition() < 100);
 		if (player1.getCoin().getPosition() == 100)
-			System.out
-					.println("\nCongratulations " + player1.getName() + "\nBetter luck next time " + player2.getName());
+			System.out.println("\nCongratulations " + player1.getName() + "\nBetter luck next time " + player2.getName());
 		else
-			System.out
-					.println("\nCongratulations " + player2.getName() + "\nBetter luck next time " + player1.getName());
+			System.out.println("\nCongratulations " + player2.getName() + "\nBetter luck next time " + player1.getName());
 
 	}
 
