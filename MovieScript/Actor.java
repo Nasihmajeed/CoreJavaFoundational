@@ -1,6 +1,7 @@
 public class Actor  {
 
  private String name;
+ private String characterName;
  private String age;
  private String gender;
  private String place;
@@ -11,6 +12,14 @@ public String getName()   {
 }
 public void setName(String newName)  {
 	this.name = newName;
+}
+
+
+public String getCharacterName()   {
+	return characterName;
+}
+public void setCharacterName(String newCharacterName)  {
+	this.characterName = newCharacterName;
 }
 
 
@@ -39,9 +48,11 @@ public void setPlace(String newPlace)  {
 public void printDetails()  {
 
     System.out.println("Name :" + name);
+	System.out.println("Character Name :" + characterName);
     System.out.println("Gender :" + gender);
     System.out.println("Age :" + age);
 	System.out.println("Place :" + place);
+	
 	
 	System.out.println(".................");
 	System.out.println("\n");

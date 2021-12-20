@@ -6,8 +6,12 @@ public class Movie  {
  Hero hr1;
  Heroine hn1;
  Comedian cmd;
+ Villan v1;
+ Dialogue d1;
+
+
  
- public void showDetails()  {
+ public void movieDetails()  {
 	 
 	name = "THE GREAT FATHER";
 genre = "ACTION";
@@ -37,5 +41,9 @@ language = "MALAYALAM";
 	 hn1.printDetails();
 	 
 	 cmd.printDetails();
+	 
+	 v1.printDetails();
+	 
+	 d1.printDetails();
  }	 
 }

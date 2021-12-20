@@ -39,8 +39,9 @@ public void setPhoneNo(String newPhoneNo)  {
 
 
 
-public void printDetails()   {
+public void theaterDetails()   {
 	
+System.out.println("\n");
 System.out.println(" THEATER");	
 System.out.println("----------");	
 System.out.println("Name :" + this.name);	
@@ -48,7 +49,7 @@ System.out.println("Location :" + this.location);
 System.out.println("Phone No :" + this.phoneNo);
 System.out.println("\n");
 
-mv.showDetails();
+mv.movieDetails();
 mv.printDetails();
 	
 }

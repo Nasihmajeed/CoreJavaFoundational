@@ -15,6 +15,7 @@ Hero h1 = new Hero();
 me.hr1 = h1;
 
 h1.setName ("MAMMOOTTY");
+h1.setCharacterName ("AA");
 h1.setAge  ( "40");
 h1.setGender  ( "Male");
 h1.setPlace ("Cochi");
@@ -23,6 +24,7 @@ Heroine hrne = new Heroine();
 me.hn1 = hrne;
 
 hrne.setName  ("NAYANTHARA");
+hrne.setCharacterName  ("BB");
 hrne.setAge ("30");
 hrne.setGender ("Female");
 hrne.setPlace ("Cochi");
@@ -31,13 +33,26 @@ Comedian cd = new Comedian();
 me.cmd = cd;
 
 cd.setName("DHARMAJAN");
+cd.setCharacterName  ("CC");
 cd.setAge("30");
 cd.setGender ("Male");
 cd.setPlace ("Cochi");
 
+Villan vn = new Villan();
+me.v1 = vn;
+
+vn.setName ("JAMES BOND");
+vn.setCharacterName("DD");
+vn.setAge ("55");
+vn.setGender ("Male");
+vn.setPlace ("AMERICA");
+
+
+Dialogue dg = new Dialogue();
+me.d1 = dg;
 
 
 
-tr.printDetails();
+tr.theaterDetails();
 }
 }
