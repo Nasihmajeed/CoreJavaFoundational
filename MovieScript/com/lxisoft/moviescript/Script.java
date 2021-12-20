@@ -22,11 +22,14 @@ package com.lxisoft.moviescript;
          Thread.currentThread().interrupt();
          }
 
-        System.out.println("\t\t PLAYING SCENE ONE"+"\n");
+      
+        System.out.println("\t\t\t      SCENE " +scene1);
 
-        System.out.println("\t\t      SCENE " +scene1);
+        System.out.println("\t\t\t+----------------+" +"\n");
 
-        System.out.println("\t\t+----------------+" +"\n");
+        System.out.println("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
+
+        System.out.println("\t\t+-----------------------------------+" +"\n");
 
         System.out.println("\t       ( OUTSIDE THE CHURCH )  "+"\n");
        
@@ -83,11 +86,14 @@ package com.lxisoft.moviescript;
          Thread.currentThread().interrupt();
          }
 
-        System.out.println("\t\t PLAYING SCENE TWO"+"\n");
 
-        System.out.println("\t\t      SCENE " +scene2);
+        System.out.println("\t\t\t      SCENE " +scene2);
 
-        System.out.println("\t\t+----------------+" +"\n");
+        System.out.println("\t\t\t+----------------+" +"\n");
+
+        System.out.println("\t\t      **PLAYING COMEDY SCENE** "+"\n");
+
+        System.out.println("\t\t+-----------------------------------+" +"\n");
 
         System.out.println("\t[**Scene: Monica and Rachel's, late at night Monica is still examining her bill as Rachel emerges from her room.**]" +"\n");
 
