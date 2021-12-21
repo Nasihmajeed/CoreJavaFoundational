@@ -6,15 +6,15 @@ public class Theater {
   String place;
   String phone;
   Movie movie=new Movie();
-  public void inputDetails() {
+  public void setupMovie() {
     this.name="SATHYA MOVIE HOUSE";  
     this.place="PALAKKAD";
     this.phone="9678346784";
 
-    movie.inputDetails();
+    movie.setupMovie();
     
   }
-  public void printDetails (){
+  public void playMovie (){
 
     System.out.println("\t\t        -- Theater Details --");
 
@@ -29,7 +29,7 @@ public class Theater {
     System.out.println();
 
 
-    movie.printDetails();
+    movie.playMovie();
      
   }
 }

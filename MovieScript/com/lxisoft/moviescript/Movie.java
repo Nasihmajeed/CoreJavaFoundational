@@ -10,7 +10,7 @@ public class Movie {
     String director;
     String producer;
     
-   public void inputDetails() {
+   public void setupMovie() {
        this.name= "THE FAULT IN OUR STARS";
        this.genere="Romance - Drama";
        this.year= 2014;
@@ -19,7 +19,7 @@ public class Movie {
 
    }
     
-   public void printDetails (){
+   public void playMovie (){
 
       
     System.out.println("\t\t          -- Movie Details -- ");
@@ -27,7 +27,8 @@ public class Movie {
 
        System.out.println("\t\t+----------------------------------+"+"\n");
     
-       System.out.println("\t\t\t"   +name +"\n");
+       System.out.println("\t\t\t"   +name);
+       System.out.println("\t\t      +------------------------+"+"\n");
 
        System.out.println("\t\tGnere:" +genere);
        System.out.println("\t\tYear Of Release:" +year);
@@ -94,8 +95,8 @@ public class Movie {
 
     
         Script script = new Script();
-        script.inputDetails();
-        script.printDetails();
+        script.setupMovie();
+        script.playMovie();
 
    }
 

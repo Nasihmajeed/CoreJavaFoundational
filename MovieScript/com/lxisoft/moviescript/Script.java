@@ -5,12 +5,12 @@ package com.lxisoft.moviescript;
     String scene2;
     String scene3;
 
-    public void inputDetails() {
+    public void setupMovie () {
         this.scene1=" 1";
         this.scene2=" 2";
         this.scene3=" 3";       
 }
-    public void printDetails() {
+    public void playMovie () {
 
         System.out.println("\n"); 
         
