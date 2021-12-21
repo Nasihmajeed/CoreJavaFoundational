@@ -3,6 +3,6 @@ import com.lxisoft.game.Animal;
 
 public interface Herbivores {
 
-     
+    
        
 }
