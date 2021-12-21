@@ -1,13 +1,40 @@
 public class Movie  {
 
- String name;
-  String genre;
- String language;
+ private String name;
+ private String genre;
+private String language;
  Hero hr1;
  Heroine hn1;
  Comedian cmd;
  Villan v1;
  Dialogue d1;
+ 
+ 
+ 
+ public String getName()   {
+	 return name;
+ }
+ public void set(String newName)  {
+	 this.name = newName;
+ }
+ 
+ 
+ public String getGenre() {
+	 return genre;
+ }
+ public void setGenre(String newGenre)  {
+	 this.genre = newGenre;
+ }
+ 
+ 
+ 
+ public String getLanguage()  {
+	 return language;
+ }
+ public void setLanguage(String newLanguage)   {
+	 this.language = newLanguage;
+ }
+ 
 
 
  
