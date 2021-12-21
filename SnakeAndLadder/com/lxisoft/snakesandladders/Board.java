@@ -29,10 +29,10 @@ public class Board {
 		Snake snake = cell.getSnake();
 		if (ladder != null) {
 			ladder.lift(coin);
-			System.out.println("Wow...ladder on cell " + ladder.getBottomPosition());
+			System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition());
 		} else if (snake != null) {
 			snake.bite(coin);
-			System.out.println("Aww...snake on cell " + snake.getHeadPosition());
+			System.out.println("* Aww...snake on cell " + snake.getHeadPosition());
 		}
 	}
 

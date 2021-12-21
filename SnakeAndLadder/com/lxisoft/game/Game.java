@@ -11,32 +11,32 @@ public class Game {
 
 	public void play() {
 		do {
-			System.out.println(player1.getName() + " rolling the die...");
+			System.out.println("--> " +player1.getName() + " rolling the die...\n");
 			int result = die.roll();
-			System.out.println(player1.getName() + " rolled: " + result);
-			System.out.println("Current Position of " + player1.getCoin().getColor() + " coin: " + player1.getCoin().getPosition());
+			System.out.println("* " + player1.getName() + " rolled: " + result);
+			System.out.println("* Current Position of " + player1.getCoin().getColor() + " coin: " + player1.getCoin().getPosition());
 			if ((player1.getCoin().getPosition() > 0 || result == 1) && (player1.getCoin().getPosition() + result <= 100)) {
 				player1.movecoin(result);
 				board.biteOrLift(player1.getCoin());
-				System.out.print("New Position: " + player1.getCoin().getPosition());
+				System.out.print("* New Position: " + player1.getCoin().getPosition());
 			}
-			System.out.println("\n------------------------------------");
-			System.out.println(player2.getName() + " rolling the die...");
+			System.out.println("\n------------------------------------\n");
+			System.out.println("--> " + player2.getName() + " rolling the die...\n");
 			result = die.roll();
-			System.out.println(player2.getName() + " rolled: " + result);
-			System.out.println("Current Position of " + player2.getCoin().getColor() + " coin: " + player2.getCoin().getPosition());
+			System.out.println("* " + player2.getName() + " rolled: " + result);
+			System.out.println("* Current Position of " + player2.getCoin().getColor() + " coin: " + player2.getCoin().getPosition());
 			if ((player2.getCoin().getPosition() > 0 || result == 1) && (player2.getCoin().getPosition() + result <= 100)) {
 				player2.movecoin(result);
 				board.biteOrLift(player2.getCoin());
-				System.out.print("New Position: " + player2.getCoin().getPosition());
+				System.out.print("* New Position: " + player2.getCoin().getPosition());
 			}
-			System.out.println("\n------------------------------------");
+			System.out.println("\n------------------------------------\n");
 		} while (player1.getCoin().getPosition() < 100 && player2.getCoin().getPosition() < 100);
 		if (player1.getCoin().getPosition() == 100)
-			System.out.println("\nCongratulations " + player1.getName() + "\nBetter luck next time " + player2.getName());
+			System.out.println("\n\t\t\t\t  *****Congratulations " + player1.getName() + "*****\n" + "\n\t\t\t\t*****Better luck next time" + player2.getName() + "*****");
 		else
-			System.out.println("\nCongratulations " + player2.getName() + "\nBetter luck next time " + player1.getName());
-
+			System.out.println("\n\t\t\t\t  *****Congratulations " + player2.getName() + "*****\n" + "\n\t\t\t\t*****Better luck next time" + player1.getName() + "*****");
+			System.out.println("\n\n\t\t\t\t\t  *****GAME OVER*****");
 	}
 
 	public Board getBoard() {

@@ -28,8 +28,8 @@ public class Tdd {
 		game.setPlayer2(player2);
 		game.setDie(die);
 
-		System.out.println("WELCOME TO SNAKES AND LADDERS");
-		System.out.println("==============================\n");
+		System.out.println("\t\t\t\tWELCOME TO SNAKES AND LADDERS");
+		System.out.println("\t\t\t\t=============================\n");
 		System.out.println("Board");
 		System.out.println("-------");
 		System.out.println("* Number of cells: 100");
@@ -42,8 +42,8 @@ public class Tdd {
 		System.out.println("Die");
 		System.out.println("-----");
 		System.out.println("* Number of faces: " + die.getFaces());
-		System.out.println("* Value to start the game: 1\n");
-		System.out.println("Let's start the game...\n");
+		System.out.println("* Value to start the game: 1\n\n\n");
+		System.out.println("\t\t\t**************Let's start the game**************\n\n\n");
 
 		game.play();
 	}
