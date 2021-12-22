@@ -17,7 +17,7 @@ public class Board {
 	private void addCells() {
 		cells = new ArrayList<>();
 		for (int i = 1; i <= 100; i++) {
-			Cell cell = new Cell();
+			Cell cell = new Cell(i);
 			cell.setCellNumber(i);
 			cells.add(cell);
 		}

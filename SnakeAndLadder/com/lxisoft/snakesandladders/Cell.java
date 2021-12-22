@@ -5,6 +5,10 @@ public class Cell {
 	private Snake snake;
 	private Ladder ladder;
 
+	public Cell(int cellNumber) {
+		this.cellNumber = cellNumber;
+	}
+
 	public int getCellNumber() {
 		return cellNumber;
 	}
