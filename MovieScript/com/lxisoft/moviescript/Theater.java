@@ -6,6 +6,7 @@ public class Theater {
   String place;
   String phone;
   Movie movie=new Movie();
+  
   public void setupMovie() {
     this.name="SATHYA MOVIE HOUSE";  
     this.place="PALAKKAD";
@@ -27,7 +28,6 @@ public class Theater {
     System.out.println("\t\t+----------------------------------+");
     
     System.out.println();
-
 
     movie.playMovie();
      
