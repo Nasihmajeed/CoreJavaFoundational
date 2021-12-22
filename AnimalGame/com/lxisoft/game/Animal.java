@@ -137,6 +137,7 @@ System.out.println(player1.getName()+" Defeated and Killed by "+player2.getName(
 return player1;
 }
 
-
+pubic void escapeFromEnemy(){
+}
 
 }
