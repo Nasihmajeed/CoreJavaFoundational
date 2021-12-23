@@ -37,6 +37,7 @@ public class Game {
 		else
 			System.out.println("\n\t\t\t\t  *****Congratulations " + player2.getName() + "*****\n" + "\n\t\t\t\t*****Better luck next time" + player1.getName() + "*****");
 			System.out.println("\n\n\t\t\t\t\t  *****GAME OVER*****");
+			System.out.println("\t\t\t\t\t  ------------------");
 	}
 
 	public Board getBoard() {
