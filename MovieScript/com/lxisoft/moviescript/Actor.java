@@ -4,9 +4,9 @@ import com.lxisoft.cast.*;
 
 public class Actor {
 
-   public String name,characterName;
+   private String name,characterName;
 
-  /* public String getName() {
+   public String getName() {
        return name;
     
    }
@@ -19,9 +19,9 @@ public class Actor {
        return characterName;
    }
 
-   public void setcharacterName(String characterName){  
-    this.name=characterName; 
-   }*/
+   public void setCharacterName(String characterName){  
+    this.characterName=characterName; 
+   }
 
  public void showDetails() {
 

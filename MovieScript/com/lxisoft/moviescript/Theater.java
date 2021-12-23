@@ -2,20 +2,46 @@ package com.lxisoft.moviescript;
 
 import com.lxisoft.moviescript.*;
 public class Theater {
-  String name;
-  String place;
-  String phone;
-  Movie movie=new Movie();
+ private String name;
+ private String place;
+ private String phone;
   
-  public void setupMovie() {
-    this.name="SATHYA MOVIE HOUSE";  
-    this.place="PALAKKAD";
-    this.phone="9678346784";
+  
+  //public void setupMovie() {
 
-    movie.setupMovie();
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name){  
+      this.name=name;  
+      }
+
+      public String getPlace() {
+        return place;
+      }
+
+      public void setPlace(String place){  
+        this.place=place;  
+        }
+
+        public String getPhone() {
+          return phone;
+        }
+  
+        public void setPhone(String phone){  
+          this.phone=phone;  
+          }
+  
+  
+   /* this.name="SATHYA MOVIE HOUSE";  
+    this.place="PALAKKAD";
+    this.phone="9678346784";*/
+
+   // movie.setupMovie();
     
-  }
-  public void playMovie (){
+  
+  public void viewTheater (){
 
     System.out.println("\t\t        -- Theater Details --");
 
@@ -28,6 +54,14 @@ public class Theater {
     System.out.println("\t\t+----------------------------------+");
     
     System.out.println();
+
+    Movie movie=new Movie();
+
+       movie.setName ("THE FAULT IN OUR STARS");
+       movie.setGenere("Romance - Drama");
+       movie.setYear( 2014);
+       movie.setDirector("Josh Boone");
+       movie.setProducer("Marty Bowen and Wyck Godfrey");
 
     movie.playMovie();
      
