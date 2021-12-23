@@ -19,7 +19,7 @@ public class Gaur extends Animal implements Herbivores {
                                                          //luckFactor
        public int getLuckFactor()
        {
-              luckFactor=r.nextInt(7);
+              luckFactor=r.nextInt(10);
               return luckFactor;
        }
 

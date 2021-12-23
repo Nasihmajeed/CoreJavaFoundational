@@ -19,7 +19,7 @@ Random r=new Random();
                                                   //luckFactor
 public int getLuckFactor()
 {
-	luckFactor=r.nextInt(3);
+	luckFactor=r.nextInt(10);
 	return luckFactor;
 }
 

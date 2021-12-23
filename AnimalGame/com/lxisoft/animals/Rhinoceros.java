@@ -19,7 +19,7 @@ public class Rhinoceros extends Animal implements Herbivores{
                                                                //luckFactor
        public int getLuckFactor()
        {
-              luckFactor=r.nextInt(2);
+              luckFactor=r.nextInt(10);
               return luckFactor;
        }
        

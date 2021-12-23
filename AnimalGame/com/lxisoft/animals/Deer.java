@@ -19,7 +19,7 @@ public class Deer extends Animal implements Herbivores {
        
        public int getLuckFactor()
        {
-              luckFactor=r.nextInt(6);
+              luckFactor=r.nextInt(10);
               return luckFactor;
        }
  

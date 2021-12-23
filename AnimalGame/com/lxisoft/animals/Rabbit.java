@@ -18,7 +18,7 @@ public class Rabbit extends Animal implements Herbivores {
                                                //luckFactor
        public int getLuckFactor()
        {
-              luckFactor=rand.nextInt(3);
+              luckFactor=rand.nextInt(10);
               return luckFactor;
        }
        

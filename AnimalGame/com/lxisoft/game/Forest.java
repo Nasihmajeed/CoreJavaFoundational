@@ -11,8 +11,7 @@ public class Forest {
        Random rand = new Random();
        ArrayList<Animal> animalsList = new ArrayList<Animal>();
        
-         int fightChance;
-         int escapeProbability;
+         
        public void welcomeToForest()
        {
 
@@ -55,36 +54,31 @@ public class Forest {
        int starvageOfPlayer1,starvageOfPlayer2;
        int strengthOfPlayer1,strengthOfPlayer2;
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
-                     System.out.println("!!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
-                     fightChance = 0;
+                     System.out.println("\t !!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
+                     
                      return "we are Best F_R_I_E_N_D_S";
               }
               else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
-                     System.out.println("First player is a Herbivore !!!!!!");
-                     System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength());
-                     System.out.println("Second player is a Carnivore !!!!!!");
-                     System.out.println("Player2 is : "+player2.getName()+"    "+" with starvage level "+player2.getStarvage()+" having strength of "+player2.getStrength());
+                     System.out.println(" \t !!!!!!! First player is a Herbivore !!!!!! \n");
+                     System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength() +"\n");
+                     System.out.println(" \t !!!!!!! Second player is a Carnivore !!!!!! \n");
+                     System.out.println("Player2 is : "+player2.getName()+"    "+" with starvage level "+player2.getStarvage()+" having strength of "+player2.getStrength() +"\n");
                      System.out.println(player2.getName()+" is only "+player2.getDistance()+" metres far from "+player1.getName());
                      starvageOfPlayer1 = player1.getStarvage();
                      starvageOfPlayer2 = player2.getStarvage();
                      strengthOfPlayer1 = player1.getStrength();
                      strengthOfPlayer2 = player2.getStrength();
        
-                   //  fightChance = 1;
-                    // startFight(player1,player2);
-                    // escapeProbability =1;
-                   //  escapeFromEnemy(player1,player2);
-                   //Carnivores player2 = (Carnivores) Animal;
-                  // player2.startFight(player2);
+                  
                    player2.startFight(player1,player2);
                      return "Game Is Over !";
               }
               else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores))
               {
-                     System.out.println("First Player is a Carnivore !!!!!!");
-                     System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength());
-                     System.out.println("Second Player is a Herbivore !!!!!!");
-                     System.out.println("Player2 is : "+player2.getName()+"    "+" with starvage level "+player2.getStarvage()+" having strength of "+player2.getStrength());
+                     System.out.println(" \t !!!!!!! First Player is a Carnivore !!!!!! \n");
+                     System.out.println("Player1 is : "+player1.getName()+"    "+" with starvage level "+player1.getStarvage()+" having strength of "+player1.getStrength() +"\n");
+                     System.out.println(" \t !!!!!!!Second Player is a Herbivore !!!!!! \n");
+                     System.out.println("Player2 is : "+player2.getName()+"    "+" with starvage level "+player2.getStarvage()+" having strength of "+player2.getStrength() +"\n");
                     
                      starvageOfPlayer1 = player1.getStarvage();
                      starvageOfPlayer2 = player2.getStarvage();
@@ -93,17 +87,14 @@ public class Forest {
                      strengthOfPlayer2 = player2.getStrength();
                     
                    
-                  //   fightChance = 1;
-                    /// startFight(player1,player2);
-                //     escapeProbability = 1;
-                  //   escapeFromEnemy(player1,player2);
+                
                   player1.startFight(player1,player2);
                      return "Game Is Over !";
               }
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
-		System.out.println("!!!!!!!!!Both the beasts are Carnivorous Players !!!!!!!");
-              fightChance = 0;
+		System.out.println("\t !!!!!!!!!Both the beasts are Carnivorous Players !!!!!!! \t \n");
+              
 		System.out.println("Fight is going to be Drop!!!!!!!!!");
               return "we are Best F_R_I_E_N_D_S and we are trying to catch our Prey";
         }
@@ -112,51 +103,7 @@ public class Forest {
 
        }
        
-            /*  public Animal startFight(Animal player1, Animal player2){
-       if(fightChance == 1){
-              if(player1 instanceof Carnivores) {
-                    
-                     System.out.println(player2.getName()+" was very unlucky and caught by "+player1.getName());
-                     System.out.println(player2.getName()+" is caught by "+player1.getName());
-                     System.out.println(player1.getName()+" is attacking "+player2.getName());
-                                                                                 
-                     System.out.println("Starvage of "+player1.getName()+" is higher than the Strength of "+player2.getName());
-                     System.out.println("The Strength of "+player2.getName()+" is decreasing");
-                     
-                                                                               
-                                                        System.out.println("Strength of "+player2.getName()+" is decreasing !!!!!!");
-                                                        strengthOfPlayer2  = 0;
-                                                        		
-                                                        System.out.println("Strength of "+player2.getName()+" reduced to "+strengthOfPlayer2);								  
-                                                                               
-                                                     
-                                                        System.out.println("The Strength of "+player2.getName()+" is decreasing");
-                                                        System.out.println(player1.getName()+" Defeated and Killed by "+player2.getName());
-                                                        
-                           winner = player1;
-                           return winner;
-         }else if(player2 instanceof Carnivores){
-              System.out.println(player1.getName()+" was very unlucky and caught by "+player2.getName());
-              System.out.println(player1.getName()+" is caught by "+player2.getName());
-              System.out.println(player2.getName()+" is attacking "+player1.getName());
-                                                                          
-              System.out.println("Starvage of "+player2.getName()+" is higher than the Strength of "+player1.getName());
-              System.out.println("The Strength of "+player1.getName()+" is decreasing");	
-              
-System.out.println("Strength of "+player1.getName()+" is decreasing !!!!!!");
-strengthOfPlayer1 = 0;		
-System.out.println("Strength of "+player1.getName()+" reduced to "+strengthOfPlayer1);								  
-              
-
-System.out.println("The Strength of "+player1.getName()+" is decreasing");
-System.out.println(player1.getName()+" Defeated and Killed by "+player2.getName());
-
-              winner = player2;
-              return winner;
-         }
-       }
-       return winner;
-       }*/
+            
 
        
 }
