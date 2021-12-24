@@ -14,8 +14,8 @@ Actor act = new Actor();
 Hero h1 = new Hero();
 me.hr1 = h1;
 
-h1.setName ("MAMMOOTTY");
-h1.setCharacterName ("AA");
+h1.setName ("DILEEP");
+h1.setCharacterName ("GEORGE");
 h1.setAge  ( "40");
 h1.setGender  ( "Male");
 h1.setPlace ("Cochi");
@@ -23,8 +23,8 @@ h1.setPlace ("Cochi");
 Heroine hrne = new Heroine();
 me.hn1 = hrne;
 
-hrne.setName  ("NAYANTHARA");
-hrne.setCharacterName  ("BB");
+hrne.setName  ("RAJISHA VIJAYAN");
+hrne.setCharacterName  ("MERLIN");
 hrne.setAge ("30");
 hrne.setGender ("Female");
 hrne.setPlace ("Cochi");
@@ -41,11 +41,11 @@ cd.setPlace ("Cochi");
 Villan vn = new Villan();
 me.v1 = vn;
 
-vn.setName ("JAMES BOND");
-vn.setCharacterName("DD");
+vn.setName ("CHEMBAN VINOD");
+vn.setCharacterName("PETER MATHAYI");
 vn.setAge ("55");
 vn.setGender ("Male");
-vn.setPlace ("AMERICA");
+vn.setPlace ("COCHI");
 
 
 Dialogue dg = new Dialogue();

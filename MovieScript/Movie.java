@@ -40,8 +40,8 @@ private String language;
  
  public void movieDetails()  {
 	 
-	name = "THE GREAT FATHER";
-genre = "ACTION";
+	name = "GEORGETTAN'S POORAM";
+genre = "COMEDY";
 language = "MALAYALAM";	
 	 	 
 	 
