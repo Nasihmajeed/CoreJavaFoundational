@@ -4,7 +4,7 @@ import com.lxisoft.cast.*;
 import com.lxisoft.moviescript.Actor;
 
 public class Movie {
-    private String name;
+   private String name;
    private String genere;
    private int year;
    private String director;
