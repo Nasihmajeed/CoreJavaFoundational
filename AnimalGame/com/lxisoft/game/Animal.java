@@ -25,7 +25,7 @@ public String getName()
 {
 	return animalName;
 }
-																	//name
+									//name
 public void setName(String animalName)
 {
 	
@@ -38,7 +38,7 @@ return starvage;
 }
                                     
 
-public void setStarvage(int starvage)	               //starvage
+public void setStarvage(int starvage)	     		          //starvage
 {
 	this.starvage=starvage;
 }
