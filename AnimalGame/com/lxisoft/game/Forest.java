@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Forest {
 
-       int i = 0;
+      
        Random rand = new Random();
        ArrayList<Animal> animalsList = new ArrayList<Animal>();
        
@@ -15,6 +15,7 @@ public class Forest {
        public void welcomeToForest()
        {
 
+	 int i = 0;
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");

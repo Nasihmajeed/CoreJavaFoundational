@@ -54,15 +54,19 @@ public void setDistance(int distance)		               //distance
 	this.distance=distance;
 }
 
+
 public int getStrength()
 {
 	return strength;
 }                                        
 
+
 public void setStrength(int strength)			           //stamina
 {
 	this.strength = strength;
 }
+
+
 
 public int getLuckFactor()									//luckFactor
 {
