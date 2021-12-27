@@ -47,14 +47,14 @@ public void setPlace(String newPlace)  {
 }
 public void printDetails()  {
 
-    System.out.println("Name :" + name);
-	System.out.println("Character Name :" + characterName);
-    System.out.println("Gender :" + gender);
-    System.out.println("Age :" + age);
-	System.out.println("Place :" + place);
+    System.out.println("\t\tName :" + name);
+	System.out.println("\t\tCharacter Name :" + characterName);
+    System.out.println("\t\tGender :" + gender);
+    System.out.println("\t\tAge :" + age);
+	System.out.println("\t\tPlace :" + place);
 	
 	
-	System.out.println(".................");
+	System.out.println("\t\t.................");
 	System.out.println("\n");
 	
 }	

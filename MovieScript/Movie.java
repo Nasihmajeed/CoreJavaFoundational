@@ -3,11 +3,12 @@ public class Movie  {
  private String name;
  private String genre;
 private String language;
- Hero hr1;
- Heroine hn1;
- Comedian cmd;
- Villan v1;
- Dialogue d1;
+ George grge;
+ Rajisha raji;
+ Sharaf srf;
+ Vinay vny;
+ ChembanVinod cbvd;
+ Script sc1;
  
  
  
@@ -52,25 +53,27 @@ language = "MALAYALAM";
  public void printDetails()   {
 	 
 	 
-	 System.out.println("  MOVIE DETAIL");
-	 System.out.println("----------------");
-	System.out.println("Name :" + this.name); 
-	 System.out.println("Genre :" + this.genre);
-	 System.out.println("Language :" + this.language);
+	 System.out.println("\t\t\t\t\t\t\tMOVIE DETAIL");
+	 System.out.println("\t\t\t\t\t\t-------------------------");
+	System.out.println("\t\tName :" + this.name); 
+	 System.out.println("\t\tGenre :" + this.genre);
+	 System.out.println("\t\tLanguage :" + this.language);
 	 System.out.println("\n");
 	
-	System.out.println(" ACTORS DETAILS");
-	System.out.println("_________________");
+	System.out.println("\t\t\t\t\t\t\tACTORS DETAILS");
+	System.out.println("\t\t\t\t\t\t______________________________");
 	System.out.println("\n");
 	
-	 hr1.printDetails();
+	 grge.printDetails();
 	 
-	 hn1.printDetails();
+	 raji.printDetails();
 	 
-	 cmd.printDetails();
+	 srf.printDetails ();
 	 
-	 v1.printDetails();
+	 vny.printDetails();
 	 
-	 d1.printDetails();
+	 cbvd.printDetails();
+	 
+	 sc1.printDetails();
  }	 
 }

@@ -42,11 +42,11 @@ public void setPhoneNo(String newPhoneNo)  {
 public void theaterDetails()   {
 	
 System.out.println("\n");
-System.out.println(" THEATER");	
-System.out.println("----------");	
-System.out.println("Name :" + this.name);	
-System.out.println("Location :" + this.location);
-System.out.println("Phone No :" + this.phoneNo);
+System.out.println("\t\t\t\t\t\t\tTHEATER");	
+System.out.println("\t\t\t\t\t\t---------------------");	
+System.out.println("\t\tName :" + this.name);	
+System.out.println("\t\tLocation :" + this.location);
+System.out.println("\t\tPhone No :" + this.phoneNo);
 System.out.println("\n");
 
 mv.movieDetails();

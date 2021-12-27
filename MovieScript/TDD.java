@@ -11,45 +11,59 @@ tr.mv  = me;
 
 Actor act = new Actor();
 
-Hero h1 = new Hero();
-me.hr1 = h1;
+George g1 = new George();
+me.grge = g1;
 
-h1.setName ("DILEEP");
-h1.setCharacterName ("GEORGE");
-h1.setAge  ( "40");
-h1.setGender  ( "Male");
-h1.setPlace ("Cochi");
+g1.setName ("DILEEP");
+g1.setCharacterName ("GEORGE");
+g1.setAge  ( "40");
+g1.setGender  ( "Male");
+g1.setPlace ("Cochi");
 
-Heroine hrne = new Heroine();
-me.hn1 = hrne;
+Rajisha rj= new Rajisha();
+me.raji = rj;
 
-hrne.setName  ("RAJISHA VIJAYAN");
-hrne.setCharacterName  ("MERLIN");
-hrne.setAge ("30");
-hrne.setGender ("Female");
-hrne.setPlace ("Cochi");
-
-Comedian cd = new Comedian();
-me.cmd = cd;
-
-cd.setName("DHARMAJAN");
-cd.setCharacterName  ("CC");
-cd.setAge("30");
-cd.setGender ("Male");
-cd.setPlace ("Cochi");
-
-Villan vn = new Villan();
-me.v1 = vn;
-
-vn.setName ("CHEMBAN VINOD");
-vn.setCharacterName("PETER MATHAYI");
-vn.setAge ("55");
-vn.setGender ("Male");
-vn.setPlace ("COCHI");
+rj.setName  ("RAJISHA VIJAYAN");
+rj.setCharacterName  ("MERLIN");
+rj.setAge ("30");
+rj.setGender ("Female");
+rj.setPlace ("Cochi");
 
 
-Dialogue dg = new Dialogue();
-me.d1 = dg;
+
+Sharaf sf = new Sharaf();
+me.srf = sf;
+
+sf.setName("SHARAFUDHEEN");
+sf.setCharacterName  ("PALLAN");
+sf.setAge("30");
+sf.setGender ("Male");
+sf.setPlace ("Cochi");
+
+
+Vinay vy = new Vinay ();
+me.vny = vy;
+
+vy.setName ("VINAY");
+vy.setCharacterName  ("VAVA");
+vy.setAge  ("30");
+vy.setGender  ("Male");
+vy.setPlace  ("Cochi");
+
+
+
+ChembanVinod  cv = new ChembanVinod();
+me.cbvd = cv;
+
+cv.setName ("CHEMBAN VINOD");
+cv.setCharacterName("PETER MATHAYI");
+cv.setAge ("55");
+cv.setGender ("Male");
+cv.setPlace ("COCHI");
+
+
+Script scpt = new Script();
+me.sc1 = scpt;
 
 
 
