@@ -41,7 +41,7 @@ public class Theater {
    // movie.setupMovie();
     
   
-  public void viewTheater (){
+  public void viewTheater () {
 
     System.out.println("\t\t        -- Theater Details --");
 
