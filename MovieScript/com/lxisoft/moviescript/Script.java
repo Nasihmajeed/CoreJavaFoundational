@@ -13,16 +13,7 @@ package com.lxisoft.moviescript;
     public void playMovie () {
 
         System.out.println("\n"); 
-        
-        try{ 
-          Thread.sleep(1500);
-          }
-    catch(InterruptedException e)
-         {
-         Thread.currentThread().interrupt();
-         }
-
-      
+       
         System.out.println("\t\t\t      SCENE " +scene1);
 
         System.out.println("\t\t\t+----------------+" +"\n");
