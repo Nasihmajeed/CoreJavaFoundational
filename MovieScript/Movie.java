@@ -8,6 +8,7 @@ private String language;
  Sharaf srf;
  Vinay vny;
  ChembanVinod cbvd;
+ Anil anl;
  Script sc1;
  
  
@@ -74,6 +75,10 @@ language = "MALAYALAM";
 	 
 	 cbvd.printDetails();
 	 
-	 sc1.printDetails();
+	 anl.printDetails();
+	 
+	 sc1.scene1Details();
+
+		sc1.scene2Details();
  }	 
 }

@@ -1,4 +1,4 @@
-import java.util.Scanner;
+ import java.util.Scanner;
 
 public class TDD  {
 
@@ -60,6 +60,16 @@ cv.setCharacterName("PETER MATHAYI");
 cv.setAge ("55");
 cv.setGender ("Male");
 cv.setPlace ("COCHI");
+
+
+Anil an = new Anil();
+me.anl = an;
+
+an.setName("ASSIM JAMAL");
+an.setCharacterName("ANIL");
+an.setAge("40");
+an.setGender("Male");
+an.setPlace("COCHI");
 
 
 Script scpt = new Script();
