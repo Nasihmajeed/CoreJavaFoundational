@@ -7,15 +7,15 @@ import java.util.Random;
 
 public class Forest {
 
+       
       
-       Random rand = new Random();
        ArrayList<Animal> animalsList = new ArrayList<Animal>();
        
          
        public void welcomeToForest()
        {
 
-	 int i = 0;
+       int i = 0;       
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
@@ -39,18 +39,34 @@ public class Forest {
                      System.out.println();  
                      i++;
               } 
-		System.out.println( playersMeeting(returnPlayers(animalsList),returnPlayers(animalsList)));
+		
+              meetingPlayers(returnPlayers(animalsList),returnPlayers(animalsList));
        }
        public Animal returnPlayers(ArrayList<Animal> animalsList){
+              Random rand = new Random();
               int player1 =rand.nextInt(animalsList.size());
               Animal player = animalsList.get(player1);
+              player.setLocation(rand.nextInt(20),rand.nextInt(20));
                return player;
         }
 
-        
+        public double roamingArea(int x1, int x2, int y1,int y2){
+
+            /*  int x1,x2,y1,y2;
+
+              x1 = player1.x;
+              x2 = player2.x;
+              y1 = player1.y;
+              y2 = player2.y;
+
+              int roamEquation = ( ((x2 - x1) * (x2 - x1)) +((y2 - y1) * (y2 - y1)) ); 
+              System.out.println(roamEquation);*/
+              double roamArea = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 -y1) * (y2 - y1));
+              return roamArea;
+        }         
        
         
-      public String playersMeeting(Animal player1, Animal player2){
+      public String meetingPlayers(Animal player1, Animal player2){
              
        int starvageOfPlayer1,starvageOfPlayer2;
        int strengthOfPlayer1,strengthOfPlayer2;
@@ -69,10 +85,22 @@ public class Forest {
                      starvageOfPlayer2 = player2.getStarvage();
                      strengthOfPlayer1 = player1.getStrength();
                      strengthOfPlayer2 = player2.getStrength();
-       
+
                   
-                   player2.startFight(player1,player2);
+                    int x1 = player1.getLocationX();
+                    int y1 = player1.getLocationY(); 
+                  
+                    int x2 = player2.getLocationX();
+                    int y2 = player2.getLocationY();   
+
+                   System.out.println(roamingArea(x1,x2,y1,y2));
+                   if(roamingArea(x1,x2,y1,y2) <= 13){
+                          System.out.println("FIGHT STARTS NOW");
+                          Carnivores.startFight(player1,player2);
+                   } 
+
                      return "Game Is Over !";
+
               }
               else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores))
               {
@@ -88,15 +116,27 @@ public class Forest {
                      strengthOfPlayer2 = player2.getStrength();
                     
                    
+                     int x1 = player1.getLocationX();
+                     int y1 = player1.getLocationY(); 
+                     
+                     int x2 = player2.getLocationX();
+                     int y2 = player2.getLocationY();   
+ 
+                    System.out.println(roamingArea(x1,x2,y1,y2));
+                    if(roamingArea(x1,x2,y1,y2) <= 13){
+                           System.out.println("FIGHT STARTS NOW");
+                           Carnivores.startFight(player1,player2);
+                    } else{
+                           System.out.println("Nothing Happends");
+                           System.out.println("Players are just Enjoying their time with their area!!!");
+                    }
                 
-                  player1.startFight(player1,player2);
                      return "Game Is Over !";
               }
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
 		System.out.println("\t !!!!!!!!!Both the beasts are Carnivorous Players !!!!!!! \t \n");
-              
-		System.out.println("Fight is going to be Drop!!!!!!!!!");
+              	System.out.println("Fight is going to be Drop!!!!!!!!!");
               return "we are Best F_R_I_E_N_D_S and we are trying to catch our Prey";
         }
 
