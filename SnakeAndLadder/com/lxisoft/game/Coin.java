@@ -1,17 +1,17 @@
 package com.lxisoft.game;
 
 public class Coin {
-	private int position;
+	//private int position;
 	private String color;
 	
 	
-	public int getPosition() {
+	/*public int getPosition() {
 		return position;
 	}
 
 	public void setPosition(int position) {
 		this.position = position;
-	}
+	}*/
 
 	public String getColor() {
 		return color;
