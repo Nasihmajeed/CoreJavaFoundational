@@ -65,20 +65,20 @@ language = "MALAYALAM";
 	System.out.println("\t\t\t\t\t\t______________________________");
 	System.out.println("\n");
 	
-	 grge.printDetails();
+	 grge.actorDetails();
 	 
-	 raji.printDetails();
+	 raji.actorDetails();
 	 
-	 srf.printDetails ();
+	 srf.actorDetails ();
 	 
-	 vny.printDetails();
+	 vny.actorDetails();
 	 
-	 cbvd.printDetails();
+	 cbvd.actorDetails();
 	 
-	 anl.printDetails();
+	 anl.actorDetails();
 	 
 	 sc1.scene1Details();
 
-		sc1.scene2Details();
+		sc1.scene3Details();
  }	 
 }

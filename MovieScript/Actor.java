@@ -48,7 +48,7 @@ public String getPlace()   {
 public void setPlace(String newPlace)  {
 	this.place = newPlace;
 }
-public void printDetails()  {
+public void actorDetails()  {
 
     System.out.println("\t\tName :" + name);
 	System.out.println("\t\tCharacter Name :" + characterName);
