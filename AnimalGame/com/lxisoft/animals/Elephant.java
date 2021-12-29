@@ -4,7 +4,7 @@ import com.lxisoft.game.Animal;
 
 public class Elephant extends Animal implements Herbivores {
 
-       Random rand = new Random();
+      
 
        public Elephant(String animalName,int starvage,int strength,int distance)
        {
@@ -19,6 +19,7 @@ public class Elephant extends Animal implements Herbivores {
                                                   //luckFactor
 public int getLuckFactor()
 {
+       Random rand = new Random();
 	luckFactor=rand.nextInt(10);
 	return luckFactor;
 }

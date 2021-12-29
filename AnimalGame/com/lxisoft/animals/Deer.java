@@ -16,10 +16,12 @@ public class Deer extends Animal implements Herbivores {
       
        private int luckFactor;
 
-       Random rand=new Random();
+      
        
        public int getLuckFactor()
        {
+            
+              Random rand=new Random();
               luckFactor=rand.nextInt(10);
               return luckFactor;
        }

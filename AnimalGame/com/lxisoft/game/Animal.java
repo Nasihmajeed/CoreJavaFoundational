@@ -4,7 +4,7 @@ import java.util.Random;
 import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
 
-public abstract class Animal {
+public class Animal {
 	private String animalName;
 	private int starvage,strength,distance,luckFactor;
 	public Location animalLocation = new Location() ;

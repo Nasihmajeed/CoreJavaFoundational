@@ -15,11 +15,12 @@ public class Gaur extends Animal implements Herbivores {
        	
        private int luckFactor;
 
-       Random rand = new Random();
+      // Random rand = new Random();
        
                                                          //luckFactor
        public int getLuckFactor()
        {
+              Random rand = new Random();
               luckFactor = rand.nextInt(10);
               return luckFactor;
        }

@@ -2,8 +2,113 @@ package com.lxisoft.animals;
 import com.lxisoft.game.Animal;
 public interface Carnivores{  
 
-   //public Animal winner;
-  static  String startFight(Animal player1,Animal player2){  // new venture
+  
+  public void startFight(Animal opponent);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+  //public Animal winner;
+  /*static  String startFight(Animal player1,Animal player2){  // new venture
 	
 	
     int starvageOfPlayer1 = player1.getStarvage();
@@ -82,5 +187,5 @@ public interface Carnivores{
   }
   
 return "Something Went Wrong";
-  }
-}
+  }*/
+//}

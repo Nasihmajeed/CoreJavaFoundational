@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Rabbit extends Animal implements Herbivores {
 
-       Random rand = new Random();
+      
 
        public Rabbit(String animalName,int starvage,int strength,int distance)
        {
@@ -19,6 +19,7 @@ public class Rabbit extends Animal implements Herbivores {
                                                //luckFactor
        public int getLuckFactor()
        {
+              Random rand = new Random();
               luckFactor=rand.nextInt(10);
               return luckFactor;
        }

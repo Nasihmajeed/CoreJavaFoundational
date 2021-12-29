@@ -40,9 +40,9 @@ public class Forest {
                      i++;
               } 
 		
-              meetingPlayers(returnPlayers(animalsList),returnPlayers(animalsList));
+              meetPlayers(returnPlayer(animalsList),returnPlayer(animalsList));
        }
-       public Animal returnPlayers(ArrayList<Animal> animalsList){
+       public Animal returnPlayer(ArrayList<Animal> animalsList){
               Random rand = new Random();
               int player1 =rand.nextInt(animalsList.size());
               Animal player = animalsList.get(player1);
@@ -50,7 +50,7 @@ public class Forest {
                return player;
         }
 
-        public double roamingArea(int x1, int x2, int y1,int y2){
+        public double createRoamingArea(int x1, int x2, int y1,int y2){
 
             /*  int x1,x2,y1,y2;
 
@@ -66,7 +66,7 @@ public class Forest {
         }         
        
         
-      public String meetingPlayers(Animal player1, Animal player2){
+      public String meetPlayers(Animal player1, Animal player2){
              
        int starvageOfPlayer1,starvageOfPlayer2;
        int strengthOfPlayer1,strengthOfPlayer2;
@@ -93,11 +93,16 @@ public class Forest {
                     int x2 = player2.getLocationX();
                     int y2 = player2.getLocationY();   
 
-                   System.out.println(roamingArea(x1,x2,y1,y2));
-                   if(roamingArea(x1,x2,y1,y2) <= 13){
+                   System.out.println(createRoamingArea(x1,x2,y1,y2));
+                   if(createRoamingArea(x1,x2,y1,y2) <= 13){
                           System.out.println("FIGHT STARTS NOW");
-                          Carnivores.startFight(player1,player2);
-                   } 
+                         // Carnivores c = new Animal("", 0,0 ,0);
+                         Carnivores c = (Carnivores) player2;
+                         c.startFight(player1);
+                   }  else{
+                     System.out.println("Nothing Happends");
+                     System.out.println("Players are just Enjoying their time with their area!!!");
+              }
 
                      return "Game Is Over !";
 
@@ -122,10 +127,12 @@ public class Forest {
                      int x2 = player2.getLocationX();
                      int y2 = player2.getLocationY();   
  
-                    System.out.println(roamingArea(x1,x2,y1,y2));
-                    if(roamingArea(x1,x2,y1,y2) <= 13){
+                    System.out.println(createRoamingArea(x1,x2,y1,y2));
+                    if(createRoamingArea(x1,x2,y1,y2) <= 13){
                            System.out.println("FIGHT STARTS NOW");
-                           Carnivores.startFight(player1,player2);
+                           //Carnivores c = new Animal("",0,0,0);
+                           Carnivores c = (Carnivores) player1;
+                          c.startFight(player2); 
                     } else{
                            System.out.println("Nothing Happends");
                            System.out.println("Players are just Enjoying their time with their area!!!");
