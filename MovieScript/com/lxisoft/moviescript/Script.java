@@ -1,5 +1,6 @@
 package com.lxisoft.moviescript;
 
+import java.util.*; 
   public class Script {
     String scene1;
     String scene2;
@@ -16,56 +17,65 @@ package com.lxisoft.moviescript;
        
         System.out.println("\t\t\t      SCENE " +scene1);
 
-        System.out.println("\t\t\t+----------------+" +"\n");
+        ArrayList <String> script= new ArrayList<String>();
 
-        System.out.println("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
+        script.add("\t\t\t+----------------+" +"\n");
 
-        System.out.println("\t\t+-----------------------------------+" +"\n");
+        script.add("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
 
-        System.out.println("\t       ( OUTSIDE THE CHURCH )  "+"\n");
+        script.add("\t\t+-----------------------------------+" +"\n");
+
+        script.add("\t       ( OUTSIDE THE CHURCH )  "+"\n");
        
-        System.out.println("\t ** Hazel waits for her Mom’s car to appear ** " +"\n");
+        script.add("\t ** Hazel waits for her Mom’s car to appear ** " +"\n");
 
-        System.out.println("\t** Hazel turns to find the Beautiful Boy, Augustus, standing right next to her. **" +"\n");
+        script.add("\t** Hazel turns to find the Beautiful Boy, Augustus, standing right next to her. **" +"\n");
 
-        System.out.println("\tGUS: I thought we were in a church basement but apparently we were literally in the  heart of Jesus." +"\n");
+        script.add("\tGUS: I thought we were in a church basement but apparently we were literally in the  heart of Jesus." +"\n");
 
-        System.out.println("\t** Hazel smiles. **" +"\n");
+        script.add("\t** Hazel smiles. **" +"\n");
 
-        System.out.println("\tHAZEL: Someone should probably tell him, dont you think? Jesus? Seems kinda dangerous  keeping all these kids with cancer in  your heart." +"\n");
+        script.add("\tHAZEL: Someone should probably tell him, dont you think? Jesus? Seems kinda dangerous  keeping all these kids with cancer in  your heart." +"\n");
 
-        System.out.println("\t** Gus laughs. **" +"\n");
+        script.add("\t** Gus laughs. **" +"\n");
 
-        System.out.println("\tGUS: What's your name?" +"\n");
+        script.add("\tGUS: What's your name?" +"\n");
 
-        System.out.println("\tHAZEL: Hazel." +"\n");
+        script.add("\tHAZEL: Hazel." +"\n");
         
-        System.out.println("\tGUS: No your full name..." +"\n");
+        script.add("\tGUS: No your full name..." +"\n");
 
-        System.out.println("\t** Hazel confused ** " +"\n");
+        script.add("\t** Hazel confused ** " +"\n");
 
-        System.out.println("\tHAZEL: Hazel Grace Lancaster." +"\n");
+        script.add("\tHAZEL: Hazel Grace Lancaster." +"\n");
 
-        System.out.println("\t** Gus nods to himself, smiles. Still fixated on her. ** " +"\n");
+        script.add("\t** Gus nods to himself, smiles. Still fixated on her. ** " +"\n");
 
-        System.out.println("\t** Hazel Continued ** " +"\n");
+        script.add("\t** Hazel Continued ** " +"\n");
 
-        System.out.println("\tHAZEL: What?" +"\n");
+        script.add("\tHAZEL: What?" +"\n");
 
-        System.out.println("\tGUS: I did not say anything." +"\n");
+        script.add("\tGUS: I did not say anything." +"\n");
 
-        System.out.println("\tHAZEL: Why are you looking at me like that?" +"\n"); 
+        script.add("\tHAZEL: Why are you looking at me like that?" +"\n"); 
 
-        System.out.println("\tGUS: Because you are beautiful." +"\n");
+        script.add("\tGUS: Because you are beautiful." +"\n");
 
-        System.out.println("\t** Hazel is taken aback. No one’s ever said that to her before. ** " +"\n");
+        script.add("\t** Hazel is taken aback. No one’s ever said that to her before. ** " +"\n");
 
-        System.out.println("\t** Gus Continued ** " +"\n");
+        script.add("\t** Gus Continued ** " +"\n");
 
-        System.out.println("\tGUS: I enjoy looking at beautiful people and I  decided a while back not to deny myself  the simpler pleasures of existence. " );
-        System.out.println("\t     Particularly given that, as you soastutely pointed out, we are all gonna die pretty soon."+"\n");
+        script.add("\tGUS: I enjoy looking at beautiful people and I  decided a while back not to deny myself  the simpler pleasures of existence. " );
+        script.add("\t     Particularly given that, as you soastutely pointed out, we are all gonna die pretty soon."+"\n");
 
-        System.out.println("\tHAZEL: Iam not beaut --" +"\n");
+        script.add("\tHAZEL: Iam not beaut --" +"\n");
+
+        Iterator itr=script.iterator();
+
+        while(itr.hasNext()){
+
+          System.out.println(itr.next());
+        }
 
         System.out.println("\n");
 
