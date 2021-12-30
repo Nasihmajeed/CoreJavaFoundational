@@ -11,69 +11,66 @@ tr.mv  = me;
 
 Actor act = new Actor();
 
-George g1 = new George();
-me.grge = g1;
+Hero george = new Hero();
+me.g1 = george;
 
-g1.setName ("DILEEP");
-g1.setCharacterName ("GEORGE");
-g1.setAge  ( "40");
-g1.setGender  ( "Male");
-g1.setPlace ("Cochi");
+george.setName ("DILEEP");
+george.setCharacterName ("GEORGE");
 
-Rajisha rj= new Rajisha();
-me.raji = rj;
 
-rj.setName  ("RAJISHA VIJAYAN");
-rj.setCharacterName  ("MERLIN");
-rj.setAge ("30");
-rj.setGender ("Female");
-rj.setPlace ("Cochi");
+Heroine rajisha = new Heroine();
+me.r1 = rajisha;
+
+rajisha.setName  ("RAJISHA VIJAYAN");
+rajisha.setCharacterName  ("MERLIN");
 
 
 
-Sharaf sf = new Sharaf();
-me.srf = sf;
+Comedian sharaf= new Comedian();
+me.srf = sharaf;
 
-sf.setName("SHARAFUDHEEN");
-sf.setCharacterName  ("PALLAN");
-sf.setAge("30");
-sf.setGender ("Male");
-sf.setPlace ("Cochi");
+sharaf.setName("SHARAFUDHEEN");
+sharaf.setCharacterName  ("PALLAN");
 
 
-Vinay vy = new Vinay ();
-me.vny = vy;
+Comedian vinay = new Comedian();
+me.vny = vinay;
 
-vy.setName ("VINAY");
-vy.setCharacterName  ("VAVA");
-vy.setAge  ("30");
-vy.setGender  ("Male");
-vy.setPlace  ("Cochi");
+vinay.setName ("VINAY");
+vinay.setCharacterName  ("VAVA");
 
 
 
-ChembanVinod  cv = new ChembanVinod();
-me.cbvd = cv;
+Villan chembanVinod  = new Villan();
+me.cbvd = chembanVinod;
 
-cv.setName ("CHEMBAN VINOD");
-cv.setCharacterName("PETER MATHAYI");
-cv.setAge ("55");
-cv.setGender ("Male");
-cv.setPlace ("COCHI");
+chembanVinod.setName ("CHEMBAN VINOD");
+chembanVinod.setCharacterName("PETER MATHAYI");
 
 
-Anil an = new Anil();
-me.anl = an;
 
-an.setName("ASSIM JAMAL");
-an.setCharacterName("ANIL");
-an.setAge("40");
-an.setGender("Male");
-an.setPlace("COCHI");
+Villan anil = new Villan();
+me.anl = anil;
+
+anil.setName("ASSIM JAMAL");
+anil.setCharacterName("ANIL");
 
 
 Script scpt = new Script();
 me.sc1 = scpt;
+
+scpt.act[0] = george.getCharacterName();
+
+scpt.act [1] = rajisha.getCharacterName();
+
+scpt.act[2] = sharaf.getCharacterName();
+
+scpt.act[3] = vinay.getCharacterName();
+
+scpt.act[4] = chembanVinod.getCharacterName();
+
+scpt.act[5] = anil.getCharacterName();
+
 
 
 

@@ -3,12 +3,12 @@ public class Movie  {
  private String name;
  private String genre;
 private String language;
- George grge;
- Rajisha raji;
- Sharaf srf;
- Vinay vny;
- ChembanVinod cbvd;
- Anil anl;
+ Hero g1;
+ Heroine r1;
+ Comedian srf;
+ Comedian vny;
+ Villan cbvd;
+ Villan anl;
  Script sc1;
  
  
@@ -65,9 +65,9 @@ language = "MALAYALAM";
 	System.out.println("\t\t\t\t\t\t______________________________");
 	System.out.println("\n");
 	
-	 grge.actorDetails();
+	 g1.actorDetails();
 	 
-	 raji.actorDetails();
+	 r1.actorDetails();
 	 
 	 srf.actorDetails ();
 	 
