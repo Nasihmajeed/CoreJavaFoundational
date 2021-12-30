@@ -1,5 +1,7 @@
 package com.lxisoft.game;
 
+import java.util.Scanner;
+
 import com.lxisoft.snakesandladders.Board;
 
 public class Game {
@@ -10,34 +12,62 @@ public class Game {
 	private Die die;
 
 	public void play() {
-		do {
-			System.out.println("--> " +player1.getName() + " rolling the die...\n");
-			int result = die.roll();
-			System.out.println("* " + player1.getName() + " rolled: " + result);
-			System.out.println("* Current Position of " + player1.getCoin().getColor() + " coin: " + player1.getCoin().getPosition());
-			if ((player1.getCoin().getPosition() > 0 || result == 1) && (player1.getCoin().getPosition() + result <= 100)) {
-				player1.movecoin(result);
-				board.biteOrLift(player1.getCoin());
-				System.out.print("* New Position: " + player1.getCoin().getPosition());
-			}
-			System.out.println("\n------------------------------------\n");
-			System.out.println("--> " + player2.getName() + " rolling the die...\n");
-			result = die.roll();
-			System.out.println("* " + player2.getName() + " rolled: " + result);
-			System.out.println("* Current Position of " + player2.getCoin().getColor() + " coin: " + player2.getCoin().getPosition());
-			if ((player2.getCoin().getPosition() > 0 || result == 1) && (player2.getCoin().getPosition() + result <= 100)) {
-				player2.movecoin(result);
-				board.biteOrLift(player2.getCoin());
-				System.out.print("* New Position: " + player2.getCoin().getPosition());
-			}
-			System.out.println("\n------------------------------------\n");
-		} while (player1.getCoin().getPosition() < 100 && player2.getCoin().getPosition() < 100);
-		if (player1.getCoin().getPosition() == 100)
-			System.out.println("\n\t\t\t\t  *****Congratulations " + player1.getName() + "*****\n" + "\n\t\t\t\t*****Better luck next time" + player2.getName() + "*****");
-		else
-			System.out.println("\n\t\t\t\t  *****Congratulations " + player2.getName() + "*****\n" + "\n\t\t\t\t*****Better luck next time" + player1.getName() + "*****");
-			System.out.println("\n\n\t\t\t\t\t  *****GAME OVER*****");
-			System.out.println("\t\t\t\t\t  ------------------");
+		System.out.println("If you want to start the game, PRESS Y");
+		Scanner scanner = new Scanner(System.in);
+		char c = scanner.next().charAt(0);
+		if (c == 'Y') {
+			System.out.println("\n\t\t\t\t\t\t\tWELCOME TO THE GAME\n\n");
+
+			Coin coin = player1.getCoin();
+			Coin coin2 = player2.getCoin();
+			do {
+				System.out.println("--> " + player1.getName() + " rolling the die...\n");
+				int result = die.roll();
+				System.out.println("* " + player1.getName() + " rolled: " + result);
+				if (coin.getPosition() != null) {
+					System.out.println("* Current Position of " + coin.getColor() + " coin: "
+							+ coin.getPosition().getCellNumber());
+				} else {
+					System.out.println("* Current Position of " + coin.getColor() + " coin: 0");
+				}
+
+				if (result == 1
+						|| (coin.getPosition() != null && (coin.getPosition().getCellNumber() + result <= 100))) {
+					player1.moveCoin(result, board.getCells());
+					board.biteOrLift(coin);
+					System.out.print("* New Position: " + coin.getPosition().getCellNumber());
+				}
+				System.out.println("\n------------------------------------\n");
+				System.out.println("--> " + player2.getName() + " rolling the die...\n");
+				result = die.roll();
+				System.out.println("* " + player2.getName() + " rolled: " + result);
+				if (coin2.getPosition() != null) {
+					System.out.println("* Current Position of " + coin2.getColor() + " coin: "
+							+ coin2.getPosition().getCellNumber());
+				} else {
+					System.out.println("* Current Position of " + coin2.getColor() + " coin: 0");
+				}
+
+				if (result == 1
+						|| (coin2.getPosition() != null && (coin2.getPosition().getCellNumber() + result <= 100))) {
+					player2.moveCoin(result, board.getCells());
+					board.biteOrLift(coin2);
+					System.out.print("* New Position: " + coin2.getPosition().getCellNumber());
+				}
+				System.out.println("\n------------------------------------\n");
+			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
+					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
+			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100)
+				System.out.println("\n\t\t\t\t\t\t   *****Congratulations " + player1.getName() + "*****\n"
+						+ "\n\t\t\t\t\t\t *****Better luck next time" + player2.getName() + "*****");
+			else
+				System.out.println("\n\t\t\t\t\t\t   *****Congratulations " + player2.getName() + "*****\n"
+						+ "\n\t\t\t\t\t\t *****Better luck next time" + player1.getName() + "*****");
+			System.out.println("\n\t\t\t\t\t\t\t  *****GAME OVER*****");
+		} else {
+			System.out.println("\n\t\t\t\t\t\t\tEXIT FROM GAME\n\n");
+		}
+		scanner.close();
 	}
 
 	public Board getBoard() {

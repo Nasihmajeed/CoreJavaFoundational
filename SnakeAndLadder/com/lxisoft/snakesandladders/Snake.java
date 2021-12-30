@@ -4,10 +4,10 @@ import com.lxisoft.game.Coin;
 
 public class Snake {
 
-	private int headPosition;
-	private int tailPosition;
+	private Cell headPosition;
+	private Cell tailPosition;
 
-	public Snake(int headPosition, int tailPosition) {
+	public Snake(Cell headPosition, Cell tailPosition) {
 		this.headPosition = headPosition;
 		this.tailPosition = tailPosition;
 	}
@@ -16,11 +16,11 @@ public class Snake {
 		coin.setPosition(tailPosition);
 	}
 
-	public int getHeadPosition() {
+	public Cell getHeadPosition() {
 		return headPosition;
 	}
 
-	public int getTailPosition() {
+	public Cell getTailPosition() {
 		return tailPosition;
 	}
 

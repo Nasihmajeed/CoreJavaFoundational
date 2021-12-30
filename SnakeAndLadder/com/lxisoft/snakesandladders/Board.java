@@ -24,15 +24,17 @@ public class Board {
 	}
 
 	public void biteOrLift(Coin coin) {
-		Cell cell = cells.get(coin.getPosition() - 1);
-		Ladder ladder = cell.getLadder();
-		Snake snake = cell.getSnake();
-		if (ladder != null) {
-			ladder.lift(coin);
-			System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition());
-		} else if (snake != null) {
-			snake.bite(coin);
-			System.out.println("* Aww...snake on cell " + snake.getHeadPosition());
+		Cell cell = coin.getPosition();
+		if (cell != null) {
+			Ladder ladder = cell.getLadder();
+			Snake snake = cell.getSnake();
+			if (ladder != null) {
+				ladder.lift(coin);
+				System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
+			} else if (snake != null) {
+				snake.bite(coin);
+				System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
+			}
 		}
 	}
 
@@ -44,10 +46,10 @@ public class Board {
 
 		for (int i = 0; i < 5; i++) {
 			int tailPosition = headPosition - snakeLength;
-			Snake snake = new Snake(headPosition, tailPosition);
+			Snake snake = new Snake(cells.get(headPosition - 1), cells.get(tailPosition - 1));
 			cells.get(headPosition - 1).setSnake(snake);
 			int bottomPosition = topPosition - ladderLength;
-			Ladder ladder = new Ladder(topPosition, bottomPosition);
+			Ladder ladder = new Ladder(cells.get(topPosition - 1), cells.get(bottomPosition - 1));
 			cells.get(bottomPosition - 1).setLadder(ladder);
 			headPosition -= 15;
 			topPosition -= 12;

@@ -1,17 +1,19 @@
 package com.lxisoft.game;
 
+import com.lxisoft.snakesandladders.Cell;
+
 public class Coin {
-	//private int position;
+	private Cell position;
 	private String color;
 	
 	
-	/*public int getPosition() {
+	public Cell getPosition() {
 		return position;
 	}
 
-	public void setPosition(int position) {
+	public void setPosition(Cell position) {
 		this.position = position;
-	}*/
+	}
 
 	public String getColor() {
 		return color;

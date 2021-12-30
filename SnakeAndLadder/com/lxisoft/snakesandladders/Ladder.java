@@ -4,10 +4,10 @@ import com.lxisoft.game.Coin;
 
 public class Ladder {
 
-	private int topPosition;
-	private int bottomPosition;
+	private Cell topPosition;
+	private Cell bottomPosition;
 
-	public Ladder(int topPosition, int bottomPosition) {
+	public Ladder(Cell topPosition, Cell bottomPosition) {
 		this.topPosition = topPosition;
 		this.bottomPosition = bottomPosition;
 	}
@@ -16,11 +16,11 @@ public class Ladder {
 		coin.setPosition(topPosition);
 	}
 
-	public int getTopPosition() {
+	public Cell getTopPosition() {
 		return topPosition;
 	}
 
-	public int getBottomPosition() {
+	public Cell getBottomPosition() {
 		return bottomPosition;
 	}
 
