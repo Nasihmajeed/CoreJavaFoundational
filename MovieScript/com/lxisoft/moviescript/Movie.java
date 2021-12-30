@@ -134,6 +134,9 @@ public class Movie {
 
     
         Script script = new Script();
+
+        //script.actor[0]= hero.getCharacterName();
+        //script.actor[1]= heroine.getCharacterName();
         script.setupMovie();
         script.playMovie();
 

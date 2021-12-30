@@ -5,6 +5,7 @@ import java.util.*;
     String scene1;
     String scene2;
     String scene3;
+    public String[] actor;
 
     public void setupMovie () {
         this.scene1=" 1";
@@ -16,61 +17,66 @@ import java.util.*;
         System.out.println("\n"); 
        
         System.out.println("\t\t\t      SCENE " +scene1);
-
-        ArrayList <String> script= new ArrayList<String>();
-
-        script.add("\t\t\t+----------------+" +"\n");
-
-        script.add("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
-
-        script.add("\t\t+-----------------------------------+" +"\n");
-
-        script.add("\t       ( OUTSIDE THE CHURCH )  "+"\n");
-       
-        script.add("\t ** Hazel waits for her Mom’s car to appear ** " +"\n");
-
-        script.add("\t** Hazel turns to find the Beautiful Boy, Augustus, standing right next to her. **" +"\n");
-
-        script.add("\tGUS: I thought we were in a church basement but apparently we were literally in the  heart of Jesus." +"\n");
-
-        script.add("\t** Hazel smiles. **" +"\n");
-
-        script.add("\tHAZEL: Someone should probably tell him, dont you think? Jesus? Seems kinda dangerous  keeping all these kids with cancer in  your heart." +"\n");
-
-        script.add("\t** Gus laughs. **" +"\n");
-
-        script.add("\tGUS: What's your name?" +"\n");
-
-        script.add("\tHAZEL: Hazel." +"\n");
         
-        script.add("\tGUS: No your full name..." +"\n");
+        
+        
+       // String [] actor = new String[1];
 
-        script.add("\t** Hazel confused ** " +"\n");
+        ArrayList <String> script1= new ArrayList<String>();
 
-        script.add("\tHAZEL: Hazel Grace Lancaster." +"\n");
 
-        script.add("\t** Gus nods to himself, smiles. Still fixated on her. ** " +"\n");
+         script1.add("\t\t\t+----------------+" +"\n");
 
-        script.add("\t** Hazel Continued ** " +"\n");
+        script1.add("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
 
-        script.add("\tHAZEL: What?" +"\n");
+        script1.add("\t\t+-----------------------------------+" +"\n");
 
-        script.add("\tGUS: I did not say anything." +"\n");
+        script1.add("\t       ( OUTSIDE THE CHURCH )  "+"\n");
+       
+        script1.add("\t ** Hazel waits for her Mom’s car to appear ** " +"\n");
 
-        script.add("\tHAZEL: Why are you looking at me like that?" +"\n"); 
+        script1.add("\t** Hazel turns to find the Beautiful Boy, Augustus, standing right next to her. **" +"\n");
 
-        script.add("\tGUS: Because you are beautiful." +"\n");
+        script1.add("\tGUS: I thought we were in a church basement but apparently we were literally in the  heart of Jesus." +"\n");
 
-        script.add("\t** Hazel is taken aback. No one’s ever said that to her before. ** " +"\n");
+        script1.add("\t** Hazel smiles. **" +"\n");
 
-        script.add("\t** Gus Continued ** " +"\n");
+        script1.add("\tHAZEL: Someone should probably tell him, dont you think? Jesus? Seems kinda dangerous  keeping all these kids with cancer in  your heart." +"\n");
 
-        script.add("\tGUS: I enjoy looking at beautiful people and I  decided a while back not to deny myself  the simpler pleasures of existence. " );
-        script.add("\t     Particularly given that, as you soastutely pointed out, we are all gonna die pretty soon."+"\n");
+        script1.add("\t** Gus laughs. **" +"\n");
 
-        script.add("\tHAZEL: Iam not beaut --" +"\n");
+        script1.add("\tGUS: What's your name?" +"\n");
 
-        Iterator itr=script.iterator();
+        script1.add("\tHAZEL: Hazel." +"\n");
+        
+        script1.add("\tGUS: No your full name..." +"\n");
+
+        script1.add("\t** Hazel confused ** " +"\n");
+
+        script1.add("\tHAZEL: Hazel Grace Lancaster." +"\n");
+
+        script1.add("\t** Gus nods to himself, smiles. Still fixated on her. ** " +"\n");
+
+        script1.add("\t** Hazel Continued ** " +"\n");
+
+        script1.add("\tHAZEL: What?" +"\n");
+
+        script1.add("\tGUS: I did not say anything." +"\n");
+
+        script1.add("\tHAZEL: Why are you looking at me like that?" +"\n"); 
+
+        script1.add("\tGUS: Because you are beautiful." +"\n");
+
+        script1.add("\t** Hazel is taken aback. No one’s ever said that to her before. ** " +"\n");
+
+        script1.add("\t** Gus Continued ** " +"\n");
+
+        script1.add("\tGUS: I enjoy looking at beautiful people and I  decided a while back not to deny myself  the simpler pleasures of existence. " );
+        script1.add("\t     Particularly given that, as you soastutely pointed out, we are all gonna die pretty soon."+"\n");
+
+        script1.add("\tHAZEL: Iam not beaut --" +"\n");
+
+        Iterator itr=script1.iterator();
 
         while(itr.hasNext()){
 
