@@ -1,14 +1,12 @@
-package com.animalGame;
+package com.lxisoft.game;
 
-import com.animalGame.game.Game;
+import com.lxisoft.game.Game;
 
 
-public class TDD {
+public class TDD{
 
   public static void main(String[] args) {
- 
-   Game game= new Game();
-   game.startGame();
-   game.playGame();
+   Game game = new Game();
+  game.start();
   }
 }
