@@ -1,5 +1,5 @@
 package com.lxisoft.game;
-
+import java.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
 import java.util.ArrayList;
@@ -20,18 +20,18 @@ public class Forest {
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
-            
+            Random rand = new Random();
               System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
-              animalsList.add(new Tiger("Bengal-Tiger",14,10,5));
-              animalsList.add(new Rabbit("Cutey-Rabbit",10,7,5));
-              animalsList.add(new Deer("Little-Deer",2,4,2));
-              animalsList.add(new Fox("Cunning-Fox",6,4,4));
-              animalsList.add(new Lion("King-Lion",15,3,12));
-              animalsList.add(new Elephant("Indian-Elephant",8,5,10));
-              animalsList.add(new LeoPard("Angry-LeoPard",17,9,13));
-              animalsList.add(new Gaur("Hungry-Guar",9,8,4));
-              animalsList.add(new Crocodile("Lazy-Crocodile",10,6,4));
-              animalsList.add(new Rhinoceros("Indian-Rhinoceros",7,6,7));
+              animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Deer("Little-Deer",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Fox("Cunning-Fox",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Lion("King-Lion",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Elephant("Indian-Elephant",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new LeoPard("Angry-LeoPard",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Gaur("Hungry-Guar",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Crocodile("Lazy-Crocodile",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
+              animalsList.add(new Rhinoceros("Indian-Rhinoceros",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
 
             
                 while(i < animalsList.size()){
@@ -52,15 +52,6 @@ public class Forest {
 
         public double createRoamingArea(int x1, int x2, int y1,int y2){
 
-            /*  int x1,x2,y1,y2;
-
-              x1 = player1.x;
-              x2 = player2.x;
-              y1 = player1.y;
-              y2 = player2.y;
-
-              int roamEquation = ( ((x2 - x1) * (x2 - x1)) +((y2 - y1) * (y2 - y1)) ); 
-              System.out.println(roamEquation);*/
               double roamArea = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 -y1) * (y2 - y1));
               return roamArea;
         }         
@@ -72,7 +63,7 @@ public class Forest {
        int strengthOfPlayer1,strengthOfPlayer2;
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t !!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
-                     
+                     player1.startFight(player1, player2);
                      return "we are Best F_R_I_E_N_D_S";
               }
               else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
@@ -96,12 +87,16 @@ public class Forest {
                    System.out.println(createRoamingArea(x1,x2,y1,y2));
                    if(createRoamingArea(x1,x2,y1,y2) <= 13){
                           System.out.println("FIGHT STARTS NOW");
+                         player2.startFight(player1,player2);
                          // Carnivores c = new Animal("", 0,0 ,0);
-                         Carnivores c = (Carnivores) player2;
-                         c.startFight(player1);
+                         //Carnivores c = (Carnivores) player2;
+                         //c.startFight(player1);
                    }  else{
                      System.out.println("Nothing Happends");
+
                      System.out.println("Players are just Enjoying their time with their area!!!");
+                    // player1.eatFood(player1,player2);
+                     
               }
 
                      return "Game Is Over !";
@@ -131,11 +126,13 @@ public class Forest {
                     if(createRoamingArea(x1,x2,y1,y2) <= 13){
                            System.out.println("FIGHT STARTS NOW");
                            //Carnivores c = new Animal("",0,0,0);
-                           Carnivores c = (Carnivores) player1;
-                          c.startFight(player2); 
+                        //   Carnivores c = (Carnivores) player1;
+                          //c.startFight(player2); 
+                          player1.startFight(player1,player2);
                     } else{
                            System.out.println("Nothing Happends");
                            System.out.println("Players are just Enjoying their time with their area!!!");
+                          // player2.eatFood(player1,player2);
                     }
                 
                      return "Game Is Over !";
@@ -143,6 +140,7 @@ public class Forest {
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
 		System.out.println("\t !!!!!!!!!Both the beasts are Carnivorous Players !!!!!!! \t \n");
+              player1.startFight(player1, player2);
               	System.out.println("Fight is going to be Drop!!!!!!!!!");
               return "we are Best F_R_I_E_N_D_S and we are trying to catch our Prey";
         }

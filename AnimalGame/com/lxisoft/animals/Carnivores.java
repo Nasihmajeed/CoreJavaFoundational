@@ -1,9 +1,13 @@
 package com.lxisoft.animals;
+
+import java.*;
 import com.lxisoft.game.Animal;
 public interface Carnivores{  
 
   
-  public void startFight(Animal opponent);
+  public String toKill(Animal player1,Animal player2);
+
+  
   
   
   

@@ -1,16 +1,61 @@
 package com.lxisoft.animals;
+
 import java.util.Random;
+import java.*;
 import com.lxisoft.game.Animal;
 
 public class Crocodile extends Animal implements Carnivores {
        
       // Random rand = new Random();
 
-       public Crocodile(String animalName,int starvage,int strength,int distance)
+       public Crocodile(String animalName,int starvage,int strength,int distance,boolean isAlive)
        {
-              super(animalName,starvage,strength,distance);
+              super(animalName,starvage,strength,distance,isAlive);
        }
-       public void startFight(Animal opponent){
+
+       public String toKill(Animal player1,Animal player2){
+              if (player1 instanceof Herbivores && player2 instanceof Carnivores){
+               System.out.println(" < \t\t\t-------------***------------- \t\t\t> ");
+               System.out.println("The Fight Between "+player1.getName()+ " And " +player2.getName()+ "going to Deep Stage@!!!! ");
+               System.out.println("There is no hope existing for "+player1.getName());
+               player1.setIsAlive(false);
+               System.out.println("Now the state of "+player1.getName()+" is alive condition is "+player1.getIsAlive());
+               player2.eatFood(player1,player2);
+               System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
+System.out.println("\t\t\t ------------- \t\t\t");
+              }else if(player1 instanceof Carnivores && player2 instanceof Herbivores){
+        
+        System.out.println(" < \t\t\t-------------***------------- \t\t\t> ");
+               System.out.println("The Fight Between "+player1.getName()+ " And " +player2.getName()+ "going to Deep Stage@!!!! ");
+               System.out.println("There is no hope existing for "+player2.getName());
+               player2.setIsAlive(false);
+               
+               System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
+               player1.eatFood(player1,player2);
+               System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
+System.out.println("\t\t\t ------------- \t\t\t");
+        
+              }
+           return "nothing more existing";
+           
+           
+             }
+
+
+
+             void eatFood(Animal player1,Animal player2){
+              if(player1 instanceof Carnivores || player2 instanceof Carnivores){
+                     System.out.println("The Player is eating meat....#....#.....#...!");
+              }
+              else{
+                     System.out.println("player nothing eats at now");
+              }
+       }
+
+
+
+
+     /*  public void startFight(Animal opponent){
               //System.out.println("hello");
               int starvageOfPlayer1 = this.getStarvage();
               int starvageOfPlayer2 = opponent.getStarvage();
@@ -49,7 +94,7 @@ public class Crocodile extends Animal implements Carnivores {
      
 
               //return "NOTHING HAPPENDS";
-       }
+       }*/
 
      
 
