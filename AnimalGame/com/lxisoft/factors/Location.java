@@ -1,5 +1,6 @@
 package com.lxisoft.factors;
 import java.*;
+import com.lxisoft.*;
 public class Location
 {
 	private int locationXAxis,locationYAxis ;

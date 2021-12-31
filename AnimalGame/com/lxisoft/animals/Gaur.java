@@ -30,5 +30,6 @@ public class Gaur extends Animal implements Herbivores {
       // int x = rand.nextInt(20);
      //  int y = rand.nextInt(20);
 
- 
+  
+
 }

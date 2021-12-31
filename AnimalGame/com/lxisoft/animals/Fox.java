@@ -13,7 +13,7 @@ public class Fox extends Animal implements Carnivores {
               super(animalName,starvage,strength,distance, isAlive);
        }
       
-       public String toKill(Animal player1,Animal player2){
+       public String killOpponent(Animal player1,Animal player2){
               if (player1 instanceof Herbivores && player2 instanceof Carnivores){
                System.out.println(" < \t\t\t-------------***------------- \t\t\t> ");
                System.out.println("The Fight Between "+player1.getName()+ " And " +player2.getName()+ "going to Deep Stage@!!!! ");
@@ -40,7 +40,7 @@ public class Fox extends Animal implements Carnivores {
              }
 
 
-       
+      
 
 
      /*  public void startFight(Animal opponent){

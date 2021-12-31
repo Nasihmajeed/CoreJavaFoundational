@@ -1,5 +1,6 @@
 package com.lxisoft.game;
 import java.*;
+import com.lxisoft.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
 import java.util.ArrayList;

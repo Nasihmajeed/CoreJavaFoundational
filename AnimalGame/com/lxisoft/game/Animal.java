@@ -4,11 +4,12 @@ import java.util.Random;
 import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
 import java.*;
+import com.lxisoft.*;
 public abstract class Animal {
 	private String animalName;
 	private int starvage,strength,distance,luckFactor;
 	private boolean isAlive;
-	Animal winner;
+	
 	public Location animalLocation = new Location() ;
         
 
@@ -122,7 +123,7 @@ public Animal startFight(Animal player1,Animal player2){  // new venture
 	
 	int starvageOfPlayer1 = player1.getStarvage();
 	int starvageOfPlayer2 = player2.getStarvage();
-
+	Animal winner;
 	int strengthOfPlayer1 = player1.getStrength();
 	int strengthOfPlayer2 = player2.getStrength();
 	//System.out.println("hello");
@@ -162,8 +163,8 @@ public Animal startFight(Animal player1,Animal player2){  // new venture
 										  /// System.out.println("The Strength of "+player2.getName()+" is decreasing");
 										  if(player2.getIsAlive() == true && player2.getStrength() < 7){
 											Carnivores c = (Carnivores) player1;
-															 c.toKill(player1,player2);
-															 System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
+															 c.killOpponent(player1,player2);
+															
          System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 									}else{
@@ -187,6 +188,7 @@ else if(player1 instanceof Herbivores && player2 instanceof Carnivores){
 	System.out.println(" player " +player1.getName()+ " is very lucky_!!!  just escaped from " +player2.getName());
 
 	Herbivores.escapeFromEnemy(player1,player2);
+
 	}else{
 
 		System.out.println("\n \t \t \t THE REAL FIGHT @@@BEGINS@@@ \t \t \n");
@@ -204,8 +206,8 @@ System.out.println("\t Strength of "+player1.getName()+" reduced to "+strengthOf
 System.out.println("\t\t\t ... \t\t\t");
 if(player1.getIsAlive() == true && player1.getStrength() < 7){
 		Carnivores c = (Carnivores) player2;
-                         c.toKill(player1,player2);
-						 System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
+                         c.killOpponent(player1,player2);
+				
          System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 }
@@ -213,6 +215,7 @@ else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
 System.out.println("There have some chances to escape");
 										   Herbivores.escapeFromEnemy(player1,player2);
+										   
 }
 	winner = player2;
 	return winner;

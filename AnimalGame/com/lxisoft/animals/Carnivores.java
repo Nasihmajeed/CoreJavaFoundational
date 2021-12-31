@@ -6,7 +6,7 @@ import com.lxisoft.game.Animal;
 public interface Carnivores{  
 
   
-  public String toKill(Animal player1,Animal player2);
+  public String killOpponent(Animal player1,Animal player2);
 
   
   

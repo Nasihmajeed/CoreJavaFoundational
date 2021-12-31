@@ -30,4 +30,5 @@ public class Rabbit extends Animal implements Herbivores {
       // int y = rand.nextInt(20);
 
 
+
 }

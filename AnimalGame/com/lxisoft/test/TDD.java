@@ -1,5 +1,6 @@
 package com.lxisoft.test;
 import java.*;
+import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 import com.lxisoft.game.Forest;
 public class TDD {
