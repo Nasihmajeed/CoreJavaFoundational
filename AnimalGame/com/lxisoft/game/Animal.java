@@ -163,11 +163,16 @@ public Animal startFight(Animal player1,Animal player2){  // new venture
 										  if(player2.getIsAlive() == true && player2.getStrength() < 7){
 											Carnivores c = (Carnivores) player1;
 															 c.toKill(player1,player2);
+															 System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
+         System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
+System.out.println("\t\t\t ------------- \t\t\t");
+									}else{
+										System.out.println("There have some chances to escape");
+										Herbivores.escapeFromEnemy(player1,player2);
 									}
 										 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
 										   System.out.println("\t\t\t ------------- \t\t\t");*/
-										   System.out.println("There have some chances to escape");
-										   Herbivores.escapeFromEnemy(player1,player2);
+										  
 
 			  winner = player1;
 			  return winner;
@@ -200,10 +205,15 @@ System.out.println("\t\t\t ... \t\t\t");
 if(player1.getIsAlive() == true && player1.getStrength() < 7){
 		Carnivores c = (Carnivores) player2;
                          c.toKill(player1,player2);
+						 System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
+         System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
+System.out.println("\t\t\t ------------- \t\t\t");
 }
+else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
 System.out.println("There have some chances to escape");
 										   Herbivores.escapeFromEnemy(player1,player2);
+}
 	winner = player2;
 	return winner;
 	}
@@ -222,6 +232,6 @@ return player2;
 return player1;
 }
 
-abstract void eatFood(Animal player1,Animal player2);
+
 
 }

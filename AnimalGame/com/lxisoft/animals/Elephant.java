@@ -29,13 +29,6 @@ public int getLuckFactor()
 //int x = rand.nextInt(20);
 //int y = rand.nextInt(20);
 
-void eatFood(Animal player1,Animal player2){
-       if(player1 instanceof Herbivores || player2 instanceof Herbivores){
-              System.out.println("The Player is eating Grass............!");
-       }
-       else{
-              System.out.println("player nothing eats at now");
-       }
-}
+
 
 }

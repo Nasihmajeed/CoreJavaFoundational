@@ -95,7 +95,7 @@ public class Forest {
                      System.out.println("Nothing Happends");
 
                      System.out.println("Players are just Enjoying their time with their area!!!");
-                    // player1.eatFood(player1,player2);
+                  
                      
               }
 
@@ -132,7 +132,7 @@ public class Forest {
                     } else{
                            System.out.println("Nothing Happends");
                            System.out.println("Players are just Enjoying their time with their area!!!");
-                          // player2.eatFood(player1,player2);
+                       
                     }
                 
                      return "Game Is Over !";

@@ -1,6 +1,7 @@
 package com.lxisoft.animals;
 
 import java.*;
+import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 public interface Carnivores{  
 

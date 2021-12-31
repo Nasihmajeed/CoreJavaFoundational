@@ -1,5 +1,6 @@
 package com.lxisoft.animals;
 import java.*;
+import com.lxisoft.*;
 import java.util.Random;
 import com.lxisoft.game.Animal;
 
@@ -19,20 +20,15 @@ public class  Lion extends Animal implements Carnivores{
          System.out.println("There is no hope existing for "+player1.getName());
          player1.setIsAlive(false);
          System.out.println("Now the state of "+player1.getName()+" is alive condition is "+player1.getIsAlive());
-         player2.eatFood(player1,player2);
-         System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
-System.out.println("\t\t\t ------------- \t\t\t");
+         
         }else if(player1 instanceof Carnivores && player2 instanceof Herbivores){
   
   System.out.println(" < \t\t\t-------------***------------- \t\t\t> ");
          System.out.println("The Fight Between "+player1.getName()+ " And " +player2.getName()+ "going to Deep Stage@!!!! ");
          System.out.println("There is no hope existing for "+player2.getName());
          player2.setIsAlive(false);
-         
          System.out.println("Now the state of "+player2.getName()+" is alive condition is "+player2.getIsAlive());
-         player1.eatFood(player1,player2);
-         System.out.println("\t"+ player2.getName()+" Defeated and Killed by "+player1.getName());
-System.out.println("\t\t\t ------------- \t\t\t");
+         
   
         }
      return "nothing more existing";
@@ -43,14 +39,6 @@ System.out.println("\t\t\t ------------- \t\t\t");
    //    int x = rand.nextInt(20);
      //  int y = rand.nextInt(20);
 
-     void eatFood(Animal player1,Animal player2){
-      if(player1 instanceof Carnivores || player2 instanceof Carnivores){
-             System.out.println("The Player is eating meat....#....#.....#...!");
-      }
-      else{
-             System.out.println("player nothing eats at now");
-      }
-}
 
 
     /* public void startFight(Animal opponent){
