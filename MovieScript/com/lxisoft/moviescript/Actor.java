@@ -25,8 +25,8 @@ public class Actor {
 
  public void showDetails() {
 
-System.out.println(name);
-System.out.println(characterName);
+System.out.println("\t\t Actor Name:" + name);
+System.out.println("\t\t Character Name:" +characterName);
 
 }
       
