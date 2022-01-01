@@ -49,7 +49,6 @@ public class Tdd {
 		System.out.println("-----");
 		System.out.println("* Number of faces: " + die.getFaces());
 		System.out.println("* Value to start the game: 1\n\n\n");
-		System.out.println("* Each face contain the value 1 to 6.\n\n\n");
 		System.out.println("\t\t\t\t\t**************Let's start the game**************\n\n\n");
 
 		game.play();
