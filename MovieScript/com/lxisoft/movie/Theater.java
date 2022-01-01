@@ -5,9 +5,9 @@ public class Theater  {
 private String name;
 private String location;
 private String phoneNo;
-Movie mv;
+public Movie mv;
 
-Theater (String name,String location,String phoneNo)  {
+public Theater (String name,String location,String phoneNo)  {
 	
 	this.name = name;
 	this.location = location;

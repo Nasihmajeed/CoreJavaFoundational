@@ -1,15 +1,21 @@
+package com.lxisoft.movie;
+import com.lxisoft.cast.Comedian;
+import com.lxisoft.cast.Hero;
+import com.lxisoft.cast.Heroine;
+import com.lxisoft.cast.Villan;
+
 public class Movie  {
 
  private String name;
  private String genre;
 private String language;
- Hero g1;
- Heroine r1;
- Comedian srf;
- Comedian vny;
- Villan cbvd;
- Villan anl;
- Script sc1;
+public Hero g1;
+public  Heroine r1;
+public  Comedian srf;
+public Comedian vny;
+public Villan cbvd;
+public Villan anl;
+public Script sc1;
  
  
  
@@ -79,6 +85,6 @@ language = "MALAYALAM";
 	 
 	 sc1.scene1Details();
 
-		sc1.scene2Details();
+		sc1.scene3Details();
  }	 
 }

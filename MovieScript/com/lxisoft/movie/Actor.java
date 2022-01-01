@@ -1,6 +1,7 @@
 package com.lxisoft.movie;
 
 
+
 public class Actor  {
 
  private String name;

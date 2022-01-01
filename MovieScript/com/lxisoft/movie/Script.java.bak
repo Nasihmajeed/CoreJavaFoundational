@@ -1,4 +1,4 @@
-package com.lxisoft.moviescript;
+package com.lxisoft.movie;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ public class Script  {
 
 
 
-String [] act = new String[6];
+public String [] act = new String[6];
 
  ArrayList <String> scene1 = new ArrayList< String>();
 
@@ -21,7 +21,7 @@ public void scene1Details()   {
 System.out.println("\t\t\t\t\t   --------Scene 1--------");
 System.out.println ("\n");
 System.out.println("\t\t\t\t\t\t MATHAYI PARAMBU");
-System.out.println("\t\t\t\t\t--------------------------------"); 
+System.out.println("\t\t\t\t\t--------------------------------");
 System.out.println ("\n");
 System.out.println ("\n");
 System.out.println ("\n");

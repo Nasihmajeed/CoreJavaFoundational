@@ -1,11 +1,16 @@
-package com.lxisoft.test;
-import com.lxisoft.cast;
-import com.lxisoft.movie;
+package com.lxisoft.test.TDD;
+import com.lxisoft.cast.Comedian;
+import com.lxisoft.cast.Hero;
+import com.lxisoft.cast.Heroine;
+import com.lxisoft.cast.Villan;
+import com.lxisoft.movie.Actor;
+import com.lxisoft.movie.Movie;
+import com.lxisoft.movie.Script;
+import com.lxisoft.movie.Theater;
 
-
- import java.util.Scanner;
-
+ 
 public class TDD  {
+
 
 public static void main(String []args)  {
 

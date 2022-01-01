@@ -1,10 +1,12 @@
+package com.lxisoft.movie;
+
 import java.util.ArrayList;
 
 public class Script  {
 
 
 
-String [] act = new String[6];
+public String [] act = new String[6];
 
  ArrayList <String> scene1 = new ArrayList< String>();
 
@@ -55,7 +57,7 @@ scene1.add(act[0] +" : ee bindhu enthootta mmade life full stop idanaayitt  enth
 
 
  
-public void scene2Details()  {
+public void scene3Details()  {
 
 
 	System.out.println("\n");
