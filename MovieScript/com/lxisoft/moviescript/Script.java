@@ -23,7 +23,7 @@ import java.util.*;
         
         //String [] actor = new String[6];
 
-        ArrayList <String> script1= new ArrayList<String>();
+        ArrayList <String> script1= new ArrayList<String> ();
         
 
         script1.add("\t\t\t+----------------+" +"\n");
