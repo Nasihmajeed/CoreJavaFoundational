@@ -47,7 +47,7 @@ public class Forest {
               Random rand = new Random();
               int player1 =rand.nextInt(animalsList.size());
               Animal player = animalsList.get(player1);
-              player.setLocation(rand.nextInt(20),rand.nextInt(20));
+              player.setAnimalLocation(rand.nextInt(20),rand.nextInt(20));
                return player;
         }
 
@@ -64,7 +64,7 @@ public class Forest {
        int strengthOfPlayer1,strengthOfPlayer2;
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t !!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
-                     player1.startFight(player1, player2);
+                     player1.startFight( player2);
                      return "we are Best F_R_I_E_N_D_S";
               }
               else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
@@ -79,16 +79,16 @@ public class Forest {
                      strengthOfPlayer2 = player2.getStrength();
 
                   
-                    int x1 = player1.getLocationX();
-                    int y1 = player1.getLocationY(); 
+                    int x1 = player1.getAnimalLocationX();
+                    int y1 = player1.getAnimalLocationY(); 
                   
-                    int x2 = player2.getLocationX();
-                    int y2 = player2.getLocationY();   
+                    int x2 = player2.getAnimalLocationX();
+                    int y2 = player2.getAnimalLocationY();   
 
                    System.out.println(createRoamingArea(x1,x2,y1,y2));
                    if(createRoamingArea(x1,x2,y1,y2) <= 13){
                           System.out.println("FIGHT STARTS NOW");
-                         player2.startFight(player1,player2);
+                         player2.startFight(player1);
                          // Carnivores c = new Animal("", 0,0 ,0);
                          //Carnivores c = (Carnivores) player2;
                          //c.startFight(player1);
@@ -117,11 +117,11 @@ public class Forest {
                      strengthOfPlayer2 = player2.getStrength();
                     
                    
-                     int x1 = player1.getLocationX();
-                     int y1 = player1.getLocationY(); 
+                     int x1 = player1.getAnimalLocationX();
+                     int y1 = player1.getAnimalLocationY(); 
                      
-                     int x2 = player2.getLocationX();
-                     int y2 = player2.getLocationY();   
+                     int x2 = player2.getAnimalLocationX();
+                     int y2 = player2.getAnimalLocationY();   
  
                     System.out.println(createRoamingArea(x1,x2,y1,y2));
                     if(createRoamingArea(x1,x2,y1,y2) <= 13){
@@ -129,7 +129,7 @@ public class Forest {
                            //Carnivores c = new Animal("",0,0,0);
                         //   Carnivores c = (Carnivores) player1;
                           //c.startFight(player2); 
-                          player1.startFight(player1,player2);
+                          player1.startFight(player2);
                     } else{
                            System.out.println("Nothing Happends");
                            System.out.println("Players are just Enjoying their time with their area!!!");
@@ -141,7 +141,7 @@ public class Forest {
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
 		System.out.println("\t !!!!!!!!!Both the beasts are Carnivorous Players !!!!!!! \t \n");
-              player1.startFight(player1, player2);
+              player1.startFight( player2);
               	System.out.println("Fight is going to be Drop!!!!!!!!!");
               return "we are Best F_R_I_E_N_D_S and we are trying to catch our Prey";
         }
