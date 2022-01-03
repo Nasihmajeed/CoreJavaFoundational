@@ -9,6 +9,7 @@ public class Movie  {
  private String name;
  private String genre;
 private String language;
+private String director;
 public Hero g1;
 public  Heroine r1;
 public  Comedian srf;
@@ -44,13 +45,21 @@ public Script sc1;
  }
  
 
-
+public String getDirector()  {
+	 return director;
+ }
+ public void setDirector(String newDirector)   {
+	 this.director = newDirector;
+ }
+ 
+ 
  
  public void movieDetails()  {
 	 
 	name = "GEORGETTAN'S POORAM";
 genre = "COMEDY";
 language = "MALAYALAM";	
+director = "K.biju";
 	 	 
 	 
  }
@@ -65,6 +74,7 @@ language = "MALAYALAM";
 	System.out.println("\t\tName :" + this.name); 
 	 System.out.println("\t\tGenre :" + this.genre);
 	 System.out.println("\t\tLanguage :" + this.language);
+	 System.out.println("\t\tDirctor :" + this.director);
 	 System.out.println("\n");
 	
 	System.out.println("\t\t\t\t\t\t\tACTORS DETAILS");

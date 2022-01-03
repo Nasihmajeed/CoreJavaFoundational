@@ -2,7 +2,8 @@ package com.lxisoft.movie;
 
 
 
-public class Actor  {
+public abstract class Actor  {
+
 
  private String name;
  private String characterName;
@@ -25,14 +26,11 @@ public void setCharacterName(String newCharacterName)  {
 }
 
 
-public void actorDetails()  {
+public abstract void actorDetails();
 
-    System.out.println("\t\tName :" + name);
-	System.out.println("\t\tCharacter Name :" + characterName);
- 
 	
-	System.out.println("\t\t.................");
-	System.out.println("\n");
-	
-}	
+
+
+
+  
 }

@@ -1,9 +1,8 @@
-package com.lxisoft.test.TDD;
+package com.lxisoft.TDD;
 import com.lxisoft.cast.Comedian;
 import com.lxisoft.cast.Hero;
 import com.lxisoft.cast.Heroine;
 import com.lxisoft.cast.Villan;
-import com.lxisoft.movie.Actor;
 import com.lxisoft.movie.Movie;
 import com.lxisoft.movie.Script;
 import com.lxisoft.movie.Theater;
@@ -19,7 +18,7 @@ Theater tr = new Theater("MELAM","Cherppulassery","123456789");
 Movie me = new Movie ();
 tr.mv  = me;
 
-Actor act = new Actor();
+
 
 Hero george = new Hero();
 me.g1 = george;
