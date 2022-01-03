@@ -1,6 +1,6 @@
 package com.lxisoft.moviescript;
 
-import com.lxisoft.moviescript.*;
+//import com.lxisoft.moviescript.*;
 public class Theater {
  private String name;
  private String place;

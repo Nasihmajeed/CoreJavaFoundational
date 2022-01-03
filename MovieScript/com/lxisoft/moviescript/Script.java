@@ -1,6 +1,8 @@
 package com.lxisoft.moviescript;
 
-import java.util.*; 
+import java.util.*;
+
+import com.lxisoft.moviescript.Actor; 
   public class Script {
     String scene1;
     String scene2;
@@ -19,11 +21,12 @@ import java.util.*;
        
         System.out.println("\t\t\t      SCENE " +scene1);
         
-        
+       // Movie m = new Movie();
         
         //String [] actor = new String[6];
 
         ArrayList <String> script1= new ArrayList<String> ();
+        
         
 
         script1.add("\t\t\t+----------------+" +"\n");
@@ -86,14 +89,6 @@ import java.util.*;
 
         System.out.println("\n");
         
-
-        try{ 
-          Thread.sleep(1500);
-          }
-    catch(InterruptedException e)
-         {
-         Thread.currentThread().interrupt();
-         }
 
 
         System.out.println("\t\t\t      SCENE " +scene2);

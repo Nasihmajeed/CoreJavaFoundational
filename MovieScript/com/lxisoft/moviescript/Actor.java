@@ -1,6 +1,6 @@
 package com.lxisoft.moviescript;
 
-import com.lxisoft.cast.*;
+//import com.lxisoft.cast.*;
 
 public class Actor {
 

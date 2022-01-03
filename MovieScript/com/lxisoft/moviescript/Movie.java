@@ -1,7 +1,7 @@
 package com.lxisoft.moviescript;
 
 import com.lxisoft.cast.*;
-import com.lxisoft.moviescript.Actor;
+//import com.lxisoft.moviescript.Actor;
 
 public class Movie {
    private String name;
@@ -88,6 +88,8 @@ public class Movie {
          hero.setCharacterName (" Augustus Waters");
          hero.showDetails();
 
+        
+
          System.out.println("\t\t+----------------------------------+"+"\n");
 
         Heroine heroine = new Heroine();
@@ -130,6 +132,11 @@ public class Movie {
         comedian5.setCharacterName(" Phoebe ");
         comedian5.showDetails();
 
+        /*public Actor passActor(Actor...passName){
+
+            return passName;
+        }*/
+
         System.out.println("\t\t+----------------------------------+");
 
     
@@ -141,6 +148,12 @@ public class Movie {
         script.playMovie();
 
    }
+  /* public void  printName(Hero h1) {
+    
+    h1.getCharacterName();
+
+}*/
 
 }
+
 
