@@ -17,11 +17,13 @@ public class Forest {
        {
 
        int i = 0;       
+       
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
             Random rand = new Random();
+            
               System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
               animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
@@ -36,8 +38,11 @@ public class Forest {
 
             
                 while(i < animalsList.size()){
+                
                      animalsList.get(i).printData(); 
+                
                      System.out.println();  
+                
                      i++;
               } 
 		
