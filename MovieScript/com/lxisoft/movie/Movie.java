@@ -10,12 +10,12 @@ public class Movie  {
  private String genre;
 private String language;
 private String director;
-public Hero g1;
-public  Heroine r1;
-public  Comedian srf;
-public Comedian vny;
-public Villan cbvd;
-public Villan anl;
+public Hero george1;
+public  Heroine rajisha1;
+public  Comedian sharaf1;
+public Comedian vinay1;
+public Villan chemban1;
+public Villan anil1;
 public Script sc1;
  
  
@@ -81,20 +81,20 @@ director = "K.biju";
 	System.out.println("\t\t\t\t\t\t______________________________");
 	System.out.println("\n");
 	
-	 g1.actorDetails();
+	 george1.actorDetails();
 	 
-	 r1.actorDetails();
+	 rajisha1.actorDetails();
 	 
-	 srf.actorDetails ();
+	 sharaf1.actorDetails ();
 	 
-	 vny.actorDetails();
+	 vinay1.actorDetails();
 	 
-	 cbvd.actorDetails();
+	 chemban1.actorDetails();
 	 
-	 anl.actorDetails();
+	 anil1.actorDetails();
 	 
 	 sc1.scene1Details();
 
-		sc1.scene3Details();
+		sc1.scene2Details();
  }	 
 }

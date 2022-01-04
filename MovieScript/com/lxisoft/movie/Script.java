@@ -41,8 +41,8 @@ scene1.add(act[0] +": ini kidav vandeekkakathu irunnu thalla aayathaavo");
 scene1.add(act[2] +" : ey varum");
 scene1.add("\t\t\t\t(BGM)");
 scene1.add(act[2] +" : hey ith pinnem thallenallo");
-scene1.add(act[3] +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto George    lley?");
-scene1.add(act[0] +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingatt vanne");
+scene1.add(act[3] +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto George      lley?");
+scene1.add(act[0] +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne");
 
 
 
@@ -57,7 +57,7 @@ scene1.add(act[0] +" : ee bindhu enthootta mmade life full stop idanaayitt  enth
 
 
  
-public void scene3Details()  {
+public void scene2Details()  {
 
 
 	System.out.println("\n");

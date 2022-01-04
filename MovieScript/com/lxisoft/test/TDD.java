@@ -1,4 +1,4 @@
-package com.lxisoft.TDD;
+package com.lxisoft.test;
 import com.lxisoft.cast.Comedian;
 import com.lxisoft.cast.Hero;
 import com.lxisoft.cast.Heroine;
@@ -13,22 +13,22 @@ public class TDD  {
 
 public static void main(String []args)  {
 
-Theater tr = new Theater("MELAM","Cherppulassery","123456789");
+Theater theater = new Theater("MELAM","Cherppulassery","123456789");
 
-Movie me = new Movie ();
-tr.mv  = me;
+Movie movie = new Movie ();
+theater.movie1  = movie;
 
 
 
 Hero george = new Hero();
-me.g1 = george;
+movie.george1 = george;
 
 george.setName ("DILEEP");
 george.setCharacterName ("GEORGE");
 
 
 Heroine rajisha = new Heroine();
-me.r1 = rajisha;
+movie.rajisha1 = rajisha;
 
 rajisha.setName  ("RAJISHA VIJAYAN");
 rajisha.setCharacterName  ("MERLIN");
@@ -36,14 +36,14 @@ rajisha.setCharacterName  ("MERLIN");
 
 
 Comedian sharaf= new Comedian();
-me.srf = sharaf;
+movie.sharaf1= sharaf;
 
 sharaf.setName("SHARAFUDHEEN");
 sharaf.setCharacterName  ("PALLAN");
 
 
 Comedian vinay = new Comedian();
-me.vny = vinay;
+movie.vinay1 = vinay;
 
 vinay.setName ("VINAY");
 vinay.setCharacterName  ("VAVA");
@@ -51,7 +51,7 @@ vinay.setCharacterName  ("VAVA");
 
 
 Villan chembanVinod  = new Villan();
-me.cbvd = chembanVinod;
+movie.chemban1 = chembanVinod;
 
 chembanVinod.setName ("CHEMBAN VINOD");
 chembanVinod.setCharacterName("PETER MATHAYI");
@@ -59,14 +59,14 @@ chembanVinod.setCharacterName("PETER MATHAYI");
 
 
 Villan anil = new Villan();
-me.anl = anil;
+movie.anil1 = anil;
 
 anil.setName("ASSIM JAMAL");
 anil.setCharacterName("ANIL");
 
 
 Script scpt = new Script();
-me.sc1 = scpt;
+movie.sc1 = scpt;
 
 scpt.act[0] = george.getCharacterName();
 
@@ -83,6 +83,6 @@ scpt.act[5] = anil.getCharacterName();
 
 
 
-tr.theaterDetails();
+theater.theaterDetails();
 }
 }

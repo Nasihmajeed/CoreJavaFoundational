@@ -30,7 +30,5 @@ public abstract void actorDetails();
 
 	
 
-
-
   
 }

@@ -5,7 +5,7 @@ public class Theater  {
 private String name;
 private String location;
 private String phoneNo;
-public Movie mv;
+public Movie movie1;
 
 public Theater (String name,String location,String phoneNo)  {
 	
@@ -51,8 +51,8 @@ System.out.println("\t\tLocation :" + this.location);
 System.out.println("\t\tPhone No :" + this.phoneNo);
 System.out.println("\n");
 
-mv.movieDetails();
-mv.printDetails();
+movie1.movieDetails();
+movie1.printDetails();
 	
 }
 
