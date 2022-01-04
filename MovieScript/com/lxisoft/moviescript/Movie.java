@@ -88,8 +88,7 @@ public class Movie {
          hero.setCharacterName (" Augustus Waters");
          hero.showDetails();
 
-        
-
+         
          System.out.println("\t\t+----------------------------------+"+"\n");
 
         Heroine heroine = new Heroine();
@@ -127,23 +126,20 @@ public class Movie {
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
-        Comedian comedian5 = new Comedian();
-        comedian5.setName (" Lisa Kudrow ");
-        comedian5.setCharacterName(" Phoebe ");
-        comedian5.showDetails();
-
         /*public Actor passActor(Actor...passName){
 
             return passName;
         }*/
 
-        System.out.println("\t\t+----------------------------------+");
-
-    
         Script script = new Script();
 
-        //script.actor[0]= hero.getCharacterName();
-        //script.actor[1]= heroine.getCharacterName();
+        script.actor[0] = hero.getCharacterName();
+        script.actor[1]= heroine.getCharacterName();
+        script.actor[2]= comedian1.getCharacterName();
+        script.actor[3]= comedian2.getCharacterName();
+        script.actor[4]= comedian3.getCharacterName();
+        script.actor[5]= comedian4.getCharacterName();
+        
         script.setupMovie();
         script.playMovie();
 
