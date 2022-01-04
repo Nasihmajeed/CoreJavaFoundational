@@ -1,18 +1,10 @@
 package com.lxisoft.animal;
 
-public class Elephant extends Animal implements Herbivores  {
- int strengthLevel;
- int hungerLevel;
- int luckFactor;
- String foodType;
-String animalName;
-public Elephant(int strengthLevel,int hungerLevel,int luckFactor, String foodType,String animalName){
+public class Lion extends Animal implements Carnivorous  {
+ 
+public Lion(int strengthLevel,int hungerLevel,int luckFactor, String foodType,String animalName){
  super(strengthLevel,hungerLevel, luckFactor,foodType,animalName);
-   this.strengthLevel=strengthLevel;
- this.hungerLevel=hungerLevel;
- this.luckFactor=luckFactor;
- this.foodType=foodType;
-this.animalName=animalName;
+   
 }
 public void fight(Animal animal){
 if(this.foodType==animal.foodType){ //here is the problem
