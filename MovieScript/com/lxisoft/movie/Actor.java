@@ -7,6 +7,7 @@ public abstract class Actor  {
 
  private String name;
  private String characterName;
+	private String heroNumber;
  
 
 
@@ -25,6 +26,14 @@ public void setCharacterName(String newCharacterName)  {
 	this.characterName = newCharacterName;
 }
 
+
+
+public String getHeroName()  {
+	return heroNumber;
+}
+public void setHeroNumber(String newHeroNumber)  {
+this.heroNumber = newHeroNumber;
+}
 
 public abstract void actorDetails();
 

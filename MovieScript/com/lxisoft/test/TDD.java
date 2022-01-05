@@ -19,12 +19,15 @@ Movie movie = new Movie ();
 theater.movie1  = movie;
 
 
+for (int i = 1; i < hero.heroNumber; i ++)  {
 
-Hero george = new Hero();
-movie.george1 = george;
 
-george.setName ("DILEEP");
-george.setCharacterName ("GEORGE");
+Hero hero = new Hero();
+movie.hero1[i] = hero;
+
+hero.getName();
+hero.getCharacterName ();
+}
 
 
 Heroine rajisha = new Heroine();
@@ -63,12 +66,12 @@ movie.anil1 = anil;
 
 anil.setName("ASSIM JAMAL");
 anil.setCharacterName("ANIL");
-
+ 
 
 Script scpt = new Script();
 movie.sc1 = scpt;
 
-scpt.act[0] = george.getCharacterName();
+scpt.act[0] = hero.getCharacterName();
 
 scpt.act [1] = rajisha.getCharacterName();
 

@@ -51,7 +51,7 @@ System.out.println("\t\tLocation :" + this.location);
 System.out.println("\t\tPhone No :" + this.phoneNo);
 System.out.println("\n");
 
-movie1.movieDetails();
+
 movie1.printDetails();
 	
 }
