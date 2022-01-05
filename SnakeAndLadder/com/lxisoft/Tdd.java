@@ -27,7 +27,6 @@ public class Tdd {
 		game.setPlayer1(player1);
 		game.setPlayer2(player2);
 		game.setDie(die);
-
 		System.out.println("\t\t\t\t\t\t\tWELCOME TO SNAKES AND LADDERS");
 		System.out.println("\t\t\t\t\t\t\t=============================\n\n\n");
 		System.out.println("DESCRIPTION: Snakes and ladders is a board game for two or more players regarded today, as a worldwide classic.The game originated\n\t     in ancient India as Moksha Patam, and was brought to the UK in the 1890s. It is played on a game board with numbered,\n\t     gridded squares.A number of ladders and snakes are pictured on the board, each connecting two specific board squares.\n\t     The object of the game is to navigate one's game piece, according to die rolls, from the start (bottom square) to the\n\t     finish (top square),helped by climbing ladders but hindered by falling down snakes.\n\n");
