@@ -55,7 +55,7 @@ public class Theater {
     
     System.out.println();
 
-    Movie movie=new Movie();
+    Movie movie = new Movie();
 
        movie.setName ("THE FAULT IN OUR STARS");
        movie.setGenere("Romance - Drama");
