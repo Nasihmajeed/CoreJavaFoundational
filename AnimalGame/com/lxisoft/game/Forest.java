@@ -3,6 +3,8 @@ import java.*;
 import com.lxisoft.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
+import com.lxisoft.factors. FileRepository;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,20 +12,20 @@ public class Forest {
 
        
       
-       ArrayList<Animal> animalsList = new ArrayList<Animal>();
-       
+       public List<Animal> animalsList = new ArrayList<Animal>();
+       FileRepository repo = new  FileRepository();
          
        public void welcomeToForest()
        {
 
-       int i = 0;       
-       
+       int i = 0; 
+       repo.createFile();    
+  
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
             Random rand = new Random();
-            
               System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
               animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
@@ -37,18 +39,18 @@ public class Forest {
               animalsList.add(new Rhinoceros("Indian-Rhinoceros",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
 
             
-                while(i < animalsList.size()){
-                
+               /* while(i < animalsList.size()){
                      animalsList.get(i).printData(); 
-                
                      System.out.println();  
-                
                      i++;
-              } 
+              } */
 		
+              //repo.writeToFile().writer.close();
+              repo.writeTofile();
+             
               meetPlayers(returnPlayer(animalsList),returnPlayer(animalsList));
        }
-       public Animal returnPlayer(ArrayList<Animal> animalsList){
+       public Animal returnPlayer(List<Animal> animalsList){
               Random rand = new Random();
               int player1 =rand.nextInt(animalsList.size());
               Animal player = animalsList.get(player1);
