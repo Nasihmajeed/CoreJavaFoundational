@@ -8,7 +8,6 @@ public class BoosterLadder {
 	protected Cell bottomPosition;
 
 	public BoosterLadder() {
-		super();
 	}
 
 	public void lift(Coin coin) {
