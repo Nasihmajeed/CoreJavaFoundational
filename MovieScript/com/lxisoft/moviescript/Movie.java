@@ -15,7 +15,7 @@ public class Movie {
           return name;
       }
       public void setName(String name){  
-        this.name=name;  
+        this.name = name;  
         }
 
         public String getGenere(){
@@ -23,7 +23,7 @@ public class Movie {
         }
 
         public void setGenere(String genere){  
-            this.genere=genere;  
+            this.genere = genere;  
             }
 
             public int getYear(){
@@ -31,7 +31,7 @@ public class Movie {
             } 
 
             public void setYear(int year){  
-                this.year=year;  
+                this.year = year;  
                 }
         
                 public String getDirector(){
@@ -39,7 +39,7 @@ public class Movie {
                 } 
 
                 public void setDirector(String director){  
-                    this.director=director;  
+                    this.director = director;  
                     }
         
                     public String getProducer(){
@@ -47,7 +47,7 @@ public class Movie {
                     } 
 
                     public void setProducer(String producer){  
-                        this.producer=producer;  
+                        this.producer = producer;  
                         }
 
       /* this.name= "THE FAULT IN OUR STARS";
