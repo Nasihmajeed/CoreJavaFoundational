@@ -19,7 +19,7 @@ public int heroNo;
 public int heroineNo;
 public  int comedianNo;
 public int villanNo;
-
+public int sceneNo;
 
  
  public String getName()   {
@@ -60,6 +60,16 @@ public String getDirector()  {
 	 
 	 System.out.println("\t\t\t\t\t\t\tMOVIE DETAIL");
 	 System.out.println("\t\t\t\t\t\t-------------------------");
+		System.out.println("\t\tMovie Types");
+		System.out.println("\t\t____________________");
+		System.out.println("\n");
+
+		System.out.println("Action");
+		System.out.println("Romantic");
+		System.out.println("Comedy");
+		System.out.println("Thriller");
+		System.out.println("\n");
+ 
 		System.out.println("Enter The Type Of Movie ");
 		genre = sc.nextLine();
 		System.out.println("Enter The Name Of Movie");
@@ -97,12 +107,14 @@ sc.nextLine();
 		hero.setCharacterName(sc.nextLine());
 
 		hero.actorDetails();
+		System.out.println("\n");
+
 	}
 
 	System.out.println("Enter the Number of Heroine :");
 heroineNo = sc.nextInt();
 System.out.println("\n");
-sc.nextLine()
+sc.nextLine();
 
 for(int i = 1; i <= heroineNo; i ++)  {
 
@@ -110,19 +122,20 @@ Heroine heroine = new Heroine();
 
 System.out.println("Enter" + i + "Heroine Name :");
 heroine.setName(sc.nextLine());
-System.out.println("\n");
 System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
 heroine.actorDetails();
+System.out.println("\n");
+
 }
 
 
 System.out.println("Enter the Number of Comedian :");
 comedianNo = sc.nextInt();
 System.out.println("\n");
-sc.nextLine()
+sc.nextLine();
 
 for(int i = 1; i <= comedianNo; i ++)  {
 
@@ -130,18 +143,19 @@ for(int i = 1; i <= comedianNo; i ++)  {
 
 	System.out.println("Enter" + i + "Comedian Name :");
 	comedian.setName(sc.nextLine());
-	System.out.println("\n");
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
 	comedian.actorDetails();
+	System.out.println("\n");
+
 }
 
 
 System.out.println("Enter the Number of Villan :");
 villanNo = sc.nextInt();
 System.out.println("\n");
-sc.nextLine()
+sc.nextLine();
 
 for(int i = 1; i <= villanNo; i ++)  {
 
@@ -149,13 +163,19 @@ Villan villan = new Villan();
 
 System.out.println("Enter" + i + "Villan Name ");
 villan.setName(sc.nextLine());
-System.out.println("\n");
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine());
 
 villan.actorDetails();
+System.out.println("\n");
 
 }
+
+sceneNo = (int) (Math.random()*3 +3 );
+
+System.out.println("Number of Movie Scenes :" + sceneNo);
+
+
 
 Script script = new Script();
 
