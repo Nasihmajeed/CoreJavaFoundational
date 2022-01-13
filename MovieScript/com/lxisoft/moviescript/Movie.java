@@ -133,16 +133,22 @@ public class Movie {
 
         Script script = new Script();
 
-        script.actor[0] = hero.getCharacterName();
-        script.actor[1]= heroine.getCharacterName();
-        script.actor[2]= comedian1.getCharacterName();
-        script.actor[3]= comedian2.getCharacterName();
-        script.actor[4]= comedian3.getCharacterName();
-        script.actor[5]= comedian4.getCharacterName();
-        
-        script.setupMovie();
-        script.playMovie();
+        script.setupScript();
+        script.viewScript();
 
+        Dialogue dialogue = new Dialogue();
+
+        dialogue.actor[0] = hero.getCharacterName();
+        dialogue.actor[1]= heroine.getCharacterName();
+        dialogue.actor[2]= comedian1.getCharacterName();
+        dialogue.actor[3]= comedian2.getCharacterName();
+        dialogue.actor[4]= comedian3.getCharacterName();
+        dialogue.actor[5]= comedian4.getCharacterName();
+        
+        //dialogue.setupDialogue();
+        dialogue.viewDialogue();
+        
+       
    }
   /* public void  printName(Hero h1) {
     
