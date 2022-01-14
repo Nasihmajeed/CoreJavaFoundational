@@ -8,11 +8,7 @@ public class Dialogue {
     String dialogue2;
     String [] actor = new String[6];
 
-    public void setupDialogue(){
-
-        this.dialogue1 = "Romantic Dialogues";
-        this.dialogue2 = "Comic Dialogues";
-    }
+   
       public void viewDialogue() {
 
         ArrayList <String> script1= new ArrayList<String> ();
