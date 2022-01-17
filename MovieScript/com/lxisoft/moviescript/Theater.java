@@ -6,8 +6,6 @@ public class Theater {
  private String place;
  private String phone;
   
-  
-  //public void setupMovie() {
 
     public String getName() {
       return name;
@@ -37,8 +35,6 @@ public class Theater {
    /* this.name="SATHYA MOVIE HOUSE";  
     this.place="PALAKKAD";
     this.phone="9678346784";*/
-
-   // movie.setupMovie();
     
   
   public void viewTheater () {
