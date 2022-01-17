@@ -20,6 +20,7 @@ public int heroineNo;
 public  int comedianNo;
 public int villanNo;
 public int sceneNo;
+int number;
 
  
  public String getName()   {
@@ -64,14 +65,46 @@ public String getDirector()  {
 		System.out.println("\t\t____________________");
 		System.out.println("\n");
 
-		System.out.println("Action");
-		System.out.println("Romantic");
-		System.out.println("Comedy");
-		System.out.println("Thriller");
+		System.out.println("1 = Action");
+		System.out.println("2 = Romantic");
+		System.out.println("3 = Comedy");
+		System.out.println("4 = Thriller");
 		System.out.println("\n");
- 
-		System.out.println("Enter The Type Of Movie ");
-		genre = sc.nextLine();
+
+		System.out.println("Enter The Number of Genre Type ");
+		 number= sc.nextInt();
+
+			sc.nextLine();
+
+			switch  (number)  {
+
+case 1 :
+
+genre = ("Action");
+break;
+
+
+case 2: 
+
+genre = ("Romantic");
+break;
+
+
+case 3:
+
+genre =("Comedy");
+break;
+
+
+case 4:
+
+genre = ("Thriller");
+break;
+	
+
+			}
+
+
 		System.out.println("Enter The Name Of Movie");
 		name = sc.nextLine();
 	 System.out.println("only 1 Language available");
@@ -176,11 +209,17 @@ sceneNo = (int) (Math.random()*3 +3 );
 System.out.println("Number of Movie Scenes :" + sceneNo);
 
 
+// IF program
+
+
+
+
 
 Script script = new Script();
 
-script.scene1Details();
+script.showScene1();
 
+script.showScene2();
 
  }	 
 }
