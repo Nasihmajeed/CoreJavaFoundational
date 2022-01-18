@@ -46,13 +46,14 @@ public void showScene3() {
 	System.out.println("\n");
   System.out.println("\t\t\t\t\t  ---------Scene 3--------");
   System.out.println("\n");
-  System.out.println("\t\t\t...Playing Romantic Scene...");
+  System.out.println("\t\t\t...Playing 2nd Comedy Scene...");
      
+  System.out.println("\t\t\t\t\tPennu Kaanal Chadangu");
+  System.out.println ("\n");
+  System.out.println ("\n");
+  System.out.println ("\n");
 
-
-
-
-
-
+  
+  dialogue.playScene3();
 }
 }

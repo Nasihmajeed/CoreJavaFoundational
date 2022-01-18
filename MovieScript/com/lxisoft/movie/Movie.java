@@ -22,6 +22,8 @@ public int villanNo;
 public int sceneNo;
 int number;
 
+public Hero [] heros = new Hero[100];
+
  
  public String getName()   {
 	 return name;
@@ -107,10 +109,28 @@ break;
 
 		System.out.println("Enter The Name Of Movie");
 		name = sc.nextLine();
+		System.out.println("\n");
 	 System.out.println("only 1 Language available");
 		System.out.println("*MALAYALAM");
-		System.out.println("Enter The Language");
-		language = sc.nextLine();
+		System.out.println("Select MALAYALAM Language Press 1 ");
+		System.out.println("\n");
+		System.out.println("Enter Number");
+		number = sc.nextInt();
+sc.nextLine();
+
+if (number ==1)  {
+
+language = ("MALAYALAM");
+
+}
+
+		if(number != 1)   {
+
+			System.out.println("You Are Selected Wrong Number");
+
+		}
+
+
 		System.out.println("Enter The Director Name");
 		director = sc.nextLine();
 		System.out.println("\t\tName :" + this.name); 
@@ -138,6 +158,11 @@ sc.nextLine();
 
 		System.out.println("Enter" + i + "Hero Character Name");
 		hero.setCharacterName(sc.nextLine());
+
+heros[i] = hero;
+
+// Array for getCharacterName  of multiple Actors
+
 
 		hero.actorDetails();
 		System.out.println("\n");
@@ -213,8 +238,6 @@ System.out.println("Number of Movie Scenes :" + sceneNo);
 
 
 
-
-
 Script script = new Script();
 
 script.showScene1();
@@ -222,4 +245,6 @@ script.showScene1();
 script.showScene2();
 
  }	 
+
+
 }

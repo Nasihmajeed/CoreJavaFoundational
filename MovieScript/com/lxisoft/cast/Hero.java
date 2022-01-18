@@ -7,6 +7,7 @@ import com.lxisoft.movie.Actor;
 
 public class Hero extends Actor  {
 
+
   Scanner sc = new Scanner(System.in);
 
  public void actorDetails()  {

@@ -12,6 +12,7 @@ public class Dialogue  {
 
  ArrayList <String> scene2 = new ArrayList<String>();
 
+ ArrayList <String> scene3 = new ArrayList<String>();
  
 
 public void playScene1()   {
@@ -101,6 +102,17 @@ for (String scene22 : scene2)  {
 System.out.println(scene22);
 
 }
+
+}
+
+
+
+public void playScene3()   {
+
+
+
+
+  scene3.add("achan -- eh ningal ippo varumenno");
 
 }
 
