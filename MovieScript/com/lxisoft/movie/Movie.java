@@ -161,6 +161,7 @@ sc.nextLine();
 
 heros[i] = hero;
 
+
 // Array for getCharacterName  of multiple Actors
 
 
@@ -233,16 +234,32 @@ sceneNo = (int) (Math.random()*3 +3 );
 
 System.out.println("Number of Movie Scenes :" + sceneNo);
 
-
-// IF program
-
-
-
 Script script = new Script();
+
+
+if(sceneNo == 3)   {
+
+
+
+}
+
+if(sceneNo ==4)   {
+
+
+}
+
+if(sceneNo==5)  {
+
+
+
+}
+
 
 script.showScene1();
 
 script.showScene2();
+
+script.showScene3();
 
  }	 
 

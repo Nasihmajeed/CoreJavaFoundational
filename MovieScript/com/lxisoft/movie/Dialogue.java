@@ -112,7 +112,75 @@ public void playScene3()   {
 
 
 
-  scene3.add("achan -- eh ningal ippo varumenno");
+  scene3.add("Hero : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto");  
+  scene3.add("comedian : valla kachiya velichennayayirikkum");
+  scene3.add("Hero : hmm  nee kadanno nee kadanno");
+  scene3.add("");
+scene3.add("\t\t\t(PLAYING SONG IN BUS)");
+scene3.add("");
+scene3.add("Heroine friend : Ayisha  Ayishaa... povaam  ");
+scene3.add("ayyoo  .. she.. onn mindaan pattiyirunnenki");
+scene3.add("(Heroinefriend by parayunnu");
+scene3.add("comedian : ennodaaaa..mmmm.");
+scene3.add("comedian : nokkikondirinno ol ippo thirinju nokkum ol ummachikuttiyada  oru nottam kittanel neeyokke vere janmam janikkanam");
+scene3.add("Hero : mmm hmmm");
+scene3.add("");
+scene3.add("\t\t\t(HEROINE LOOKING HERO)");
+scene3.add("");
+scene3.add("\t\t\t(HERO SMILING)");
+scene3.add("");
+scene3.add("Hero : nee enthada paranjath ol ummachikutti aan thirinju nokkillan.....  ol thirinju nokkiyada enne thirinju nokkiyada ummachi kutti aanel njan naayar aada ");
+scene3.add("Comedian : nee naayarayathin njan enth cheyyaanaa");
+scene3.add("Hero : ha hahaaha");
+scene3.add("");
+scene3.add("\t\t\t(AFTER SOME TIME)");
+scene3.add("");
+scene3.add("(Hero CALLING Comedian)");
+scene3.add("");
+scene3.add("\t\t\t(PHONE RINGING)");
+scene3.add("");
+scene3.add("comedian : Hello manju");
+scene3.add("Hero : eeh  manjo appo chinjune nee vitto");
+scene3.add("Comedian : ooh mr naayar ningal vilikkunna ee pavam subscriber ente mayyath edukkunnath vare nilavilillada thendi");
+scene3.add("Hero : Eda   nee choodavalle... njan otta kaaryam ariyan vendi vilichathaa");
+scene3.add("Comedian : enthaa");
+scene3.add("Hero : aa abdhul khadarinte veettumathilil kuppichill undo");
+scene3.add("Comedian : nee enthiyyan povaaa");
+scene3.add("\n");
+scene3.add("\t\t\t(BGM)");
+scene3.add("\n");
+scene3.add("Hero : Ayishaa  ayishaa..");
+scene3.add("\n");
+scene3.add("Heroine : eeh   (HEROINE SHOCKED)");
+scene3.add("\n");
+scene3.add("Hero :  aa a mm sorry iam sorry Ayisha ninne vannu pedippikkanamenn karuthiyathalla pakshe enikk veetilirunnu irikkanum nikkanum pattanilla");
+scene3.add("Hero : irikkumbo shardhikan thonnum nikkumbo kayyum kaaalum varakkum sathyam parayaalo ninte athrem bangi ulla pennine ente jeevithathil kandittilla ente ammayaan sathyam ");
+scene3.add("\n");
+scene3.add("\t\t\t(HEROINE LOOKING HERO");
+scene3.add("\n");
+scene3.add("Hero : ooh enne ingane nokkalle Ayisha njan marichu povum");
+scene3.add("\n");
+scene3.add("\t\t\t(Heroine SMILING) ");
+scene3.add("\n");
+scene3.add("Hero : ooh bhayankara ashwasam thonnunnu entha parayaa  ee pathu pathinaalu dhivasam bakshanam kazhikkatha oralde munnil chicken biriyani vecha engane irikkum athaanente avastha  ");
+scene3.add("Hero : vellam illathe oonum urakkom illathe oru 100 varsham enne nokkiyirikkaan pattoo ninakk anganeyonnum pattillayirikkum pakshe enik anganeyokke thonnum..");
+scene3.add("Hero : ninte veettukar vannu enne thallunnathin munb njan parayaam hmm  hoo   ");
+scene3.add("Hero :  I LOVE YOU AYISHA ");
+scene3.add("\n");
+scene3.add("\t\t\t(HEROINE LOOKING HERO)");
+scene3.add("\n");
+scene3.add("Hero : ippo ingottonnum parayanda nannayi aalojich orupad samayam eduthu ishttanenn paranjaal mathi ");
+scene3.add("\n");
+scene3.add("\t\t\t(BGM)");
+
+
+
+for (String scene33 : scene3)  {
+
+  System.out.println(scene33);
+  
+  }
+  
 
 }
 
