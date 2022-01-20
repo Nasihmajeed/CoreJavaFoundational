@@ -1,5 +1,6 @@
 package com.lxisoft.game;
 import java.*;
+import java.io.*;
 import com.lxisoft.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
@@ -13,14 +14,21 @@ public class Forest {
        
       
        public List<Animal> animalsList = new ArrayList<Animal>();
+       
        FileRepository repo = new  FileRepository();
          
-       public void welcomeToForest()
+       public void welcomeToForest() 
        {
 
        int i = 0; 
-       repo.createFile();    
-  
+      
+        repo.createFile();
+        repo.showFileInfo();
+        repo.writeToFile();
+        repo.readFile();
+
+      
+    
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
@@ -37,16 +45,15 @@ public class Forest {
               animalsList.add(new Gaur("Hungry-Guar",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Crocodile("Lazy-Crocodile",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Rhinoceros("Indian-Rhinoceros",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-
-            
-               /* while(i < animalsList.size()){
+ 
+          
+             /*   while(i < animalsList.size()){
                      animalsList.get(i).printData(); 
                      System.out.println();  
                      i++;
               } */
 		
-              //repo.writeToFile().writer.close();
-              repo.writeTofile();
+           
              
               meetPlayers(returnPlayer(animalsList),returnPlayer(animalsList));
        }
@@ -96,9 +103,7 @@ public class Forest {
                    if(createRoamingArea(x1,x2,y1,y2) <= 13){
                           System.out.println("FIGHT STARTS NOW");
                          player2.startFight(player1);
-                         // Carnivores c = new Animal("", 0,0 ,0);
-                         //Carnivores c = (Carnivores) player2;
-                         //c.startFight(player1);
+                        
                    }  else{
                      System.out.println("Nothing Happends");
 
@@ -133,9 +138,7 @@ public class Forest {
                     System.out.println(createRoamingArea(x1,x2,y1,y2));
                     if(createRoamingArea(x1,x2,y1,y2) <= 13){
                            System.out.println("FIGHT STARTS NOW");
-                           //Carnivores c = new Animal("",0,0,0);
-                        //   Carnivores c = (Carnivores) player1;
-                          //c.startFight(player2); 
+                          
                           player1.startFight(player2);
                     } else{
                            System.out.println("Nothing Happends");

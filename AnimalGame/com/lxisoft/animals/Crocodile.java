@@ -23,7 +23,7 @@ public class Crocodile extends Animal implements Carnivores {
                System.out.println("Now the state of "+player1.getName()+" is alive condition is "+player1.getIsAlive());
                
              
-
+ 
               }else if(player1 instanceof Carnivores && player2 instanceof Herbivores){
         
         System.out.println(" < \t\t\t-------------***------------- \t\t\t> ");

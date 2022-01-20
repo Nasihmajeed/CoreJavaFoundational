@@ -95,14 +95,14 @@ public void setAnimalLocation(int x,int y)
 
 public int getAnimalLocationX()
 	{
-		
+		//System.out.println("\t Scale of X - Axis : \t" +animalLocation.getLocationXAxis());
 		return animalLocation.getLocationXAxis();
 	}
 
 	public int getAnimalLocationY()
 	{
 		
-		
+		//System.out.println("\t Scale of Y - Axis : \t" +animalLocation.getLocationYAxis());
 		return animalLocation.getLocationYAxis();
 	}
 

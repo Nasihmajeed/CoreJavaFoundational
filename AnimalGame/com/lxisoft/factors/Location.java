@@ -5,6 +5,8 @@ public class Location
 {
 	private int locationXAxis,locationYAxis ;
 
+
+	
 	public int getLocationXAxis()
 	{
 		return locationXAxis ;
