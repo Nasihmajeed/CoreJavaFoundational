@@ -1,25 +1,12 @@
 package com.lxisoft.snakesandladders;
 
-import com.lxisoft.game.Coin;
+import java.util.List;
 
-public class BoosterLadder {
+public class BoosterLadder extends Ladder {
 
-	protected Cell topPosition;
-	protected Cell bottomPosition;
-
-	public BoosterLadder() {
+	public BoosterLadder(Cell bottomPosition, List<Cell> cells) {
+		this.bottomPosition = bottomPosition;
+		int topPosition = bottomPosition.getCellNumber() + 40;
+		this.topPosition = cells.get(topPosition - 1);
 	}
-
-	public void lift(Coin coin) {
-		coin.setPosition(topPosition);
-	}
-
-	public Cell getTopPosition() {
-		return topPosition;
-	}
-
-	public Cell getBottomPosition() {
-		return bottomPosition;
-	}
-
 }

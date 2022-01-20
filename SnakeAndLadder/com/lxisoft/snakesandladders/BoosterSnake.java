@@ -1,26 +1,12 @@
 package com.lxisoft.snakesandladders;
 
-import com.lxisoft.game.Coin;
+import java.util.List;
 
-public class BoosterSnake {
+public class BoosterSnake extends Snake {
 
-	protected Cell headPosition;
-	protected Cell tailPosition;
-
-	public BoosterSnake() {
-		super();
+	public BoosterSnake(Cell headPosition, List<Cell> cells) {
+		this.headPosition = headPosition;
+		int tailPosition = headPosition.getCellNumber() - 50;
+		this.tailPosition = cells.get(tailPosition - 1);
 	}
-
-	public void bite(Coin coin) {
-		coin.setPosition(tailPosition);
-	}
-
-	public Cell getHeadPosition() {
-		return headPosition;
-	}
-
-	public Cell getTailPosition() {
-		return tailPosition;
-	}
-
 }

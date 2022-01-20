@@ -1,15 +1,21 @@
 package com.lxisoft.snakesandladders;
 
+import java.util.List;
+
 import com.lxisoft.game.Coin;
 
 public class Ladder {
 
-	private Cell topPosition;
-	private Cell bottomPosition;
+	protected Cell topPosition;
+	protected Cell bottomPosition;
 
-	public Ladder(Cell topPosition, Cell bottomPosition) {
-		this.topPosition = topPosition;
+	public Ladder() {
+	}
+
+	public Ladder(Cell bottomPosition, List<Cell> cells) {
 		this.bottomPosition = bottomPosition;
+		int topPosition = bottomPosition.getCellNumber() + 20;
+		this.topPosition = cells.get(topPosition - 1);
 	}
 
 	public void lift(Coin coin) {

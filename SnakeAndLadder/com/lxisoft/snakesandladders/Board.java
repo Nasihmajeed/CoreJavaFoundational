@@ -40,22 +40,23 @@ public class Board {
 
 	private void addSnakesAndLadders() {
 		int headPosition = 95;
-		int topPosition = 90;
-		int snakeLength = 50;
-		int ladderLength = 37;
+		int bottomPosition = 10;
 
-		for (int i = 0; i < 5; i++) {
-			int tailPosition = headPosition - snakeLength;
-			Snake snake = new Snake(cells.get(headPosition - 1), cells.get(tailPosition - 1));
+		for (int i = 0; i < 2; i++) {
+			Snake snake = new BoosterSnake(cells.get(headPosition - 1), cells);
 			cells.get(headPosition - 1).setSnake(snake);
-			int bottomPosition = topPosition - ladderLength;
-			Ladder ladder = new Ladder(cells.get(topPosition - 1), cells.get(bottomPosition - 1));
+			Ladder ladder = new BoosterLadder(cells.get(bottomPosition - 1), cells);
 			cells.get(bottomPosition - 1).setLadder(ladder);
 			headPosition -= 15;
-			topPosition -= 12;
-			snakeLength -= 5;
-			ladderLength -= 5;
-
+			bottomPosition += 12;
+		}
+		for (int i = 0; i < 3; i++) {
+			Snake snake = new Snake(cells.get(headPosition - 1), cells);
+			cells.get(headPosition - 1).setSnake(snake);
+			Ladder ladder = new Ladder(cells.get(bottomPosition - 1), cells);
+			cells.get(bottomPosition - 1).setLadder(ladder);
+			headPosition -= 15;
+			bottomPosition += 12;
 		}
 	}
 

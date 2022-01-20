@@ -1,15 +1,21 @@
 package com.lxisoft.snakesandladders;
 
+import java.util.List;
+
 import com.lxisoft.game.Coin;
 
 public class Snake {
 
-	private Cell headPosition;
-	private Cell tailPosition;
+	protected Cell headPosition;
+	protected Cell tailPosition;
 
-	public Snake(Cell headPosition, Cell tailPosition) {
+	public Snake() {
+	}
+
+	public Snake(Cell headPosition, List<Cell> cells) {
 		this.headPosition = headPosition;
-		this.tailPosition = tailPosition;
+		int tailPosition = headPosition.getCellNumber() - 30;
+		this.tailPosition = cells.get(tailPosition - 1);
 	}
 
 	public void bite(Coin coin) {
