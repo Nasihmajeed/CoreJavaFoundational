@@ -14,9 +14,13 @@ public class Dialogue  {
 
  ArrayList <String> scene3 = new ArrayList<String>();
  
+ ArrayList <String> scene4 = new ArrayList<String>();
+ 
+
+
+
 
 public void playScene1()   {
-
 
 
 
@@ -183,5 +187,67 @@ for (String scene33 : scene3)  {
   
 
 }
+public void playScene4()  {
+
+
+scene4.add("Heroine : hey karikk");
+scene4.add("Comedian : naariyalkka paani  sthrekkalude sountharyathin karikk bestaa...  hey  baaisaab  ek naariyal pani");
+scene4.add("Comedian :  ee strow okke aarudeyokke vaayil ittathaanaavo.nammal ee strow kudichitt kalayille ath ivanmaarokke ath eduthitt packettil vekkum");
+scene4.add("Comedian : pinnne ee vrithiyum vedippum samsaakkaravum illathavanmar atheduth  shhrr sshhhrr   ennu valichu kudikkum");
+scene4.add("Comedian2 : baai saab ");
+scene4.add("comedian : kithnaa rupyaa");
+scene4.add(" Comedian2 :theese rupya");
+scene4.add("Comedian : theese rupyaa ??  discount nahiye?");
+scene4.add("Comedian 2 : nahi nahi discount nahi");
+scene4.add("comedian :  eh keralakka nariyalpaani he");
+scene4.add("comedian2 : A pollachi kkaa");
+scene4.add("comedian : pollachiyo    aa bhaakki  bhaakki paisa dhedhonaa....Malayaleesine mandanmar aakkanda.. ithokke choichu vaangillenki tharilla njanaaraa mon");
+scene4.add("comedian2 : kyaa athmiyaa saala");
+scene4.add("comedian :Stationte purathu ithin 20 roopa ye undaavullu  manushyanmare pattikkunna pattikkaley  enthayalum kudicholooo");
+scene4.add("comedian : hee heee ippo tharaa .. ith pole njan ennum cheyyunnnathaa.. ");
+scene4.add("Heroine : hehehehe");
+scene4.add("comedian : No tension  simple  ee nithyabhyasi  aana edukkumenn kettittille  athre ulloo");
+scene4.add("Heroine : hhmmmm");
+scene4.add("comedian3 :  hahahaha athenthayaalum akathekk varilla  thanikk kudikkanel thaan purathu poyi kudikkado ");
+scene4.add("comedian : podo ");
+scene4.add("comedian3 : njan poyitt kaaryalla than thanne ponam... oru strow kittiyirunnel valichu kudikkarnnalle hahaha  appo ee pulliyenthaa paranjath vrithi ilathavar aan strow itt kudikkukayulloo enn");
+scene4.add("porathathin pakarchavyadi varumenn  hahahaha  ipo kidannu aanjupidikkunnath kando hahaha ");
+scene4.add("comedian 3 :  eh ayyo  kuttee pettennu pencilum paperum eduthu varacho hanuman malem chumannu pona figuraa");
+scene4.add(" Heroine :  hehehhehehe");
+scene4.add("comedian3 : the figure vitt...  inn vallathum nadakko pattilenki vitt kale  allenki ivade vallathu povum ");
+scene4.add("Comedian : haa ipo ippo  sheriyyakki tharaam ");
+scene4.add("Heroine : hmmm");
+scene4.add("comedian 3 : amme..... ennalum ithevidunn ");
+scene4.add("Heroine : haa ");
+scene4.add("Comedian : naariyal paani ");
+scene4.add("Heroine : ithengane ");
+scene4.add("Comedian : NOTHING IS IMPOSSIBLE ");
+
+
+
+for (String scene44 : scene4)  {
+
+  System.out.println(scene44);
+  
+  }
+
+
 
 }
+
+
+public void playScene5() {
+
+
+
+
+
+
+
+  
+}
+
+
+
+}
+
