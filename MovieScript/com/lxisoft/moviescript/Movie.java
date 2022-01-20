@@ -131,11 +131,6 @@ public class Movie {
             return passName;
         }*/
 
-        Script script = new Script();
-
-        script.setupScript();
-        script.viewScript();
-
         Dialogue dialogue = new Dialogue();
 
         dialogue.actor[0] = hero.getCharacterName();
@@ -146,6 +141,13 @@ public class Movie {
         dialogue.actor[5]= comedian4.getCharacterName();
         
         //dialogue.setupDialogue();
+
+        
+        Script script = new Script();
+
+        //script.setupScript();
+       // script.viewScript();
+
         dialogue.viewDialogue();
         
        

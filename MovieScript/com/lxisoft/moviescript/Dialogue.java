@@ -14,6 +14,7 @@ public class Dialogue {
         ArrayList <String> script1= new ArrayList<String> ();
         
         
+        
         script1.add("\t\t\t+----------------+" +"\n");
 
         script1.add("\t\t    **PLAYING ROMANTIC SCENE** "+"\n");
