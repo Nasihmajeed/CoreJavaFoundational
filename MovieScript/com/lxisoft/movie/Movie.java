@@ -23,6 +23,10 @@ public int sceneNo;
 int number;
 
 public Hero [] heros = new Hero[100];
+public Heroine [] heroines = new Heroine[100];
+public Comedian [] comedians = new Comedian[100];
+public Villan [] villans = new Villan[100];
+
 
  
  public String getName()   {
@@ -162,13 +166,13 @@ sc.nextLine();
 heros[i] = hero;
 
 
-// Array for getCharacterName  of multiple Actors
-
 
 		hero.actorDetails();
+
 		System.out.println("\n");
 
 	}
+
 
 	System.out.println("Enter the Number of Heroine :");
 heroineNo = sc.nextInt();
@@ -184,6 +188,8 @@ heroine.setName(sc.nextLine());
 System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
+
+heroines[i] = heroine;
 
 heroine.actorDetails();
 System.out.println("\n");
@@ -205,6 +211,9 @@ for(int i = 1; i <= comedianNo; i ++)  {
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
+comedians[i] = comedian;
+
+
 	comedian.actorDetails();
 	System.out.println("\n");
 
@@ -225,6 +234,8 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine());
 
+villans[i] = villan;
+
 villan.actorDetails();
 System.out.println("\n");
 
@@ -237,13 +248,50 @@ System.out.println("Number of Movie Scenes :" + sceneNo);
 Script script = new Script();
 
 
+for(int i = 1; i <= heroNo; i ++ )   {
+
+script.dialogue.hero[i]=heros[i].getCharacterName();
+
+}
+
+for(int i = 1; i <= heroineNo; i ++)   {
+
+
+script.dialogue.heroine[i]=heroines[i].getCharacterName();
+
+}
+
+for(int i = 1; i <= comedianNo; i++)   {
+
+script.dialogue.comedian[i]=comedians[i].getCharacterName();
+
+}
+
+for(int i = 1; i <= villanNo; i ++) {
+
+	script.dialogue.villan[i]=villans[i].getCharacterName();
+
+}
+
+
+
 if(sceneNo == 3)   {
 
+
+
+script.showScene1();
+script.showScene2();
+script.showScene3();
 
 
 }
 
 if(sceneNo ==4)   {
+
+script.showScene4();
+script.showScene3();
+script.showScene2();
+script.showScene5();
 
 
 }
@@ -252,18 +300,15 @@ if(sceneNo==5)  {
 
 
 
-}
-
-
 script.showScene1();
-
-script.showScene2();
-
 script.showScene3();
-
 script.showScene4();
-
+script.showScene2();
 script.showScene5();
+
+
+
+}
 
 
  }	 

@@ -68,7 +68,7 @@ public void showScene4()  {
   System.out.println("\n");
   System.out.println("\t\t\t\t\t  ---------Scene 4--------");
   System.out.println("\n");
-  System.out.println("\t\t     ...Playing 2nd Comedy Scene...");
+  System.out.println("\t\t     ...Playing  Comedy Scene...");
   System.out.println("\n");
   System.out.println("\t\t\t\t   Inside The Train");
   System.out.println("\t\t\t\t----------------------------");
@@ -90,16 +90,14 @@ public void showScene5() {
   System.out.println("\n");
   System.out.println("\t\t\t\t\t  ---------Scene 5--------");
   System.out.println("\n");
-  System.out.println("\t\t     ...Playing Climax  Scene...");
-  System.out.println("\n");
-  System.out.println("\t\t\t\t\t   Match day");
-  System.out.println("\t\t\t\t   ------------------------");
+  System.out.println("\t\t     ...Playing  Romantic  Scene...");
+  System.out.println("\t\t   -------------------------------------");
   System.out.println ("\n");
   System.out.println ("\n");
   System.out.println ("\n");
 
 
-dialogue.playScene5();
+dialogue.playScene5();   
 
 }
 
