@@ -10,6 +10,12 @@ public class Game {
 	private Player player1;
 	private Player player2;
 	private Die die;
+	private String description = "DESCRIPTION: Snakes and ladders is a board game for two or more players regarded today, as a worldwide classic.The game originated\n\t     in ancient India as Moksha Patam, and was brought to the UK in the 1890s. It is played on a game board with numbered,\n\t     gridded squares.A number of ladders and snakes are pictured on the board, each connecting two specific board squares.\n\t     The object of the game is to navigate one's game piece, according to die rolls, from the start (bottom square) to the\n\t     finish (top square),helped by climbing ladders but hindered by falling down snakes.\n\n";
+	private String setup = "SETUP: The Snakes and Ladders rules dictate that at least two players play at one go.\n       The game has got one hundred squares.The players start at the first square,and\n       they have to maneuver through snakes and ladders to get to the 100th square. \n\n";
+	private String rules = "RULES: * When a coin comes on a number which lies on the top of a snake(face of the snake),then the coin will land below to the bottom of the snake\n         (tail of it) that can also be said as an unlucky move.\n       * If somehow the coin falls on the ladder base, it will immediately climb to the top of the ladder (which is considered to be a lucky move).\n       * Whereas if a player lands on the bottom of the snake or top of a ladder,the player will remain in the same spot (same number) and will not\n         get affected by any particular rule. The players can never move down ladders.\n       * The coins of different players can overlap each other without knocking out anyone. There is no concept of knocking out by opponent players\n         in Snakes and Ladders.\n       * To win, the player needs to roll the exact number of die to land on the number 100. If he/she fails to do so,then the player needs to roll\n         the die again in the next turn.For example,if a player is on the number 98 and the die roll shows the number 4,then the player cannot move\n         its coin until he/she gets a 2 to win or 1 to be on the 99th number.\n\n";
+	private String equipments = "EQUIPMENTS: * Snakes and ladders board\n\t    * Die\n\t    * Coins\n\n";
+	private String snakeRole = "ROLE OF SNAKE: When a player lands on a top of a snake, their playing coin will slide down to the bottom of the snake. Whereas landing on the bottom of a snake the player will remain in the same spot until their\t       next turn.\n";
+	private String ladderRole = "ROLE OF LADDER: When a player lands at the base of a ladder, it immediately climbs to the top of the ladder. Whereas landing at the top of a ladder the player will stay there until the next turn. The player does\t        not move to the bottom of the ladder.\n\n";
 
 	public void play() {
 		System.out.println("If you want to start the game, PRESS Y");
@@ -100,6 +106,54 @@ public class Game {
 
 	public void setDie(Die die) {
 		this.die = die;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getSetup() {
+		return setup;
+	}
+
+	public void setSetup(String setup) {
+		this.setup = setup;
+	}
+
+	public String getRules() {
+		return rules;
+	}
+
+	public void setRules(String rules) {
+		this.rules = rules;
+	}
+
+	public String getEquipments() {
+		return equipments;
+	}
+
+	public void setEquipments(String equipments) {
+		this.equipments = equipments;
+	}
+
+	public String getSnakeRole() {
+		return snakeRole;
+	}
+
+	public void setSnakeRole(String snakeRole) {
+		this.snakeRole = snakeRole;
+	}
+
+	public String getLadderRole() {
+		return ladderRole;
+	}
+
+	public void setLadderRole(String ladderRole) {
+		this.ladderRole = ladderRole;
 	}
 
 }
