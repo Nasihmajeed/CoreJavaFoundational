@@ -24,8 +24,7 @@ public class Forest {
       
         repo.createFile();
         repo.showFileInfo();
-        repo.writeToFile();
-        repo.readFile();
+        
 
       
     
@@ -52,7 +51,8 @@ public class Forest {
                      System.out.println();  
                      i++;
               } */
-		
+		repo.writeToFile();
+              repo.readFile();
            
              
               meetPlayers(returnPlayer(animalsList),returnPlayer(animalsList));
