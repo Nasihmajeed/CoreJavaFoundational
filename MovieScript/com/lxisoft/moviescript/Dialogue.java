@@ -8,12 +8,15 @@ public class Dialogue {
     String dialogue2;
     String [] actor = new String[6];
 
-   
+
+
       public void viewDialogue() {
 
+        Script script = new Script();
+         
         ArrayList <String> script1= new ArrayList<String> ();
-        
-        
+       
+        script.viewScript();
         
         script1.add("\t\t\t+----------------+" +"\n");
 
@@ -75,6 +78,7 @@ public class Dialogue {
 
         ArrayList <String> script2= new ArrayList<String>();
 
+        script.viewScript2();
 
         script2.add("\t\t\t+----------------+" +"\n");
 

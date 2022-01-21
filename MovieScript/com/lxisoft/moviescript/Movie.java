@@ -141,13 +141,13 @@ public class Movie {
         dialogue.actor[5]= comedian4.getCharacterName();
         
         //dialogue.setupDialogue();
-
-        
-        Script script = new Script();
-
-        //script.setupScript();
-       // script.viewScript();
-
+         //script.setupScript();
+       
+       
+        /* Script script = new Script();
+        script.viewScript();
+        script.viewScript2();*/
+       
         dialogue.viewDialogue();
         
        
