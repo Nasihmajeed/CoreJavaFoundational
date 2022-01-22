@@ -40,7 +40,7 @@ public void setPhoneNo(String newPhoneNo)  {
 
 
 
-public void theaterDetails()   {
+public void showTheater()   {
 	
 System.out.println("\n");
 System.out.println("\t\t\t\t\t\t\tTHEATER");	
@@ -53,7 +53,7 @@ System.out.println("\n");
 
 
 Movie movie = new Movie();
-movie.printDetails();
+movie.movieDetails();
 	
 }
 

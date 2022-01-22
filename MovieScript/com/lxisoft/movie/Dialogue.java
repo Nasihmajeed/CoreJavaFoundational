@@ -5,15 +5,8 @@ import java.util.ArrayList;
 public class Dialogue  {
  
 
-
- public String [] hero = new String[100];
-
- public String [] heroine = new String[100];
-
- public String [] comedian = new String[100];
-
- public String [] villan = new String[100];
-
+  public String [] newActors = new String[100];
+ 
 
 
  ArrayList <String> scene1 = new ArrayList< String>();
@@ -32,8 +25,8 @@ public void playScene1()   {
 
 
 
-   scene1.add(hero[1] + " : ningal nerathe vanno?" );
-   scene1.add(comedian[1] +" : innale veetil poyal alle nerathe varandollu.");
+ scene1.add(newActors[1] + ": ningal nerathe vanno ?");
+   scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
    scene1.add(comedian[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
    scene1.add(comedian[1] +" : mani 7.30 aayitto avare kananillallo");
    scene1.add(hero[1] +" : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk");

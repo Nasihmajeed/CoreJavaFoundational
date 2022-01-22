@@ -10,6 +10,6 @@ public static void main(String []args)  {
 Theater theater = new Theater("MELAM","Cherppulassery","123456789");
 
 
-theater.theaterDetails();
+theater.showTheater();
 }
 }

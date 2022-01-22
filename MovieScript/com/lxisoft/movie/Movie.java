@@ -21,14 +21,16 @@ public  int comedianNo;
 public int villanNo;
 public int sceneNo;
 int number;
-
-public Hero [] heros = new Hero[100];
-public Heroine [] heroines = new Heroine[100];
-public Comedian [] comedians = new Comedian[100];
-public Villan [] villans = new Villan[100];
+int sum;
 
 
- 
+public String[] actors;
+
+Script script = new Script();
+
+
+
+
  public String getName()   {
 	 return name;
  }
@@ -62,7 +64,7 @@ public String getDirector()  {
  }
  
  
- public void printDetails()   {
+ public void movieDetails()   {
 	 
 	 
 	 System.out.println("\t\t\t\t\t\t\tMOVIE DETAIL");
@@ -163,7 +165,7 @@ sc.nextLine();
 		System.out.println("Enter" + i + "Hero Character Name");
 		hero.setCharacterName(sc.nextLine());
 
-heros[i] = hero;
+actors[i] = hero.getCharacterName();
 
 
 
@@ -189,7 +191,7 @@ System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
-heroines[i] = heroine;
+actors[heroNo + i] = heroine.getCharacterName();
 
 heroine.actorDetails();
 System.out.println("\n");
@@ -211,7 +213,7 @@ for(int i = 1; i <= comedianNo; i ++)  {
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
-comedians[i] = comedian;
+actors[heroNo + heroineNo + i] = comedian.getCharacterName();
 
 
 	comedian.actorDetails();
@@ -234,44 +236,29 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine());
 
-villans[i] = villan;
+actors[heroNo + heroineNo + comedianNo] = villan.getCharacterName();
 
 villan.actorDetails();
 System.out.println("\n");
 
 }
 
+sum = heroNo + heroineNo + comedianNo + villanNo;
+
+for (int i = 1; i<= sum; i ++ )  {
+
+actors[1] = script.dialogue.newActors[i];
+
+
+}
+
+
+
 sceneNo = (int) (Math.random()*3 +3 );
 
 System.out.println("Number of Movie Scenes :" + sceneNo);
 
-Script script = new Script();
 
-
-for(int i = 1; i <= heroNo; i ++ )   {
-
-script.dialogue.hero[i]=heros[i].getCharacterName();
-
-}
-
-for(int i = 1; i <= heroineNo; i ++)   {
-
-
-script.dialogue.heroine[i]=heroines[i].getCharacterName();
-
-}
-
-for(int i = 1; i <= comedianNo; i++)   {
-
-script.dialogue.comedian[i]=comedians[i].getCharacterName();
-
-}
-
-for(int i = 1; i <= villanNo; i ++) {
-
-	script.dialogue.villan[i]=villans[i].getCharacterName();
-
-}
 
 
 
