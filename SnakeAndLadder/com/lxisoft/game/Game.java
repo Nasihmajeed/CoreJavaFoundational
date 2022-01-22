@@ -64,12 +64,12 @@ public class Game {
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
 					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
 			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100)
-				System.out.println("\n\t\t\t\t\t\t   *****Congratulations " + player1.getName() + "*****\n"
-						+ "\n\t\t\t\t\t\t *****Better luck next time" + player2.getName() + "*****");
+				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player1.getName() + " *****\n"
+						+ "\n\t\t\t\t\t\t ***** Better luck next time" + player2.getName() + " *****");
 			else
-				System.out.println("\n\t\t\t\t\t\t   *****Congratulations " + player2.getName() + "*****\n"
-						+ "\n\t\t\t\t\t\t *****Better luck next time" + player1.getName() + "*****");
-			System.out.println("\n\t\t\t\t\t\t\t  *****GAME OVER*****");
+				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player2.getName() + " *****\n"
+						+ "\n\t\t\t\t\t\t ***** Better luck next time " + player1.getName() + " *****");
+			System.out.println("\n\t\t\t\t\t\t\t  ***** GAME OVER *****");
 		} else {
 			System.out.println("\n\t\t\t\t\t\t\tEXIT FROM GAME\n\n");
 		}

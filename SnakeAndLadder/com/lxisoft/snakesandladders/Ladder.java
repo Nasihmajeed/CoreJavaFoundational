@@ -13,8 +13,12 @@ public class Ladder {
 	}
 
 	public Ladder(Cell bottomPosition, List<Cell> cells) {
+		updateHeadAndBottom(bottomPosition, cells, 20);
+	}
+
+	protected void updateHeadAndBottom(Cell bottomPosition, List<Cell> cells, int ladderLength) {
 		this.bottomPosition = bottomPosition;
-		int topPosition = bottomPosition.getCellNumber() + 20;
+		int topPosition = bottomPosition.getCellNumber() + ladderLength;
 		this.topPosition = cells.get(topPosition - 1);
 	}
 

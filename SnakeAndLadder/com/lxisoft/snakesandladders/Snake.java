@@ -13,8 +13,12 @@ public class Snake {
 	}
 
 	public Snake(Cell headPosition, List<Cell> cells) {
+		updateHeadAndTail(headPosition, cells, 30);
+	}
+
+	protected void updateHeadAndTail(Cell headPosition, List<Cell> cells, int snakeLength) {
 		this.headPosition = headPosition;
-		int tailPosition = headPosition.getCellNumber() - 30;
+		int tailPosition = headPosition.getCellNumber() - snakeLength;
 		this.tailPosition = cells.get(tailPosition - 1);
 	}
 
