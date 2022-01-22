@@ -26,13 +26,21 @@ package com.lxisoft.moviescript;
       
 
         System.out.println("\t\t\t      SCENE " +scene2);
+       
+      }
+
+        public void viewScript3() {
+          this.scene3= "Emotional Scene";
+        System.out.println("\n");
+
+        System.out.println("\t\t\t      SCENE " +scene3);
+
 
         //Dialogue dialogue = new Dialogue();
 
         //dialogue.setupDialogue();
         //dialogue.viewDialogue();
 
-        
       }
     }  
 

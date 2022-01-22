@@ -9,7 +9,6 @@ public class Dialogue {
     String [] actor = new String[6];
 
 
-
       public void viewDialogue() {
 
         Script script = new Script();
@@ -147,6 +146,86 @@ public class Dialogue {
 
           System.out.println(its.next());
           
+        }
+
+        ArrayList <String> script3= new ArrayList<String>();
+        
+        script.viewScript3();
+
+        script3.add("\t\t\t+----------------+" +"\n");
+
+        script3.add("\t\t      **PLAYING EMOTIONAL SCENE** "+"\n");
+
+        script3.add("\t\t+-----------------------------------+" +"\n");
+
+        script3.add("\t  (HERENGRACHT CANAL - DAY 121)  " + "\n");
+        
+        script3.add("\t (*They stroll across a footbridge. Hazel notices he’s struggling with something.*) " + "\n");
+
+        script3.add("\t" + actor[1] +": Augustus?" + "\n");
+
+        script3.add("\t *Gus takes a cigarette out, sticks it between his lips.* " + "\n");
+
+        script3.add("\t HAZEL (CONT’D) " + "\n");
+
+        script3.add("\t" + actor[1] + ": What is it? " + "\n");
+
+        script3.add("\t" + actor[0] + ": There’s something I have to tell you...They walk in silence a few beats." + "\n" );
+
+        script3.add("\t GUS (CONT’D)" + "\n");
+
+        script3.add("\t" + actor[0] + ": Just before you went into the hospital...There was this... I felt this... ache in my hip." + "\n");
+
+        script3.add("\t (*Hazel grabs onto his arm, a lump already forming.Gus takes the cigarette out of his mouth, clenches his teeth  tightly, trying not to cry.*) " + "\n");
+
+        script3.add("\t GUS (CONT’D) " + "\n");
+
+        script3.add("\t" + actor[0] + ": It lit up like a Christmas tree, Hazel.The lining of my chest, my liver... everywhere " + "\n");
+
+        script3.add("\t (*Hazel loses it in that moment, hugging him for dear life, her  head in his lap.*) " + "\n");
+
+        script3.add("\t" + actor[1] + ": I’m so sorry, Augustus. I’m so so sorry -- " + "\n");
+
+        script3.add("\t" + actor[0] + ": I’m sorry too -- " + "\n");
+
+        script3.add("\t" + actor[1] + ": It’s so unfair -- " + "\n");
+
+        script3.add("\t" + actor[0] + ": I should have told you --" + "\n");
+
+        script3.add("\t" + actor[1] + ": It’s so fucking unfair!  " + "\n");
+
+        script3.add("\t **A beat. Gus still trying not to cry.** " + "\n");
+
+        script3.add("\t" + actor[0] + ": Apparently the world is... not a wish granting factory. " + "\n");
+
+        script3.add("\t GUS (CONT’D) " + "\n");
+
+        script3.add("\t" + actor[0] + ": Don’t you worry about me, Hazel Grace. I’ll find a way to hang around and annoy you for a long time." + "\n");
+
+        script3.add("\t **She hugs him, perhaps a little too tightly. He winces.** " + "\n");
+
+        script3.add("\t" + actor[1] + ": Does it hurt? " + "\n");
+
+        script3.add("\t" + actor[0] + ": It’s ok. " + "\n");
+        script3.add("\t                : I’m ok." + "\n");
+
+        script3.add("\t" + actor[1] + ": Ok. " + "\n");
+
+        script3.add("\t **Hazel takes a moment to look at him, touches his cheek.** " + "\n");
+
+        script3.add("\t" + actor[0] + ": What? " + "\n" );
+
+        script3.add("\t" + actor[1] + ": I’m just... I’m very fond of you. He grabs her hand and holds it. " + "\n");
+
+        script3.add("\t" + actor[0] + ": I don’t suppose you can forget about it, treat me like I’m not dying. " + "\n");
+
+        script3.add("\t" + actor[1] + ": I don’t think you’re dying, Augustus. You’ve just got a touch of cancer Gus nods. Squeezes her hand. " + "\n");
+
+        Iterator it=script3.iterator();
+
+        while(it.hasNext()){
+
+          System.out.println(it.next());
         }
 
       }
