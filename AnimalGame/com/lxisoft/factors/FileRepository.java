@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.*;
 import java.lang.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import com.lxisoft.*;
 import com.lxisoft.game.Forest;
-
-import java.util.List;
-import java.util.ArrayList;
 public class FileRepository{
 
 
@@ -23,7 +23,7 @@ public class FileRepository{
 		if (myObj.createNewFile()) {
 		  System.out.println("File created: " + myObj.getName());
 		} else {
-		  System.out.println(" File already exists.");
+		  System.out.println(myObj.getName() + " File already exists.");
 		}
    } catch (IOException e) {
 		System.out.println("An error occurred.");
@@ -54,16 +54,41 @@ public void readFile(){
 		while(myReader.hasNextLine()){
 			String line = myReader.nextLine();
 			//System.out.println(line);
-			String[] arrOfStr = line.split(",", 10);
- 
-        for (String a : arrOfStr)
-            System.out.println(a);
+			String[] arrOfStr = line.split(",");
+			String type = arrOfStr[0];//create name: lion, 5
+        Constructor<?> constructor = Class.forName("com.lxisoft.animals."+type).getConstructor(String.class, Integer.TYPE,Integer.TYPE,Integer.TYPE,Boolean.TYPE);
+        Object o = constructor.newInstance(arrOfStr[1],arrOfStr[2],arrOfStr[3],arrOfStr[4],arrOfStr[5]);
+        System.out.println(o);
+
+        /*for (String a : arrOfStr)
+            System.out.println(a);*/
 			
 		}
 		myReader.close();
 	} catch (FileNotFoundException e) {
 		System.out.println("An error occured.");
 		e.printStackTrace();
+	}
+	catch (ClassNotFoundException ex){
+		System.out.println("you have an error");
+		System.out.println(ex);
+	}
+	catch (NoSuchMethodException exp){
+		System.out.println("exception occured!");
+		System.out.println(exp);
+	}
+	catch (InvocationTargetException expt){
+		System.out.println(expt);
+	}
+	catch (InstantiationException expti){
+		System.out.println(expti);
+	}
+	catch (IllegalAccessException exc){
+		System.out.println(exc);
+	}
+	catch (IllegalArgumentException excp){
+		System.out.println("IllegalArgumentException occured.");
+		System.out.println(excp);
 	}
 }
 
