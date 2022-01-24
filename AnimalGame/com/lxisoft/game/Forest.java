@@ -16,6 +16,8 @@ public class Forest {
        public List<Animal> animalsList = new ArrayList<Animal>();
        
        FileRepository repo = new  FileRepository();
+       
+       List<Animal> animals = new ArrayList<Animal>();
          
        public void welcomeToForest() 
        {
