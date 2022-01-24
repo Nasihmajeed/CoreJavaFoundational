@@ -27,21 +27,21 @@ public void playScene1()   {
 
  scene1.add(newActors[1] + ": ningal nerathe vanno ?");
    scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
-   scene1.add(comedian[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
-   scene1.add(comedian[1] +" : mani 7.30 aayitto avare kananillallo");
-   scene1.add(hero[1] +" : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk");
-   scene1.add(comedian[1] +" : pall thechaal mathiyarnnu ivatteyokke");
-   scene1.add(hero[1] +" : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan");
-scene1.add(comedian[3] +": ey bindhu mathre ulloo?");
-scene1.add(comedian[1] +" : ey illadaa thaa car varunnu");
-scene1.add(hero[1] +" : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki");
-scene1.add(comedian[1] +" : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo");
-scene1.add(hero[1] +": ini kidav vandeekkakathu irunnu thalla aayathaavo");
-scene1.add(comedian[1] +" : ey varum");
+   scene1.add(newActors[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
+   scene1.add(newActors[4] +" : mani 7.30 aayitto avare kananillallo");
+   scene1.add(newActors[1] +" : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk");
+   scene1.add(newActors[1] +" : pall thechaal mathiyarnnu ivatteyokke");
+   scene1.add(newActors[1]  +" : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan");
+scene1.add(newActors[1]  +": ey bindhu mathre ulloo?");
+scene1.add(newActors[1]  +" : ey illadaa thaa car varunnu");
+scene1.add(newActors[1]  +" : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki");
+scene1.add(newActors[1] +" : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo");
+scene1.add(newActors[1]  +": ini kidav vandeekkakathu irunnu thalla aayathaavo");
+scene1.add(newActors[1]  +" : ey varum");
 scene1.add("\t\t\t\t(BGM)");
-scene1.add(comedian[1] +" : hey ith pinnem thallenallo");
-scene1.add(comedian[3] +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?");
-scene1.add(hero[1] +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne");
+scene1.add(newActors[1] +" : hey ith pinnem thallenallo");
+scene1.add(newActors[1]  +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?");
+scene1.add(newActors[1]  +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne");
 
 
 
@@ -61,15 +61,15 @@ public void playScene2()  {
 
 
 
-scene2.add(villan[1] +" : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu");
-scene2.add(villan[1] +" :anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?");
-scene2.add(hero[1]+" : mm");
-scene2.add("\t\t\t"+"(" +villan[2]+ "  SMOKING)");
-scene2.add(villan[2] +" : iyyalokkeyaanalle ningade teamil   bhai");
-scene2.add(villan[1] +" : practice nadakkunnund. match aavumbozhekkum ready aavum");
-scene2.add(villan[2] +": thanikkokke thalakk valla praanthundo?  enne insult cheyanano vilichu varuthiyirikkunath ");
-scene2.add(villan[1] +" : anil jee  njaan");
-scene2.add(villan[2] +" : federationile thante chathupoya thanthapidide kootukaaranmaar nirbhanthichittaan njan ingot kalikkaarem kond vannath");
+scene2.add(newActors[1] +" : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu");
+scene2.add(newActors[1] +" :anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?");
+scene2.add(newActors[1] +" : mm");
+scene2.add("\t\t\t"+"(" +newActors[1] + "  SMOKING)");
+scene2.add(newActors[1]  +" : iyyalokkeyaanalle ningade teamil   bhai");
+scene2.add(newActors[1] +" : practice nadakkunnund. match aavumbozhekkum ready aavum");
+scene2.add(newActors[1]+": thanikkokke thalakk valla praanthundo?  enne insult cheyanano vilichu varuthiyirikkunath ");
+scene2.add(newActors[1] +" : anil jee  njaan");
+scene2.add(newActors[1]+" : federationile thante chathupoya thanthapidide kootukaaranmaar nirbhanthichittaan njan ingot kalikkaarem kond vannath");
 scene2.add(villan[1] +" : anil jee njan paranjallo ente appante perulla parambil");
 scene2.add(villan[2] +": haa thante appanu perundakkanvendi aa shavaparambil proffessional kalikkare irakki kalikkano ennano thaan parayunnath?  athum iyyale polulla oochaalikalde koode   why you insulting?");
 scene2.add(villan[1] +" : enth insult");
@@ -281,5 +281,5 @@ for (String scene55 : scene5)  {
 
 
 
-}
+}   
 

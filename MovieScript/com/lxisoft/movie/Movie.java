@@ -9,7 +9,7 @@ import com.lxisoft.cast.Villan;
 public class Movie  {
 
 	Scanner sc = new Scanner(System.in);
-
+ 
 
  private String name;
  private String genre;
@@ -234,7 +234,7 @@ Villan villan = new Villan();
 System.out.println("Enter" + i + "Villan Name ");
 villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
-villan.setCharacterName(sc.nextLine());
+villan.setCharacterName(sc.nextLine()); 
 
 actors[heroNo + heroineNo + comedianNo] = villan.getCharacterName();
 
@@ -259,7 +259,10 @@ sceneNo = (int) (Math.random()*3 +3 );
 System.out.println("Number of Movie Scenes :" + sceneNo);
 
 
+for(int i = 1; i <= sceneNo; i++)  {
+  
 
+}
 
 
 if(sceneNo == 3)   {
