@@ -3,8 +3,6 @@ package com.lxisoft.snakesandladders;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.lxisoft.game.Coin;
-
 public class Board {
 
 	private List<Cell> cells;
@@ -20,21 +18,6 @@ public class Board {
 			Cell cell = new Cell();
 			cell.setCellNumber(i);
 			cells.add(cell);
-		}
-	}
-
-	public void biteOrLift(Coin coin) {
-		Cell cell = coin.getPosition();
-		if (cell != null) {
-			Ladder ladder = cell.getLadder();
-			Snake snake = cell.getSnake();
-			if (ladder != null) {
-				ladder.lift(coin);
-				System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
-			} else if (snake != null) {
-				snake.bite(coin);
-				System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
-			}
 		}
 	}
 

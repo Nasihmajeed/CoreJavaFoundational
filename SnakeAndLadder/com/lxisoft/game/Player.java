@@ -3,13 +3,15 @@ package com.lxisoft.game;
 import java.util.List;
 
 import com.lxisoft.snakesandladders.Cell;
+import com.lxisoft.snakesandladders.exceptions.LadderException;
+import com.lxisoft.snakesandladders.exceptions.SnakeException;
 
 public class Player {
 
 	private String name;
 	private Coin coin;
 
-	public void moveCoin(int moves, List<Cell> cells) {
+	public void moveCoin(int moves, List<Cell> cells) throws SnakeException, LadderException {
 		Cell cell;
 		if (coin.getPosition() != null) {
 			int position = coin.getPosition().getCellNumber() + moves;
@@ -20,7 +22,11 @@ public class Player {
 
 		}
 		coin.setPosition(cell);
-
+		if (cell.getSnake() != null) {
+			throw new SnakeException();
+		} else if (cell.getLadder() != null) {
+			throw new LadderException();
+		}
 	}
 
 	public String getName() {

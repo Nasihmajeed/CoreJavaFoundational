@@ -3,6 +3,10 @@ package com.lxisoft.game;
 import java.util.Scanner;
 
 import com.lxisoft.snakesandladders.Board;
+import com.lxisoft.snakesandladders.Ladder;
+import com.lxisoft.snakesandladders.Snake;
+import com.lxisoft.snakesandladders.exceptions.LadderException;
+import com.lxisoft.snakesandladders.exceptions.SnakeException;
 
 public class Game {
 
@@ -39,8 +43,17 @@ public class Game {
 
 				if (result == 1
 						|| (coin.getPosition() != null && (coin.getPosition().getCellNumber() + result <= 100))) {
-					player1.moveCoin(result, board.getCells());
-					board.biteOrLift(coin);
+					try {
+						player1.moveCoin(result, board.getCells());
+					} catch (SnakeException e) {
+						Snake snake = coin.getPosition().getSnake();
+						snake.bite(coin);
+						System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
+					} catch (LadderException e) {
+						Ladder ladder = coin.getPosition().getLadder();
+						ladder.lift(coin);
+						System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
+					}
 					System.out.print("* New Position: " + coin.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
@@ -56,8 +69,17 @@ public class Game {
 
 				if (result == 1
 						|| (coin2.getPosition() != null && (coin2.getPosition().getCellNumber() + result <= 100))) {
-					player2.moveCoin(result, board.getCells());
-					board.biteOrLift(coin2);
+					try {
+						player2.moveCoin(result, board.getCells());
+					} catch (SnakeException e) {
+						Snake snake = coin2.getPosition().getSnake();
+						snake.bite(coin2);
+						System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
+					} catch (LadderException e) {
+						Ladder ladder = coin2.getPosition().getLadder();
+						ladder.lift(coin2);
+						System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
+					}
 					System.out.print("* New Position: " + coin2.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
@@ -65,7 +87,7 @@ public class Game {
 					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
 			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100)
 				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player1.getName() + " *****\n"
-						+ "\n\t\t\t\t\t\t ***** Better luck next time" + player2.getName() + " *****");
+						+ "\n\t\t\t\t\t\t ***** Better luck next time " + player2.getName() + " *****");
 			else
 				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player2.getName() + " *****\n"
 						+ "\n\t\t\t\t\t\t ***** Better luck next time " + player1.getName() + " *****");
