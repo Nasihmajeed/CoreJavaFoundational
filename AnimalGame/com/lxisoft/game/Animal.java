@@ -1,9 +1,11 @@
 package com.lxisoft.game;
 
 import java.util.Random;
+import java.*;
+
 import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
-import java.*;
+import com.lxisoft.factors.MyException;
 import com.lxisoft.*;
 public abstract class Animal {
 	private String animalName;
@@ -129,12 +131,16 @@ public Animal startFight(Animal opponent){  // new venture
 	//System.out.println("hello");
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
+		
 		System.out.println("We are Trying to Attack both us!!!");
 		System.out.println(this.getName() +" BOOM _ BOOM _ BOOM " + opponent.getName());
 		System.out.println("We can't Fight Togather Because We are Best FRIENDS *~~~~~~~*");
 
-		return this;
+		
+		
 
+		
+		 return this;
 	}
 	//return player1;
 	else if(this instanceof Carnivores && opponent instanceof Herbivores) {

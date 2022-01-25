@@ -52,27 +52,28 @@ try {
 }
 
 public  List<Animal> readFile(){
+	List<Animal> animals = new ArrayList<>();
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
 			String line = myReader.nextLine();
-			System.out.println(line);
+		//	System.out.println(line);
 			String[] arrOfStr = line.split(",");
 			
 			String type = arrOfStr[0];//create name: lion, 5
         Constructor<?> constructor = Class.forName("com.lxisoft.animals."+type).getConstructor(String.class, Integer.TYPE,Integer.TYPE,Integer.TYPE,Boolean.TYPE);
         Object o = constructor.newInstance(arrOfStr[1],Integer.parseInt(arrOfStr[2]) ,Integer.parseInt(arrOfStr[3]) ,Integer.parseInt(arrOfStr[4]) ,Boolean.parseBoolean(arrOfStr[5]));
 		
-        System.out.println(o);
+        //System.out.println(o);
 			
 			//System.out.println(arrOfStr.length);
 			//System.out.println(arrOfStr);
 			Animal c = (Animal) o;
-			List<Animal> animals = new ArrayList<>();
+			
 			animals.add(c);
 			
-			//System.out.println(animals);
-			return animals;
+			//System.out.println(line);
+			
 		
 		}
 		myReader.close();
@@ -101,7 +102,7 @@ public  List<Animal> readFile(){
 		System.out.println("IllegalArgumentException occured.");
 		System.out.println(excp);
 	}
-	return null;
+	return animals;
 }
 
 

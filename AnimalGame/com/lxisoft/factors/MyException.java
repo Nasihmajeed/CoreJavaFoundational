@@ -5,8 +5,11 @@ import com.lxisoft.*;
 
 public class MyException extends Exception
 {
-	public MyException(String str)
-	{
-		System.out.println(str);
+	String message;
+	public MyException(String str) {
+	   message = str;
 	}
-}
+	public String toString() {
+	   return ("Custom Exception Occurred : " + message);
+	}
+ }

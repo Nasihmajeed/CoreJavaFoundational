@@ -13,11 +13,11 @@ public class Forest {
 
        
       
-       public List<Animal> animalsList = new ArrayList<Animal>();
+      // public List<Animal> animalsList = new ArrayList<Animal>();
        
        FileRepository repo = new  FileRepository();
          
-       List<Animal> fileData = new ArrayList<Animal>();
+      // List<Animal> fileData = new ArrayList<Animal>();
 
        public void welcomeToForest() 
        {
@@ -35,7 +35,7 @@ public class Forest {
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
-            Random rand = new Random();
+            /*  Random rand = new Random();
               System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
               animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
@@ -49,7 +49,7 @@ public class Forest {
               animalsList.add(new Rhinoceros("Indian-Rhinoceros",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
  
           
-             /*   while(i < animalsList.size()){
+               while(i < animalsList.size()){
                      animalsList.get(i).printData(); 
                      System.out.println();  
                      i++;
@@ -57,7 +57,7 @@ public class Forest {
 		
           // fileData.add(repo.readFile());
           
-
+             // System.out.println(repo.readFile());
              
               meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
        }
@@ -82,6 +82,7 @@ public class Forest {
        int strengthOfPlayer1,strengthOfPlayer2;
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t !!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
+                     System.out.println("\n Our First Player is : " +player1.getName()+ "\n Our Secound Player is : " +player1.getName());
                      player1.startFight( player2);
                      return "we are Best F_R_I_E_N_D_S";
               }
@@ -155,6 +156,7 @@ public class Forest {
               else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
 	 {
 		System.out.println("\t !!!!!!!!!Both the beasts are Carnivorous Players !!!!!!! \t \n");
+              System.out.println("\n Our First Player is : " +player1.getName()+ "\n Our Secound Player is : " +player1.getName());
               player1.startFight( player2);
               	System.out.println("Fight is going to be Drop!!!!!!!!!");
               return "we are Best F_R_I_E_N_D_S and we are trying to catch our Prey";
