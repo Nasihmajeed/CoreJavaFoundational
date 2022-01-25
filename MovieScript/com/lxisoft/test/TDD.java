@@ -1,11 +1,11 @@
 package com.lxisoft.test;
-
 import com.lxisoft.moviescript.Theater;
 
-
 public class TDD  {
+	
  	public static void main(String[] args) {
-
+		
+	
 		Theater theater = new Theater();
 
 		theater.setName("SATHYA MOVIE HOUSE");  
@@ -13,11 +13,8 @@ public class TDD  {
 		theater.setPhone("9678346784");
 		
 		theater.viewTheater();
-
-	
 } 
 } 
-
 	
 	
 	

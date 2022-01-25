@@ -6,26 +6,21 @@ package com.lxisoft.moviescript;
     String scene2;
     String scene3;
     
-   // public void setupScript () {
-       // this.scene1=" 1";
-       // this.scene2=" 2";
-       // this.scene3=" 3";       
 
     public void viewScript () {
 
       this.scene1= "Romantic Scene";
         System.out.println("\n"); 
        
-        System.out.println("\t\t\t      SCENE " +scene1);
+        System.out.println("\t\t\t     " +scene1);
         
-       // Movie m = new Movie();
     }
         public void viewScript2() {
           this.scene2= "Comedy Scene";
         System.out.println("\n");
       
 
-        System.out.println("\t\t\t      SCENE " +scene2);
+        System.out.println("\t\t\t    " +scene2);
        
       }
 
@@ -33,13 +28,8 @@ package com.lxisoft.moviescript;
           this.scene3= "Emotional Scene";
         System.out.println("\n");
 
-        System.out.println("\t\t\t      SCENE " +scene3);
+        System.out.println("\t\t\t    " +scene3);
 
-
-        //Dialogue dialogue = new Dialogue();
-
-        //dialogue.setupDialogue();
-        //dialogue.viewDialogue();
 
       }
     }  

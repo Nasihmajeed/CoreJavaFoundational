@@ -30,11 +30,6 @@ public class Theater {
         public void setPhone(String phone){  
           this.phone=phone;  
           }
-  
-  
-   /* this.name="SATHYA MOVIE HOUSE";  
-    this.place="PALAKKAD";
-    this.phone="9678346784";*/
     
   
   public void viewTheater () {
@@ -59,7 +54,7 @@ public class Theater {
        movie.setDirector("Josh Boone");
        movie.setProducer("Marty Bowen and Wyck Godfrey");
 
-    movie.playMovie();
+      movie.movieDetails();
      
   }
 }

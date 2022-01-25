@@ -1,5 +1,7 @@
 package com.lxisoft.moviescript;
 
+import java.util.Scanner;
+
 import com.lxisoft.cast.*;
 
 
@@ -9,6 +11,9 @@ public class Movie {
    private int year;
    private String director;
    private String producer;
+
+   Dialogue dialogue = new Dialogue();
+   
     
   // public void setupMovie() {
       public String getName(){
@@ -49,16 +54,10 @@ public class Movie {
                     public void setProducer(String producer){  
                         this.producer = producer;  
                         }
-
-      /* this.name= "THE FAULT IN OUR STARS";
-       this.genere="Romance - Drama";
-       this.year= 2014;
-       this.director="Josh Boone";
-       this.producer= "Marty Bowen and Wyck Godfrey";
-
-   }*/
-    
-   public void playMovie () {
+   
+   
+  
+   public void movieDetails() {
 
       
     System.out.println("\t\t          -- Movie Details -- ");
@@ -77,13 +76,16 @@ public class Movie {
        System.out.println("\t\t+----------------------------------+");
 
        System.out.println();
+   //}
+    
+      // public void viewCast(){
 
        System.out.println("\t\t         -- Cast Details --");
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
    
-     	 Hero hero = new Hero();
+         Hero hero = new Hero();
          hero.setName (" Ansel Elgort");
          hero.setCharacterName (" Augustus Waters");
          hero.showDetails();
@@ -91,7 +93,7 @@ public class Movie {
          
          System.out.println("\t\t+----------------------------------+"+"\n");
 
-        Heroine heroine = new Heroine();
+         Heroine heroine = new Heroine();
         heroine.setName  (" Shailene Woodley");
         heroine.setCharacterName ("Hazel Graze Lancaster");
         heroine.showDetails();
@@ -126,38 +128,17 @@ public class Movie {
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
-        /*public Actor passActor(Actor...passName){
-
-            return passName;
-        }*/
-
-        Dialogue dialogue = new Dialogue();
-
+        
         dialogue.actor[0] = hero.getCharacterName();
         dialogue.actor[1]= heroine.getCharacterName();
         dialogue.actor[2]= comedian1.getCharacterName();
         dialogue.actor[3]= comedian2.getCharacterName();
         dialogue.actor[4]= comedian3.getCharacterName();
         dialogue.actor[5]= comedian4.getCharacterName();
-        
-        //dialogue.setupDialogue();
-         //script.setupScript();
-       
-       
-        /* Script script = new Script();
-        script.viewScript();
-        script.viewScript2();*/
-       
         dialogue.viewDialogue();
-        
        
    }
-  /* public void  printName(Hero h1) {
-    
-    h1.getCharacterName();
-
-}*/
-
+  
 }
 
 
