@@ -1,4 +1,4 @@
-opackage com.lxisoft.factors;
+package com.lxisoft.factors;
 import java.util.*;
 import com.lxisoft.*;
 

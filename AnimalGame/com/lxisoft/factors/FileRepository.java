@@ -2,6 +2,8 @@ package com.lxisoft.factors;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileNotFoundException;
@@ -11,11 +13,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import com.lxisoft.*;
+import com.lxisoft.game.Animal;
 import com.lxisoft.game.Forest;
 public class FileRepository{
 
 
-	File myObj = new File("Animal.csv");
+public File myObj = new File("Animal.csv");
 
 	public void createFile() {
 		try {
@@ -48,21 +51,29 @@ try {
 }
 }
 
-public void readFile(){
+public  List<Animal> readFile(){
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
 			String line = myReader.nextLine();
-			//System.out.println(line);
+			System.out.println(line);
 			String[] arrOfStr = line.split(",");
+			
 			String type = arrOfStr[0];//create name: lion, 5
         Constructor<?> constructor = Class.forName("com.lxisoft.animals."+type).getConstructor(String.class, Integer.TYPE,Integer.TYPE,Integer.TYPE,Boolean.TYPE);
-        Object o = constructor.newInstance(arrOfStr[1],arrOfStr[2],arrOfStr[3],arrOfStr[4],arrOfStr[5]);
+        Object o = constructor.newInstance(arrOfStr[1],Integer.parseInt(arrOfStr[2]) ,Integer.parseInt(arrOfStr[3]) ,Integer.parseInt(arrOfStr[4]) ,Boolean.parseBoolean(arrOfStr[5]));
+		
         System.out.println(o);
-
-        /*for (String a : arrOfStr)
-            System.out.println(a);*/
 			
+			//System.out.println(arrOfStr.length);
+			//System.out.println(arrOfStr);
+			Animal c = (Animal) o;
+			List<Animal> animals = new ArrayList<>();
+			animals.add(c);
+			
+			//System.out.println(animals);
+			return animals;
+		
 		}
 		myReader.close();
 	} catch (FileNotFoundException e) {
@@ -90,6 +101,7 @@ public void readFile(){
 		System.out.println("IllegalArgumentException occured.");
 		System.out.println(excp);
 	}
+	return null;
 }
 
 

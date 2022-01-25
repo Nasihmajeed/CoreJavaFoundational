@@ -16,19 +16,20 @@ public class Forest {
        public List<Animal> animalsList = new ArrayList<Animal>();
        
        FileRepository repo = new  FileRepository();
-       
-       List<Animal> animals = new ArrayList<Animal>();
          
+       List<Animal> fileData = new ArrayList<Animal>();
+
        public void welcomeToForest() 
        {
 
        int i = 0; 
       
-        repo.createFile();
-        repo.showFileInfo();
-        
+       repo.createFile();
+       repo.showFileInfo();
+        //repo.writeToFile();
+       repo.readFile();
 
-      
+  
     
       System.out.println("!!!!!!!!!!!!!!!Welcome to the Jungle!!!!!!!!!!");
 
@@ -53,11 +54,12 @@ public class Forest {
                      System.out.println();  
                      i++;
               } */
-		//repo.writeToFile();
-              repo.readFile();
-           
+		
+          // fileData.add(repo.readFile());
+          
+
              
-              meetPlayers(returnPlayer(animalsList),returnPlayer(animalsList));
+              meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
        }
        public Animal returnPlayer(List<Animal> animalsList){
               Random rand = new Random();
