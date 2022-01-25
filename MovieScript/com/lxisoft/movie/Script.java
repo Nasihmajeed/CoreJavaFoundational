@@ -2,106 +2,45 @@ package com.lxisoft.movie;
 
 public class Script  {
 
+public int sceneNo;
 
-  Dialogue dialogue = new Dialogue();
 
-public void showScene1()  {
+Scene [] scenes = new Scene[sceneNo];
 
-System.out.println("\n");
-System.out.println("\t\t\t\t\t   --------Scene 1--------");
-System.out.println ("\n");
-System.out.println("\t\t\t...Playing Comedy Scene...");
-System.out.println("\t\t\t\t\t\t MATHAYI PARAMBU");
-System.out.println("\t\t\t\t\t--------------------------------");
-System.out.println ("\n");
-System.out.println ("\n");
-System.out.println ("\n");
 
-dialogue.playScene1();
 
-}
+
+public Scene getSceneNo()  {
+
+
+
+
+  sceneNo = (int) (Math.random()*3 +3 );
+
+  System.out.println("Number of Movie Scenes :" + sceneNo);
+  
+  
+  for(int i = 1; i <= sceneNo; i++)  {
+    
+    Scene scene = new Scene();
+
+
+  scenes[i] = scene;
+  
+
+  }
 
 
  
-public void showScene2()  {
-
-
-	System.out.println("\n");
-System.out.println("\t\t\t\t\t   --------Scene 2--------");
-System.out.println ("\n");
-System.out.println("\t\t\t...Playing Action Scene...");
-System.out.println("\t\t\t\t\t\t TOWN RISORT");
-System.out.println("\t\t\t\t\t--------------------------------");
-System.out.println ("\n");
-System.out.println ("\n");
-System.out.println ("\n");
-
-
-dialogue.playScene2();
-
-}
-
-public void showScene3() {
-
-	System.out.println("\n");
-  System.out.println("\t\t\t\t\t  ---------Scene 3--------");
-  System.out.println("\n");
-  System.out.println("\t\t     ...Playing Romantic Scene...");
-  System.out.println("\n");
-  System.out.println("\t\t\t\t   Hero Proposing Heroine");
-  System.out.println("\t\t\t\t----------------------------");
-  System.out.println ("\n");
-  System.out.println ("\n");
-  System.out.println ("\n");
-
-  
-  dialogue.playScene3();
+  return scene;
 }
 
 
 
 
-public void showScene4()  {
+}  
 
 
-
-  System.out.println("\n");
-  System.out.println("\t\t\t\t\t  ---------Scene 4--------");
-  System.out.println("\n");
-  System.out.println("\t\t     ...Playing  Comedy Scene...");
-  System.out.println("\n");
-  System.out.println("\t\t\t\t   Inside The Train");
-  System.out.println("\t\t\t\t----------------------------");
-  System.out.println ("\n");
-  System.out.println ("\n");
-  System.out.println ("\n");
-
-
-
-dialogue.playScene4();
-
-}
-
-
-public void showScene5() {
-
-
-
-  System.out.println("\n");
-  System.out.println("\t\t\t\t\t  ---------Scene 5--------");
-  System.out.println("\n");
-  System.out.println("\t\t     ...Playing  Romantic  Scene...");
-  System.out.println("\t\t   -------------------------------------");
-  System.out.println ("\n");
-  System.out.println ("\n");
-  System.out.println ("\n");
-
-
-dialogue.playScene5();   
-
-}
-
-}
 
 
 

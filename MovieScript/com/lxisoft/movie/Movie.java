@@ -19,9 +19,9 @@ public int heroNo;
 public int heroineNo;
 public  int comedianNo;
 public int villanNo;
-public int sceneNo;
 int number;
 int sum;
+
 
 
 public String[] actors;
@@ -247,58 +247,14 @@ sum = heroNo + heroineNo + comedianNo + villanNo;
 
 for (int i = 1; i<= sum; i ++ )  {
 
-actors[1] = script.dialogue.newActors[i];
+actors[i] = script.scene.dialogue.newActors[i];
 
 
 }
 
+script.getSceneNo();
 
 
-sceneNo = (int) (Math.random()*3 +3 );
-
-System.out.println("Number of Movie Scenes :" + sceneNo);
-
-
-for(int i = 1; i <= sceneNo; i++)  {
-  
-
-}
-
-
-if(sceneNo == 3)   {
-
-
-
-script.showScene1();
-script.showScene2();
-script.showScene3();
-
-
-}
-
-if(sceneNo ==4)   {
-
-script.showScene4();
-script.showScene3();
-script.showScene2();
-script.showScene5();
-
-
-}
-
-if(sceneNo==5)  {
-
-
-
-script.showScene1();
-script.showScene3();
-script.showScene4();
-script.showScene2();
-script.showScene5();
-
-
-
-}
 
 
  }	 
