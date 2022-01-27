@@ -18,9 +18,13 @@ public abstract class Animal {
 public Animal(String animalName,int starvage,int strength,int distance,boolean isAlive){
 	
 	this.animalName = animalName;
+	
 	this.starvage = starvage;
+	
 	this.strength = strength;
+	
 	this.distance = distance;
+	s
 	this.isAlive =  isAlive;
 	
 }
