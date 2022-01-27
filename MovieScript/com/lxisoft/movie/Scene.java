@@ -41,7 +41,7 @@ public class Scene {
  
  }
  
- public void showScene3() {
+ /*public void showScene3() {
  
   System.out.println("\n");
    System.out.println("\t\t\t\t\t  ---------Scene 3--------");
@@ -99,7 +99,7 @@ public class Scene {
  
  dialogue.playScene5();   
  
- }
+ }*/
 
 
 

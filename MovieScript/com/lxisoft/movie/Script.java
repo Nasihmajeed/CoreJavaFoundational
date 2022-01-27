@@ -7,10 +7,10 @@ public int sceneNo;
 
 Scene [] scenes = new Scene[sceneNo];
 
+Scene scene = new Scene();
 
 
-
-public Scene getSceneNo()  {
+public void getSceneNo()  {
 
 
 
@@ -21,26 +21,18 @@ public Scene getSceneNo()  {
   
   
   for(int i = 1; i <= sceneNo; i++)  {
-    
-    Scene scene = new Scene();
+ 
 
+    Scene scene = new Scene();
 
   scenes[i] = scene;
   
 
+}
+
+scene.showScene1();
+
   }
 
 
- 
-  return scene;
 }
-
-
-
-
-}  
-
-
-
-
-

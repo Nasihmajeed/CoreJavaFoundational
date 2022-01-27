@@ -247,8 +247,6 @@ sum = heroNo + heroineNo + comedianNo + villanNo;
 
 for (int i = 1; i<= sum; i ++ )  {
 
-actors[i] = script.scene.dialogue.newActors[i];
-
 
 }
 

@@ -1,9 +1,46 @@
 package com.lxisoft.movie;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Dialogue  {
  
+  File file = new File("dialogues.csv");
+ 
+
+
+  
+  try {
+
+
+   boolean status = file.createNewFile();
+
+   
+FileWriter filewritter = new FileWriter("dialogues.csv");
+
+String message = "ABCD";
+
+filewritter.write(message);
+
+System.out.println(" succeses");
+
+filewritter.close();
+
+  }
+  
+  catch (IOException e) {
+
+System.out.println("Error");
+   
+   e.printStackTrace();
+
+  }
+  
+
+
+
 
   public String [] newActors = new String[100];
  
@@ -70,17 +107,17 @@ scene2.add(newActors[1] +" : practice nadakkunnund. match aavumbozhekkum ready a
 scene2.add(newActors[1]+": thanikkokke thalakk valla praanthundo?  enne insult cheyanano vilichu varuthiyirikkunath ");
 scene2.add(newActors[1] +" : anil jee  njaan");
 scene2.add(newActors[1]+" : federationile thante chathupoya thanthapidide kootukaaranmaar nirbhanthichittaan njan ingot kalikkaarem kond vannath");
-scene2.add(villan[1] +" : anil jee njan paranjallo ente appante perulla parambil");
-scene2.add(villan[2] +": haa thante appanu perundakkanvendi aa shavaparambil proffessional kalikkare irakki kalikkano ennano thaan parayunnath?  athum iyyale polulla oochaalikalde koode   why you insulting?");
-scene2.add(villan[1] +" : enth insult");
-scene2.add(villan[2] +" : ith valla sachin tendulkkar aanenkil ningal inganeyokke cheyyo veruthe nattil kidakkunna shavaparamb okke kanichu iyyale polulla nokkukuthikalude koode oru antharashtra cricket angott kalikkam ennokke ningal parayo");
-scene2.add(villan[1] +" : ath...");
-scene2.add(villan[2] +": hmm   ithond path paisade prathiphalam onnum illallo. prathiphalamayi enth tharum thante chathu poya appante  prathimeda kashnangalo");
-scene2.add(villan[1] +" : hmm  appan parayunnodaa ppaa");
-scene2.add(villan[1]+" : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa");
-scene2.add("\t\t\t" + "(" + villan[2] +" LOOKING ARROUND)");
-scene2.add(villan[1] +" : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa ");
-scene2.add("(\t\t\t" +"("+ villan[2] +" LAUGHING)");
+//scene2.add(villan[1] +" : anil jee njan paranjallo ente appante perulla parambil");
+//scene2.add(villan[2] +": haa thante appanu perundakkanvendi aa shavaparambil proffessional kalikkare irakki kalikkano ennano thaan parayunnath?  athum iyyale polulla oochaalikalde koode   why you insulting?");
+//scene2.add(villan[1] +" : enth insult");
+//scene2.add(villan[2] +" : ith valla sachin tendulkkar aanenkil ningal inganeyokke cheyyo veruthe nattil kidakkunna shavaparamb okke kanichu iyyale polulla nokkukuthikalude koode oru antharashtra cricket angott kalikkam ennokke ningal parayo");
+//scene2.add(villan[1] +" : ath...");
+//scene2.add(villan[2] +": hmm   ithond path paisade prathiphalam onnum illallo. prathiphalamayi enth tharum thante chathu poya appante  prathimeda kashnangalo");
+//scene2.add(villan[1] +" : hmm  appan parayunnodaa ppaa");
+//scene2.add(villan[1]+" : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa");
+//scene2.add("\t\t\t" + "(" + villan[2] +" LOOKING ARROUND)");
+//scene2.add(villan[1] +" : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa ");
+/*scene2.add("(\t\t\t" +"("+ villan[2] +" LAUGHING)");
 scene2.add(villan[1] +"ivan aa mannil kuruthu undaayathaa ivar nedum athalla jayichu kondu povaan pattonki  nee kondoykko");
 scene2.add("\t\t\t" + "(" + villan[2] +" LOOKING ARROUND AND LAUGHING)");
 scene2.add( villan[1] +" : aa parambey nte appante jeevithaa  njangade jeevanaa jeevan vechittaa njangal kalikkaney enthayaalum njangal jayichirikkum");
@@ -272,7 +309,7 @@ for (String scene55 : scene5)  {
 
   System.out.println(scene55);
   
-  }
+  }*/
 
 
 
