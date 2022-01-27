@@ -1,7 +1,5 @@
 package com.lxisoft.moviescript;
 
-//import com.lxisoft.cast.*;
-
 public class  Actor  {
 
    private String name,characterName;

@@ -1,6 +1,6 @@
 package com.lxisoft.moviescript;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import com.lxisoft.cast.*;
 
