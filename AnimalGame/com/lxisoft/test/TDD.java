@@ -1,6 +1,8 @@
 package com.lxisoft.test;
+
 import java.*;
 import java.io.*;
+
 import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 import com.lxisoft.game.Forest;

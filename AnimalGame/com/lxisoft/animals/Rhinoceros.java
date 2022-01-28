@@ -29,14 +29,14 @@ public class Rhinoceros extends Animal implements Herbivores{
               return luckFactor;
        }
        
-       public void escapeFromEnemy(Animal player1,Animal player2){ 
+       public void escapeFromEnemy(Animal enemy){ 
               try{
-              if(player1 instanceof Carnivores && player2 instanceof Herbivores){
-          System.out.println(player2.getName() +" escaping ..........");
+              if(enemy instanceof Carnivores && this instanceof Herbivores){
+          System.out.println(this.getName() +" escaping ..........");
           
               }
-              else if(player1 instanceof Herbivores && player2 instanceof Carnivores){
-                  System.out.println(player1.getName() +" escaping ............");
+              else if(this instanceof Herbivores && enemy instanceof Carnivores){
+                  System.out.println(this.getName() +" escaping ............");
                   
               }
               throw new AnimalEscapeException("Players are Just Escaping");

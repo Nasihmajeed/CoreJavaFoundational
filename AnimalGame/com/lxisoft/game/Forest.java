@@ -1,13 +1,15 @@
 package com.lxisoft.game;
+
 import java.*;
 import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+
 import com.lxisoft.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
 import com.lxisoft.factors. FileRepository;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class Forest {
 

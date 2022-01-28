@@ -133,6 +133,7 @@ public Animal startFight(Animal opponent){  // new venture
 	int starvageOfPlayer1 = this.getStarvage();
 	int starvageOfPlayer2 = opponent.getStarvage();
 	Animal winner;
+	//final Animal animal1;
 	int strengthOfPlayer1 = this.getStrength();
 	int strengthOfPlayer2 = opponent.getStrength();
 	//System.out.println("hello");
@@ -156,8 +157,9 @@ public Animal startFight(Animal opponent){  // new venture
 		if(opponent.getLuckFactor() >= 5 ){
 
 		System.out.println(" \n But fortunately player " +opponent.getName()+ " is very lucky_!!!  just escaped from " +this.getName()+"\n");
+		
 		Herbivores herbivores = (Herbivores) opponent;
-		herbivores.escapeFromEnemy(this,opponent);
+		herbivores.escapeFromEnemy(this);
 	}else{
 			System.out.println("\n \t \t \t THE REAL FIGHT @@@BEGINS@@@ \t \t \n");
 		
@@ -184,7 +186,7 @@ System.out.println("\t\t\t ------------- \t\t\t");
 									}else{
 										System.out.println("There have some chances to escape");
 										Herbivores herbivores = (Herbivores) opponent;
-										herbivores.escapeFromEnemy(this,opponent);
+										herbivores.escapeFromEnemy(this);
 									}
 										 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
 										   System.out.println("\t\t\t ------------- \t\t\t");*/
@@ -201,8 +203,9 @@ else if(this instanceof Herbivores && opponent instanceof Carnivores){
 	if(this.getLuckFactor() >= 5 ){
 
 	System.out.println(" player " +this.getName()+ " is very lucky_!!!  just escaped from " +opponent.getName());
+	
 	Herbivores herbivores = (Herbivores) this;
-	herbivores.escapeFromEnemy(this,opponent);
+	herbivores.escapeFromEnemy(opponent);
 
 	}else{
 
@@ -229,8 +232,9 @@ System.out.println("\t\t\t ------------- \t\t\t");
 else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
 System.out.println("There have some chances to escape");
+
 Herbivores herbivores = (Herbivores) this;
-										   herbivores.escapeFromEnemy(this,opponent);
+										   herbivores.escapeFromEnemy(opponent);
 										   
 }
 	winner = opponent;
