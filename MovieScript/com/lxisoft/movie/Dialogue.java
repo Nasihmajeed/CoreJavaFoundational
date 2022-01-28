@@ -7,39 +7,7 @@ import java.util.ArrayList;
 
 public class Dialogue  {
  
-  File file = new File("dialogues.csv");
  
-
-
-  
-  try {
-
-
-   boolean status = file.createNewFile();
-
-   
-FileWriter filewritter = new FileWriter("dialogues.csv");
-
-String message = "ABCD";
-
-filewritter.write(message);
-
-System.out.println(" succeses");
-
-filewritter.close();
-
-  }
-  
-  catch (IOException e) {
-
-System.out.println("Error");
-   
-   e.printStackTrace();
-
-  }
-  
-
-
 
 
   public String [] newActors = new String[100];
@@ -61,6 +29,40 @@ System.out.println("Error");
 public void playScene1()   {
 
 
+
+  File file = new File( "D:moviescript.com.lxisoft.movie.dialogues.csv");  
+ 
+
+
+  
+    try {
+  
+      
+  
+     boolean status = file.createNewFile();
+  
+     
+  FileWriter filewritter = new FileWriter("dialogues.csv");
+  
+  String message = "File Readed";
+  
+  filewritter.write(message);
+  
+  System.out.println(" succeses");
+  
+  filewritter.close();
+  
+    }
+    
+    catch (Exception e) {
+  
+  System.out.println("Error");
+     
+     e.printStackTrace();
+  
+    }
+    
+    
 
  scene1.add(newActors[1] + ": ningal nerathe vanno ?");
    scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");

@@ -24,7 +24,7 @@ int sum;
 
 
 
-public String[] actors;
+public String[] actors=new String[100];
 
 Script script = new Script();
 
