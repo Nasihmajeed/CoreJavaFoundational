@@ -69,17 +69,15 @@ public class Forest {
                return player;
         }
 
-        public double createRoamingArea(int x1, int x2, int y1,int y2){
-
-              double roamArea = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 -y1) * (y2 - y1));
-              return roamArea;
-        }         
+           
        
         
       public String meetPlayers(Animal player1, Animal player2){
              
        int starvageOfPlayer1,starvageOfPlayer2;
        int strengthOfPlayer1,strengthOfPlayer2;
+
+       Animal animal = new Animal("",0,0,0,false);
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t !!!!!!!!!Both the Players are Herbivores Players !!!!!!!");
                      System.out.println("\n Our First Player is : " +player1.getName()+ "\n Our Secound Player is : " +player1.getName());
@@ -104,8 +102,8 @@ public class Forest {
                     int x2 = player2.getAnimalLocationX();
                     int y2 = player2.getAnimalLocationY();   
 
-                   System.out.println(createRoamingArea(x1,x2,y1,y2));
-                   if(createRoamingArea(x1,x2,y1,y2) <= 13){
+                   System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
+                   if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
                           System.out.println("FIGHT STARTS NOW");
                          player2.startFight(player1);
                         
@@ -140,8 +138,8 @@ public class Forest {
                      int x2 = player2.getAnimalLocationX();
                      int y2 = player2.getAnimalLocationY();   
  
-                    System.out.println(createRoamingArea(x1,x2,y1,y2));
-                    if(createRoamingArea(x1,x2,y1,y2) <= 13){
+                    System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
+                    if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
                            System.out.println("FIGHT STARTS NOW");
                           
                           player1.startFight(player2);

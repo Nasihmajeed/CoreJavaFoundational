@@ -62,15 +62,15 @@ public  List<Animal> readFile(){
 			
 			String type = arrOfStr[0];//create name: lion, 5
         Constructor<?> constructor = Class.forName("com.lxisoft.animals."+type).getConstructor(String.class, Integer.TYPE,Integer.TYPE,Integer.TYPE,Boolean.TYPE);
-        Object o = constructor.newInstance(arrOfStr[1],Integer.parseInt(arrOfStr[2]) ,Integer.parseInt(arrOfStr[3]) ,Integer.parseInt(arrOfStr[4]) ,Boolean.parseBoolean(arrOfStr[5]));
+        Object object = constructor.newInstance(arrOfStr[1],Integer.parseInt(arrOfStr[2]) ,Integer.parseInt(arrOfStr[3]) ,Integer.parseInt(arrOfStr[4]) ,Boolean.parseBoolean(arrOfStr[5]));
 		
         //System.out.println(o);
 			
 			//System.out.println(arrOfStr.length);
 			//System.out.println(arrOfStr);
-			Animal c = (Animal) o;
+			Animal animal = (Animal) object;
 			
-			animals.add(c);
+			animals.add(animal);
 			
 			//System.out.println(line);
 			

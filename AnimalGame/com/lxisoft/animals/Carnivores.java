@@ -1,6 +1,7 @@
 package com.lxisoft.animals;
 
 import java.*;
+
 import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 public interface Carnivores{  
@@ -10,6 +11,7 @@ public interface Carnivores{
 
   
   
+} 
   
   
   
@@ -110,8 +112,7 @@ public interface Carnivores{
   
   
   
-  
-}
+
   //public Animal winner;
   /*static  String startFight(Animal player1,Animal player2){  // new venture
 	

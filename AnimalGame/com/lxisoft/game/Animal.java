@@ -5,9 +5,10 @@ import java.*;
 
 import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
-import com.lxisoft.factors.MyException;
+import com.lxisoft.factors.AnimalEscapeException;
+import com.lxisoft.animals.Herbivores;
 import com.lxisoft.*;
-public abstract class Animal {
+public class Animal {
 	private String animalName;
 	private int starvage,strength,distance,luckFactor;
 	private boolean isAlive;
@@ -18,13 +19,9 @@ public abstract class Animal {
 public Animal(String animalName,int starvage,int strength,int distance,boolean isAlive){
 	
 	this.animalName = animalName;
-	
 	this.starvage = starvage;
-	
 	this.strength = strength;
-	
 	this.distance = distance;
-	s
 	this.isAlive =  isAlive;
 	
 }
@@ -112,6 +109,12 @@ public int getAnimalLocationX()
 		return animalLocation.getLocationYAxis();
 	}
 
+	public double createRoamingArea(int x1, int x2, int y1,int y2){
+
+		double roamArea = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 -y1) * (y2 - y1));
+		return roamArea;
+  }    
+
 protected void printData() {
          
   
@@ -153,7 +156,8 @@ public Animal startFight(Animal opponent){  // new venture
 		if(opponent.getLuckFactor() >= 5 ){
 
 		System.out.println(" \n But fortunately player " +opponent.getName()+ " is very lucky_!!!  just escaped from " +this.getName()+"\n");
-		Herbivores.escapeFromEnemy(this,opponent);
+		Herbivores herbivores = (Herbivores) opponent;
+		herbivores.escapeFromEnemy(this,opponent);
 	}else{
 			System.out.println("\n \t \t \t THE REAL FIGHT @@@BEGINS@@@ \t \t \n");
 		
@@ -179,7 +183,8 @@ public Animal startFight(Animal opponent){  // new venture
 System.out.println("\t\t\t ------------- \t\t\t");
 									}else{
 										System.out.println("There have some chances to escape");
-										Herbivores.escapeFromEnemy(this,opponent);
+										Herbivores herbivores = (Herbivores) opponent;
+										herbivores.escapeFromEnemy(this,opponent);
 									}
 										 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
 										   System.out.println("\t\t\t ------------- \t\t\t");*/
@@ -196,8 +201,8 @@ else if(this instanceof Herbivores && opponent instanceof Carnivores){
 	if(this.getLuckFactor() >= 5 ){
 
 	System.out.println(" player " +this.getName()+ " is very lucky_!!!  just escaped from " +opponent.getName());
-
-	Herbivores.escapeFromEnemy(this,opponent);
+	Herbivores herbivores = (Herbivores) this;
+	herbivores.escapeFromEnemy(this,opponent);
 
 	}else{
 
@@ -224,7 +229,8 @@ System.out.println("\t\t\t ------------- \t\t\t");
 else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
 System.out.println("There have some chances to escape");
-										   Herbivores.escapeFromEnemy(this,opponent);
+Herbivores herbivores = (Herbivores) this;
+										   herbivores.escapeFromEnemy(this,opponent);
 										   
 }
 	winner = opponent;
