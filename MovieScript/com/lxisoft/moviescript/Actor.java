@@ -1,6 +1,6 @@
 package com.lxisoft.moviescript;
 
-public class  Actor  {
+public abstract class  Actor  {
 
    private String name,characterName;
 
@@ -21,13 +21,10 @@ public class  Actor  {
     this.characterName=characterName; 
    }
 
- public void showDetails() {
-
-System.out.println("\t\t Actor Name:" + name);
-System.out.println("\t\t Character Name:" +characterName);
+   public abstract void actorsDetails();
 
 }
       
-    }
+    
    
 

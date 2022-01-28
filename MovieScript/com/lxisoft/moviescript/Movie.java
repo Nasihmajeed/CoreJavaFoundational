@@ -88,7 +88,7 @@ public class Movie {
          Hero hero = new Hero();
          hero.setName (" Ansel Elgort");
          hero.setCharacterName (" Augustus Waters");
-         hero.showDetails();
+         hero.actorsDetails();
 
          
          System.out.println("\t\t+----------------------------------+"+"\n");
@@ -96,35 +96,35 @@ public class Movie {
          Heroine heroine = new Heroine();
         heroine.setName  (" Shailene Woodley");
         heroine.setCharacterName ("Hazel Graze Lancaster");
-        heroine.showDetails();
+        heroine.actorsDetails();
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
         Comedian comedian1 = new Comedian();
         comedian1.setName (" Jennifer Aniston ");
         comedian1.setCharacterName (" Rachel Green");
-        comedian1.showDetails();
+        comedian1.actorsDetails();
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
         Comedian comedian2 = new Comedian();
         comedian2.setName (" Courteney Cox ");
         comedian2.setCharacterName( " Monica ");
-        comedian2.showDetails();
+        comedian2.actorsDetails();
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
         Comedian comedian3 = new Comedian();
         comedian3.setName (" Matthew Perry ");
         comedian3.setCharacterName (" Chandler ");
-        comedian3.showDetails();
+        comedian3.actorsDetails();
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
         Comedian comedian4 = new Comedian();
         comedian4.setName (" Matt LeBlanc ");
         comedian4.setCharacterName (" Jeoy ");
-        comedian4.showDetails();
+        comedian4.actorsDetails();
 
         System.out.println("\t\t+----------------------------------+"+"\n");
 
