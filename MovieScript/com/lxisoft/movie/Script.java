@@ -22,7 +22,7 @@ public void getSceneNo()  {
   for(int i = 0; i < sceneNo; i++)  {
  
 
-    Scene scene1 = new Scene();
+    Scene scene = new Scene();
 
   scenes[i] = scene;
   

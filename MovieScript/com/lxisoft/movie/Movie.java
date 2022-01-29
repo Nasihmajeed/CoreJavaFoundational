@@ -6,13 +6,25 @@ import com.lxisoft.cast.Hero;
 import com.lxisoft.cast.Heroine;
 import com.lxisoft.cast.Villan;
 
+
+enum Genre{
+
+ACTION,COMEDY,ROMANTIC,THRILLER;
+
+
+}
+
+
+
+
+
 public class Movie  {
 
 	Scanner sc = new Scanner(System.in);
  
 
  private String name;
- private String genre;
+ private Genre genre;
 private String language;
 private String director;
 public int heroNo;
@@ -39,10 +51,10 @@ Script script = new Script();
  }
  
  
- public String getGenre() {
+ public Genre getGenre() {
 	 return genre;
  }
- public void setGenre(String newGenre)  {
+ public void setGenre(Genre newGenre)  {
 	 this.genre = newGenre;
  }
  
@@ -88,25 +100,33 @@ public String getDirector()  {
 
 case 1 :
 
-genre = ("Action");
+ Genre genreAction = Genre.ACTION;
+	genre =genreAction;
+
 break;
 
 
 case 2: 
 
-genre = ("Romantic");
+Genre genreRomantic = Genre.ROMANTIC;
+genre =genreRomantic;
+
 break;
 
 
 case 3:
 
-genre =("Comedy");
+Genre genreComedy = Genre.COMEDY;
+genre =genreComedy;
+
 break;
 
 
 case 4:
 
-genre = ("Thriller");
+Genre genreThriller = Genre.THRILLER;
+genre =genreThriller;
+
 break;
 	
 

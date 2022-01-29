@@ -33,7 +33,7 @@ public void playScene1()   {
   
   
      
-  FileReader fr = new FileReader("../resources/dialogues.csv");
+  FileReader fr = new FileReader("../com/lxisoft/movie/dialogues.csv");
   
 fr.read(dialogues);
   
