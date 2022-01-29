@@ -37,7 +37,7 @@ public class Forest {
 
       System.out.println("The Deadly Fight Begins Here......................" +"\n");
       
-            /*  Random rand = new Random();
+          /*   Random rand = new Random();
               System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
               animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
               animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
@@ -55,14 +55,14 @@ public class Forest {
                      animalsList.get(i).printData(); 
                      System.out.println();  
                      i++;
-              } */
+               }*/
 		
           // fileData.add(repo.readFile());
           
              // System.out.println(repo.readFile());
              
               meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
-       }
+}
        public Animal returnPlayer(List<Animal> animalsList){
               Random rand = new Random();
               int player1 =rand.nextInt(animalsList.size());
