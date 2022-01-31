@@ -1,7 +1,7 @@
 package com.lxisoft.movie;
 import java.io.FileReader;
 
-import java.util.ArrayList;
+
 
 public class Dialogue  {
  
@@ -12,15 +12,6 @@ public class Dialogue  {
  
 char [] dialogues = new char[10000];
 
- ArrayList <String> scene1 = new ArrayList< String>();
-
- ArrayList <String> scene2 = new ArrayList<String>();
-
- ArrayList <String> scene3 = new ArrayList<String>();
- 
- ArrayList <String> scene4 = new ArrayList<String>();
- 
- ArrayList <String> scene5 = new ArrayList<String>();
 
 
 
@@ -88,7 +79,7 @@ public void playScene2()  {
 
 
 
-scene2.add(newActors[1] +" : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu");
+/*scene2.add(newActors[1] +" : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu");
 scene2.add(newActors[1] +" :anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?");
 scene2.add(newActors[1] +" : mm");
 scene2.add("\t\t\t"+"(" +newActors[1] + "  SMOKING)");
