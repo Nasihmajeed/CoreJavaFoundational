@@ -119,9 +119,9 @@ protected void printData() {
          
   
 	System.out.println("Name : " + this.getName());
-	System.out.println("Starvage : " + this.getStarvage());
-	System.out.println("strength : " + this.getStrength());
-	System.out.println("Distance: " + this.getDistance());
+	System.out.println("Starvage_Level : " + this.getStarvage());
+	System.out.println("strength_Level : " + this.getStrength());
+	System.out.println("Distance : " + this.getDistance());
 	System.out.println();
  
 }
@@ -140,9 +140,9 @@ public Animal startFight(Animal opponent){  // new venture
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
 		
-		System.out.println("We are Trying to Attack both us!!!");
+		System.out.println("We_are_Trying_to_Attack_both_us !!!");
 		System.out.println(this.getName() +" BOOM _ BOOM _ BOOM " + opponent.getName());
-		System.out.println("We can't Fight Togather Because We are Best FRIENDS *~~~~~~~*");
+		System.out.println("We_cannot_Fight_Togather_Because_We_are_Best_FRIENDS *~~~~~~~*");
 
 		
 		
@@ -153,27 +153,27 @@ public Animal startFight(Animal opponent){  // new venture
 	//return player1;
 	else if(this instanceof Carnivores && opponent instanceof Herbivores) {
 				
-		System.out.println("\n" +opponent.getName()+" was very unlucky and caught by "+this.getName());
+		System.out.println("\n" +opponent.getName()+" was_very_unlucky_and_caught_by "+this.getName());
 		if(opponent.getLuckFactor() >= 5 ){
 
-		System.out.println(" \n But fortunately player " +opponent.getName()+ " is very lucky_!!!  just escaped from " +this.getName()+"\n");
+		System.out.println(" \n But_fortunately_player " +opponent.getName()+ " is_very_lucky !!!  just_escaped_from " +this.getName()+"\n");
 		
 		Herbivores herbivores = (Herbivores) opponent;
 		herbivores.escapeFromEnemy(this);
 	}else{
-			System.out.println("\n \t \t \t THE REAL FIGHT @@@BEGINS@@@ \t \t \n");
+			System.out.println("\n \t \t \t THE_REAL_FIGHT_BEGINS \t \t \n");
 		
-		System.out.println("\t"+opponent.getName()+" is caught by "+this.getName());
-		System.out.println("\t" +this.getName()+" is attacking "+opponent.getName());
+		System.out.println("\t"+opponent.getName()+" is_caught_by "+this.getName());
+		System.out.println("\t" +this.getName()+" is_attacking "+opponent.getName());
 														System.out.println();			
-		System.out.println(" Starvage of "+this.getName()+" is higher than the Strength of "+opponent.getName() );
+		System.out.println(" Starvage_of "+this.getName()+" is_higher_than_the_Strength_of "+opponent.getName() );
 	 
 		System.out.println("\t\t\t . \t\t\t");
 																  
-										   System.out.println("\t Strength of "+opponent.getName()+" is decreasing !!!!!!");
+										   System.out.println("\t Strength_of "+opponent.getName()+" is_decreasing !!!!!!");
 										   strengthOfPlayer2  = 0;
 										   System.out.println("\t\t\t .. \t\t\t");
-										   System.out.println("\t Strength of "+opponent.getName()+" reduced to "+strengthOfPlayer2);								  
+										   System.out.println("\t Strength_of "+opponent.getName()+" reduced_to "+strengthOfPlayer2);								  
 																  
 										   System.out.println("\t\t\t ... \t\t\t");
 										  /// System.out.println("The Strength of "+player2.getName()+" is decreasing");
@@ -181,10 +181,10 @@ public Animal startFight(Animal opponent){  // new venture
 											Carnivores c = (Carnivores) this;
 															 c.killOpponent(this,opponent);
 															
-         System.out.println("\t"+ opponent.getName()+" Defeated and Killed by "+this.getName());
+         System.out.println("\t"+ opponent.getName()+" Defeated_and_Killed_by "+this.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 									}else{
-										System.out.println("There have some chances to escape");
+										System.out.println("There_have_some_chances_to_escape ");
 										Herbivores herbivores = (Herbivores) opponent;
 										herbivores.escapeFromEnemy(this);
 									}
@@ -199,39 +199,39 @@ System.out.println("\t\t\t ------------- \t\t\t");
 }
 else if(this instanceof Herbivores && opponent instanceof Carnivores){
 	
-	System.out.println(this.getName()+" was very unlucky and caught by "+opponent.getName());
+	System.out.println(this.getName()+" was_very_unlucky_and_caught_by "+opponent.getName());
 	if(this.getLuckFactor() >= 5 ){
 
-	System.out.println(" player " +this.getName()+ " is very lucky_!!!  just escaped from " +opponent.getName());
+	System.out.println(" player " +this.getName()+ " is_very_lucky !!!  just_escaped_from " +opponent.getName());
 	
 	Herbivores herbivores = (Herbivores) this;
 	herbivores.escapeFromEnemy(opponent);
 
 	}else{
 
-		System.out.println("\n \t \t \t THE REAL FIGHT @@@BEGINS@@@ \t \t \n");
+		System.out.println("\n \t \t \t THE_REAL_FIGHT_BEGINS \t \t \n");
 
-	System.out.println("\t"+ this.getName()+" is caught by "+opponent.getName());
-	System.out.println("\t"+ opponent.getName()+" is attacking "+this.getName());
+	System.out.println("\t"+ this.getName()+" is_caught_by "+opponent.getName());
+	System.out.println("\t"+ opponent.getName()+" is_attacking "+this.getName());
 					System.out.println();											
-	System.out.println(" Starvage of "+opponent.getName()+" is higher than the Strength of "+this.getName() );
+	System.out.println(" Starvage_of "+opponent.getName()+" is_higher_than_the_Strength_of "+this.getName() );
 	System.out.println("\t\t\t . \t\t\t");
-	System.out.println("\t The Strength of "+this.getName()+" is decreasing");	
+	System.out.println("\t Strength_of "+this.getName()+" is_decreasing ");	
 	System.out.println("\t\t\t .. \t\t\t");
 //System.out.println("Strength of "+player1.getName()+" is decreasing !!!!!!");
 strengthOfPlayer1 = 0;		
-System.out.println("\t Strength of "+this.getName()+" reduced to "+strengthOfPlayer1);								  
+System.out.println("\t Strength_of "+this.getName()+" reduced_to "+strengthOfPlayer1);								  
 System.out.println("\t\t\t ... \t\t\t");
 if(this.getIsAlive() == true && this.getStrength() < 7){
 		Carnivores c = (Carnivores) opponent;
                          c.killOpponent(this,opponent);
 				
-         System.out.println("\t"+ this.getName()+" Defeated and Killed by "+opponent.getName());
+         System.out.println("\t"+ this.getName()+" Defeated_and_Killed_by "+opponent.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 }
 else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
-System.out.println("There have some chances to escape");
+System.out.println("There_have_some_chances_to_escape ");
 
 Herbivores herbivores = (Herbivores) this;
 										   herbivores.escapeFromEnemy(opponent);
@@ -245,9 +245,9 @@ else{
 	if(this instanceof Carnivores && opponent instanceof Carnivores){
 
 		System.out.println(this.getName()+" meeting "+opponent.getName());
-		System.out.println(this.getName()+" has "+strengthOfPlayer1+" Strength Level And "+opponent.getName()+" has "+strengthOfPlayer2+" Strength Level");
-		System.out.println(this.getName()+" has "+starvageOfPlayer2+" Starvage Level And "+opponent.getName()+" has "+starvageOfPlayer2+" Starvage Level");
-		System.out.println("shitt!!! WE WILL NEVER WIN BECAUSE WE CAN'T KILL BOTH OF US............");
+		System.out.println(this.getName()+" has "+strengthOfPlayer1+" Strength_Level_And "+opponent.getName()+" has "+strengthOfPlayer2+" Strength Level");
+		System.out.println(this.getName()+" has "+starvageOfPlayer2+" Starvage_Level_And "+opponent.getName()+" has "+starvageOfPlayer2+" Starvage Level");
+		System.out.println("shitt!!! WE_WILL_NEVER_WIN_BECAUSE_WE_CANNOT_KILL_BOTH_OF_US............");
 	}
 return this;
 }
