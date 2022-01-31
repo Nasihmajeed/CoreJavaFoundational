@@ -1,7 +1,8 @@
 package com.lxisoft.moviescript;
 
 public class Theater {
- private String name;
+ 
+  private String name;
  private String place;
  private String phone;
   

@@ -3,9 +3,10 @@ package com.lxisoft.moviescript;
 import java.util.*;
 public class Dialogue {
     
-    String dialogue1;
-    String dialogue2;
-   public String [] actor = new String[10];
+    //String dialogue1;
+    //String dialogue2;
+   
+     public String [] actor = new String[10];
 
 
       public void viewDialogue() {

@@ -14,8 +14,7 @@ public class Movie {
 
    Dialogue dialogue = new Dialogue();
    
-    
-  // public void setupMovie() {
+
       public String getName(){
           return name;
       }
