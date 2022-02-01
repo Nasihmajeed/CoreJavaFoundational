@@ -16,8 +16,6 @@ ACTION,COMEDY,ROMANTIC,THRILLER;
 
 
 
-
-
 public class Movie  {
 
 	Scanner sc = new Scanner(System.in);
@@ -271,8 +269,6 @@ for (int i = 1; i<= sum; i ++ )  {
 }
 
 script.getSceneNo();
-
-
 
 
  }	 
