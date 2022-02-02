@@ -43,8 +43,6 @@ public class Theater {
     System.out.println("\t\tTheater Phone No:" +phone +"\n");
 
     System.out.println("\t\t+----------------------------------+");
-    
-    System.out.println();
 
     Movie movie = new Movie();
 
