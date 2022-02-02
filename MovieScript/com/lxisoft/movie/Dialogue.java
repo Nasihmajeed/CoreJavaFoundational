@@ -3,6 +3,7 @@ import java.io.FileReader;
 
 
 
+
 public class Dialogue  {
  
  
@@ -10,7 +11,7 @@ public class Dialogue  {
 
   public String [] newActors = new String[1000];
  
-char [] dialogues = new char[10000];
+char[] dialogues = new char[10000];
 
 
 
@@ -25,7 +26,7 @@ public void playScene1()   {
   
      
   FileReader fr = new FileReader("../resources/dialogues.csv");
-  
+   
 fr.read(dialogues);
   
   System.out.println(dialogues);
@@ -41,7 +42,7 @@ fr.read(dialogues);
   
     }
     
-    
+  
 
  /*scene1.add(newActors[1] + ": ningal nerathe vanno ?");
    scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
