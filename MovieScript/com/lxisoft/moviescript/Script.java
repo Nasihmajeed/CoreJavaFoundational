@@ -2,6 +2,7 @@ package com.lxisoft.moviescript;
 
 //import com.lxisoft.moviescript.Actor; 
   public class Script {
+   
     String scene1;
     String scene2;
     String scene3;

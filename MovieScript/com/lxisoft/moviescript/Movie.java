@@ -4,6 +4,7 @@ import com.lxisoft.cast.*;
 
 
 public class Movie {
+    
    private String name;
    private String genere;
    private int year;
