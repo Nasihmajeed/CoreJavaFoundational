@@ -5,7 +5,7 @@ public class Script  {
 public int sceneNo;
 
 
-Scene [] scenes = new Scene[5];
+Scene [] scenes = new Scene[10];
 
 Scene scene = new Scene();
 

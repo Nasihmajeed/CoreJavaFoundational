@@ -162,3 +162,30 @@ scene4.add(comedian[1] +" : NOTHING IS IMPOSSIBLE ");
 
 
 
+scene5.add(comedian[1] +" : enthaa varaan paranje");
+scene5.add(comedian[3] +" : nammade " + hero[1] + " misssing aan.. innale rathri avanum " + heroine[1] +" pirinju");
+scene5.add(comedian[1] +" : eh pirinjaa ");
+scene5.add(comedian[3] +": hey ippo kuzhaponnum illa ippo clear aaayi... pakshe avan evade enn yaathru vivarom illa...");
+scene5.add(comedian[1] +" : veetil anweshicho");
+scene5.add(comedian[3] +": abdhu poyirunnu.. avade illa...   daa custermor care le babunte number edukk  .....     che");
+scene5.add(comedian[1] +" : sorry recharge cheythittilla ");
+scene5.add(comedian[1] +" : she ivaneyokke thante mobile thaa .......  aa babu thante oru sahayam venam       okk");
+scene5.add("\n");
+scene5.add("\t\t\t(PHONE RINGING)");
+scene5.add("\n");
+scene5.add(comedian[3] +" : aa babu urake pare kettoodaaa  ........     ok ");
+scene5.add(comedian[3] +" : daa vaa povaam");
+scene5.add(comedian[1] +": engottekkaa? ");
+scene5.add(comedian[3] +" : Kadal paalam");
+scene5.add("\t\t\t(" +heroine[1] +"  COMING)");
+scene5.add(comedian[1] +" : dey akathott po   vegam po");
+scene5.add(comedian[3] +": onnum thonnaruth ketto vandi alppam moshaan");
+scene5.add(heroine[1] +": Thankyou");
+scene5.add(comedian[3] +" : vegam chell ninte naayarde aduthekk");
+scene5.add("\t\t\t(" + heroine[1] +" MEET"+ hero[1] +")");
+scene5.add(comedian[1] +": mr naayar");
+scene5.add(heroine[1] +" : punneppadi gopalan maashinte veettil niskara paayil irikkan oridam tharo");
+scene5.add(hero[1] +" : hmmm   hmm");
+scene5.add("\t\t\t(" + hero[1] +"  HUGGING " + heroine[1]+")");
+scene5.add("\t\t\t(BGM)");
+scene5.add("\n");
