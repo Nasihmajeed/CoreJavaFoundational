@@ -8,7 +8,6 @@ public class Dialogue {
    
      public String [] actor = new String[10];
 
-
       public void viewDialogue() {
 
         Script script = new Script();
