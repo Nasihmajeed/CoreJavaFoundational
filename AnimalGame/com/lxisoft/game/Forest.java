@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.lxisoft.*;
+import com.lxisoft.test.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
 import com.lxisoft.factors. FileRepository;
@@ -23,47 +23,38 @@ public class Forest {
          
       // List<Animal> fileData = new ArrayList<Animal>();
 
+      TDD opt = new TDD();
+
        public void welcomeToForest() 
        {
 
-       int i = 0; 
+      // int i = 0; 
       
        repo.createFile();
-       repo.showFileInfo();
+      // repo.showFileInfo();
         //repo.writeToFile();
        repo.readFile();
 
-  
+       if (opt.getOption() == 1) {
     
       System.out.println(object.initialize().getProperty("intro1"));
 
       System.out.println(object.initialize().getProperty("intro2") +"\n");
       
-          /*   Random rand = new Random();
-              System.out.println("Details of !_F_I_G_H_T_E_R_S_!" +"\n");
-              animalsList.add(new Tiger("Bengal-Tiger",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Rabbit("Cutey-Rabbit",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Deer("Little-Deer",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Fox("Cunning-Fox",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Lion("King-Lion",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Elephant("Indian-Elephant",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new LeoPard("Angry-LeoPard",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Gaur("Hungry-Guar",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Crocodile("Lazy-Crocodile",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
-              animalsList.add(new Rhinoceros("Indian-Rhinoceros",rand.nextInt(15),rand.nextInt(15),rand.nextInt(20),true));
- 
-          
-               while(i < animalsList.size()){
-                     animalsList.get(i).printData(); 
-                     System.out.println();  
-                     i++;
-               }*/
-		
-          // fileData.add(repo.readFile());
-          
-             // System.out.println(repo.readFile());
+         
              
               meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
+       }else if (opt.getOption() == 2) {
+
+              System.out.println(object.initializeM().getProperty("intro1"));
+
+              System.out.println(object.initializeM().getProperty("intro2") +"\n");
+              
+                 
+                     
+                      meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
+
+       }
 }
        public Animal returnPlayer(List<Animal> animalsList){
               Random rand = new Random();
@@ -82,6 +73,7 @@ public class Forest {
        int strengthOfPlayer1,strengthOfPlayer2;
 
        Animal animal = new Animal("",0,0,0,false);
+       if (opt.getOption() == 1) {
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t "+ object.initialize().getProperty("F_stmt_1"));
                      System.out.println("\n "+ object.initialize().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initialize().getProperty("F_stmt_3") +player1.getName());
@@ -166,7 +158,100 @@ public class Forest {
         }
 
        return object.initialize().getProperty("F_stmt_22");
+       } else if (opt.getOption() == 2) {
 
+
+
+              if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
+                     System.out.println("\t "+ object.initializeM().getProperty("F_stmt_1"));
+                     System.out.println("\n "+ object.initializeM().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initializeM().getProperty("F_stmt_3") +player1.getName());
+                     player1.startFight( player2);
+                     return object.initializeM().getProperty("F_stmt_4");
+              }
+              else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)){
+                     System.out.println(" \t"+ object.initializeM().getProperty("F_stmt_5")+"\n");
+                     System.out.println(object.initializeM().getProperty("F_stmt_6")+player1.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player1.getStarvage()+ object.initializeM().getProperty("F_stmt_8")+player1.getStrength() +"\n");
+                     System.out.println(" \t"+  object.initializeM().getProperty("F_stmt_9")+"\n");
+                     System.out.println(object.initializeM().getProperty("F_stmt_10")+player2.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player2.getStarvage()+object.initializeM().getProperty("F_stmt_8")+player2.getStrength() +"\n");
+                     System.out.println(player2.getName()+ object.initializeM().getProperty("F_stmt_11") +player2.getDistance()+object.initializeM().getProperty("F_stmt_12")+player1.getName());
+                     starvageOfPlayer1 = player1.getStarvage();
+                     starvageOfPlayer2 = player2.getStarvage();
+                     strengthOfPlayer1 = player1.getStrength();
+                     strengthOfPlayer2 = player2.getStrength();
+
+                  
+                    int x1 = player1.getAnimalLocationX();
+                    int y1 = player1.getAnimalLocationY(); 
+                  
+                    int x2 = player2.getAnimalLocationX();
+                    int y2 = player2.getAnimalLocationY();   
+
+                   System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
+                   if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
+                          System.out.println(object.initializeM().getProperty("F_stmt_13"));
+                         player2.startFight(player1);
+                        
+                   }  else{
+                     System.out.println(object.initializeM().getProperty("F_stmt_14"));
+
+                     System.out.println(object.initializeM().getProperty("F_stmt_15"));
+                  
+                     
+              }
+
+                     return object.initializeM().getProperty("F_stmt_16");
+
+              }
+              else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores))
+              {
+                     System.out.println(" \t"+object.initializeM().getProperty("F_stmt_17")+"\n");
+                     System.out.println(object.initializeM().getProperty("F_stmt_6")+player1.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player1.getStarvage()+ object.initializeM().getProperty("F_stmt_8")+player1.getStrength() +"\n");
+                     System.out.println(" \t"+object.initializeM().getProperty("F_stmt_18")+"\n");
+                     System.out.println(object.initializeM().getProperty("F_stmt_10")+player2.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player2.getStarvage()+object.initializeM().getProperty("F_stmt_8")+player2.getStrength() +"\n");
+                    
+                     starvageOfPlayer1 = player1.getStarvage();
+                     starvageOfPlayer2 = player2.getStarvage();
+               
+                     strengthOfPlayer1 = player1.getStrength();
+                     strengthOfPlayer2 = player2.getStrength();
+                    
+                   
+                     int x1 = player1.getAnimalLocationX();
+                     int y1 = player1.getAnimalLocationY(); 
+                     
+                     int x2 = player2.getAnimalLocationX();
+                     int y2 = player2.getAnimalLocationY();   
+ 
+                    System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
+                    if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
+                     System.out.println(object.initializeM().getProperty("F_stmt_13"));
+                          
+                          player1.startFight(player2);
+                    } else{
+                     System.out.println(object.initializeM().getProperty("F_stmt_14"));
+
+                     System.out.println(object.initializeM().getProperty("F_stmt_15"));
+                       
+                    }
+                
+                    return object.initializeM().getProperty("F_stmt_16");
+              }
+              else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores))		
+	 {
+		System.out.println("\t "+ object.initializeM().getProperty("F_stmt_19") +"\t \n");
+              System.out.println("\n "+ object.initializeM().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initializeM().getProperty("F_stmt_3") +player1.getName());
+              player2.startFight( player1);
+              	System.out.println(object.initializeM().getProperty("F_stmt_20"));
+              return object.initializeM().getProperty("F_stmt_21");
+        }
+
+       return object.initializeM().getProperty("F_stmt_22");
+
+
+
+
+       }
+       return object.initialize().getProperty("F_stmt_22");
        }
        
             

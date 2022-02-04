@@ -130,6 +130,7 @@ protected void printData() {
 }
 
 
+
 public Animal startFight(Animal opponent){  // new venture
 	
 	
@@ -140,10 +141,10 @@ public Animal startFight(Animal opponent){  // new venture
 	int strengthOfPlayer1 = this.getStrength();
 	int strengthOfPlayer2 = opponent.getStrength();
 	//System.out.println("hello");
-	
+	if (opt.getOption() == 1) {
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
-		if (opt.getOption() == 1) {
+		//if (opt.getOption() == 1) {
 			
 		
 		System.out.println(object.initialize().getProperty("A_statement_1"));
@@ -153,12 +154,12 @@ public Animal startFight(Animal opponent){  // new venture
 	//	System.out.println(object.initialize().getProperty("A_statement_2") +"*~~~~~~~*");
 		System.out.println(object.initialize().getProperty("A_statement_2") +"*~~~~~~~*");
 			 
-		}
-		else if(opt.getOption() == 2){
+		//}
+		/*else if(opt.getOption() == 2){
 			System.out.println(object.initializeM().getProperty("A_statement_1"));
 			System.out.println(this.getName() + object.initializeM().getProperty("A_statement_28")  + opponent.getName());
 	    	System.out.println(object.initializeM().getProperty("A_statement_2") +"*~~~~~~~*");
-		}
+		}*/
 		
 
 		
@@ -265,7 +266,133 @@ else{
 	}
 return this;
 }
+	} else if(opt.getOption() == 2){
 
+		if(this instanceof Herbivores && opponent instanceof Herbivores){
+
+			//if (opt.getOption() == 1) {
+				
+			
+			System.out.println(object.initializeM().getProperty("A_statement_1"));
+		//	System.out.println(object.initialize().getProperty("A_statement_1"));
+			System.out.println(this.getName() + object.initializeM().getProperty("A_statement_28")  + opponent.getName());
+		//	System.out.println(this.getName() + object.initialize().getProperty("A_statement_28")  + opponent.getName());
+		//	System.out.println(object.initialize().getProperty("A_statement_2") +"*~~~~~~~*");
+			System.out.println(object.initializeM().getProperty("A_statement_2") +"*~~~~~~~*");
+				 
+			//}
+			/*else if(opt.getOption() == 2){
+				System.out.println(object.initializeM().getProperty("A_statement_1"));
+				System.out.println(this.getName() + object.initializeM().getProperty("A_statement_28")  + opponent.getName());
+				System.out.println(object.initializeM().getProperty("A_statement_2") +"*~~~~~~~*");
+			}*/
+			
+	
+			
+			 return this;
+		}
+		//return player1;
+		else if(this instanceof Carnivores && opponent instanceof Herbivores) {
+					
+			
+			System.out.println("\n" +opponent.getName()+ object.initializeM().getProperty("A_statement_3") +this.getName());
+			if(opponent.getLuckFactor() >= 5 ){
+	
+			System.out.println("\n"+ object.initializeM().getProperty("A_statement_4") +opponent.getName()+ object.initializeM().getProperty("A_statement_5") +  object.initializeM().getProperty("A_statement_6") +this.getName()+"\n");
+			
+			Herbivores herbivores = (Herbivores) opponent;
+			herbivores.escapeFromEnemy(this);
+			
+		}else{
+				System.out.println("\n \t \t \t"+  object.initializeM().getProperty("A_statement_7") +"\t \t \n");
+			
+			System.out.println("\t"+opponent.getName()+ object.initializeM().getProperty("A_statement_8") +this.getName());
+			System.out.println("\t" +this.getName()+ object.initializeM().getProperty("A_statement_9") +opponent.getName());
+															System.out.println();			
+			System.out.println(object.initializeM().getProperty("A_statement_10") +this.getName()+ object.initializeM().getProperty("A_statement_11") +opponent.getName() );
+		 
+			System.out.println("\t\t\t . \t\t\t");
+																	  
+											   System.out.println("\t " + object.initializeM().getProperty("A_statement_12") +opponent.getName()+ object.initializeM().getProperty("A_statement_13") +"!!!!!!");
+											   strengthOfPlayer2  = 0;
+											   System.out.println("\t\t\t .. \t\t\t");
+											   System.out.println("\t"+ object.initializeM().getProperty("A_statement_12") +opponent.getName()+ object.initializeM().getProperty("A_statement_14") +strengthOfPlayer2);								  
+																	  
+											   System.out.println("\t\t\t ... \t\t\t");
+											  /// System.out.println("The Strength of "+player2.getName()+" is decreasing");
+											  if(opponent.getIsAlive() == true && opponent.getStrength() < 7){
+												Carnivores c = (Carnivores) this;
+																 c.killOpponent(this,opponent);
+																
+			 System.out.println("\t"+ opponent.getName()+ object.initializeM().getProperty("A_statement_15") +this.getName());
+	System.out.println("\t\t\t ------------- \t\t\t");
+										}else{
+											System.out.println(object.initializeM().getProperty("A_statement_16"));
+											Herbivores herbivores = (Herbivores) opponent;
+											herbivores.escapeFromEnemy(this);
+										}
+											 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
+											   System.out.println("\t\t\t ------------- \t\t\t");*/
+										winner = this;
+				  return winner;
+			}
+			
+	}
+	else if(this instanceof Herbivores && opponent instanceof Carnivores){
+		
+		System.out.println(this.getName()+ object.initializeM().getProperty("A_statement_3") +opponent.getName());
+		if(this.getLuckFactor() >= 5 ){
+	
+		System.out.println(object.initializeM().getProperty("A_statement_17") +this.getName()+ object.initializeM().getProperty("A_statement_5")+ object.initializeM().getProperty("A_statement_6") +opponent.getName());
+		
+		Herbivores herbivores = (Herbivores) this;
+		herbivores.escapeFromEnemy(opponent);
+	
+		}else{
+	
+			System.out.println("\n \t \t \t "+ object.initializeM().getProperty("A_statement_7") +"\t \t \n");
+	
+		System.out.println("\t"+ this.getName()+object.initializeM().getProperty("A_statement_8")+opponent.getName());
+		System.out.println("\t"+ opponent.getName()+object.initializeM().getProperty("A_statement_9")+this.getName());
+						System.out.println();											
+		System.out.println(object.initializeM().getProperty("A_statement_10")+opponent.getName()+object.initializeM().getProperty("A_statement_11")+this.getName() );
+		System.out.println("\t\t\t . \t\t\t");
+		System.out.println("\t" + object.initializeM().getProperty("A_statement_12")+this.getName()+ object.initializeM().getProperty("A_statement_13"));	
+		System.out.println("\t\t\t .. \t\t\t");
+	//System.out.println("Strength of "+player1.getName()+" is decreasing !!!!!!");
+	strengthOfPlayer1 = 0;		
+	System.out.println("\t"+object.initializeM().getProperty("A_statement_12") +this.getName()+ object.initializeM().getProperty("A_statement_14")+strengthOfPlayer1);								  
+	System.out.println("\t\t\t ... \t\t\t");
+	if(this.getIsAlive() == true && this.getStrength() < 7){
+			Carnivores c = (Carnivores) opponent;
+							 c.killOpponent(this,opponent);
+					
+			 System.out.println("\t"+ this.getName()+ object.initializeM().getProperty("A_statement_15") +opponent.getName());
+	System.out.println("\t\t\t ------------- \t\t\t");
+	}
+	else{
+	//System.out.println("The Strength of "+player1.getName()+" is decreasing");
+	System.out.println(object.initializeM().getProperty("A_statement_16"));
+	
+	Herbivores herbivores = (Herbivores) this;
+											   herbivores.escapeFromEnemy(opponent);
+											   
+	}
+		winner = opponent;
+		return winner;
+		}
+	}
+	else{
+		if(this instanceof Carnivores && opponent instanceof Carnivores){
+	
+			System.out.println(this.getName()+ object.initializeM().getProperty("A_statement_18")+opponent.getName());
+			System.out.println(this.getName()+ object.initializeM().getProperty("A_statement_19")+strengthOfPlayer1+object.initializeM().getProperty("A_statement_20")+opponent.getName()+ object.initializeM().getProperty("A_statement_19")+strengthOfPlayer2+ object.initializeM().getProperty("A_statement_21"));
+			System.out.println(this.getName()+object.initializeM().getProperty("A_statement_19")+starvageOfPlayer2+object.initializeM().getProperty("A_statement_22")+opponent.getName()+ object.initializeM().getProperty("A_statement_19")+starvageOfPlayer2+ object.initializeM().getProperty("A_statement_23"));
+			System.out.println(object.initializeM().getProperty("A_statement_24")+"!!!"+ object.initializeM().getProperty("A_statement_25")+"............");
+		}
+	return this;
+	}
+		}
 return this;
 }
 
