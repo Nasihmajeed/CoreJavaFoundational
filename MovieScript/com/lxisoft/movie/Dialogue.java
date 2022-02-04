@@ -25,7 +25,7 @@ public void playScene1()   {
   
   
      
-  FileReader fr = new FileReader("../resources/dialogues.csv");
+  FileReader fr = new FileReader("../resources/dialogue.csv");
    
 fr.read(dialogues);
   
@@ -36,13 +36,19 @@ fr.read(dialogues);
 
     catch (Exception e) {
   
-  System.out.println("Error");
+  System.out.println("Exception");
      
      e.printStackTrace();
   
     }
     
   
+
+
+
+
+
+
 
  /*scene1.add(newActors[1] + ": ningal nerathe vanno ?");
    scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
