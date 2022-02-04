@@ -7,6 +7,8 @@ import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
 import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.animals.Herbivores;
+import com.lxisoft.localization.Localization;
+import com.lxisoft.test.TDD;
 import com.lxisoft.*;
 public class Animal {
 	private String animalName;
@@ -14,7 +16,7 @@ public class Animal {
 	private boolean isAlive;
 	
 	public Location animalLocation = new Location() ;
-        
+        TDD opt = new TDD();
 
 public Animal(String animalName,int starvage,int strength,int distance,boolean isAlive){
 	
@@ -114,14 +116,15 @@ public int getAnimalLocationX()
 		double roamArea = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 -y1) * (y2 - y1));
 		return roamArea;
   }    
+  Localization object = new Localization();
 
 protected void printData() {
          
   
-	System.out.println("Name : " + this.getName());
-	System.out.println("Starvage_Level : " + this.getStarvage());
-	System.out.println("strength_Level : " + this.getStrength());
-	System.out.println("Distance : " + this.getDistance());
+	System.out.println(object.initialize().getProperty("A_statement_26 ") + this.getName());
+	System.out.println(object.initialize().getProperty("A_statement_23 ") +": " + this.getStarvage());
+	System.out.println(object.initialize().getProperty("A_statement_21 ") +": " + this.getStrength());
+	System.out.println(object.initialize().getProperty("A_statement_27 ") + this.getDistance());
 	System.out.println();
  
 }
@@ -137,14 +140,25 @@ public Animal startFight(Animal opponent){  // new venture
 	int strengthOfPlayer1 = this.getStrength();
 	int strengthOfPlayer2 = opponent.getStrength();
 	//System.out.println("hello");
+	
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
+		if (opt.getOption() == 1) {
+			
 		
-		System.out.println("We_are_Trying_to_Attack_both_us !!!");
-		System.out.println(this.getName() +" BOOM _ BOOM _ BOOM " + opponent.getName());
-		System.out.println("We_cannot_Fight_Togather_Because_We_are_Best_FRIENDS *~~~~~~~*");
-
-		
+		System.out.println(object.initialize().getProperty("A_statement_1"));
+	//	System.out.println(object.initialize().getProperty("A_statement_1"));
+		System.out.println(this.getName() + object.initialize().getProperty("A_statement_28")  + opponent.getName());
+	//	System.out.println(this.getName() + object.initialize().getProperty("A_statement_28")  + opponent.getName());
+	//	System.out.println(object.initialize().getProperty("A_statement_2") +"*~~~~~~~*");
+		System.out.println(object.initialize().getProperty("A_statement_2") +"*~~~~~~~*");
+			 
+		}
+		else if(opt.getOption() == 2){
+			System.out.println(object.initializeM().getProperty("A_statement_1"));
+			System.out.println(this.getName() + object.initializeM().getProperty("A_statement_28")  + opponent.getName());
+	    	System.out.println(object.initializeM().getProperty("A_statement_2") +"*~~~~~~~*");
+		}
 		
 
 		
@@ -153,27 +167,29 @@ public Animal startFight(Animal opponent){  // new venture
 	//return player1;
 	else if(this instanceof Carnivores && opponent instanceof Herbivores) {
 				
-		System.out.println("\n" +opponent.getName()+" was_very_unlucky_and_caught_by "+this.getName());
+		
+		System.out.println("\n" +opponent.getName()+ object.initialize().getProperty("A_statement_3") +this.getName());
 		if(opponent.getLuckFactor() >= 5 ){
 
-		System.out.println(" \n But_fortunately_player " +opponent.getName()+ " is_very_lucky !!!  just_escaped_from " +this.getName()+"\n");
+		System.out.println("\n"+ object.initialize().getProperty("A_statement_4") +opponent.getName()+ object.initialize().getProperty("A_statement_5") +  object.initialize().getProperty("A_statement_6") +this.getName()+"\n");
 		
 		Herbivores herbivores = (Herbivores) opponent;
 		herbivores.escapeFromEnemy(this);
-	}else{
-			System.out.println("\n \t \t \t THE_REAL_FIGHT_BEGINS \t \t \n");
 		
-		System.out.println("\t"+opponent.getName()+" is_caught_by "+this.getName());
-		System.out.println("\t" +this.getName()+" is_attacking "+opponent.getName());
+	}else{
+			System.out.println("\n \t \t \t"+  object.initialize().getProperty("A_statement_7") +"\t \t \n");
+		
+		System.out.println("\t"+opponent.getName()+ object.initialize().getProperty("A_statement_8") +this.getName());
+		System.out.println("\t" +this.getName()+ object.initialize().getProperty("A_statement_9") +opponent.getName());
 														System.out.println();			
-		System.out.println(" Starvage_of "+this.getName()+" is_higher_than_the_Strength_of "+opponent.getName() );
+		System.out.println(object.initialize().getProperty("A_statement_10") +this.getName()+ object.initialize().getProperty("A_statement_11") +opponent.getName() );
 	 
 		System.out.println("\t\t\t . \t\t\t");
 																  
-										   System.out.println("\t Strength_of "+opponent.getName()+" is_decreasing !!!!!!");
+										   System.out.println("\t " + object.initialize().getProperty("A_statement_12") +opponent.getName()+ object.initialize().getProperty("A_statement_13") +"!!!!!!");
 										   strengthOfPlayer2  = 0;
 										   System.out.println("\t\t\t .. \t\t\t");
-										   System.out.println("\t Strength_of "+opponent.getName()+" reduced_to "+strengthOfPlayer2);								  
+										   System.out.println("\t"+ object.initialize().getProperty("A_statement_12") +opponent.getName()+ object.initialize().getProperty("A_statement_14") +strengthOfPlayer2);								  
 																  
 										   System.out.println("\t\t\t ... \t\t\t");
 										  /// System.out.println("The Strength of "+player2.getName()+" is decreasing");
@@ -181,57 +197,55 @@ public Animal startFight(Animal opponent){  // new venture
 											Carnivores c = (Carnivores) this;
 															 c.killOpponent(this,opponent);
 															
-         System.out.println("\t"+ opponent.getName()+" Defeated_and_Killed_by "+this.getName());
+         System.out.println("\t"+ opponent.getName()+ object.initialize().getProperty("A_statement_15") +this.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 									}else{
-										System.out.println("There_have_some_chances_to_escape ");
+										System.out.println(object.initialize().getProperty("A_statement_16"));
 										Herbivores herbivores = (Herbivores) opponent;
 										herbivores.escapeFromEnemy(this);
 									}
 										 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
 										   System.out.println("\t\t\t ------------- \t\t\t");*/
-										  
-
-			  winner = this;
+									winner = this;
 			  return winner;
 		}
 		
 }
 else if(this instanceof Herbivores && opponent instanceof Carnivores){
 	
-	System.out.println(this.getName()+" was_very_unlucky_and_caught_by "+opponent.getName());
+	System.out.println(this.getName()+ object.initialize().getProperty("A_statement_3") +opponent.getName());
 	if(this.getLuckFactor() >= 5 ){
 
-	System.out.println(" player " +this.getName()+ " is_very_lucky !!!  just_escaped_from " +opponent.getName());
+	System.out.println(object.initialize().getProperty("A_statement_17") +this.getName()+ object.initialize().getProperty("A_statement_5")+ object.initialize().getProperty("A_statement_6") +opponent.getName());
 	
 	Herbivores herbivores = (Herbivores) this;
 	herbivores.escapeFromEnemy(opponent);
 
 	}else{
 
-		System.out.println("\n \t \t \t THE_REAL_FIGHT_BEGINS \t \t \n");
+		System.out.println("\n \t \t \t "+ object.initialize().getProperty("A_statement_7") +"\t \t \n");
 
-	System.out.println("\t"+ this.getName()+" is_caught_by "+opponent.getName());
-	System.out.println("\t"+ opponent.getName()+" is_attacking "+this.getName());
+	System.out.println("\t"+ this.getName()+object.initialize().getProperty("A_statement_8")+opponent.getName());
+	System.out.println("\t"+ opponent.getName()+object.initialize().getProperty("A_statement_9")+this.getName());
 					System.out.println();											
-	System.out.println(" Starvage_of "+opponent.getName()+" is_higher_than_the_Strength_of "+this.getName() );
+	System.out.println(object.initialize().getProperty("A_statement_10")+opponent.getName()+object.initialize().getProperty("A_statement_11")+this.getName() );
 	System.out.println("\t\t\t . \t\t\t");
-	System.out.println("\t Strength_of "+this.getName()+" is_decreasing ");	
+	System.out.println("\t" + object.initialize().getProperty("A_statement_12")+this.getName()+ object.initialize().getProperty("A_statement_13"));	
 	System.out.println("\t\t\t .. \t\t\t");
 //System.out.println("Strength of "+player1.getName()+" is decreasing !!!!!!");
 strengthOfPlayer1 = 0;		
-System.out.println("\t Strength_of "+this.getName()+" reduced_to "+strengthOfPlayer1);								  
+System.out.println("\t"+object.initialize().getProperty("A_statement_12") +this.getName()+ object.initialize().getProperty("A_statement_14")+strengthOfPlayer1);								  
 System.out.println("\t\t\t ... \t\t\t");
 if(this.getIsAlive() == true && this.getStrength() < 7){
 		Carnivores c = (Carnivores) opponent;
                          c.killOpponent(this,opponent);
 				
-         System.out.println("\t"+ this.getName()+" Defeated_and_Killed_by "+opponent.getName());
+         System.out.println("\t"+ this.getName()+ object.initialize().getProperty("A_statement_15") +opponent.getName());
 System.out.println("\t\t\t ------------- \t\t\t");
 }
 else{
 //System.out.println("The Strength of "+player1.getName()+" is decreasing");
-System.out.println("There_have_some_chances_to_escape ");
+System.out.println(object.initialize().getProperty("A_statement_16"));
 
 Herbivores herbivores = (Herbivores) this;
 										   herbivores.escapeFromEnemy(opponent);
@@ -244,10 +258,10 @@ Herbivores herbivores = (Herbivores) this;
 else{
 	if(this instanceof Carnivores && opponent instanceof Carnivores){
 
-		System.out.println(this.getName()+" meeting "+opponent.getName());
-		System.out.println(this.getName()+" has "+strengthOfPlayer1+" Strength_Level_And "+opponent.getName()+" has "+strengthOfPlayer2+" Strength Level");
-		System.out.println(this.getName()+" has "+starvageOfPlayer2+" Starvage_Level_And "+opponent.getName()+" has "+starvageOfPlayer2+" Starvage Level");
-		System.out.println("shitt!!! WE_WILL_NEVER_WIN_BECAUSE_WE_CANNOT_KILL_BOTH_OF_US............");
+		System.out.println(this.getName()+ object.initialize().getProperty("A_statement_18")+opponent.getName());
+		System.out.println(this.getName()+ object.initialize().getProperty("A_statement_19")+strengthOfPlayer1+object.initialize().getProperty("A_statement_20")+opponent.getName()+ object.initialize().getProperty("A_statement_19")+strengthOfPlayer2+ object.initialize().getProperty("A_statement_21"));
+		System.out.println(this.getName()+object.initialize().getProperty("A_statement_19")+starvageOfPlayer2+object.initialize().getProperty("A_statement_22")+opponent.getName()+ object.initialize().getProperty("A_statement_19")+starvageOfPlayer2+ object.initialize().getProperty("A_statement_23"));
+		System.out.println(object.initialize().getProperty("A_statement_24")+"!!!"+ object.initialize().getProperty("A_statement_25")+"............");
 	}
 return this;
 }

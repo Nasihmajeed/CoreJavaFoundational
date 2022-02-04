@@ -14,6 +14,8 @@ import java.lang.reflect.InvocationTargetException;
 
 import com.lxisoft.*;
 import com.lxisoft.game.Animal;
+import com.lxisoft.localization.Localization;
+
 import com.lxisoft.game.Forest;
 public class FileRepository{
 
