@@ -12,10 +12,13 @@ import com.lxisoft.factors.*;
 public class TDD {
         static int option;
        public static void main(String[] args){
-             System.out.println("choose your language : ");
-             System.out.println("\n 1.English \n 2.Malayalam");
+              Localization object = new Localization();
+             System.out.println(object.initialize().getProperty("FAQ"));
+             System.out.println("\n"+  object.initialize().getProperty("opt_1") +"\n"+ object.initialize().getProperty("opt_2"));
+             System.out.println(object.initializeM().getProperty("FAQ"));
+             System.out.println("\n"+  object.initializeM().getProperty("opt_1") +"\n"+ object.initializeM().getProperty("opt_2"));
              Scanner sc = new Scanner(System.in);
-             Localization loc = new Localization(); 
+             //Localization loc = new Localization(); 
             setOption(sc.nextInt());
              Forest f = new Forest();
              switch(option){    

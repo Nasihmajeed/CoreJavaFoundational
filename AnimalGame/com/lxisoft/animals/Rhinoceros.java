@@ -6,6 +6,7 @@ import java.*;
 import com.lxisoft.test.*;
 import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.game.Animal;
+import com.lxisoft.localization.Localization;
 
 public class Rhinoceros extends Animal implements Herbivores{
      
@@ -20,7 +21,7 @@ public class Rhinoceros extends Animal implements Herbivores{
 
        TDD opt = new TDD();
            
-              
+       Localization object = new Localization();      
                                                                //luckFactor
        public int getLuckFactor()
        {

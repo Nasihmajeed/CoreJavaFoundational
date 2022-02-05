@@ -7,6 +7,7 @@ import com.lxisoft.game.Animal;
 import com.lxisoft.*;
 import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.test.*;
+import com.lxisoft.localization.Localization;
 
 
 public class Elephant extends Animal implements Herbivores {
@@ -31,6 +32,7 @@ public int getLuckFactor()
 	return luckFactor;
 }
 TDD opt = new TDD();
+Localization object = new Localization();
 //int x = rand.nextInt(20);
 //int y = rand.nextInt(20);
 

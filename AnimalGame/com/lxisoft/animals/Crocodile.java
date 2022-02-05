@@ -5,6 +5,7 @@ import java.*;
 import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 import com.lxisoft.test.*;
+import com.lxisoft.localization.Localization;
 
 
 public class Crocodile extends Animal implements Carnivores {
@@ -17,7 +18,7 @@ public class Crocodile extends Animal implements Carnivores {
        }
 
        TDD opt = new TDD();
-
+       Localization object = new Localization();
        public String killOpponent(Animal player1,Animal player2){
        if (opt.getOption() == 1) {
               
@@ -61,10 +62,10 @@ public class Crocodile extends Animal implements Carnivores {
     
  
        }
-    return  object.initialize().getProperty("Fight_stmt7");
+    return  object.initializeM().getProperty("Fight_stmt7");
 }
            
-           
+return  object.initialize().getProperty("Fight_stmt7");    
              }
 
 

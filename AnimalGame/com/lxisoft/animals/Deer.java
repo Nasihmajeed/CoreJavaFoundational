@@ -8,12 +8,13 @@ import com.lxisoft.game.Animal;
 import com.lxisoft.*;
 import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.test.*;
+import com.lxisoft.localization.Localization;
 
 
 public class Deer extends Animal implements Herbivores {
 
        
-
+    Localization object = new Localization();
  
        public Deer(String animalName,int starvage,int strength,int distance ,boolean isAlive)
        {

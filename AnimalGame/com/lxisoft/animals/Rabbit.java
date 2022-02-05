@@ -6,7 +6,7 @@ import java.*;
 
 import com.lxisoft.*;
 import com.lxisoft.test.*;
-
+import com.lxisoft.localization.Localization;
 import com.lxisoft.game.Animal;
 import com.lxisoft.factors.AnimalEscapeException;
 
@@ -33,7 +33,7 @@ public class Rabbit extends Animal implements Herbivores {
        TDD opt = new TDD();
     //   int x = rand.nextInt(20);
       // int y = rand.nextInt(20);
-
+      Localization object = new Localization();
       public void escapeFromEnemy(Animal enemy){ 
         if (opt.getOption() == 1) {
         try{

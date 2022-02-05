@@ -4,6 +4,7 @@ import com.lxisoft.*;
 import com.lxisoft.game.Animal;
 import java.util.Random;
 import com.lxisoft.test.*;
+import com.lxisoft.localization.Localization;
 
 
 public class Tiger extends Animal implements Carnivores 
@@ -15,7 +16,7 @@ public Tiger(String animalName,int starvage,int strength,int distance, boolean i
 
 }
 TDD opt = new TDD();
-
+Localization object = new Localization();
 public String killOpponent(Animal player1,Animal player2){
        if (opt.getOption() == 1) {
               
@@ -59,9 +60,9 @@ public String killOpponent(Animal player1,Animal player2){
     
  
        }
-    return  object.initialize().getProperty("Fight_stmt7");
+    return  object.initializeM().getProperty("Fight_stmt7");
 }
-    
+return  object.initialize().getProperty("Fight_stmt7");
       }
 
 //int x = rand.nextInt(20);

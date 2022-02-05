@@ -7,6 +7,7 @@ import com.lxisoft.game.Animal;
 import com.lxisoft.*;
 import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.test.*;
+import com.lxisoft.localization.Localization;
 
 
 public class Gaur extends Animal implements Herbivores {
@@ -35,7 +36,7 @@ public class Gaur extends Animal implements Herbivores {
       // int x = rand.nextInt(20);
      //  int y = rand.nextInt(20);
      TDD opt = new TDD();
-
+     Localization object = new Localization();
      public void escapeFromEnemy(Animal enemy){ 
         if (opt.getOption() == 1) {
         try{
