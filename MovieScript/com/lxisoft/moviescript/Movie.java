@@ -82,7 +82,9 @@ public class Movie {
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
-   
+        
+       System.out.println("\t\t Enter The Numbers Of Hero:");
+
          Hero hero = new Hero();
          hero.setName (" Ansel Elgort");
          hero.setCharacterName (" Augustus Waters");
