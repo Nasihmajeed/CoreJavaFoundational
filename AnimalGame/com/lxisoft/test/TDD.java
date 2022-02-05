@@ -20,21 +20,21 @@ public class TDD {
              Scanner sc = new Scanner(System.in);
              //Localization loc = new Localization(); 
             setOption(sc.nextInt());
-             Forest f = new Forest();
+             Forest forest = new Forest();
              switch(option){    
               case 1:    
               //loc.initialize(0); //code to be executed; 
-              f.welcomeToForest();
+              forest.welcomeToForest();
               break;  //optional  
               case 2:    
               //loc.initialize(1);
-              f.welcomeToForest();  //code to be executed;    
+              forest.welcomeToForest();  //code to be executed;    
                break;  //optional  
                   
                   
               default:     
-                System.out.println("Wrong one is choosed ! please Try again "); 
-
+                System.out.println(object.initialize().getProperty("warnning")); 
+                System.out.println(object.initializeM().getProperty("warnning")); 
  
               } 
              
