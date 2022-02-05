@@ -35,7 +35,7 @@ public class Forest {
         //repo.writeToFile();
        repo.readFile();
 
-       if (opt.getOption() == 1) {
+       if (TDD.getOption() == 1) {
     
       System.out.println(object.initialize().getProperty("intro1"));
 
@@ -44,7 +44,7 @@ public class Forest {
          
              
               meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
-       }else if (opt.getOption() == 2) {
+       }else if (TDD.getOption() == 2) {
 
               System.out.println(object.initializeM().getProperty("intro1"));
 
@@ -69,11 +69,28 @@ public class Forest {
         
       public String meetPlayers(Animal player1, Animal player2){
              
-       int starvageOfPlayer1,starvageOfPlayer2;
-       int strengthOfPlayer1,strengthOfPlayer2;
+      // int starvageOfPlayer1,starvageOfPlayer2;
+      // int strengthOfPlayer1,strengthOfPlayer2;
+
+
+
+       int starvageOfPlayer1 = player1.getStarvage();
+       int starvageOfPlayer2 = player2.getStarvage();
+       int strengthOfPlayer1 = player1.getStrength();
+       int strengthOfPlayer2 = player2.getStrength();
+
+    
+      int x1 = player1.getAnimalLocationX();
+      int y1 = player1.getAnimalLocationY(); 
+    
+      int x2 = player2.getAnimalLocationX();
+      int y2 = player2.getAnimalLocationY(); 
+
+
+
 
        Animal animal = new Animal("",0,0,0,false);
-       if (opt.getOption() == 1) {
+       if (TDD.getOption() == 1) {
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t "+ object.initialize().getProperty("F_stmt_1"));
                      System.out.println("\n "+ object.initialize().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initialize().getProperty("F_stmt_3") +player1.getName());
@@ -86,17 +103,7 @@ public class Forest {
                      System.out.println(" \t"+  object.initialize().getProperty("F_stmt_9")+"\n");
                      System.out.println(object.initialize().getProperty("F_stmt_10")+player2.getName()+"    "+object.initialize().getProperty("F_stmt_7")+player2.getStarvage()+object.initialize().getProperty("F_stmt_8")+player2.getStrength() +"\n");
                      System.out.println(player2.getName()+ object.initialize().getProperty("F_stmt_11") +player2.getDistance()+object.initialize().getProperty("F_stmt_12")+player1.getName());
-                     starvageOfPlayer1 = player1.getStarvage();
-                     starvageOfPlayer2 = player2.getStarvage();
-                     strengthOfPlayer1 = player1.getStrength();
-                     strengthOfPlayer2 = player2.getStrength();
-
-                  
-                    int x1 = player1.getAnimalLocationX();
-                    int y1 = player1.getAnimalLocationY(); 
-                  
-                    int x2 = player2.getAnimalLocationX();
-                    int y2 = player2.getAnimalLocationY();   
+                      
 
                    System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
                    if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
@@ -121,18 +128,7 @@ public class Forest {
                      System.out.println(" \t"+object.initialize().getProperty("F_stmt_18")+"\n");
                      System.out.println(object.initialize().getProperty("F_stmt_10")+player2.getName()+"    "+object.initialize().getProperty("F_stmt_7")+player2.getStarvage()+object.initialize().getProperty("F_stmt_8")+player2.getStrength() +"\n");
                     
-                     starvageOfPlayer1 = player1.getStarvage();
-                     starvageOfPlayer2 = player2.getStarvage();
-               
-                     strengthOfPlayer1 = player1.getStrength();
-                     strengthOfPlayer2 = player2.getStrength();
                     
-                   
-                     int x1 = player1.getAnimalLocationX();
-                     int y1 = player1.getAnimalLocationY(); 
-                     
-                     int x2 = player2.getAnimalLocationX();
-                     int y2 = player2.getAnimalLocationY();   
  
                     System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
                     if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
@@ -158,7 +154,7 @@ public class Forest {
         }
 
        return object.initialize().getProperty("F_stmt_22");
-       } else if (opt.getOption() == 2) {
+       } else if (TDD.getOption() == 2) {
 
 
 
@@ -174,17 +170,7 @@ public class Forest {
                      System.out.println(" \t"+  object.initializeM().getProperty("F_stmt_9")+"\n");
                      System.out.println(object.initializeM().getProperty("F_stmt_10")+player2.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player2.getStarvage()+object.initializeM().getProperty("F_stmt_8")+player2.getStrength() +"\n");
                      System.out.println(player2.getName()+ object.initializeM().getProperty("F_stmt_11") +player2.getDistance()+object.initializeM().getProperty("F_stmt_12")+player1.getName());
-                     starvageOfPlayer1 = player1.getStarvage();
-                     starvageOfPlayer2 = player2.getStarvage();
-                     strengthOfPlayer1 = player1.getStrength();
-                     strengthOfPlayer2 = player2.getStrength();
-
-                  
-                    int x1 = player1.getAnimalLocationX();
-                    int y1 = player1.getAnimalLocationY(); 
-                  
-                    int x2 = player2.getAnimalLocationX();
-                    int y2 = player2.getAnimalLocationY();   
+                     
 
                    System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
                    if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){
@@ -209,18 +195,7 @@ public class Forest {
                      System.out.println(" \t"+object.initializeM().getProperty("F_stmt_18")+"\n");
                      System.out.println(object.initializeM().getProperty("F_stmt_10")+player2.getName()+"    "+object.initializeM().getProperty("F_stmt_7")+player2.getStarvage()+object.initializeM().getProperty("F_stmt_8")+player2.getStrength() +"\n");
                     
-                     starvageOfPlayer1 = player1.getStarvage();
-                     starvageOfPlayer2 = player2.getStarvage();
-               
-                     strengthOfPlayer1 = player1.getStrength();
-                     strengthOfPlayer2 = player2.getStrength();
-                    
-                   
-                     int x1 = player1.getAnimalLocationX();
-                     int y1 = player1.getAnimalLocationY(); 
-                     
-                     int x2 = player2.getAnimalLocationX();
-                     int y2 = player2.getAnimalLocationY();   
+                  
  
                     System.out.println(animal.createRoamingArea(x1,x2,y1,y2));
                     if(animal.createRoamingArea(x1,x2,y1,y2) <= 13){

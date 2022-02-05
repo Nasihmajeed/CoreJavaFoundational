@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 public class Localization{
 
     Properties properties;
-    Properties properties2;
+    
 
     public Properties initialize() {
         

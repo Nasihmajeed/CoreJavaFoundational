@@ -21,9 +21,9 @@ public class FileRepository{
 
 	Localization object = new Localization();
 public File myObj = new File("com/lxisoft/factors/Animal.csv");
-TDD opt = new TDD();
+	//TDD opt = new TDD();
 	public void createFile() {
-		if (opt.getOption() == 1) {
+		if (TDD.getOption() == 1) {
 		try {
 		
 		if (myObj.createNewFile()) {
@@ -35,7 +35,7 @@ TDD opt = new TDD();
 		System.out.println(object.initialize().getProperty("Error_stmt1"));
 		e.printStackTrace();
    }
-   } else if (opt.getOption() == 2) {
+   } else if (TDD.getOption() == 2) {
 
 	try {
 		
@@ -72,7 +72,7 @@ try {
 
 public  List<Animal> readFile(){
 	List<Animal> animals = new ArrayList<>();
-	if (opt.getOption() == 1) {
+	if (TDD.getOption() == 1) {
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
@@ -119,7 +119,7 @@ public  List<Animal> readFile(){
 		System.out.println(excp);
 	}
 	return animals;
-}else if (opt.getOption() == 2) {
+}else if (TDD.getOption() == 2) {
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
@@ -172,7 +172,7 @@ return animals;
 
 
 public void showFileInfo(){
-	if (opt.getOption() == 1) {
+	if (TDD.getOption() == 1) {
 	if(myObj.exists()){
 		System.out.println(object.initialize().getProperty("F_stmt_25") +myObj.getName() );
 		System.out.println(object.initialize().getProperty("F_stmt_26")  + myObj.getAbsolutePath());
@@ -181,7 +181,7 @@ public void showFileInfo(){
 	}else{
 		System.out.println(object.initialize().getProperty("F_stmt_29") );
 	}
-}else if (opt.getOption() == 2) {
+}else if (TDD.getOption() == 2) {
 
 	if(myObj.exists()){
 		System.out.println(object.initializeM().getProperty("F_stmt_25") +myObj.getName() );

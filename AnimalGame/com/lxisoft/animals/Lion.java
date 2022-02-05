@@ -15,10 +15,10 @@ public class  Lion extends Animal implements Carnivores{
        {
               super(animalName,starvage,strength,distance, isAlive);
        }
-       TDD opt = new TDD();
+       //TDD opt = new TDD();
        Localization object = new Localization();
        public String killOpponent(Animal player1,Animal player2){
-              if (opt.getOption() == 1) {
+              if (TDD.getOption() == 1) {
                      
               if (player1 instanceof Herbivores && player2 instanceof Carnivores){
                System.out.println(object.initialize().getProperty("Design_1") );
@@ -40,7 +40,7 @@ public class  Lion extends Animal implements Carnivores{
         
               }
            return  object.initialize().getProperty("Fight_stmt7");
-       } else if (opt.getOption() == 2) {
+       } else if (TDD.getOption() == 2) {
                      
               if (player1 instanceof Herbivores && player2 instanceof Carnivores){
                System.out.println(object.initializeM().getProperty("Design_1") );

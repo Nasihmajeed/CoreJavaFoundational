@@ -16,7 +16,7 @@ public class Animal {
 	private boolean isAlive;
 	
 	public Location animalLocation = new Location() ;
-        TDD opt = new TDD();
+       // TDD opt = new TDD();
 
 public Animal(String animalName,int starvage,int strength,int distance,boolean isAlive){
 	
@@ -141,7 +141,7 @@ public Animal startFight(Animal opponent){  // new venture
 	int strengthOfPlayer1 = this.getStrength();
 	int strengthOfPlayer2 = opponent.getStrength();
 	//System.out.println("hello");
-	if (opt.getOption() == 1) {
+	if (TDD.getOption() == 1) {
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
 		//if (opt.getOption() == 1) {
@@ -266,7 +266,7 @@ else{
 	}
 return this;
 }
-	} else if(opt.getOption() == 2){
+	} else if(TDD.getOption() == 2){
 
 		if(this instanceof Herbivores && opponent instanceof Herbivores){
 

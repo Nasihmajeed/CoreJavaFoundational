@@ -30,12 +30,12 @@ public class Rabbit extends Animal implements Herbivores {
               luckFactor=rand.nextInt(10);
               return luckFactor;
        }
-       TDD opt = new TDD();
+       //TDD opt = new TDD();
     //   int x = rand.nextInt(20);
       // int y = rand.nextInt(20);
       Localization object = new Localization();
       public void escapeFromEnemy(Animal enemy){ 
-        if (opt.getOption() == 1) {
+        if (TDD.getOption() == 1) {
         try{
         if(enemy instanceof Carnivores && this instanceof Herbivores){
     System.out.println(this.getName() +object.initialize().getProperty("E_stmt_1") );
@@ -49,7 +49,7 @@ public class Rabbit extends Animal implements Herbivores {
     }catch(AnimalEscapeException e) {
         System.out.println(e);
      }
-        }else if (opt.getOption() == 2) {
+        }else if (TDD.getOption() == 2) {
 
             try{
                 if(enemy instanceof Carnivores && this instanceof Herbivores){

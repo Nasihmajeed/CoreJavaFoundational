@@ -45,7 +45,7 @@ public class TDD {
               TDD.option=option;
        }
        
-       public int getOption()
+       public static int getOption()
        {
               return option;
        }
