@@ -44,7 +44,7 @@ Script script = new Script();
  public String getName()   {
 	 return name;
  }
- public void set(String newName)  {
+ public void setName(String newName)  {
 	 this.name = newName;
  }
  
@@ -157,6 +157,8 @@ language = ("MALAYALAM");
 
 		System.out.println("Enter The Director Name");
 		director = sc.nextLine();
+
+
 		System.out.println("\t\tName :" + this.name); 
 	 System.out.println("\t\tDirctor :" + this.director);
 		System.out.println("\t\tGenre :"+ this.genre);
@@ -254,7 +256,7 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine()); 
 
-actors[heroNo + heroineNo + comedianNo] = villan.getCharacterName();
+actors[heroNo + heroineNo + comedianNo +i] = villan.getCharacterName();
 
 villan.actorDetails();
 System.out.println("\n");

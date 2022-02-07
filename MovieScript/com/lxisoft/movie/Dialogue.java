@@ -20,13 +20,15 @@ public void playScene1()   {
  
 
 
-  
+
     try {
   
   
      
   FileReader fr = new FileReader("../resources/dialogue.csv");
    
+fr.skip(15 );
+
 fr.read(dialogues);
   
   System.out.println(dialogues);

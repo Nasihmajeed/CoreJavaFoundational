@@ -15,7 +15,7 @@ public class Scene {
  System.out.println("\t\t\t\t\t--------------------------------");
  System.out.println ("\n");
  System.out.println ("\n");
- System.out.println ("\n");
+
  
  dialogue.playScene1();
  

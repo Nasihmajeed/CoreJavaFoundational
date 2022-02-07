@@ -2,9 +2,9 @@ Genre,dialogue
 
 
 
-COMEDY,ningal nerathe vanno ?"");"
-COMEDY, : innale veetil poyal alle nerathe varandollu."");",
- COMEDY,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa ); ,
+COMEDY,ningal nerathe vanno ?
+COMEDY, : innale veetil poyal alle nerathe varandollu.
+ COMEDY,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa 
 COMEDY, : mani 7.30 aayitto avare kananillallo);,
 COMEDY,"penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk"");",
 COMEDY,: pall thechaal mathiyarnnu ivatteyokke"");",
@@ -160,7 +160,7 @@ COMEDY,(comedian[3] +"" : amme..... ennalum ithevidunn "");",
 COMEDY,(heroine[1] +"" : haa "");",
 COMEDY,(comedian[1] +"" : naariyal paani "");",
 COMEDY,heroine[1] +"" : ithengane "");",
-COMEDY,(comedian[1] +"" : NOTHING IS IMPOSSIBLE "");",
+COMEDY,(comedian[1] +"" : NOTHING IS IMPOSSIBLE "");
 ,
 ,
 ,
