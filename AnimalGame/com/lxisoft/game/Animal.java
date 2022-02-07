@@ -1,7 +1,6 @@
 package com.lxisoft.game;
 
 import java.util.Random;
-import java.*;
 
 import com.lxisoft.animals.*;
 import com.lxisoft.factors.Location;
@@ -9,7 +8,7 @@ import com.lxisoft.factors.AnimalEscapeException;
 import com.lxisoft.animals.Herbivores;
 import com.lxisoft.localization.Localization;
 import com.lxisoft.test.TDD;
-import com.lxisoft.*;
+
 public class Animal {
 	private String animalName;
 	private int starvage,strength,distance,luckFactor;
@@ -141,7 +140,7 @@ public Animal startFight(Animal opponent){  // new venture
 	int strengthOfPlayer1 = this.getStrength();
 	int strengthOfPlayer2 = opponent.getStrength();
 	//System.out.println("hello");
-	if (TDD.getOption() == 1) {
+	//if (TDD.getOption() == 1) {
 	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
 		//if (opt.getOption() == 1) {
@@ -266,9 +265,9 @@ else{
 	}
 return this;
 }
-	} else if(TDD.getOption() == 2){
+//	} else if(TDD.getOption() == 2){
 
-		if(this instanceof Herbivores && opponent instanceof Herbivores){
+	/*	if(this instanceof Herbivores && opponent instanceof Herbivores){
 
 			//if (opt.getOption() == 1) {
 				
@@ -285,7 +284,7 @@ return this;
 				System.out.println(object.initializeM().getProperty("A_statement_1"));
 				System.out.println(this.getName() + object.initializeM().getProperty("A_statement_28")  + opponent.getName());
 				System.out.println(object.initializeM().getProperty("A_statement_2") +"*~~~~~~~*");
-			}*/
+			}*
 			
 	
 			
@@ -332,7 +331,7 @@ return this;
 											herbivores.escapeFromEnemy(this);
 										}
 											 /*  System.out.println("\t"+ player1.getName()+" Defeated and Killed by "+player2.getName());
-											   System.out.println("\t\t\t ------------- \t\t\t");*/
+											   System.out.println("\t\t\t ------------- \t\t\t");*
 										winner = this;
 				  return winner;
 			}
@@ -391,8 +390,8 @@ return this;
 			System.out.println(object.initializeM().getProperty("A_statement_24")+"!!!"+ object.initializeM().getProperty("A_statement_25")+"............");
 		}
 	return this;
-	}
-		}
+	}*/
+	//	}
 return this;
 }
 

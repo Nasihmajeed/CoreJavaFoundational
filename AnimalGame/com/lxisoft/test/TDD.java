@@ -1,10 +1,10 @@
 package com.lxisoft.test;
 
-import java.*;
+
 import java.io.*;
 import java.util.Scanner;
 
-import com.lxisoft.*;
+
 import com.lxisoft.game.Animal;
 import com.lxisoft.game.Forest;
 import com.lxisoft.localization.Localization;
@@ -13,10 +13,10 @@ public class TDD {
         static int option;
        public static void main(String[] args){
               Localization object = new Localization();
-             System.out.println(object.initialize().getProperty("FAQ"));
-             System.out.println("\n"+  object.initialize().getProperty("opt_1") +"\n"+ object.initialize().getProperty("opt_2"));
-             System.out.println(object.initializeM().getProperty("FAQ"));
-             System.out.println("\n"+  object.initializeM().getProperty("opt_1") +"\n"+ object.initializeM().getProperty("opt_2"));
+             System.out.println("choose your language :  \n  നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക :");
+             System.out.println("\n 1.English \n 2.മലയാളം  \n");
+           //  System.out.println(" നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക : ");
+            // System.out.println("\n"+  object.initializeM().getProperty("opt_1") +"\n"+ object.initializeM().getProperty("opt_2"));
              Scanner sc = new Scanner(System.in);
              //Localization loc = new Localization(); 
             setOption(sc.nextInt());
@@ -33,8 +33,8 @@ public class TDD {
                   
                   
               default:     
-                System.out.println(object.initialize().getProperty("warnning")); 
-                System.out.println(object.initializeM().getProperty("warnning")); 
+                System.out.println(" Wrong one is choosed ! please Try again  \n തെറ്റായ ഒന്ന് തിരഞ്ഞെടുത്തു! ദയവായി വീണ്ടും ശ്രമിക്കുക "); 
+           //     System.out.println(object.initializeM().getProperty("warnning")); 
  
               } 
              

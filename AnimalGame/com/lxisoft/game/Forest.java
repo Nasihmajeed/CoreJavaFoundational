@@ -1,6 +1,6 @@
 package com.lxisoft.game;
 
-import java.*;
+
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -31,11 +31,11 @@ public class Forest {
       // int i = 0; 
       
        repo.createFile();
-      // repo.showFileInfo();
+       repo.showFileInfo();
         //repo.writeToFile();
        repo.readFile();
 
-       if (TDD.getOption() == 1) {
+      // if (TDD.getOption() == 1) {
     
       System.out.println(object.initialize().getProperty("intro1"));
 
@@ -44,7 +44,7 @@ public class Forest {
          
              
               meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
-       }else if (TDD.getOption() == 2) {
+   /*    }else if (TDD.getOption() == 2) {
 
               System.out.println(object.initializeM().getProperty("intro1"));
 
@@ -54,7 +54,7 @@ public class Forest {
                      
                       meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
 
-       }
+       }*/
 }
        public Animal returnPlayer(List<Animal> animalsList){
               Random rand = new Random();
@@ -90,7 +90,7 @@ public class Forest {
 
 
        Animal animal = new Animal("",0,0,0,false);
-       if (TDD.getOption() == 1) {
+   //    if (TDD.getOption() == 1) {
               if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t "+ object.initialize().getProperty("F_stmt_1"));
                      System.out.println("\n "+ object.initialize().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initialize().getProperty("F_stmt_3") +player1.getName());
@@ -154,11 +154,11 @@ public class Forest {
         }
 
        return object.initialize().getProperty("F_stmt_22");
-       } else if (TDD.getOption() == 2) {
+      // } else if (TDD.getOption() == 2) {
 
 
 
-              if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
+          /*    if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)){
                      System.out.println("\t "+ object.initializeM().getProperty("F_stmt_1"));
                      System.out.println("\n "+ object.initializeM().getProperty("F_stmt_2") +player1.getName()+ "\n"+ object.initializeM().getProperty("F_stmt_3") +player1.getName());
                      player1.startFight( player2);
@@ -220,13 +220,13 @@ public class Forest {
               return object.initializeM().getProperty("F_stmt_21");
         }
 
-       return object.initializeM().getProperty("F_stmt_22");
+       return object.initializeM().getProperty("F_stmt_22");*/
 
 
 
 
-       }
-       return object.initialize().getProperty("F_stmt_22");
+      // }
+      // return object.initialize().getProperty("F_stmt_22");
        }
        
             

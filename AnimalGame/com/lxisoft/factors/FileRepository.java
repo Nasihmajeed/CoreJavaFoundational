@@ -12,7 +12,7 @@ import java.lang.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import com.lxisoft.*;
+
 import com.lxisoft.game.Animal;
 import com.lxisoft.localization.Localization;
 import com.lxisoft.test.*;
@@ -20,10 +20,10 @@ import com.lxisoft.game.Forest;
 public class FileRepository{
 
 	Localization object = new Localization();
-public File myObj = new File("com/lxisoft/factors/Animal.csv");
+public File myObj = new File("com/resources/Animal.csv");
 	//TDD opt = new TDD();
 	public void createFile() {
-		if (TDD.getOption() == 1) {
+		///if (TDD.getOption() == 1) {
 		try {
 		
 		if (myObj.createNewFile()) {
@@ -35,9 +35,9 @@ public File myObj = new File("com/lxisoft/factors/Animal.csv");
 		System.out.println(object.initialize().getProperty("Error_stmt1"));
 		e.printStackTrace();
    }
-   } else if (TDD.getOption() == 2) {
+   //} else if (TDD.getOption() == 2) {
 
-	try {
+/*	try {
 		
 		if (myObj.createNewFile()) {
 		  System.out.println(object.initializeM().getProperty("F_stmt_23") + myObj.getName());
@@ -47,14 +47,14 @@ public File myObj = new File("com/lxisoft/factors/Animal.csv");
    } catch (IOException e) {
 		System.out.println(object.initializeM().getProperty("Error_stmt1"));
 		e.printStackTrace();
-   }
+   }*/
 
 
    }
 
 
 
-}
+//}
         
 
 public void writeToFile(){
@@ -72,7 +72,7 @@ try {
 
 public  List<Animal> readFile(){
 	List<Animal> animals = new ArrayList<>();
-	if (TDD.getOption() == 1) {
+	//if (TDD.getOption() == 1) {
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
@@ -118,9 +118,9 @@ public  List<Animal> readFile(){
 		System.out.println(object.initialize().getProperty("Error_stmt4"));
 		System.out.println(excp);
 	}
-	return animals;
-}else if (TDD.getOption() == 2) {
-	try {
+//	return animals;
+//}else if (TDD.getOption() == 2) {
+/*	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
 			String line = myReader.nextLine();
@@ -166,13 +166,13 @@ public  List<Animal> readFile(){
 		System.out.println(excp);
 	}
 	return animals;
-}
+}*/
 return animals;
 }
 
 
 public void showFileInfo(){
-	if (TDD.getOption() == 1) {
+	//if (TDD.getOption() == 1) {
 	if(myObj.exists()){
 		System.out.println(object.initialize().getProperty("F_stmt_25") +myObj.getName() );
 		System.out.println(object.initialize().getProperty("F_stmt_26")  + myObj.getAbsolutePath());
@@ -181,8 +181,8 @@ public void showFileInfo(){
 	}else{
 		System.out.println(object.initialize().getProperty("F_stmt_29") );
 	}
-}else if (TDD.getOption() == 2) {
-
+//}else if (TDD.getOption() == 2) {
+/*
 	if(myObj.exists()){
 		System.out.println(object.initializeM().getProperty("F_stmt_25") +myObj.getName() );
 		System.out.println(object.initializeM().getProperty("F_stmt_26")  + myObj.getAbsolutePath());
@@ -193,15 +193,15 @@ public void showFileInfo(){
 	}
 
 
+}*/
 }
-}
-
-
-
-
-
-
 
 }
+
+
+
+
+
+//}
 
 

@@ -1,6 +1,5 @@
 package com.lxisoft.animals;
-import java.*;
-import com.lxisoft.*;
+
 import com.lxisoft.game.Animal;
 import java.util.Random;
 import com.lxisoft.test.*;
@@ -18,7 +17,7 @@ public Tiger(String animalName,int starvage,int strength,int distance, boolean i
 //TDD opt = new TDD();
 Localization object = new Localization();
 public String killOpponent(Animal player1,Animal player2){
-       if (TDD.getOption() == 1) {
+      // if (TDD.getOption() == 1) {
               
        if (player1 instanceof Herbivores && player2 instanceof Carnivores){
         System.out.println(object.initialize().getProperty("Design_1") );
@@ -30,7 +29,7 @@ public String killOpponent(Animal player1,Animal player2){
        
        }else if(player1 instanceof Carnivores && player2 instanceof Herbivores){
  
- System.out.println(object.initializeM().getProperty("Design_1"));
+ System.out.println(object.initialize().getProperty("Design_1"));
         System.out.println( object.initialize().getProperty("Fight_stmt1")+player1.getName()+  object.initialize().getProperty("Fight_stmt2") +player2.getName()+  object.initialize().getProperty("Fight_stmt3"));
         System.out.println( object.initialize().getProperty("Fight_stmt4")+player2.getName());
         player2.setIsAlive(false);
@@ -40,7 +39,7 @@ public String killOpponent(Animal player1,Animal player2){
  
        }
     return  object.initialize().getProperty("Fight_stmt7");
-} else if (TDD.getOption() == 2) {
+        /*} else if (TDD.getOption() == 2) {
               
        if (player1 instanceof Herbivores && player2 instanceof Carnivores){
         System.out.println(object.initializeM().getProperty("Design_1") );
@@ -61,8 +60,8 @@ public String killOpponent(Animal player1,Animal player2){
  
        }
     return  object.initializeM().getProperty("Fight_stmt7");
-}
-return  object.initialize().getProperty("Fight_stmt7");
+}*/
+//return  object.initialize().getProperty("Fight_stmt7");
       }
 
 //int x = rand.nextInt(20);
