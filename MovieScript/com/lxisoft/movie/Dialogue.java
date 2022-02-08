@@ -48,10 +48,6 @@ fr.read(dialogues);
 
 
 
-
-
-
-
  /*scene1.add(newActors[1] + ": ningal nerathe vanno ?");
    scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
    scene1.add(newActors[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
@@ -81,7 +77,7 @@ scene1.add(newActors[1]  +" : ee bindhu enthootta mmade life full stop idanaayit
 }
 
 
-public void playScene2()  {
+//public void playScene2()  {
  
 
 
@@ -304,7 +300,7 @@ for (String scene55 : scene5)  {
 
 
   
-}
+//}
 
 
 

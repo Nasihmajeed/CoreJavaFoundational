@@ -5,20 +5,20 @@ Genre,dialogue
 COMEDY,ningal nerathe vanno ?
 COMEDY, : innale veetil poyal alle nerathe varandollu.
  COMEDY,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa 
-COMEDY, : mani 7.30 aayitto avare kananillallo);,
-COMEDY,"penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk"");",
-COMEDY,: pall thechaal mathiyarnnu ivatteyokke"");",
-COMEDY,  : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan"");",
-COMEDY, : ey bindhu mathre ulloo?);,
-COMEDY,  : ey illadaa thaa car varunnu,
- COMEDY, : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki);,
-COMEDY,  : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo);,
-COMEDY, : ini kidav vandeekkakathu irunnu thalla aayathaavo);,
- : ey varum);,
-COMEDY, (""\t\t\t\t(BGM)"");",
-COMEDY, : hey ith pinnem thallenallo);,
- COMEDY, : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?);,
-COMEDY, ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne);,
+COMEDY, : mani 7.30 aayitto avare kananillallo
+COMEDY,penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk
+COMEDY,: pall thechaal mathiyarnnu ivatteyokke
+COMEDY,  : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan
+COMEDY, : ey bindhu mathre ulloo?
+COMEDY,  : ey illadaa thaa car varunnu
+ COMEDY, : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki
+COMEDY,  : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo
+COMEDY, : ini kidav vandeekkakathu irunnu thalla aayathaavo
+ : ey varum
+COMEDY,(BGM)
+COMEDY, : hey ith pinnem thallenallo
+ COMEDY, : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?
+COMEDY, ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne
 ,
 ,
 ,
@@ -191,4 +191,4 @@ ROMANTIC,(heroine[1] +"" : punneppadi gopalan maashinte veettil niskara paayil i
 ROMANTIC,(hero[1] +"" : hmmm   hmm"");",
 ROMANTIC,(""\t\t\t("" + hero[1] +""  HUGGING "" + heroine[1]+"")"");",
 ROMANTIC,(""\t\t\t(BGM)"");",
-ROMANTIC,(""\n"");",
+ROMANTIC,(""\n"")

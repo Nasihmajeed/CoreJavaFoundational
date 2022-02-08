@@ -23,7 +23,7 @@ public class Scene {
  
  
   
- public void showScene2()  {
+ /*public void showScene2()  {
  
  
   System.out.println("\n");
@@ -39,7 +39,7 @@ public class Scene {
  
  dialogue.playScene2();
  
- }
+ }*/
  
  /*public void showScene3() {
  
