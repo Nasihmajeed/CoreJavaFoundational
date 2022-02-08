@@ -33,6 +33,12 @@ public class Tdd {
 			player2.setCoin(coin2);
 			Board board = new Board();
 			Game game = new Game();
+			game.setDescription(prop.getProperty("game.description"));
+			game.setSetup(prop.getProperty("game.setup"));
+			game.setRules(prop.getProperty("game.rules"));
+			game.setEquipments(prop.getProperty("game.equipments"));
+			game.setSnakeRole(prop.getProperty("game.snakeRole"));
+			game.setLadderRole(prop.getProperty("game.ladderRole"));
 			game.setBoard(board);
 			game.setPlayer1(player1);
 			game.setPlayer2(player2);
