@@ -15,7 +15,7 @@ public class Animal {
 	private boolean isAlive;
 	
 	public Location animalLocation = new Location() ;
-       // TDD opt = new TDD();
+     
 
 public Animal(String animalName,int starvage,int strength,int distance,boolean isAlive){
 	
@@ -99,7 +99,7 @@ public void setAnimalLocation(int x,int y)
 
 public int getAnimalLocationX()
 	{
-		//System.out.println("\t Scale of X - Axis : \t" +animalLocation.getLocationXAxis());
+
 		return animalLocation.getLocationXAxis();
 	}
 
