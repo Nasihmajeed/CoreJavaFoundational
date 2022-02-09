@@ -14,8 +14,8 @@ import com.lxisoft.snakesandladders.Board;
 public class Tdd {
 
 	public static void main(String[] args) {
-		System.out.println(System.getProperty("user.dir"));
-		try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "\\resources\\game.properties")) {
+		String path = System.getProperty("user.dir") + "\\resources\\game.properties";
+		try (InputStream input = new FileInputStream(path)) {
 
 			Properties prop = new Properties();
 			prop.load(input);
@@ -53,9 +53,9 @@ public class Tdd {
 			System.out.println(game.getLadderRole());
 			System.out.println("Board");
 			System.out.println("-------");
-			System.out.println("* Number of cells: 100");
-			System.out.println("* Number of snakes: 5");
-			System.out.println("* Number of ladders: 5\n");
+			System.out.println("* Number of cells: " + prop.getProperty("board.cells"));
+			System.out.println("* Number of snakes: " + prop.getProperty("board.snakes"));
+			System.out.println("* Number of ladders: " + prop.getProperty("board.ladders") + "\n");
 			System.out.println("Players");
 			System.out.println("-------");
 			System.out.println("* " + player1.getName() + " with " + coin1.getColor());
