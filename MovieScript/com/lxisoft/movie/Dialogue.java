@@ -6,8 +6,7 @@ import java.io.FileReader;
 
 public class Dialogue  {
  
- 
-
+  
 
   public String [] newActors = new String[1000];
  
