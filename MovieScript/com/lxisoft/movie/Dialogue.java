@@ -2,7 +2,13 @@ package com.lxisoft.movie;
 import java.io.FileReader;
 
 
+enum Type  {
 
+
+ACTION,ROMANTIC,COMEDY,THRILLER
+
+ 
+}
 
 public class Dialogue  {
  
@@ -11,7 +17,6 @@ public class Dialogue  {
   public String [] newActors = new String[1000];
  
 char[] dialogues = new char[10000];
-
 
 
 
@@ -29,10 +34,12 @@ public void playScene1()   {
 fr.skip(15 );
 
 fr.read(dialogues);
-  
-  System.out.println(dialogues);
-  
-  fr.close();
+
+  fr.close();  
+
+System.out.println(dialogues);
+
+
     }
 
     catch (Exception e) {

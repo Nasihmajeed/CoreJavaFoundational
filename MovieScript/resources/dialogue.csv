@@ -41,42 +41,42 @@ COMEDY, ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa 
  ACTION,: ath...
  ACTION,: hmm   ithond path paisade prathiphalam onnum illallo. prathiphalamayi enth tharum thante chathu poya appante  prathimeda kashnangalo
  ACTION,: hmm  appan parayunnodaa ppaa
- ACTION, : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa);,
- ACTION,(""\t\t\t"" + ""("" + villan[2] +"" LOOKING ARROUND)"");",
- ACTION, : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa );,
- ACTION,/(""(\t\t\t"" +""(""+ villan[2] +"" LAUGHING)"");",
- ACTION,ivan aa mannil kuruthu undaayathaa ivar nedum athalla jayichu kondu povaan pattonki  nee kondoykko);,
- ACTION,(""\t\t\t"" + ""("" + villan[2] +"" LOOKING ARROUND AND LAUGHING)"");",
-  ACTION,: aa parambey nte appante jeevithaa  njangade jeevanaa jeevan vechittaa njangal kalikkaney enthayaalum njangal jayichirikkum);,
-  ACTION,: nee tension adikkandadaa nammal jayichirikkum ivanodoke samsaarichaaley  vaadaa george nammak povaam  vaa );,
-  ACTION,: ninte performance kidukkeetund petere . ethra simple aayittaa mmal kalichu valarna mathiyi parambu thattiyedukkan  ningal kalikkunna kalindallo kalakunnund);,
-  ACTION,: george nee enthuttaa parayanath.  njan ente appante... );,
- ACTION, : ninte appante haaa   sthira budhi illathaa aa pavam josephettane parambin vendiyalladaa konnath   enitt avante ammade panthayam vekkal"");",
-  ACTION,: george nee veruthe oronn );,
- ACTION,: aa paavam josephettan chathappo ithonnum aarum ariyillenn nee karuthiyo   georgintel ninne kudukkanulla saadhanam thannitt aada aa pavam poyath  . ith kando  lokhathu ninakku mathram ulla kuppayam aan ith);,
- ACTION,: ninneyokke pidichu policil elpikkan ariyanjittalla. ninakkokke valiya pidipad alle ooriporum pinnem mmade mekkitt kerum);,
+ ACTION, : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa
+ ACTION,(""\t\t\t"" + ""("" + villan[2] +"" LOOKING ARROUND)
+ ACTION, : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa 
+ ACTION,/(""(\t\t\t"" +""(""+ villan[2] +"" LAUGHING)
+ ACTION,ivan aa mannil kuruthu undaayathaa ivar nedum athalla jayichu kondu povaan pattonki  nee kondoykko
+ ACTION,(""\t\t\t"" + ""("" + villan[2] +"" LOOKING ARROUND AND LAUGHING
+  ACTION,: aa parambey nte appante jeevithaa  njangade jeevanaa jeevan vechittaa njangal kalikkaney enthayaalum njangal jayichirikkum
+  ACTION,: nee tension adikkandadaa nammal jayichirikkum ivanodoke samsaarichaaley  vaadaa george nammak povaam  vaa 
+  ACTION,: ninte performance kidukkeetund petere . ethra simple aayittaa mmal kalichu valarna mathiyi parambu thattiyedukkan  ningal kalikkunna kalindallo kalakunnund
+  ACTION,: george nee enthuttaa parayanath.  njan ente appante...
+ ACTION, : ninte appante haaa   sthira budhi illathaa aa pavam josephettane parambin vendiyalladaa konnath   enitt avante ammade panthayam vekkal
+  ACTION,: george nee veruthe oronn 
+ ACTION,: aa paavam josephettan chathappo ithonnum aarum ariyillenn nee karuthiyo   georgintel ninne kudukkanulla saadhanam thannitt aada aa pavam poyath  . ith kando  lokhathu ninakku mathram ulla kuppayam aan ith
+ ACTION,: ninneyokke pidichu policil elpikkan ariyanjittalla. ninakkokke valiya pidipad alle ooriporum pinnem mmade mekkitt kerum
   ACTION,: ath kond aadhyam nee paranja kali .ninte oru padhathiyum nadakkilla  ath ninte appan mathayide  parambin vendeettalla aa pavam josephettan urangunna mann aanath athin vendi njangal kalikkum);,
- ACTION,"(""\t\t\t"" + ""("" + villan[1]+"" SMILING)"");",
- ACTION,nee nerathe paranjallo ivan jayicha parambu ezhuthi kodukkaann  nee aa kali thiricha vecho  nee mathayikk thanne undaayathaanel aa conditionil mmakk oru kali ang kalikkam);,
- ACTION, : njan paranja paranjath thanne. iniyippo ithoru vaashiyaya sthithik njan konduvanna piller undaavilla);,
- ACTION, : vendada  nee narathe naavadile  ath pole aa mannil kurutha mmale tholpichitt ninakk aaparambu kond povaan pattonki nee kond pokko   jayikkanath njangal aanenki  pinne mathayi parambinte kanvettathenganum ninne kandaal  petere  ninte nenjathu kavadi kalikkum George);,
- ACTION,"(""\t\t\t(BGM)"");",
+ ACTION,"(""\t\t\t"" + ""("" + villan[1]+"" SMILING)
+ ACTION,nee nerathe paranjallo ivan jayicha parambu ezhuthi kodukkaann  nee aa kali thiricha vecho  nee mathayikk thanne undaayathaanel aa conditionil mmakk oru kali ang kalikkam
+ ACTION, : njan paranja paranjath thanne. iniyippo ithoru vaashiyaya sthithik njan konduvanna piller undaavilla
+ ACTION, : vendada  nee narathe naavadile  ath pole aa mannil kurutha mmale tholpichitt ninakk aaparambu kond povaan pattonki nee kond pokko   jayikkanath njangal aanenki  pinne mathayi parambinte kanvettathenganum ninne kandaal  petere  ninte nenjathu kavadi kalikkum George
+ ACTION,"(""\t\t\t(BGM)
 ,
 ,
 ,
 ,
 ,
 ,
-ROMANTIC, : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto"");  ",
-ROMANTIC, : valla kachiya velichennayayirikkum"");",
-ROMANTIC,: hmm  nee kadanno nee kadanno"");",
-ROMANTIC,("""");",
-ROMANTIC,(""\t\t\t(PLAYING SONG IN BUS)"");",
-ROMANTIC,("""");
-ROMANTIC,""ayyoo  .. she.. onn mindaan pattiyirunnenki"");",
-ROMANTIC,"" : ennodaaaa..mmmm."");",
-ROMANTIC, : nokkikondirinno ol ippo thirinju nokkum ol ummachikuttiyada  oru nottam kittanel neeyokke vere janmam janikkanam"");",
-ROMANTIC, : mmm hmmm"");",
+ROMANTIC, : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto
+ROMANTIC, : valla kachiya velichennayayirikkum
+ROMANTIC,: hmm  nee kadanno nee kadanno
+ROMANTIC,(""""
+ROMANTIC,(""\t\t\t(PLAYING SONG IN BUS)
+ROMANTIC,("""
+ROMANTIC,""ayyoo  .. she.. onn mindaan pattiyirunnenki
+ROMANTIC,"" : ennodaaaa..mmmm
+ROMANTIC, : nokkikondirinno ol ippo thirinju nokkum ol ummachikuttiyada  oru nottam kittanel neeyokke vere janmam janikkanam
+ROMANTIC, : mmm hmmm"")
 ROMANTIC,("""");",
 ROMANTIC,(""\t\t\t("" + heroine[1] + "" LOOKING "" +hero[1]+"")"");",
 ROMANTIC,("""");

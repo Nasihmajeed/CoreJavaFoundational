@@ -5,7 +5,9 @@ public class Scene {
 
  Dialogue dialogue = new Dialogue();
 
- public void showScene1()  {
+ public void showScene1()
+ 
+ {
  
  System.out.println("\n");
  System.out.println("\t\t\t\t\t   --------Scene 1--------");
