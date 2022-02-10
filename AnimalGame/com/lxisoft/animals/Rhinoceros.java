@@ -18,7 +18,7 @@ public class Rhinoceros extends Animal implements Herbivores{
        }
        private int luckFactor;
 
-       //TDD opt = new TDD();
+       
            
        Localization object = new Localization();      
                                                                //luckFactor
@@ -30,21 +30,21 @@ public class Rhinoceros extends Animal implements Herbivores{
        }
        
        public void escapeFromEnemy(Animal enemy){ 
-     //   if (TDD.getOption() == 1) {
-        try{
-        if(enemy instanceof Carnivores && this instanceof Herbivores){
-    System.out.println(this.getName() +object.initialize().getProperty("E_stmt_1") );
-    
-        }
-        else if(this instanceof Herbivores && enemy instanceof Carnivores){
-            System.out.println(this.getName() +object.initialize().getProperty("E_stmt_1"));
-            
-        }
-        throw new AnimalEscapeException(object.initialize().getProperty("E_stmt_2"));
-    }catch(AnimalEscapeException e) {
-        System.out.println(e);
-     }
-    
-    }
+        //  if (TDD.getOption() == 1) {
+          try{
+          if(enemy instanceof Carnivores && this instanceof Herbivores){
+      System.out.println(this.getName() +Localization.properties.getProperty("E_stmt_1") );
+      
+          }
+          else if(this instanceof Herbivores && enemy instanceof Carnivores){
+              System.out.println(this.getName() +Localization.properties.getProperty("E_stmt_1"));
+              
+          }
+          throw new AnimalEscapeException(Localization.properties.getProperty("E_stmt_2"));
+      }catch(AnimalEscapeException e) {
+          System.out.println(e);
+       }
+  
+      }
          
 }

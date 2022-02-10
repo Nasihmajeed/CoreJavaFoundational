@@ -21,40 +21,27 @@ public class FileRepository{
 
 	Localization object = new Localization();
 public File myObj = new File("com/resources/Animal.csv");
-	//TDD opt = new TDD();
+	
 	public void createFile() {
-		///if (TDD.getOption() == 1) {
+	
 		try {
 		
 		if (myObj.createNewFile()) {
-		  System.out.println(object.initialize().getProperty("F_stmt_23") + myObj.getName());
+		  System.out.println(Localization.properties.getProperty("F_stmt_23") + myObj.getName());
 		} else {
-		  System.out.println(myObj.getName() + object.initialize().getProperty("F_stmt_24"));
+		  System.out.println(myObj.getName() + Localization.properties.getProperty("F_stmt_24"));
 		}
    } catch (IOException e) {
-		System.out.println(object.initialize().getProperty("Error_stmt1"));
+		System.out.println(Localization.properties.getProperty("Error_stmt1"));
 		e.printStackTrace();
    }
-   //} else if (TDD.getOption() == 2) {
-
-/*	try {
-		
-		if (myObj.createNewFile()) {
-		  System.out.println(object.initializeM().getProperty("F_stmt_23") + myObj.getName());
-		} else {
-		  System.out.println(myObj.getName() + object.initializeM().getProperty("F_stmt_24"));
-		}
-   } catch (IOException e) {
-		System.out.println(object.initializeM().getProperty("Error_stmt1"));
-		e.printStackTrace();
-   }*/
-
+ 
 
    }
 
 
 
-//}
+
         
 
 public void writeToFile(){
@@ -72,7 +59,7 @@ try {
 
 public  List<Animal> readFile(){
 	List<Animal> animals = new ArrayList<>();
-	//if (TDD.getOption() == 1) {
+
 	try {
 		Scanner myReader = new Scanner(myObj);
 		while(myReader.hasNextLine()){
@@ -94,15 +81,15 @@ public  List<Animal> readFile(){
 		}
 		myReader.close();
 	} catch (FileNotFoundException e) {
-		System.out.println(object.initialize().getProperty("Error_stmt1"));
+		System.out.println(Localization.properties.getProperty("Error_stmt1"));
 		e.printStackTrace();
 	}
 	catch (ClassNotFoundException ex){
-		System.out.println(object.initialize().getProperty("Error_stmt2"));
+		System.out.println(Localization.properties.getProperty("Error_stmt2"));
 		System.out.println(ex);
 	}
 	catch (NoSuchMethodException exp){
-		System.out.println(object.initialize().getProperty("Error_stmt3"));
+		System.out.println(Localization.properties.getProperty("Error_stmt3"));
 		System.out.println(exp);
 	}
 	catch (InvocationTargetException expt){
@@ -115,58 +102,10 @@ public  List<Animal> readFile(){
 		System.out.println(exc);
 	}
 	catch (IllegalArgumentException excp){
-		System.out.println(object.initialize().getProperty("Error_stmt4"));
+		System.out.println(Localization.properties.getProperty("Error_stmt4"));
 		System.out.println(excp);
 	}
-//	return animals;
-//}else if (TDD.getOption() == 2) {
-/*	try {
-		Scanner myReader = new Scanner(myObj);
-		while(myReader.hasNextLine()){
-			String line = myReader.nextLine();
-	
-			String[] arrOfStr = line.split(",");
-			
-			String type = arrOfStr[0];
-        Constructor<?> constructor = Class.forName("com.lxisoft.animals."+type).getConstructor(String.class, Integer.TYPE,Integer.TYPE,Integer.TYPE,Boolean.TYPE);
-        Object object = constructor.newInstance(arrOfStr[1],Integer.parseInt(arrOfStr[2]) ,Integer.parseInt(arrOfStr[3]) ,Integer.parseInt(arrOfStr[4]) ,Boolean.parseBoolean(arrOfStr[5]));
-		
-      
-			Animal animal = (Animal) object;
-			
-			animals.add(animal);
-			
-			
-		
-		}
-		myReader.close();
-	} catch (FileNotFoundException e) {
-		System.out.println(object.initializeM().getProperty("Error_stmt1"));
-		e.printStackTrace();
-	}
-	catch (ClassNotFoundException ex){
-		System.out.println(object.initializeM().getProperty("Error_stmt2"));
-		System.out.println(ex);
-	}
-	catch (NoSuchMethodException exp){
-		System.out.println(object.initializeM().getProperty("Error_stmt3"));
-		System.out.println(exp);
-	}
-	catch (InvocationTargetException expt){
-		System.out.println(expt);
-	}
-	catch (InstantiationException expti){
-		System.out.println(expti);
-	}
-	catch (IllegalAccessException exc){
-		System.out.println(exc);
-	}
-	catch (IllegalArgumentException excp){
-		System.out.println(object.initializeM().getProperty("Error_stmt4"));
-		System.out.println(excp);
-	}
-	return animals;
-}*/
+
 return animals;
 }
 
@@ -174,26 +113,14 @@ return animals;
 public void showFileInfo(){
 	//if (TDD.getOption() == 1) {
 	if(myObj.exists()){
-		System.out.println(object.initialize().getProperty("F_stmt_25") +myObj.getName() );
-		System.out.println(object.initialize().getProperty("F_stmt_26")  + myObj.getAbsolutePath());
-		System.out.println(object.initialize().getProperty("F_stmt_27")  + myObj.canWrite());
-		System.out.println(object.initialize().getProperty("F_stmt_28")  + myObj.canRead());
+		System.out.println(Localization.properties.getProperty("F_stmt_25") +myObj.getName() );
+		System.out.println(Localization.properties.getProperty("F_stmt_26")  + myObj.getAbsolutePath());
+		System.out.println(Localization.properties.getProperty("F_stmt_27")  + myObj.canWrite());
+		System.out.println(Localization.properties.getProperty("F_stmt_28")  + myObj.canRead());
 	}else{
-		System.out.println(object.initialize().getProperty("F_stmt_29") );
-	}
-//}else if (TDD.getOption() == 2) {
-/*
-	if(myObj.exists()){
-		System.out.println(object.initializeM().getProperty("F_stmt_25") +myObj.getName() );
-		System.out.println(object.initializeM().getProperty("F_stmt_26")  + myObj.getAbsolutePath());
-		System.out.println(object.initializeM().getProperty("F_stmt_27")  + myObj.canWrite());
-		System.out.println(object.initializeM().getProperty("F_stmt_28")  + myObj.canRead());
-	}else{
-		System.out.println(object.initializeM().getProperty("F_stmt_29") );
+		System.out.println(Localization.properties  .getProperty("F_stmt_29") );
 	}
 
-
-}*/
 }
 
 }
@@ -202,6 +129,6 @@ public void showFileInfo(){
 
 
 
-//}
+
 
 

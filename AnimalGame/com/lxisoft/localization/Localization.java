@@ -11,24 +11,23 @@ import java.net.*;
 import java.io.InputStreamReader;
 public class Localization{
 
-    Properties properties;
     
-
-    public Properties initialize() {
+    
+public static Properties properties = new Properties();
+    public void initialize(int num, String name) {
         
        try{ 
         
-        if(TDD.getOption() == 1){
-        properties = new Properties();
-        properties.load(getClass().getResourceAsStream("/com/resources/english.properties"));                
-        return properties;
-        }else if(TDD.getOption() == 2){
-            properties = new Properties();
-      
-            URL resource = getClass().getClassLoader().getResource("com/resources/malayalam.properties");         
+        if(num == 1 && name == "english.properties"){
+        
+        properties.load(getClass().getResourceAsStream("/com/resources/" + name));                
+       // return properties;
+        }else {
+           
+            URL resource = getClass().getClassLoader().getResource("com/resources/" +name);         
             properties.load(new InputStreamReader(resource.openStream(), "UTF8"));
                         
-            return properties;
+            //return properties;
         }
     
 } catch (FileNotFoundException e) {
@@ -36,27 +35,9 @@ public class Localization{
 } catch (IOException e) {
     e.printStackTrace();
 }
-        return properties;
+       // return properties;
     }
 
 
-   /* public Properties initializeM() {
-        
-        try{ 
-         
-         properties = new Properties();
-      
-         URL resource = getClass().getClassLoader().getResource("com/lxisoft/localization/malayalam.properties");         
-         properties.load(new InputStreamReader(resource.openStream(), "UTF8"));
-                     
-         return properties;
-     
-     
- } catch (FileNotFoundException e) {
-     e.printStackTrace();
- } catch (IOException e) {
-     e.printStackTrace();
- }*/
-     //    return properties;
-    // }
+   
     }
