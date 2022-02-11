@@ -14,7 +14,7 @@ public class Dialogue  {
  
   
 
-  public String [] newActors = new String[1000];
+  public String [] newActors = new String[100];
  
 char[] dialogues = new char[10000];
 

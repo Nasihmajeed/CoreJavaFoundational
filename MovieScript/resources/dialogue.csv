@@ -76,11 +76,10 @@ ROMANTIC,("""
 ROMANTIC,""ayyoo  .. she.. onn mindaan pattiyirunnenki
 ROMANTIC,"" : ennodaaaa..mmmm
 ROMANTIC, : nokkikondirinno ol ippo thirinju nokkum ol ummachikuttiyada  oru nottam kittanel neeyokke vere janmam janikkanam
-ROMANTIC, : mmm hmmm"")
-ROMANTIC,("""");",
-ROMANTIC,(""\t\t\t("" + heroine[1] + "" LOOKING "" +hero[1]+"")"");",
+ROMANTIC, : mmm hmmm
+ROMANTIC,(""\t\t\t("" + heroine[1] + "" LOOKING "" +hero[1]+"")
 ROMANTIC,("""");
-ROMANTIC,(""\t\t\t(""+hero[1] +"" SMILING)"");",
+ROMANTIC,(""\t\t\t(""+hero[1] +"" SMILING)"")
 ROMANTIC,("""");",
 ROMANTIC,(hero[1] +"" : nee enthada paranjath ol ummachikutti aan thirinju nokkillan.....  ol thirinju nokkiyada enne thirinju nokkiyada ummachi kutti aanel njan naayar aada "");",
 ROMANTIC,(comedian[1] +"": nee naayarayathin njan enth cheyyaanaa"");",
