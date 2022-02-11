@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Scanner;
 
 import com.lxisoft.game.Coin;
 import com.lxisoft.game.Die;
@@ -14,7 +15,23 @@ import com.lxisoft.snakesandladders.Board;
 public class Tdd {
 
 	public static void main(String[] args) {
-		String path = System.getProperty("user.dir") + "\\resources\\game.properties";
+		System.out.println("Select the language");
+		System.out.println("1. Malayalam");
+		System.out.println("2. English");
+		Scanner scanner = new Scanner(System.in);
+		int language = scanner.nextInt();
+		String langExt = "";
+		switch (language) {
+		case 1:
+			langExt = "-ml";
+			break;
+
+		case 2:
+			langExt = "-en";
+			break;
+		}
+
+		String path = System.getProperty("user.dir") + "\\resources\\game" + langExt + ".properties";
 		try (InputStream input = new FileInputStream(path)) {
 
 			Properties prop = new Properties();
