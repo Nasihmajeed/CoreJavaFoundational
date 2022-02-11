@@ -10,20 +10,27 @@ import com.lxisoft.game.Forest;
 import com.lxisoft.localization.Localization;
 import com.lxisoft.factors.*;
 public class TDD {
-        static int option;
+     private static int option;
        public static void main(String[] args){
             
              System.out.println("choose your language :  \n  നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക :");
+         
              System.out.println("\n 1.English \n 2.മലയാളം  \n");
         
              Scanner sc = new Scanner(System.in);
+             
              Localization object = new Localization();
+            
             setOption(sc.nextInt());
+            
              Forest forest = new Forest();
+            
              switch(option){    
+            
               case 1:    
              
               forest.welcomeToForest();
+            
               object.initialize(getOption(), "english.properties");
               break;  //optional  
               case 2:    
