@@ -1,4 +1,5 @@
 package com.lxisoft.movie;
+import java.io.BufferedReader;
 import java.io.FileReader;
 
 
@@ -16,7 +17,7 @@ public class Dialogue  {
 
   public String [] newActors = new String[100];
  
-char[] dialogues = new char[10000];
+String[] dialogues = new String[10000];
 
 
 
@@ -29,20 +30,22 @@ public void playScene1()   {
   
   
      
-  FileReader fr = new FileReader("../resources/dialogue.csv");
-   
-fr.skip(15 );
+      BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
 
-fr.read(dialogues);
+      bf.skip(1);
 
-  fr.close();  
+      String s;
+      
+      while((s = bf.readLine())   != null ) {
+      
+      System.out.println("\n");
+      
+      System.out.println(s);
+      
+      }
 
-System.out.println(dialogues);
 
-
-    }
-
-    catch (Exception e) {
+    } catch (Exception e) {
   
   System.out.println("Exception");
      
@@ -80,7 +83,6 @@ scene1.add(newActors[1]  +" : ee bindhu enthootta mmade life full stop idanaayit
 
  }*/
 
-}
 
 
 //public void playScene2()  {
@@ -310,5 +312,6 @@ for (String scene55 : scene5)  {
 
 
 
-}   
+}
+}  
 

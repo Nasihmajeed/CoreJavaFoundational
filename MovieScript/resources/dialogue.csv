@@ -1,7 +1,4 @@
 Genre,dialogue
-
-
-
 COMEDY,ningal nerathe vanno ?
 COMEDY, : innale veetil poyal alle nerathe varandollu.
  COMEDY,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa 
@@ -122,8 +119,7 @@ ROMANTIC,""\n"");",
 ROMANTIC,(""\t\t\t("" + heroine[1] +"" LOOKING ""+ hero[1]);",
 ROMANTIC,(""\n"");",
 ROMANTIC,(hero[1] +"" : ippo ingottonnum parayanda nannayi aalojich orupad samayam eduthu ishttanenn paranjaal mathi "");",
-ROMANTIC,(""\n"");",
-ROMANTIC,(""\t\t\t(BGM)"");",
+ROMANTIC,(""\t\t\t(BGM)
 ,
 ,
 ,
