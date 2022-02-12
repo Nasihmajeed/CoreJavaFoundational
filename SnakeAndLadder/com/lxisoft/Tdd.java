@@ -3,6 +3,8 @@ package com.lxisoft;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -35,7 +37,7 @@ public class Tdd {
 		try (InputStream input = new FileInputStream(path)) {
 
 			Properties prop = new Properties();
-			prop.load(input);
+			prop.load(new InputStreamReader(input, StandardCharsets.UTF_8));
 
 			Die die = new Die(6);
 			Player player1 = new Player();
@@ -70,17 +72,17 @@ public class Tdd {
 			System.out.println(game.getLadderRole());
 			System.out.println("Board");
 			System.out.println("-------");
-			System.out.println("* Number of cells: " + prop.getProperty("board.cells"));
-			System.out.println("* Number of snakes: " + prop.getProperty("board.snakes"));
-			System.out.println("* Number of ladders: " + prop.getProperty("board.ladders") + "\n");
+			System.out.println(prop.getProperty("board.cells"));
+			System.out.println(prop.getProperty("board.snakes"));
+			System.out.println(prop.getProperty("board.ladders"));
 			System.out.println("Players");
 			System.out.println("-------");
 			System.out.println("* " + player1.getName() + " with " + coin1.getColor());
 			System.out.println("* " + player2.getName() + " with " + coin2.getColor() + "\n");
 			System.out.println("Die");
 			System.out.println("-----");
-			System.out.println("* Number of faces: " + die.getFaces());
-			System.out.println("* Value to start the game: 1\n\n\n");
+			System.out.println(prop.getProperty("die.faces") + die.getFaces());
+			System.out.println(prop.getProperty("game.start.value"));
 			System.out.println("\t\t\t\t\t**************Let's start the game**************\n\n\n");
 
 			game.play();
