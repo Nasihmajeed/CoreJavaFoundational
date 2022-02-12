@@ -16,7 +16,7 @@ public class Localization{
     
     public static Properties properties ;
 
-   public static HashMap<Integer, String> returnlanguage(){
+   public static HashMap<Integer, String> returnLanguage(){
     HashMap<Integer, String> languages = new HashMap<Integer, String>();
     languages.put(1, "com/resources/english.properties");
         languages.put(2, "com/resources/malayalam.properties");
@@ -31,16 +31,16 @@ public class Localization{
        try{ 
         if(properties == null){
             properties = new Properties();
-            String file1 = returnlanguage().get(1);
-            String file2 = returnlanguage().get(2);
+            String file = returnLanguage().get(option);
+           
         if(option == 1){
         
           
-            properties.load(new FileInputStream(file1));
+            properties.load(new FileInputStream(file));
       
         }else {
 
-            FileInputStream inputStream = new FileInputStream(file2);
+            FileInputStream inputStream = new FileInputStream(file);
             properties.load(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
        
             
