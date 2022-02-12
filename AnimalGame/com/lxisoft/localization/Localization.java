@@ -33,18 +33,13 @@ public class Localization{
             properties = new Properties();
             String file = returnLanguage().get(option);
            
-        if(option == 1){
-        
-          
-            properties.load(new FileInputStream(file));
-      
-        }else {
+   
 
-            FileInputStream inputStream = new FileInputStream(file);
+            FileInputStream inputStream = new FileInputStream(new File(file));
             properties.load(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
        
             
-        }
+    
     }
     
 } catch (FileNotFoundException e) {
