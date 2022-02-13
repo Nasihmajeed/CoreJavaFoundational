@@ -17,7 +17,6 @@ public class Dialogue  {
 
   public String [] newActors = new String[100];
  
-String[] dialogues = new String[10000];
 
 
 
@@ -32,15 +31,22 @@ public void playScene1()   {
      
       BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
 
-      bf.skip(1);
 
-      String s;
+      String dialogue;
+    bf.skip(14);
+      while((dialogue = bf.readLine())   != null ) {
       
-      while((s = bf.readLine())   != null ) {
+String [] list =dialogue.split(",");
+
+for(String line : list)  {
+
+  System.out.println(line);
+
+
+}
+
       
-      System.out.println("\n");
-      
-      System.out.println(s);
+
       
       }
 
