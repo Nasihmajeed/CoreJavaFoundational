@@ -33,7 +33,7 @@ public class Tdd {
 			break;
 		}
 
-		String path = System.getProperty("user.dir") + "\\resources\\game" + langExt + ".properties";
+		String path = System.getProperty("user.dir") + "\\src\\resources\\game" + langExt + ".properties";
 		try (InputStream input = new FileInputStream(path)) {
 
 			Properties prop = new Properties();
@@ -52,24 +52,19 @@ public class Tdd {
 			player2.setCoin(coin2);
 			Board board = new Board();
 			Game game = new Game();
-			game.setDescription(prop.getProperty("game.description"));
-			game.setSetup(prop.getProperty("game.setup"));
-			game.setRules(prop.getProperty("game.rules"));
-			game.setEquipments(prop.getProperty("game.equipments"));
-			game.setSnakeRole(prop.getProperty("game.snakeRole"));
-			game.setLadderRole(prop.getProperty("game.ladderRole"));
 			game.setBoard(board);
 			game.setPlayer1(player1);
 			game.setPlayer2(player2);
 			game.setDie(die);
+			game.setProperties(prop);
 			System.out.println("\t\t\t\t\t\t\tWELCOME TO SNAKES AND LADDERS");
 			System.out.println("\t\t\t\t\t\t\t=============================\n\n\n");
-			System.out.println(game.getDescription());
-			System.out.println(game.getSetup());
-			System.out.println(game.getRules());
-			System.out.println(game.getEquipments());
-			System.out.println(game.getSnakeRole());
-			System.out.println(game.getLadderRole());
+			System.out.println(prop.getProperty("game.description"));
+			System.out.println(prop.getProperty("game.setup"));
+			System.out.println(prop.getProperty("game.rules"));
+			System.out.println(prop.getProperty("game.equipments"));
+			System.out.println(prop.getProperty("game.snakeRole"));
+			System.out.println(prop.getProperty("game.ladderRole"));
 			System.out.println("Board");
 			System.out.println("-------");
 			System.out.println(prop.getProperty("board.cells"));

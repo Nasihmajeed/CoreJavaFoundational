@@ -1,5 +1,6 @@
 package com.lxisoft.game;
 
+import java.util.Properties;
 import java.util.Scanner;
 
 import com.lxisoft.snakesandladders.Board;
@@ -14,15 +15,10 @@ public class Game {
 	private Player player1;
 	private Player player2;
 	private Die die;
-	private String description;
-	private String setup;
-	private String rules;
-	private String equipments;
-	private String snakeRole;
-	private String ladderRole;
+	private Properties properties;
 
 	public void play() {
-		System.out.println("If you want to start the game, PRESS Y");
+		System.out.println(properties.getProperty("game.begin"));
 		Scanner scanner = new Scanner(System.in);
 		char c = scanner.next().charAt(0);
 		if (c == 'Y') {
@@ -61,10 +57,10 @@ public class Game {
 				result = die.roll();
 				System.out.println("* " + player2.getName() + " rolled: " + result);
 				if (coin2.getPosition() != null) {
-					System.out.println("* Current Position of " + coin2.getColor() + " coin: "
+					System.out.println("* " + coin2.getColor() + properties.getProperty("game.coin.position")
 							+ coin2.getPosition().getCellNumber());
 				} else {
-					System.out.println("* Current Position of " + coin2.getColor() + " coin: 0");
+					System.out.println("* " + coin2.getColor() + properties.getProperty("game.coin.position") + 0);
 				}
 
 				if (result == 1
@@ -80,7 +76,7 @@ public class Game {
 						ladder.lift(coin2);
 						System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
 					}
-					System.out.print("* New Position: " + coin2.getPosition().getCellNumber());
+					System.out.print(properties.getProperty("game.coin.new-position") + coin2.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
@@ -130,52 +126,12 @@ public class Game {
 		this.die = die;
 	}
 
-	public String getDescription() {
-		return description;
+	public Properties getProperties() {
+		return properties;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getSetup() {
-		return setup;
-	}
-
-	public void setSetup(String setup) {
-		this.setup = setup;
-	}
-
-	public String getRules() {
-		return rules;
-	}
-
-	public void setRules(String rules) {
-		this.rules = rules;
-	}
-
-	public String getEquipments() {
-		return equipments;
-	}
-
-	public void setEquipments(String equipments) {
-		this.equipments = equipments;
-	}
-
-	public String getSnakeRole() {
-		return snakeRole;
-	}
-
-	public void setSnakeRole(String snakeRole) {
-		this.snakeRole = snakeRole;
-	}
-
-	public String getLadderRole() {
-		return ladderRole;
-	}
-
-	public void setLadderRole(String ladderRole) {
-		this.ladderRole = ladderRole;
+	public void setProperties(Properties properties) {
+		this.properties = properties;
 	}
 
 }
