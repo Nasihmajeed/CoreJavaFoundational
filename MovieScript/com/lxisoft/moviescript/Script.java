@@ -1,6 +1,5 @@
 package com.lxisoft.moviescript;
 
-//import com.lxisoft.moviescript.Actor; 
   public class Script {
    
     String scene1;
