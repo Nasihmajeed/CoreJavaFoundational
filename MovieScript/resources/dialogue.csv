@@ -1,27 +1,21 @@
 Genre,dialogue
-COMEDY,ningal nerathe vanno ?
-COMEDY, : innale veetil poyal alle nerathe varandollu.
- COMEDY,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa 
-COMEDY, : mani 7.30 aayitto avare kananillallo
-COMEDY,penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk
-COMEDY,: pall thechaal mathiyarnnu ivatteyokke
-COMEDY,  : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan
-COMEDY, : ey bindhu mathre ulloo?
-COMEDY,  : ey illadaa thaa car varunnu
+Comedy,ningal nerathe vanno ?
+Comedy, : innale veetil poyal alle nerathe varandollu.
+ Comedy,: Students varumbo nammale kandillenki avarkk vishamam aavilladaa 
+Comedy, : mani 7.30 aayitto avare kananillallo
+Comedy,penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk
+Comedy,: pall thechaal mathiyarnnu ivatteyokke
+Comedy,  : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan
+Comedy, : ey bindhu mathre ulloo?
+Comedy,  : ey illadaa thaa car varunnu
  COMEDY, : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki
 COMEDY,  : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo
 COMEDY, : ini kidav vandeekkakathu irunnu thalla aayathaavo
- : ey varum
+ COMEDY,: ey varum
 COMEDY,(BGM)
 COMEDY, : hey ith pinnem thallenallo
  COMEDY, : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?
 COMEDY, ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne
-,
-,
-,
-,
-,
-,
  ACTION,: josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu
   ACTION,:anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?
  ACTION," : mm
@@ -58,12 +52,6 @@ COMEDY, ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa 
  ACTION, : njan paranja paranjath thanne. iniyippo ithoru vaashiyaya sthithik njan konduvanna piller undaavilla
  ACTION, : vendada  nee narathe naavadile  ath pole aa mannil kurutha mmale tholpichitt ninakk aaparambu kond povaan pattonki nee kond pokko   jayikkanath njangal aanenki  pinne mathayi parambinte kanvettathenganum ninne kandaal  petere  ninte nenjathu kavadi kalikkum George
  ACTION,"(""\t\t\t(BGM)
-,
-,
-,
-,
-,
-,
 ROMANTIC, : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto
 ROMANTIC, : valla kachiya velichennayayirikkum
 ROMANTIC,: hmm  nee kadanno nee kadanno
@@ -120,10 +108,6 @@ ROMANTIC,(""\t\t\t("" + heroine[1] +"" LOOKING ""+ hero[1]);",
 ROMANTIC,(""\n"");",
 ROMANTIC,(hero[1] +"" : ippo ingottonnum parayanda nannayi aalojich orupad samayam eduthu ishttanenn paranjaal mathi "");",
 ROMANTIC,(""\t\t\t(BGM)
-,
-,
-,
-,
 COMEDY,(heroine[1] +"" : hey karikk"");",
 COMEDY,(comedian[1] +"": naariyalkka paani  sthrekkalude sountharyathin karikk bestaa...  hey  baaisaab  ek naariyal pani"");",
 COMEDY,(comedian[1] +"" :  ee strow okke aarudeyokke vaayil ittathaanaavo.nammal ee strow kudichitt kalayille ath ivanmaarokke ath eduthitt packettil vekkum"");",
@@ -156,10 +140,6 @@ COMEDY,(heroine[1] +"" : haa "");",
 COMEDY,(comedian[1] +"" : naariyal paani "");",
 COMEDY,heroine[1] +"" : ithengane "");",
 COMEDY,(comedian[1] +"" : NOTHING IS IMPOSSIBLE "");
-,
-,
-,
-,
 ROMANTIC,(comedian[1] +"" : enthaa varaan paranje"");",
 ROMANTIC,(comedian[3] +"" : nammade "" + hero[1] + "" misssing aan.. innale rathri avanum "" + heroine[1] +"" pirinju"");",
 ROMANTIC,(comedian[1] +"" : eh pirinjaa "");",
@@ -170,7 +150,6 @@ ROMANTIC,(comedian[1] +"" : sorry recharge cheythittilla "");",
 ROMANTIC,(comedian[1] +"" : she ivaneyokke thante mobile thaa .......  aa babu thante oru sahayam venam       okk"");",
 ROMANTIC,(""\n"");",
 ROMANTIC,(""\t\t\t(PHONE RINGING)"");",(""\n"");",
-
 ROMANTIC,(comedian[3] +"" : aa babu urake pare kettoodaaa  ........     ok "");",
 ROMANTIC,(comedian[3] +"" : daa vaa povaam"");",
 ROMANTIC,(comedian[1] +"": engottekkaa? "");",

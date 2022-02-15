@@ -19,7 +19,7 @@ public class Scene {
  System.out.println ("\n");
 
  
- dialogue.playScene1();
+ dialogue.playScene1() ;
  
  }
  

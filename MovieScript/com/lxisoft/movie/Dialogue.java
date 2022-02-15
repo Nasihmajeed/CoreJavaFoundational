@@ -1,6 +1,7 @@
 package com.lxisoft.movie;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.lang.reflect.Constructor;
 
 
 enum Type  {
@@ -27,30 +28,34 @@ public void playScene1()   {
 
     try {
   
-  
-     
       BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
 
-
       String dialogue;
+
     bf.skip(14);
+
+
       while((dialogue = bf.readLine())   != null ) {
       
 String [] list =dialogue.split(",");
 
-for(String line : list)  {
+for(String dialogues : list)  {
 
-  System.out.println(line);
-
+  System.out.println(dialogues);
 
 }
 
-      
+String type = "Comedy";
+Constructor<?>constructor = Class.forName("package com.lxisoft.movie." + type).getConstructor(String.class,Integer.TYPE);
 
-      
+Object o = constructor.newInstance(type);
+
+System.out.println(o);
+
+
       }
 
-
+      
     } catch (Exception e) {
   
   System.out.println("Exception");
@@ -58,7 +63,11 @@ for(String line : list)  {
      e.printStackTrace();
   
     }
+
     
+
+}
+}
   
 
 
@@ -315,9 +324,4 @@ for (String scene55 : scene5)  {
 
   
 //}
-
-
-
-}
-}  
 
