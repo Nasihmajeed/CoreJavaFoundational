@@ -9,12 +9,16 @@ public class Movie {
     
    private String name;
    private String language;
-   private String genere;
+   private Genere genere;
    //private int year;
    private String director;
    
 
    int number;
+
+   enum Genere {
+       ACTION,COMEDY,ROMANTIC
+   } 
 
    Dialogue dialogue = new Dialogue();
    
@@ -34,11 +38,11 @@ public class Movie {
             this.language = language;  
             }
 
-        public String getGenere(){
+        public Genere getGenere(){
             return genere;
         }
 
-        public void setGenere(String genere){  
+        public void setGenere(Genere genere){  
             this.genere = genere;  
             }
 
@@ -59,8 +63,6 @@ public class Movie {
                     }
         
                   
-   
-   
   
    public void movieDetails() {
 
@@ -83,25 +85,33 @@ public class Movie {
 		System.out.println("\n");
 
         System.out.println("Enter The Number of Genere Type ");
-        number= sc.nextInt();
+       
+          number= sc.nextInt();
 
            sc.nextLine();
 
            switch  (number)  {
 
 case 1 :
+        Genere generAction = Genere.ACTION;
+        genere=generAction;
 
-genere = ("Action");
+//genere = ("Action");
 break;
 
 case 2: 
+        Genere generComedy = Genere.COMEDY;
+        genere = generComedy;
 
-genere = ("Romantic");
+//genere = ("Romantic");
 break;
 
 case 3:
 
-genere =("Comedy");
+        Genere generRomantic = Genere.ROMANTIC;
+        genere = generRomantic;
+
+//genere =("Comedy");
 break;
 
            }
@@ -121,10 +131,9 @@ break;
 
         if (number ==1)  {
 
-language = ("ENGLISH");
+            language = ("ENGLISH");
 
-}
-
+        }
 		if(number != 1)   {
 
 			System.out.println("You Are Selected Wrong Number");
@@ -138,7 +147,9 @@ language = ("ENGLISH");
 		System.out.println("\n");
 
         System.out.println("Enter The Director Name");
+        
 		director = sc.nextLine();
+
 		System.out.println("\t\tName :" + this.name); 
 	    System.out.println("\t\tDirctor :" + this.director);
 		System.out.println("\t\tGenere :"+ this.genere);
