@@ -18,12 +18,23 @@ public class Scene {
  System.out.println ("\n");
  System.out.println ("\n");
 
+ try {
+
+
+
  
- dialogue.playScene1() ;
+ dialogue.playScene1();
  
+
+
+ }catch(Exception  e) {
+
+System.out.println("vdsvhhshbshbhshb");
+
+
  }
  
- 
+}
   
  /*public void showScene2()  {
  
@@ -104,6 +115,5 @@ public class Scene {
  }*/
 
 
-
-
 }
+

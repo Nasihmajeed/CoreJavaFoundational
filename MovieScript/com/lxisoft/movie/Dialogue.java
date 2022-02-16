@@ -4,14 +4,6 @@ import java.io.FileReader;
 import java.lang.reflect.Constructor;
 
 
-enum Type  {
-
-
-ACTION,ROMANTIC,COMEDY,THRILLER
-
- 
-}
-
 public class Dialogue  {
  
   
@@ -23,7 +15,6 @@ public class Dialogue  {
 
 public void playScene1()   { 
  
-
 
 
     try {
@@ -44,9 +35,9 @@ for(String dialogues : list)  {
   System.out.println(dialogues);
 
 }
-
+  
 String type = "Comedy";
-Constructor<?>constructor = Class.forName("package com.lxisoft.movie." + type).getConstructor(String.class,Integer.TYPE);
+Constructor<?>constructor = Class.forName("com.lxisoft.movie." + type).getConstructor(String.class,Integer.TYPE);
 
 Object o = constructor.newInstance(type);
 
@@ -58,17 +49,18 @@ System.out.println(o);
       
     } catch (Exception e) {
   
-  System.out.println("Exception");
+  System.out.println(";;;;;;;;;;;;;;fgdffdg;;;;");
      
      e.printStackTrace();
   
-    }
+    } 
 
     
 
 }
 }
   
+
 
 
 
