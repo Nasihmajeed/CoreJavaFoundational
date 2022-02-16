@@ -1,7 +1,12 @@
-class Cam
+public class Cam
 {
-    public static void main(String s[])
+    public static void main(String[] args)
     {
+
+
+
+
+        
         car cars[] = new car[5];
         cars[0] = new car();
         cars[0].name = "maruthi";
