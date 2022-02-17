@@ -31,7 +31,7 @@ public void getSceneNo()  {
 
 }
 
-scene.showScene1();
+scene.showDialogue();
 
   }
 
