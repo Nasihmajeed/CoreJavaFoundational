@@ -22,19 +22,19 @@ public class Game {
 		Scanner scanner = new Scanner(System.in);
 		char c = scanner.next().charAt(0);
 		if (c == 'Y') {
-			System.out.println("\n\t\t\t\t\t\t\tWELCOME TO THE GAME\n\n");
+			System.out.println(properties.getProperty("game.start-message1"));
 
 			Coin coin = player1.getCoin();
 			Coin coin2 = player2.getCoin();
 			do {
-				System.out.println("--> " + player1.getName() + " rolling the die...\n");
+				System.out.println("--> " + player1.getName() + properties.getProperty("game.stage"));
 				int result = die.roll();
-				System.out.println("* " + player1.getName() + " rolled: " + result);
+				System.out.println("* " + player1.getName() + properties.getProperty("game.currentStage") + result);
 				if (coin.getPosition() != null) {
-					System.out.println("* Current Position of " + coin.getColor() + " coin: "
-							+ coin.getPosition().getCellNumber());
+					System.out.println("* " + coin.getColor() + properties.getProperty("game.coin.position")
+					+ coin.getPosition().getCellNumber());
 				} else {
-					System.out.println("* Current Position of " + coin.getColor() + " coin: 0");
+					System.out.println("* " + coin.getColor() + properties.getProperty("game.coin.position") + 0);
 				}
 
 				if (result == 1
@@ -44,18 +44,18 @@ public class Game {
 					} catch (SnakeException e) {
 						Snake snake = coin.getPosition().getSnake();
 						snake.bite(coin);
-						System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
+						System.out.println(properties.getProperty("snake.bite"));
 					} catch (LadderException e) {
 						Ladder ladder = coin.getPosition().getLadder();
 						ladder.lift(coin);
-						System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
+						System.out.println(properties.getProperty("ladder.climb"));
 					}
-					System.out.print("* New Position: " + coin.getPosition().getCellNumber());
+					System.out.print(properties.getProperty("game.coin.new-position") + coin.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
-				System.out.println("--> " + player2.getName() + " rolling the die...\n");
+				System.out.println("--> " + player2.getName() + properties.getProperty("game.stage"));
 				result = die.roll();
-				System.out.println("* " + player2.getName() + " rolled: " + result);
+				System.out.println("* " + player2.getName() + properties.getProperty("game.currentStage") + result);
 				if (coin2.getPosition() != null) {
 					System.out.println("* " + coin2.getColor() + properties.getProperty("game.coin.position")
 							+ coin2.getPosition().getCellNumber());
@@ -70,11 +70,11 @@ public class Game {
 					} catch (SnakeException e) {
 						Snake snake = coin2.getPosition().getSnake();
 						snake.bite(coin2);
-						System.out.println("* Aww...snake on cell " + snake.getHeadPosition().getCellNumber());
+						System.out.println(properties.getProperty("snake.bite"));
 					} catch (LadderException e) {
 						Ladder ladder = coin2.getPosition().getLadder();
 						ladder.lift(coin2);
-						System.out.println("* Wow...ladder on cell " + ladder.getBottomPosition().getCellNumber());
+						System.out.println(properties.getProperty("ladder.climb"));
 					}
 					System.out.print(properties.getProperty("game.coin.new-position") + coin2.getPosition().getCellNumber());
 				}
@@ -82,14 +82,14 @@ public class Game {
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
 					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
 			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100)
-				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player1.getName() + " *****\n"
-						+ "\n\t\t\t\t\t\t ***** Better luck next time " + player2.getName() + " *****");
+				System.out.println("\n" + properties.getProperty("game.result") + " " + player1.getName() + " *****\n"
+						+ properties.getProperty("game.better-luck") + player2.getName() + " *****");
 			else
-				System.out.println("\n\t\t\t\t\t\t   ***** Congratulations " + player2.getName() + " *****\n"
-						+ "\n\t\t\t\t\t\t ***** Better luck next time " + player1.getName() + " *****");
-			System.out.println("\n\t\t\t\t\t\t\t  ***** GAME OVER *****");
+				System.out.println("\n" + properties.getProperty("game.result") + " " + player2.getName() + " *****\n"
+						+ properties.getProperty("game.better-luck") + player1.getName() + " *****");
+			System.out.println(properties.getProperty("game.over"));
 		} else {
-			System.out.println("\n\t\t\t\t\t\t\tEXIT FROM GAME\n\n");
+			System.out.println(properties.getProperty("game.exit-message"));
 		}
 		scanner.close();
 	}

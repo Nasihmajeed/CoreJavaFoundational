@@ -18,7 +18,7 @@ public class Tdd {
 
 	public static void main(String[] args) {
 		System.out.println("Select the language");
-		System.out.println("1. Malayalam");
+		System.out.println("1. മലയാളം");
 		System.out.println("2. English");
 		Scanner scanner = new Scanner(System.in);
 		int language = scanner.nextInt();
@@ -33,7 +33,7 @@ public class Tdd {
 			break;
 		}
 
-		String path = System.getProperty("user.dir") + "\\src\\resources\\game" + langExt + ".properties";
+		String path = System.getProperty("user.dir") + "\\resources\\game" + langExt + ".properties";
 		try (InputStream input = new FileInputStream(path)) {
 
 			Properties prop = new Properties();
@@ -57,28 +57,24 @@ public class Tdd {
 			game.setPlayer2(player2);
 			game.setDie(die);
 			game.setProperties(prop);
-			System.out.println("\t\t\t\t\t\t\tWELCOME TO SNAKES AND LADDERS");
-			System.out.println("\t\t\t\t\t\t\t=============================\n\n\n");
+			System.out.println(prop.getProperty("game.welcome-message"));
 			System.out.println(prop.getProperty("game.description"));
 			System.out.println(prop.getProperty("game.setup"));
 			System.out.println(prop.getProperty("game.rules"));
 			System.out.println(prop.getProperty("game.equipments"));
 			System.out.println(prop.getProperty("game.snakeRole"));
 			System.out.println(prop.getProperty("game.ladderRole"));
-			System.out.println("Board");
-			System.out.println("-------");
+			System.out.println(prop.getProperty("game.board"));
 			System.out.println(prop.getProperty("board.cells"));
 			System.out.println(prop.getProperty("board.snakes"));
 			System.out.println(prop.getProperty("board.ladders"));
-			System.out.println("Players");
-			System.out.println("-------");
-			System.out.println("* " + player1.getName() + " with " + coin1.getColor());
-			System.out.println("* " + player2.getName() + " with " + coin2.getColor() + "\n");
-			System.out.println("Die");
-			System.out.println("-----");
+			System.out.println(prop.getProperty("game.players"));
+			System.out.println("* " + player1.getName() + "( " + coin1.getColor() + ")");
+			System.out.println("* " + player2.getName() + "( " + coin2.getColor() + ")\n");
+			System.out.println(prop.getProperty("game.die"));
 			System.out.println(prop.getProperty("die.faces") + die.getFaces());
 			System.out.println(prop.getProperty("game.start.value"));
-			System.out.println("\t\t\t\t\t**************Let's start the game**************\n\n\n");
+			System.out.println(prop.getProperty("game.start-message"));
 
 			game.play();
 
