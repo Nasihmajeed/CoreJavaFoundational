@@ -1,6 +1,5 @@
 package com.lxisoft.game;
 
-
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import java.util.Random;
 import com.lxisoft.test.*;
 import com.lxisoft.animals.*;
 import com.lxisoft.game.Animal;
+import com.lxisoft.factors.DataBase;
 import com.lxisoft.factors. FileRepository;
 import com.lxisoft.localization.Localization;
 
@@ -21,7 +21,7 @@ public class Forest {
        
        FileRepository repo = new  FileRepository();
 
-      TDD opt = new TDD();
+      DataBase db = new DataBase();
 
        public void welcomeToForest() 
        {
@@ -39,7 +39,7 @@ public class Forest {
       
          
              
-              meetPlayers(returnPlayer(repo.readFile()),returnPlayer(repo.readFile()));
+              meetPlayers(returnPlayer(db.retriveData()),returnPlayer(db.retriveData()));
 
 }
        public Animal returnPlayer(List<Animal> animalsList){
