@@ -171,12 +171,16 @@ break;
     
       // public void viewCast(){
 
+      
+
+      
+        
        System.out.println("\t\t         -- Cast Details --");
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
         
-       System.out.println("\t\t Enter The Numbers Of Hero:");
+      // System.out.println("\t\t Enter The Numbers Of Hero:");
 
          Hero hero = new Hero();
          hero.setName (" Ansel Elgort");
@@ -229,9 +233,9 @@ break;
         dialogue.actor[4]= comedian3.getCharacterName();
         dialogue.actor[5]= comedian4.getCharacterName();
         dialogue.viewDialogue();
-       
+        }
    }
   
-}
+
 
 
