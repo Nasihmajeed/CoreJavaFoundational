@@ -46,12 +46,7 @@ public class Theater {
 
     Movie movie = new Movie();
 
-       /*movie.setName ("THE FAULT IN OUR STARS");
-       movie.setGenere("Romance - Drama");
-       movie.setYear( 2014);
-       movie.setDirector("Josh Boone");
-       movie.setProducer("Marty Bowen and Wyck Godfrey");*/
-
+    
       movie.movieDetails();
      
   }
