@@ -3,11 +3,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Scene {
- 
+
 
  Dialogue dialogue = new Dialogue();
 
- 
  public void showDialogue()   { 
   
  
@@ -16,14 +15,14 @@ public class Scene {
    
        BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
  
-       String dialogue;
+       String dia;
  
-     bf.skip(14);
- 
- 
-       while((dialogue = bf.readLine())   != null ) {
+bf.skip(14);
+
        
- String[] list =dialogue.split(",");
+     while((dia = bf.readLine())   != null ) {
+       
+ String[] list =dia.split(",");
  
  for(String dialogues : list)  {
  
@@ -32,12 +31,15 @@ public class Scene {
  }
    
  
+
+
+
        }
  
        
      } catch (Exception e) {
    
-   System.out.println(";;;;;;;;;;;;;;fgdffdg;;;;");
+   System.out.println("Exception ");
       
       e.printStackTrace();
    
