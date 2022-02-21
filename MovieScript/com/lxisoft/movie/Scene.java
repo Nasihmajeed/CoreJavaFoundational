@@ -7,22 +7,21 @@ public class Scene {
 
  Dialogue dialogue = new Dialogue();
 
- public void showDialogue()   { 
-  
- 
+ public void showDialogue(int sceneNo)   { 
+   
  
      try {
    
        BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
  
-       String dia;
+       String dialo;
  
 bf.skip(14);
 
+        
+     while((dialo = bf.readLine())   != null ) {
        
-     while((dia = bf.readLine())   != null ) {
-       
- String[] list =dia.split(",");
+ String[] list =dialo.split(",");
  
  for(String dialogues : list)  {
  
