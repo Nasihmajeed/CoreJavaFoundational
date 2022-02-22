@@ -1,41 +1,36 @@
 package com.lxisoft.movie;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Scene {
 
 
  Dialogue dialogue = new Dialogue();
 
+
  public void showDialogue(int sceneNo)   { 
    
  
      try {
    
-       BufferedReader bf = new BufferedReader(new FileReader("../resources/dialogue.csv") ) ;
- 
-       String dialo;
- 
-bf.skip(14);
-
-        
-     while((dialo = bf.readLine())   != null ) {
+      Scanner scr = new Scanner(new File("../resources/dialogue.csv"));
        
- String[] list =dialo.split(",");
- 
- for(String dialogues : list)  {
- 
-   System.out.println(dialogues);
- 
- }
-   
- 
+ArrayList<String> dialogue = new ArrayList<String> ();
+
+while (scr.hasNext())  {
+
+dialogue.add(scr.next());
+
+}
+for(String dialogues : dialogue)  {
+
+  System.out.println(dialogues);
+}
 
 
+scr.close();
 
-       }
- 
-       
      } catch (Exception e) {
    
    System.out.println("Exception ");
@@ -44,9 +39,6 @@ bf.skip(14);
    
      } 
  
-     
- 
  }
 
 }
-
