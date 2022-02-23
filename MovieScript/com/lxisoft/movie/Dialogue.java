@@ -1,8 +1,10 @@
-package com.lxisoft.movie;
+  package com.lxisoft.movie;
 
 
 public class Dialogue  {
 
+
+  
 public void playScene1()   { 
  
    
