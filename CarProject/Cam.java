@@ -1,5 +1,8 @@
 public class Cam
 {
+    public Cam() {
+    }
+
     public static void main(String[] args)
     {
 
@@ -49,6 +52,11 @@ public class Cam
             System.out.println(  cars[i].name + " is manufactured in " + cars[i].registration + " it's model is  " + cars[i].model  );
             System.out.println( cars[i].tire+ "is its tire. its colour is " + cars[i].color );
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Cam []";
     }
 
 }
