@@ -26,7 +26,7 @@ public int number;
 
 Director dirctr = new Director();
 Script script = new Script();
-
+ScriptWriter scriptWriter = new ScriptWriter();
 
  public String getName()   {
 	 return name;
@@ -154,6 +154,8 @@ language = ("MALAYALAM");
 
 
 dirctr.castActors();
+
+scriptWriter.writeScript();
 
 
 script.getSceneNo(); 

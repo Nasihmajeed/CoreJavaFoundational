@@ -43,7 +43,6 @@ sc.nextLine();
 actors[i] = hero.getCharacterName();
 
 
-
 		hero.actorDetails();
 
 		System.out.println("\n");
