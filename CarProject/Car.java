@@ -16,7 +16,9 @@ public class Car {
         
         C.inputDetails();
         C.inputDetails();
+
         
+        1trsu
         }
       }
   }
