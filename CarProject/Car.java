@@ -18,7 +18,7 @@ public class Car {
         C.inputDetails();
 
         
-        1trsu
+      
         }
       }
   }
