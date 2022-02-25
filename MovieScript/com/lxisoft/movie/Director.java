@@ -12,9 +12,9 @@ public class Director {
 
 Scanner sc = new Scanner(System.in);
 
- public int heroNo,heroineNo,comedianNo,villanNo,number,sum;
+ public int heroNo,heroineNo,comedianNo,villanNo,number;
 
- public String[] actors=new String[100];
+ public String   [] actors=new String[100];
 
 
 public void castActors() {
@@ -109,14 +109,13 @@ System.out.println("Enter" + i + "Villan Name ");
 villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine()); 
-
+    
 actors[heroNo + heroineNo + comedianNo +i] = villan.getCharacterName();
 
 villan.actorDetails();
 System.out.println("\n");
 
 }
-
 
 }
 

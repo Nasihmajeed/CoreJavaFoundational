@@ -137,7 +137,7 @@ language = ("MALAYALAM");
 
 		if(number != 1)   {
 
-			System.out.println("You Are Selected Wrong Number Press 1");
+			System.out.println("You Are Selected Wrong Number... Press 1");
 
 		}
 

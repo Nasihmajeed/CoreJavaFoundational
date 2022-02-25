@@ -2,7 +2,7 @@ package com.lxisoft.movie;
 
 public class Script  {
 
-public int sceneNo;
+ int sceneNo;
 
 
 Scene scene = new Scene();
