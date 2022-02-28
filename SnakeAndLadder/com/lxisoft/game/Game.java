@@ -1,5 +1,10 @@
 package com.lxisoft.game;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -81,13 +86,33 @@ public class Game {
 				System.out.println("\n------------------------------------\n");
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
 					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
-			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100)
+
+			String winner;
+			String loser;
+			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100) {
 				System.out.println("\n" + properties.getProperty("game.result") + " " + player1.getName() + " *****\n"
 						+ properties.getProperty("game.better-luck") + player2.getName() + " *****");
-			else
+				winner = player1.getName();
+				loser = player2.getName();
+			} else {
 				System.out.println("\n" + properties.getProperty("game.result") + " " + player2.getName() + " *****\n"
 						+ properties.getProperty("game.better-luck") + player1.getName() + " *****");
+				winner = player2.getName();
+				loser = player1.getName();
+			}
 			System.out.println(properties.getProperty("game.over"));
+			try {
+				Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/snakeandladder", "root", "root");
+				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO HISTORY (`Winner`, `Loser`, `GameDate`) VALUES (?,?,?)");
+
+				preparedStatement.setString(1, winner);
+				preparedStatement.setString(2, loser);
+				preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println(properties.getProperty("game.exit-message"));
 		}
