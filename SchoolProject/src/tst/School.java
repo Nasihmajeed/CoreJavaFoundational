@@ -2,6 +2,7 @@ package tst;
 
 public class School 
 {
+	//just for test
 	private String name;
 	private String place;
 	public School(String name, String place) {
