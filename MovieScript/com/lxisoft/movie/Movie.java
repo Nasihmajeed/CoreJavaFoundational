@@ -155,10 +155,12 @@ language = ("MALAYALAM");
 
 dirctr.castActors();
 
-scriptWriter.writeScript();
+script.getSceneNo();
+
+scriptWriter.writeScript(script.sceneNo);
 
 
-script.getSceneNo(); 
+ 
 
 
  }	 

@@ -5,8 +5,6 @@ public class Script  {
  int sceneNo;
 
 
-Scene scene = new Scene();
-
 
 public void getSceneNo()  {
 
@@ -15,7 +13,7 @@ public void getSceneNo()  {
 
   Scene [] scenes = new Scene[sceneNo]; 
 
-  scenes[0] = scene;
+
 
 
   System.out.println("Number of Movie Scenes :" + sceneNo);
@@ -29,9 +27,10 @@ public void getSceneNo()  {
   scenes[i] = scene;
   
 
+  scene.showDialogue();
+
 }
 
-scene.showDialogue(sceneNo);
 
   }
 
