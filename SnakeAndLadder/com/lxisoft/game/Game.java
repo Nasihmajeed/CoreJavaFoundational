@@ -3,6 +3,7 @@ package com.lxisoft.game;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Properties;
@@ -37,7 +38,7 @@ public class Game {
 				System.out.println("* " + player1.getName() + properties.getProperty("game.currentStage") + result);
 				if (coin.getPosition() != null) {
 					System.out.println("* " + coin.getColor() + properties.getProperty("game.coin.position")
-					+ coin.getPosition().getCellNumber());
+							+ coin.getPosition().getCellNumber());
 				} else {
 					System.out.println("* " + coin.getColor() + properties.getProperty("game.coin.position") + 0);
 				}
@@ -55,7 +56,8 @@ public class Game {
 						ladder.lift(coin);
 						System.out.println(properties.getProperty("ladder.climb"));
 					}
-					System.out.print(properties.getProperty("game.coin.new-position") + coin.getPosition().getCellNumber());
+					System.out.print(
+							properties.getProperty("game.coin.new-position") + coin.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
 				System.out.println("--> " + player2.getName() + properties.getProperty("game.stage"));
@@ -81,7 +83,8 @@ public class Game {
 						ladder.lift(coin2);
 						System.out.println(properties.getProperty("ladder.climb"));
 					}
-					System.out.print(properties.getProperty("game.coin.new-position") + coin2.getPosition().getCellNumber());
+					System.out.print(
+							properties.getProperty("game.coin.new-position") + coin2.getPosition().getCellNumber());
 				}
 				System.out.println("\n------------------------------------\n");
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
@@ -102,14 +105,30 @@ public class Game {
 			}
 			System.out.println(properties.getProperty("game.over"));
 			try {
-				Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/snakeandladder", "root", "root");
-				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO HISTORY (`Winner`, `Loser`, `GameDate`) VALUES (?,?,?)");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/snakeandladder",
+						"root", "root");
+				PreparedStatement preparedStatement = connection
+						.prepareStatement("INSERT INTO HISTORY (`Winner`, `Loser`, `GameDate`) VALUES (?,?,?)");
 
 				preparedStatement.setString(1, winner);
 				preparedStatement.setString(2, loser);
 				preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 
 				preparedStatement.executeUpdate();
+
+				preparedStatement = connection.prepareStatement("select * from HISTORY");
+				ResultSet result = preparedStatement.executeQuery();
+				System.out.println("-----------------------------------------------------------------");
+				System.out.println("|     GameId\t| Winner\t| Loser\t\t| GameDate\t|");
+				System.out.println("-----------------------------------------------------------------");
+				while (result.next()) {
+					System.out.print("|\t" + result.getInt(1));
+					System.out.print("\t| " + result.getString(2));
+					System.out.print("\t| " + result.getString(3));
+					System.out.println("\t| " + result.getDate(4) + "\t|");
+				}
+				System.out.println("-----------------------------------------------------------------");
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
