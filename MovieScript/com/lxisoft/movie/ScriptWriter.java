@@ -5,7 +5,7 @@ public class ScriptWriter {
 
  Dialogue dialogue = new Dialogue();
 
-public void writeScript(int sceneNo)   {
+public void writeScript(int sceneNo )   {
 
 
 

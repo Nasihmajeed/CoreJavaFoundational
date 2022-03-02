@@ -157,10 +157,9 @@ dirctr.castActors();
 
 script.getSceneNo();
 
-scriptWriter.writeScript(script.sceneNo);
 
-
- 
+	
+	scriptWriter.writeScript(script.sceneNo);
 
 
  }	 

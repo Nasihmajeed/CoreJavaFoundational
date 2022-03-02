@@ -12,4 +12,7 @@ Theater theater = new Theater("MELAM","Cherppulassery","123456789");
 
 theater.showTheater();
 }
+
+
+
 }

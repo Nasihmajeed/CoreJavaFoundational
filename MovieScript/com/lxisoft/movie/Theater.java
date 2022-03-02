@@ -39,7 +39,6 @@ public void setPhoneNo(String newPhoneNo)  {
 }
 
 
-
 public void showTheater()   {
 	
 System.out.println("\n");
@@ -56,6 +55,5 @@ Movie movie = new Movie();
 movie.movieDetails();
 	
 }
-
 
 }
