@@ -54,6 +54,6 @@ System.out.println("\n");
 Movie movie = new Movie();
 movie.movieDetails();
 	
-}
+} 
 
 }

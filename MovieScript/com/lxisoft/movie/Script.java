@@ -11,7 +11,7 @@ public void getSceneNo()  {
 
   sceneNo = (int) (Math.random()*3 +3 );
 
-  Scene[] scenes = new Scene[sceneNo];
+  Scene[] scenes = new Scene[sceneNo];  
 
   System.out.println("Number of Movie Scenes :" + sceneNo);
   
