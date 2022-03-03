@@ -167,13 +167,8 @@ break;
        System.out.println("\t\t+----------------------------------+");
 
        System.out.println();*/
-   //}
+   
     
-      // public void viewCast(){
-
-      
-
-      
         
        System.out.println("\t\t         -- Cast Details --");
 

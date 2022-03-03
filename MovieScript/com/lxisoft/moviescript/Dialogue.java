@@ -12,7 +12,7 @@ public class Dialogue {
 
       public void viewDialogue() {
 
-       try {
+       /*try {
          BufferedReader bf = new BufferedReader(new FileReader("com/lxisoft/moviescript/dialogue.csv"));
          
          String dialogue;
@@ -36,7 +36,7 @@ public class Dialogue {
 
          e.printStackTrace();
 
-       }
+       }*/
         
       }
     }
