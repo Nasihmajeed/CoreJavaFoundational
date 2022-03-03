@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
 
+import com.lxisoft.database.History;
 import com.lxisoft.snakesandladders.Board;
 import com.lxisoft.snakesandladders.Ladder;
 import com.lxisoft.snakesandladders.Snake;
@@ -90,52 +93,76 @@ public class Game {
 			} while ((coin.getPosition() == null) || coin.getPosition().getCellNumber() < 100
 					&& ((coin2.getPosition() == null) || coin2.getPosition().getCellNumber() < 100));
 
-			String winner;
-			String loser;
+			History history = new History();
 			if ((coin.getPosition() != null) && coin.getPosition().getCellNumber() == 100) {
 				System.out.println("\n" + properties.getProperty("game.result") + " " + player1.getName() + " *****\n"
 						+ properties.getProperty("game.better-luck") + player2.getName() + " *****");
-				winner = player1.getName();
-				loser = player2.getName();
+				history.setWinner(player1.getName());
+				history.setLoser(player2.getName());
 			} else {
 				System.out.println("\n" + properties.getProperty("game.result") + " " + player2.getName() + " *****\n"
 						+ properties.getProperty("game.better-luck") + player1.getName() + " *****");
-				winner = player2.getName();
-				loser = player1.getName();
+				history.setWinner(player2.getName());
+				history.setLoser(player1.getName());
 			}
 			System.out.println(properties.getProperty("game.over"));
-			try {
-				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/snakeandladder",
-						"root", "root");
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("INSERT INTO HISTORY (`Winner`, `Loser`, `GameDate`) VALUES (?,?,?)");
-
-				preparedStatement.setString(1, winner);
-				preparedStatement.setString(2, loser);
-				preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
-
-				preparedStatement.executeUpdate();
-
-				preparedStatement = connection.prepareStatement("select * from HISTORY");
-				ResultSet result = preparedStatement.executeQuery();
-				System.out.println("-----------------------------------------------------------------");
-				System.out.println("|     GameId\t| Winner\t| Loser\t\t| GameDate\t|");
-				System.out.println("-----------------------------------------------------------------");
-				while (result.next()) {
-					System.out.print("|\t" + result.getInt(1));
-					System.out.print("\t| " + result.getString(2));
-					System.out.print("\t| " + result.getString(3));
-					System.out.println("\t| " + result.getDate(4) + "\t|");
-				}
-				System.out.println("-----------------------------------------------------------------");
-
-			} catch (SQLException e) {
-				e.printStackTrace();
+			saveHistory(history);
+			List<History> histories = getHistory();
+			System.out.println("-----------------------------------------------------------------");
+			System.out.println("|     GameId\t| Winner\t| Loser\t\t| GameDate\t|");
+			System.out.println("-----------------------------------------------------------------");
+			for (History hist : histories) {
+				System.out.print("|\t" + hist.getGameId());
+				System.out.print("\t| " + hist.getWinner());
+				System.out.print("\t| " + hist.getLoser());
+				System.out.println("\t| " + hist.getGameDate() + "\t|");
 			}
+			System.out.println("-----------------------------------------------------------------");
+
 		} else {
 			System.out.println(properties.getProperty("game.exit-message"));
 		}
 		scanner.close();
+	}
+
+	public Connection getConnection() throws SQLException {
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/snakeandladder", "root", "root");
+	}
+
+	public List<History> getHistory() {
+		try (Connection connection = getConnection()) {
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from HISTORY");
+			ResultSet result = preparedStatement.executeQuery();
+			List<History> histories = new LinkedList<>();
+			while (result.next()) {
+				History history = new History();
+				history.setGameId(result.getInt(1));
+				history.setWinner(result.getString(2));
+				history.setLoser(result.getString(3));
+				history.setGameDate(result.getDate(4));
+				histories.add(history);
+			}
+			return histories;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void saveHistory(History history) {
+		try (Connection connection = getConnection()) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("INSERT INTO HISTORY (`Winner`, `Loser`, `GameDate`) VALUES (?,?,?)");
+
+			preparedStatement.setString(1, history.getWinner());
+			preparedStatement.setString(2, history.getLoser());
+			preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Board getBoard() {
