@@ -1,39 +1,44 @@
 package com.lxisoft.movie;
 
+import java.util.ArrayList;
+
 public class ScriptWriter {
- 
 
- Dialogue dialogue = new Dialogue();
 
+ArrayList<Scene> comedyDialogues = new ArrayList<Scene>();
+
+ArrayList<String> comedyDialogues2 = new ArrayList<String>();
+
+ArrayList<String> romanticDialogues = new ArrayList<String>();
+
+ArrayList<String> romanticDialogues2 = new ArrayList<String>();
+
+ArrayList<String> ActionDialogues = new ArrayList<String>();
 
  public void script()   {
 
- /*scene1.add(newActors[1] + ": ningal nerathe vanno ?");
-   scene1.add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
-   scene1.add(newActors[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
-   scene1.add(newActors[4] +" : mani 7.30 aayitto avare kananillallo");
-   scene1.add(newActors[1] +" : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk");
-   scene1.add(newActors[1] +" : pall thechaal mathiyarnnu ivatteyokke");
-   scene1.add(newActors[1]  +" : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan");
-scene1.add(newActors[1]  +": ey bindhu mathre ulloo?");
-scene1.add(newActors[1]  +" : ey illadaa thaa car varunnu");
-scene1.add(newActors[1]  +" : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki");
-scene1.add(newActors[1] +" : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo");
-scene1.add(newActors[1]  +": ini kidav vandeekkakathu irunnu thalla aayathaavo");
-scene1.add(newActors[1]  +" : ey varum");
-scene1.add("\t\t\t\t(BGM)");
-scene1.add(newActors[1] +" : hey ith pinnem thallenallo");
-scene1.add(newActors[1]  +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?");
-scene1.add(newActors[1]  +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne");
+ comedyDialogues.add(newActors[1] + ": ningal nerathe vanno ?");
+ comedyDialogues .add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
+ comedyDialogues.add(newActors[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
+ comedyDialogues.add(newActors[4] +" : mani 7.30 aayitto avare kananillallo");
+ comedyDialogues.add(newActors[1] +" : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk");
+ comedyDialogues.add(newActors[1]  +" : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan");
+ comedyDialogues.add(newActors[1]  +": ey bindhu mathre ulloo?");
+ comedyDialogues.add(newActors[1]  +" : ey illadaa thaa car varunnu");
+ comedyDialogues.add(newActors[1]  +" : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki");
+ comedyDialogues.add(newActors[1] +" : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo");
+ comedyDialogues.add(newActors[1]  +": ini kidav vandeekkakathu irunnu thalla aayathaavo");
+ comedyDialogues.add(newActors[1]  +" : ey varum");
+ comedyDialogues.add("\t\t\t\t(BGM)");
+ comedyDialogues.add(newActors[1] +" : hey ith pinnem thallenallo");
+ comedyDialogues.add(newActors[1]  +" : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?");
+ comedyDialogues.add(newActors[1]  +" : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne");
 
 
 
 
 //public void playScene2()  {
  
-
-
-
 
 
 /*scene2.add(newActors[1] +" : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu");
@@ -76,11 +81,7 @@ scene2.add("\t\t\t(BGM)");
 
 }
 
-
-
 public void playScene3()   {
-
-
 
 
   scene3.add(hero[1] +" : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto");  
@@ -225,12 +226,10 @@ scene5.add("\n");
 
  }
 
-public void writeScript(int sceneNo )   {
+public void writeScript(Script script )   {
+  
 
 
-
-
-dialogue.showScript();
 
 }
 

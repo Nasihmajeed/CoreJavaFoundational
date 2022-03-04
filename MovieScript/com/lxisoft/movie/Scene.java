@@ -4,6 +4,9 @@ package com.lxisoft.movie;
 
 public class Scene {
  
+
+  Scene [] scenes = new Scene[5];
+
  public void showComedyScene()
  
  {

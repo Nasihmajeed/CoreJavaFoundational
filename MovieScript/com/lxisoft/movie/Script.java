@@ -4,14 +4,14 @@ public class Script  {
 
  int sceneNo;
 
- 
+ Scene[] scenes = new Scene[sceneNo]; 
 
 public void getSceneNo()  {
 
 
   sceneNo = (int) (Math.random()*3 +3 );
 
-  Scene[] scenes = new Scene[sceneNo];  
+ 
 
   System.out.println("Number of Movie Scenes :" + sceneNo);
   
@@ -19,7 +19,7 @@ public void getSceneNo()  {
   for(int i = 0; i < sceneNo; i++)  {
  
 
-    Scene scene = new Scene();
+    Scene scene = new Scene(); 
 
   scenes[i] = scene;
   
