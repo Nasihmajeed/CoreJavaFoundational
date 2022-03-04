@@ -13,7 +13,6 @@ public class Car {
   
   public void inputDetails() {
   
-  
   this.name= "VOLKSWAGEN";
   this.model= "VOLKSWAGEN POLO";
   this.RegNo= "Kl-09-AT-9812";
