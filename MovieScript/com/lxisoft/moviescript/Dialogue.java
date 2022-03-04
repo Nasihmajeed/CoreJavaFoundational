@@ -1,16 +1,7 @@
 package com.lxisoft.moviescript;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.*;
-public class Dialogue {
-    
-    //String dialogue1;
-    //String dialogue2;
-   
-     public String [] actor = new String[10];
 
-      public void viewDialogue() {
+public class Dialogue {
 
        /*try {
          BufferedReader bf = new BufferedReader(new FileReader("com/lxisoft/moviescript/dialogue.csv"));
@@ -39,4 +30,4 @@ public class Dialogue {
        }*/
         
       }
-    }
+    

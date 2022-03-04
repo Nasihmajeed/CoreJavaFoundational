@@ -20,7 +20,7 @@ public class Movie {
        ACTION,COMEDY,ROMANTIC
    } 
 
-   Dialogue dialogue = new Dialogue();
+  
    
 
       public String getName(){
@@ -65,6 +65,8 @@ public class Movie {
                   
   
    public void movieDetails() {
+       
+    Scriptwriter scriptwriter = new Scriptwriter();
 
     Scanner sc = new Scanner(System.in);
       
@@ -221,13 +223,13 @@ break;
         System.out.println("\t\t+----------------------------------+"+"\n");
 
         
-        dialogue.actor[0] = hero.getCharacterName();
-        dialogue.actor[1]= heroine.getCharacterName();
-        dialogue.actor[2]= comedian1.getCharacterName();
-        dialogue.actor[3]= comedian2.getCharacterName();
-        dialogue.actor[4]= comedian3.getCharacterName();
-        dialogue.actor[5]= comedian4.getCharacterName();
-        dialogue.viewDialogue();
+        scriptwriter.actor[0] = hero.getCharacterName();
+        scriptwriter.actor[1]= heroine.getCharacterName();
+        scriptwriter.actor[2]= comedian1.getCharacterName();
+        scriptwriter.actor[3]= comedian2.getCharacterName();
+        scriptwriter.actor[4]= comedian3.getCharacterName();
+        scriptwriter.actor[5]= comedian4.getCharacterName();
+        scriptwriter.viewDialogue();
         }
    }
   
