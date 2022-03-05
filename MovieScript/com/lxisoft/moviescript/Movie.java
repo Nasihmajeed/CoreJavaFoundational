@@ -1,5 +1,4 @@
 package com.lxisoft.moviescript;
-
 import java.util.Scanner;
 
 import com.lxisoft.cast.*;
@@ -20,8 +19,6 @@ public class Movie {
        ACTION,COMEDY,ROMANTIC
    } 
 
-  
-   
 
       public String getName(){
           return name;
@@ -65,8 +62,6 @@ public class Movie {
                   
   
    public void movieDetails() {
-       
-    Scriptwriter scriptwriter = new Scriptwriter();
 
     Scanner sc = new Scanner(System.in);
       
@@ -95,23 +90,23 @@ public class Movie {
            switch  (number)  {
 
 case 1 :
-        Genere generAction = Genere.ACTION;
-        genere=generAction;
+        Genere genereAction = Genere.ACTION;
+        genere=genereAction;
 
 //genere = ("Action");
 break;
 
 case 2: 
-        Genere generComedy = Genere.COMEDY;
-        genere = generComedy;
+        Genere genereComedy = Genere.COMEDY;
+        genere = genereComedy;
 
 //genere = ("Romantic");
 break;
 
 case 3:
 
-        Genere generRomantic = Genere.ROMANTIC;
-        genere = generRomantic;
+        Genere genereRomantic = Genere.ROMANTIC;
+        genere = genereRomantic;
 
 //genere =("Comedy");
 break;
@@ -158,81 +153,11 @@ break;
 		System.out.println("\t\tLanguage :" +this.language);
 	    System.out.println("\n");
 
-       /*System.out.println("\t\t\t"   +name);
-       System.out.println("\t\t      +------------------------+"+"\n");
+     
+       Director director = new Director();
 
-       System.out.println("\t\tGnere:" +genere);
-       System.out.println("\t\tYear Of Release:" +year);
-       System.out.println("\t\tDirector:" +director);
-       System.out.println("\t\tProducers:" +producer);
+       director.castDetails();
 
-       System.out.println("\t\t+----------------------------------+");
-
-       System.out.println();*/
-   
+    }}
     
-        
-       System.out.println("\t\t         -- Cast Details --");
-
-       System.out.println("\t\t+----------------------------------+"+"\n");
-
-        
-      // System.out.println("\t\t Enter The Numbers Of Hero:");
-
-         Hero hero = new Hero();
-         hero.setName (" Ansel Elgort");
-         hero.setCharacterName (" Augustus Waters");
-         hero.actorsDetails();
-
-         
-         System.out.println("\t\t+----------------------------------+"+"\n");
-
-         Heroine heroine = new Heroine();
-        heroine.setName  (" Shailene Woodley");
-        heroine.setCharacterName ("Hazel Graze Lancaster");
-        heroine.actorsDetails();
-
-        System.out.println("\t\t+----------------------------------+"+"\n");
-
-        Comedian comedian1 = new Comedian();
-        comedian1.setName (" Jennifer Aniston ");
-        comedian1.setCharacterName (" Rachel Green");
-        comedian1.actorsDetails();
-
-        System.out.println("\t\t+----------------------------------+"+"\n");
-
-        Comedian comedian2 = new Comedian();
-        comedian2.setName (" Courteney Cox ");
-        comedian2.setCharacterName( " Monica ");
-        comedian2.actorsDetails();
-
-        System.out.println("\t\t+----------------------------------+"+"\n");
-
-        Comedian comedian3 = new Comedian();
-        comedian3.setName (" Matthew Perry ");
-        comedian3.setCharacterName (" Chandler ");
-        comedian3.actorsDetails();
-
-        System.out.println("\t\t+----------------------------------+"+"\n");
-
-        Comedian comedian4 = new Comedian();
-        comedian4.setName (" Matt LeBlanc ");
-        comedian4.setCharacterName (" Jeoy ");
-        comedian4.actorsDetails();
-
-        System.out.println("\t\t+----------------------------------+"+"\n");
-
-        
-        scriptwriter.actor[0] = hero.getCharacterName();
-        scriptwriter.actor[1]= heroine.getCharacterName();
-        scriptwriter.actor[2]= comedian1.getCharacterName();
-        scriptwriter.actor[3]= comedian2.getCharacterName();
-        scriptwriter.actor[4]= comedian3.getCharacterName();
-        scriptwriter.actor[5]= comedian4.getCharacterName();
-        scriptwriter.viewDialogue();
-        }
-   }
-  
-
-
 

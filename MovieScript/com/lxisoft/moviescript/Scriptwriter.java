@@ -3,16 +3,16 @@ package com.lxisoft.moviescript;
 import java.util.*;
 
 public class Scriptwriter {
+
+  Script script = new Script();
   
-    String name;
 
     public String [] actor = new String[10];
 
 
-    public void viewDialogue() {
+    public void romanticDialogue() {
 
-        Script script = new Script();
-         
+       
         ArrayList <String> script1= new ArrayList<String> ();
        
         script.viewScript();
@@ -74,6 +74,8 @@ public class Scriptwriter {
 
           System.out.println(itr.next());
         }
+      }
+        public void comicDialogue() {
 
         ArrayList <String> script2= new ArrayList<String>();
 
@@ -147,6 +149,9 @@ public class Scriptwriter {
           System.out.println(its.next());
           
         }
+      }
+
+      public void emotionalDialogue() {
 
         ArrayList <String> script3= new ArrayList<String>();
         
