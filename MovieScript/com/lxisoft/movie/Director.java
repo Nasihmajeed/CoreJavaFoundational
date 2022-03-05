@@ -12,10 +12,10 @@ public class Director {
 
 Scanner sc = new Scanner(System.in);
 
- public int heroNo,heroineNo,comedianNo,villanNo,number;
+ public int heroNo,heroineNo,comedianNo,villanNo;
 
- public String   [] actors=new String[100];
-
+ public String [] actors=new String[100];
+   
 
 public void castActors() {
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ScriptWriter {
 
 
-ArrayList<Scene> comedyDialogues = new ArrayList<Scene>();
+  String [] comedyDialogues= new String[1000];
 
 ArrayList<String> comedyDialogues2 = new ArrayList<String>();
 
@@ -17,7 +17,7 @@ ArrayList<String> ActionDialogues = new ArrayList<String>();
 
  public void script()   {
 
- comedyDialogues.add(newActors[1] + ": ningal nerathe vanno ?");
+ /*comedyDialogues[0] = (": ningal nerathe vanno ?");
  comedyDialogues .add(newActors[2] +" : innale veetil poyal alle nerathe varandollu.");
  comedyDialogues.add(newActors[3] +" : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
  comedyDialogues.add(newActors[4] +" : mani 7.30 aayitto avare kananillallo");
@@ -229,9 +229,17 @@ scene5.add("\n");
 public void writeScript(Script script )   {
   
 
+  for(int i = 0;  i< script.scenes.length;   i ++)  {
+
+if (script.scenes[i] != null)  {
 
 
 }
 
+  }
+
+  
+
 }
- 
+
+} 
