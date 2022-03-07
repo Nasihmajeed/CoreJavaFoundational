@@ -1,37 +1,25 @@
 package com.lxisoft.moviescript;
 
   public class Script {
-   
-    String scene1;
-    String scene2;
-    String scene3;
-    
 
-    public void viewScript () {
+    int noOfscenes;
 
-      this.scene1= "Romantic Scene";
-        System.out.println("\n"); 
-       
-        System.out.println("\t\t\t     " +scene1);
-        
+    Scene [] scenes = new Scene [6];
+
+    public void getScenes() {
+
+      noOfscenes = (int) (Math.random()*3+3);
+
+      System.out.println(" Number Of Scenes:" + noOfscenes);
+
+      for(int i = 0; i< noOfscenes; i++){
+
+        Scene scene = new Scene();
+
+        scenes [i] = scene;
+      }
     }
-        public void viewScript2() {
-          this.scene2= "Comedy Scene";
-        System.out.println("\n");
-      
-
-        System.out.println("\t\t\t    " +scene2);
-       
       }
-
-        public void viewScript3() {
-          this.scene3= "Emotional Scene";
-        System.out.println("\n");
-
-        System.out.println("\t\t\t    " +scene3);
-
-
-      }
-    }  
+    
 
         

@@ -158,6 +158,10 @@ break;
 
        director.castDetails();
 
+       Script script = new Script();
+
+       script.getScenes();
+
     }}
     
 

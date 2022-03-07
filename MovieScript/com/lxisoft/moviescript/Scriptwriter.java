@@ -4,8 +4,6 @@ import java.util.*;
 
 public class Scriptwriter {
 
-  Script script = new Script();
-  
 
     public String [] actor = new String[10];
 
@@ -14,8 +12,6 @@ public class Scriptwriter {
 
        
         ArrayList <String> script1= new ArrayList<String> ();
-       
-        script.viewScript();
         
         script1.add("\t\t\t+----------------+" +"\n");
 
@@ -79,7 +75,6 @@ public class Scriptwriter {
 
         ArrayList <String> script2= new ArrayList<String>();
 
-        script.viewScript2();
 
         script2.add("\t\t\t+----------------+" +"\n");
 
@@ -155,7 +150,7 @@ public class Scriptwriter {
 
         ArrayList <String> script3= new ArrayList<String>();
         
-        script.viewScript3();
+       
 
         script3.add("\t\t\t+----------------+" +"\n");
 

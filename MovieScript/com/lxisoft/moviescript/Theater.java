@@ -32,7 +32,7 @@ public class Theater {
           }
     
   
-  public void viewTheater () {
+     public void viewTheater () {
 
     System.out.println("\t\t        -- Theater Details --");
 
