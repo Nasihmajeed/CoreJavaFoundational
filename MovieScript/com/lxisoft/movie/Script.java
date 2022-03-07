@@ -6,7 +6,7 @@ public class Script  {
 
  Scene[] scenes = new Scene[6]; 
 
-public void getSceneNo()  {
+public void getScenes ()  {
 
 
   sceneNo = (int) (Math.random()*3 +3 );
@@ -20,7 +20,7 @@ public void getSceneNo()  {
  
 
     Scene scene = new Scene(); 
-
+ 
   scenes[i] = scene;
   
 
