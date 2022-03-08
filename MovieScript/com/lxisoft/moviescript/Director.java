@@ -8,8 +8,32 @@ import com.lxisoft.cast.Heroine;
 
 public class Director {
 
+   private String name;
 
    int heroNo, heroineNo, comedianNo, villianNo;
+
+   
+
+   public String getName() {
+       return name;
+    
+   }
+  
+   public void setName(String name){  
+    this.name=name; 
+
+   }
+
+   public void directorDetails(){
+
+      System.out.println("\t\t      Director Info");
+
+      System.out.println("\t\t+-------------------------+" + "\n");
+
+      System.out.println("\t\t  Director Name:" + name);
+
+      System.out.println("\t\t+-------------------------+" + "\n");
+   }
 
    Scanner sc = new Scanner(System.in);
    

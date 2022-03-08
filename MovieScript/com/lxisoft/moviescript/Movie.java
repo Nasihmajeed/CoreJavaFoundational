@@ -10,7 +10,7 @@ public class Movie {
    private String language;
    private Genere genere;
    //private int year;
-   private String director;
+   //private String director;
    
 
    int number;
@@ -51,13 +51,13 @@ public class Movie {
                 this.year = year;  
                 }*/
         
-                public String getDirector(){
-                    return director;
-                } 
+                //public String getDirector(){
+                   // return director;
+               // } 
 
-                public void setDirector(String director){  
-                    this.director = director;  
-                    }
+                //public void setDirector(String director){  
+                   // this.director = director;  
+                   // }
         
                   
   
@@ -143,18 +143,22 @@ break;
 
 		System.out.println("\n");
 
-        System.out.println("Enter The Director Name");
+       // System.out.println("Enter The Director Name");
         
-		director = sc.nextLine();
+		//director = sc.nextLine();
 
 		System.out.println("\t\tName :" + this.name); 
-	    System.out.println("\t\tDirctor :" + this.director);
+	   // System.out.println("\t\tDirctor :" + this.director);
 		System.out.println("\t\tGenere :"+ this.genere);
 		System.out.println("\t\tLanguage :" +this.language);
 	    System.out.println("\n");
 
      
        Director director = new Director();
+
+       director.setName("JHON GREEN");  
+
+       director.directorDetails();
 
        director.castDetails();
 
