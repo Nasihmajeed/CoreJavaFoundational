@@ -9,15 +9,27 @@ import com.lxisoft.cast.Villan;
 
 public class Director {
  
+ String name;
+
+
+	public Director (String name) {
+
+
+		this.name = name;
+	}
+
+
 
 Scanner sc = new Scanner(System.in);
 
- public int heroNo,heroineNo,comedianNo,villanNo;
 
- public String [] actors=new String[100];
+
+ public Actor [] actors=new Actor[100];
    
 
-public void castActors() {
+public Actor[]  castActors() {
+
+	int heroNo,heroineNo,comedianNo,villanNo;
 
 
 	System.out.println("\t\t\t\t\t\t\tACTORS DETAILS");
@@ -40,7 +52,7 @@ sc.nextLine();
 		System.out.println("Enter" + i + "Hero Character Name");
 		hero.setCharacterName(sc.nextLine());
 
-actors[i] = hero.getCharacterName();
+actors[i] = hero;
 
 
 		hero.actorDetails();
@@ -65,7 +77,7 @@ System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
-actors[heroNo + i] = heroine.getCharacterName();
+actors[heroNo + i] = heroine;
 
 heroine.actorDetails();
 System.out.println("\n");
@@ -87,7 +99,7 @@ for(int i = 1; i <= comedianNo; i ++)  {
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
-actors[heroNo + heroineNo + i] = comedian.getCharacterName();
+actors[heroNo + heroineNo + i] = comedian;
 
 
 	comedian.actorDetails();
@@ -110,13 +122,14 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine()); 
     
-actors[heroNo + heroineNo + comedianNo +i] = villan.getCharacterName();
+actors[heroNo + heroineNo + comedianNo +i] = villan;
 
 villan.actorDetails();
 System.out.println("\n");
 
 }
 
+   return actors;
 }
 
  

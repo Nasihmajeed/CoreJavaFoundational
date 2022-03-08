@@ -20,12 +20,13 @@ public class Movie  {
  private String name;
  private Genre genre;
 private String language;
-private String director;
 public int number;
 
 
-Director dirctr = new Director();
+Director director = new Director("Director 1");
+
 Script script = new Script();
+
 ScriptWriter scriptWriter = new ScriptWriter();
 
  public String getName()   {
@@ -52,13 +53,6 @@ ScriptWriter scriptWriter = new ScriptWriter();
 	 this.language = newLanguage;
  }
  
-
-public String getDirector()  {
-	 return director;
- }
- public void setDirector(String newDirector)   {
-	 this.director = newDirector;
- }
  
  
  public void movieDetails()   {
@@ -142,24 +136,20 @@ language = ("MALAYALAM");
 		}
 
 
-		System.out.println("Enter The Director Name");
-		director = sc.nextLine();
-
-
 		System.out.println("\t\tName :" + this.name); 
-	 System.out.println("\t\tDirctor :" + this.director);
+	 System.out.println("\t\tDirctor :" + director.name);
 		System.out.println("\t\tGenre :"+ this.genre);
 		System.out.println("\t\tLanguage :" +this.language);
 	 System.out.println("\n");
 
 
-dirctr.castActors();
+director.castActors();
 
 
-script.getScenes ();
+script.creatingScenes ();
 
 
-	scriptWriter.writeScript(script);
+	scriptWriter.writeScript(director.actors);
 
  }	
 	

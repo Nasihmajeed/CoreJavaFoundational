@@ -54,7 +54,7 @@ comedyDialogue2[31] =" : NOTHING IS IMPOSSIBLE ";
 }
 
 
-public void writeScript(Script script )   {
+public void writeScript(Actor actors[] )   {
   
   comedyDialogues[0] = ": ningal nerathe vanno ?";
   comedyDialogues [1] = " : innale veetil poyal alle nerathe varandollu.";

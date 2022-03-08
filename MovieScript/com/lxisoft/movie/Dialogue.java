@@ -4,13 +4,13 @@
 public class Dialogue  {
 
 
-public String deliverBoy;
+public Actor deliveredBy;
 
 
 
-public Dialogue  ( String deliverBoy)  {
+public Dialogue  ( Actor deliveredBy)  {
 
-this.deliverBoy = deliverBoy;
+this.deliveredBy = deliveredBy;
 
 }
   

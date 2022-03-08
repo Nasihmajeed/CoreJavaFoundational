@@ -13,7 +13,7 @@ public class Scene {
  
  }
 
- public void getDialogue()   { 
+ public void showDialogue()   { 
    
  System.out.println(dialogue);
    
