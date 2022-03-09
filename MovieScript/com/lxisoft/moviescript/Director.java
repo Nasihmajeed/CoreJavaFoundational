@@ -24,7 +24,7 @@ public class Director {
 
    }
 
-   public void directorDetails(){
+   public void viewdirectorDetails(){
 
       System.out.println("\t\t      Director Info");
 
@@ -39,7 +39,7 @@ public class Director {
    
    public String [] actors = new String [100];
     
-   public void castDetails() {
+   public void createcastDetails() {
 
     System.out.println("\t\t         -- Cast Details --");
 
@@ -63,7 +63,7 @@ public class Director {
 
         hero.setCharacterName(sc.nextLine());
 
-        hero.actorsDetails();
+        hero.viewactorsDetails();
 
         actors [i] = hero.getCharacterName();
 
@@ -89,7 +89,7 @@ public class Director {
 
         heroine.setCharacterName(sc.nextLine());
 
-        heroine.actorsDetails();
+        heroine.viewactorsDetails();
 
         actors [i+heroNo] = heroine.getCharacterName();
 
@@ -114,7 +114,7 @@ public class Director {
 
         comedian.setCharacterName(sc.nextLine());
 
-        comedian.actorsDetails();
+        comedian.viewactorsDetails();
 
         actors [i+heroNo+heroineNo] = comedian.getCharacterName();
 

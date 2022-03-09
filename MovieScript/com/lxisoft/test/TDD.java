@@ -11,9 +11,6 @@ public class TDD  {
 		theater.setPlace("PALAKKAD");
 		theater.setPhone("9678346784");
 		
-		theater.viewTheater();
+		theater.viewtheaterDetails();
 } 
 } 
-	
-	
-	

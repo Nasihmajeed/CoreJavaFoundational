@@ -158,9 +158,9 @@ break;
 
        director.setName("JHON GREEN");  
 
-       director.directorDetails();
+       director.viewdirectorDetails();
 
-       director.castDetails();
+       director.createcastDetails();
 
        Script script = new Script();
 

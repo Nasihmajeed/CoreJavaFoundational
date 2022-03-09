@@ -8,7 +8,7 @@ public class Scriptwriter {
     public String [] actor = new String[10];
 
 
-    public void romanticDialogue() {
+    public void writeDlogues() {
 
        
         ArrayList <String> script1= new ArrayList<String> ();
@@ -70,8 +70,7 @@ public class Scriptwriter {
 
           System.out.println(itr.next());
         }
-      }
-        public void comicDialogue() {
+    
 
         ArrayList <String> script2= new ArrayList<String>();
 
@@ -144,9 +143,7 @@ public class Scriptwriter {
           System.out.println(its.next());
           
         }
-      }
 
-      public void emotionalDialogue() {
 
         ArrayList <String> script3= new ArrayList<String>();
         
@@ -228,8 +225,6 @@ public class Scriptwriter {
           System.out.println(it.next());
         }
 
-      }
-
-}
+      }}
     
 

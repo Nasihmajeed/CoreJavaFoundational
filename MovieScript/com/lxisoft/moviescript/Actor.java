@@ -21,10 +21,6 @@ public abstract class  Actor  {
     this.characterName=characterName; 
    }
 
-   public abstract void actorsDetails();
+   public abstract void viewactorsDetails();
 
 }
-      
-    
-   
-
