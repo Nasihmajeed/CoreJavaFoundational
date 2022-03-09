@@ -4,7 +4,7 @@ public class Script  {
 
  Scene[] scenes = new Scene[6]; 
 
-public void creatingScenes ()  {
+public void creatScenes ()  {
 
   int sceneNo;
 

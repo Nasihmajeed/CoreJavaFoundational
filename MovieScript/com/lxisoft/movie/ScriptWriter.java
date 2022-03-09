@@ -2,8 +2,8 @@ package com.lxisoft.movie;
 
 public class ScriptWriter {
 
-
-  String [] comedyDialogues= new String[100];
+Script [] obj = new Script[100];
+  Dialogue [] comedyDialogues= new Dialogue[100];
 
   String [] romanticDialogue = new String[100];
 
@@ -50,15 +50,17 @@ comedyDialogue2[29] =" : naariyal paani ";
 comedyDialogue2[30] =" : ithengane ";
 comedyDialogue2[31] =" : NOTHING IS IMPOSSIBLE ";
 
-
+ 
 }
 
 
 public void writeScript(Actor actors[] )   {
   
-  comedyDialogues[0] = ": ningal nerathe vanno ?";
-  comedyDialogues [1] = " : innale veetil poyal alle nerathe varandollu.";
-  comedyDialogues[2] = " : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "; 
+ 
+
+  comedyDialogues[0] = new Dialogue(actors[0] ,  " ningal nerathe vanno ?");
+  comedyDialogues [1] =new Dialogue(actors[0],  " : innale veetil poyal alle nerathe varandollu.");
+  comedyDialogues[2] =new Dialogue(actors[0],  " : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
   comedyDialogues[3]  =" : mani 7.30 aayitto avare kananillallo";
   comedyDialogues[4] = " : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk";
   comedyDialogues[5] = " : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan";

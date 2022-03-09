@@ -22,6 +22,8 @@ public class Movie  {
 private String language;
 public int number;
 
+Actor [] actors = new Actor[100];
+
 
 Director director = new Director("Director 1");
 
@@ -143,13 +145,13 @@ language = ("MALAYALAM");
 	 System.out.println("\n");
 
 
-director.castActors();
+
+Actor [] actors = director.castActors();
+
+script.creatScenes ();
 
 
-script.creatingScenes ();
-
-
-	scriptWriter.writeScript(director.actors);
+	scriptWriter.writeScript(actors);
 
  }	
 	
