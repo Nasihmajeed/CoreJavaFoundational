@@ -20,7 +20,7 @@ public class Movie  {
  private String name;
  private Genre genre;
 private String language;
-public int number;
+
 
 Actor [] actors = new Actor[100];
 
@@ -59,6 +59,8 @@ ScriptWriter scriptWriter = new ScriptWriter();
  
  public void movieDetails()   {
 	 
+		 int number;
+
 	 
 	 System.out.println("\t\t\t\t\t\t\tMOVIE DETAIL");
 	 System.out.println("\t\t\t\t\t\t-------------------------");

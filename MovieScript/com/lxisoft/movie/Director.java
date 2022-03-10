@@ -24,7 +24,7 @@ Scanner sc = new Scanner(System.in);
 
 
 
- public Actor [] actors=new Actor[100];
+ public Actor [] actorDetails=new Actor[100];
    
 
 public Actor[]  castActors() {
@@ -52,7 +52,7 @@ sc.nextLine();
 		System.out.println("Enter" + i + "Hero Character Name");
 		hero.setCharacterName(sc.nextLine());
 
-actors[i] = hero;
+actorDetails[i] = hero;
 
 
 		hero.actorDetails();
@@ -77,7 +77,7 @@ System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
-actors[heroNo + i] = heroine;
+actorDetails[heroNo + i] = heroine;
 
 heroine.actorDetails();
 System.out.println("\n");
@@ -99,7 +99,7 @@ for(int i = 1; i <= comedianNo; i ++)  {
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
-actors[heroNo + heroineNo + i] = comedian;
+actorDetails[heroNo + heroineNo + i] = comedian;
 
 
 	comedian.actorDetails();
@@ -122,14 +122,14 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine()); 
     
-actors[heroNo + heroineNo + comedianNo +i] = villan;
+actorDetails[heroNo + heroineNo + comedianNo +i] = villan;
 
 villan.actorDetails();
 System.out.println("\n");
 
 }
 
-   return actors;
+   return actorDetails;
 }
 
  

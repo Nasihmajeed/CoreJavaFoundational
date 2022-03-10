@@ -1,211 +1,211 @@
 package com.lxisoft.movie;
 
+import java.util.ArrayList;
+
 public class ScriptWriter {
 
-Script [] obj = new Script[100];
-  Dialogue [] comedyDialogues= new Dialogue[100];
 
-  String [] romanticDialogue = new String[100];
+ ArrayList< Dialogue>comedyDialogues= new ArrayList<Dialogue>();
 
-  String [] actionDialogues = new String[100];
+  ArrayList <Dialogue> romanticDialogues = new ArrayList <Dialogue> ();
 
-String [] comedyDialogue2 = new String[100];
+  ArrayList <Dialogue> actionDialogues = new ArrayList <Dialogue> ();
 
-
-String [] romanticDialogue2 = new String[100];
-
-public void comedyDialogue2()   {
+  ArrayList <Dialogue> comedyDialogues2 = new ArrayList <Dialogue> ();
 
 
-  comedyDialogue2[0] = " : hey karikk";
-comedyDialogue2[1] =": naariyalkka paani  sthrekkalude sountharyathin karikk bestaa...  hey  baaisaab  ek naariyal pani";
-comedyDialogue2[2] =" :  ee strow okke aarudeyokke vaayil ittathaanaavo.nammal ee strow kudichitt kalayille ath ivanmaarokke ath eduthitt packettil vekkum";
-comedyDialogue2[3] =" : pinnne ee vrithiyum vedippum samsaakkaravum illathavanmar atheduth  shhrr sshhhrr   ennu valichu kudikkum";
-comedyDialogue2[4] =" : baai saab ";
-comedyDialogue2[5] =" : kithnaa rupyaa";
-comedyDialogue2[6] =":theese rupya";
-comedyDialogue2[7] =" : theese rupyaa ??  discount nahiye?";
-comedyDialogue2[8] =": nahi nahi discount nahi";
-comedyDialogue2[9] =" :  eh keralakka nariyalpaani he";
-comedyDialogue2[10] =" : A pollachi kkaa";
-comedyDialogue2[11] =" : pollachiyo    aa bhaakki  bhaakki paisa dhedhonaa....Malayaleesine mandanmar aakkanda.. ithokke choichu vaangillenki tharilla njanaaraa mon";
-comedyDialogue2[12] = ": kyaa athmiyaa saala";
-comedyDialogue2[13] =" :Stationte purathu ithin 20 roopa ye undaavullu  manushyanmare pattikkunna pattikkaley  enthayalum kudicholooo";
-comedyDialogue2[14] =" : hee heee ippo tharaa .. ith pole njan ennum cheyyunnnathaa..";
-comedyDialogue2[15] =" : hehehehe";
-comedyDialogue2[16] =" : No tension  simple  ee nithyabhyasi  aana edukkumenn kettittille  athre ulloo";
-comedyDialogue2[17] =" : hhmmmm";
-comedyDialogue2[18] =" :  hahahaha athenthayaalum akathekk varilla  thanikk kudikkanel thaan purathu poyi kudikkado ";
-comedyDialogue2[19] =" : podo ";
-comedyDialogue2[20] =" : njan poyitt kaaryalla than thanne ponam... oru strow kittiyirunnel valichu kudikkarnnalle hahaha  appo ee pulliyenthaa paranjath vrithi ilathavar aan strow itt kudikkukayulloo enn";
-comedyDialogue2[21] ="porathathin pakarchavyadi varumenn  hahahaha  ipo kidannu aanjupidikkunnath kando hahaha ";
-comedyDialogue2[22] =" :  eh ayyo  kuttee pettennu pencilum paperum eduthu varacho hanuman malem chumannu pona figuraa";
-comedyDialogue2[23] =" :  hehehhehehe";
-comedyDialogue2[24] =" : the figure vitt...  inn vallathum nadakko pattilenki vitt kale  allenki ivade vallathu povum ";
-comedyDialogue2[25] =" : haa ipo ippo  sheriyyakki tharaam ";
-comedyDialogue2[26] =" : hmmm";
-comedyDialogue2[27] =" : amme..... ennalum ithevidunn ";
-comedyDialogue2[28] =" : haa ";
-comedyDialogue2[29] =" : naariyal paani ";
-comedyDialogue2[30] =" : ithengane ";
-comedyDialogue2[31] =" : NOTHING IS IMPOSSIBLE ";
+  ArrayList <Dialogue> romanticDialogues2= new ArrayList <Dialogue> ();
 
- 
-}
 
 
 public void writeScript(Actor actors[] )   {
   
  
 
-  comedyDialogues[0] = new Dialogue(actors[0] ,  " ningal nerathe vanno ?");
-  comedyDialogues [1] =new Dialogue(actors[0],  " : innale veetil poyal alle nerathe varandollu.");
-  comedyDialogues[2] =new Dialogue(actors[0],  " : Students varumbo nammale kandillenki avarkk vishamam aavilladaa "); 
-  comedyDialogues[3]  =" : mani 7.30 aayitto avare kananillallo";
-  comedyDialogues[4] = " : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk";
-  comedyDialogues[5] = " : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan";
-  comedyDialogues[6] = ": ey bindhu mathre ulloo?";
-  comedyDialogues[7] = " : ey illadaa thaa car varunnu";
-  comedyDialogues[8] = " : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki";
-  comedyDialogues[9] = " : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo";
-  comedyDialogues[10] = ": ini kidav vandeekkakathu irunnu thalla aayathaavo";
-  comedyDialogues[11] = " : ey varum";
-  comedyDialogues[12] = "\t\t\t\t(BGM)";
-  comedyDialogues[13] = " : hey ith pinnem thallenallo";
-  comedyDialogues[14] = " : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?";
-  comedyDialogues[15] = " : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne";
+  comedyDialogues.add( new Dialogue(actors[0],  " ningal nerathe vanno ?"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : innale veetil poyal alle nerathe varandollu."));
+  comedyDialogues.add( new Dialogue(actors[0] , " : Students varumbo nammale kandillenki avarkk vishamam aavilladaa" )); 
+  comedyDialogues.add( new Dialogue(actors[0] ," : mani 7.30 aayitto avare kananillallo"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : penkuttikal alledaa. ivattel kalath nerathe onnum eneekkilla.bhayankara madi aan ivattakalkk"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : avanante bharya pall thekkunnundonn nokkunnilla irangeerikkaa avan"));
+  comedyDialogues.add( new Dialogue(actors[0] ,": ey bindhu mathre ulloo?"));
+  comedyDialogues.add( new Dialogue(actors[0] ," : ey illadaa thaa car varunnu"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : ey vandime piramid okke aayittanallo varane . A2Z nannayaa mathiyaarnnu  . oow entry  kalakki"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : thalla irangeetto. purake kidav undaavum .. pinnem thalleyaanallo"));
+  comedyDialogues.add( new Dialogue(actors[0] ,": ini kidav vandeekkakathu irunnu thalla aayathaavo"));
+  comedyDialogues.add( new Dialogue(actors[0] ," : ey varum"));
+  comedyDialogues.add( new Dialogue(actors[0] , "\t\t\t\t(BGM)"));
+  comedyDialogues.add( new Dialogue(actors[0] ," : hey ith pinnem thallenallo"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : ith kudumbasree kkarude Driving school aanenn thonnunnutto    lley?"));
+  comedyDialogues.add( new Dialogue(actors[0] , " : ee bindhu enthootta mmade life full stop idanaayitt  enthoottaa kaliyaa kalikkanath  ningal ingad vanne"));
  
 
+  
+  comedyDialogues2.add (new Dialogue(actors[0]," : hey karikk"));
+  comedyDialogues2.add (new Dialogue(actors[0],": naariyalkka paani  sthrekkalude sountharyathin karikk bestaa...  hey  baaisaab  ek naariyal pani"));
+  comedyDialogues2.add (new Dialogue(actors[0]," :  ee strow okke aarudeyokke vaayil ittathaanaavo.nammal ee strow kudichitt kalayille ath ivanmaarokke ath eduthitt packettil vekkum"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : pinnne ee vrithiyum vedippum samsaakkaravum illathavanmar atheduth  shhrr sshhhrr   ennu valichu kudikkum"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : baai saab "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : kithnaa rupyaa"));
+  comedyDialogues2.add (new Dialogue(actors[0],":theese rupya"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : theese rupyaa ??  discount nahiye?"));
+  comedyDialogues2.add (new Dialogue(actors[0],": nahi nahi discount nahi"));
+  comedyDialogues2.add (new Dialogue(actors[0]," :  eh keralakka nariyalpaani he"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : A pollachi kkaa"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : pollachiyo    aa bhaakki  bhaakki paisa dhedhonaa....Malayaleesine mandanmar aakkanda.. ithokke choichu vaangillenki tharilla njanaaraa mon"));
+  comedyDialogues2.add (new Dialogue(actors[0],": kyaa athmiyaa saala"));
+  comedyDialogues2.add (new Dialogue(actors[0]," :Stationte purathu ithin 20 roopa ye undaavullu  manushyanmare pattikkunna pattikkaley  enthayalum kudicholooo"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : hee heee ippo tharaa .. ith pole njan ennum cheyyunnnathaa.."));
+  comedyDialogues2.add (new Dialogue(actors[0]," : hehehehe"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : No tension  simple  ee nithyabhyasi  aana edukkumenn kettittille  athre ulloo"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : hhmmmm"));
+  comedyDialogues2.add (new Dialogue(actors[0]," :  hahahaha athenthayaalum akathekk varilla  thanikk kudikkanel thaan purathu poyi kudikkado "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : podo "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : njan poyitt kaaryalla than thanne ponam... oru strow kittiyirunnel valichu kudikkarnnalle hahaha  appo ee pulliyenthaa paranjath vrithi ilathavar aan strow itt kudikkukayulloo enn"));
+  comedyDialogues2.add (new Dialogue(actors[0],"porathathin pakarchavyadi varumenn  hahahaha  ipo kidannu aanjupidikkunnath kando hahaha "));
+  comedyDialogues2.add (new Dialogue(actors[0]," :  eh ayyo  kuttee pettennu pencilum paperum eduthu varacho hanuman malem chumannu pona figuraa"));
+  comedyDialogues2.add (new Dialogue(actors[0]," :  hehehhehehe"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : the figure vitt...  inn vallathum nadakko pattilenki vitt kale  allenki ivade vallathu povum "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : haa ipo ippo  sheriyyakki tharaam "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : hmmm"));
+  comedyDialogues2.add (new Dialogue(actors[0]," : amme..... ennalum ithevidunn "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : haa "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : naariyal paani "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : ithengane "));
+  comedyDialogues2.add (new Dialogue(actors[0]," : NOTHING IS IMPOSSIBLE "));
+  
+   
 
-  romanticDialogue[0] = " : enthaa varaan paranje";
-  romanticDialogue[1] =" : nammade hero misssing aan.. innale rathri avanum heroine pirinju";
-  romanticDialogue[2] =" : eh pirinjaa ";
-  romanticDialogue[3] =": hey ippo kuzhaponnum illa ippo clear aaayi... pakshe avan evade enn yaathru vivarom illa...";
-  romanticDialogue[4] =" : veetil anweshicho";
-  romanticDialogue[5] =": abdhu poyirunnu.. avade illa...   daa custermor care le babunte number edukk  .....     che";
-  romanticDialogue[6] =" : sorry recharge cheythittilla ";
-  romanticDialogue[7] =" : she ivaneyokke thante mobile thaa .......  aa babu thante oru sahayam venam       okk";
-  romanticDialogue[8] =("\n");
-  romanticDialogue[9] =("\t\t\t(PHONE RINGING)");
-  romanticDialogue[10] =("\n");
-  romanticDialogue[11] =" : aa babu urake pare kettoodaaa  ........     ok ";
-  romanticDialogue[12] =" : daa vaa povaam";
-  romanticDialogue[13] =": engottekkaa? ";
-  romanticDialogue[14] =" : Kadal paalam";
-  romanticDialogue[15] ="\t\t\t( heroine  COMING";
-  romanticDialogue[16] =" : dey akathott po   vegam po";
-  romanticDialogue[17] =": onnum thonnaruth ketto vandi alppam moshaan";
-  romanticDialogue[18] =": Thankyou";
-  romanticDialogue[19] =" : vegam chell ninte naayarde aduthekk";
-  romanticDialogue[20] =("\t\t\t(heroine hero[1] +");
-  romanticDialogue[21] =": mr naayar";
-  romanticDialogue[22] =" : punneppadi gopalan maashinte veettil niskara paayil irikkan oridam tharo";
-  romanticDialogue[23] =" : hmmm   hmm";
-  romanticDialogue[24  ] ="\t\t\t(hero  HUGGING  heroine)";
-  romanticDialogue[25] =("\t\t\t(BGM)");
-  romanticDialogue[26] =("\n");
+
+
+  romanticDialogues2.add (new Dialogue(actors[0], " : enthaa varaan paranje"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : nammade hero misssing aan.. innale rathri avanum heroine pirinju"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : eh pirinjaa "));
+  romanticDialogues2.add (new Dialogue(actors[0],": hey ippo kuzhaponnum illa ippo clear aaayi... pakshe avan evade enn yaathru vivarom illa..."));
+  romanticDialogues2.add (new Dialogue(actors[0]," : veetil anweshicho"));
+  romanticDialogues2.add (new Dialogue(actors[0],": abdhu poyirunnu.. avade illa...   daa custermor care le babunte number edukk  .....     che"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : sorry recharge cheythittilla "));
+  romanticDialogues2.add (new Dialogue(actors[0]," : she ivaneyokke thante mobile thaa .......  aa babu thante oru sahayam venam       okk"));
+  romanticDialogues2.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues2.add (new Dialogue(actors[0],("\t\t\t(PHONE RINGING)")));
+  romanticDialogues2.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues2.add (new Dialogue(actors[0]," : aa babu urake pare kettoodaaa  ........     ok "));
+  romanticDialogues2.add (new Dialogue(actors[0]," : daa vaa povaam"));
+  romanticDialogues2.add (new Dialogue(actors[0],": engottekkaa? "));
+  romanticDialogues2.add (new Dialogue(actors[0]," : Kadal paalam"));
+  romanticDialogues2.add (new Dialogue(actors[0],"\t\t\t( heroine  COMING"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : dey akathott po   vegam po"));
+  romanticDialogues2.add (new Dialogue(actors[0],": onnum thonnaruth ketto vandi alppam moshaan"));
+  romanticDialogues2.add (new Dialogue(actors[0],": Thankyou"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : vegam chell ninte naayarde aduthekk"));
+  romanticDialogues2.add (new Dialogue(actors[0],("\t\t\t(heroine hero[1] +")));
+  romanticDialogues2.add (new Dialogue(actors[0],": mr naayar"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : punneppadi gopalan maashinte veettil niskara paayil irikkan oridam tharo"));
+  romanticDialogues2.add (new Dialogue(actors[0]," : hmmm   hmm"));
+  romanticDialogues2.add (new Dialogue(actors[0],"\t\t\t(hero  HUGGING  heroine)"));
+  romanticDialogues2.add (new Dialogue(actors[0],("\t\t\t(BGM)")));
+  romanticDialogues2.add (new Dialogue(actors[0],("\n")));
   
     
 
-  actionDialogues[0] = " : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu";
-  actionDialogues[1] = " :anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?";
-  actionDialogues[2]= " : mm";
-  actionDialogues[3] =("\t\t\t"+"(+newActors[1] +  SMOKING)");
-  actionDialogues[4] =" : iyyalokkeyaanalle ningade teamil   bhai";
-  actionDialogues[5 ] =" : practice nadakkunnund. match aavumbozhekkum ready aavum";
-  actionDialogues[6] =": thanikkokke thalakk valla praanthundo?  enne insult cheyanano vilichu varuthiyirikkunath ";
-  actionDialogues[7] =" : anil jee  njaan";
-  actionDialogues[8] =" : federationile thante chathupoya thanthapidide kootukaaranmaar nirbhanthichittaan njan ingot kalikkaarem kond vannath";
-  actionDialogues[9] =" : anil jee njan paranjallo ente appante perulla parambil";
-  actionDialogues[10] =": haa thante appanu perundakkanvendi aa shavaparambil proffessional kalikkare irakki kalikkano ennano thaan parayunnath?  athum iyyale polulla oochaalikalde koode   why you insulting?";
-  actionDialogues[11] =" : enth insult";
-  actionDialogues[12] =" : ith valla sachin tendulkkar aanenkil ningal inganeyokke cheyyo veruthe nattil kidakkunna shavaparamb okke kanichu iyyale polulla nokkukuthikalude koode oru antharashtra cricket angott kalikkam ennokke ningal parayo";
-  actionDialogues[13] =" : ath...";
-  actionDialogues[14] =": hmm   ithond path paisade prathiphalam onnum illallo. prathiphalamayi enth tharum thante chathu poya appante  prathimeda kashnangalo";
-  actionDialogues[15] =" : hmm  appan parayunnodaa ppaa";
-  actionDialogues[16] =" : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa";
-  actionDialogues[17] ="\t\t\t" + "(+ villan[2] +LOOKING ARROUND)";
-  actionDialogues[18] =" : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa ";
-  actionDialogues[19] ="(\t\t\t" +"(+ villan[2] + LAUGHING)";
-  actionDialogues[20] ="ivan aa mannil kuruthu undaayathaa ivar nedum athalla jayichu kondu povaan pattonki  nee kondoykko";
-  actionDialogues[21] =("\t\t\t" + "( + villan[2] + LOOKING ARROUND AND LAUGHING)");
-  actionDialogues[22] =" : aa parambey nte appante jeevithaa  njangade jeevanaa jeevan vechittaa njangal kalikkaney enthayaalum njangal jayichirikkum";
-  actionDialogues[23] =" : nee tension adikkandadaa nammal jayichirikkum ivanodoke samsaarichaaley  vaadaa george nammak povaam  vaa ";
-  actionDialogues[24] =" : ninte performance kidukkeetund petere . ethra simple aayittaa mmal kalichu valarna mathiyi parambu thattiyedukkan  ningal kalikkunna kalindallo kalakunnund";
-  actionDialogues[25] =" : george nee enthuttaa parayanath.  njan ente appante... ";
-  actionDialogues[26] = " :ninte appante haaa   sthira budhi illathaa aa pavam josephettane parambin vendiyalladaa konnath   enitt avante ammade panthayam vekkal";
-  actionDialogues[27] =" : george nee veruthe oronn ";
-  actionDialogues[28] =": aa paavam josephettan chathappo ithonnum aarum ariyillenn nee karuthiyo   georgintel ninne kudukkanulla saadhanam thannitt aada aa pavam poyath  . ith kando  lokhathu ninakku mathram ulla kuppayam aan ith";
-  actionDialogues[29] =": ninneyokke pidichu policil elpikkan ariyanjittalla. ninakkokke valiya pidipad alle ooriporum pinnem mmade mekkitt kerum";
-  actionDialogues[30] =" : ath kond aadhyam nee paranja kali .ninte oru padhathiyum nadakkilla  ath ninte appan mathayide  parambin vendeettalla aa pavam josephettan urangunna mann aanath athin vendi njangal kalikkum";
-  actionDialogues[31] ="(  villan[1] SMILING)";
-  actionDialogues[32] ="nee nerathe paranjallo ivan jayicha parambu ezhuthi kodukkaann  nee aa kali thiricha vecho  nee mathayikk thanne undaayathaanel aa conditionil mmakk oru kali ang kalikkam";
-  actionDialogues[33] =" : njan paranja paranjath thanne. iniyippo ithoru vaashiyaya sthithik njan konduvanna piller undaavilla";
-  actionDialogues[34] =" : vendada  nee narathe naavadile  ath pole aa mannil kurutha mmale tholpichitt ninakk aaparambu kond povaan pattonki nee kond pokko   jayikkanath njangal aanenki  pinne mathayi parambinte kanvettathenganum ninne kandaal  petere  ninte nenjathu kavadi kalikkum George";
-  actionDialogues[35] =("\t\t\t(BGM)");
+  actionDialogues.add (new Dialogue(actors[0]," : josephettante karyathin inikkum bhayankara vishamam und. nee cheythath thanne shari. pakshe ini ingane kazhinjath kazhinjille . ini ninte manassil mmade parambum mmade kaleem mathre ndaavaan paadullu")) ;
+  actionDialogues.add (new Dialogue(actors[0]," :anil jee  ne patti njan paranjallo .national player aan. ente koode bengaloril ninn vannathaa.  aal vijaarichaale mmal udheshikkunna pole mmade parambil oru national kali nadakkollu . aal ippo free aayi kaanum. poyi kandaalo?"));
+  actionDialogues.add (new Dialogue(actors[0]," : mm"));
+  actionDialogues.add (new Dialogue(actors[0],("\t\t\t"+"(+newActors[1] +  SMOKING)")));
+  actionDialogues.add (new Dialogue(actors[0]," : iyyalokkeyaanalle ningade teamil   bhai"));
+  actionDialogues.add (new Dialogue(actors[0]," : practice nadakkunnund. match aavumbozhekkum ready aavum"));
+  actionDialogues.add (new Dialogue(actors[0],": thanikkokke thalakk valla praanthundo?  enne insult cheyanano vilichu varuthiyirikkunath "));
+  actionDialogues.add (new Dialogue(actors[0]," : anil jee  njaan"));
+  actionDialogues.add (new Dialogue(actors[0]," : federationile thante chathupoya thanthapidide kootukaaranmaar nirbhanthichittaan njan ingot kalikkaarem kond vannath"));
+  actionDialogues.add (new Dialogue(actors[0]," : anil jee njan paranjallo ente appante perulla parambil"));
+  actionDialogues.add (new Dialogue(actors[0],": haa thante appanu perundakkanvendi aa shavaparambil proffessional kalikkare irakki kalikkano ennano thaan parayunnath?  athum iyyale polulla oochaalikalde koode   why you insulting?"));
+  actionDialogues.add (new Dialogue(actors[0]," : enth insult"));
+  actionDialogues.add (new Dialogue(actors[0]," : ith valla sachin tendulkkar aanenkil ningal inganeyokke cheyyo veruthe nattil kidakkunna shavaparamb okke kanichu iyyale polulla nokkukuthikalude koode oru antharashtra cricket angott kalikkam ennokke ningal parayo"));
+  actionDialogues.add (new Dialogue(actors[0]," : ath..."));
+  actionDialogues.add (new Dialogue(actors[0],": hmm   ithond path paisade prathiphalam onnum illallo. prathiphalamayi enth tharum thante chathu poya appante  prathimeda kashnangalo"));
+  actionDialogues.add (new Dialogue(actors[0]," : hmm  appan parayunnodaa ppaa"));
+  actionDialogues.add (new Dialogue(actors[0]," : sorry...sorry ..sorry  .   anil jee  kozhappakkaruth . njan ellaa kaaryangalum arrange cheythu  ini prathiphalathinte kaaryathinanenki ente kayyil ini tharaan onnum illa"));
+  actionDialogues.add (new Dialogue(actors[0],"\t\t\t" + "(+ villan[2] +LOOKING ARROUND)"));
+  actionDialogues.add (new Dialogue(actors[0]," : pakshe anile ivane ningale tholpikkanenki  nte appante perilulla parambu athang njan tharum enikk ivane vishwasaa "));
+  actionDialogues.add (new Dialogue(actors[0],"(\t\t\t" +"(+ villan[2] + LAUGHING)"));
+  actionDialogues.add (new Dialogue(actors[0],"ivan aa mannil kuruthu undaayathaa ivar nedum athalla jayichu kondu povaan pattonki  nee kondoykko"));
+  actionDialogues.add (new Dialogue(actors[0],("\t\t\t" + "( + villan[2] + LOOKING ARROUND AND LAUGHING)")));
+  actionDialogues.add (new Dialogue(actors[0]," : aa parambey nte appante jeevithaa  njangade jeevanaa jeevan vechittaa njangal kalikkaney enthayaalum njangal jayichirikkum"));
+  actionDialogues.add (new Dialogue(actors[0]," : nee tension adikkandadaa nammal jayichirikkum ivanodoke samsaarichaaley  vaadaa george nammak povaam  vaa "));
+  actionDialogues.add (new Dialogue(actors[0]," : ninte performance kidukkeetund petere . ethra simple aayittaa mmal kalichu valarna mathiyi parambu thattiyedukkan  ningal kalikkunna kalindallo kalakunnund"));
+  actionDialogues.add (new Dialogue(actors[0]," : george nee enthuttaa parayanath.  njan ente appante... "));
+  actionDialogues.add (new Dialogue(actors[0], " :ninte appante haaa   sthira budhi illathaa aa pavam josephettane parambin vendiyalladaa konnath   enitt avante ammade panthayam vekkal"));
+  actionDialogues.add (new Dialogue(actors[0]," : george nee veruthe oronn "));
+  actionDialogues.add (new Dialogue(actors[0], ": aa paavam josephettan chathappo ithonnum aarum ariyillenn nee karuthiyo   georgintel ninne kudukkanulla saadhanam thannitt aada aa pavam poyath  . ith kando  lokhathu ninakku mathram ulla kuppayam aan ith"));
+  actionDialogues.add (new Dialogue(actors[0],": ninneyokke pidichu policil elpikkan ariyanjittalla. ninakkokke valiya pidipad alle ooriporum pinnem mmade mekkitt kerum"));
+  actionDialogues.add (new Dialogue(actors[0]," : ath kond aadhyam nee paranja kali .ninte oru padhathiyum nadakkilla  ath ninte appan mathayide  parambin vendeettalla aa pavam josephettan urangunna mann aanath athin vendi njangal kalikkum"));
+  actionDialogues.add (new Dialogue(actors[0],"(  villan[1] SMILING)"));
+  actionDialogues.add (new Dialogue(actors[0],"nee nerathe paranjallo ivan jayicha parambu ezhuthi kodukkaann  nee aa kali thiricha vecho  nee mathayikk thanne undaayathaanel aa conditionil mmakk oru kali ang kalikkam"));
+  actionDialogues.add (new Dialogue(actors[0]," : njan paranja paranjath thanne. iniyippo ithoru vaashiyaya sthithik njan konduvanna piller undaavilla"));
+  actionDialogues.add (new Dialogue(actors[0]," : vendada  nee narathe naavadile  ath pole aa mannil kurutha mmale tholpichitt ninakk aaparambu kond povaan pattonki nee kond pokko   jayikkanath njangal aanenki  pinne mathayi parambinte kanvettathenganum ninne kandaal  petere  ninte nenjathu kavadi kalikkum George"));
+  actionDialogues.add (new Dialogue(actors[0],("\t\t\t(BGM)")));
 
 
 
-  romanticDialogue2[0] =" : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto";  
-  romanticDialogue2[1] = " : valla kachiya velichennayayirikkum";
-  romanticDialogue2[2] =" : hmm  nee kadanno nee kadanno";
-  romanticDialogue2[3] =("");
-  romanticDialogue2[4] =("\t\t\t(PLAYING SONG IN BUS)");
-  romanticDialogue2[5] =("");
-  romanticDialogue2[6] ="ayyoo  .. she.. onn mindaan pattiyirunnenki";
-  romanticDialogue2[7] =" : ennodaaaa..mmmm.";
-  romanticDialogue2[8] ="(hero[1] + : mmm hmmm";
-  romanticDialogue2[9] =("");
-  romanticDialogue2[10] =("\t\t\t( + heroine[1] + LOOKING  +hero[1]+)");
-  romanticDialogue2[11] =("");
-  romanticDialogue2[12] =("\t\t\t(+hero[1] + SMILING)");
-  romanticDialogue2[13] =("");
-  romanticDialogue2[14] =" : nee enthada paranjath ol ummachikutti aan thirinju nokkillan.....  ol thirinju nokkiyada enne thirinju nokkiyada ummachi kutti aanel njan naayar aada ";
-  romanticDialogue2[15] =": nee naayarayathin njan enth cheyyaanaa";
-  romanticDialogue2[16] =" : ha hahaaha";
-  romanticDialogue2[17] =("");
-  romanticDialogue2[18] =("\t\t\t(AFTER SOME TIME)");
-  romanticDialogue2[19] =("");
-  romanticDialogue2[20] =("( +hero[1] + CALLING +  comedian[1]+)");
-  romanticDialogue2[21] =("");
-  romanticDialogue2[22] =("\t\t\t(PHONE RINGING)");
-  romanticDialogue2[23] =("");
-  romanticDialogue2[24] =" : Hello manju";
-  romanticDialogue2[25] =" : eeh  manjo appo chinjune nee vitto";
-  romanticDialogue2[26] = " : ooh mr naayar ningal vilikkunna ee pavam subscriber ente mayyath edukkunnath vare nilavilillada thendi";
-  romanticDialogue2[27] =" : Eda   nee choodavalle... njan otta kaaryam ariyan vendi vilichathaa";
-  romanticDialogue2[28] =": enthaa";
-  romanticDialogue2[29] =" : aa abdhul khadarinte veettumathilil kuppichill undo";
-  romanticDialogue2[30] =": nee enthiyyan povaaa";
-  romanticDialogue2[31] =("\n");
-  romanticDialogue2[32] =("\t\t\t(BGM)");
-  romanticDialogue2[33] =("\n");
-  romanticDialogue2[34] ="(hero[1] +: + heroine[1]+ heroine[1] +";
-  romanticDialogue2[35] =("\n");
-  romanticDialogue2[36] =": eeh   (+heroine[1]+ SHOCKED)";
-  romanticDialogue2[37] =("\n");
-  romanticDialogue2[38] =" :  aa a mm sorry iam sorry Ayisha ninne vannu pedippikkanamenn karuthiyathalla pakshe enikk veetilirunnu irikkanum nikkanum pattanilla";
-  romanticDialogue2[39] =" : irikkumbo shardhikan thonnum nikkumbo kayyum kaaalum varakkum sathyam parayaalo ninte athrem bangi ulla pennine ente jeevithathil kandittilla ente ammayaan sathyam ";
-  romanticDialogue2[40] =("\n");
-  romanticDialogue2[41] =("\t\t\t( + heroine[1] +  LOOKING  + hero[1]");
-  romanticDialogue2[42] =("\n");
-  romanticDialogue2[43] =": ooh enne ingane nokkalle Ayisha njan marichu povum";
-  romanticDialogue2[44] =("\n");
-  romanticDialogue2[45] =("\t\t\t(+ heroine[1]+ SMILING) ");
-  romanticDialogue2[46] =("\n");
-  romanticDialogue2[47] =" : ooh bhayankara ashwasam thonnunnu entha parayaa  ee pathu pathinaalu dhivasam bakshanam kazhikkatha oralde munnil chicken biriyani vecha engane irikkum athaanente avastha  ";
-  romanticDialogue2[48] =" : vellam illathe oonum urakkom illathe oru 100 varsham enne nokkiyirikkaan pattoo ninakk anganeyonnum pattillayirikkum pakshe enik anganeyokke thonnum..";
-  romanticDialogue2[49] =" : ninte veettukar vannu enne thallunnathin munb njan parayaam hmm  hoo   ";
-  romanticDialogue2[50] =" :  I LOVE YOU + heroine[1]";
-  romanticDialogue2[51] =("\n");
-  romanticDialogue2[52] =("\t\t\t(+ heroine[1] + LOOKING + hero[1]");
-  romanticDialogue2[53] =("\n");
-  romanticDialogue2[54] =" : ippo ingottonnum parayanda nannayi aalojich orupad samayam eduthu ishttanenn paranjaal mathi ";
-  romanticDialogue2[55] =("\n");
-  romanticDialogue2[56] =("\t\t\t(BGM)");
+  romanticDialogues.add (new Dialogue(actors[0]," : enthoru manam aada ivalde mudikk... thalel entho thekkunundtto"));  
+  romanticDialogues.add (new Dialogue(actors[0], " : valla kachiya velichennayayirikkum"));
+  romanticDialogues.add (new Dialogue(actors[0]," : hmm  nee kadanno nee kadanno"));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(PLAYING SONG IN BUS)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],"ayyoo  .. she.. onn mindaan pattiyirunnenki"));
+  romanticDialogues.add (new Dialogue(actors[0]," : ennodaaaa..mmmm."));
+  romanticDialogues.add (new Dialogue(actors[0],"(hero[1] + : mmm hmmm"));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t( + heroine[1] + LOOKING  +hero[1]+)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(+hero[1] + SMILING)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0]," : nee enthada paranjath ol ummachikutti aan thirinju nokkillan.....  ol thirinju nokkiyada enne thirinju nokkiyada ummachi kutti aanel njan naayar aada "));
+  romanticDialogues.add (new Dialogue(actors[0],": nee naayarayathin njan enth cheyyaanaa"));
+  romanticDialogues.add (new Dialogue(actors[0]," : ha hahaaha"));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(AFTER SOME TIME)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("( +hero[1] + CALLING +  comedian[1]+)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(PHONE RINGING)")));
+  romanticDialogues.add (new Dialogue(actors[0],("")));
+  romanticDialogues.add (new Dialogue(actors[0]," : Hello manju"));
+  romanticDialogues.add (new Dialogue(actors[0]," : eeh  manjo appo chinjune nee vitto"));
+  romanticDialogues.add (new Dialogue(actors[0], " : ooh mr naayar ningal vilikkunna ee pavam subscriber ente mayyath edukkunnath vare nilavilillada thendi"));
+  romanticDialogues.add (new Dialogue(actors[0]," : Eda   nee choodavalle... njan otta kaaryam ariyan vendi vilichathaa"));
+  romanticDialogues.add (new Dialogue(actors[0],": enthaa"));
+  romanticDialogues.add (new Dialogue(actors[0]," : aa abdhul khadarinte veettumathilil kuppichill undo"));
+  romanticDialogues.add (new Dialogue(actors[0],": nee enthiyyan povaaa"));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(BGM)")));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],"(hero[1] +: + heroine[1]+ heroine[1] +"));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],": eeh   (+heroine[1]+ SHOCKED)"));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0]," :  aa a mm sorry iam sorry Ayisha ninne vannu pedippikkanamenn karuthiyathalla pakshe enikk veetilirunnu irikkanum nikkanum pattanilla"));
+  romanticDialogues.add (new Dialogue(actors[0]," : irikkumbo shardhikan thonnum nikkumbo kayyum kaaalum varakkum sathyam parayaalo ninte athrem bangi ulla pennine ente jeevithathil kandittilla ente ammayaan sathyam "));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t( + heroine[1] +  LOOKING  + hero[1]")));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],": ooh enne ingane nokkalle Ayisha njan marichu povum"));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(+ heroine[1]+ SMILING) ")));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0]," : ooh bhayankara ashwasam thonnunnu entha parayaa  ee pathu pathinaalu dhivasam bakshanam kazhikkatha oralde munnil chicken biriyani vecha engane irikkum athaanente avastha  "));
+  romanticDialogues.add (new Dialogue(actors[0]," : vellam illathe oonum urakkom illathe oru 100 varsham enne nokkiyirikkaan pattoo ninakk anganeyonnum pattillayirikkum pakshe enik anganeyokke thonnum.."));
+  romanticDialogues.add (new Dialogue(actors[0]," : ninte veettukar vannu enne thallunnathin munb njan parayaam hmm  hoo   "));
+  romanticDialogues.add (new Dialogue(actors[0]," :  I LOVE YOU + heroine[1]"));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(+ heroine[1] + LOOKING + hero[1]")));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0]," : ippo ingottonnum parayanda nannayi aalojich orupad samayam eduthu ishttanenn paranjaal mathi "));
+  romanticDialogues.add (new Dialogue(actors[0],("\n")));
+  romanticDialogues.add (new Dialogue(actors[0],("\t\t\t(BGM)")));
   
     
-
 
 
   /*for(int i = 0;  i< script.scenes.length;   i ++)  {
