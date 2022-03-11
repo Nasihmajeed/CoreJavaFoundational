@@ -5,7 +5,9 @@ import com.lxisoft.cast.*;
 
 
 public class Movie {
-    
+
+    public Actor [] actors = new Actor [50];
+
    private String name;
    private String language;
    private Genere genere;
@@ -61,7 +63,7 @@ public class Movie {
         
                   
   
-   public void movieDetails() {
+   public void showmovieDetails() {
 
     Scanner sc = new Scanner(System.in);
       
@@ -160,12 +162,10 @@ break;
 
        director.viewdirectorDetails();
 
-       director.createcastDetails();
+       actors = director.castActors();
 
        Script script = new Script();
 
-       script.getScenes();
+       script.selectScenes();
 
     }}
-    
-

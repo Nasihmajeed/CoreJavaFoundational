@@ -12,8 +12,6 @@ public class Director {
 
    int heroNo, heroineNo, comedianNo, villianNo;
 
-   
-
    public String getName() {
        return name;
     
@@ -37,11 +35,11 @@ public class Director {
 
    Scanner sc = new Scanner(System.in);
    
-   public String [] actors = new String [100];
-    
-   public void createcastDetails() {
+   public Actor [] actorsDetails = new Actor [100];
 
-    System.out.println("\t\t         -- Cast Details --");
+   public Actor [] castActors() {
+
+     System.out.println("\t\t         -- Cast Details --");
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
@@ -63,9 +61,9 @@ public class Director {
 
         hero.setCharacterName(sc.nextLine());
 
-        hero.viewactorsDetails();
+        hero.showactorsDetails();
 
-        actors [i] = hero.getCharacterName();
+        actorsDetails [i] = hero;
 
         System.out.println("\n");
 
@@ -89,9 +87,9 @@ public class Director {
 
         heroine.setCharacterName(sc.nextLine());
 
-        heroine.viewactorsDetails();
+        heroine.showactorsDetails();
 
-        actors [i+heroNo] = heroine.getCharacterName();
+        actorsDetails [i+heroNo] = heroine;
 
 
        }
@@ -114,11 +112,12 @@ public class Director {
 
         comedian.setCharacterName(sc.nextLine());
 
-        comedian.viewactorsDetails();
+        comedian.showactorsDetails();
 
-        actors [i+heroNo+heroineNo] = comedian.getCharacterName();
+        actorsDetails [i+heroNo+heroineNo] = comedian;
 
-
+        
        }
+       return actorsDetails;
     
 }}
