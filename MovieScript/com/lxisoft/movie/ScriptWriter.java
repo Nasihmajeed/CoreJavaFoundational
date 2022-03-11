@@ -13,7 +13,6 @@ public class ScriptWriter {
 
   ArrayList <Dialogue> comedyDialogues2 = new ArrayList <Dialogue> ();
 
-
   ArrayList <Dialogue> romanticDialogues2= new ArrayList <Dialogue> ();
 
 
@@ -75,7 +74,7 @@ public void writeScript(Actor actors[] )   {
   comedyDialogues2.add (new Dialogue(actors[0]," : NOTHING IS IMPOSSIBLE "));
   
    
-
+ 
 
 
   romanticDialogues2.add (new Dialogue(actors[0], " : enthaa varaan paranje"));

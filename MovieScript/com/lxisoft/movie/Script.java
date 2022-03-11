@@ -2,14 +2,15 @@ package com.lxisoft.movie;
 
 public class Script  {
 
+  Scene[] scenes = new Scene[6];
 
-public void creatScenes ()  {
+public void createScenes ()  {
 
   int sceneNo;
 
   sceneNo = (int) (Math.random()*3 +3 );
 
-  Scene[] scenes = new Scene[sceneNo]; 
+ 
 
   System.out.println("Number of Movie Scenes :" + sceneNo);
   
