@@ -149,10 +149,9 @@ language = ("MALAYALAM");
 
  actors = director.castActors();
 
-script.createScenes ();
 
 
-	scriptWriter.writeScript(actors);
+	scriptWriter.createDialogues(actors);
 
  }	
 	
