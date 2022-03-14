@@ -4,7 +4,7 @@ public class Scene {
 
     String scene1Details, scene2Details, scene3Details, scene4Details, scene5Details;
 
-    public void inputscenesDetails() {
+    public void inputScenesDetails() {
 
         this.scene1Details = "Romantic Scene";
 
@@ -16,7 +16,7 @@ public class Scene {
 
         this.scene5Details = "Romantic Scene";
     }
-        public void printsceneDetails() {
+        public void printSceneDetails() {
 
             System.out.println("\t\t     SCENE DETAILS ");
 

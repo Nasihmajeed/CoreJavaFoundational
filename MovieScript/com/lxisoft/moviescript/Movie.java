@@ -63,7 +63,7 @@ public class Movie {
         
                   
   
-   public void showmovieDetails() {
+   public void showMovieDetails() {
 
     Scanner sc = new Scanner(System.in);
       
@@ -160,7 +160,7 @@ break;
 
        director.setName("JHON GREEN");  
 
-       director.viewdirectorDetails();
+       director.viewDirectorDetails();
 
        actors = director.castActors();
 

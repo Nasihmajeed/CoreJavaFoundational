@@ -32,7 +32,7 @@ public class Theater {
           }
     
   
-     public void showtheaterDetails () {
+     public void showTheaterDetails () {
 
     System.out.println("\t\t        -- Theater Details --");
 
@@ -47,7 +47,7 @@ public class Theater {
     Movie movie = new Movie();
 
     
-      movie.showmovieDetails();
+      movie.showMovieDetails();
      
   }
 }

@@ -22,8 +22,8 @@ package com.lxisoft.moviescript;
 
       System.out.println("\n");
 
-      scene.inputscenesDetails();
-      scene.printsceneDetails();
+      scene.inputScenesDetails();
+      scene.printSceneDetails();
     }
       }
     

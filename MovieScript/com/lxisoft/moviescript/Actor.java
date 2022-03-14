@@ -21,6 +21,6 @@ public abstract class  Actor  {
     this.characterName=characterName; 
    }
 
-   public abstract void showactorsDetails();
+   public abstract void showActorsDetails();
 
 }

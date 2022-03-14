@@ -22,7 +22,7 @@ public class Director {
 
    }
 
-   public void viewdirectorDetails(){
+   public void viewDirectorDetails(){
 
       System.out.println("\t\t      Director Info");
 
@@ -61,7 +61,7 @@ public class Director {
 
         hero.setCharacterName(sc.nextLine());
 
-        hero.showactorsDetails();
+        hero.showActorsDetails();
 
         actorsDetails [i] = hero;
 
@@ -87,7 +87,7 @@ public class Director {
 
         heroine.setCharacterName(sc.nextLine());
 
-        heroine.showactorsDetails();
+        heroine.showActorsDetails();
 
         actorsDetails [i+heroNo] = heroine;
 
@@ -112,7 +112,7 @@ public class Director {
 
         comedian.setCharacterName(sc.nextLine());
 
-        comedian.showactorsDetails();
+        comedian.showActorsDetails();
 
         actorsDetails [i+heroNo+heroineNo] = comedian;
 
