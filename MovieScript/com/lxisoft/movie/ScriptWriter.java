@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ScriptWriter {
 
-
+  
  List< Dialogue>dialogues= new ArrayList<Dialogue>();
 
  
@@ -196,6 +196,8 @@ public void createDialogues(Actor actors[] )   {
   dialogues.add (new Dialogue(actors[0],("\t\t\t(BGM)")));
   
     
+addDialoguesToScenes();
+
 }
 
 
@@ -206,115 +208,23 @@ Script script = new Script();
   script.createScenes ();
 
 
+for (int x =0; x < script.scenes.length; x ++ ) {
+
+if(script.scenes[x] != null)  {
+
+  for(int i = 0;  i< 10;   i ++)  {
+
+    int number =(int) (Math.random() *100);
+
+      script.scenes[x].dialogues[i] = dialogues.get(number);
 
 
-  /*for(int i = 0;  i< script.scenes.length;   i ++)  {
-
-    int number =(int) (Math.random() *6);
-
-if( script.scenes[i]   != null) {
-
-
-if(number==1 ) {
-
-
-
-  for(int x =0; x < comedyDialogues.length; x ++) {
-
-    if (comedyDialogues[x] != null) {
-
-
-    script.scenes[0].dialogue = comedyDialogues[x];
-
-
-
-script.scenes[0]. getDialogue();
-
-    }
-
-  }
+      script.scenes[x].showDialogue();
   
-}
-  
-if ( number==2)  {
-
-
-  for(int x =0; x <romanticDialogue.length; x ++) {
-
-    if (romanticDialogue[x] != null) {
-
-
-    script.scenes[0].dialogue = romanticDialogue[x];
-
-
-
-script.scenes[1]. getDialogue();
-
-    }
-
   }
+}
+}
+}
 
 }
 
-if ( number==3)  {
-
-
-  for(int x =0; x <actionDialogues.length; x ++) {
-
-    if (actionDialogues[x] != null) {
-
-
-    script.scenes[0].dialogue = actionDialogues[x];
-
-
-
-script.scenes[0]. getDialogue();
-
-    }
-
-  }
-
-}
-
-if ( number==4)  {
-
-
-  for(int x =0; x <romanticDialogue2.length; x ++) {
-
-    if (romanticDialogue2[x] != null) {
-
-
-    script.scenes[0].dialogue = romanticDialogue2[x];
-
-
-
-script.scenes[0]. getDialogue();
-
-    }
-
-  }
-
-}
-
-if ( number==5)  {
-
-
-  for(int x =0; x <comedyDialogue2.length; x ++) {
-
-    if (comedyDialogue2[x] != null) {
-
-
-    script.scenes[0].dialogue = comedyDialogue2[x];
-
-
-
-script.scenes[0]. getDialogue();
-
-    }
-
-  }
-
-}*/
-}
-  
-}
