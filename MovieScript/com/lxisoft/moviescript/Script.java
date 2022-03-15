@@ -4,9 +4,9 @@ package com.lxisoft.moviescript;
 
     Scene [] scenes = new Scene [10];
 
-    Scene scene = new Scene();
-
      public void selectScenes() {
+
+      Scene scene = new Scene();
 
       int numberOfscenes;
 

@@ -7,10 +7,8 @@ import com.lxisoft.cast.Hero;
 import com.lxisoft.cast.Heroine;
 
 public class Director {
-
+   
    private String name;
-
-   int heroNo, heroineNo, comedianNo, villianNo;
 
    public String getName() {
        return name;
@@ -39,7 +37,9 @@ public class Director {
 
    public Actor [] castActors() {
 
-     System.out.println("\t\t         -- Cast Details --");
+      int heroNo, heroineNo, comedianNo;
+
+      System.out.println("\t\t         -- Cast Details --");
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
