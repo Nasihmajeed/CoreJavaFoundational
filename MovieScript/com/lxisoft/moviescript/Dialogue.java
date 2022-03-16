@@ -2,15 +2,36 @@ package com.lxisoft.moviescript;
 
 public class Dialogue {
 
-      public Actor deliveredBy;
+      private Actor deliveredBy;
       
-      public String dialogueText;
+      private String dialogueText;
 
-      public Dialogue (Actor deliveredBy, String dialogurText){
+      public Dialogue ( String dialogueText) {
             
-            this.deliveredBy = deliveredBy;
+            //this.deliveredBy = deliveredBy;
           
-            this.dialogueText = dialogurText;
+            this.dialogueText = dialogueText;
       }
+      public Actor getDeliveredBy(){
+
+            return deliveredBy;
       }
+
+      public void setDeliveredBy(Actor deliveredBy){
+
+            this.deliveredBy =deliveredBy;
+      }
+
+      public String getDialogueText(){
+
+            return dialogueText;
+      }
+
+      public void setDialogueText(String dialogueText){
+
+            this.dialogueText = dialogueText;
+      }
+     // public Dialogue ( String string ) {
+      }
+      
     

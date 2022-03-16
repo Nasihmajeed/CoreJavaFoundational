@@ -13,9 +13,14 @@ public class Movie {
    private Genere genere;
    //private int year;
    //private String director;
-   
 
    int number;
+
+   Director director = new Director();
+
+   Script script = new Script();
+
+   Scriptwriter scriptwriter = new Scriptwriter();
 
    enum Genere {
        ACTION,COMEDY,ROMANTIC
@@ -156,7 +161,7 @@ break;
 	    System.out.println("\n");
 
      
-       Director director = new Director();
+       
 
        director.setName("JHON GREEN");  
 
@@ -164,8 +169,6 @@ break;
 
        actors = director.castActors();
 
-       Script script = new Script();
-
-       script.selectScenes();
+       scriptwriter.viewDlogues();
 
     }}

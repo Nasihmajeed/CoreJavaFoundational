@@ -2,30 +2,25 @@ package com.lxisoft.moviescript;
 
   public class Script {
 
-    Scene [] scenes = new Scene [10];
+    Scene [] scenes = new Scene [6];
 
      public void selectScenes() {
 
-      Scene scene = new Scene();
+      int numberOfScenes;
 
-      int numberOfscenes;
+      numberOfScenes = (int) (Math.random()*3+3);
 
-      numberOfscenes = (int) (Math.random()*3+3);
+      System.out.println(" Number Of Scenes:" + numberOfScenes);
 
-      System.out.println(" Number Of Scenes:" + numberOfscenes);
+      for(int i = 0; i< numberOfScenes; i++){
 
-      for(int i = 0; i< numberOfscenes; i++){
+        Scene scene = new Scene();
 
         scenes [i] = scene;
 
       }
-
-      System.out.println("\n");
-
-      scene.inputScenesDetails();
-      scene.printSceneDetails();
     }
       }
-    
+
 
         
