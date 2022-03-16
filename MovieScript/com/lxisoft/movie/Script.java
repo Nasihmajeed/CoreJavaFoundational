@@ -10,8 +10,8 @@ public void createScenes ()  {
 
   sceneNo = (int) (Math.random()*3 +3 );
 
- 
 
+  
   System.out.println("Number of Movie Scenes :" + sceneNo);
   
   

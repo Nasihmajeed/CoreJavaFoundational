@@ -4,24 +4,40 @@
 public class Dialogue  {
 
 
-public Actor deliveredBy;
+private Actor deliveredBy;
 
-public String dialogueText;
+private String dialogueText;
 
-public Dialogue  ( Actor deliveredBy, String dialogueText)  {
+public Dialogue  (  String dialogueText)  {
 
-this.deliveredBy = deliveredBy;
 
 this.dialogueText = dialogueText;
 }
   
+public Actor getDeliveredBy()  {
 
-
-public void showScript()   { 
- 
-
-
+return deliveredBy;
 
 }
+
+public void setDeliveredBy(Actor deliveredBy ) {
+
+this.deliveredBy = deliveredBy;
+
+}
+
+public String getDialogueText()  {
+
+  return dialogueText;
+  
+  }
+  
+  public void setDialogueText(String dialogueText ) {
+  
+  this.dialogueText = dialogueText ;
+  
+  }
+
+
 
 }
