@@ -216,7 +216,7 @@ import java.util.*;
 
             for (int i = 0; i < 10; i++){
 
-              int number = (int) (Math.random()*70);
+              int number = (int) (Math.random()*50);
 
               script.scenes[x].dialogues[i] = dialogue.get(number);
             }

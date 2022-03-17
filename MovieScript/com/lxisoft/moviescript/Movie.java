@@ -150,12 +150,7 @@ break;
 
 		System.out.println("\n");
 
-       // System.out.println("Enter The Director Name");
-        
-		//director = sc.nextLine();
-
 		System.out.println("\t\tName :" + this.name); 
-	   // System.out.println("\t\tDirctor :" + this.director);
 		System.out.println("\t\tGenere :"+ this.genere);
 		System.out.println("\t\tLanguage :" +this.language);
 	    System.out.println("\n");
