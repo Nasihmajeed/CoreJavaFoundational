@@ -9,7 +9,7 @@ private Actor deliveredBy;
 private String dialogueText;
 
 public Dialogue  (  String dialogueText)  {
-
+ 
 
 this.dialogueText = dialogueText;
 }

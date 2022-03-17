@@ -151,6 +151,10 @@ language = ("MALAYALAM");
 
 	scriptWriter.createDialogues(actors);
 
+	script = scriptWriter.addDialoguesToScenes();
+
+
+
  }	
 	
 
