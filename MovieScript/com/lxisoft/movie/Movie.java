@@ -1,4 +1,6 @@
 package com.lxisoft.movie;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -22,7 +24,7 @@ public class Movie  {
 private String language;
 
 
- private Actor [] actors = new Actor[100];
+ private List< Actor> actors = new ArrayList<Actor> ();
 
 
 Director director = new Director("Director 1");
@@ -55,13 +57,13 @@ ScriptWriter scriptWriter = new ScriptWriter();
 	 this.language = newLanguage;
  }
  
- public Actor[] getActors() {
+ public List<Actor> getActors() {
 
 		return actors;
 
 	}
 
-	public void setActors( Actor[] actors) {
+	public void setActors(List< Actor> actors) {
 
 this.actors = actors;
 

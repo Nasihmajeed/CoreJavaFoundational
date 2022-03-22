@@ -1,4 +1,6 @@
 package com.lxisoft.movie;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.lxisoft.cast.Comedian;
@@ -34,21 +36,21 @@ Scanner sc = new Scanner(System.in);
 
 
 
- private Actor [] actorDetails=new Actor[100];
+ private List <Actor> actorDetails=new ArrayList<Actor>();
    
-public Actor [] getActorDetails() {
+public List<Actor> getActorDetails() {
 
 return actorDetails;
 
 }
 
-public void setActorDetails( Actor [] actorDetails)  {
+public void setActorDetails( List <Actor>actorDetails)  {
 
 this.actorDetails = actorDetails;
 
 }
 
-public Actor[]  castActors() {
+public List <Actor> castActors() {
 
 	int heroNo,heroineNo,comedianNo,villanNo;
 
@@ -73,7 +75,7 @@ sc.nextLine();
 		System.out.println("Enter" + i + "Hero Character Name");
 		hero.setCharacterName(sc.nextLine());
 
-actorDetails[i] = hero;
+actorDetails.add(hero);
 
 
 		hero.actorDetails();
@@ -98,7 +100,7 @@ System.out.println("Enter"+i+"Character Name :");
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
-actorDetails[heroNo + i] = heroine;
+actorDetails.add( heroine);
 
 heroine.actorDetails();
 System.out.println("\n");
@@ -120,7 +122,7 @@ for(int i = 1; i <= comedianNo; i ++)  {
 	System.out.println("Enter" + i + "Comedian Character Name :");
 	comedian.setCharacterName(sc.nextLine());
 
-actorDetails[heroNo + heroineNo + i] = comedian;
+actorDetails.add(comedian);
 
 
 	comedian.actorDetails();
@@ -143,7 +145,7 @@ villan.setName(sc.nextLine());
 System.out.println("Enter" + i + "Villan Character Name :");
 villan.setCharacterName(sc.nextLine()); 
     
-actorDetails[heroNo + heroineNo + comedianNo +i] = villan;
+actorDetails.add(villan);
 
 villan.actorDetails();
 System.out.println("\n");
