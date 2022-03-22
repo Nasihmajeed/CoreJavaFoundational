@@ -212,7 +212,7 @@ public void createDialogues()   {
 }
 
   
-public Script addDialoguesToScenes(Actor actor[]) {
+public Script addDialoguesToScenes(Actor actors[]) {
 
  
 Script script = new Script();
@@ -228,9 +228,9 @@ if(script.getScenes()[x] != null)  {
 
     int number =(int) (Math.random() *165);
 
-int actorNumber = (int) (Math.random()*4 +1);
+int actorNumber = (int) (Math.random()+actors.length );
 
-dialogues.get(number).setDeliveredBy(actor[actorNumber]);
+dialogues.get(number).setDeliveredBy(actors[actorNumber]);
 
       script.getScenes()[x].getDialogues().add( dialogues.get(number));
   
