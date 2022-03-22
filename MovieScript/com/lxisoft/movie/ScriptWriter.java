@@ -221,7 +221,7 @@ Script script = new Script();
 script.createScenes ();
 
 
-for (int x =0; x < script.getScenes().length; x ++ ) {
+for (int x =1; x < script.getScenes().length; x ++ ) {
 
 if(script.getScenes()[x] != null)  {
 

@@ -2,7 +2,7 @@ package com.lxisoft.movie;
 
 public class Script  {
 
-   private Scene[] scenes = new Scene[6];
+   private Scene[] scenes = new Scene[7];
 
 public Scene[] getScenes() {
 
@@ -24,7 +24,7 @@ public void createScenes ()  {
   System.out.println("Number of Movie Scenes :" + sceneNo);
   
   
-  for(int i = 0; i <sceneNo; i++)  {
+  for(int i = 1; i <=sceneNo; i++)  {
  
     Scene scene = new Scene(); 
  
@@ -40,7 +40,13 @@ public void showScenes()  {
 
 System.out.println( " SHOWING SCRIPT");
 
-for(int i = 0; i < sceneNo; i ++ ) {
+for(int i = 1; i <= sceneNo; i ++ ) {
+
+
+  System.out.println("\n");
+  System.out.println("\t\t\tSCENE: " + i);
+  System.out.println("\t\t______________________");
+  System.out.println("\n");
 
 scenes[i].showDialogue();
 
