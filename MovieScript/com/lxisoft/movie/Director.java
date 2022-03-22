@@ -9,9 +9,19 @@ import com.lxisoft.cast.Villan;
 
 public class Director {
  
- String name;
+ private String name;
 
+public String getName() {
 
+return name ;
+
+}
+
+public void setName ( String name) {
+
+this.name  = name;
+
+}
 	public Director (String name) {
 
 
@@ -24,8 +34,19 @@ Scanner sc = new Scanner(System.in);
 
 
 
- public Actor [] actorDetails=new Actor[100];
+ private Actor [] actorDetails=new Actor[100];
    
+public Actor [] getActorDetails() {
+
+return actorDetails;
+
+}
+
+public void setActorDetails( Actor [] actorDetails)  {
+
+this.actorDetails = actorDetails;
+
+}
 
 public Actor[]  castActors() {
 

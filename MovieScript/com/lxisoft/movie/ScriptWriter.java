@@ -6,10 +6,21 @@ import java.util.List;
 public class ScriptWriter {
 
    
- List< Dialogue>dialogues= new ArrayList<Dialogue>();
+ private List< Dialogue>dialogues= new ArrayList<Dialogue>();
 
+ public List <Dialogue> getDialogues() {
+
+return dialogues;
+
+ }
+
+ public void setDialogues( List < Dialogue>dialogues)  {
+
+this.dialogues = dialogues;
+
+ }
  
-public void createDialogues(Actor actors[] )   {
+public void createDialogues()   {
   
  
   dialogues.add( new Dialogue(  " ningal nerathe vanno ?"));
@@ -201,7 +212,7 @@ public void createDialogues(Actor actors[] )   {
 }
 
   
-public Script addDialoguesToScenes() {
+public Script addDialoguesToScenes(Actor actor[]) {
 
  
 Script script = new Script();
@@ -209,23 +220,27 @@ Script script = new Script();
 script.createScenes ();
 
 
-for (int x =0; x < script.scenes.length; x ++ ) {
+for (int x =0; x < script.getScenes().length; x ++ ) {
 
-if(script.scenes[x] != null)  {
+if(script.getScenes()[x] != null)  {
 
   for(int i = 0;  i< 10;   i ++)  {
 
     int number =(int) (Math.random() *165);
 
-      script.scenes[x].dialogues[i]= dialogues.get(number);
+int actorNumber = (int) (Math.random()*4 +1);
+
+dialogues.get(number).setDeliveredBy(actor[actorNumber]);
+
+      script.getScenes()[x].getDialogues().add( dialogues.get(number));
   
   }
-  script.scenes[x].showDialogue();
+      
+}
+ 
 }
 
-}
-
-return script;  
+return script;     
 
 } }
 

@@ -22,7 +22,7 @@ public class Movie  {
 private String language;
 
 
-public Actor [] actors = new Actor[100];
+ private Actor [] actors = new Actor[100];
 
 
 Director director = new Director("Director 1");
@@ -55,7 +55,17 @@ ScriptWriter scriptWriter = new ScriptWriter();
 	 this.language = newLanguage;
  }
  
- 
+ public Actor[] getActors() {
+
+		return actors;
+
+	}
+
+	public void setActors( Actor[] actors) {
+
+this.actors = actors;
+
+	}
  
  public void movieDetails()   {
 	 
@@ -141,7 +151,7 @@ language = ("MALAYALAM");
 
 
 		System.out.println("\t\tName :" + this.name); 
-	 System.out.println("\t\tDirctor :" + director.name);
+	 System.out.println("\t\tDirctor :" + director.getName());
 		System.out.println("\t\tGenre :"+ this.genre);
 		System.out.println("\t\tLanguage :" +this.language);
 	 System.out.println("\n");
@@ -149,11 +159,11 @@ language = ("MALAYALAM");
 
  actors = director.castActors();
 
-	scriptWriter.createDialogues(actors);
+	scriptWriter.createDialogues();
 
-	script = scriptWriter.addDialoguesToScenes();
+	script = scriptWriter.addDialoguesToScenes(actors);
 
-
+script.showScenes();
 
  }	
 	
