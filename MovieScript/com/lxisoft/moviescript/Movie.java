@@ -11,8 +11,6 @@ public class Movie {
    private String name;
    private String language;
    private Genere genere;
-   //private int year;
-   //private String director;
 
    int number;
 

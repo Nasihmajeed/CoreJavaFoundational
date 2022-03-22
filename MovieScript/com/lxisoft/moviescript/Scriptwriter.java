@@ -5,8 +5,18 @@ import java.util.*;
    public class Scriptwriter {
 
 
-     ArrayList <Dialogue> dialogue = new ArrayList <Dialogue> ();
+    private List <Dialogue> dialogue = new ArrayList <Dialogue> ();
 
+    public List <Dialogue> getDialogue(){
+
+      return dialogue;
+    }
+
+      public void setDialogue(List <Dialogue> dialogue) {
+
+        this.dialogue = dialogue;
+      }
+      
        public void viewDlogues () {
 
       
@@ -210,18 +220,18 @@ import java.util.*;
 
         script.selectScenes();
 
-        for (int x = 0; x <script.scenes.length; x ++){
+        for (int x = 0; x <script.getScenes().length; x ++){
 
-          if(script.scenes[x] != null){
+          if(script.getScenes() [x] != null){
 
             for (int i = 0; i < 10; i++){
 
               int number = (int) (Math.random()*50);
 
-              script.scenes[x].dialogues[i] = dialogue.get(number);
+              script.getScenes() [x].getDialogues().add (dialogue.get(number));
             }
 
-            script.scenes[x].printDialogue();
+            script.getScenes() [x].printDialogue();
           }
           
           

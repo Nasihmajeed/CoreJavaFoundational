@@ -7,8 +7,7 @@ public class Dialogue {
       private String dialogueText;
 
       public Dialogue ( String dialogueText) {
-            
-            //this.deliveredBy = deliveredBy;
+      
           
             this.dialogueText = dialogueText;
       }
@@ -31,7 +30,7 @@ public class Dialogue {
 
             this.dialogueText = dialogueText;
       }
-     // public Dialogue ( String string ) {
+     
       }
       
     

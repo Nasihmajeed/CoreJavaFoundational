@@ -2,7 +2,17 @@ package com.lxisoft.moviescript;
 
   public class Script {
 
-    Scene [] scenes = new Scene [6];
+   private Scene [] scenes = new Scene [6];
+
+   public Scene[] getScenes(){
+
+    return scenes;
+   }
+
+   public void setScenes(Scene[] scenes) {
+
+    this.scenes = scenes;
+   }
 
      public void selectScenes() {
 

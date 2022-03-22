@@ -1,16 +1,29 @@
 package com.lxisoft.moviescript;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Scene {
 
-    Dialogue [] dialogues = new Dialogue [100];
+   private List <Dialogue> dialogues = new ArrayList <Dialogue> ();
+
+   public List <Dialogue>getDialogues(){
+
+       return dialogues;
+   }
+
+   public void setDialogues(List <Dialogue> dialogues) {
+
+    this.dialogues = dialogues;
+   }
 
     public void printDialogue(){
 
-        for (int i=0; i < dialogues.length; i++){
+        for (int i=0; i < dialogues.size(); i++){
 
-            if (dialogues[i] !=null) {
+            if (dialogues.get(i) !=null) {
 
-        System.out.println(dialogues[i].getDialogueText());
+        System.out.println(dialogues.get(i).getDialogueText());
 
         }}
     }
