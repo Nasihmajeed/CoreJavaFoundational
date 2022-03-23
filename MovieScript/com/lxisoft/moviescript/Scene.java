@@ -23,7 +23,7 @@ public class Scene {
 
             if (dialogues.get(i) !=null) {
 
-        System.out.println(dialogues.get(i).getDialogueText());
+        System.out.println(dialogues.get(i).getDeliveredBy().getCharacterName() +"(" + dialogues.get(i).getDeliveredBy().getName() + ")" + dialogues.get(i). getDialogueText());
 
         }}
     }

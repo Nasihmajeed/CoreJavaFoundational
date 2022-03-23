@@ -17,14 +17,10 @@ import java.util.*;
         this.dialogue = dialogue;
       }
       
-       public void viewDlogues () {
+       public void setupDialogue () {
 
       
-         dialogue.add(new Dialogue("\t\t\t+----------------+" +"\n"));
-
-         dialogue.add(new Dialogue("\t\t    **PLAYING ROMANTIC SCENE** "+"\n"));
-
-         dialogue.add(new Dialogue("\t\t+-----------------------------------+" +"\n"));
+        
 
          dialogue.add(new Dialogue("\t       ( OUTSIDE THE CHURCH )  "+"\n"));
        
@@ -75,12 +71,7 @@ import java.util.*;
        
        
        
-         dialogue.add(new Dialogue("\t\t\t+----------------+" +"\n"));
-
-        dialogue.add(new Dialogue("\t\t      **PLAYING COMEDY SCENE** "+"\n"));
-
-        dialogue.add(new Dialogue("\t\t+-----------------------------------+" +"\n"));
-
+        
         dialogue.add(new Dialogue("\t[**Scene: Monica and Rachel's, late at night Monica is still examining her bill as Rachel emerges from her room.**]" +"\n"));
 
         dialogue.add(new Dialogue("\t: Oh, Monica. You are not still going over that thing."+"\n"));
@@ -140,11 +131,7 @@ import java.util.*;
 
 
     
-        dialogue.add(new Dialogue("\t\t\t+----------------+" +"\n"));
-
-        dialogue.add(new Dialogue("\t\t      **PLAYING EMOTIONAL SCENE** "+"\n"));
-
-        dialogue.add(new Dialogue("\t\t+-----------------------------------+" +"\n"));
+        
 
         dialogue.add(new Dialogue("\t  (HERENGRACHT CANAL - DAY 121)  " + "\n"));
         
@@ -209,33 +196,30 @@ import java.util.*;
 
         dialogue.add(new Dialogue("\t : I don’t think you’re dying, Augustus. You’ve just got a touch of cancer Gus nods. Squeezes her hand. " + "\n"));
 
-       
-       
-        writeScript();
+    
       }
       
-      public void writeScript() {
+      public Script writeScript(List <Actor> actors) {
 
         Script script = new Script();
 
         script.selectScenes();
 
-        for (int x = 0; x <script.getScenes().length; x ++){
+        for (int x = 1; x <script.getScenes().length; x ++){
 
           if(script.getScenes() [x] != null){
 
             for (int i = 0; i < 10; i++){
 
-              int number = (int) (Math.random()*50);
+              int number = (int) (Math.random()*dialogue.size());
+
+              int actorNumber = (int) (Math.random()*actors.size());
+
+              dialogue.get(number).setDeliveredBy(actors.get(actorNumber));
 
               script.getScenes() [x].getDialogues().add (dialogue.get(number));
-            }
-
-            script.getScenes() [x].printDialogue();
+            }}
           }
-          
-          
-        }
-
+          return script;
       }}
   

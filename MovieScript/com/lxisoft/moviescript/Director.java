@@ -1,5 +1,7 @@
 package com.lxisoft.moviescript;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.lxisoft.cast.Comedian;
@@ -33,9 +35,19 @@ public class Director {
 
    Scanner sc = new Scanner(System.in);
    
-   public Actor [] actorsDetails = new Actor [100];
+   private List <Actor>  actorsDetails = new ArrayList<Actor> ();
+   
+   public List <Actor> getActorDetails(){
 
-   public Actor [] castActors() {
+      return actorsDetails;
+   }
+
+   public void setActorDetails( List <Actor>actorDetails) {
+
+      this.actorsDetails = actorDetails;
+   }
+
+   public List <Actor>  castActors() {
 
       int heroNo, heroineNo, comedianNo;
 
@@ -63,7 +75,7 @@ public class Director {
 
         hero.showActorsDetails();
 
-        actorsDetails [i] = hero;
+        actorsDetails.add (hero);
 
         System.out.println("\n");
 
@@ -89,7 +101,7 @@ public class Director {
 
         heroine.showActorsDetails();
 
-        actorsDetails [i+heroNo] = heroine;
+        actorsDetails.add (heroine);
 
 
        }
@@ -114,7 +126,7 @@ public class Director {
 
         comedian.showActorsDetails();
 
-        actorsDetails [i+heroNo+heroineNo] = comedian;
+        actorsDetails.add (comedian);
 
         
        }

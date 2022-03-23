@@ -1,4 +1,6 @@
 package com.lxisoft.moviescript;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.lxisoft.cast.*;
@@ -6,7 +8,7 @@ import com.lxisoft.cast.*;
 
 public class Movie {
 
-    public Actor [] actors = new Actor [50];
+    private List <Actor> actors = new ArrayList <Actor>();
 
    private String name;
    private String language;
@@ -48,24 +50,17 @@ public class Movie {
             this.genere = genere;  
             }
 
-            /*public int getYear(){
-                return year;
-            } 
+            public List <Actor> getActors() {
 
-            public void setYear(int year){  
-                this.year = year;  
-                }*/
-        
-                //public String getDirector(){
-                   // return director;
-               // } 
+                return actors;
+            }
 
-                //public void setDirector(String director){  
-                   // this.director = director;  
-                   // }
+            public void setActors(List <Actor> actors){
+
+                this.actors = actors;
+            }
         
                   
-  
    public void showMovieDetails() {
 
     Scanner sc = new Scanner(System.in);
@@ -162,6 +157,10 @@ break;
 
        actors = director.castActors();
 
-       scriptwriter.viewDlogues();
+       scriptwriter.setupDialogue();
+
+       script = scriptwriter.writeScript(actors);
+
+       script.viewScenes();
 
     }}
