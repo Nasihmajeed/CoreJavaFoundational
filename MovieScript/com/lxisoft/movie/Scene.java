@@ -29,7 +29,9 @@ for (int i =0 ; i <dialogues.size(); i ++) {
 
 if(dialogues.get(i) != null)  {
  
- System.out.println(dialogues.get(i).getDeliveredBy().getCharacterName() +"(" + dialogues.get(i).getDeliveredBy().getName() +")" + dialogues.get(i). getDialogueText() );
+
+ System.out.println("\n");
+ System.out.println(dialogues.get(i).getDeliveredBy().getCharacterName() +"  (" + dialogues.get(i).getDeliveredBy().getName() +")  " + dialogues.get(i). getDialogueText() );
  
 }
 
