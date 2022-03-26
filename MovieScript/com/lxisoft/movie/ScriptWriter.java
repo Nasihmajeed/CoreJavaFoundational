@@ -34,7 +34,7 @@ public void createDialogues()   {
 
  try {
 
-  Scanner scanner= new Scanner(new FileReader("../resources/dialogue.csv"));
+  Scanner scanner= new Scanner(new FileReader("../resources/dialogues.csv"));
 
 while(scanner.hasNext())  {
 
