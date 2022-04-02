@@ -2,8 +2,9 @@ package com.lxisoft.moviescript;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.sql.*;
 import java.util.*;
+
 
    public class Scriptwriter {
 
@@ -24,24 +25,28 @@ import java.util.*;
 
         try {
 
-          Scanner scanner = new Scanner(new FileReader("resources/Dialogues.csv"));
+          Class.forName("com.mysql.cj.jdbc.Driver");
 
+          Connection sql = DriverManager.getConnection("jdbc:mysql://localhost:3306/lxisoft","root","root");
 
-          while(scanner.hasNext()){
+          Statement stmt = sql.createStatement();
 
-            dialogue.add(new Dialogue(scanner.nextLine()));
-          }
+          ResultSet rst = stmt.executeQuery("select * from dialogues;");
 
-        }
-
-        catch (FileNotFoundException e) {
-
-          e.printStackTrace();
-        }
-
-         
+          while (rst.next()){
+            
+          dialogue.add(new Dialogue(rst.getString(1)));
       }
-      
+    }
+      catch (Exception e) {
+
+        System.out.println("Exceptin Found");
+
+        e.printStackTrace();
+      }
+    }
+
+
       public Script writeScript(List <Actor> actors) {
 
         Script script = new Script();
