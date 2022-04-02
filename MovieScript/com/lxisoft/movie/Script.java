@@ -4,6 +4,22 @@ public class Script  {
 
    private Scene[] scenes = new Scene[6];
 
+   private int sceneNo;
+
+
+public int getSceneNo()  {
+
+return sceneNo;
+
+}
+
+public void setSceneNo( int sceneNo)  {
+
+this.sceneNo = sceneNo;  
+
+}
+
+
 public Scene[] getScenes() {
 
 return scenes;
@@ -15,7 +31,7 @@ public void setScenes(Scene[] scenes) {
 this.scenes = scenes;
 
 }
-int sceneNo;
+
 public void createScenes ()  {
 
  

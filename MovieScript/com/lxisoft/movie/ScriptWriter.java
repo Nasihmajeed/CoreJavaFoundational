@@ -1,11 +1,12 @@
 package com.lxisoft.movie;
 
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.sql.*;
+//import com.mysql.cj.jdbc.Driver;
+
+
 
 public class ScriptWriter {
 
@@ -30,26 +31,39 @@ this.dialogues = dialogues;
 
 
 public void createDialogues()   {
-  
 
- try {
+try {
 
-  Scanner scanner= new Scanner(new FileReader("../resources/dialogues.csv"));
 
-while(scanner.hasNext())  {
 
-     
- dialogues.add( new Dialogue(scanner.nextLine()));
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lxisoft","root","Mubashir24092000");
+
+Statement st = con.createStatement();
+
+ResultSet rs = st.executeQuery("select dialogues from dialogues;");
+
+
+
+while(rs.next()) {
+
+
+dialogues.add(new Dialogue(rs.getString(1)));
 
 }
 
-} catch (FileNotFoundException e) {
 
-  e.printStackTrace();
-} 
+} catch(Exception e) {
 
+System.out.println("Exception");
+
+e.printStackTrace();
 
 }
+
+
+}  
 
 public Script addDialoguesToScenes(List <Actor> actors) {
 
