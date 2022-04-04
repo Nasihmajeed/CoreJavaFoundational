@@ -3,17 +3,16 @@ package com.lxisoft.movie;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.*;
-//import com.mysql.cj.jdbc.Driver;
+import java.util.Scanner;
 
 
 
 public class ScriptWriter {
 
-   
+  Scanner sc = new Scanner(System.in); 
+
  private List< Dialogue>dialogues= new ArrayList<Dialogue>();
-
-
+ 
 
  public List <Dialogue> getDialogues() {
 
@@ -21,7 +20,7 @@ return dialogues;
 
  }
 
-
+ 
  public void setDialogues( List < Dialogue>dialogues)  {
 
 this.dialogues = dialogues;
@@ -32,38 +31,19 @@ this.dialogues = dialogues;
 
 public void createDialogues()   {
 
-try {
+  Repository repository;
 
 
 
-Class.forName("com.mysql.cj.jdbc.Driver");
+ repository = new FileRepository();
 
-Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lxisoft","root","Mubashir24092000");
+dialogues = repository.findAll();
 
-Statement st = con.createStatement();
-
-ResultSet rs = st.executeQuery("select dialogues from dialogues;");
-
-
-
-while(rs.next()) {
-
-
-dialogues.add(new Dialogue(rs.getString(1)));
-
-}
-
-
-} catch(Exception e) {
-
-System.out.println("Exception");
-
-e.printStackTrace();
-
-}
 
 
 }  
+
+
 
 public Script addDialoguesToScenes(List <Actor> actors) {
 
