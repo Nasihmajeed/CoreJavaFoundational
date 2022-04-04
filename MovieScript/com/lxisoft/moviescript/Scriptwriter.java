@@ -31,7 +31,7 @@ import java.util.*;
 
           Statement stmt = sql.createStatement();
 
-          ResultSet rst = stmt.executeQuery("select * from dialogues;");
+          ResultSet rst = stmt.executeQuery("select dialogue from dialogues;");
 
           while (rst.next()){
             
