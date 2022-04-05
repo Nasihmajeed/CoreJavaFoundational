@@ -35,7 +35,7 @@ public void createDialogues()   {
 
 
 
- repository = new FileRepository();
+ repository = new DataBaseRepository();
 
 dialogues = repository.findAll();
 
