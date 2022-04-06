@@ -1,4 +1,5 @@
-package com.lxisoft.movie;
+package com.lxisoft.repository;
+import com.lxisoft.movie.Dialogue;
 
 import java.io.FileReader;
 import java.util.ArrayList;

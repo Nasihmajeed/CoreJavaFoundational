@@ -1,6 +1,7 @@
-package com.lxisoft.movie;
+package com.lxisoft.repository;
 
 import java.util.List;
+import com.lxisoft.movie.Dialogue;
 
 public interface Repository {
  

@@ -1,5 +1,8 @@
 package com.lxisoft.movie;
 
+import com.lxisoft.repository.Repository;
+import com.lxisoft.repository.DataBaseRepository;
+import com.lxisoft.repository.FileRepository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -39,7 +39,7 @@ public void setPhoneNo(String newPhoneNo)  {
 }
 
 
-public void showTheaterDetails()   {
+public void showTheaterDetails() throws Exception   {
 	
 System.out.println("\n");
 System.out.println("\t\t\t\t\t\t\tTHEATER");	

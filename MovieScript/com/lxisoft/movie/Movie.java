@@ -1,6 +1,10 @@
 package com.lxisoft.movie;
+
+
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 
 
@@ -69,14 +73,43 @@ this.actors = actors;
 
 	}
  
- public void movieDetails()   {
+ public void movieDetails() throws Exception   {
 	 
 		 int number;
+String selectLanguage;
+
+System.out.println("Select Language");
+System.out.println("1 = English");
+System.out.println("2 = Malayalam");
+selectLanguage = sc.nextLine();
+
+switch (selectLanguage)  {
+
+case "1":
+
+selectLanguage = "English";
+break;
+
+case "2" :
+selectLanguage = "Malayalam";
+break;
+}
+
+System.out.println("");
+
+System.out.println("You are Selected " + selectLanguage + " Language");
+
+
+FileInputStream fileinputstream = new FileInputStream("../com/lxisoft/language/" + selectLanguage + "Language.properties");
+
+Properties property= new Properties();
+
+property.load(fileinputstream);
 
 	 
-	 System.out.println("\t\t\t\t\t\t\tMOVIE DETAIL");
+	 System.out.println("\t\t\t\t\t\t\t" + property.getProperty("moviedetail"));
 	 System.out.println("\t\t\t\t\t\t-------------------------");
-		System.out.println("\t\tMovie Types");
+		System.out.println("\t\t" + property.getProperty("movietypes"));
 		System.out.println("\t\t____________________");
 		System.out.println("\n");
 
@@ -86,7 +119,7 @@ this.actors = actors;
 		System.out.println("4 = Thriller");
 		System.out.println("\n");
 
-		System.out.println("Enter The Number of Genre Type ");
+		System.out.println( property.getProperty("genretype"));
 		 number= sc.nextInt();
 
 			sc.nextLine();
@@ -128,38 +161,37 @@ break;
 			}
 
 
-		System.out.println("Enter The Name Of Movie");
+		System.out.println(property.getProperty("moviename"));
 		name = sc.nextLine();
 		System.out.println("\n");
-	 System.out.println("only 1 Language available");
+	 System.out.println(property.getProperty("availablelanguage"));
 		System.out.println("*MALAYALAM");
-		System.out.println("Select MALAYALAM Language Press 1 ");
+		System.out.println(property.getProperty("selectmalayalam"));
 		System.out.println("\n");
-		System.out.println("Enter Number");
+		System.out.println(property.getProperty("enternumber"));
 		number = sc.nextInt();
 sc.nextLine();
 
 if (number ==1)  {
 
-language = ("MALAYALAM");
+language = "MALAYALAM";
 
 }
 
 		if(number != 1)   {
 
-			System.out.println("You Are Selected Wrong Number... Press 1");
+			System.out.println(property.getProperty("wrongnumber"));
 
 		}
 
-
-		System.out.println("\t\tName :" + this.name); 
-	 System.out.println("\t\tDirctor :" + director.getName());
-		System.out.println("\t\tGenre :"+ this.genre);
-		System.out.println("\t\tLanguage :" +this.language);
+		System.out.println("\t\t" +property.getProperty("name")+ this.name); 
+	 System.out.println("\t\t" +property.getProperty("director") + director.getName());
+		System.out.println("\t\t"  + property.getProperty("genre")+ this.genre);
+		System.out.println("\t\t" + property.getProperty("language")+this.language);
 	 System.out.println("\n");
 
 
- actors = director.castActors();
+ actors = director.castActors(property);
 
 	scriptWriter.createDialogues();
 

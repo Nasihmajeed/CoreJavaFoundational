@@ -1,5 +1,5 @@
-package com.lxisoft.movie;
-
+package com.lxisoft.repository;
+import com.lxisoft.movie.Dialogue;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
