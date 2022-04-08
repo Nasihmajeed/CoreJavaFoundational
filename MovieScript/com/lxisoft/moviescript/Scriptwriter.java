@@ -1,49 +1,34 @@
 package com.lxisoft.moviescript;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.sql.*;
 import java.util.*;
+
+import com.lxisoft.repository.FileRepository;
+import com.lxisoft.repository.Repository;
 
 
    public class Scriptwriter {
 
 
-    private List <Dialogue> dialogue = new ArrayList <Dialogue> ();
+    private List <Dialogue> dialogues = new ArrayList <Dialogue> ();
 
     public List <Dialogue> getDialogue(){
 
-      return dialogue;
+      return dialogues;
     }
 
       public void setDialogue(List <Dialogue> dialogue) {
 
-        this.dialogue = dialogue;
+        this.dialogues = dialogue;
       }
       
        public void setupDialogue () {
 
-        try {
+        Repository repository;
 
-          Class.forName("com.mysql.cj.jdbc.Driver");
+        repository = new FileRepository();
 
-          Connection sql = DriverManager.getConnection("jdbc:mysql://localhost:3306/lxisoft","root","root");
+        dialogues=repository.findAll();
 
-          Statement stmt = sql.createStatement();
-
-          ResultSet rst = stmt.executeQuery("select dialogue from dialogues;");
-
-          while (rst.next()){
-            
-          dialogue.add(new Dialogue(rst.getString(1)));
-      }
-    }
-      catch (Exception e) {
-
-        System.out.println("Exceptin Found");
-
-        e.printStackTrace();
-      }
+       
     }
 
 
@@ -59,13 +44,13 @@ import java.util.*;
 
             for (int i = 0; i < 10; i++){
 
-              int number = (int) (Math.random()*dialogue.size());
+              int number = (int) (Math.random()*dialogues.size());
 
               int actorNumber = (int) (Math.random()*actors.size());
 
-              dialogue.get(number).setDeliveredBy(actors.get(actorNumber));
+              dialogues.get(number).setDeliveredBy(actors.get(actorNumber));
 
-              script.getScenes() [x].getDialogues().add (dialogue.get(number));
+              script.getScenes() [x].getDialogues().add (dialogues.get(number));
             }}
           }
           return script;

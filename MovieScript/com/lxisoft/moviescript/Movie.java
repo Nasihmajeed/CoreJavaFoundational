@@ -1,6 +1,12 @@
 package com.lxisoft.moviescript;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 
 import com.lxisoft.cast.*;
@@ -13,8 +19,6 @@ public class Movie {
    private String name;
    private String language;
    private Genere genere;
-
-   int number;
 
    Director director = new Director();
 
@@ -61,7 +65,10 @@ public class Movie {
             }
         
                   
-   public void showMovieDetails() {
+   public void showMovieDetails() throws Exception {
+
+    int number;
+    String languageSelection;
 
     Scanner sc = new Scanner(System.in);
       
@@ -70,9 +77,42 @@ public class Movie {
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
-       System.out.println("\t\t Select The Movie Type");
+       System.out.println("Select The Language");
 
-		System.out.println("\t\t+----------------+");
+		System.out.println(" 1 = English ");
+		System.out.println(" 2 = Malayalam");
+
+		languageSelection = sc.nextLine();
+
+        switch (languageSelection) {
+
+            case "1":
+
+            languageSelection = "English";
+            break;
+
+            case "2":
+
+            languageSelection = "Malayalam";
+            break;
+
+        }
+        
+        System.out.println("\n");
+
+        System.out.println("You Are Selected "  + languageSelection + " Language");
+
+
+        FileInputStream fis = new FileInputStream(new File("com/lxisoft/language/" + languageSelection + ".properties"));
+        Properties prop = new Properties();
+
+        prop.load(new InputStreamReader(fis,StandardCharsets.UTF_8));
+
+        System.out.println("\n");
+
+       System.out.println(prop.getProperty("movietype"));
+
+		System.out.println("\t+----------------+");
 		System.out.println("\n");
 
         System.out.println(" 1 = Action");
@@ -113,7 +153,9 @@ break;
 
            }
 
-           System.out.println("Please Select The Movie Language");
+           System.out.println(prop.getProperty("movielanguage"));
+
+           System.out.println("\n");
 
            System.out.println(" 1 = ENGLISH ");
            System.out.println(" 2 = MALAYALAM ");
@@ -137,7 +179,7 @@ break;
 
 		}
 
-           System.out.println("Please Enter The  Movie Name ");
+           System.out.println(prop.getProperty("moviename"));
 
 		name = sc.nextLine();
 
@@ -148,9 +190,7 @@ break;
 		System.out.println("\t\tLanguage :" +this.language);
 	    System.out.println("\n");
 
-     
-       
-
+    
        director.setName("JHON GREEN");  
 
        director.viewDirectorDetails();

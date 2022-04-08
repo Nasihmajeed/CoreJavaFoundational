@@ -1,9 +1,10 @@
 package com.lxisoft.test;
+
 import com.lxisoft.moviescript.Theater;
 
 public class TDD  {
 	
- 	public static void main(String[] args) {
+ 	public static void main(String[] args) throws Exception {
 	
 		Theater theater = new Theater();
 
@@ -12,5 +13,7 @@ public class TDD  {
 		theater.setPhone("9678346784");
 		
 		theater.showTheaterDetails();
+
+		
 } 
 } 

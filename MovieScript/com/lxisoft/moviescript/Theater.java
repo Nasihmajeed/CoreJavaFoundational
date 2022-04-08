@@ -32,7 +32,7 @@ public class Theater {
           }
     
   
-     public void showTheaterDetails () {
+     public void showTheaterDetails () throws Exception{
 
     System.out.println("\t\t        -- Theater Details --");
 
