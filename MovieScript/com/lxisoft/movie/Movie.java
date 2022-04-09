@@ -2,6 +2,9 @@ package com.lxisoft.movie;
 
 
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -95,18 +98,18 @@ selectLanguage = "Malayalam";
 break;
 }
 
-System.out.println("");
+System.out.println("");     
 
 System.out.println("You are Selected " + selectLanguage + " Language");
 
 
-FileInputStream fileinputstream = new FileInputStream("../com/lxisoft/language/" + selectLanguage + "Language.properties");
+try ( InputStream fileinputstream = new FileInputStream("../com/lxisoft/language/" + selectLanguage + "Language.properties"))  {
 
 Properties property= new Properties();
 
-property.load(fileinputstream);
+property.load(new InputStreamReader(fileinputstream,StandardCharsets.UTF_8));
 
-	 
+
 	 System.out.println("\t\t\t\t\t\t\t" + property.getProperty("moviedetail"));
 	 System.out.println("\t\t\t\t\t\t-------------------------");
 		System.out.println("\t\t" + property.getProperty("movietypes"));
@@ -199,6 +202,13 @@ language = "MALAYALAM";
 
 script.showScenes();
 
+
+
+	} catch (Exception e)  {
+
+System.out.println("Excsjd");
+e.printStackTrace();	
+	}
  }	
 	
 
