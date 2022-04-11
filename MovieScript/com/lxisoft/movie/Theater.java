@@ -49,7 +49,7 @@ System.out.println("\t\tLocation :" + this.location);
 System.out.println("\t\tPhone No :" + this.phoneNo);
 System.out.println("\n");
 
-
+Language.selectLanguage();
 
 Movie movie = new Movie();
 movie.movieDetails();

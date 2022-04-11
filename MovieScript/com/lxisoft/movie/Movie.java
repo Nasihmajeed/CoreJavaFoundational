@@ -79,38 +79,9 @@ this.actors = actors;
  public void movieDetails() throws Exception   {
 	 
 		 int number;
-String selectLanguage;
-
-System.out.println("Select Language");
-System.out.println("1 = English");
-System.out.println("2 = Malayalam");
-selectLanguage = sc.nextLine();
-
-switch (selectLanguage)  {
-
-case "1":
-
-selectLanguage = "English";
-break;
-
-case "2" :
-selectLanguage = "Malayalam";
-break;
-}
-
-System.out.println("");     
-
-System.out.println("You are Selected " + selectLanguage + " Language");
 
 
-try ( InputStream fileinputstream = new FileInputStream("../com/lxisoft/language/" + selectLanguage + "Language.properties"))  {
-
-Properties property= new Properties();
-
-property.load(new InputStreamReader(fileinputstream,StandardCharsets.UTF_8));
-
-
-	 System.out.println("\t\t\t\t\t\t\t" + property.getProperty("moviedetail"));
+	 System.out.println("\t\t\t\t\t\t\t" +Language.property.getProperty("moviedetail"));
 	 System.out.println("\t\t\t\t\t\t-------------------------");
 		System.out.println("\t\t" + property.getProperty("movietypes"));
 		System.out.println("\t\t____________________");
@@ -204,11 +175,7 @@ script.showScenes();
 
 
 
-	} catch (Exception e)  {
-
-System.out.println("Excsjd");
-e.printStackTrace();	
-	}
+	
  }	
 	
 

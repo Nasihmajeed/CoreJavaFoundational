@@ -1,4 +1,4 @@
-package com.lxisoft.repository;
+package repository;
 import com.lxisoft.movie.Dialogue;
 
 import java.io.FileReader;
