@@ -8,11 +8,13 @@ Offers the company provides,
 
 prices: 
 
-cricket ball- 200 rs.
-tennis ball- 500 rs.
-football - 1500 rs.
-volley ball - 900 rs.
+cricket ball- 200-400 rs.
+tennis ball- 500-700 rs.
+football - 1500-3000 rs.
+volley ball - 900-2000 rs.
 
 The details of all the 10 balls with their price and discount should be stored in a file. And the details are read from the file to display it on their website.
 
 The users are also allowed to test the balls either by filling air or bouncing the ball. If there is a undesired situation happens when filling the ball with air or bouncing the ball report that as well.
+
+kindly implement: interfaces, package, file operations and enhanced for loop
