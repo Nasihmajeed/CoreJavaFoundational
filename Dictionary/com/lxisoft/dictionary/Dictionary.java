@@ -1,6 +1,6 @@
 package com.lxisoft.dictionary;
 
-import com.lxisoft.repo.fileRepo;
+import com.lxisoft.repo.FileRepo;
 
 public  class  Dictionary {
 
@@ -42,7 +42,7 @@ public  class  Dictionary {
 
       public  void printMeaning(){
      
-fileRepo repo = new fileRepo();
+FileRepo repo = new FileRepo();
 
 repo.createFile();
 

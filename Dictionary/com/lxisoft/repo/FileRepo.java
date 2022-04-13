@@ -1,7 +1,9 @@
 package com.lxisoft.repo;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -11,9 +13,9 @@ import java.util.Scanner;
 
 import com.lxisoft.dictionary.Words;
 
-public class fileRepo {
+public class FileRepo {
      
-     public File myObj = new File("com/resources/Words.csv");
+     public  File myObj = new File("com/resources/Words.csv");
 
      public void createFile() {
 	
@@ -80,7 +82,6 @@ public class fileRepo {
 
 return wordsList;
 }
-
 
 
 
