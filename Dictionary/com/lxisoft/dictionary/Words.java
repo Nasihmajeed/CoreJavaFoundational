@@ -1,35 +1,21 @@
 package com.lxisoft.dictionary;
 
-public class words extends Dictionary{
+public class Words extends Dictionary{
     
 
      private String partOfSpeech;
      private String sentences;
-     
 
-
-
-     
-        public words(String partOfSpeech, String sentences) {
+        public Words(String partOfSpeech, String sentences) {
         this.partOfSpeech = partOfSpeech;
         this.sentences = sentences;
     }
 
-
-
-
-
-
-        public words(String wordName, String meaning, String partOfSpeech, String sentences) {
+        public Words(String wordName, String meaning, String partOfSpeech, String sentences) {
         super(wordName, meaning);
         this.partOfSpeech = partOfSpeech;
         this.sentences = sentences;
     }
-
-
-
-
-
 
         public String getPartOfSpeech() {
              return partOfSpeech;

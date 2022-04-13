@@ -1,5 +1,7 @@
 package com.lxisoft.dictionary;
 
+import com.lxisoft.repo.fileRepo;
+
 public  class  Dictionary {
 
 
@@ -38,6 +40,16 @@ public  class  Dictionary {
       }
 
 
+      public  void printMeaning(){
+     
+fileRepo repo = new fileRepo();
+
+repo.createFile();
+
+for(Words word : repo.readFile()){  
+     //body of for-each loop  
+     }  
+     }
 
 }
     

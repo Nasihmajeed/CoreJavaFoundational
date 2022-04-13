@@ -1,9 +1,9 @@
 package com.lxisoft.words;
 
-import com.lxisoft.dictionary.words;
+import com.lxisoft.dictionary.Words;
 import com.lxisoft.types.Noun;
 
-public class Clowns extends words implements Noun {
+public class Clowns extends Words implements Noun {
 
 
 
