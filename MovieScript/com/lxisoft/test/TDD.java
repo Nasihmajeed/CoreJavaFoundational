@@ -1,10 +1,12 @@
 package com.lxisoft.test;
 
+import com.lxisoft.moviescript.Language;
 import com.lxisoft.moviescript.Theater;
 
 public class TDD  {
 	
  	public static void main(String[] args) throws Exception {
+
 	
 		Theater theater = new Theater();
 

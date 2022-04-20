@@ -102,15 +102,13 @@ public class Movie {
 
         System.out.println("You Are Selected "  + languageSelection + " Language");
 
+        Properties prop = Language.getProperties();
 
-        FileInputStream fis = new FileInputStream(new File("com/lxisoft/language/" + languageSelection + ".properties"));
-        Properties prop = new Properties();
-
-        prop.load(new InputStreamReader(fis,StandardCharsets.UTF_8));
+       // prop.load(new InputStreamReader(fis,StandardCharsets.UTF_8));
 
         System.out.println("\n");
 
-       System.out.println(prop.getProperty("movietype"));
+        System.out.println(prop.getProperty("movietype"));
 
 		System.out.println("\t+----------------+");
 		System.out.println("\n");
