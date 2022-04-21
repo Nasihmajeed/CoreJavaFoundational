@@ -1,7 +1,7 @@
 package com.lxisoft.movie;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.Scanner;
 
 import com.lxisoft.cast.Comedian;
@@ -38,7 +38,7 @@ Scanner sc = new Scanner(System.in);
 
  private List <Actor> actorDetails=new ArrayList<Actor>();
    
-public List<Actor> getActorDetails(Properties prop) {
+public List<Actor> getActorDetails() {
 
 return actorDetails;
 
@@ -50,18 +50,19 @@ this.actorDetails = actorDetails;
 
 }
 
-public List <Actor> castActors(Properties property) {
+public List <Actor> castActors()  {
 
 	int heroNo,heroineNo,comedianNo,villanNo;
+ 
+ 
 
-
-	System.out.println("\t\t\t\t\t\t\t" + property.getProperty("actordetails"));
+	System.out.println("\t\t\t\t\t\t\t" + Language.property.getProperty("actordetails"));
 	System.out.println("\t\t\t\t\t\t______________________________");
 	System.out.println("\n");
 
 
 
-	System.out.println(property.getProperty("heronumber"));
+	System.out.println(Language.property.getProperty("heronumber"));
 heroNo = sc.nextInt();
 sc.nextLine();
 
@@ -69,10 +70,10 @@ sc.nextLine();
 
 		Hero hero = new Hero();
 
-		System.out.println(i +property.getProperty("heroname"));
+		System.out.println(i +Language.property.getProperty("heroname"));
 		hero.setName( sc.nextLine());
 
-		System.out.println( i + property.getProperty("herocharacter"));
+		System.out.println( i + Language.property.getProperty("herocharacter"));
 		hero.setCharacterName(sc.nextLine());
 
 actorDetails.add(hero);
@@ -85,7 +86,7 @@ actorDetails.add(hero);
 	}
 
 
-	System.out.println(property.getProperty("heroinenumber"));
+	System.out.println(Language.property.getProperty("heroinenumber"));
 heroineNo = sc.nextInt();
 System.out.println("\n");
 sc.nextLine();
@@ -94,9 +95,9 @@ for(int i = 1; i <= heroineNo; i ++)  {
 
 Heroine heroine = new Heroine();
 
-System.out.println( i + property.getProperty("heroinename"));
+System.out.println( i + Language.property.getProperty("heroinename"));
 heroine.setName(sc.nextLine());
-System.out.println(i+property.getProperty("heroinecharacter"));
+System.out.println(i+Language.property.getProperty("heroinecharacter"));
 heroine.setCharacterName(sc.nextLine());
 System.out.println("\n");
 
@@ -108,7 +109,7 @@ System.out.println("\n");
 }
 
 
-System.out.println(property.getProperty("comediannumber"));
+System.out.println(Language.property.getProperty("comediannumber"));
 comedianNo = sc.nextInt();
 System.out.println("\n");
 sc.nextLine();
@@ -117,9 +118,9 @@ for(int i = 1; i <= comedianNo; i ++)  {
 
 	Comedian comedian = new Comedian();
 
-	System.out.println( i + property.getProperty("comedianname"));
+	System.out.println( i + Language.property.getProperty("comedianname"));
 	comedian.setName(sc.nextLine());
-	System.out.println( i + property.getProperty("comediancharacter"));
+	System.out.println( i + Language.property.getProperty("comediancharacter"));
 	comedian.setCharacterName(sc.nextLine());
 
 actorDetails.add(comedian);
@@ -131,7 +132,7 @@ actorDetails.add(comedian);
 }
 
 
-System.out.println(property.getProperty("villannumber"));
+System.out.println(Language.property.getProperty("villannumber"));
 villanNo = sc.nextInt();
 System.out.println("\n");
 sc.nextLine();
@@ -140,9 +141,9 @@ for(int i = 1; i <= villanNo; i ++)  {
 
 Villan villan = new Villan();
 
-System.out.println( i +property.getProperty("villanname"));
+System.out.println( i +Language.property.getProperty("villanname"));
 villan.setName(sc.nextLine());
-System.out.println( i +property.getProperty("villancharacter"));
+System.out.println( i +Language.property.getProperty("villancharacter"));
 villan.setCharacterName(sc.nextLine()); 
     
 actorDetails.add(villan);

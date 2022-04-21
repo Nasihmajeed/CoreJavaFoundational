@@ -4,58 +4,66 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.Scanner;
 
 public class Language {
  
-
 static Scanner sc = new Scanner(System.in);
 
+ private static Language language = new Language();
 
+private Language()   {
 
-public static void selectLanguage() throws Exception {
-
- String selectLanguage;
-
- System.out.println("Select Language");
- System.out.println("1 = English");
- System.out.println("2 = Malayalam       ");
- selectLanguage = sc.nextLine();
- 
- switch (selectLanguage)  {
- 
- case "1":
- 
- selectLanguage = "English";
- break;
- 
- case "2" :
- selectLanguage = "Malayalam";
- break;
- }
-  
- System.out.println("");     
- 
- System.out.println("You are Selected " + selectLanguage + " Language");
- 
- 
- try ( InputStream fileinputstream = new FileInputStream("../resources/resourceBundle/language/" + selectLanguage + "Language.properties"))  {
- 
- Properties property= new Properties();
- 
- property.load(new InputStreamReader(fileinputstream,StandardCharsets.UTF_8));
- 
-
-
-} catch(Exception e)  {
-
-System.out.println("Exception");
-e.printStackTrace();
 
 }
 
+public static HashMap <Integer,String> languageSection()  {
+
+HashMap<Integer,String> files = new HashMap<Integer , String> ();
+ 
+files.put(1,"../resources/resourceBundle/language/EnglishLanguage.properties");
+
+files.put(2,"../resources/resourceBundle/language/MalayalamLanguage.properties");
+
+
+ return files;
+
+
+ 
+}
+
+public  static Properties property= new Properties();
 
 
 
-}}
+
+public static void selectLanguage(int  selectLanguage) {
+
+
+  try {
+
+
+    String propertyFile;
+propertyFile =  languageSection().get(selectLanguage);
+
+    InputStream  fileinputstream = new FileInputStream(propertyFile);
+
+
+  
+    property.load(new InputStreamReader(fileinputstream,StandardCharsets.UTF_8));
+
+
+  } catch (Exception e) {
+
+    e.printStackTrace();
+  }
+ 
+ 
+
+
+  
+}
+
+}
