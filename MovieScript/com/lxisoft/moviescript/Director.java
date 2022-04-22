@@ -24,7 +24,7 @@ public class Director {
 
    public void viewDirectorDetails(){
 
-      System.out.println("\t\t      Director Info");
+      System.out.println("\t\t  " + Language.prop.getProperty("directorinfo"));
 
       System.out.println("\t\t+-------------------------+" + "\n");
 
@@ -51,11 +51,11 @@ public class Director {
 
       int heroNo, heroineNo, comedianNo;
 
-      System.out.println("\t\t         -- Cast Details --");
+      System.out.println("\t\t  " + Language.prop.getProperty("castinfo"));
 
        System.out.println("\t\t+----------------------------------+"+"\n");
 
-       System.out.println( " Enter The No Of Heros ");
+       System.out.println(Language.prop.getProperty("heronumbers") );
 
        heroNo = sc.nextInt();
 
@@ -65,11 +65,11 @@ public class Director {
 
         Hero hero = new Hero();
 
-        System.out.println("Enter" + i + "Hero Name");
+        System.out.println(i + Language.prop.getProperty("heroname") );
 
         hero.setName(sc.nextLine());
 
-        System.out.println("Enter" + i + "Hero Character Name");
+        System.out.println( + i + Language.prop.getProperty("herocharname") );
 
         hero.setCharacterName(sc.nextLine());
 
@@ -81,7 +81,7 @@ public class Director {
 
        }
 
-        System.out.println( " Enter The No Of Heroines ");
+        System.out.println(Language.prop.getProperty("heroinenumbers") );
 
        heroineNo = sc.nextInt();
 
@@ -91,11 +91,11 @@ public class Director {
 
         Heroine heroine = new Heroine();
 
-        System.out.println("Enter" + i + "Heroine Name");
+        System.out.println( i + Language.prop.getProperty("heroinename") );
 
         heroine.setName(sc.nextLine());
 
-        System.out.println("Enter" + i + "Heroine Character Name");
+        System.out.println( i + Language.prop.getProperty("heroinecharname") );
 
         heroine.setCharacterName(sc.nextLine());
 
@@ -106,7 +106,7 @@ public class Director {
 
        }
 
-       System.out.println( " Enter The No Of Comedians ");
+       System.out.println( Language.prop.getProperty("comediannumbers") );
 
        comedianNo = sc.nextInt();
 
@@ -116,11 +116,11 @@ public class Director {
 
         Comedian comedian = new Comedian();
 
-        System.out.println("Enter" + i + "Comedian Name");
+        System.out.println( i + Language.prop.getProperty("comedianname"));
 
         comedian.setName(sc.nextLine());
 
-        System.out.println("Enter" + i + "Comedian Character Name");
+        System.out.println( i + Language.prop.getProperty("comediancharname"));
 
         comedian.setCharacterName(sc.nextLine());
 

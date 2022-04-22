@@ -1,12 +1,6 @@
 package com.lxisoft.moviescript;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.Scanner;
 
 import com.lxisoft.cast.*;
@@ -68,7 +62,7 @@ public class Movie {
    public void showMovieDetails() throws Exception {
 
     int number;
-    String languageSelection;
+    int languageSelection;
 
     Scanner sc = new Scanner(System.in);
       
@@ -82,33 +76,29 @@ public class Movie {
 		System.out.println(" 1 = English ");
 		System.out.println(" 2 = Malayalam");
 
-		languageSelection = sc.nextLine();
+		languageSelection = sc.nextInt();
 
         switch (languageSelection) {
 
-            case "1":
+            case 1:
 
-            languageSelection = "English";
+            System.out.println("You Are Selected English Language");
             break;
 
-            case "2":
+            case 2:
 
-            languageSelection = "Malayalam";
+            System.out.println("You Are Selected Malayalam Language");
             break;
 
         }
         
         System.out.println("\n");
 
-        System.out.println("You Are Selected "  + languageSelection + " Language");
-
-        Properties prop = Language.getProperties();
-
-       // prop.load(new InputStreamReader(fis,StandardCharsets.UTF_8));
+        Language.selectLanguage(languageSelection);
 
         System.out.println("\n");
 
-        System.out.println(prop.getProperty("movietype"));
+        System.out.println(Language.prop.getProperty("movietype"));
 
 		System.out.println("\t+----------------+");
 		System.out.println("\n");
@@ -151,7 +141,7 @@ break;
 
            }
 
-           System.out.println(prop.getProperty("movielanguage"));
+           System.out.println(Language.prop.getProperty("movielanguage"));
 
            System.out.println("\n");
 
@@ -159,9 +149,9 @@ break;
            System.out.println(" 2 = MALAYALAM ");
            System.out.println(" 3 = TAMIL ");
 
-           System.out.println("ENGLISH ONLY AVAILABLE");
+           System.out.println(Language.prop.getProperty("languageselection"));
 
-           System.out.println("Please Enter Number");
+           System.out.println(Language.prop.getProperty("number"));
 
            number = sc.nextInt();
           sc.nextLine();
@@ -173,11 +163,11 @@ break;
         }
 		if(number != 1)   {
 
-			System.out.println("You Are Selected Wrong Number");
+			System.out.println(Language.prop.getProperty("wrongnumber"));
 
 		}
 
-           System.out.println(prop.getProperty("moviename"));
+           System.out.println(Language.prop.getProperty("moviename"));
 
 		name = sc.nextLine();
 
