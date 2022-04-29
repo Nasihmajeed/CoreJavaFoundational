@@ -1,8 +1,9 @@
+package com.lxisoft.school;
 public class School {
     private String name;
 	private String address;
 	private String phoneNo;
-	private Class classes[];
+	private Classrom classrom[];
 
 	public void inputDetails() {
 		name = "MUNDUR HIGHER SECONDARY SCHOOL";
@@ -12,8 +13,8 @@ public class School {
 
 	public void printDetails() {
 		System.out.println("School Name: " + name + "\nSchool Address: " + address + "\nPhone Number: " + phoneNo + "\n");
-		for (int i = 0; i < classes.length; i++) {
-			classes[i].printDetails();
+		for (int i = 0; i < classrom.length; i++) {
+			classrom[i].printDetails();
 		}
 	}
 	public String getName() {
@@ -40,11 +41,11 @@ public class School {
 		this.phoneNo = phoneNo;
 	}
 
-	public Class[] getClasses() {
-		return classes;
+	public Classrom[] getClassrom() {
+		return classrom;
 	}
 
-	public void setClasses(Class[] classes) {
-		this.classes = classes;
+	public void setClassrom(Classrom[] classrom) {
+		this.classrom = classrom;
 	}
 }

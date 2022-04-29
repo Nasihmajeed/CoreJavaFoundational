@@ -1,4 +1,8 @@
-public class Class {
+package com.lxisoft.school;
+import com.lxisoft.teachers.Student;
+import com.lxisoft.teachers.Teacher;
+
+public class Classrom {
 
     private int seats;
 	private String standard;
@@ -6,7 +10,7 @@ public class Class {
 	private Student[] students;
 	private Teacher classTeacher;
 
-	Class(int seats, String standard, String division, Student[] students, Teacher classTeacher) {
+	public Classrom(int seats, String standard, String division, Student[] students, Teacher classTeacher) {
 		this.seats = seats;
 		this.standard = standard;
 		this.division = division;

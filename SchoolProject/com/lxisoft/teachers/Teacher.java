@@ -1,3 +1,4 @@
+package com.lxisoft.teachers;
 public class Teacher {
         private String name;
         private String subject;
