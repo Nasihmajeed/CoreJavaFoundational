@@ -1,20 +1,20 @@
 public class Car
 {
- String type;
+ String brand;
     String model;
     String color;
-    int tyre;
+    
 
     
-    Car(String type, String model, String color) {
-        this.type = type;
+    Car(String brand, String model, String color) {
+        this.brand = brand;
         this.model = model;
         this.color = color;
 }
-public void car()
+public void cardetails()
 {
-System.out.println("type is:"+type);
-System.out.println("model is:"+model);
-System.out.println("color is:"+color);
+System.out.println("Car Brand :"+brand);
+System.out.println("Car Model :"+model);
+System.out.println("Car Color :"+color);
 }
 }
