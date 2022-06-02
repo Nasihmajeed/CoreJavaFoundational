@@ -1,24 +1,26 @@
 public class Tyre 
 {
+String position;
 String brand;
-String model;
-String type;
-int tyre;
-int radius;
+String size;
+String tyretype;
+String radius;
 
-Tyre(String brand,String model, String type,int tyre,int radius){
+
+public Tyre(String position,String brand,String size, String tyretype,String radius){
+        this.position = position;
         this.brand = brand;
-        this.model = model;
-        this.type = type;
-        this.tyre = tyre;
+        this.size = size;
+        this.tyretype = tyretype;
         this.radius = radius; 
 }
 public void tyredetails()
 {
+System.out.println("Tyre Position :"+position);
 System.out.println("Tyre Brand :"+brand);
-System.out.println("Tyre Model :"+model);
-System.out.println("Tyre Type :"+type);
-System.out.println("Tyre  :"+tyre);
+System.out.println("Tyre Size :"+size);
+System.out.println("Tyre Type :"+tyretype);
 System.out.println("Tyre Radius :"+radius);
+
 }
 }
