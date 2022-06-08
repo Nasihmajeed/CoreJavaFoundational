@@ -3,50 +3,32 @@ public class Car
  String brand;
     String model;
     String color;
+    String registerNo;
+    String price;
+
+Tyre tyre1;
+Tyre tyre2;
+Tyre tyre3;
+Tyre tyre4;
+
     
 
-    Car(String brand, String model, String color) {
+    Car(String brand, String model, String color, String registerNo, String price) {
         this.brand = brand;
         this.model = model;
         this.color = color;
+        this.registerNo = registerNo;
+        this.price = price;
 }
-public void cardetails()
+public void printdetails()
 {
-System.out.println("Car Brand :"+brand);
-System.out.println("Car Model :"+model);
-System.out.println("Car Color :"+color+"\n");
-
-Tyre t1 = new Tyre("Front_Left_Tyre", "MRF", "F1", "Tubless", "2");
-
- 
-Tyre t2 = new Tyre("Front_Right_Tyre", "MRF", "F1", "Tubless", "2");
+System.out.println("Car Brand :"+this.brand);
+System.out.println("Car Model :"+this.model);
+System.out.println("Car Color :"+this.color);
+System.out.println("Car RegisterNo :"+ this.registerNo);
+System.out.println("Car Price :"+this.price+"\n");
 
 
-Tyre t3 = new Tyre("Back_Left_Tyre", "CEAT", "F2", "Tubless", "2.5");
-
-
-Tyre t4 = new Tyre("Back_Right_Tyre", "CEAT", "F2", "Tubless", "2.5");
-
- t1.tyredetails();
-
-System.out.println("\t");
-
- t2.tyredetails();
-
-
-System.out.println("\t");
-
-
- t3.tyredetails();
-
-
-System.out.println("\t");
-
-
- t4.tyredetails();
-
-
-System.out.println("\t");
 
 }
 
