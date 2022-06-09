@@ -28,6 +28,18 @@ System.out.println("Car Color :"+this.color);
 System.out.println("Car RegisterNo :"+ this.registerNo);
 System.out.println("Car Price :"+this.price+"\n");
 
+tyre1.printTyreDetails();
+
+
+
+tyre2.printTyreDetails();
+
+
+tyre3.printTyreDetails();
+
+
+
+tyre4.printTyreDetails();
 
 
 }
