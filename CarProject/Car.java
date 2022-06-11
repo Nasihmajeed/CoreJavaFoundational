@@ -6,11 +6,7 @@ public class Car
     String registerNo;
     String price;
 
-Tyre tyre1;
-Tyre tyre2;
-Tyre tyre3;
-Tyre tyre4;
-
+  Tyre [] tyres = new Tyre [5];
     
 
     Car(String brand, String model, String color, String registerNo, String price) {
@@ -28,18 +24,19 @@ System.out.println("Car Color :"+this.color);
 System.out.println("Car RegisterNo :"+ this.registerNo);
 System.out.println("Car Price :"+this.price+"\n");
 
-tyre1.printTyreDetails();
+
+tyres[1].printTyreDetails();
 
 
 
-tyre2.printTyreDetails();
+tyres[2].printTyreDetails();
 
 
-tyre3.printTyreDetails();
+tyres[3].printTyreDetails();
 
 
 
-tyre4.printTyreDetails();
+tyres[4].printTyreDetails();
 
 
 }
