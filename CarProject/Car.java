@@ -25,19 +25,13 @@ System.out.println("Car RegisterNo :"+ this.registerNo);
 System.out.println("Car Price :"+this.price+"\n");
 
 
-tyres[1].printTyreDetails();
+for(int x=1; x <tyres.length; x++) {
+
+tyres[x].printTyreDetails();
 
 
-
-tyres[2].printTyreDetails();
-
-
-tyres[3].printTyreDetails();
-
-
-
-tyres[4].printTyreDetails();
-
+}
+ 
 
 }
 
