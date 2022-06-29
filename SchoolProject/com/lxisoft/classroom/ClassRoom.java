@@ -8,17 +8,22 @@ private String division;
  
 private Teacher tchr;
 
-public Student [] student2 = new Student[5];
+private Student [] student2 = new Student[5];
     
 
-   public ClassRoom(String standard, String division) {
+  public ClassRoom(String standard, String division) {
 
         this.standard = standard;
 
         this.division = division;
 }
 
-
+public Student[] getStudent2() {
+   return student2;
+}
+public void setStudent2(Student[] student2) {
+this.student2 = student2;
+}
 public String getStandard() {
  return standard;
 
@@ -52,21 +57,27 @@ public void setTchr(Teacher tchr) {
 public void printClassRoomDetails() {
 
 
-System.out.println("ClassRoom Standard:"+ standard);
+System.out.println("ClassRoom Standard : "+ standard);
 
-System.out.println("ClassRoom Division :"+ division);
+System.out.println("ClassRoom Division : "+ division);
 
-System.out.println("\n");
+System.out.println("\n .....CLASS TEACHER....\n");
 
 
 tchr.printdetails();
 
-for(int x = 1; x < 5;x++) {
+System.out.println("\n.....STUDENTS.....\n");
 
-student2[x].printStudentDetails();
+for(int i = 1; i < 5;i++) {
+
+
+
+student2[i].printStudentDetails();
+}
+
+
+
 
 } 
-
-}
 
 }

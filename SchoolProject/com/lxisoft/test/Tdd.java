@@ -11,29 +11,35 @@ public static void main(String[] args) {
 
 School school1= new School ("GHSS Pathiripala","Ottapalam");
 
+ClassRoom [] clsroom = new ClassRoom[3];
+Student [] std = new Student[5];
+
 for(int j =1; j < 3; j++) {
 
 
-ClassRoom class2 = new ClassRoom ("Standard" + j , "Division" + j);
-school1.class1[j] = class2; 
+ClassRoom classroom = new ClassRoom ("Standard" + j , "Division" + j );
+clsroom[j] = classroom;
+school1.setClass1(clsroom);
 
-Teacher teacher1 = new Teacher ("Teacher" + j, "Subject" + j);
+Teacher teacher1 = new Teacher ("Teacher" + j , "Subject" + j);
 
-class2.setTchr (teacher1);
+classroom.setTchr(teacher1);
 
 
 for(int k = 1; k < 5; k++) {
 
-Student student3 = new Student("Name" +k, "Subject" + k, "Mark" + k, "RollNumber" + k);
 
-class2.student2[k] = student3;
-//class2.student1[k] =student2;
+Student student3 = new Student("Name" + k, "Subject" + k, "Mark" + k, "RollNumber" + k);
+std[k] = student3;
+classroom.setStudent2(std);
+
+}
 
 }
 
-}
 school1.printdetails();
-}
+
 
 }
 
+}
