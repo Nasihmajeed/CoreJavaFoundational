@@ -1,23 +1,32 @@
 package com.lxisoft.school;
 import com.lxisoft.classroom.ClassRoom;
+
 public class School {
+
 private String name ;
+
 private String place;    
 
- private ClassRoom [] class1 = new ClassRoom[3];
+ private ClassRoom [] classroom = new ClassRoom[3];
     
 
    public School(String name, String place) {
+
         this.name = name;
+
         this.place = place;
 }
 
-public ClassRoom[] getClass1() {
-   return class1;
+public ClassRoom[] getClassroom() {
+   return classroom;
+
 }
-public void setClass1(ClassRoom[] class1) {
-this.class1 = class1;
+
+public void setClassroom(ClassRoom[] classroom) {
+this.classroom = classroom;
+
 }
+
 public String getName() {
  return name;
 
@@ -52,11 +61,10 @@ System.out.println("\n.....CLASS.....\n");
 
 for(int x = 1;x < 3;x++) {
 
-class1[x].printClassRoomDetails();
+classroom[x].printClassRoomDetails();
 
 } 
 
 }
-
 
 }
