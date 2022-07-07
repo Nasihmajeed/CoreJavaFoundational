@@ -4,6 +4,6 @@ String wardNumber;
 String totalCapacity;
 public void print  ()
 {
-System.out.println (this.wardNumber+this.totalCapacity);
+System.out.println (this.wardNumber+totalCapacity);
 }
 }
