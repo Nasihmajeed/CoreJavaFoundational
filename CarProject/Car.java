@@ -1,25 +1,23 @@
 public class Car 
 {
-    String carName;           
-    String carColor;    
-    String carFuel;    
-    String carPrice;
+    String name;           
+    String color;    
+    String fuel;    
+    String price;
+    String position;
         
     public void showDetails()
     {
-        System.out.println("Car Model : "+carName);
+        System.out.println("Car Model : "+name);
         System.out.println("");
 
-        System.out.print("Color : "+carColor+" , "+"Fuel : "+carFuel+", "+"Price : "+carPrice);
+        System.out.print("Color : "+color+" , "+"Fuel : "+carFuel+", "+"Price : "+carPrice);
         System.out.println("");
-       
-        Door d = new Door();
-        d.showDetails();
+               
+        d.showDetails();        
         
-        Steering s= new Steering();
         s.showDetails();        
-
-        Tyre t = new Tyre();
+        
         t.showDetails();                   
     }
 }

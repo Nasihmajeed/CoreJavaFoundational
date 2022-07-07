@@ -4,9 +4,7 @@ public class Steering
     public String steerFeature;
 
     public void showDetails()
-    {
-        steerSize="14 Inches";   
-        steerFeature="German Quality Sport";                 
+    {                         
         System.out.println("Steering Size : "+steerSize+", "+"Steering Perfomance : "+steerFeature);
         System.out.println("");       
     }
