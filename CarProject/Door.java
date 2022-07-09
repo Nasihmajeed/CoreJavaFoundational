@@ -1,11 +1,11 @@
 public class Door
 {
-    String doorLength;
-    String doorColor;
+    String length;
+    String color;
                                                    
     public void showDetails()
     {                               
-        System.out.println("Door Size : "+doorLength+", "+"Door Color : "+doorColor);        
+        System.out.println("Door Size : "+length+" , "+"Door Color : "+color);        
         System.out.println("");                                        
     }                                            
 }

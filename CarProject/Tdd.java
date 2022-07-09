@@ -2,30 +2,41 @@ public class Tdd
 {
     public static void main(String args[])
     {   
-        Car c = new Car();
+        Car c = new Car();      
 
-        c.name="RangeRover Sport By LandRover";        
-        c.color="Black";
-        c.fuel="Diesel";
-        c.price="£84,090"; 
-                        
-        Door d = new Door();
-        //setPosition
-        //use this position and fit in here 
-        c.d.doorLength="36 inches";   
-        c.d.doorColor="Black"; 
-        
-        Steering s= new Steering();
-        c.s.steerSize="14 Inches";   
-        c.s.steerFeature="German Quality Sport";
+        c.type="SUV";
+        c.name="RangeRover Sport By LandRover";                
+        c.engine="2997cc";
+        c.color="Black"; 
     
-        Tyre t = new Tyre();
-        //setPosition
-        //use this position and fit in here
-        c.t.tyreName="MRF WANDERER";
-        c.t.tyreSize=15;
+        c.door1="Lambo Door";                
+        c.door2="Lambo Door";  
+        c.door3="Lambo Door";
+        c.door4="Lambo Door";
 
-        c.showDetails();                                           
+        c.steering="Thrustmaster T248";
+
+        c.tyre1="MRF WANDERER";
+        c.tyre2="MRF WANDERER";
+        c.tyre3="MRF WANDERER";
+        c.tyre4="MRF WANDERER";            
+              
+
+        c.showDetails();
+                 
+        Door d = new Door();                                                       
+        d.length="36 inches";                
+        d.color="Black";
+        d.showDetails();
+        
+        Steering s= new Steering();        
+        s.size="14 Inches";   
+        s.feature="German Quality Sport";
+        s.showDetails();
+    
+        Tyre t = new Tyre();                
+        t.size=15;
+        t.showDetails();        
     }
 }
 

@@ -1,11 +1,10 @@
 public class Tyre
-{
-    public  String tyreName;
-    public  int tyreSize;
+{    
+    int size;
 
     public void showDetails()
     {        
-        System.out.println("Tyre Brand : "+tyreName+", "+"Tyre Size : "+tyreSize);      
+        System.out.println("Tyre Size : "+size);      
         System.out.println("");  
     }
 }

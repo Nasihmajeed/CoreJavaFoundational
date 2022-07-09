@@ -1,11 +1,11 @@
 public class Steering
 {
-    public String steerSize;   
-    public String steerFeature;
+    String size;   
+    String feature;
 
     public void showDetails()
     {                         
-        System.out.println("Steering Size : "+steerSize+", "+"Steering Perfomance : "+steerFeature);
+        System.out.println("Steering Size : "+size+" , "+"Steering Perfomance : "+feature);
         System.out.println("");       
     }
 }
