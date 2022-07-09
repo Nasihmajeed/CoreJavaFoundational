@@ -2,9 +2,6 @@
 
 public static void main(String[] args) {
 
-
-
-
 System.out.println(".........CAR1........");
 
 
@@ -22,16 +19,13 @@ Tyre tyre = new Tyre(" position"+k," brand"+k," S-"+k," Tubeless"+k," R-"+k);
 
 car.tyres[k] = tyre;
 
-
 }
 
-
 car.printdetails();
-
 
 System.out.println("\n");
 
 
+}
 
-	}
- }
+}
