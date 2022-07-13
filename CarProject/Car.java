@@ -10,7 +10,7 @@ public class Car
     String door3;
     String door4;
 
-    String steering;
+    String steer;
     
     String tyre1;
     String tyre2;
@@ -23,13 +23,16 @@ public class Car
     String positionFour="Left Rear";    
                 
         
-    public void showDetails()
+    public void carDetails()
     {
         System.out.println("Car Model : "+type);
         System.out.println("");
 
         System.out.print("Car Name : "+name+"  "+"Engine : "+engine+"   "+"Color : "+color+"\n");
+    }
 
+    public void doorDetails()
+    {    
         System.out.println("\n"+"Door Details ");
         System.out.println("Door1 Type : "+ door1 +" , "+"Position : "+positionOne);
        
@@ -37,11 +40,19 @@ public class Car
        
         System.out.println("Door3 Type : "+ door3 +" , "+"Position : "+positionThree);
         
-        System.out.println("Door4 Type : "+ door4 +" , "+"Position : "+positionFour+"\n");        
-       
-        System.out.println("Steering Details ");
-        System.out.println("Steering Brand : "+steering+" , "+"Position : "+positionTwo+"\n"); 
-      
+        System.out.println("Door4 Type : "+ door4 +" , "+"Position : "+positionFour+"\n");
+
+        System.out.println("--- Door Measurements Here ---");
+    }        
+    
+    public void steerDetails()
+    {   
+        System.out.println("Steering Details");
+        System.out.println("Steering Brand : "+steer+" , "+"Position : "+positionTwo); 
+    }
+    
+    public void tyreDetails()
+    { 
         System.out.println("Tyre Details ");
         System.out.println("Tyre1 Brand : "+tyre1+" , "+"Position : "+positionOne);
         
@@ -49,8 +60,8 @@ public class Car
         
         System.out.println("Tyre3 Brand : "+tyre3+" , "+"Position : "+positionThree);
         
-        System.out.println("Tyre4 Brand : "+tyre4+" , "+"Position : "+positionFour+"\n");
-            
-        System.out.println("--- Additional Details Below ---"+"\n");                       
+        System.out.println("Tyre4 Brand : "+tyre4+" , "+"Position : "+positionFour+"\n");                                       
+        
+        System.out.println("--- Tyre Measurements Here ---");
     }
 }
