@@ -9,68 +9,79 @@ public class Tdd
         car.engine="2997cc";
         car.color="Black"; 
         
-        Door door1 = new Door();        
-        Door door2 = new Door();
-        Door door3 = new Door();
-        Door door4 = new Door();
-    
-        Steering steer = new Steering();
+        car.showDetails();
         
-        Tyre tyre1 = new Tyre();
-        Tyre tyre2 = new Tyre();
-        Tyre tyre3 = new Tyre();
-        Tyre tyre4 = new Tyre();
+        Door doorOne = new Door();        
+        Door doorTwo = new Door();
+        Door doorThree = new Door();
+        Door doorFour = new Door();
+    
+        Steering steering = new Steering();
+        
+        Tyre tyreOne = new Tyre();
+        Tyre tyreTwo = new Tyre();
+        Tyre tyreThree = new Tyre();
+        Tyre tyreFour = new Tyre();
                    
-
-        car.door1="Lambo Door";             ////////Door//////
-        door1.length="36 inches";                
-        door1.color="Black";
-        door1.doorDetails();                                
-            
-        car.door2="Lambo Door";
-        door2.length="36 inches";                
-        door2.color="Black";
-        door2.doorDetails();
-    
-        car.door3="Lambo Door";
-        door3.length="36 inches";                
-        door3.color="Black";
-        door3.doorDetails();
-
-        car.door4="Lambo Door";
-        door4.length="36 inches";                
-        door4.color="Black";        
-        door4.doorDetails();                        
-                                        
-            
-        car.steer="Thrustmaster T248";            //////Steering//////  
-        steer.size="14 Inches";   
-        steer.feature="German Quality Sport";        
-        steer.steerDetails();    
-
-        car.tyre1="MRF WANDERER";                //////Tyre///////   
-        tyre1.speedRate="H (130 mph)";
-        tyre1.size="235/65 R17";
-        tyre1.tyreDetails();
-
-        car.tyre2="MRF WANDERER";
-        tyre2.speedRate="H (130 mph)";
-        tyre2.size="235/65 R17";
-        tyre2.tyreDetails();
-
-        car.tyre3="MRF WANDERER";
-        tyre3.speedRate="H (130 mph)";
-        tyre3.size="235/65 R17";
-        tyre3.tyreDetails();
-
-        car.tyre4="MRF WANDERER";            
-        tyre4.speedRate="H (130 mph)";
-        tyre4.size="235/65 R17";            
-        tyre4.tyreDetails();  
-
         
-        car.showDetails();        
-     
+        car.door1=doorOne;  
+        doorOne.position="Right Front";
+        doorOne.brand="Lambo Door";             
+        doorOne.length="36 inches";                
+        doorOne.color="Black";
+        doorOne.doorDetails();                                              
+            
+        car.door2=doorTwo;  
+        doorTwo.position="Left Front";
+        doorTwo.brand="Lambo Door";             
+        doorTwo.length="36 inches";                
+        doorTwo.color="Black";
+        doorTwo.doorDetails();
+    
+        car.door3=doorThree;  
+        doorThree.position="Right Rear";
+        doorThree.brand="Lambo Door";             
+        doorThree.length="36 inches";                
+        doorThree.color="Black";
+        doorThree.doorDetails();
+
+        car.door4=doorFour;  
+        doorFour.position="Left Rear";
+        doorFour.brand="Lambo Door";             
+        doorFour.length="36 inches";                
+        doorFour.color="Black";                       
+        doorFour.doorDetails();                                        
+            
+        car.steer=steering;
+        steering.position="Left Front";             
+        steering.size="14 Inches";   
+        steering.feature="German Quality Sport"; 
+        steering.steerDetails();       
+        
+
+        car.tyre1=tyreOne;
+        tyreOne.position="Right Front";
+        tyreOne.speedRate="H (130 mph)";
+        tyreOne.size="235/65 R17"; 
+        tyreOne.tyreDetails();       
+
+        car.tyre2=tyreTwo;
+        tyreTwo.position="Left Front";
+        tyreTwo.speedRate="H (130 mph)";
+        tyreTwo.size="235/65 R17";
+        tyreTwo.tyreDetails();
+
+        car.tyre3=tyreThree;
+        tyreThree.position="Right Rear";
+        tyreThree.speedRate="H (130 mph)";
+        tyreThree.size="235/65 R17";
+        tyreThree.tyreDetails();        
+        
+        car.tyre4=tyreFour;
+        tyreFour.position="Left Rear";
+        tyreFour.speedRate="H (130 mph)";
+        tyreFour.size="235/65 R17";  
+        tyreFour.tyreDetails();                     
     }
 }
 
