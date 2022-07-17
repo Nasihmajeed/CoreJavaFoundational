@@ -28,10 +28,10 @@ public class Car
         
         System.out.println("Door Features :");
     
-        System.out.println("Door Position : "+door1.position+" , "+"Door Brand  : "+door1.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door1.color);
-        System.out.println("Door Position : "+door2.position+" , "+"Door Brand  : "+door2.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door2.color);
-        System.out.println("Door Position : "+door3.position+" , "+"Door Brand  : "+door3.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door3.color);
-        System.out.println("Door Position : "+door4.position+" , "+"Door Brand  : "+door4.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door4.color);
+        System.out.println("Door1 Position : "+door1.position+" , "+"Door Brand  : "+door1.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door1.color);
+        System.out.println("Door2 Position : "+door2.position+" , "+"Door Brand  : "+door2.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door2.color);
+        System.out.println("Door3 Position : "+door3.position+" , "+"Door Brand  : "+door3.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door3.color);
+        System.out.println("Door4 Position : "+door4.position+" , "+"Door Brand  : "+door4.brand+" , "+"Door length : "+door4.length+" , "+"Door Color : "+door4.color);
         System.out.println("");
 
         System.out.println("Steering Features :");
@@ -41,10 +41,10 @@ public class Car
 
         System.out.println("Tyre Features :");
 
-        System.out.println("Tyre Position : "+tyre1.position+" , "+"Tyre Speed Rating : "+tyre1.speedRate+" , "+"Tyre Size : "+tyre1.size);
-        System.out.println("Tyre Position : "+tyre2.position+" , "+"Tyre Speed Rating : "+tyre2.speedRate+" , "+"Tyre Size : "+tyre2.size);
-        System.out.println("Tyre Position : "+tyre3.position+" , "+"Tyre Speed Rating : "+tyre3.speedRate+" , "+"Tyre Size : "+tyre3.size);
-        System.out.println("Tyre Position : "+tyre4.position+" , "+"Tyre Speed Rating : "+tyre4.speedRate+" , "+"Tyre Size : "+tyre4.size);
+        System.out.println("Tyre1 Position : "+tyre1.position+" , "+"Tyre Speed Rating : "+tyre1.speedRate+" , "+"Tyre Size : "+tyre1.size);
+        System.out.println("Tyre2 Position : "+tyre2.position+" , "+"Tyre Speed Rating : "+tyre2.speedRate+" , "+"Tyre Size : "+tyre2.size);
+        System.out.println("Tyre3 Position : "+tyre3.position+" , "+"Tyre Speed Rating : "+tyre3.speedRate+" , "+"Tyre Size : "+tyre3.size);
+        System.out.println("Tyre4 Position : "+tyre4.position+" , "+"Tyre Speed Rating : "+tyre4.speedRate+" , "+"Tyre Size : "+tyre4.size);
                                                                   
     }
 }
