@@ -20,8 +20,9 @@ public class Tdd
         Tyre tyreTwo = new Tyre();
         Tyre tyreThree = new Tyre();
         Tyre tyreFour = new Tyre();
-                           
-        car.door1=doorOne;                   //>>>>>>>>>>>>>>Car
+        
+        //Car Door Settings                           
+        car.door1=doorOne;                   
         doorOne.position="Right Front";
         doorOne.brand="Lambo Door";             
         doorOne.length="36 inches";                
@@ -44,14 +45,15 @@ public class Tdd
         doorFour.brand="Lambo Door";             
         doorFour.length="36 inches";                
         doorFour.color="Black";                                        
-            
-        car.steer=steering;                    //>>>>>>>>>>>>Steering
+        
+        //Car Steering Settings    
+        car.steer=steering;                    
         steering.position="Left Front";             
         steering.size="14 Inches";   
         steering.feature="German Quality Sport";       
         
-
-        car.tyre1=tyreOne;                     //>>>>>>>>>>>>Tyre    
+        //Car Tyre Settings
+        car.tyre1=tyreOne;                  
         tyreOne.position="Right Front";
         tyreOne.speedRate="H (130 mph)";
         tyreOne.size="235/65 R17";       
