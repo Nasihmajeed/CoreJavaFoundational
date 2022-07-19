@@ -12,10 +12,33 @@ Forest forest = new Forest("Silentvalley" , "Attapadi");
 
 Tiger tiger = new Tiger();
 
-Lion lion = new Lion();
-
 forest.printDetails();
 
+tiger.setEat("Meat");
+
+tiger.setStrengthLevel("80");
+
+tiger.setHungryLevel("60");
+
+System.out.println("Tiger Eats : "+ tiger.getEat());
+
+System.out.println("Tiger StrengthLevel : "+ tiger.getStrengthLevel());
+
+System.out.println("Tiger HungryLevel : "+ tiger.getHungryLevel() + "\n");
+
+Lion lion = new Lion();
+
+lion.setEat("Meat");
+
+lion.setStrengthLevel("90");
+
+lion.setHungryLevel("70");
+
+System.out.println("Lion Eats : "+ lion.getEat());
+
+System.out.println("Lion StrengthLevel : "+ lion.getStrengthLevel());
+
+System.out.println("Lion HungryLevel : "+ lion.getHungryLevel());
 
 }
 

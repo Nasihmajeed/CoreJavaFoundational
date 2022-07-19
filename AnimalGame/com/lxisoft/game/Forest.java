@@ -9,7 +9,10 @@ import com.lxisoft.animals.*;
 public class Forest {
 
 private String name;
+
 private String location;
+
+Animal animals = new Animal();
 
 public Forest(String name, String location) {
 
@@ -40,15 +43,20 @@ public void setLocation(String newLocation) {
 
 }
 
-public void printDetails() {
+public void meetPlayers(Animal Player1 , Animal Player2){
 
-System.out.println("\n......WELCOME TO FOREST.......\n");
 
-System.out.println("Forest Name : "+this.name);
-
-System.out.println("Forest Location : "+this.location);
 
 }
+public void printDetails() {
+
+    System.out.println("\n......WELCOME TO FOREST.......\n");
+    
+    System.out.println("Forest Name : "+this.name);
+    
+    System.out.println("Forest Location : "+this.location + "\n");
+    
+    }
 
 }
 

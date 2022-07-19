@@ -2,7 +2,6 @@ package com.lxisoft.game;
 
 public class Animal {
 
-
 private String eat;
 private String strengthLevel;
 private String hungryLevel;
@@ -35,7 +34,7 @@ public String getStrengthLevel() {
 
 }
 
-public void setSrengthLevel(String newStrengthLevel) {
+public void setStrengthLevel(String newStrengthLevel) {
  this.strengthLevel = newStrengthLevel;
 
 }
