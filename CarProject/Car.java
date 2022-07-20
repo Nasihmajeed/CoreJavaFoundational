@@ -26,17 +26,20 @@ public class Car
         System.out.println("-------      ---------      -----------");
         System.out.println("");
             
-        door1.printDoor1Details();
-        door2.printDoor2Details();
-        door3.printDoor3Details();
-        door4.printDoor4Details();
+        System.out.println("Door Features :");
+        door1.printDetails();
+        door2.printDetails();
+        door3.printDetails();
+        door4.printDetails();
 
+        System.out.println("Steering Features :");
         steer.printDetails();
 
-        tyre1.printTyre1Details();
-        tyre2.printTyre2Details();
-        tyre3.printTyre3Details();
-        tyre4.printTyre4Details();
+        System.out.println("Tyre Features :");    
+        tyre1.printDetails();
+        tyre2.printDetails();
+        tyre3.printDetails();
+        tyre4.printDetails();
                                                                                    
     }
 }

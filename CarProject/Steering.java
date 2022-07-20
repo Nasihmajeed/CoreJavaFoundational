@@ -6,8 +6,6 @@ public class Steering
 
         void printDetails()
         {
-            System.out.println("Steering Features :");
-
             System.out.println("Steering Position : "+position+" , "+"Steering Size : "+size+" , "+"Steering Perfomance : "+feature);
             System.out.println("");
         }
