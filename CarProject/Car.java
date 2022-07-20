@@ -19,10 +19,50 @@ public class Car
         
     public void showDetails()
     {
-        System.out.println("Car Model : "+type);
+        public String getType()
+        {
+            return this.type;
+        }
+
+        public void setType(String Type)
+        {
+            this.type=Type;    
+        }
+        
+        public String getName()
+        {
+            return this.name;
+        }
+        
+        public void setName(String Name)
+        {
+            this.name=Name;
+        }        
+    
+        public String getEngine()
+        {
+            return this.name;
+        }
+    
+        public void setEngine(String Engine) 
+        {
+            this.engine=Engine;
+        }
+
+        public String getColor()
+        {
+            return this.color;
+        }
+        
+        public void setColor(String Color)
+        {
+            this.color=Color;
+        }
+        
+        System.out.println("Car Model : "+getType());
         System.out.println("");
 
-        System.out.print("Car Name : "+name+"  "+"Engine : "+engine+"   "+"Color : "+color+"\n");
+        System.out.print("Car Name : "+getName()+"  "+"Engine : "+getEngine()+"   "+"Color : "+getColor()+"\n");
         System.out.println("-------      ---------      -----------");
         System.out.println("");
             

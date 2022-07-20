@@ -4,10 +4,10 @@ public class Tdd
     {   
         Car car = new Car();      
 
-        car.type="SUV";
-        car.name="RangeRover Sport By LandRover";                
-        car.engine="2997cc";
-        car.color="Black";                 
+        car.setType="SUV";
+        car.setName="RangeRover Sport By LandRover";                
+        car.setEngine="2997cc";
+        car.setColor="Black";                 
         
         Door doorOne = new Door();        
         Door doorTwo = new Door();
