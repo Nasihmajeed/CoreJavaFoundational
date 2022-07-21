@@ -1,9 +1,9 @@
 public class Car 
 {
-    String type;
-    String name;                   
-    String engine;
-    String color;
+    private String type;
+    private String name;                   
+    private String engine;
+    private String color;
 
     Door door1;
     Door door2;
@@ -16,9 +16,7 @@ public class Car
     Tyre tyre2;
     Tyre tyre3;
     Tyre tyre4;
-        
-    public void showDetails()
-    {
+    
         public String getType()
         {
             return this.type;
@@ -57,8 +55,10 @@ public class Car
         public void setColor(String Color)
         {
             this.color=Color;
-        }
-        
+        }       
+     
+    public void showDetails()
+    {               
         System.out.println("Car Model : "+getType());
         System.out.println("");
 

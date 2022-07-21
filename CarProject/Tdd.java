@@ -23,55 +23,55 @@ public class Tdd
         
         //Car Door Settings                           
         car.door1=doorOne;                   
-        doorOne.position="Right Front";
-        doorOne.brand="Lambo Door";             
-        doorOne.length="36 inches";                
-        doorOne.color="Black";                                                      
+        doorOne.setPosition="Right Front";
+        doorOne.setBrand="Lambo Door";             
+        doorOne.setLength="36 inches";                 
+        doorOne.setColor="Black";                                                      
             
         car.door2=doorTwo;  
-        doorTwo.position="Left Front";
-        doorTwo.brand="Lambo Door";             
-        doorTwo.length="36 inches";                
-        doorTwo.color="Black";
+        doorTwo.setPosition="Left Front";
+        doorTwo.setBrand="Lambo Door";             
+        doorTwo.setLength="36 inches";                
+        doorTwo.setColor="Black";
     
         car.door3=doorThree;  
-        doorThree.position="Right Rear";
-        doorThree.brand="Lambo Door";             
-        doorThree.length="36 inches";                
-        doorThree.color="Black";
+        doorThree.setPosition="Right Rear";
+        doorThree.setBrand="Lambo Door";             
+        doorThree.setLength="36 inches";                
+        doorThree.setColor="Black";
 
         car.door4=doorFour;  
-        doorFour.position="Left Rear";
-        doorFour.brand="Lambo Door";             
-        doorFour.length="36 inches";                
-        doorFour.color="Black";                                        
+        doorFour.setPosition="Left Rear";
+        doorFour.setBrand="Lambo Door";             
+        doorFour.setLength="36 inches";                
+        doorFour.setColor="Black";                                        
         
         //Car Steering Settings    
         car.steer=steering;                    
-        steering.position="Left Front";             
-        steering.size="14 Inches";   
-        steering.feature="German Quality Sport";       
+        steering.setPosition="Left Front";             
+        steering.setSize="14 Inches";   
+        steering.setFeature="German Quality Sport";       
         
         //Car Tyre Settings
         car.tyre1=tyreOne;                  
-        tyreOne.position="Right Front";
-        tyreOne.speedRate="H (130 mph)";
-        tyreOne.size="235/65 R17";       
+        tyreOne.setPosition="Right Front";
+        tyreOne.setSpeedRate="H (130 mph)";
+        tyreOne.setSize="235/65 R17";       
 
         car.tyre2=tyreTwo;
-        tyreTwo.position="Left Front";
-        tyreTwo.speedRate="H (130 mph)";
-        tyreTwo.size="235/65 R17";
+        tyreTwo.setPosition="Left Front";
+        tyreTwo.setSpeedRate="H (130 mph)";
+        tyreTwo.setSize="235/65 R17";
 
         car.tyre3=tyreThree;
-        tyreThree.position="Right Rear";
-        tyreThree.speedRate="H (130 mph)";
-        tyreThree.size="235/65 R17";      
+        tyreThree.setPosition="Right Rear";
+        tyreThree.setSpeedRate="H (130 mph)";
+        tyreThree.setSize="235/65 R17";      
         
         car.tyre4=tyreFour;
-        tyreFour.position="Left Rear";
-        tyreFour.speedRate="H (130 mph)";
-        tyreFour.size="235/65 R17";
+        tyreFour.setPosition="Left Rear";
+        tyreFour.setSpeedRate="H (130 mph)";
+        tyreFour.setSize="235/65 R17";
     
         car.showDetails();                    
     }
