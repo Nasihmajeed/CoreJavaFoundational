@@ -19,7 +19,7 @@ public class Car
     
         public String getType()
         {
-            return this.type;
+            return type;
         }
 
         public void setType(String Type)
@@ -39,7 +39,7 @@ public class Car
     
         public String getEngine()
         {
-            return this.name;
+            return this.engine;
         }
     
         public void setEngine(String Engine) 
@@ -59,23 +59,27 @@ public class Car
      
     public void showDetails()
     {               
-        System.out.println("Car Model : "+getType());
+        System.out.println("\t\t  Car Model : "+getType());
+        System.out.println("\t\t-------------");
         System.out.println("");
 
         System.out.print("Car Name : "+getName()+"  "+"Engine : "+getEngine()+"   "+"Color : "+getColor()+"\n");
         System.out.println("-------      ---------      -----------");
         System.out.println("");
             
-        System.out.println("Door Features :");
+        System.out.println("\t\t Door Features :");
+        System.out.println("\t\t----------------");
         door1.printDetails();
         door2.printDetails();
         door3.printDetails();
         door4.printDetails();
 
-        System.out.println("Steering Features :");
+        System.out.println("\t\t  Steering Features :");
+        System.out.println("\t\t---------------------");
         steer.printDetails();
 
-        System.out.println("Tyre Features :");    
+        System.out.println("\t\t  Tyre Features :");    
+        System.out.println("\t\t----------------");
         tyre1.printDetails();
         tyre2.printDetails();
         tyre3.printDetails();

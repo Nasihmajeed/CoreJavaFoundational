@@ -24,7 +24,7 @@ public class Tyre
             this.speedRate=SpeedRate;
         }
         
-        public void getSize()
+        public String getSize()
         {
             return this.size;
         }

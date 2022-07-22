@@ -17,7 +17,7 @@ public class Door
 
         public String getBrand()
         {
-            return this.position;
+            return this.brand;
         }
 
         public void setBrand(String Brand)
