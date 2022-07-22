@@ -6,7 +6,7 @@ public class Steering
 
         public String getPosition()
         {
-            return this.position;
+            return position;
         }
 
         public void setPosition(String Position)
@@ -16,7 +16,7 @@ public class Steering
 
         public String getSize()
         {
-            return this.size;
+            return size;
         }
 
         public void setSize(String Size)
@@ -26,7 +26,7 @@ public class Steering
 
         public String getFeature()
         {
-            return this.feature;
+            return feature;
         }
 
         public void setFeature(String Feature)

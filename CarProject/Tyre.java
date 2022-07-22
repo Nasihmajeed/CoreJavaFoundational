@@ -6,7 +6,7 @@ public class Tyre
     
         public String getPosition()
         {
-            return this.position;
+            return position;
         }
 
         public void setPosition(String Position)
@@ -16,7 +16,7 @@ public class Tyre
 
         public String getSpeedRate()
         {
-            return this.speedRate;
+            return speedRate;
         }
 
         public void setSpeedRate(String SpeedRate)
@@ -26,7 +26,7 @@ public class Tyre
         
         public String getSize()
         {
-            return this.size;
+            return size;
         }
         
         public void setSize(String Size)

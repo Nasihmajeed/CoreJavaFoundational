@@ -22,53 +22,53 @@ public class Tdd
         Tyre tyreFour = new Tyre();
         
         //Car Door Settings                           
-        car.door1=doorOne;                   
+        car.setDoor1(doorOne);                   
         doorOne.setPosition("Right Front");
         doorOne.setBrand("Lambo Door");             
         doorOne.setLength("36 inches");                 
         doorOne.setColor("Black");                                                      
             
-        car.door2=doorTwo;  
+        car.setDoor2(doorTwo);  
         doorTwo.setPosition("Left Front");
         doorTwo.setBrand("Lambo Door");             
         doorTwo.setLength("36 inches");                
         doorTwo.setColor("Black");
     
-        car.door3=doorThree;  
+        car.setDoor3(doorThree);  
         doorThree.setPosition("Right Rear");
         doorThree.setBrand("Lambo Door");             
         doorThree.setLength("36 inches");                
         doorThree.setColor("Black");
 
-        car.door4=doorFour;  
+        car.setDoor4(doorFour);  
         doorFour.setPosition("Left Rear");
         doorFour.setBrand("Lambo Door");             
         doorFour.setLength("36 inches");                
         doorFour.setColor("Black");                                        
         
         //Car Steering Settings    
-        car.steer=steering;                    
+        car.setSteer(steering);                    
         steering.setPosition("Left Front");             
         steering.setSize("14 Inches");   
         steering.setFeature("German Quality Sport");       
         
         //Car Tyre Settings
-        car.tyre1=tyreOne;                  
+        car.setTyre1(tyreOne);                  
         tyreOne.setPosition("Right Front");
         tyreOne.setSpeedRate("H (130 mph)");
         tyreOne.setSize("235/65 R17");       
 
-        car.tyre2=tyreTwo;
+        car.setTyre2(tyreTwo);
         tyreTwo.setPosition("Left Front");
         tyreTwo.setSpeedRate("H (130 mph)");
         tyreTwo.setSize("235/65 R17");
 
-        car.tyre3=tyreThree;
+        car.setTyre3(tyreThree);
         tyreThree.setPosition("Right Rear");
         tyreThree.setSpeedRate("H (130 mph)");
         tyreThree.setSize("235/65 R17");      
         
-        car.tyre4=tyreFour;
+        car.setTyre4(tyreFour);
         tyreFour.setPosition("Left Rear");
         tyreFour.setSpeedRate("H (130 mph)");
         tyreFour.setSize("235/65 R17");

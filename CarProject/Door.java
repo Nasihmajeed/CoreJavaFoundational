@@ -7,7 +7,7 @@ public class Door
         
         public String getPosition()
         {
-            return this.position;
+            return position;
         }
 
         public void setPosition(String Position)
@@ -17,7 +17,7 @@ public class Door
 
         public String getBrand()
         {
-            return this.brand;
+            return brand;
         }
 
         public void setBrand(String Brand)
@@ -27,7 +27,7 @@ public class Door
 
         public String getLength()
         {
-            return this.length;
+            return length;
         }
 
         public void setLength(String Length)
@@ -37,7 +37,7 @@ public class Door
 
         public String getColor()
         {
-            return this.color;
+            return color;
         }
 
         public void setColor(String Color)
