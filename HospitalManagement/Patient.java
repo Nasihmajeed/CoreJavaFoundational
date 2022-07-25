@@ -1,9 +1,9 @@
 public class Patient
 {
-String Patientname,Patientage;
+String PatientName,PatientAge;
 
 public void print ()
 {
-System.out.println (this.Patientname + Patientage);
+System.out.println (this.PatientName + PatientAge);
 }
 }
