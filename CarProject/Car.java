@@ -5,12 +5,19 @@ public class Car
     private String engine;
     private String color;
 
-    private Door[] doorArr;
+    private Door[] door1;
+    private Door[] door2;
+    private Door[] door3;
+    private Door[] door4;        
 
     private Steering steer;
     
-    private Tyre[] tyreArr;
+    private Tyre[] tyre1;
+    private Tyre[] tyre2;
+    private Tyre[] tyre3;
+    private Tyre[] tyre4;                
     
+        //variables settings
         public String getType()
         {
             return type;
@@ -51,48 +58,47 @@ public class Car
             this.color=Color;
         }
 
-        //setter and getter in Door doors
+        //setter and getter in Door doors            
+        
+        public Door[] getDoor()
+        {
+            return door1;
+        }        
+        
+        public void setDoor1(Door[] Door1)
+        {
+            this.door1[0]=Door1;
+        }
+        
+        public Door[] getDoor()
+        {
+            return door2;
+        }       
+        
+        public void setDoor2(Door[] Door2)
+        {
+            this.door2[1]=Door2;
+        }  
+
+        public Door[] getDoor()
+        {
+            return door3;
+        } 
+
+        public void setDoor3(Door[] Door3)
+        {
+            this.door3[2]=Door3;
+        }  
+
+        public Door[] getDoor()
+        {
+            return door4;
+        } 
     
-        public Door[] getDoorArr0()
+        public void setDoor4(Door[] Door4)
         {
-            return doorArr[0];
-        }       
-        
-        public void setDoorArr0(Door DoorArr0)
-        {
-            this.doorArr[0]=DoorArr0;
-        }
-
-        public Door[] getDoorArr1()
-        {
-            return doorArr[1];
-        }       
-        
-        public void setDoorArr1(Door DoorArr1)
-        {
-            this.doorArr[1]=DoorArr1;
-        }
-
-        public Door[] getDoorArr2()
-        {
-            return doorArr[2];
-        }       
-        
-        public void setDoorArr2(Door DoorArr2)
-        {
-            this.doorArr[2]=DoorArr2;
-        }
-
-        public Door[] getDoorArr3()
-        {
-            return doorArr[3];
-        }       
-        
-        public void setDoorArr3(Door DoorArr3)
-        {
-            this.doorArr[3]=DoorArr3;
-        }   
-
+            this.door4[3]=Door4;
+        }  
         //setter and getter in Steering steer
 
         public Steering getSteer()
@@ -106,46 +112,46 @@ public class Car
         }   
     
         //setter and getter in Tyre tyres
-
-        public Tyre[] getTyreArr0()
-        {
-            return tyreArr[0];
-        }       
         
-        public void setTyreArr0(Tyre TyreArr0)
+        public Tyre[] getTyre()
         {
-            this.tyreArr[0]=TyreArr0;
+            return tyre1;
+        } 
+
+        public void setTyre1(Tyre[] Tyre1)
+        {
+            this.tyre1[0]=Tyre1;
         }    
     
-        public Tyre[] getTyreArr1()
+        public Tyre[] getTyre()
         {
-            return tyreArr[1];
-        }       
-        
-        public void setTyreArr1(Tyre TyreArr1)
-        {
-            this.tyreArr[1]=TyreArr1;
+            return tyre2;
         }     
 
-        public Tyre[] getTyreArr2()
+        public void setTyre2(Tyre[] Tyre2)
         {
-            return tyreArr[2];
-        }       
-        
-        public void setTyreArr2(Tyre TyreArr2)
+            this.tyre2[1]=Tyre2;
+        } 
+
+        public Tyre[] getTyre()
         {
-            this.tyreArr[2]=TyreArr2;
-        }     
-        
-        public Tyre[] getTyreArr3()
+            return tyre3;
+        } 
+    
+        public void setTyre3(Tyre[] Tyre3)
         {
-            return tyreArr[3];
-        }       
-        
-        public void setTyreArr3(Tyre TyreArr3)
+            this.tyre3[2]=Tyre3;
+        } 
+
+        public Tyre[] getTyre()
         {
-            this.tyreArr[3]=TyreArr3;
-        }         
+            return tyre4;
+        } 
+
+        public void setTyre4(Tyre[] Tyre4)
+        {
+            this.tyre4[0]=Tyre4;
+        } 
     public void showDetails()
     {               
         System.out.println("\t\t  Car Model : "+getType());
@@ -158,10 +164,10 @@ public class Car
             
         System.out.println("\t\t Door Features ");
         System.out.println("\t\t----------------");
-        doorArr[0].printDetails();
-        doorArr[1].printDetails();
-        doorArr[2].printDetails();
-        doorArr[3].printDetails();
+        door1[0].printDetails();
+        door2[1].printDetails();
+        door3[2].printDetails();
+        door4[3].printDetails();
 
         System.out.println("\t\t  Steering Features ");
         System.out.println("\t\t---------------------");
@@ -169,10 +175,10 @@ public class Car
 
         System.out.println("\t\t  Tyre Features ");    
         System.out.println("\t\t----------------");
-        tyreArr[0].printDetails();
-        tyreArr[1].printDetails();
-        tyreArr[3].printDetails();
-        tyreArr[4].printDetails();
+        tyre1[0].printDetails();
+        tyre2[1].printDetails();
+        tyre3[3].printDetails();
+        tyre4[4].printDetails();
                                                                                    
     }
 }
