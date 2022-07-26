@@ -5,11 +5,11 @@ public class Car
     private String engine;
     private String color;
 
-    private Door[] door;        
+    private Door[] doors;        
 
     private Steering steer;
     
-    private Tyre[] tyre;                
+    private Tyre[] tyres;                
     
         //variables settings
         public String getType()
@@ -56,12 +56,12 @@ public class Car
         
         public Door[] getDoor()
         {
-            return door;
+            return doors;
         }        
         
         public void setDoor(Door[] Door)
         {
-            this.door=Door;
+            this.doors=Door;
         }
                 
         //setter and getter in Steering steer
@@ -80,12 +80,12 @@ public class Car
         
         public Tyre[] getTyre()
         {
-            return tyre;
+            return tyres;
         } 
 
         public void setTyre(Tyre[] Tyre)
         {
-            this.tyre=Tyre;
+            this.tyres=Tyre;
         }    
     
         
@@ -102,10 +102,10 @@ public class Car
             
         System.out.println("\t\t Door Features ");
         System.out.println("\t\t----------------");
-        door[0].printDetails();
-        door[1].printDetails();
-        door[2].printDetails();
-        door[3].printDetails();
+        doors[0].printDetails();
+        doors[1].printDetails();
+        doors[2].printDetails();
+        doors[3].printDetails();
 
         System.out.println("\t\t  Steering Features ");
         System.out.println("\t\t---------------------");
@@ -113,10 +113,10 @@ public class Car
 
         System.out.println("\t\t  Tyre Features ");    
         System.out.println("\t\t----------------");
-        tyre[0].printDetails();
-        tyre[1].printDetails();
-        tyre[2].printDetails();
-        tyre[3].printDetails();
+        tyres[0].printDetails();
+        tyres[1].printDetails();
+        tyres[2].printDetails();
+        tyres[3].printDetails();
                                                                                    
     }
 }
