@@ -71,6 +71,8 @@ teacher.printdetails();
 
 System.out.println("\n.....STUDENTS.....\n");
 
+
+
 for(int i = 1; i < 5;i++) {
 
 

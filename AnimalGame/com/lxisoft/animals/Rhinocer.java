@@ -2,7 +2,7 @@ package com.lxisoft.animals;
 
 import com.lxisoft.game.Animal;
 
-public class Rhinocer extends Animal {
+public class Rhinocer extends Animal implements Herbivores {
 
 public Rhinocer() {
 
@@ -10,9 +10,9 @@ super();
 
 }
 
-public Rhinocer(String Eat , String StrengthLevel, String HungeryLevel) {
+public Rhinocer(String animalName, String eat , int strengthLevel, int hungeryLevel) {
 
-super(Eat, StrengthLevel, HungeryLevel);
+super(animalName, eat, strengthLevel, hungeryLevel);
 
 }
 

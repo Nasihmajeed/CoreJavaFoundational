@@ -2,7 +2,7 @@ package com.lxisoft.animals;
 
 import com.lxisoft.game.Animal;
 
-public class Rabbit extends Animal {
+public class Rabbit extends Animal implements Herbivores {
 
 public Rabbit() {
 
@@ -10,9 +10,9 @@ super();
 
 }
 
-public Rabbit(String Eat , String StrengthLevel, String HungeryLevel) {
+public Rabbit(String animalName, String eat , int strengthLevel, int hungeryLevel) {
 
-super(Eat, StrengthLevel, HungeryLevel);
+super(animalName, eat, strengthLevel, hungeryLevel);
 
 }
 

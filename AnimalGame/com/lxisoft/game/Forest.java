@@ -1,5 +1,7 @@
 package com.lxisoft.game;
 
+import java.util.ArrayList;
+
 import com.lxisoft.game.Forest;
 
 import com.lxisoft.game.Animal;
@@ -8,56 +10,53 @@ import com.lxisoft.animals.*;
 
 public class Forest {
 
-private String name;
+    int i = 0;
 
-private String location;
+    String meeting;
 
-Animal animals = new Animal();
+    public void setMeeting(Animal animal1,Animal animal2) {
 
-public Forest(String name, String location) {
+        if((animal1 instanceof Herbivores) && (animal2 instanceof Carnivores )) {
 
-this.name = name;
+            System.out.println("FIGHT BEGINS HERE");
 
-this.location = location;
+        } 
+    }     
+        
 
-}
+public void welcomeToForest () {
 
+    System.out.println("WELCOME TO FOREST \n");
 
-public String getName() {
- return name;
+Animal animal = new Animal(" "," ",0,0);
 
-}
+// animal.wildAnimals();
 
-public void setName(String newName) {
- this.name = newName;
+ArrayList<Animal> animalsList = new ArrayList<Animal>();
 
-}
-
-public String getLocation() {
- return location;
-
-}
-
-public void setLocation(String newLocation) {
- this.location = newLocation;
-
-}
-
-public void meetPlayers(Animal Player1 , Animal Player2){
+  
 
 
+animalsList.add(new Lion("King-Lion","meat",50,50));
+animalsList.add(new Deer("Alcine-Deer","grass",20,25));
+animalsList.add(new Tiger("Dave-Tiger","meat",40,35));
+animalsList.add(new Rabbit("Peter-Rabbit","grass",15,12));
+animalsList.add(new Leopard("Dale-Leopard","meat",30,15));
+animalsList.add(new Giraffe("Custard-Giraffe","grass",14,12));
+animalsList.add(new Wolf("Roman-Wolf","meat",25,24));
+animalsList.add(new Rhinocer("Grit-Rhinocer","meat",16,17));
+animalsList.add(new Cheetah("Fastest-Cheetah","meat",45,45));
+animalsList.add(new Zebra("Zippy-Zebra","grass",22,33));
 
-}
-public void printDetails() {
+for(i = 0 ; i < animalsList.size() ; i++) {
+    System.out.println(animalsList.get(i).getName());
+    System.out.println(animalsList.get(i).getEat());
+    System.out.println(animalsList.get(i).getStrengthLevel());
+    System.out.println(animalsList.get(i).getHungryLevel());
 
-    System.out.println("\n......WELCOME TO FOREST.......\n");
-    
-    System.out.println("Forest Name : "+this.name);
-    
-    System.out.println("Forest Location : "+this.location + "\n");
-    
-    }
+
+} 
 
 }
 
-
+}
