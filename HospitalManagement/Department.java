@@ -6,7 +6,7 @@ Ward ward;
 
 public void print()
 {
-System.out.println(this.departmentName+departmentBuilding+departmentFloornumber);
+System.out.println(departmentName+"\n"+departmentBuilding+"\n"+departmentFloornumber);
 ward.print();
 }
-}
+}	

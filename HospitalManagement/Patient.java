@@ -4,6 +4,6 @@ String PatientName,PatientAge;
 
 public void print ()
 {
-System.out.println (this.PatientName + PatientAge);
+System.out.println (PatientName+"\n"+PatientAge);
 }
 }

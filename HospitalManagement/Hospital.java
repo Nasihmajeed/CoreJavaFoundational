@@ -9,7 +9,7 @@ Department department1;
 
 public void print()
 {
-System.out.println(this.hospitalName + hospitalPlace);
+System.out.println(hospitalName+"\n"+hospitalPlace);
 department1.print();
 }
 }
