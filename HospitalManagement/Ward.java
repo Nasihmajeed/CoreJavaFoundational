@@ -6,6 +6,7 @@ String wardNumber, totalCapacity;
 
 // Patient Details
 Patient patient;
+Patient patient1;
 //Patient PatientAge;
 /*
 Patient MalePatient2;
@@ -24,6 +25,7 @@ Patient FemalePatient3Age;
 public void print  ()
 {
 patient.print();
+patient1.print();
 /*
 //MalePatient2.print();
 //MalePatient2Age.print();
