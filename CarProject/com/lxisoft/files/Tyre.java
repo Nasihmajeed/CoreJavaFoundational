@@ -36,9 +36,11 @@ public class Tyre
         }
 
         void printDetails()
-        {            
-            System.out.println("Tyre Position : "+getPosition()+" , "+"Tyre Speed Rating : "+getSpeedRate()+" , "+"Tyre Size : "+getSize() );
-            System.out.println("");           
+        {   
+            for()
+            {         
+                System.out.println("Tyre Position : "+getPosition()+" , "+"Tyre Speed Rating : "+getSpeedRate()+" , "+"Tyre Size : "+getSize() );
+                System.out.println("");           
+            }
         }
-
 }

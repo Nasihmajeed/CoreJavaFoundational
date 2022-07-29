@@ -48,9 +48,12 @@ public class Door
         }        
 
         void printDetails()
-        {
-            System.out.println("Door Position : "+getPosition()+" , "+"Door Brand  : "+getBrand()+" , "+"Door length : "+getLength()+" ,  "+"Door Color : "+getColor() );
-            System.out.println(""); 
+        {   
+            for()
+            {
+                System.out.println("Door Position : "+getPosition()+" , "+"Door Brand  : "+getBrand()+" , "+"Door length : "+getLength()+" ,  "+"Door Color : "+getColor() );
+                System.out.println(""); 
+            }
         }      
         
                                                                  

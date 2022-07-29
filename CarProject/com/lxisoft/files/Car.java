@@ -104,9 +104,9 @@ public class Car
         System.out.println("\t\t Door Features ");
         System.out.println("\t\t----------------");
         doors[0].printDetails();
-        doors[1].printDetails();
-        doors[2].printDetails();
-        doors[3].printDetails();
+        //doors[1].printDetails();
+        //doors[2].printDetails();
+        //doors[3].printDetails();
 
         System.out.println("\t\t  Steering Features ");
         System.out.println("\t\t---------------------");
@@ -115,9 +115,9 @@ public class Car
         System.out.println("\t\t  Tyre Features ");    
         System.out.println("\t\t----------------");
         tyres[0].printDetails();
-        tyres[1].printDetails();
-        tyres[2].printDetails();
-        tyres[3].printDetails();
+        //tyres[1].printDetails();
+        //tyres[2].printDetails();
+        //tyres[3].printDetails();
                                                                                    
     }
 }
