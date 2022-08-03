@@ -13,14 +13,12 @@ public class Tdd
         car.setColor("Black");                 
         
         Door doors[] = new Door[4];        //Car doors Settings
+   
+        car.setDoor(doors);                         
         for(int i = 0;i < 4;i++)
-        {
+        {         
             doors[i] = new Door();
-        }
-        car.setDoor(doors);                  
-        
-        for(int i = 0;i < 4;i++)
-        {            
+   
             doors[i].setPosition("Position " + i);
             doors[i].setBrand("Lambo Door " + i);             
             doors[i].setLength("36 inches " + i);                 
@@ -34,20 +32,16 @@ public class Tdd
         steering.setFeature("German Quality Sport");       
         
         Tyre tyres[] = new Tyre[4];          //Car tyres Settings       
-        for(int j = 0;j < 4 ; j++)
-        {
-            tyres[j] = new Tyre();
-        }        
-        car.setTyre(tyres);                               
-        
+          
+        car.setTyre(tyres);                                       
         for(int j = 0;j < 4;j++)
         {
+            tyres[j] = new Tyre();
+        
             tyres[j].setPosition("Position " + j);
             tyres[j].setSpeedRate("H (130 mph) " + j);
             tyres[j].setSize("235/65 R17 " + j);       
-        }
-        
-
+        }        
         car.showDetails();                    
     }
 }
