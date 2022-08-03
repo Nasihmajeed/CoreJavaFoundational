@@ -13,12 +13,12 @@ public class Tdd
         car.setColor("Black");                 
         
         Door doors[] = new Door[4];        //Car doors Settings
-        doors[0]=new Door();
-        doors[1]=new Door();
-        doors[2]=new Door();
-        doors[3]=new Door();
-               
+        for(int i = 0;i < 4;i++)
+        {
+            doors[i] = new Door();
+        }
         car.setDoor(doors);                  
+        
         for(int i = 0;i < 4;i++)
         {            
             doors[i].setPosition("Position " + i);
@@ -33,13 +33,13 @@ public class Tdd
         steering.setSize("14 Inches");   
         steering.setFeature("German Quality Sport");       
         
-        Tyre tyres[] = new Tyre[4];          //Car tyres Settings   
-        tyres[0]=new Tyre();
-        tyres[1]=new Tyre();
-        tyres[2]=new Tyre();
-        tyres[3]=new Tyre();
-        
+        Tyre tyres[] = new Tyre[4];          //Car tyres Settings       
+        for(int j = 0;j < 4 ; j++)
+        {
+            tyres[j] = new Tyre();
+        }        
         car.setTyre(tyres);                               
+        
         for(int j = 0;j < 4;j++)
         {
             tyres[j].setPosition("Position " + j);
