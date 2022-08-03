@@ -103,21 +103,20 @@ public class Car
             
         System.out.println("\t\t Door Features ");
         System.out.println("\t\t----------------");
-        doors[0].printDetails();
-        //doors[1].printDetails();
-        //doors[2].printDetails();
-        //doors[3].printDetails();
-
+        for(int i = 0;i < 4;i++)
+        {            
+            doors[i].printDetails();            
+        }
+       
         System.out.println("\t\t  Steering Features ");
         System.out.println("\t\t---------------------");
         steer.printDetails();
 
         System.out.println("\t\t  Tyre Features ");    
         System.out.println("\t\t----------------");
-        tyres[0].printDetails();
-        //tyres[1].printDetails();
-        //tyres[2].printDetails();
-        //tyres[3].printDetails();
-                                                                                   
+        for(int j = 0;j < 4;j++)
+        {
+            tyres[j].printDetails();        
+        }                                                                                      
     }
 }

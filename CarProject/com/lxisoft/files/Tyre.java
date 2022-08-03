@@ -37,10 +37,8 @@ public class Tyre
 
         void printDetails()
         {   
-            for(int i=0;i<=tyre.length;i++)
-            {         
+                                
                 System.out.println("Tyre Position : "+getPosition()+" , "+"Tyre Speed Rating : "+getSpeedRate()+" , "+"Tyre Size : "+getSize() );
-                System.out.println("");           
-            }
+                System.out.println("");                       
         }
 }
