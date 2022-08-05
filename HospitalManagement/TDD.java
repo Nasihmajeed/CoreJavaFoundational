@@ -3,69 +3,46 @@ public class TDD
 public static void main (String [] args)
 {
 
+//	New Department & Hospital Creation
 Department departmentna=new Department();
-
-Patient patient1 =new Patient();
-Patient patient2 =new Patient();
-Patient patient3 =new Patient();
-Patient patient4 =new Patient();
-Patient patient5 =new Patient();
-Patient patient6 =new Patient();
 
 Hospital sHospital = new Hospital();
 
-Ward ward = new Ward();
-
-
-//Department Details
-departmentna.ward=ward;
-departmentna.departmentName="Department1: AadvikBlock1";
-departmentna.departmentBuilding="Department Building: AadvikBuilding1";
-departmentna.departmentFloornumber="Department Floor Number: FirstFloor";
-
 //Patient Details
 
-ward.patient1=patient1;
-patient1.PatientName="Male1";
-patient1.PatientAge="25";
+Ward ward = new Ward();
+int number =5;
+ward.patients = new Patient[5];
 
-ward.patient2=patient2;
-patient2.PatientName="Male2";
-patient2.PatientAge="35";
+for (int i=0; i < ward.patients.length; i++){
+	Patient patient = new Patient();
+	patient.setPatientName("Male Patient "+(i+1));
+	patient.setPatientAge(21 + (i+1));
+	ward.patients[i]=patient;
+	}
 
-ward.patient3=patient3;
-patient3.PatientName="Male3";
-patient3.PatientAge="45";
+ // Ward Details
 
-ward.patient4=patient4;
-patient4.PatientName="FeMale1";
-patient4.PatientAge="25";
+ward.setWardNumber("Ward Number: 0005");
+ward.setTotalCapacity("Ward Total Capacity : 2500");
+ 
+ // Department Details Printing
 
-ward.patient5=patient5;
-patient5.PatientName="FeMale2";
-patient5.PatientAge="35";
-
-ward.patient6=patient6;
-patient6.PatientName="FeMale1";
-patient6.PatientAge="45"; 
-
-// Ward Details
-
-ward.wardNumber="Ward Number: 0005";
-ward.totalCapacity="Ward Total Capacity : 2500";
-
-// Printing 
-
-// Department details Printing
+ // Hospital Details Printing
 
 sHospital.department1=departmentna;
 
-// Hospital Details
-
-sHospital.hospitalName = "HospitalName: Palakkad Hospital";
-sHospital.hospitalPlace = "HospitalPlace: Palakkad Kerala";
-
+sHospital.setHospitalName("HospitalName: Palakkad Hospital");
+sHospital.setHospitalPlace("HospitalPlace: Palakkad Kerala");
+ 
+ //Department Details Printing
+ 
+departmentna.ward=ward;
+departmentna.setDepartmentName("Department1: AadvikBlock1");
+departmentna.setDepartmentBuilding("Department Building: AadvikBuilding1");
+departmentna.setDepartmentFloornumber("Department Floor Number: FirstFloor");		
 sHospital.print();
 
 }
 }
+

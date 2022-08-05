@@ -2,28 +2,40 @@ public class Ward
 {
 
 // Ward Details	
-String wardNumber, totalCapacity;
+private String wardNumber, totalCapacity;
+
+public void setWardNumber(String warNumber){
+	this.wardNumber = warNumber;
+}
+
+public void setTotalCapacity(String totCapacity){
+	this.totalCapacity = totCapacity;
+}
+
+public String getWardNumber (){
+	return this.wardNumber;
+}
+
+public String getTotalCapacity (){
+	return this.totalCapacity;
+}	
 
 // Patient Details
-Patient patient1;
-Patient patient2;
-Patient patient3;
-Patient patient4;
-Patient patient5;
-Patient patient6;
+
+Patient [] patients;
 
 // Priting Details
 
 public void print  ()
 {
-patient1.print();
-patient2.print();
-patient3.print();
-patient4.print();
-patient5.print();
-patient6.print();
+	
+for (int i=0; i < this.patients.length; i++){
+ 		System.out.println(this.patients[i].getPatientName());
+		System.out.println(this.patients[i].getPatientAge()); 
+		
+ }
+System.out.println (this.wardNumber);
+System.out.println(this.totalCapacity);
 
-System.out.println (wardNumber);
-System.out.println(totalCapacity);
 }
 }
