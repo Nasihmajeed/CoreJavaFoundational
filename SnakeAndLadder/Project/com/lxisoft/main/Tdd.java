@@ -7,5 +7,7 @@ public class Tdd
     {
         Board snakeLadderGame = new Board();
         
+        snakeLadderGame.setBoard(board);
+        board.setLocationCell(10);                 
     }
 }

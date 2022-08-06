@@ -2,5 +2,14 @@ package com.lxisoft.files;
 
 public class Snake
 {
-    int snakeSize;
+    private int snakeSize;
+
+    public int getSnakeSize()
+    {
+        return snakeSize;
+    }
+    public void getSnakeSize(int SnakeSize)
+    {
+        this.snakeSize=SnakeSize;    
+    }
 }
