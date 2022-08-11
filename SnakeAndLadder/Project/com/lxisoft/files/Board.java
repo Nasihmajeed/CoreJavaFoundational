@@ -3,8 +3,11 @@ import java.util.*;
  
 public class Board
 {
-    private Board board;        
-    //private Location[] location;        
+    private Board board;
+    private Dice dice;
+    private Ladder[] ladders;
+    private Person[] players;
+    private Snake[] snakes;             
     
     int playerOneScore;
     int playerTwoScore;
