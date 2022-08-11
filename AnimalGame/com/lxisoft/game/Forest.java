@@ -23,12 +23,12 @@ public class Forest {
 
     String meeting;
     String fight;
+    Animal animal = new Animal(" "," ",0,0);
 
     public void welcomeToForest () {
 
         System.out.println("..........WELCOME TO FOREST........... \n");
     
-    Animal animal = new Animal(" "," ",0,0);
     
     // animal.wildAnimals();
     
@@ -51,9 +51,10 @@ public class Forest {
     
         } 
     
-    setMeeting(animalsList);
+    animalsMeeting(animalsList);
     }
-    public void setMeeting(ArrayList<Animal> animalsList) {
+    
+    public void animalsMeeting(ArrayList<Animal> animalsList) {
 
         Random random = new Random();
 
@@ -63,43 +64,13 @@ public class Forest {
     Animal player1 = animalsList.get(animal1);
     Animal player2 = animalsList.get(animal2);
 
-    setFight(player1 , player2);
+   
+    animal.animalsFight(player1 , player2);
 
 
     }
     
-    public void setFight(Animal player1 , Animal player2) {
-
-        if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)) {
-
-            System.out.println("The Both Players Are Herbivores");
-            System.out.println("Didn't Figth Each Other");
-            System.out.println("They are Good Friends");
-
-        }
-        
-        else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)) {
-
-            System.out.println("The First Player Is Herbivores");
-            System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
-            System.out.println("The Second Player Is Carnivores");
-            System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
-    }
-
-    else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores)){
-
-        System.out.println("The Both Players Are Carnivores");
-        System.out.println("They Are Good Friends");
    
     }
 
-    else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores)){
-
-        System.out.println("The First Player Is Carnivores");
-        System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
-        System.out.println("The Second Player Is Herbivores");
-        System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
-
-    }
-}
-        }
+        
