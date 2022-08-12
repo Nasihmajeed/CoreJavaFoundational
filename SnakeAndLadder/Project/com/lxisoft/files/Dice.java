@@ -1,6 +1,6 @@
 package com.lxisoft.files;
 
-public class Dice
+public class Dice implements DiceThrowable
 {
     private int diceSize;
     
@@ -12,4 +12,9 @@ public class Dice
     {
         this.diceSize=DiceSize;
     }
+
+        public void throwDice()
+        {
+            System.out.println("Game Starting Throw Dice!"+"\n");        
+        }
 }

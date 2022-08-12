@@ -2,24 +2,24 @@ package com.lxisoft.files;
 
 public class Person
 {
-    private String name1;
-    private String name2;    
+    private String player1;
+    private String player2;    
 
     public String getPlayerOne()    
     {
-        return name1;
+        return player1;
     }
     public void setPlayerOne(String PlayerOne)
     {
-        this.name1=PlayerOne;
+        this.player1=PlayerOne;
     }
 
     public String getPlayerTwo()
     {
-        return name2;
+        return player2;
     }
     public void setPlayerTwo(String PlayerTwo)
     {
-        this.name2=PlayerTwo;
+        this.player2=PlayerTwo;
     }
 }

@@ -1,6 +1,6 @@
 package com.lxisoft.files;
 
-public class Snake
+public class Snake implements SnakeStrikable
 {
     private int snakeSize;
 
@@ -12,4 +12,9 @@ public class Snake
     {
         this.snakeSize=SnakeSize;    
     }
+        
+    public void snakeBites()
+    {
+        System.out.println("Haha I Bites Him");
+    }    
 }
