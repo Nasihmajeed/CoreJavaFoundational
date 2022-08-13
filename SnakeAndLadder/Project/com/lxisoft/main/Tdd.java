@@ -5,13 +5,13 @@ public class Tdd
 {
     public static void main(String [] args)    
     {
-        Board snakeLadderGame = new Board();         //Board matter              
+        Board board = new Board();                  //Board matter              
         
         Dice dice = new Dice();                      //Dice matter
-        snakeLadderGame.setDice(dice);
+        board.setDice(dice);
                   
         Ladder ladders[] = new Ladder[4];            //Ladders matter
-        snakeLadderGame.setLadder(ladders);
+        board.setLadder(ladders);
 
         for(int i = 0;i < 4; i++)
         {
@@ -21,7 +21,7 @@ public class Tdd
         }    
         
         Person players[] = new Person[2];            //Person matter
-        snakeLadderGame.setPlayer(players);
+        board.setPlayer(players);
 
         for(int j = 0;j < 2;j++)
         {
@@ -29,7 +29,7 @@ public class Tdd
         }
  
         Snake snakes[] = new Snake[4];              //Snakes matter
-        snakeLadderGame.setSnake(snakes);
+        board.setSnake(snakes);
 
         for(int k = 0;k < 4;k++)
         {
@@ -38,7 +38,7 @@ public class Tdd
        
         System.out.println("\t "+"Snake And Ladder Game 0.1"+"\n");
                     
-        snakeLadderGame.startPlaying();    
+        board.startPlaying();    
                          
     }
 }

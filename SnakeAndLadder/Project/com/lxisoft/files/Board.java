@@ -3,7 +3,6 @@ import java.util.*;
  
 public class Board
 {
-    private Board board;
     private Dice dice;
     private Ladder[] ladders;
     private Person[] players;
@@ -17,16 +16,7 @@ public class Board
     int snakeLocation = 9;    
    
     Scanner sc = new Scanner(System.in);            
-    
-    public Board getBoard()                    //Board settings
-    {
-        return board;
-    }
-    public void setBoard(Board Board)
-    {
-        this.board=Board;
-    }
-    
+        
     public Dice getDice()                      //Dice settings
     {
         return dice;
@@ -97,7 +87,7 @@ public class Board
                 
                 if(playerOneScore == ladderLocation)
                 {
-                    System.out.println("Yey Player One Going To Space!");                                                       
+                    System.out.println("Yey Player One Going To Space!");                                 
                 }               
 
                 else if(playerTwoScore == ladderLocation)
