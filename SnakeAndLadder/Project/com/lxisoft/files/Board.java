@@ -57,11 +57,15 @@ public class Board
         this.snakes=Snake;
     }
 
+    //set ladders locations    
+    //mark and set person(2 players) 
+    //set snakes locations   
+
     public void startPlaying()
     {      
         dice.throwDice();        
-        //ladder.useLadder();  //which means player 1 or 2 uses ladder to goto space.
-        //snake.snakeBites();  //which means snakes bites player 1 or 2. 
+        //ladders[i].useLadder();  //which means player 1 or 2 uses ladder to goto space.
+        //snakes[k].snakeBites();  //which means snakes bites player 1 or 2. 
     
         for(int i = 0;i < k;i++)
         {

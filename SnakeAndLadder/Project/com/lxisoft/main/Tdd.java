@@ -22,11 +22,8 @@ public class Tdd
         
         Person players[] = new Person[2];            //Person matter
         board.setPlayer(players);
-
-        for(int j = 0;j < 2;j++)
-        {
-            players[j] = new Person();             
-        }
+        players[0] = new Person();
+        players[1] = new Person();        
  
         Snake snakes[] = new Snake[4];              //Snakes matter
         board.setSnake(snakes);
