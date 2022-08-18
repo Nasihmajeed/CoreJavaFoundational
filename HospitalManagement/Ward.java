@@ -22,7 +22,15 @@ public String getTotalCapacity (){
 
 // Patient Details
 
-Patient [] patients;
+private Patient[] patients;
+
+public void setPatients(Patient[] patien){
+	this.patients = patien;
+}
+
+public Patient[] getPatients (){
+	return this.patients;
+}
 
 // Priting Details
 
@@ -32,6 +40,7 @@ public void print  ()
 for (int i=0; i < this.patients.length; i++){
  		System.out.println(this.patients[i].getPatientName());
 		System.out.println(this.patients[i].getPatientAge()); 
+		System.out.println(this.patients); 
 		
  }
 System.out.println (this.wardNumber);

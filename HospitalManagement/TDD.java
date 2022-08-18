@@ -9,16 +9,16 @@ Department departmentna=new Department();
 Hospital sHospital = new Hospital();
 
 //Patient Details
-
+Patient[] patients = new Patient[5];
 Ward ward = new Ward();
 int number =5;
-ward.patients = new Patient[5];
+ward.setPatients(patients);
 
-for (int i=0; i < ward.patients.length; i++){
+for (int i=0; i < patients.length; i++){
 	Patient patient = new Patient();
 	patient.setPatientName("Male Patient "+(i+1));
 	patient.setPatientAge(21 + (i+1));
-	ward.patients[i]=patient;
+	patients[i]=patient;
 	}
 
  // Ward Details
