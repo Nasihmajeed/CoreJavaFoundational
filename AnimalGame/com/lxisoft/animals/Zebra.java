@@ -1,5 +1,7 @@
 package com.lxisoft.animals;
 
+import java.util.Random;
+
 import com.lxisoft.game.Animal;
 
 public class Zebra extends Animal implements Herbivores {

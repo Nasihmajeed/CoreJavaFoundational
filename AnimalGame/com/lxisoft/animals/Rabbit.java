@@ -1,5 +1,7 @@
 package com.lxisoft.animals;
 
+import java.util.Random;
+
 import com.lxisoft.game.Animal;
 
 public class Rabbit extends Animal implements Herbivores {
@@ -15,5 +17,6 @@ public Rabbit(String animalName, String eat , int strengthLevel, int hungeryLeve
 super(animalName, eat, strengthLevel, hungeryLevel);
 
 }
+
 
 }
