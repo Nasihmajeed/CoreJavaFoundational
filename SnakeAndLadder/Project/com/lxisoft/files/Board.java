@@ -8,13 +8,14 @@ public class Board
     private Person[] players;
     private Snake[] snakes;             
     
+    int locationOfLadder = 4;
+    int locationOfSnake = 6;
     int playerOneScore;
-    int playerTwoScore;
+    int playerTwoScore;        
     
     int k = 5;
-    int ladderLocation = 10; 
-    int snakeLocation = 9;    
-   
+    int m = 2;
+    
     Scanner sc = new Scanner(System.in);            
         
     public Dice getDice()                      //Dice settings
@@ -57,7 +58,7 @@ public class Board
         this.snakes=Snake;
     }
 
-    //set ladders locations    
+    //set ladders locations                
     //mark and set person(2 players) 
     //set snakes locations   
 
@@ -75,29 +76,31 @@ public class Board
             System.out.println("Player 2 Throw Dice :");
             playerTwoScore=sc.nextInt(); 
 
-            if(playerOneScore == snakeLocation)
+            if(playerOneScore == locationOfSnake)
             {
                 System.out.println("Ouch Snake Bites Player 1!");
                 System.out.println("Player Two Wins!!!");                                                
                 break;    
             }
                     
-            else if(playerTwoScore == snakeLocation)
+            else if(playerTwoScore == locationOfSnake)
             {
                 System.out.println("Ouch Snake Bites Player 2!");
                 System.out.println("Player One Wins!!!");
                 break;
             } 
                 
-                if(playerOneScore == ladderLocation)
+                if(playerOneScore == locationOfLadder)
                 {
                     System.out.println("Yey Player One Going To Space!");                                 
                 }               
 
-                else if(playerTwoScore == ladderLocation)
+                else if(playerTwoScore == locationOfLadder)
                 {
                     System.out.println("Yey Player Two Going To Space!");                    
-                }               
+                }
+
+            System.out.println("\n" + m++ + " Rounds " + "\n");                   
         }  
       
     }
