@@ -1,27 +1,37 @@
 package com.lxisoft.files;
 
-public class Person
+public class Person implements DiceThrowable,LadderUsable
 {
-    private String playerOne;
-    private String playerTwo;    
+    private String nameOne;
+    private String nameTwo;    
 
-   public String getPlayerOne()    
+   public String getnameOne()    
     {
-        return playerOne;
+        return nameOne;
     }
 
-    public void setPlayerOne(String PlayerOne)
+    public void setnameOne(String NameOne)
     {
-        this.playerOne=PlayerOne;
+        this.nameOne=NameOne;
     }
 
-    public String getPlayerTwo()
+    public String getnameTwo()
     {
-        return playerTwo;
+        return nameTwo;
     }
 
-    public void setPlayerTwo(String PlayerTwo)
+    public void setnameTwo(String NameTwo)
     {
-        this.playerTwo=PlayerTwo;
+        this.nameTwo=NameTwo;
+    }
+
+    public void throwDice()
+    {
+        System.out.println("Throw Dice!"+"\n");        
+    }
+    
+    public void useLadder()
+    {
+        System.out.println("WhooHoo Iam Using Ladder I Got Much Points");
     }
 }

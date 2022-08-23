@@ -7,14 +7,15 @@ public class Board
     private Ladder[] ladders;
     private Person[] players;
     private Snake[] snakes;             
-    
-    int locationOfLadder = 4;
-    int locationOfSnake = 6;
-    int playerOneScore;
+
+    int playerOneScore; 
     int playerTwoScore;        
     
+    int locationOfLadder = 6;
+    int locationOfSnake  = 9;
+    
     int k = 5;
-    int m = 2;
+    int m = 4;
     
     Scanner sc = new Scanner(System.in);            
         
@@ -56,18 +57,16 @@ public class Board
     public void setSnake(Snake[] Snake)
     {
         this.snakes=Snake;
-    }
-
-    //set ladders locations                
-    //mark and set person(2 players) 
-    //set snakes locations   
+    }   
 
     public void startPlaying()
-    {      
-        dice.throwDice();        
-        //ladders[i].useLadder();  //which means player 1 or 2 uses ladder to goto space.
-        //snakes[k].snakeBites();  //which means snakes bites player 1 or 2. 
-    
+    {  
+        System.out.println("\t "+"LXI Soft Presents "+"\n");
+        System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
+        System.out.println("\t "+"Game Is Loading..."+"\n");                    
+
+        players[0].throwDice();
+                           
         for(int i = 0;i < k;i++)
         {
             System.out.println("Player 1 Throw Dice :");
@@ -78,6 +77,7 @@ public class Board
 
             if(playerOneScore == locationOfSnake)
             {
+                snakes[0].snakeBites();
                 System.out.println("Ouch Snake Bites Player 1!");
                 System.out.println("Player Two Wins!!!");                                                
                 break;    
@@ -85,6 +85,7 @@ public class Board
                     
             else if(playerTwoScore == locationOfSnake)
             {
+                snakes[1].snakeBites();
                 System.out.println("Ouch Snake Bites Player 2!");
                 System.out.println("Player One Wins!!!");
                 break;
@@ -92,15 +93,17 @@ public class Board
                 
                 if(playerOneScore == locationOfLadder)
                 {
+                    players[0].useLadder();
                     System.out.println("Yey Player One Going To Space!");                                 
                 }               
 
                 else if(playerTwoScore == locationOfLadder)
-                {
+                {   
+                    players[1].useLadder();
                     System.out.println("Yey Player Two Going To Space!");                    
                 }
 
-            System.out.println("\n" + m++ + " Rounds " + "\n");                   
+            System.out.println("\n" + m-- + " Plays Left " + "\n");                   
         }  
       
     }
