@@ -13,22 +13,30 @@ public class Tdd
         Person players[] = new Person[2];            //Person matter
         board.setPlayer(players);
         players[0] = new Person();        
-        players[1] = new Person(); 
-
+        players[1] = new Person();
+ 
         Ladder ladders[] = new Ladder[4];            //Ladders matter
         board.setLadder(ladders);
 
         for(int i = 0;i < 4; i++)
         {
-            ladders[i] = new Ladder();                                 
-        }                                             
+            ladders[i] = new Ladder();
+            ladders[i].setLocationOne(4);
+            ladders[i].setLocationTwo(6);
+            ladders[i].setLocationOne(8);
+            ladders[i].setLocationOne(10);                                 
+        }                                                   
    
         Snake snakes[] = new Snake[4];               //Snakes matter
         board.setSnake(snakes);
 
-        for(int j = 0;j < 4;j++)
+        for(int i = 0;i < 4;i++)
         {
-            snakes[j] = new Snake();
+            snakes[i] = new Snake();
+            snakes[i].setLocationOne(7);
+            snakes[i].setLocationTwo(9);
+            snakes[i].setLocationThree(11);
+            snakes[i].setLocationFour(13);    
         }                      
             
         board.startPlaying();                                  
