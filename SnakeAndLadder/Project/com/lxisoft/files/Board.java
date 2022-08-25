@@ -6,10 +6,7 @@ public class Board
     private Dice dice;
     private Ladder[] ladders;
     private Person[] players;
-    private Snake[] snakes;                                 
-    
-    int k = 5;
-    int m = 4;
+    private Snake[] snakes;                                           
     
     Scanner sc = new Scanner(System.in);            
         
@@ -61,41 +58,39 @@ public class Board
 
         players[0].throwDice();                                   
 
-        for(int i = 0;i < k;i++)
+        for(int i = 0;i < 4;i++)
         {
-            System.out.println("Player 1 Throw Dice :");                        
+            System.out.println("\n"+"Player 1 Throw Dice :");                        
             players[0].setPlayerOneScore(sc.nextInt());
 
             System.out.println("Player 2 Throw Dice :");
             players[1].setPlayerTwoScore(sc.nextInt()); 
 
-            if(players[0].getPlayerOneScore() == ladders[i].getLocationOne());
+            if(players[0].getPlayerOneScore() == ladders[i].getLocationOne())
             {
-                snakes[0].snakeBites();
-                System.out.println("Ouch Snake Bites Player 1!");
-                System.out.println("Player Two Wins!!!");                                                                  
+                 players[0].useLadder();
+                 System.out.println("Yey Player One Going To Space!");                                                         
             }
                     
-            if(players[1].getPlayerTwoScore() == ladders[i].getLocationOne());
+            if(players[1].getPlayerTwoScore() == ladders[i].getLocationOne())
             {
-                snakes[1].snakeBites();
-                System.out.println("Ouch Snake Bites Player 2!");
-                System.out.println("Player One Wins!!!");               
+                players[1].useLadder();
+                System.out.println("Yey Player Two Going To Space!");                                           
             }                                     
         
-                if(players[0].getPlayerOneScore() == snakes[i].getLocationOne());
+                if(players[0].getPlayerOneScore() == snakes[i].getLocationOne())
                 {
-                    players[0].useLadder();
-                    System.out.println("Yey Player One Going To Space!");                                 
+                    snakes[0].snakeBites();
+                    System.out.println("Ouch Snake Bites Player 1!");
+                    System.out.println("Player Two Wins!!!");                                                                                         
                 }               
 
-                if(players[1].getPlayerTwoScore() == snakes[i].getLocationOne());
+                if(players[1].getPlayerTwoScore() == snakes[i].getLocationOne())
                 {   
-                    players[1].useLadder();
-                    System.out.println("Yey Player Two Going To Space!");                    
-                }
-
-            System.out.println("\n" + m-- + " Plays Left " + "\n");                   
+                    snakes[1].snakeBites();
+                    System.out.println("Ouch Snake Bites Player 2!");
+                    System.out.println("Player One Wins!!!");                                        
+                }                            
         }  
       
     }

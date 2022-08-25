@@ -23,8 +23,8 @@ public class Tdd
             ladders[i] = new Ladder();
             ladders[i].setLocationOne(4);
             ladders[i].setLocationTwo(6);
-            ladders[i].setLocationOne(8);
-            ladders[i].setLocationOne(10);                                 
+            ladders[i].setLocationThree(8);
+            ladders[i].setLocationFour(10);                                 
         }                                                   
    
         Snake snakes[] = new Snake[4];               //Snakes matter
@@ -33,7 +33,7 @@ public class Tdd
         for(int i = 0;i < 4;i++)
         {
             snakes[i] = new Snake();
-            snakes[i].setLocationOne(7);
+            snakes[i].setLocationOne(6);
             snakes[i].setLocationTwo(9);
             snakes[i].setLocationThree(11);
             snakes[i].setLocationFour(13);    
