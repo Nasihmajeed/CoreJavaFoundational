@@ -18,4 +18,15 @@ super(animalName, eat, strengthLevel, hungeryLevel);
 
 }
 
+private int luckFactor;
+
+public int getLuckFactor() {
+
+    Random random = new Random();
+    luckFactor = random.nextInt(10);
+    return luckFactor;
+
+
+}
+
 }

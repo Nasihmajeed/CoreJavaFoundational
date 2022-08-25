@@ -8,7 +8,7 @@ private String animalName;
 private String eat;
 private int strengthLevel;
 private int hungryLevel;
-
+private int luckFactor;
 
 
 public Animal()
@@ -68,6 +68,12 @@ public int getHungryLevel() {
 public void setHungryLevel(int newHungryLevel) {
  this.hungryLevel = newHungryLevel;
 
+}
+
+public int getLuckFactor() {
+
+    luckFactor = random.nextInt();
+    return luckFactor;
 }
 
 

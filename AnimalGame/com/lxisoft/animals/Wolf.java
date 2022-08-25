@@ -28,6 +28,27 @@ public void startFight(Animal opponent) {
     int strengthLevelOfPlayer1 = this.getStrengthLevel();
     int strengthLevelOfPlayer2 = opponent.getStrengthLevel();
 
+    if(this.getHungryLevel() >= opponent.getStrengthLevel()) {
+
+        System.out.println("\n" + opponent.getName() + "is in danger situation");
+        System.out.println("\n" + opponent.getName() + "is not unlucy charm and caught by" + this.getName());
+
+    }
+
+    else if(opponent.getStrengthLevel() >= this.getHungryLevel()) {
+
+        System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
+
+        Herbivores.escapeFromEnemy(this,opponent);
+
+    }
+
+    
+
+    else {
+        
+    
+
         
             System.out.println("\n ............THE  FIGTH BEGINS HERE..........");
             System.out.println("\n" + opponent.getName() + "is caught by " + this.getName());
@@ -39,6 +60,8 @@ public void startFight(Animal opponent) {
             System.out.println("The winner is" + this.getName());
 
     
+}
+
 }
 
 }
