@@ -1,5 +1,5 @@
-package com.lxisoft.main;
-import com.lxisoft.files.*;
+package com.lxisoft.launch;
+import com.lxisoft.game.*;
 
 public class Tdd
 {
@@ -9,7 +9,15 @@ public class Tdd
         
         Dice dice = new Dice();                      //Dice matter
         board.setDice(dice);
-                  
+
+        /*
+        
+        Game Has Dice , Board;    
+        Players Has Coins;
+        Board Has Ladders , snakes , Cells;
+
+
+        */            
         Person players[] = new Person[2];            //Person matter
         board.setPlayer(players);
         players[0] = new Person();        

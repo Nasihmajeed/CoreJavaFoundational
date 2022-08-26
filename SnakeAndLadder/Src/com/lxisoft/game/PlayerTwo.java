@@ -1,4 +1,4 @@
-package com.lxisoft.files;
+package com.lxisoft.game;
 
 public class PlayerTwo extends Person
 {

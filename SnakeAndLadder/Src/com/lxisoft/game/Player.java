@@ -1,6 +1,6 @@
-package com.lxisoft.files;
+package com.lxisoft.game;
 
-public class Person implements DiceThrowable,LadderUsable
+public class Player implements DiceThrowable,LadderUsable
 {
     private String nameOne;
     private String nameTwo;    

@@ -1,11 +1,11 @@
-package com.lxisoft.files;
+package com.lxisoft.game;
 import java.util.*;
 
 public class Board
 {
     private Dice dice;
     private Ladder[] ladders;
-    private Person[] players;
+    //private Person[] players;
     private Snake[] snakes;                                           
     
     Scanner sc = new Scanner(System.in);            
@@ -30,7 +30,7 @@ public class Board
         this.ladders=Ladder;
     }
 
-    public Person[] getPlayer()                 //Person settings
+    /*public Person[] getPlayer()                 //Person settings
     {
         return players;
     }
@@ -38,7 +38,7 @@ public class Board
     public void setPlayer(Person[] Players)
     {
         this.players=Players;
-    }
+    }*/
     
     public Snake[] getSnake()                   //Snakes settings
     {

@@ -1,6 +1,6 @@
-package com.lxisoft.files;
+package com.lxisoft.game;
 
-public class Ladder 
+public class Snake implements SnakeStrikable
 {
     private int locationOne;
     private int locationTwo;
@@ -45,5 +45,11 @@ public class Ladder
     public void setLocationFour(int LocationFour)
     {
         this.locationFour=LocationFour;
+    }             
+
+
+    public void snakeBites()
+    {
+        System.out.println("Haha I Bites Him");
     }    
 }
