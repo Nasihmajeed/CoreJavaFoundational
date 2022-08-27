@@ -1,0 +1,49 @@
+package com.lxisoft.game;
+
+public class Players implements DiceThrowable,LadderUsable
+{           
+    private Dice dice;
+    private Coin[] coins;
+    private String name;    
+    private int score;   
+
+    public Dice getDice()                      
+    {
+        return dice;
+    } 
+     
+    public void setDice(Dice Dice)
+    {
+        this.dice=Dice;
+    }
+    
+    public Coin[] getCoin()                      
+    {
+        return coins;
+    } 
+     
+    public void setDice(Coin[] Coins)
+    {
+        this.coins=Coins;
+    }
+
+    public int getScore()
+    {
+        return score;
+    }
+    
+    public void setScore(int Score)
+    {
+        this.score=Score;
+    }
+
+    public void throwDice()
+    {
+        System.out.println("Throw Dice!"+"\n");        
+    }
+    
+    public void useLadder()
+    {
+        System.out.println("WhooHoo Iam Using Ladder I Got Much Points");
+    }
+}

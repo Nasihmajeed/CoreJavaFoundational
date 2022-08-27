@@ -6,18 +6,12 @@ public class Tdd
     public static void main(String [] args)    
     {                                                     
         Board board = new Board();                  //Board matter              
-        
+        board.startPlaying();        
+        /*
         Dice dice = new Dice();                      //Dice matter
         board.setDice(dice);
 
-        /*
-        
-        Game Has Dice , Board;    
-        Players Has Coins;
-        Board Has Ladders , snakes , Cells;
-
-
-        */            
+                 
         Person players[] = new Person[2];            //Person matter
         board.setPlayer(players);
         players[0] = new Person();        
@@ -29,10 +23,7 @@ public class Tdd
         for(int i = 0;i < 4; i++)
         {
             ladders[i] = new Ladder();
-            ladders[i].setLocationOne(4);
-            ladders[i].setLocationTwo(6);
-            ladders[i].setLocationThree(8);
-            ladders[i].setLocationFour(10);                                 
+            ladders[i].setLocationOne(4);                                       
         }                                                   
    
         Snake snakes[] = new Snake[4];               //Snakes matter
@@ -41,12 +32,17 @@ public class Tdd
         for(int i = 0;i < 4;i++)
         {
             snakes[i] = new Snake();
-            snakes[i].setLocationOne(6);
-            snakes[i].setLocationTwo(9);
-            snakes[i].setLocationThree(11);
-            snakes[i].setLocationFour(13);    
-        }                      
+            snakes[i].setLocationOne(6);    
+        } 
+        */                     
+                    
+
+        /*
             
-        board.startPlaying();                                  
+        Players Has Coins , Dice;
+        Board Has Ladders , snakes , Cells;
+
+        */  
+                                          
     }
 }

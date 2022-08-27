@@ -2,23 +2,12 @@ package com.lxisoft.game;
 import java.util.*;
 
 public class Board
-{
-    private Dice dice;
+{   
     private Ladder[] ladders;
-    //private Person[] players;
-    private Snake[] snakes;                                           
+    private Snake[] snakes;  
+    private Cells[] locationCells;                                         
     
     Scanner sc = new Scanner(System.in);            
-        
-    public Dice getDice()                      //Dice settings
-    {
-        return dice;
-    } 
-     
-    public void setDice(Dice Dice)
-    {
-        this.dice=Dice;
-    }      
     
     public Ladder[] getLadder()                //Ladder settings     
     {       
@@ -28,17 +17,7 @@ public class Board
     public void setLadder(Ladder[] Ladder)
     {
         this.ladders=Ladder;
-    }
-
-    /*public Person[] getPlayer()                 //Person settings
-    {
-        return players;
-    }
-
-    public void setPlayer(Person[] Players)
-    {
-        this.players=Players;
-    }*/
+    }   
     
     public Snake[] getSnake()                   //Snakes settings
     {
@@ -48,7 +27,17 @@ public class Board
     public void setSnake(Snake[] Snake)
     {
         this.snakes=Snake;
-    }   
+    }
+
+    public Cells[] getLocationCell()            //locationCell Settings
+    {
+        return locationCells;
+    }       
+
+    public void setLocationCell(Cells[] LocationCells)
+    {
+        this.locationCells=LocationCells;
+    }
 
     public void startPlaying()
     {  
@@ -56,7 +45,7 @@ public class Board
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
         System.out.println("\t "+"Game Is Loading..."+"\n");                    
 
-        players[0].throwDice();                                   
+        //players[0].throwDice();                                   
 
         for(int i = 0;i < 4;i++)
         {
@@ -83,6 +72,7 @@ public class Board
                     snakes[0].snakeBites();
                     System.out.println("Ouch Snake Bites Player 1!");
                     System.out.println("Player Two Wins!!!");                                                                                         
+         
                 }               
 
                 if(players[1].getPlayerTwoScore() == snakes[i].getLocationOne())
