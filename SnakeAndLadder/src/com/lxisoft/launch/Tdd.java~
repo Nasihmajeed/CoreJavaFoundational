@@ -34,7 +34,15 @@ public class Tdd
             snakes[i] = new Snake();
             snakes[i].setLocationOne(6);    
         } 
-        */                                                
+        */                     
+                    
+
+        /*
+            
+        Players Has Coins , Dice;
+        Board Has Ladders , snakes , Cells;
+
+        */  
                                           
     }
 }
