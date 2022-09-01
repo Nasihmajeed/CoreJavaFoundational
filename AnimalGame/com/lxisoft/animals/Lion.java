@@ -33,34 +33,31 @@ public void startFight(Animal opponent) {
         System.out.println("\n" + opponent.getName() + "is in danger situation");
         System.out.println("\n" + opponent.getName() + "is not unlucy charm and caught by" + this.getName());
 
+
+        
+        
+        System.out.println("\n ............THE  FIGTH BEGINS HERE..........");
+        System.out.println("\n" + opponent.getName() + "is caught by " + this.getName());
+        System.out.println("\n" + this.getName() + "is attack" + opponent.getName());
+        System.out.println("\n Strength of" + this.getName() + "is more than the strength of" + opponent.getName());
+        System.out.println("\n HungryLevel of" + this.getName()+ "is more than the Hunger of" + opponent.getName());
+        System.out.println("\n Strength of the "+ opponent.getName() + "is become decreasing" + "increasing the Hunger Level" + this.getName());
+        System.out.println("\n" + this.getName() + "Attack and Killed the" + opponent.getName());
+        System.out.println("The winner is" + this.getName());
+
+
     }
 
     else if(opponent.getStrengthLevel() >= this.getHungryLevel()) {
 
         System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
 
-        Herbivores.escapeFromEnemy(this,opponent);
+        
 
     }
 
-    else {
-
-    
-
-
-        
-            System.out.println("\n ............THE  FIGTH BEGINS HERE..........");
-            System.out.println("\n" + opponent.getName() + "is caught by " + this.getName());
-            System.out.println("\n" + this.getName() + "is attack" + opponent.getName());
-            System.out.println("\n Strength of" + this.getName() + "is more than the strength of" + opponent.getName());
-            System.out.println("\n HungryLevel of" + this.getName()+ "is more than the Hunger of" + opponent.getName());
-            System.out.println("\n Strength of the "+ opponent.getName() + "is become decreasing" + "increasing the Hunger Level" + this.getName());
-            System.out.println("\n" + this.getName() + "Attack and Killed the" + opponent.getName());
-            System.out.println("The winner is" + this.getName());
-
 
 }
 
 }
 
-}

@@ -14,15 +14,8 @@ public class Forest {
 
     ArrayList<Animal> animalsList = new ArrayList<Animal>();
 
-    int hungryLevelOfPlayer1;
-    int hungryLevelOfPlayer2;
-    int strengthLevelOfPlayer1;
-    int strengthLevelOfPlayer2;
+   int i =0;
 
-        int i = 0;
-
-    String meeting;
-    String fight;
     Animal animal = new Animal(" "," ",0,0);
 
     public void welcomeToForest () {
@@ -105,9 +98,10 @@ public class Forest {
        
     
     }
+
     }
+
     
-   
-    }
+   }
 
         

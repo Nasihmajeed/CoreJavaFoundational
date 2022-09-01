@@ -33,23 +33,7 @@ public void startFight(Animal opponent){
         System.out.println("\n" + opponent.getName() + "is in danger situation");
         System.out.println("\n" + opponent.getName() + "is not unlucy charm and caught by" + this.getName());
 
-    }
-
-    else if(opponent.getStrengthLevel() >= this.getHungryLevel()) {
-
-        System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
-
-        Herbivores.escapeFromEnemy(this,opponent);
-
-    }
-    else {
-        
-    
-
-    
- 
-        
-            System.out.println("\n ............THE  FIGTH BEGINS HERE..........");
+        System.out.println("\n ............THE  FIGTH BEGINS HERE..........");
             System.out.println("\n"+ opponent.getName() + "is caught by " + this.getName());
             System.out.println("\n" + this.getName() + " is attack " + opponent.getName());
             System.out.println("\n Strength of " + this.getName() + "is more than the strength of" + opponent.getName());
@@ -60,10 +44,23 @@ public void startFight(Animal opponent){
 
             
 
-        }
+    }
+
+    else if(opponent.getStrengthLevel() >= this.getHungryLevel()) {
+
+        System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
+
+       
+
+    }
+    
+        
+    
+
+    }
 
 }    
-    }
+    
 
 
 
