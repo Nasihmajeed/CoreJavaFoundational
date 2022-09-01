@@ -1,5 +1,4 @@
-package com.lxisoft.game;
-import java.lang.Random;    
+package com.lxisoft.game;   
 import java.util.*;
 
 public class Board
@@ -8,16 +7,35 @@ public class Board
     private Snake[] snakes;  
     private Cells[] locationCells;                                         
     
-    Scanner sc = new Scanner(System.in);            
+    Scanner sc = new Scanner(System.in);     
+    Random rand = new Random();
+
+    Board board = new Board();
+    Ladder ladder = new Ladder();
+    Snake snake = new Snake();
+
+    board.setLadder(ladder);                
+    for(int i = 0;i < 4;i++)
+    {
+        ladders[i] = new Ladder(); 
+    }
     
+    board.setSnake(snakes);
+    for(int i = 0;i < 4;i++)
+    {
+        snakes[i] = new Snake();
+    }
+
+    int randomDicePoint=rand.nextInt(6);    
+
     public Ladder[] getLadder()                //Ladder settings     
     {       
-        return ladders;
+        return ladder;
     }
 
     public void setLadder(Ladder[] Ladder)
     {
-        this.ladders=Ladder;
+        this.ladder=Ladder;
     }   
     
     public Snake[] getSnake()                   //Snakes settings
@@ -42,21 +60,31 @@ public class Board
 
     public void startPlaying()
     {  
-        System.out.println("\t "+"LXI Soft Presents "+"\n");
-        System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
-        System.out.println("\t "+"Game Is Loading..."+"\n");                    
-
-        //players[0].throwDice();                                   
-
-        for(int i = 0;i < 4;i++)
+        for(int i = 0;i < 100;i++)
         {
+            player.gameLoading();
+            
+            System.out.println("Use x to roll Dice");
+            System.out.println(getPlayerOne() + "Throw The Dice");
+            System.out.println(randomDicePoint);
+            //currentPoint==playerOneScore or playerTwoScore;
+            /*if(randomDicePoint==pass)
+            {
+                System.out.println("Nice Play! Player One Enter The Board");
+            }
+            else
+            {
+                System.out.println("Don't Worry Next Time");
+            }
+            Or 
+            {
+                System.out.println("You take 6 One More Chance!");
+            }                    
 
-            int x=random.nextInt(50);
-
-            System.out.println("\n"+"Player 1 Throw Dice :");        
-            //System.out.println("Use x to roll Dice");
+            */
                     
             //players[0].setPlayerOneScore(sc.nextInt());  ///////Use Math.random();
+            //players[0].throwDice();
 
             System.out.println("Player 2 Throw Dice :");
             players[1].setPlayerTwoScore(sc.nextInt()); 

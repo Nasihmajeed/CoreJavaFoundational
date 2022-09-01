@@ -2,10 +2,10 @@ package com.lxisoft.game;
 
 public class PlayerOne extends Players
 {
-    public void gameStarting()
+    public void playersListing()
     {
         System.out.println("Enter Player One Name :");
-        setName(sc.nextString);
+        playerOne.setName(sc.nextLine);
     }     
 }
  
