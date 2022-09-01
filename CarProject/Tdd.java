@@ -17,6 +17,10 @@ car.manufact="India";
  Tyre t2=new Tyre();
  Tyre t3=new Tyre();
  Tyre t4=new Tyre();
+ car.t1=t1;
+ car.t2=t2;
+ car.t3=t3;
+ car.t4=t4;
  
  t1.company="MRF";
  t1.design="zapper";
@@ -46,10 +50,7 @@ car.manufact="India";
 
 car.startCar();
 car.playMusic();
-t1.tyreDetails();
-t2.tyreDetails();
-t3.tyreDetails();
-t4.tyreDetails();
+car.tyreDetails();
 
 
 }
