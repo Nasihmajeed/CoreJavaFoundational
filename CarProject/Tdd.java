@@ -13,41 +13,12 @@ car.manufact="India";
  audio1.brand="JBL";
  audio1.noOfSpeaker=4;
  car.audio1=audio1;
- Tyre t1=new Tyre();
- Tyre t2=new Tyre();
- Tyre t3=new Tyre();
- Tyre t4=new Tyre();
- car.t1=t1;
- car.t2=t2;
- car.t3=t3;
- car.t4=t4;
+ Tyre[] tyres=new Tyre[4]; 
+ tyres[0] = new Tyre("MRF","zapper",15,"front right");
+ tyres[1] = new Tyre("BRIDGESTONE","ULTRAGRIP",15,"front left");
+ tyres[2] = new Tyre("CEAT","GRIPPER",25,"rear right");
+ tyres[3] = new Tyre("MICHELLiIN","NYLOGRIP",25,"rear left");
  
- t1.company="MRF";
- t1.design="zapper";
- t1.width=15;
- t1.position="front right";
- 
- t2.company="BRIDGESTONE";
- t2.design="ULTRAGRIP";
- t2.width=15;
- t2.position="front left";
- 
- t3.company="CEAT";
- t3.design="GRIPPER";
- t3.width=25;
- t3.position="rear right";
- 
- t4.company="MICHELLiIN";
- t4.design="NYLOGRIP";
- t4.width=25;
- t4.position="rear left";
- 
-
- 
- 
- 
-
-
 car.startCar();
 car.playMusic();
 car.tyreDetails();
