@@ -6,19 +6,19 @@ public class Players implements DiceThrowable,LadderUsable
     private Dice dice;
     private Coin[] coins;
     private String name;    
-    private int score;   
+    private int score;
+    
+    String xPress;   
 
     Scanner sc  = new Scanner();
     
     Players player = new Players();
-    Dice dice = new Dice();
-    
-    player.setDice(dice);
-    player.setCoin(coins);
-    player.setScore(score);    
+    Dice dice = new Dice();    
 
     PlayerOne playerOne = new PlayerOne();
     PlayerTwo playerTwo = new PlayerTwo();
+
+
 
     public Dice getDice()                       //Dice Settings            
     {
@@ -62,10 +62,13 @@ public class Players implements DiceThrowable,LadderUsable
 
     public void abstract playersListing();      //abstract method of playerOne and playerTwo
 
-    public void moveDice()
-    {
-        //Dice moves are occur here!
-    }
+    public int rollDice()
+	{
+		int n = 0;
+		Random r = new Random();
+		n=r.nextInt(7);
+		return (n==0?1:n);
+	}
     
     public void moveCoin()
     {
@@ -92,6 +95,9 @@ public class Players implements DiceThrowable,LadderUsable
         
         playerOne.playersListing();
         playerTwo.playersListing();
+
+        xPress=sc.next();
+        diceValue=rollDice();
 
         System.out.println("*** Please Wait Game Is Starting ***");
         

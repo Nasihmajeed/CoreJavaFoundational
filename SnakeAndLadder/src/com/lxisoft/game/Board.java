@@ -7,6 +7,22 @@ public class Board
     private Snake[] snakes;  
     private Cells[] locationCells;                                         
     
+    static Map<Integer,Integer> ladders = HashMap<Integer,Integer>();    
+    static Map<Integer,Integer> snakes = HashMap<Integer,Integer>();    
+    {
+        ladders.put(6,15);
+        ladders.put(21,35);
+        ladders.put(47,58);
+        ladders.put(69,76);
+        ladders.put(79,96);
+    
+        snakes.put(16,7);
+        snakes.put(30,19);
+        snakes.put(45,37);
+        snakes.put(65,78);
+        snakes.put(99,54);                
+    }
+    
     Scanner sc = new Scanner(System.in);     
     Random rand = new Random();
 
@@ -14,19 +30,9 @@ public class Board
     Ladder ladder = new Ladder();
     Snake snake = new Snake();
 
-    board.setLadder(ladder);                
-    for(int i = 0;i < 4;i++)
-    {
-        ladders[i] = new Ladder(); 
-    }
-    
-    board.setSnake(snakes);
-    for(int i = 0;i < 4;i++)
-    {
-        snakes[i] = new Snake();
-    }
+    int randomDicePoint=rand.nextInt(6);
 
-    int randomDicePoint=rand.nextInt(6);    
+    final static int winPoint=100;    
 
     public Ladder[] getLadder()                //Ladder settings     
     {       

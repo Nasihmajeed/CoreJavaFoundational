@@ -2,7 +2,7 @@ package com.lxisoft.game;
 
 public class Dice 
 {
-    private int number;
+    private int diceValue=6;
 
     //numbers upto 6 only!
     
