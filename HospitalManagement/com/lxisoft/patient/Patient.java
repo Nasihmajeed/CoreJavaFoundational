@@ -31,5 +31,6 @@ public int getPatientAge (){
 public void print ()
 {
 System.out.println (this.patientName+"\n"+patientAge);
+
 }
 }

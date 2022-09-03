@@ -45,9 +45,7 @@ public void print ()
 {
 	
 for (int i=0; i < patients.size(); i++){
- 		System.out.println(this.patients.get(i).getPatientName());
-		System.out.println(this.patients.get(i).getPatientAge()); 
-		
+	patients.get(i).print();	
  }
 System.out.println (this.wardNumber);
 System.out.println(this.totalCapacity);
