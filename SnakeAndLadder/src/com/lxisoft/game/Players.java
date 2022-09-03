@@ -4,20 +4,18 @@ import java.util.*;
 public class Players implements DiceThrowable,LadderUsable
 {           
     private Dice dice;
-    private Coin[] coins;
+    //private Coin[] coins;
     private String name;    
     private int score;
     
     String xPress;   
 
-    Scanner sc  = new Scanner();
+    Scanner sc  = new Scanner(System.in);
     
-    Players player = new Players();
-    Dice dice = new Dice();    
-
+    Players players = new Players();
+    
     PlayerOne playerOne = new PlayerOne();
     PlayerTwo playerTwo = new PlayerTwo();
-
 
 
     public Dice getDice()                       //Dice Settings            
@@ -29,16 +27,7 @@ public class Players implements DiceThrowable,LadderUsable
     {
         this.dice=Dice;
     }
-    
-    public Coin[] getCoin()                     //Coin Settings        
-    {
-        return coins;
-    } 
-     
-    public void setDice(Coin[] Coins)
-    {
-        this.coins=Coins;
-    }
+        
 
     public String getName()                     //Name Settings
     {
@@ -59,16 +48,12 @@ public class Players implements DiceThrowable,LadderUsable
     {
         this.score=Score;
     }
-
-    public void abstract playersListing();      //abstract method of playerOne and playerTwo
-
+   
     public int rollDice()
 	{
-		int n = 0;
-		Random r = new Random();
-		n=r.nextInt(7);
-		return (n==0?1:n);
+        //Dice moves are occur here!
 	}
+    }
     
     public void moveCoin()
     {
@@ -90,14 +75,10 @@ public class Players implements DiceThrowable,LadderUsable
     {
         System.out.println("\t "+"LXI Soft Presents "+"\n");
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
-        System.out.println("\t "+"Game Is Loading..."+"\n");                    
-
-        
-        playerOne.playersListing();
-        playerTwo.playersListing();
+        System.out.println("\t "+"Game Is Loading..."+"\n");                                    
 
         xPress=sc.next();
-        diceValue=rollDice();
+        //diceValue=rollDice();
 
         System.out.println("*** Please Wait Game Is Starting ***");
         
