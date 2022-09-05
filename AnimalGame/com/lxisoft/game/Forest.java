@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import java.util.Random;
 
-import com.lxisoft.game.Forest;
-
-import com.lxisoft.game.Animal;
 
 import com.lxisoft.animals.*;
 
@@ -22,6 +19,7 @@ public class Forest {
 
         System.out.println("..........WELCOME TO FOREST........... \n");
     
+ 
     
     // animal.wildAnimals();
     
@@ -60,40 +58,40 @@ public class Forest {
         Animal player2 = animalsList.get(animal2);
     
 
-        if((player1 instanceof Herbivores) && (player2 instanceof Herbivores)) {
+        if((player1 instanceof Herbivorous) && (player2 instanceof Herbivorous)) {
 
             System.out.println("The Both Players Are Herbivores");
             System.out.println("They are  Friends");
     
         }
         
-        else if((player1 instanceof Herbivores) && (player2 instanceof Carnivores)) {
+        else if((player1 instanceof Herbivorous) && (player2 instanceof Carnivorous)) {
     
             System.out.println("The First Player Is Herbivores");
             System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
             System.out.println("The Second Player Is Carnivores");
             System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
             System.out.println("Player 2 is Winner : "+player2.getName()+" ");
-            Carnivores carnivores = (Carnivores) player2;
-           carnivores.startFight(player1);
+            Carnivorous carnivors = (Carnivorous) player2;
+           carnivors.startFight(player1);
            
     }
     
-    else if((player1 instanceof Carnivores) && (player2 instanceof Carnivores)){
+    else if((player1 instanceof Carnivorous) && (player2 instanceof Carnivorous)){
     
         System.out.println("The Both Players Are Carnivores");
         System.out.println("They Are Good Friends");
     
     }
     
-    else if((player1 instanceof Carnivores) && (player2 instanceof Herbivores)){
+    else if((player1 instanceof Carnivorous) && (player2 instanceof Herbivorous)){
     
         System.out.println("The First Player Is Carnivores");
         System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
         System.out.println("The Second Player Is Herbivores");
         System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
         System.out.println("player1 is Winner : "+player1.getName()+"");
-        Carnivores carnivores = (Carnivores) player1;
+        Carnivorous carnivores = (Carnivorous) player1;
         carnivores.startFight(player2);
        
     

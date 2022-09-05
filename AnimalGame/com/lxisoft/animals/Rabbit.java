@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.lxisoft.game.Animal;
 
-public class Rabbit extends Animal implements Herbivores {
+public class Rabbit extends Animal implements Herbivorous {
 
 public Rabbit() {
 

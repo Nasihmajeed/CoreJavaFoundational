@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.lxisoft.game.Animal;
 
-public class Tiger extends Animal implements Carnivores {
+public class Tiger extends Animal implements Carnivorous {
 
     Random random = new Random();
 
@@ -52,6 +52,7 @@ public void startFight(Animal opponent) {
 
         System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
 
+        Herbivorous.escapeFromEnemy(this,opponent);
 
     }
 

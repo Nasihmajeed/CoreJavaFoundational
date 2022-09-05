@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.lxisoft.game.Animal;
 
-public class Rhinocer extends Animal implements Herbivores {
+public class Rhinocer extends Animal implements Herbivorous {
 
 public Rhinocer() {
 
