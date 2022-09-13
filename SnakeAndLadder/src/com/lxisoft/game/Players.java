@@ -8,7 +8,8 @@ public class Players implements DiceThrowable,LadderUsable
     private String name;    
     private int score;
     
-    String xPress;   
+    int gameMode;
+    String xPress;    
 
     Scanner sc  = new Scanner();
     
@@ -17,8 +18,6 @@ public class Players implements DiceThrowable,LadderUsable
 
     PlayerOne playerOne = new PlayerOne();
     PlayerTwo playerTwo = new PlayerTwo();
-
-
 
     public Dice getDice()                       //Dice Settings            
     {
@@ -90,14 +89,25 @@ public class Players implements DiceThrowable,LadderUsable
     {
         System.out.println("\t "+"LXI Soft Presents "+"\n");
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
-        System.out.println("\t "+"Game Is Loading..."+"\n");                    
+        System.out.println("\t "+"Instructions"+"\n");
+        System.out.println("\t "+"This program will simulate a regular snakes and ladders game developed by LxiSoft India."+"\n");
+        System.out.println("\t "+"You and the computer start at Starting Point 1 and You want to reach Home at ending point"+"\n");
+        System.out.println("\t "+"When Dice get point 1 You can start the game"+"\n");
+        System.out.println("\t "+"Good Luck and Have FUN!!!"+"\n");     
+
+        System.out.println("Enter your game mode :");
+        System.out.println("1. Easy ");
+        System.out.println("2. Medium ");
+        System.out.println("3. Hard ");
+
+        gameMode=sc.nextInt();                    
 
         
-        playerOne.playersListing();
-        playerTwo.playersListing();
+        //playerOne.playersListing();
+        //playerTwo.playersListing();
 
-        xPress=sc.next();
-        diceValue=rollDice();
+        //xPress=sc.next();
+        //diceValue=rollDice();
 
         System.out.println("*** Please Wait Game Is Starting ***");
         

@@ -5,7 +5,7 @@ public class Board
 {   
     private Ladder[] ladders;
     private Snake[] snakes;  
-    private Cells[] locationCells;                                                 
+    private Cell[] locationCells;                                                 
     
     Scanner sc = new Scanner(System.in);     
     Random rand = new Random();
@@ -13,6 +13,8 @@ public class Board
     Board board = new Board();
     Ladder ladder = new Ladder();
     Snake snake = new Snake();
+
+    Players player = new Players();
 
     int randomDicePoint=rand.nextInt(6);
 
@@ -38,12 +40,12 @@ public class Board
         this.snakes=Snake;
     }
 
-    public Cells[] getLocationCell()            //locationCell Settings
+    public Cell[] getLocationCell()            //locationCell Settings
     {
         return locationCells;
     }       
 
-    public void setLocationCell(Cells[] LocationCells)
+    public void setLocationCell(Cell[] LocationCells)
     {
         this.locationCells=LocationCells;
     }
