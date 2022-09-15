@@ -50,7 +50,7 @@ public void startFight(Animal opponent) {
 
         System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
 
-        Herbivorous.escapeFromEnemy(this,opponent);
+        //Herbivorous.escapeFromEnemy(this,opponent);
 
     }
     

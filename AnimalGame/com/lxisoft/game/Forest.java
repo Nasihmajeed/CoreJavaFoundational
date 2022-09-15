@@ -74,6 +74,9 @@ public class Forest {
             System.out.println("Player 2 is Winner : "+player2.getName()+" ");
             Carnivorous carnivors = (Carnivorous) player2;
            carnivors.startFight(player1);
+           Herbivorous herbivores = (Herbivorous) player1;
+        herbivores.escapeFromEnemy(player2);
+    
            
     }
     
@@ -93,7 +96,8 @@ public class Forest {
         System.out.println("player1 is Winner : "+player1.getName()+"");
         Carnivorous carnivores = (Carnivorous) player1;
         carnivores.startFight(player2);
-       
+       Herbivorous herbivores = (Herbivorous) player2;
+       herbivores.escapeFromEnemy(player1);
     
     }
 

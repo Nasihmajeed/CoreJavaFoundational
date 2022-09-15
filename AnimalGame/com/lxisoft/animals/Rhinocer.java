@@ -18,6 +18,12 @@ super(animalName, eat, strengthLevel, hungeryLevel);
 
 }
 
+public  void escapeFromEnemy(Animal player1) 
+     
+{
+
+}
+
 private int luckFactor;
 
 public int getLuckFactor() {
