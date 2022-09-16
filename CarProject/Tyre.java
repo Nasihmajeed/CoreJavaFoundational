@@ -5,6 +5,7 @@ int width;
 String position;
 Tyre(String br,String mod,int wid,String pos)
 {
+
 company=br;
 design=mod;
 width=wid;

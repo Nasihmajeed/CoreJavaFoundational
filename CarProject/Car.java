@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Car{
 
 int myear;
@@ -6,8 +7,7 @@ String model;
 String color;
 String manufact;
 AudioSystem audio1;
-Tyre[] tyres;
-
+ArrayList<Tyre> tyres;
 
 
 
@@ -26,7 +26,7 @@ public void tyreDetails(){
 for(int i=0;i<=3;i++)
 {
 
-tyres[i].tyreDetails();
+tyres.get(i).tyreDetails();
 }
 
 
