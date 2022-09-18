@@ -1,10 +1,11 @@
  //Packages
 
 package com.lxisoft.tdd;
-import com.lxisoft.Forest.Animal;
-import com.lxisoft.Forest.Forest; 
+import com.lxisoft.forest.Animal;
+import com.lxisoft.forest.Forest; 
 import java.util.ArrayList;
 import java.util.List;
+import com.lxisoft.methods.Methods; 
 
 public class TDD {
 	public static void main (String [] args) {
@@ -22,23 +23,36 @@ public class TDD {
 			Animal lion = new Animal();
 			
 			
-			tiger.setAnimalName("AnimalName: Tiger");
-			tiger.setAnimalStrengthLevel("AnimalStrengthLevel:100%");
-			tiger.setAnimalHungerLevel("AnimalHungerLevel: 75%");
-			tiger.setAnimalAggressivenessLevel("AnimalAggressivenessLevel: 100%");			
+			tiger.setAnimalName("AnimalName: Tiger " +(i+1));
+			tiger.setAnimalStrengthLevel(100 + (i+1));
+			tiger.setAnimalHungerLevel(100 + (i+1));
+			tiger.setAnimalAggressivenessLevel(100 + (i+1));			
 			animal.add(tiger);
 			animal.get(i).print();
-			
+					
 			lion.setAnimalName("AnimalName: Lion");
-			lion.setAnimalStrengthLevel("AnimalStrengthLevel:100%");
-			lion.setAnimalHungerLevel("AnimalHungerLevel: 75%");
-			lion.setAnimalAggressivenessLevel("AnimalAggressivenessLevel: 100%");	
+			lion.setAnimalStrengthLevel(100 + (i+1));
+			lion.setAnimalHungerLevel(100 + (i+1));
+			lion.setAnimalAggressivenessLevel(100 + (i+1));	
 			animal.add(lion);
 			animal.get(i).print();
+			
 		}			
 		
 		denseForest.setForestName("Forest Name : Amazon Forest");
 		System.out.println(denseForest.getForestName());
+		//System.out.println(Animal.getAnimalStrengthLevel());
+		
+		int Lion = Methods.animalfight(50, 50, 50);
+		System.out.println("Lion Strength: "+ Lion);
+		
+		int Tiger = Methods.animalfight(100, 50, 50);
+		System.out.println("Tiger Strength: "+ Tiger);
+		
+		if (Lion > Tiger)
+		System.out.println("Lion have more power");
+		else 
+		System.out.println("Tiger have more power");
 				
 	}
 }
