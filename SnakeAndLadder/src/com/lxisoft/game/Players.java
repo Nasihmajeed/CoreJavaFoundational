@@ -5,21 +5,17 @@ public class Players implements DiceThrowable,LadderUsable
 {           
     private Dice dice;
     private Coin[] coins;
-    //private String name;       
+    private String name;       
     private int score;
     
-    int gameMode;
-    String xPress;    
-    String playerOne;
-    String playerTwo;    
+    String gameMode;
+    String xPress;           
     
-    Scanner sc = new Scanner();
+    Scanner sc = new Scanner(System.in);
     
     Players player = new Players();
-    Dice dice = new Dice();    
-
-    PlayerOne playerOne = new PlayerOne();
-    PlayerTwo playerTwo = new PlayerTwo();
+    Dice dice = new Dice();        
+    
 
     public Dice getDice()                       //Dice Settings            
     {
@@ -109,7 +105,7 @@ public class Players implements DiceThrowable,LadderUsable
         System.out.println("2. Medium ");
         System.out.println("3. Hard ");
 
-        gameMode=sc.nextInt();                    
+        gameMode=sc.nextLine();                    
          
         System.out.println("Yes You Have Selected " + gameMode);
         System.out.println("*** Please Wait Game Is Starting ***");

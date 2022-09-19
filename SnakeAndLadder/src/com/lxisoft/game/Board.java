@@ -42,7 +42,7 @@ public class Board
         this.snakes=Snake;
     }
 
-    public Cell[] getLocationCell()            //locationCell Settings
+    /*public Cell[] getLocationCell()            //locationCell Settings
     {
         return locationCells;
     }       
@@ -50,20 +50,22 @@ public class Board
     public void setLocationCell(Cell[] LocationCells)
     {
         this.locationCells=LocationCells;
-    }
+   }
+    */
 
     public void startPlaying()
     {  
+        player.gameLoading();
+
         for(int i = 0;i < 100;i++)
         {
-            player.gameLoading();
-            
             System.out.println("Use x to roll Dice");
-            if(playerOne.rollDice()==startGame)
+            System.out.println(randomDicePoint);
+            if(playerOne==startGame)
             {
                 System.out.println("Nice Play Your Entered The Board");
             }
-            if(playerTwo.rollDice()==startGame)
+            else if(playerTwo==startGame)
             {
                 System.out.println("Nice Play Your Entered The Board");
             }
@@ -71,11 +73,65 @@ public class Board
             {
                 System.out.println("Try Again");
             }
-            
-            System.out.println(getPlayerOne());
-            System.out.println(randomDicePoint);
-            
-      
+                 
+                   
+            if(playerOneScore == snakes[0]) 
+            {
+                playerOneScore = 11; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bit By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == snakes[1])
+            {
+                playerOneScore= 21; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bit By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == snakes[2])
+            {
+                playerOneScore = 45; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bit By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == snakes[3])
+            {
+                playerOneScore = 70; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bit By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == snakes[4])
+            {
+                playerOneScore = 99; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bit By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+                
+            // ********************************************************** //
+
+            if(playerOneScore == ladders[0])
+            {
+                playerOneScore = 5; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+
+            else if (playerOneScore == ladders[1])
+            {
+                playerOneScore = 15; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == ladders[2])
+            {
+                playerOneScore = 30; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == ladders[3])
+            {
+                playerOneScore = 60; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (playerOneScore == ladders[4])
+            {
+                playerOneScore = 98; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+        
+        }
     }
+                    
     
 }
