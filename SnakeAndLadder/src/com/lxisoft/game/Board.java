@@ -17,6 +17,8 @@ public class Board
     Players player = new Players();
 
     int randomDicePoint=rand.nextInt(6);
+    int startGame=1;
+    int endGame=100;    
 
     final static int winPoint=100;    
 
@@ -57,57 +59,22 @@ public class Board
             player.gameLoading();
             
             System.out.println("Use x to roll Dice");
-            System.out.println(getPlayerOne() + "Throw The Dice");
-            System.out.println(randomDicePoint);
-            //currentPoint==playerOneScore or playerTwoScore;
-            /*if(randomDicePoint==pass)
+            if(playerOne.rollDice()==startGame)
             {
-                System.out.println("Nice Play! Player One Enter The Board");
+                System.out.println("Nice Play Your Entered The Board");
+            }
+            if(playerTwo.rollDice()==startGame)
+            {
+                System.out.println("Nice Play Your Entered The Board");
             }
             else
             {
-                System.out.println("Don't Worry Next Time");
+                System.out.println("Try Again");
             }
-            Or 
-            {
-                System.out.println("You take 6 One More Chance!");
-            }                    
-
-            */
-                    
-            //players[0].setPlayerOneScore(sc.nextInt());  ///////Use Math.random();
-            //players[0].throwDice();
-
-            System.out.println("Player 2 Throw Dice :");
-            players[1].setPlayerTwoScore(sc.nextInt()); 
-
-            if(players[0].getPlayerOneScore() == ladders[i].getLocationOne())
-            {
-                 players[0].useLadder();
-                 System.out.println("Yey Player One Going To Space!");                                                         
-            }
-                    
-            if(players[1].getPlayerTwoScore() == ladders[i].getLocationOne())
-            {
-                players[1].useLadder();
-                System.out.println("Yey Player Two Going To Space!");                                           
-            }                                     
-        
-                if(players[0].getPlayerOneScore() == snakes[i].getLocationOne())
-                {
-                    snakes[0].snakeBites();
-                    System.out.println("Ouch Snake Bites Player 1!");
-                    System.out.println("Player Two Wins!!!");                                                                                         
-         
-                }               
-
-                if(players[1].getPlayerTwoScore() == snakes[i].getLocationOne())
-                {   
-                    snakes[1].snakeBites();
-                    System.out.println("Ouch Snake Bites Player 2!");
-                    System.out.println("Player One Wins!!!");                                        
-                }                            
-        }  
+            
+            System.out.println(getPlayerOne());
+            System.out.println(randomDicePoint);
+            
       
     }
     

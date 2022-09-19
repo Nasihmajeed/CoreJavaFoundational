@@ -5,13 +5,15 @@ public class Players implements DiceThrowable,LadderUsable
 {           
     private Dice dice;
     private Coin[] coins;
-    private String name;    
+    //private String name;       
     private int score;
     
     int gameMode;
     String xPress;    
-
-    Scanner sc  = new Scanner();
+    String playerOne;
+    String playerTwo;    
+    
+    Scanner sc = new Scanner();
     
     Players player = new Players();
     Dice dice = new Dice();    
@@ -59,7 +61,7 @@ public class Players implements DiceThrowable,LadderUsable
         this.score=Score;
     }
 
-    public void abstract playersListing();      //abstract method of playerOne and playerTwo
+    //public void abstract playersListing();      //abstract method of playerOne and playerTwo
 
     public int rollDice()
 	{
@@ -87,13 +89,20 @@ public class Players implements DiceThrowable,LadderUsable
     
     public void gameLoading()                   //This is the method of beginning of the game 
     {
+    
         System.out.println("\t "+"LXI Soft Presents "+"\n");
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
-        System.out.println("\t "+"Instructions"+"\n");
-        System.out.println("\t "+"This program will simulate a regular snakes and ladders game developed by LxiSoft India."+"\n");
-        System.out.println("\t "+"You and the computer start at Starting Point 1 and You want to reach Home at ending point"+"\n");
-        System.out.println("\t "+"When Dice get point 1 You can start the game"+"\n");
-        System.out.println("\t "+"Good Luck and Have FUN!!!"+"\n");     
+        System.out.println("*** Instructions ***"+"\n");
+        System.out.println("This program will simulate a regular snakes and ladders game developed by LxiSoft India.");
+        System.out.println("You and the computer start at Starting Point 1 and You want to reach Home at ending point");
+        System.out.println("When Dice get point 1 You can start the game");
+        System.out.println("Good Luck and Have FUN!!!"+"\n");     
+
+        System.out.println("Enter Player One Name :");
+        playerOne=sc.nextLine();
+
+        System.out.println("Enter Player Two Name :");
+        playerTwo=sc.nextLine();
 
         System.out.println("Enter your game mode :");
         System.out.println("1. Easy ");
@@ -101,15 +110,11 @@ public class Players implements DiceThrowable,LadderUsable
         System.out.println("3. Hard ");
 
         gameMode=sc.nextInt();                    
-
-        
-        //playerOne.playersListing();
-        //playerTwo.playersListing();
-
-        //xPress=sc.next();
-        //diceValue=rollDice();
-
+         
+        System.out.println("Yes You Have Selected " + gameMode);
         System.out.println("*** Please Wait Game Is Starting ***");
+        
+    }
         
     }       
 }
