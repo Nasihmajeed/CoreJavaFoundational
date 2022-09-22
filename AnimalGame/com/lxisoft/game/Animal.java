@@ -9,18 +9,19 @@ private String eat;
 private int strengthLevel;
 private int hungryLevel;
 private int luckFactor;
-
+private boolean isAlive;
 
 public Animal()
 {
 }
 
-public Animal(String animalName, String eat, int strengthLevel, int hungryLevel){
+public Animal(String animalName, String eat, int strengthLevel, int hungryLevel, boolean isAlive){
  
 this.animalName = animalName;    
 this.eat = eat;
 this.strengthLevel = strengthLevel;
 this.hungryLevel = hungryLevel;
+this.isAlive = isAlive;
 
 
 }
@@ -74,6 +75,16 @@ public int getLuckFactor() {
 
     luckFactor = random.nextInt();
     return luckFactor;
+}
+
+public boolean getIsAlive() {
+
+    return isAlive;
+}
+
+public void setIsAlive(boolean alive) {
+
+    this.isAlive = alive;
 }
 
 

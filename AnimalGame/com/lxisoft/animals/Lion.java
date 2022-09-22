@@ -14,13 +14,13 @@ super();
 
 }
 
-public Lion(String animalName, String eat , int strengthLevel, int hungeryLevel) {
+public Lion(String animalName, String eat , int strengthLevel, int hungeryLevel,boolean isAlive) {
 
-super(animalName, eat, strengthLevel, hungeryLevel);
+super(animalName, eat, strengthLevel, hungeryLevel, isAlive);
 
 }
 
-public void startFight(Animal opponent) {
+public Animal startFight(Animal opponent) {
 
     int hungryLevelOfPlayer1 = this.getHungryLevel();
     int hungryLevelOfPlayer2 = opponent.getHungryLevel();
@@ -45,6 +45,16 @@ public void startFight(Animal opponent) {
         System.out.println("\n" + this.getName() + "Attack and Killed the" + opponent.getName());
         System.out.println("The winner is" + this.getName());
 
+        setStrengthLevel(getStrengthLevel()-2);   
+        System.out.println(getStrengthLevel()); 
+
+        opponent.setStrengthLevel(getStrengthLevel()-4);
+            System.out.println(getStrengthLevel());
+        
+        
+        
+
+
 
     }
 
@@ -52,11 +62,11 @@ public void startFight(Animal opponent) {
 
         System.out.println("\n" + opponent.getName() + "is very lucky charm and escaping from the" + this.getName());
 
-       Herbivorous.escapeFromEnemy(this,opponent); 
+       //Herbivorous.escapeFromEnemy(this,opponent); 
 
     }
 
-
+return null;
 }
 
 }

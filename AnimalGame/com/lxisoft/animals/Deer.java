@@ -12,9 +12,9 @@ super();
 
 }
 
-public Deer(String animalName, String eat , int strengthLevel, int hungeryLevel) {
+public Deer(String animalName, String eat , int strengthLevel, int hungeryLevel,boolean isAlive) {
 
-super(animalName, eat, strengthLevel, hungeryLevel);
+super(animalName, eat, strengthLevel, hungeryLevel, isAlive);
 
 }
 

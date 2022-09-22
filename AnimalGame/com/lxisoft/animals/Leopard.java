@@ -14,13 +14,13 @@ super();
 
 }
 
-public Leopard(String animalName, String eat , int strengthLevel, int hungeryLevel) {
+public Leopard(String animalName, String eat , int strengthLevel, int hungeryLevel, boolean isAlive) {
 
-super(animalName, eat,strengthLevel, hungeryLevel);
+super(animalName, eat,strengthLevel, hungeryLevel, isAlive);
 
 }
 
-public void startFight(Animal opponent) {
+public Animal startFight(Animal opponent) {
 
     int hungryLevelOfPlayer1 = this.getHungryLevel();
     int hungryLevelOfPlayer2 = opponent.getHungryLevel();
@@ -44,6 +44,16 @@ public void startFight(Animal opponent) {
         System.out.println("The winner is" + this.getName());
 
 
+        setStrengthLevel(getStrengthLevel()-2);   
+        System.out.println(getStrengthLevel()); 
+
+        opponent.setStrengthLevel(getStrengthLevel()-4);
+            System.out.println(getStrengthLevel());
+        
+        
+
+
+
     }
 
     else if(opponent.getStrengthLevel() >= this.getHungryLevel()) {
@@ -54,7 +64,7 @@ public void startFight(Animal opponent) {
 
     }
     
-
+return null;
 }
 
 }

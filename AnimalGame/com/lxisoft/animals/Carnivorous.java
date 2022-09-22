@@ -4,7 +4,7 @@ import com.lxisoft.game.Animal;
 
 public interface Carnivorous {
 
-    public void startFight(Animal opponent);
+    public Animal startFight(Animal opponent);
     
 
     }

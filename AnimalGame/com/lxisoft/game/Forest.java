@@ -13,7 +13,7 @@ public class Forest {
 
    int i =0;
 
-    Animal animal = new Animal(" "," ",0,0);
+    Animal animal = new Animal(" "," ",0,0,true);
 
     public void welcomeToForest () {
 
@@ -23,16 +23,16 @@ public class Forest {
     
     // animal.wildAnimals();
     
-    animalsList.add(new Lion("King-Lion","meat",50,50));
-    animalsList.add(new Deer("Alcine-Deer","grass",20,25));
-    animalsList.add(new Tiger("Dave-Tiger","meat",40,35));
-    animalsList.add(new Rabbit("Peter-Rabbit","grass",15,12));
-    animalsList.add(new Leopard("Dale-Leopard","meat",30,15));
-    animalsList.add(new Giraffe("Custard-Giraffe","grass",14,12));
-    animalsList.add(new Wolf("Roman-Wolf","meat",25,24));
-    animalsList.add(new Rhinocer("Grit-Rhinocer","meat",16,17));
-    animalsList.add(new Cheetah("Fastest-Cheetah","meat",45,45));
-    animalsList.add(new Zebra("Zippy-Zebra","grass",22,33));
+    animalsList.add(new Lion("King-Lion","meat",35,35,true));
+    animalsList.add(new Deer("Alcine-Deer","grass",15,15,true));
+    animalsList.add(new Tiger("Dave-Tiger","meat",30,30,true));
+    animalsList.add(new Rabbit("Peter-Rabbit","grass",13,12,true));
+    animalsList.add(new Leopard("Dale-Leopard","meat",20,13,true));
+    animalsList.add(new Giraffe("Custard-Giraffe","grass",12,10,true));
+    animalsList.add(new Wolf("Roman-Wolf","meat",18,11,true));
+    animalsList.add(new Rhinocer("Grit-Rhinocer","meat",11,11,true));
+    animalsList.add(new Cheetah("Fastest-Cheetah","meat",14,13,true));
+    animalsList.add(new Zebra("Zippy-Zebra","grass",11,10,true));
     
     for(i = 0 ; i < animalsList.size() ; i++) {
         System.out.println(animalsList.get(i).getName());
@@ -41,13 +41,21 @@ public class Forest {
         System.out.println(animalsList.get(i).getHungryLevel());
     
         } 
+        for(i=0; i<animalsList.size();i++) {
+
+            
+
+                meetPlayers(animalsList);
+                
+            }
     
-    meetPlayers(animalsList);
-    }
     
+}
    
 
     public void meetPlayers(ArrayList<Animal> animalsList) {
+
+        
 
         Random random = new Random();
 
@@ -72,8 +80,12 @@ public class Forest {
             System.out.println("The Second Player Is Carnivores");
             System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
             System.out.println("Player 2 is Winner : "+player2.getName()+" ");
+
             Carnivorous carnivors = (Carnivorous) player2;
-           carnivors.startFight(player1);
+            
+
+           Animal loserAnimal = carnivors.startFight(player1);
+            
            Herbivorous herbivores = (Herbivorous) player1;
         herbivores.escapeFromEnemy(player2);
     
@@ -83,7 +95,10 @@ public class Forest {
     else if((player1 instanceof Carnivorous) && (player2 instanceof Carnivorous)){
     
         System.out.println("The Both Players Are Carnivores");
-        System.out.println("They Are Good Friends");
+        Carnivorous carnivores = (Carnivorous) player2;
+        carnivores.startFight(player2);
+        System.out.println("They Fight Each Other");
+        System.out.println("Nothing wil happen");
     
     }
     
@@ -101,9 +116,9 @@ public class Forest {
     
     }
 
-    }
-
     
+
+}
    }
 
         
