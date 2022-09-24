@@ -17,6 +17,7 @@ public class Board
     Players player = new Players();
 
     int randomDicePoint=rand.nextInt(6);
+    String xPress = "x";
     int startGame=1;
     int endGame=100;    
 
@@ -42,7 +43,7 @@ public class Board
         this.snakes=Snake;
     }
 
-    /*public Cell[] getLocationCell()            //locationCell Settings
+    public Cell[] getLocationCell()            //locationCell Settings
     {
         return locationCells;
     }       
@@ -51,8 +52,7 @@ public class Board
     {
         this.locationCells=LocationCells;
    }
-    */
-
+    
     public void startPlaying()
     {  
         player.gameLoading();
@@ -60,7 +60,9 @@ public class Board
         for(int i = 0;i < 100;i++)
         {
             System.out.println("Use x to roll Dice");
+            xPress = read.readLine();            
             System.out.println(randomDicePoint);
+            
             if(playerOne==startGame)
             {
                 System.out.println("Nice Play Your Entered The Board");

@@ -9,7 +9,6 @@ public class Players implements DiceThrowable,LadderUsable
     private int score;
     
     String gameMode;
-    String xPress;           
     
     Scanner sc = new Scanner(System.in);
     
