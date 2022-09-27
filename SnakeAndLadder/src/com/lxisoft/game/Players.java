@@ -12,7 +12,6 @@ public class Players implements DiceThrowable,LadderUsable
     
     Scanner sc = new Scanner(System.in);
     
-    Players player = new Players();
     Dice dice = new Dice();        
     
 
