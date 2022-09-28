@@ -12,8 +12,9 @@ public class Players implements DiceThrowable,LadderUsable
     
     Scanner sc = new Scanner(System.in);
     
-    Dice dice = new Dice();        
-    
+    Dice dice = new Dice(); 
+    playerOne = new Players();
+    playerTwo = new Players();           
 
     public Dice getDice()                       //Dice Settings            
     {
@@ -93,10 +94,10 @@ public class Players implements DiceThrowable,LadderUsable
         System.out.println("Good Luck and Have FUN!!!"+"\n");     
 
         System.out.println("Enter Player One Name :");
-        playerOne=sc.nextLine();
+        playerOne.setName(sc.nextLine());
 
         System.out.println("Enter Player Two Name :");
-        playerTwo=sc.nextLine();
+        playerTwo.setName(sc.nextLine());
 
         System.out.println("Enter your game mode :");
         System.out.println("1. Easy ");

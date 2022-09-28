@@ -2,29 +2,14 @@ package com.lxisoft.game;
 
 public class Snake implements SnakeStrikable
 {
-    private int snakeHead;
-    private int snakeTail;    
+    int snakeHead;
+    int snakeTail;    
 
-    public int getSnakeHead()
+    Snake(int snakeHead,int snakeTail)
     {
-        return snakeHead;
+        this.snakeHead = snakeHead;
+        this.snakeTail = snakeTail;
     }
-
-    public void setSnakeHead(int SnakeHead)
-    {
-        this.snakeHead=SnakeHead;
-    }
-        
-    public int getSnakeTail()
-    {
-        return snakeTail;
-    }
-
-    public void setSnakeTail(int SnakeTail)
-    {
-        this.snakeTail=SnakeTail;
-    }
-
     public void snakeBites()
     {
         System.out.println("Haha I Bites Him");

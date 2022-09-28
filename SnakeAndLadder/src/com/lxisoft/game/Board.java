@@ -4,52 +4,34 @@ import java.util.*;
 public class Board
 {   
     private Ladder[] ladders;
-    private Snake[] snakes;  
-    private Cell[] locationCells;                                                 
+    private Snake[] snakes;                                                  
     
     Scanner read = new Scanner(System.in);     
     Random rand = new Random();
 
-    Ladder ladder = new Ladder();
-    Snake snake = new Snake();
-    Players player = new Players();
+    Ladder ladders[] = new Ladder[5];    
+    ladders[0] = new Ladder(5,13); 
+    ladders[1] = new Ladder(5,13);
+    ladders[2] = new Ladder(5,13);
+    ladders[3] = new Ladder(5,13);
+    ladders[4] = new Ladder(5,13);     
+                                     
 
-    int randomDicePoint=rand.nextInt(6);
-    String xPress = "x";
+    Snake snakes[] = new Snake[5];
+    snakes[0] =  new Snake(11,3);
+    snakes[1] =  new Snake(11,3);
+    snakes[2] =  new Snake(11,3);
+    snakes[3] =  new Snake(11,3);
+    snakes[4] =  new Snake(11,3);
+   
+    Players players = new Players;
+    
+    int randomDicePoint = rand.nextInt(6);
+    String xPress;
     int startGame=1;
     int endGame=100;    
 
-    final static int winPoint=100;    
-
-    public Ladder[] getLadder()                //Ladder settings     
-    {       
-        return ladder;
-    }
-
-    public void setLadder(Ladder[] Ladder)
-    {
-        this.ladder=Ladder;
-    }   
-    
-    public Snake[] getSnake()                   //Snakes settings
-    {
-        return snakes;
-    }
-
-    public void setSnake(Snake[] Snake)
-    {
-        this.snakes=Snake;
-    }
-
-    public Cell[] getLocationCell()            //locationCell Settings
-    {
-        return locationCells;
-    }       
-
-    public void setLocationCell(Cell[] LocationCells)
-    {
-        this.locationCells=LocationCells;
-   }
+    //final static int winPoint=100;       
     
     public void startPlaying()
     {  
@@ -62,11 +44,11 @@ public class Board
                        
             System.out.println(randomDicePoint);
             
-            if(playerOne==startGame)
+            if(playerOne.getScore() == startGame)
             {
                 System.out.println("Nice Play You Entered The Board");
             }
-            else if(playerTwo==startGame)
+            else if(playerTwo.getScore() == startGame)
             {
                 System.out.println("Nice Play You Entered The Board");
             }
@@ -76,60 +58,103 @@ public class Board
             }
                  
                    
-            if(playerOneScore == snakes[0]) 
-            {
-                playerOneScore = 11; 
+            if(player.getScore() == snakes[0]) 
+            { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == snakes[1])
+            else if (player.getScore() == snakes[1])
             {
-                playerOneScore= 21; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == snakes[2])
+            else if (player.getScore() == snakes[2])
             {
-                playerOneScore = 45; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == snakes[3])
+            else if (player.getScore() == snakes[3])
             {
-                playerOneScore = 70; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == snakes[4])
+            else if (player.getScore() == snakes[4])
             {
-                playerOneScore = 99; 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+
+            if(playerTwo.getScore() == snakes[0]) 
+            { 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == snakes[1])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == snakes[2])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == snakes[3])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == snakes[4])
+            {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOneScore == ladders[0])
+            if(player.getScore() == ladders[0])
             {
-                playerOneScore = 5; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if (playerOneScore == ladders[1])
+            else if (player.getScore() == ladders[1])
             {
-                playerOneScore = 15; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == ladders[2])
+            else if (player.getScore() == ladders[2])
             {
-                playerOneScore = 30; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == ladders[3])
-            {
-                playerOneScore = 60; 
+            else if (player.getScore() == ladders[3])
+            { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (playerOneScore == ladders[4])
+            else if (player.getScore() == ladders[4])
             {
-                playerOneScore = 98; 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
+
+            if(playerTwo.getScore() == ladders[0])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+
+            else if (player.getScore() == ladders[1])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == ladders[2])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == ladders[3])
+            { 
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+            else if (player.getScore() == ladders[4])
+            {
+                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+            }
+
+            if(player.getScore() == endGame)
+            {
+                System.out.println (getPlayerOneName() + "\t\t\t\t  Is Win!");
+            }
+
+            else if(player.getScore == endGame)
+            {
+                System.out.println (getPlayerTwoName() + "\t\t\t\t  Is Win!");
+            }                
         
         }
     }
