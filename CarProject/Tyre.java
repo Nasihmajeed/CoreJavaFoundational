@@ -1,9 +1,10 @@
+package tDetails;
 public class Tyre{
-String company;
-String design;
-int width;
-String position;
-Tyre(String br,String mod,int wid,String pos)
+public String company;
+public String design;
+public int width;
+public String position;
+public Tyre(String br,String mod,int wid,String pos)
 {
 
 company=br;

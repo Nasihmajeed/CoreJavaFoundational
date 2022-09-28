@@ -1,7 +1,8 @@
+package audio;
 public class AudioSystem{
 
-String brand;
-int noOfSpeaker;
+public String brand;
+public int noOfSpeaker;
 
 public void playMusic()
 {
