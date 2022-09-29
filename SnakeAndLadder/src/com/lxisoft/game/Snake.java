@@ -1,6 +1,6 @@
 package com.lxisoft.game;
 
-public class Snake implements SnakeStrikable
+public class Snake
 {
     int snakeHead;
     int snakeTail;    
@@ -10,8 +10,4 @@ public class Snake implements SnakeStrikable
         this.snakeHead = snakeHead;
         this.snakeTail = snakeTail;
     }
-    public void snakeBites()
-    {
-        System.out.println("Haha I Bites Him");
-    }    
 }

@@ -8,14 +8,8 @@ public class Players implements DiceThrowable,LadderUsable
     private String name;       
     private int score;
     
-    String gameMode;
-    
     Scanner sc = new Scanner(System.in);
     
-    Dice dice = new Dice(); 
-    playerOne = new Players();
-    playerTwo = new Players();           
-
     public Dice getDice()                       //Dice Settings            
     {
         return dice;
@@ -69,47 +63,5 @@ public class Players implements DiceThrowable,LadderUsable
     public void moveCoin()
     {
         //Coin moves are occur here!
-    }  
-    
-    public void throwDice()
-    {
-        System.out.println("Throw Dice!"+"\n");        
-    }
-        
-    public void useLadder()
-    {
-        System.out.println("WhooHoo Iam Using Ladder I Got Much Points"+"\n");
-    }
-  
-    
-    public void gameLoading()                   //This is the method of beginning of the game 
-    {
-    
-        System.out.println("\t "+"LXI Soft Presents "+"\n");
-        System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
-        System.out.println("*** Instructions ***"+"\n");
-        System.out.println("This program will simulate a regular snakes and ladders game developed by LxiSoft India.");
-        System.out.println("You and the computer start at Starting Point 1 and You want to reach Home at ending point");
-        System.out.println("When Dice get point 1 You can start the game");
-        System.out.println("Good Luck and Have FUN!!!"+"\n");     
-
-        System.out.println("Enter Player One Name :");
-        playerOne.setName(sc.nextLine());
-
-        System.out.println("Enter Player Two Name :");
-        playerTwo.setName(sc.nextLine());
-
-        System.out.println("Enter your game mode :");
-        System.out.println("1. Easy ");
-        System.out.println("2. Medium ");
-        System.out.println("3. Hard ");
-
-        gameMode=sc.nextLine();                    
-         
-        System.out.println("Yes You Have Selected " + gameMode);
-        System.out.println("*** Please Wait Game Is Starting ***");
-        
-    }
-        
-    }       
+    }    
 }
