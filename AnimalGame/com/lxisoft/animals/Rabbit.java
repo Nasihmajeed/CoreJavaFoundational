@@ -6,6 +6,8 @@ import com.lxisoft.game.Animal;
 
 public class Rabbit extends Animal implements Herbivorous {
 
+    private int luckFactor;
+    
 public Rabbit() {
 
 super();
@@ -18,21 +20,25 @@ super(animalName, eat, strengthLevel, hungeryLevel, isAlive);
 
 }
 
-public  void escapeFromEnemy(Animal player1) 
-     
-{
-
-}
-
-private int luckFactor;
-
-public int getLuckFactor() {
+public  void escapeFromEnemy(Animal player1) {
 
     Random random = new Random();
     luckFactor = random.nextInt(10);
-    return luckFactor;
-
+   
+if(luckFactor >= 5){
+     
+    System.out.println("The player is Escaping");
+    System.out.println("The player is very Lucky");
 
 }
+else{
+
+    System.out.println("No Hope to Escaping");
+    System.out.println("The Player is Trapped");
+
+}
+}
+
+
 
 }

@@ -71,9 +71,9 @@ public void setHungryLevel(int newHungryLevel) {
 
 }
 
-public int getLuckFactor() {
+public int generateLuckFactor() {
 
-    luckFactor = random.nextInt();
+    luckFactor = random.nextInt(10);
     return luckFactor;
 }
 
