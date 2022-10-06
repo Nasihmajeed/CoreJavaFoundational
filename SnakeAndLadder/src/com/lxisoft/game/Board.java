@@ -3,9 +3,15 @@ import java.util.*;
 
 public class Board
 {   
+    Ladder ladders = new Ladder();
+    Snake snakes = new Snake();
+    Dice dice = new Dice();
+    Players playerOne = new Players();
+    Players playerTwo = new Players();
+
     Scanner sc = new Scanner(System.in);     
     Random rand = new Random();
-
+   
     Ladder ladders[] = new Ladder[5];    
     ladders[0] = new Ladder(5,13); 
     ladders[1] = new Ladder(15,27);
@@ -20,21 +26,17 @@ public class Board
     snakes[2] =  new Snake(49,21);
     snakes[3] =  new Snake(78,6);
     snakes[4] =  new Snake(99,58);
-   
-    Players playerOne = new Players();
-    Players playerTwo = new Players();
-    
-    Dice dice = new Dice();
+       
     
     int randomDicePoint = rand.nextInt(6);
     String gameMode;    
     String xPress;
-    int startGame=1;
-    int endGame=100;    
+    int startGame = 1;
+    int endGame = 100;    
 
-    //final static int winPoint=100;       
+    //final static int winPoint = 100;       
     
-    public void startPlaying()
+    void startPlaying()
     {  
         System.out.println("\t "+"LXI Soft Presents "+"\n");
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
@@ -81,23 +83,23 @@ public class Board
             }
                  
                    
-            if(player.getName() == snakes[0]) 
+            if(playerOne.getName() == snakes[0]) 
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[1])
+            else if (playerOne.getName() == snakes[1])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[2])
+            else if (playerOne.getName() == snakes[2])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[3])
+            else if (playerOne.getName() == snakes[3])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[4])
+            else if (playerOne.getName() == snakes[4])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
@@ -106,19 +108,19 @@ public class Board
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[1])
+            else if (playerTwo.getName() == snakes[1])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[2])
+            else if (playerTwo.getName() == snakes[2])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[3])
+            else if (playerTwo.getName() == snakes[3])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == snakes[4])
+            else if (playerTwo.getName() == snakes[4])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
@@ -152,31 +154,31 @@ public class Board
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if (player.getName() == ladders[1])
+            else if (playerTwo.getName() == ladders[1])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[2])
+            else if (playerTwo.getName() == ladders[2])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[3])
+            else if (playerTwo.getName() == ladders[3])
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[4])
+            else if (playerTwo.getName() == ladders[4])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(player.getName() == endGame)
+            if(playerOne.getName() == endGame)
             {
-                System.out.println (getPlayerOneName() + "\t\t\t\t  Is Win!");
+                System.out.println (playerOne.getName() + "\t\t\t\t  Is Win!");
             }
 
-            else if(player.getName == endGame)
+            else if(playerTwo.getName == endGame)
             {
-                System.out.println (getPlayerTwoName() + "\t\t\t\t  Is Win!");
+                System.out.println (playerTwo.getName() + "\t\t\t\t  Is Win!");
             }                
         
         }

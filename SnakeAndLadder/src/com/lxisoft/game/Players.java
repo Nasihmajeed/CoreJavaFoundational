@@ -63,5 +63,15 @@ public class Players implements DiceThrowable,LadderUsable
     public void moveCoin()
     {
         //Coin moves are occur here!
-    }    
+    }   
+    
+    void throwDice()
+    {
+        //System.out.println("Dice Throwing");
+    } 
+
+    void useLadder()
+    {
+        //System.out.println("Using Ladder");
+    }
 }
