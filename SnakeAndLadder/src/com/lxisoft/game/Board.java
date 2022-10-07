@@ -127,24 +127,24 @@ public class Board
                 
             // ********************************************************** //
 
-            if(player.getName() == ladders[0])
+            if(playerOne.getName() == ladders[0])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if (player.getName() == ladders[1])
+            else if (playerOne.getName() == ladders[1])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[2])
+            else if (playerOne.getName() == ladders[2])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[3])
+            else if (playerOne.getName() == ladders[3])
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if (player.getName() == ladders[4])
+            else if (playerOne.getName() == ladders[4])
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
