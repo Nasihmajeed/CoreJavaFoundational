@@ -1,12 +1,19 @@
 //Packages
 
-package  com.lxisoft.Forest;
+package com.lxisoft.forest;
 
-public class Animal {
+public class Animal{
 	
 	private String animalName;
-	private String animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
+	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
+	private float damagePercentage;
 	
+    // Method
+	
+ 	public void animalFight(Animal animals){
+		this.damagePercentage = (this.animalStrengthLevel+this.animalHungerLevel+this.animalAggressivenessLevel)
+		/(animals.getAnimalStrengthLevel()+animals.getAnimalHungerLevel()+animals.getAnimalAggressivenessLevel());		
+	} 
 	
 	// Setter and Getter
 	
@@ -14,35 +21,42 @@ public class Animal {
 	this.animalName = animName;
 }
 	
-	public void setAnimalStrengthLevel(String animalStrLevel){
+	public void setAnimalStrengthLevel(int animalStrLevel){
 	this.animalStrengthLevel = animalStrLevel;
 }
 
-	public void setAnimalHungerLevel(String animalHunLevel){
+	public void setAnimalHungerLevel(int animalHunLevel){
 	this.animalHungerLevel = animalHunLevel;
 }
 
-	public void setAnimalAggressivenessLevel(String animalAggressivLevel){
+	public void setAnimalAggressivenessLevel(int animalAggressivLevel){
 	this.animalAggressivenessLevel = animalAggressivLevel;
 }
+	public void setDamagePercentage(float damagePercent){
+	this.damagePercentage = damagePercent;
+}
 
-	public String getAnimalNamee (){
+	public String getAnimalName(){
 	return this.animalName;
 }
 
-	public String getAnimalStrengthLevel (){
+	public int getAnimalStrengthLevel(){
 	return this.animalStrengthLevel;
 }
 
-	public String getAnimalHungerLevel (){
+	public int getAnimalHungerLevel(){
 	return this.animalHungerLevel;
 }
 
-	public String getAnimalAggressivenessLevel (){
+	public int getAnimalAggressivenessLevel(){
 	return this.animalAggressivenessLevel;
 }
 
+	public float getDamagePercentage(){
+	return this.damagePercentage;
+}
 public void print(){
-	System.out.println(animalName+"\n"+animalStrengthLevel+"\n"+animalHungerLevel+"\n"+animalAggressivenessLevel);
+	System.out.println(animalName+"\n"+animalStrengthLevel+"\n"+animalHungerLevel+
+	"\n"+animalAggressivenessLevel+"\n"+damagePercentage);
 	}
 }
