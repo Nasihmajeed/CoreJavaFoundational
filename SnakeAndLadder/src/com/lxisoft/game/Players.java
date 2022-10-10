@@ -1,7 +1,7 @@
 package com.lxisoft.game;
 import java.util.*;
 
-public class Players implements DiceThrowable,LadderUsable
+public class Players //implements DiceThrowable,LadderUsable
 {           
     private Dice dice;
     private Coin[] coins;
@@ -65,7 +65,7 @@ public class Players implements DiceThrowable,LadderUsable
         //Coin moves are occur here!
     }   
     
-    void throwDice()
+    /*void throwDice()
     {
         //System.out.println("Dice Throwing");
     } 
@@ -74,4 +74,5 @@ public class Players implements DiceThrowable,LadderUsable
     {
         //System.out.println("Using Ladder");
     }
+    */
 }
