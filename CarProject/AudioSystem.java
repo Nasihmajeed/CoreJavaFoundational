@@ -1,8 +1,14 @@
 package audio;
 public class AudioSystem{
 
-public String brand;
-public int noOfSpeaker;
+String brand;
+int noOfSpeaker;
+public void audioDetails(String br,int noSpeaker)
+{
+brand=br;
+noOfSpeaker=noSpeaker;
+
+}
 
 public void playMusic()
 {

@@ -1,9 +1,9 @@
 package tDetails;
 public class Tyre{
-public String company;
-public String design;
-public int width;
-public String position;
+String company;
+String design;
+int width;
+String position;
 public Tyre(String br,String mod,int wid,String pos)
 {
 

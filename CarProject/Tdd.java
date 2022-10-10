@@ -13,8 +13,7 @@ car.color="Black";
 car.manufact="India";
 
  AudioSystem audio1= new AudioSystem();
- audio1.brand="JBL";
- audio1.noOfSpeaker=4;
+ audio1.audioDetails("JBL",4);
  car.audio1=audio1;
 
  ArrayList<Tyre> tyres = new ArrayList<>();
