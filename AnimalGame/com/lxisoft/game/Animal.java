@@ -9,7 +9,7 @@ private String eat;
 private int strengthLevel;
 private int hungryLevel;
 private int luckFactor;
-private boolean isAlive;
+private boolean isAlive=true;
 
 public Animal()
 {

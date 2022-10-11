@@ -41,32 +41,29 @@ public class Forest {
         System.out.println(animalsList.get(i).getHungryLevel());
     
         } 
-        for(i=0; i<animalsList.size();i++) {
-
-            
-
-                meetPlayers(animalsList);
-                
-            }
-    
-    
-}
-   
-
-    public void meetPlayers(ArrayList<Animal> animalsList) {
-
         
 
-        Random random = new Random();
+             animalPick(animalsList);
+                
+            
+    }
+
+   public void animalPick(ArrayList<Animal> animalsList) {
+        for(int i=0;i<animalsList.size();i++) {
+
+            Random random = new Random();
 
         int animal1 =random.nextInt(animalsList.size());
         int animal2 =random.nextInt(animalsList.size());
     
         Animal player1 = animalsList.get(animal1);
         Animal player2 = animalsList.get(animal2);
-    
 
-        if((player1 instanceof Herbivorous) && (player2 instanceof Herbivorous)) {
+            if(animalsList.get(animal1).getIsAlive() ==true && animalsList.get(animal2).getIsAlive() ==true) {
+
+            }
+
+          if((player1 instanceof Herbivorous) && (player2 instanceof Herbivorous)) {
 
             System.out.println("The Both Players Are Herbivores");
             System.out.println("They are  Friends");
@@ -116,7 +113,7 @@ public class Forest {
     
     }
 
-    
+}   
 
 }
    }

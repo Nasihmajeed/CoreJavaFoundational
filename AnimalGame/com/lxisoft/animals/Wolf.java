@@ -20,6 +20,8 @@ super(animalName, eat, strengthLevel, hungeryLevel, isAlive);
 
 }
 
+
+
 public Animal startFight(Animal opponent) {
 
     int hungryLevelOfPlayer1 = this.getHungryLevel();
