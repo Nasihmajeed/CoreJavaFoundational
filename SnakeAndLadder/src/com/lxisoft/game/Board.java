@@ -11,22 +11,6 @@ public class Board
 
     Scanner sc = new Scanner(System.in);     
     Random rand = new Random();
-   
-    Ladder ladders[] = new Ladder[5];    
-    ladders[0] = new Ladder(5,13); 
-    ladders[1] = new Ladder(15,27);
-    ladders[2] = new Ladder(30,57);
-    ladders[3] = new Ladder(60,77);
-    ladders[4] = new Ladder(82,98);     
-                                     
-
-    Snake snakes[] = new Snake[5];
-    snakes[0] =  new Snake(11,3);
-    snakes[1] =  new Snake(39,14);
-    snakes[2] =  new Snake(49,21);
-    snakes[3] =  new Snake(78,6);
-    snakes[4] =  new Snake(99,58);
-       
     
     int randomDicePoint = rand.nextInt(6);
     String gameMode;    
@@ -36,8 +20,22 @@ public class Board
 
     //final static int winPoint = 100;       
     
-    void startPlaying()
+    public void startPlaying()
     {  
+        Ladder ladders[] = new Ladder[5];    
+        ladders[0] = new Ladder(5,13); 
+        ladders[1] = new Ladder(15,27);
+        ladders[2] = new Ladder(30,57);
+        ladders[3] = new Ladder(60,77);
+        ladders[4] = new Ladder(82,98);     
+
+        Snake snakes[] = new Snake[5];
+        snakes[0] =  new Snake(11,3);
+        snakes[1] =  new Snake(39,14);
+        snakes[2] =  new Snake(49,21);
+        snakes[3] =  new Snake(78,6);
+        snakes[4] =  new Snake(99,58);
+    
         System.out.println("\t "+"LXI Soft Presents "+"\n");
         System.out.println("     " + "Snake And Ladder Game 1.0"+"\n");
         System.out.println("*** Instructions ***"+"\n");
