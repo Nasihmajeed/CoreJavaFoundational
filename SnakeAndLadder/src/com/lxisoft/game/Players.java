@@ -1,11 +1,12 @@
 package com.lxisoft.game;
 import java.util.*;
 
-public class Players //implements DiceThrowable,LadderUsable
+public class Players ///implements DiceThrowable,LadderUsable
 {           
     private Dice dice;
     private Coin[] coins;
-    private String name;       
+    private String nameOne;
+    private String nameTwo;       
     private int score;
     
     Scanner sc = new Scanner(System.in);
@@ -30,15 +31,25 @@ public class Players //implements DiceThrowable,LadderUsable
         this.coins=Coins;
     }
 
-    public String getName()                     //Name Settings
+    public String getNameOne()                     //NameOne Settings
     {
-        return name;
+        return nameOne;
     }
     
-    public void setName(String Name)
+    public void setNameOne(String NameOne)
     {
-        this.name=Name;
+        this.nameOne=NameOne;
     }
+
+    public String getNameTwo()                     //NameTwo Settings
+    {
+        return nameTwo;
+    }
+    
+    public void setNameTwo(String NameTwo)
+    {
+        this.nameTwo=NameTwo;
+    }    
 
     public int getScore()                       //Score Settings
     {
@@ -49,8 +60,6 @@ public class Players //implements DiceThrowable,LadderUsable
     {
         this.score=Score;
     }
-
-    //public void abstract playersListing();      //abstract method of playerOne and playerTwo
 
     public int rollDice()
 	{
