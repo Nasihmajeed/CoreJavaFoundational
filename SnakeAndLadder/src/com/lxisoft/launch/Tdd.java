@@ -5,7 +5,7 @@ public class Tdd
 {
     public static void main(String [] args)    
     {                                                     
-        Board game = new Board();                             
-        game.startPlaying();               
+        Board board = new Board();                             
+        board.startPlaying();               
     }
 }
