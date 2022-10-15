@@ -19,11 +19,12 @@ public class TDD {
 					
 		// Printing Sections Forest Details		
 
-		denseForest.setForestName("\n"+"Forest Name : Amazon Forest");
-		System.out.println(denseForest.getForestName()+"\n");
+		denseForest.setForestName("Amazon Forest");
+		System.out.println("Forest Name : "+ denseForest.getForestName()+"\n");
 		
-		denseForest.animalDetails();
-		denseForest.meetAnimals();
+		denseForest.animalDetails(5);
+		denseForest.showAllAnimals();
+		denseForest.fight();
 				
 	}
 }
