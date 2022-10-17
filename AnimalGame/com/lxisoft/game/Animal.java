@@ -5,33 +5,26 @@ import com.lxisoft.animals.*;
 public class Animal {
 
 private String animalName;    
-private String eat;
+private String food;
 private int strengthLevel;
 private int hungryLevel;
 private int luckFactor;
-private boolean isAlive=true;
+private boolean Alive=true;
 
 public Animal()
 {
 }
 
-public Animal(String animalName, String eat, int strengthLevel, int hungryLevel, boolean isAlive){
+public Animal(String animalName, String food, int strengthLevel, int hungryLevel, boolean Alive){
  
 this.animalName = animalName;    
-this.eat = eat;
+this.food = food;
 this.strengthLevel = strengthLevel;
 this.hungryLevel = hungryLevel;
-this.isAlive = isAlive;
+this.Alive = Alive;
 
 
 }
-
-Random random = new Random();
-
-public void wildAnimals() {
-}
-
-
 
 public String getName() {
     return animalName;
@@ -41,13 +34,13 @@ public void setName(String animalName) {
     this.animalName = animalName;
 }
 
-public String getEat() {
- return eat;
+public String getFood() {
+ return food;
 
 }
 
-public void setEat(String newEat) {
- this.eat = newEat;
+public void setFood(String newFood) {
+ this.food = newFood;
 
 }
 
@@ -72,39 +65,35 @@ public void setHungryLevel(int newHungryLevel) {
 }
 
 public int generateLuckFactor() {
-
+    Random random = new Random();
     luckFactor = random.nextInt(10);
     return luckFactor;
 }
 
-public boolean getIsAlive() {
+public boolean getAlive() {
 
-    return isAlive;
+    return Alive;
 }
 
-public void setIsAlive(boolean alive) {
+public void setAlive(boolean alive) {
 
-    this.isAlive = alive;
+    this.Alive = alive;
 }
 
 
-
-
-public void animalDetails () {
+public void printAnimalDetails () {
 
     System.out.println("\n.....ANIMAL.....\n");
 
 System.out.println("Animal Name : "+this.getName());
 
-System.out.println("Animal Eat : "+this.getEat());
+System.out.println("Animal Eat : "+this.getFood());
 
 System.out.println("Animal StrengthLevel : "+this.getStrengthLevel());
 
 System.out.println("Animal HungryLevel : "+this.getHungryLevel());
 
 }
-
-
 
 }
 

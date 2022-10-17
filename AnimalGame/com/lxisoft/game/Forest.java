@@ -11,18 +11,13 @@ public class Forest {
 
     ArrayList<Animal> animalsList = new ArrayList<Animal>();
 
-   int i =0;
 
-    Animal animal = new Animal(" "," ",0,0,true);
 
-    public void welcomeToForest () {
+     public void welcomeToForest () {
 
         System.out.println("..........WELCOME TO FOREST........... \n");
     
- 
-    
-    // animal.wildAnimals();
-    
+ // animal.wildAnimals();
     animalsList.add(new Lion("King-Lion","meat",35,35,true));
     animalsList.add(new Deer("Alcine-Deer","grass",15,15,true));
     animalsList.add(new Tiger("Dave-Tiger","meat",30,30,true));
@@ -34,9 +29,9 @@ public class Forest {
     animalsList.add(new Cheetah("Fastest-Cheetah","meat",14,13,true));
     animalsList.add(new Zebra("Zippy-Zebra","grass",11,10,true));
     
-    for(i = 0 ; i < animalsList.size() ; i++) {
+    for(int i = 0 ; i < animalsList.size() ; i++) {
         System.out.println(animalsList.get(i).getName());
-        System.out.println(animalsList.get(i).getEat());
+        System.out.println(animalsList.get(i).getFood());
         System.out.println(animalsList.get(i).getStrengthLevel());
         System.out.println(animalsList.get(i).getHungryLevel());
     
@@ -59,7 +54,7 @@ public class Forest {
         Animal player1 = animalsList.get(animal1);
         Animal player2 = animalsList.get(animal2);
 
-            if(animalsList.get(animal1).getIsAlive() ==true && animalsList.get(animal2).getIsAlive() ==true) {
+            if(animalsList.get(animal1).getAlive() ==true && animalsList.get(animal2).getAlive() ==true) {
 
             }
 
