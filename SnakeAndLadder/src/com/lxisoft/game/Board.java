@@ -3,8 +3,7 @@ import java.util.*;
 
 public class Board
 {   
-    Dice dice = new Dice();
-    Coin coin = new Coin();    
+    Locationcell[] locationCell;         
 
     Players playerOne = new Players();
     Players playerTwo = new Players();
@@ -18,7 +17,15 @@ public class Board
     int startGame = 1;
     int endGame = 100;    
 
-    //final static int winPoint = 100;       
+    public LocationCell[] getLocationCell()
+    {
+        return locationCell;
+    }       
+
+    public void setLocationCell(LocationCell[] LocationCell)
+    {
+        this.locationCell = LocationCell;
+    }
     
     public void startPlaying()
     {  
@@ -27,15 +34,15 @@ public class Board
         ladders[1] = new Ladder(15,27);
         ladders[2] = new Ladder(30,57);
         ladders[3] = new Ladder(60,77);
-        ladders[4] = new Ladder(82,98);     
+        ladders[4] = new Ladder(82,98);
 
         Snake snakes[] = new Snake[5];
         snakes[0] =  new Snake(11,3);
         snakes[1] =  new Snake(39,14);
         snakes[2] =  new Snake(49,21);
         snakes[3] =  new Snake(78,6);
-        snakes[4] =  new Snake(99,58);
-    
+        snakes[4] =  new Snake(99,58);    
+
         System.out.println("\n" + "\t\t\t\t\t\t" + "LXI SOFT Presents" + "\n");
         System.out.println("\t\t\t\t\t    " + "Snake And Ladder Game 1.0" + "\n");
         System.out.println("\t\t\t\t\t       " + "*** Instructions ***" + "\n");

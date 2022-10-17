@@ -2,9 +2,8 @@ package com.lxisoft.game;
 
 public class Coin 
 {
-    private int coinOne;
-    private int coinTwo;
-
+    private int coin;
+  
     public int getCoinOne()
     {
         return coinOne;

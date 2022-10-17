@@ -1,36 +1,14 @@
 package com.lxisoft.game;
 import java.util.*;
 
-public class Players ///implements DiceThrowable,LadderUsable
-{           
-    private Dice dice;
-    private Coin[] coins;
+public class Player ///implements DiceThrowable,LadderUsable
+{   
     private String nameOne;
     private String nameTwo;       
     private int score;
     
     Scanner sc = new Scanner(System.in);
     
-    public Dice getDice()                       //Dice Settings            
-    {
-        return dice;
-    } 
-     
-    public void setDice(Dice Dice)  
-    {
-        this.dice=Dice;
-    }
-    
-    public Coin[] getCoin()                     //Coin Settings        
-    {
-        return coins;
-    } 
-     
-    public void setDice(Coin[] Coins)
-    {
-        this.coins=Coins;
-    }
-
     public String getNameOne()                     //NameOne Settings
     {
         return nameOne;
