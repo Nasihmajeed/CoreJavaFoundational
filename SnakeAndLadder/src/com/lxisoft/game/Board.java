@@ -5,9 +5,6 @@ public class Board
 {   
     Locationcell[] locationCell;         
 
-    Players playerOne = new Players();
-    Players playerTwo = new Players();
-
     Scanner sc = new Scanner(System.in);     
     Random rand = new Random();
     
@@ -62,7 +59,7 @@ public class Board
         System.out.println("2. Medium ");
         System.out.println("3. Hard ");
 
-        gameMode=sc.nextLine();                    
+        gameMode = sc.nextLine();                    
          
         System.out.println("Yes You Have Selected " + gameMode + "\n");
         System.out.println("*** Please Wait Game Is Starting ***" + "\n");

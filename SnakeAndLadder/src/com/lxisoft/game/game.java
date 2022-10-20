@@ -1,12 +1,16 @@
 package com.lxisoft.game;
+import java.util.*;
+import java.util.ArrayList;    
 
 public class game
 {  
     private Dice dice;
 
-    private Coin[] coins;
+    private Coin[] coin;
 
-    public Dice getDice()                       //Dice Settings            
+    private int score;
+
+    public Dice getDice()                                  
     {
         return dice;
     } 
@@ -16,14 +20,27 @@ public class game
         this.dice=Dice;
     }
 
-    public Coin[] getCoin()                     //Coin Settings        
+    public Coin[] getCoin()                             
     {
-        return coins;
+        return coin;
     } 
      
-    public void setDice(Coin[] Coins)
+    public void setCoin(Coin[] Coin)
     {
-        this.coins=Coins;
+        this.coin=Coin;
     } 
+
+    public int getScore()                       
+    {
+        return score;
+    }
+    
+    public void setScore(int Score)
+    {
+        this.score=Score;
+    }
+
+    Players playerOne = new Players();
+    Players playerTwo = new Players();
 }
 

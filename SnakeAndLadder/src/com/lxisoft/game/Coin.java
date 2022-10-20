@@ -2,25 +2,16 @@ package com.lxisoft.game;
 
 public class Coin 
 {
-    private int coin;
+    private Color[] color;
   
-    public int getCoinOne()
+    public int getColor()
     {
-        return coinOne;
+        return color;
     }
 
-    public void setCoinOne(int CoinOne)
+    public void setColor(Color[] Color)
     {
-        this.coinOne = CoinOne;
+        this.color = Color;
     } 
 
-    public int getCoinTwo()
-    {
-        return coinTwo;
-    }
-
-    public void setCoinTwo(int CoinTwo)
-    {
-        this.coinTwo = CoinTwo;
-    } 
 }
