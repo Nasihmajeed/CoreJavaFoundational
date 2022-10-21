@@ -26,7 +26,7 @@ public class Board
     
     public void startPlaying()
     {  
-        Ladder ladders[] = new Ladder[5];    
+        ArrayList<Ladder> ladders = new ArrayList<>();     
         ladders[0] = new Ladder(5,13); 
         ladders[1] = new Ladder(15,27);
         ladders[2] = new Ladder(30,57);
