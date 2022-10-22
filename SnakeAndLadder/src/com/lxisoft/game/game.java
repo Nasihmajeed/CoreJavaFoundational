@@ -10,6 +10,8 @@ public class game
 
     private int score;
 
+    ArrayList <Ladder> ladders = new ArrayList<Ladder>();
+
     public Dice getDice()                                  
     {
         return dice;
