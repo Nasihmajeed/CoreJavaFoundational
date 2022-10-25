@@ -7,7 +7,13 @@ public class Animal{
 	private String animalName;
 	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
 	private float damagePercentage;
-		
+	
+	public float animalFight(Animal animals){
+		this.damagePercentage = (this.animalStrengthLevel+this.animalHungerLevel+this.animalAggressivenessLevel)
+		/(animals.getAnimalStrengthLevel()+animals.getAnimalHungerLevel()+animals.getAnimalAggressivenessLevel());		
+		return this.damagePercentage;
+	}
+	
 	// Setter and Getter
 	
 	public void setAnimalName(String animName){

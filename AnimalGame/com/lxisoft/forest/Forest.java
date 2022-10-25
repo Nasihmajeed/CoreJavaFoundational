@@ -6,13 +6,15 @@ import com.lxisoft.forest.Animal;
 
 public class Forest {
 				
-	private List<Animal> animals = new ArrayList<>();
+	private List<Animal> animals = new ArrayList<Animal>();
 	private String forestName;
 	
  	public void animalDetails(int number){
 		
-		for (int i=0;i < number; i++) {
 		Animal animal = new Animal();
+		
+		for (int i=0;i < number; i++) {
+		
 		animal.setAnimalName("Animal "+(i+1));
  		animal.setAnimalStrengthLevel(90 +(i+1));
 		animal.setAnimalHungerLevel(75 +(i+1));
@@ -28,13 +30,30 @@ public class Forest {
 	}
 	
 	public void showAllAnimals(){
-		System.out.println("-----Total Number of Animals in the Forets-----"+"\n");
+		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
 		for(int i=0; i < animals.size();i++){
-			System.out.println(animals.get(i).getAnimalName()+"\n");
+			System.out.println(animals.get(i).getAnimalName()+"\n");			
 		}
 	}
+	
+	public void fightBetweenAnimals(){
+		System.out.println("\n"+"-----Animals Fight-----"+"\n");
+		
+		animals.get(0).animalFight(animals.get(1));
+		animals.get(1).animalFight(animals.get(2));
+	 	animals.get(2).animalFight(animals.get(3));
+		animals.get(3).animalFight(animals.get(4));
+		animals.get(4).animalFight(animals.get(1));
+				
+		System.out.println("\n"+"Animal 1 & 2 damage Percentage: " + animals.get(0).animalFight(animals.get(1))+
+		"\n" +"Animal 2 & 3 damage Percentage: " + animals.get(1).animalFight(animals.get(2))+
+		"\n" +"Animal 3 & 4 damage Percentage: "+ animals.get(2).animalFight(animals.get(3))+
+		"\n" +"Animal 4 & 5 damage Percentage: "+ animals.get(3).animalFight(animals.get(4))+
+		"\n" +"Animal 5 & 1 damage Percentage: " + animals.get(4).animalFight(animals.get(1)));
+	}
+
 			
-	public void fight(){
+	public void randomAnimalsMeet(){
 		int size = animals.size();
 		System.out.println("-----RANDOM FIGHT DETAILS-----");
 		for (int i=0; i <size; i++){

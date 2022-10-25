@@ -14,9 +14,7 @@ public class TDD {
 		Forest denseForest=new Forest();
 		
 		denseForest.setAnimals(animals);
-		
-		Forest Animal=new Forest();	
-					
+							
 		// Printing Sections Forest Details		
 
 		denseForest.setForestName("Amazon Forest");
@@ -24,7 +22,14 @@ public class TDD {
 		
 		denseForest.animalDetails(5);
 		denseForest.showAllAnimals();
-		denseForest.fight();
+		denseForest.randomAnimalsMeet();
+		denseForest.fightBetweenAnimals();
+		
+		// Fight Between "ANIMALS(TIGER, LION & CHEETAH)"
+		
+/* 		animal1.animalFight(animal2);		
+		animal2.animalFight(animal3);
+		animal3.animalFight(animal1); */
 				
 	}
 }
