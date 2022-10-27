@@ -2,16 +2,14 @@ package com.lxisoft.game;
 import java.util.*;
 import java.util.ArrayList;    
 
-public class game
+public class Game
 {  
     private Dice dice;
 
     private Coin[] coin;
 
     private int score;
-
-    ArrayList <Ladder> ladders = new ArrayList<Ladder>();
-
+    
     public Dice getDice()                                  
     {
         return dice;
@@ -45,21 +43,30 @@ public class game
     Players playerOne = new Players();
     Players playerTwo = new Players();
 
-    void gameLoading()
-    {
-        ArrayList<Ladder> ladders = new ArrayList<>();     
-        ladders[0] = new Ladder(5,13); 
-        ladders[1] = new Ladder(15,27);
-        ladders[2] = new Ladder(30,57);
-        ladders[3] = new Ladder(60,77);
-        ladders[4] = new Ladder(82,98);
+    Random rand = new Random();
+    Scanner sc = new Scanner(System.in);
 
-        Snake snakes[] = new Snake[5];
-        snakes[0] =  new Snake(11,3);
-        snakes[1] =  new Snake(39,14);
-        snakes[2] =  new Snake(49,21);
-        snakes[3] =  new Snake(78,6);
-        snakes[4] =  new Snake(99,58);    
+    int randomDicePoint = rand.nextInt(7);
+    String gameMode;    
+    String xPress;
+    int startGame = 1;
+    int endGame = 100;
+
+    public void gameStarting()
+    {
+        ArrayList<Ladder> myLadderList = new ArrayList<Ladder>();                
+        myLadderList.add(new Ladder(5,13)); 
+        myLadderList.add(new Ladder(15,27));
+        myLadderList.add(new Ladder(30,57));
+        myLadderList.add(new Ladder(60,77));
+        myLadderList.add(new Ladder(82,98));
+
+        ArrayList<Snake> mySnakeList = new ArrayList<>();
+        mySnakeList.add(new Snake(11,3));
+        mySnakeList.add(new Snake(39,14));
+        mySnakeList.add(new Snake(49,21));
+        mySnakeList.add(new Snake(78,6));
+        mySnakeList.add(new Snake(99,58));    
 
         System.out.println("\n" + "\t\t\t\t\t\t" + "LXI SOFT Presents" + "\n");
         System.out.println("\t\t\t\t\t    " + "Snake And Ladder Game 1.0" + "\n");
@@ -115,90 +122,90 @@ public class game
             }
                  
                    
-            if(playerOne.getNameOne() == String.valueOf(snakes[0])) 
+            if(playerOne.getNameOne() == String.valueOf(mySnakeList)) 
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snakes[1]))
+            else if(playerOne.getNameOne() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snakes[2]))
+            else if(playerOne.getNameOne() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snakes[3]))
+            else if(playerOne.getNameOne() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snakes[4]))
+            else if(playerOne.getNameOne() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getNameTwo() == String.valueOf(snakes[0])) 
+            if(playerTwo.getNameTwo() == String.valueOf(mySnakeList)) 
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snakes[1]))
+            else if(playerTwo.getNameTwo() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snakes[2]))
+            else if(playerTwo.getNameTwo() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snakes[3]))
+            else if(playerTwo.getNameTwo() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snakes[4]))
+            else if(playerTwo.getNameTwo() == String.valueOf(mySnakeList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.getNameOne() == String.valueOf(ladders[0]))
+            if(playerOne.getNameOne() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerOne.getNameOne() == String.valueOf(ladders[1]))
+            else if(playerOne.getNameOne() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladders[2]))
+            else if(playerOne.getNameOne() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladders[3]))
+            else if(playerOne.getNameOne() == String.valueOf(myLadderList))
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladders[4]))
+            else if(playerOne.getNameOne() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getNameTwo() == String.valueOf(ladders[0]))
+            if(playerTwo.getNameTwo() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerTwo.getNameTwo() == String.valueOf(ladders[1]))
+            else if(playerTwo.getNameTwo() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladders[2]))
+            else if(playerTwo.getNameTwo() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladders[3]))
+            else if(playerTwo.getNameTwo() == String.valueOf(myLadderList))
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladders[4]))
+            else if(playerTwo.getNameTwo() == String.valueOf(myLadderList))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
@@ -212,6 +219,7 @@ public class game
             {
                 System.out.println (playerTwo.getNameTwo() + "\t\t\t\t  Is Win!");
             }                
+        }
     }
 }
 

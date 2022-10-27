@@ -5,7 +5,9 @@ public class Tdd
 {
     public static void main(String [] args)    
     {                                                     
-        Game game = new Game();                             
-        game.gameLoading();                      
+        Game snakeNLadderGame = new Game();                             
+        snakeNLadderGame.gameStarting();                      
     }
 }
+
+

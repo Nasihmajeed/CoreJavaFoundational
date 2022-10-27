@@ -13,5 +13,4 @@ public class Coin
     {
         this.color = Color;
     } 
-
 }
