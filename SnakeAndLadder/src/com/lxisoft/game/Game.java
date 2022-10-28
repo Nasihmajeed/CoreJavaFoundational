@@ -2,7 +2,7 @@ package com.lxisoft.game;
 import java.util.*;
 import java.util.ArrayList;    
 
-public class Game
+public class Game implements DiceThrowable,LadderUsable
 {  
     private Dice dice;
 
@@ -218,7 +218,17 @@ public class Game
             else if(playerTwo.getNameTwo() == String.valueOf(endGame))
             {
                 System.out.println (playerTwo.getNameTwo() + "\t\t\t\t  Is Win!");
-            }                
+            }   
+
+            void throwDice()
+            {
+                System.out.println("Dice Throwing");
+            }
+
+            void useLadder()
+            {
+                System.out.println("Using Ladder");
+            }              
         }
     }
 }

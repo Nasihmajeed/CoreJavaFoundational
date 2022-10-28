@@ -1,7 +1,7 @@
 package com.lxisoft.game;
 import java.util.*;
 
-public class Player //implements DiceThrowable,LadderUsable
+public class Player implements DiceThrowable,LadderUsable
 {   
     private String nameOne;
     private String nameTwo;       
