@@ -6,7 +6,7 @@ public class Tdd
     public static void main(String [] args)    
     {                                                     
         Game snakeNLadderGame = new Game();                             
-        snakeNLadderGame.gameStarting();                      
+        snakeNLadderGame.gameStart();                      
     }
 }
 

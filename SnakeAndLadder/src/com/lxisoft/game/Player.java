@@ -3,8 +3,7 @@ import java.util.*;
 
 public class Player implements DiceThrowable,LadderUsable
 {   
-    private String nameOne;
-    private String nameTwo;       
+    private String name;          
     
     Scanner sc = new Scanner(System.in);
     
@@ -35,20 +34,4 @@ public class Player implements DiceThrowable,LadderUsable
 		n=r.nextInt(7);
 		return (n==0?1:n);
 	}
-    
-    public void moveCoin()
-    {
-        //Coin moves are occur here!
-    }   
-    
-    /*void throwDice()
-    {
-        //System.out.println("Dice Throwing");
-    } 
-
-    void useLadder()
-    {
-        //System.out.println("Using Ladder");
-    }
-    */
 }
