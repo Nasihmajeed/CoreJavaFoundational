@@ -1,8 +1,11 @@
 package com.lxisoft.game;
 import java.util.Random;
+import com.lxisoft.factors.Location;
 import com.lxisoft.animals.*;
 
 public class Animal {
+
+   
 
 private String animalName;    
 private String food;
@@ -10,6 +13,8 @@ private int strengthLevel;
 private int hungryLevel;
 private int luckFactor;
 private boolean Alive=true;
+
+Location location = new Location();
 
 public Animal()
 {
@@ -25,6 +30,21 @@ this.Alive = Alive;
 
 
 }
+
+public void setLocation(int x , int y) {
+
+    location.setLocationXaxis(x);
+    location.setLocationYaxis(y);
+}
+
+public int getLocationX() {
+    return location.getLocationXaxis();
+}
+
+public int getLocationY() {
+    return location.getLocationYaxis();
+}
+
 
 public String getName() {
     return animalName;

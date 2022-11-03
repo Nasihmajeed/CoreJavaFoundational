@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import java.util.Random;
 
+import com.lxisoft.factors.Location;
 
 import com.lxisoft.animals.*;
 
 public class Forest {
 
     ArrayList<Animal> animalsList = new ArrayList<Animal>();
+
+   
 
 
 
@@ -43,7 +46,8 @@ public class Forest {
             
     }
 
-   public void animalPick(ArrayList<Animal> animalsList) {
+     public void animalPick(ArrayList<Animal> animalsList) {
+
         for(int i=0;i<animalsList.size();i++) {
 
             Random random = new Random();
@@ -54,7 +58,19 @@ public class Forest {
         Animal player1 = animalsList.get(animal1);
         Animal player2 = animalsList.get(animal2);
 
-            if(animalsList.get(animal1).getAlive() ==true && animalsList.get(animal2).getAlive() ==true) {
+        player1.setLocation(random.nextInt(30),random.nextInt(30));
+        }
+    }
+
+        public void roamingPart(Animal player1, Animal player2) {
+
+            Random random = new Random();
+
+            int part=(int)(Math.sqrt((player2.getLocationX())-(player1.getLocationX())*(player2.getLocationX())-(player1.getLocationX())+(player2.getLocationY())-(player1.getLocationY())*(player2.getLocationX())-(player1.getLocationX())+(player2.getLocationY())-(player1.getLocationY())));
+            
+            
+
+            if(player1.getAlive() ==true && player2.getAlive() ==true) {
 
             }
 
@@ -67,6 +83,7 @@ public class Forest {
         
         else if((player1 instanceof Herbivorous) && (player2 instanceof Carnivorous)) {
     
+            player1.setLocation(random.nextInt(30),random.nextInt(30));            
             System.out.println("The First Player Is Herbivores");
             System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
             System.out.println("The Second Player Is Carnivores");
@@ -108,9 +125,9 @@ public class Forest {
     
     }
 
-}   
+   
 
 }
-   }
-
+   
+}
         
