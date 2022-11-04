@@ -2,15 +2,15 @@ package com.lxisoft.game;
 
 public class Dice 
 {
-    private int diceValue;
+    private int diceValues;
     
-    public int getDiceValue()
+    public int getDiceValues()
     {
-        return diceValue;
+        return diceValues;
     }
 
-    public void setDiceValue(int DiceValue)
+    public void setDiceValues(int DiceValues)
     {
-        this.diceValue = DiceValue;
+        this.diceValues = DiceValues;
     } 
 }

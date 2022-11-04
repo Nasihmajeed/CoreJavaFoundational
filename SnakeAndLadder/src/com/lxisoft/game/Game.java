@@ -2,14 +2,10 @@ package com.lxisoft.game;
 import java.util.*;
 import java.util.ArrayList;    
 
-public class Game implements DiceThrowable,LadderUsable
+public class Game 
 {  
     private Dice dice;
 
-    private Coin[] coin;
-
-    private int score;
-    
     public Dice getDice()                                  
     {
         return dice;
@@ -18,26 +14,6 @@ public class Game implements DiceThrowable,LadderUsable
     public void setDice(Dice Dice)  
     {
         this.dice=Dice;
-    }
-
-    public Coin[] getCoin()                             
-    {
-        return coin;
-    } 
-     
-    public void setCoin(Coin[] Coin)
-    {
-        this.coin=Coin;
-    } 
-
-    public int getScore()                       
-    {
-        return score;
-    }
-    
-    public void setScore(int Score)
-    {
-        this.score=Score;
     }
 
     Players playerOne = new Players();
@@ -52,21 +28,21 @@ public class Game implements DiceThrowable,LadderUsable
     int startGame = 1;
     int endGame = 100;
 
-    public void gameStarting()
+    public void startGame()
     {
-        ArrayList<Ladder> ladder = new ArrayList<Ladder>();                
-        ladder.add(new Ladder(5,13)); 
-        ladder.add(new Ladder(15,27));
-        ladder.add(new Ladder(30,57));
-        ladder.add(new Ladder(60,77));
-        ladder.add(new Ladder(82,98));
+        ArrayList<Ladder> ladders = new ArrayList<Ladder>();                
+        ladders.add(new Ladder(5,13)); 
+        ladders.add(new Ladder(15,27));
+        ladders.add(new Ladder(30,57));
+        ladders.add(new Ladder(60,77));
+        ladders.add(new Ladder(82,98));
 
-        ArrayList<Snake> snake = new ArrayList<>();
-        snake.add(new Snake(11,3));
-        snake.add(new Snake(39,14));
-        snake.add(new Snake(49,21));
-        snake.add(new Snake(78,6));
-        snake.add(new Snake(99,58));    
+        ArrayList<Snake> snakes = new ArrayList<>();
+        snakes.add(new Snake(11,3));
+        snakes.add(new Snake(39,14));
+        snakes.add(new Snake(49,21));
+        snakes.add(new Snake(78,6));
+        snakes.add(new Snake(99,58));    
 
         System.out.println("\n" + "\t\t\t\t\t\t" + "LXI SOFT Presents" + "\n");
         System.out.println("\t\t\t\t\t    " + "Snake And Ladder Game 1.0" + "\n");
@@ -122,90 +98,90 @@ public class Game implements DiceThrowable,LadderUsable
             }
                  
                    
-            if(playerOne.getNameOne() == String.valueOf(snake)) 
+            if(playerOne.getNameOne() == String.valueOf(snakes)) 
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snake))
+            else if(playerOne.getNameOne() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snake))
+            else if(playerOne.getNameOne() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snake))
+            else if(playerOne.getNameOne() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(snake))
+            else if(playerOne.getNameOne() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getNameTwo() == String.valueOf(snake)) 
+            if(playerTwo.getNameTwo() == String.valueOf(snakes)) 
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snake))
+            else if(playerTwo.getNameTwo() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snake))
+            else if(playerTwo.getNameTwo() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snake))
+            else if(playerTwo.getNameTwo() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(snake))
+            else if(playerTwo.getNameTwo() == String.valueOf(snakes))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.getNameOne() == String.valueOf(ladder))
+            if(playerOne.getNameOne() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerOne.getNameOne() == String.valueOf(ladder))
+            else if(playerOne.getNameOne() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladder))
+            else if(playerOne.getNameOne() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladder))
+            else if(playerOne.getNameOne() == String.valueOf(ladders))
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getNameOne() == String.valueOf(ladder))
+            else if(playerOne.getNameOne() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getNameTwo() == String.valueOf(ladder))
+            if(playerTwo.getNameTwo() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerTwo.getNameTwo() == String.valueOf(ladder))
+            else if(playerTwo.getNameTwo() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladder))
+            else if(playerTwo.getNameTwo() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladder))
+            else if(playerTwo.getNameTwo() == String.valueOf(ladders))
             { 
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getNameTwo() == String.valueOf(ladder))
+            else if(playerTwo.getNameTwo() == String.valueOf(ladders))
             {
                 System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
@@ -218,21 +194,7 @@ public class Game implements DiceThrowable,LadderUsable
             else if(playerTwo.getNameTwo() == String.valueOf(endGame))
             {
                 System.out.println (playerTwo.getNameTwo() + "\t\t\t\t  Is Win!");
-            }   
-            
-            public void moveCoin()
-            {
-                //Coin moves are occur here!
-            }
-            void throwDice()
-            {
-                System.out.println("Dice Throwing");
-            }
-
-            void useLadder()
-            {
-                System.out.println("Using Ladder");
-            }              
+            }           
         }
     }
 }

@@ -3,28 +3,32 @@ import java.util.*;
 
 public class Player implements DiceThrowable,LadderUsable
 {   
-    private String name;          
+    private String name;
+
+    private int score;          
     
     Scanner sc = new Scanner(System.in);
+
+    Random rand = new Random();
     
-    public String getNameOne()                    
+    public String getName()                    
     {
-        return nameOne;
+        return name;
     }
     
-    public void setNameOne(String NameOne)
+    public void setName(String Name)
     {
-        this.nameOne=NameOne;
+        this.name=Name;
     }
 
-    public String getNameTwo()                    
+    public int getScore()                       
     {
-        return nameTwo;
+        return score;
     }
     
-    public void setNameTwo(String NameTwo)
+    public void setScore(int Score)
     {
-        this.nameTwo=NameTwo;
+        this.score=Score;
     }    
 
     public int rollDice()
@@ -34,4 +38,18 @@ public class Player implements DiceThrowable,LadderUsable
 		n=r.nextInt(7);
 		return (n==0?1:n);
 	}
+    
+    /*public void moveCoin()
+    {
+        //Coin moves are occur here!
+    }
+    void throwDice()
+    {
+        System.out.println("Dice Throwing");
+    }
+    void useLadder()
+    {
+        System.out.println("Using Ladder");
+    } 
+    */  
 }

@@ -12,5 +12,6 @@ public class Coin
     public void setColor(Color Color)
     {
         this.color = Color;
-    } 
+    }
+     
 }
