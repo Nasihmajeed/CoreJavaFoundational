@@ -59,7 +59,11 @@ public class Forest {
         Animal player2 = animalsList.get(animal2);
 
         player1.setLocation(random.nextInt(30),random.nextInt(30));
-        }
+
+        roamingPart(player1 , player2 );
+ }
+             
+
     }
 
         public void roamingPart(Animal player1, Animal player2) {
