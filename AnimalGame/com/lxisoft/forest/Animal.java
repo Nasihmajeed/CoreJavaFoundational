@@ -7,17 +7,22 @@ public class Animal{
 	private String animalName;
 	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
 	private float damagePercentage;
-	
-/* 	public float animalFight(Animal animals){
-		this.damagePercentage = (this.animalStrengthLevel+this.animalHungerLevel+this.animalAggressivenessLevel)
-		/(animals.getAnimalStrengthLevel()+animals.getAnimalHungerLevel()+animals.getAnimalAggressivenessLevel());		
-		return this.damagePercentage;
-	} */
+	private float afterFight;
 	
  	public float animalFight(Animal animal){
+		
+		this.damagePercentage = (this.animalStrengthLevel+this.animalHungerLevel+this.animalAggressivenessLevel)
+		-(animal.getAnimalStrengthLevel()+animal.getAnimalHungerLevel()+animal.getAnimalAggressivenessLevel());	
+		this.afterFight=(this.damagePercentage-10);
+		return this.afterFight;
+		
+	} 
+	
+ /* 	public float animalFight(Animal animal){
 		this.damagePercentage = (this.animalStrengthLevel+animal.getAnimalStrengthLevel()/this.animalStrengthLevel*100);
-		return this.damagePercentage;
-	}
+		this.afterFight=(this.damagePercentage-75);
+		return this.afterFight;
+	} */
 	 
 	// Setter and Getter
 	

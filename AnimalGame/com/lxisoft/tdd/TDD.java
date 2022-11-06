@@ -17,7 +17,7 @@ public class TDD {
 		
 		System.out.println("Forest Name : "+ denseForest.getForestName()+"\n");
 		
-		denseForest.animalDetails(5);
+		denseForest.animalDetails(10);
 		denseForest.showAllAnimals();
 		denseForest.randomAnimalsMeet();
 				

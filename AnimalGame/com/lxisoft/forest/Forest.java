@@ -67,16 +67,26 @@ public class Forest {
         //System.out.println("Random value2 * "+size+": "+randomIndex);
 		
 		System.out.println(animals.get(randomIndex).getAnimalName()); 
+		
 		// Storing 2 animals and printing the details
+		
 		Animal animal1 = animals.get(randomIndex);
+		
 		System.out.println("Random Animal1: "+animal1.getAnimalName()+"\n"); 
 		
 		Animal animal2 = animals.get(randomIndex1);
+		
 		System.out.println("Random Animal2: "+animal2.getAnimalName()+"\n"); 
 		
-		System.out.println("Fight: " +animal1.animalFight(animal2)+"\n");
+		float fightResult = animal1.animalFight(animal2);
+		
+		System.out.println("Fight: " +fightResult+"\n");
+		
+		if (fightResult > 1) {
+			System.out.println("\n" + "This Group has won the fight"+"\n" ); 
 		
 		}
+	}
 	}
 			
 	public void setForestName(String foresName){
