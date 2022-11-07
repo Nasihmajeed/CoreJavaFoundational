@@ -2,14 +2,14 @@ package com.lxisoft.game;
 
 public class Board
 {   
-    private Locationcells[] locationCells;         
+    private Locationcell[] locationCells;         
 
-    public LocationCells[] getLocationCells()
+    public LocationCell[] getLocationCell()
     {
         return locationCells;
     }       
 
-    public void setLocationCells(LocationCells[] LocationCells)
+    public void setLocationCell(LocationCell[] LocationCells)
     {
         this.locationCells = LocationCells;
     }    

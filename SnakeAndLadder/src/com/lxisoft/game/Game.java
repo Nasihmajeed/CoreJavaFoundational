@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Game 
 {  
     private Dice dice;
+    private Coin coin;
+
+    Player playerOne = new Player();
+    Player playerTwo = new Player();
 
     public Dice getDice()                                  
     {
@@ -13,11 +17,18 @@ public class Game
      
     public void setDice(Dice Dice)  
     {
-        this.dice=Dice;
+        this.dice = Dice;
     }
 
-    Players playerOne = new Players();
-    Players playerTwo = new Players();
+    public Coin getCoin()                                  
+    {
+        return coin;
+    } 
+     
+    public void setCoin(Coin Coins)  
+    {
+        this.coin = Coins;
+    }
 
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
