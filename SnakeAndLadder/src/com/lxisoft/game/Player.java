@@ -4,11 +4,9 @@ import java.util.*;
 public class Player implements DiceThrowable,LadderUsable
 {   
     private String name;
-
     private int score;          
     
     Scanner sc = new Scanner(System.in);
-
     Random rand = new Random();
     
     public String getName()                    
@@ -39,17 +37,17 @@ public class Player implements DiceThrowable,LadderUsable
 		return (n==0?1:n);
 	}
     
-    /*public void moveCoin()
+    void moveCoin()
     {
         //Coin moves are occur here!
     }
-    void throwDice()
+    public void throwDice()
     {
         System.out.println("Dice Throwing");
     }
-    void useLadder()
+    public void useLadder()
     {
         System.out.println("Using Ladder");
     } 
-    */  
+      
 }
