@@ -5,6 +5,18 @@ import java.util.ArrayList;
 public class LocationCell
 {  
     //coins
-    //cell        
+    //cell 
+
+    private Cell size;
+
+    public String getSize()                    
+    {
+        return size;
+    }
+    
+    public void setSize(String Size)
+    {
+        this.size=Size;
+    }       
 }
 

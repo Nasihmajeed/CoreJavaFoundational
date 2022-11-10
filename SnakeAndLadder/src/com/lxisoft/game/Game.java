@@ -74,9 +74,9 @@ public class Game
         playerTwo.setName(sc.nextLine());
 
         System.out.println("Enter your game mode :");
-        System.out.println("1. Easy ");
-        System.out.println("2. Medium ");
-        System.out.println("3. Hard ");
+        System.out.println("1. Easy");
+        System.out.println("2. Medium");
+        System.out.println("3. Hard");
 
         gameMode = sc.nextInt();                    
          
