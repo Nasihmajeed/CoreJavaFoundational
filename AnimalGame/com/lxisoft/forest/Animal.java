@@ -1,29 +1,37 @@
 //Packages
 
 package com.lxisoft.forest;
+import java.util.Comparator;
 
 public class Animal{
 	
 	private String animalName;
 	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
 	private float damagePercentage;
-	private float afterFight;
 	
- 	public float animalFight(Animal animal){
+ 	public String animalFight(Animal animal1){
 		
-		this.damagePercentage = (this.animalStrengthLevel+this.animalHungerLevel+this.animalAggressivenessLevel)
-		-(animal.getAnimalStrengthLevel()+animal.getAnimalHungerLevel()+animal.getAnimalAggressivenessLevel());	
-		this.afterFight=(this.damagePercentage-10);
-		return this.afterFight;
-		
-	} 
+		if (this.animalStrengthLevel > animal1.getAnimalStrengthLevel()){
+			
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+						
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-2);
+			
+			return this.getAnimalName();
+					
+			
+		} else if (this.animalStrengthLevel < animal1.getAnimalStrengthLevel()){
+			
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-2);
+			
+			return animal1.getAnimalName();
+			
+		}  
+			return null;
+		}
 	
- /* 	public float animalFight(Animal animal){
-		this.damagePercentage = (this.animalStrengthLevel+animal.getAnimalStrengthLevel()/this.animalStrengthLevel*100);
-		this.afterFight=(this.damagePercentage-75);
-		return this.afterFight;
-	} */
-	 
 	// Setter and Getter
 	
 	public void setAnimalName(String animName){
@@ -64,8 +72,9 @@ public class Animal{
 	public float getDamagePercentage(){
 	return this.damagePercentage;
 }
+
 public void print(){
 	System.out.println(animalName+"\n"+animalStrengthLevel+"\n"+animalHungerLevel+
-	"\n"+animalAggressivenessLevel+"\n"+damagePercentage);
+	"\n"+animalAggressivenessLevel+"\n"+this.damagePercentage);
 	}
 }
