@@ -2,10 +2,10 @@ package com.lxisoft.game;
 
 public class Snake
 {
-    Cell snakeHead;
-    Cell snakeTail;    
+    int snakeHead;
+    int snakeTail;    
 
-    public Snake(Cell snakeHead,Cell snakeTail)
+    public Snake(int snakeHead,int snakeTail)
     {
         this.snakeHead = snakeHead;
         this.snakeTail = snakeTail;

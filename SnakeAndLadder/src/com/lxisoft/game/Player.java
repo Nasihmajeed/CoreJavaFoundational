@@ -1,7 +1,7 @@
 package com.lxisoft.game;
 import java.util.*;
 
-public class Player implements DiceThrowable,LadderUsable
+public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
 {   
     private String name;
     private int score;          
@@ -47,7 +47,10 @@ public class Player implements DiceThrowable,LadderUsable
     }
     public void useLadder()
     {
-        System.out.println("Using Ladder");
+        System.out.println("Using Ladder Ha Ha Ha");
     } 
-      
+    public void snakeBite()
+    {
+        System.out.println("Ouch Snake Bites!!!");
+    }      
 }

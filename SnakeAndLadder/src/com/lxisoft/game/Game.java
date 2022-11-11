@@ -38,8 +38,7 @@ public class Game
 
     int randomDicePoint = rand.nextInt(7);
     int gameMode;    
-    String xPress; 
-    int selectColor; 
+    String xPress;      
     int startGame = 1;
     int endGame = 100;
 
@@ -87,25 +86,29 @@ public class Game
         System.out.println("1. Green");
         System.out.println("2. Red");
         coinOne.setColor(sc.nextInt());
-
+        //System.out.println("Yes You Have Selected " + + "\n");
+        
         System.out.println("PlayerTwo Please Select Your Colors " +"\n");
         System.out.println("1. Green");
         System.out.println("2. Red");
         coinTwo.setColor(sc.nextInt());
-        
+        //System.out.println("Yes You Have Selected " + + "\n");
+
         for(int i = 0;i < 100;i++)
         {            
             System.out.println("Player One " + playerOne.getName() + " : ");
         
-            System.out.println("Use x to roll Dice");
+            System.out.println("PlayerTwo use x to roll Dice");
             xPress = sc.nextLine();
+            playerOne.rollDice();
 
             System.out.println("\n" + randomDicePoint);
 
             System.out.println("Player Two " + playerTwo.getName() + " : "); 
                        
-            System.out.println("Use x to roll Dice");
+            System.out.println("PlayerTwo use x to roll Dice");
             xPress = sc.nextLine();
+            playerTwo.rollDice();
 
             System.out.println("\n" + randomDicePoint);
             

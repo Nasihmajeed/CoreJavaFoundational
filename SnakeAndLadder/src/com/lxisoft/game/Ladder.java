@@ -2,10 +2,10 @@ package com.lxisoft.game;
 
 public class Ladder 
 {   
-    Cell ladderBottom;
-    Cell ladderUpper;    
+    int ladderBottom;
+    int ladderUpper;    
 
-    public Ladder(Cell ladderBottom,Cell ladderUpper)
+    public Ladder(int ladderBottom,int ladderUpper)
     {
         this.ladderBottom = ladderBottom;
         this.ladderUpper = ladderUpper;
