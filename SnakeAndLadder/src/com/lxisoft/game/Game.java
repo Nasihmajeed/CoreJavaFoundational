@@ -85,12 +85,14 @@ public class Game
         System.out.println("PlayerOne Please Select Your Colors " +"\n");
         System.out.println("1. Green");
         System.out.println("2. Red");
+        System.out.println("3. Yellow");
         coinOne.setColor(sc.nextInt());
         //System.out.println("Yes You Have Selected " + + "\n");
         
         System.out.println("PlayerTwo Please Select Your Colors " +"\n");
         System.out.println("1. Green");
         System.out.println("2. Red");
+        System.out.println("3. Yellow");
         coinTwo.setColor(sc.nextInt());
         //System.out.println("Yes You Have Selected " + + "\n");
 
