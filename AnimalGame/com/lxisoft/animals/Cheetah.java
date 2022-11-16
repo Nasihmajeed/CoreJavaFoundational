@@ -53,11 +53,9 @@ public Animal startFight(Animal opponent){
             opponent.setStrengthLevel(getStrengthLevel()-4);
             System.out.println(getStrengthLevel());
 
-            if(opponent.getStrengthLevel()<=0) {
-
+            if(opponent.getStrengthLevel() <= 0) {
                 System.out.println(opponent.getName()+" is Died");
 
-                
             }
 
            

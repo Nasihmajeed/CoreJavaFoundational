@@ -11,6 +11,8 @@ Forest forest = new Forest();
 
 forest.welcomeToForest();
 
+forest.animalPick();
+
 }
 
 }

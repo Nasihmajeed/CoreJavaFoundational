@@ -33,22 +33,19 @@ public class Forest {
     animalsList.add(new Zebra("Zippy-Zebra","grass",11,10,true));
     
     for(int i = 0 ; i < animalsList.size() ; i++) {
-        System.out.println(animalsList.get(i).getName());
-        System.out.println(animalsList.get(i).getFood());
-        System.out.println(animalsList.get(i).getStrengthLevel());
-        System.out.println(animalsList.get(i).getHungryLevel());
+        System.out.println(animalsList.get(i).getName()+"  "+animalsList.get(i).getFood()+"  "+animalsList.get(i).getStrengthLevel() +"  " +animalsList.get(i).getHungryLevel());
+    
     
         } 
         
 
-             animalPick(animalsList);
-                
+   
             
     }
 
-     public void animalPick(ArrayList<Animal> animalsList) {
+     public void animalPick() {
 
-        for(int i=0;i<animalsList.size();i++) {
+         for(int i=0;i<animalsList.size();i++) {
 
             Random random = new Random();
 
@@ -59,74 +56,93 @@ public class Forest {
         Animal player2 = animalsList.get(animal2);
 
         player1.setLocation(random.nextInt(30),random.nextInt(30));
+        player2.setLocation(random.nextInt(30),random.nextInt(30));
 
-        roamingPart(player1 , player2 );
+        roamingArea(player1 , player2 );
  }
              
 
     }
 
-        public void roamingPart(Animal player1, Animal player2) {
+        public void roamingArea(Animal player1, Animal player2) {
 
             Random random = new Random();
-
-            int part=(int)(Math.sqrt((player2.getLocationX())-(player1.getLocationX())*(player2.getLocationX())-(player1.getLocationX())+(player2.getLocationY())-(player1.getLocationY())*(player2.getLocationX())-(player1.getLocationX())+(player2.getLocationY())-(player1.getLocationY())));
+           
+            int x1 = player1.getLocationX();
+            int x2 = player2.getLocationX();
+            int y1 = player1.getLocationX();
+            int y2 = player2.getLocationX();
             
+            double roamArea = Math.sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
+
             
+            //  System.out.println("roming" +roamArea);
+          
+            // if(player1.getAlive() ==true && player2.getAlive() ==true) {
 
-            if(player1.getAlive() ==true && player2.getAlive() ==true) {
-
-            }
+            // }
 
           if((player1 instanceof Herbivorous) && (player2 instanceof Herbivorous)) {
 
-            System.out.println("The Both Players Are Herbivores");
-            System.out.println("They are  Friends");
+            System.out.println("The Both Players Are Herbivores \n");
+            System.out.println("They are  Friends \n" );
     
         }
         
         else if((player1 instanceof Herbivorous) && (player2 instanceof Carnivorous)) {
     
-            player1.setLocation(random.nextInt(30),random.nextInt(30));            
-            System.out.println("The First Player Is Herbivores");
-            System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
-            System.out.println("The Second Player Is Carnivores");
-            System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
-            System.out.println("Player 2 is Winner : "+player2.getName()+" ");
+            player1.setLocation(random.nextInt(20),random.nextInt(20));            
+            System.out.println("The First Player Is Herbivores \n" );
+            System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel() + "\n");
+            System.out.println("The Second Player Is Carnivores \n");
+            System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel()+ "\n");
+            System.out.println("Player 2 is Winner : "+player2.getName()+" " + "\n");
 
+            if(roamArea <=10 ) {
             Carnivorous carnivors = (Carnivorous) player2;
-            
-
-           Animal loserAnimal = carnivors.startFight(player1);
+            Animal loserAnimal = carnivors.startFight(player1);
             
            Herbivorous herbivores = (Herbivorous) player1;
-        herbivores.escapeFromEnemy(player2);
+           herbivores.escapeFromEnemy(player2);
     
-           
+            }   
+
+            else {
+                System.out.println("Nothing will Happen \n");
+            }
     }
     
     else if((player1 instanceof Carnivorous) && (player2 instanceof Carnivorous)){
     
-        System.out.println("The Both Players Are Carnivores");
+        System.out.println("The Both Players Are Carnivores \n");
         Carnivorous carnivores = (Carnivorous) player2;
         carnivores.startFight(player2);
-        System.out.println("They Fight Each Other");
-        System.out.println("Nothing wil happen");
+        System.out.println("They Fight Each Other \n");
+        System.out.println("Nothing wil happen \n");
     
     }
     
     else if((player1 instanceof Carnivorous) && (player2 instanceof Herbivorous)){
     
-        System.out.println("The First Player Is Carnivores");
-        System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel());
+        System.out.println("The First Player Is Carnivores \n");
+        System.out.println("Player1 is : "+player1.getName()+" "+"  with hungry level "+player1.getHungryLevel()+" having strength of "+player1.getStrengthLevel()+ "\n");
         System.out.println("The Second Player Is Herbivores");
-        System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel());
-        System.out.println("player1 is Winner : "+player1.getName()+"");
+        System.out.println("Player2 is : "+player2.getName()+" "+"  with hungry level "+player2.getHungryLevel()+" having strength of "+player2.getStrengthLevel() + "\n");
+        System.out.println("player1 is Winner : "+player1.getName()+"" + "\n");
+
+       
+        if(roamArea <=10) {
+
         Carnivorous carnivores = (Carnivorous) player1;
         carnivores.startFight(player2);
        Herbivorous herbivores = (Herbivorous) player2;
        herbivores.escapeFromEnemy(player1);
-    
+        }
+
+        
+        else {
+            System.out.println("there is no hope for fight \n");
+        }
     }
 
    
