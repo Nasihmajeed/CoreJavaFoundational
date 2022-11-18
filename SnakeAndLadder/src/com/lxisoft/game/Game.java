@@ -13,6 +13,8 @@ public class Game
     Coin coinOne = new Coin();
     Coin coinTwo = new Coin();
 
+    Board board = new Board();
+
     public Dice getDice()                                  
     {
         return dice;
@@ -224,7 +226,14 @@ public class Game
             else if(playerTwo.getName() == String.valueOf(endGame))
             {
                 System.out.println (playerTwo.getName() + "\t\t\t\t  Is Win!");
-            }           
+            }  
+
+            //board.setLocationCell();
+            //playerOne.currentScore();
+            //playerOne.moveCoin();
+            //playerOne.rollDice();
+            //playeTwo.moveCoin();
+            //playerTwo.rollDice();          
         }
     }
 }
