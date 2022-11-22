@@ -24,7 +24,7 @@ public class Animal{
 			
 			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
 			
-			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-2);
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
 			
 			return animal1.getAnimalName();
 			

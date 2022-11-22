@@ -20,6 +20,7 @@ public class TDD {
 		denseForest.animalDetails(10);
 		denseForest.showAllAnimals();
 		denseForest.randomAnimalsMeet();
+		denseForest.getSurvivedAnimal();
 				
 	}
 }
