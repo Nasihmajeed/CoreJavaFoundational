@@ -2,7 +2,7 @@ package com.lxisoft.game;
 
 public class Board
 {   
-    private Locationcell[] locationCells;         
+    /*private Locationcell[] locationCells;         
 
     public LocationCell[] getLocationCell()
     {
@@ -12,5 +12,6 @@ public class Board
     public void setLocationCell(LocationCell[] LocationCells)
     {
         this.locationCells = LocationCells;
-    }    
+    } 
+    */   
 }

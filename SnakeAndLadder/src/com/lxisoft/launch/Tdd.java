@@ -14,7 +14,8 @@ public class Tdd
         //starting location and ending location is must!
         //player one have only one coin!
         //playerOne Winning routes(Scores,snakebites,ladder points,etc...).
-        //make a well outstanding Connection!                              
+        //make a well outstanding Connection!
+        //conditions for moveCoin() and rollDice() methods.                              
     }
 }
 

@@ -4,19 +4,18 @@ import java.util.ArrayList;
 
 public class LocationCell
 {  
-    //coins
-    //cell 
+    /*private Cell size;
 
-    private Cell size;
-
-    public String getSize()                    
+    public Cell getSize()                    
     {
         return size;
     }
     
-    public void setSize(String Size)
+    public void setSize(Cell Size)
     {
         this.size=Size;
-    }       
+    } 
+
+    */      
 }
 
