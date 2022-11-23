@@ -2,14 +2,14 @@ package com.lxisoft.game;
 
 public class Coin 
 {
-    private int color;
+    private String color;
   
-    public int getColor()
+    public String getColor()
     {
         return color;
     }
 
-    public void setColor(int Color)
+    public void setColor(String Color)
     {
         this.color = Color;
     }

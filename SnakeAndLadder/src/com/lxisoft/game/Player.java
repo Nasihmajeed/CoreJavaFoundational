@@ -39,7 +39,10 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     
     void moveCoin()
     {
-        //Coin moves are occur here!
+        if(score == value)  
+        {
+
+        }       
     }
     public void throwDice()
     {

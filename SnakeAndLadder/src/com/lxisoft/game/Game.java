@@ -10,8 +10,8 @@ public class Game
     Player playerOne = new Player();
     Player playerTwo = new Player();
 
-    Coin coinOne = new Coin();
-    Coin coinTwo = new Coin();
+    Coin coinOneColor = new Coin();
+    Coin coinTwoColor = new Coin();
 
     Board board = new Board();
 
@@ -27,7 +27,7 @@ public class Game
 
     public Coin getCoin()                                  
     {
-        return coin;
+        return coin;playerOne.getName() == String.valueOf(snakes)
     } 
      
     public void setCoin(Coin Coins)  
@@ -52,7 +52,7 @@ public class Game
         ladders.add(new Ladder(30,57));
         ladders.add(new Ladder(60,77));
         ladders.add(new Ladder(82,98));
-
+playerOne.getName() == String.valueOf(snakes)
         ArrayList<Snake> snakes = new ArrayList<>();
         snakes.add(new Snake(11,3));
         snakes.add(new Snake(39,14));
@@ -84,43 +84,41 @@ public class Game
         System.out.println("Yes You Have Selected " + gameMode + "\n");
         System.out.println("*** Please Wait Game Is Starting ***" + "\n");
 
-        System.out.println("PlayerOne Please Select Your Colors " +"\n");
+        System.out.println(playerOne.getName() + " Please Select Your Colors " +"\n");
         System.out.println("1. Green");
         System.out.println("2. Red");
         System.out.println("3. Yellow");
-        coinOne.setColor(sc.nextInt());
-        //System.out.println("Yes You Have Selected " + + "\n");
-        
-        System.out.println("PlayerTwo Please Select Your Colors " +"\n");
-        System.out.println("1. Green");
-        System.out.println("2. Red");
-        System.out.println("3. Yellow");
-        coinTwo.setColor(sc.nextInt());
-        //System.out.println("Yes You Have Selected " + + "\n");
 
-        for(int i = 0;i < 100;i++)
-        {            
-            System.out.println("Player One " + playerOne.getName() + " : ");
+        coinOneColor.setColor(sc.nextLine());
+        System.out.println("Yes You Have Selected " + coinOneColor.getColor() + "\n");
         
-            System.out.println("PlayerTwo use x to roll Dice");
+        System.out.println(playerTwo.getName() + " Please Select Your Colors " +"\n");
+        System.out.println("1. Green");
+        System.out.println(playerOne.getName() == String.valueOf(snakes)"2. Red");
+        System.out.println("3. Yellow");
+
+        coinTwoColor.setColor(sc.nextLine());
+        System.out.println("Yes You Have Selected " + coinTwoColor.getColor() + "\n");
+
+        for(int i = 0; i < cell.winPoint; i++)
+        {            
+            System.out.println(playerOne.getName() + "Use x to roll Dice : ");                  
             xPress = sc.nextLine();
             playerOne.rollDice();
 
             System.out.println("\n" + randomDicePoint);
 
-            System.out.println("Player Two " + playerTwo.getName() + " : "); 
-                       
-            System.out.println("PlayerTwo use x to roll Dice");
+            System.out.println(playerTwo.getName() + "Use x to roll Dice : ");                       
             xPress = sc.nextLine();
             playerTwo.rollDice();
 
             System.out.println("\n" + randomDicePoint);
             
-            if(playerOne.getName() == String.valueOf(startGame))
+            if(playerOne.rollDice() == String.valueOf(startGame))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
-            else if(playerTwo.getName() == String.valueOf(startGame))
+            else if(playerTwo.rollDice() == String.valueOf(startGame))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
@@ -128,104 +126,103 @@ public class Game
             {
                 System.out.println("Try Again");
             }
-                 
-                   
-            if(playerOne.getName() == String.valueOf(snakes)) 
+               
+            if(playerOne.currentPoint() == String.valueOf(snakes)) 
             { 
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(snakes))
+            else if(playerOne.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(snakes))
+            else if(playerOne.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(snakes))
+            else if(playerOne.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(snakes))
+            else if(playerOne.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getName() == String.valueOf(snakes)) 
+            if(playerTwo.currentPoint() == String.valueOf(snakes)) 
             { 
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(snakes))
+            else if(playerTwo.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(snakes))
+            else if(playerTwo.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(snakes))
+            else if(playerTwo.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(snakes))
+            else if(playerTwo.currentPoint() == String.valueOf(snakes))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.getName() == String.valueOf(ladders))
+            if(playerOne.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerOne.getName() == String.valueOf(ladders))
+            else if(playerOne.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(ladders))
+            else if(playerOne.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(ladders))
+            else if(playerOne.currentPoint() == String.valueOf(ladders))
             { 
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.getName() == String.valueOf(ladders))
+            else if(playerOne.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.getName() == String.valueOf(ladders))
+            if(playerTwo.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerTwo.getName() == String.valueOf(ladders))
+            else if(playerTwo.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(ladders))
+            else if(playerTwo.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(ladders))
+            else if(playerTwo.currentPoint() == String.valueOf(ladders))
             { 
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.getName() == String.valueOf(ladders))
+            else if(playerTwo.currentPoint() == String.valueOf(ladders))
             {
-                System.out.println ("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-
-            if(playerOne.getName() == String.valueOf(endGame))
-            {
-                System.out.println (playerOne.getName() + "\t\t\t\t  Is Win!");
+                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerTwo.getName() == String.valueOf(endGame))
+            if(playerOne.currentPoint() == String.valueOf(endGame))
             {
-                System.out.println (playerTwo.getName() + "\t\t\t\t  Is Win!");
+                System.out.println(playerOne.getName() + "\t\t\t\t  Is Win!");
+            }
+
+            else if(playerTwo.currentPoint() == String.valueOf(endGame))
+            {
+                System.out.println(playerTwo.getName() + "\t\t\t\t  Is Win!");
             }  
 
             //board.setLocationCell();
