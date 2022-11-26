@@ -17,10 +17,10 @@ public class TDD {
 		
 		System.out.println("Forest Name : "+ denseForest.getForestName()+"\n");
 		
-		denseForest.animalDetails(10);
-		denseForest.showAllAnimals();
-		denseForest.randomAnimalsMeet();
-		denseForest.getSurvivedAnimal();
+		denseForest.creatingNewAnimals(10);
+		denseForest.totalAnimalsInForest();
+		denseForest.randomAnimalsMeetAndFight();
+		denseForest.survivedAnimalNameAndDetails();
 				
 	}
 }

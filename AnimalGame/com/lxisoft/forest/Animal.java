@@ -7,28 +7,60 @@ public class Animal{
 	
 	private String animalName;
 	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
-	private float damagePercentage;
+	//private float damagePercentage;
 	
  	public String animalFight(Animal animal1){
 		
 		if (this.animalStrengthLevel > animal1.getAnimalStrengthLevel()){
 			
 			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalAggressivenessLevel()-1);
 						
 			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-2);
+			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-2);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalAggressivenessLevel()-2);
 			
 			return this.getAnimalName();
 					
 			
-		} else if (this.animalStrengthLevel < animal1.getAnimalStrengthLevel()){
+		} if (this.animalStrengthLevel < animal1.getAnimalStrengthLevel()){
 			
 			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
 			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-1);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalHungerLevel()-1);
+			
 			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalHungerLevel()-1);			
 			
 			return animal1.getAnimalName();
 			
-		}  
+		}  if (this.animalStrengthLevel == animal1.getAnimalStrengthLevel()){
+			
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
+			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-1);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalHungerLevel()-1);
+			
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalHungerLevel()-1);			
+			
+			return animal1.getAnimalName();
+					
+		}	
 			return null;
 		}
 	
@@ -49,9 +81,9 @@ public class Animal{
 	public void setAnimalAggressivenessLevel(int animalAggressivLevel){
 	this.animalAggressivenessLevel = animalAggressivLevel;
 }
-	public void setDamagePercentage(float damagePercent){
+/* 	public void setDamagePercentage(float damagePercent){
 	this.damagePercentage = damagePercent;
-}
+} */
 
 	public String getAnimalName(){
 	return this.animalName;
@@ -69,12 +101,12 @@ public class Animal{
 	return this.animalAggressivenessLevel;
 }
 
-	public float getDamagePercentage(){
+/* 	public float getDamagePercentage(){
 	return this.damagePercentage;
-}
+} */
 
 public void print(){
 	System.out.println(animalName+"\n"+animalStrengthLevel+"\n"+animalHungerLevel+
-	"\n"+animalAggressivenessLevel+"\n"+this.damagePercentage);
+	"\n"+animalAggressivenessLevel+"\n");
 	}
 }

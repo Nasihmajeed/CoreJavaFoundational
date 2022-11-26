@@ -8,17 +8,15 @@ public class Forest {
 				
 	private List<Animal> animals = new ArrayList<Animal>();
 	private String forestName;
-	private Boolean flag=false;
-	private int animalSizeReference;
-    
- 	public void animalDetails(int number){
+    	
+ 	public void creatingNewAnimals(int number){
 				
 		for (int i=0;i < number; i++) {
 		Animal animal = new Animal();
 		animal.setAnimalName("Animal "+(i+1));
  		animal.setAnimalStrengthLevel(1 +(i+1));
-		animal.setAnimalHungerLevel(75 +(i+1));
-		animal.setAnimalAggressivenessLevel(65 +(i+1));  
+		animal.setAnimalHungerLevel(1 +(i+1));
+		animal.setAnimalAggressivenessLevel(1 +(i+1));  
 		animals.add(animal);
 		
 			
@@ -31,15 +29,15 @@ public class Forest {
 	}
 	}
 	
-	public void showAllAnimals(){
+	public void totalAnimalsInForest(){
 		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
 		for(int i=0; i < animals.size();i++){
 		System.out.println(animals.get(i).getAnimalName()+"\n");			
 		}
 		}
 			
-	public void randomAnimalsMeet(){
-		
+	public void randomAnimalsMeetAndFight(){
+			
 	int animalSizeReference = animals.size();
 	
 	System.out.println("-----RANDOM FIGHT DETAILS-----");
@@ -72,8 +70,7 @@ public class Forest {
 		System.out.println("Fight Between 2 Animals & Survived Animal Name : " +animal1.animalFight(animal2)+"\n");
 		
 		System.out.println("After Fight Animal1 Strength Level: " + animal1.getAnimalStrengthLevel()+"\n" + "\n" + 
-		"After Fight Animal2 Strength Level: " + animal2.getAnimalStrengthLevel()+"\n");
-		
+		"After Fight Animal2 Strength Level: " + animal2.getAnimalStrengthLevel()+"\n");		
 		}
 		
 		animalSizeReference = animals.size();
@@ -86,7 +83,10 @@ public class Forest {
 			animalSizeReference --;
 					
 			System.out.println("\n"+"Lost Animal Name: " + i.getAnimalName() + 
-			"\n" +"Lost Animal Strength Level:" + i.getAnimalStrengthLevel()+"\n" );
+			"\n" +"Lost Animal Strength Level:" + i.getAnimalStrengthLevel()+"\n"+
+			"Lost Animal Hunger Level:" + i.getAnimalHungerLevel()+"\n"+
+			"Lost Animal Aggressiveness Level:" + i.getAnimalAggressivenessLevel()+"\n"
+			);
 						 			 
 			}
 			
@@ -96,14 +96,16 @@ public class Forest {
 	
 	}
 	
-	public void getSurvivedAnimal(){
+	public void survivedAnimalNameAndDetails(){
 			
 	for (Animal i : animals){
 		
 	if (i.getAnimalStrengthLevel() > 1)	{
 				
-	System.out.println("Survived Animal on the Fight: " + i.getAnimalName()+"\n" + 
-	"Survived Animal Strength Level:" + i.getAnimalStrengthLevel());
+	System.out.println("Survived Animal Name: " + i.getAnimalName()+"\n" + 
+	"Survived Animal Strength Level:" + i.getAnimalStrengthLevel()+"\n" + 
+	"Survived Animal Hunger Level:" + i.getAnimalHungerLevel()+"\n" + 
+	"Survived Animal Aggressiveness Level:" + i.getAnimalAggressivenessLevel());
 	}
 			
 	}
@@ -127,9 +129,9 @@ public class Forest {
 			
 	public void print(){
 		
-		for (int i=0; i<animals.size();i++){
+/* 		for (int i=0; i<animals.size();i++){
 			animals.get(i).print();
-		}
+		} */
 		System.out.println (this.forestName);
 			
 	}
