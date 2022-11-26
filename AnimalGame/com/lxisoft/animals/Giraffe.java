@@ -2,6 +2,8 @@ package com.lxisoft.animals;
 
 import java.util.Random;
 
+import com.lxisoft.factors.customException;
+
 import com.lxisoft.game.Animal;
 
 public class Giraffe extends Animal implements Herbivorous {
@@ -20,7 +22,7 @@ super(animalName, eat, strengthLevel, hungeryLevel,isAlive);
 
 }
 
-public  void escapeFromEnemy(Animal player1) {
+public  void escapeFromEnemy(Animal player1) throws customException {
 
     Random random = new Random();
     luckFactor = random.nextInt(10);
@@ -35,6 +37,9 @@ else{
 
     System.out.println("No Hope to Escaping");
     System.out.println("The Player is Trapped");
+    throw new customException("Exception occured at while Escaping");
+
+
 
 }
 }

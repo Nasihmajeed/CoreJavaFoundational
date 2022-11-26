@@ -14,7 +14,7 @@ private int hungryLevel;
 private int luckFactor;
 private boolean Alive=true;
 
-Location location = new Location();
+private Location location = new Location();
 
 public Animal()
 {

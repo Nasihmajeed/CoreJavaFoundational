@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.lxisoft.factors.Location;
-
+import com.lxisoft.factors.customException;
 import com.lxisoft.animals.*;
 
 public class Forest {
@@ -35,15 +35,10 @@ public class Forest {
     for(int i = 0 ; i < animalsList.size() ; i++) {
         System.out.println(animalsList.get(i).getName()+"  "+animalsList.get(i).getFood()+"  "+animalsList.get(i).getStrengthLevel() +"  " +animalsList.get(i).getHungryLevel());
     
-    
-        } 
-        
+    } 
+        }
 
-   
-            
-    }
-
-     public void animalPick() {
+     public void pickAnimal() throws customException {
 
          for(int i=0;i<animalsList.size();i++) {
 
@@ -60,11 +55,8 @@ public class Forest {
 
         roamingArea(player1 , player2 );
  }
-             
-
     }
-
-        public void roamingArea(Animal player1, Animal player2) {
+      public void roamingArea(Animal player1, Animal player2) throws customException {
 
             Random random = new Random();
            
@@ -78,9 +70,9 @@ public class Forest {
             
             //  System.out.println("roming" +roamArea);
           
-            // if(player1.getAlive() ==true && player2.getAlive() ==true) {
+             if(player1.getAlive() ==true && player2.getAlive() ==true) {
 
-            // }
+             }
 
           if((player1 instanceof Herbivorous) && (player2 instanceof Herbivorous)) {
 
