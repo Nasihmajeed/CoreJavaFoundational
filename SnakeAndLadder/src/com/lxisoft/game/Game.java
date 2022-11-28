@@ -7,13 +7,15 @@ public class Game
     private Dice dice;
     private Coin coin;
 
-    Player playerOne = new Player();
+    Player player = new Player();
     Player playerTwo = new Player();
 
     Coin coinOneColor = new Coin();
     Coin coinTwoColor = new Coin();
 
     Board board = new Board();
+
+    //set a 100 cells in locationCell(For Loop)   
 
     public Dice getDice()                                  
     {
@@ -40,7 +42,8 @@ public class Game
 
     int randomDicePoint = rand.nextInt(7);
     int gameMode;    
-    String xPress;      
+    String xPress; 
+    int winpoint = 100;         
     int startGame = 1;
     int endGame = 100;
 
@@ -52,7 +55,7 @@ public class Game
         ladders.add(new Ladder(30,57));
         ladders.add(new Ladder(60,77));
         ladders.add(new Ladder(82,98));
-playerOne.getName() == String.valueOf(snakes)
+     
         ArrayList<Snake> snakes = new ArrayList<>();
         snakes.add(new Snake(11,3));
         snakes.add(new Snake(39,14));
@@ -127,100 +130,100 @@ playerOne.getName() == String.valueOf(snakes)
                 System.out.println("Try Again");
             }
                
-            if(playerOne.currentPoint() == String.valueOf(snakes)) 
+            if(playerOne.currentCell() == String.valueOf(snakes)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(snakes))
+            else if(playerOne.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(snakes))
+            else if(playerOne.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(snakes))
+            else if(playerOne.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(snakes))
+            else if(playerOne.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.currentPoint() == String.valueOf(snakes)) 
+            if(playerTwo.currentCell() == String.valueOf(snakes)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(snakes))
+            else if(playerTwo.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(snakes))
+            else if(playerTwo.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(snakes))
+            else if(playerTwo.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(snakes))
+            else if(playerTwo.currentCell() == String.valueOf(snakes))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.currentPoint() == String.valueOf(ladders))
+            if(playerOne.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerOne.currentPoint() == String.valueOf(ladders))
+            else if(playerOne.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(ladders))
+            else if(playerOne.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(ladders))
+            else if(playerOne.currentCell() == String.valueOf(ladders))
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentPoint() == String.valueOf(ladders))
+            else if(playerOne.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.currentPoint() == String.valueOf(ladders))
+            if(playerTwo.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerTwo.currentPoint() == String.valueOf(ladders))
+            else if(playerTwo.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(ladders))
+            else if(playerTwo.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(ladders))
+            else if(playerTwo.currentCell() == String.valueOf(ladders))
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
-            else if(playerTwo.currentPoint() == String.valueOf(ladders))
+            else if(playerTwo.currentCell() == String.valueOf(ladders))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerOne.currentPoint() == String.valueOf(endGame))
+            if(playerOne.currentCell() == String.valueOf(endGame))
             {
                 System.out.println(playerOne.getName() + "\t\t\t\t  Is Win!");
             }
 
-            else if(playerTwo.currentPoint() == String.valueOf(endGame))
+            else if(playerTwo.currentCell() == String.valueOf(endGame))
             {
                 System.out.println(playerTwo.getName() + "\t\t\t\t  Is Win!");
             }  
@@ -230,7 +233,23 @@ playerOne.getName() == String.valueOf(snakes)
             //playerOne.moveCoin();
             //playerOne.rollDice();
             //playeTwo.moveCoin();
-            //playerTwo.rollDice();          
+            //playerTwo.rollDice();   
+            //player one have only one coin!
+            //playerOne Winning routes(Scores,snakebites,ladder points,etc...).
+            //make a well outstanding Connection!
+            //conditions for moveCoin() and rollDice() methods.
+            
+            //**********Ajith Sir Advice*********// 
+ 
+            //try code cleanly
+            //use For(ladders l : Ladder)
+            //players must have currentCell
+            //playerScore currentCell = currentCell + diceValue
+            //do in for loop for check conditions
+            //ArrayCell(check snake or ladder in cells)
+            //if playerScore 9 checks (the number is in the cell of snake or ladder)
+            //playerCell has snake(head) playerScore going down to snakeTail.(if statement).
+            //game.gameOver playerOne or playerTwo WIN!!!        
         }
     }
 }

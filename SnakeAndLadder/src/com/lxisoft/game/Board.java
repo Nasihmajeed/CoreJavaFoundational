@@ -14,4 +14,4 @@ public class Board
         this.locationCells = LocationCells;
     } 
        
-}
+}  
