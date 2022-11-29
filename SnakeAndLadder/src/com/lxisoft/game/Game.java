@@ -7,16 +7,16 @@ public class Game
     private Dice dice;
     private Coin coin;
 
-    Player player = new Player();
+    Player playerOne = new Player();
     Player playerTwo = new Player();
 
-    Coin coinOneColor = new Coin();
-    Coin coinTwoColor = new Coin();
+    Coin coinColorOne = new Coin();
+    Coin coinColorTwo = new Coin();
 
     Board board = new Board();
 
     //set a 100 cells in locationCell(For Loop)   
-
+    
     public Dice getDice()                                  
     {
         return dice;
@@ -29,7 +29,7 @@ public class Game
 
     public Coin getCoin()                                  
     {
-        return coin;playerOne.getName() == String.valueOf(snakes)
+        return coin;
     } 
      
     public void setCoin(Coin Coins)  
@@ -40,12 +40,10 @@ public class Game
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
 
-    int randomDicePoint = rand.nextInt(7);
     int gameMode;    
-    String xPress; 
-    int winpoint = 100;         
-    int startGame = 1;
-    int endGame = 100;
+    String xPress;         
+    int enterCell = 1;   
+    int winpoint = 100;
 
     public void startGame()
     {
@@ -109,121 +107,59 @@ public class Game
             xPress = sc.nextLine();
             playerOne.rollDice();
 
-            System.out.println("\n" + randomDicePoint);
-
             System.out.println(playerTwo.getName() + "Use x to roll Dice : ");                       
             xPress = sc.nextLine();
             playerTwo.rollDice();
 
-            System.out.println("\n" + randomDicePoint);
-            
-            if(playerOne.rollDice() == String.valueOf(startGame))
+            if(playerOne.rollDice() == String.valueOf(enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
-            else if(playerTwo.rollDice() == String.valueOf(startGame))
+
+            else
+            {
+                System.out.println("Try Again");
+            }
+
+            else if(playerTwo.rollDice() == String.valueOf(enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
+
             else
             {
                 System.out.println("Try Again");
             }
                
-            if(playerOne.currentCell() == String.valueOf(snakes)) 
+            if(playerOne.currentCell() == String.valueOf(Snake.snakeHead)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
-            else if(playerOne.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-
-            if(playerTwo.currentCell() == String.valueOf(snakes)) 
+            
+            if(playerTwo.currentCell() == String.valueOf(Snake.snakeHead)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(snakes))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GO DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.currentCell() == String.valueOf(ladders))
+            if(playerOne.currentCell() == String.valueOf(Ladder.ladderBottom))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            else if(playerOne.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(ladders))
-            { 
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerOne.currentCell() == String.valueOf(ladders))
+            
+            if(playerTwo.currentCell() == String.valueOf(Ladder.ladderBottom))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerTwo.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-
-            else if(playerTwo.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(ladders))
-            { 
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-            else if(playerTwo.currentCell() == String.valueOf(ladders))
-            {
-                System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
-            }
-
-            if(playerOne.currentCell() == String.valueOf(endGame))
+            if(playerOne.currentCell() == String.valueOf(winPoint))
             {
                 System.out.println(playerOne.getName() + "\t\t\t\t  Is Win!");
             }
 
-            else if(playerTwo.currentCell() == String.valueOf(endGame))
+            else if(playerTwo.currentCell() == String.valueOf(winPoint))
             {
                 System.out.println(playerTwo.getName() + "\t\t\t\t  Is Win!");
             }  

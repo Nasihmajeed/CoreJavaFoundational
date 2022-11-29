@@ -39,10 +39,16 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     
     void moveCoin()
     {
-        if(score == value)  
+        if(playerOneCell == ladderCell)  
         {
-
-        }       
+        //players got ladderCell they got climb with ladderBottomtoladderUpper. At the same time playersScore++ to currentCell.                
+                    
+        }
+        else if(playerOneCell == snakeCell)
+        {
+        //players got snakeCell they got score-- to snakeTail. At the same time playersScore-- to currentCell.         
+        }
+               
     }
     public void throwDice()
     {
@@ -50,7 +56,7 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     }
     public void useLadder()
     {
-        System.out.println("Using Ladder Ha Ha Ha");
+        System.out.println("Yeeeyy Using Ladder");
     } 
     public void snakeBite()
     {
