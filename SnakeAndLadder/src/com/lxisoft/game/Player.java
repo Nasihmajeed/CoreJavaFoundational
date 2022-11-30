@@ -20,7 +20,7 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     }
 
     public int getScore()                       
-    {
+    {lxisoft.com
         return score;
     }
     
@@ -56,7 +56,7 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     }
     public void useLadder()
     {
-        System.out.println("Yeeeyy Using Ladder");
+        System.out.println("Yeeeyy .Using Ladder");
     } 
     public void snakeBite()
     {

@@ -2,5 +2,5 @@ package com.lxisoft.game;
 
 interface SnakeStrikeable
 {
-    void snakeBite();
+    void snakeBite();   
 }
