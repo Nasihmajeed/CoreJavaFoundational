@@ -18,6 +18,7 @@ private Location location = new Location();
 
 public Animal()
 {
+    
 }
 
 public Animal(String animalName, String food, int strengthLevel, int hungryLevel, boolean Alive){

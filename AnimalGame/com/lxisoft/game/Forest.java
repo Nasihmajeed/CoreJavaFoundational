@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.lxisoft.factors.Location;
+import com.lxisoft.factors.MyCustomException;
 import com.lxisoft.factors.customException;
 import com.lxisoft.animals.*;
 
@@ -56,7 +57,7 @@ public class Forest {
         roamingArea(player1 , player2 );
  }
     }
-      public void roamingArea(Animal player1, Animal player2) throws customException {
+      public void roamingArea(Animal player1, Animal player2) throws customException,MyCustomException {
 
             Random random = new Random();
            
@@ -78,6 +79,7 @@ public class Forest {
 
             System.out.println("The Both Players Are Herbivores \n");
             System.out.println("They are  Friends \n" );
+            throw new MyCustomException("There is no hope for fight");
     
         }
         

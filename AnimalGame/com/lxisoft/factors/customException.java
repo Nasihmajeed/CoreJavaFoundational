@@ -1,5 +1,5 @@
 package com.lxisoft.factors;
-// import java.util.*;
+//  import java.util.*;
 // import com.lxisoft.*;
 
 public class customException extends Exception {
@@ -17,3 +17,4 @@ public String toString() {
 
 
 }
+
