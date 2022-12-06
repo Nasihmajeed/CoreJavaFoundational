@@ -11,6 +11,7 @@ import com.lxisoft.animals.*;
 
 public class Forest {
 
+    //FIXME use List as the reference type instead of ArrayList for the flexibility
     ArrayList<Animal> animalsList = new ArrayList<Animal>();
 
    
@@ -57,6 +58,8 @@ public class Forest {
         roamingArea(player1 , player2 );
  }
     }
+
+    //FIXME the method name should be more meaningful. It should be in a verb+noun format
       public void roamingArea(Animal player1, Animal player2) throws customException,MyCustomException {
 
             Random random = new Random();

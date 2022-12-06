@@ -6,6 +6,7 @@ import com.lxisoft.game.Animal;
 
 public class Cheetah extends Animal implements Carnivorous {
 
+    //FIXME remove unused variables, especially if instance variables
     Random random = new Random();
 
 public Cheetah() {
