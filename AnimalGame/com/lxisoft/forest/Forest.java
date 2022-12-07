@@ -4,14 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lxisoft.forest.Animal;
 
-public class Forest {
+public class Forest extends Deer implements Carnivores{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
 	private String forestName;
     	
  	public void creatingNewAnimals(int number){
-				
-		for (int i=0;i < number; i++) {
+		Deer deer = new Deer();
+		Animal deer1= deer.creatingDeer();
+		animals.add(deer1);
+		
+		System.out.println("____ANIMAL DETAILS_____\n");
+		System.out.println("AnimalName: "+deer1.getAnimalName()
+		+"\nAnimalStrengthLevel: "+deer1.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+deer1.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+deer1.getAnimalAggressivenessLevel()+"\n"); 
+		
+		
+		Elephant elephant = new Elephant();
+		Animal elephant1= elephant.creatingElephant();
+		animals.add(elephant1);
+		System.out.println("AnimalName: "+elephant1.getAnimalName()
+		+"\nAnimalStrengthLevel: "+elephant1.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+elephant1.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+elephant1.getAnimalAggressivenessLevel()+"\n"); 
+		
+		Lion lion = new Lion();
+		Animal lion1= lion.creatingLion();
+		animals.add(lion1);
+		System.out.println("AnimalName: "+lion1.getAnimalName()
+		+"\nAnimalStrengthLevel: "+lion1.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+lion1.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+lion1.getAnimalAggressivenessLevel()+"\n"); 
+		
+/* 		for (int i=0;i < number; i++) {
 		Animal animal = new Animal();
 		animal.setAnimalName("Animal "+(i+1));
  		animal.setAnimalStrengthLevel(1 +(i+1));
@@ -26,7 +52,7 @@ public class Forest {
 		+"\nAnimalHungerLevel: "+animal.getAnimalHungerLevel()
 		+"\nAnimalAggressivenessLevel: "+animal.getAnimalAggressivenessLevel()+"\n"); 
 		
-	}
+	} */
 	}
 	
 	public void totalAnimalsInForest(){
@@ -36,7 +62,7 @@ public class Forest {
 		}
 		}
 			
-	public void randomAnimalsMeetAndFight(){
+	 public void randomAnimalsMeetAndFight(){
 			
 	int animalSizeReference = animals.size();
 	
@@ -94,9 +120,9 @@ public class Forest {
 			
 	}
 	
-	}
+	} 
 	
-	public void survivedAnimalNameAndDetails(){
+ 	public void survivedAnimalNameAndDetails(){
 			
 	for (Animal i : animals){
 		
@@ -109,7 +135,7 @@ public class Forest {
 	}
 			
 	}
-	}
+	} 
 			
 	public void setForestName(String foresName){
 	this.forestName=foresName;	
