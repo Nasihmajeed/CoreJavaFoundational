@@ -6,6 +6,7 @@ public class Game
 {  
     private Dice dice;
     private Coin coin;
+    private LocationCell playerCurrentCell;
 
     Player playerOne = new Player();
     Player playerTwo = new Player();
@@ -14,6 +15,12 @@ public class Game
     Coin coinColorTwo = new Coin();
 
     Board board = new Board();
+
+    Random rand = new Random();
+    Scanner sc = new Scanner(System.in);
+
+    int gameMode;    
+    String xPress;  
 
     //set a 100 cells in locationCell(For Loop)   
     
@@ -36,14 +43,6 @@ public class Game
     {
         this.coin = Coins;
     }
-
-    Random rand = new Random();
-    Scanner sc = new Scanner(System.in);
-
-    int gameMode;    
-    String xPress;         
-    int enterCell = 1;   
-    int winpoint = 100;
 
     public void startGame()
     {
@@ -95,37 +94,33 @@ public class Game
         
         System.out.println(playerTwo.getName() + " Please Select Your Colors " +"\n");
         System.out.println("1. Green");
-        System.out.println(playerOne.getName() == String.valueOf(snakes)"2. Red");
+        System.out.println("2. Red");
         System.out.println("3. Yellow");
 
         coinTwoColor.setColor(sc.nextLine());
         System.out.println("Yes You Have Selected " + coinTwoColor.getColor() + "\n");
 
-        for(int i = 0; i < cell.winPoint; i++)
+        for(int i = 0; i < LocationCell.winPoint; i++)
         {            
             System.out.println(playerOne.getName() + "Use x to roll Dice : ");                  
             xPress = sc.nextLine();
             playerOne.rollDice();
-
-            System.out.println(playerTwo.getName() + "Use x to roll Dice : ");                       
-            xPress = sc.nextLine();
-            playerTwo.rollDice();
-
-            if(playerOne.rollDice() == String.valueOf(enterCell))
+            if(playerOne.rollDice() == String.valueOf(LocationCell.enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
-
             else
             {
                 System.out.println("Try Again");
             }
 
-            else if(playerTwo.rollDice() == String.valueOf(enterCell))
+            System.out.println(playerTwo.getName() + "Use x to roll Dice : ");                       
+            xPress = sc.nextLine();
+            playerTwo.rollDice();
+            else if(playerTwo.rollDice() == String.valueOf(LocationCell.enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
-
             else
             {
                 System.out.println("Try Again");
@@ -154,12 +149,12 @@ public class Game
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerOne.currentCell() == String.valueOf(winPoint))
+            if(playerOne.currentCell() == String.valueOf(LocationCell.winPoint))
             {
                 System.out.println(playerOne.getName() + "\t\t\t\t  Is Win!");
             }
 
-            else if(playerTwo.currentCell() == String.valueOf(winPoint))
+            else if(playerTwo.currentCell() == String.valueOf(LocationCell.winPoint))
             {
                 System.out.println(playerTwo.getName() + "\t\t\t\t  Is Win!");
             }  

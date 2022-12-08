@@ -4,7 +4,6 @@ import java.util.*;
 public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
 {   
     private String name;
-    private int score;          
     
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
@@ -20,7 +19,7 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
     }
 
     public int getScore()                       
-    {lxisoft.com
+    {
         return score;
     }
     

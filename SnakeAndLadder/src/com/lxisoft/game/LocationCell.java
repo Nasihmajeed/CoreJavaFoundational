@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class LocationCell
 {  
-    private Cell locationCell;
+    private int locationCell;
+    
+    static int enterCell = 1;   
+    static int winpoint = 100;
 }
 
