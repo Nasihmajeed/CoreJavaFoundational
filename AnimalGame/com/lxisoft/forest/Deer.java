@@ -1,9 +1,9 @@
 package com.lxisoft.forest;
 import com.lxisoft.forest.Animal;
 
-public class Deer extends Animal{
+public class Deer extends Animal implements Herbivores{
 
-public Animal creatingDeer(){
+/* public Animal creatingDeer(){
 		
 		Animal animal = new Animal();
 		animal.setAnimalName("Deer ");
@@ -13,5 +13,5 @@ public Animal creatingDeer(){
 		return animal;
 		
 		}
-
+ */
 }

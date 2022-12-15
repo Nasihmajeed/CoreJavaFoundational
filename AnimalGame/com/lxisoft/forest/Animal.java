@@ -3,7 +3,7 @@
 package com.lxisoft.forest;
 import java.util.Comparator;
 
-public class Animal{
+public abstract class Animal{
 	
 	private String animalName;
 	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;

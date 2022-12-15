@@ -8,34 +8,71 @@ public class Forest extends Deer implements Carnivores{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
 	private String forestName;
+	public int carnivoresCount = 0;
     	
- 	public void creatingNewAnimals(int number){
+ 	public void creatingNewAnimals(){
+		
 		Deer deer = new Deer();
-		Animal deer1= deer.creatingDeer();
-		animals.add(deer1);
+		deer.setAnimalName("Deer");
+ 		deer.setAnimalStrengthLevel(5);
+		deer.setAnimalHungerLevel(6);
+		deer.setAnimalAggressivenessLevel(7);
+		animals.add(deer);		
 		
 		System.out.println("____ANIMAL DETAILS_____\n");
-		System.out.println("AnimalName: "+deer1.getAnimalName()
-		+"\nAnimalStrengthLevel: "+deer1.getAnimalStrengthLevel()
-		+"\nAnimalHungerLevel: "+deer1.getAnimalHungerLevel()
-		+"\nAnimalAggressivenessLevel: "+deer1.getAnimalAggressivenessLevel()+"\n"); 
+		System.out.println("AnimalName: "+deer.getAnimalName()
+		+"\nAnimalStrengthLevel: "+deer.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+deer.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+deer.getAnimalAggressivenessLevel()+"\n"); 
 		
 		
 		Elephant elephant = new Elephant();
-		Animal elephant1= elephant.creatingElephant();
-		animals.add(elephant1);
-		System.out.println("AnimalName: "+elephant1.getAnimalName()
-		+"\nAnimalStrengthLevel: "+elephant1.getAnimalStrengthLevel()
-		+"\nAnimalHungerLevel: "+elephant1.getAnimalHungerLevel()
-		+"\nAnimalAggressivenessLevel: "+elephant1.getAnimalAggressivenessLevel()+"\n"); 
+		elephant.setAnimalName("Elephant");
+ 		elephant.setAnimalStrengthLevel(7);
+		elephant.setAnimalHungerLevel(8);
+		elephant.setAnimalAggressivenessLevel(9);  
+		animals.add(elephant);
+		
+		System.out.println("AnimalName: "+elephant.getAnimalName()
+		+"\nAnimalStrengthLevel: "+elephant.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+elephant.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+elephant.getAnimalAggressivenessLevel()+"\n"); 
 		
 		Lion lion = new Lion();
-		Animal lion1= lion.creatingLion();
-		animals.add(lion1);
-		System.out.println("AnimalName: "+lion1.getAnimalName()
-		+"\nAnimalStrengthLevel: "+lion1.getAnimalStrengthLevel()
-		+"\nAnimalHungerLevel: "+lion1.getAnimalHungerLevel()
-		+"\nAnimalAggressivenessLevel: "+lion1.getAnimalAggressivenessLevel()+"\n"); 
+		lion.setAnimalName("Lion");
+ 		lion.setAnimalStrengthLevel(7);
+		lion.setAnimalHungerLevel(8);
+		lion.setAnimalAggressivenessLevel(9);  
+		animals.add(lion);
+		
+		System.out.println("AnimalName: "+lion.getAnimalName()
+		+"\nAnimalStrengthLevel: "+lion.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+lion.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+lion.getAnimalAggressivenessLevel()+"\n"); 
+		
+		Tiger tiger = new Tiger();
+		tiger.setAnimalName("Tiger");
+ 		tiger.setAnimalStrengthLevel(7);
+		tiger.setAnimalHungerLevel(8);
+		tiger.setAnimalAggressivenessLevel(9);  
+		animals.add(tiger);
+		
+		System.out.println("AnimalName: "+tiger.getAnimalName()
+		+"\nAnimalStrengthLevel: "+tiger.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+tiger.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+tiger.getAnimalAggressivenessLevel()+"\n"); 
+		
+		Wolf wolf = new Wolf();
+		wolf.setAnimalName("Wolf");
+ 		wolf.setAnimalStrengthLevel(7);
+		wolf.setAnimalHungerLevel(8);
+		wolf.setAnimalAggressivenessLevel(9);  
+		animals.add(wolf);
+		
+		System.out.println("AnimalName: "+wolf.getAnimalName()
+		+"\nAnimalStrengthLevel: "+wolf.getAnimalStrengthLevel()
+		+"\nAnimalHungerLevel: "+wolf.getAnimalHungerLevel()
+		+"\nAnimalAggressivenessLevel: "+wolf.getAnimalAggressivenessLevel()+"\n"); 
 		
 /* 		for (int i=0;i < number; i++) {
 		Animal animal = new Animal();
@@ -55,6 +92,16 @@ public class Forest extends Deer implements Carnivores{
 	} */
 	}
 	
+	public void coutingCarnivores(){
+		
+		for(int i=0; i < animals.size();i++) {
+		if ((animals.get(i) instanceof Carnivores)){
+			carnivoresCount++;
+		}
+		}
+		
+	}
+	
 	public void totalAnimalsInForest(){
 		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
 		for(int i=0; i < animals.size();i++){
@@ -62,7 +109,7 @@ public class Forest extends Deer implements Carnivores{
 		}
 		}
 			
-	 public void randomAnimalsMeetAndFight(){
+	public void randomAnimalsMeetAndFight(){
 			
 	int animalSizeReference = animals.size();
 	
@@ -90,7 +137,9 @@ public class Forest extends Deer implements Carnivores{
 		
 		Animal animal2 = animals.get(randomIndex1);
 		System.out.println("Random Animal2 from the List: "+animal2.getAnimalName()+"\n"); 
-			
+		
+		if ((animal1 instanceof Carnivores) && (animal2 instanceof Carnivores)) {
+		
 		if (((animal1.getAnimalStrengthLevel() >= 1) && (animal2.getAnimalStrengthLevel() >= 1))){
 		
 		System.out.println("Fight Between 2 Animals & Survived Animal Name : " +animal1.animalFight(animal2)+"\n");
@@ -98,8 +147,9 @@ public class Forest extends Deer implements Carnivores{
 		System.out.println("After Fight Animal1 Strength Level: " + animal1.getAnimalStrengthLevel()+"\n" + "\n" + 
 		"After Fight Animal2 Strength Level: " + animal2.getAnimalStrengthLevel()+"\n");		
 		}
+		}
 		
-		animalSizeReference = animals.size();
+		animalSizeReference = carnivoresCount;
 		
 				
 		for (Animal i : animals){			
