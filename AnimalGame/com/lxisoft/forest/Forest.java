@@ -7,8 +7,8 @@ import com.lxisoft.forest.Animal;
 public class Forest extends Deer implements Carnivores{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
-	private String forestName;
-	public int carnivoresCount = 0;
+	private String forestName; //FIXME name is enough for this variable. forest.name conveys the meaning
+	public int carnivoresCount = 0; //FIXME does this variable really need
     	
  	public void creatingNewAnimals(){
 		
@@ -24,7 +24,7 @@ public class Forest extends Deer implements Carnivores{
 		+"\nAnimalStrengthLevel: "+deer.getAnimalStrengthLevel()
 		+"\nAnimalHungerLevel: "+deer.getAnimalHungerLevel()
 		+"\nAnimalAggressivenessLevel: "+deer.getAnimalAggressivenessLevel()+"\n"); 
-		
+		//FIXME print code is redundant. You can iterate through the animal list to print the animal details with only a single loop.
 		
 		Elephant elephant = new Elephant();
 		elephant.setAnimalName("Elephant");

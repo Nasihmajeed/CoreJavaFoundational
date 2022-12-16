@@ -17,6 +17,7 @@ public class TDD {
 		
 		System.out.println("Forest Name : "+ denseForest.getForestName()+"\n");
 		
+		//FIXME modify the following method names. Preferred format: verb+noun(eg. eatFood()
 		denseForest.creatingNewAnimals(2);
 		denseForest.totalAnimalsInForest();
 		denseForest.randomAnimalsMeetAndFight();
