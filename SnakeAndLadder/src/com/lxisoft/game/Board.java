@@ -2,7 +2,8 @@ package com.lxisoft.game;
 
 public class Board
 {   
-    private Locationcell[] locationCells;         
+    private LocationCell[] locationCells;
+    private LocationCell playerCurrentCell;         
 
     public LocationCell[] getLocationCell()
     {

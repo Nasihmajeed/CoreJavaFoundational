@@ -6,21 +6,22 @@ public class Game
 {  
     private Dice dice;
     private Coin coin;
-    private LocationCell playerCurrentCell;
-
+    
     Player playerOne = new Player();
     Player playerTwo = new Player();
 
-    Coin coinColorOne = new Coin();
-    Coin coinColorTwo = new Coin();
+    Coin coinOneColor = new Coin();
+    Coin coinTwoColor = new Coin();
 
     Board board = new Board();
 
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
 
-    int gameMode;    
-    String xPress;  
+    int gameMode; 
+    int enterCell = 0;
+    int winPoint = 100;       
+    String xPress; 
 
     //set a 100 cells in locationCell(For Loop)   
     
@@ -61,7 +62,7 @@ public class Game
         snakes.add(new Snake(99,58));    
 
         System.out.println("\n" + "\t\t\t\t\t\t" + "LXI SOFT Presents" + "\n");
-        System.out.println("\t\t\t\t\t    " + "Snake And Ladder Game 1.0" + "\n");
+        System.out.println("\t\t\t\t\t    " + " Snake And Ladder Game  " + "\n");
         System.out.println("\t\t\t\t\t       " + "*** Instructions ***" + "\n");
         System.out.println("\t\t\t" + "This program will simulate a regular snakes and ladders game developed by LxiSoft India.");
         System.out.println("\t\t\t" + "You and the computer start at Starting Point 1 and You want to reach Home at finishing point 100.");
@@ -100,12 +101,17 @@ public class Game
         coinTwoColor.setColor(sc.nextLine());
         System.out.println("Yes You Have Selected " + coinTwoColor.getColor() + "\n");
 
-        for(int i = 0; i < LocationCell.winPoint; i++)
+        for(int i = 0; i < winPoint; i++)
         {            
             System.out.println(playerOne.getName() + "Use x to roll Dice : ");                  
             xPress = sc.nextLine();
+
+            //playerCurrentCell
+            //Checking array index whether if any snake or ladder cells are inside!!!
+            //Use suitable naming functions and call properly with the perfection connections.
             playerOne.rollDice();
-            if(playerOne.rollDice() == String.valueOf(LocationCell.enterCell))
+            playerOne.moveCoin();
+            if(playerOne.playerCurrentCell == String.valueOf(enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
@@ -116,8 +122,10 @@ public class Game
 
             System.out.println(playerTwo.getName() + "Use x to roll Dice : ");                       
             xPress = sc.nextLine();
+
             playerTwo.rollDice();
-            else if(playerTwo.rollDice() == String.valueOf(LocationCell.enterCell))
+            playerTwo.moveCoin();            
+            if(playerTwo.playerCurrentCell == String.valueOf(enterCell))
             {
                 System.out.println("\n" + "Nice Play You Entered The Board");
             }
@@ -125,46 +133,52 @@ public class Game
             {
                 System.out.println("Try Again");
             }
-               
-            if(playerOne.currentCell() == String.valueOf(Snake.snakeHead)) 
+                
+            playerOne.rollDice();               
+            playerOne.moveCoin();
+            //++
+            //snake 
+            //moveCoin() may need Sys out that said "You got bite or wow";
+            //Arrange naming for all function datas;
+            
+            if(playerOne.playerCurrentCell == String.valueOf(Snake.snakeHead)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
             
-            if(playerTwo.currentCell() == String.valueOf(Snake.snakeHead)) 
+            if(playerTwo.playerCurrentCell == String.valueOf(Snake.snakeHead)) 
             { 
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~You Got Bite By A Snake, GOING DOWN!!!~~~~~~~~~~~~~");
             }
                 
             // ********************************************************** //
 
-            if(playerOne.currentCell() == String.valueOf(Ladder.ladderBottom))
+            if(playerOne.playerCurrentCell== String.valueOf(Ladder.ladderBottom))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
             
-            if(playerTwo.currentCell() == String.valueOf(Ladder.ladderBottom))
+            if(playerTwo.playerCurrentCell == String.valueOf(Ladder.ladderBottom))
             {
                 System.out.println("\t\t\t\t~~~~~~~~~~~~~Whoo Got Ladder!, GO UP MAN!!!~~~~~~~~~~~~~");
             }
 
-            if(playerOne.currentCell() == String.valueOf(LocationCell.winPoint))
+            if(playerOne.playerCurrentCell == String.valueOf(winPoint))
             {
                 System.out.println(playerOne.getName() + "\t\t\t\t  Is Win!");
             }
 
-            else if(playerTwo.currentCell() == String.valueOf(LocationCell.winPoint))
+            else if(playerCurrentCell == String.valueOf(winPoint))
             {
                 System.out.println(playerTwo.getName() + "\t\t\t\t  Is Win!");
             }  
 
-            //board.setLocationCell();
-            //playerOne.currentScore();
             //playerOne.moveCoin();
             //playerOne.rollDice();
             //playeTwo.moveCoin();
-            //playerTwo.rollDice();   
+            //playerTwo.rollDice();            
+            //playerOne.currentScore();
             //player one have only one coin!
             //playerOne Winning routes(Scores,snakebites,ladder points,etc...).
             //make a well outstanding Connection!

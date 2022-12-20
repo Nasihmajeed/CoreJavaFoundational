@@ -4,6 +4,8 @@ import java.util.*;
 public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
 {   
     private String name;
+    private int playerDiceValue = 0;    
+    private int playerCurrentCell;
     
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
@@ -18,44 +20,27 @@ public class Player implements DiceThrowable,LadderUsable,SnakeStrikeable
         this.name=Name;
     }
 
-    public int getScore()                       
+    void rollDice()
     {
-        return score;
-    }
-    
-    public void setScore(int Score)
-    {
-        this.score=Score;
-    }    
-
-    public int rollDice()
-	{
-		int n = 0;
 		Random r = new Random();
-		n=r.nextInt(7);
-		return (n==0?1:n);
-	}
+		playerDiceValue=r.nextInt(7);
+	    System.out.println(playerDiceValue);
+    }   
     
     void moveCoin()
     {
-        if(playerOneCell == ladderCell)  
-        {
-        //players got ladderCell they got climb with ladderBottomtoladderUpper. At the same time playersScore++ to currentCell.                
-                    
-        }
-        else if(playerOneCell == snakeCell)
-        {
-        //players got snakeCell they got score-- to snakeTail. At the same time playersScore-- to currentCell.         
-        }
-               
+        playerCurrentCell = playerCurrentCell + playerDiceValue;
+        System.out.println(playerCurrentCell);
     }
+
+    
     public void throwDice()
     {
         System.out.println("Dice Throwing");
     }
     public void useLadder()
     {
-        System.out.println("Yeeeyy .Using Ladder");
+        System.out.println("Yeeeyy Using Ladder");
     } 
     public void snakeBite()
     {
