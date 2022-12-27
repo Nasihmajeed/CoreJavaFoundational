@@ -8,9 +8,9 @@ public class Forest extends Deer implements Carnivores{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
 	private String forestName;
-	public int carnivoresCount = 0;
+	//public int carnivoresCount = 0;
     	
- 	public void creatingNewAnimals(){
+ 	public void forestAnimals(){
 		
 		Deer deer = new Deer();
 		deer.setAnimalName("Deer");
@@ -92,7 +92,7 @@ public class Forest extends Deer implements Carnivores{
 	} */
 	}
 	
-	public void coutingCarnivores(){
+/* 	public void coutingCarnivores(){
 		
 		for(int i=0; i < animals.size();i++) {
 		if ((animals.get(i) instanceof Carnivores)){
@@ -100,9 +100,9 @@ public class Forest extends Deer implements Carnivores{
 		}
 		}
 		
-	}
+	} */
 	
-	public void totalAnimalsInForest(){
+	public void animalsCountinforest(){
 		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
 		for(int i=0; i < animals.size();i++){
 		System.out.println(animals.get(i).getAnimalName()+"\n");			
@@ -138,7 +138,16 @@ public class Forest extends Deer implements Carnivores{
 		Animal animal2 = animals.get(randomIndex1);
 		System.out.println("Random Animal2 from the List: "+animal2.getAnimalName()+"\n"); 
 		
-		if ((animal1 instanceof Carnivores) && (animal2 instanceof Carnivores)) {
+		//if ((animal1 instanceof Carnivores) && (animal2 instanceof Carnivores)) {
+			
+		if ((animal1 instanceof Herbivores)) {
+			
+		System.out.println(animal1.getAnimalName());	
+		
+		Herbivores.escape();} 
+		
+		else {
+		
 		
 		if (((animal1.getAnimalStrengthLevel() >= 1) && (animal2.getAnimalStrengthLevel() >= 1))){
 		
@@ -149,7 +158,7 @@ public class Forest extends Deer implements Carnivores{
 		}
 		}
 		
-		animalSizeReference = carnivoresCount;
+		animalSizeReference = animals.size();
 		
 				
 		for (Animal i : animals){			
