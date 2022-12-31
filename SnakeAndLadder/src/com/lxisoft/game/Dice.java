@@ -1,16 +1,15 @@
-package com.lxisoft.game;
-
-public class Dice 
+package com.lxisoft.game;dd
+import java.util.*;
+public class Dice
 {
-    private int diceValue;
-    
-    public int getDiceValue()
-    {
-        return diceValue;
-    }
+    int diceResult;
 
-    public void setDiceValue(int DiceValue)
-    {
-        this.diceValue = DiceValue;
-    } 
+    public int rollDice()
+    {    
+        Random r = new Random();
+        diceResult = r.nextInt(7);
+        System.out.println("Dice Rolled : " + diceResult);
+        return diceResult;       
+   }
 }
+   

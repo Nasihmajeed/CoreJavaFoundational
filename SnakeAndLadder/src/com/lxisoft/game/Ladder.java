@@ -1,13 +1,14 @@
 package com.lxisoft.game;
+import java.util.*;
 
 public class Ladder 
 {   
-    int ladderBottom;
-    int ladderUpper;    
+    Cell headCell; 
+    Cell tailCell;
 
-    public Ladder(int ladderBottom,int ladderUpper)
+    public Ladder(int headCell,int tailCell)
     {
-        this.ladderBottom = ladderBottom;
-        this.ladderUpper = ladderUpper;
+        this.headCell = headCell;
+        this.tailCell = tailCell;
     }
 }

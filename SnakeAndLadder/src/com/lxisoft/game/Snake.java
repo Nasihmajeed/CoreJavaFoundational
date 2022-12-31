@@ -1,13 +1,13 @@
 package com.lxisoft.game;
-
+import java.util.*;
 public class Snake
 {
-    static int snakeHead;
-    static int snakeTail;    
+    Cell headCell;
+    Cell tailCell;    
 
-    public Snake(int snakeHead,int snakeTail)
+    public Snake(int headCell,int tailCell)
     {
-        this.snakeHead = snakeHead;
-        this.snakeTail = snakeTail;
+        this.headCell = headCell;
+        this.tailCell = tailCell;
     }
 }
