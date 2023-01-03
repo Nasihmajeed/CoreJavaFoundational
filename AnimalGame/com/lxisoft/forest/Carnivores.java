@@ -5,9 +5,10 @@ public interface Carnivores {
 	//void randomAnimalsMeetAndFight();
 	//void survivedAnimalNameAndDetails();
 	
-		 /* public String animalFight(Animal animal1){
+		  public String animalFight(Animal animal1);
+}
 		
-		if (this.animalStrengthLevel > animal1.getAnimalStrengthLevel()){
+		/* if (this.animalStrengthLevel > animal1.getAnimalStrengthLevel()){
 			
 			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
 			
@@ -58,6 +59,6 @@ public interface Carnivores {
 					
 		}	
 			return null;
-		}*/
+		}
 			 
-}
+} */

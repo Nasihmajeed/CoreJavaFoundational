@@ -11,18 +11,16 @@ public class TDD {
 			
 		Forest denseForest=new Forest();
 								
-		// Printing Sections Forest Details		
+		// Forest Details		
 
-		denseForest.setForestName("Amazon Forest");
+		denseForest.setName("Amazon Forest");
 		
-		System.out.println("Forest Name : "+ denseForest.getForestName()+"\n");
-		
-		denseForest.forestAnimals();
-		denseForest.animalsCountinforest();
+		denseForest.initializeAnimals();
+		denseForest.countAnimalsInForest();
 		//denseForest.coutingCarnivores();
-		denseForest.randomAnimalsMeetAndFight();
+		denseForest.startFight();
 		denseForest.survivedAnimalNameAndDetails();
-		
+		System.out.println("Forest Name : "+ denseForest.getname()+"\n");
 				
 	}
 }

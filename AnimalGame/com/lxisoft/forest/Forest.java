@@ -7,10 +7,10 @@ import com.lxisoft.forest.Animal;
 public class Forest extends Deer implements Carnivores{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
-	private String forestName;
+	private String name;
 	//public int carnivoresCount = 0;
     	
- 	public void forestAnimals(){
+ 	public void initializeAnimals(){
 		
 		Deer deer = new Deer();
 		deer.setAnimalName("Deer");
@@ -102,14 +102,14 @@ public class Forest extends Deer implements Carnivores{
 		
 	} */
 	
-	public void animalsCountinforest(){
+	public void countAnimalsInForest(){
 		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
 		for(int i=0; i < animals.size();i++){
 		System.out.println(animals.get(i).getAnimalName()+"\n");			
 		}
 		}
 			
-	public void randomAnimalsMeetAndFight(){
+	public void startFight(){
 			
 	int animalSizeReference = animals.size();
 	
@@ -140,11 +140,16 @@ public class Forest extends Deer implements Carnivores{
 		
 		//if ((animal1 instanceof Carnivores) && (animal2 instanceof Carnivores)) {
 			
-		if ((animal1 instanceof Herbivores)) {
+		if ((animal1 instanceof Herbivores) && (animal2 instanceof Herbivores)){
+
+			System.out.println("Both animals are Herbivores so escaped : " +animal1.getAnimalName()+ " "
+		+ animal2.getAnimalName()+"\n");	}
+			
+		else if ((animal1 instanceof Herbivores) && (animal2 instanceof Carnivores)){
 			
 		System.out.println(animal1.getAnimalName());	
-		
-		Herbivores.escape();} 
+		//((Herbivores)animal1).escape(animal2); 
+		Herbivores.escape();}
 		
 		else {
 		
@@ -196,12 +201,12 @@ public class Forest extends Deer implements Carnivores{
 	}
 	} 
 			
-	public void setForestName(String foresName){
-	this.forestName=foresName;	
+	public void setName(String foresName){
+	this.name=foresName;	
 	}
 	
-	public String getForestName(){
-		return this.forestName;
+	public String getname(){
+		return this.name;
 	}
 	
 	public void setAnimals(List<Animal> Ani){
@@ -217,7 +222,7 @@ public class Forest extends Deer implements Carnivores{
 /* 		for (int i=0; i<animals.size();i++){
 			animals.get(i).print();
 		} */
-		System.out.println (this.forestName);
+		System.out.println (this.name);
 			
 	}
 }
