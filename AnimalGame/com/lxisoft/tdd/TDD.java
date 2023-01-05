@@ -17,7 +17,7 @@ public class TDD {
 		
 		denseForest.initializeAnimals();
 		denseForest.countAnimalsInForest();
-		//denseForest.coutingCarnivores();
+		denseForest.coutingCarnivores();
 		denseForest.startFight();
 		denseForest.survivedAnimalNameAndDetails();
 		System.out.println("Forest Name : "+ denseForest.getname()+"\n");

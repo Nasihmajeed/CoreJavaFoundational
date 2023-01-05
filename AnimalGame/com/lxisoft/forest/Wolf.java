@@ -3,63 +3,58 @@ import com.lxisoft.forest.Animal;
 
 public class Wolf extends Animal implements Carnivores{
 	
-	public void randomAnimalsMeetAndFight(){
+	public String animalFight(Animal animal1){
+		
+		if (this.animalStrengthLevel > animal1.getAnimalStrengthLevel()){
 			
-	/* int animalSizeReference = animals.size();
-	
-	System.out.println("-----RANDOM FIGHT DETAILS-----");
-		
-
-	while (animalSizeReference>1){
-		
-		double randomValue = Math.random();
-		double randomValue1 = Math.random();
-		
-		//System.out.println("Random value1: "+randomValue);
-		
-		int randomIndex = (int)(randomValue*animals.size());
-		int randomIndex1 = (int)(randomValue1*animals.size());
-		
-        //System.out.println("Random value2 * "+animals.size()+": "+randomIndex);
-		
-		//System.out.println(animals.get(randomIndex).getAnimalName()+"\n"); 
-		
-		// Storing 2 animals and printing the details
-		
-		Animal animal1 = animals.get(randomIndex);
-		System.out.println("Random Animal1 from the List : "+animal1.getAnimalName()+"\n"); 
-		
-		Animal animal2 = animals.get(randomIndex1);
-		System.out.println("Random Animal2 from the List: "+animal2.getAnimalName()+"\n"); 
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
 			
-		if (((animal1.getAnimalStrengthLevel() >= 1) && (animal2.getAnimalStrengthLevel() >= 1))){
-		
-		System.out.println("Fight Between 2 Animals & Survived Animal Name : " +animal1.animalFight(animal2)+"\n");
-		
-		System.out.println("After Fight Animal1 Strength Level: " + animal1.getAnimalStrengthLevel()+"\n" + "\n" + 
-		"After Fight Animal2 Strength Level: " + animal2.getAnimalStrengthLevel()+"\n");		
-		}
-		
-		animalSizeReference = animals.size();
-		
-				
-		for (Animal i : animals){			
-				
-			if (i.getAnimalStrengthLevel() <= 1) {
-							
-			animalSizeReference --;
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalAggressivenessLevel()-1);
+						
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-2);
+			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-2);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalAggressivenessLevel()-2);
+			
+			return this.getAnimalName();
 					
-			System.out.println("\n"+"Lost Animal Name: " + i.getAnimalName() + 
-			"\n" +"Lost Animal Strength Level:" + i.getAnimalStrengthLevel()+"\n"+
-			"Lost Animal Hunger Level:" + i.getAnimalHungerLevel()+"\n"+
-			"Lost Animal Aggressiveness Level:" + i.getAnimalAggressivenessLevel()+"\n"
-			);
-						 			 
-			}
 			
+		} if (this.animalStrengthLevel < animal1.getAnimalStrengthLevel()){
+			
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
+			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-1);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalHungerLevel()-1);
+			
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalHungerLevel()-1);			
+			
+			return animal1.getAnimalName();
+			
+		}  if (this.animalStrengthLevel == animal1.getAnimalStrengthLevel()){
+			
+			animal1.setAnimalStrengthLevel(animal1.getAnimalStrengthLevel()-1);
+			
+			animal1.setAnimalHungerLevel(animal1.getAnimalHungerLevel()-1);
+			
+			animal1.setAnimalAggressivenessLevel(animal1.getAnimalHungerLevel()-1);
+			
+			this.setAnimalStrengthLevel(this.getAnimalStrengthLevel()-1);
+			
+			this.setAnimalHungerLevel(this.getAnimalHungerLevel()-1);
+			
+			this.setAnimalAggressivenessLevel(this.getAnimalHungerLevel()-1);			
+			
+			return animal1.getAnimalName();
+					
+		}	
+			return null;
 		}
-			
-	}*/
-	
-	}  
-}
+	}	

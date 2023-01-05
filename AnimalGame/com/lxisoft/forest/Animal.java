@@ -8,7 +8,7 @@ public abstract class Animal implements Carnivores{
 	//public class Forest extends Deer implements Carnivores{
 	
 	private String animalName;
-	private int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
+	public int animalStrengthLevel,animalHungerLevel,animalAggressivenessLevel;
 	//private float damagePercentage;
 	
  	public String animalFight(Animal animal1){

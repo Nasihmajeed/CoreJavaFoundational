@@ -3,12 +3,14 @@ package com.lxisoft.forest;
 import java.util.ArrayList;
 import java.util.List;
 import com.lxisoft.forest.Animal;
+import com.lxisoft.forest.Herbivores;
+import com.lxisoft.forest.Carnivores;
 
-public class Forest extends Deer implements Carnivores{
+public class Forest{
 				
 	private List<Animal> animals = new ArrayList<Animal>();
 	private String name;
-	//public int carnivoresCount = 0;
+	public int carnivoresCount = 0;
     	
  	public void initializeAnimals(){
 		
@@ -92,15 +94,16 @@ public class Forest extends Deer implements Carnivores{
 	} */
 	}
 	
-/* 	public void coutingCarnivores(){
-		
+	public void coutingCarnivores(){
+		System.out.println("-----coutingCarnivores-----"+"\n");
 		for(int i=0; i < animals.size();i++) {
-		if ((animals.get(i) instanceof Carnivores)){
+		if ((animals.get(i)) instanceof Herbivores){
 			carnivoresCount++;
+		System.out.println(animals.get(i).getAnimalName()+"\n");	
 		}
 		}
 		
-	} */
+	}
 	
 	public void countAnimalsInForest(){
 		System.out.println("-----Total Number of Animals in the Forest-----"+"\n");
@@ -145,11 +148,15 @@ public class Forest extends Deer implements Carnivores{
 			System.out.println("Both animals are Herbivores so escaped : " +animal1.getAnimalName()+ " "
 		+ animal2.getAnimalName()+"\n");	}
 			
-		else if ((animal1 instanceof Herbivores) && (animal2 instanceof Carnivores)){
+		else if (animal1 instanceof Herbivores){
 			
 		System.out.println(animal1.getAnimalName());	
-		//((Herbivores)animal1).escape(animal2); 
-		Herbivores.escape();}
+		((Herbivores)animal1).escape(); }
+		
+		else if (animal2 instanceof Herbivores){
+		
+		System.out.println(animal1.getAnimalName());	
+		((Herbivores)animal2).escape(); }
 		
 		else {
 		
@@ -163,8 +170,7 @@ public class Forest extends Deer implements Carnivores{
 		}
 		}
 		
-		animalSizeReference = animals.size();
-		
+		animalSizeReference = animals.size()-carnivoresCount;
 				
 		for (Animal i : animals){			
 				
@@ -195,7 +201,7 @@ public class Forest extends Deer implements Carnivores{
 	System.out.println("Survived Animal Name: " + i.getAnimalName()+"\n" + 
 	"Survived Animal Strength Level:" + i.getAnimalStrengthLevel()+"\n" + 
 	"Survived Animal Hunger Level:" + i.getAnimalHungerLevel()+"\n" + 
-	"Survived Animal Aggressiveness Level:" + i.getAnimalAggressivenessLevel());
+	"Survived Animal Aggressiveness Level:" + i.getAnimalAggressivenessLevel()+"\n");
 	}
 			
 	}
@@ -225,4 +231,5 @@ public class Forest extends Deer implements Carnivores{
 		System.out.println (this.name);
 			
 	}
+	
 }
